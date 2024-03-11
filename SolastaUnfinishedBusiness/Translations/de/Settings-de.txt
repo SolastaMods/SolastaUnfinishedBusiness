@@ -238,6 +238,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Skalieren Sie Händlerpreise korrekt / genau <i><color=#F0DAA0>[keine Rundungsfehler mehr bei der Umrechnung von Münzwerten]</color></i>
 ModUi/&SelectAll=Wählen Sie Alle
 ModUi/&SelectSuggested=Wählen Sie „Vorgeschlagen“ aus
+ModUi/&SelectTabletop=Wählen Sie Tischplatte
 ModUi/&SenseNormalVisionRangeMultiplier=Ändern Sie den Bereich der <color=#D89555>Normalen Sicht</color> <i><color=#F0DAA0>[nur in Schlachten]</color></i>
 ModUi/&Services=Dienstleistungen
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Gürtel der Zwergen</color> <color=white>Bart-Erscheinungschancen</color>

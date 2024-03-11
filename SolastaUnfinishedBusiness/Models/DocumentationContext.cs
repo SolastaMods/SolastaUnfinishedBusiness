@@ -205,7 +205,7 @@ internal static class DocumentationContext
 
             var title = subclass.FormatTitle();
 
-            if (ModUi.Tabletop.Contains(title))
+            if (ModUi.TabletopDefinitions.Contains(subclass))
             {
                 title = $"*{title}* \u00a9"; // copyright symbol
             }
@@ -257,7 +257,7 @@ internal static class DocumentationContext
         {
             var title = race.FormatTitle();
 
-            if (ModUi.Tabletop.Contains(title))
+            if (ModUi.TabletopDefinitions.Contains(race))
             {
                 title = $"*{title}* \u00a9";
             }
@@ -313,7 +313,7 @@ internal static class DocumentationContext
         {
             var title = featureDefinition.FormatTitle();
 
-            if (ModUi.Tabletop.Contains(featureDefinition.Name))
+            if (ModUi.TabletopDefinitions.Contains(featureDefinition))
             {
                 title = $"*{title}* \u00a9";
             }

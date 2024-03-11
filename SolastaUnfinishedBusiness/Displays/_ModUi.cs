@@ -31,7 +31,7 @@ internal static class ModUi
     internal const int DontDisplayDescription = 4;
     internal const float PixelsPerColumn = 220;
 
-    internal static readonly List<string> Tabletop =
+    internal static readonly HashSet<string> TabletopDefinitionNames =
     [
         "AirBlast",
         "AuraOfPerseverance",
@@ -206,6 +206,51 @@ internal static class ModUi
         "WrathfulSmite"
     ];
 
+    internal static readonly HashSet<BaseDefinition> TabletopDefinitions = [];
+
+    internal static void LoadTabletopDefinitions()
+    {
+        var raceDb = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
+        var subclassDb = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
+        var featDb = DatabaseRepository.GetDatabase<FeatDefinition>();
+        var fightingStyleDb = DatabaseRepository.GetDatabase<FightingStyleDefinition>();
+        var invocationDb = DatabaseRepository.GetDatabase<InvocationDefinition>();
+        var metamagicOptionDb = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
+        var spellDb = DatabaseRepository.GetDatabase<SpellDefinition>();
+
+        foreach (var definitionName in TabletopDefinitionNames)
+        {
+            if (raceDb.TryGetElement(definitionName, out var race))
+            {
+                TabletopDefinitions.Add(race);
+            }
+            else if (subclassDb.TryGetElement(definitionName, out var subclass))
+            {
+                TabletopDefinitions.Add(subclass);
+            }
+            else if (featDb.TryGetElement(definitionName, out var feat))
+            {
+                TabletopDefinitions.Add(feat);
+            }
+            else if (fightingStyleDb.TryGetElement(definitionName, out var fightingStyle))
+            {
+                TabletopDefinitions.Add(fightingStyle);
+            }
+            else if (invocationDb.TryGetElement(definitionName, out var invocation))
+            {
+                TabletopDefinitions.Add(invocation);
+            }
+            else if (metamagicOptionDb.TryGetElement(definitionName, out var metamagicOption))
+            {
+                TabletopDefinitions.Add(metamagicOption);
+            }
+            else if (spellDb.TryGetElement(definitionName, out var spell))
+            {
+                TabletopDefinitions.Add(spell);
+            }
+        }
+    }
+
     internal static void DisplaySubMenu(ref int selectedPane, string title = null, params NamedAction[] actions)
     {
         if (!Main.Enabled)
@@ -240,6 +285,9 @@ internal static class ModUi
         }
 
         var selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
+        var selectTabletop =
+            selectedDefinitions.Count == TabletopDefinitions.Intersect(registeredDefinitions).Count() &&
+            selectedDefinitions.All(TabletopDefinitionNames.Contains);
 
         UI.Label();
 
@@ -272,6 +320,14 @@ internal static class ModUi
                     switchAction.Invoke(registeredDefinition, selectAll);
                 }
             }
+            else if (UI.Toggle(Gui.Localize("ModUi/&SelectTabletop"), ref selectTabletop, UI.Width(PixelsPerColumn)))
+            {
+                foreach (var registeredDefinition in registeredDefinitions)
+                {
+                    switchAction.Invoke(
+                        registeredDefinition, selectTabletop && TabletopDefinitions.Contains(registeredDefinition));
+                }
+            }
 
             toggle = sliderPosition == 1;
 
@@ -301,7 +357,7 @@ internal static class ModUi
                     {
                         var definition = registeredDefinitions.ElementAt(current);
                         var title = definition.FormatTitle();
-                        var isTabletop = Tabletop.Contains(definition.Name) ||
+                        var isTabletop = TabletopDefinitions.Contains(definition) ||
                                          (Main.Settings.AllowAssigningOfficialSpells &&
                                           definition is SpellDefinition &&
                                           definition.ContentPack != CeContentPackContext.CeContentPack);

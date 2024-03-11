@@ -239,6 +239,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD：</color>
 ModUi/&ScaleMerchantPricesCorrectly=正确/准确调整商家价格<i><color=#F0DAA0>[转换硬币价值时不再出现舍入错误]</color></i>
 ModUi/&SelectAll=全选
 ModUi/&SelectSuggested=选择建议
+ModUi/&SelectTabletop=选择桌面
 ModUi/&SenseNormalVisionRangeMultiplier=修改<color=#D89555>正常视力</color>范围<i><color=#F0DAA0>[仅在战斗中]</color></i>
 ModUi/&Services=服务
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>矮人腰带</color><color=white>胡须出现几率</color>

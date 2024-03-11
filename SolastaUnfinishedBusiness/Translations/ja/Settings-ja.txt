@@ -238,6 +238,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=販売者の価格を正しく / 正確にスケールします<i><color=#F0DAA0>[コインの価値を変換する際に四捨五入エラーがなくなりました]</color></i>
 ModUi/&SelectAll=すべて選択
 ModUi/&SelectSuggested=提案されたものを選択してください
+ModUi/&SelectTabletop=テーブルトップを選択してください
 ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>通常の視力</color>範囲を変更<i><color=#F0DAA0>[戦闘時のみ]</color></i>
 ModUi/&Services=サービス
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>ドワーフ族のベルト</color> <color=white>ひげが出現するチャンス</color>

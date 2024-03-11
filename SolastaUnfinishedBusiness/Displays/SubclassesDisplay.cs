@@ -39,6 +39,12 @@ internal static class SubclassesDisplay
                 SubclassesContext.SelectAllSet(toggle);
             }
 
+            toggle = SubclassesContext.IsTabletopSetSelected();
+            if (UI.Toggle(Gui.Localize("ModUi/&SelectTabletop"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
+            {
+                SubclassesContext.SelectTabletopSet(toggle);
+            }
+
             toggle = Main.Settings.DisplayKlassToggle.All(x => x.Value);
             if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
