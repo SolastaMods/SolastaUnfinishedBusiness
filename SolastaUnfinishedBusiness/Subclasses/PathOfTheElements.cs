@@ -359,6 +359,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalConduit}Storm")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -451,7 +452,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (!rulesetCharacter.HasAnyConditionOfType(ConditionRaging))
+            if (!rulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionRaging))
             {
                 return;
             }
@@ -531,7 +532,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetAttacker = locationCharacter.RulesetCharacter;
 
-            if (!rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
+            if (!rulesetAttacker.HasAnyConditionOfTypeOrSubType(ConditionRaging))
             {
                 return;
             }
@@ -614,7 +615,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!rulesetDefender.HasAnyConditionOfType(ConditionRaging))
+            if (!rulesetDefender.HasAnyConditionOfTypeOrSubType(ConditionRaging))
             {
                 yield break;
             }

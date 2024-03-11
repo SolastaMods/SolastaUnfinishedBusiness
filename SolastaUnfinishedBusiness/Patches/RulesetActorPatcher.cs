@@ -151,7 +151,7 @@ public static class RulesetActorPatcher
                 .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
                 .Do(c => c.OnConditionAdded(rulesetCharacter, newCondition));
 
-            //PATCH: enforce OnActivation behavior for custom raging auras
+            //PATCH: enforce OnActivation behavior for OnRageStartAutomatic Permanent powers
             if (!newCondition.ConditionDefinition.IsSubtypeOf(ConditionRaging))
             {
                 return;
@@ -174,17 +174,18 @@ public static class RulesetActorPatcher
             foreach (var usablePower in rulesetCharacter.UsablePowers
                          .Where(x =>
                              x.PowerDefinition.ActivationTime == ActivationTime.OnRageStartAutomatic &&
-                             x.PowerDefinition.EffectDescription.TargetType != TargetType.Self))
+                             x.PowerDefinition.EffectDescription.DurationType == DurationType.Permanent))
             {
                 var effectDescription = usablePower.PowerDefinition.EffectDescription;
                 var range = effectDescription.TargetType switch
                 {
                     TargetType.Cube => (effectDescription.TargetParameter - 1) / 2,
                     TargetType.Sphere => effectDescription.TargetParameter,
-                    _ => 0
+                    TargetType.Self => 0,
+                    _ => -1
                 };
 
-                if (range == 0)
+                if (range == -1)
                 {
                     continue;
                 }
@@ -199,12 +200,11 @@ public static class RulesetActorPatcher
                         x.IsWithinRange(sourceCharacter, range) &&
                         (!effectDescription.TargetExcludeCaster || x != sourceCharacter))
                     .ToList();
-                //CHECK: must be power no cost
+
                 var actionParams = new CharacterActionParams(sourceCharacter, ActionDefinitions.Id.PowerNoCost)
                 {
                     ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                     RulesetEffect = implementationManagerService
-                        //CHECK: no need for AddAsActivePowerToSource
                         .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                     UsablePower = usablePower,
                     targetCharacters = targets
