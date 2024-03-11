@@ -22,5 +22,5 @@ Feature/&ProficiencyBackgroundMilitiaWeaponsDescription=擅长短剑和长矛。
 Feature/&ProficiencyBackgroundMilitiaWeaponsTitle=民兵武器
 Feature/&ProficiencyBackgroundTroublemakerSkillsDescription=运动、欺瞒和威吓
 Feature/&ProficiencyBackgroundTroublemakerSkillsTitle=麻烦制造者技能
-Feature/&ProficiencyBackgroundTroublemakerWeaponsDescription=精通刺剑。
+Feature/&ProficiencyBackgroundTroublemakerWeaponsDescription=擅长刺剑。
 Feature/&ProficiencyBackgroundTroublemakerWeaponsTitle=麻烦制造者武器
