@@ -17,9 +17,10 @@ ModUi/&AllItemInDm=Todos os itens em DM
 ModUi/&AllRecipesInDm=Todas as receitas na DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em sequências narrativas</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Permita que qualquer classe use <color=#D89555>Armadura Silvestre</color> ou <color=#D89555>Roupas Portadoras da Luz</color>
-ModUi/&AllowAssigningOfficialSpells=Permitir que os feitiços oficiais sejam exibidos nessas listas
 ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Anões</color> sem barba
 ModUi/&AllowClubsToBeThrown=Permitir que <color=#D89555>porretes</color> sejam lançados como <color=#D89555>punhais</color> ou <color=#D89555>machados</color>
+ModUi/&AllowDisplayingNonSuggestedSpells=Permitir mods de feitiços não sugeridos em cada lista
+ModUi/&AllowDisplayingOfficialSpells=Permitir feitiços oficiais do jogo em cada lista
 ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druida</color> use armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir masmorras com nível máximo 20
 ModUi/&AllowFlightSuspend=Permitir suspender temporariamente o voo de itens e feitiços <i><color=#F0DAA0>[não afeta forma selvagem ou raças voadoras]</color></i>
@@ -237,7 +238,6 @@ ModUi/&Rules=Regras
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Escale os preços dos comerciantes corretamente / exatamente <i><color=#F0DAA0>[sem mais erros de arredondamento ao converter valores de moeda]</color></i>
 ModUi/&SelectAll=Selecionar tudo
-ModUi/&SelectSuggested=Selecione Sugerido
 ModUi/&SelectTabletop=Selecione Mesa
 ModUi/&SenseNormalVisionRangeMultiplier=Modifique o alcance da <color=#D89555>Visão Normal</color> <i><color=#F0DAA0>[apenas em batalhas]</color></i>
 ModUi/&Services=Serviços

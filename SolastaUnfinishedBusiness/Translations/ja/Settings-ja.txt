@@ -17,9 +17,10 @@ ModUi/&AllItemInDm=DM内のすべてのアイテム
 ModUi/&AllRecipesInDm=すべてのレシピはDMにあります
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ すべてのプレイヤーに物語シーケンスを許可</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=どのクラスも<color=#D89555>森の鎧</color>または<color=#D89555>ライトブリンガーの服</color>を着用できるようにする
-ModUi/&AllowAssigningOfficialSpells=公式の呪文をこれらのリストに表示できるようにする
 ModUi/&AllowBeardlessDwarves=ひげのない<color=#D89555>ドワーフ</color>を許可する
 ModUi/&AllowClubsToBeThrown=<color=#D89555>こん棒</color>を<color=#D89555>短剣</color>や<color=#D89555>手斧</color>のように投げられるようにする
+ModUi/&AllowDisplayingNonSuggestedSpells=各リストで MOD 非推奨呪文を許可する
+ModUi/&AllowDisplayingOfficialSpells=各リストでゲームの公式呪文を許可する
 ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>ドルイド</color>が金属鎧を着用できるようにする
 ModUi/&AllowDungeonsMaxLevel20=最大レベル20のダンジョンを許可します
 ModUi/&AllowFlightSuspend=アイテムや呪文による飛行の一時停止を許可します<i><color=#F0DAA0>[ワイルドシェイプや飛行種族には影響しません]</color></i>
@@ -237,7 +238,6 @@ ModUi/&Rules=ルール
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=販売者の価格を正しく / 正確にスケールします<i><color=#F0DAA0>[コインの価値を変換する際に四捨五入エラーがなくなりました]</color></i>
 ModUi/&SelectAll=すべて選択
-ModUi/&SelectSuggested=提案されたものを選択してください
 ModUi/&SelectTabletop=テーブルトップを選択してください
 ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>通常の視力</color>範囲を変更<i><color=#F0DAA0>[戦闘時のみ]</color></i>
 ModUi/&Services=サービス

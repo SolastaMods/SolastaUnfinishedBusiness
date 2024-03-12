@@ -16,13 +16,20 @@ internal static class SpellsDisplay
         UI.Label();
         UI.Label();
 
-        var toggle = Main.Settings.AllowAssigningOfficialSpells;
+        var toggle = Main.Settings.AllowDisplayingOfficialSpells;
 
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowAssigningOfficialSpells"), ref toggle,
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowDisplayingOfficialSpells"), ref toggle,
                 UI.Width(ModUi.PixelsPerColumn)))
         {
-            Main.Settings.AllowAssigningOfficialSpells = toggle;
-            SpellsContext.SwitchAllowAssigningOfficialSpells();
+            Main.Settings.AllowDisplayingOfficialSpells = toggle;
+            SpellsContext.SwitchAllowDisplayingOfficialSpells();
+        }
+
+        toggle = Main.Settings.AllowDisplayingNonSuggestedSpells;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowDisplayingNonSuggestedSpells"), ref toggle,
+                UI.Width(ModUi.PixelsPerColumn)))
+        {
+            Main.Settings.AllowDisplayingNonSuggestedSpells = toggle;
         }
 
         UI.Label();
@@ -55,7 +62,7 @@ internal static class SpellsDisplay
             }
 
             toggle = SpellsContext.IsSuggestedSetSelected();
-            if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
+            if (UI.Toggle(Gui.Localize("ModUi/&SelectTabletop"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
                 SpellsContext.SelectSuggestedSet(toggle);
             }
@@ -83,8 +90,9 @@ internal static class SpellsDisplay
             var sliderPos = Main.Settings.SpellListSliderPosition[name];
             var spellEnabled = Main.Settings.SpellListSpellEnabled[name];
             var allowedSpells = spellListContext.AllSpells
-                .Where(x => x.ContentPack == CeContentPackContext.CeContentPack ||
-                            Main.Settings.AllowAssigningOfficialSpells)
+                .Where(x => x.ContentPack != CeContentPackContext.CeContentPack
+                    ? Main.Settings.AllowDisplayingOfficialSpells
+                    : Main.Settings.AllowDisplayingNonSuggestedSpells || spellListContext.SuggestedSpells.Contains(x))
                 .Where(x => SpellLevelFilter == ShowAll || x.SpellLevel == SpellLevelFilter)
                 .ToHashSet();
 
@@ -111,7 +119,7 @@ internal static class SpellsDisplay
                 }
 
                 toggle = spellListContext.IsSuggestedSetSelected;
-                if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectTabletop"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
                 {
                     spellListContext.SelectSuggestedSetInternal(toggle);
                 }

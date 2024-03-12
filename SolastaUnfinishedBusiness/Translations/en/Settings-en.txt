@@ -17,9 +17,10 @@ ModUi/&AllItemInDm=All items in DM
 ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative sequences</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>
-ModUi/&AllowAssigningOfficialSpells=Allow official spells to display on these lists
 ModUi/&AllowBeardlessDwarves=Allow beardless <color=#D89555>Dwarves</color>
 ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>clubs</color> to be thrown like <color=#D89555>daggers</color> or <color=#D89555>hand axes</color>
+ModUi/&AllowDisplayingNonSuggestedSpells=Allow mod non suggested spells on each list
+ModUi/&AllowDisplayingOfficialSpells=Allow game official spells on each list
 ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowFlightSuspend=Allow temporarily suspending flight from items and spells <i><color=#F0DAA0>[does not affect wildshape or flying races]</color></i>
@@ -237,7 +238,6 @@ ModUi/&Rules=Rules
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly <i><color=#F0DAA0>[no more rounding errors when converting coin values]</color></i>
 ModUi/&SelectAll=Select All
-ModUi/&SelectSuggested=Select Suggested
 ModUi/&SelectTabletop=Select Tabletop
 ModUi/&SenseNormalVisionRangeMultiplier=Modify <color=#D89555>Normal Vision</color> range <i><color=#F0DAA0>[only in battles]</color></i>
 ModUi/&Services=Services

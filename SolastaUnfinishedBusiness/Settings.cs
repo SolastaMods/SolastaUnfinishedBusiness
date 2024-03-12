@@ -347,7 +347,8 @@ public class Settings : UnityModManager.ModSettings
     // Characters - Spells
     //
 
-    public bool AllowAssigningOfficialSpells { get; set; }
+    public bool AllowDisplayingOfficialSpells { get; set; }
+    public bool AllowDisplayingNonSuggestedSpells { get; set; }
     public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = new();
     public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = new();
 

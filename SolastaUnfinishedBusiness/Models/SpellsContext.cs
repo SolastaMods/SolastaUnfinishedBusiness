@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
+using SolastaUnfinishedBusiness.Displays;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
@@ -200,7 +201,7 @@ internal static class SpellsContext
         var spellListInventorClass = InventorClass.SpellList;
 
         // MUST COME BEFORE ANY MOD REGISTERED SPELL
-        AllowAssigningOfficialSpells();
+        AllowDisplayingOfficialSpells();
 
         // Dead Master Spells
         // WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x, -1));
@@ -356,9 +357,9 @@ internal static class SpellsContext
         }
     }
 
-    internal static void SwitchAllowAssigningOfficialSpells()
+    internal static void SwitchAllowDisplayingOfficialSpells()
     {
-        if (Main.Settings.AllowAssigningOfficialSpells)
+        if (Main.Settings.AllowDisplayingOfficialSpells)
         {
             return;
         }
@@ -372,7 +373,7 @@ internal static class SpellsContext
         }
     }
 
-    private static void AllowAssigningOfficialSpells()
+    private static void AllowDisplayingOfficialSpells()
     {
         foreach (var kvp in SpellSpellListMap)
         {
@@ -481,12 +482,13 @@ internal static class SpellsContext
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
         internal bool IsAllSetSelected => SelectedSpells.Count == AllSpells
-            .Count(x => Main.Settings.AllowAssigningOfficialSpells ||
+            .Count(x => Main.Settings.AllowDisplayingOfficialSpells ||
                         x.ContentPack == CeContentPackContext.CeContentPack);
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        internal bool IsSuggestedSetSelected => SelectedSpells.Count == SuggestedSpells.Count
-                                                && SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
+        internal bool IsSuggestedSetSelected => 
+            ModUi.TabletopDefinitions.Intersect(SuggestedSpells).Count() == SelectedSpells.Count &&
+            SelectedSpells.All(ModUi.TabletopDefinitionNames.Contains);
 
         internal void CalculateAllSpells()
         {
@@ -520,7 +522,7 @@ internal static class SpellsContext
 
             foreach (var spell in SuggestedSpells)
             {
-                Switch(spell, toggle);
+                Switch(spell, toggle && ModUi.TabletopDefinitions.Contains(spell));
             }
         }
 
@@ -536,7 +538,7 @@ internal static class SpellsContext
 
             InventorClass.SwitchSpellStoringItemSubPower(spellDefinition, active);
 
-            if (!Main.Settings.AllowAssigningOfficialSpells &&
+            if (!Main.Settings.AllowDisplayingOfficialSpells &&
                 spellDefinition.ContentPack != CeContentPackContext.CeContentPack)
             {
                 return;

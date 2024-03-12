@@ -17,9 +17,10 @@ ModUi/&AllItemInDm=Tutti gli articoli in DM
 ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori nelle sequenze narrative</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Consenti a qualsiasi classe di indossare l'<color=#D89555> Armatura Silvana</color> o <color=#D89555> Abiti dell'Araldo della Luce</color>
-ModUi/&AllowAssigningOfficialSpells=Consenti la visualizzazione degli incantesimi ufficiali in questi elenchi
 ModUi/&AllowBeardlessDwarves=Consenti i <color=#D89555>Nani</color> senza barba
 ModUi/&AllowClubsToBeThrown=Consenti il lancio di <color=#D89555>mazze</color> come <color=#D89555>pugnali</color> o <color=#D89555>asce</color>
+ModUi/&AllowDisplayingNonSuggestedSpells=Consenti incantesimi non suggeriti dal mod in ogni elenco
+ModUi/&AllowDisplayingOfficialSpells=Consenti gli incantesimi ufficiali del gioco in ogni elenco
 ModUi/&AllowDruidToWearMetalArmor=Consenti al <color=#D89555>Druido</color> di indossare un'armatura di metallo
 ModUi/&AllowDungeonsMaxLevel20=Consenti dungeon con livello massimo 20
 ModUi/&AllowFlightSuspend=Consenti la sospensione temporanea del volo da oggetti e incantesimi <i><color=#F0DAA0>[non influisce sulle forme selvatiche o sulle razze volanti]</color></i>
@@ -237,7 +238,6 @@ ModUi/&Rules=Regole
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Ridimensiona i prezzi del commerciante correttamente/esattamente <i><color=#F0DAA0>[niente più errori di arrotondamento durante la conversione dei valori delle monete]</color></i>
 ModUi/&SelectAll=Seleziona tutto
-ModUi/&SelectSuggested=Seleziona Suggerito
 ModUi/&SelectTabletop=Seleziona Da tavolo
 ModUi/&SenseNormalVisionRangeMultiplier=Modifica il raggio <color=#D89555>Visione normale</color> <i><color=#F0DAA0>[solo nelle battaglie]</color></i>
 ModUi/&Services=Servizi

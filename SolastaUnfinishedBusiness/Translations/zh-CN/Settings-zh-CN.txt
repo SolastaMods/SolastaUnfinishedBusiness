@@ -17,9 +17,10 @@ ModUi/&AllItemInDm=DM中的所有项目
 ModUi/&AllRecipesInDm=冒险中的所有配方
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序列</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿<color=#D89555>森林之甲</color>或<color=#D89555>光明使者之衣</color>
-ModUi/&AllowAssigningOfficialSpells=允许官方法术显示在列表之中
 ModUi/&AllowBeardlessDwarves=允许无须<color=#D89555>矮人</color>
 ModUi/&AllowClubsToBeThrown=允许木棒像匕首或手斧一样投掷
+ModUi/&AllowDisplayingNonSuggestedSpells=允许在每个列表上使用 mod 非建议的咒语
+ModUi/&AllowDisplayingOfficialSpells=允许每个列表中使用游戏官方咒语
 ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>穿上金属盔甲
 ModUi/&AllowDungeonsMaxLevel20=允许最高等级为20的地城
 ModUi/&AllowFlightSuspend=允许暂时中止物品和法术的飞行<i><color=#F0DAA0>[不影响wildshape或飞行种族]</color></i>
@@ -238,7 +239,6 @@ ModUi/&Rules=规则
 ModUi/&SRD=<color=#F0DAA0>SRD：</color>
 ModUi/&ScaleMerchantPricesCorrectly=正确/准确调整商家价格<i><color=#F0DAA0>[转换硬币价值时不再出现舍入错误]</color></i>
 ModUi/&SelectAll=全选
-ModUi/&SelectSuggested=选择建议
 ModUi/&SelectTabletop=选择桌面
 ModUi/&SenseNormalVisionRangeMultiplier=修改<color=#D89555>正常视力</color>范围<i><color=#F0DAA0>[仅在战斗中]</color></i>
 ModUi/&Services=服务

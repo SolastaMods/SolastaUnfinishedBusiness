@@ -357,10 +357,8 @@ internal static class ModUi
                     {
                         var definition = registeredDefinitions.ElementAt(current);
                         var title = definition.FormatTitle();
-                        var isTabletop = TabletopDefinitions.Contains(definition) ||
-                                         (Main.Settings.AllowAssigningOfficialSpells &&
-                                          definition is SpellDefinition &&
-                                          definition.ContentPack != CeContentPackContext.CeContentPack);
+                        var isTabletop = TabletopDefinitions.Contains(definition);
+                        var isVanilla = definition.ContentPack != CeContentPackContext.CeContentPack;
 
                         if (flip)
                         {
@@ -373,6 +371,10 @@ internal static class ModUi
                         else if (isTabletop)
                         {
                             title = title.Color("#D89555").Bold() + " \u00a9".Grey(); // copyright symbol
+                        }
+                        else if (isVanilla)
+                        {
+                            title = title.Orange() + " \u263c".Grey(); // sun symbol
                         }
 
                         toggle = selectedDefinitions.Contains(definition.Name);
