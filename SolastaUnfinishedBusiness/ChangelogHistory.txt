@@ -2,6 +2,7 @@
 
 - added Second Chance feats
 - added 'Select Tabletop' checkboxes under 'Mod UI > Character'
+- fixed Circle of the Moon wildshape shapes offering logic
 - fixed flying on Path of Elements and Path of Totem Warrior
 
 1.5.97.0:
