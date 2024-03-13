@@ -218,7 +218,7 @@ ModUi/&Patches=<color=#F0DAA0>补丁：</color>
 ModUi/&PortraitsOpenFolder=打开肖像文件夹
 ModUi/&PrimedItems=制备好的物品
 ModUi/&Progression=<color=#F0DAA0>进度：</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=对<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>和<color=#D89555>Gray Dwarf</color>启用<color=#D89555>光照敏感</color> color> 仅在室外触发\n<i><color=#F0DAA0>[无需加载屏幕即可访问的室外位置的室内区域被游戏引擎视为室外]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=对<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>和<color=#D89555>Gray Dwarf</color>启用<color=#D89555>光照敏感</color>仅在室外触发\n<i><color=#F0DAA0>[无需加载屏幕即可访问的室外位置的室内区域被游戏引擎视为室外]</color></i>
 ModUi/&Races=<color=#F0DAA0>种族</color>
 ModUi/&RecipeCost=<color=white>配方成本</color>
 ModUi/&RecipesInDm=地城中的配方
