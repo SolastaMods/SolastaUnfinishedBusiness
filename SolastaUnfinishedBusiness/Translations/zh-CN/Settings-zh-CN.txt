@@ -227,8 +227,8 @@ ModUi/&RemoveAttunementRequirements=删除同调要求<b><i><color=#C04040E0>[�
 ModUi/&RemoveBugVisualModels=用游戏中的替代视觉效果替换蜘蛛类模型<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=移除<color=#D89555>狂笑术</color>的类人敌人限制
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>缠绕</color>效果，并强制进行力量检定以挣脱藤蔓
-ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除 <color=#D89555>Shadowcaster</color> 的学校限制
-ModUi/&RemoveSchoolRestrictionsFromSpellBlade=移除<color=#D89555>Spellblade</color>的学校限制
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除<color=#D89555>Shadowcaster</color>的学派限制
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=移除<color=#D89555>Spellblade</color>的学派限制
 ModUi/&RestockAntiquarians=补货古文物协会<i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=补货奥术协会<i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=补货丹塔尔之环<i><color=#F0DAA0>[Joriel Foxeye]</color></i>
