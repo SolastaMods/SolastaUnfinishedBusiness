@@ -129,7 +129,7 @@ ModUi/&EnableRespec=在休息操作后启用洗点
 ModUi/&EnableRogueCunningStrike=在等级 5 和 14 时启用<color=#D89555>盗贼</color><b>狡猾打击</b>和<b>狡猾打击</b><i><color=#F0DAA0>[你放弃1个偷袭骰子可获得额外的命中效果]</color></i>
 ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>Rogue</color><b>战斗风格</b>选择
 ModUi/&EnableRogueSteadyAim=在等级 3 时启用<color=#D89555>盗贼</color><b>稳定瞄准</b><i><color=#F0DAA0>[奖励动作会在当前回合中为你的下一次攻击检定带来优势，如果你还没动]</color></i>
-ModUi/&EnableRogueStrSaving=启用<color=#D89555>盗贼</color>在<b>狡猾/恶魔打击</b>、<b>虚弱/强化打击</b>和<b>刀锋冰雹上使用DEX或STR修饰符</b>
+ModUi/&EnableRogueStrSaving=启用<color=#D89555>盗贼</color>在<b>狡猾/恶魔打击</b>、<b>虚弱/强化打击</b>和<b>刀锋冰雹上使用DEX或STR调整值</b>
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
