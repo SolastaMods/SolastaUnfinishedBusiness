@@ -236,6 +236,14 @@ internal static class ClassFeats
     {
         const string Name = "FeatPoisoner";
 
+        // kept for backward compatibility
+        _ = FeatureDefinitionCraftingAffinityBuilder
+            .Create($"CraftingAffinity{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
+                ToolTypeDefinitions.PoisonersKitType)
+            .AddToDB();
+        
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
@@ -244,24 +252,31 @@ internal static class ClassFeats
                     .Create($"ActionAffinity{Name}")
                     .SetGuiPresentationNoContent(true)
                     .AddCustomSubFeatures(new ValidateDeviceFunctionUse((_, device, _) =>
-                        device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
+                        device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")),
+                        new ModifyDamageResistancePoisoner())
                     .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
-                    .AddToDB(),
-                FeatureDefinitionCraftingAffinityBuilder
-                    .Create($"CraftingAffinity{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
-                        ToolTypeDefinitions.PoisonersKitType)
                     .AddToDB(),
                 FeatureDefinitionProficiencyBuilder
                     .Create($"Proficiency{Name}")
                     .SetGuiPresentationNoContent(true)
                     .SetProficiencies(ProficiencyType.ToolOrExpertise, PoisonersKitType)
                     .AddToDB())
-            .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
             .AddToDB();
     }
 
+    private sealed class ModifyDamageResistancePoisoner : IModifyDamageAffinity
+    {
+        public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
+        {
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Resistance,
+                    DamageType: DamageTypePoison
+                });
+        }
+    }
+    
     #endregion
 
     #region Close Quarters
