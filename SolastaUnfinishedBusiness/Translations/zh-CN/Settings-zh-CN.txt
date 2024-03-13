@@ -137,7 +137,7 @@ ModUi/&EnableSumD20OnAlternateVotingSystem=。此外，每个英雄都增加了 
 ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-(T)</color>传送队伍<i><color=#F0DAA0>[如果你传送到一个未被发现的地方，你可能会破坏任务]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池的切换来设置默认的游戏和测试队伍
 ModUi/&EnableTooltipDistance=在战斗中将鼠标悬停在角色上时启用在工具提示上显示距离
-ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素召唤</color>和<color=#D89555>精类召唤</color>的升环
+ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素咒唤</color>和<color=#D89555>精类咒唤</color>的升环
 ModUi/&EnableVttCamera=启用 <color=#1E81B0>CTRL-SHIFT-(V)</color> 切换 VTT 摄像头<i><color=#F0DAA0>[右键单击并拖动以定位摄像头，WASD 进行平移和 Page Up/向下翻页放大]</color></i>
 ModUi/&EnablesAsiAndFeat=启用属性分数增加和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>
