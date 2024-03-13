@@ -237,7 +237,8 @@ ModUi/&Rollback=<b><color=#D89555>되돌리기</color></b>
 ModUi/&Rules=규칙
 ModUi/&SRD=<color=#F0DAA0>SRD(규칙 참조 문서):</color>
 ModUi/&ScaleMerchantPricesCorrectly=판매자 가격을 확실하고 정확하게 조정 <i><color=#F0DAA0>[단위 값 변환 시 더 이상 반올림 오류 없음]</color></i>
-ModUi/&SelectAll=모두 선택
+ModUi/&SelectAll=표시 선택
+ModUi/&SelectSuggested=추천 선택
 ModUi/&SelectTabletop=탁상 선택
 ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>일반 시야</color> 범위 <i><color=#F0DAA0>[전투에서만]</color></i> 수정
 ModUi/&Services=서비스

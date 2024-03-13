@@ -54,9 +54,8 @@ internal static class SpellsContext
     internal static readonly SpellDefinition Web = BuildWeb();
     internal static readonly SpellDefinition Wrack = BuildWrack();
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
+    internal static HashSet<SpellDefinition> Spells { get; private set; } = [];
 
-    // ReSharper disable once MemberCanBePrivate.Global
-    internal static HashSet<SpellDefinition> Spells { get; set; } = [];
 
     [NotNull]
     internal static SortedList<string, SpellListDefinition> SpellLists
@@ -168,6 +167,11 @@ internal static class SpellsContext
         return SpellListContextTab.Values.All(spellListContext => spellListContext.IsSuggestedSetSelected);
     }
 
+    internal static bool IsTabletopSetSelected()
+    {
+        return SpellListContextTab.Values.All(spellListContext => spellListContext.IsTabletopSetSelected);
+    }
+
     internal static void SelectAllSet(bool toggle)
     {
         foreach (var spellListContext in SpellListContextTab.Values)
@@ -181,6 +185,22 @@ internal static class SpellsContext
         foreach (var spellListContext in SpellListContextTab.Values)
         {
             spellListContext.SelectSuggestedSetInternal(toggle);
+        }
+    }
+
+    internal static void SelectTabletopSet(bool toggle)
+    {
+        foreach (var spellListContext in SpellListContextTab.Values)
+        {
+            spellListContext.SelectTabletopSetInternal(toggle);
+        }
+    }
+
+    internal static void RecalculateDisplayedSpells()
+    {
+        foreach (var spellListContext in SpellListContextTab.Values)
+        {
+            spellListContext.CalculateDisplayedSpellsInternal();
         }
     }
 
@@ -201,10 +221,10 @@ internal static class SpellsContext
         var spellListInventorClass = InventorClass.SpellList;
 
         // MUST COME BEFORE ANY MOD REGISTERED SPELL
-        AllowDisplayingOfficialSpells();
-
-        // Dead Master Spells
-        // WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x, -1));
+        foreach (var kvp in SpellSpellListMap)
+        {
+            RegisterSpell(kvp.Key, kvp.Value.Count, kvp.Value.ToArray());
+        }
 
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
@@ -333,6 +353,7 @@ internal static class SpellsContext
             var spellListContext = kvp.Value;
 
             spellListContext.CalculateAllSpells();
+            spellListContext.CalculateDisplayedSpellsInternal();
 
             // settings paring
             var spellListName = kvp.Key.Name;
@@ -354,30 +375,6 @@ internal static class SpellsContext
                 // tryAdd to avoid AtWill spells to mess up this collection
                 SpellsChildMaster.TryAdd(child, parent);
             }
-        }
-    }
-
-    internal static void SwitchAllowDisplayingOfficialSpells()
-    {
-        if (Main.Settings.AllowDisplayingOfficialSpells)
-        {
-            return;
-        }
-
-        foreach (var spellList in SpellLists.Values)
-        {
-            var name = spellList.Name;
-
-            Main.Settings.SpellListSpellEnabled[name].RemoveAll(x =>
-                DatabaseHelper.GetDefinition<SpellDefinition>(x).ContentPack != CeContentPackContext.CeContentPack);
-        }
-    }
-
-    private static void AllowDisplayingOfficialSpells()
-    {
-        foreach (var kvp in SpellSpellListMap)
-        {
-            RegisterSpell(kvp.Key, kvp.Value.Count, kvp.Value.ToArray());
         }
     }
 
@@ -422,12 +419,7 @@ internal static class SpellsContext
             SpellListContextTab[spellList].Switch(spellDefinition, enable);
         }
 
-        //this is really an exception on how Dead Master handles no concentration
-        //but so far it's the only one passing -1 to register spells
-        var isDeadMasterSpell = suggestedStartsAt == -1;
-
-        var isActiveInAtLeastOneRepertoire = isDeadMasterSpell ||
-                                             SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
+        var isActiveInAtLeastOneRepertoire = SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
 
         if (!isActiveInAtLeastOneRepertoire || spellDefinition.contentPack != CeContentPackContext.CeContentPack)
         {
@@ -470,44 +462,117 @@ internal static class SpellsContext
         {
             SpellList = spellListDefinition;
             AllSpells = [];
+            DisplayedSpells = [];
+            DisplayedSuggestedSpells = [];
+            DisplayedNonSuggestedSpells = [];
+            DisplayedTabletopSpells = [];
+            DisplayedNonTabletopSpells = [];
             MinimumSpells = [];
             SuggestedSpells = [];
+            TabletopSpells = [];
         }
 
         private List<string> SelectedSpells => Main.Settings.SpellListSpellEnabled[SpellList.Name];
         private SpellListDefinition SpellList { get; }
-        internal HashSet<SpellDefinition> AllSpells { get; }
+        private HashSet<SpellDefinition> AllSpells { get; }
+        internal HashSet<SpellDefinition> DisplayedSpells { get; }
+        private HashSet<SpellDefinition> DisplayedSuggestedSpells { get; }
+        private HashSet<SpellDefinition> DisplayedNonSuggestedSpells { get; }
+        private HashSet<SpellDefinition> DisplayedTabletopSpells { get; }
+        private HashSet<SpellDefinition> DisplayedNonTabletopSpells { get; }
         internal HashSet<SpellDefinition> MinimumSpells { get; }
         internal HashSet<SpellDefinition> SuggestedSpells { get; }
+        private HashSet<SpellDefinition> TabletopSpells { get; }
+
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        internal bool IsAllSetSelected => SelectedSpells.Count == AllSpells
-            .Count(x => Main.Settings.AllowDisplayingOfficialSpells ||
-                        x.ContentPack == CeContentPackContext.CeContentPack);
+        internal bool IsAllSetSelected =>
+            DisplayedSpells.All(x => SelectedSpells.Contains(x.Name));
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        internal bool IsSuggestedSetSelected => 
-            ModUi.TabletopDefinitions.Intersect(SuggestedSpells).Count() == SelectedSpells.Count &&
-            SelectedSpells.All(ModUi.TabletopDefinitionNames.Contains);
+        internal bool IsSuggestedSetSelected =>
+            DisplayedSuggestedSpells.All(x => SelectedSpells.Contains(x.Name)) &&
+            DisplayedNonSuggestedSpells.All(x => !SelectedSpells.Contains(x.Name));
+
+        // ReSharper disable once MemberHidesStaticFromOuterClass
+        internal bool IsTabletopSetSelected =>
+            DisplayedTabletopSpells.All(x => SelectedSpells.Contains(x.Name)) &&
+            DisplayedNonTabletopSpells.All(x => !SelectedSpells.Contains(x.Name));
 
         internal void CalculateAllSpells()
         {
             var minSpellLevel = SpellList.HasCantrips ? 0 : 1;
             var maxSpellLevel = SpellList.MaxSpellLevel;
 
-            AllSpells.Clear();
-
-            foreach (var spell in Spells
-                         .Where(x => x.SpellLevel >= minSpellLevel && x.SpellLevel <= maxSpellLevel &&
-                                     !MinimumSpells.Contains(x)))
+            foreach (var spell in Spells.Where(x =>
+                         x.SpellLevel >= minSpellLevel &&
+                         x.SpellLevel <= maxSpellLevel &&
+                         !MinimumSpells.Contains(x)))
             {
                 AllSpells.Add(spell);
+
+                if (ModUi.TabletopDefinitionNames.Contains(spell.Name))
+                {
+                    TabletopSpells.Add(spell);
+                }
+            }
+        }
+
+        internal void CalculateDisplayedSpellsInternal()
+        {
+            DisplayedSpells.Clear();
+            DisplayedSuggestedSpells.Clear();
+            DisplayedNonSuggestedSpells.Clear();
+            DisplayedTabletopSpells.Clear();
+            DisplayedNonTabletopSpells.Clear();
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var spell in AllSpells)
+            {
+                if (SpellsDisplay.SpellLevelFilter != -1 &&
+                    spell.SpellLevel != SpellsDisplay.SpellLevelFilter)
+                {
+                    continue;
+                }
+
+                if (!Main.Settings.AllowDisplayingOfficialSpells &&
+                    spell.ContentPack != CeContentPackContext.CeContentPack)
+                {
+                    continue;
+                }
+
+                if (!Main.Settings.AllowDisplayingNonSuggestedSpells &&
+                    spell.ContentPack == CeContentPackContext.CeContentPack &&
+                    !SuggestedSpells.Contains(spell))
+                {
+                    continue;
+                }
+
+                DisplayedSpells.Add(spell);
+
+                if (SuggestedSpells.Contains(spell))
+                {
+                    DisplayedSuggestedSpells.Add(spell);
+                }
+                else
+                {
+                    DisplayedNonSuggestedSpells.Add(spell);
+                }
+
+                if (TabletopSpells.Contains(spell))
+                {
+                    DisplayedTabletopSpells.Add(spell);
+                }
+                else
+                {
+                    DisplayedNonTabletopSpells.Add(spell);
+                }
             }
         }
 
         internal void SelectAllSetInternal(bool toggle)
         {
-            foreach (var spell in AllSpells)
+            foreach (var spell in DisplayedSpells)
             {
                 Switch(spell, toggle);
             }
@@ -520,9 +585,22 @@ internal static class SpellsContext
                 SelectAllSetInternal(false);
             }
 
-            foreach (var spell in SuggestedSpells)
+            foreach (var spell in DisplayedSpells.Intersect(SuggestedSpells))
             {
-                Switch(spell, toggle && ModUi.TabletopDefinitions.Contains(spell));
+                Switch(spell, toggle);
+            }
+        }
+
+        internal void SelectTabletopSetInternal(bool toggle)
+        {
+            if (toggle)
+            {
+                SelectAllSetInternal(false);
+            }
+
+            foreach (var spell in DisplayedSpells.Intersect(TabletopSpells))
+            {
+                Switch(spell, toggle);
             }
         }
 

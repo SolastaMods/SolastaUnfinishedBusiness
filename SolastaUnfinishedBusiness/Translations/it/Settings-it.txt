@@ -237,7 +237,8 @@ ModUi/&Rollback=<b><color=#D89555>Ripristina</color></b>
 ModUi/&Rules=Regole
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Ridimensiona i prezzi del commerciante correttamente/esattamente <i><color=#F0DAA0>[niente più errori di arrotondamento durante la conversione dei valori delle monete]</color></i>
-ModUi/&SelectAll=Seleziona tutto
+ModUi/&SelectAll=Seleziona Visualizzato
+ModUi/&SelectSuggested=Seleziona Consigliato
 ModUi/&SelectTabletop=Seleziona Da tavolo
 ModUi/&SenseNormalVisionRangeMultiplier=Modifica il raggio <color=#D89555>Visione normale</color> <i><color=#F0DAA0>[solo nelle battaglie]</color></i>
 ModUi/&Services=Servizi
