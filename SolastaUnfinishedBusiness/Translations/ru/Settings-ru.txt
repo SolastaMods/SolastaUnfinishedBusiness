@@ -19,8 +19,8 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Позволить всем иг
 ModUi/&AllowAnyClassToWearSylvanArmor=Позволить всем классам носить <color=#D89555>Доспехи Сильвана</color> или <color=#D89555>Одежды Несущего свет</color>
 ModUi/&AllowBeardlessDwarves=Разрешить безбородых <color=#D89555>Дварфов</color> <i><color=#F0DAA0>[как, вообще, можно подумать о чём-то столь противоестественном?]</color></i>
 ModUi/&AllowClubsToBeThrown=Позволить метать <color=#D89555>дубинки</color>, как <color=#D89555>кинжалы</color> или <color=#D89555>топорики</color>
-ModUi/&AllowDisplayingNonSuggestedSpells=Разрешить модификацию непредлагаемых заклинаний в каждом списке
-ModUi/&AllowDisplayingOfficialSpells=Разрешить официальные заклинания игры в каждом списке
+ModUi/&AllowDisplayingNonSuggestedSpells=Отображать не рекомендуемые заклинания модификации в каждом списке
+ModUi/&AllowDisplayingOfficialSpells=Отображать официальные заклинания игры в каждом списке
 ModUi/&AllowDruidToWearMetalArmor=Позволить <color=#D89555>Друидам</color> носить металлическую броню
 ModUi/&AllowDungeonsMaxLevel20=Разрешить подземелья с максимальным уровнем 20
 ModUi/&AllowFlightSuspend=Разрешить временно приостанавливать полёт при использовании предметов и заклинаний <i><color=#F0DAA0>[не затрагивает Дикий облик и летающие расы]</color></i>
@@ -237,9 +237,9 @@ ModUi/&Rollback=<b><color=#D89555>Откатить</color></b>
 ModUi/&Rules=Правила
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Масштабировать цены торговцев корректно/точно <i><color=#F0DAA0>[больше никаких ошибок округления при конвертировании монет разного номинала]</color></i>
-ModUi/&SelectAll=Выберите Отображено
+ModUi/&SelectAll=Выбрать отображаемые
 ModUi/&SelectSuggested=Выбрать рекомендуемые
-ModUi/&SelectTabletop=Выберите Столешница
+ModUi/&SelectTabletop=Выбрать согласно настольной игре
 ModUi/&SenseNormalVisionRangeMultiplier=Изменить множитель дальности <color=#D89555>Нормального зрения</color> <i><color=#F0DAA0>[только в бою]</color></i>
 ModUi/&Services=Сервисы
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=white>Шанс появления бороды при ношении</color> <color=#D89555>Пояса Дварфов</color>
