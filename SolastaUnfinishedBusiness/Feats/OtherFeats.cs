@@ -38,25 +38,23 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        // kept for backward compatibility
-        _ = BuildArcaneArcherAdept();
-        _ = BuildInfusionsAdept();
-        _ = BuildTacticianAdept();
-        _ = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
-
+        var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
         var featFightingInitiate = BuildFightingInitiate();
         var featFrostAdaptation = BuildFrostAdaptation();
         var featHealer = BuildHealer();
+        var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
         var featMagicInitiate = BuildMagicInitiate();
+        var featMartialAdept= BuildTacticianAdept();    
         var featMetamagicAdept = BuildMetamagicAdept();
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
         var featTough = BuildTough();
+        var featVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var featWarCaster = BuildWarcaster();
 
         var spellSniperGroup = BuildSpellSniper(feats);
@@ -69,12 +67,15 @@ internal static class OtherFeats
         var featSentinel = BuildFeatFromFightingStyle(Sentinel.SentinelName);
 
         feats.AddRange(
+            featArcaneArcherAdept,
             featAstralArms,
             featEldritchAdept,
             featFrostAdaptation,
             featHealer,
+            featInfusionAdept,
             featInspiringLeader,
             featMagicInitiate,
+            featMartialAdept,
             featMetamagicAdept,
             featMonkShieldExpert,
             featMobile,
@@ -84,6 +85,7 @@ internal static class OtherFeats
             featPolearmExpert,
             featSentinel,
             featTough,
+            featVersatilityAdept,
             featWarCaster);
 
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
@@ -126,10 +128,14 @@ internal static class OtherFeats
             featFrostAdaptation);
 
         GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
+            featArcaneArcherAdept,
             featEldritchAdept,
             featFightingInitiate,
+            featInfusionAdept,
             featMagicInitiate,
-            featMetamagicAdept);
+            featMartialAdept,
+            featMetamagicAdept,
+            featVersatilityAdept);
 
         GroupFeats.MakeGroup("FeatGroupSkills", null,
             FeatDefinitions.ArcaneAppraiser,
@@ -1146,7 +1152,6 @@ internal static class OtherFeats
     }
 
     #endregion
-
 
     #region Fighting Initiate
 
