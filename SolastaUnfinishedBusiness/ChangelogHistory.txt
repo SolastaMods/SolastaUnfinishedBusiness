@@ -1,3 +1,8 @@
+1.5.97.1:
+
+- added 'Mod UI > Character > Select Tabletop' whenever appropriate
+- fixed flying powers on Path of Elements and Path of Totem Warrior
+
 1.5.97.0:
 
 ATTENTION: latest UMM compatible version is 0.27.10. DON'T USE ANYTHING ABOVE

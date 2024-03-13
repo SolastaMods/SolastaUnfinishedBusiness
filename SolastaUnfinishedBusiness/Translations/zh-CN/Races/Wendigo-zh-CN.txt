@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageWendigoSuckerPunchDescriptio1n=在第一轮战斗中，如果你通过攻击检定击中了一个生物，而该生物的先攻程度低于你，则该生物会受到额外 2d6 点伤害。
+Feature/&AdditionalDamageWendigoSuckerPunchDescription=在第一轮战斗中，如果你用攻击检定击中了一个生物，而该生物的主动性低于你，则该生物会受到额外的 2d6 点伤害。
 Feature/&AdditionalDamageWendigoSuckerPunchTitle=先发制人
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseDescription=敏捷+1
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseTitle=属性增加
