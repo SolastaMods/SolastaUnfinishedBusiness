@@ -232,7 +232,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation($"Power{Name}BearResistance", Category.Feature,
                 ConditionDefinitions.ConditionBarkskin)
             .SetPossessive()
-            .SetSpecialInterruptions(ConditionInterruption.RageStop, ConditionInterruption.BattleEnd)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(
                 DamageAffinityAcidResistance,
                 DamageAffinityBludgeoningResistance,
@@ -355,7 +355,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetParentCondition(ConditionDefinitions.ConditionFlying)
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly8)
             .AddToDB();
 
@@ -387,7 +387,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation(Category.Condition)
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .AddFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create(ActionAffinityMountaineerShieldCharge, $"ActionAffinity{Name}HonedAnimalAspectsWolf")
