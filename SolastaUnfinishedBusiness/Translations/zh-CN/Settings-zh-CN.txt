@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=将来自基础武器伤害的所有骰�
 ModUi/&AddAllToStore=全部添加到商店
 ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>流血状态</color>添加到<color=#D89555>高等复原术</color>和<color=#D89555>次级复原术</color>的移除列表里
 ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>和<color=#D89555>Gray Dwarf</color>启用<color=#D89555>黑暗感知</color> color> <i><color=#F0DAA0>\n[在未照明或在魔法黑暗下时感知检查具有优势]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>和<color=#D89555>Gray Dwarf</color>启用<color=#D89555>黑暗感知</color><i><color=#F0DAA0>\n[在未照明或在魔法黑暗下时察觉检定具有优势]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=将<color=#D89555>战士</color>等级添加到<color=#D89555>Indomitable</color>豁免重掷中
 ModUi/&AddHelpActionToAllRaces=为所有可玩种族添加<color=#D89555>帮助</color>动作<i><color=#F0DAA0>[你可以帮助友方生物攻击距离你5尺以内的生物]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=为<color=#D89555>游侠</color>添加人形敌人宿敌
@@ -129,7 +129,7 @@ ModUi/&EnableRespec=在休息操作后启用洗点
 ModUi/&EnableRogueCunningStrike=在等级 5 和 14 时启用<color=#D89555>盗贼</color><b>狡猾打击</b>和<b>狡猾打击</b><i><color=#F0DAA0>[你放弃1个偷袭骰子可获得额外的命中效果]</color></i>
 ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>Rogue</color><b>战斗风格</b>选择
 ModUi/&EnableRogueSteadyAim=在等级 3 时启用<color=#D89555>盗贼</color><b>稳定瞄准</b><i><color=#F0DAA0>[奖励动作会在当前回合中为你的下一次攻击检定带来优势，如果你还没动]</color></i>
-ModUi/&EnableRogueStrSaving=启用<color=#D89555>盗贼</color>在<b>狡猾/恶魔打击</b>、<b>虚弱/强化打击</b>和<b>刀锋冰雹上使用DEX或STR修饰符</b>
+ModUi/&EnableRogueStrSaving=启用<color=#D89555>盗贼</color>在<b>狡猾/恶魔打击</b>、<b>虚弱/强化打击</b>和<b>刀锋冰雹上使用DEX或STR调整值</b>
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
@@ -137,7 +137,7 @@ ModUi/&EnableSumD20OnAlternateVotingSystem=。此外，每个英雄都增加了 
 ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-(T)</color>传送队伍<i><color=#F0DAA0>[如果你传送到一个未被发现的地方，你可能会破坏任务]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池的切换来设置默认的游戏和测试队伍
 ModUi/&EnableTooltipDistance=在战斗中将鼠标悬停在角色上时启用在工具提示上显示距离
-ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素召唤</color>和<color=#D89555>精类召唤</color>的升环
+ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素咒唤</color>和<color=#D89555>精类咒唤</color>的升环
 ModUi/&EnableVttCamera=启用 <color=#1E81B0>CTRL-SHIFT-(V)</color> 切换 VTT 摄像头<i><color=#F0DAA0>[右键单击并拖动以定位摄像头，WASD 进行平移和 Page Up/向下翻页放大]</color></i>
 ModUi/&EnablesAsiAndFeat=启用属性分数增加和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>
@@ -192,7 +192,7 @@ ModUi/&ItemsCraftingMerchants=物品、手工艺和商人
 ModUi/&ItemsHelp1=<color=#C04040E0>打开角色检视界面为英雄添加物品...</color>
 ModUi/&ItemsHelp2=<b>按+将项目添加到地面容器</b>
 ModUi/&KeepInvisibilityWhenUsingItems=启用物品使用不会破坏<color=#D89555>隐形</color>
-ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=如果在惊喜回合中察觉到，则在攻击后更新英雄的隐身状态<i><color=#F0DAA0>[仅限第一个英雄]</color></i>
+ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=如果在突袭回合中察觉到，则在攻击后更新英雄的隐身状态<i><color=#F0DAA0>[仅限第一个英雄]</color></i>
 ModUi/&MakeAllMagicStaveArcaneFoci=使所有魔法法杖成为奥术专用<i><color=#F0DAA0>[除了<color=#D89555>治疗法杖</color>是通用的]</color></i>
 ModUi/&MakeLargeWildshapeFormsMedium=使所有大型野生动物形态中等大小
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+发现后在关卡地图上标记隐形传送器的位置</i>
@@ -218,7 +218,7 @@ ModUi/&Patches=<color=#F0DAA0>补丁：</color>
 ModUi/&PortraitsOpenFolder=打开肖像文件夹
 ModUi/&PrimedItems=制备好的物品
 ModUi/&Progression=<color=#F0DAA0>进度：</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=对<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>和<color=#D89555>Gray Dwarf</color>启用<color=#D89555>光敏感度</color> color> 仅在室外触发\n<i><color=#F0DAA0>[无需加载屏幕即可访问的室外位置的室内区域被游戏引擎视为室外]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=对<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>和<color=#D89555>Gray Dwarf</color>启用<color=#D89555>光照敏感</color>仅在室外触发\n<i><color=#F0DAA0>[无需加载屏幕即可访问的室外位置的室内区域被游戏引擎视为室外]</color></i>
 ModUi/&Races=<color=#F0DAA0>种族</color>
 ModUi/&RecipeCost=<color=white>配方成本</color>
 ModUi/&RecipesInDm=地城中的配方
@@ -226,9 +226,9 @@ ModUi/&RelicForgeries=文物伪造品
 ModUi/&RemoveAttunementRequirements=删除同调要求<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveBugVisualModels=用游戏中的替代视觉效果替换蜘蛛类模型<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=移除<color=#D89555>狂笑术</color>的类人敌人限制
-ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>缠绕</color>效果，并强制进行强度检查以挣脱藤蔓
-ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除 <color=#D89555>Shadowcaster</color> 的学校限制
-ModUi/&RemoveSchoolRestrictionsFromSpellBlade=移除<color=#D89555>Spellblade</color>的学校限制
+ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>缠绕</color>效果，并强制进行力量检定以挣脱藤蔓
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除<color=#D89555>Shadowcaster</color>的学派限制
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=移除<color=#D89555>Spellblade</color>的学派限制
 ModUi/&RestockAntiquarians=补货古文物协会<i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=补货奥术协会<i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=补货丹塔尔之环<i><color=#F0DAA0>[Joriel Foxeye]</color></i>
@@ -294,5 +294,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 还启用触及攻击<color=#F0
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 将优势改为 +1 攻击掷骰</i>
 ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到2磅
 ModUi/&UseOfficialObscurementRules=使用官方的<color=#D89555>光照、遮挡和视觉</color>战斗规则\n<i><color=#F0DAA0>[感知到防御者的攻击者获得 ADV，没有感知到的攻击者获得 ADV感知 能够感知到它的防御者会受到 DIS\n 严重遮挡的区域造成失明状态，其中针对该生物的攻击骰具有 ADV，并且该生物的攻击骰具有 DIS\n 如果攻击者没有视力，则无法施放针对个人的所有距离法术，除了那些明确没有说明需要视力的]</color></i>
-ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时请使用官方<color=#D89555>小型比赛规则</color><i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时请使用官方<color=#D89555>小型体型种族规则</color><i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
