@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,15 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatSecondChance",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupClassBoundTitle",
-    "description": "Awaken the Beast, Blessed Soul, Call for Charge, Close Quarters, Cunning Escape, Expand the Hunt, Exploiter, Hardy, Natural Fluidity, Poisoner, Potent Spellcaster, Primal Rage, Second Chance, Slay thy Enemies, Spiritual Fluidity",
+    "title": "Feat/&FeatGroupSecondChanceTitle",
+    "description": "Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20. When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can’t use it again until you roll initiative at the start of combat or until you finish a short or long rest.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c98daa86-03c4-5550-86f8-80178d6ec6f5",
+  "guid": "d2fc5f3a-bb59-585f-a589-e348ee1b29c2",
   "contentPack": 9999,
-  "name": "FeatGroupClassBound"
+  "name": "FeatGroupSecondChance"
 }

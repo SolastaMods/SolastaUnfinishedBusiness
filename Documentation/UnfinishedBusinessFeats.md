@@ -358,107 +358,111 @@ Reroll weapon and spell damage dice when you roll a 1 (Not all damage sources re
 Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with scroll kit and Arcana, or expertise if already proficient.
 
-# 76. - *Sentinel* ©
+# 76. - *Second Chance* ©
+
+Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20. When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can’t use it again until you roll initiative at the start of combat or until you finish a short or long rest.
+
+# 77. - *Sentinel* ©
 
 You have mastered techniques to take advantage of every drop in any enemy's guard:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
 • You can use your reaction to make a melee weapon attack against the attacking creature when a creature makes an attack against a target other than you.
 
-# 77. - *Shadow Touched* ©
+# 78. - *Shadow Touched* ©
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
 
-# 78. - *Sharpshooter* ©
+# 79. - *Sharpshooter* ©
 
 You have learned to trade accuracy to land deadlier shots:
 • When attacking with a ranged weapon, you can choose to take a -5 penalty to your to hit in order to do additional +10 damage.
 • Attacks at long range don't impose disadvantage and ranged weapon attack ignores half cover and three-quarters cover.
 
-# 79. - *Shield Master* ©
+# 80. - *Shield Master* ©
 
 You use shields not just for protection but also for offense. You gain the following benefits while you are wielding a shield:
 • If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.
 • If you aren't incapacitated, gain +2 bonus to all Dexterity saving throws you make.
 • Whenever a damaging spell forces you to roll a Dexterity saving throw, you can use your reaction to halve any damage taken.
 
-# 80. - *Slasher* ©
+# 81. - *Slasher* ©
 
 Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
 
-# 81. - Slay thy Enemies
+# 82. - Slay thy Enemies
 
 You can use your bonus action and consume one ranger spell slot to focus your hunting knowledge against your enemies. You have a bonus to attack and damage rolls equal to the spell slot level used up to a maximum of 3. Against favored enemies you gain advantage on attack rolls instead pf attack roll bonus. This effect lasts for 2 rounds, plus 1 round per slot level used.
 
-# 82. - *Spear Mastery* ©
+# 83. - *Spear Mastery* ©
 
 Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it:
 • You gain a +1 bonus to attack rolls you make with a spear and its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands.
 • As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
 • As a bonus action, you can increase your reach with a spear by 5 ft for the rest of your turn.
 
-# 83. - *Spell Sniper* ©
+# 84. - *Spell Sniper* ©
 
 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 
-# 84. - Spiritual Fluidity
+# 85. - Spiritual Fluidity
 
 You may use a Channel Divinity usage to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 3 Channel Divinity usages. You can use it once per long rest.
 
-# 85. - *Squat Nimbleness* ©
+# 86. - *Squat Nimbleness* ©
 
 You are uncommonly nimble for your race. Increase your Strength or Dexterity score by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.
 
-# 86. - Superior Critical
+# 87. - Superior Critical
 
 Your critical threshold is lowered by 1.
 
-# 87. - *Telekinetic* ©
+# 88. - *Telekinetic* ©
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.
 
-# 88. - *Tough* ©
+# 89. - *Tough* ©
 
 Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 
-# 89. - Toxicologist
+# 90. - Toxicologist
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
 
-# 90. - Unarmored Expert
+# 91. - Unarmored Expert
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.
 
-# 91. - Verdant Touched
+# 92. - Verdant Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
 
-# 92. - Versatility Adept
+# 93. - Versatility Adept
 
 You gain Eldritch Versatility, with its pool size increased by your proficiency bonus and Versatility Switch. You learn 1 versatility.
 
-# 93. - *War Caster* ©
+# 94. - *War Caster* ©
 
 You gain advantage on checks to maintain concentration.
 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 
-# 94. - Wise Archery
+# 95. - Wise Archery
 
 Your intuition guides your hand when using a bow. Increase your Wisdom attribute by 1, to a maximum of 20. You can use your Wisdom modifier instead of your Dexterity modifer for the attack and damage rolls with these weapons.
 
-# 95. - Wise Defense
+# 96. - Wise Defense
 
 Increase your Wisdom by 1, to a maximum of 20.
 While you are not wearing any armor or shield, your armor class is equal to 10 + your Dexterity modifier + your Wisdom modifier.
 
-# 96. - Wise Precision
+# 97. - Wise Precision
 
 Increase your Wisdom by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Wisdom for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupHalfConstitutionTitle",
-    "description": "Awaken the Beast [Con], Badlands Marauder, Creed of Arun, Crusher [Con], Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Sturdiness of the Tundra",
+    "description": "Awaken the Beast [Con], Badlands Marauder, Creed of Arun, Crusher [Con], Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

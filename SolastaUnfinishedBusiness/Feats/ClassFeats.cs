@@ -45,6 +45,7 @@ internal static class ClassFeats
         var hardyGroup = BuildHardy(feats);
         var potentSpellcasterGroup = BuildPotentSpellcaster(feats);
         var primalRageGroup = BuildPrimalRage(feats);
+        var secondChanceGroup = BuildSecondChance(feats);
 
         feats.AddRange(
             featCallForCharge,
@@ -80,7 +81,8 @@ internal static class ClassFeats
             closeQuartersGroup,
             hardyGroup,
             potentSpellcasterGroup,
-            primalRageGroup);
+            primalRageGroup,
+            secondChanceGroup);
     }
 
     #region Call for Charge
@@ -243,7 +245,7 @@ internal static class ClassFeats
             .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
                 ToolTypeDefinitions.PoisonersKitType)
             .AddToDB();
-        
+
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
@@ -252,7 +254,7 @@ internal static class ClassFeats
                     .Create($"ActionAffinity{Name}")
                     .SetGuiPresentationNoContent(true)
                     .AddCustomSubFeatures(new ValidateDeviceFunctionUse((_, device, _) =>
-                        device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")),
+                            device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")),
                         new ModifyDamageResistancePoisoner())
                     .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
                     .AddToDB(),
@@ -276,7 +278,7 @@ internal static class ClassFeats
                 });
         }
     }
-    
+
     #endregion
 
     #region Close Quarters
@@ -1228,6 +1230,200 @@ internal static class ClassFeats
             var repertoire = character.GetClassSpellRepertoire(Ranger);
 
             repertoire?.SpendSpellSlot(level);
+        }
+    }
+
+    #endregion
+
+    #region Second Chance
+
+    private static FeatDefinition BuildSecondChance(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatSecondChance";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .AddToDB();
+
+        var feature = FeatureDefinitionBuilder
+            .Create($"Feature{Name}")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        feature.AddCustomSubFeatures(new TryAlterOutcomeAttackSecondChance(feature, condition));
+
+        var secondChanceDex = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                feature,
+                AttributeModifierCreed_Of_Misaye)
+            .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var secondChanceCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                feature,
+                AttributeModifierCreed_Of_Arun)
+            .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var secondChanceCha = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Cha")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                feature,
+                AttributeModifierCreed_Of_Einar)
+            .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(secondChanceDex, secondChanceCon, secondChanceCha);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupSecondChance", Name, ValidatorsFeat.IsHalfling, secondChanceDex, secondChanceCon,
+            secondChanceCha);
+    }
+
+    private sealed class TryAlterOutcomeAttackSecondChance(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureSecondChance,
+        ConditionDefinition conditionSecondChance) : ITryAlterOutcomeAttack
+    {
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier attackModifier)
+        {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (defender != helper ||
+                !defender.CanReact() ||
+                !defender.CanPerceiveTarget(attacker) ||
+                rulesetDefender.HasConditionOfType(conditionSecondChance))
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "Reaction/&CustomReactionSecondChanceDescription"
+                };
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("SecondChance", reactionParams);
+
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            rulesetDefender.InflictCondition(
+                conditionSecondChance.Name,
+                DurationType.UntilAnyRest,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                conditionSecondChance.Name,
+                0,
+                0,
+                0);
+
+            var attackRoll = action.AttackRoll;
+            var outcome = action.AttackRollOutcome;
+            var rollCaption = outcome == RollOutcome.CriticalSuccess
+                ? "Feedback/&RollAttackCriticalSuccessTitle"
+                : "Feedback/&RollAttackSuccessTitle";
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var attackMode = action.actionParams.attackMode;
+            var activeEffect = action.ActionParams.activeEffect;
+
+            int roll;
+            int toHitBonus;
+            int successDelta;
+
+            if (attackMode != null)
+            {
+                toHitBonus = attackMode.ToHitBonus;
+                roll = rulesetAttacker.RollAttack(
+                    toHitBonus,
+                    defender.RulesetCharacter,
+                    attackMode.SourceDefinition,
+                    attackMode.ToHitBonusTrends,
+                    false,
+                    attackModifier.AttackAdvantageTrends,
+                    attackMode.ranged,
+                    false,
+                    attackModifier.AttackRollModifier,
+                    out outcome,
+                    out successDelta,
+                    -1,
+                    true);
+            }
+            else if (activeEffect != null)
+            {
+                toHitBonus = activeEffect.MagicAttackBonus;
+                roll = rulesetAttacker.RollMagicAttack(
+                    activeEffect,
+                    defender.RulesetCharacter,
+                    activeEffect.GetEffectSource(),
+                    attackModifier.AttacktoHitTrends,
+                    attackModifier.AttackAdvantageTrends,
+                    false,
+                    attackModifier.AttackRollModifier,
+                    out outcome,
+                    out successDelta,
+                    -1,
+                    true);
+            }
+            // should never happen
+            else
+            {
+                yield break;
+            }
+
+            rulesetDefender.LogCharacterUsedFeature(
+                featureSecondChance,
+                "Feedback/&TriggerRerollLine",
+                false,
+                (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}+{toHitBonus}"),
+                (ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
+                    Gui.Format(rollCaption, $"{attackRoll + toHitBonus}")));
+
+            action.AttackRollOutcome = outcome;
+            action.AttackSuccessDelta = successDelta;
+            action.AttackRoll = roll;
         }
     }
 
