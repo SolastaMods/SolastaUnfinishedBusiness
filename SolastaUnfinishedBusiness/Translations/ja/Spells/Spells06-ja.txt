@@ -1,13 +1,13 @@
 Condition/&ConditionHeroicInfusionDescription=あなたは魔法によって支えられた持久力と武勇を自分に与えます。
-Condition/&ConditionHeroicInfusionTitle=テンサーのシェイプチェンジ
+Condition/&ConditionHeroicInfusionTitle=テンサーの変身
 Feature/&PowerRingOfBladesDescription=ボーナス アクションとして、Ring of Blades の剣の 1 つを使用して、自分から 60 フィート以内のクリーチャーに遠隔呪文攻撃を行うことができます。
 Feature/&PowerRingOfBladesTitle=刃のリング
-Feedback/&AdditionalDamageHeroicInfusionFormat=テンサーのシェイプチェンジ！
+Feedback/&AdditionalDamageHeroicInfusionFormat=テンサー変身！
 Feedback/&AdditionalDamageHeroicInfusionLine={0} が {1} に英雄的に命中しました! (+{2})
 Spell/&FlashFreezeDescription=あなたは範囲内に見える生き物を固い氷の牢獄に閉じ込めようとします。ターゲットは器用さセーヴィング・スローを行わなければなりません。セーブに失敗すると、ターゲットは 10d6 の冷気ダメージを受け、厚い氷の層に拘束されます。セーブに成功すると、ターゲットは半分のダメージを受け、拘束されなくなります。この呪文は大きいサイズまでのクリーチャーにのみ使用できます。打開するために、拘束されたターゲットはあなたのスペルセーブ難易度に対するアクションとして筋力チェックを行うことができます。成功するとターゲットは逃走し、拘束されなくなります。 7 レベル以上の呪文スロットを使用してこの呪文を唱えると、冷気ダメージは 6 レベル以上のスロット レベルごとに 2d6 増加します。
 Spell/&FlashFreezeTitle=フラッシュフリーズ
 Spell/&HeroicInfusionDescription=あなたは魔法によって支えられた持久力と武勇を自分に与えます。呪文が終了するまで、呪文を唱えることはできませんが、次の利点が得られます:\n• 一時的に 50 ヒット ポイントを獲得します。呪文が終了するときにこれらのいずれかが残っている場合、それらは失われます。\n• 単純な武器と格闘武器を使って行う攻撃ロールでは有利です。\n• 武器攻撃でターゲットを攻撃すると、そのターゲットは次のダメージを受けます。追加の 2d12 フォース ダメージ。\n• ファイター クラスのアーマー、武器、セーヴィング スローの熟練度を持っています。\n• 自分のターンに攻撃アクションを行うと、1 回ではなく 2 回攻撃できます。\n呪文が終了した直後に、難易度 15 の耐久力セーヴィング スローに成功するか、1 レベルの疲労状態に陥る必要があります。
-Spell/&HeroicInfusionTitle=テンサーのシェイプチェンジ
+Spell/&HeroicInfusionTitle=テンサーの変身
 Spell/&MysticalCloakDescription=呪文を唱えながら、下層界または上層界（選択）の魔法を利用して自分自身を変身させます。
 Spell/&MysticalCloakHigherPlaneDescription=あなたは放射ダメージや壊死ダメージの影響を受けず、魅了された状態の影響も受けません。あなたは AC に +2 ボーナス、40 フィートの飛行速度、追加攻撃を獲得します。すべての攻撃は魔法であり、自分のターンに攻撃アクションを実行するときに、STR または DEX の代わりに呪文能力属性を使用できます。
 Spell/&MysticalCloakHigherPlaneTitle=ターシャの異世界の装い: 高次元

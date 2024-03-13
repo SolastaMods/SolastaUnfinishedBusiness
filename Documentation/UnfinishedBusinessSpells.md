@@ -98,7 +98,7 @@ The next time you hit a creature with a weapon attack before this spell ends, a 
 
 You gain the service of a familiar. The familiar can use the help action and you can cast any touch or melee hit spell through the familiar.
 
-# 25. - *Gift of Alacrity* © (V,S) level 1 Divination
+# 25. - Gift of Alacrity (V,S) level 1 Divination
 
 You touch a willing creature. For the duration, the target can add 1d8 to its initiative rolls.
 
@@ -308,7 +308,7 @@ Flames wreathe one creature you can see within range. The target must make a Dex
 
 Surround yourself with an aura of thorns. Those that start or walk through take 2d8 piercing damage. This damage scales at higher levels by 1d8 per slot.
 
-# 75. - *Sonic Boom* © (V,S) level 5 Evocation
+# 75. - Sonic Boom (V,S) level 5 Evocation
 
 A small orb the same color as the balloon used appears at a point you choose within range then expands with a loud crack into an explosion of force. Each creature in a 30-foot radius must make a Strength saving throw. A target is pushed up to 30 feet away from the center and dealt 6d8 thunder damage on a failed save, or half as much damage and no movement on a successful one.
 
@@ -336,7 +336,7 @@ You raise both hands as you evoke six transparent blades around you as a bonus a
 
 Uttering an incantation, you draw on the magic of the Lower Planes or Upper Planes (your choice) to transform yourself.
 
-# 82. - *Tenser's Shapechange* © (V,S) level 6 Transmutation [Concentration]
+# 82. - *Tenser's Transformation* © (V,S) level 6 Transmutation [Concentration]
 
 You endow yourself with endurance and martial prowess fueled by magic. Until the spell ends, you can't cast spells, and you gain the following benefits:
 • You gain 50 temporary hit points. If any of these remain when the spell ends, they are lost.

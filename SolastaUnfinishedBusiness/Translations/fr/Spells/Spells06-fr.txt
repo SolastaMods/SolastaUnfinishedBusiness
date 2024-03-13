@@ -1,13 +1,13 @@
 Condition/&ConditionHeroicInfusionDescription=Vous vous dotez d'une endurance et de prouesses martiales alimentées par la magie.
-Condition/&ConditionHeroicInfusionTitle=Infusion héroïque
+Condition/&ConditionHeroicInfusionTitle=Transformation du Tenseur
 Feature/&PowerRingOfBladesDescription=Par une action bonus, vous pouvez lancer une attaque magique à distance sur une créature située à moins de 60 pieds de vous, en utilisant l'une de vos épées Ring of Blades.
 Feature/&PowerRingOfBladesTitle=Anneau de lames
-Feedback/&AdditionalDamageHeroicInfusionFormat=Infusion héroïque !
+Feedback/&AdditionalDamageHeroicInfusionFormat=Transformation de Tenseur !
 Feedback/&AdditionalDamageHeroicInfusionLine={0} frappe héroïquement {1} ! (+{2})
 Spell/&FlashFreezeDescription=Vous tentez d'enfermer une créature que vous pouvez voir à portée dans une prison de glace solide. La cible doit effectuer un jet de sauvegarde de Dextérité. En cas d'échec, la cible subit 10d6 dégâts de froid et est retenue dans des couches de glace épaisse. En cas de sauvegarde réussie, la cible subit deux fois moins de dégâts et n'est pas retenue. Le sort ne peut être utilisé que sur des créatures de grande taille. Pour s'échapper, la cible maîtrisée peut effectuer un test de Force en tant qu'action contre votre DD de sauvegarde de sort. En cas de succès, la cible s'échappe et n'est plus retenue. Lorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 7 ou supérieur, les dégâts de froid augmentent de 2d6 pour chaque niveau d'emplacement supérieur au 6e.
 Spell/&FlashFreezeTitle=Gel instantané
 Spell/&HeroicInfusionDescription=Vous vous dotez d'une endurance et de prouesses martiales alimentées par la magie. Jusqu'à la fin du sort, vous ne pouvez pas lancer de sorts et vous bénéficiez des avantages suivants :\n• Vous gagnez 50 points de vie temporaires. Si l'un d'entre eux reste à la fin du sort, il est perdu.\n• Vous avez un avantage sur les jets d'attaque que vous effectuez avec des armes simples et martiales.\n• Lorsque vous touchez une cible avec une attaque avec une arme, cette cible prend 2d12 dégâts de force supplémentaires.\n• Vous disposez des compétences d'armure, d'armes et de jets de sauvegarde de classe Combattant.\n• Vous pouvez attaquer deux fois, au lieu d'une, lorsque vous effectuez l'action d'attaque à votre tour.\n Immédiatement après la fin du sort, vous devez réussir un jet de sauvegarde de Constitution DD 15 ou subir un niveau d'épuisement.
-Spell/&HeroicInfusionTitle=Infusion héroïque
+Spell/&HeroicInfusionTitle=Transformation du Tenseur
 Spell/&MysticalCloakDescription=En prononçant une incantation, vous faites appel à la magie des plans inférieurs ou supérieurs (votre choix) pour vous transformer.
 Spell/&MysticalCloakHigherPlaneDescription=Vous êtes immunisé contre les dégâts radiants et nécrotiques, immunisé contre la condition charmée. Vous gagnez un bonus de +2 à la CA, une vitesse de vol de 40 pieds, une attaque supplémentaire, toutes les attaques sont magiques et vous pouvez utiliser votre attribut de capacité de sort au lieu de STR ou DEX lorsque vous effectuez l'action d'attaque à votre tour.
 Spell/&MysticalCloakHigherPlaneTitle=Cape mystique : plan supérieur
