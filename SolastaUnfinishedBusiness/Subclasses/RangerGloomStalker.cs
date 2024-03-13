@@ -165,7 +165,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureShadowyDodge.AddCustomSubFeatures(new PhysicalAttackInitiatedOnMeShadowyDodge(featureShadowyDodge));
+        featureShadowyDodge.AddCustomSubFeatures(new TryAlterOutcomeAttackShadowyDodge(featureShadowyDodge));
 
         //
         // MAIN
@@ -337,7 +337,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
     // Shadowy Dodge
     //
 
-    private sealed class PhysicalAttackInitiatedOnMeShadowyDodge(
+    private sealed class TryAlterOutcomeAttackShadowyDodge(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureShadowyDodge) : ITryAlterOutcomeAttack
     {

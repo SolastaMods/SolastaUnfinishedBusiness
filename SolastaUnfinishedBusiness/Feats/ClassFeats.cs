@@ -1261,7 +1261,7 @@ internal static class ClassFeats
             .SetFeatures(
                 feature,
                 AttributeModifierCreed_Of_Misaye)
-            .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .SetValidators(ValidatorsFeat.IsHalfling)
             .SetFeatFamily(Name)
             .AddToDB();
 
@@ -1271,7 +1271,7 @@ internal static class ClassFeats
             .SetFeatures(
                 feature,
                 AttributeModifierCreed_Of_Arun)
-            .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .SetValidators(ValidatorsFeat.IsHalfling)
             .SetFeatFamily(Name)
             .AddToDB();
 
@@ -1281,7 +1281,7 @@ internal static class ClassFeats
             .SetFeatures(
                 feature,
                 AttributeModifierCreed_Of_Einar)
-            .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .SetValidators(ValidatorsFeat.IsHalfling)
             .SetFeatFamily(Name)
             .AddToDB();
 

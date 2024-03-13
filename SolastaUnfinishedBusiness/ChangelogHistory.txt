@@ -1,7 +1,8 @@
 1.5.97.1:
 
-- added 'Mod UI > Character > Select Tabletop' whenever appropriate
-- fixed flying powers on Path of Elements and Path of Totem Warrior
+- added Second Chance feats
+- added 'Select Tabletop' checkboxes under 'Mod UI > Character'
+- fixed flying on Path of Elements and Path of Totem Warrior
 
 1.5.97.0:
 
