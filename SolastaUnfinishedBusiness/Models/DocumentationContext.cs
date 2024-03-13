@@ -313,7 +313,7 @@ internal static class DocumentationContext
         {
             var title = featureDefinition.FormatTitle();
 
-            if (ModUi.TabletopDefinitions.Contains(featureDefinition))
+            if (ModUi.TabletopDefinitionNames.Contains(featureDefinition.Name))
             {
                 title = $"*{title}* \u00a9";
             }

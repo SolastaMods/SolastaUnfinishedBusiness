@@ -14,6 +14,16 @@ internal static class SpellsDisplay
     internal static void DisplaySpells()
     {
         UI.Label();
+
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Spells docs".Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("UnfinishedBusinessSpells.md"), UI.Width(200f));
+            20.Space();
+            UI.ActionButton("Solasta Spells docs".Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("SolastaSpells.md"), UI.Width(200f));
+        }
+
         UI.Label();
 
         var toggle = Main.Settings.AllowDisplayingOfficialSpells;
@@ -30,17 +40,6 @@ internal static class SpellsDisplay
         {
             Main.Settings.AllowDisplayingNonSuggestedSpells = toggle;
             SpellsContext.RecalculateDisplayedSpells();
-        }
-
-        UI.Label();
-
-        using (UI.HorizontalScope())
-        {
-            UI.ActionButton("UB Spells docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("UnfinishedBusinessSpells.md"), UI.Width(200f));
-            20.Space();
-            UI.ActionButton("Solasta Spells docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("SolastaSpells.md"), UI.Width(200f));
         }
 
         UI.Label();
