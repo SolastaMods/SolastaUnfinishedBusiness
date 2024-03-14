@@ -332,7 +332,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Fire Infusion",
-    "description": "Fire Infusion",
+    "description": "As a bonus action, you can touch a simple or martial weapon and infuse it with Fire damage. For the next minute, the weapon deals an extra 1d4 Fire damage when it hits. After you use this bonus action, you can’t do so again until you finish a long rest.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

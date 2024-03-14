@@ -7,7 +7,7 @@
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "FightingStyle/&DuelingTitle",
     "description": "FightingStyle/&DuelingDescription",
     "spriteReference": {

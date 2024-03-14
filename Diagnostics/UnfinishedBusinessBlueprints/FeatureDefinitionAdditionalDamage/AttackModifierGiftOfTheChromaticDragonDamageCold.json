@@ -52,14 +52,14 @@
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Cold Infusion",
+    "description": "As a bonus action, you can touch a simple or martial weapon and infuse it with Cold damage. For the next minute, the weapon deals an extra 1d4 Cold damage when it hits. After you use this bonus action, you can’t do so again until you finish a long rest.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "8440ca8497e8ca64f811d09a9d4679d9",
+      "m_SubObjectName": "ConditionBrandingSmite",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
