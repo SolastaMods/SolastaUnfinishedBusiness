@@ -87,7 +87,8 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .Create($"Condition{Name}UnbridledFerocity")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSorcererChildRiftDeflection)
             .SetSilent(Silent.WhenRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            // don't use vanilla RageStop with permanent conditions
+            .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .SetPossessive()
             .AllowMultipleInstances()
             .AddFeatures(

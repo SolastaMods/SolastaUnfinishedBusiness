@@ -352,7 +352,8 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         var conditionElementalConduitStorm = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}{ElementalConduit}Storm")
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            // don't use vanilla RageStop with permanent conditions
+            .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .AddToDB();
 
         var powerElementalConduitStorm = FeatureDefinitionPowerBuilder

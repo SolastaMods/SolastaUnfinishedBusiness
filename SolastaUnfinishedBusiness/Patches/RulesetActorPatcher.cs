@@ -150,69 +150,6 @@ public static class RulesetActorPatcher
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
                 .Do(c => c.OnConditionAdded(rulesetCharacter, newCondition));
-
-            //PATCH: enforce OnActivation behavior for OnRageStartAutomatic Permanent powers
-            if (!newCondition.ConditionDefinition.IsSubtypeOf(ConditionRaging))
-            {
-                return;
-            }
-
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-
-            if (gameLocationCharacterService == null)
-            {
-                return;
-            }
-
-            var sourceCharacter = GameLocationCharacter.GetFromActor(__instance);
-
-            if (sourceCharacter == null)
-            {
-                return;
-            }
-
-            foreach (var usablePower in rulesetCharacter.UsablePowers
-                         .Where(x =>
-                             x.PowerDefinition.ActivationTime == ActivationTime.OnRageStartAutomatic &&
-                             x.PowerDefinition.EffectDescription.DurationType == DurationType.Permanent))
-            {
-                var effectDescription = usablePower.PowerDefinition.EffectDescription;
-                var range = effectDescription.TargetType switch
-                {
-                    TargetType.Cube => (effectDescription.TargetParameter - 1) / 2,
-                    TargetType.Sphere => effectDescription.TargetParameter,
-                    TargetType.Self => 0,
-                    _ => -1
-                };
-
-                if (range == -1)
-                {
-                    continue;
-                }
-
-                var implementationManagerService =
-                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-                var targets = gameLocationCharacterService.AllValidEntities
-                    .Where(x =>
-                        x.Side == effectDescription.TargetSide &&
-                        x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                        x.IsWithinRange(sourceCharacter, range) &&
-                        (!effectDescription.TargetExcludeCaster || x != sourceCharacter))
-                    .ToList();
-
-                var actionParams = new CharacterActionParams(sourceCharacter, ActionDefinitions.Id.PowerNoCost)
-                {
-                    ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                    RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                    UsablePower = usablePower,
-                    targetCharacters = targets
-                };
-
-                ServiceRepository.GetService<ICommandService>()
-                    ?.ExecuteAction(actionParams, null, false);
-            }
         }
     }
 
