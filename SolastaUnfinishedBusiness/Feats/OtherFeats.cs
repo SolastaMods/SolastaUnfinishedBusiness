@@ -495,7 +495,7 @@ internal static class OtherFeats
         ];
 
         var dbDamageAffinities = DatabaseRepository.GetDatabase<FeatureDefinitionDamageAffinity>();
-        
+
         // Chromatic Infusion
 
         var powersChromaticInfusion = new List<FeatureDefinitionPower>();
@@ -517,7 +517,7 @@ internal static class OtherFeats
         {
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
             var title = "PowerGiftOfTheChromaticDragonDamageTitle".Formatted(Category.Feature, damageTitle);
-            var description = "PowerGiftOfTheChromaticDragonDamageTitle".Formatted(Category.Feature, damageTitle);
+            var description = "PowerGiftOfTheChromaticDragonDamageDescription".Formatted(Category.Feature, damageTitle);
 
             var power = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"Power{Name}{damageType}")
@@ -527,34 +527,40 @@ internal static class OtherFeats
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetEffectForms(EffectFormBuilder.Create()
-                        .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,
-                            new FeatureUnlockByLevel(
-                                FeatureDefinitionAdditionalDamageBuilder
-                                    .Create($"AttackModifier{Name}{damageType}")
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetNotificationTag($"ChromaticInfusion{damageType}")
-                                    .SetDamageDice(DieType.D4, 1)
-                                    .SetSpecificDamageType(damageType)
-                                    .SetImpactParticleReference(magicEffect)
-                                    .AddToDB(),
-                                0))
-                        .Build())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetItemPropertyForm(
+                                ItemPropertyUsage.Unlimited, 0,
+                                new FeatureUnlockByLevel(
+                                    FeatureDefinitionAdditionalDamageBuilder
+                                        .Create($"AttackModifier{Name}{damageType}")
+                                        .SetGuiPresentation(title, description, ConditionDefinitions.ConditionGuided)
+                                        .SetNotificationTag($"ChromaticInfusion{damageType}")
+                                        .SetDamageDice(DieType.D4, 1)
+                                        .SetSpecificDamageType(damageType)
+                                        .SetImpactParticleReference(magicEffect)
+                                        .AddToDB(),
+                                    0))
+                            .Build())
                     .Build())
                 .AddToDB();
 
             power.GuiPresentation.hidden = true;
             powersChromaticInfusion.Add(power);
-            
+
             // use same loop to create Reactive Resistance conditions
             var damageTypeAb = damageType.Replace("Damage", string.Empty);
-            
-            _ = ConditionDefinitionBuilder
+
+            var condition = ConditionDefinitionBuilder
                 .Create($"Condition{Name}{damageType}")
-                .SetGuiPresentationNoContent(true)
-                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetGuiPresentation($"Power{Name}ReactiveResistance", Category.Feature,
+                    ConditionDefinitions.ConditionProtectedInsideMagicCircle, hidden: true)
+                .SetPossessive()
                 .SetFeatures(dbDamageAffinities.GetElement($"DamageAffinity{damageTypeAb}Resistance"))
                 .AddToDB();
+
+            condition.GuiPresentation.description = Gui.NoLocalization;
         }
 
         PowerBundle.RegisterPowerBundle(powerChromaticInfusion, false, powersChromaticInfusion);
@@ -677,14 +683,14 @@ internal static class OtherFeats
             gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", defender);
 
             yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
-            
+
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
             var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
-            
+
             rulesetDefender.InflictCondition(
                 conditionName,
                 DurationType.Round,
