@@ -47,7 +47,7 @@ internal static class OtherFeats
         var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
         var featMagicInitiate = BuildMagicInitiate();
-        var featMartialAdept= BuildTacticianAdept();    
+        var featMartialAdept = BuildTacticianAdept();
         var featMetamagicAdept = BuildMetamagicAdept();
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
@@ -250,7 +250,6 @@ internal static class OtherFeats
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetDurationData(DurationType.Permanent)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -520,7 +519,6 @@ internal static class OtherFeats
                         TargetFilteringTag.No,
                         5,
                         DieType.D8)
-                    .SetDurationData(DurationType.Permanent)
                     .SetRequiredCondition(ConditionDefinitions.ConditionDead)
                     .SetEffectForms(
                         EffectFormBuilder
