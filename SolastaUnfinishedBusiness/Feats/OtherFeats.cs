@@ -42,7 +42,6 @@ internal static class OtherFeats
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
-        var featFightingInitiate = BuildFightingInitiate();
         var featFrostAdaptation = BuildFrostAdaptation();
         var featGiftOfTheChromaticDragon = BuildGiftOfTheChromaticDragon();
         var featHealer = BuildHealer();
@@ -59,6 +58,7 @@ internal static class OtherFeats
         var featVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var featWarCaster = BuildWarcaster();
 
+        var fightingInitiateGroup = BuildFightingInitiate(feats);
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
@@ -134,12 +134,12 @@ internal static class OtherFeats
         GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
             featArcaneArcherAdept,
             featEldritchAdept,
-            featFightingInitiate,
             featInfusionAdept,
             featMagicInitiate,
             featMartialAdept,
             featMetamagicAdept,
-            featVersatilityAdept);
+            featVersatilityAdept,
+            fightingInitiateGroup);
 
         GroupFeats.MakeGroup("FeatGroupSkills", null,
             FeatDefinitions.ArcaneAppraiser,
@@ -602,7 +602,7 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect == null)
+            if (attackMode == null)
             {
                 yield break;
             }
@@ -1387,8 +1387,6 @@ internal static class OtherFeats
 
     #region Fighting Initiate
 
-    private const string FightingStyle = "FightingStyle";
-
     private static FeatDefinitionWithPrerequisites BuildFeatFromFightingStyle(string fightingStyleName)
     {
         var db = DatabaseRepository.GetDatabase<FightingStyleDefinition>();
@@ -1401,26 +1399,36 @@ internal static class OtherFeats
         return feat;
     }
 
-    private static FeatDefinition BuildFightingInitiate()
+    private static FeatDefinition BuildFightingInitiate([NotNull] List<FeatDefinition> feats)
     {
-        var fightingStyles = DatabaseRepository
+        var fightingStyleFeats = DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
             .Where(x => x.Name is not (
                 MonkShieldExpert.ShieldExpertName or
                 PolearmExpert.PolearmExpertName or
                 Sentinel.SentinelName))
             .Select(BuildFightingStyleFeat)
+            .OfType<FeatDefinition>()
             .ToList();
 
-        return GroupFeats.MakeGroup("FeatGroupFightingStyle", FightingStyle, fightingStyles);
+        var modFightingStyleFeats =
+            fightingStyleFeats.Where(x => x.ContentPack == CeContentPackContext.CeContentPack).ToArray();
+
+        feats.AddRange(modFightingStyleFeats);
+
+        var vanillaFightingStyleFeats =
+            fightingStyleFeats.Where(x => x.ContentPack != CeContentPackContext.CeContentPack).ToArray();
+
+        GroupFeats.FeatGroupFightingStyle.AddFeats(vanillaFightingStyleFeats);
+
+        return GroupFeats.FeatGroupFightingStyle;
     }
 
     private static FeatDefinitionWithPrerequisites BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)
     {
         // we need a brand new one to avoid issues with FS getting hidden
         var guiPresentation = new GuiPresentation(fightingStyle.GuiPresentation);
-
-        return FeatDefinitionWithPrerequisitesBuilder
+        var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create($"Feat{fightingStyle.Name}")
             .SetGuiPresentation(guiPresentation)
             .SetFeatures(
@@ -1429,9 +1437,20 @@ internal static class OtherFeats
                     .SetProficiencies(ProficiencyType.FightingStyle, fightingStyle.Name)
                     .SetGuiPresentation(guiPresentation)
                     .AddToDB())
-            .SetFeatFamily(FightingStyle)
+            .SetFeatFamily(GroupFeats.FightingStyle)
             .SetValidators(ValidatorsFeat.ValidateNotFightingStyle(fightingStyle))
             .AddToDB();
+
+        if (fightingStyle.ContentPack == CeContentPackContext.CeContentPack)
+        {
+            guiPresentation.hidden = true;
+        }
+        else
+        {
+            feat.contentPack = GamingPlatformDefinitions.ContentPack.BaseGame;
+        }
+
+        return feat;
     }
 
     #endregion

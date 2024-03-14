@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Validators;
 
@@ -84,14 +85,21 @@ internal static class FightingStyleContext
         }
 
         var name = fightingStyleDefinition.Name;
+        var feat = DatabaseRepository.GetDatabase<FeatDefinition>().GetElement($"Feat{name}");
 
         if (active)
         {
             Main.Settings.FightingStyleEnabled.TryAdd(name);
+
+            GroupFeats.FeatGroupFightingStyle.AddFeats(feat);
+            FeatsContext.SwitchFeat(feat, true);
         }
         else
         {
             Main.Settings.FightingStyleEnabled.Remove(name);
+
+            GroupFeats.FeatGroupFightingStyle.RemoveFeats(feat);
+            FeatsContext.SwitchFeat(feat, false);
         }
 
         UpdateStyleVisibility(fightingStyleDefinition);
