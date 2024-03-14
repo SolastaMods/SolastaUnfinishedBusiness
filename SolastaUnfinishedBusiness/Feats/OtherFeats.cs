@@ -43,6 +43,7 @@ internal static class OtherFeats
         var featEldritchAdept = BuildEldritchAdept();
         var featFightingInitiate = BuildFightingInitiate();
         var featFrostAdaptation = BuildFrostAdaptation();
+        var featGiftOfTheChromaticDragon = BuildGiftOfTheChromaticDragon();
         var featHealer = BuildHealer();
         var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
@@ -71,6 +72,7 @@ internal static class OtherFeats
             featAstralArms,
             featEldritchAdept,
             featFrostAdaptation,
+            featGiftOfTheChromaticDragon,
             featHealer,
             featInfusionAdept,
             featInspiringLeader,
@@ -107,6 +109,7 @@ internal static class OtherFeats
             spellSniperGroup);
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
+            featGiftOfTheChromaticDragon,
             featHealer,
             featInspiringLeader,
             featSentinel);
@@ -457,6 +460,80 @@ internal static class OtherFeats
         {
             return ValidatorsWeapon.IsUnarmed(attackMode);
         }
+    }
+
+    #endregion
+
+    #region Gift of the Chromatic Dragon
+
+    private static FeatDefinition BuildGiftOfTheChromaticDragon()
+    {
+        const string Name = "GiftOfTheChromaticDragon";
+
+        var powers = new List<FeatureDefinitionPower>();
+        var damageTypes = new List<string>
+        {
+            DamageTypeAcid,
+            DamageTypeCold,
+            DamageTypeFire,
+            DamageTypeLightning,
+            DamageTypePoison
+        };
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Feature, PowerDomainElementalLightningBlade)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
+                        itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .Build())
+            .AddToDB();
+
+        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+        foreach (var damageType in damageTypes)
+        {
+            var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
+            var title = "PowerGiftOfTheChromaticDragonDamageTitle".Formatted(Category.Feature, damageTitle);
+            var description = "PowerGiftOfTheChromaticDragonDamageTitle".Formatted(Category.Feature, damageTitle);
+
+            var power = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{Name}{damageType}")
+                .SetGuiPresentation(title, description)
+                .SetSharedPool(ActivationTime.BonusAction, powerPool)
+                .SetEffectDescription(EffectDescriptionBuilder.Create()
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
+                        itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(EffectFormBuilder.Create()
+                        .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 0,
+                            new FeatureUnlockByLevel(
+                                FeatureDefinitionAdditionalDamageBuilder
+                                    .Create($"AttackModifier{Name}{damageType}")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetDamageDice(DieType.D4, 1)
+                                    .SetSpecificDamageType(damageType)
+                                    .AddToDB(),
+                                0))
+                        .Build())
+                    .Build())
+                .AddToDB();
+
+            power.GuiPresentation.hidden = true;
+            powers.Add(power);
+        }
+
+        PowerBundle.RegisterPowerBundle(powerPool, false, powers);
+
+        return FeatDefinitionBuilder
+            .Create($"Feat{Name}")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(powerPool)
+            .AddFeatures(powers.OfType<FeatureDefinition>().ToArray())
+            .AddToDB();
     }
 
     #endregion

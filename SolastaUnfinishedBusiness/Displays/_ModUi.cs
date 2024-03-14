@@ -70,6 +70,7 @@ internal static class ModUi
         "FeatDualWeaponDefense",
         "FeatEldritchAdept",
         "FeatFellHanded",
+        "FeatGiftOfTheChromaticDragon",
         "FeatGroupCrusher",
         "FeatGroupElementalAdept",
         "FeatGroupElvenAccuracy",

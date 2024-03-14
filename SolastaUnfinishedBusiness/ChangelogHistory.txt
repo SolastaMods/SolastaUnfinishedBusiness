@@ -1,6 +1,6 @@
 1.5.97.1:
 
-- added Second Chance feats
+- added Gift of The Chromatic Dragon and Second Chance feats
 - added 'Select Tabletop' checkboxes under 'Mod UI > Character'
 - fixed Circle of the Moon wildshape shapes offering logic
 - fixed flying on Path of Elements and Path of Totem Warrior
