@@ -25,6 +25,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttri
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -261,7 +262,7 @@ internal static class OtherFeats
                             .SetBonusMode(AddBonusMode.AbilityBonus)
                             .Build())
                     .SetEffectAdvancement(EffectIncrementMethod.None)
-                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
+                    .SetParticleEffectParameters(MagicWeapon)
                     .Build())
             .AddToDB();
 
@@ -464,25 +465,43 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Common Helpers
+
+    internal sealed class SpellTag
+    {
+        internal SpellTag(string spellTag)
+        {
+            Name = spellTag;
+        }
+
+        internal string Name { get; }
+    }
+
+    #endregion
+
     #region Gift of the Chromatic Dragon
 
     private static FeatDefinition BuildGiftOfTheChromaticDragon()
     {
         const string Name = "GiftOfTheChromaticDragon";
 
-        var powers = new List<FeatureDefinitionPower>();
-        var damageTypes = new List<string>
-        {
-            DamageTypeAcid,
-            DamageTypeCold,
-            DamageTypeFire,
-            DamageTypeLightning,
-            DamageTypePoison
-        };
+        (string, IMagicEffect)[] damagesAndEffects =
+        [
+            (DamageTypeAcid, AcidSplash),
+            (DamageTypeCold, ConeOfCold),
+            (DamageTypeFire, FireBolt),
+            (DamageTypeLightning, LightningBolt),
+            (DamageTypePoison, PoisonSpray)
+        ];
 
-        var powerPool = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}")
-            .SetGuiPresentation(Name, Category.Feature, PowerDomainElementalLightningBlade)
+        var dbDamageAffinities = DatabaseRepository.GetDatabase<FeatureDefinitionDamageAffinity>();
+        
+        // Chromatic Infusion
+
+        var powersChromaticInfusion = new List<FeatureDefinitionPower>();
+        var powerChromaticInfusion = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ChromaticInfusion")
+            .SetGuiPresentation(Category.Feature, PowerDomainElementalLightningBlade)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -494,7 +513,7 @@ internal static class OtherFeats
             .AddToDB();
 
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var damageType in damageTypes)
+        foreach (var (damageType, magicEffect) in damagesAndEffects)
         {
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
             var title = "PowerGiftOfTheChromaticDragonDamageTitle".Formatted(Category.Feature, damageTitle);
@@ -503,7 +522,7 @@ internal static class OtherFeats
             var power = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"Power{Name}{damageType}")
                 .SetGuiPresentation(title, description)
-                .SetSharedPool(ActivationTime.BonusAction, powerPool)
+                .SetSharedPool(ActivationTime.BonusAction, powerChromaticInfusion)
                 .SetEffectDescription(EffectDescriptionBuilder.Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
@@ -516,6 +535,7 @@ internal static class OtherFeats
                                     .SetGuiPresentationNoContent(true)
                                     .SetDamageDice(DieType.D4, 1)
                                     .SetSpecificDamageType(damageType)
+                                    .SetImpactParticleReference(magicEffect)
                                     .AddToDB(),
                                 0))
                         .Build())
@@ -523,31 +543,161 @@ internal static class OtherFeats
                 .AddToDB();
 
             power.GuiPresentation.hidden = true;
-            powers.Add(power);
+            powersChromaticInfusion.Add(power);
+            
+            // use same loop to create Reactive Resistance conditions
+            var damageTypeAb = damageType.Replace("Damage", string.Empty);
+            
+            _ = ConditionDefinitionBuilder
+                .Create($"Condition{Name}{damageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(dbDamageAffinities.GetElement($"DamageAffinity{damageTypeAb}Resistance"))
+                .AddToDB();
         }
 
-        PowerBundle.RegisterPowerBundle(powerPool, false, powers);
+        PowerBundle.RegisterPowerBundle(powerChromaticInfusion, false, powersChromaticInfusion);
+
+        // Reactive Resistance
+
+        var powerReactiveResistance = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ReactiveResistance")
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .AddToDB();
+
+        powerReactiveResistance.AddCustomSubFeatures(new CustomBehaviorReactiveResistance(powerReactiveResistance));
 
         return FeatDefinitionBuilder
             .Create($"Feat{Name}")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(powerPool)
-            .AddFeatures(powers.OfType<FeatureDefinition>().ToArray())
+            .SetFeatures(powerChromaticInfusion, powerReactiveResistance)
+            .AddFeatures(powersChromaticInfusion.OfType<FeatureDefinition>().ToArray())
             .AddToDB();
     }
 
-    #endregion
-
-    #region Common Helpers
-
-    internal sealed class SpellTag
+    private sealed class CustomBehaviorReactiveResistance(FeatureDefinitionPower powerReactiveResistance)
+        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
-        internal SpellTag(string spellTag)
+        private static readonly HashSet<string> DamageTypes =
+            [DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison];
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
         {
-            Name = spellTag;
+            if (rulesetEffect == null)
+            {
+                yield break;
+            }
+
+            var firstValidEffectForm = actualEffectForms
+                .FirstOrDefault(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage &&
+                    DamageTypes.Contains(x.DamageForm.DamageType));
+
+            if (firstValidEffectForm != null)
+            {
+                yield return HandleReaction(attacker, defender, firstValidEffectForm);
+            }
         }
 
-        internal string Name { get; }
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var firstValidEffectForm = actualEffectForms
+                .FirstOrDefault(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage &&
+                    DamageTypes.Contains(x.DamageForm.DamageType));
+
+            if (firstValidEffectForm != null)
+            {
+                yield return HandleReaction(attacker, defender, firstValidEffectForm);
+            }
+        }
+
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender,
+            EffectForm effectForm)
+        {
+            var gameLocationBattleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationBattleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!defender.CanReact() ||
+                rulesetDefender.GetRemainingPowerUses(powerReactiveResistance) == 0)
+            {
+                yield break;
+            }
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var damageType = effectForm.DamageForm.DamageType;
+            var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
+            var usablePower = PowerProvider.Get(powerReactiveResistance, rulesetDefender);
+            var reactionParams =
+                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
+                {
+                    StringParameter = "ReactiveResistance",
+                    StringParameter2 = "UseReactiveResistanceDescription".Formatted(
+                        Category.Reaction, attacker.Name, damageTitle),
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
+                };
+
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+
+            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", defender);
+
+            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var conditionName = $"ConditionGiftOfTheChromaticDragon{damageType}";
+            
+            rulesetDefender.InflictCondition(
+                conditionName,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                conditionName,
+                0,
+                0,
+                0);
+        }
     }
 
     #endregion
@@ -576,7 +726,7 @@ internal static class OtherFeats
                                 false,
                                 HealingCap.MaximumHitPoints)
                             .Build())
-                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
+                    .SetParticleEffectParameters(MagicWeapon)
                     .Build())
             .AddToDB();
 
@@ -602,7 +752,7 @@ internal static class OtherFeats
                             .Create()
                             .SetReviveForm(12, ReviveHitPoints.One)
                             .Build())
-                    .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
+                    .SetParticleEffectParameters(MagicWeapon)
                     .Build())
             .AddToDB();
 
@@ -611,7 +761,7 @@ internal static class OtherFeats
             .Create("PowerFeatHealerStabilize")
             .SetGuiPresentation(Category.Feature, spriteStabilize)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
-            .SetEffectDescription(SpellDefinitions.SpareTheDying.EffectDescription)
+            .SetEffectDescription(SpareTheDying.EffectDescription)
             .AddToDB();
 
         var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
