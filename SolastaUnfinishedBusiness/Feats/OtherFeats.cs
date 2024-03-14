@@ -533,6 +533,7 @@ internal static class OtherFeats
                                 FeatureDefinitionAdditionalDamageBuilder
                                     .Create($"AttackModifier{Name}{damageType}")
                                     .SetGuiPresentationNoContent(true)
+                                    .SetNotificationTag($"ChromaticInfusion{damageType}")
                                     .SetDamageDice(DieType.D4, 1)
                                     .SetSpecificDamageType(damageType)
                                     .SetImpactParticleReference(magicEffect)
