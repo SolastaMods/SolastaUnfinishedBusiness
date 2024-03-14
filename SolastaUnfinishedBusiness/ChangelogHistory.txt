@@ -4,6 +4,7 @@
 - added 'Select Tabletop' checkboxes under 'Mod UI > Character'
 - fixed Circle of the Moon wildshape shapes offering logic
 - fixed flying on Path of Elements and Path of Totem Warrior
+- fixed mod startup scenarios but still no UMM at or above 0.27.11
 
 1.5.97.0:
 

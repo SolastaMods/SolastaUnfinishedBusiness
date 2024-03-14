@@ -1,13 +1,13 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Touch",
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
-    "itemSelectionType": "None",
+    "targetType": "Item",
+    "itemSelectionType": "Weapon",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -28,10 +28,10 @@
     "poolFilterDiceNumber": 5,
     "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
-    "targetConditionName": "ConditionDead",
-    "targetConditionAsset": "Definition:ConditionDead:9ec3d42bf0e13a8469b604a8dca4c477",
+    "targetConditionName": "",
+    "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Instantaneous",
+    "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Revive",
+        "formType": "ItemProperty",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -76,11 +76,17 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "reviveForm": {
-          "$type": "ReviveForm, Assembly-CSharp",
-          "maxSecondsSinceDeath": 12,
-          "reviveHitPoints": "One",
-          "removedConditions": []
+        "itemPropertyForm": {
+          "$type": "ItemPropertyForm, Assembly-CSharp",
+          "featureBySlotLevel": [
+            {
+              "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+              "featureDefinition": "Definition:AttackModifierGiftOfTheChromaticDragonDamageCold:82a723a7-bb5a-53b2-ad4b-70bedccb0439",
+              "level": 0
+            }
+          ],
+          "usageLimitation": "Unlimited",
+          "useAmount": 0
         },
         "hasFilterId": false,
         "filterId": 0
@@ -289,7 +295,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -324,12 +330,12 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerFeatHealerResuscitateTitle",
-    "description": "Feature/&PowerFeatHealerResuscitateDescription",
+    "hidden": true,
+    "title": "Cold Infusion",
+    "description": "Cold Infusion",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "dbf03edf-92cb-5b1c-9017-265f6c61a476",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -346,7 +352,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8e82c80d-e8c0-533c-ac8b-a5a5ee85b655",
+  "guid": "8ad5f602-69ee-596b-a22b-fcc9bc533902",
   "contentPack": 9999,
-  "name": "PowerFeatHealerResuscitate"
+  "name": "PowerGiftOfTheChromaticDragonDamageCold"
 }

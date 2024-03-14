@@ -4,10 +4,10 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierPathOfTheSavageryUnbridledFerocity:f15898d6-d016-553e-8e1c-5355f46e1737"
+    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75"
   ],
-  "allowMultipleInstances": true,
-  "silentWhenAdded": false,
+  "allowMultipleInstances": false,
+  "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
@@ -17,9 +17,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    9003
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -89,7 +87,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -131,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle",
-    "description": "Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "04f42c446dd0c5143bcc4d3b56edfbb2",
-      "m_SubObjectName": "ConditionShieldedByFaith",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -153,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d639f24f-7a9c-5476-86be-8c888439207c",
+  "guid": "6cf96f9b-b329-5af6-9c28-ead86e5b14b5",
   "contentPack": 9999,
-  "name": "ConditionPathOfTheSavageryUnbridledFerocity"
+  "name": "ConditionGiftOfTheChromaticDragonDamagePoison"
 }

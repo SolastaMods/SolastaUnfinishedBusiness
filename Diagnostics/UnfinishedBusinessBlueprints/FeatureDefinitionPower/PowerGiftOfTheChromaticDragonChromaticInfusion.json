@@ -6,8 +6,8 @@
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
-    "itemSelectionType": "None",
+    "targetType": "Item",
+    "itemSelectionType": "Weapon",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -28,10 +28,10 @@
     "poolFilterDiceNumber": 5,
     "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
-    "targetConditionName": "ConditionDead",
-    "targetConditionAsset": "Definition:ConditionDead:9ec3d42bf0e13a8469b604a8dca4c477",
+    "targetConditionName": "",
+    "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Instantaneous",
+    "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -60,32 +60,7 @@
     "effectPoolAmount": 60,
     "effectApplication": "All",
     "effectFormFilters": [],
-    "effectForms": [
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Revive",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "reviveForm": {
-          "$type": "ReviveForm, Assembly-CSharp",
-          "maxSecondsSinceDeath": 12,
-          "reviveHitPoints": "One",
-          "removedConditions": []
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      }
-    ],
+    "effectForms": [],
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
@@ -289,7 +264,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -325,13 +300,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerFeatHealerResuscitateTitle",
-    "description": "Feature/&PowerFeatHealerResuscitateDescription",
+    "title": "Feature/&PowerGiftOfTheChromaticDragonChromaticInfusionTitle",
+    "description": "Feature/&PowerGiftOfTheChromaticDragonChromaticInfusionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "dbf03edf-92cb-5b1c-9017-265f6c61a476",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "255fdc99aafc8044fb31353f8a5e61e1",
+      "m_SubObjectName": "LightningBlade",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -346,7 +321,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8e82c80d-e8c0-533c-ac8b-a5a5ee85b655",
+  "guid": "f993c332-7eca-5cca-81b6-0351f7909d98",
   "contentPack": 9999,
-  "name": "PowerFeatHealerResuscitate"
+  "name": "PowerGiftOfTheChromaticDragonChromaticInfusion"
 }
