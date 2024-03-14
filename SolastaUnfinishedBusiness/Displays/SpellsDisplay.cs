@@ -55,10 +55,15 @@ internal static class SpellsDisplay
 
         using (UI.HorizontalScope())
         {
-            toggle = SpellsContext.IsAllSetSelected();
-            if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
+            var displaySpellListsToggle = Main.Settings.DisplaySpellListsToggle.All(x => x.Value);
+
+            if (displaySpellListsToggle)
             {
-                SpellsContext.SelectAllSet(toggle);
+                toggle = SpellsContext.IsAllSetSelected();
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectDisplayed"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
+                {
+                    SpellsContext.SelectAllSet(toggle);
+                }   
             }
 
             toggle = SpellsContext.IsSuggestedSetSelected();
@@ -73,7 +78,7 @@ internal static class SpellsDisplay
                 SpellsContext.SelectTabletopSet(toggle);
             }
 
-            toggle = Main.Settings.DisplaySpellListsToggle.All(x => x.Value);
+            toggle = displaySpellListsToggle;
             if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
                 foreach (var key in Main.Settings.DisplaySpellListsToggle.Keys.ToHashSet())
@@ -112,7 +117,7 @@ internal static class SpellsDisplay
             void AdditionalRendering()
             {
                 toggle = spellListContext.IsAllSetSelected;
-                if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectDisplayed"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
                 {
                     spellListContext.SelectAllSetInternal(toggle);
                 }

@@ -237,7 +237,8 @@ ModUi/&Rollback=<b><color=#D89555>Retour en arrière</color></b>
 ModUi/&Rules=Règles
 ModUi/&SRD=<color=#F0DAA0>SRD :</color>
 ModUi/&ScaleMerchantPricesCorrectly=Mettre à l'échelle les prix marchands correctement/exactement <i><color=#F0DAA0>[plus d'erreurs d'arrondi lors de la conversion des valeurs en pièces]</color></i>
-ModUi/&SelectAll=Sélectionnez Affiché
+ModUi/&SelectAll=Tout sélectionner
+ModUi/&SelectDisplayed=Sélectionnez Affiché
 ModUi/&SelectSuggested=Sélectionnez suggéré
 ModUi/&SelectTabletop=Sélectionnez une table
 ModUi/&SenseNormalVisionRangeMultiplier=Modifier la portée de la <color=#D89555>Vision normale</color> <i><color=#F0DAA0>[uniquement en bataille]</color></i>

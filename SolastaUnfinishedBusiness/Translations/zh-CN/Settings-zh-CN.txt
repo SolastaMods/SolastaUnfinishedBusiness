@@ -238,7 +238,8 @@ ModUi/&Rollback=<b><color=#D89555>回滚</color></b>
 ModUi/&Rules=规则
 ModUi/&SRD=<color=#F0DAA0>SRD：</color>
 ModUi/&ScaleMerchantPricesCorrectly=正确/准确调整商家价格<i><color=#F0DAA0>[转换硬币价值时不再出现舍入错误]</color></i>
-ModUi/&SelectAll=选择显示的
+ModUi/&SelectAll=全选
+ModUi/&SelectDisplayed=选择显示的
 ModUi/&SelectSuggested=选择建议
 ModUi/&SelectTabletop=选择桌面
 ModUi/&SenseNormalVisionRangeMultiplier=修改<color=#D89555>正常视力</color>范围<i><color=#F0DAA0>[仅在战斗中]</color></i>

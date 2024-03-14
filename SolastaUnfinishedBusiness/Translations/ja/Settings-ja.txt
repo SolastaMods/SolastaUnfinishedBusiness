@@ -237,7 +237,8 @@ ModUi/&Rollback=<b><color=#D89555>ロールバック</color></b>
 ModUi/&Rules=ルール
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=販売者の価格を正しく / 正確にスケールします<i><color=#F0DAA0>[コインの価値を変換する際に四捨五入エラーがなくなりました]</color></i>
-ModUi/&SelectAll=表示を選択
+ModUi/&SelectAll=すべて選択
+ModUi/&SelectDisplayed=表示を選択
 ModUi/&SelectSuggested=提案されたものを選択してください
 ModUi/&SelectTabletop=テーブルトップを選択してください
 ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>通常の視力</color>範囲を変更<i><color=#F0DAA0>[戦闘時のみ]</color></i>

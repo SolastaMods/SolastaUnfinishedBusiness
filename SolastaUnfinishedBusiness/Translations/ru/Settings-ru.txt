@@ -237,7 +237,8 @@ ModUi/&Rollback=<b><color=#D89555>Откатить</color></b>
 ModUi/&Rules=Правила
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Масштабировать цены торговцев корректно/точно <i><color=#F0DAA0>[больше никаких ошибок округления при конвертировании монет разного номинала]</color></i>
-ModUi/&SelectAll=Выбрать отображаемые
+ModUi/&SelectAll=Выбрать все
+ModUi/&SelectDisplayed=Выбрать отображаемые
 ModUi/&SelectSuggested=Выбрать рекомендуемые
 ModUi/&SelectTabletop=Выбрать согласно настольной игре
 ModUi/&SenseNormalVisionRangeMultiplier=Изменить множитель дальности <color=#D89555>Нормального зрения</color> <i><color=#F0DAA0>[только в бою]</color></i>
