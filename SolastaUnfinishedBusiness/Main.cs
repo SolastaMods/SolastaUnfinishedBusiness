@@ -67,12 +67,6 @@ internal static class Main
 
         var now = DateTime.Now;
         var assembly = Assembly.GetExecutingAssembly();
-        // var harmonyVersion = Assembly.GetAssembly(typeof(HarmonyPatch)).GetName().Version;
-
-        if (!assembly.FullName.Contains("1.5.97"))
-        {
-            return false;
-        }
 
         try
         {
