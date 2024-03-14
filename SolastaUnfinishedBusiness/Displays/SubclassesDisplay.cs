@@ -33,7 +33,16 @@ internal static class SubclassesDisplay
 
         using (UI.HorizontalScope())
         {
-            var toggle = SubclassesContext.IsAllSetSelected();
+            var toggle = Main.Settings.DisplayKlassToggle.All(x => x.Value);
+            if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
+            {
+                foreach (var key in Main.Settings.DisplayKlassToggle.Keys.ToHashSet())
+                {
+                    Main.Settings.DisplayKlassToggle[key] = toggle;
+                }
+            }
+
+            toggle = SubclassesContext.IsAllSetSelected();
             if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
                 SubclassesContext.SelectAllSet(toggle);
@@ -43,15 +52,6 @@ internal static class SubclassesDisplay
             if (UI.Toggle(Gui.Localize("ModUi/&SelectTabletop"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
                 SubclassesContext.SelectTabletopSet(toggle);
-            }
-
-            toggle = Main.Settings.DisplayKlassToggle.All(x => x.Value);
-            if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
-            {
-                foreach (var key in Main.Settings.DisplayKlassToggle.Keys.ToHashSet())
-                {
-                    Main.Settings.DisplayKlassToggle[key] = toggle;
-                }
             }
         }
 

@@ -308,31 +308,36 @@ internal static class ModUi
 
         using (UI.HorizontalScope())
         {
-            if (additionalRendering != null)
-            {
-                additionalRendering.Invoke();
-            }
-            else if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref selectAll, UI.Width(PixelsPerColumn)))
-            {
-                foreach (var registeredDefinition in registeredDefinitions)
-                {
-                    switchAction.Invoke(registeredDefinition, selectAll);
-                }
-            }
-            else if (UI.Toggle(Gui.Localize("ModUi/&SelectTabletop"), ref selectTabletop, UI.Width(PixelsPerColumn)))
-            {
-                foreach (var registeredDefinition in registeredDefinitions)
-                {
-                    switchAction.Invoke(
-                        registeredDefinition, selectTabletop && TabletopDefinitions.Contains(registeredDefinition));
-                }
-            }
-
             toggle = sliderPosition == 1;
 
             if (UI.Toggle(Gui.Localize("ModUi/&ShowDescriptions"), ref toggle, UI.Width(PixelsPerColumn)))
             {
                 sliderPosition = toggle ? 1 : 4;
+            }
+
+            if (additionalRendering != null)
+            {
+                additionalRendering.Invoke();
+            }
+            else
+            {
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref selectAll, UI.Width(PixelsPerColumn)))
+                {
+                    foreach (var registeredDefinition in registeredDefinitions)
+                    {
+                        switchAction.Invoke(registeredDefinition, selectAll);
+                    }
+                }
+
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectTabletop"), ref selectTabletop,
+                        UI.Width(PixelsPerColumn)))
+                {
+                    foreach (var registeredDefinition in registeredDefinitions)
+                    {
+                        switchAction.Invoke(
+                            registeredDefinition, selectTabletop && TabletopDefinitions.Contains(registeredDefinition));
+                    }
+                }
             }
         }
 
