@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "",
+  "notificationTag": "ChromaticInfusionDamageFire",
   "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
