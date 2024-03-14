@@ -1280,7 +1280,7 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 feature,
-                AttributeModifierCreed_Of_Einar)
+                AttributeModifierCreed_Of_Solasta)
             .SetValidators(ValidatorsFeat.IsHalfling)
             .SetFeatFamily(Name)
             .AddToDB();
