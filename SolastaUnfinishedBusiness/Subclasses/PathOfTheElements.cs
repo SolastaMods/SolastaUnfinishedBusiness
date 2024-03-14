@@ -57,6 +57,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning))
                     .SetImpactEffectParameters(SpellDefinitions.LightningBolt)
+                    .SetCasterEffectParameters(PowerDomainElementalLightningBlade)
                     .Build())
             .AddToDB();
 
@@ -81,6 +82,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeCold))
                     .SetImpactEffectParameters(SpellDefinitions.RayOfFrost)
+                    .SetCasterEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
                     .Build())
             .AddToDB();
 
@@ -105,6 +107,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire))
                     .SetImpactEffectParameters(SpellDefinitions.FireBolt)
+                    .SetCasterEffectParameters(PowerOathOfMotherlandFieryWrath)
                     .Build())
             .AddToDB();
 
@@ -246,8 +249,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
-                    .SetCasterEffectParameters(PowerDomainElementalLightningBlade)
-                    .SetEffectEffectParameters(PowerDomainElementalLightningBlade)
+                    .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
@@ -352,6 +354,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         var conditionElementalConduitStorm = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}{ElementalConduit}Storm")
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
             // don't use vanilla RageStop with permanent conditions
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .AddToDB();

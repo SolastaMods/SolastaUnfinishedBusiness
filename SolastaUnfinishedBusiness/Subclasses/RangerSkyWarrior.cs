@@ -190,6 +190,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
         var conditionCloudDance = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}CloudDance")
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
             .AddToDB();
 
         conditionCloudDance.AddCustomSubFeatures(new ItemEquippedCheckHeroStillHasShield(conditionCloudDance));

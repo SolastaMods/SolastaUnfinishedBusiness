@@ -351,19 +351,13 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinitionPower PowerPathOfTheSpiritsHonedEagle()
     {
         var conditionHonedAnimalAspectsEagle = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionFlying12, $"Condition{Name}HonedAnimalAspectsEagle")
-            .SetOrUpdateGuiPresentation(Category.Condition)
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}HonedAnimalAspectsEagle")
+            .SetOrUpdateGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying)
             .SetParentCondition(ConditionDefinitions.ConditionFlying)
             .SetPossessive()
-            .SetSilent(Silent.WhenAddedOrRemoved)
             // don't use vanilla RageStop with permanent conditions
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
-            .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly8)
             .AddToDB();
-
-        // there is indeed a typo on tag
-        // ReSharper disable once StringLiteralTypo
-        conditionHonedAnimalAspectsEagle.ConditionTags.Add("Verticality");
 
         var powerHonedAnimalAspectsEagle = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HonedAnimalAspectsEagle")

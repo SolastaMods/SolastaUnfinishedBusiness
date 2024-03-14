@@ -90,6 +90,7 @@ internal static class RaceFairyBuilder
         // Flight
         var conditionFairyWings = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, "ConditionFairyWings")
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
             .AddToDB();
 
         conditionFairyWings.AddCustomSubFeatures(new CheckFairyFlying(conditionFairyWings));
