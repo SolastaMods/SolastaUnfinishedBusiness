@@ -55,6 +55,8 @@ internal static class SubclassesDisplay
             }
         }
 
+        UI.Div();
+
         foreach (var kvp in SubclassesContext.Klasses)
         {
             var displayName = kvp.Key;

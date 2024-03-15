@@ -267,7 +267,7 @@ internal static class ModUi
         UI.SubMenu(ref selectedPane, title != null, null, actions);
     }
 
-    internal static void DisplayDefinitions<T>(
+    internal static bool DisplayDefinitions<T>(
         string label,
         Action<T, bool> switchAction,
         [NotNull] HashSet<T> registeredDefinitions,
@@ -276,11 +276,12 @@ internal static class ModUi
         ref int sliderPosition,
         bool useAlternateDescription = false,
         [CanBeNull] Action headerRendering = null,
-        [CanBeNull] Action additionalRendering = null) where T : BaseDefinition
+        [CanBeNull] Action additionalRendering = null,
+        bool displaySelectTabletop = true) where T : BaseDefinition
     {
         if (registeredDefinitions.Count == 0)
         {
-            return;
+            return false;
         }
 
         var selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
@@ -299,7 +300,7 @@ internal static class ModUi
 
         if (!displayToggle)
         {
-            return;
+            return selectTabletop;
         }
 
         UI.Label();
@@ -329,13 +330,17 @@ internal static class ModUi
                     }
                 }
 
-                if (UI.Toggle(Gui.Localize("ModUi/&SelectTabletop"), ref selectTabletop,
-                        UI.Width(PixelsPerColumn)))
+                if (displaySelectTabletop)
                 {
-                    foreach (var registeredDefinition in registeredDefinitions)
+                    if (UI.Toggle(Gui.Localize("ModUi/&SelectTabletop"), ref selectTabletop,
+                            UI.Width(PixelsPerColumn)))
                     {
-                        switchAction.Invoke(
-                            registeredDefinition, selectTabletop && TabletopDefinitions.Contains(registeredDefinition));
+                        foreach (var registeredDefinition in registeredDefinitions)
+                        {
+                            switchAction.Invoke(
+                                registeredDefinition,
+                                selectTabletop && TabletopDefinitions.Contains(registeredDefinition));
+                        }
                     }
                 }
             }
@@ -406,6 +411,8 @@ internal static class ModUi
                 }
             }
         }
+
+        return selectTabletop;
     }
 }
 
