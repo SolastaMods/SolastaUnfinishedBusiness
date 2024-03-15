@@ -62,20 +62,17 @@ internal static class CustomSituationalContext
 
             ExtraSituationalContext.IsNotConditionSource =>
                 // this is required whenever there is a SetMyAttackAdvantage (Taunted, Shout of Provocation)
-                contextParams.source.Guid !=
-                contextParams.source.AllConditions.FirstOrDefault(x =>
+                contextParams.source.Guid != contextParams.source.AllConditions.FirstOrDefault(x =>
                     x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
                 // this is required whenever there is a SetAttackOnMeAdvantage (Exploit Opening, Distracted Strike)
-                contextParams.source.Guid !=
-                contextParams.target.AllConditions.FirstOrDefault(x =>
+                contextParams.source.Guid != contextParams.target.AllConditions.FirstOrDefault(x =>
                     x.ConditionDefinition == contextParams.condition)?.SourceGuid,
 
-            ExtraSituationalContext.IsNotConditionSourceWithSimpleOrMartialWeaponInHands =>
+            ExtraSituationalContext.IsNotConditionSourceNotRanged =>
                 // this is required whenever there is a SetMyAttackAdvantage (Wolf Leadership)
-                contextParams.source.Guid !=
-                contextParams.source.AllConditions.FirstOrDefault(x =>
+                contextParams.source.Guid != contextParams.source.AllConditions.FirstOrDefault(x =>
                     x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
-                ValidatorsCharacter.HasMeleeWeaponInMainOrOffhand(contextParams.source),
+                !contextParams.rangedAttack,
 
             ExtraSituationalContext.TargetIsFavoriteEnemy =>
                 contextParams.source.IsMyFavoriteEnemy(contextParams.target),
