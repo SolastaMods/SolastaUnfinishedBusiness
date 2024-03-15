@@ -54,6 +54,7 @@ internal enum ExtraActionId
     WildlingFeralAgility,
     Withdraw,
     ForcePoweredStrikeToggle,
+    BrutalStrikeToggle,
     PrioritizeAction = 10000
 }
 

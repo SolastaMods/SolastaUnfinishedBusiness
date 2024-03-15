@@ -1,5 +1,7 @@
 Action/&ArcaneArcherToggleDescription=Arkane Bogenschütze aktivieren/deaktivieren
 Action/&ArcaneArcherToggleTitle=Arkaner Bogenschütze
+Action/&BrutalStrikeToggleDescription=Brutal Strike aktivieren/deaktivieren
+Action/&BrutalStrikeToggleTitle=Brutaler Schlag
 Action/&CastPlaneMagicDescription=Wirke einen der Zaubersprüche, die du durch „Plane Touched“-Talente erhalten hast
 Action/&CastPlaneMagicTitle=Kanalebenenmagie
 Action/&CastSignatureSpellsDescription=Wirke diese Zauber der 3. Stufe, ohne einen Slot auszugeben

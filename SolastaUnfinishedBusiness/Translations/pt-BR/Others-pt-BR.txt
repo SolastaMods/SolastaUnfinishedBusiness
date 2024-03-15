@@ -1,5 +1,7 @@
 Action/&ArcaneArcherToggleDescription=Ativar/desativar Arqueiro Arcano
 Action/&ArcaneArcherToggleTitle=Arqueiro Arcano
+Action/&BrutalStrikeToggleDescription=Ativar/desativar Ataque Brutal
+Action/&BrutalStrikeToggleTitle=Golpe Brutal
 Action/&CastPlaneMagicDescription=Lance um dos feitiços que você obteve com os talentos Plane Touched
 Action/&CastPlaneMagicTitle=Magia do Plano do Canal
 Action/&CastSignatureSpellsDescription=Lance esses feitiços de 3º nível sem gastar um espaço

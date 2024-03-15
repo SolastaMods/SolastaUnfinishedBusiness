@@ -1,5 +1,7 @@
 Action/&ArcaneArcherToggleDescription=Activer/désactiver Archer arcanique
 Action/&ArcaneArcherToggleTitle=Archer arcanique
+Action/&BrutalStrikeToggleDescription=Activer/désactiver Brutal Strike
+Action/&BrutalStrikeToggleTitle=Frappe brutale
 Action/&CastPlaneMagicDescription=Lancer l'un des sorts que vous avez obtenus grâce aux Dons de Planaire
 Action/&CastPlaneMagicTitle=Canaliser la magie Planaire
 Action/&CastSignatureSpellsDescription=Lancez ces sorts de niveau 3 sans dépenser d'emplacement

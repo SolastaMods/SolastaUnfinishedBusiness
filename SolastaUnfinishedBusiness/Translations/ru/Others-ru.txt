@@ -1,5 +1,7 @@
 Action/&ArcaneArcherToggleDescription=Активировать/деактивировать Мистического лучника
 Action/&ArcaneArcherToggleTitle=Мистический лучник
+Action/&BrutalStrikeToggleDescription=Активировать/деактивировать Жестокий удар
+Action/&BrutalStrikeToggleTitle=Жестокий удар
 Action/&CastPlaneMagicDescription=Произнесите заклинание, полученное от одно из черт "Затронутый тем или иным Планом"
 Action/&CastPlaneMagicTitle=Направить планарную магию
 Action/&CastSignatureSpellsDescription=Произнесите эти заклинания 3-го уровня без затрат ячеек заклинаний

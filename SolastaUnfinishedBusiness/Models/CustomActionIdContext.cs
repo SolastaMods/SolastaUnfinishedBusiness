@@ -22,6 +22,7 @@ public static class CustomActionIdContext
     [
         (Id)ExtraActionId.ArcaneArcherToggle,
         (Id)ExtraActionId.AudaciousWhirlToggle,
+        (Id)ExtraActionId.BrutalStrikeToggle,
         (Id)ExtraActionId.CompellingStrikeToggle,
         (Id)ExtraActionId.CoordinatedAssaultToggle,
         (Id)ExtraActionId.CunningStrikeToggle,
@@ -220,6 +221,13 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.AudaciousWhirlToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "BrutalStrikeToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CunningStrikeToggle)
             .AddToDB();
 
         ActionDefinitionBuilder

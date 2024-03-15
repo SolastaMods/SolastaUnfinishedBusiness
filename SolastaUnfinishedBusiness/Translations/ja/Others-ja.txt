@@ -1,5 +1,7 @@
 Action/&ArcaneArcherToggleDescription=Arcane Archerのアクティブ化/非アクティブ化
 Action/&ArcaneArcherToggleTitle=秘術の射手
+Action/&BrutalStrikeToggleDescription=ブルータルストライクの有効化/無効化
+Action/&BrutalStrikeToggleTitle=ブルータル・ストライク
 Action/&CastPlaneMagicDescription=Plane Touched の特技で得た呪文の 1 つを唱える
 Action/&CastPlaneMagicTitle=チャンネルプレーンマジック
 Action/&CastSignatureSpellsDescription=スロットを消費せずにこれらの第 3 レベルの呪文を唱える

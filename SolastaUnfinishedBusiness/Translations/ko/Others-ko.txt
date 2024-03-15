@@ -1,5 +1,7 @@
 Action/&ArcaneArcherToggleDescription=아케인 궁수 활성화/비활성화
 Action/&ArcaneArcherToggleTitle=비전 궁수
+Action/&BrutalStrikeToggleDescription=잔혹한 일격 활성화/비활성화
+Action/&BrutalStrikeToggleTitle=잔인한 일격
 Action/&CastPlaneMagicDescription=Plane Touched feats에서 얻은 주문 중 하나를 시전하세요.
 Action/&CastPlaneMagicTitle=채널 평면 매직
 Action/&CastSignatureSpellsDescription=슬롯을 소비하지 않고 이 3레벨 주문을 시전하세요

@@ -1,5 +1,7 @@
 Action/&ArcaneArcherToggleDescription=激活/停用奥术弓箭手
 Action/&ArcaneArcherToggleTitle=奥术弓箭手
+Action/&BrutalStrikeToggleDescription=激活/停用残酷打击
+Action/&BrutalStrikeToggleTitle=残酷打击
 Action/&CastPlaneMagicDescription=施展你从 位面之触 专长中获得的法术之一
 Action/&CastPlaneMagicTitle=通道位面魔法
 Action/&CastSignatureSpellsDescription=使用这些3级法术时不消耗法术位

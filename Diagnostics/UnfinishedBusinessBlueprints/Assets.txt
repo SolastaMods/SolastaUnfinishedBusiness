@@ -14,6 +14,7 @@ ActionTempestFury	ActionDefinition	ActionDefinition	0ed6fe81-a82a-52d8-a566-2321
 ActionUseHeroicInspiration	ActionDefinition	ActionDefinition	86f89d9e-b91d-55e5-b6b0-140080fb8efe
 ArcaneArcherToggle	ActionDefinition	ActionDefinition	e91b0068-bbf8-5e37-9b65-97178625b889
 AudaciousWhirlToggle	ActionDefinition	ActionDefinition	2b7eef80-f821-55ae-92bc-165e8b57bc04
+BrutalStrikeToggle	ActionDefinition	ActionDefinition	47a2f7ed-285e-5494-957a-61bd625366e1
 CastInvocationBonus	ActionDefinition	ActionDefinition	f2d189c0-5e0a-5a69-9ace-b447bbc1185a
 CastInvocationNoCost	ActionDefinition	ActionDefinition	0a4870d5-055f-5c2a-a6bd-e9529bb4a963
 CastPlaneMagicBonus	ActionDefinition	ActionDefinition	c02d5cad-8d69-5b88-8b98-790acbbca5b9

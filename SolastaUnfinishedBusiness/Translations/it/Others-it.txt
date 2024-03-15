@@ -1,5 +1,7 @@
 Action/&ArcaneArcherToggleDescription=Attiva/disattiva l'Arciere Arcano
 Action/&ArcaneArcherToggleTitle=Arciere Arcano
+Action/&BrutalStrikeToggleDescription=Attiva/disattiva Colpo Brutale
+Action/&BrutalStrikeToggleTitle=Colpo Brutale
 Action/&CastPlaneMagicDescription=Lancia uno degli incantesimi che hai ottenuto dai talenti Plane Touched
 Action/&CastPlaneMagicTitle=Magia del piano del canale
 Action/&CastSignatureSpellsDescription=Lancia questi incantesimi di 3° livello senza spendere uno slot
