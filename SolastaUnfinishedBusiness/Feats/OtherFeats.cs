@@ -42,6 +42,7 @@ internal static class OtherFeats
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
+        var featFightingInitiate = BuildFightingInitiate();
         var featFrostAdaptation = BuildFrostAdaptation();
         var featGiftOfTheChromaticDragon = BuildGiftOfTheChromaticDragon();
         var featHealer = BuildHealer();
@@ -58,7 +59,6 @@ internal static class OtherFeats
         var featVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var featWarCaster = BuildWarcaster();
 
-        var fightingInitiateGroup = BuildFightingInitiate(feats);
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
@@ -134,12 +134,12 @@ internal static class OtherFeats
         GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
             featArcaneArcherAdept,
             featEldritchAdept,
+            featFightingInitiate,
             featInfusionAdept,
             featMagicInitiate,
             featMartialAdept,
             featMetamagicAdept,
-            featVersatilityAdept,
-            fightingInitiateGroup);
+            featVersatilityAdept);
 
         GroupFeats.MakeGroup("FeatGroupSkills", null,
             FeatDefinitions.ArcaneAppraiser,
@@ -1406,7 +1406,7 @@ internal static class OtherFeats
         return feat;
     }
 
-    private static FeatDefinition BuildFightingInitiate([NotNull] List<FeatDefinition> feats)
+    private static FeatDefinition BuildFightingInitiate()
     {
         var fightingStyleFeats = DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
@@ -1417,11 +1417,6 @@ internal static class OtherFeats
             .Select(BuildFightingStyleFeat)
             .OfType<FeatDefinition>()
             .ToList();
-
-        var modFightingStyleFeats =
-            fightingStyleFeats.Where(x => x.ContentPack == CeContentPackContext.CeContentPack).ToArray();
-
-        feats.AddRange(modFightingStyleFeats);
 
         var vanillaFightingStyleFeats =
             fightingStyleFeats.Where(x => x.ContentPack != CeContentPackContext.CeContentPack).ToArray();
