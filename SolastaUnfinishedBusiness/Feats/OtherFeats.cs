@@ -1426,7 +1426,7 @@ internal static class OtherFeats
         return GroupFeats.FeatGroupFightingStyle;
     }
 
-    private static FeatDefinitionWithPrerequisites BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)
+    private static FeatDefinitionWithPrerequisites BuildFightingStyleFeat(FightingStyleDefinition fightingStyle)
     {
         // we need a brand new one to avoid issues with FS getting hidden
         var guiPresentation = new GuiPresentation(fightingStyle.GuiPresentation);
@@ -1443,7 +1443,11 @@ internal static class OtherFeats
             .SetValidators(ValidatorsFeat.ValidateNotFightingStyle(fightingStyle))
             .AddToDB();
 
-        if (fightingStyle.ContentPack == CeContentPackContext.CeContentPack)
+        // supports custom pools [only superior technique now]
+        feat.Features.AddRange(fightingStyle.Features.OfType<FeatureDefinitionCustomInvocationPool>());
+
+        if (fightingStyle.ContentPack == CeContentPackContext.CeContentPack &&
+            !Main.Settings.FightingStyleEnabled.Contains(fightingStyle.Name))
         {
             guiPresentation.hidden = true;
         }
