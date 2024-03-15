@@ -3,7 +3,9 @@
 - added Gift of The Chromatic Dragon and Second Chance feats
 - added 'Select Tabletop' checkboxes under 'Mod UI > Character'
 - fixed Circle of the Moon wildshape shapes offering logic
+- fixed Fighting Initiate feat offering FS regardless of mod UI selection
 - fixed flying on Path of Elements and Path of Totem Warrior
+- fixed mod boot under certain scenarios [UMM 0.27.11 or above not supported]
 
 1.5.97.0:
 

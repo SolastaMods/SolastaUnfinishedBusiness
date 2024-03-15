@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -232,28 +232,13 @@ internal static class RaceMalakhBuilder
 
     private static FeatureDefinitionPower BuildAngelicRadiance(FeatureDefinition additionalDamageMalakhAngelicForm)
     {
-        var powerAngelicRadianceDamage = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}AngelicRadianceDamage")
-            .SetGuiPresentation($"Condition{Name}AngelicRadiance", Category.Condition, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeRadiant, 1))
-                    .SetImpactEffectParameters(SpellDefinitions.BrandingSmite)
-                    .Build())
-            .AddToDB();
-
         var conditionAngelicRadiance = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicRadiance")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
             .SetConditionType(ConditionType.Beneficial)
-            .AddFeatures(additionalDamageMalakhAngelicForm, powerAngelicRadianceDamage)
-            .AddCustomSubFeatures(
-                AddUsablePowersFromCondition.Marker,
-                new CustomBehaviorAngelicRadiance(powerAngelicRadianceDamage))
+            .CopyParticleReferences(ConditionDefinitions.ConditionFlyingAdaptive)
+            .AddFeatures(additionalDamageMalakhAngelicForm)
+            .AddCustomSubFeatures(new CharacterTurnEndListenerAngelicRadiance())
             .AddToDB();
 
         var faerieFireLightSource =
@@ -270,7 +255,8 @@ internal static class RaceMalakhBuilder
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionAngelicRadiance),
-                        EffectFormBuilder.Create()
+                        EffectFormBuilder
+                            .Create()
                             .SetLightSourceForm(
                                 LightSourceType.Sun, 2, 2,
                                 faerieFireLightSource.lightSourceForm.color,
@@ -282,8 +268,7 @@ internal static class RaceMalakhBuilder
         return powerMalakhAngelicRadiance;
     }
 
-    private sealed class CustomBehaviorAngelicRadiance(FeatureDefinitionPower powerAngelicRadianceDamage)
-        : ICharacterBeforeTurnEndListener, IModifyEffectDescription
+    private class CharacterTurnEndListenerAngelicRadiance : ICharacterBeforeTurnEndListener
     {
         public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
@@ -301,39 +286,8 @@ internal static class RaceMalakhBuilder
                 return;
             }
 
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerAngelicRadianceDamage, rulesetCharacter);
-            var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 2);
-            var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, false);
-        }
-
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerAngelicRadianceDamage;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            damageForm.dieType = characterLevel switch
+            var characterLevel = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var dieType = characterLevel switch
             {
                 < 5 => DieType.D4,
                 < 9 => DieType.D6,
@@ -342,7 +296,34 @@ internal static class RaceMalakhBuilder
                 _ => DieType.D12
             };
 
-            return effectDescription;
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypeRadiant,
+                DieType = dieType,
+                DiceNumber = 1,
+                BonusDamage = 0,
+                IgnoreCriticalDoubleDice = true
+            };
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var enemy in Gui.Battle.GetContenders(locationCharacter, withinRange: 3))
+            {
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = rulesetCharacter,
+                    targetCharacter = enemy.RulesetCharacter,
+                    position = enemy.LocationPosition
+                };
+
+                EffectHelpers.StartVisualEffect(locationCharacter, enemy, SpellDefinitions.BrandingSmite);
+
+                implementationService.ApplyEffectForms(
+                    [new EffectForm { damageForm = damageForm }],
+                    applyFormsParams,
+                    [DamageTypeRadiant],
+                    out _,
+                    out _);
+            }
         }
     }
 }
