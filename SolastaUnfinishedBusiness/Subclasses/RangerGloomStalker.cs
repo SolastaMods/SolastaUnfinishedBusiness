@@ -200,9 +200,10 @@ public sealed class RangerGloomStalker : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDreadAmbusher,
         ConditionDefinition conditionDreadAmbusherMainAttack,
-        ConditionDefinition conditionDreadAmbusherBonusAttack) : IInitiativeEndListener, IPhysicalAttackFinishedByMe
+        ConditionDefinition conditionDreadAmbusherBonusAttack)
+        : ICharacterBattleStartedListener, IPhysicalAttackFinishedByMe
     {
-        public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
@@ -219,8 +220,6 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 0,
                 0,
                 0);
-
-            yield break;
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(

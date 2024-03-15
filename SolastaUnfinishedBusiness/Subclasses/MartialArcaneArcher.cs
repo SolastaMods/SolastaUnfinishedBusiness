@@ -816,29 +816,29 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class BattleStartedListenerEverReadyShot(FeatureDefinition featureDefinition)
-        : IInitiativeEndListener
+        : ICharacterBattleStartedListener
     {
-        public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var character = locationCharacter.RulesetCharacter;
 
             if (character is not { IsDeadOrDyingOrUnconscious: false })
             {
-                yield break;
+                return;
             }
 
             var levels = character.GetClassLevel(CharacterClassDefinitions.Fighter);
 
             if (levels < 15)
             {
-                yield break;
+                return;
             }
 
             var usablePower = PowerProvider.Get(PowerArcaneShot, character);
 
             if (character.GetRemainingUsesOfPower(usablePower) > 0)
             {
-                yield break;
+                return;
             }
 
             character.RepayPowerUse(usablePower);
