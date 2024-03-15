@@ -535,7 +535,8 @@ internal static class OtherFeats
                                 new FeatureUnlockByLevel(
                                     FeatureDefinitionAdditionalDamageBuilder
                                         .Create($"AttackModifier{Name}{damageType}")
-                                        .SetGuiPresentation(title, description, ConditionDefinitions.ConditionGuided)
+                                        .SetGuiPresentation(title, description,
+                                            ConditionDefinitions.ConditionBrandingSmite)
                                         .SetNotificationTag($"ChromaticInfusion{damageType}")
                                         .SetDamageDice(DieType.D4, 1)
                                         .SetSpecificDamageType(damageType)
@@ -558,6 +559,7 @@ internal static class OtherFeats
                     ConditionDefinitions.ConditionProtectedInsideMagicCircle, hidden: true)
                 .SetPossessive()
                 .SetFeatures(dbDamageAffinities.GetElement($"DamageAffinity{damageTypeAb}Resistance"))
+                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                 .AddToDB();
 
             condition.GuiPresentation.description = Gui.NoLocalization;
@@ -571,6 +573,11 @@ internal static class OtherFeats
             .Create($"Power{Name}ReactiveResistance")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetCasterEffectParameters(PowerDispelEvilBreakEnchantment)
+                    .Build())
             .AddToDB();
 
         powerReactiveResistance.AddCustomSubFeatures(new CustomBehaviorReactiveResistance(powerReactiveResistance));
