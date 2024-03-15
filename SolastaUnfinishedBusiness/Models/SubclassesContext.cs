@@ -78,7 +78,7 @@ internal static class SubclassesContext
 
             Klasses.Add(klass.FormatTitle() + postfix, (klassName, klass));
             KlassListContextTab.Add(klass, new KlassListContext(klass));
-            Main.Settings.DisplayKlassToggle.TryAdd(klassName, true);
+            Main.Settings.DisplayKlassToggle.TryAdd(klassName, false);
             Main.Settings.KlassListSliderPosition.TryAdd(klassName, 4);
             Main.Settings.KlassListSubclassEnabled.TryAdd(klassName, []);
         }

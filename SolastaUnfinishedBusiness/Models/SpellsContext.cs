@@ -214,7 +214,7 @@ internal static class SpellsContext
             SpellListContextTab.Add(spellList, new SpellListContext(spellList));
 
             Main.Settings.SpellListSpellEnabled.TryAdd(name, []);
-            Main.Settings.DisplaySpellListsToggle.TryAdd(name, true);
+            Main.Settings.DisplaySpellListsToggle.TryAdd(name, false);
             Main.Settings.SpellListSliderPosition.TryAdd(name, 4);
         }
 
