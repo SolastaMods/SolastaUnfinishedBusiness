@@ -1,13 +1,13 @@
 Condition/&ConditionHeroicInfusionDescription=Ti doti di resistenza e abilità marziale alimentate dalla magia.
-Condition/&ConditionHeroicInfusionTitle=Il mutamento di forma di Tenser
+Condition/&ConditionHeroicInfusionTitle=La trasformazione di Tenser
 Feature/&PowerRingOfBladesDescription=Come azione bonus, puoi effettuare un attacco con incantesimo a distanza su una creatura entro 18 metri da te, utilizzando una delle tue spade Ring of Blades.
 Feature/&PowerRingOfBladesTitle=Anello delle Lame
-Feedback/&AdditionalDamageHeroicInfusionFormat=Il mutamento di forma di Tenser!
+Feedback/&AdditionalDamageHeroicInfusionFormat=La trasformazione di Tenser!
 Feedback/&AdditionalDamageHeroicInfusionLine={0} colpisce eroicamente {1}! (+{2})
 Spell/&FlashFreezeDescription=Tenti di rinchiudere una creatura che puoi vedere a gittata in una prigione di ghiaccio solido. Il bersaglio deve effettuare un tiro salvezza su Destrezza. Se fallisce il Tiro Salvezza, il bersaglio subisce 10d6 danni da freddo e viene intrappolato in strati di spesso ghiaccio. Se il Tiro Salvezza riesce, il bersaglio subisce la metà dei danni e non è trattenuto. L'incantesimo può essere utilizzato solo su creature fino a una taglia grande. Per liberarsi, il bersaglio trattenuto può effettuare una prova di Forza come azione contro la CD del tiro salvezza dell'incantesimo. In caso di successo, il bersaglio fugge e non è più trattenuto. Quando esegui questo incantesimo utilizzando uno slot incantesimo di 7° livello o superiore, il danno da freddo aumenta di 2d6 per ogni livello dello slot superiore al 6°.
 Spell/&FlashFreezeTitle=Congelamento istantaneo
 Spell/&HeroicInfusionDescription=Ti doti di resistenza e abilità marziale alimentate dalla magia. Fino al termine dell'incantesimo, non puoi lanciare incantesimi e ottieni i seguenti benefici:\n• Ottieni 50 punti ferita temporanei. Se qualcuno di questi rimane al termine dell'incantesimo, viene perso.\n• Hai vantaggio ai tiri per colpire effettuati con armi semplici e marziali.\n• Quando colpisci un bersaglio con un attacco con un'arma, quel bersaglio subisce 2d12 danni di forza aggiuntivi.\n• Possiedi le competenze nelle armature, nelle armi e nei tiri salvezza della classe Guerriero.\n• Puoi attaccare due volte, anziché una, quando esegui l'azione Attacco nel tuo turno.\n Immediatamente dopo la fine dell'incantesimo, è necessario riuscire un tiro salvezza su Costituzione con CD 15 o subire un livello di esaurimento.
-Spell/&HeroicInfusionTitle=Il mutamento di forma di Tenser
+Spell/&HeroicInfusionTitle=La trasformazione di Tenser
 Spell/&MysticalCloakDescription=Pronunciando un incantesimo, attingi alla magia dei Piani Inferiori o dei Piani Superiori (a tua scelta) per trasformarti.
 Spell/&MysticalCloakHigherPlaneDescription=Sei immune ai danni radiosi e necrotici, immune alla condizione affascinato. Ottieni bonus +2 alla CA, velocità di volo di 40 piedi, un attacco extra, tutti gli attacchi sono magici e puoi usare l'attributo della tua capacità magica invece di FOR o DEX quando esegui l'azione di attacco nel tuo turno.
 Spell/&MysticalCloakHigherPlaneTitle=L'aspetto ultraterreno di Tasha: Piano Superiore

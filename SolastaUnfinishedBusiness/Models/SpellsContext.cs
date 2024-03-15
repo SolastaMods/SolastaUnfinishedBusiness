@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
+using SolastaUnfinishedBusiness.Displays;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
@@ -53,9 +54,8 @@ internal static class SpellsContext
     internal static readonly SpellDefinition Web = BuildWeb();
     internal static readonly SpellDefinition Wrack = BuildWrack();
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
+    internal static HashSet<SpellDefinition> Spells { get; private set; } = [];
 
-    // ReSharper disable once MemberCanBePrivate.Global
-    internal static HashSet<SpellDefinition> Spells { get; set; } = [];
 
     [NotNull]
     internal static SortedList<string, SpellListDefinition> SpellLists
@@ -167,6 +167,11 @@ internal static class SpellsContext
         return SpellListContextTab.Values.All(spellListContext => spellListContext.IsSuggestedSetSelected);
     }
 
+    internal static bool IsTabletopSetSelected()
+    {
+        return SpellListContextTab.Values.All(spellListContext => spellListContext.IsTabletopSetSelected);
+    }
+
     internal static void SelectAllSet(bool toggle)
     {
         foreach (var spellListContext in SpellListContextTab.Values)
@@ -183,6 +188,22 @@ internal static class SpellsContext
         }
     }
 
+    internal static void SelectTabletopSet(bool toggle)
+    {
+        foreach (var spellListContext in SpellListContextTab.Values)
+        {
+            spellListContext.SelectTabletopSetInternal(toggle);
+        }
+    }
+
+    internal static void RecalculateDisplayedSpells()
+    {
+        foreach (var spellListContext in SpellListContextTab.Values)
+        {
+            spellListContext.CalculateDisplayedSpellsInternal();
+        }
+    }
+
     internal static void LateLoad()
     {
         // init collections
@@ -193,39 +214,39 @@ internal static class SpellsContext
             SpellListContextTab.Add(spellList, new SpellListContext(spellList));
 
             Main.Settings.SpellListSpellEnabled.TryAdd(name, []);
-            Main.Settings.DisplaySpellListsToggle.TryAdd(name, true);
+            Main.Settings.DisplaySpellListsToggle.TryAdd(name, false);
             Main.Settings.SpellListSliderPosition.TryAdd(name, 4);
         }
 
         var spellListInventorClass = InventorClass.SpellList;
 
         // MUST COME BEFORE ANY MOD REGISTERED SPELL
-        AllowAssigningOfficialSpells();
-
-        // Dead Master Spells
-        // WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x, -1));
+        foreach (var kvp in SpellSpellListMap)
+        {
+            RegisterSpell(kvp.Key, kvp.Value.Count, kvp.Value.ToArray());
+        }
 
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
-        RegisterSpell(AirBlast, 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(AirBlast, 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildBladeWard(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildBoomingBlade(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+        RegisterSpell(BuildBoomingBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
         RegisterSpell(EnduringSting, 0, SpellListWizard);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMindSpike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWizard, SpellListWarlock);
-        RegisterSpell(BuildResonatingStrike(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+        RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildResonatingStrike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
-        RegisterSpell(SunlightBlade, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+        RegisterSpell(SunlightBlade, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildSwordStorm(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
-        RegisterSpell(BuildTollTheDead(), 0, SpellListCleric, SpellListWizard, SpellListWarlock);
+        RegisterSpell(BuildTollTheDead(), 0, SpellListCleric, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, spellListInventorClass);
-        RegisterSpell(BuildThunderStrike(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard,
-            spellListInventorClass);
+        RegisterSpell(BuildThunderStrike(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWarlock,
+            SpellListWizard, spellListInventorClass);
         RegisterSpell(Wrack, 0, SpellListCleric);
 
         // 1st level
@@ -265,10 +286,10 @@ internal static class SpellsContext
         // 3rd level
         RegisterSpell(BuildAdderFangs(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWarlock);
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
-        RegisterSpell(BuildBoomingStep(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildBoomingStep(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(CorruptingBolt, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildCrusadersMantle(), 0, SpellListPaladin);
-        RegisterSpell(ElementalWeapon, 0, SpellListCleric, SpellListPaladin);
+        RegisterSpell(ElementalWeapon, 0, SpellListDruid, SpellListPaladin, SpellListRanger, spellListInventorClass);
         RegisterSpell(BuildHungerOfTheVoid(), 0, SpellListWarlock);
         RegisterSpell(PulseWave, 0, SpellListWizard);
         RegisterSpell(BuildFlameArrows(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWizard,
@@ -302,7 +323,7 @@ internal static class SpellsContext
         RegisterSpell(Telekinesis, 0, SpellListSorcerer, SpellListWizard);
 
         // 6th level
-        RegisterSpell(BuildHeroicInfusion(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildHeroicInfusion(), 0, SpellListWizard);
         RegisterSpell(BuildFlashFreeze(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock);
         RegisterSpell(BuildMysticalCloak(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPoisonWave(), 0, SpellListWizard);
@@ -315,14 +336,14 @@ internal static class SpellsContext
         RegisterSpell(BuildMindBlank(), 0, SpellListBard, SpellListWizard);
 
         // 9th level
-        RegisterSpell(BuildForesight(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildForesight(), 0, SpellListBard, SpellListDruid, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildMassHeal(), 0, SpellListCleric);
         RegisterSpell(BuildMeteorSwarmSingleTarget(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildPowerWordHeal(), 0, SpellListBard, SpellListCleric);
         RegisterSpell(BuildPowerWordKill(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildTimeStop(), 0, SpellListWizard, SpellListSorcerer);
         RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
-        RegisterSpell(BuildWeird(), 0, SpellListWizard);
+        RegisterSpell(BuildWeird(), 0, SpellListWarlock, SpellListWizard);
 
         Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();
 
@@ -332,6 +353,7 @@ internal static class SpellsContext
             var spellListContext = kvp.Value;
 
             spellListContext.CalculateAllSpells();
+            spellListContext.CalculateDisplayedSpellsInternal();
 
             // settings paring
             var spellListName = kvp.Key.Name;
@@ -353,30 +375,6 @@ internal static class SpellsContext
                 // tryAdd to avoid AtWill spells to mess up this collection
                 SpellsChildMaster.TryAdd(child, parent);
             }
-        }
-    }
-
-    internal static void SwitchAllowAssigningOfficialSpells()
-    {
-        if (Main.Settings.AllowAssigningOfficialSpells)
-        {
-            return;
-        }
-
-        foreach (var spellList in SpellLists.Values)
-        {
-            var name = spellList.Name;
-
-            Main.Settings.SpellListSpellEnabled[name].RemoveAll(x =>
-                DatabaseHelper.GetDefinition<SpellDefinition>(x).ContentPack != CeContentPackContext.CeContentPack);
-        }
-    }
-
-    private static void AllowAssigningOfficialSpells()
-    {
-        foreach (var kvp in SpellSpellListMap)
-        {
-            RegisterSpell(kvp.Key, kvp.Value.Count, kvp.Value.ToArray());
         }
     }
 
@@ -421,12 +419,7 @@ internal static class SpellsContext
             SpellListContextTab[spellList].Switch(spellDefinition, enable);
         }
 
-        //this is really an exception on how Dead Master handles no concentration
-        //but so far it's the only one passing -1 to register spells
-        var isDeadMasterSpell = suggestedStartsAt == -1;
-
-        var isActiveInAtLeastOneRepertoire = isDeadMasterSpell ||
-                                             SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
+        var isActiveInAtLeastOneRepertoire = SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
 
         if (!isActiveInAtLeastOneRepertoire || spellDefinition.contentPack != CeContentPackContext.CeContentPack)
         {
@@ -469,43 +462,117 @@ internal static class SpellsContext
         {
             SpellList = spellListDefinition;
             AllSpells = [];
+            DisplayedSpells = [];
+            DisplayedSuggestedSpells = [];
+            DisplayedNonSuggestedSpells = [];
+            DisplayedTabletopSpells = [];
+            DisplayedNonTabletopSpells = [];
             MinimumSpells = [];
             SuggestedSpells = [];
+            TabletopSpells = [];
         }
 
         private List<string> SelectedSpells => Main.Settings.SpellListSpellEnabled[SpellList.Name];
         private SpellListDefinition SpellList { get; }
-        internal HashSet<SpellDefinition> AllSpells { get; }
+        private HashSet<SpellDefinition> AllSpells { get; }
+        internal HashSet<SpellDefinition> DisplayedSpells { get; }
+        private HashSet<SpellDefinition> DisplayedSuggestedSpells { get; }
+        private HashSet<SpellDefinition> DisplayedNonSuggestedSpells { get; }
+        private HashSet<SpellDefinition> DisplayedTabletopSpells { get; }
+        private HashSet<SpellDefinition> DisplayedNonTabletopSpells { get; }
         internal HashSet<SpellDefinition> MinimumSpells { get; }
         internal HashSet<SpellDefinition> SuggestedSpells { get; }
+        private HashSet<SpellDefinition> TabletopSpells { get; }
+
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        internal bool IsAllSetSelected => SelectedSpells.Count == AllSpells
-            .Count(x => Main.Settings.AllowAssigningOfficialSpells ||
-                        x.ContentPack == CeContentPackContext.CeContentPack);
+        internal bool IsAllSetSelected =>
+            DisplayedSpells.All(x => SelectedSpells.Contains(x.Name));
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        internal bool IsSuggestedSetSelected => SelectedSpells.Count == SuggestedSpells.Count
-                                                && SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
+        internal bool IsSuggestedSetSelected =>
+            DisplayedSuggestedSpells.All(x => SelectedSpells.Contains(x.Name)) &&
+            DisplayedNonSuggestedSpells.All(x => !SelectedSpells.Contains(x.Name));
+
+        // ReSharper disable once MemberHidesStaticFromOuterClass
+        internal bool IsTabletopSetSelected =>
+            DisplayedTabletopSpells.All(x => SelectedSpells.Contains(x.Name)) &&
+            DisplayedNonTabletopSpells.All(x => !SelectedSpells.Contains(x.Name));
 
         internal void CalculateAllSpells()
         {
             var minSpellLevel = SpellList.HasCantrips ? 0 : 1;
             var maxSpellLevel = SpellList.MaxSpellLevel;
 
-            AllSpells.Clear();
-
-            foreach (var spell in Spells
-                         .Where(x => x.SpellLevel >= minSpellLevel && x.SpellLevel <= maxSpellLevel &&
-                                     !MinimumSpells.Contains(x)))
+            foreach (var spell in Spells.Where(x =>
+                         x.SpellLevel >= minSpellLevel &&
+                         x.SpellLevel <= maxSpellLevel &&
+                         !MinimumSpells.Contains(x)))
             {
                 AllSpells.Add(spell);
+
+                if (ModUi.TabletopDefinitionNames.Contains(spell.Name))
+                {
+                    TabletopSpells.Add(spell);
+                }
+            }
+        }
+
+        internal void CalculateDisplayedSpellsInternal()
+        {
+            DisplayedSpells.Clear();
+            DisplayedSuggestedSpells.Clear();
+            DisplayedNonSuggestedSpells.Clear();
+            DisplayedTabletopSpells.Clear();
+            DisplayedNonTabletopSpells.Clear();
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var spell in AllSpells)
+            {
+                if (SpellsDisplay.SpellLevelFilter != -1 &&
+                    spell.SpellLevel != SpellsDisplay.SpellLevelFilter)
+                {
+                    continue;
+                }
+
+                if (!Main.Settings.AllowDisplayingOfficialSpells &&
+                    spell.ContentPack != CeContentPackContext.CeContentPack)
+                {
+                    continue;
+                }
+
+                if (!Main.Settings.AllowDisplayingNonSuggestedSpells &&
+                    spell.ContentPack == CeContentPackContext.CeContentPack &&
+                    !SuggestedSpells.Contains(spell))
+                {
+                    continue;
+                }
+
+                DisplayedSpells.Add(spell);
+
+                if (SuggestedSpells.Contains(spell))
+                {
+                    DisplayedSuggestedSpells.Add(spell);
+                }
+                else
+                {
+                    DisplayedNonSuggestedSpells.Add(spell);
+                }
+
+                if (TabletopSpells.Contains(spell))
+                {
+                    DisplayedTabletopSpells.Add(spell);
+                }
+                else
+                {
+                    DisplayedNonTabletopSpells.Add(spell);
+                }
             }
         }
 
         internal void SelectAllSetInternal(bool toggle)
         {
-            foreach (var spell in AllSpells)
+            foreach (var spell in DisplayedSpells)
             {
                 Switch(spell, toggle);
             }
@@ -518,7 +585,20 @@ internal static class SpellsContext
                 SelectAllSetInternal(false);
             }
 
-            foreach (var spell in SuggestedSpells)
+            foreach (var spell in DisplayedSpells.Intersect(SuggestedSpells))
+            {
+                Switch(spell, toggle);
+            }
+        }
+
+        internal void SelectTabletopSetInternal(bool toggle)
+        {
+            if (toggle)
+            {
+                SelectAllSetInternal(false);
+            }
+
+            foreach (var spell in DisplayedSpells.Intersect(TabletopSpells))
             {
                 Switch(spell, toggle);
             }
@@ -536,7 +616,7 @@ internal static class SpellsContext
 
             InventorClass.SwitchSpellStoringItemSubPower(spellDefinition, active);
 
-            if (!Main.Settings.AllowAssigningOfficialSpells &&
+            if (!Main.Settings.AllowDisplayingOfficialSpells &&
                 spellDefinition.ContentPack != CeContentPackContext.CeContentPack)
             {
                 return;

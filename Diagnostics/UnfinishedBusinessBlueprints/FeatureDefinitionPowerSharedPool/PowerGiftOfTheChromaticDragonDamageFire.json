@@ -1,13 +1,13 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 6,
+    "rangeType": "Touch",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
-    "itemSelectionType": "None",
+    "targetType": "Item",
+    "itemSelectionType": "Weapon",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -30,8 +30,8 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Instantaneous",
+    "targetSide": "Ally",
+    "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Damage",
+        "formType": "ItemProperty",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -76,22 +76,17 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "damageForm": {
-          "$type": "DamageForm, Assembly-CSharp",
-          "versatile": false,
-          "diceNumber": 1,
-          "dieType": "D1",
-          "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D1",
-          "bonusDamage": 0,
-          "damageType": "DamageRadiant",
-          "ancestryType": "Sorcerer",
-          "healFromInflictedDamage": "Never",
-          "hitPointsFloor": 0,
-          "forceKillOnZeroHp": false,
-          "specialDeathCondition": null,
-          "ignoreFlyingCharacters": false,
-          "ignoreCriticalDoubleDice": false
+        "itemPropertyForm": {
+          "$type": "ItemPropertyForm, Assembly-CSharp",
+          "featureBySlotLevel": [
+            {
+              "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+              "featureDefinition": "Definition:AttackModifierGiftOfTheChromaticDragonDamageFire:778a40cd-b015-5cb1-acbf-9100d989a75e",
+              "level": 0
+            }
+          ],
+          "usageLimitation": "Unlimited",
+          "useAmount": 0
         },
         "hasFilterId": false,
         "filterId": 0
@@ -300,7 +295,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -316,7 +311,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -329,15 +324,15 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": false,
+  "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Condition/&ConditionMalakhAngelicRadianceTitle",
-    "description": "Condition/&ConditionMalakhAngelicRadianceDescription",
+    "title": "Fire Infusion",
+    "description": "As a bonus action, you can touch a simple or martial weapon and infuse it with Fire damage. For the next minute, the weapon deals an extra 1d4 Fire damage when it hits. After you use this bonus action, you can’t do so again until you finish a long rest.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -357,7 +352,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "edec8afa-5a52-5ec1-9bff-7f3e0b96d80d",
+  "guid": "148ea53c-245d-59ad-ae25-8c32b2d8d54b",
   "contentPack": 9999,
-  "name": "PowerMalakhAngelicRadianceDamage"
+  "name": "PowerGiftOfTheChromaticDragonDamageFire"
 }

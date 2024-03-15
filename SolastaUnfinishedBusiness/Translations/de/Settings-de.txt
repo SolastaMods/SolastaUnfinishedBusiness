@@ -17,9 +17,10 @@ ModUi/&AllItemInDm=Alle Artikel in DM
 ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Alle Spieler in Erzählsequenzen zulassen</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Sylvan-Rüstung</color> oder <color=#D89555>Lichtbringer-Kleidung</color> zu tragen
-ModUi/&AllowAssigningOfficialSpells=Erlauben Sie die Anzeige offizieller Zaubersprüche in diesen Listen
 ModUi/&AllowBeardlessDwarves=Erlaube bartlose <color=#D89555>Zwerge</color>
 ModUi/&AllowClubsToBeThrown=Ermöglichen Sie das Werfen von <color=#D89555>Keulen</color> wie <color=#D89555>Dolchen</color> oder <color=#D89555>Handäxten</color>
+ModUi/&AllowDisplayingNonSuggestedSpells=Erlaube nicht vom Mod vorgeschlagene Zauber auf jeder Liste
+ModUi/&AllowDisplayingOfficialSpells=Lassen Sie in jeder Liste spieloffizielle Zaubersprüche zu
 ModUi/&AllowDruidToWearMetalArmor=Erlaube <color=#D89555>Druiden</color>, Metallrüstungen zu tragen
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit maximalem Level 20
 ModUi/&AllowFlightSuspend=Ermöglicht die vorübergehende Aussetzung des Fluges von Gegenständen und Zaubersprüchen <i><color=#F0DAA0>[betrifft nicht Wildformen oder fliegende Rassen]</color></i>
@@ -237,7 +238,9 @@ ModUi/&Rules=Regeln
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Skalieren Sie Händlerpreise korrekt / genau <i><color=#F0DAA0>[keine Rundungsfehler mehr bei der Umrechnung von Münzwerten]</color></i>
 ModUi/&SelectAll=Wählen Sie Alle
+ModUi/&SelectDisplayed=Wählen Sie Angezeigt aus
 ModUi/&SelectSuggested=Wählen Sie „Vorgeschlagen“ aus
+ModUi/&SelectTabletop=Wählen Sie Tischplatte
 ModUi/&SenseNormalVisionRangeMultiplier=Ändern Sie den Bereich der <color=#D89555>Normalen Sicht</color> <i><color=#F0DAA0>[nur in Schlachten]</color></i>
 ModUi/&Services=Dienstleistungen
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Gürtel der Zwergen</color> <color=white>Bart-Erscheinungschancen</color>

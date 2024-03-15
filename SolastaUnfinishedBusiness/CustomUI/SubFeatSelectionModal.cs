@@ -40,7 +40,18 @@ public class GroupedFeat : IGroupedFeat
 
     public void AddFeats(params FeatDefinition[] featDefinitions)
     {
-        _feats.AddRange(featDefinitions);
+        foreach (var featDefinition in featDefinitions)
+        {
+            _feats.TryAdd(featDefinition);
+        }
+    }
+
+    public void RemoveFeats(params FeatDefinition[] featDefinitions)
+    {
+        foreach (var featDefinition in featDefinitions)
+        {
+            _feats.Remove(featDefinition);
+        }
     }
 }
 

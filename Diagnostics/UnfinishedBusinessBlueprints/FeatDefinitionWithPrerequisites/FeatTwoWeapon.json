@@ -16,7 +16,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "FightingStyle/&TwoWeaponTitle",
     "description": "FightingStyle/&TwoWeaponDescription",
     "spriteReference": {
@@ -39,6 +39,6 @@
   },
   "contentCopyright": "UserContent",
   "guid": "9d67e893-6904-509c-8a8e-19a3f44b9ca3",
-  "contentPack": 9999,
+  "contentPack": "BaseGame",
   "name": "FeatTwoWeapon"
 }

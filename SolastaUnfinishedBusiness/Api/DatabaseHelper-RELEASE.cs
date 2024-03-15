@@ -1660,6 +1660,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDefilerMistyFormEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDefilerMistyFormEscape");
 
+        internal static FeatureDefinitionPower PowerDispelEvilBreakEnchantment { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDispelEvilBreakEnchantment");
+
         internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");
 
@@ -1827,6 +1830,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerOathOfJugementWeightOfJustice { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementWeightOfJustice");
+
+        internal static FeatureDefinitionPower PowerOathOfMotherlandFieryWrath { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerOathOfMotherlandFieryWrath");
 
         internal static FeatureDefinitionPower PowerOathOfMotherlandVolcanicAura { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfMotherlandVolcanicAura");

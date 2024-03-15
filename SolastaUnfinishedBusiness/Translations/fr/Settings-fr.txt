@@ -17,9 +17,10 @@ ModUi/&AllItemInDm=Tous les objets en DM
 ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur les séquences narratives</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Autoriser n'importe quelle classe à porter une <color=#D89555>Armure Sylvestre</color> ou des <color=#D89555>Vêtements du Porteur de Lumière</color>
-ModUi/&AllowAssigningOfficialSpells=Autoriser l'affichage des sorts officiels dans ces listes
 ModUi/&AllowBeardlessDwarves=Autoriser les <color=#D89555>Nains</color> imberbes
 ModUi/&AllowClubsToBeThrown=Autoriser les <color=#D89555>Gourdins</color> à être lancés comme des <color=#D89555>Dagues</color> ou des <color=#D89555>Hachettes</color>
+ModUi/&AllowDisplayingNonSuggestedSpells=Autoriser les sorts mod non suggérés sur chaque liste
+ModUi/&AllowDisplayingOfficialSpells=Autoriser les sorts officiels du jeu sur chaque liste
 ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons avec un niveau maximum de 20
 ModUi/&AllowFlightSuspend=Autoriser la suspension temporaire du vol conféré par les objets et les sorts <i><color=#F0DAA0>[n'affecte pas les formes sauvages ou les créatures volantes]</color></i>
@@ -237,7 +238,9 @@ ModUi/&Rules=Règles
 ModUi/&SRD=<color=#F0DAA0>SRD :</color>
 ModUi/&ScaleMerchantPricesCorrectly=Mettre à l'échelle les prix marchands correctement/exactement <i><color=#F0DAA0>[plus d'erreurs d'arrondi lors de la conversion des valeurs en pièces]</color></i>
 ModUi/&SelectAll=Tout sélectionner
-ModUi/&SelectSuggested=Sélectionner ce qui est suggéré
+ModUi/&SelectDisplayed=Sélectionnez Affiché
+ModUi/&SelectSuggested=Sélectionnez suggéré
+ModUi/&SelectTabletop=Sélectionnez une table
 ModUi/&SenseNormalVisionRangeMultiplier=Modifier la portée de la <color=#D89555>Vision normale</color> <i><color=#F0DAA0>[uniquement en bataille]</color></i>
 ModUi/&Services=Prestations de service
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Ceinture des Nains</color> <color=white>possibilités d'apparition de la barbe</color>

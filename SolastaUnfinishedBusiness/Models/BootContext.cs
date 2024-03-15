@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Displays;
 #if DEBUG
 using SolastaUnfinishedBusiness.DataMiner;
 #endif
@@ -138,6 +139,7 @@ internal static class BootContext
 
             // Dump documentations to mod folder
             DocumentationContext.DumpDocumentation();
+            ModUi.LoadTabletopDefinitions();
 
             AddExtraTooltipDefinitions();
 

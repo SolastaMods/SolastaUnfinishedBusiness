@@ -86,7 +86,7 @@ You hurl a 4-inch-diameter sphere of energy at a creature that you can see withi
 
 You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
 
-# 22. - *Elemental Infusion* © (S) level 1 Abjuration
+# 22. - Elemental Infusion (S) level 1 Abjuration
 
 The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.
 
@@ -98,7 +98,7 @@ The next time you hit a creature with a weapon attack before this spell ends, a 
 
 You gain the service of a familiar. The familiar can use the help action and you can cast any touch or melee hit spell through the familiar.
 
-# 25. - *Gift of Alacrity* © (V,S) level 1 Divination
+# 25. - Gift of Alacrity (V,S) level 1 Divination
 
 You touch a willing creature. For the duration, the target can add 1d8 to its initiative rolls.
 
@@ -308,7 +308,7 @@ Flames wreathe one creature you can see within range. The target must make a Dex
 
 Surround yourself with an aura of thorns. Those that start or walk through take 2d8 piercing damage. This damage scales at higher levels by 1d8 per slot.
 
-# 75. - *Sonic Boom* © (V,S) level 5 Evocation
+# 75. - Sonic Boom (V,S) level 5 Evocation
 
 A small orb the same color as the balloon used appears at a point you choose within range then expands with a loud crack into an explosion of force. Each creature in a 30-foot radius must make a Strength saving throw. A target is pushed up to 30 feet away from the center and dealt 6d8 thunder damage on a failed save, or half as much damage and no movement on a successful one.
 
@@ -320,7 +320,7 @@ You flourish the weapon used in the casting and then vanish to strike like the w
 
 You can try to move a Huge or smaller creature. Make an ability check with your spellcasting ability contested by the creature's Strength check. If you win the contest, you move the creature up to 30 feet in any direction, but not beyond the range of this spell. Until the end of your next turn, the creature is restrained in your telekinetic grip. On subsequent rounds, you can use your action to attempt to maintain your telekinetic grip on the creature by repeating the contest, or target a new creature, ending the restrained effect on the previously affected creature.
 
-# 78. - *Flash Freeze* © (V,S) level 6 Evocation
+# 78. - Flash Freeze (V,S) level 6 Evocation
 
 You attempt to encase a creature you can see within range in a prison of solid ice. The target must make a Dexterity saving throw. On a failed save, the target takes 10d6 cold damage and becomes restrained in layers of thick ice. On a successful save, the target takes half as much damage and is not restrained. The spell can only be used on creatures up to large size. To break out, the restrained target can make a Strength check as an action against your spell save DC. On success, the target escapes and is no longer restrained. When you cast this spell using a spell slot of 7th level or higher, the cold damage increases by 2d6 for each slot level above 6th.
 
@@ -328,7 +328,7 @@ You attempt to encase a creature you can see within range in a prison of solid i
 
 A poisonous wave erupts from you, engulfing those close by. Each creature within the spell's radius must make a Constitution saving throw, taking 6d10 poison damage on a failure, or half as much damage on a successful one. A creature who fails their saving throw is also poisoned for 1 minute, and can repeat the saving throw at the end of each of its turn. When you cast this spell using a slot of 7th level or higher, the damage increases by 1d10 for each slot level above 6th.
 
-# 80. - *Ring of Blades* © (M,V,S) level 6 Conjuration [Concentration]
+# 80. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
 
 You raise both hands as you evoke six transparent blades around you as a bonus action. When you cast this spell, and as a bonus action on each subsequent turn, you can throw one of these blades at a creature within 60 feet from you. Make a ranged spell attack. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage of each blade increases by 1d8 for each slot level above 6th.
 
@@ -336,7 +336,7 @@ You raise both hands as you evoke six transparent blades around you as a bonus a
 
 Uttering an incantation, you draw on the magic of the Lower Planes or Upper Planes (your choice) to transform yourself.
 
-# 82. - *Tenser's Shapechange* © (V,S) level 6 Transmutation [Concentration]
+# 82. - *Tenser's Transformation* © (V,S) level 6 Transmutation [Concentration]
 
 You endow yourself with endurance and martial prowess fueled by magic. Until the spell ends, you can't cast spells, and you gain the following benefits:
 • You gain 50 temporary hit points. If any of these remain when the spell ends, they are lost.

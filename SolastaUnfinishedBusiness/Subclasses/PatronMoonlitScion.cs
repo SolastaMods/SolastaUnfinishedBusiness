@@ -588,7 +588,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect == null)
+            if (attackMode != null)
             {
                 yield return HandleReaction(attacker, defender);
             }

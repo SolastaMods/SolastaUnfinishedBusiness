@@ -3,22 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPathOfTheElementsBlizzard:d7a31d80-842a-501f-be65-27c349571abd",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetPathOfTheElementsElementalFury:89f104f7-fa74-5ef6-9717-e357b12e87bf",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPathOfTheElementsStorm:daeb69ac-02ba-54ee-ba72-8929ebc573cb",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPathOfTheElementsWildfire:316fcbaf-9d5f-5dd7-8a67-cdedbb86b2cb",
       "level": 3
     },
     {

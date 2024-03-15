@@ -39,7 +39,9 @@ public static class ShapeOptionItemPatcher
 
             var rulesetUsablePower = PowerProvider.Get(power, rulesetCharacterHero);
             var hasAtLeastTwoShapes = shifter.GetRemainingUsesOfPower(rulesetUsablePower) > 1;
-            var isShapeOptionAvailable = requiredLevel <= levels && (!isCircleOfTheNight || hasAtLeastTwoShapes);
+            var isShapeOptionAvailable =
+                requiredLevel <= levels &&
+                (!isCircleOfTheNight || !shapeDefinition.Name.EndsWith("Elemental") || hasAtLeastTwoShapes);
 
             __instance.levelLabel.TMP_Text.color = isShapeOptionAvailable
                 ? __instance.validLevelColor

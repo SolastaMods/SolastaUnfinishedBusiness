@@ -17,9 +17,10 @@ ModUi/&AllItemInDm=DM 내 모든 아이템
 ModUi/&AllRecipesInDm=DM 내 모든 제조법
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 내러티브 시퀀스에서 모든 플레이어 허용</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=모든 직업이 <color=#D89555>실반 갑옷</color> 또는 <color=#D89555>광휘의 의복</color>을 착용할 수 있습니다
-ModUi/&AllowAssigningOfficialSpells=다음 목록에 공식 주문을 표시하도록 허용
 ModUi/&AllowBeardlessDwarves=수염 없는 <color=#D89555>드워프</color> 허용
 ModUi/&AllowClubsToBeThrown=<color=#D89555>클럽</color>을 <color=#D89555>대거</color>나 <color=#D89555>핸드 액스</color>처럼 던질 수 있도록 허용
+ModUi/&AllowDisplayingNonSuggestedSpells=각 목록에 Mod 비추천 주문 허용
+ModUi/&AllowDisplayingOfficialSpells=각 목록에 게임 공식 주문을 허용합니다.
 ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>드루이드</color>의 금속 갑옷 착용을 허용
 ModUi/&AllowDungeonsMaxLevel20=최대 레벨 20의 던전을 허용
 ModUi/&AllowFlightSuspend=아이템과 주문의 비행을 일시 중단 허용 <i><color=#F0DAA0>[변신 또는 비행 종족에는 영향을 주지 않습니다]</color></i>
@@ -237,7 +238,9 @@ ModUi/&Rules=규칙
 ModUi/&SRD=<color=#F0DAA0>SRD(규칙 참조 문서):</color>
 ModUi/&ScaleMerchantPricesCorrectly=판매자 가격을 확실하고 정확하게 조정 <i><color=#F0DAA0>[단위 값 변환 시 더 이상 반올림 오류 없음]</color></i>
 ModUi/&SelectAll=모두 선택
+ModUi/&SelectDisplayed=표시 선택
 ModUi/&SelectSuggested=추천 선택
+ModUi/&SelectTabletop=탁상 선택
 ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>일반 시야</color> 범위 <i><color=#F0DAA0>[전투에서만]</color></i> 수정
 ModUi/&Services=서비스
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>드워프 종족이 허리띠</color>로 <color=white>수염을 두를 확률</color>

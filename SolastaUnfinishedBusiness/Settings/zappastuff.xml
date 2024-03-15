@@ -985,6 +985,7 @@
         <string>FeatGroupAegisTouched</string>
         <string>FeatAlwaysReady</string>
         <string>FeatGroupApothecary</string>
+        <string>FeatArcaneArcherAdept</string>
         <string>FeatArcaneDefense</string>
         <string>FeatArcanePrecision</string>
         <string>FeatAstralArms</string>
@@ -1020,6 +1021,7 @@
         <string>FeatGroupFightingStyle</string>
         <string>FeatGroupFlameTouched</string>
         <string>FeatFrostAdaptation</string>
+        <string>FeatGiftOfTheChromaticDragon</string>
         <string>FeatCleavingAttack</string>
         <string>FeatHammerThePoint</string>
         <string>FeatGroupHardy</string>
@@ -1027,11 +1029,12 @@
         <string>FeatHeavyArmorMaster</string>
         <string>FeatImprovedCritical</string>
         <string>FeatInfernalConstitution</string>
+        <string>FeatInfusionsAdept</string>
         <string>FeatInspiringLeader</string>
-        <string>FeatZenArcher</string>
         <string>FeatGroupIridescentTouched</string>
         <string>FeatLongswordFinesse</string>
         <string>FeatGroupMagicInitiate</string>
+        <string>FeatTacticianAdept</string>
         <string>FeatMediumArmorMaster</string>
         <string>FeatMetamagicAdept</string>
         <string>FeatMobile</string>
@@ -1055,6 +1058,7 @@
         <string>FeatGroupRevenantGreatSword</string>
         <string>FeatSavageAttack</string>
         <string>FeatCraftyScriber</string>
+        <string>FeatGroupSecondChance</string>
         <string>FeatSentinel</string>
         <string>FeatGroupShadowTouched</string>
         <string>FeatDeadeye</string>
@@ -1071,7 +1075,9 @@
         <string>FeatGroupToxicologist</string>
         <string>FeatGroupDefenseExpert</string>
         <string>FeatGroupVerdantTouched</string>
+        <string>FeatEldritchVersatilityAdept</string>
         <string>FeatWarCaster</string>
+        <string>FeatZenArcher</string>
         <string>FeatWiseDefense</string>
         <string>FeatWisePrecision</string>
     </FeatEnabled>
@@ -1126,36 +1132,26 @@
         <string>InvocationAbilitiesOfTheChainMaster</string>
         <string>InvocationAspectOfTheMoon</string>
         <string>InvocationBondOfTheTalisman</string>
-        <string>InvocationBreakerAndBanisher</string>
-        <string>InvocationBreathOfTheNight</string>
         <string>InvocationCallOfTheBeast</string>
-        <string>InvocationChillingBlast</string>
         <string>InvocationPerniciousCloak</string>
-        <string>InvocationCorrosiveBlast</string>
+        <string>InvocationSpectralShield</string>
         <string>InvocationDiscerningGaze</string>
         <string>InvocationEldritchMind</string>
         <string>InvocationEldritchSmite</string>
-        <string>InvocationFieryBlast</string>
-        <string>InvocationFulminateBlast</string>
+        <string>InvocationBreakerAndBanisher</string>
         <string>InvocationGiftOfTheEverLivingOnes</string>
         <string>InvocationGiftOfTheHunter</string>
         <string>InvocationGiftOfTheProtectors</string>
         <string>InvocationGraspingBlast</string>
         <string>InvocationImprovedPactWeapon</string>
-        <string>InvocationKinesis</string>
         <string>InvocationHinderingBlast</string>
         <string>InvocationVexingHex</string>
         <string>InvocationStasis</string>
-        <string>InvocationNecroticBlast</string>
-        <string>InvocationPoisonousBlast</string>
-        <string>InvocationPsychicBlast</string>
-        <string>InvocationRadiantBlast</string>
         <string>InvocationInexorableHex</string>
         <string>InvocationShroudOfShadow</string>
-        <string>InvocationSpectralShield</string>
+        <string>InvocationKinesis</string>
         <string>InvocationSuperiorPactWeapon</string>
         <string>InvocationTenaciousPlague</string>
-        <string>InvocationThunderBlast</string>
         <string>InvocationTombOfFrost</string>
         <string>InvocationTrickstersEscape</string>
         <string>InvocationUltimatePactWeapon</string>
@@ -1169,7 +1165,8 @@
         <string>MetamagicAltruisticSpell</string>
         <string>MetamagicWidenedSpell</string>
     </MetamagicEnabled>
-    <AllowAssigningOfficialSpells>false</AllowAssigningOfficialSpells>
+    <AllowDisplayingOfficialSpells>false</AllowDisplayingOfficialSpells>
+    <AllowDisplayingNonSuggestedSpells>false</AllowDisplayingNonSuggestedSpells>
     <SpellListSliderPosition>
         <item>
             <key>
@@ -1260,12 +1257,13 @@
             <value>
                 <ArrayOfString>
                     <string>AirBlast</string>
-                    <string>BladeWard</string>
                     <string>BoomingBlade</string>
-                    <string>IlluminatingSphere</string>
-                    <string>MinorLifesteal</string>
                     <string>ResonatingStrike</string>
                     <string>SunlightBlade</string>
+                    <string>BladeWard</string>
+                    <string>IlluminatingSphere</string>
+                    <string>MinorLifesteal</string>
+                    <string>ThunderStrike</string>
                     <string>EarthTremor</string>
                     <string>CloudOfDaggers</string>
                     <string>MirrorImage</string>
@@ -1287,16 +1285,16 @@
             <value>
                 <ArrayOfString>
                     <string>AirBlast</string>
-                    <string>BurstOfRadiance</string>
+                    <string>ElementalWeapon</string>
                     <string>TollTheDead</string>
+                    <string>BurstOfRadiance</string>
                     <string>Wrack</string>
                     <string>Sanctuary</string>
                     <string>ProtectThreshold</string>
-                    <string>ElementalWeapon</string>
-                    <string>SpiritShroud</string>
                     <string>VitalityTransfer</string>
-                    <string>AuraOfPerseverance</string>
+                    <string>SpiritShroud</string>
                     <string>AuraOfVitality</string>
+                    <string>AuraOfPerseverance</string>
                     <string>MassHeal</string>
                     <string>PowerWordHeal</string>
                 </ArrayOfString>
@@ -1319,6 +1317,7 @@
                     <string>PetalStorm</string>
                     <string>ProtectThreshold</string>
                     <string>AdderFangs</string>
+                    <string>ElementalWeapon</string>
                     <string>FlameArrows</string>
                     <string>WinterBreath</string>
                     <string>BlessingOfRime</string>
@@ -1326,6 +1325,7 @@
                     <string>MantleOfThorns</string>
                     <string>FlashFreeze</string>
                     <string>ReverseGravity</string>
+                    <string>Foresight</string>
                     <string>Shapechange</string>
                 </ArrayOfString>
             </value>
@@ -1348,6 +1348,7 @@
                     <string>VileBrew</string>
                     <string>ColorBurst</string>
                     <string>SpellWeb</string>
+                    <string>ElementalWeapon</string>
                     <string>FlameArrows</string>
                     <string>BrainBulwark</string>
                 </ArrayOfString>
@@ -1367,8 +1368,8 @@
                     <string>CrusadersMantle</string>
                     <string>ElementalWeapon</string>
                     <string>SpiritShroud</string>
-                    <string>AuraOfPerseverance</string>
                     <string>AuraOfVitality</string>
+                    <string>AuraOfPerseverance</string>
                     <string>StaggeringSmite</string>
                     <string>BanishingSmite</string>
                     <string>CircleOfMagicalNegation</string>
@@ -1382,12 +1383,13 @@
             </key>
             <value>
                 <ArrayOfString>
-                    <string>EnsnaringStrike</string>
                     <string>ElementalInfusion</string>
-                    <string>StrikeWithTheWind</string>
-                    <string>SearingSmite</string>
+                    <string>EnsnaringStrike</string>
                     <string>SpikeBarrage</string>
+                    <string>SearingSmite</string>
+                    <string>StrikeWithTheWind</string>
                     <string>AdderFangs</string>
+                    <string>ElementalWeapon</string>
                     <string>FlameArrows</string>
                     <string>LightningArrow</string>
                     <string>BlessingOfRime</string>
@@ -1402,13 +1404,15 @@
             </key>
             <value>
                 <ArrayOfString>
-                    <string>AirBlast</string>
+                    <string>HeroicInfusion</string>
+                    <string>Foresight</string>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
+                    <string>ResonatingStrike</string>
+                    <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
-                    <string>ResonatingStrike</string>
                     <string>SunlightBlade</string>
                     <string>SwordStorm</string>
                     <string>ThunderStrike</string>
@@ -1418,18 +1422,18 @@
                     <string>ElementalInfusion</string>
                     <string>IceBlade</string>
                     <string>VileBrew</string>
-                    <string>BindingIce</string>
                     <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
-                    <string>NoxiousSpray</string>
-                    <string>PsychicWhip</string>
                     <string>MirrorImage</string>
+                    <string>NoxiousSpray</string>
+                    <string>BindingIce</string>
                     <string>ShadowBlade</string>
+                    <string>PsychicWhip</string>
                     <string>SpellWeb</string>
                     <string>AdderFangs</string>
-                    <string>BoomingStep</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
+                    <string>BoomingStep</string>
                     <string>WinterBreath</string>
                     <string>BrainBulwark</string>
                     <string>PsychicLance</string>
@@ -1437,11 +1441,9 @@
                     <string>Incineration</string>
                     <string>SonicBoom</string>
                     <string>Telekinesis</string>
-                    <string>HeroicInfusion</string>
                     <string>FlashFreeze</string>
                     <string>MysticalCloak</string>
                     <string>ReverseGravity</string>
-                    <string>Foresight</string>
                     <string>MeteorSwarmSingleTarget</string>
                     <string>PowerWordKill</string>
                     <string>TimeStop</string>
@@ -1456,28 +1458,32 @@
                 <ArrayOfString>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
+                    <string>ResonatingStrike</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
-                    <string>ResonatingStrike</string>
                     <string>SunlightBlade</string>
                     <string>SwordStorm</string>
+                    <string>ThunderStrike</string>
                     <string>TollTheDead</string>
                     <string>SkinOfRetribution</string>
                     <string>VoidGrasp</string>
                     <string>CloudOfDaggers</string>
-                    <string>NoxiousSpray</string>
                     <string>MirrorImage</string>
+                    <string>NoxiousSpray</string>
                     <string>ShadowBlade</string>
                     <string>AdderFangs</string>
                     <string>CorruptingBolt</string>
                     <string>HungerOfTheVoid</string>
                     <string>SpiritShroud</string>
+                    <string>BoomingStep</string>
                     <string>BrainBulwark</string>
                     <string>PsychicLance</string>
                     <string>FarStep</string>
                     <string>FlashFreeze</string>
                     <string>MysticalCloak</string>
+                    <string>Foresight</string>
                     <string>PowerWordKill</string>
+                    <string>Weird</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -1495,18 +1501,18 @@
             </key>
             <value>
                 <ArrayOfString>
-                    <string>AirBlast</string>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
-                    <string>EnduringSting</string>
+                    <string>ResonatingStrike</string>
+                    <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
-                    <string>ResonatingStrike</string>
+                    <string>EnduringSting</string>
                     <string>SunlightBlade</string>
                     <string>SwordStorm</string>
-                    <string>TollTheDead</string>
                     <string>ThunderStrike</string>
+                    <string>TollTheDead</string>
                     <string>CausticZap</string>
                     <string>ChromaticOrb</string>
                     <string>EarthTremor</string>
@@ -1518,40 +1524,40 @@
                     <string>Mule</string>
                     <string>RadiantMotes</string>
                     <string>VileBrew</string>
-                    <string>BindingIce</string>
                     <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
-                    <string>NoxiousSpray</string>
-                    <string>PsychicWhip</string>
                     <string>MirrorImage</string>
+                    <string>NoxiousSpray</string>
+                    <string>BindingIce</string>
                     <string>ShadowBlade</string>
+                    <string>PsychicWhip</string>
                     <string>SpellWeb</string>
-                    <string>BoomingStep</string>
                     <string>CorruptingBolt</string>
-                    <string>PulseWave</string>
                     <string>FlameArrows</string>
-                    <string>SpiritShroud</string>
                     <string>VitalityTransfer</string>
+                    <string>PulseWave</string>
+                    <string>SpiritShroud</string>
+                    <string>BoomingStep</string>
                     <string>WinterBreath</string>
                     <string>BrainBulwark</string>
                     <string>GravitySinkhole</string>
                     <string>PsychicLance</string>
                     <string>FarStep</string>
                     <string>Incineration</string>
-                    <string>SteelWhirlwind</string>
                     <string>SonicBoom</string>
+                    <string>SteelWhirlwind</string>
                     <string>Telekinesis</string>
-                    <string>HeroicInfusion</string>
-                    <string>MysticalCloak</string>
                     <string>PoisonWave</string>
                     <string>RingOfBlades</string>
+                    <string>MysticalCloak</string>
+                    <string>HeroicInfusion</string>
                     <string>ReverseGravity</string>
                     <string>MindBlank</string>
                     <string>Foresight</string>
                     <string>MeteorSwarmSingleTarget</string>
                     <string>PowerWordKill</string>
-                    <string>TimeStop</string>
                     <string>Shapechange</string>
+                    <string>TimeStop</string>
                     <string>Weird</string>
                 </ArrayOfString>
             </value>

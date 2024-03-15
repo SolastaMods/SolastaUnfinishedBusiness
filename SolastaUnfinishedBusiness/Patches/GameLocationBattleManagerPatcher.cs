@@ -154,6 +154,63 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
+    // useful to debug powers that start automatically on rage
+#if false
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleReactionToRageStart))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleReactionToRageStart_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            GameLocationCharacter rager)
+        {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
+            rager.RulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionPower>(
+                rager.RulesetCharacter.FeaturesToBrowse);
+            
+            foreach (var usablePower in rager.RulesetCharacter.UsablePowers)
+            {
+                if (rager.RulesetCharacter.GetRemainingUsesOfPower(usablePower) > 0 &&
+                    usablePower.PowerDefinition.ActivationTime == ActivationTime.OnRageStartAutomatic)
+                {
+                    var characterActionParams = new CharacterActionParams(rager, ActionDefinitions.Id.SpendPower)
+                    {
+                        StringParameter = usablePower.PowerDefinition.Name,
+                        RulesetEffect = implementationService
+                            .InstantiateEffectPower(rager.RulesetCharacter, usablePower, false),
+                        TargetCharacters = { rager }
+                    };
+
+                    actionService.ExecuteAction(characterActionParams, null, true);
+                }
+                else if (rager.RulesetCharacter.GetRemainingUsesOfPower(usablePower) > 0 &&
+                         usablePower.PowerDefinition.ActivationTime == ActivationTime.OnRageStartChoice)
+                {
+                    var reactionParams = new CharacterActionParams(rager, ActionDefinitions.Id.SpendPower)
+                    {
+                        StringParameter = usablePower.PowerDefinition.Name,
+                        RulesetEffect = implementationService
+                            .InstantiateEffectPower(rager.RulesetCharacter, usablePower, false),
+                        TargetCharacters = { rager },
+                        IsReactionEffect = true
+                    };
+
+                    var count = actionService.PendingReactionRequestGroups.Count;
+
+                    actionService.ReactToSpendPower(reactionParams);
+
+                    yield return __instance.WaitForReactions(rager, actionService, count);
+                }
+            }
+        }
+    }
+#endif
+
     [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterMoveStart))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

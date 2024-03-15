@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
@@ -68,12 +67,6 @@ internal static class Main
 
         var now = DateTime.Now;
         var assembly = Assembly.GetExecutingAssembly();
-        var harmonyVersion = Assembly.GetAssembly(typeof(HarmonyPatch)).GetName().Version;
-
-        if (harmonyVersion.ToString() != "2.2.2.0" || !assembly.FullName.Contains("1.5.97.0"))
-        {
-            return false;
-        }
 
         try
         {

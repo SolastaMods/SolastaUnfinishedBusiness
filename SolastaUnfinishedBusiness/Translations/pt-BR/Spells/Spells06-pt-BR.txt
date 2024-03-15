@@ -1,13 +1,13 @@
 Condition/&ConditionHeroicInfusionDescription=Você se dota de resistência e destreza marcial alimentadas pela magia.
-Condition/&ConditionHeroicInfusionTitle=Mudança de forma do Tenser
+Condition/&ConditionHeroicInfusionTitle=Transformação de Tenser
 Feature/&PowerRingOfBladesDescription=Como uma ação bônus, você pode realizar um ataque mágico à distância contra uma criatura a até 18 metros de você, usando uma de suas espadas do Anel de Lâminas.
 Feature/&PowerRingOfBladesTitle=Anel de Lâminas
-Feedback/&AdditionalDamageHeroicInfusionFormat=Mudança de forma do Tenser!
+Feedback/&AdditionalDamageHeroicInfusionFormat=Transformação de Tenser!
 Feedback/&AdditionalDamageHeroicInfusionLine={0} acerta {1} heroicamente! (+{2})
 Spell/&FlashFreezeDescription=Você tenta encerrar uma criatura que você pode ver dentro do alcance em uma prisão de gelo sólido. O alvo deve fazer um teste de resistência de Destreza. Se falhar na resistência, o alvo sofre 10d6 de dano de frio e fica preso em camadas de gelo espesso. Se obtiver sucesso, o alvo sofre metade do dano e não é contido. O feitiço só pode ser usado em criaturas de tamanho grande. Para escapar, o alvo contido pode fazer um teste de Força como uma ação contra sua CD de resistência de feitiço. Em caso de sucesso, o alvo escapa e não fica mais contido. Quando você conjura esta magia usando um espaço de magia de 7º nível ou superior, o dano de frio aumenta em 2d6 para cada nível do espaço acima do 6º.
 Spell/&FlashFreezeTitle=Congelamento Flash
 Spell/&HeroicInfusionDescription=Você se dota de resistência e destreza marcial alimentadas pela magia. Até que o feitiço termine, você não poderá lançar feitiços e receberá os seguintes benefícios:\n• Você ganha 50 pontos de vida temporários. Se algum deles permanecer quando o feitiço terminar, ele será perdido.\n• Você tem vantagem em jogadas de ataque feitas com armas simples e marciais.\n• Quando você atinge um alvo com um ataque com arma, esse alvo recebe um dano de força extra de 2d12.\n• Você tem a proficiência em armaduras, armas e testes de resistência da classe Lutador.\n• Você pode atacar duas vezes, em vez de uma, quando realiza a ação de Ataque no seu turno.\n Imediatamente após o término da magia, você deve ser bem sucedido em um teste de resistência de Constituição CD 15 ou sofrerá um nível de exaustão.
-Spell/&HeroicInfusionTitle=Mudança de forma do Tenser
+Spell/&HeroicInfusionTitle=Transformação de Tenser
 Spell/&MysticalCloakDescription=Pronunciando um encantamento, você recorre à magia dos Planos Inferiores ou dos Planos Superiores (à sua escolha) para se transformar.
 Spell/&MysticalCloakHigherPlaneDescription=Você é imune a danos radiantes e necróticos, imune à condição encantado. Você ganha +2 de bônus na CA, velocidade de vôo de 12 metros, um ataque extra, todos os ataques são mágicos e você pode usar seu atributo de habilidade mágica em vez de FOR ou DES quando realiza a ação de ataque em seu turno.
 Spell/&MysticalCloakHigherPlaneTitle=A aparência sobrenatural de Tasha: plano superior

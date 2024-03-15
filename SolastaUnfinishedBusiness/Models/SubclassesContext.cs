@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
+using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -77,7 +78,7 @@ internal static class SubclassesContext
 
             Klasses.Add(klass.FormatTitle() + postfix, (klassName, klass));
             KlassListContextTab.Add(klass, new KlassListContext(klass));
-            Main.Settings.DisplayKlassToggle.TryAdd(klassName, true);
+            Main.Settings.DisplayKlassToggle.TryAdd(klassName, false);
             Main.Settings.KlassListSliderPosition.TryAdd(klassName, 4);
             Main.Settings.KlassListSubclassEnabled.TryAdd(klassName, []);
         }
@@ -105,11 +106,24 @@ internal static class SubclassesContext
         return KlassListContextTab.Values.All(subclassListContext => subclassListContext.IsAllSetSelected);
     }
 
+    internal static bool IsTabletopSetSelected()
+    {
+        return KlassListContextTab.Values.All(subclassListContext => subclassListContext.IsTabletopSetSelected);
+    }
+
     internal static void SelectAllSet(bool toggle)
     {
         foreach (var subclassListContext in KlassListContextTab.Values)
         {
             subclassListContext.SelectAllSetInternal(toggle);
+        }
+    }
+
+    internal static void SelectTabletopSet(bool toggle)
+    {
+        foreach (var subclassListContext in KlassListContextTab.Values)
+        {
+            subclassListContext.SelectTabletopSetInternal(toggle);
         }
     }
 
@@ -128,11 +142,24 @@ internal static class SubclassesContext
         // ReSharper disable once MemberHidesStaticFromOuterClass
         internal bool IsAllSetSelected => AllSubClasses.Count == SelectedSubclasses.Count;
 
+        // ReSharper disable once MemberHidesStaticFromOuterClass
+        internal bool IsTabletopSetSelected =>
+            ModUi.TabletopDefinitions.Intersect(AllSubClasses).Count() == SelectedSubclasses.Count &&
+            SelectedSubclasses.All(ModUi.TabletopDefinitionNames.Contains);
+
         internal void SelectAllSetInternal(bool toggle)
         {
             foreach (var subclass in AllSubClasses)
             {
                 Switch(subclass, toggle);
+            }
+        }
+
+        internal void SelectTabletopSetInternal(bool toggle)
+        {
+            foreach (var subclass in AllSubClasses)
+            {
+                Switch(subclass, toggle && ModUi.TabletopDefinitions.Contains(subclass));
             }
         }
 

@@ -77,6 +77,9 @@ internal static class ValidatorsFeat
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDragonborn =
         ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsHalfling =
+        ValidateIsRace(Halfling.FormatTitle(), Halfling, Halfling, HalflingMarsh);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsElfOfHalfElf =
         ValidateIsRace(
             $"{Elf.FormatTitle()}, {HalfElf.FormatTitle()}",

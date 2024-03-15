@@ -170,7 +170,7 @@ internal static class RaceOligathBuilder
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect == null)
+            if (attackMode != null)
             {
                 yield return HandlePowerStoneEndurance(attacker, defender);
             }

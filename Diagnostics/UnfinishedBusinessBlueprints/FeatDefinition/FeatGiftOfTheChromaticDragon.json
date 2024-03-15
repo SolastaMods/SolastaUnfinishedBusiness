@@ -1,0 +1,50 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:PowerGiftOfTheChromaticDragonChromaticInfusion:f993c332-7eca-5cca-81b6-0351f7909d98",
+    "Definition:PowerGiftOfTheChromaticDragonDamageAcid:3de5527d-fe57-51db-a87d-c21c020275a1",
+    "Definition:PowerGiftOfTheChromaticDragonDamageCold:8ad5f602-69ee-596b-a22b-fcc9bc533902",
+    "Definition:PowerGiftOfTheChromaticDragonDamageFire:148ea53c-245d-59ad-ae25-8c32b2d8d54b",
+    "Definition:PowerGiftOfTheChromaticDragonDamageLightning:612d9e92-f959-5b0a-9c88-320cd96e304c",
+    "Definition:PowerGiftOfTheChromaticDragonDamagePoison:37753c37-0501-5ec7-96df-26cd5c2f5bea",
+    "Definition:PowerGiftOfTheChromaticDragonReactiveResistance:de9b1627-30f9-5f78-992a-58bbde7cbc90"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatGiftOfTheChromaticDragonTitle",
+    "description": "Feat/&FeatGiftOfTheChromaticDragonDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "18cae195-bdf3-5d8c-bb90-f85cbf91415c",
+  "contentPack": 9999,
+  "name": "FeatGiftOfTheChromaticDragon"
+}

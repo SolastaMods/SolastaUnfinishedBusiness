@@ -16,7 +16,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "FightingStyle/&DefenseTitle",
     "description": "FightingStyle/&DefenseDescription",
     "spriteReference": {
@@ -39,6 +39,6 @@
   },
   "contentCopyright": "UserContent",
   "guid": "a13f121b-4a09-50e7-867a-334ae5354112",
-  "contentPack": 9999,
+  "contentPack": "BaseGame",
   "name": "FeatDefense"
 }
