@@ -292,8 +292,10 @@ internal static class CharacterContext
         LoadMonkWeaponSpecialization();
         LoadVision();
         LoadVisuals();
+        BuildBarbarianBrutalStrike();
         BuildRogueCunningStrike();
         SwitchAsiAndFeat();
+        SwitchBarbarianBrutalStrike();
         SwitchBarbarianFightingStyle();
         SwitchDarknessPerceptive();
         SwitchDragonbornElementalBreathUsages();
@@ -635,26 +637,6 @@ internal static class CharacterContext
         FeatureSetAbilityScoreChoice.mode = Main.Settings.EnablesAsiAndFeat
             ? FeatureDefinitionFeatureSet.FeatureSetMode.Union
             : FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion;
-    }
-
-    internal static void SwitchBarbarianFightingStyle()
-    {
-        if (Main.Settings.EnableBarbarianFightingStyle)
-        {
-            Barbarian.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(FightingStyleChoiceBarbarian, 2));
-        }
-        else
-        {
-            Barbarian.FeatureUnlocks
-                .RemoveAll(x => x.level == 2 &&
-                                x.FeatureDefinition == FightingStyleChoiceBarbarian);
-        }
-
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
     }
 
     internal static void SwitchDragonbornElementalBreathUsages()
@@ -2120,6 +2102,230 @@ internal static class CharacterContext
                      .Where(x => powerNames.Contains(x.Name)))
         {
             power.AddCustomSubFeatures(new ModifyEffectDescriptionSavingThrowRogue(power));
+        }
+    }
+
+    #endregion
+
+    #region Barbarian Brutal Strike
+
+    private static FeatureDefinitionFeatureSet _featureSetBarbarianBrutalStrike;
+    private static FeatureDefinitionFeatureSet _featureSetBarbarianBrutalStrikeImprovement13;
+    private static FeatureDefinitionFeatureSet _featureSetBarbarianBrutalStrikeImprovement17;
+
+    private static void BuildBarbarianBrutalStrike()
+    {
+        const string BrutalStrike = "BarbarianBrutalStrike";
+        const string BrutalStrikeImprovement13 = "BarbarianBrutalStrikeImprovement13";
+        const string BrutalStrikeImprovement17 = "BarbarianBrutalStrikeImprovement17";
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{BrutalStrike}")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .Build())
+            .AddToDB();
+
+        powerPool.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden, new AttackBeforeHitConfirmedOnEnemyBrutalStrike(powerPool));
+
+        // Forceful Blow
+
+        var powerForcefulBlow = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{BrutalStrike}ForcefulBlow")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        // Hamstring Blow
+
+        var powerHamstringBlow = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{BrutalStrike}HamstringBlow")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        // Staggering Blow
+
+        var powerStaggeringBlow = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{BrutalStrike}StaggeringBlow")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        // Forceful Blow
+
+        var powerSunderingBlow = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{BrutalStrike}SunderingBlow")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        // MAIN
+
+        PowerBundle.RegisterPowerBundle(powerPool, true,
+            powerForcefulBlow, powerHamstringBlow, powerStaggeringBlow, powerSunderingBlow);
+
+        var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityBrutalStrikeToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.BrutalStrikeToggle)
+            .AddToDB();
+
+        _featureSetBarbarianBrutalStrike = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{BrutalStrike}")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerPool, actionAffinityToggle, powerForcefulBlow, powerHamstringBlow)
+            .AddToDB();
+
+        _featureSetBarbarianBrutalStrikeImprovement13 = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{BrutalStrikeImprovement13}")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerStaggeringBlow, powerSunderingBlow)
+            .AddToDB();
+
+        _featureSetBarbarianBrutalStrikeImprovement17 = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{BrutalStrikeImprovement17}")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerStaggeringBlow, powerSunderingBlow)
+            .AddToDB();
+    }
+
+    private sealed class AttackBeforeHitConfirmedOnEnemyBrutalStrike(FeatureDefinitionPower powerBarbarianBrutalStrike)
+        :
+            IAttackBeforeHitConfirmedOnEnemy
+    {
+        private FeatureDefinitionPower _selectedPower;
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            _selectedPower = null;
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BrutalStrikeToggle) ||
+                !IsSneakAttackValid(actionModifier, attacker, defender))
+            {
+                yield break;
+            }
+
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (actionManager == null ||
+                battleManager is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerBarbarianBrutalStrike, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { actionModifier },
+                StringParameter = powerBarbarianBrutalStrike.Name,
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            // determine selected power to collect cost
+            var option = reactionRequest.SelectedSubOption;
+            var subPowers = powerBarbarianBrutalStrike.GetBundle()?.SubPowers;
+
+            if (subPowers == null)
+            {
+                yield break;
+            }
+
+            _selectedPower = subPowers[option];
+
+            //TODO: write logic to add additional effect forms to actual forms
+        }
+    }
+
+    internal static void SwitchBarbarianBrutalStrike()
+    {
+        if (Main.Settings.EnableBarbarianBrutalStrike)
+        {
+            Barbarian.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrike, 9));
+            Barbarian.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13,
+                13));
+            Barbarian.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17,
+                17));
+        }
+        else
+        {
+            Barbarian.FeatureUnlocks.RemoveAll(x =>
+                x.level == 9 && x.FeatureDefinition == _featureSetBarbarianBrutalStrike);
+            Barbarian.FeatureUnlocks.RemoveAll(x =>
+                x.level == 13 && x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement13);
+            Barbarian.FeatureUnlocks.RemoveAll(x =>
+                x.level == 17 && x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement17);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    internal static void SwitchBarbarianFightingStyle()
+    {
+        if (Main.Settings.EnableBarbarianFightingStyle)
+        {
+            Barbarian.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(FightingStyleChoiceBarbarian, 2));
+        }
+        else
+        {
+            Barbarian.FeatureUnlocks
+                .RemoveAll(x => x.level == 2 &&
+                                x.FeatureDefinition == FightingStyleChoiceBarbarian);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 

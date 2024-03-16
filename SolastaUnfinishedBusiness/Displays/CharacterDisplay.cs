@@ -203,7 +203,7 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianBrutalStrike"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBarbarianBrutalStrike = toggle;
-            // CharacterContext.SwitchBarbarianBrutalStrike();
+            CharacterContext.SwitchBarbarianBrutalStrike();
         }
 
         toggle = Main.Settings.EnableBarbarianFightingStyle;
@@ -220,22 +220,6 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableFighterWeaponSpecialization = toggle;
             CharacterContext.SwitchFighterWeaponSpecialization();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
-            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
-        }
-
-        toggle = Main.Settings.EnableRangerNatureShroudAt10;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt10"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRangerNatureShroudAt10 = toggle;
-            CharacterContext.SwitchRangerNatureShroud();
         }
 
         UI.Label();
@@ -282,6 +266,22 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableMonkWeaponSpecialization = toggle;
             CharacterContext.SwitchMonkWeaponSpecialization();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
+            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+        }
+
+        toggle = Main.Settings.EnableRangerNatureShroudAt10;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt10"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerNatureShroudAt10 = toggle;
+            CharacterContext.SwitchRangerNatureShroud();
         }
 
         UI.Label();
