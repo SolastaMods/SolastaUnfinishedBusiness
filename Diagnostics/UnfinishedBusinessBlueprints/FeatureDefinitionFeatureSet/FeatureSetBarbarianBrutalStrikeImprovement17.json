@@ -1,9 +1,6 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:PowerBarbarianBrutalStrikeStaggeringBlow:046725dd-8bcc-55d0-917f-116f458c6e93",
-    "Definition:PowerBarbarianBrutalStrikeSunderingBlow:b0845e34-6ce8-5844-b2f5-a16a834cf760"
-  ],
+  "featureSet": [],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",
