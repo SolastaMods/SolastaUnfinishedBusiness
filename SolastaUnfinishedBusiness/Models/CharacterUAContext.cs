@@ -167,15 +167,20 @@ internal static partial class CharacterContext
 
         _conditionHamstringBlow = ConditionDefinitionBuilder
             .Create("ConditionHamstringBlow")
-            .SetGuiPresentation($"Power{BrutalStrike}HamstringBlow", Category.Feature, Gui.NoLocalization)
+            .SetGuiPresentation($"Power{BrutalStrike}HamstringBlow", Category.Feature,
+                ConditionDefinitions.ConditionHindered)
             .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityHamstringBlow")
                     .SetGuiPresentation($"Power{BrutalStrike}HamstringBlow", Category.Feature, Gui.NoLocalization)
                     .SetBaseSpeedAdditiveModifier(-3)
                     .AddToDB())
+            .CopyParticleReferences(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
+
+        _conditionHamstringBlow.GuiPresentation.description = Gui.NoLocalization;
 
         // Staggering Blow
 
@@ -189,8 +194,10 @@ internal static partial class CharacterContext
 
         _conditionStaggeringBlow = ConditionDefinitionBuilder
             .Create("ConditionStaggeringBlow")
-            .SetGuiPresentation($"Power{BrutalStrike}StaggeringBlow", Category.Feature, Gui.NoLocalization)
+            .SetGuiPresentation($"Power{BrutalStrike}StaggeringBlow", Category.Feature,
+                ConditionDefinitions.ConditionDazzled)
             .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create("SavingThrowAffinityStaggeringBlow")
@@ -204,9 +211,12 @@ internal static partial class CharacterContext
                         AttributeDefinitions.Charisma)
                     .AddToDB(),
                 SrdAndHouseRulesContext.ActionAffinityConditionBlind)
+            .CopyParticleReferences(ConditionDefinitions.ConditionDazzled)
             .AddToDB();
 
-        // Forceful Blow
+        _conditionStaggeringBlow.GuiPresentation.description = Gui.NoLocalization;
+
+        // Sundering Blow
 
         var powerSunderingBlow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{BrutalStrike}SunderingBlow")
@@ -218,8 +228,10 @@ internal static partial class CharacterContext
 
         _conditionSunderingBlow = ConditionDefinitionBuilder
             .Create("ConditionSunderingBlow")
-            .SetGuiPresentation($"Power{BrutalStrike}SunderingBlow", Category.Feature, Gui.NoLocalization)
+            .SetGuiPresentation($"Power{BrutalStrike}SunderingBlow", Category.Feature,
+                ConditionDefinitions.ConditionBleeding)
             .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
             .AddCustomSubFeatures(new CustomBehaviorSunderingBlow(powerSunderingBlow))
             .AddToDB();
 
@@ -277,7 +289,7 @@ internal static partial class CharacterContext
 
             if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BrutalStrikeToggle) ||
                 !rulesetAttacker.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionDefinitions.ConditionReckless.Name))
+                    AttributeDefinitions.TagCombat, ConditionDefinitions.ConditionReckless.Name))
             {
                 yield break;
             }

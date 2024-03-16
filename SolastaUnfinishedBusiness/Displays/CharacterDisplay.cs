@@ -206,6 +206,13 @@ internal static class CharacterDisplay
             CharacterContext.SwitchBarbarianBrutalStrike();
         }
 
+        toggle = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration = toggle;
+        }
+
+
         toggle = Main.Settings.EnableBarbarianFightingStyle;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
         {
