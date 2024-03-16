@@ -5,7 +5,7 @@ ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<
 ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>和<color=#D89555>Gray Dwarf</color>启用<color=#D89555>黑暗感知</color><i><color=#F0DAA0>\n[在未照明或在魔法黑暗下时察觉检定具有优势]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=将<color=#D89555>战士</color>等级添加到<color=#D89555>Indomitable</color>豁免重掷中
 ModUi/&AddHelpActionToAllRaces=为所有可玩种族添加<color=#D89555>帮助</color>动作<i><color=#F0DAA0>[你可以帮助友方生物攻击距离你5尺以内的生物]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=为<color=#D89555>游侠</color>添加类人生物宿敌
+ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>Rangers</color>人形首选敌人
 ModUi/&AddNewBrightEyeColors=添加新的亮色眼睛颜色
 ModUi/&AddNewWeaponsAndRecipesToShops=向商店添加新的武器和配方<i><color=#F0DAA0>[护腕、戟、长矛、长狼牙棒、手弩]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=添加一个开关以允许<color=#D89555>圣骑士</color>仅在暴击时启用至圣斩<i><color=#F0DAA0>[有助于减少反应动作提示]</color></i>
@@ -85,6 +85,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和�
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+向地城编辑器添加新物品</i>
 ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属性选择/+1技能]</color></i>
 ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用英雄魅力修正来确定选择权重]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=在职业等级 9、13 和 17 启用<color=#D89555>野蛮人</color><b>残酷打击</b>和<b>残酷打击改进</b>
 ModUi/&EnableBarbarianFightingStyle=在2级启用<color=#D89555>野蛮人</color><b>战斗风格</b>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作

@@ -5,7 +5,7 @@ ModUi/&AddCustomIconsToOfficialItems=公式ゲーム アイテム <i><color=#F0D
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>グレイドワーフ</color>の<color=#D89555>闇の知覚</color>を有効にするcolor> <i><color=#F0DAA0>\n[照明が当たっていないとき、または魔法の暗闇の下で知覚チェックで有利になる]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>ファイター</color>レベルを<color=#D89555>不屈</color>セーヴィングスローのリロールに追加
 ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加<i><color=#F0DAA0>[味方のクリーチャーが自分から5フィート以内のクリーチャーを攻撃するのを助けることができます]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color>に人型の優先敵を追加する
+ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color>が好む人型の敵を有効にする
 ModUi/&AddNewBrightEyeColors=新しい明るい目の色を追加
 ModUi/&AddNewWeaponsAndRecipesToShops=新しい武器とレシピをショップに追加します<i><color=#F0DAA0>[ハンドラップ、ハルバード、パイク、ロングメイス、ハンドクロスボウ]</color></i> <b><i><color=#C04040E0> [再起動が必要です]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>パラディン</color> がクリティカル ヒット時のみスマイトを有効にできるようにするトグルを追加<i><color=#F0DAA0>[反応プロンプトを最小限に抑えるのに役立ちます]</color></i>
@@ -85,6 +85,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、�
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ ダンジョンメーカーに新しいアイテムを追加</i>
 ModUi/&EnableAlternateHuman=代替人間 <i><color=#F0DAA0>[+1 特技 / +2 属性選択 / +1 スキル]</color></i> を有効にする
 ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする <i><color=#F0DAA0>[選択の重みを決定するにはヒーローのカリスマ修飾子を使用]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=クラスレベル9、13、17で<color=#D89555>バーバリアン</color>の<b>ブルータルストライク</b>と<b>ブルータルストライクの改善</b>を有効にします
 ModUi/&EnableBarbarianFightingStyle=レベル 2 で<color=#D89555>野蛮人</color>の<b>戦闘スタイル</b>の選択が可能になります
 ModUi/&EnableBetaContent=ベータ コンテンツを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックによるキャンセルアクションを有効にする

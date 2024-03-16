@@ -5,7 +5,7 @@ ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux obj
 ModUi/&AddDarknessPerceptiveToDarkRaces=Activez <color=#D89555>Darkness Perceptive</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Grey Dwarf</ color> <i><color=#F0DAA0>\n[accorde un avantage sur les tests de perception lorsqu'il n'est pas éclairé ou dans l'obscurité magique]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Ajoutez le niveau <color=#D89555>Combattant</color> à la relance du jet de sauvegarde <color=#D89555>Indomptable</color>.
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les Ascendances jouables <i><color=#F0DAA0>[vous pouvez aider une créature alliée à attaquer une créature à moins de 1,50 mètre de vous, lui donnant l'avantage]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter Humanoïde à la liste d'Ennemis jurés des <color=#D89555>Rôdeurs</color>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Activer les ennemis humanoïdes préférés des <color=#D89555>Rangers</color>
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs vives pour les yeux
 ModUi/&AddNewWeaponsAndRecipesToShops=Ajouter de nouvelles armes et recettes aux boutiques <i><color=#F0DAA0>[bandages à main, hallebardes, piques, masses longues, arbalètes de poing]</color></i> <b><i><color=#C04040E0> [Nécessite un redémarrage]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Ajoutez un bouton pour permettre aux <color=#D89555>Paladins</color> d'activer uniquement les Châtiment divin sur les coups critiques <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
@@ -85,6 +85,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter les nouveaux objets au Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Activer l'<color=#D89555>Humain</color> alternatif <i><color=#F0DAA0>[+1 Don / +2 choix de Caractéristiques / +1 Compétence]</color></i>
 ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[utiliser le modificateur de charisme du héros pour déterminer le poids de son choix]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Barbare</color> <b>Frappe brutale</b> et <b>Amélioration de la frappe brutale</b> aux niveaux de classe 9, 13 et 17.
 ModUi/&EnableBarbarianFightingStyle=Activer pour le <color=#D89555>Barbare</color> le choix d'un <b>Style de combat</b> au niveau 2
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer l'annulation des actions avec un clic droit de la souris

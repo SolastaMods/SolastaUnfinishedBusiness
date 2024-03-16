@@ -190,18 +190,27 @@ internal static class CharacterDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.EnableBarbarianFightingStyle;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableBarbarianFightingStyle = toggle;
-            CharacterContext.SwitchBarbarianFightingStyle();
-        }
-
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
             CharacterContext.SwitchScimitarWeaponSpecialization();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableBarbarianBrutalStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianBrutalStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianBrutalStrike = toggle;
+            // CharacterContext.SwitchBarbarianBrutalStrike();
+        }
+
+        toggle = Main.Settings.EnableBarbarianFightingStyle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianFightingStyle = toggle;
+            CharacterContext.SwitchBarbarianFightingStyle();
         }
 
         UI.Label();

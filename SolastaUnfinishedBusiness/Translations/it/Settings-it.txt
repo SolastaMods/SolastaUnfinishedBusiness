@@ -5,7 +5,7 @@ ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate agli oggetti 
 ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percettivo dell'oscurità</color> su <color=#D89555>Elfo Oscuro</color>, <color=#D89555>Coboldo Oscuro</color> e <color=#D89555>Nano Grigio</ color> <i><color=#F0DAA0>\n[concede vantaggio alle prove di percezione quando spento o nell'oscurità magica]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Aggiungi il livello <color=#D89555>Guerriero</color> al tiro salvezza di <color=#D89555>Indomabile</color>
 ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze giocabili <i><color=#F0DAA0>[puoi aiutare una creatura amica ad attaccare una creatura entro 1,5 metri da te]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Aggiungi il nemico preferito umanoide ai <color=#D89555>Ranger</color>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti umanoidi <color=#D89555>Ranger</color>
 ModUi/&AddNewBrightEyeColors=Aggiungi nuovi colori luminosi per gli occhi
 ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce per le mani, alabarde, picche, lunghe mazze, balestre a mano]</color></i> <b><i><color=#C04040E0> [Richiede il riavvio]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Aggiungi un interruttore per consentire ai <color=#D89555>Paladini</color> di abilitare solo i colpi critici <i><color=#F0DAA0>[utile per ridurre al minimo le richieste di reazione]</color></i>
@@ -85,6 +85,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Aggiungi nuovi elementi a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color=#F0DAA0>[+1 talento / +2 scelte attributi / +1 abilità]</color></i>
 ModUi/&EnableAlternateVotingSystem=Abilita il sistema di voto alternativo <i><color=#F0DAA0>[usa il modificatore di carisma dell'eroe per determinare il peso della scelta]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=Abilita <color=#D89555>Barbaro</color> <b>Colpo Brutale</b> e <b>Miglioramento Colpo Brutale</b> ai livelli di classe 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Barbaro</color> <b>Stile di combattimento</b> al livello 2
 ModUi/&EnableBetaContent=Abilita i contenuti beta <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse

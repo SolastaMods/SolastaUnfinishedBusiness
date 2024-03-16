@@ -189,8 +189,9 @@ public class Settings : UnityModManager.ModSettings
     public bool EnablesAsiAndFeat { get; set; }
     public bool EnableFeatsAtEveryFourLevels { get; set; }
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
-    public bool EnableBarbarianFightingStyle { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
+    public bool EnableBarbarianBrutalStrike { get; set; }
+    public bool EnableBarbarianFightingStyle { get; set; }
     public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }

@@ -5,7 +5,7 @@ ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptive</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[grants advantage on perception checks when unlit or under magical darkness]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Add <color=#D89555>Fighter</color> level to <color=#D89555>Indomitable Resistance</color> saving throw reroll
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Add humanoid preferred enemy to <color=#D89555>Rangers</color>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Enable <color=#D89555>Rangers</color> humanoid preferred enemies
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
@@ -85,6 +85,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits 
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Add new items to Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Enable the alternate <color=#D89555>Human</color> <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
 ModUi/&EnableAlternateVotingSystem=Enable alternate voting system <i><color=#F0DAA0>[choice weight = votes * hero Charisma modifier]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Barbarian</color> <b>Brutal Strike</b> and <b>Brutal Strike Improvement</b> at class levels 9, 13 and 17
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Barbarian</color> <b>Fighting Style</b> choice at level 2
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click

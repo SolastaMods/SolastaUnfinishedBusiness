@@ -5,7 +5,7 @@ ModUi/&AddCustomIconsToOfficialItems=Fügen Sie benutzerdefinierte Symbole zu of
 ModUi/&AddDarknessPerceptiveToDarkRaces=Aktivieren Sie <color=#D89555>Darkness Perceptive</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> und <color=#D89555>Gray Dwarf</ Farbe> <i><color=#F0DAA0>\n[Gewährt Vorteil bei Wahrnehmungsprüfungen, wenn es nicht beleuchtet ist oder sich in magischer Dunkelheit befindet]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Füge die Stufe <color=#D89555>Kämpfer</color> zur Wiederholung des Rettungswurfs <color=#D89555>Unbezwingbar</color> hinzu
 ModUi/&AddHelpActionToAllRaces=Füge die Aktion <color=#D89555>Hilfe</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur in einem Umkreis von 5 Fuß um dich anzugreifen]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Füge humanoiden bevorzugten Feind zu <color=#D89555>Rangers</color> hinzu
+ModUi/&AddHumanoidFavoredEnemyToRanger=Aktiviere <color=#D89555>Rangers</color> humanoide bevorzugte Feinde
 ModUi/&AddNewBrightEyeColors=Fügen Sie neue leuchtende Augenfarben hinzu
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge neue Waffen und Rezepte zu Shops hinzu <i><color=#F0DAA0>[Handwickel, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Paladinen</color> zu erlauben, nur bei kritischen Treffern Schläge zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
@@ -85,6 +85,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für 
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Neue Gegenstände zu Dungeon Maker hinzufügen</i>
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen Menschen <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
 ModUi/&EnableAlternateVotingSystem=Aktivieren Sie das alternative Abstimmungssystem <i><color=#F0DAA0>[verwenden Sie den Helden-Charisma-Modifikator, um die Auswahlgewichtung zu bestimmen]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Barbar</color> <b>Brutal Strike</b> und <b>Brutal Strike Improvement</b> auf den Klassenstufen 9, 13 und 17
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen per Rechtsklick aktivieren
