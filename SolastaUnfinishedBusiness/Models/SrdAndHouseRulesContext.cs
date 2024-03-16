@@ -65,7 +65,7 @@ internal static class SrdAndHouseRulesContext
         Fire_Spider
     ];
 
-    private static readonly FeatureDefinitionActionAffinity ActionAffinityConditionBlind =
+    internal static readonly FeatureDefinitionActionAffinity ActionAffinityConditionBlind =
         FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityConditionBlind")
             .SetGuiPresentationNoContent(true)

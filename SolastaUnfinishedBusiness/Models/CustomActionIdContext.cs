@@ -227,7 +227,7 @@ public static class CustomActionIdContext
             .Create(MetamagicToggle, "BrutalStrikeToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
-            .SetActionId(ExtraActionId.CunningStrikeToggle)
+            .SetActionId(ExtraActionId.BrutalStrikeToggle)
             .AddToDB();
 
         ActionDefinitionBuilder
