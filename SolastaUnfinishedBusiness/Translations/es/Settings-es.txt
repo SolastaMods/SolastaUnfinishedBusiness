@@ -87,6 +87,7 @@ ModUi/&EnableAlternateHuman=Habilitar el humano alternativo <i><color=#F0DAA0>[+
 ModUi/&EnableAlternateVotingSystem=Habilitar el sistema de votación alternativo <i><color=#F0DAA0>[use el modificador de carisma del héroe para determinar el peso de la elección]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=Habilita <color=#D89555>Bárbaro</color> <b>Golpe brutal</b> y <b>Mejora de golpe brutal</b> en los niveles de clase 9, 13 y 17.
 ModUi/&EnableBarbarianFightingStyle=Activa la opción <color=#D89555>Bárbaro</color> <b>Estilo de lucha</b> en el nivel 2
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilite la ventaja y desventaja del <color=#D89555>Bárbaro</color> <b>Ataque imprudente</b> para finalizar al comienzo del siguiente turno.
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite las acciones de cancelación con el botón derecho del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Activa trucos para activar <color=#D89555>Magia de Guerra</color> ataque de bonificación extra

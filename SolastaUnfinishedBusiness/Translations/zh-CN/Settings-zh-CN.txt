@@ -87,6 +87,7 @@ ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属�
 ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用英雄魅力修正来确定选择权重]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=在职业等级 9、13 和 17 启用<color=#D89555>野蛮人</color><b>残酷打击</b>和<b>残酷打击改进</b>
 ModUi/&EnableBarbarianFightingStyle=在2级启用<color=#D89555>野蛮人</color><b>战斗风格</b>
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>野蛮人</color><b>鲁莽攻击</b>增益和减益以在下一回合开始时完成
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
 ModUi/&EnableCantripsTriggeringOnWarMagic=启用戏法触发<color=#D89555>战争魔法</color>额外奖励攻击

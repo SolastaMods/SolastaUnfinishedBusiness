@@ -87,6 +87,7 @@ ModUi/&EnableAlternateHuman=변형 룰 <color=#D89555>인간</color> <i><color=#
 ModUi/&EnableAlternateVotingSystem=대체 투표 시스템 활성화 <i><color=#F0DAA0>[선택 가중치를 결정하기 위해 영웅 카리스마 수정자를 사용]</color></i>
 ModUi/&EnableBarbarianBrutalStrike=클래스 레벨 9, 13, 17에서 <color=#D89555>야만인</color> <b>잔혹한 일격</b> 및 <b>잔혹한 일격 개선</b>을 활성화하세요.
 ModUi/&EnableBarbarianFightingStyle=<color=#D89555>바바리안</color>의 <b>전투 특화</b> 선택지를 2레벨에 활성화
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>야만인</color> <b>무모한 공격</b> 버프 및 디버프를 활성화하여 다음 턴 시작 시 완료
 ModUi/&EnableBetaContent=베타 컨텐츠 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 우클릭으로 행동 취소 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=캔트립으로도 <color=#D89555>전쟁 마법</color> 추가 보너스 공격 발동 허용
