@@ -45,5 +45,5 @@ Reaction/&SpendPowerWoeCosmosOmenSavingDescription={0} 成功对抗 {1} 的豁�
 Reaction/&SpendPowerWoeCosmosOmenSavingReactDescription=投掷 D6 来通过豁免检定来分散敌人的注意力。
 Reaction/&SpendPowerWoeCosmosOmenSavingReactTitle=凶兆
 Reaction/&SpendPowerWoeCosmosOmenSavingTitle=宇宙预兆：凶兆
-Subclass/&CircleOfTheCosmosDescription=宇宙之环让德鲁伊能够利用星光的力量。这些德鲁伊自远古以来就一直在追寻星空的奥妙，发现隐藏在星座中的秘密。通过揭示和理解这些秘密，宇宙之环试图利用恒星的力量。
-Subclass/&CircleOfTheCosmosTitle=宇宙之环
+Subclass/&CircleOfTheCosmosDescription=宇宙结社让德鲁伊能够利用星光的力量。这些德鲁伊自远古以来就一直在追寻星空的奥妙，发现隐藏在星座中的秘密。通过揭示和理解这些秘密，宇宙结社试图利用恒星的力量。
+Subclass/&CircleOfTheCosmosTitle=宇宙结社
