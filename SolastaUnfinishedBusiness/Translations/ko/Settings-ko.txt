@@ -63,6 +63,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 아무 피해 주사위�
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 추가 주사위 대신 총 피해량을 두 배로 합니다 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>신격</color>
 ModUi/&DisableAutoEquip=인벤토리에 있는 아이템의 자동 장착 비활성화
+ModUi/&DisableBarbarianBrutalCritical=<i>+ 또한 클래스 레벨 9, 13, 17에서 <color=#D89555>야만인</color> <b>잔인한 치명적</b>을 비활성화합니다.</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=이 모드에서 제공하는 기능에 대한 시전 주문 전제 조건을 비활성화합니다. <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=이 모드에서 제공하는 특성의 레벨 전제 조건을 비활성화
 ModUi/&DisableRacePrerequisitesOnModFeats=이 모드에서 제공하는 특성의 종족 전제 조건을 비활성화

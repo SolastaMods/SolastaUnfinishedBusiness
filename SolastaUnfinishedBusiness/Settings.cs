@@ -191,6 +191,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool EnableBarbarianBrutalStrike { get; set; }
+    public bool DisableBarbarianBrutalCritical { get; set; }
     public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
     public bool AddFighterLevelToIndomitableSavingReroll { get; set; }

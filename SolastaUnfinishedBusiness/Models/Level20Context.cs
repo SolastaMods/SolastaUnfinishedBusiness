@@ -141,7 +141,8 @@ internal static class Level20Context
         Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
-            new(AttributeModifierBarbarianRagePointsAdd, 17),
+            // vanilla already adds this even with top level 16
+            // new(AttributeModifierBarbarianRagePointsAdd, 17),
             new(changeAbilityCheckBarbarianIndomitableMight, 18),
             new(FeatureSetAbilityScoreChoice, 19),
             new(customCodeBarbarianPrimalChampion, 20)

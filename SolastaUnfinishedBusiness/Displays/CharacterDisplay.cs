@@ -203,7 +203,18 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianBrutalStrike"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBarbarianBrutalStrike = toggle;
+            Main.Settings.DisableBarbarianBrutalCritical = toggle;
             CharacterContext.SwitchBarbarianBrutalStrike();
+        }
+
+        if (Main.Settings.EnableBarbarianBrutalStrike)
+        {
+            toggle = Main.Settings.DisableBarbarianBrutalCritical;
+            if (UI.Toggle(Gui.Localize("ModUi/&DisableBarbarianBrutalCritical"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DisableBarbarianBrutalCritical = toggle;
+                CharacterContext.SwitchBarbarianBrutalStrike();
+            }
         }
 
         toggle = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration;

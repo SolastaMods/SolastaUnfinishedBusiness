@@ -19,6 +19,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -107,6 +108,7 @@ internal static partial class CharacterContext
 
     private static ConditionDefinition _conditionHamstringBlow;
     private static ConditionDefinition _conditionStaggeringBlow;
+    private static ConditionDefinition _conditionStaggeringBlowAoO;
     private static ConditionDefinition _conditionSunderingBlow;
     private static FeatureDefinitionFeatureSet _featureSetBarbarianBrutalStrike;
     private static FeatureDefinitionFeatureSet _featureSetBarbarianBrutalStrikeImprovement13;
@@ -119,9 +121,13 @@ internal static partial class CharacterContext
             .SetNotificationTag("BrutalStrike")
             .SetDamageDice(DieType.D10, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 17)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 9)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .AddCustomSubFeatures(
+                ModifyAdditionalDamageClassLevelBarbarian.Instance,
+                new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, _, _) => (OperationType.Set,
+                    character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BrutalStrikeToggle))))
             .AddToDB();
 
     private static void BuildBarbarianBrutalStrike()
@@ -196,6 +202,7 @@ internal static partial class CharacterContext
             .Create("ConditionStaggeringBlow")
             .SetGuiPresentation($"Power{BrutalStrike}StaggeringBlow", Category.Feature,
                 ConditionDefinitions.ConditionDazzled)
+            .SetSilent(Silent.WhenRemoved)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
@@ -209,14 +216,42 @@ internal static partial class CharacterContext
                         AttributeDefinitions.Intelligence,
                         AttributeDefinitions.Wisdom,
                         AttributeDefinitions.Charisma)
-                    .AddToDB(),
-                SrdAndHouseRulesContext.ActionAffinityConditionBlind)
+                    .AddToDB())
+            .AddSpecialInterruptions(ConditionInterruption.SavingThrow)
             .CopyParticleReferences(ConditionDefinitions.ConditionDazzled)
             .AddToDB();
 
         _conditionStaggeringBlow.GuiPresentation.description = Gui.NoLocalization;
 
+        _conditionStaggeringBlowAoO = ConditionDefinitionBuilder
+            .Create("ConditionStaggeringBlowAoO")
+            .SetGuiPresentation($"Power{BrutalStrike}StaggeringBlow", Category.Feature,
+                ConditionDefinitions.ConditionDazzled)
+            .SetSilent(Silent.WhenAdded)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(SrdAndHouseRulesContext.ActionAffinityConditionBlind)
+            .AddToDB();
+
+        _conditionStaggeringBlowAoO.GuiPresentation.description = Gui.NoLocalization;
+
         // Sundering Blow
+
+        var additionalDamageSunderingBlow = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{BrutalStrike}SunderingBlow")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("SunderingBlow")
+            .SetDamageDice(DieType.D10, 1)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .AddToDB();
+
+        var conditionSunderingBlowAlly = ConditionDefinitionBuilder
+            .Create("ConditionSunderingBlowAlly")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalDamageSunderingBlow)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
 
         var powerSunderingBlow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{BrutalStrike}SunderingBlow")
@@ -229,10 +264,12 @@ internal static partial class CharacterContext
         _conditionSunderingBlow = ConditionDefinitionBuilder
             .Create("ConditionSunderingBlow")
             .SetGuiPresentation($"Power{BrutalStrike}SunderingBlow", Category.Feature,
-                ConditionDefinitions.ConditionBleeding)
+                ConditionDefinitions.ConditionTargetedByGuidingBolt)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .AddCustomSubFeatures(new CustomBehaviorSunderingBlow(powerSunderingBlow))
+            .AddCustomSubFeatures(new CustomBehaviorSunderingBlow(powerSunderingBlow, conditionSunderingBlowAlly))
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttackedNotBySource)
+            .CopyParticleReferences(ConditionDefinitions.ConditionLeadByExampleMarked)
             .AddToDB();
 
         // MAIN
@@ -287,7 +324,8 @@ internal static partial class CharacterContext
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BrutalStrikeToggle) ||
+            if (!attacker.OncePerTurnIsValid("AdditionalDamageBrutalStrike") ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BrutalStrikeToggle) ||
                 !rulesetAttacker.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagCombat, ConditionDefinitions.ConditionReckless.Name))
             {
@@ -337,26 +375,33 @@ internal static partial class CharacterContext
                 yield break;
             }
 
-            var conditionName = string.Empty;
             var selectedPower = subPowers[option];
 
             switch (selectedPower.Name)
             {
                 case $"Power{BrutalStrike}ForcefulBlow":
                     actualEffectForms.Add(ForcefulBlowForm);
-                    yield break;
+                    break;
                 case $"Power{BrutalStrike}HamstringBlow":
-                    conditionName = _conditionHamstringBlow.Name;
+                    InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionHamstringBlow.Name);
                     break;
                 case $"Power{BrutalStrike}StaggeringBlow":
-                    conditionName = _conditionStaggeringBlow.Name;
+                    InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionStaggeringBlow.Name);
+                    InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionStaggeringBlowAoO.Name);
                     break;
                 case $"Power{BrutalStrike}SunderingBlow":
-                    conditionName = _conditionSunderingBlow.Name;
+                    InflictCondition(rulesetAttacker, defender.RulesetCharacter, _conditionSunderingBlow.Name);
                     break;
             }
+        }
 
-            defender.RulesetCharacter.InflictCondition(
+        private static void InflictCondition(
+            RulesetCharacter rulesetAttacker,
+            // ReSharper disable once SuggestBaseTypeForParameter
+            RulesetCharacter rulesetDefender,
+            string conditionName)
+        {
+            rulesetDefender.InflictCondition(
                 conditionName,
                 DurationType.Round,
                 1,
@@ -374,54 +419,112 @@ internal static partial class CharacterContext
 
     private sealed class CustomBehaviorSunderingBlow(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerSunderingBlow) : IAttackBeforeHitPossibleOnMeOrAlly
+        FeatureDefinitionPower powerSunderingBlow,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionSunderingBlowAlly)
+        : IPhysicalAttackInitiatedOnMe, IMagicalAttackInitiatedOnMe, IAttackBeforeHitConfirmedOnMe
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
+        private string _damageType;
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
             ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
+            RulesetAttackMode attackMode, bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            int attackRoll)
+            bool firstTarget,
+            bool criticalHit)
         {
-            if (rulesetEffect != null &&
-                rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            if (_damageType == null)
             {
                 yield break;
             }
 
-            const DieType DIE_TYPE = DieType.D10;
-
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
 
+            rulesetAttacker.InflictCondition(
+                conditionSunderingBlowAlly.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionSunderingBlowAlly.Name,
+                0,
+                0,
+                0);
+        }
+
+        public IEnumerator OnMagicalAttackInitiatedOnMe(
+            CharacterActionMagicEffect action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter target,
+            ActionModifier attackModifier,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool checkMagicalAttackDamage)
+        {
+            if (activeEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield break;
+            }
+
+            _damageType = activeEffect.EffectDescription.FindFirstDamageForm()?.DamageType;
+
+            if (_damageType == null)
+            {
+                yield break;
+            }
+
+            AddBonusAttackRoll(action.ActingCharacter.RulesetCharacter, target.RulesetActor, attackModifier);
+        }
+
+        public IEnumerator OnPhysicalAttackInitiatedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            _damageType = attackMode.EffectDescription.FindFirstDamageForm()?.DamageType;
+
+            if (_damageType == null)
+            {
+                yield break;
+            }
+
+            AddBonusAttackRoll(attacker.RulesetCharacter, defender.RulesetActor, attackModifier);
+        }
+
+        private void AddBonusAttackRoll(
+            RulesetCharacter rulesetAttacker,
+            RulesetActor rulesetDefender,
+            ActionModifier actionModifier)
+        {
             if (!rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, _conditionSunderingBlow.Name, out var activeCondition))
             {
-                yield break;
+                return;
             }
 
             var rulesetSource = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
 
             if (rulesetAttacker == rulesetSource)
             {
-                yield break;
+                return;
             }
 
-            var dieRoll = RollDie(DIE_TYPE, AdvantageType.None, out _, out _);
+            var bonusAttackRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
 
-            rulesetAttacker.ShowDieRoll(DIE_TYPE, dieRoll, title: powerSunderingBlow.GuiPresentation.Title);
-
-            var trendInfo = new TrendInfo(
-                dieRoll, FeatureSourceType.CharacterFeature, powerSunderingBlow.Name, powerSunderingBlow);
-
-            actionModifier.AttackRollModifier += dieRoll;
-            actionModifier.AttacktoHitTrends.Add(trendInfo);
-
-            // damageForm.BonusDamage += dieRoll;
-            // damageForm.DamageBonusTrends.Add(trendInfo);
+            actionModifier.AttackRollModifier += bonusAttackRoll;
+            actionModifier.AttacktoHitTrends.Add(new TrendInfo(
+                bonusAttackRoll, FeatureSourceType.CharacterFeature, powerSunderingBlow.Name, powerSunderingBlow));
         }
     }
 
@@ -429,13 +532,24 @@ internal static partial class CharacterContext
     {
         if (Main.Settings.EnableBarbarianBrutalStrike)
         {
-            Barbarian.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrike,
-                9));
-            Barbarian.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13,
-                13));
-            Barbarian.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17,
-                17));
+            Barbarian.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrike, 9));
+            Barbarian.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13, 13));
+            Barbarian.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17, 17));
+
             ConditionDefinitions.ConditionReckless.Features.TryAdd(AdditionalDamageBrutalStrike);
+
+            if (Main.Settings.DisableBarbarianBrutalCritical)
+            {
+                Barbarian.FeatureUnlocks.RemoveAll(x =>
+                    x.level == 9 && x.FeatureDefinition == FeatureSetBarbarianBrutalCritical);
+                Barbarian.FeatureUnlocks.RemoveAll(x =>
+                    x.level == 13 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
+                Barbarian.FeatureUnlocks.RemoveAll(x =>
+                    x.level == 17 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
+            }
         }
         else
         {
@@ -445,8 +559,19 @@ internal static partial class CharacterContext
                 x.level == 13 && x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement13);
             Barbarian.FeatureUnlocks.RemoveAll(x =>
                 x.level == 17 && x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement17);
+
             ConditionDefinitions.ConditionReckless.Features.RemoveAll(x =>
                 x == AdditionalDamageBrutalStrike);
+
+            if (Main.Settings.DisableBarbarianBrutalCritical)
+            {
+                Barbarian.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9));
+                Barbarian.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 13));
+                Barbarian.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17));
+            }
         }
 
         if (Main.Settings.EnableSortingFutureFeatures)
@@ -464,9 +589,8 @@ internal static partial class CharacterContext
         }
         else
         {
-            Barbarian.FeatureUnlocks
-                .RemoveAll(x => x.level == 2 &&
-                                x.FeatureDefinition == FightingStyleChoiceBarbarian);
+            Barbarian.FeatureUnlocks.RemoveAll(x =>
+                x.level == 2 && x.FeatureDefinition == FightingStyleChoiceBarbarian);
         }
 
         if (Main.Settings.EnableSortingFutureFeatures)

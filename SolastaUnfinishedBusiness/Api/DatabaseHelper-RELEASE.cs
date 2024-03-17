@@ -1405,6 +1405,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetAbilityScoreChoice { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetAbilityScoreChoice");
 
+        internal static FeatureDefinitionFeatureSet FeatureSetBarbarianBrutalCritical { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetBarbarianBrutalCritical");
+
         internal static FeatureDefinitionFeatureSet FeatureSetDragonbornBreathWeapon { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornBreathWeapon");
 
@@ -1830,9 +1833,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerOathOfJugementWeightOfJustice { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementWeightOfJustice");
-
-        internal static FeatureDefinitionPower PowerOathOfMotherlandFieryWrath { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerOathOfMotherlandFieryWrath");
 
         internal static FeatureDefinitionPower PowerOathOfMotherlandVolcanicAura { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfMotherlandVolcanicAura");

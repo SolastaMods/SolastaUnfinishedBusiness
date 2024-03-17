@@ -63,6 +63,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color> : continuez à relancer 
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color> : Doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinités</color>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Désactivez également <color=#D89555>Barbare</color> <b>Critique brutal</b> aux niveaux de classe 9, 13 et 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Désactivez les pré-requis de lancer de sort pour les dons fournis par ce mod <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les pré-requis de niveau sur les dons fournis par ce mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis d'Ascendance sur les dons fournis par ce mod
