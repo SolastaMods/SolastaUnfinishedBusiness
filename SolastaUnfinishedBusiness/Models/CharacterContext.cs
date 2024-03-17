@@ -216,6 +216,7 @@ internal static partial class CharacterContext
         BuildRogueCunningStrike();
         SwitchAsiAndFeat();
         SwitchBarbarianBrutalStrike();
+        SwitchBarbarianRecklessSameBuffDebuffDuration();
         SwitchBarbarianFightingStyle();
         SwitchDarknessPerceptive();
         SwitchDragonbornElementalBreathUsages();

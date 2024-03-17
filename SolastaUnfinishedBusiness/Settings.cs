@@ -192,8 +192,9 @@ public class Settings : UnityModManager.ModSettings
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool EnableBarbarianBrutalStrike { get; set; }
     public bool DisableBarbarianBrutalCritical { get; set; }
-    public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
+    public bool EnableBarbarianRecklessSameBuffDebuffDuration { get; set; }
+    public bool EnableBarbarianRegainOneRageAtShortRest { get; set; }
     public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }

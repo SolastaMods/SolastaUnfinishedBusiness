@@ -34,6 +34,7 @@ Action/&PaladinSmiteToggleDescription=Позволяет променять Ка
 Action/&PaladinSmiteToggleTitle=Кара
 Action/&PressTheAdvantageToggleDescription=Активировать/деактивировать умение Воспользоваться преимуществом
 Action/&PressTheAdvantageToggleTitle=Возпользоваться преимуществом
+Action/&RecklessAttackExtendedDescription=Прежде чем совершить первую атаку в свой ход, вы можете решить атаковать безрассудно. Это дает вам преимущество при бросках атаки оружием ближнего боя с использованием Силы до вашего следующего хода, но броски атаки против вас имеют преимущество до следующего хода.
 Action/&TacticianGambitDescription=Выберите специальный манёвр
 Action/&TacticianGambitTitle=Приёмы
 Action/&WithdrawDescription=Когда вы находитесь в ближнем бою с враждебным существом, вы можете бонусным действием переместиться на 3 клетки, не провоцируя атаки.

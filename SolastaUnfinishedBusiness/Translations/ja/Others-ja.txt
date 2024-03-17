@@ -34,6 +34,7 @@ Action/&PaladinSmiteToggleDescription=あらゆる攻撃でスマイトを有効
 Action/&PaladinSmiteToggleTitle=スマイト
 Action/&PressTheAdvantageToggleDescription=有効化/無効化 利点を押します
 Action/&PressTheAdvantageToggleTitle=利点を押してください
+Action/&RecklessAttackExtendedDescription=自分のターンで最初の攻撃を行う前に、無謀に攻撃することを決定できます。そうすることで、次のターンまで「筋力」を使用した近接武器の攻撃ロールでアドバンテージが得られますが、あなたに対する攻撃ロールは次のターンまでアドバンテージを持ちます。
 Action/&TacticianGambitDescription=特殊機動を選択
 Action/&TacticianGambitTitle=作戦
 Action/&WithdrawDescription=敵クリーチャーの近接範囲内にいる場合、ボーナス アクションを使用して、機会攻撃を引き起こすことなく最大 3 セルまで移動できます。

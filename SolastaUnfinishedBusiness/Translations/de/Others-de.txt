@@ -34,6 +34,7 @@ Action/&PaladinSmiteToggleDescription=Aktiviere Smites bei jedem Angriff, ansons
 Action/&PaladinSmiteToggleTitle=Schlagen
 Action/&PressTheAdvantageToggleDescription=Aktivieren/deaktivieren Drücken Sie die Advantage
 Action/&PressTheAdvantageToggleTitle=Drücken Sie den Vorteil
+Action/&RecklessAttackExtendedDescription=Bevor Sie in Ihrem Zug zum ersten Mal angreifen, können Sie sich für einen rücksichtslosen Angriff entscheiden. Dies verschafft dir bis zu deinem nächsten Zug einen Vorteil bei Nahkampfwaffen-Angriffswürfen mit Stärke, Angriffswürfe gegen dich haben jedoch bis zu deinem nächsten Zug einen Vorteil.
 Action/&TacticianGambitDescription=Wählen Sie ein Spezialmanöver
 Action/&TacticianGambitTitle=Manöver
 Action/&WithdrawDescription=Wenn Sie sich in Nahkampfreichweite einer feindlichen Kreatur befinden, können Sie Ihre Bonusaktion nutzen, um sich bis zu 3 Felder zu bewegen, ohne Gelegenheitsangriffe zu provozieren.

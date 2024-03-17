@@ -34,6 +34,7 @@ Action/&PaladinSmiteToggleDescription=Habilite los ataques en cualquier ataque; 
 Action/&PaladinSmiteToggleTitle=Herir
 Action/&PressTheAdvantageToggleDescription=Activar/desactivar Presione la ventaja
 Action/&PressTheAdvantageToggleTitle=Presione la ventaja
+Action/&RecklessAttackExtendedDescription=Antes de realizar tu primer ataque en tu turno, puedes decidir atacar imprudentemente. Hacerlo te da ventaja en las tiradas de ataque con armas cuerpo a cuerpo usando Fuerza hasta tu próximo turno, pero las tiradas de ataque contra ti tienen ventaja hasta tu próximo turno.
 Action/&TacticianGambitDescription=Seleccionar maniobra especial
 Action/&TacticianGambitTitle=Maniobras
 Action/&WithdrawDescription=Cuando estás dentro del alcance cuerpo a cuerpo de una criatura enemiga, puedes usar tu acción adicional para moverte hasta 3 celdas sin provocar ataques de oportunidad.

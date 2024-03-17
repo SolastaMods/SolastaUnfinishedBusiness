@@ -34,6 +34,7 @@ Action/&PaladinSmiteToggleDescription=Abilita le punizioni su qualsiasi attacco 
 Action/&PaladinSmiteToggleTitle=Colpire
 Action/&PressTheAdvantageToggleDescription=Attiva/disattiva Premi il Vantaggio
 Action/&PressTheAdvantageToggleTitle=Premi il vantaggio
+Action/&RecklessAttackExtendedDescription=Prima di effettuare il primo attacco nel tuo turno, puoi decidere di attaccare in modo avventato. Ciò ti dà vantaggio sui tiri per colpire con armi da mischia usando la Forza fino al tuo turno successivo, ma i tiri per colpire contro di te hanno vantaggio fino al tuo turno successivo.
 Action/&TacticianGambitDescription=Seleziona manovra speciale
 Action/&TacticianGambitTitle=Manovre
 Action/&WithdrawDescription=Quando sei nel raggio di mischia di una creatura nemica, puoi usare la tua azione bonus per muoverti fino a 3 celle senza provocare attacchi di opportunità.

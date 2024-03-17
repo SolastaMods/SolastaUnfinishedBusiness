@@ -34,6 +34,7 @@ Action/&PaladinSmiteToggleDescription=对任何攻击启用打击，否则仅对
 Action/&PaladinSmiteToggleTitle=暴击
 Action/&PressTheAdvantageToggleDescription=激活/停用 按优势
 Action/&PressTheAdvantageToggleTitle=按优势
+Action/&RecklessAttackExtendedDescription=在你轮到你进行第一次攻击之前，你可以决定鲁莽地攻击。这样做可以让你在使用力量的近战武器攻击骰上获得优势，直到你的下一个回合，但是对你的攻击骰在你的下一个回合之前有优势。
 Action/&TacticianGambitDescription=选择特殊机动
 Action/&TacticianGambitTitle=策略
 Action/&WithdrawDescription=当你处于敌方生物的近战范围内时，你可以使用奖励动作移动最多 3 个方格，而不会引发借机攻击。

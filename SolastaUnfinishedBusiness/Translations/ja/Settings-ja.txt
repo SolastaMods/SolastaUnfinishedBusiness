@@ -89,6 +89,7 @@ ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする <i
 ModUi/&EnableBarbarianBrutalStrike=クラスレベル9、13、17で<color=#D89555>バーバリアン</color>の<b>ブルータルストライク</b>と<b>ブルータルストライクの改善</b>を有効にします
 ModUi/&EnableBarbarianFightingStyle=レベル 2 で<color=#D89555>野蛮人</color>の<b>戦闘スタイル</b>の選択が可能になります
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>野蛮人</color> の<b>無謀な攻撃</b>のバフとデバフを有効にし、次のターンの開始時に終了します
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=クラスレベル7で<color=#D89555>バーバリアン</color>が短い休憩中に怒りの使用を1回回復できるようにする
 ModUi/&EnableBetaContent=ベータ コンテンツを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックによるキャンセルアクションを有効にする
 ModUi/&EnableCantripsTriggeringOnWarMagic=キャントリップを有効にして<color=#D89555>戦争魔法</color>の追加ボーナス攻撃を発動

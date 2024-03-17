@@ -34,6 +34,7 @@ Action/&PaladinSmiteToggleDescription=Activer les châtiments sur n'importe quel
 Action/&PaladinSmiteToggleTitle=Châtiment divin
 Action/&PressTheAdvantageToggleDescription=Activer/désactiver Appuyer sur Avantage
 Action/&PressTheAdvantageToggleTitle=Appuyez sur l'avantage
+Action/&RecklessAttackExtendedDescription=Avant de lancer votre première attaque à votre tour, vous pouvez décider d'attaquer de manière imprudente. Cela vous donne un avantage sur les jets d'attaque au corps à corps avec une arme en utilisant la Force jusqu'à votre prochain tour, mais les jets d'attaque contre vous ont un avantage jusqu'à votre prochain tour.
 Action/&TacticianGambitDescription=Sélectionner la manœuvre spéciale
 Action/&TacticianGambitTitle=Gambits
 Action/&WithdrawDescription=Lorsque vous êtes à portée de mêlée d'une créature ennemie, vous pouvez utiliser votre action bonus pour vous déplacer jusqu'à 3 cases sans provoquer d'attaques d'opportunité.

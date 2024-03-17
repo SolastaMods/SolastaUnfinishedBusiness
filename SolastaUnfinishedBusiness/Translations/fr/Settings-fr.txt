@@ -89,6 +89,7 @@ ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><co
 ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Barbare</color> <b>Frappe brutale</b> et <b>Amélioration de la frappe brutale</b> aux niveaux de classe 9, 13 et 17.
 ModUi/&EnableBarbarianFightingStyle=Activer pour le <color=#D89555>Barbare</color> le choix d'un <b>Style de combat</b> au niveau 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Activez le buff et le débuff <color=#D89555>Barbare</color> <b>Attaque téméraire</b> pour terminer au début du prochain tour.
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Permet au <color=#D89555>Barbare</color> de récupérer une utilisation de rage pendant un court repos au niveau de classe 7.
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer l'annulation des actions avec un clic droit de la souris
 ModUi/&EnableCantripsTriggeringOnWarMagic=Les Sorts Mineurs permettent le déclenchement de l'attaque bonus supplémentaire de <color=#D89555>Magie de guerre</color>

@@ -34,6 +34,7 @@ Action/&PaladinSmiteToggleDescription=Enable smites on any attack otherwise only
 Action/&PaladinSmiteToggleTitle=Smite
 Action/&PressTheAdvantageToggleDescription=Activate/deactivate Press the Advantage
 Action/&PressTheAdvantageToggleTitle=Press the Advantage
+Action/&RecklessAttackExtendedDescription=Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength until your next turn, but attack rolls against you have advantage until your next turn.
 Action/&TacticianGambitDescription=Select special maneuver
 Action/&TacticianGambitTitle=Maneuvers
 Action/&WithdrawDescription=When you are within melee range of an enemy creature, you can use your bonus action to move up to 3 cells without provoking opportunity attacks.

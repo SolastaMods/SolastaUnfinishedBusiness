@@ -34,6 +34,7 @@ Action/&PaladinSmiteToggleDescription=Habilite golpes em qualquer ataque, caso c
 Action/&PaladinSmiteToggleTitle=Desbaratar
 Action/&PressTheAdvantageToggleDescription=Ativar/desativar Pressione a vantagem
 Action/&PressTheAdvantageToggleTitle=Pressione a vantagem
+Action/&RecklessAttackExtendedDescription=Antes de fazer seu primeiro ataque no seu turno, você pode decidir atacar de forma imprudente. Fazer isso lhe dá vantagem nas jogadas de ataque com armas corpo a corpo usando Força até o próximo turno, mas as jogadas de ataque contra você têm vantagem até o próximo turno.
 Action/&TacticianGambitDescription=Selecione manobra especial
 Action/&TacticianGambitTitle=Manobras
 Action/&WithdrawDescription=Quando você estiver dentro do alcance corpo a corpo de uma criatura inimiga, você pode usar sua ação bônus para se mover até 3 células sem provocar ataques de oportunidade.

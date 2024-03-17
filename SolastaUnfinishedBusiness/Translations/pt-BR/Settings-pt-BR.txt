@@ -89,6 +89,7 @@ ModUi/&EnableAlternateVotingSystem=Ativar sistema de votação alternativo <i><c
 ModUi/&EnableBarbarianBrutalStrike=Habilite <color=#D89555>Bárbaro</color> <b>Golpe Brutal</b> e <b>Melhoria de Ataque Brutal</b> nos níveis de classe 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Habilite a opção <color=#D89555>Bárbaro</color> <b>Estilo de luta</b> no nível 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Ative o buff e o debuff do <color=#D89555>Bárbaro</color> <b>Ataque Imprudente</b> para terminar no início do próximo turno
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Habilite a recuperação de <color=#D89555>Bárbaro</color> em um uso de fúria durante um breve descanso no nível de classe 7
 ModUi/&EnableBetaContent=Habilitar conteúdo beta <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar ações de cancelamento com o botão direito do mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Habilite truques para ativar <color=#D89555>War Magic</color> ataque de bônus extra

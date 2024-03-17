@@ -134,14 +134,6 @@ internal static class CharacterDisplay
 
             UI.Label();
 
-            toggle = Main.Settings.EnableMinInOutAttributes;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnableMinInOutAttributes"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableMinInOutAttributes = toggle;
-            }
-
-            UI.Label();
-
             toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
             if (UI.Toggle(Gui.Localize("ModUi/&DisplayAllKnownSpellsDuringLevelUp"), ref toggle, UI.AutoWidth()))
             {
@@ -152,6 +144,12 @@ internal static class CharacterDisplay
             if (UI.Toggle(Gui.Localize("ModUi/&DisplayPactSlotsOnSpellSelectionPanel"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = toggle;
+            }
+
+            toggle = Main.Settings.EnableMinInOutAttributes;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableMinInOutAttributes"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableMinInOutAttributes = toggle;
             }
 
             UI.Label();
@@ -221,8 +219,14 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration = toggle;
+            CharacterContext.SwitchBarbarianRecklessSameBuffDebuffDuration();
         }
 
+        toggle = Main.Settings.EnableBarbarianRegainOneRageAtShortRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRegainOneRageAtShortRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianRegainOneRageAtShortRest = toggle;
+        }
 
         toggle = Main.Settings.EnableBarbarianFightingStyle;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))

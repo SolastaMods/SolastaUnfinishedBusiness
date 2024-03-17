@@ -89,6 +89,7 @@ ModUi/&EnableAlternateVotingSystem=Abilita il sistema di voto alternativo <i><co
 ModUi/&EnableBarbarianBrutalStrike=Abilita <color=#D89555>Barbaro</color> <b>Colpo Brutale</b> e <b>Miglioramento Colpo Brutale</b> ai livelli di classe 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Barbaro</color> <b>Stile di combattimento</b> al livello 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Abilita il buff e il debuff <color=#D89555>Barbaro</color> <b>Attacco spericolato</b> per terminare all'inizio del turno successivo
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita <color=#D89555>Barbaro</color> a riacquistare un uso dell'ira durante un riposo breve al livello di classe 7
 ModUi/&EnableBetaContent=Abilita i contenuti beta <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Abilita i trucchetti per attivare <color=#D89555> Magia da guerra </color> attacco bonus extra

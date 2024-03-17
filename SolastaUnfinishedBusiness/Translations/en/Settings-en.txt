@@ -89,6 +89,7 @@ ModUi/&EnableAlternateVotingSystem=Enable alternate voting system <i><color=#F0D
 ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Barbarian</color> <b>Brutal Strike</b> and <b>Brutal Strike Improvement</b> at class levels 9, 13 and 17
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Barbarian</color> <b>Fighting Style</b> choice at level 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Barbarian</color> <b>Reckless Attack</b> buff and debuff to finish at start of next turn
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable <color=#D89555>Barbarian</color> regain one rage use over a short rest at class level 7
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Enable cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack

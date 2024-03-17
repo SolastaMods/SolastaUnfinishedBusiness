@@ -580,6 +580,13 @@ internal static partial class CharacterContext
         }
     }
 
+    internal static void SwitchBarbarianRecklessSameBuffDebuffDuration()
+    {
+        RecklessAttack.GuiPresentation.description = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration
+            ? "Action/&RecklessAttackExtendedDescription"
+            : "Action/&RecklessAttackDescription";
+    }
+
     internal static void SwitchBarbarianFightingStyle()
     {
         if (Main.Settings.EnableBarbarianFightingStyle)

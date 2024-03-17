@@ -89,6 +89,7 @@ ModUi/&EnableAlternateVotingSystem=Aktivieren Sie das alternative Abstimmungssys
 ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Barbar</color> <b>Brutal Strike</b> und <b>Brutal Strike Improvement</b> auf den Klassenstufen 9, 13 und 17
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie die Stärkung und Schwächung von <color=#D89555>Barbar</color> <b>Rücksichtsloser Angriff</b>, damit sie zu Beginn der nächsten Runde endet
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Ermöglichen Sie <color=#D89555>Barbaren</color>, auf Klassenstufe 7 über eine kurze Pause hinweg einen Wuteinsatz zurückzugewinnen
 ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen per Rechtsklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Aktivieren Sie Cantrips, um einen zusätzlichen <color=#D89555>Kriegsmagie</color>-Bonusangriff auszulösen
