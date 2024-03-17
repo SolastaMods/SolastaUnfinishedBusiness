@@ -1,9 +1,9 @@
 Feature/&AttributeModifierBattlebornBonusACTitle=奥术韧性
-Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=体质+2，其他1项得分增加1点。
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=体质 +2，其他 1 项属性增加 1 点。
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=能力值增加
 Feature/&FeatureSetBattlebornArcaneResilienceDescription=你生来就具有非凡的毅力，体现在以下优势：\n\n• 你的防御等级获得 +1 加值。\n• 你在中毒豁免检定上有优势，并且对中毒有抵抗力毒伤害。\n• 你对疾病免疫。\n• 你不需要睡觉，魔法也不能让你入睡。
 Feature/&FeatureSetBattlebornArcaneResilienceTitle=奥术韧性
-Feature/&FeatureSetBattlebornSpecializedInfusionDescription=您将获得您选择的一种技能熟练程度和一种工具熟练程度。
+Feature/&FeatureSetBattlebornSpecializedInfusionDescription=你将获得你选择的一种技能熟练项和一种工具熟练项。
 Feature/&FeatureSetBattlebornSpecializedInfusionTitle=专业输液
-Race/&RaceBattlebornDescription=战斗之子是奥术实验的结果，融合肉体、炼金术和魔法，创造出完美的战场士兵。它们原本是作为武器而诞生的，现在必须找到战争之外的用途。战斗出生的人可以是忠诚的盟友，冷酷无情的杀戮机器，或者是寻找目的和意义的流浪灵魂。
-Race/&RaceBattlebornTitle=为战而生
+Race/&RaceBattlebornDescription=战裔是奥术实验的结果，融合肉体、炼金术和魔法，创造出完美的战场士兵。他们原本是作为武器而诞生的，现在必须找到战争之外的用途。战裔可以是忠诚的盟友，冷酷无情的杀戮机器，或者是寻找目的和意义的流浪灵魂。
+Race/&RaceBattlebornTitle=战裔
