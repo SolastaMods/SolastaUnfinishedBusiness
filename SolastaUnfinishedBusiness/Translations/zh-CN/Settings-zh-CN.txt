@@ -74,7 +74,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+在升级过程中显示其他职�
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+在法术选择而非角色面板上显示<color=#D89555>邪术士</color>契约槽位</i>
 ModUi/&Donate=<b><color=#D89555>捐赠：</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=不在角色图像上显示头盔<b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&DontEndTurnAfterReady=使用准备动作后不会结束回合<i><color=#F0DAA0>[允许使用奖励动作或任何来自加速或其他来源的额外主要动作]</color></i>
+ModUi/&DontEndTurnAfterReady=使用准备动作后不会结束回合<i><color=#F0DAA0>[允许使用附赠动作或任何来自加速或其他来源的额外主要动作]</color></i>
 ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗镜头不会跟随
 ModUi/&DontFollowMargin=<i><color=white>+除非英雄不在屏幕内或在屏幕边缘的%范围内</color></i>
 ModUi/&DungeonMakerBasicHelp=•这些设置不需要玩家安装这个模组
@@ -85,14 +85,14 @@ ModUi/&EnableAdditionalBackstoryDisplay=在背景检查中启用额外的背景�
 ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和传送器启用额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+向地城编辑器添加新物品</i>
 ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属性选择/+1技能]</color></i>
-ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用英雄魅力修正来确定选择权重]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=在职业等级 9、13 和 17 启用<color=#D89555>野蛮人</color><b>残酷打击</b>和<b>残酷打击改进</b>
+ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用英雄魅力调整值来确定选择权重]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=在职业等级 9、13 和 17 启用<color=#D89555>野蛮人</color><b>凶蛮重击</b>和<b>凶蛮重击改进</b>
 ModUi/&EnableBarbarianFightingStyle=在2级启用<color=#D89555>野蛮人</color><b>战斗风格</b>
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>野蛮人</color><b>鲁莽攻击</b>增益和减益以在下一回合开始时完成
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=在等级 7 时启用<color=#D89555>野蛮人</color>在短暂休息后恢复一次怒气使用
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=在等级 7 时启用<color=#D89555>野蛮人</color>在短暂休息后恢复一次狂暴使用
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
-ModUi/&EnableCantripsTriggeringOnWarMagic=启用戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
+ModUi/&EnableCantripsTriggeringOnWarMagic=启用戏法触发<color=#D89555>战争魔法</color>，可以用附赠动作发动一次武器攻击
 ModUi/&EnableCharacterChecker=在 主屏幕 > 角色 上启用角色检视按钮
 ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-(E)</color>导出角色
 ModUi/&EnableCharactersOnFireToEmitLight=使火焰生物发光<i><color=#F0DAA0>[光之立方体、火元素、火焰小丑、火焰鹗、火蜘蛛，以及其他火系生物]</color></i>
@@ -126,14 +126,14 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>�
 ModUi/&EnableMonkWeaponSpecialization=在第 2 级和 11 级启用<color=#D89555>武僧</color><b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
-ModUi/&EnableRangerNatureShroudAt10=在第 10 级启用<color=#D89555>游侠</color><b>自然面纱</b>功能<i><color=#F0DAA0>[作为奖励动作，你可以神奇地变得隐形，直到下回合开始]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=在第 10 级启用<color=#D89555>游侠</color><b>自然面纱</b>功能<i><color=#F0DAA0>[作为附赠动作，你可以神奇地变得隐形，直到下回合开始]</color></i>
 ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于5人或6人的队伍]</color></i>
 ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的咒语或法术</i>
 ModUi/&EnableRespec=在休息操作后启用洗点
 ModUi/&EnableRogueCunningStrike=在第 5 级和 14 级时启用<color=#D89555>盗贼</color><b>诡诈打击</b>和<b>凶狡打击</b><i><color=#F0DAA0>[你放弃1个偷袭骰子可获得额外的命中效果]</color></i>
 ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>Rogue</color><b>战斗风格</b>选择
-ModUi/&EnableRogueSteadyAim=在第 3 级时启用<color=#D89555>盗贼</color><b>手稳就准</b><i><color=#F0DAA0>[奖励动作会在当前回合中为你的下一次攻击检定带来优势，如果你还没动]</color></i>
-ModUi/&EnableRogueStrSaving=启用<color=#D89555>盗贼</color>在<b>诡诈/凶狡打击</b>、<b>虚弱/强化打击</b>和<b>刀锋冰雹上使用DEX或STR调整值</b>
+ModUi/&EnableRogueSteadyAim=在第 3 级时启用<color=#D89555>游荡者</color><b>手稳就准</b><i><color=#F0DAA0>[作为附赠动作，在当前回合中为你的下一次攻击检定带来优势，如果你还没移动]</color></i>
+ModUi/&EnableRogueStrSaving=启用<color=#D89555>游荡者</color>在<b>诡诈/凶狡打击</b>、<b>虚弱/强化打击</b>和<b>刀锋冰雹上使用DEX或STR调整值</b>
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
@@ -180,8 +180,8 @@ ModUi/&HighContrastTargetingSingleColor=更改单个生物<b><color=$$$$$$>突�
 ModUi/&House=<color=#F0DAA0>房规：</color>
 ModUi/&IdentifyAfterRest=通过短休或长休增加识别魔法物品的能力
 ModUi/&IgnoreHandXbowFreeHandRequirements=不需要空闲的手来使用手弩
-ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻象法术对范围内 <color=#D89555>真实视觉</color> 的目标自动失败
-ModUi/&ImproveLevelUpFeaturesSelection=改进升级功能选择<b><i><color=#C04040E0>[需要重启]</color></i></b>\n<i><color=#F0DAA0>[影响<color=#D89555>游侠</color>宿敌和擅长地形，<color=#D89555>德鲁伊</color>血缘野兽，<color=#D89555>野蛮人</color>元素之路和龙类子职选择]</color></i>
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻术法术对范围内 <color=#D89555>真实视觉</color> 的目标自动失败
+ModUi/&ImproveLevelUpFeaturesSelection=改进升级功能选择<b><i><color=#C04040E0>[需要重启]</color></i></b>\n<i><color=#F0DAA0>[影响<color=#D89555>游侠</color>宿敌和偏好地形，<color=#D89555>德鲁伊</color>血缘野兽，<color=#D89555>野蛮人</color>元素道途和龙族子职选择]</color></i>
 ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseMaxAttunedItems=在第 10 级将最大同调物品增加到 4 个，在第 18 级增加到 5 个
 ModUi/&InitialChoices=<color=#F0DAA0>创作：</color>
