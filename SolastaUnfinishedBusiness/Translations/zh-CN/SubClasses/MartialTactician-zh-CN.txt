@@ -1,4 +1,4 @@
-Feature/&FeatureAdaptiveStrategyDescription=每当你在一次攻击中投出致命一击或致命一击时，就会获得一个策略骰。这种增益每回合只能发生一次，并且不会使你超过最大策略骰限制。
+Feature/&FeatureAdaptiveStrategyDescription=每当你在一次攻击中投出严重失误或致命一击时，就会获得一个策略骰。这种增益每回合只能发生一次，并且不会使你超过最大策略骰限制。
 Feature/&FeatureAdaptiveStrategyTitle=策略：适应
 Feature/&FeatureImproviseStrategyDescription=将你的策略骰最大值增加 2。
 Feature/&FeatureImproviseStrategyTitle=策略：即兴发挥
