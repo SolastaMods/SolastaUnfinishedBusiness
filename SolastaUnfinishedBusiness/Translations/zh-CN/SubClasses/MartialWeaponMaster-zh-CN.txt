@@ -1,4 +1,4 @@
-Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=在你的回合结束之前，你使用专用武器进行的所有攻击都具有优势。
+Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=在你的回合结束之前，你使用专精武器进行的所有攻击都具有优势。
 Condition/&ConditionMartialWeaponMasterFocusedStrikesTitle=集中打击
 Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=你的专精武器类型的命中和伤害检定获得 +1。武器大师在使用所有其他武器类型进行攻击时将处于劣势。从 15 级开始获得 +2 加值。
 Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle=武器专精
