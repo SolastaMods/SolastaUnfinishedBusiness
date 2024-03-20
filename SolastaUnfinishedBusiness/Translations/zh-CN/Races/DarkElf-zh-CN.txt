@@ -1,5 +1,5 @@
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=魅力 +1
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=属性值增加
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=属性值提升
 Feature/&CastSpellDarkelfMagicDescription=你熟知 <b>舞光术</b> 戏法。在 3 级时，你习得 <b>妖火</b>，在第 5 级，你习得 <b>黑暗术</b>。每次长休都可以使用一次。
 Feature/&CastSpellDarkelfMagicTitle=黑暗精灵魔法
 Feature/&ProficiencyDarkelfWeaponTrainingDescription=你熟练使用刺剑、短剑和手弩。
