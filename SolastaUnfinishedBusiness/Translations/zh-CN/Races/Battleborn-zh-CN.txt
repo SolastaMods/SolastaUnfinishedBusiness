@@ -1,5 +1,5 @@
 Feature/&AttributeModifierBattlebornBonusACTitle=奥术韧性
-Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=体质 +2，其他 1 项属性增加 1 点。
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=体质 +2，其他 1 项属性 +1。
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=属性值提升
 Feature/&FeatureSetBattlebornArcaneResilienceDescription=你生来就具有非凡的毅力，体现在以下优势：\n\n• 你的防御等级获得 +1 加值。\n• 你在中毒豁免检定上有优势，并且对中毒有抵抗力毒伤害。\n• 你对疾病免疫。\n• 你不需要睡觉，魔法也不能让你入睡。
 Feature/&FeatureSetBattlebornArcaneResilienceTitle=奥术韧性
