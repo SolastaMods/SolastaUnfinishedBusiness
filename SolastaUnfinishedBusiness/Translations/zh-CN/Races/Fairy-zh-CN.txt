@@ -1,4 +1,4 @@
-Feature/&CastSpellFairyDescription=你熟知 <b>光辉爆发</b> 戏法，在第3级时，你学会 <b>妖火</b>，在5级时，你学会 <b>七彩喷射</b>。每次长休后可以使用一次。
+Feature/&CastSpellFairyDescription=你熟知 <b>光辉爆发</b> 戏法，在第 3 级时，你学会 <b>妖火</b>，在 5 级时，你学会 <b>七彩喷射</b>。每次长休后可以使用一次。
 Feature/&CastSpellFairyTitle=仙灵魔法
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=敏捷 +2, 智力、感知或魅力 +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=属性值
