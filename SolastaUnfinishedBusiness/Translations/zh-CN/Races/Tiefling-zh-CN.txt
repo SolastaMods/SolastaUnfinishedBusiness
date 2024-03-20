@@ -1,9 +1,9 @@
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseDescription=敏捷 +1
-Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseTitle=墨菲斯托属性增加
+Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseTitle=墨菲斯托属性值提升
 Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseDescription=智力 +1
-Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=阿斯蒙蒂斯属性增加
+Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=阿斯蒙蒂斯属性值提升
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseDescription=力量 +1
-Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseTitle=扎瑞尔属性增加
+Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseTitle=扎瑞尔属性值提升
 Feature/&CastSpellTieflingDevilTongueDescription=你熟知 <b>恶言相加</b> 戏法。在第 3 级，你习得 <b>魅惑人类</b>，在第 5 级，你习得 <b>安定心神</b>。每次长休可以使用一次。
 Feature/&CastSpellTieflingDevilTongueTitle=魔鬼之舌魔法
 Feature/&CastSpellTieflingFeralDescription=你熟知 <b>燃火术</b> 戏法。在第 3 级，你习得 <b>燃烧之手</b>。每次长休可使用一次。
