@@ -1,6 +1,6 @@
 Condition/&ConditionSpellShieldBladeWeavingDescription=你在下一次对抗法术或戏法的豁免检定中处于劣势。
 Condition/&ConditionSpellShieldBladeWeavingTitle=剑刃编织
-Condition/&ConditionSpellShieldProtectiveBarrierDescription=+2 至 AC。
+Condition/&ConditionSpellShieldProtectiveBarrierDescription=+2 至护甲等级。
 Condition/&ConditionSpellShieldProtectiveBarrierTitle=防护护壁
 Feature/&CastSpellSpellShieldDescription=施放法师法术和戏法。
 Feature/&CastSpellSpellShieldTitle=施法
