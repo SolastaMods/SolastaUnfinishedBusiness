@@ -1,4 +1,4 @@
-Condition/&ConditionCharmedByDanceOfWarDescription=护甲等级（AC）减少魅力调整值。
+Condition/&ConditionCharmedByDanceOfWarDescription=护甲等级减少魅力调整值。
 Condition/&ConditionCharmedByDanceOfWarTittle=魅惑
 Condition/&ConditionWarDanceDescription=快速移动和攻击。
 Condition/&ConditionWarDanceMomentumDescription=你的攻击造成更多伤害但命中较低。
