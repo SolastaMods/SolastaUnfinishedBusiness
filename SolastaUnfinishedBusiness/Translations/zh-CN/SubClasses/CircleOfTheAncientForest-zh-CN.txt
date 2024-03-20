@@ -14,7 +14,7 @@ Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription=获得光耀伤�
 Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle=防护光耀酿
 Equipment/&HerbalBrewHealingTitle=治愈酿
 Equipment/&HerbalBrewToxifyingTitle=毒性酿
-Feature/&AttributeModifierAncientForestBarkskinDescription=护甲等级(AC)设置为 16。
+Feature/&AttributeModifierAncientForestBarkskinDescription=护甲等级（AC）设置为 16。
 Feature/&AttributeModifierAncientForestBarkskinTitle=树肤
 Feature/&BonusCantripAncientForestDescription=你将学习有关自然魔法和生命能量如何联系的秘密。你学习 橡棍术 和 冻寒之触。
 Feature/&BonusCantripAncientForestTitle=远古森林额外戏法
@@ -28,7 +28,7 @@ Feature/&PowerAncientForestRegrowthDescription=当你进行长休时，你会恢
 Feature/&PowerAncientForestRegrowthTitle=再生
 Feature/&PowerAncientForestRootedDescription=树栖的卷须从你的脚上长出来并深入地下。你的速度变为 0，并且你在任何推你、拉你或击倒你的豁免检定中获得优势。你可以随意施展纠缠。
 Feature/&PowerAncientForestRootedTitle=根须
-Feature/&PowerPoolAncientForestHerbalBrewDescription=你可以制作草药酿，每次都持续到下一次长休息。你创造的酿总量等于你的熟练加值。对于每种酿，选择以下效果之一：\n<color=#add8e6ff>强化酿</color>：在 1 小时内抵抗不同的伤害类型。\n<color=#add8e6ff>治愈酿</color> color>：提供 2d4 生命值。\n<color=#add8e6ff>毒性酿</color>：作为毒药作用于武器，持续 1 分钟。如果击中目标，则每次击中目标都会受到 1d4 毒素伤害。
+Feature/&PowerPoolAncientForestHerbalBrewDescription=你可以制作草药酿，每次都持续到下一次长休。你创造的酿总量等于你的熟练加值。对于每种酿，选择以下效果之一：\n<color=#add8e6ff>强化酿</color>：在 1 小时内抵抗不同的伤害类型。\n<color=#add8e6ff>治愈酿</color> color>：提供 2d4 生命值。\n<color=#add8e6ff>毒性酿</color>：作为毒药作用于武器，持续 1 分钟。如果击中目标，则每次击中目标都会受到 1d4 毒素伤害。
 Feature/&PowerPoolAncientForestHerbalBrewTitle=草药酿
 Feature/&PowerPoolAncientForestWallOfThornsDescription=你可以施放棘墙术的次数等于你的感知调整值。你在长休后重新获得所有消耗掉的次数。
 Feature/&PowerPoolAncientForestWallOfThornsTitle=棘墙术
