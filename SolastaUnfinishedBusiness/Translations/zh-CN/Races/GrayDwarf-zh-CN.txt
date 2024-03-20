@@ -1,7 +1,7 @@
 Condition/&ConditionGrayDwarfStoneStrengthDescription=在力量检定和豁免检定上具有优势。 +1d4 近战力量武器伤害。
 Condition/&ConditionGrayDwarfStoneStrengthTitle=石头之力
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=力量 +1
-Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=属性值增加
+Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=属性值提升
 Feature/&FeatureSetGrayDwarfAncestryDescription=对抗魅惑、麻痹和幻术的豁免优势
 Feature/&FeatureSetGrayDwarfAncestryTitle=灰矮人祖先
 Feature/&PowerGrayDwarfInvisibilityDescription=你可以神奇地隐形最多 1 分钟。如果你采取任何进攻行动，这种隐身状态就会消失。一旦你使用了这个能力，在你完成一次短休或长休之前你不能再次使用它。
