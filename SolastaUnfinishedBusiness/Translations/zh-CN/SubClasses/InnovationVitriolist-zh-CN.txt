@@ -1,6 +1,6 @@
 Condition/&ConditionInnovationVitriolistArsenalDescription=无法做出反应。
 Condition/&ConditionInnovationVitriolistArsenalTitle=震慑
-Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 防御等级(AC)。
+Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 护甲等级。
 Condition/&ConditionInnovationVitriolistCorrodedTitle=腐蚀
 Condition/&ConditionInnovationVitriolistMiserableDescription=持续伤害。
 Condition/&ConditionInnovationVitriolistMiserableTitle=痛苦
