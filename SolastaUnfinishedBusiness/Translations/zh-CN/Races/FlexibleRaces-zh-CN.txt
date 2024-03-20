@@ -1,6 +1,6 @@
 Feature/&PointPoolAbilityScore3Description=任意选择 3 个属性值提升。
-Feature/&PointPoolAbilityScore3Title=属性值增加
+Feature/&PointPoolAbilityScore3Title=属性值提升
 Feature/&PointPoolAbilityScore4Description=任意选择 4 个属性值提升。
-Feature/&PointPoolAbilityScore4Title=属性值增加
+Feature/&PointPoolAbilityScore4Title=属性值提升
 Feature/&PointPoolSelectBonusFeatsDescription=为你的角色选择 {0} 个额外专长。
 Feature/&PointPoolSelectBonusFeatsTitle={0} 奖励专长
