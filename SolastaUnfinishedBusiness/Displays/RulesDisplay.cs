@@ -266,6 +266,13 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchEldritchBlastRange();
         }
 
+        toggle = Main.Settings.FixRingOfRegenerationHealRate;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixRingOfRegenerationHealRate = toggle;
+            SrdAndHouseRulesContext.SwitchRingOfRegenerationHealRate();
+        }
+
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label();
