@@ -16,5 +16,5 @@ Reaction/&UseHeroicUncannyDodgeDescription=你可以使用你的反应来完全�
 Reaction/&UseHeroicUncannyDodgeReactDescription=你可以使用你的反应来完全防止任何伤害。
 Reaction/&UseHeroicUncannyDodgeReactTitle=英勇直觉闪避
 Reaction/&UseHeroicUncannyDodgeTitle=英勇直觉闪避
-Subclass/&RoguishAcrobatDescription=特技演员范型的游侠是天生表演者。有地形和障碍物的地方，在特技演员眼中意味着：表演！
+Subclass/&RoguishAcrobatDescription=特技演员范型的游荡者是天生表演者。有地形和障碍物的地方，在特技演员眼中意味着：表演！
 Subclass/&RoguishAcrobatTitle=特技演员
