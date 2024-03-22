@@ -1,4 +1,4 @@
-Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseDescription=力量+1
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseDescription=力量 +1
 Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=荒地膂力
 Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=你对火焰伤害具有抗性。
 Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=火之摇篮
