@@ -1,10 +1,10 @@
-Feature/&CastSpellOniOgreMagicDescription=3级时，每次长时间休息你可以施放<b>雷霆重击</b>一次。 <b>智慧</b>是你的施法能力。
+Feature/&CastSpellOniOgreMagicDescription= 3 级时，每次长休你可以施放 <b>雷鸣斩</b> 一次。感知是你的施法属性。
 Feature/&CastSpellOniOgreMagicTitle=食人魔魔法
-Feature/&FeatureSetOniAbilityScoreIncreaseDescription=力量+2、智慧+1
-Feature/&FeatureSetOniAbilityScoreIncreaseTitle=属性增加
-Feature/&ProficiencyOniOgreMightDescription=你精通<b>武术武器</b>。
+Feature/&FeatureSetOniAbilityScoreIncreaseDescription=力量 +2、感知 +1
+Feature/&FeatureSetOniAbilityScoreIncreaseTitle=属性值提升
+Feature/&ProficiencyOniOgreMightDescription=你获得军用武器熟练项。
 Feature/&ProficiencyOniOgreMightTitle=食人魔之力
-Feature/&ProficiencyOniThirdEyeDescription=你精通<b>感知</b>技能。
+Feature/&ProficiencyOniThirdEyeDescription=你获得察觉技能熟练项。
 Feature/&ProficiencyOniThirdEyeTitle=第三只眼睛
 Race/&RaceOniDescription=恶鬼是来自远东岛屿王国日本的类似恶魔的生物。他们通过激活的大门来到索拉斯塔。
 Race/&RaceOniTitle=恶鬼
