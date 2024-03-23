@@ -19,10 +19,10 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿<color=#D89555>森林之甲</color>或<color=#D89555>光明使者之衣</color>
 ModUi/&AllowBeardlessDwarves=允许无须<color=#D89555>矮人</color>
 ModUi/&AllowClubsToBeThrown=允许木棒像匕首或手斧一样投掷
-ModUi/&AllowDisplayingNonSuggestedSpells=允许在每个列表上使用 mod 非建议的咒语
-ModUi/&AllowDisplayingOfficialSpells=允许每个列表中使用游戏官方咒语
+ModUi/&AllowDisplayingNonSuggestedSpells=允许在每个列表上使用 mod 非建议的法术
+ModUi/&AllowDisplayingOfficialSpells=允许每个列表中使用游戏官方法术
 ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>穿上金属盔甲
-ModUi/&AllowDungeonsMaxLevel20=允许最高等级为20的地城
+ModUi/&AllowDungeonsMaxLevel20=允许最高等级为 20 的地城
 ModUi/&AllowFlightSuspend=允许暂时中止物品和法术的飞行<i><color=#F0DAA0>[不影响wildshape或飞行种族]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=在放置小工具或道具时启用<color=#1E81B0>CTRL</color>点击绕过任何检定
 ModUi/&AllowHasteCasting=允许使用加速术赋予的额外动作施法<color=#F0DAA0>（你仍然每轮只能释放一个标准动作法术）</color>
