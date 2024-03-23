@@ -17,6 +17,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCondi
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionRegenerations;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -94,6 +95,7 @@ internal static class SrdAndHouseRulesContext
         SwitchMagicStaffFoci();
         SwitchOfficialFoodRationsWeight();
         SwitchRecurringEffectOnEntangle();
+        SwitchRingOfRegenerationHealRate();
         SwitchSchoolRestrictionsFromShadowCaster();
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
@@ -413,6 +415,30 @@ internal static class SrdAndHouseRulesContext
     internal static void SwitchEldritchBlastRange()
     {
         EldritchBlast.effectDescription.rangeParameter = Main.Settings.FixEldritchBlastRange ? 24 : 16;
+    }
+
+    internal static void SwitchRingOfRegenerationHealRate()
+    {
+        Main.Info($"FixRingOfRegenerationHealRate={Main.Settings.FixRingOfRegenerationHealRate}");
+
+        var ringDefinition = RegenerationRing;
+
+        if (Main.Settings.FixRingOfRegenerationHealRate)
+        {
+            // Heal by 1 hp per 3 minutes which is roughly the same as 
+            // RAW of 1d6 (avg 3.5) every 10 minutes.
+            ringDefinition.tickType = DurationType.Minute;
+            ringDefinition.tickNumber = 3;
+            ringDefinition.diceNumber = 1;
+            ringDefinition.dieType = DieType.D1;
+        }
+        else
+        {
+            ringDefinition.tickType = DurationType.Round;
+            ringDefinition.tickNumber = 1;
+            ringDefinition.diceNumber = 2;
+            ringDefinition.dieType = DieType.D1;
+        }
     }
 
     internal static void SwitchUseHeightOneCylinderEffect()
