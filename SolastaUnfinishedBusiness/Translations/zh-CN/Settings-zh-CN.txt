@@ -1,9 +1,9 @@
-ModUi/&AccountForAllDiceOnSavageAttack=将来自基础武器伤害的所有骰子添加到增加基础武器伤害的特征（例如半兽人的野蛮攻击）而不是总是 1 个骰子
+ModUi/&AccountForAllDiceOnSavageAttack=将所有添加武器伤害骰的特性以添加武器基础伤害骰取代只有 1 个骰<i><color=#F0DAA0>[半兽人的凶蛮攻击特性、双手武器等等]</color></i>
 ModUi/&AddAllToStore=全部添加到商店
 ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>流血状态</color>添加到<color=#D89555>高等复原术</color>和<color=#D89555>次级复原术</color>的移除列表里
 ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>黑暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>黑暗感知</color><i><color=#F0DAA0>\n[在未照明或在魔法黑暗下时察觉检定具有优势]</color></i>
-ModUi/&AddFighterLevelToIndomitableSavingReroll=将<color=#D89555>战士</color>等级添加到<color=#D89555>Indomitable</color>豁免重掷中
+ModUi/&AddFighterLevelToIndomitableSavingReroll=将<color=#D89555>战士</color>等级添加到<color=#D89555>Indomitable</color>豁免重投中
 ModUi/&AddHelpActionToAllRaces=为所有可玩种族添加<color=#D89555>帮助</color>动作<i><color=#F0DAA0>[你可以帮助友方生物攻击距离你5尺以内的生物]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>Rangers</color>类人生物宿敌
 ModUi/&AddNewBrightEyeColors=添加新的亮色眼睛颜色
@@ -19,10 +19,10 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿<color=#D89555>森林之甲</color>或<color=#D89555>光明使者之衣</color>
 ModUi/&AllowBeardlessDwarves=允许无须<color=#D89555>矮人</color>
 ModUi/&AllowClubsToBeThrown=允许木棒像匕首或手斧一样投掷
-ModUi/&AllowDisplayingNonSuggestedSpells=允许在每个列表上使用 mod 非建议的咒语
-ModUi/&AllowDisplayingOfficialSpells=允许每个列表中使用游戏官方咒语
+ModUi/&AllowDisplayingNonSuggestedSpells=允许在每个列表上使用 mod 非建议的法术
+ModUi/&AllowDisplayingOfficialSpells=允许每个列表中使用游戏官方法术
 ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>穿上金属盔甲
-ModUi/&AllowDungeonsMaxLevel20=允许最高等级为20的地城
+ModUi/&AllowDungeonsMaxLevel20=允许最高等级为 20 的地城
 ModUi/&AllowFlightSuspend=允许暂时中止物品和法术的飞行<i><color=#F0DAA0>[不影响wildshape或飞行种族]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=在放置小工具或道具时启用<color=#1E81B0>CTRL</color>点击绕过任何检定
 ModUi/&AllowHasteCasting=允许使用加速术赋予的额外动作施法<color=#F0DAA0>（你仍然每轮只能释放一个标准动作法术）</color>
@@ -80,14 +80,14 @@ ModUi/&DontFollowMargin=<i><color=white>+除非英雄不在屏幕内或在屏幕
 ModUi/&DungeonMakerBasicHelp=•这些设置不需要玩家安装这个模组
 ModUi/&DungeonMakerMenu=地城编辑器
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后服</color>外观
-ModUi/&EnableActionSwitching=启用动作切换栏<i><color=#F0DAA0>[在主要动作之前急于使用紧急动作时有用]</color></i>
+ModUi/&EnableActionSwitching=启用动作切换栏<i><color=#F0DAA0>[在主要动作之前急于使用加速动作时有用]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=在背景检查中启用额外的背景故事显示
 ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和传送器启用额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+向地城编辑器添加新物品</i>
 ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属性选择/+1技能]</color></i>
 ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用英雄魅力调整值来确定选择权重]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=在职业等级 9、13 和 17 启用<color=#D89555>野蛮人</color><b>凶蛮重击</b>和<b>凶蛮重击改进</b>
-ModUi/&EnableBarbarianFightingStyle=在2级启用<color=#D89555>野蛮人</color><b>战斗风格</b>
+ModUi/&EnableBarbarianBrutalStrike=在职业等级 9、13 和 17 启用<color=#D89555>野蛮人</color><b>凶蛮打击</b>和<b>精通凶蛮打击</b>
+ModUi/&EnableBarbarianFightingStyle=在 2 级启用<color=#D89555>野蛮人</color><b>战斗风格</b>
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>野蛮人</color><b>鲁莽攻击</b>增益和减益以在下一回合开始时完成
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=在等级 7 时启用<color=#D89555>野蛮人</color>在短暂休息后恢复一次狂暴使用
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
@@ -95,13 +95,13 @@ ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
 ModUi/&EnableCantripsTriggeringOnWarMagic=启用戏法触发<color=#D89555>战争魔法</color>，可以用附赠动作发动一次武器攻击
 ModUi/&EnableCharacterChecker=在 主屏幕 > 角色 上启用角色检视按钮
 ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-(E)</color>导出角色
-ModUi/&EnableCharactersOnFireToEmitLight=使火焰生物发光<i><color=#F0DAA0>[光之立方体、火元素、火焰小丑、火焰鹗、火蜘蛛，以及其他火系生物]</color></i>
+ModUi/&EnableCharactersOnFireToEmitLight=使火焰生物发光<i><color=#F0DAA0>[光亮立方格、火元素、火焰小丑、火焰鹗、火蜘蛛，以及其他火系生物]</color></i>
 ModUi/&EnableCheatMenu=启用作弊菜单
 ModUi/&EnableCustomPortraits=启用自定义肖像
 ModUi/&EnableCustomPortraitsHelp=。将你的自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i>，以英雄名字<i><color=#F0DAA0>[即：Anton、Celia、Nialla 等]</color></i>\n 命名。使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 以获得最佳效果]</color></i>
-ModUi/&EnableDungeonMakerModdedContent=启用地城编辑器Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150和200x200的地牢大小以及简洁的混合来自所有环境的素材]</color></i>
-ModUi/&EnableEpicPointsAndArray=启用史诗级35点购点和默认骰<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练面板显示<i><color=#F0DAA0>[奥术射击、注入、开局和多功能]</color></i>\n<b><i><color=#C04040E0>[角色性能提升检查。使用风险自负]</color></i></b>
+ModUi/&EnableDungeonMakerModdedContent=启用地城编辑器Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150 和 200x200 的地牢大小以及简洁的混合来自所有环境的素材]</color></i>
+ModUi/&EnableEpicPointsAndArray=启用史诗级 35 点购点和默认骰<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练面板显示<i><color=#F0DAA0>[奥术射击、注法、战技和多种功能]</color></i>\n<b><i><color=#C04040E0>[角色性能提升检查。使用风险自负]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在等级 2、10 和 18 启用专长选择
 ModUi/&EnableFeatsAtEvenLevelsMiddle=在 6 级和 14 级启用专长选择
 ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级启用<color=#D89555>战士</color><b>武器专攻</b><i><color=#F0DAA0>[获得+1命中和伤害，但是使用其他武器时将获得劣势]</color></i>
@@ -133,7 +133,7 @@ ModUi/&EnableRespec=在休息操作后启用洗点
 ModUi/&EnableRogueCunningStrike=在第 5 级和 14 级时启用<color=#D89555>盗贼</color><b>诡诈打击</b>和<b>凶狡打击</b><i><color=#F0DAA0>[你放弃1个偷袭骰子可获得额外的命中效果]</color></i>
 ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>Rogue</color><b>战斗风格</b>选择
 ModUi/&EnableRogueSteadyAim=在第 3 级时启用<color=#D89555>游荡者</color><b>手稳就准</b><i><color=#F0DAA0>[作为附赠动作，在当前回合中为你的下一次攻击检定带来优势，如果你还没移动]</color></i>
-ModUi/&EnableRogueStrSaving=启用<color=#D89555>游荡者</color>在<b>诡诈/凶狡打击</b>、<b>虚弱/强化打击</b>和<b>刀锋冰雹上使用DEX或STR调整值</b>
+ModUi/&EnableRogueStrSaving=启用<color=#D89555>游荡者</color>在<b>诡诈/凶狡打击</b>、<b>虚弱/强化打击</b>和<b>剑刃冰雹上使用敏捷或力量调整值</b>
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
@@ -156,12 +156,12 @@ ModUi/&Feats=<color=#F0DAA0>专长</color>
 ModUi/&FightingStyles=<color=#F0DAA0>战斗风格</color>
 ModUi/&FixAsianLanguagesTextWrap=修复亚洲语言的游戏 UI 文本换行<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&FixEldritchBlastRange=将<color=#D89555>魔能爆</color>范围更改为24<i><color=#F0DAA0>[而不是16]</color></i>
-ModUi/&FlightSuspendWingedBoots=<i>+使用翼靴官方规则<color=#F0DAA0>[航班暂停时剩余时间不计算]</color></i>
+ModUi/&FlightSuspendWingedBoots=<i>+使用飞翼之靴官方规则<color=#F0DAA0>[暂停飞行时不计算剩余时间]</color></i>
 ModUi/&Formation=<color=#F0DAA0>队形：</color>
 ModUi/&FormationError=<color=#C04040E0>你不能在多人游戏中改变你的阵型...</color>
 ModUi/&FormationHelp1=•使用数字按钮编辑给定的集合<i><color=#F0DAA0>[考虑在输入下启用热键]</color></i>
 ModUi/&FormationHelp2=•<b><color=#1E81B0>@</color></b>代表相对英雄位置
-ModUi/&FormationHelp3=•单击任意2个按钮以交换它们的位置
+ModUi/&FormationHelp3=•单击任意 2 个按钮以交换它们的位置
 ModUi/&FormationHotkey=启用<color=#1E81B0>CTRL-SHIFT-(1..5)</color>在游戏中交换阵型
 ModUi/&FormationResetAllSets=重置全部
 ModUi/&FormationResetThisSet=重置这个

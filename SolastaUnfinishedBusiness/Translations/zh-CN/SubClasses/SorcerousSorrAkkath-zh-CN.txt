@@ -1,12 +1,12 @@
-Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackDescription=每回合一次，如果你在攻击检定上有优势，你可以对你用法术攻击击中的一个生物额外造成 1d6 点伤害。如果目标的另一个敌人在其 5 尺以内，则你在攻击检定上不需要优势，该敌人没有失能，并且你在攻击检定上没有劣势。伤害在 5 级增加到 2d6，在 11 级增加到 3d6，在 17 级增加到 4d6。
+Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackDescription=每回合一次，如果你在攻击检定上有优势，你可以对你用法术攻击命中的一个生物额外造成 1d6 点伤害。如果目标的另一个敌人在其 5 尺以内，该敌人没有失能，并且你在攻击检定上没有劣势，则你在攻击检定上不需要优势。伤害在 5 级提升至 2d6，在 11 级提升至 3d6，在 17 级提升至 4d6。
 Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackTitle=法术偷袭
-Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathDescription=从第 6 级开始，你对毒素伤害产生抵抗力并获得对中毒状态的免疫力。此外，击中可以被法术偷袭的生物会对该生物进行体质豁免检定。如果检定失败，它会中毒，直到你的下一轮结束。
+Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathDescription=从第 6 级开始，你对毒素伤害产生抗性并获得对中毒状态的免疫。此外，被法术偷袭特性命中的生物会对该生物进行体质豁免检定。如果检定失败，它会中毒，直到你的下一轮结束。
 Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathTitle=索尔·阿卡斯之血
-Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityDescription=从第 14 级开始，当你处于昏暗的光线或黑暗中时，你获得以下效果：\n• +2 护甲等级(AC)。\n• +2 攻击检定。\n• +2 豁免检定。\n• 在你的回合结束时+2 生命值恢复。
+Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityDescription=从第 14 级开始，当你处于微光光照或黑暗中时，你获得以下效果：\n• +2 护甲等级。\n• +2 攻击检定。\n• +2 豁免检定。\n• 在你的回合结束时 +2 生命值恢复。
 Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityTitle=黑暗亲和
-Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageDescription=你变得精通 潜行 和 欺骗 技能，学习毒刺戏法并获得 60 尺的黑暗视觉。
+Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageDescription=你获得隐匿和欺瞒技能技能熟练项，习得 <b>毒刺</b> 戏法并获得 60 尺的黑暗视觉。
 Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageTitle=欺诈血统
-Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessDescription=从第 18 级开始，你获得了腐蚀接触生物并吸取其生命值的能力。将你的动作作为具有接触范围的法术攻击，成功命中时对一个生物造成 8d8 暗蚀伤害，并治疗所造成伤害的一半。每次长休你可以使用此能力 3 次，如果你没有使用，你可以使用 4 个术法点来代替。
+Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessDescription=从第 18 级开始，你获得了腐蚀接触生物并吸取其生命值的能力。将你的动作作为具有接触范围的法术攻击，成功命中时对一个生物造成 8d8 黯蚀伤害，并治疗所造成伤害的一半。每次长休你可以使用此特性 3 次，如果你没有使用，你可以使用 4 个术法点来代替。
 Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessTitle=黑暗之触
 Feedback/&AdditionalDamageSpellSneakAttackFormat=法术偷袭！
 Feedback/&AdditionalDamageSpellSneakAttackLine={0} 对 {1} 进行法术偷袭 (+{2})

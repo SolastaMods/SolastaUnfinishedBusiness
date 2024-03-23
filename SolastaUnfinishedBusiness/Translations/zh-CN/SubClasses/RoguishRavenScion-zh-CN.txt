@@ -1,21 +1,21 @@
 Condition/&ConditionRavenScionHeartSeekingShotDescription=如果你的下一次远程武器攻击击中了生物，则保证会造成致命一击。
 Condition/&ConditionRavenScionHeartSeekingShotTitle=觅心射击
 Feature/&AdditionalDamageRavenScionSniperAimDescription=每回合一次，当你用远程武器攻击击中一个生物时，该生物会受到等同于你的盗贼等级的相同类型的额外伤害。
-Feature/&AdditionalDamageRavenScionSniperAimTitle=狙击手的目标
-Feature/&FeatureRavenScionKillingSpreeDescription=在你的回合中，当你将一个生物的生命值减少到 0 时，你将获得一次额外的攻击作为你主要动作的一部分，并重置你的狙击手瞄准功能的使用。
+Feature/&AdditionalDamageRavenScionSniperAimTitle=狙击手瞄准
+Feature/&FeatureRavenScionKillingSpreeDescription=在你的回合中，当你将一个生物的生命值减少到 0 时，你将获得一次额外的攻击作为你主要动作的一部分，并重置你的狙击手瞄准特性的使用。
 Feature/&FeatureRavenScionKillingSpreeTitle=杀戮狂潮
-Feature/&FeatureSetRavenScionRangedSpecialistDescription=你精通所有双手远程武器和箭术战斗风格。
+Feature/&FeatureSetRavenScionRangedSpecialistDescription=你专精所有双手远程武器并获得箭术战斗风格。
 Feature/&FeatureSetRavenScionRangedSpecialistTitle=远程专家
 Feature/&PowerRavenScionDeadlyFocusDescription=如果你在远程武器攻击检定中失手，你可以再次进行检定并获得优势。每次短休时你可以使用该能力一次。
-Feature/&PowerRavenScionDeadlyFocusTitle=致命瞄准
+Feature/&PowerRavenScionDeadlyFocusTitle=致命专攻
 Feature/&PowerRavenScionHeartSeekingShotDescription=作为一个自由动作，你可以使你的下一次远程武器攻击击中生物时必定造成致命一击。每次短休时你可以使用该能力一次。
 Feature/&PowerRavenScionHeartSeekingShotTitle=觅心射击
-Feedback/&AdditionalDamageSniperAimFormat=狙击手的目标
-Feedback/&AdditionalDamageSniperAimLine=狙击手的瞄准造成额外 +{2} 伤害！
-Feedback/&TriggerRavenScionRerollLine={0} 卷 {1} = {2}。致命焦点会造成致命一击。
-Reaction/&SpendPowerRavenScionDeadlyFocusDescription=使用你的致命瞄准重试攻击。
-Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=使用你的致命瞄准重试攻击。
+Feedback/&AdditionalDamageSniperAimFormat=狙击手瞄准
+Feedback/&AdditionalDamageSniperAimLine=狙击手瞄准造成额外 +{2} 伤害！
+Feedback/&TriggerRavenScionRerollLine={0} 卷 {1} = {2}。致命专攻会造成致命一击。
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=使用你的致命专攻重试攻击。
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=使用你的致命专攻重试攻击。
 Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=重试攻击
-Reaction/&SpendPowerRavenScionDeadlyFocusTitle=致命瞄准
-Subclass/&RoguishRavenScionDescription=黑鸦是远程武器专家，经过训练可以快速有效地击倒敌人，而不会像他们的近亲遗产一样引起世界其他地方的嫉妒。
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=致命专攻
+Subclass/&RoguishRavenScionDescription=黑鸦是远程武器专家，经过训练可以快速有效地击倒敌人。
 Subclass/&RoguishRavenScionTitle=黑鸦
