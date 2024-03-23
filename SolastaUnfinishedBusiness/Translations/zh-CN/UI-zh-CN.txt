@@ -1,4 +1,4 @@
-Tutorial/&TutorialActionSwitchingDescription=当您有多个主要或附赠动作可用时，您可以单击动作状态符号将其设为当前活动的动作。这允许使用加速术或灭族者动作进行攻击，然后使用默认动作施放法术。或者您可能需要的任何其他组合。\n将鼠标悬停在动作状态符号上会显示工具提示，其中包含授予该动作的专长或状态的名称。
+Tutorial/&TutorialActionSwitchingDescription=当你有多个主要或附赠动作可用时，你可以单击动作状态符号将其设为当前活动的动作。这允许使用加速术或灭族者动作进行攻击，然后使用默认动作施放法术。或者你可能需要的任何其他组合。\n将鼠标悬停在动作状态符号上会显示工具提示框，其中包含授予该动作的专长或状态的名称。
 Tutorial/&TutorialActionSwitchingTitle=多重动作
 UI/&Add=添加
 UI/&AdditionalActionSource=来源：{0}
