@@ -163,35 +163,11 @@ internal static class CommonBuilders
 
     private sealed class AttackReplaceWithCantrip : IAttackReplaceWithCantrip;
 
-    private sealed class
-        MagicEffectBeforeHitConfirmedOnEnemyCasterFightingWarMagic(
-            // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-            ConditionDefinition conditionDefinition)
-        : IMagicEffectBeforeHitConfirmedOnEnemy, IAttackBeforeHitConfirmedOnEnemy
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemyCasterFightingWarMagic(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition)
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        //supports Sunlit Blade and Resonating Strike
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (!Main.Settings.EnableCantripsTriggeringOnWarMagic ||
-                (attackMode != null && !attackMode.AttackTags.Contains(SpellBuilders.PhysicalAttackFromCantrip)))
-            {
-                yield break;
-            }
-
-            yield return TryAddCondition(attacker);
-        }
-
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -207,6 +183,28 @@ internal static class CommonBuilders
             }
 
             if (rulesetEffectSpell.SpellDefinition.SpellLevel == 0 && !Main.Settings.EnableCantripsTriggeringOnWarMagic)
+            {
+                yield break;
+            }
+
+            yield return TryAddCondition(attacker);
+        }
+
+        //supports Sunlit Blade and Resonating Strike
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!Main.Settings.EnableCantripsTriggeringOnWarMagic ||
+                (attackMode != null && !attackMode.AttackTags.Contains(SpellBuilders.PhysicalAttackFromCantrip)))
             {
                 yield break;
             }

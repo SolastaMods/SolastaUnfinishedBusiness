@@ -213,7 +213,7 @@ public sealed class DomainDefiler : AbstractSubclass
     //
 
     private sealed class CustomBehaviorInsidiousDeathMagic :
-        IAttackBeforeHitConfirmedOnEnemy, IMagicEffectBeforeHitConfirmedOnEnemy
+        IPhysicalAttackBeforeHitConfirmedOnEnemy, IMagicEffectBeforeHitConfirmedOnEnemy
     {
         private readonly ConditionDefinition _conditionInsidiousDeathMagic;
 
@@ -222,7 +222,19 @@ public sealed class DomainDefiler : AbstractSubclass
             _conditionInsidiousDeathMagic = conditionInsidiousDeathMagic;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return TryAddCondition(actualEffectForms, attacker, defender);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -230,24 +242,6 @@ public sealed class DomainDefiler : AbstractSubclass
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (rulesetEffect != null)
-            {
-                yield break;
-            }
-
-            yield return TryAddCondition(actualEffectForms, attacker, defender);
-        }
-
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
             bool criticalHit)

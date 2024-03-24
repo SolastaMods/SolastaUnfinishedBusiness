@@ -152,7 +152,7 @@ public class PatronMountain : AbstractSubclass
 
         powerBarrierOfStone.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerBarrierOfStone, powerEternalGuardian));
+            new CustomBehaviorBarrierOfStone(powerBarrierOfStone, powerEternalGuardian));
 
         // LEVEL 10
 
@@ -221,13 +221,25 @@ public class PatronMountain : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class AttackBeforeHitConfirmedOnMeBarrierOfStone(
+    private class CustomBehaviorBarrierOfStone(
         FeatureDefinitionPower powerBarrierOfStone,
         FeatureDefinitionPower powerEternalGuardian)
-        :
-            IAttackBeforeHitConfirmedOnMeOrAlly, IMagicEffectBeforeHitConfirmedOnMeOrAlly
+        : IPhysicalAttackBeforeHitConfirmedOnMeOrAlly, IMagicEffectBeforeHitConfirmedOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMeOrAlly(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(attacker, defender, helper);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -236,23 +248,6 @@ public class PatronMountain : AbstractSubclass
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (rulesetEffect == null)
-            {
-                yield return HandleReaction(attacker, defender, helper);
-            }
-        }
-
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMeOrAlly(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
             bool criticalHit)

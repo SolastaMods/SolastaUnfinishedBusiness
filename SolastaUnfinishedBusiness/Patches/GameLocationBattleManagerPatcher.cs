@@ -317,11 +317,11 @@ public static class GameLocationBattleManagerPatcher
             if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 foreach (var attackBeforeHitConfirmedOnEnemy in attacker.RulesetCharacter
-                             .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnEnemy>())
+                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnEnemy>())
                 {
-                    yield return attackBeforeHitConfirmedOnEnemy.OnAttackBeforeHitConfirmedOnEnemy(
+                    yield return attackBeforeHitConfirmedOnEnemy.OnPhysicalAttackBeforeHitConfirmedOnEnemy(
                         __instance, attacker, defender, attackModifier, attackMode,
-                        rangedAttack, advantageType, actualEffectForms, rulesetEffect, firstTarget, criticalHit);
+                        rangedAttack, advantageType, actualEffectForms, firstTarget, criticalHit);
                 }
             }
 
@@ -358,11 +358,11 @@ public static class GameLocationBattleManagerPatcher
                 foreach (var ally in __instance.Battle.GetContenders(attacker))
                 {
                     foreach (var attackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
-                                 .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMeOrAlly>())
+                                 .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnMeOrAlly>())
                     {
-                        yield return attackBeforeHitConfirmedOnMeOrAlly.OnAttackBeforeHitConfirmedOnMeOrAlly(
+                        yield return attackBeforeHitConfirmedOnMeOrAlly.OnPhysicalAttackBeforeHitConfirmedOnMeOrAlly(
                             __instance, attacker, defender, ally, attackModifier, attackMode,
-                            rangedAttack, advantageType, actualEffectForms, rulesetEffect, firstTarget, criticalHit);
+                            rangedAttack, advantageType, actualEffectForms, firstTarget, criticalHit);
                     }
                 }
             }

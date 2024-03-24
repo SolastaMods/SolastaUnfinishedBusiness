@@ -38,7 +38,7 @@ public sealed class MartialGuardian : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, $"ActionAffinity{Name}CompellingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.CompellingStrikeToggle)
-            .AddCustomSubFeatures(new AttackBeforeHitConfirmedOnEnemyCompellingStrike())
+            .AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyCompellingStrike())
             .AddToDB();
 
         // Stalwart Front (Sentinel FS)
@@ -198,9 +198,10 @@ public sealed class MartialGuardian : AbstractSubclass
     // Compelling Strike
     //
 
-    private sealed class AttackBeforeHitConfirmedOnEnemyCompellingStrike : IAttackBeforeHitConfirmedOnEnemy
+    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyCompellingStrike
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -209,7 +210,6 @@ public sealed class MartialGuardian : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
