@@ -312,21 +312,28 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit,
             bool firstTarget)
         {
-            //PATCH: support for `IAttackBeforeHitConfirmedOnEnemy`
-            // should also happen outside battles
-            if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetEffect != null)
             {
-                foreach (var attackBeforeHitConfirmedOnEnemy in attacker.RulesetCharacter
-                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnEnemy>())
+                while (values.MoveNext())
                 {
-                    yield return attackBeforeHitConfirmedOnEnemy.OnPhysicalAttackBeforeHitConfirmedOnEnemy(
-                        __instance, attacker, defender, attackModifier, attackMode,
-                        rangedAttack, advantageType, actualEffectForms, firstTarget, criticalHit);
+                    yield return values.Current;
                 }
+
+                yield break;
             }
 
-            // supports REACTION spells on defender
-            if (__instance.Battle != null && defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnEnemy`
+            // should also happen outside battles
+            foreach (var attackBeforeHitConfirmedOnEnemy in attacker.RulesetCharacter
+                         .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnEnemy>())
+            {
+                yield return attackBeforeHitConfirmedOnEnemy.OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+                    __instance, attacker, defender, attackModifier, attackMode,
+                    rangedAttack, advantageType, actualEffectForms, firstTarget, criticalHit);
+            }
+
+            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMe` from SPELLS
+            if (__instance.Battle != null)
             {
                 foreach (var attackBeforeHitConfirmedOnMe in defender.RulesetCharacter.usableSpells
                              .Where(usableSpell =>
@@ -340,8 +347,8 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            //PATCH: support for `IAttackBeforeHitConfirmedOnMe`
-            if (__instance.Battle != null && defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMe`
+            if (__instance.Battle != null)
             {
                 foreach (var attackBeforeHitConfirmedOnMe in defender.RulesetCharacter
                              .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnMe>())
@@ -352,7 +359,7 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            //PATCH: support for `IAttackBeforeHitConfirmedOnMeOrAlly`
+            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMeOrAlly`
             if (__instance.Battle != null)
             {
                 foreach (var ally in __instance.Battle.GetContenders(attacker))
