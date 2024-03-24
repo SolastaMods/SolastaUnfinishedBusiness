@@ -169,6 +169,7 @@ internal static class CommonBuilders
         : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,

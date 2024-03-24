@@ -456,9 +456,9 @@ internal static partial class CharacterContext
         FeatureDefinitionPower powerSunderingBlow,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionSunderingBlowAlly)
-        : IPhysicalAttackInitiatedOnMe, IMagicalAttackInitiatedOnMe
+        : IPhysicalAttackInitiatedOnMe, IMagicEffectAttackInitiatedOnMe
     {
-        public IEnumerator OnMagicalAttackInitiatedOnMe(
+        public IEnumerator OnMagicEffectAttackInitiatedOnMe(
             CharacterActionMagicEffect action,
             RulesetEffect activeEffect,
             GameLocationCharacter target,

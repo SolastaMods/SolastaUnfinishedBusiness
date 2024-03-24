@@ -586,9 +586,9 @@ public static class CharacterActionMagicEffectPatcher
             {
                 //PATCH: supports `IMagicalAttackInitiatedOnMe`
                 foreach (var magicEffectInitiatedOnMe in target.RulesetActor
-                             .GetSubFeaturesByType<IMagicalAttackInitiatedOnMe>())
+                             .GetSubFeaturesByType<IMagicEffectAttackInitiatedOnMe>())
                 {
-                    yield return magicEffectInitiatedOnMe.OnMagicalAttackInitiatedOnMe(
+                    yield return magicEffectInitiatedOnMe.OnMagicEffectAttackInitiatedOnMe(
                         __instance,
                         activeEffect,
                         target,

@@ -227,6 +227,7 @@ public class PatronMountain : AbstractSubclass
         : IPhysicalAttackBeforeHitConfirmedOnMeOrAlly, IMagicEffectBeforeHitConfirmedOnMeOrAlly
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMeOrAlly(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
@@ -236,7 +237,7 @@ public class PatronMountain : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(attacker, defender, helper);
+            yield return HandleReaction(battleManager, attacker, defender, helper);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMeOrAlly(
@@ -252,14 +253,23 @@ public class PatronMountain : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(attacker, defender, helper);
+            yield return HandleReaction(battleManager, attacker, defender, helper);
         }
 
         private IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter me)
         {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
             var rulesetMe = me.RulesetCharacter;
             var levels = rulesetMe.GetClassLevel(CharacterClassDefinitions.Warlock);
             var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;
@@ -278,16 +288,6 @@ public class PatronMountain : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var gameLocationBattleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationBattleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }
@@ -311,7 +311,7 @@ public class PatronMountain : AbstractSubclass
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
 
-            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 }

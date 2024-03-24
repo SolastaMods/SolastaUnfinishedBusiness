@@ -276,9 +276,29 @@ public sealed class MartialGuardian : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionImperviousProtector,
         FeatureDefinitionPower powerGrandChallenge)
-        : ICharacterBattleStartedListener, IAttackBeforeHitConfirmedOnMe
+        : ICharacterBattleStartedListener, IPhysicalAttackBeforeHitConfirmedOnMe
     {
         private const string Line = "Feedback/&ActivateRepaysLine";
+
+        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            var rulesetUsablePower = PowerProvider.Get(powerGrandChallenge, rulesetCharacter);
+
+            if (rulesetUsablePower.MaxUses == rulesetUsablePower.RemainingUses)
+            {
+                return;
+            }
+
+            rulesetCharacter.LogCharacterUsedPower(powerGrandChallenge, Line);
+            rulesetCharacter.RepayPowerUse(rulesetUsablePower);
+        }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -289,7 +309,6 @@ public sealed class MartialGuardian : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
@@ -313,26 +332,6 @@ public sealed class MartialGuardian : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-
-        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
-        {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                return;
-            }
-
-            var rulesetUsablePower = PowerProvider.Get(powerGrandChallenge, rulesetCharacter);
-
-            if (rulesetUsablePower.MaxUses == rulesetUsablePower.RemainingUses)
-            {
-                return;
-            }
-
-            rulesetCharacter.LogCharacterUsedPower(powerGrandChallenge, Line);
-            rulesetCharacter.RepayPowerUse(rulesetUsablePower);
         }
     }
 }

@@ -66,6 +66,7 @@ internal sealed class Interception : AbstractFightingStyle
         : IPhysicalAttackBeforeHitConfirmedOnMeOrAlly, IMagicEffectBeforeHitConfirmedOnMeOrAlly
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMeOrAlly(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
@@ -79,8 +80,6 @@ internal sealed class Interception : AbstractFightingStyle
             {
                 yield break;
             }
-
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             yield return HandleReaction(battleManager, attacker, defender, helper);
         }
@@ -106,6 +105,14 @@ internal sealed class Interception : AbstractFightingStyle
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
             if (helper == defender ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
@@ -118,14 +125,6 @@ internal sealed class Interception : AbstractFightingStyle
 
             if (ValidatorsWeapon.IsUnarmed(helperCharacter.GetMainWeapon()?.ItemDefinition, null) &&
                 ValidatorsWeapon.IsUnarmed(helperCharacter.GetOffhandWeapon()?.ItemDefinition, null))
-            {
-                yield break;
-            }
-
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionManager == null)
             {
                 yield break;
             }

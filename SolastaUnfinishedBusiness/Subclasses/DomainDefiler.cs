@@ -223,6 +223,7 @@ public sealed class DomainDefiler : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,
@@ -374,6 +375,7 @@ public sealed class DomainDefiler : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,

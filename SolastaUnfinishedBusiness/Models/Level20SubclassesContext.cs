@@ -1401,6 +1401,7 @@ internal static class Level20SubclassesContext
         private static GameLocationCharacter _attacker;
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,

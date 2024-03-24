@@ -5,8 +5,7 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
-// triggers on any attack, magical or physical, if there is an attack roll
-// rulesetEffect != null is a magical attack
+// triggers on any weapon attack
 public interface IPhysicalAttackBeforeHitConfirmedOnEnemy
 {
     [UsedImplicitly]

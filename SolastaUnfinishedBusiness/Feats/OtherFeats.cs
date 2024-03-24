@@ -592,10 +592,23 @@ internal static class OtherFeats
     }
 
     private sealed class CustomBehaviorReactiveResistance(FeatureDefinitionPower powerReactiveResistance)
-        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         private static readonly HashSet<string> DamageTypes =
             [DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison];
+
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+        }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -606,55 +619,33 @@ internal static class OtherFeats
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode == null)
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+        }
+
+        private IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            // ReSharper disable once ParameterTypeCanBeEnumerable.Local
+            List<EffectForm> actualEffectForms)
+        {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }
 
-            var firstValidEffectForm = actualEffectForms
+            var effectForm = actualEffectForms
                 .FirstOrDefault(x =>
                     x.FormType == EffectForm.EffectFormType.Damage &&
                     DamageTypes.Contains(x.DamageForm.DamageType));
 
-            if (firstValidEffectForm != null)
-            {
-                yield return HandleReaction(attacker, defender, firstValidEffectForm);
-            }
-        }
-
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            var firstValidEffectForm = actualEffectForms
-                .FirstOrDefault(x =>
-                    x.FormType == EffectForm.EffectFormType.Damage &&
-                    DamageTypes.Contains(x.DamageForm.DamageType));
-
-            if (firstValidEffectForm != null)
-            {
-                yield return HandleReaction(attacker, defender, firstValidEffectForm);
-            }
-        }
-
-        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender,
-            EffectForm effectForm)
-        {
-            var gameLocationBattleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationBattleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (effectForm == null)
             {
                 yield break;
             }
@@ -690,7 +681,7 @@ internal static class OtherFeats
 
             gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

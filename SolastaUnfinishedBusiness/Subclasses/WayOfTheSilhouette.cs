@@ -272,29 +272,65 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     //
 
     private class CustomBehaviorShadowySanctuary(FeatureDefinitionPower powerShadowSanctuary)
-        : IAttackBeforeHitConfirmedOnMe, IPreventRemoveConcentrationOnPowerUse
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe,
+            IPreventRemoveConcentrationOnPowerUse
     {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield break;
+            }
+
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+        }
+
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
+            GameLocationCharacter defender,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
-            if (!me.CanReact())
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+        }
+
+        private IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            // ReSharper disable once SuggestBaseTypeForParameter
+            List<EffectForm> actualEffectForms)
+        {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }
 
-            var rulesetMe = me.RulesetCharacter;
+            if (!defender.CanReact())
+            {
+                yield break;
+            }
 
-            if (rulesetMe.GetRemainingPowerUses(powerShadowSanctuary) == 0)
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.GetRemainingPowerUses(powerShadowSanctuary) == 0)
             {
                 yield break;
             }
@@ -306,32 +342,24 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionManager == null)
-            {
-                yield break;
-            }
-
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerShadowSanctuary, rulesetMe);
+            var usablePower = PowerProvider.Get(powerShadowSanctuary, rulesetDefender);
             var actionParams =
-                new CharacterActionParams(me, ActionDefinitions.Id.PowerReaction)
+                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "ShadowySanctuary",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
-                    TargetCharacters = { me }
+                    TargetCharacters = { defender }
                 };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
             yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 

@@ -1042,6 +1042,7 @@ internal static partial class SpellBuilders
         : IMagicEffectBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,
