@@ -682,6 +682,35 @@ public static class CharacterActionMagicEffectPatcher
                     __instance.AttackRollOutcome = outcome;
                     __instance.AttackSuccessDelta = successDelta;
 
+                    var rulesetDefender = target.RulesetActor;
+
+                    //PATCH: process ExtraConditionInterruption.AttackedNotBySource
+                    if (!rulesetDefender.matchingInterruption)
+                    {
+                        rulesetDefender.matchingInterruption = true;
+                        rulesetDefender.matchingInterruptionConditions.Clear();
+
+                        foreach (var rulesetCondition in rulesetDefender.conditionsByCategory
+                                     .SelectMany(keyValuePair => keyValuePair.Value
+                                         .Where(rulesetCondition =>
+                                             rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
+                                                 (ConditionInterruption)ExtraConditionInterruption
+                                                     .AttackedNotBySource) &&
+                                             rulesetCondition.SourceGuid != actingCharacter.Guid)))
+                        {
+                            rulesetDefender.matchingInterruptionConditions.Add(rulesetCondition);
+                        }
+
+                        for (var index = rulesetDefender.matchingInterruptionConditions.Count - 1; index >= 0; --index)
+                        {
+                            rulesetDefender.RemoveCondition(rulesetDefender.matchingInterruptionConditions[index]);
+                        }
+
+                        rulesetDefender.matchingInterruptionConditions.Clear();
+                        rulesetDefender.matchingInterruption = false;
+                    }
+                    //END PATCH
+
                     // Is this still a success?
                     if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
