@@ -203,6 +203,7 @@ internal static class CharacterDisplay
             Main.Settings.EnableBarbarianBrutalStrike = toggle;
             Main.Settings.DisableBarbarianBrutalCritical = toggle;
             CharacterContext.SwitchBarbarianBrutalStrike();
+            CharacterContext.SwitchBarbarianBrutalCritical();
         }
 
         if (Main.Settings.EnableBarbarianBrutalStrike)
@@ -211,7 +212,7 @@ internal static class CharacterDisplay
             if (UI.Toggle(Gui.Localize("ModUi/&DisableBarbarianBrutalCritical"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisableBarbarianBrutalCritical = toggle;
-                CharacterContext.SwitchBarbarianBrutalStrike();
+                CharacterContext.SwitchBarbarianBrutalCritical();
             }
         }
 
