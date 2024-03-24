@@ -156,6 +156,7 @@ ModUi/&Feats=<color=#F0DAA0> Talenti</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Stili di combattimento</color>
 ModUi/&FixAsianLanguagesTextWrap=Risolto il problema con il testo dell'interfaccia utente del gioco in lingue asiatiche <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&FixEldritchBlastRange=Cambia la portata di <color=#D89555>Eldritch Blast</color> a 24 <i><color=#F0DAA0>[invece di 16]</color></i>
+ModUi/&FixRingOfRegenerationHealRate=Imposta la velocità di guarigione dell'<color=#D89555>Anello della rigenerazione</color> su 1 CV ogni 3 minuti
 ModUi/&FlightSuspendWingedBoots=<i>+ Usa le regole ufficiali degli Stivali Alati <color=#F0DAA0>[durata rimanente non conteggiata quando il volo è sospeso]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formazione:</color>
 ModUi/&FormationError=<color=#C04040E0>Non puoi cambiare la tua formazione durante una partita multiplayer...</color>

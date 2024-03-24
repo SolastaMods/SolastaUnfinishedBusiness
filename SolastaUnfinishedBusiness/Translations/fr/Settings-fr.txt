@@ -156,6 +156,7 @@ ModUi/&Feats=<color=#F0DAA0>Dons</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Styles de combat</color>
 ModUi/&FixAsianLanguagesTextWrap=Correction de l'habillage de texte de l'interface utilisateur pour les langues asiatiques<b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&FixEldritchBlastRange=Changer la portée de la <color=#D89555>Décharge occulte</color> à 24 cases (portée officielle) <i><color=#F0DAA0>[au lieu de 16 cases]</color></i>
+ModUi/&FixRingOfRegenerationHealRate=Réglez le taux de guérison de l'<color=#D89555>Anneau de régénération</color> à 1 PV toutes les 3 minutes.
 ModUi/&FlightSuspendWingedBoots=<i>+ Utiliser les règles officielles des bottes ailées <color=#F0DAA0>[la durée restante n'est pas comptée lorsque le vol est suspendu]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation :</color>
 ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer de formation pendant une partie multijoueur...</color>

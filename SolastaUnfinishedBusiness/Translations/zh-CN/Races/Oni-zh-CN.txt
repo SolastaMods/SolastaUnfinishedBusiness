@@ -1,4 +1,4 @@
-Feature/&CastSpellOniOgreMagicDescription= 3 级时，每次长休你可以施放 <b>雷鸣斩</b> 一次。感知是你的施法属性。
+Feature/&CastSpellOniOgreMagicDescription=3 级时，每次长休你可以施放 <b>雷鸣斩</b> 一次。感知是你的施法属性。
 Feature/&CastSpellOniOgreMagicTitle=食人魔魔法
 Feature/&FeatureSetOniAbilityScoreIncreaseDescription=力量 +2、感知 +1
 Feature/&FeatureSetOniAbilityScoreIncreaseTitle=属性值提升

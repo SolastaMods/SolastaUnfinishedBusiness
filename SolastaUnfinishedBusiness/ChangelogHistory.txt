@@ -1,3 +1,11 @@
+1.5.97.2:
+
+- added 'Enable Barbarian brutal strike at levels 2, 10 and 18'
+- added 'Enable Barbarian reckless attack buff and debuff to finish at start of next turn'
+- added 'Enable Barbarian regain one rage use over a short rest at level 7'
+- added 'Set Ring of Regeneration heal rate to 1hp per 3 minutes'
+- fixed Circle of the Moon archer constellation light range
+
 1.5.97.1:
 
 - added Gift of The Chromatic Dragon and Second Chance feats

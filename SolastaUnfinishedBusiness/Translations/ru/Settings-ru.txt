@@ -156,6 +156,7 @@ ModUi/&Feats=<color=#F0DAA0>Черты</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Боевые стили</color>
 ModUi/&FixAsianLanguagesTextWrap=Исправить перенос текста интерфейсом для азиатских языков <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&FixEldritchBlastRange=Использовать официальную дальность в 24 клетки для <color=#D89555>Мистического заряда</color> <i><color=#F0DAA0>[вместо 12]</color></i>
+ModUi/&FixRingOfRegenerationHealRate=Установите скорость лечения <color=#D89555>Ring of Relocation</color> на 1 хп за 3 минуты.
 ModUi/&FlightSuspendWingedBoots=<i>+ Использовать официальные правила Крылатых сапог <color=#F0DAA0>[оставшееся время использования не учитывается при приостановке полёта]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Боевой порядок:</color>
 ModUi/&FormationError=<color=#C04040E0>Вы не можете изменить свой боевой порядок во время многопользовательской игры...</color>
