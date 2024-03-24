@@ -156,7 +156,7 @@ ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixAsianLanguagesTextWrap=Fix Asian languages' game UI text wrap <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&FixEldritchBlastRange=Use official 24 cells range with <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[instead of 12]</color></i>
-ModUi/&FixRingOfRegenerationHealRate=Set <color=#D89555>Ring of Regeneration</color> heal rate to 1hp per 3 minutes
+ModUi/&FixRingOfRegenerationHealRate=Set <color=#D89555>Ring of Regeneration</color> heal rate to 1 HP per 3 minutes
 ModUi/&FlightSuspendWingedBoots=<i>+ Use Winged Boots official rules <color=#F0DAA0>[remaining duration not counted when flight suspended]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game...</color>
