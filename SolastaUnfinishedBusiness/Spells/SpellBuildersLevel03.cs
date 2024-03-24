@@ -951,11 +951,12 @@ internal static partial class SpellBuilders
     private sealed class CustomBehaviorLightningArrow(
         FeatureDefinitionPower powerLightningArrowLeap,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionLightningArrow) : IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        ConditionDefinition conditionLightningArrow)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private const int MainTargetDiceNumber = 3;
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -964,7 +965,6 @@ internal static partial class SpellBuilders
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {

@@ -769,9 +769,23 @@ public sealed class WayOfTheDragon : AbstractSubclass
     private sealed class CustomBehaviorReactiveHide(
         FeatureDefinitionPower powerReactiveHide,
         ConditionDefinition conditionReactiveHide)
-        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battleManager,
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(battleManager, attacker, defender);
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,
@@ -779,26 +793,10 @@ public sealed class WayOfTheDragon : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode != null)
-            {
-                yield return HandleReaction(attacker, defender);
-            }
-        }
-
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandleReaction(attacker, defender);
+            yield return HandleReaction(battleManager, attacker, defender);
         }
 
         public IEnumerator OnPhysicalAttackFinishedOnMe(
@@ -971,14 +969,15 @@ public sealed class WayOfTheDragon : AbstractSubclass
             }
         }
 
-        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender)
+        private IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
         {
-            var gameLocationActionService =
+            var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }
@@ -1004,11 +1003,11 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     UsablePower = usablePower
                 };
 
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 }

@@ -4,10 +4,10 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
-public interface IMagicalAttackInitiatedOnMe
+public interface IMagicEffectAttackInitiatedOnMe
 {
     [UsedImplicitly]
-    IEnumerator OnMagicalAttackInitiatedOnMe(
+    IEnumerator OnMagicEffectAttackInitiatedOnMe(
         CharacterActionMagicEffect action,
         RulesetEffect activeEffect,
         GameLocationCharacter target,

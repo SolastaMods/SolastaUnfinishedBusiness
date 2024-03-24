@@ -2,5 +2,5 @@ Condition/&ConditionDualFlurryGrantDescription=你的敌人正在退缩！
 Condition/&ConditionDualFlurryGrantTitle=双重乱舞
 Feat/&FeatDualFlurryDescription=你是使用成对武器战斗的高手。当你在一回合内双持武器且命中两次时，你获得一个额外的附赠动作，该动作只能进行副手攻击。
 Feat/&FeatDualFlurryTitle=双重乱舞
-Feat/&FeatDualWeaponDefenseDescription=您精通使用两种武器进行战斗，并获得以下好处：\n• 当您每只手都使用单独的近战武器时，AC 获得 +1 加值。\n• 即使在你所使用的单手近战武器并不轻。
+Feat/&FeatDualWeaponDefenseDescription=你精通使用两种武器进行战斗，并获得以下好处：\n• 当你每只手都使用单独的近战武器时，护甲等级获得 +1 加值。\n• 即使你所使用的并不是轻型单手近战武器。
 Feat/&FeatDualWeaponDefenseTitle=双持者

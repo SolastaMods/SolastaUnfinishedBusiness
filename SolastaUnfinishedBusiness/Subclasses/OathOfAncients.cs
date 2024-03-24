@@ -274,6 +274,7 @@ public sealed class OathOfAncients : AbstractSubclass
         }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,

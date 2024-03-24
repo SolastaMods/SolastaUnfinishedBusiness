@@ -1791,7 +1791,8 @@ internal static class GambitsBuilders
     // Parry
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class Parry(FeatureDefinitionPower pool, FeatureDefinition feature) : IAttackBeforeHitConfirmedOnMe
+    private sealed class Parry(FeatureDefinitionPower pool, FeatureDefinition feature)
+        : IPhysicalAttackBeforeHitConfirmedOnMe
     {
         private const string Line = "Feedback/&GambitParryDamageReduction";
 
@@ -1803,7 +1804,6 @@ internal static class GambitsBuilders
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {

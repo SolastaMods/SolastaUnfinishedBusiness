@@ -307,14 +307,14 @@ internal static partial class CharacterContext
     }
 
     private sealed class CustomBehaviorBrutalStrike(FeatureDefinitionPower powerBarbarianBrutalStrike)
-        : IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private static readonly EffectForm ForcefulBlowForm = EffectFormBuilder
             .Create()
             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
             .Build();
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -323,7 +323,6 @@ internal static partial class CharacterContext
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
@@ -457,9 +456,9 @@ internal static partial class CharacterContext
         FeatureDefinitionPower powerSunderingBlow,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionSunderingBlowAlly)
-        : IPhysicalAttackInitiatedOnMe, IMagicalAttackInitiatedOnMe
+        : IPhysicalAttackInitiatedOnMe, IMagicEffectAttackInitiatedOnMe
     {
-        public IEnumerator OnMagicalAttackInitiatedOnMe(
+        public IEnumerator OnMagicEffectAttackInitiatedOnMe(
             CharacterActionMagicEffect action,
             RulesetEffect activeEffect,
             GameLocationCharacter target,
@@ -931,7 +930,7 @@ internal static partial class CharacterContext
         powerPool.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
             IsModifyPowerPool.Marker,
-            new PhysicalAttackInitiatedByMeCunningStrike(powerPool));
+            new CustomBehaviorCunningStrike(powerPool));
 
         // Disarm
 
@@ -1225,12 +1224,13 @@ internal static partial class CharacterContext
         };
     }
 
-    private sealed class PhysicalAttackInitiatedByMeCunningStrike(FeatureDefinitionPower powerRogueCunningStrike) :
-        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorCunningStrike(
+        FeatureDefinitionPower powerRogueCunningStrike)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private FeatureDefinitionPower _selectedPower;
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1239,7 +1239,6 @@ internal static partial class CharacterContext
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {

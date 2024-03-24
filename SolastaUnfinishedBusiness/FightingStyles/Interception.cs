@@ -30,7 +30,7 @@ internal sealed class Interception : AbstractFightingStyle
                 .SetUsesFixed(ActivationTime.NoCost)
                 .AddCustomSubFeatures(
                     ModifyPowerVisibility.Hidden,
-                    new AttackBeforeHitPossibleOnMeOrAllyInterception(
+                    new CustomBehaviorInterception(
                         ConditionDefinitionBuilder
                             .Create($"Condition{Name}")
                             .SetGuiPresentationNoContent(true)
@@ -60,11 +60,31 @@ internal sealed class Interception : AbstractFightingStyle
         FightingStyleRanger
     ];
 
-    private sealed class AttackBeforeHitPossibleOnMeOrAllyInterception(
+    private sealed class CustomBehaviorInterception(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition) : IAttackBeforeHitConfirmedOnMeOrAlly
+        ConditionDefinition conditionDefinition)
+        : IPhysicalAttackBeforeHitConfirmedOnMeOrAlly, IMagicEffectBeforeHitConfirmedOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMeOrAlly(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield break;
+            }
+
+            yield return HandleReaction(battleManager, attacker, defender, helper);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -74,10 +94,25 @@ internal sealed class Interception : AbstractFightingStyle
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            bool firstTarget, bool criticalHit)
         {
+            yield return HandleReaction(battleManager, attacker, defender, helper);
+        }
+
+        private IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
             if (helper == defender ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
@@ -90,14 +125,6 @@ internal sealed class Interception : AbstractFightingStyle
 
             if (ValidatorsWeapon.IsUnarmed(helperCharacter.GetMainWeapon()?.ItemDefinition, null) &&
                 ValidatorsWeapon.IsUnarmed(helperCharacter.GetOffhandWeapon()?.ItemDefinition, null))
-            {
-                yield break;
-            }
-
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionManager == null)
             {
                 yield break;
             }

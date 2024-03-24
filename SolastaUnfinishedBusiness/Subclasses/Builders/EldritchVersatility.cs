@@ -587,6 +587,7 @@ internal static class EldritchVersatilityBuilders
             }
 
             public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+                GameLocationBattleManager battleManager,
                 GameLocationCharacter attacker,
                 GameLocationCharacter defender,
                 ActionModifier actionModifier,

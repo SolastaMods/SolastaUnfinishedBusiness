@@ -149,14 +149,27 @@ internal static class RaceOligathBuilder
 
         powerOligathStoneEndurance.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new AttackBeforeHitConfirmedOnMeStoneEndurance(powerOligathStoneEndurance));
+            new CustomBehaviorStoneEndurance(powerOligathStoneEndurance));
 
         return powerOligathStoneEndurance;
     }
 
-    private class AttackBeforeHitConfirmedOnMeStoneEndurance(FeatureDefinitionPower powerStoneEndurance)
-        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+    private class CustomBehaviorStoneEndurance(FeatureDefinitionPower powerStoneEndurance)
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandlePowerStoneEndurance(battleManager, attacker, defender);
+        }
+
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -166,36 +179,21 @@ internal static class RaceOligathBuilder
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode != null)
-            {
-                yield return HandlePowerStoneEndurance(attacker, defender);
-            }
+            yield return HandlePowerStoneEndurance(battleManager, attacker, defender);
         }
 
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+        private IEnumerator HandlePowerStoneEndurance(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            GameLocationCharacter defender)
         {
-            yield return HandlePowerStoneEndurance(attacker, defender);
-        }
-
-        private IEnumerator HandlePowerStoneEndurance(GameLocationCharacter attacker, GameLocationCharacter defender)
-        {
-            var gameLocationActionService =
+            var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }
@@ -227,11 +225,11 @@ internal static class RaceOligathBuilder
                 TargetCharacters = { defender }
             };
 
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 }

@@ -186,6 +186,7 @@ internal static class ArmorFeats
     {
         // halve any damage taken
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,
@@ -194,12 +195,10 @@ internal static class ArmorFeats
             bool firstTarget,
             bool criticalHit)
         {
-            var gameLocationActionService =
+            var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }
@@ -232,11 +231,11 @@ internal static class ArmorFeats
                 TargetCharacters = { defender }
             };
 
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
 
         // add +2 on DEX savings

@@ -990,7 +990,7 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatCrusher")
         .SetGuiPresentationNoContent(true)
         .AddCustomSubFeatures(
-            new PhysicalAttackFinishedByMeCrusher(
+            new PhysicalPhysicalAttackFinishedByMeCrusher(
                 EffectFormBuilder.ConditionForm(
                     ConditionDefinitionBuilder
                         .Create("ConditionFeatCrusherCriticalHit")
@@ -1040,12 +1040,14 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackFinishedByMeCrusher(EffectForm criticalEffectForm, EffectForm pushEffectForm)
-        : IAttackBeforeHitConfirmedOnEnemy
+    private sealed class PhysicalPhysicalAttackFinishedByMeCrusher(
+        EffectForm criticalEffectForm,
+        EffectForm pushEffectForm)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         private const string SpecialFeatureName = "FeatureCrusher";
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1054,7 +1056,6 @@ internal static class MeleeCombatFeats
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
@@ -1119,7 +1120,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         feat.AddCustomSubFeatures(
-            new CustomBehaviorFeatDevastatingStrikes(conditionDevastatingStrikes, weaponTypes),
+            new PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(conditionDevastatingStrikes, weaponTypes),
             new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
 
         return feat;
@@ -1134,12 +1135,13 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class CustomBehaviorFeatDevastatingStrikes : IAttackBeforeHitConfirmedOnEnemy
+    private sealed class
+        PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         private readonly ConditionDefinition _conditionBypassResistance;
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
 
-        public CustomBehaviorFeatDevastatingStrikes(
+        public PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(
             ConditionDefinition conditionBypassResistance,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
@@ -1147,7 +1149,7 @@ internal static class MeleeCombatFeats
             _conditionBypassResistance = conditionBypassResistance;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battleManager,
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,
@@ -1155,7 +1157,6 @@ internal static class MeleeCombatFeats
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {

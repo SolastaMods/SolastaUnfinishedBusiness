@@ -1394,35 +1394,14 @@ internal static class Level20SubclassesContext
     }
 
     private sealed class CustomBehaviorFinalWord :
-        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
+        IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
         IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMeAny
     {
         private const string ConditionSilenced = "ConditionSilenced";
         private static GameLocationCharacter _attacker;
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (attackMode == null)
-            {
-                yield break;
-            }
-
-            _attacker = attacker;
-            defender.RulesetCharacter.ConcentrationChanged += ConcentrationChanged;
-        }
-
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,
@@ -1446,6 +1425,27 @@ internal static class Level20SubclassesContext
             defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
 
             yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
+            _attacker = attacker;
+            defender.RulesetCharacter.ConcentrationChanged += ConcentrationChanged;
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
