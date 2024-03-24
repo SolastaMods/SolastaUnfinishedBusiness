@@ -1,5 +1,5 @@
 Feature/&AutoPreparedSpellsDeadMasterDescription={0}。
-Feature/&AutoPreparedSpellsDeadMasterTitle=死亡主宰法术
+Feature/&AutoPreparedSpellsDeadMasterTitle=死亡大师法术
 Feature/&BypassSpellConcentrationDeadMasterDescription=你已经精通死灵之道。如果升环施展 <b>死者复活</b>，你不需要保持专注。
 Feature/&BypassSpellConcentrationDeadMasterTitle=死亡散播
 Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=你在施展死灵法术时获得 +1 DC 加值。
@@ -10,5 +10,5 @@ Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=每回合一次�
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=收割盛宴
 Spell/&SpellRaiseDeadFormatDescription=召唤 <b>{0}</b>：\n{1}
 Spell/&SpellRaiseDeadFormatTitle=召唤 {0}
-Subclass/&WizardDeadMasterDescription=死亡主宰学会操纵激活所有生物的能量。随着你的进步，你学会了从一个生物身上吸取生命力，因为你的魔法摧毁了它的身体，将生命能量转化为你可以操纵的魔法力量。
-Subclass/&WizardDeadMasterTitle=死亡主宰
+Subclass/&WizardDeadMasterDescription=死亡大师学会操纵激活所有生物的能量。随着你的进步，你学会了从一个生物身上吸取生命力，因为你的魔法摧毁了它的身体，将生命能量转化为你可以操纵的魔法力量。
+Subclass/&WizardDeadMasterTitle=死亡大师
