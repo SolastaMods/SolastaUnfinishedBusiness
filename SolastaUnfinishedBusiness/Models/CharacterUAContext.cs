@@ -603,6 +603,13 @@ internal static partial class CharacterContext
             : "Action/&RecklessAttackDescription";
     }
 
+    internal static void SwitchBarbarianRegainOneRageAtShortRest()
+    {
+        FeatureSetBarbarianRage.GuiPresentation.description = Main.Settings.EnableBarbarianRegainOneRageAtShortRest
+            ? "Feature/&FeatureSetRageExtendedDescription"
+            : "Feature/&FeatureSetRageDescription";
+    }
+
     internal static void SwitchBarbarianFightingStyle()
     {
         if (Main.Settings.EnableBarbarianFightingStyle)

@@ -81,6 +81,7 @@ Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Title=Melhoria do Ataque Br
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Description=O dano extra que seu Ataque Brutal causa aumenta para 2d10.
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Title=Melhoria do Ataque Brutal
 Feature/&FeatureSetBarbarianBrutalStrikeTitle=Golpe Brutal
+Feature/&FeatureSetRageExtendedDescription=Na batalha, você luta com ferocidade primitiva. No seu turno, você pode entrar em fúria como uma ação bônus. Isso lhe concede vantagem em testes e testes de resistência, um bônus inicial de +2 no dano de ataque corpo a corpo e resistência a danos cortantes, concussivos e perfurantes. Você ganha esses benefícios somente se não estiver usando armadura pesada. Dura 1 minuto ou termina se você não tiver atacado ou sofrido danos desde seu último turno.\n Você começa com 2 fúrias, renovadas após um descanso longo. No nível 7, você recupera um ponto de fúria após um breve descanso.
 Feature/&FighterExtraAttackDescription=Você pode atacar duas vezes, em vez de uma, ao usar as ações de ataque ou empurrão.
 Feature/&FlightResumeDescription=Retoma seu efeito de voo suspenso
 Feature/&FlightResumeTitle=Retomar voo

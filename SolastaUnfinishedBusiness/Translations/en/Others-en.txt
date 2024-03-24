@@ -81,6 +81,7 @@ Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Title=Brutal Strike Improve
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Description=The extra damage your Brutal Strike deals increases to 2d10.
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Title=Brutal Strike Improvement
 Feature/&FeatureSetBarbarianBrutalStrikeTitle=Brutal Strike
+Feature/&FeatureSetRageExtendedDescription=In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. This grants you advantage on strength saves and checks, an initial +2 bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor. Lasts for 1 minute or ends if you have not attacked or suffered damage since your last turn.\n You start with 2 rages, renewed after a long rest. At level 7, you regain one rage point after a short rest.
 Feature/&FighterExtraAttackDescription=You can attack twice, rather than once, when you use the attack or shove actions.
 Feature/&FlightResumeDescription=Resumes your suspended flight effect
 Feature/&FlightResumeTitle=Resume Flight

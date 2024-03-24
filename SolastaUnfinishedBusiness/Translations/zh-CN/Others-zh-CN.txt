@@ -81,6 +81,7 @@ Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Title=精通凶蛮打击
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Description=你的凶蛮打击造成的额外伤害提升至 2d10。
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Title=精通凶蛮打击
 Feature/&FeatureSetBarbarianBrutalStrikeTitle=凶蛮打击
+Feature/&FeatureSetRageExtendedDescription=在战斗中，你会以原始的凶猛进行战斗。在你的回合中，你可以输入狂怒作为奖励动作。这使你在力量豁免和检定上获得优势，近战攻击伤害初始+2加值，以及对砍击、钝击和穿刺伤害的抵抗力。仅当您不穿着重甲时您才能获得这些好处。持续 1 分钟，如果自上回合以来您没有攻击或受到伤害，则结束。\n您以 2 点怒气开始，在长时间休息后恢复。 7级时，短暂休息后你会恢复1点怒气。
 Feature/&FighterExtraAttackDescription=当你使用攻击或推撞动作时，你可以攻击两次，而不是一次。
 Feature/&FlightResumeDescription=恢复暂停的飞行效果
 Feature/&FlightResumeTitle=恢复飞行
