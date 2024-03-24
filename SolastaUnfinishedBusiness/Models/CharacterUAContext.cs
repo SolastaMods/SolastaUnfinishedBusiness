@@ -233,15 +233,12 @@ internal static partial class CharacterContext
 
         _conditionStaggeringBlowAoO = ConditionDefinitionBuilder
             .Create("ConditionStaggeringBlowAoO")
-            .SetGuiPresentation($"Power{BrutalStrike}StaggeringBlow", Category.Feature,
-                ConditionDefinitions.ConditionDazzled)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
             .SetSilent(Silent.WhenAdded)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(SrdAndHouseRulesContext.ActionAffinityConditionBlind)
             .AddToDB();
-
-        _conditionStaggeringBlowAoO.GuiPresentation.description = Gui.NoLocalization;
 
         // Sundering Blow
 
@@ -521,6 +518,8 @@ internal static partial class CharacterContext
             {
                 return;
             }
+
+            rulesetDefender.RemoveCondition(activeCondition);
 
             var bonusAttackRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
 
