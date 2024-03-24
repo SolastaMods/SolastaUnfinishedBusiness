@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -296,7 +295,19 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var (toggle, validator) = MakeElementToggleMarker(DAMAGE);
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
-            .SetConditionForm(SpellBuilders.AcidClawCondition, ConditionForm.ConditionOperation.Add)
+            .SetConditionForm(ConditionDefinitionBuilder
+                .Create("ConditionAcidBomb")
+                .SetGuiPresentation("ConditionAcidClaws", Category.Condition, ConditionDefinitions.ConditionAcidSpit)
+                .SetConditionType(ConditionType.Detrimental)
+                .SetSpecialDuration(DurationType.Round, 1)
+                .SetFeatures(
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create("AttributeModifierAcidBombACDebuff")
+                        .SetGuiPresentation("ConditionAcidClaws", Category.Condition)
+                        .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                            AttributeDefinitions.ArmorClass, -1)
+                        .AddToDB())
+                .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
         var splash = AcidSplash.EffectDescription.effectParticleParameters;

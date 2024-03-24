@@ -554,16 +554,6 @@ internal static partial class CharacterContext
                 new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement13, 13));
             Barbarian.FeatureUnlocks.TryAdd(
                 new FeatureUnlockByLevel(_featureSetBarbarianBrutalStrikeImprovement17, 17));
-
-            if (Main.Settings.DisableBarbarianBrutalCritical)
-            {
-                Barbarian.FeatureUnlocks.RemoveAll(x =>
-                    x.level == 9 && x.FeatureDefinition == FeatureSetBarbarianBrutalCritical);
-                Barbarian.FeatureUnlocks.RemoveAll(x =>
-                    x.level == 13 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
-                Barbarian.FeatureUnlocks.RemoveAll(x =>
-                    x.level == 17 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd);
-            }
         }
         else
         {
@@ -573,16 +563,6 @@ internal static partial class CharacterContext
                 x.level == 13 && x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement13);
             Barbarian.FeatureUnlocks.RemoveAll(x =>
                 x.level == 17 && x.FeatureDefinition == _featureSetBarbarianBrutalStrikeImprovement17);
-
-            if (Main.Settings.DisableBarbarianBrutalCritical)
-            {
-                Barbarian.FeatureUnlocks.TryAdd(
-                    new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9));
-                Barbarian.FeatureUnlocks.TryAdd(
-                    new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 13));
-                Barbarian.FeatureUnlocks.TryAdd(
-                    new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17));
-            }
         }
 
         if (Main.Settings.EnableSortingFutureFeatures)

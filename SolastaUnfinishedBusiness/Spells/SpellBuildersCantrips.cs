@@ -565,18 +565,6 @@ internal static partial class SpellBuilders
 
     #region Acid Claws
 
-    internal static readonly ConditionDefinition AcidClawCondition = ConditionDefinitionBuilder
-        .Create("ConditionAcidClaws")
-        .SetGuiPresentation(Category.Condition, ConditionAcidSpit)
-        .SetConditionType(ConditionType.Detrimental)
-        .SetFeatures(
-            FeatureDefinitionAttributeModifierBuilder
-                .Create("AttributeModifierAcidClawsACDebuff")
-                .SetGuiPresentation("ConditionAcidClaws", Category.Condition)
-                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -1)
-                .AddToDB())
-        .AddToDB();
-
     internal static SpellDefinition BuildAcidClaw()
     {
         const string NAME = "AcidClaws";
@@ -604,7 +592,19 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(AcidClawCondition, ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create("ConditionAcidClaws")
+                                    .SetGuiPresentation(Category.Condition, ConditionAcidSpit)
+                                    .SetConditionType(ConditionType.Detrimental)
+                                    .SetFeatures(
+                                        FeatureDefinitionAttributeModifierBuilder
+                                            .Create("AttributeModifierAcidClawsACDebuff")
+                                            .SetGuiPresentation("ConditionAcidClaws", Category.Condition)
+                                            .SetModifier(AttributeModifierOperation.Additive,
+                                                AttributeDefinitions.ArmorClass, -1)
+                                            .AddToDB())
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(AcidSplash)
                     .Build())
