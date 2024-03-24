@@ -18,5 +18,5 @@ Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=当你手�
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=英魂之刃
 Reaction/&UsePowerFeatFadeAwayInvisibleDescription=使用反应进入隐形。
 Reaction/&UsePowerFeatFadeAwayInvisibleReactDescription=使用反应进入隐形。
-Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=消逝
-Reaction/&UsePowerFeatFadeAwayInvisibleTitle=消逝
+Reaction/&UsePowerFeatFadeAwayInvisibleReactTitle=渐隐
+Reaction/&UsePowerFeatFadeAwayInvisibleTitle=渐隐
