@@ -1,12 +1,12 @@
 Feat/&FeatAegisTouchedChaDescription=你的魅力 +1，上限为 20。\n每次长休后，你可以施展一次 <b>虔诚护盾</b>、<b>防护善恶</b> 和 <b>防护毒素</b> 法术，你可以用你的法术位施展这个法术。
 Feat/&FeatAegisTouchedChaTitle=庇护之触【魅力】
-Feat/&FeatAegisTouchedIntDescription=你的智力属性 +1，上限为 20。\n每次长休后，你可以施展一次 <b>虔诚护盾</b>、<b>防护善恶</b> 和 <b>防护毒素</b> 法术，你可以用你的法术位施展这个法术
+Feat/&FeatAegisTouchedIntDescription=你的智力 +1，上限为 20。\n每次长休后，你可以施展一次 <b>虔诚护盾</b>、<b>防护善恶</b> 和 <b>防护毒素</b> 法术，你可以用你的法术位施展这个法术
 Feat/&FeatAegisTouchedIntTitle=庇护之触【智力】
 Feat/&FeatAegisTouchedWisDescription=你的感知 +1，上限为 20。\n每次长休后，你可以施展一次 <b>虔诚护盾</b>、<b>防护善恶</b> 和 <b>防护毒素</b> 法术，你可以用你的法术位施展这个法术
 Feat/&FeatAegisTouchedWisTitle=庇护之触【感知】
 Feat/&FeatCelestialTouchedChaDescription=你的魅力 +1，上限为 20。\n每次长休后，你可以施展一次 <b>治愈真言</b>、<b>疗伤术</b> 和 <b>次级复原术</b> 法术，你可以用你的法术位施展这个法术。
 Feat/&FeatCelestialTouchedChaTitle=天界之触【魅力】
-Feat/&FeatCelestialTouchedIntDescription=你的智力属性 +1，上限为 20。\n每次长休后，你可以施展一次 <b>治愈真言</b>、<b>疗伤术</b> 和 <b>次级复原术</b> 法术，你可以用你的法术位施展这个法术。
+Feat/&FeatCelestialTouchedIntDescription=你的智力 +1，上限为 20。\n每次长休后，你可以施展一次 <b>治愈真言</b>、<b>疗伤术</b> 和 <b>次级复原术</b> 法术，你可以用你的法术位施展这个法术。
 Feat/&FeatCelestialTouchedIntTitle=天界之触【智力】
 Feat/&FeatCelestialTouchedWisDescription=你的感知 +1，上限为 20。\n每次长休后，你可以施展一次 <b>治愈真言</b>、<b>疗伤术</b> 和 <b>次级复原术</b> 法术，你可以用你的法术位施展这个法术。
 Feat/&FeatCelestialTouchedWisTitle=天界之触【感知】
