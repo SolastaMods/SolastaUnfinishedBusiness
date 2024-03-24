@@ -9,6 +9,7 @@ public interface IMagicEffectBeforeHitConfirmedOnEnemy
 {
     [UsedImplicitly]
     IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+        GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier actionModifier,

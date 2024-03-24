@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -203,6 +204,7 @@ internal static class CharacterDisplay
             Main.Settings.EnableBarbarianBrutalStrike = toggle;
             Main.Settings.DisableBarbarianBrutalCritical = toggle;
             CharacterContext.SwitchBarbarianBrutalStrike();
+            CharacterContext.SwitchBarbarianBrutalCritical();
         }
 
         if (Main.Settings.EnableBarbarianBrutalStrike)
@@ -211,7 +213,7 @@ internal static class CharacterDisplay
             if (UI.Toggle(Gui.Localize("ModUi/&DisableBarbarianBrutalCritical"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisableBarbarianBrutalCritical = toggle;
-                CharacterContext.SwitchBarbarianBrutalStrike();
+                CharacterContext.SwitchBarbarianBrutalCritical();
             }
         }
 
@@ -236,6 +238,16 @@ internal static class CharacterDisplay
         }
 
         UI.Label();
+
+        toggle = Main.Settings.AddFighterLevelToIndomitableSavingReroll;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
+
+            DatabaseHelper.ActionDefinitions.UseIndomitableResistance.GuiPresentation.description = toggle
+                ? "Feature/&EnhancedIndomitableResistanceDescription"
+                : "Feature/&IndomitableResistanceDescription";
+        }
 
         toggle = Main.Settings.EnableFighterWeaponSpecialization;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))

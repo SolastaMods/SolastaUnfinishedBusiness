@@ -125,7 +125,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         powerImprovedBarkWard.AddCustomSubFeatures(
             new MagicEffectFinishedByMeBarkWard(powerSuperiorBarkWard),
-            new BeforeHitConfirmedOnMeBarkWard(powerImprovedBarkWard));
+            new CustomBehaviorBarkWard(powerImprovedBarkWard));
 
         conditionBarkWard.AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard));
         conditionImprovedBarkWard.AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard));
@@ -199,8 +199,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         }
     }
 
-    private sealed class BeforeHitConfirmedOnMeBarkWard(FeatureDefinitionPower powerBarkOrImprovedBarkWard)
-        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByEnemy
+    private sealed class CustomBehaviorBarkWard(FeatureDefinitionPower powerBarkOrImprovedBarkWard)
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByEnemy
     {
         private bool _shouldTrigger;
 
@@ -221,30 +221,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             yield break;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (attackMode != null)
-            {
-                _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0 &&
-                                 defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
-                                 ValidatorsWeapon.IsMelee(attackMode);
-            }
-
-            yield break;
-        }
-
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,
@@ -256,6 +234,25 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0 &&
                              defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
                              rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.Touch;
+
+            yield break;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0 &&
+                             defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
+                             ValidatorsWeapon.IsMelee(attackMode);
 
             yield break;
         }

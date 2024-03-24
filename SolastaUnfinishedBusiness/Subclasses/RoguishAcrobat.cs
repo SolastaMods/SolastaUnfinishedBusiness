@@ -173,7 +173,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
 
         powerHeroicUncannyDodge.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(powerHeroicUncannyDodge));
+            new CustomBehaviorHeroicUncannyDodge(powerHeroicUncannyDodge));
 
         // MAIN
 
@@ -201,9 +201,27 @@ public sealed class RoguishAcrobat : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(FeatureDefinitionPower powerHeroicUncannyDodge)
-        : IAttackBeforeHitConfirmedOnMe
+    private class CustomBehaviorHeroicUncannyDodge(FeatureDefinitionPower powerHeroicUncannyDodge)
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield break;
+            }
+
+            yield return HandleReaction(battleManager, attacker, defender);
+        }
+
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -213,9 +231,16 @@ public sealed class RoguishAcrobat : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
+        {
+            yield return HandleReaction(battleManager, attacker, defender);
+        }
+
+        private IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
         {
             var rulesetDefender = defender.RulesetCharacter;
 

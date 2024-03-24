@@ -990,7 +990,7 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatCrusher")
         .SetGuiPresentationNoContent(true)
         .AddCustomSubFeatures(
-            new PhysicalAttackFinishedByMeCrusher(
+            new PhysicalPhysicalAttackFinishedByMeCrusher(
                 EffectFormBuilder.ConditionForm(
                     ConditionDefinitionBuilder
                         .Create("ConditionFeatCrusherCriticalHit")
@@ -1040,12 +1040,14 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackFinishedByMeCrusher(EffectForm criticalEffectForm, EffectForm pushEffectForm)
-        : IAttackBeforeHitConfirmedOnEnemy
+    private sealed class PhysicalPhysicalAttackFinishedByMeCrusher(
+        EffectForm criticalEffectForm,
+        EffectForm pushEffectForm)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         private const string SpecialFeatureName = "FeatureCrusher";
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1054,7 +1056,6 @@ internal static class MeleeCombatFeats
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
@@ -1092,6 +1093,18 @@ internal static class MeleeCombatFeats
 
         var weaponTypes = new[] { GreatswordType, GreataxeType, MaulType };
 
+        var additionalDamageSunderingBlow = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("DevastatingStrikes")
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .AddCustomSubFeatures(
+                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) => (OperationType.Set,
+                    ValidatorsWeapon.IsOfWeaponType(weaponTypes)(mode, null, null))))
+            .AddToDB();
+
         var conditionDevastatingStrikes = ConditionDefinitionBuilder
             .Create("ConditionDevastatingStrikes")
             .SetGuiPresentation(NAME, Category.Feat)
@@ -1103,10 +1116,11 @@ internal static class MeleeCombatFeats
         var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
+            .AddFeatures(additionalDamageSunderingBlow)
             .AddToDB();
 
         feat.AddCustomSubFeatures(
-            new CustomBehaviorFeatDevastatingStrikes(conditionDevastatingStrikes, weaponTypes),
+            new PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(conditionDevastatingStrikes, weaponTypes),
             new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
 
         return feat;
@@ -1121,15 +1135,13 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class CustomBehaviorFeatDevastatingStrikes :
-        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+    private sealed class
+        PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        private const string DevastatingStrikesDescription = "Feat/&FeatDevastatingStrikesDescription";
-        private const string DevastatingStrikesTitle = "Feat/&FeatDevastatingStrikesTitle";
         private readonly ConditionDefinition _conditionBypassResistance;
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
 
-        public CustomBehaviorFeatDevastatingStrikes(
+        public PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(
             ConditionDefinition conditionBypassResistance,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
@@ -1137,7 +1149,7 @@ internal static class MeleeCombatFeats
             _conditionBypassResistance = conditionBypassResistance;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battleManager,
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,
@@ -1145,7 +1157,6 @@ internal static class MeleeCombatFeats
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
@@ -1175,121 +1186,22 @@ internal static class MeleeCombatFeats
                 0,
                 0,
                 0);
-        }
 
-        public IEnumerator OnPhysicalAttackFinishedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
-        {
-            if (attackMode == null || rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            var damageForm = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
+
+            if (damageForm == null)
             {
                 yield break;
             }
 
-            var originalDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
+            var newDamageForm = EffectFormBuilder
+                .Create()
+                .SetDamageForm(damageForm.DamageForm.DamageType, 1, damageForm.DamageForm.DieType)
+                .Build();
 
-            if (originalDamageForm == null)
-            {
-                yield break;
-            }
+            newDamageForm.DamageForm.IgnoreCriticalDoubleDice = true;
 
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
-            {
-                yield break;
-            }
-
-            var bonusDamage = 0;
-            var attackModifier = action.ActionParams.ActionModifiers[0];
-            var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
-
-            if (advantageType == AdvantageType.Advantage)
-            {
-                attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
-
-                var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
-                var lowOutcome = GLBM.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
-
-                Gui.Game.GameConsole.AttackRolled(
-                    rulesetAttacker,
-                    rulesetDefender,
-                    attackMode.SourceDefinition,
-                    lowOutcome,
-                    lowestAttackRoll + modifier,
-                    lowestAttackRoll,
-                    modifier,
-                    attackModifier.AttacktoHitTrends,
-                    []);
-
-                if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-                {
-                    var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
-                    var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
-                    var dexterity = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Dexterity);
-                    var dexterityMod = AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
-
-                    if (strengthMod > 0 || dexterityMod > 0)
-                    {
-                        bonusDamage = Math.Max(strengthMod, dexterityMod);
-                    }
-                }
-            }
-
-            if (bonusDamage == 0 && rollOutcome is not RollOutcome.CriticalSuccess)
-            {
-                yield break;
-            }
-
-            var rolls = new List<int>();
-            var damageForm = new DamageForm
-            {
-                DamageType = originalDamageForm.DamageType,
-                DieType = originalDamageForm.DieType,
-                DiceNumber = rollOutcome == RollOutcome.CriticalSuccess ? 1 : 0,
-                BonusDamage = bonusDamage
-            };
-            var damageRoll = rulesetAttacker.RollDamage(
-                damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetDefender,
-                position = defender.LocationPosition
-            };
-
-            rulesetAttacker.LogCharacterAffectsTarget(
-                rulesetDefender,
-                DevastatingStrikesTitle,
-                "Feedback/&FeatFeatDevastatingStrikeDisadvantage",
-                tooltipContent: DevastatingStrikesDescription);
-
-            RulesetActor.InflictDamage(
-                damageRoll,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetDefender,
-                false,
-                rulesetAttacker.Guid,
-                false,
-                attackMode.AttackTags,
-                new RollInfo(damageForm.DieType, rolls, bonusDamage),
-                false,
-                out _);
+            actualEffectForms.Add(newDamageForm);
         }
     }
 

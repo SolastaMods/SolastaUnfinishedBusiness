@@ -154,7 +154,8 @@ public sealed class RoguishDuelist : AbstractSubclass
     private sealed class CustomBehaviorReflexiveParty(
         FeatureDefinition featureReflexiveParty,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionReflexiveParty) : IAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
+        ConditionDefinition conditionReflexiveParty)
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -165,7 +166,6 @@ public sealed class RoguishDuelist : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {

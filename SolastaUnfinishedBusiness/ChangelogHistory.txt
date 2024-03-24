@@ -1,3 +1,17 @@
+1.5.97.2:
+
+- added 'Enable Barbarian brutal strike at levels 9, 13 and 17'
+- added 'Enable Barbarian reckless attack buff and debuff to finish at start of next turn'
+- added 'Enable Barbarian regain one rage use over a short rest at level 7'
+- added 'Disable Barbarian brutal critical at levels 9, 13, and 17'
+- added 'Set Ring of Regeneration heal rate to 1 HP per 3 minutes' [by ImpPhil]
+- fixed Circle of the Moon archer constellation light range
+- fixed Inspired Leader feat duration to 10 minutes
+- fixed Interception fighting style to also trigger on spell attacks
+- fixed Roguish Acrobat heroic uncanny dodge feature to also trigger on spell attacks
+- fixed Sanctuary spell to also trigger on spell attacks
+- fixed Way of Shadows shadowy sanctuary feature to also trigger on spell attacks
+
 1.5.97.1:
 
 - added Gift of The Chromatic Dragon and Second Chance feats

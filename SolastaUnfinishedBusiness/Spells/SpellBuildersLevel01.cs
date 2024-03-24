@@ -949,7 +949,7 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        spell.AddCustomSubFeatures(new AttackBeforeHitPossibleOnMeOrAllyElementalInfusion(spell));
+        spell.AddCustomSubFeatures(new CustomBehaviorElementalInfusion(spell));
 
         return spell;
     }
@@ -1026,12 +1026,25 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class AttackBeforeHitPossibleOnMeOrAllyElementalInfusion(SpellDefinition spellDefinition) :
-        IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorElementalInfusion(SpellDefinition spellDefinition) :
+        IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         private static readonly IEnumerable<string> AllowedDamageTypes = DamagesAndEffects
             .Where(x => x.Item1 != DamageTypePoison)
             .Select(x => x.Item1);
+
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+        }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -1042,39 +1055,22 @@ internal static partial class SpellBuilders
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode != null)
-            {
-                yield return HandleReaction(attacker, defender, actualEffectForms);
-            }
-        }
-
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandleReaction(attacker, defender, actualEffectForms);
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
         private IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
-            var gameLocationActionService =
+            var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }
@@ -1105,11 +1101,11 @@ internal static partial class SpellBuilders
             {
                 IntParameter = slotLevel, StringParameter = spellDefinition.Name, SpellRepertoire = spellRepertoire
             };
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToSpendSpellSlot(reactionParams);
+            gameLocationActionManager.ReactToSpendSpellSlot(reactionParams);
 
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1424,7 +1420,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionSanctuary.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedOnMeSanctuary(conditionSanctuary, conditionSanctuaryReduceDamage));
+            new CustomBehaviorSanctuary(conditionSanctuary, conditionSanctuaryReduceDamage));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -1484,17 +1480,35 @@ internal static partial class SpellBuilders
     }
 
     // force the attacker to roll a WIS saving throw or lose the attack
-    private sealed class AttackBeforeHitConfirmedOnMeSanctuary : IAttackBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorSanctuary
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         private readonly ConditionDefinition _conditionReduceDamage;
         private readonly ConditionDefinition _conditionSanctuary;
 
-        internal AttackBeforeHitConfirmedOnMeSanctuary(
+        internal CustomBehaviorSanctuary(
             ConditionDefinition conditionSanctuary,
             ConditionDefinition conditionReduceDamage)
         {
             _conditionSanctuary = conditionSanctuary;
             _conditionReduceDamage = conditionReduceDamage;
+        }
+
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget, bool criticalHit)
+        {
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield break;
+            }
+
+            yield return HandleReaction(attacker, defender);
         }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
@@ -1506,9 +1520,17 @@ internal static partial class SpellBuilders
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
+        {
+            yield return HandleReaction(attacker, defender);
+        }
+
+        private IEnumerator HandleReaction(
+            // ReSharper disable once SuggestBaseTypeForParameter
+            GameLocationCharacter attacker,
+            // ReSharper disable once SuggestBaseTypeForParameter
+            GameLocationCharacter defender)
         {
             var rulesetDefender = defender.RulesetCharacter;
 

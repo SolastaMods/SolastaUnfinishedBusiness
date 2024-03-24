@@ -256,6 +256,7 @@ public class Settings : UnityModManager.ModSettings
     public bool ChangeSleetStormToCube { get; set; }
     public bool UseHeightOneCylinderEffect { get; set; }
     public bool FixEldritchBlastRange { get; set; }
+    public bool FixRingOfRegenerationHealRate { get; set; }
 
     // House
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }

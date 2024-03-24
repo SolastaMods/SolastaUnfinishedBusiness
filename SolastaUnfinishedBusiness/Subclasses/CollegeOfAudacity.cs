@@ -239,7 +239,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
         FeatureDefinitionPower powerSlashingWhirl,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerMobileWhirl)
-        : IActionFinishedByMe, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        : IActionFinishedByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private readonly List<string> _tags = [];
         private bool _criticalHit;
@@ -397,7 +397,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
         }
 
         // collect damage type
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -406,22 +406,16 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect != null)
-            {
-                _damageType = null;
-
-                yield break;
-            }
-
             var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
 
             _damageType = damageForm?.damageType;
             _criticalHit = criticalHit;
             _tags.SetRange(attackMode.AttackTags);
+
+            yield break;
         }
 
         // add extra movement on any attack

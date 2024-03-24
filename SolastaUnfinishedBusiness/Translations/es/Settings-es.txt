@@ -156,6 +156,7 @@ ModUi/&Feats=<color=#F0DAA0>Dotes</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de lucha</color>
 ModUi/&FixAsianLanguagesTextWrap=Corrige el ajuste de texto de la interfaz de usuario del juego de los idiomas asiáticos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&FixEldritchBlastRange=Cambia el rango de <color=#D89555>Explosión sobrenatural</color> a 24 <i><color=#F0DAA0>[en lugar de 16]</color></i>
+ModUi/&FixRingOfRegenerationHealRate=Establece la tasa de curación del <color=#D89555>Anillo de regeneración</color> en 1 hp cada 3 minutos.
 ModUi/&FlightSuspendWingedBoots=<i>+ Usar las reglas oficiales de Winged Boots <color=#F0DAA0>[la duración restante no se cuenta cuando se suspende el vuelo]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formación:</color>
 ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante una partida multijugador...</color>

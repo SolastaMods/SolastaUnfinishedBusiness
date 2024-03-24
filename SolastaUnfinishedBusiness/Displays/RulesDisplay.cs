@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -266,6 +265,13 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchEldritchBlastRange();
         }
 
+        toggle = Main.Settings.FixRingOfRegenerationHealRate;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixRingOfRegenerationHealRate = toggle;
+            SrdAndHouseRulesContext.SwitchRingOfRegenerationHealRate();
+        }
+
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label();
@@ -393,16 +399,6 @@ internal static class RulesDisplay
         }
 
         UI.Label();
-
-        toggle = Main.Settings.AddFighterLevelToIndomitableSavingReroll;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
-
-            DatabaseHelper.ActionDefinitions.UseIndomitableResistance.GuiPresentation.description = toggle
-                ? "Feature/&EnhancedIndomitableResistanceDescription"
-                : "Feature/&IndomitableResistanceDescription";
-        }
 
         toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))

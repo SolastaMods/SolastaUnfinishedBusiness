@@ -65,7 +65,6 @@ Feedback/&AdditionalDamageCrusherLine={0} が {1} を粉砕します
 Feedback/&AdditionalDamagePiercerFormat=ピアッサー！
 Feedback/&AdditionalDamagePiercerLine={0}は{1}をクリティカル貫通します
 Feedback/&AdditionalDamageSpearMasteryLine={0} は槍を準備しており、{1} に追加の {2} ダメージを与えます。
-Feedback/&FeatFeatDevastatingStrikeDisadvantage={0} は {2} を通じて {1} にダメージを与えます:
 Reaction/&ReactionAttackOldTacticsDescription={0}は立ち上がった。 {1} はリアクションを使用して、それに対して近接武器攻撃を行うことができます。
 Reaction/&ReactionAttackOldTacticsReactDescription=反応を利用して攻撃します。
 Reaction/&ReactionAttackOldTacticsReactTitle=攻撃

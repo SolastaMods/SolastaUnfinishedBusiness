@@ -156,6 +156,7 @@ ModUi/&Feats=<color=#F0DAA0>Talente</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Kampfstile</color>
 ModUi/&FixAsianLanguagesTextWrap=Korrigieren Sie den Textumbruch in der Spiel-Benutzeroberfläche für asiatische Sprachen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&FixEldritchBlastRange=Ändern Sie die Reichweite von <color=#D89555>Eldritch Blast</color> auf 24 <i><color=#F0DAA0>[statt 16]</color></i>
+ModUi/&FixRingOfRegenerationHealRate=Stellen Sie die Heilungsrate des <color=#D89555>Rings der Regeneration</color> auf 1 PS alle 3 Minuten ein
 ModUi/&FlightSuspendWingedBoots=<i>+ Offizielle Regeln für Winged Boots verwenden <color=#F0DAA0>[verbleibende Dauer wird bei Flugunterbrechung nicht gezählt]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>Sie können Ihre Formation während eines Mehrspielerspiels nicht ändern...</color>

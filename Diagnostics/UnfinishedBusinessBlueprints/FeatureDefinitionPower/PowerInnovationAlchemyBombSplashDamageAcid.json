@@ -113,8 +113,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionAcidClaws",
-          "conditionDefinition": "Definition:ConditionAcidClaws:479e2e19-8c6c-5718-8dbc-16d478177ae9",
+          "conditionDefinitionName": "ConditionAcidBomb",
+          "conditionDefinition": "Definition:ConditionAcidBomb:477d064a-8a75-55cf-9744-ac2c223f5682",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

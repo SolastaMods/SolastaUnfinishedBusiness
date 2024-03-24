@@ -272,6 +272,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         private bool _hasDamageChanged;
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,

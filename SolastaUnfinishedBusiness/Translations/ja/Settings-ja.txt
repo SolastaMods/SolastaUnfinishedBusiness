@@ -156,6 +156,7 @@ ModUi/&Feats=<color=#F0DAA0>特技</color>
 ModUi/&FightingStyles=<color=#F0DAA0>戦闘スタイル</color>
 ModUi/&FixAsianLanguagesTextWrap=アジア言語のゲーム UI テキストの回り込みを修正 <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&FixEldritchBlastRange=<color=#D89555>エルドリッチブラスト</color>の範囲を<i><color=#F0DAA0>[16ではなく]</color></i> 24に変更します。
+ModUi/&FixRingOfRegenerationHealRate=<color=#D89555>再生のリング</color>の回復速度を3分あたり1hpに設定
 ModUi/&FlightSuspendWingedBoots=<i>+ ウイングドブーツの公式ルールを使用 <color=#F0DAA0>[フライトが一時停止された場合、残りの飛行時間はカウントされません]</color></i>
 ModUi/&Formation=<color=#F0DAA0>フォーメーション:</color>
 ModUi/&FormationError=<color=#C04040E0>マルチプレイヤー ゲーム中にフォーメーションを変更することはできません...</color>

@@ -615,6 +615,7 @@ internal static partial class SpellBuilders
         private RollOutcome _saveOutcome;
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,
