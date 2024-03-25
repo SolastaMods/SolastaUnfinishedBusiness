@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -228,6 +227,7 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRegainOneRageAtShortRest"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBarbarianRegainOneRageAtShortRest = toggle;
+            CharacterContext.SwitchBarbarianRegainOneRageAtShortRest();
         }
 
         toggle = Main.Settings.EnableBarbarianFightingStyle;
@@ -243,10 +243,7 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
-
-            DatabaseHelper.ActionDefinitions.UseIndomitableResistance.GuiPresentation.description = toggle
-                ? "Feature/&EnhancedIndomitableResistanceDescription"
-                : "Feature/&IndomitableResistanceDescription";
+            CharacterContext.SwitchFighterLevelToIndomitableSavingReroll();
         }
 
         toggle = Main.Settings.EnableFighterWeaponSpecialization;

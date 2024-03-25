@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -218,12 +219,14 @@ internal static partial class CharacterContext
         SwitchBarbarianBrutalStrike();
         SwitchBarbarianBrutalCritical();
         SwitchBarbarianRecklessSameBuffDebuffDuration();
+        SwitchBarbarianRegainOneRageAtShortRest();
         SwitchBarbarianFightingStyle();
         SwitchDarknessPerceptive();
         SwitchDragonbornElementalBreathUsages();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
         SwitchEveryFourLevelsFeats();
         SwitchEveryFourLevelsFeats(true);
+        SwitchFighterLevelToIndomitableSavingReroll();
         SwitchFighterWeaponSpecialization();
         SwitchFirstLevelTotalFeats();
         SwitchHelpPower();
@@ -630,6 +633,14 @@ internal static partial class CharacterContext
                 characterClassDefinition.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
             }
         }
+    }
+
+    internal static void SwitchFighterLevelToIndomitableSavingReroll()
+    {
+        DatabaseHelper.ActionDefinitions.UseIndomitableResistance.GuiPresentation.description =
+            Main.Settings.AddFighterLevelToIndomitableSavingReroll
+                ? "Feature/&EnhancedIndomitableResistanceDescription"
+                : "Feature/&IndomitableResistanceDescription";
     }
 
     internal static void SwitchFighterWeaponSpecialization()

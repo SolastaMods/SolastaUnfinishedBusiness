@@ -253,7 +253,7 @@ internal static class OtherFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 10)
+                    .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -610,7 +610,7 @@ internal static class OtherFeats
             yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1274,9 +1274,11 @@ internal static class OtherFeats
         var spellSniperFeats = new List<FeatDefinition>();
         var castSpells = new List<FeatureDefinitionCastSpell>
         {
-            // CastSpellBard, // Bard doesn't have any cantrips in Solasta that are RangeHit
-            // CastSpellCleric, // Cleric doesn't have any cantrips in Solasta that are RangeHit
-            CastSpellDruid, CastSpellSorcerer, CastSpellWarlock, CastSpellWizard
+            CastSpellDruid,
+            CastSpellSorcerer,
+            CastSpellWarlock,
+            CastSpellWizard,
+            InventorClass.SpellCasting
         };
 
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
@@ -1284,8 +1286,10 @@ internal static class OtherFeats
         {
             var spellSniperSpells = castSpell.SpellListDefinition.SpellsByLevel
                 .SelectMany(x => x.Spells)
-                .Where(x => x.SpellLevel == 0 && x.EffectDescription.RangeType is RangeType.RangeHit &&
-                            x.EffectDescription.HasDamageForm())
+                .Where(x =>
+                    x.SpellLevel == 0 &&
+                    x.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit &&
+                    x.EffectDescription.HasDamageForm())
                 .ToArray();
 
             if (spellSniperSpells.Length == 0)
@@ -1366,7 +1370,7 @@ internal static class OtherFeats
             EffectDescription effectDescription)
         {
             return definition is SpellDefinition &&
-                   effectDescription.rangeType == RangeType.RangeHit &&
+                   effectDescription.rangeType is RangeType.MeleeHit or RangeType.RangeHit &&
                    effectDescription.HasDamageForm();
         }
 

@@ -1046,7 +1046,7 @@ internal static partial class SpellBuilders
             yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1416,7 +1416,9 @@ internal static partial class SpellBuilders
                     .SetAlwaysActiveReducedDamage((_, _) => 999)
                     .AddToDB())
             .AddSpecialInterruptions(
-                ConditionInterruption.Attacked, ConditionInterruption.Attacks, ConditionInterruption.CastSpell)
+                (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked,
+                ConditionInterruption.Attacks,
+                ConditionInterruption.CastSpell)
             .AddToDB();
 
         conditionSanctuary.AddCustomSubFeatures(
@@ -1480,8 +1482,7 @@ internal static partial class SpellBuilders
     }
 
     // force the attacker to roll a WIS saving throw or lose the attack
-    private sealed class CustomBehaviorSanctuary
-        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorSanctuary : IAttackBeforeHitPossibleOnMeOrAlly
     {
         private readonly ConditionDefinition _conditionReduceDamage;
         private readonly ConditionDefinition _conditionSanctuary;
@@ -1494,43 +1495,15 @@ internal static partial class SpellBuilders
             _conditionReduceDamage = conditionReduceDamage;
         }
 
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget, bool criticalHit)
-        {
-            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
-            {
-                yield break;
-            }
-
-            yield return HandleReaction(attacker, defender);
-        }
-
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandleReaction(attacker, defender);
-        }
-
-        private IEnumerator HandleReaction(
-            // ReSharper disable once SuggestBaseTypeForParameter
-            GameLocationCharacter attacker,
-            // ReSharper disable once SuggestBaseTypeForParameter
-            GameLocationCharacter defender)
+            RulesetEffect rulesetEffect,
+            int attackRoll)
         {
             var rulesetDefender = defender.RulesetCharacter;
 

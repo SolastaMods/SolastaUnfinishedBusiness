@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 public interface IPhysicalAttackBeforeHitConfirmedOnMe
 {
     [UsedImplicitly]
-    IEnumerator OnAttackBeforeHitConfirmedOnMe(
+    IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
         GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,

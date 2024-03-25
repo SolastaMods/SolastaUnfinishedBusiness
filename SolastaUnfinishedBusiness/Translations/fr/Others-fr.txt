@@ -81,6 +81,7 @@ Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Title=Amélioration des fra
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Description=Les dégâts supplémentaires infligés par votre Brutal Strike augmentent à 2d10.
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Title=Amélioration des frappes brutales
 Feature/&FeatureSetBarbarianBrutalStrikeTitle=Frappe brutale
+Feature/&FeatureSetRageExtendedDescription=Au combat, vous combattez avec une férocité primordiale. À votre tour, vous pouvez entrer en colère comme une action bonus. Cela vous confère un avantage sur les sauvegardes et les tests de force, un bonus initial de +2 aux dégâts d'attaque en mêlée et une résistance aux dégâts tranchants, contondants et perçants. Vous bénéficiez de ces avantages uniquement si vous ne portez pas d’armure lourde. Dure 1 minute ou se termine si vous n'avez pas attaqué ou subi de dégâts depuis votre dernier tour.\n Vous démarrez avec 2 rages, renouvelées après un long repos. Au niveau 7, vous regagnez un point de rage après un court repos.
 Feature/&FighterExtraAttackDescription=Vous pouvez attaquer deux fois au lieu d'une lorsque vous utilisez les actions d'Attaque ou de Bousculade.
 Feature/&FlightResumeDescription=Reprend l'effet de Vol précédement suspendu
 Feature/&FlightResumeTitle=Reprendre le Vol

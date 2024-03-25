@@ -81,6 +81,7 @@ Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Title=Verbesserung des brut
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Description=Der zusätzliche Schaden, den Ihr Brutaler Schlag verursacht, erhöht sich auf 2W10.
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Title=Verbesserung des brutalen Schlags
 Feature/&FeatureSetBarbarianBrutalStrikeTitle=Brutaler Schlag
+Feature/&FeatureSetRageExtendedDescription=Im Kampf kämpfst du mit ursprünglicher Wildheit. Wer an der Reihe ist, kann als Bonusaktion eine Wut einsetzen. Dies verschafft Ihnen einen Vorteil bei Kraftwürfen und Würfen, einen anfänglichen Bonus von +2 auf den Nahkampfangriffsschaden und Widerstand gegen Hieb-, Knüppel- und Stichschaden. Diese Vorteile erhalten Sie nur, wenn Sie keine schwere Rüstung tragen. Hält 1 Minute an oder endet, wenn Sie seit Ihrem letzten Zug weder angegriffen noch Schaden erlitten haben.\n Sie beginnen mit 2 Wutausbrüchen, die nach einer langen Pause erneuert werden. Auf Level 7 erhältst du nach einer kurzen Pause einen Wutpunkt zurück.
 Feature/&FighterExtraAttackDescription=Sie können zweimal statt einmal angreifen, wenn Sie die Angriffs- oder Stoßaktionen verwenden.
 Feature/&FlightResumeDescription=Setzt Ihren unterbrochenen Flugeffekt fort
 Feature/&FlightResumeTitle=Flug fortsetzen

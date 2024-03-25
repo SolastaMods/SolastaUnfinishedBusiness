@@ -81,6 +81,7 @@ Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Title=잔혹한 일격 개�
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Description=잔인한 일격이 주는 추가 피해는 2d10으로 증가합니다.
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Title=잔혹한 일격 개선
 Feature/&FeatureSetBarbarianBrutalStrikeTitle=잔인한 일격
+Feature/&FeatureSetRageExtendedDescription=전투에서는 원시적인 잔인함으로 싸웁니다. 자신의 차례에 보너스 행동으로 분노를 입력할 수 있습니다. 이를 통해 힘 세이브 및 체크에 이점을 부여하고 근접 공격 데미지에 초기 +2 보너스를 부여하며 슬래시, 곤봉 및 관통 데미지에 대한 저항력을 부여합니다. 무거운 갑옷을 입지 않은 경우에만 이러한 이점을 얻을 수 있습니다. 1분 동안 지속되거나 마지막 턴 이후 공격을 받거나 피해를 입지 않은 경우 종료됩니다.\n 2개의 분노로 시작하고 오랜 휴식 후 갱신됩니다. 레벨 7에서는 잠시 휴식을 취한 후 분노 포인트 1을 회복합니다.
 Feature/&FighterExtraAttackDescription=공격이나 밀기 동작을 사용할 때 한 번이 아닌 두 번 공격할 수 있습니다.
 Feature/&FlightResumeDescription=일시 중지된 비행 효과를 재개합니다.
 Feature/&FlightResumeTitle=비행 재개

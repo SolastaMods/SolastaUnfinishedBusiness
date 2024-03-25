@@ -1344,7 +1344,7 @@ internal static class InvocationsBuilders
             yield return HandleReaction(battleManager, attacker, defender);
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1412,9 +1412,14 @@ internal static class InvocationsBuilders
             }
 
             var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
+            var tempHitPoints = 10 * classLevel;
 
-            rulesetDefender.ReceiveTemporaryHitPoints(
-                classLevel * 10, DurationType.Round, 0, TurnOccurenceType.EndOfTurn, rulesetDefender.Guid);
+            if (tempHitPoints > rulesetDefender.TemporaryHitPoints)
+            {
+                rulesetDefender.ReceiveTemporaryHitPoints(
+                    classLevel * 10, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
+                    rulesetDefender.Guid);
+            }
         }
     }
 

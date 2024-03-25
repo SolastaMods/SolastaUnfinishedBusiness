@@ -1409,6 +1409,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetBarbarianBrutalCritical { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetBarbarianBrutalCritical");
 
+        internal static FeatureDefinitionFeatureSet FeatureSetBarbarianRage { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetBarbarianRage");
+
         internal static FeatureDefinitionFeatureSet FeatureSetDragonbornBreathWeapon { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornBreathWeapon");
 

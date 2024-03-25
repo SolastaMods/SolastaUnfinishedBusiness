@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -131,7 +130,7 @@ internal static class RaceOligathBuilder
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(reduceDamageOligathStoneEndurance)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddToDB();
 
         var powerOligathStoneEndurance = FeatureDefinitionPowerBuilder
@@ -155,40 +154,17 @@ internal static class RaceOligathBuilder
     }
 
     private class CustomBehaviorStoneEndurance(FeatureDefinitionPower powerStoneEndurance)
-        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+        : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandlePowerStoneEndurance(battleManager, attacker, defender);
-        }
-
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandlePowerStoneEndurance(battleManager, attacker, defender);
-        }
-
-        private IEnumerator HandlePowerStoneEndurance(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            RulesetEffect rulesetEffect,
+            int attackRoll)
         {
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -201,7 +177,8 @@ internal static class RaceOligathBuilder
             var rulesetDefender = defender.RulesetCharacter;
 
             // don't use CanReact() to allow stone endurance when prone
-            if (!defender.IsReactionAvailable() ||
+            if (defender != helper ||
+                !defender.IsReactionAvailable() ||
                 rulesetDefender is not { IsDeadOrUnconscious: false } ||
                 rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||
                 rulesetDefender.HasConditionOfTypeOrSubType(ConditionStunned) ||

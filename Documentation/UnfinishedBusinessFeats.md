@@ -104,8 +104,7 @@ When you are wielding a finesse weapon with which you are proficient and another
 # 22. - Devastating Strikes
 
 Your attacks with great swords, great axes and mauls are especially deadly, and you gain the following benefits when using any of them:
-• You gain a +1 bonus to attack rolls you make with the weapon.
-• Whenever you have advantage on a melee attack roll and hit, you deal extra damage of the same type equal to your Strength or Dexterity modifier if the lower of the two d20 rolls would also hit the target.
+• Your attacks with the weapon deal extra damage equal to your proficiency bonus.
 • Whenever you land a critical hit, you roll an additional weapon die and ignore target creature's resistances for that attack.
 
 # 23. - *Dragon Wings* ©

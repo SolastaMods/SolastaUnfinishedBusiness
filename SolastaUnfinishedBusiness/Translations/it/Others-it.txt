@@ -81,6 +81,7 @@ Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Title=Miglioramento del col
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Description=Il danno extra inflitto dal tuo Colpo Brutale aumenta a 2d10.
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Title=Miglioramento del colpo brutale
 Feature/&FeatureSetBarbarianBrutalStrikeTitle=Colpo Brutale
+Feature/&FeatureSetRageExtendedDescription=In battaglia combatti con ferocia primordiale. Durante il tuo turno, puoi entrare in ira come azione bonus. Ciò garantisce vantaggio ai tiri salvezza e alle prove di forza, un bonus iniziale +2 al danno da attacco in mischia e resistenza ai danni taglienti, contundenti e perforanti. Ottieni questi benefici solo se non indossi un'armatura pesante. Dura 1 minuto o termina se non hai attaccato o subito danni dal tuo ultimo turno.\n Inizi con 2 furie, rinnovate dopo un lungo riposo. Al livello 7, recuperi un punto rabbia dopo un breve riposo.
 Feature/&FighterExtraAttackDescription=Puoi attaccare due volte, anziché una, quando usi le azioni di attacco o spinta.
 Feature/&FlightResumeDescription=Ripristina l'effetto del volo sospeso
 Feature/&FlightResumeTitle=Riprendi il volo

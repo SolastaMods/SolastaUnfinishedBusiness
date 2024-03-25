@@ -120,7 +120,7 @@ public sealed class MartialGuardian : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 DamageAffinityBludgeoningResistance, DamageAffinityPiercingResistance, DamageAffinitySlashingResistance)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddToDB();
 
         var featureImperviousProtector = FeatureDefinitionBuilder
@@ -276,9 +276,44 @@ public sealed class MartialGuardian : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionImperviousProtector,
         FeatureDefinitionPower powerGrandChallenge)
-        : ICharacterBattleStartedListener, IPhysicalAttackBeforeHitConfirmedOnMe
+        : ICharacterBattleStartedListener, IAttackBeforeHitPossibleOnMeOrAlly
     {
         private const string Line = "Feedback/&ActivateRepaysLine";
+
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
+            GameLocationBattleManager battleManager,
+            [UsedImplicitly] GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect,
+            int attackRoll)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (defender != helper ||
+                rulesetEffect != null ||
+                attackMode.Magical ||
+                !ValidatorsCharacter.HasHeavyArmor(rulesetDefender))
+            {
+                yield break;
+            }
+
+            rulesetDefender.InflictCondition(
+                conditionImperviousProtector.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetDefender.Guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                conditionImperviousProtector.Name,
+                0,
+                0,
+                0);
+        }
 
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
@@ -298,40 +333,6 @@ public sealed class MartialGuardian : AbstractSubclass
 
             rulesetCharacter.LogCharacterUsedPower(powerGrandChallenge, Line);
             rulesetCharacter.RepayPowerUse(rulesetUsablePower);
-        }
-
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (attackMode.Magical || !ValidatorsCharacter.HasHeavyArmor(rulesetDefender))
-            {
-                yield break;
-            }
-
-            rulesetDefender.InflictCondition(
-                conditionImperviousProtector.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetDefender.Guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                conditionImperviousProtector.Name,
-                0,
-                0,
-                0);
         }
     }
 }

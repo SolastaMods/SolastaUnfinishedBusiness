@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -742,7 +741,7 @@ internal static class GambitsBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Minute, 1)
+                    .SetDurationData(DurationType.UntilLongRest)
                     .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
@@ -1792,87 +1791,83 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class Parry(FeatureDefinitionPower pool, FeatureDefinition feature)
-        : IPhysicalAttackBeforeHitConfirmedOnMe
+        : IAttackBeforeHitPossibleOnMeOrAlly
     {
         private const string Line = "Feedback/&GambitParryDamageReduction";
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battleManager,
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            RulesetEffect rulesetEffect,
+            int attackRoll)
         {
-            if (rangedAttack)
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (actionManager == null)
             {
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (manager == null)
+            if (attackMode is { Ranged: true } ||
+                attackMode is { Thrown: true } ||
+                rulesetEffect != null)
             {
                 yield break;
             }
 
-            var rulesetEnemy = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (!me.CanReact() || rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
+            if (defender != helper ||
+                !defender.CanReact() ||
+                rulesetDefender.GetRemainingPowerCharges(pool) <= 0)
             {
                 yield break;
             }
 
-            var character = me.RulesetCharacter;
-
-            if (character.GetRemainingPowerCharges(pool) <= 0)
-            {
-                yield break;
-            }
-
-            var dieType = GetGambitDieSize(character);
-            var guiMe = new GuiCharacter(me);
+            var dieType = GetGambitDieSize(rulesetDefender);
+            var guiMe = new GuiCharacter(defender);
             var guiTarget = new GuiCharacter(attacker);
 
             var reactionParams =
-                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = "CustomReactionGambitParryDescription"
                         .Formatted(Category.Reaction, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType))
                 };
 
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = actionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitParry", reactionParams)
             {
                 Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
             };
 
-            manager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionManager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            character.UpdateUsageForPower(pool, 1);
+            rulesetDefender.UpdateUsageForPower(pool, 1);
 
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
-            var pb = 2 * character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var pb = 2 * rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var reduction = dieRoll + pb;
 
             actionModifier.damageRollReduction += reduction;
 
-            character.ShowDieRoll(dieType, dieRoll,
+            rulesetDefender.ShowDieRoll(dieType, dieRoll,
                 title: feature.GuiPresentation.Title,
                 displayModifier: true, modifier: pb);
 
-            character.LogCharacterUsedFeature(feature, Line,
+            rulesetDefender.LogCharacterUsedFeature(feature, Line,
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),

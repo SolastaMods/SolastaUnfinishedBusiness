@@ -547,8 +547,12 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 0,
                 0,
                 0);
-            rulesetCharacter.ReceiveTemporaryHitPoints(
-                levels, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
+
+            if (levels > rulesetCharacter.TemporaryHitPoints)
+            {
+                rulesetCharacter.ReceiveTemporaryHitPoints(
+                    levels, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
+            }
 
             var spellRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
                 x.SpellCastingClass == CharacterClassDefinitions.Warlock);
@@ -588,7 +592,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             yield return HandleReaction(battleManager, attacker, defender);
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

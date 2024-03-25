@@ -81,6 +81,7 @@ Feature/&FeatureSetBarbarianBrutalStrikeImprovement13Title=Mejora de golpe bruta
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Description=El daño adicional que inflige tu Golpe Brutal aumenta a 2d10.
 Feature/&FeatureSetBarbarianBrutalStrikeImprovement17Title=Mejora de golpe brutal
 Feature/&FeatureSetBarbarianBrutalStrikeTitle=Golpe brutal
+Feature/&FeatureSetRageExtendedDescription=En la batalla, luchas con una ferocidad primordial. En tu turno, puedes entrar en ira como acción adicional. Esto te otorga ventaja en salvaciones y pruebas de fuerza, una bonificación inicial de +2 al daño de ataque cuerpo a cuerpo y resistencia al daño cortante, contundente y perforante. Obtienes estos beneficios sólo si no llevas una armadura pesada. Dura 1 minuto o finaliza si no has atacado ni sufrido daño desde tu último turno.\n Comienzas con 2 ira, renovadas después de un largo descanso. En el nivel 7, recuperas un punto de ira después de un breve descanso.
 Feature/&FighterExtraAttackDescription=Puedes atacar dos veces, en lugar de una, cuando usas las acciones de ataque o empujón.
 Feature/&FlightResumeDescription=Reanuda tu efecto de vuelo suspendido
 Feature/&FlightResumeTitle=Reanudar vuelo

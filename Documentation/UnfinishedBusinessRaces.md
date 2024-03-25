@@ -357,7 +357,7 @@ You count your size as Large when determining your carrying capacity.
 
 * Stone's Endurance
 
-When you take damage, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled and reduce incoming damage by that amount. You can use this trait equal to your proficiency bonus, and regain expended uses after long rest.
+When you are attacked, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled and reduce incoming damage by that amount. You can use this trait equal to your proficiency bonus, and regain expended uses after long rest.
 
 
 

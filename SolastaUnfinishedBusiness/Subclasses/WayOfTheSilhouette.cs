@@ -293,7 +293,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

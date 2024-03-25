@@ -399,8 +399,11 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
             var totalHealing = classLevel + constitutionModifier;
 
-            rulesetCharacter.ReceiveTemporaryHitPoints(
-                totalHealing, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.guid);
+            if (totalHealing > rulesetCharacter.TemporaryHitPoints)
+            {
+                rulesetCharacter.ReceiveTemporaryHitPoints(
+                    totalHealing, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
+            }
 
             //
             // not the best code practice here but reuse this same interface for Focused Strikes 10th feature
