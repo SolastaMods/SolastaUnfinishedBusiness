@@ -5,7 +5,7 @@ ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 커스텀 아이
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> 및 <color=#D89555>Gray Dwarf</color>에서 <color=#D89555>Darkness Perceptive</color>를 활성화하세요. color> <i><color=#F0DAA0>\n[빛이 없거나 마법의 어둠 속에서 인지 검사에 이점을 부여합니다.]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>불굴</color> 저장 던지기 재굴림에 <color=#D89555>파이터</color> 레벨 추가
 ModUi/&AddHelpActionToAllRaces=모든 플레이어블 종족의 행동 선택지에 <color=#D89555>도움</color> 행동을 추가 <i><color=#F0DAA0>[우호적인 크리쳐 하나가 자신과 1칸 내에 있는 크리쳐 하나를 공격하는 것을 도울 수 있습니다]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 주적에 인간종 유형 추가
+ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 인간형 선호 적 활성화
 ModUi/&AddNewBrightEyeColors=밝은 계열의 눈 색상 추가
 ModUi/&AddNewWeaponsAndRecipesToShops=상점에 신규 무기 및 제조법 추가 <i><color=#F0DAA0>[핸드랩, 할버드, 파이크, 롱 메이스, 핸드 크로스보우]</color></i> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>팔라딘</color>이 치명타를 맞췄을 때만 강타가 가능하도록 설정 켜기. <i><color=#F0DAA0>[반응 행동 창이 켜지는 빈도를 줄일 수 있음]</i>
@@ -63,6 +63,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 아무 피해 주사위�
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 추가 주사위 대신 총 피해량을 두 배로 합니다 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>신격</color>
 ModUi/&DisableAutoEquip=인벤토리에 있는 아이템의 자동 장착 비활성화
+ModUi/&DisableBarbarianBrutalCritical=<i>+ 또한 클래스 레벨 9, 13, 17에서 <color=#D89555>야만인</color> <b>잔인한 치명적</b>을 비활성화합니다.</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=이 모드에서 제공하는 기능에 대한 시전 주문 전제 조건을 비활성화합니다. <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=이 모드에서 제공하는 특성의 레벨 전제 조건을 비활성화
 ModUi/&DisableRacePrerequisitesOnModFeats=이 모드에서 제공하는 특성의 종족 전제 조건을 비활성화
@@ -85,7 +86,10 @@ ModUi/&EnableAdditionalIconsOnLevelMap=레벨 지도에서 야영지, 출구, �
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ 던전 메이커에 새 아이템 추가</i>
 ModUi/&EnableAlternateHuman=변형 룰 <color=#D89555>인간</color> <i><color=#F0DAA0>[+1 재주 / +2 능력치 / +1 기술]</color></i> 활성화
 ModUi/&EnableAlternateVotingSystem=대체 투표 시스템 활성화 <i><color=#F0DAA0>[선택 가중치를 결정하기 위해 영웅 카리스마 수정자를 사용]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=클래스 레벨 9, 13, 17에서 <color=#D89555>야만인</color> <b>잔혹한 일격</b> 및 <b>잔혹한 일격 개선</b>을 활성화하세요.
 ModUi/&EnableBarbarianFightingStyle=<color=#D89555>바바리안</color>의 <b>전투 특화</b> 선택지를 2레벨에 활성화
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>야만인</color> <b>무모한 공격</b> 버프 및 디버프를 활성화하여 다음 턴 시작 시 완료
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=<color=#D89555>야만인</color>을 활성화하고 클래스 레벨 7에서 짧은 휴식을 통해 분노 사용 1회 회복
 ModUi/&EnableBetaContent=베타 컨텐츠 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 우클릭으로 행동 취소 활성화
 ModUi/&EnableCantripsTriggeringOnWarMagic=캔트립으로도 <color=#D89555>전쟁 마법</color> 추가 보너스 공격 발동 허용
@@ -152,6 +156,7 @@ ModUi/&Feats=<color=#F0DAA0>재주</color>
 ModUi/&FightingStyles=<color=#F0DAA0>전투 특화</color>
 ModUi/&FixAsianLanguagesTextWrap=아시아 언어 게임 UI 텍스트 래핑 수정 <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
 ModUi/&FixEldritchBlastRange=<color=#D89555>섬뜩한 방출</color>의 사거리를 공식 주문 값인 24칸으로 변경 <i><color=#F0DAA0>[기존 12칸]</color></i>
+ModUi/&FixRingOfRegenerationHealRate=<color=#D89555>재생의 고리</color> 치유 속도를 3분당 1hp로 설정
 ModUi/&FlightSuspendWingedBoots=<i>+ 공식 룰의 날개 달린 부츠 사용 <color=#F0DAA0>[비행이 유지되는 동안은 지속시간을 계산하지 않습니다]</color></i>
 ModUi/&Formation=<color=#F0DAA0>진형:</color>
 ModUi/&FormationError=<color=#C04040E0>멀티플레이 게임 중에는 진형을 변경할 수 없습니다...</color>

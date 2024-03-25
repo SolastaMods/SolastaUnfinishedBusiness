@@ -241,7 +241,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         actionAffinityForcePoweredStrikeToggle.AddCustomSubFeatures(
             new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerPsionicInitiate)),
-            new AttackBeforeHitConfirmedOnEnemyForcePoweredStrike(conditionForcePoweredStrike, powerPsionicAdept));
+            new CustomBehaviorForcePoweredStrike(conditionForcePoweredStrike, powerPsionicAdept));
 
         var featureSetPsionicAdept = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}PsionicAdept")
@@ -604,15 +604,15 @@ public sealed class MartialForceKnight : AbstractSubclass
     // Force Powered Strike
     //
 
-    private sealed class AttackBeforeHitConfirmedOnEnemyForcePoweredStrike(
+    private sealed class CustomBehaviorForcePoweredStrike(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionForcePoweredStrike,
-        FeatureDefinitionPower powerPsionicAdept) : IPhysicalAttackInitiatedByMe,
-        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        FeatureDefinitionPower powerPsionicAdept)
+        : IPhysicalAttackInitiatedByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private bool _considerTriggerPsionicAdept;
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -621,7 +621,6 @@ public sealed class MartialForceKnight : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
@@ -924,8 +923,11 @@ public sealed class MartialForceKnight : AbstractSubclass
             var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var intMod = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
 
-            rulesetCharacter.ReceiveTemporaryHitPoints(
-                intMod, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+            if (intMod > rulesetCharacter.TemporaryHitPoints)
+            {
+                rulesetCharacter.ReceiveTemporaryHitPoints(
+                    intMod, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+            }
         }
 
         public void OnSavingThrowInitiated(

@@ -5,12 +5,11 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
-// triggers on any attack, magical or physical, if there is an attack roll
-// rulesetEffect != null is a magical attack
-public interface IAttackBeforeHitConfirmedOnMe
+// triggers on any weapon attack
+public interface IPhysicalAttackBeforeHitConfirmedOnEnemy
 {
     [UsedImplicitly]
-    IEnumerator OnAttackBeforeHitConfirmedOnMe(
+    IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
         GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -19,7 +18,6 @@ public interface IAttackBeforeHitConfirmedOnMe
         bool rangedAttack,
         AdvantageType advantageType,
         List<EffectForm> actualEffectForms,
-        RulesetEffect rulesetEffect,
         bool firstTarget,
         bool criticalHit);
 }

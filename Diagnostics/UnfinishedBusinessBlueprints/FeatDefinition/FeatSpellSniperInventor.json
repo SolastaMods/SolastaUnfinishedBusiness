@@ -1,0 +1,46 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatSpellSniper",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:CastSpellFeatSpellSniperInventor:6dea1f61-70cf-590f-ad1c-21f0e1dbd853",
+    "Definition:CombatAffinityFeatSpellSniperInventor:de797cc8-b17b-5362-8a86-e90a9fbbb4f6",
+    "Definition:PointPoolFeatSpellSniperInventorCantrip:58b5a995-9ca0-5dd5-a82a-7f0973b1912a"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Spell Sniper [Artificer]",
+    "description": "You learn one cantrip of your choice from the Artificer spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a4a3d5c1-3b3b-56b2-a8f7-2e8dcb89fbeb",
+  "contentPack": 9999,
+  "name": "FeatSpellSniperInventor"
+}

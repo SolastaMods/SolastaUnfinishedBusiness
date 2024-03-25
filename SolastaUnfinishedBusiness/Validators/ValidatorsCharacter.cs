@@ -138,9 +138,6 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
         HasMeleeWeaponInMainHand(character) && HasMeleeWeaponInOffHand(character);
 
-    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainOrOffhand = character =>
-        HasMeleeWeaponInMainHand(character) || HasMeleeWeaponInOffHand(character);
-
     internal static readonly IsCharacterValidHandler IsUnarmedInMainHand = character =>
         ValidatorsWeapon.IsUnarmed(character.GetMainWeapon()?.ItemDefinition, null);
 

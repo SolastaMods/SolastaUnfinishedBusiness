@@ -140,7 +140,7 @@ internal static class ToolsContext
             var gameLocationScreenExplorationVisible =
                 gameLocationScreenExploration && gameLocationScreenExploration.Visible;
 
-            if (Global.IsMultiplayer || !gameLocationScreenExplorationVisible)
+            if (!gameLocationScreenExplorationVisible)
             {
                 Gui.GuiService.ShowMessage(
                     MessageModal.Severity.Informative1,

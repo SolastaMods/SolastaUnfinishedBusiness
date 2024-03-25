@@ -1329,9 +1329,22 @@ internal static class InvocationsBuilders
     }
 
     private sealed class CustomBehaviorTombOfFrost(FeatureDefinitionPower powerTombOfFrost)
-        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(battleManager, attacker, defender);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1340,36 +1353,21 @@ internal static class InvocationsBuilders
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect == null)
-            {
-                yield return HandleReaction(attacker, defender);
-            }
+            yield return HandleReaction(battleManager, attacker, defender);
         }
 
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+        private IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            GameLocationCharacter defender)
         {
-            yield return HandleReaction(attacker, defender);
-        }
-
-        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender)
-        {
-            var gameLocationBattleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationBattleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }
@@ -1406,7 +1404,7 @@ internal static class InvocationsBuilders
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!actionParams.ReactionValidated)
             {
@@ -1414,9 +1412,14 @@ internal static class InvocationsBuilders
             }
 
             var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
+            var tempHitPoints = 10 * classLevel;
 
-            rulesetDefender.ReceiveTemporaryHitPoints(
-                classLevel * 10, DurationType.Round, 0, TurnOccurenceType.EndOfTurn, rulesetDefender.Guid);
+            if (tempHitPoints > rulesetDefender.TemporaryHitPoints)
+            {
+                rulesetDefender.ReceiveTemporaryHitPoints(
+                    classLevel * 10, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
+                    rulesetDefender.Guid);
+            }
         }
     }
 

@@ -133,8 +133,8 @@
         "lightSourceForm": {
           "$type": "LightSourceForm, Assembly-CSharp",
           "lightSourceType": "Basic",
-          "brightRange": 10,
-          "dimAdditionalRange": 10,
+          "brightRange": 2,
+          "dimAdditionalRange": 2,
           "color": {
             "$type": "UnityEngine.Color, UnityEngine.CoreModule",
             "r": 1.0,

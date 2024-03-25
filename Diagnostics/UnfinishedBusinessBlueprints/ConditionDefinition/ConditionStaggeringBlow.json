@@ -1,0 +1,164 @@
+{
+  "$type": "ConditionDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "parentCondition": null,
+  "conditionType": "Detrimental",
+  "features": [
+    "Definition:SavingThrowAffinityStaggeringBlow:9b4e3149-62ce-5eb8-ad4b-b9e9394c0687"
+  ],
+  "allowMultipleInstances": false,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": true,
+  "silentWhenRefreshed": false,
+  "terminateWhenRemoved": false,
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
+  "durationParameter": 1,
+  "forceTurnOccurence": false,
+  "turnOccurence": "EndOfTurn",
+  "specialInterruptions": [
+    "SavingThrow"
+  ],
+  "interruptionRequiresSavingThrow": false,
+  "interruptionSavingThrowComputationMethod": "SaveOverride",
+  "interruptionSavingThrowAbility": "",
+  "interruptionDamageThreshold": 0,
+  "keepConditionIfSavingThrowSucceeds": false,
+  "interruptionSavingThrowAffinity": "None",
+  "conditionTags": [],
+  "recurrentEffectForms": [],
+  "cancellingConditions": [],
+  "additionalDamageWhenHit": false,
+  "additionalDamageTypeDetermination": "Specific",
+  "additionalDamageType": "",
+  "additionalDamageQuantity": "AbilityBonus",
+  "additionalDamageDieType": "D1",
+  "additionalDamageDieNumber": 1,
+  "additionalConditionWhenHit": false,
+  "additionalCondition": null,
+  "additionalConditionDurationType": "Round",
+  "additionalConditionDurationParameter": 1,
+  "additionalConditionTurnOccurenceType": "StartOfTurn",
+  "conditionStartParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "606ae01bcf804704486f00cac4c1df5b",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "conditionParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "04d5994e23fc58040920b6300f86d163",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "conditionEndParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "00641b9d6a6c7f4419c9d6928d88d173",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "recurrentEffectParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "characterShaderReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
+  },
+  "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
+  "acidParticleParameters": null,
+  "coldParticleParameters": null,
+  "fireParticleParameters": null,
+  "lightningParticleParameters": null,
+  "poisonParticleParameters": null,
+  "overrideCharacterShaderColors": false,
+  "firstCharacterShaderColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "secondCharacterShaderColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "timeToWaitBeforeApplyingShader": 0.5,
+  "timeToWaitBeforeRemovingShader": 0.5,
+  "possessive": true,
+  "amountOrigin": "None",
+  "baseAmount": 0,
+  "additiveAmount": false,
+  "sourceAbilityBonusMinValue": 1,
+  "subsequentOnRemoval": null,
+  "subsequentHasSavingThrow": false,
+  "subsequentSavingThrowAbilityScore": "Constitution",
+  "subsequentVariableForDC": "FrenzyExhaustionDC",
+  "subsequentDCIncrease": 5,
+  "effectFormsOnRemoved": [],
+  "forceBehavior": false,
+  "addBehavior": false,
+  "fearSource": false,
+  "battlePackage": null,
+  "explorationPackage": null,
+  "removedFromTheGame": false,
+  "permanentlyRemovedIfExtraPlanar": false,
+  "refundReceivedDamageWhenRemoved": false,
+  "followSourcePosition": false,
+  "disolveCharacterOnDeath": false,
+  "disolveParameters": {
+    "$type": "GraphicsCharacterDefinitions+DisolveParameters, Assembly-CSharp",
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "colorWidth": 0.0,
+    "noiseScale": 5.0,
+    "hueScale": 0.0,
+    "vertexOffset": 0.0,
+    "curve": {
+      "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+    },
+    "startAfterDeathAnimation": false,
+    "duration": 0.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerBarbarianBrutalStrikeStaggeringBlowTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "3b24b98087e888a4584553215450c700",
+      "m_SubObjectName": "ConditionDazzled",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "8272c5d9-1026-51a6-9f89-7152df4cd114",
+  "contentPack": 9999,
+  "name": "ConditionStaggeringBlow"
+}

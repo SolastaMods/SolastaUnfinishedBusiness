@@ -547,8 +547,12 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 0,
                 0,
                 0);
-            rulesetCharacter.ReceiveTemporaryHitPoints(
-                levels, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
+
+            if (levels > rulesetCharacter.TemporaryHitPoints)
+            {
+                rulesetCharacter.ReceiveTemporaryHitPoints(
+                    levels, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
+            }
 
             var spellRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
                 x.SpellCastingClass == CharacterClassDefinitions.Warlock);
@@ -573,9 +577,22 @@ public sealed class PatronMoonlitScion : AbstractSubclass
     }
 
     private sealed class CustomBehaviorMoonlightGuise(FeatureDefinitionPower powerMoonlightGuise)
-        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(battleManager, attacker, defender);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -584,36 +601,21 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode != null)
-            {
-                yield return HandleReaction(attacker, defender);
-            }
+            yield return HandleReaction(battleManager, attacker, defender);
         }
 
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+        private IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            GameLocationCharacter defender)
         {
-            yield return HandleReaction(attacker, defender);
-        }
-
-        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender)
-        {
-            var gameLocationBattleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationBattleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }
@@ -646,7 +648,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
             gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 }

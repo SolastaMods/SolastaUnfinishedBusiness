@@ -65,7 +65,6 @@ Feedback/&AdditionalDamageCrusherLine={0} crushes {1}
 Feedback/&AdditionalDamagePiercerFormat=Piercer!
 Feedback/&AdditionalDamagePiercerLine={0} critically pierces {1}
 Feedback/&AdditionalDamageSpearMasteryLine={0} has readied spear and deals extra {2} damage to {1}!
-Feedback/&FeatFeatDevastatingStrikeDisadvantage={0} deals damage to {1} through {2}:
 Reaction/&ReactionAttackOldTacticsDescription={0} stood up. {1} can use a reaction to make a melee weapon attack against it.
 Reaction/&ReactionAttackOldTacticsReactDescription=Use your reaction to attack.
 Reaction/&ReactionAttackOldTacticsReactTitle=Attack

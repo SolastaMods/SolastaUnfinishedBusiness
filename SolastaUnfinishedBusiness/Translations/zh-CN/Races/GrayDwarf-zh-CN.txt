@@ -1,12 +1,12 @@
 Condition/&ConditionGrayDwarfStoneStrengthDescription=在力量检定和豁免检定上具有优势。 +1d4 近战力量武器伤害。
 Condition/&ConditionGrayDwarfStoneStrengthTitle=石头之力
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=力量 +1
-Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=能力值增加
-Feature/&FeatureSetGrayDwarfAncestryDescription=对抗魅惑、麻痹和幻觉的豁免优势
+Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=属性值提升
+Feature/&FeatureSetGrayDwarfAncestryDescription=对抗魅惑、麻痹和幻术的豁免优势
 Feature/&FeatureSetGrayDwarfAncestryTitle=灰矮人祖先
 Feature/&PowerGrayDwarfInvisibilityDescription=你可以神奇地隐形最多 1 分钟。如果你采取任何进攻行动，这种隐身状态就会消失。一旦你使用了这个能力，在你完成一次短休或长休之前你不能再次使用它。
 Feature/&PowerGrayDwarfInvisibilityTitle=隐形
 Feature/&PowerGrayDwarfStoneStrengthDescription=作为一个附赠动作，你获得石头之力 1 分钟。你在力量检定和力量豁免上有优势。你还可以使用基于力量的近战武器造成额外的 1d4 伤害。一旦你使用了这个能力，在你完成一次短休或长休之前你不能再次使用它。
 Feature/&PowerGrayDwarfStoneStrengthTitle=石头之力
-Race/&RaceGrayDwarfDescription=灰矮人是经过几代人接触荒地神秘魔法后发生变化的矮人。它们主要是夜间活动的，主要居住在掩埋的废墟中。他们的肤色趋向于灰色甚至煤黑色。与大多数矮人不同，他们不留胡须。
+Race/&RaceGrayDwarfDescription=灰矮人是经过几代人接触荒地神秘魔法后发生变化的矮人。他们主要是夜间活动的，主要居住在掩埋的废墟中。他们的肤色趋向于灰色甚至煤黑色。与大多数矮人不同，他们不留胡须。
 Race/&RaceGrayDwarfTitle=灰矮人

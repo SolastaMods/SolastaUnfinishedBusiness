@@ -272,6 +272,7 @@ public class PatronCelestial : AbstractSubclass
     private sealed class MagicEffectBeforeHitConfirmedOnEnemyRadiantSoul : IMagicEffectBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,
@@ -325,15 +326,21 @@ public class PatronCelestial : AbstractSubclass
 
             foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
             {
+                var rulesetLocationCharacter = gameLocationCharacter.RulesetCharacter;
                 var tempHitPoints =
-                    (classLevel / (gameLocationCharacter.RulesetCharacter == rulesetCharacter ? 1 : 2)) +
+                    (classLevel / (rulesetLocationCharacter == rulesetCharacter ? 1 : 2)) +
                     charismaModifier;
+
+                if (tempHitPoints <= rulesetLocationCharacter.TemporaryHitPoints)
+                {
+                    continue;
+                }
 
                 EffectHelpers.StartVisualEffect(
                     actingCharacter, gameLocationCharacter, ShadowDagger, EffectHelpers.EffectType.Effect);
 
-                gameLocationCharacter.RulesetCharacter.ReceiveTemporaryHitPoints(tempHitPoints,
-                    DurationType.UntilAnyRest, 0, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+                rulesetLocationCharacter.ReceiveTemporaryHitPoints(
+                    tempHitPoints, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
             }
         }
     }

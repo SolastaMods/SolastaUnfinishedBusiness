@@ -5,7 +5,7 @@ ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate agli oggetti 
 ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percettivo dell'oscurità</color> su <color=#D89555>Elfo Oscuro</color>, <color=#D89555>Coboldo Oscuro</color> e <color=#D89555>Nano Grigio</ color> <i><color=#F0DAA0>\n[concede vantaggio alle prove di percezione quando spento o nell'oscurità magica]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Aggiungi il livello <color=#D89555>Guerriero</color> al tiro salvezza di <color=#D89555>Indomabile</color>
 ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze giocabili <i><color=#F0DAA0>[puoi aiutare una creatura amica ad attaccare una creatura entro 1,5 metri da te]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Aggiungi il nemico preferito umanoide ai <color=#D89555>Ranger</color>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti umanoidi <color=#D89555>Ranger</color>
 ModUi/&AddNewBrightEyeColors=Aggiungi nuovi colori luminosi per gli occhi
 ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce per le mani, alabarde, picche, lunghe mazze, balestre a mano]</color></i> <b><i><color=#C04040E0> [Richiede il riavvio]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Aggiungi un interruttore per consentire ai <color=#D89555>Paladini</color> di abilitare solo i colpi critici <i><color=#F0DAA0>[utile per ridurre al minimo le richieste di reazione]</color></i>
@@ -63,6 +63,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a ripetere il t
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: raddoppia il danno totale del tuo attacco invece di tirare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinità</color>
 ModUi/&DisableAutoEquip=Disattiva l'equipaggiamento automatico degli articoli nell'inventario
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Disabilita anche <color=#D89555>Barbaro</color> <b>Critico Brutale</b> ai livelli di classe 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disabilita i prerequisiti di lancio degli incantesimi sui talenti forniti da questa mod <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui talenti forniti da questa mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui talenti forniti da questa mod
@@ -85,7 +86,10 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Aggiungi nuovi elementi a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color=#F0DAA0>[+1 talento / +2 scelte attributi / +1 abilità]</color></i>
 ModUi/&EnableAlternateVotingSystem=Abilita il sistema di voto alternativo <i><color=#F0DAA0>[usa il modificatore di carisma dell'eroe per determinare il peso della scelta]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=Abilita <color=#D89555>Barbaro</color> <b>Colpo Brutale</b> e <b>Miglioramento Colpo Brutale</b> ai livelli di classe 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Barbaro</color> <b>Stile di combattimento</b> al livello 2
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Abilita il buff e il debuff <color=#D89555>Barbaro</color> <b>Attacco spericolato</b> per terminare all'inizio del turno successivo
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita <color=#D89555>Barbaro</color> a riacquistare un uso dell'ira durante un riposo breve al livello di classe 7
 ModUi/&EnableBetaContent=Abilita i contenuti beta <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Abilita i trucchetti per attivare <color=#D89555> Magia da guerra </color> attacco bonus extra
@@ -152,6 +156,7 @@ ModUi/&Feats=<color=#F0DAA0> Talenti</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Stili di combattimento</color>
 ModUi/&FixAsianLanguagesTextWrap=Risolto il problema con il testo dell'interfaccia utente del gioco in lingue asiatiche <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&FixEldritchBlastRange=Cambia la portata di <color=#D89555>Eldritch Blast</color> a 24 <i><color=#F0DAA0>[invece di 16]</color></i>
+ModUi/&FixRingOfRegenerationHealRate=Imposta la velocità di guarigione dell'<color=#D89555>Anello della rigenerazione</color> su 1 CV ogni 3 minuti
 ModUi/&FlightSuspendWingedBoots=<i>+ Usa le regole ufficiali degli Stivali Alati <color=#F0DAA0>[durata rimanente non conteggiata quando il volo è sospeso]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formazione:</color>
 ModUi/&FormationError=<color=#C04040E0>Non puoi cambiare la tua formazione durante una partita multiplayer...</color>

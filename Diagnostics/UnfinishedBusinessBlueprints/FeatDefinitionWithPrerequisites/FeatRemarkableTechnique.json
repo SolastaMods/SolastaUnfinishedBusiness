@@ -12,7 +12,8 @@
   "familyTag": "FightingStyle",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ProficiencyFeatRemarkableTechnique:11294f12-730d-550d-832c-049e9de2ae52"
+    "Definition:ProficiencyFeatRemarkableTechnique:11294f12-730d-550d-832c-049e9de2ae52",
+    "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -29,6 +29,7 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
         internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
         internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
+        internal static ActionDefinition RecklessAttack { get; } = GetDefinition<ActionDefinition>("RecklessAttack");
         internal static ActionDefinition StepBack { get; } = GetDefinition<ActionDefinition>("StepBack");
 
         internal static ActionDefinition StunningStrikeToggle { get; } =
@@ -1405,6 +1406,12 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetAbilityScoreChoice { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetAbilityScoreChoice");
 
+        internal static FeatureDefinitionFeatureSet FeatureSetBarbarianBrutalCritical { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetBarbarianBrutalCritical");
+
+        internal static FeatureDefinitionFeatureSet FeatureSetBarbarianRage { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetBarbarianRage");
+
         internal static FeatureDefinitionFeatureSet FeatureSetDragonbornBreathWeapon { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornBreathWeapon");
 
@@ -1830,9 +1837,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerOathOfJugementWeightOfJustice { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementWeightOfJustice");
-
-        internal static FeatureDefinitionPower PowerOathOfMotherlandFieryWrath { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerOathOfMotherlandFieryWrath");
 
         internal static FeatureDefinitionPower PowerOathOfMotherlandVolcanicAura { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfMotherlandVolcanicAura");

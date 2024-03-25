@@ -253,6 +253,7 @@ internal static class OtherFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -591,12 +592,25 @@ internal static class OtherFeats
     }
 
     private sealed class CustomBehaviorReactiveResistance(FeatureDefinitionPower powerReactiveResistance)
-        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         private static readonly HashSet<string> DamageTypes =
             [DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison];
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -605,55 +619,33 @@ internal static class OtherFeats
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode == null)
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+        }
+
+        private IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            // ReSharper disable once ParameterTypeCanBeEnumerable.Local
+            List<EffectForm> actualEffectForms)
+        {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }
 
-            var firstValidEffectForm = actualEffectForms
+            var effectForm = actualEffectForms
                 .FirstOrDefault(x =>
                     x.FormType == EffectForm.EffectFormType.Damage &&
                     DamageTypes.Contains(x.DamageForm.DamageType));
 
-            if (firstValidEffectForm != null)
-            {
-                yield return HandleReaction(attacker, defender, firstValidEffectForm);
-            }
-        }
-
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            var firstValidEffectForm = actualEffectForms
-                .FirstOrDefault(x =>
-                    x.FormType == EffectForm.EffectFormType.Damage &&
-                    DamageTypes.Contains(x.DamageForm.DamageType));
-
-            if (firstValidEffectForm != null)
-            {
-                yield return HandleReaction(attacker, defender, firstValidEffectForm);
-            }
-        }
-
-        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender,
-            EffectForm effectForm)
-        {
-            var gameLocationBattleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationBattleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (effectForm == null)
             {
                 yield break;
             }
@@ -689,7 +681,7 @@ internal static class OtherFeats
 
             gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1282,9 +1274,11 @@ internal static class OtherFeats
         var spellSniperFeats = new List<FeatDefinition>();
         var castSpells = new List<FeatureDefinitionCastSpell>
         {
-            // CastSpellBard, // Bard doesn't have any cantrips in Solasta that are RangeHit
-            // CastSpellCleric, // Cleric doesn't have any cantrips in Solasta that are RangeHit
-            CastSpellDruid, CastSpellSorcerer, CastSpellWarlock, CastSpellWizard
+            CastSpellDruid,
+            CastSpellSorcerer,
+            CastSpellWarlock,
+            CastSpellWizard,
+            InventorClass.SpellCasting
         };
 
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
@@ -1292,8 +1286,10 @@ internal static class OtherFeats
         {
             var spellSniperSpells = castSpell.SpellListDefinition.SpellsByLevel
                 .SelectMany(x => x.Spells)
-                .Where(x => x.SpellLevel == 0 && x.EffectDescription.RangeType is RangeType.RangeHit &&
-                            x.EffectDescription.HasDamageForm())
+                .Where(x =>
+                    x.SpellLevel == 0 &&
+                    x.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit &&
+                    x.EffectDescription.HasDamageForm())
                 .ToArray();
 
             if (spellSniperSpells.Length == 0)
@@ -1374,7 +1370,7 @@ internal static class OtherFeats
             EffectDescription effectDescription)
         {
             return definition is SpellDefinition &&
-                   effectDescription.rangeType == RangeType.RangeHit &&
+                   effectDescription.rangeType is RangeType.MeleeHit or RangeType.RangeHit &&
                    effectDescription.HasDamageForm();
         }
 

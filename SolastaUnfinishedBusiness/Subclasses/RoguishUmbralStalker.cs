@@ -94,7 +94,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityGloomBladeToggle")
             .SetGuiPresentation(Category.Feature)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle)
-            .AddCustomSubFeatures(new AttackBeforeHitConfirmedOnEnemyGloomBlade(conditionGloomBlade))
+            .AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyGloomBlade(conditionGloomBlade))
             .AddToDB();
 
         // LEVEL 9
@@ -260,11 +260,11 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
     private sealed class AllowRerollDiceOnAllDamageFormsGloomBlade : IAllowRerollDiceOnAllDamageForms;
 
-    private sealed class AttackBeforeHitConfirmedOnEnemyGloomBlade(
+    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyGloomBlade(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionGloomBlade) : IAttackBeforeHitConfirmedOnEnemy
+        ConditionDefinition conditionGloomBlade) : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -273,7 +273,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
@@ -430,9 +429,16 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // Shadow Dance
     //
 
-    private sealed class CustomBehaviorShadowDance : IAttackBeforeHitConfirmedOnEnemy, IForceLightingState
+    private sealed class CustomBehaviorShadowDance : IPhysicalAttackBeforeHitConfirmedOnEnemy, IForceLightingState
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public LocationDefinitions.LightingState GetLightingState(
+            GameLocationCharacter gameLocationCharacter,
+            LocationDefinitions.LightingState lightingState)
+        {
+            return LocationDefinitions.LightingState.Darkness;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -441,7 +447,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
@@ -465,13 +470,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-
-        public LocationDefinitions.LightingState GetLightingState(
-            GameLocationCharacter gameLocationCharacter,
-            LocationDefinitions.LightingState lightingState)
-        {
-            return LocationDefinitions.LightingState.Darkness;
         }
     }
 }

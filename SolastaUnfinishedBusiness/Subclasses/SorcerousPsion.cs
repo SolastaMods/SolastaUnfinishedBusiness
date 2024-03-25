@@ -272,6 +272,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         private bool _hasDamageChanged;
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier actionModifier,
@@ -401,7 +402,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             rulesetCharacter.StabilizeAndGainHitPoints(1);
             rulesetCharacter.ReceiveTemporaryHitPoints(
-                tempHitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+                tempHitPoints, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
             ServiceRepository.GetService<ICommandService>()?
                 .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);

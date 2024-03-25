@@ -5,7 +5,7 @@ ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens o
 ModUi/&AddDarknessPerceptiveToDarkRaces=Ative <color=#D89555>Darkness Perceptive</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</ color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Adicionado o nível <color=#D89555>Lutador</color> à nova rolagem do teste de resistência <color=#D89555>Indomável</color>
 ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 m de você]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Ativar <color=#D89555>Rangers</color> inimigos humanóides preferidos
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicionada uma alternância para permitir que <color=#D89555>Paladins</color> habilite smites apenas em acertos críticos <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
@@ -63,6 +63,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continue jogando novamen
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Duplique o dano total do seu ataque em vez de rolar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divindades</color>
 ModUi/&DisableAutoEquip=Desativar o equipamento automático de itens no inventário
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Desative também <color=#D89555>Bárbaro</color> <b>Brutal Crítico</b> nos níveis de classe 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desative os pré-requisitos de lançamento de feitiços em talentos fornecidos por este mod <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível nos talentos fornecidos por este mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Desabilite os pré-requisitos de corrida em talentos fornecidos por este mod
@@ -85,7 +86,10 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampame
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Adicionar novos itens ao Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilite o humano alternativo <i><color=#F0DAA0>[+1 talento / +2 opções de atributo / +1 habilidade]</color></i>
 ModUi/&EnableAlternateVotingSystem=Ativar sistema de votação alternativo <i><color=#F0DAA0>[use o modificador de Carisma do herói para determinar o peso da escolha]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=Habilite <color=#D89555>Bárbaro</color> <b>Golpe Brutal</b> e <b>Melhoria de Ataque Brutal</b> nos níveis de classe 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Habilite a opção <color=#D89555>Bárbaro</color> <b>Estilo de luta</b> no nível 2
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Ative o buff e o debuff do <color=#D89555>Bárbaro</color> <b>Ataque Imprudente</b> para terminar no início do próximo turno
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Habilite a recuperação de <color=#D89555>Bárbaro</color> em um uso de fúria durante um breve descanso no nível de classe 7
 ModUi/&EnableBetaContent=Habilitar conteúdo beta <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar ações de cancelamento com o botão direito do mouse
 ModUi/&EnableCantripsTriggeringOnWarMagic=Habilite truques para ativar <color=#D89555>War Magic</color> ataque de bônus extra
@@ -152,6 +156,7 @@ ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de luta</color>
 ModUi/&FixAsianLanguagesTextWrap=Correção do texto da IU do jogo em idiomas asiáticos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&FixEldritchBlastRange=Altere o intervalo de <color=#D89555>Eldritch Blast</color> para 24 <i><color=#F0DAA0>[em vez de 16]</color></i>
+ModUi/&FixRingOfRegenerationHealRate=Defina a taxa de cura do <color=#D89555>Anel de Regeneração</color> para 1 HP a cada 3 minutos
 ModUi/&FlightSuspendWingedBoots=<i>+ Use as regras oficiais do Winged Boots <color=#F0DAA0>[duração restante não contada quando o voo for suspenso]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formação:</color>
 ModUi/&FormationError=<color=#C04040E0>Você não pode mudar sua formação durante um jogo multijogador...</color>

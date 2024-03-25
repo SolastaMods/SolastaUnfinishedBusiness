@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -83,7 +82,7 @@ public class PatronMountain : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(reduceDamageBarrierOfStone)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddToDB();
 
         var powerBarrierOfStone = FeatureDefinitionPowerBuilder
@@ -152,7 +151,13 @@ public class PatronMountain : AbstractSubclass
 
         powerBarrierOfStone.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerBarrierOfStone, powerEternalGuardian));
+            new CustomBehaviorBarrierOfStone(powerBarrierOfStone, powerEternalGuardian));
+
+        var featureSetEternalGuardian = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}EternalGuardian")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerEternalGuardian)
+            .AddToDB();
 
         // LEVEL 10
 
@@ -203,7 +208,7 @@ public class PatronMountain : AbstractSubclass
                 powerBarrierOfStone)
             .AddFeaturesAtLevel(6,
                 powerClingingStrength,
-                powerEternalGuardian)
+                featureSetEternalGuardian)
             .AddFeaturesAtLevel(10,
                 powerTheMountainWakes)
             .AddFeaturesAtLevel(14,
@@ -221,78 +226,38 @@ public class PatronMountain : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class AttackBeforeHitConfirmedOnMeBarrierOfStone(
+    private class CustomBehaviorBarrierOfStone(
         FeatureDefinitionPower powerBarrierOfStone,
-        FeatureDefinitionPower powerEternalGuardian)
-        :
-            IAttackBeforeHitConfirmedOnMeOrAlly, IMagicEffectBeforeHitConfirmedOnMeOrAlly
+        FeatureDefinitionPower powerEternalGuardian) : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            int attackRoll)
         {
-            if (rulesetEffect == null)
-            {
-                yield return HandleReaction(attacker, defender, helper);
-            }
-        }
-
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMeOrAlly(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandleReaction(attacker, defender, helper);
-        }
-
-        private IEnumerator HandleReaction(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter me)
-        {
-            var rulesetMe = me.RulesetCharacter;
-            var levels = rulesetMe.GetClassLevel(CharacterClassDefinitions.Warlock);
-            var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;
-
-            if (me.IsMyTurn() ||
-                !me.CanReact() ||
-                me == defender ||
-                !me.CanPerceiveTarget(defender) ||
-                !me.CanPerceiveTarget(attacker) ||
-                !me.IsWithinRange(defender, 7) ||
-                rulesetMe.GetRemainingPowerUses(power) == 0)
-            {
-                yield break;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var gameLocationBattleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationBattleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            var rulesetHelper = helper.RulesetCharacter;
+            var levels = rulesetHelper.GetClassLevel(CharacterClassDefinitions.Warlock);
+            var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;
+
+            if (helper == defender ||
+                !helper.CanReact() ||
+                !helper.CanPerceiveTarget(attacker) ||
+                !helper.CanPerceiveTarget(defender) ||
+                !helper.IsWithinRange(defender, 7) ||
+                rulesetHelper.GetRemainingPowerUses(power) == 0)
             {
                 yield break;
             }
@@ -300,23 +265,23 @@ public class PatronMountain : AbstractSubclass
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(power, rulesetMe);
+            var usablePower = PowerProvider.Get(power, rulesetHelper);
             var actionParams =
-                new CharacterActionParams(me, ActionDefinitions.Id.PowerReaction)
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "BarrierOfStone",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
 
-            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 }

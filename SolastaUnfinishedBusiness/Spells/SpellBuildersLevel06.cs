@@ -246,6 +246,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionHeroism)
             .SetPossessive()
+            .SetSpecialDuration(DurationType.Minute, 10)
             .SetFeatures(
                 attackModifierHeroicInfusion,
                 additionalDamageHeroicInfusion,
@@ -271,7 +272,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 10)
+                    .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionHeroicInfusion),

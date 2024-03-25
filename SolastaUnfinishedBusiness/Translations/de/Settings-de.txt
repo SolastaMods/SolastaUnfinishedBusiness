@@ -5,7 +5,7 @@ ModUi/&AddCustomIconsToOfficialItems=Fügen Sie benutzerdefinierte Symbole zu of
 ModUi/&AddDarknessPerceptiveToDarkRaces=Aktivieren Sie <color=#D89555>Darkness Perceptive</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> und <color=#D89555>Gray Dwarf</ Farbe> <i><color=#F0DAA0>\n[Gewährt Vorteil bei Wahrnehmungsprüfungen, wenn es nicht beleuchtet ist oder sich in magischer Dunkelheit befindet]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Füge die Stufe <color=#D89555>Kämpfer</color> zur Wiederholung des Rettungswurfs <color=#D89555>Unbezwingbar</color> hinzu
 ModUi/&AddHelpActionToAllRaces=Füge die Aktion <color=#D89555>Hilfe</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur in einem Umkreis von 5 Fuß um dich anzugreifen]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Füge humanoiden bevorzugten Feind zu <color=#D89555>Rangers</color> hinzu
+ModUi/&AddHumanoidFavoredEnemyToRanger=Aktiviere <color=#D89555>Rangers</color> humanoide bevorzugte Feinde
 ModUi/&AddNewBrightEyeColors=Fügen Sie neue leuchtende Augenfarben hinzu
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge neue Waffen und Rezepte zu Shops hinzu <i><color=#F0DAA0>[Handwickel, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Paladinen</color> zu erlauben, nur bei kritischen Treffern Schläge zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
@@ -63,6 +63,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: Wirf alle Schadenswürfe
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Verdoppeln Sie den Gesamtschaden Ihres Angriffs, anstatt zusätzliche Würfel zu werfen. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Gottheiten</color>
 ModUi/&DisableAutoEquip=Deaktivieren Sie die automatische Ausrüstung von Gegenständen im Inventar
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Deaktivieren Sie außerdem <color=#D89555>Barbar</color> <b>Brutal Critical</b> auf den Klassenstufen 9, 13 und 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Deaktivieren Sie die Zaubervoraussetzungen für die von diesem Mod bereitgestellten Talente <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Levelvoraussetzungen für die von diesem Mod bereitgestellten Talente
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für die von diesem Mod bereitgestellten Leistungen
@@ -85,7 +86,10 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für 
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Neue Gegenstände zu Dungeon Maker hinzufügen</i>
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen Menschen <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
 ModUi/&EnableAlternateVotingSystem=Aktivieren Sie das alternative Abstimmungssystem <i><color=#F0DAA0>[verwenden Sie den Helden-Charisma-Modifikator, um die Auswahlgewichtung zu bestimmen]</color></i>
+ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Barbar</color> <b>Brutal Strike</b> und <b>Brutal Strike Improvement</b> auf den Klassenstufen 9, 13 und 17
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2
+ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie die Stärkung und Schwächung von <color=#D89555>Barbar</color> <b>Rücksichtsloser Angriff</b>, damit sie zu Beginn der nächsten Runde endet
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Ermöglichen Sie <color=#D89555>Barbaren</color>, auf Klassenstufe 7 über eine kurze Pause hinweg einen Wuteinsatz zurückzugewinnen
 ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen per Rechtsklick aktivieren
 ModUi/&EnableCantripsTriggeringOnWarMagic=Aktivieren Sie Cantrips, um einen zusätzlichen <color=#D89555>Kriegsmagie</color>-Bonusangriff auszulösen
@@ -152,6 +156,7 @@ ModUi/&Feats=<color=#F0DAA0>Talente</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Kampfstile</color>
 ModUi/&FixAsianLanguagesTextWrap=Korrigieren Sie den Textumbruch in der Spiel-Benutzeroberfläche für asiatische Sprachen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&FixEldritchBlastRange=Ändern Sie die Reichweite von <color=#D89555>Eldritch Blast</color> auf 24 <i><color=#F0DAA0>[statt 16]</color></i>
+ModUi/&FixRingOfRegenerationHealRate=Stellen Sie die Heilungsrate des <color=#D89555>Rings der Regeneration</color> auf 1 PS alle 3 Minuten ein
 ModUi/&FlightSuspendWingedBoots=<i>+ Offizielle Regeln für Winged Boots verwenden <color=#F0DAA0>[verbleibende Dauer wird bei Flugunterbrechung nicht gezählt]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>Sie können Ihre Formation während eines Mehrspielerspiels nicht ändern...</color>

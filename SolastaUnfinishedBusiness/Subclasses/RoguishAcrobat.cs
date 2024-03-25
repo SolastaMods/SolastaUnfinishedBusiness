@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -144,18 +142,17 @@ public sealed class RoguishAcrobat : AbstractSubclass
 
         //  Heroic Uncanny Dodge
 
-        var reduceDamageHeroicUncannyDodge = FeatureDefinitionReduceDamageBuilder
-            .Create($"ReduceDamage{Name}HeroicUncannyDodge")
-            .SetGuiPresentation($"Power{Name}HeroicUncannyDodge", Category.Feature)
-            .SetAlwaysActiveReducedDamage((_, _) => Int32.MaxValue)
-            .AddToDB();
-
         var conditionHeroicUncannyDodge = ConditionDefinitionBuilder
             .Create($"Condition{Name}HeroicUncannyDodge")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
-            .SetFeatures(reduceDamageHeroicUncannyDodge)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .SetFeatures(
+                FeatureDefinitionReduceDamageBuilder
+                    .Create($"ReduceDamage{Name}HeroicUncannyDodge")
+                    .SetGuiPresentation($"Power{Name}HeroicUncannyDodge", Category.Feature)
+                    .SetAlwaysActiveReducedDamage((_, _) => 999)
+                    .AddToDB())
             .AddToDB();
 
         var powerHeroicUncannyDodge = FeatureDefinitionPowerBuilder
@@ -173,7 +170,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
 
         powerHeroicUncannyDodge.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(powerHeroicUncannyDodge));
+            new AttackBeforeHitPossibleOnMeOrAllyUncannyDodge(powerHeroicUncannyDodge));
 
         // MAIN
 
@@ -201,25 +198,24 @@ public sealed class RoguishAcrobat : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(FeatureDefinitionPower powerHeroicUncannyDodge)
-        : IAttackBeforeHitConfirmedOnMe
+    private class AttackBeforeHitPossibleOnMeOrAllyUncannyDodge(FeatureDefinitionPower powerHeroicUncannyDodge)
+        : IAttackBeforeHitPossibleOnMeOrAlly
+
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            int attackRoll)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender.IsMyTurn() ||
+            if (defender != helper ||
+                defender.IsMyTurn() ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
                 rulesetDefender.GetRemainingPowerUses(powerHeroicUncannyDodge) == 0)

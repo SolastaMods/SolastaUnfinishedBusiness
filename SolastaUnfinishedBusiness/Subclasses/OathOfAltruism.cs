@@ -207,9 +207,14 @@ public sealed class OathOfAltruism : AbstractSubclass
 
                 var profBonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                 var chaMod = GetChaModifier(rulesetCharacter);
+                var tempHitPoints = (profBonus * 2) + chaMod;
 
-                rulesetCharacter.ReceiveTemporaryHitPoints((profBonus * 2) + chaMod,
-                    DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
+                if (tempHitPoints > rulesetCharacter.TemporaryHitPoints)
+                {
+                    rulesetCharacter.ReceiveTemporaryHitPoints(
+                        tempHitPoints, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
+                        rulesetCharacter.guid);
+                }
             }
 
             yield break;

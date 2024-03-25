@@ -46,7 +46,7 @@ internal static class InventorClass
 
     private static readonly int[] Costs = [0, 0, 0, 0, 0];
 
-    private static FeatureDefinitionCastSpell SpellCasting => _spellCasting ??= BuildSpellCasting();
+    internal static FeatureDefinitionCastSpell SpellCasting => _spellCasting ??= BuildSpellCasting();
 
     internal static CharacterClassDefinition Class { get; private set; }
 

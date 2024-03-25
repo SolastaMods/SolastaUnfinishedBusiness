@@ -1,10 +1,10 @@
-Feature/&MagicAffinitySorcerousFieldManipulatorArcaneManipulationDescription=从第 6 级开始，你的附魔、防护和幻术系法术的释放环位比所使用的法术位高一级。
+Feature/&MagicAffinitySorcerousFieldManipulatorArcaneManipulationDescription=从第 6 级开始，你的附魔、防护和幻术学派法术的释放环阶比所使用的法术位高一环。
 Feature/&MagicAffinitySorcerousFieldManipulatorArcaneManipulationTitle=奥术操纵
-Feature/&PowerSorcerousFieldManipulatorDisplacementDescription=从第 1 级开始，你可以使用你的动作将一个生物传送到距离你 60 尺以内的任何你能看到的格子上。敌方生物必须通过魅力豁免，DC 为你的法术DC，否则就会被强制移位。盟友不需要进行豁免检定。每次长休你可以使用该能力的次数等于你的熟练调整值。
+Feature/&PowerSorcerousFieldManipulatorDisplacementDescription=从第 1 级开始，你可以使用你的动作将一个生物传送到距离你 60 尺以内的任何你能看到的格子上。敌方生物必须通过魅力豁免，DC 为你的法术 DC，否则就会被强制移位。盟友不需要进行豁免检定。每次长休你可以使用该特性的次数等于你的熟练加值。
 Feature/&PowerSorcerousFieldManipulatorDisplacementTitle=移位
-Feature/&PowerSorcerousFieldManipulatorForcefulStepDescription=从第 18 级开始，你可以使用你的附赠动作传送到 60 尺内你选择的地方。距离你目的地 10 尺内的任何敌方生物必须通过一次对抗你的法术 DC 的力量豁免，否则将受到 3d10 力场伤害并被击退 10 尺，陷入倒地状态。每次长休后你可以使用此能力 3 次，如果使用次数耗尽后，你可以消耗4点术法点使用此能力。
-Feature/&PowerSorcerousFieldManipulatorForcefulStepTitle=强力步伐
-Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceDescription=从第 14 级开始，在智力和感知豁免检定上获得熟练。
-Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceTitle=心灵抗性
+Feature/&PowerSorcerousFieldManipulatorForcefulStepDescription=从第 18 级开始，你可以使用你的附赠动作传送到 60 尺内你选择的地方。距离你目的地 10 尺内的任何敌方生物必须通过一次对抗你的法术 DC 的力量豁免，否则将受到 3d10 力场伤害并被击退 10 尺，陷入倒地状态。每次长休后你可以使用此特性 3 次，如果使用次数耗尽后，你可以消耗 4 点术法点使用此特性。
+Feature/&PowerSorcerousFieldManipulatorForcefulStepTitle=迫退步
+Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceDescription=从第 14 级开始，在智力和感知豁免检定上获得熟练项。
+Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceTitle=精神抗性
 Subclass/&SorcerousFieldManipulatorDescription=战场操纵者擅长控制战场并防止敌人攻击他们。
 Subclass/&SorcerousFieldManipulatorTitle=战场操纵者

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -131,7 +130,7 @@ internal static class RaceOligathBuilder
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(reduceDamageOligathStoneEndurance)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddToDB();
 
         var powerOligathStoneEndurance = FeatureDefinitionPowerBuilder
@@ -149,53 +148,28 @@ internal static class RaceOligathBuilder
 
         powerOligathStoneEndurance.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new AttackBeforeHitConfirmedOnMeStoneEndurance(powerOligathStoneEndurance));
+            new CustomBehaviorStoneEndurance(powerOligathStoneEndurance));
 
         return powerOligathStoneEndurance;
     }
 
-    private class AttackBeforeHitConfirmedOnMeStoneEndurance(FeatureDefinitionPower powerStoneEndurance)
-        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+    private class CustomBehaviorStoneEndurance(FeatureDefinitionPower powerStoneEndurance)
+        : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            int attackRoll)
         {
-            if (attackMode != null)
-            {
-                yield return HandlePowerStoneEndurance(attacker, defender);
-            }
-        }
-
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandlePowerStoneEndurance(attacker, defender);
-        }
-
-        private IEnumerator HandlePowerStoneEndurance(GameLocationCharacter attacker, GameLocationCharacter defender)
-        {
-            var gameLocationActionService =
+            var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
             {
                 yield break;
             }
@@ -203,7 +177,8 @@ internal static class RaceOligathBuilder
             var rulesetDefender = defender.RulesetCharacter;
 
             // don't use CanReact() to allow stone endurance when prone
-            if (!defender.IsReactionAvailable() ||
+            if (defender != helper ||
+                !defender.IsReactionAvailable() ||
                 rulesetDefender is not { IsDeadOrUnconscious: false } ||
                 rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||
                 rulesetDefender.HasConditionOfTypeOrSubType(ConditionStunned) ||
@@ -227,11 +202,11 @@ internal static class RaceOligathBuilder
                 TargetCharacters = { defender }
             };
 
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 }

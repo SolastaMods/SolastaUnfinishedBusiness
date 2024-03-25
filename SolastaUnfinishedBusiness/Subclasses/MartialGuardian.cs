@@ -38,7 +38,7 @@ public sealed class MartialGuardian : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, $"ActionAffinity{Name}CompellingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.CompellingStrikeToggle)
-            .AddCustomSubFeatures(new AttackBeforeHitConfirmedOnEnemyCompellingStrike())
+            .AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyCompellingStrike())
             .AddToDB();
 
         // Stalwart Front (Sentinel FS)
@@ -120,7 +120,7 @@ public sealed class MartialGuardian : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 DamageAffinityBludgeoningResistance, DamageAffinityPiercingResistance, DamageAffinitySlashingResistance)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddToDB();
 
         var featureImperviousProtector = FeatureDefinitionBuilder
@@ -198,9 +198,10 @@ public sealed class MartialGuardian : AbstractSubclass
     // Compelling Strike
     //
 
-    private sealed class AttackBeforeHitConfirmedOnEnemyCompellingStrike : IAttackBeforeHitConfirmedOnEnemy
+    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyCompellingStrike
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -209,7 +210,6 @@ public sealed class MartialGuardian : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
@@ -276,26 +276,26 @@ public sealed class MartialGuardian : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionImperviousProtector,
         FeatureDefinitionPower powerGrandChallenge)
-        : ICharacterBattleStartedListener, IAttackBeforeHitConfirmedOnMe
+        : ICharacterBattleStartedListener, IAttackBeforeHitPossibleOnMeOrAlly
     {
         private const string Line = "Feedback/&ActivateRepaysLine";
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
+            [UsedImplicitly] GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            int attackRoll)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (attackMode.Magical || !ValidatorsCharacter.HasHeavyArmor(rulesetDefender))
+            if (defender != helper ||
+                rulesetEffect != null ||
+                attackMode.Magical ||
+                !ValidatorsCharacter.HasHeavyArmor(rulesetDefender))
             {
                 yield break;
             }

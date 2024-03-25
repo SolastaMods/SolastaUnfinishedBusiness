@@ -134,14 +134,6 @@ internal static class CharacterDisplay
 
             UI.Label();
 
-            toggle = Main.Settings.EnableMinInOutAttributes;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnableMinInOutAttributes"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableMinInOutAttributes = toggle;
-            }
-
-            UI.Label();
-
             toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
             if (UI.Toggle(Gui.Localize("ModUi/&DisplayAllKnownSpellsDuringLevelUp"), ref toggle, UI.AutoWidth()))
             {
@@ -152,6 +144,12 @@ internal static class CharacterDisplay
             if (UI.Toggle(Gui.Localize("ModUi/&DisplayPactSlotsOnSpellSelectionPanel"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = toggle;
+            }
+
+            toggle = Main.Settings.EnableMinInOutAttributes;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableMinInOutAttributes"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableMinInOutAttributes = toggle;
             }
 
             UI.Label();
@@ -190,13 +188,6 @@ internal static class CharacterDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.EnableBarbarianFightingStyle;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableBarbarianFightingStyle = toggle;
-            CharacterContext.SwitchBarbarianFightingStyle();
-        }
-
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {
@@ -206,27 +197,60 @@ internal static class CharacterDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableBarbarianBrutalStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianBrutalStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianBrutalStrike = toggle;
+            Main.Settings.DisableBarbarianBrutalCritical = toggle;
+            CharacterContext.SwitchBarbarianBrutalStrike();
+            CharacterContext.SwitchBarbarianBrutalCritical();
+        }
+
+        if (Main.Settings.EnableBarbarianBrutalStrike)
+        {
+            toggle = Main.Settings.DisableBarbarianBrutalCritical;
+            if (UI.Toggle(Gui.Localize("ModUi/&DisableBarbarianBrutalCritical"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.DisableBarbarianBrutalCritical = toggle;
+                CharacterContext.SwitchBarbarianBrutalCritical();
+            }
+        }
+
+        toggle = Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianRecklessSameBuffDebuffDuration = toggle;
+            CharacterContext.SwitchBarbarianRecklessSameBuffDebuffDuration();
+        }
+
+        toggle = Main.Settings.EnableBarbarianRegainOneRageAtShortRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianRegainOneRageAtShortRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianRegainOneRageAtShortRest = toggle;
+            CharacterContext.SwitchBarbarianRegainOneRageAtShortRest();
+        }
+
+        toggle = Main.Settings.EnableBarbarianFightingStyle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianFightingStyle = toggle;
+            CharacterContext.SwitchBarbarianFightingStyle();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddFighterLevelToIndomitableSavingReroll;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
+            CharacterContext.SwitchFighterLevelToIndomitableSavingReroll();
+        }
+
         toggle = Main.Settings.EnableFighterWeaponSpecialization;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableFighterWeaponSpecialization = toggle;
             CharacterContext.SwitchFighterWeaponSpecialization();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
-            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
-        }
-
-        toggle = Main.Settings.EnableRangerNatureShroudAt10;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt10"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRangerNatureShroudAt10 = toggle;
-            CharacterContext.SwitchRangerNatureShroud();
         }
 
         UI.Label();
@@ -273,6 +297,22 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableMonkWeaponSpecialization = toggle;
             CharacterContext.SwitchMonkWeaponSpecialization();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
+            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+        }
+
+        toggle = Main.Settings.EnableRangerNatureShroudAt10;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt10"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerNatureShroudAt10 = toggle;
+            CharacterContext.SwitchRangerNatureShroud();
         }
 
         UI.Label();

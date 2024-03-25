@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -93,7 +92,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             .AddToDB();
 
         featureReflexiveParry.AddCustomSubFeatures(
-            new CustomBehaviorReflexiveParty(featureReflexiveParry, conditionReflexiveParry));
+            new CustomBehaviorReflexiveParry(featureReflexiveParry, conditionReflexiveParry));
 
         // LEVEL 17
 
@@ -148,32 +147,30 @@ public sealed class RoguishDuelist : AbstractSubclass
     }
 
     //
-    // Reflexive Party
+    // Reflexive Parry
     //
 
-    private sealed class CustomBehaviorReflexiveParty(
-        FeatureDefinition featureReflexiveParty,
+    private sealed class CustomBehaviorReflexiveParry(
+        FeatureDefinition featureReflexiveParry,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionReflexiveParty) : IAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
+        ConditionDefinition conditionReflexiveParry) : IAttackBeforeHitPossibleOnMeOrAlly, IPhysicalAttackFinishedOnMe
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
+            [UsedImplicitly] GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            int attackRoll)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+            if (rulesetEffect != null ||
+                rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetDefender.HasAnyConditionOfTypeOrSubType(
-                    conditionReflexiveParty.Name,
+                    conditionReflexiveParry.Name,
                     ConditionDefinitions.ConditionIncapacitated.Name,
                     ConditionDefinitions.ConditionShocked.Name,
                     ConditionDefinitions.ConditionSlowed.Name))
@@ -182,7 +179,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             }
 
             actionModifier.DefenderDamageMultiplier *= 0.5f;
-            rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParty);
+            rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParry);
         }
 
         public IEnumerator OnPhysicalAttackFinishedOnMe(
@@ -204,7 +201,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.InflictCondition(
-                conditionReflexiveParty.Name,
+                conditionReflexiveParry.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -212,7 +209,7 @@ public sealed class RoguishDuelist : AbstractSubclass
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                conditionReflexiveParty.Name,
+                conditionReflexiveParry.Name,
                 0,
                 0,
                 0);

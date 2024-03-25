@@ -84,7 +84,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                             .SetConditionForm(conditionBlessedWarrior, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(new PhysicalAttackInitiatedByMeBlessedWarrior(conditionBlessedWarrior))
+            .AddCustomSubFeatures(new PhysicalPhysicalAttackInitiatedByMeBlessedWarrior(conditionBlessedWarrior))
             .AddToDB();
 
         // Lifebringer
@@ -305,12 +305,11 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Warrior
     //
 
-    private sealed class PhysicalAttackInitiatedByMeBlessedWarrior(
+    private sealed class PhysicalPhysicalAttackInitiatedByMeBlessedWarrior(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition)
-        : IAttackBeforeHitConfirmedOnEnemy
+        ConditionDefinition conditionDefinition) : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -319,7 +318,6 @@ public sealed class RangerLightBearer : AbstractSubclass
             bool rangedAttack,
             AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
             bool firstTarget,
             bool criticalHit)
         {
@@ -426,8 +424,11 @@ public sealed class RangerLightBearer : AbstractSubclass
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger);
 
-            rulesetCharacter.ReceiveTemporaryHitPoints(
-                classLevel, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+            if (classLevel > rulesetCharacter.TemporaryHitPoints)
+            {
+                rulesetCharacter.ReceiveTemporaryHitPoints(
+                    classLevel, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+            }
 
             yield break;
         }
