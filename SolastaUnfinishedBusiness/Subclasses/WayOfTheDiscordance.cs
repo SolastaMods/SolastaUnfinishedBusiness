@@ -285,12 +285,12 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1)
+                    .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetTempHpForm(0, DieType.D4, 0, true)
+                            .SetTempHpForm()
                             .Build())
                     .SetParticleEffectParameters(PowerPactChainPseudodragon)
                     .Build())
@@ -606,6 +606,13 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             rulesetAlly.KiPointsAltered?.Invoke(rulesetAlly, rulesetAlly.RemainingKiPoints);
 
             // temporarily heal
+            var monkLevel = rulesetAlly.GetClassLevel(CharacterClassDefinitions.Monk);
+
+            if (rulesetAlly.TemporaryHitPoints > monkLevel)
+            {
+                yield break;
+            }
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 

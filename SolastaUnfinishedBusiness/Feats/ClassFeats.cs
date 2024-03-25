@@ -554,10 +554,14 @@ internal static class ClassFeats
             }
 
             var classLevel = rulesetCharacterHero.GetClassLevel(Druid);
+            var tempHitPoints = 2 * classLevel;
 
-            __instance.ReceiveTemporaryHitPoints(2 * classLevel, DurationType.Hour, classLevel / 2,
-                TurnOccurenceType.EndOfTurn,
-                TemporaryHitPointsGuid);
+            if (tempHitPoints > __instance.TemporaryHitPoints)
+            {
+                __instance.ReceiveTemporaryHitPoints(
+                    2 * classLevel, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
+                    TemporaryHitPointsGuid);
+            }
         }
     }
 
@@ -661,10 +665,11 @@ internal static class ClassFeats
             var dieRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
             var healingReceived = classLevel + dieRoll;
 
-            if (rulesetCharacter.TemporaryHitPoints <= healingReceived)
+            if (healingReceived > rulesetCharacter.TemporaryHitPoints)
             {
-                rulesetCharacter.ReceiveTemporaryHitPoints(healingReceived, DurationType.UntilLongRest, 0,
-                    TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+                rulesetCharacter.ReceiveTemporaryHitPoints(
+                    healingReceived, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
+                    rulesetCharacter.Guid);
             }
         }
     }
