@@ -582,12 +582,26 @@ internal static partial class CharacterContext
         }
         else
         {
-            Barbarian.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9));
-            Barbarian.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 13));
-            Barbarian.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17));
+            if (!Barbarian.FeatureUnlocks.Exists(x =>
+                    x.level == 9 && x.FeatureDefinition == FeatureSetBarbarianBrutalCritical))
+            {
+                Barbarian.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(FeatureSetBarbarianBrutalCritical, 9));
+            }
+
+            if (!Barbarian.FeatureUnlocks.Exists(x =>
+                    x.level == 13 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd))
+            {
+                Barbarian.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 13));
+            }
+
+            if (!Barbarian.FeatureUnlocks.Exists(x =>
+                    x.level == 17 && x.FeatureDefinition == AttributeModifierBarbarianBrutalCriticalAdd))
+            {
+                Barbarian.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17));
+            }
         }
 
         if (Main.Settings.EnableSortingFutureFeatures)
