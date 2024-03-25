@@ -768,35 +768,53 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
     private sealed class CustomBehaviorReactiveHide(
         FeatureDefinitionPower powerReactiveHide,
-        ConditionDefinition conditionReactiveHide)
-        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
+        ConditionDefinition conditionReactiveHide) : IAttackBeforeHitPossibleOnMeOrAlly, IPhysicalAttackFinishedOnMe
     {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return HandleReaction(battleManager, attacker, defender);
-        }
-
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            RulesetEffect rulesetEffect,
+            int attackRoll)
         {
-            yield return HandleReaction(battleManager, attacker, defender);
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (defender != helper ||
+                !defender.CanReact() ||
+                rulesetDefender.GetRemainingPowerUses(powerReactiveHide) == 0)
+            {
+                yield break;
+            }
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerReactiveHide, rulesetDefender);
+            var actionParams =
+                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
+                {
+                    StringParameter = "ReactiveHide",
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                    UsablePower = usablePower
+                };
+
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
+
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
 
         public IEnumerator OnPhysicalAttackFinishedOnMe(
@@ -967,47 +985,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     out _);
                 EffectHelpers.StartVisualEffect(attacker, defender, magicEffect);
             }
-        }
-
-        private IEnumerator HandleReaction(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender)
-        {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
-            {
-                yield break;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (!defender.CanReact() ||
-                rulesetDefender.GetRemainingPowerUses(powerReactiveHide) == 0)
-            {
-                yield break;
-            }
-
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerReactiveHide, rulesetDefender);
-            var actionParams =
-                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
-                {
-                    StringParameter = "ReactiveHide",
-                    RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower
-                };
-
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
-
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 }
