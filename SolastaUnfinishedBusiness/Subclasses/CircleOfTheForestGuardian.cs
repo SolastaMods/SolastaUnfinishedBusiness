@@ -200,7 +200,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
     }
 
     private sealed class CustomBehaviorBarkWard(FeatureDefinitionPower powerBarkOrImprovedBarkWard)
-        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByEnemy
+        : IAttackBeforeHitPossibleOnMeOrAlly, IActionFinishedByEnemy
     {
         private bool _shouldTrigger;
 
@@ -221,38 +221,21 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             yield break;
         }
 
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0 &&
-                             defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
-                             rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.Touch;
-
-            yield break;
-        }
-
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            RulesetEffect rulesetEffect,
+            int attackRoll)
         {
-            _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0 &&
-                             defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
-                             ValidatorsWeapon.IsMelee(attackMode);
+            _shouldTrigger =
+                defender == helper &&
+                defender.RulesetCharacter.TemporaryHitPoints > 0 &&
+                defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
+                ValidatorsWeapon.IsMelee(attackMode);
 
             yield break;
         }
