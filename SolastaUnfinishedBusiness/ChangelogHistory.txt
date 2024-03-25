@@ -344,7 +344,7 @@ MERRY CHRISTMAS / FELIZ NATAL / FELIZ NAVIDAD! Santa heard your wishes and invit
 - added College of Thespian and Martial Guardian subclasses [based of deprecated Harlequin and Defender]
 - added Gameplay > General > 'Add Fighter level to indomitable resistance saving throw reroll'
 - changed Cleaving Attack feat extra attack on kill to a bonus action type instead of a main action one
-- changed Shield Techniques feat on reaction to halve all income magic damage requiring a DEX save
+- changed Shield Techniques feat on reaction to halve all incoming magic damage requiring a DEX save
 - changed Taunted condition to be the same on Martial Guardian, Provoke Gambit, and Thunder Gauntlet
 - deprecated College of Harlequin, Martial Defender, Raven Uncut, and Way of Distant Hand subclasses
 - fixed a vanilla issue with some monsters not triggering more than 1 reaction per turn when allowed
