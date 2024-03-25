@@ -7,7 +7,6 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 0,
       "spells": [
-        "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
         "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
         "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
         "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb"
@@ -85,7 +84,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f97d8390-e1d1-5e44-a5bc-d1c1d8fb08ed",
+  "guid": "1f2f9249-44c0-5e94-8aba-2efc42e0197b",
   "contentPack": 9999,
-  "name": "SpellListFeatSpellSniperSorcerer"
+  "name": "SpellListFeatSpellSniperInventor"
 }
