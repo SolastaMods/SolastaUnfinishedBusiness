@@ -1046,7 +1046,7 @@ internal static partial class SpellBuilders
             yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

@@ -332,45 +332,15 @@ public static class GameLocationBattleManagerPatcher
                     rangedAttack, advantageType, actualEffectForms, firstTarget, criticalHit);
             }
 
-            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMe` from SPELLS
-            if (__instance.Battle != null)
-            {
-                foreach (var attackBeforeHitConfirmedOnMe in defender.RulesetCharacter.usableSpells
-                             .Where(usableSpell =>
-                                 usableSpell.ActivationTime == ActivationTime.Reaction)
-                             .SelectMany(x => x.GetAllSubFeaturesOfType<IPhysicalAttackBeforeHitConfirmedOnMe>())
-                             .ToList())
-                {
-                    yield return attackBeforeHitConfirmedOnMe.OnAttackBeforeHitConfirmedOnMe(
-                        __instance, attacker, defender, attackModifier, attackMode,
-                        rangedAttack, advantageType, actualEffectForms, firstTarget, criticalHit);
-                }
-            }
-
             //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMe`
             if (__instance.Battle != null)
             {
                 foreach (var attackBeforeHitConfirmedOnMe in defender.RulesetCharacter
                              .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnMe>())
                 {
-                    yield return attackBeforeHitConfirmedOnMe.OnAttackBeforeHitConfirmedOnMe(
+                    yield return attackBeforeHitConfirmedOnMe.OnPhysicalAttackBeforeHitConfirmedOnMe(
                         __instance, attacker, defender, attackModifier, attackMode,
                         rangedAttack, advantageType, actualEffectForms, firstTarget, criticalHit);
-                }
-            }
-
-            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMeOrAlly`
-            if (__instance.Battle != null)
-            {
-                foreach (var ally in __instance.Battle.GetContenders(attacker))
-                {
-                    foreach (var attackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
-                                 .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnMeOrAlly>())
-                    {
-                        yield return attackBeforeHitConfirmedOnMeOrAlly.OnPhysicalAttackBeforeHitConfirmedOnMeOrAlly(
-                            __instance, attacker, defender, ally, attackModifier, attackMode,
-                            rangedAttack, advantageType, actualEffectForms, firstTarget, criticalHit);
-                    }
                 }
             }
 
@@ -750,7 +720,7 @@ public static class GameLocationBattleManagerPatcher
             bool firstTarget,
             bool criticalHit)
         {
-            //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnEnemy`
+            //PATCH: support for `IMagicEffectBeforeHitConfirmedOnEnemy`
             // should also happen outside battles
             if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
@@ -798,7 +768,7 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            // supports REACTION spells on defender
+            //PATCH: support for `IMagicEffectBeforeHitConfirmedOnMe` on SPELLS
             // should also happen outside battles
             if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
@@ -814,7 +784,7 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnMe`
+            //PATCH: support for `IMagicEffectBeforeHitConfirmedOnMe`
             // should also happen outside battles
             if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
@@ -826,29 +796,6 @@ public static class GameLocationBattleManagerPatcher
                         firstTarget, criticalHit);
                 }
             }
-
-            //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnMeOrAlly`
-            // should also happen outside battles
-            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var contenders =
-                (Gui.Battle?.AllContenders ??
-                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .ToList();
-
-            foreach (var ally in contenders
-                         .Where(x => x.IsOppositeSide(attacker.Side)
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
-            {
-                foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
-                             .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnMeOrAlly>())
-                {
-                    yield return magicalAttackBeforeHitConfirmedOnMeOrAlly
-                        .OnMagicEffectBeforeHitConfirmedOnMeOrAlly(
-                            __instance, attacker, defender, ally, magicModifier, rulesetEffect, actualEffectForms,
-                            firstTarget, criticalHit);
-                }
-            }
-
 
             while (values.MoveNext())
             {

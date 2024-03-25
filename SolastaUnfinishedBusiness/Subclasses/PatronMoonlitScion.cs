@@ -588,7 +588,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             yield return HandleReaction(battleManager, attacker, defender);
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

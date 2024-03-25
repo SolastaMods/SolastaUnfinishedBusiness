@@ -609,8 +609,8 @@ internal static partial class SpellBuilders
     }
 
     private sealed class MagicEffectBeforeHitConfirmedOnMeCircleOfMagicalNegation(
-        ConditionDefinition conditionCircleOfMagicalNegation) :
-        IMagicEffectBeforeHitConfirmedOnMe, IRollSavingThrowFinished
+        ConditionDefinition conditionCircleOfMagicalNegation)
+        : IMagicEffectBeforeHitConfirmedOnMe, IRollSavingThrowFinished
     {
         private RollOutcome _saveOutcome;
 
