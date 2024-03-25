@@ -79,9 +79,9 @@
         "temporaryHitPointsForm": {
           "$type": "TemporaryHitPointsForm, Assembly-CSharp",
           "diceNumber": 0,
-          "dieType": "D4",
+          "dieType": "D1",
           "bonusHitPoints": 0,
-          "applyToSelf": true
+          "applyToSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

@@ -6,7 +6,8 @@
 - added 'Disable Barbarian brutal critical at levels 9, 13, and 17'
 - added 'Set Ring of Regeneration heal rate to 1 HP per 3 minutes' [by ImpPhil]
 - fixed Circle of the Moon archer constellation light range
-- fixed Inspired Leader feat duration to 10 minutes
+- fixed Devastating Strikes feat as a better fit for Barbarians
+- fixed Inspired Leader feat temp HPs to endure until long rest
 
 1.5.97.1:
 
