@@ -1,3 +1,5 @@
+Feature/&FeatureSetPatronMountainEternalGuardianDescription=Sie können Ihre Funktion „Barriere aus Stein“ so oft nutzen, wie es Ihrem Charisma-Modifikator pro kurzer Pause entspricht.
+Feature/&FeatureSetPatronMountainEternalGuardianTitle=Ewiger Wächter
 Feature/&FeatureSetPatronMountainIceboundSoulDescription=Erhalte Immunität gegen Kälteschaden. Wenn Sie einen Feind in Ihrem Zug zum ersten Mal mit einem Angriff treffen, muss dieser einen Konstitutionsrettungswurf gegen den SG Ihres Hexenmeisterzaubers durchführen, sonst wird er bis zum Ende seines nächsten Zuges blind.
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=Eisgebundene Seele
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=Erwerben Sie Kenntnisse in Natur und Überleben. Erhalte Berg als bevorzugten Geländetyp.
@@ -6,8 +8,8 @@ Feature/&PowerPatronMountainBarrierOfStoneDescription=Wenn ein Verbündeter im U
 Feature/&PowerPatronMountainBarrierOfStoneTitle=Barriere aus Stein
 Feature/&PowerPatronMountainClingingStrengthDescription=Sie können in Ihrem Zug eine Bonusaktion nutzen, um sich selbst oder einem Verbündeten im Umkreis von 1,5 m um Sie herum eine Stunde lang die Vorteile „Langwanderer“ und „Spinnenklettern“ zu gewähren, ohne dass Konzentration erforderlich ist. Sobald Sie diese Kraft genutzt haben, können Sie sie erst wieder nutzen, wenn Sie eine kurze oder lange Pause beendet haben.
 Feature/&PowerPatronMountainClingingStrengthTitle=Haftkraft
-Feature/&FeatureSetPatronMountainEternalGuardianDescription=Sie können Ihre Funktion „Barriere aus Stein“ so oft nutzen, wie es Ihrem Charisma-Modifikator pro kurzer Pause entspricht.
-Feature/&FeatureSetPatronMountainEternalGuardianTitle=Ewiger Wächter
+Feature/&PowerPatronMountainEternalGuardianDescription=Wenn ein Verbündeter im Umkreis von 30 Fuß um Sie angegriffen wird, können Sie Ihre Reaktion nutzen, um den Schaden um einen Betrag zu reduzieren, der dem Doppelten Ihrer Hexenmeisterstufe plus Ihrem Charisma-Modifikator entspricht. Sie können diese Kraft pro kurzer Pause so oft verwenden, wie es Ihrem Charisma-Modifikator entspricht.
+Feature/&PowerPatronMountainEternalGuardianTitle=Barriere aus Stein
 Feature/&PowerPatronMountainTheMountainWakesDescription=Du kannst „Eissturm“ als Zauberspruch der vierten Stufe so oft wirken, wie es deinem Fähigkeitsbonus pro langer Pause entspricht.
 Feature/&PowerPatronMountainTheMountainWakesTitle=Der Berg erwacht
 Reaction/&UseBarrierOfStoneDescription=Ein Verbündeter wurde angegriffen. Sie können den Schaden um einen Betrag reduzieren, der dem Doppelten Ihrer Hexenmeisterstufe plus Ihrem Charisma-Modifikator entspricht.

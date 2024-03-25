@@ -1,3 +1,5 @@
+Feature/&FeatureSetPatronMountainEternalGuardianDescription=짧은 휴식마다 카리스마 수정치만큼 돌 장벽 기능을 사용할 수 있습니다.
+Feature/&FeatureSetPatronMountainEternalGuardianTitle=영원한 수호자
 Feature/&FeatureSetPatronMountainIceboundSoulDescription=냉기 피해에 면역이 됩니다. 당신의 턴에 처음으로 적을 공격할 때, 그들은 당신의 흑마법사 주문 DC에 대해 헌법 내성 굴림을 해야 하며, 그렇지 않으면 다음 턴이 끝날 때까지 눈이 멀게 됩니다.
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=얼음에 묶인 영혼
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=자연과 생존에 능숙해집니다. 선호하는 지형 유형으로 산을 얻습니다.
@@ -6,8 +8,8 @@ Feature/&PowerPatronMountainBarrierOfStoneDescription=30피트 내의 아군이 
 Feature/&PowerPatronMountainBarrierOfStoneTitle=돌의 장벽
 Feature/&PowerPatronMountainClingingStrengthDescription=당신은 자신의 차례에 보너스 행동을 사용하여 자신이나 5피트 내의 아군에게 집중 요구 사항 없이 1시간 동안 롱스트라이더와 거미 오르기의 이점을 제공할 수 있습니다. 이 힘을 사용하면 짧은 휴식이나 긴 휴식을 마칠 때까지 다시 사용할 수 없습니다.
 Feature/&PowerPatronMountainClingingStrengthTitle=집착력
-Feature/&FeatureSetPatronMountainEternalGuardianDescription=짧은 휴식마다 카리스마 수정치만큼 돌 장벽 기능을 사용할 수 있습니다.
-Feature/&FeatureSetPatronMountainEternalGuardianTitle=영원한 수호자
+Feature/&PowerPatronMountainEternalGuardianDescription=30피트 내의 아군이 공격을 받으면 반응을 사용하여 흑마법사 레벨의 두 배에 카리스마 수정치를 더한 만큼 피해를 줄일 수 있습니다. 당신은 짧은 휴식마다 카리스마 수정치만큼 이 능력을 여러 번 사용할 수 있습니다.
+Feature/&PowerPatronMountainEternalGuardianTitle=돌의 장벽
 Feature/&PowerPatronMountainTheMountainWakesDescription=당신은 긴 휴식당 숙련도 보너스만큼 횟수만큼 4레벨 주문으로 아이스 스톰을 시전할 수 있습니다.
 Feature/&PowerPatronMountainTheMountainWakesTitle=산이 깨어난다
 Reaction/&UseBarrierOfStoneDescription=아군이 공격을 받았습니다. 흑마법사 레벨의 두 배에 카리스마 수정치를 더한 만큼 피해를 줄일 수 있습니다.

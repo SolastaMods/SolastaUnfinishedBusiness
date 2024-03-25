@@ -1,3 +1,5 @@
+Feature/&FeatureSetPatronMountainEternalGuardianDescription=你可以使用你的岩石屏障特性，次数等于你的魅力调整值，短休后回复。
+Feature/&FeatureSetPatronMountainEternalGuardianTitle=永恒守卫
 Feature/&FeatureSetPatronMountainIceboundSoulDescription=获得对冷冻伤害的免疫。当你在你的回合中第一次攻击敌人时，他们必须对你的邪术师法术 DC 进行一次体质豁免检定，否则就会失明直到下个回合结束。
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=冰封魂灵
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=获得自然和求生熟练项。获得山地地形偏好。
@@ -6,8 +8,8 @@ Feature/&PowerPatronMountainBarrierOfStoneDescription=当你 30 英尺内的盟�
 Feature/&PowerPatronMountainBarrierOfStoneTitle=岩石屏障
 Feature/&PowerPatronMountainClingingStrengthDescription=你可以在你的回合使用一个附赠动作，让你自己或你周围 5 尺内的盟友获得 <b>大步奔行</b> 和 <b>蛛行术</b> 的好处，无需专注持续 1 小时。一旦你使用了这个特性，你就不能再次使用它，直到你完成短休或长休。
 Feature/&PowerPatronMountainClingingStrengthTitle=攀附之力
-Feature/&FeatureSetPatronMountainEternalGuardianDescription=你可以使用你的岩石屏障特性，次数等于你的魅力调整值，短休后回复。
-Feature/&FeatureSetPatronMountainEternalGuardianTitle=永恒守卫
+Feature/&PowerPatronMountainEternalGuardianDescription=当你 30 英尺内的盟友受到攻击时，你可以使用你的反应来减少伤害，伤害值等于你的术士等级的两倍加上你的魅力调整值。你可以使用该力量的次数等于每次短暂休息时你的魅力调整值。
+Feature/&PowerPatronMountainEternalGuardianTitle=石头屏障
 Feature/&PowerPatronMountainTheMountainWakesDescription=你可以施展多次四环 <b>冰风暴</b> ，次数等于你的熟练加值，长休后回复。
 Feature/&PowerPatronMountainTheMountainWakesTitle=山岭复苏
 Reaction/&UseBarrierOfStoneDescription=一名盟友遭到袭击。你可以将伤害减少两倍你的邪术师等级加上你的魅力调整值。
