@@ -152,10 +152,6 @@ Increase your rage damage by +1
 
 You can rage one additional time per long rest.
 
-* Additional Rage Use
-
-You can rage one additional time per long rest.
-
 * Brutal Critical (Advanced)
 
 Add another damage die to critical hits.
