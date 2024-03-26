@@ -166,8 +166,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Summon Spirit Wolf",
-    "description": "A Spirit Wolf bonded to a Ranger.",
+    "title": "Summon Grayback Wolf",
+    "description": "A Grayback Wolf bonded to a Ranger.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f0c21bbf7b2430746a0e97ee7740ea79",

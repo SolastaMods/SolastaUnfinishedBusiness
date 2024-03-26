@@ -144,7 +144,7 @@ public sealed class RangerWildMaster : AbstractSubclass
 
         var powerWildMasterSummonBeastCompanionPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BeastCompanionPool")
-            .SetGuiPresentation(Category.Feature, MonsterDefinitions.KindredSpiritWolf)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDruidWildShape)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .AddToDB();
 
@@ -491,6 +491,8 @@ public sealed class RangerWildMaster : AbstractSubclass
         var beastCompanion03 =
             MonsterDefinitionBuilder
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
+                .SetGuiPresentation(MonsterDefinitions.BlackBear.GuiPresentation)
+                .SetMonsterPresentation(MonsterDefinitions.BlackBear.MonsterPresentation)
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
                 .SetArmorClass(BaseAC + 2)
@@ -524,6 +526,8 @@ public sealed class RangerWildMaster : AbstractSubclass
         var beastCompanion11 =
             MonsterDefinitionBuilder
                 .Create(monsterDefinition, Name + monsterDefinition.name + "11")
+                .SetGuiPresentation(MonsterDefinitions.BlackBear.GuiPresentation)
+                .SetMonsterPresentation(MonsterDefinitions.BlackBear.MonsterPresentation)
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
                 .SetArmorClass(BaseAC + 2)
@@ -586,7 +590,6 @@ public sealed class RangerWildMaster : AbstractSubclass
 
         power.AddCustomSubFeatures(
             SkipEffectRemovalOnLocationChange.Always,
-            ValidatorsValidatePowerUse.NotInCombat,
             new ModifyEffectDescriptionSummonBeastCompanion(power, beastCompanion03, beastCompanion11),
             new MagicEffectInitiatedByMeBeastCompanionBear(conditionBearHitPoints));
 
@@ -600,6 +603,8 @@ public sealed class RangerWildMaster : AbstractSubclass
         var beastCompanion03 =
             MonsterDefinitionBuilder
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
+                .SetGuiPresentation(MonsterDefinitions.Giant_Eagle.GuiPresentation)
+                .SetMonsterPresentation(MonsterDefinitions.Giant_Eagle.MonsterPresentation)
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
                 .SetArmorClass(BaseAC + 1)
@@ -633,6 +638,8 @@ public sealed class RangerWildMaster : AbstractSubclass
         var beastCompanion11 =
             MonsterDefinitionBuilder
                 .Create(monsterDefinition, Name + monsterDefinition.name + "11")
+                .SetGuiPresentation(MonsterDefinitions.Giant_Eagle.GuiPresentation)
+                .SetMonsterPresentation(MonsterDefinitions.Giant_Eagle.MonsterPresentation)
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
                 .SetArmorClass(BaseAC + 1)
@@ -688,6 +695,8 @@ public sealed class RangerWildMaster : AbstractSubclass
         var beastCompanion03 =
             MonsterDefinitionBuilder
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
+                .SetGuiPresentation(MonsterDefinitions.AlphaWolf.GuiPresentation)
+                .SetMonsterPresentation(MonsterDefinitions.AlphaWolf.MonsterPresentation)
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
                 .SetArmorClass(BaseAC + 1)
@@ -712,6 +721,8 @@ public sealed class RangerWildMaster : AbstractSubclass
         var beastCompanion11 =
             MonsterDefinitionBuilder
                 .Create(monsterDefinition, Name + monsterDefinition.name + "11")
+                .SetGuiPresentation(MonsterDefinitions.AlphaWolf.GuiPresentation)
+                .SetMonsterPresentation(MonsterDefinitions.AlphaWolf.MonsterPresentation)
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
                 .SetCreatureTags(BeastCompanionTag)

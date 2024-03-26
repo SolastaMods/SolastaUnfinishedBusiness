@@ -3032,8 +3032,13 @@ internal static partial class DatabaseHelper
     {
         internal static MonsterDefinition Air_Elemental { get; } = GetDefinition<MonsterDefinition>("Air_Elemental");
 
+        internal static MonsterDefinition AlphaWolf { get; } = GetDefinition<MonsterDefinition>("AlphaWolf");
+
         internal static MonsterDefinition Ape_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("Ape_MonsterDefinition");
+
+        internal static MonsterDefinition BlackBear { get; } =
+            GetDefinition<MonsterDefinition>("BlackBear");
 
         internal static MonsterDefinition BlackDragon_MasterOfNecromancy { get; } =
             GetDefinition<MonsterDefinition>("BlackDragon_MasterOfNecromancy");
@@ -3077,6 +3082,8 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Ghost { get; } = GetDefinition<MonsterDefinition>("Ghost");
         internal static MonsterDefinition Ghoul { get; } = GetDefinition<MonsterDefinition>("Ghoul");
         internal static MonsterDefinition Giant_Ape { get; } = GetDefinition<MonsterDefinition>("Giant_Ape");
+
+        internal static MonsterDefinition Giant_Eagle { get; } = GetDefinition<MonsterDefinition>("Giant_Eagle");
 
         internal static MonsterDefinition GoldDragon_AerElai { get; } =
             GetDefinition<MonsterDefinition>("GoldDragon_AerElai");

@@ -4,8 +4,8 @@
     "Definition:HealingModifierKindredSpiritBond:a99536e1627d9ec42a076a5603795c89",
     "Definition:SummoningAffinityRangerWildMasterBeastCompanion:263b5659-03d7-5132-8ca9-bfc904cdfb97",
     "Definition:PowerRangerWildMasterBeastCompanionPool:3ad50c07-f0f9-5f0d-b65a-8c7437bb6420",
-    "Definition:PowerRangerWildMasterSummonBeastCompanionKindredSpiritBear:de02f3fc-4fbe-5578-8202-87148e345a0d",
     "Definition:PowerRangerWildMasterSummonBeastCompanionKindredSpiritEagle:85292d8d-555e-501f-b9ce-9aa83d21334d",
+    "Definition:PowerRangerWildMasterSummonBeastCompanionKindredSpiritBear:de02f3fc-4fbe-5578-8202-87148e345a0d",
     "Definition:PowerRangerWildMasterSummonBeastCompanionKindredSpiritWolf:0f624788-2da9-503d-9fca-8d184d5e19b7"
   ],
   "mode": "Union",
