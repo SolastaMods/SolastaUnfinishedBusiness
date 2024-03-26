@@ -156,7 +156,7 @@ ModUi/&Feats=<color=#F0DAA0>专长</color>
 ModUi/&FightingStyles=<color=#F0DAA0>战斗风格</color>
 ModUi/&FixAsianLanguagesTextWrap=修复亚洲语言的游戏 UI 文本换行<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&FixEldritchBlastRange=将<color=#D89555>魔能爆</color>范围更改为24<i><color=#F0DAA0>[而不是16]</color></i>
-ModUi/&FixRingOfRegenerationHealRate=将<color=#D89555>再生之环</color>治疗率设置为每3分钟1hp
+ModUi/&FixRingOfRegenerationHealRate=将<color=#D89555>再生戒指</color>医疗率设置为每 3 分钟 1 点生命值
 ModUi/&FlightSuspendWingedBoots=<i>+使用飞翼之靴官方规则<color=#F0DAA0>[暂停飞行时不计算剩余时间]</color></i>
 ModUi/&Formation=<color=#F0DAA0>队形：</color>
 ModUi/&FormationError=<color=#C04040E0>你不能在多人游戏中改变你的阵型...</color>
