@@ -419,8 +419,6 @@ internal static class SrdAndHouseRulesContext
 
     internal static void SwitchRingOfRegenerationHealRate()
     {
-        Main.Info($"FixRingOfRegenerationHealRate={Main.Settings.FixRingOfRegenerationHealRate}");
-
         var ringDefinition = RegenerationRing;
 
         if (Main.Settings.FixRingOfRegenerationHealRate)
