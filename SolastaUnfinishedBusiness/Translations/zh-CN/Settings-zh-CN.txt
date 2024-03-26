@@ -32,7 +32,7 @@ ModUi/&AllowStackedMaterialComponent=允许堆叠材料组件<i><color=#F0DAA0>[
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施展<color=#D89555>闪电链</color>法术时选择目标
 ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>术士</color>没有起源标记和纹身
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=按<color=#1E81B0>ALT</color>键只高亮队伍视野中的可用物品<i><color=#F0DAA0>[仅限自定义地下城]</color></i>
-ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任何职业调和
+ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任何职业同调
 ModUi/&Backgrounds=<color=#F0DAA0>背景</color>
 ModUi/&BackgroundsAndRaces=背景与种族
 ModUi/&Basic=<color=#F0DAA0>基本：</color>
