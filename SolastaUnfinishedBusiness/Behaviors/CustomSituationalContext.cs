@@ -30,9 +30,6 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.IsNotInBrightLight =>
                 ValidatorsCharacter.IsNotInBrightLight(contextParams.source),
 
-            ExtraSituationalContext.HasSpecializedWeaponInHands =>
-                MartialWeaponMaster.HasSpecializedWeapon(contextParams.source),
-
             ExtraSituationalContext.HasLongswordInHands =>
                 ValidatorsCharacter.HasWeaponType(LongswordType)(contextParams.source),
 
@@ -82,8 +79,6 @@ internal static class CustomSituationalContext
 
             ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow =>
                 MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(contextParams),
-
-            ExtraSituationalContext.HasShieldInHands => contextParams.source.IsWearingShield(),
 
             // supports Monk Shield Expert scenarios
             (ExtraSituationalContext)SituationalContext.NotWearingArmorOrShield =>
