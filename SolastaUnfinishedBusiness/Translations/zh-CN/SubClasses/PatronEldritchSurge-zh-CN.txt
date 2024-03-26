@@ -20,4 +20,4 @@ Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrTitle=力量
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisDescription=在使用才能时，你的感知视为 10 +2*熟练加值。
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisTitle=感知
 Subclass/&PatronEldritchSurgeDescription=你与一神秘存在缔结契约。该存在或许是精妙交织的魔网所涌现的意识，其坚信纯粹的奥能可以产生任何现象，而你将证明这一点。
-Subclass/&PatronEldritchSurgeTitle=魔能潮涌
+Subclass/&PatronEldritchSurgeTitle=魔能浪涌
