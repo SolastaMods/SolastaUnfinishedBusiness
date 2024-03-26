@@ -49,7 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>更改日志</color></b>
 ModUi/&Character=特点
 ModUi/&CharactersPool=角色池
 ModUi/&Classes=<color=#F0DAA0>职业</color>
-ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>冷冻免疫</color>还赋予对寒冷和冰冻条件的免疫力
+ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>冷冻免疫</color>还赋予对冻寒和冻结条件的免疫力
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>冷冻抗性</color>还可以增强对冻寒状态的免疫，并将冻结状态降低为冻寒状态
 ModUi/&Combat=<color=#F0DAA0>战斗：</color>
 ModUi/&Crafting=<color=#F0DAA0>制作：</color>
