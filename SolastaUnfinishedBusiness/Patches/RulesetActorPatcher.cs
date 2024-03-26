@@ -182,11 +182,11 @@ public static class RulesetActorPatcher
                      or ExtraSituationalContext.HasMeleeWeaponInMainHandWithFreeOffhand
                      or ExtraSituationalContext.IsNotInBrightLight
                      or ExtraSituationalContext.IsRagingAndDualWielding
-                     or ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow
+                     or ExtraSituationalContext.AttackerNextToTargetOrYeomanWithLongbow
                      or ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget
                      or ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield
                      or ExtraSituationalContext.WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff));
-                    // END PATCH
+            // END PATCH
 
             return false;
         }

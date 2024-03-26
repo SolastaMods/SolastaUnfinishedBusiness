@@ -512,7 +512,7 @@ internal static class FixesContext
         //BEHAVIOR: Makes `Reckless` context check if main hand weapon is melee or long bow if Path of the Yeoman
         //instead of if character is next to target
         FeatureDefinitionCombatAffinitys.CombatAffinityReckless.situationalContext =
-            (SituationalContext)ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow;
+            (SituationalContext)ExtraSituationalContext.AttackerNextToTargetOrYeomanWithLongbow;
     }
 
     private static void FixSmitesAndStrikesDiceProgression()

@@ -77,8 +77,8 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget =>
                 NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(contextParams),
 
-            ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow =>
-                MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(contextParams),
+            ExtraSituationalContext.AttackerNextToTargetOrYeomanWithLongbow =>
+                AttackerNextToTargetOrYeomanWithLongbow(contextParams),
 
             // supports Monk Shield Expert scenarios
             (ExtraSituationalContext)SituationalContext.NotWearingArmorOrShield =>
@@ -95,17 +95,23 @@ internal static class CustomSituationalContext
         };
     }
 
-    private static bool MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(
+    private static bool AttackerNextToTargetOrYeomanWithLongbow(
         RulesetImplementationDefinitions.SituationalContextParams contextParams)
     {
         var source = contextParams.source;
-        var mainWeaponIsMeleeOrUnarmed =
-            ValidatorsCharacter.HasMeleeWeaponInMainHand(source) ||
-            ValidatorsCharacter.IsUnarmedInMainHand(source);
-        var levels = source.GetSubclassLevel(
+        var sourceCharacter = GameLocationCharacter.GetFromActor(source);
+        var targetCharacter = GameLocationCharacter.GetFromActor(contextParams.target);
+
+        if (sourceCharacter.IsWithinRange(targetCharacter, 1))
+        {
+            return true;
+        }
+
+
+        var pathOfTheYeomanLevels = source.GetSubclassLevel(
             DatabaseHelper.CharacterClassDefinitions.Barbarian, PathOfTheYeoman.Name);
 
-        return mainWeaponIsMeleeOrUnarmed || (levels >= 6 && ValidatorsCharacter.HasLongbow(source));
+        return pathOfTheYeomanLevels >= 6 && ValidatorsCharacter.HasLongbow(source);
     }
 
     private static bool NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(
