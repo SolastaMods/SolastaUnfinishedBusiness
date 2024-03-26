@@ -62,6 +62,7 @@ Condition/&FlightSuspendTitle=Flight Suspended
 ContentPack/&9999Description=The Unfinished Business pack adds multiclass, races, sub-classes, feats, fighting style and spells. There's a higher level cap, QOL features, fixes and more. It's a veritable Horn of Plenty (TM)...
 ContentPack/&9999Title=Unfinished Business Pack
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=Your attacks score a critical hit on an 18, 19 or 20 while you are wielding this weapon and are attuned to it.
+Equipment/&BeltOfRegeneration_Function_Description=Regenerate 5 hit points per round for one minute.
 Failure/&FailureFlagTargetMeleeWeaponError=Can't perform melee attack on this target with current weapon
 Feature/&AlwaysBeardDescription={0}% chances to grow a glorious beard!
 Feature/&AncestryLevelUpDraconicDescription=Your draconic ancestry gives you an affinity to {0} damage type.
