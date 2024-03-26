@@ -1,6 +1,6 @@
 Feat/&FeatApothecaryChaDescription=你的魅力 +1，上限为 20。\n你可以熟练使用草药工具包和奥秘，如果已经有对应熟练项，则改为获得精通。
 Feat/&FeatApothecaryChaTitle=药剂师【魅力】
-Feat/&FeatApothecaryIntDescription=将你的智力 +1，上限为 20。\n你可以熟练使用草药工具包和奥秘，如果已经有对应熟练项，则改为获得精通。
+Feat/&FeatApothecaryIntDescription=你的智力 +1，上限为 20。\n你可以熟练使用草药工具包和奥秘，如果已经有对应熟练项，则改为获得精通。
 Feat/&FeatApothecaryIntTitle=药剂师【智力】
 Feat/&FeatApothecaryWisDescription=你的感知 +1，上限为 20。\n你可以熟练使用草药工具包和奥秘，如果已经有对应熟练项，则改为获得精通。
 Feat/&FeatApothecaryWisTitle=药剂师【感知】
