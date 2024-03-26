@@ -2163,7 +2163,8 @@ internal static class Level20SubclassesContext
             var caster = actionParams.ActingCharacter;
             var targets = actionParams.TargetCharacters
                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                            x.RulesetCharacter.HasAnyConditionOfTypeOrSubType("ConditionHitByDirtyFighting"))
+                            x.RulesetCharacter.HasConditionOfCategoryAndType(
+                                AttributeDefinitions.TagEffect, "ConditionHitByDirtyFighting"))
                 .ToList(); // avoid changing enumerator
 
             if (caster == null || targets.Count == 0)
