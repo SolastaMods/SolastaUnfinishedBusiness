@@ -61,6 +61,7 @@ Condition/&FlightSuspendDescription=正在进行的飞行效果已暂停
 Condition/&FlightSuspendTitle=航班暂停
 ContentPack/&9999Description=未竟之业包增加了多职业、种族、子职、专长、战斗风格和法术。有更高的等级上限、快捷功能、修复等。这是名副其实的丰饶号角 (TM)......
 ContentPack/&9999Title=未竟之业包
+Equipment/&BeltOfRegeneration_Function_Description=每轮恢复 5 点生命值，持续 1 分钟。
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=当你使用该武器并对其进行调和时，你的攻击检定会在 18, 19 或 20 点上获得致命一击。
 Failure/&FailureFlagTargetMeleeWeaponError=无法使用当前武器对该目标进行近战攻击
 Feature/&AlwaysBeardDescription={0}% 的机会长出漂亮的胡子！

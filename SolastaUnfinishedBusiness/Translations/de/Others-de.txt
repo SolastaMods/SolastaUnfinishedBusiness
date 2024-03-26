@@ -61,6 +61,7 @@ Condition/&FlightSuspendDescription=Der laufende Flugeffekt wurde ausgesetzt
 Condition/&FlightSuspendTitle=Flug ausgesetzt
 ContentPack/&9999Description=Das Unfinished Business-Paket fügt Multiklassen, Rassen, Unterklassen, Talente, Kampfstile und Zaubersprüche hinzu. Es gibt eine höhere Levelobergrenze, QOL-Funktionen, Korrekturen und mehr. Es ist ein wahres Füllhorn (TM) ...
 ContentPack/&9999Title=Unvollendetes Geschäftspaket
+Equipment/&BeltOfRegeneration_Function_Description=Regeneriert eine Minute lang 5 Trefferpunkte pro Runde.
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=Deine Angriffe erzielen einen kritischen Treffer bei 18, 19 oder 20, während du diese Waffe führst und darauf eingestellt bist.
 Failure/&FailureFlagTargetMeleeWeaponError=Mit der aktuellen Waffe kann kein Nahkampfangriff auf dieses Ziel ausgeführt werden
 Feature/&AlwaysBeardDescription={0} % Chancen, einen herrlichen Bart wachsen zu lassen!

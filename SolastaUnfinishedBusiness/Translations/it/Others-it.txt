@@ -61,6 +61,7 @@ Condition/&FlightSuspendDescription=L'effetto del volo in corso è stato sospeso
 Condition/&FlightSuspendTitle=Volo sospeso
 ContentPack/&9999Description=Il pacchetto Unfinished Business aggiunge multiclasse, razze, sottoclassi, talenti, stile di combattimento e incantesimi. Sono previsti livelli massimi più elevati, funzionalità QOL, correzioni e altro ancora. È un vero e proprio Corno dell'Abbondanza (TM)...
 ContentPack/&9999Title=Pacchetto aziendale incompiuto
+Equipment/&BeltOfRegeneration_Function_Description=Rigenera 5 punti ferita per round per un minuto.
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=I tuoi attacchi ottengono un colpo critico con un 18, 19 o 20 mentre impugni quest'arma e sei in sintonia con essa.
 Failure/&FailureFlagTargetMeleeWeaponError=Impossibile eseguire attacchi corpo a corpo su questo bersaglio con l'arma attuale
 Feature/&AlwaysBeardDescription={0}% di possibilità di far crescere una barba meravigliosa!

@@ -61,6 +61,7 @@ Condition/&FlightSuspendDescription=진행 중인 비행 효과가 중단되었�
 Condition/&FlightSuspendTitle=항공편 중단
 ContentPack/&9999Description=Unfinished Business 팩은 멀티클래스, 종족, 하위 클래스, 업적, 전투 스타일 및 주문을 추가합니다. 더 높은 수준의 한도, QOL 기능, 수정 사항 등이 있습니다. 그야말로 Horn of Plenty(TM)입니다.
 ContentPack/&9999Title=미완성 비즈니스 팩
+Equipment/&BeltOfRegeneration_Function_Description=1분 동안 라운드당 5개의 체력을 재생합니다.
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=이 무기를 휘두르고 그에 맞춰 조정하는 동안 공격은 18, 19 또는 20에 치명타를 기록합니다.
 Failure/&FailureFlagTargetMeleeWeaponError=현재 무기로는 이 대상에 근접 공격을 수행할 수 없습니다.
 Feature/&AlwaysBeardDescription=멋진 수염이 자랄 확률은 {0}%입니다!

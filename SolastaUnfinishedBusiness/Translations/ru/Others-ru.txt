@@ -61,6 +61,7 @@ Condition/&FlightSuspendDescription=Действие полёта приоста
 Condition/&FlightSuspendTitle=Полёт приостановлен
 ContentPack/&9999Description=Мод Неоконченное Дело добавляет мультикласс, расы, архетипы, черты, боевые стили и заклинания. Максимальный уровень увеличен, добавлены улучшения, исправления и т.д. Это настоящий рог изобилия (TM)...
 ContentPack/&9999Title=Мод Неоконченное Дело
+Equipment/&BeltOfRegeneration_Function_Description=Регенерируйте 5 очков жизни за раунд в течение одной минуты.
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=Ваши атаки становятся критическими попаданиями при бросках 18, 19 или 20, пока вы используете это оружие и настроены на него.
 Failure/&FailureFlagTargetMeleeWeaponError=Невозможно провести атаку ближнего боя по этой цели с выбранным оружием
 Feature/&AlwaysBeardDescription=Шанс {0}% отрастить великолепную бороду!

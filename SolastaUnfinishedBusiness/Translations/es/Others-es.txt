@@ -61,6 +61,7 @@ Condition/&FlightSuspendDescription=Se ha suspendido el efecto de vuelo en curso
 Condition/&FlightSuspendTitle=Vuelo suspendido
 ContentPack/&9999Description=El paquete Unfinished Business agrega multiclase, razas, subclases, hazañas, estilo de lucha y hechizos. Hay un límite de nivel superior, funciones de calidad de vida, correcciones y más. Es un verdadero Cuerno de la Abundancia (TM)...
 ContentPack/&9999Title=Paquete de asuntos pendientes
+Equipment/&BeltOfRegeneration_Function_Description=Regenera 5 puntos de vida por ronda durante un minuto.
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=Tus ataques obtienen un golpe crítico con un 18, 19 o 20 mientras empuñas esta arma y estás en sintonía con ella.
 Failure/&FailureFlagTargetMeleeWeaponError=No se puede realizar un ataque cuerpo a cuerpo contra este objetivo con el arma actual.
 Feature/&AlwaysBeardDescription=¡{0}% de posibilidades de dejarte crecer una barba gloriosa!

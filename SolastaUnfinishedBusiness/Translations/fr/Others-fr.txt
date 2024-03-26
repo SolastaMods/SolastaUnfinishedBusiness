@@ -61,6 +61,7 @@ Condition/&FlightSuspendDescription=L'effet de Vol en cours est suspendu
 Condition/&FlightSuspendTitle=Vol suspendu
 ContentPack/&9999Description=Le pack Unfinished Business ajoute le multiclassage, les Ascendances, les sous-classes, les Dons, les Style de Combat et les Sorts. La limite de niveau maximal est plus élevé, des fonctionnalités de Quality Of Life (QOL) ont été ajoutées, ainsi que des correctifs et plus encore. C'est une véritable Corne d'Abondance (TM)...
 ContentPack/&9999Title=Pack Unfinished Business
+Equipment/&BeltOfRegeneration_Function_Description=Régénérez 5 points de vie par tour pendant une minute.
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=Vos attaques infligent un coup critique sur 18, 19 ou 20 tant que vous maniez cette arme et que vous êtes Lié à elle.
 Failure/&FailureFlagTargetMeleeWeaponError=Impossible d'effectuer une attaque au corps à corps sur cette cible avec l'arme en cours
 Feature/&AlwaysBeardDescription={0} % de chances de faire pousser une magnifique barbe !

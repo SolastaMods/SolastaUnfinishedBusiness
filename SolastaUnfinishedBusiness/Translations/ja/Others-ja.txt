@@ -61,6 +61,7 @@ Condition/&FlightSuspendDescription=進行中のフライト効果は一時停�
 Condition/&FlightSuspendTitle=運航停止
 ContentPack/&9999Description=Unfinished Business パックには、マルチクラス、種族、サブクラス、特技、戦闘スタイル、呪文が追加されます。より高いレベルの上限、QOL 機能、修正などが含まれます。まさに Horn of Plenty (TM) です。
 ContentPack/&9999Title=未完成ビジネスパック
+Equipment/&BeltOfRegeneration_Function_Description=1分間、ラウンドごとに5ヒットポイントを回復します。
 Equipment/&DLC3_DwarvenWeapon_Dagger+3_CriticalThreshold=この武器を使用し、それに同調している間、攻撃は 18、19、または 20 でクリティカル ヒットを獲得します。
 Failure/&FailureFlagTargetMeleeWeaponError=現在の武器ではこのターゲットに近接攻撃を実行できません
 Feature/&AlwaysBeardDescription={0}% の確率で立派なひげが生えてきます。
