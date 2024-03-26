@@ -57,7 +57,7 @@ public static class GuiFeatDefinitionPatcher
 
         private static int CanCastSpells([NotNull] RulesetCharacterHero hero)
         {
-            return hero.EnumerateFeaturesToBrowse<FeatureDefinitionCastSpell>().Count;
+            return hero.GetFeaturesByType<FeatureDefinitionCastSpell>().Count;
         }
     }
 
