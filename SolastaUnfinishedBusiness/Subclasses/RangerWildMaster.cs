@@ -111,7 +111,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceCharacterLevel)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
                     .SetFeatures(HpBonus, HpBonus, HpBonus, HpBonus, HpBonus)
                     .AddToDB())
             .AddToDB();
