@@ -1,10 +1,10 @@
 Feat/&FeatHeavyArmorMasterDescription=你可以用盔甲减少致命伤害。提高 1 点力量属性值，上限为 20。当你穿着重甲时，你受到的钝击、穿刺和挥砍伤害减少 3 点。
 Feat/&FeatHeavyArmorMasterTitle=重甲大师
-Feat/&FeatMediumArmorDexDescription=将你的敏捷 +1，上限为 20。\n你获得中甲和盾牌熟练项。
+Feat/&FeatMediumArmorDexDescription=你的敏捷 +1，上限为 20。\n你获得中甲和盾牌熟练项。
 Feat/&FeatMediumArmorDexTitle=中甲运用【敏捷】
 Feat/&FeatMediumArmorMasterDescription=你已经熟练掌握穿戴中甲，并获得以下好处：\n• 穿着中甲不会对你的敏捷（隐匿）检定造成劣势。\n• 当你穿着中甲时，若你的敏捷为 16 或更高，你最多可以添加 3 点敏捷调整值（而不是 2 点）到护甲等级上。
 Feat/&FeatMediumArmorMasterTitle=中甲大师
-Feat/&FeatMediumArmorStrDescription=将你的力量 +1，上限为 20。\n你获得中甲和盾牌熟练项。
+Feat/&FeatMediumArmorStrDescription=你的力量 +1，上限为 20。\n你获得中甲和盾牌熟练项。
 Feat/&FeatMediumArmorStrTitle=中甲运用【力量】
 Feat/&FeatShieldTechniquesDescription=使用盾牌不仅是为了保护，也是为了进攻。当你挥舞盾牌时，你将获得以下好处：\n• 如果你在自己的回合中采取攻击动作，你可以使用附赠动作尝试用盾牌推开你周围 5 尺内的生物。\n • 如果你没有失能，则你进行的所有敏捷豁免都会获得 +2 加值。\n• 每当伤害性法术迫使你进行敏捷豁免时，你可以利用你的反应将受到的伤害减半。
 Feat/&FeatShieldTechniquesTitle=盾牌大师
