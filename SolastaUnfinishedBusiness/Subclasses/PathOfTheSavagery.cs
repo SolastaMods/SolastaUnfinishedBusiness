@@ -239,7 +239,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
                 yield break;
             }
 
-            if (!rulesetCharacter.HasAnyConditionOfType(ConditionReckless))
+            if (!rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagCombat, ConditionReckless))
             {
                 yield break;
             }

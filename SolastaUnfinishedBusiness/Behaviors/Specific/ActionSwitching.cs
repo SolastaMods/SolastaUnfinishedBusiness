@@ -663,7 +663,7 @@ public static class ActionSwitching
                 yield break;
             }
 
-            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
+            if (attacker.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, condition.Name))
             {
                 yield break;
             }

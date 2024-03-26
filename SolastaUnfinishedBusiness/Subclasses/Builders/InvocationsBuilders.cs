@@ -821,7 +821,8 @@ internal static class InvocationsBuilders
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
-            return character.HasAnyConditionOfType(conditionPerniciousCloakSelf.Name);
+            return character.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionPerniciousCloakSelf.Name);
         }
     }
 

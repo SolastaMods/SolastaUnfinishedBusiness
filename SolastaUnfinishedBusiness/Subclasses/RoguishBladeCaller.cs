@@ -248,7 +248,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
                 // inflict Blade Surge
                 if (classLevel >= 13 &&
-                    !rulesetAttacker.HasAnyConditionOfType(conditionBladeSurge.Name))
+                    !rulesetAttacker.HasConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionBladeSurge.Name))
                 {
                     rulesetAttacker.InflictCondition(
                         conditionBladeSurge.Name,
@@ -318,7 +319,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
-            if (rulesetDefender.HasAnyConditionOfType(conditionBladeMark.Name))
+            if (rulesetDefender.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionBladeMark.Name))
             {
                 _bladeMarkStatus = BladeMarkStatus.With;
 

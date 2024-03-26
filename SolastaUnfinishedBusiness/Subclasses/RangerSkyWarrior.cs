@@ -409,7 +409,8 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (Gui.Battle == null ||
-                !rulesetAttacker.HasAnyConditionOfType(conditionGiftOfTheWind.Name))
+                !rulesetAttacker.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionGiftOfTheWind.Name))
             {
                 return;
             }
