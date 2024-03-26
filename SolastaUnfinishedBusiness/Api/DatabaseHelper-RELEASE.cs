@@ -218,6 +218,9 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition MartialSpellblade { get; } =
             GetDefinition<CharacterSubclassDefinition>("MartialSpellblade");
 
+        internal static CharacterSubclassDefinition PathBerserker { get; } =
+            GetDefinition<CharacterSubclassDefinition>("PathBerserker");
+
         internal static CharacterSubclassDefinition PathClaw { get; } =
             GetDefinition<CharacterSubclassDefinition>("PathClaw");
 
@@ -910,6 +913,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionActionAffinity ActionAffinityMountaineerShieldCharge { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMountaineerShieldCharge");
+
+        internal static FeatureDefinitionActionAffinity ActionAffinityRetaliation { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRetaliation");
 
         internal static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction");
@@ -1642,6 +1648,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerBardGiveBardicInspiration { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBardGiveBardicInspiration");
+
+        internal static FeatureDefinitionPower PowerBerserkerMindlessRage { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBerserkerMindlessRage");
 
         internal static FeatureDefinitionPower PowerCircleLandNaturalRecovery { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerCircleLandNaturalRecovery");

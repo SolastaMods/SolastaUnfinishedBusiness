@@ -152,6 +152,7 @@ internal static class ModUi
         "MirrorImage",
         "MysticalCloak",
         "OathOfAncients",
+        "PathOfTheRavager",
         "PathOfTheSpirits",
         "PatronCelestial",
         "PatronSoulBlade",

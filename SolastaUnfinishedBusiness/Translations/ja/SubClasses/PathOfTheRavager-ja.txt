@@ -1,0 +1,10 @@
+Feature/&AdditionalDamagePathOfTheRavagerFrenzyDescription=自分のターン中に一度、激怒しているときに無謀な攻撃を使用した場合、敵に命中した最初の筋力ベースの武器攻撃は、あなたの武器と同じ種類の 2d6 追加ダメージを与えます。このダメージは9レベルで3d6、16レベルで4d6に増加します。
+Feature/&AdditionalDamagePathOfTheRavagerFrenzyTitle=狂乱
+Feature/&FeatureSetPathOfTheRavagerIntimidatingPresenceDescription=あなたが激怒している間、ボーナス アクションを使用して、その脅威的な存在で他の人に恐怖を与えることができます。あなたから 30 フィート以内にいる各敵クリーチャーは、知恵セーヴィング スローを行わなければなりません (DC は 8 + 熟練度ボーナス + 筋力修正値に等しい)。保存に失敗すると、クリーチャーは 1 分間怯えた状態になります。怯えたクリーチャーの各ターンの終わりに、クリーチャーはセーヴィング・スローを繰り返し、成功すると自身への効果を終了します。この機能を一度使用すると、ロングレストが完了するまで再度使用することはできません。この機能の使用回数がなくなった場合は、Rage を消費して再度使用できます。
+Feature/&FeatureSetPathOfTheRavagerIntimidatingPresenceTitle=威圧的な存在
+Feature/&PowerPathOfTheRavagerIntimidatingPresenceDescription=あなたが激怒している間、ボーナス アクションを使用して、その脅威的な存在で他の人に恐怖を与えることができます。あなたから 30 フィート以内にいる各敵クリーチャーは、知恵セーヴィング スローを行わなければなりません (DC は 8 + 熟練度ボーナス + 筋力修正値に等しい)。保存に失敗すると、クリーチャーは 1 分間怯えた状態になります。怯えたクリーチャーの各ターンの終わりに、クリーチャーはセーヴィング・スローを繰り返し、成功すると自身への効果を終了します。この機能を一度使用すると、ロングレストが完了するまで再度使用することはできません。この機能の使用回数がなくなった場合は、Rage を消費して再度使用できます。
+Feature/&PowerPathOfTheRavagerIntimidatingPresenceTitle=威圧的な存在
+Feedback/&AdditionalDamageFrenzyFormat=狂乱
+Feedback/&AdditionalDamageFrenzyLine=フレンジーは追加の +{2} ダメージを与えます！
+Subclass/&PathOfTheRavagerDescription=Ravagerの道は、血でぬるぬるした、踏み跡のない怒りの道です。ラヴェジャーの怒りに駆られると、自分の健康や幸福を無視して、戦闘の混乱に興奮することになります。
+Subclass/&PathOfTheRavagerTitle=ラヴェジャーの道

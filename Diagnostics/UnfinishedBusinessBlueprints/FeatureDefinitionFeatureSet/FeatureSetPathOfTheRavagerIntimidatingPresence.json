@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerPathOfTheRavagerIntimidatingPresence:0365a1ae-2e22-5d70-ac7d-ef815e392662",
+    "Definition:PowerPathOfTheRavagerIntimidatingPresenceRageCost:4a2bd5a9-0392-5964-8937-9ad1edba6f40"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetPathOfTheRavagerIntimidatingPresenceTitle",
+    "description": "Feature/&FeatureSetPathOfTheRavagerIntimidatingPresenceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "208e67ca-bd52-5485-a908-b7edf3f1d01a",
+  "contentPack": 9999,
+  "name": "FeatureSetPathOfTheRavagerIntimidatingPresence"
+}

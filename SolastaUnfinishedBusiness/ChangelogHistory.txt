@@ -1,3 +1,7 @@
+1.5.97.3:
+
+- added Path of the Ravager subclass [UA Berserker]
+
 1.5.97.2:
 
 - added 'Enable Barbarian brutal strike at levels 9, 13 and 17'
