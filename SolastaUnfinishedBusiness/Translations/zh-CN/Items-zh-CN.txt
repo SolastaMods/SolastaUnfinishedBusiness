@@ -1,7 +1,7 @@
 Feature/&PerceptionAffinityHelmOfAwarenessDescription=不能被突袭。
 Feature/&PowerHandwrapsOfPullingDescription=作为一个附赠动作，你可以将 15 尺内的一个生物拉近你。
 Feature/&PowerHandwrapsOfPullingTitle=卷入
-Feedback/&ExtraDamageDescription=闪电矛的额外伤害。
+Feedback/&ExtraDamageDescription=来自闪电矛的额外伤害。
 Feedback/&ExtraDamageTitle=闪电矛额外伤害
 Item/&Armor_Noble_ClothesTitle_Cherry=樱桃红贵族服
 Item/&Armor_Noble_ClothesTitle_Green=绿色贵族服
