@@ -82,6 +82,7 @@ internal static class ModUi
         "FeatGroupRevenantGreatSword",
         "FeatGroupSecondChance",
         "FeatGroupShadowTouched",
+        "FeatGroupSkillExpert",
         "FeatGroupSlasher",
         "FeatGroupSpellSniper",
         "FeatGroupSquatNimbleness",

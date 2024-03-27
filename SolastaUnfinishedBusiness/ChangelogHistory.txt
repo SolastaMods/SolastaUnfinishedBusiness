@@ -1,7 +1,9 @@
 1.5.97.3:
 
+*** ATTENTION ***: ONLY COMPATIBLE UMM versions are between 0.24.0 and 0.27.10. DON'T USE ANYTHING ELSE!
+
 - added Path of the Ravager subclass [UA Berserker]
-- added Skilled feat
+- added Skilled and Skill Expert feats
 - fixed Ranger Wildmaster beast using char level instead of class level on HPs calculation
 - fixed Reckless Attack not working when activated by enemies
 

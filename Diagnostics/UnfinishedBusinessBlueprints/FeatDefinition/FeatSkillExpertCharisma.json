@@ -8,15 +8,19 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "SkillExpert",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierFeatSkillExpertCharisma:51bfe58b-ae22-5dd0-a0b7-ccb5e0b5b913",
+    "Definition:PointPoolFeatSkillExpertExpertise:694732b2-3d49-5511-891b-d1e33180068c",
+    "Definition:PointPoolFeatSkillExpertSkill:e696522d-d930-5daa-8c7b-7453ed9fbf1c"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfIntelligenceTitle",
-    "description": "Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Skill Expert [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]",
+    "title": "Skill Expert [Cha]",
+    "description": "You have honed your proficiency with particular skills, granting you the following benefits:\n• Increase your Charisma by 1, to a maximum of 20.\n• You gain proficiency in one skill of your choice.\n• You gain expertise in one skill of your choice.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "39fe162a-6661-5683-8ddb-dee9d5deed01",
+  "guid": "10e49c4c-1a01-528d-a305-5c6c6dcba545",
   "contentPack": 9999,
-  "name": "FeatGroupHalfIntelligence"
+  "name": "FeatSkillExpertCharisma"
 }

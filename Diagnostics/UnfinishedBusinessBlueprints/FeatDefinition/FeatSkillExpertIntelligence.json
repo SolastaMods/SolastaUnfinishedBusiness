@@ -8,15 +8,19 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "SkillExpert",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierFeatSkillExpertIntelligence:f864a976-c5b2-5634-90b1-6f56353317a9",
+    "Definition:PointPoolFeatSkillExpertExpertise:694732b2-3d49-5511-891b-d1e33180068c",
+    "Definition:PointPoolFeatSkillExpertSkill:e696522d-d930-5daa-8c7b-7453ed9fbf1c"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfIntelligenceTitle",
-    "description": "Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Skill Expert [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]",
+    "title": "Skill Expert [Int]",
+    "description": "You have honed your proficiency with particular skills, granting you the following benefits:\n• Increase your Intelligence by 1, to a maximum of 20.\n• You gain proficiency in one skill of your choice.\n• You gain expertise in one skill of your choice.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "39fe162a-6661-5683-8ddb-dee9d5deed01",
+  "guid": "19026f6d-31da-5161-a425-618d11f9c050",
   "contentPack": 9999,
-  "name": "FeatGroupHalfIntelligence"
+  "name": "FeatSkillExpertIntelligence"
 }

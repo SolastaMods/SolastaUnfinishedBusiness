@@ -778,12 +778,12 @@ FeatGroupFlameTouched	Description='Increase one of your mental attributes by 1, 
 You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.'.
 FeatGroupGeneralAdept	Description='Arcane Archer Adept, Eldritch Adept, Fighting Initiate, Infusion Adept, Magic Initiate, Martial Adept, Metamagic Adept, Versatility Adept'.
 FeatGroupHalfAttributes	Description='Half Charisma, Half Constitution, Half Dexterity, Half Intelligence, Half Strength, Half Wisdom'.
-FeatGroupHalfCharisma	Description='Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Elven Accuracy [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Iridescent Touched [Cha], Peregrination Touched [Cha], Retinue Touched [Cha], Second Chance [Cha], Shadow Touched [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]'.
-FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Creed of Arun, Crusher [Con], Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra'.
-FeatGroupHalfDexterity	Description='Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy'.
-FeatGroupHalfIntelligence	Description='Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]'.
-FeatGroupHalfStrength	Description='Awaken the Beast [Str], Creed of Einar, Crusher [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str]'.
-FeatGroupHalfWisdom	Description='Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision'.
+FeatGroupHalfCharisma	Description='Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Elven Accuracy [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Iridescent Touched [Cha], Peregrination Touched [Cha], Retinue Touched [Cha], Second Chance [Cha], Shadow Touched [Cha], Skill Expert [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]'.
+FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Creed of Arun, Crusher [Con], Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Second Chance [Con], Skill Expert [Con], Sturdiness of the Tundra'.
+FeatGroupHalfDexterity	Description='Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Skill Expert [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy'.
+FeatGroupHalfIntelligence	Description='Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Skill Expert [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]'.
+FeatGroupHalfStrength	Description='Awaken the Beast [Str], Creed of Einar, Crusher [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Skill Expert [Str], Slasher [Str], Squat Nimbleness [Str]'.
+FeatGroupHalfWisdom	Description='Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Skill Expert [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision'.
 FeatGroupHardy	Description='Increase your Strength or Constitution score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.'.
 FeatGroupIridescentTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.'.
@@ -812,7 +812,11 @@ FeatGroupRevenantGreatSword	Description='You are descended from a master of the 
 FeatGroupSecondChance	Description='Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20. When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.'.
 FeatGroupShadowTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.'.
-FeatGroupSkills	Description='Arcane Appraiser, Healer, Manipulator, Pickpocket, Skilled'.
+FeatGroupSkillExpert	Description='You have honed your proficiency with particular skills, granting you the following benefits:
+• Increase one ability score of your choice by 1, to a maximum of 20.
+• You gain proficiency in one skill of your choice.
+• You gain expertise in one skill of your choice.'.
+FeatGroupSkills	Description='Arcane Appraiser, Healer, Manipulator, Pickpocket, Skill Expert, Skilled'.
 FeatGroupSlasher	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.'.
 FeatGroupSpellCombat	Description='Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster'.
@@ -856,6 +860,36 @@ FeatPotentSpellcasterSorcerer	Title='Potent Spellcaster [Sorcerer]'.
 FeatPotentSpellcasterSorcerer	Description='You can add your spellcaster attribute modifier to the damage you deal with any Sorcerer cantrip in your repertoire.'.
 FeatPotentSpellcasterWizard	Title='Potent Spellcaster [Wizard]'.
 FeatPotentSpellcasterWizard	Description='You can add your spellcaster attribute modifier to the damage you deal with any Wizard cantrip in your repertoire.'.
+FeatSkillExpertCharisma	Title='Skill Expert [Cha]'.
+FeatSkillExpertCharisma	Description='You have honed your proficiency with particular skills, granting you the following benefits:
+• Increase your Charisma by 1, to a maximum of 20.
+• You gain proficiency in one skill of your choice.
+• You gain expertise in one skill of your choice.'.
+FeatSkillExpertConstitution	Title='Skill Expert [Con]'.
+FeatSkillExpertConstitution	Description='You have honed your proficiency with particular skills, granting you the following benefits:
+• Increase your Constitution by 1, to a maximum of 20.
+• You gain proficiency in one skill of your choice.
+• You gain expertise in one skill of your choice.'.
+FeatSkillExpertDexterity	Title='Skill Expert [Dex]'.
+FeatSkillExpertDexterity	Description='You have honed your proficiency with particular skills, granting you the following benefits:
+• Increase your Dexterity by 1, to a maximum of 20.
+• You gain proficiency in one skill of your choice.
+• You gain expertise in one skill of your choice.'.
+FeatSkillExpertIntelligence	Title='Skill Expert [Int]'.
+FeatSkillExpertIntelligence	Description='You have honed your proficiency with particular skills, granting you the following benefits:
+• Increase your Intelligence by 1, to a maximum of 20.
+• You gain proficiency in one skill of your choice.
+• You gain expertise in one skill of your choice.'.
+FeatSkillExpertStrength	Title='Skill Expert [Str]'.
+FeatSkillExpertStrength	Description='You have honed your proficiency with particular skills, granting you the following benefits:
+• Increase your Strength by 1, to a maximum of 20.
+• You gain proficiency in one skill of your choice.
+• You gain expertise in one skill of your choice.'.
+FeatSkillExpertWisdom	Title='Skill Expert [Wis]'.
+FeatSkillExpertWisdom	Description='You have honed your proficiency with particular skills, granting you the following benefits:
+• Increase your Wisdom by 1, to a maximum of 20.
+• You gain proficiency in one skill of your choice.
+• You gain expertise in one skill of your choice.'.
 FeatSpellSniperDruid	Title='Spell Sniper [Druid]'.
 FeatSpellSniperDruid	Description='You learn one cantrip of your choice from the Druid spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatSpellSniperInventor	Title='Spell Sniper [Artificer]'.

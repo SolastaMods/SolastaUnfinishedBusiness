@@ -63,6 +63,7 @@ internal static class OtherFeats
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
+        var skillExpertGroup = BuildSkillExpert(feats);
 
         // building this way to keep backward compatibility
         var featMonkShieldExpert = BuildFeatFromFightingStyle(MonkShieldExpert.ShieldExpertName);
@@ -148,7 +149,8 @@ internal static class OtherFeats
             FeatDefinitions.Manipulator,
             featHealer,
             featPickPocket,
-            featSkilled);
+            featSkilled,
+            skillExpertGroup);
     }
 
     #region Arcane Archer Adept
@@ -400,12 +402,12 @@ internal static class OtherFeats
 
     #endregion
 
-    #region Tough
+    #region Skilled
 
     private static FeatDefinition BuildSkilled()
     {
         const string Name = "FeatSkilled";
-        
+
         return FeatDefinitionBuilder
             .Create(Name)
             .SetFeatures(
@@ -426,7 +428,48 @@ internal static class OtherFeats
     }
 
     #endregion
-    
+
+    #region Skill Expert
+
+    private static FeatDefinition BuildSkillExpert(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatSkillExpert";
+
+        var skill = FeatureDefinitionPointPoolBuilder.Create($"PointPool{Name}Skill")
+            .SetGuiPresentation("PointPoolBackgroundSkillSelect1", Category.Background)
+            .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
+            .AddToDB();
+        var expertise = FeatureDefinitionPointPoolBuilder.Create($"PointPool{Name}Expertise")
+            .SetGuiPresentation("PointPoolBackgroundSkillSelect1", Category.Background)
+            .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
+            .AddToDB();
+            
+        var skillExpertFeats = AttributeDefinitions.AbilityScoreNames
+            .Select(attribute =>
+                FeatDefinitionBuilder
+                    .Create(Name + attribute)
+                    .SetGuiPresentation(
+                        "FeatSkillExpertTitle".Formatted(Category.Feat, attribute.Substring(0, 3)),
+                        "FeatSkillExpertDescription".Formatted(Category.Feat, attribute))
+                    .SetFeatures(
+                        skill,
+                        expertise,
+                        FeatureDefinitionAttributeModifierBuilder
+                            .Create($"AttributeModifier{Name}{attribute}")
+                            .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                            .SetModifier(AttributeModifierOperation.Additive, attribute, 1)
+                            .AddToDB())
+                    .SetFeatFamily("SkillExpert")
+                    .AddToDB())
+            .ToList();
+
+        feats.AddRange(skillExpertFeats);
+        
+        return GroupFeats.MakeGroup("FeatGroupSkillExpert", "SkillExpert", skillExpertFeats);
+    }
+
+    #endregion
+
     #region Tough
 
     private static FeatDefinition BuildTough()

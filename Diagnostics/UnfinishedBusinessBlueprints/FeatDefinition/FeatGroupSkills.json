@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupSkillsTitle",
-    "description": "Arcane Appraiser, Healer, Manipulator, Pickpocket, Skilled",
+    "description": "Arcane Appraiser, Healer, Manipulator, Pickpocket, Skill Expert, Skilled",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
