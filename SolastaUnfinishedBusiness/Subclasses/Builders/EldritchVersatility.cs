@@ -83,7 +83,7 @@ internal static class EldritchVersatilityBuilders
     public static readonly FeatureDefinition FeatureEldritchVersatilityGrantPoolAndSwitch = 
         FeatureDefinitionBuilder
             .Create($"Feature{Name}GrantPoolAndSwitch")
-            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetGuiPresentationNoContent(true)
             .AddCustomSubFeatures(new EldritchVersatilityAdeptCustom())
             .AddToDB();
 
