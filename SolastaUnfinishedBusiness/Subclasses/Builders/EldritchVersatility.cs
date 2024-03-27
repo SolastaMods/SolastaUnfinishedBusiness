@@ -80,11 +80,17 @@ internal static class EldritchVersatilityBuilders
             .Setup(InvocationPoolTypeCustom.Pools.EldritchVersatilityPool, 1, true)
             .AddToDB();
 
+    public static readonly FeatureDefinition FeatureEldritchVersatilityGrantPoolAndSwitch = 
+        FeatureDefinitionBuilder
+            .Create($"Feature{Name}GrantPoolAndSwitch")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(new EldritchVersatilityAdeptCustom())
+            .AddToDB();
+
     public static readonly FeatDefinition FeatEldritchVersatilityAdept = FeatDefinitionBuilder
         .Create($"Feat{Name}Adept")
         .SetGuiPresentation(Category.Feat, hidden: true)
-        .AddFeatures(Learn1Versatility)
-        .AddCustomSubFeatures(new EldritchVersatilityAdeptCustom())
+        .AddFeatures(Learn1Versatility, FeatureEldritchVersatilityGrantPoolAndSwitch)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionEldritchSurgeBlastOverload = ConditionDefinitionBuilder
@@ -587,14 +593,14 @@ internal static class EldritchVersatilityBuilders
             }
 
             public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-                GameLocationBattleManager battleManager,
                 GameLocationCharacter attacker,
                 GameLocationCharacter defender,
                 ActionModifier actionModifier,
                 RulesetEffect rulesetEffect,
                 List<EffectForm> actualEffectForms,
                 bool firstTarget,
-                bool criticalHit)
+                bool criticalHit
+                )
             {
                 var characterAttacker = attacker.RulesetCharacter;
 
@@ -641,6 +647,11 @@ internal static class EldritchVersatilityBuilders
 
                 warlockRepertoire.ExtraSpellsByTag.Remove("BattlefieldShorthand");
                 target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
+            }
+
+            public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier actionModifier, RulesetEffect rulesetEffect, List<EffectForm> actualEffectForms, bool firstTarget, bool criticalHit)
+            {
+                throw new NotImplementedException();
             }
         }
     }
@@ -1345,7 +1356,7 @@ internal static class EldritchVersatilityBuilders
             {
                 return;
             }
-
+            tag = hero.ActiveFeatures.Keys.Contains(tag) ? tag : hero.ActiveFeatures.Keys.Last();
             hero.ActiveFeatures[tag].TryAdd(PowerEldritchVersatilityPointPool);
             hero.ActiveFeatures[tag].TryAdd(PowerVersatilitySwitch);
         }
