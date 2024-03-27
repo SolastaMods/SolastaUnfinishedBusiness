@@ -26,4 +26,4 @@ Feature/&PowerDivineHeartEmpoweredHealingTitle=强效治疗
 Feature/&PowerDivineHeartPlanarPortalDescription=打开一个传送门，可以将一个友好的生物和你自己带到指定的目的地。
 Feature/&PowerDivineHeartPlanarPortalTitle=位面传送门
 Subclass/&SorcerousDivineHeartDescription=你与生俱来的魔力是由你可能理解也可能不理解其目的的神灵所赋予。
-Subclass/&SorcerousDivineHeartTitle=神圣之心
+Subclass/&SorcerousDivineHeartTitle=神圣之魂
