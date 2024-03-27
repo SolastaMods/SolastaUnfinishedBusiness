@@ -25,4 +25,4 @@ Reaction/&UseMoonlightGuiseReactDescription=变得隐形。
 Reaction/&UseMoonlightGuiseReactTitle=月光伪装
 Reaction/&UseMoonlightGuiseTitle=月光伪装
 Subclass/&PatronMoonlitScionDescription=你的守护神是月亮之灵，一个体现光明与黑暗循环本质的实体。这些神灵寻求维持夜空中月亮的力量，同时阻止那些追踪黑暗的亵渎力量，并赋予他们的邪术师同样的任务，让他们能够指挥月亮的力量及其影响。
-Subclass/&PatronMoonlitScionTitle=月夜
+Subclass/&PatronMoonlitScionTitle=月耀
