@@ -5,5 +5,5 @@ Feature/&FeatureSetBattlebornArcaneResilienceDescription=你生来就具有非�
 Feature/&FeatureSetBattlebornArcaneResilienceTitle=奥术韧性
 Feature/&FeatureSetBattlebornSpecializedInfusionDescription=你将获得你选择的一种技能熟练项和一种工具熟练项。
 Feature/&FeatureSetBattlebornSpecializedInfusionTitle=专业注能
-Race/&RaceBattlebornDescription=战俑是奥术实验的结果，融合肉体、炼金术和魔法，创造出完美的战场士兵。他们原本是作为武器而诞生的，现在必须找到战争之外的用途。战裔可以是忠诚的盟友，冷酷无情的杀戮机器，或者是寻找目的和意义的流浪灵魂。
+Race/&RaceBattlebornDescription=战俑是奥术实验的结果，融合肉体、炼金术和魔法，创造出完美的战场士兵。他们原本是作为武器而诞生的，现在必须找到战争之外的用途。战俑可以是忠诚的盟友，冷酷无情的杀戮机器，或者是寻找目的和意义的流浪灵魂。
 Race/&RaceBattlebornTitle=战俑
