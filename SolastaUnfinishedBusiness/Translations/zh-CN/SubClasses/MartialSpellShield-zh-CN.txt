@@ -10,5 +10,5 @@ Feature/&PowerSpellShieldArcaneDeflectionDescription=作为反应，你可以使
 Feature/&PowerSpellShieldArcaneDeflectionTitle=奥术偏转
 Feature/&PowerSpellShieldRangedDeflectionDescription=你可以用你的动作来瞄准最多 4 个友方生物。当护壁持续时，每个受影响的生物都会获得 +2 护甲等级。每次长休可以使用此特性一次。
 Feature/&PowerSpellShieldRangedDeflectionTitle=防护护壁
-Subclass/&MartialSpellShieldDescription=法术之盾是专门从事防御和保护的战士。他们使用魔法来帮助他们的天生能力。
-Subclass/&MartialSpellShieldTitle=法术之盾
+Subclass/&MartialSpellShieldDescription=奥法骑士是专门从事防御和保护的战士。他们使用魔法来帮助他们的天生能力。
+Subclass/&MartialSpellShieldTitle=奥法骑士
