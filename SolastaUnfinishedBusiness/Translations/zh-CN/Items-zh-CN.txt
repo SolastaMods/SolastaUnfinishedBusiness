@@ -1,4 +1,4 @@
-Feature/&PerceptionAffinityHelmOfAwarenessDescription=不能惊讶。
+Feature/&PerceptionAffinityHelmOfAwarenessDescription=不能被突袭。
 Feature/&PowerHandwrapsOfPullingDescription=作为一个附赠动作，你可以将 15 尺内的一个生物拉近你。
 Feature/&PowerHandwrapsOfPullingTitle=卷入
 Feedback/&ExtraDamageDescription=闪电矛的额外伤害。
@@ -320,7 +320,7 @@ Item/&HeavyCrossbow_Stormbow_Description=这把附魔武器由科尔萨宁的箭
 Item/&HeavyCrossbow_Stormbow_Title=风暴重弩
 Item/&HeavyCrossbow_Whiteburn_Description=这把附魔武器由马纳卡隆的铁匠大师的古老知识铸成。白燃是由第一代达南塔尔创造的，目的是对抗来自西奥塔芬河和斯卡拉芬河之间的沼泽地的巨魔入侵。
 Item/&HeavyCrossbow_Whiteburn_Title=白燃重弩
-Item/&HelmOfAwarenessDescription=佩戴此头盔并与它同调的生物在先攻检定上具有优势并且不会被惊吓，前提是它没有失能。
+Item/&HelmOfAwarenessDescription=佩戴此头盔并与它同调的生物在先攻检定上具有优势并且不会被突袭，前提是它没有失能。
 Item/&HelmOfAwarenessTitle=意识头盔
 Item/&HideArmor_Deflection_Description=这件附魔护甲由马纳卡隆的军械大师的古老知识制成。伊杜瑞尔·强手为皇帝的贴身卫队打造了第一件护甲。
 Item/&HideArmor_Deflection_Title=偏斜兽皮甲
