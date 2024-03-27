@@ -1,5 +1,8 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections;
+using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -58,7 +61,7 @@ public sealed class PathOfTheRavager : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Strength, 8)
-                    .SetParticleEffectParameters(PowerFighterActionSurge.EffectDescription.effectParticleParameters)
+                    .SetParticleEffectParameters(PowerBerserkerIntimidatingPresence)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -74,19 +77,29 @@ public sealed class PathOfTheRavager : AbstractSubclass
             c.HasConditionOfTypeOrSubType(ConditionRaging) &&
             c.GetRemainingPowerUses(powerIntimidatingPresence) > 0));
 
-        var powerIntimidatingPresenceRage = FeatureDefinitionPowerBuilder
+        var powerIntimidatingPresenceRageCost = FeatureDefinitionPowerBuilder
             .Create(powerIntimidatingPresence, $"Power{Name}IntimidatingPresenceRageCost")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.RagePoints)
             .AddToDB();
 
-        powerIntimidatingPresenceRage.AddCustomSubFeatures(new ValidatorsValidatePowerUse(c =>
+        powerIntimidatingPresenceRageCost.AddCustomSubFeatures(new ValidatorsValidatePowerUse(c =>
             c.HasConditionOfTypeOrSubType(ConditionRaging) &&
             c.GetRemainingPowerUses(powerIntimidatingPresence) == 0));
+
+        var powerIntimidatingPresenceNoCost = FeatureDefinitionPowerBuilder
+            .Create(powerIntimidatingPresence, $"Power{Name}IntimidatingPresenceNoCost")
+            .SetUsesFixed(ActivationTime.NoCost)
+            .AddToDB();
+
+        powerIntimidatingPresenceNoCost.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new MagicEffectFinishedByMeAnyIntimidatingPresence(powerIntimidatingPresenceNoCost));
 
         var featureSetIntimidatingPresence = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}IntimidatingPresence")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerIntimidatingPresence, powerIntimidatingPresenceRage)
+            .AddFeatureSet(
+                powerIntimidatingPresence, powerIntimidatingPresenceRageCost, powerIntimidatingPresenceNoCost)
             .AddToDB();
 
         // MAIN
@@ -110,4 +123,56 @@ public sealed class PathOfTheRavager : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private sealed class MagicEffectFinishedByMeAnyIntimidatingPresence(
+        FeatureDefinitionPower powerNoCost) : IMagicEffectFinishedByMeAny
+    {
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (powerNoCost == null)
+            {
+                yield break;
+            }
+
+            if (ServiceRepository.GetService<IGameLocationBattleService>()
+                    is not GameLocationBattleManager gameLocationBattleManager ||
+                ServiceRepository.GetService<IGameLocationActionService>()
+                    is not GameLocationActionManager gameLocationActionManager ||
+                ServiceRepository.GetService<IRulesetImplementationService>()
+                    is not RulesetImplementationManager implementationManagerService)
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(powerNoCost, rulesetCharacter);
+            var targets = gameLocationBattleManager.Battle
+                .GetContenders(attacker, attacker, true, withinRange: 6);
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                StringParameter = "IntimidatingPresence",
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
+            };
+
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+
+            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", attacker);
+
+            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+        }
+    }
 }

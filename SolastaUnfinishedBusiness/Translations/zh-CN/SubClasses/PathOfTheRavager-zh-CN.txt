@@ -1,10 +1,14 @@
 Feature/&AdditionalDamagePathOfTheRavagerFrenzyDescription=在你的回合中，如果你在狂暴时使用鲁莽攻击，那么你击中敌人的第一个基于力量的武器攻击会造成 2d6 点与你的武器相同类型的额外伤害。该伤害在 9 级时增加至 3d6，在 16 级时增加至 4d6。
 Feature/&AdditionalDamagePathOfTheRavagerFrenzyTitle=疯狂
-Feature/&FeatureSetPathOfTheRavagerIntimidatingPresenceDescription=当你愤怒时，你可以使用你的奖励行动，用你的威胁性的存在让别人感到恐惧。你周围 30 英尺内的每个敌方生物都必须进行一次感知豁免检定（DC 等于 8 + 你的熟练加值 + 你的力量调整值）。豁免失败后，生物会处于恐惧状态 1 分钟。在受惊生物的每个回合结束时，该生物会重复豁免检定，成功后会结束对自身的效果。一旦您使用此功能，您就无法再次使用它，直到完成一次长休息。如果您用完了此功能，您可以消耗一次怒气来再次使用它。
+Feature/&FeatureSetPathOfTheRavagerIntimidatingPresenceDescription=每当你以自由动作开始狂暴，并且当你在随后的回合中以奖励动作狂暴时，你就可以用你的威胁性的存在让其他人感到恐惧。你周围 30 英尺内的每个敌方生物都必须进行一次感知豁免检定（DC 等于 8 + 你的熟练加值 + 你的力量调整值）。豁免失败后，生物会处于恐惧状态 1 分钟。在受惊生物的每个回合结束时，该生物会重复豁免检定，成功后会结束对自身的效果。一旦您使用此功能，您就无法再次使用它，直到完成一次长休息。如果您用完了此功能，您可以消耗一次怒气来再次使用它。
 Feature/&FeatureSetPathOfTheRavagerIntimidatingPresenceTitle=令人生畏的存在
 Feature/&PowerPathOfTheRavagerIntimidatingPresenceDescription=当你愤怒时，你可以使用你的奖励行动，用你的威胁性的存在让别人感到恐惧。你周围 30 英尺内的每个敌方生物都必须进行一次感知豁免检定（DC 等于 8 + 你的熟练加值 + 你的力量调整值）。豁免失败后，生物会处于恐惧状态 1 分钟。在受惊生物的每个回合结束时，该生物会重复豁免检定，成功后会结束对自身的效果。一旦您使用此功能，您就无法再次使用它，直到完成一次长休息。如果您用完了此功能，您可以消耗一次怒气来再次使用它。
 Feature/&PowerPathOfTheRavagerIntimidatingPresenceTitle=令人生畏的存在
 Feedback/&AdditionalDamageFrenzyFormat=疯狂
 Feedback/&AdditionalDamageFrenzyLine=狂乱造成额外 +{2} 伤害！
+Reaction/&UseIntimidatingPresenceDescription=你可以免费使用你的威吓存在力量。
+Reaction/&UseIntimidatingPresenceReactDescription=你可以免费使用你的威吓存在力量。
+Reaction/&UseIntimidatingPresenceReactTitle=令人生畏的存在
+Reaction/&UseIntimidatingPresenceTitle=令人生畏的存在
 Subclass/&PathOfTheRavagerDescription=掠夺者之路是一条不受约束的愤怒之路，充满鲜血。当你进入掠夺者的狂怒时，你会在战斗的混乱中感到兴奋，不顾自己的健康或福祉。
 Subclass/&PathOfTheRavagerTitle=掠夺者之路
