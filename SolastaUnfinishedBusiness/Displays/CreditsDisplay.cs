@@ -32,7 +32,7 @@ internal static class CreditsDisplay
             "Ranger Gloom Stalker, Ranger Hellwalker, Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, Ranger Wildmaster, " +
             "Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Raven, Roguish Slayer, Roguish Umbral Stalker, " +
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, " +
-            "Way of the Discordance, Way of the Shadow, Way of the Tempest, Way of Weal and Woe, Way of Zen Archery, " +
+            "Way of Discordance, Way of Shadow, Way of Tempest, Way of Weal and Woe, Way of Zen Archery, " +
             "Wizard Bladesinger, Wizard Deadmaster, " +
             "Level 20, Lighting and Obscurement, Multiclass"),
 
@@ -46,7 +46,7 @@ internal static class CreditsDisplay
             "Patron Moonlit, " +
             "Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Raven, Roguish Slayer, Roguish Umbral Stalker, " +
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Psion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, " +
-            "Way of the Discordance, Way of the Shadow, Way of the Tempest, Way of Dragon, Way of Tempest, Way of Zen Archery]"),
+            "Way of Discordance, Way of Shadow, Way of Tempest, Way of Dragon, Way of Tempest, Way of Zen Archery]"),
 
         ("TPABOBAP",
             "behaviors, game UI, infrastructure, gameplay, quality of life, rules, " +

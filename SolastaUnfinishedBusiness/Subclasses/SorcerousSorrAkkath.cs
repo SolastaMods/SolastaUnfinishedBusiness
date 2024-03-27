@@ -136,8 +136,8 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
         var attributeModifierDarknessAffinity = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}{DarknessAffinity}")
             .SetGuiPresentation(DARKNESS_AFFINITY_NAME, Category.Feature)
-            .SetSituationalContext(ExtraSituationalContext.IsNotInBrightLight)
             .SetModifier(AttributeModifierOperation.Additive, ArmorClass, 2)
+            .SetSituationalContext(ExtraSituationalContext.IsNotInBrightLight)
             .AddToDB();
 
         var magicAffinityDarknessAffinity = FeatureDefinitionMagicAffinityBuilder
