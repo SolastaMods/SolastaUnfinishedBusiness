@@ -1,7 +1,9 @@
 1.5.97.3:
 
 - added Path of the Ravager subclass [UA Berserker]
-- fixed Ranger Wildmaster beast using char level instead of class level on HPs
+- added Skilled feat
+- fixed Ranger Wildmaster beast using char level instead of class level on HPs calculation
+- fixed Reckless Attack not working when activated by enemies
 
 1.5.97.2:
 

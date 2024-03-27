@@ -55,6 +55,7 @@ internal static class OtherFeats
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
+        var featSkilled = BuildSkilled();
         var featTough = BuildTough();
         var featVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var featWarCaster = BuildWarcaster();
@@ -87,6 +88,7 @@ internal static class OtherFeats
             featPoisonousSkin,
             featPolearmExpert,
             featSentinel,
+            featSkilled,
             featTough,
             featVersatilityAdept,
             featWarCaster);
@@ -145,7 +147,8 @@ internal static class OtherFeats
             FeatDefinitions.ArcaneAppraiser,
             FeatDefinitions.Manipulator,
             featHealer,
-            featPickPocket);
+            featPickPocket,
+            featSkilled);
     }
 
     #region Arcane Archer Adept
@@ -397,6 +400,33 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Tough
+
+    private static FeatDefinition BuildSkilled()
+    {
+        const string Name = "FeatSkilled";
+        
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetFeatures(
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPool{Name}Skill")
+                    .SetGuiPresentation("PointPoolBackgroundSkillSelect2", Category.Background)
+                    .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
+                    .OnlyUniqueChoices()
+                    .AddToDB(),
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPool{Name}Tool")
+                    .SetGuiPresentation("FeatSkilled", Category.Feat, "Feature/&ToolGainChoicesSingleDescription")
+                    .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
+                    .OnlyUniqueChoices()
+                    .AddToDB())
+            .SetGuiPresentation(Category.Feat)
+            .AddToDB();
+    }
+
+    #endregion
+    
     #region Tough
 
     private static FeatDefinition BuildTough()

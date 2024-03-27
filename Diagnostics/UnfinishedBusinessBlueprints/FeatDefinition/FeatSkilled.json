@@ -11,12 +11,15 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:PointPoolFeatSkilledSkill:2663e13f-8b29-564d-bcc3-8c4696442a92",
+    "Definition:PointPoolFeatSkilledTool:80aed497-26a3-5352-82d1-1c55e9e50794"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupSkillsTitle",
-    "description": "Arcane Appraiser, Healer, Manipulator, Pickpocket, Skilled",
+    "title": "Feat/&FeatSkilledTitle",
+    "description": "Feat/&FeatSkilledDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3a0ce468-e42e-5dcb-b43d-ec6205618dd0",
+  "guid": "15608992-a129-5019-94da-f95fa60695d5",
   "contentPack": 9999,
-  "name": "FeatGroupSkills"
+  "name": "FeatSkilled"
 }
