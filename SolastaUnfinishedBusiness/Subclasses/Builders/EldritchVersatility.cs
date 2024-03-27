@@ -593,14 +593,14 @@ internal static class EldritchVersatilityBuilders
             }
 
             public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-                GameLocationBattleManager battleManager,
                 GameLocationCharacter attacker,
                 GameLocationCharacter defender,
                 ActionModifier actionModifier,
                 RulesetEffect rulesetEffect,
                 List<EffectForm> actualEffectForms,
                 bool firstTarget,
-                bool criticalHit)
+                bool criticalHit
+                )
             {
                 var characterAttacker = attacker.RulesetCharacter;
 
@@ -647,6 +647,11 @@ internal static class EldritchVersatilityBuilders
 
                 warlockRepertoire.ExtraSpellsByTag.Remove("BattlefieldShorthand");
                 target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
+            }
+
+            public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier actionModifier, RulesetEffect rulesetEffect, List<EffectForm> actualEffectForms, bool firstTarget, bool criticalHit)
+            {
+                throw new NotImplementedException();
             }
         }
     }
