@@ -120,7 +120,8 @@ public sealed class PathOfTheRavager : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class MagicEffectFinishedByMeAnyIntimidatingPresence(
-        FeatureDefinitionPower powerLongRest, FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMeAny
+        FeatureDefinitionPower powerLongRest,
+        FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMeAny
     {
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
@@ -128,7 +129,8 @@ public sealed class PathOfTheRavager : AbstractSubclass
             GameLocationCharacter defender)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart)
+                characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart ||
+                characterActionUsePower.activePower.PowerDefinition.OverriddenPower != PowerBarbarianRageStart)
             {
                 yield break;
             }

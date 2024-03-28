@@ -13,6 +13,7 @@ using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -409,8 +410,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     }
 
     private sealed class MagicEffectFinishedByMeAnySpiritWalker(
-        FeatureDefinitionPower powerNoCost,
-        FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMeAny
+        FeatureDefinitionPower powerLongRest, FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMeAny
     {
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
@@ -418,14 +418,15 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             GameLocationCharacter defender)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != FeatureDefinitionPowers.PowerBarbarianRageStart)
+                characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart ||
+                characterActionUsePower.activePower.PowerDefinition.OverriddenPower != PowerBarbarianRageStart)
             {
                 yield break;
             }
 
             var rulesetCharacter = attacker.RulesetCharacter;
-            var power = rulesetCharacter.GetRemainingPowerUses(powerNoCost) > 0
-                ? powerNoCost
+            var power = rulesetCharacter.GetRemainingPowerUses(powerLongRest) > 0
+                ? powerLongRest
                 : rulesetCharacter.GetRemainingPowerUses(powerRageCost) > 0
                     ? powerRageCost
                     : null;

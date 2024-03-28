@@ -7,7 +7,7 @@
 - fixed Circle of the Stars constellation forms powers integration with wildshape one
 - fixed Circle of the Stars chalice and dragon constellation light range
 - fixed Ranger Wildmaster beast using char level instead of class level on HPs calculation
-- fixed Ranger Wildmaster bear and eagle second attacks
+- fixed Ranger Wildmaster bear and eagle second attacks and improved companion models
 - fixed Reckless Attack not working when activated by enemies or unarmed
 
 1.5.97.2:
