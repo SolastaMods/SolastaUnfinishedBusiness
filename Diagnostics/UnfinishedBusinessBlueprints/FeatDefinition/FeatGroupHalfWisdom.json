@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupHalfWisdomTitle",
-    "description": "Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Skill Expert [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision",
+    "description": "Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

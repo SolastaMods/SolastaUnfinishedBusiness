@@ -392,93 +392,84 @@ You use shields not just for protection but also for offense. You gain the follo
 • If you aren't incapacitated, gain +2 bonus to all Dexterity saving throws you make.
 • Whenever a damaging spell forces you to roll a Dexterity saving throw, you can use your reaction to halve any damage taken.
 
-# 82. - *Skill Expert* ©
-
-You have honed your proficiency with particular skills, granting you the following benefits:
-• Increase one ability score of your choice by 1, to a maximum of 20.
-• You gain proficiency in one skill of your choice.
-• You gain expertise in one skill of your choice.
-
-# 83. - *Skilled* ©
-
-You gain proficiency in two skills and one tool of your choice.
-
-# 84. - *Slasher* ©
+# 82. - *Slasher* ©
 
 Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
 
-# 85. - Slay thy Enemies
+# 83. - Slay thy Enemies
 
 You can use your bonus action and consume one ranger spell slot to focus your hunting knowledge against your enemies. You have a bonus to attack and damage rolls equal to the spell slot level used up to a maximum of 3. Against favored enemies you gain advantage on attack rolls instead pf attack roll bonus. This effect lasts for 2 rounds, plus 1 round per slot level used.
 
-# 86. - *Spear Mastery* ©
+# 84. - *Spear Mastery* ©
 
 Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it:
 • You gain a +1 bonus to attack rolls you make with a spear and its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands.
 • As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
 • As a bonus action, you can increase your reach with a spear by 5 ft for the rest of your turn.
 
-# 87. - *Spell Sniper* ©
+# 85. - *Spell Sniper* ©
 
 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 
-# 88. - Spiritual Fluidity
+# 86. - Spiritual Fluidity
 
 You may use a Channel Divinity usage to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 3 Channel Divinity usages. You can use it once per long rest.
 
-# 89. - *Squat Nimbleness* ©
+# 87. - *Squat Nimbleness* ©
 
 You are uncommonly nimble for your race. Increase your Strength or Dexterity score by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.
 
-# 90. - Superior Critical
+# 88. - Superior Critical
 
 Your critical threshold is lowered by 1.
 
-# 91. - *Telekinetic* ©
+# 89. - *Telekinetic* ©
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.
 
-# 92. - *Tough* ©
+# 90. - *Tough* ©
 
 Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 
-# 93. - Toxicologist
+# 91. - Toxicologist
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
 
-# 94. - Unarmored Expert
+# 92. - Unarmored Expert
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.
 
-# 95. - Verdant Touched
+# 93. - Verdant Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
 
-# 96. - Versatility Adept
+# 94. - Versatility Adept
 
 You gain Eldritch Versatility, with its pool size increased by your proficiency bonus and Versatility Switch. You learn 1 versatility.
+Eldritch Versatility: You gain an Eldritch Pool, which has a maximum of your warlock level. You gain 1 Eldritch Point whenever you hit an enemy with Eldritch Blast. After a long rest, the pool is reset.
+Versatility Switch: Each turn, you can switch among Strength, Intelligence, Wisdom or Versatile. If you choose an ability score, treat the chosen ability score as 10 + 2 * [Proficiency Bonus] when using versatilities. If you choose Versatile, your Strength, Intelligence and Wisdom gain a bonus equal to the amount of versatilities you have learnt.
 
-# 97. - *War Caster* ©
+# 95. - *War Caster* ©
 
 You gain advantage on checks to maintain concentration.
 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 
-# 98. - Wise Archery
+# 96. - Wise Archery
 
 Your intuition guides your hand when using a bow. Increase your Wisdom attribute by 1, to a maximum of 20. You can use your Wisdom modifier instead of your Dexterity modifer for the attack and damage rolls with these weapons.
 
-# 99. - Wise Defense
+# 97. - Wise Defense
 
 Increase your Wisdom by 1, to a maximum of 20.
 While you are not wearing any armor or shield, your armor class is equal to 10 + your Dexterity modifier + your Wisdom modifier.
 
-# 100. - Wise Precision
+# 98. - Wise Precision
 
 Increase your Wisdom by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Wisdom for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.

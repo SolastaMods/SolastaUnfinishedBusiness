@@ -5,6 +5,7 @@
 - added a check on UMM version at mod startup and exit earlier if not compatible
 - added Path of the Ravager subclass [UA Berserker]
 - fixed Circle of the Stars constellation forms powers integration with wildshape one
+- fixed Circle of the Stars chalice and dragon constellation light range
 - fixed Ranger Wildmaster beast using char level instead of class level on HPs calculation
 - fixed Ranger Wildmaster bear and eagle second attacks
 - fixed Reckless Attack not working when activated by enemies or unarmed
@@ -16,7 +17,7 @@
 - added 'Enable Barbarian regain one rage use over a short rest at level 7'
 - added 'Disable Barbarian brutal critical at levels 9, 13, and 17'
 - added 'Set Ring of Regeneration heal rate to 1 HP per 3 minutes' [by ImpPhil]
-- fixed Circle of the Moon archer constellation light range
+- fixed Circle of the Stars archer constellation light range
 - fixed Devastating Strikes feat as a better fit for Barbarians
 - fixed Inspired Leader feat temp HPs to endure until long rest
 

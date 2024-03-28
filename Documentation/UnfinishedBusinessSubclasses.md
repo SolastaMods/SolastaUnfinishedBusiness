@@ -3423,7 +3423,7 @@ You learn two Versatilities.
 
 * Versatility Switch
 
-Each turn, you can switch between Strength, Intelligence, Wisdom or Versatile. When using versatilities, treat the chosen ability score as 10 + 2 * Proficiency Bonus. If you choose versatile, your Strength, Intelligence or Wisdom gain a bonus equal to the amount of versatilities you have learnt.
+Each turn, you can switch among Strength, Intelligence, Wisdom or Versatile. If you choose an ability score, treat the chosen ability score as 10 + 2 * [Proficiency Bonus] when using versatilities. If you choose Versatile, your Strength, Intelligence and Wisdom gain a bonus equal to the amount of versatilities you have learnt.
 
 
 ### Level 6

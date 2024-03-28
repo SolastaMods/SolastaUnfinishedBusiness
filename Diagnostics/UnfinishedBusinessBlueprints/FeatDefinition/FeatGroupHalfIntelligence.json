@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupHalfIntelligenceTitle",
-    "description": "Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Skill Expert [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]",
+    "description": "Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
