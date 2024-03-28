@@ -31,6 +31,7 @@ internal static class MulticlassWildshapeContext
     internal static void FinalizeMonster(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
     {
         UpdateSenses(monster);
+        UpdateUsablePowers(monster);
         UpdateAttributeModifiers(monster, keepMentalAbilityScores);
         FixShapeShiftedAc(monster);
     }
@@ -97,6 +98,26 @@ internal static class MulticlassWildshapeContext
                      .Where(feature => !monster.ActiveFeatures.Contains(feature)))
         {
             monster.ActiveFeatures.Add(feature);
+        }
+    }
+
+    //PATCH: correctly syncs powers used by hero into WS monster
+    private static void UpdateUsablePowers(RulesetCharacterMonster monster)
+    {
+        if (monster.originalFormCharacter is not RulesetCharacterHero hero)
+        {
+            return;
+        }
+
+        foreach (var usablePower in hero.UsablePowers)
+        {
+            var monsterUsablePower =
+                monster.UsablePowers.FirstOrDefault(x => x.PowerDefinition == usablePower.PowerDefinition);
+
+            if (monsterUsablePower != null)
+            {
+                monsterUsablePower.remainingUses = usablePower.remainingUses;
+            }
         }
     }
 

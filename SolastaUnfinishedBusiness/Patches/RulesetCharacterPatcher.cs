@@ -269,6 +269,33 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    //PATCH: correctly syncs powers used during WS back to original hero
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.SetupFromSubstituteCharacter))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SetupFromSubstituteCharacter_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetCharacter __instance, RulesetActor substituteActor)
+        {
+            if (substituteActor is not RulesetCharacterMonster monster)
+            {
+                return;
+            }
+
+            foreach (var usablePower in monster.UsablePowers)
+            {
+                var heroUsablePower =
+                    __instance.UsablePowers.FirstOrDefault(x => x.PowerDefinition == usablePower.PowerDefinition);
+
+                if (heroUsablePower != null)
+                {
+                    heroUsablePower.remainingUses = usablePower.remainingUses;
+                }
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.GetAbilityScoreOfPower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
