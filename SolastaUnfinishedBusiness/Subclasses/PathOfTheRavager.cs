@@ -73,33 +73,28 @@ public sealed class PathOfTheRavager : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerIntimidatingPresence.AddCustomSubFeatures(new ValidatorsValidatePowerUse(c =>
-            c.HasConditionOfTypeOrSubType(ConditionRaging) &&
-            c.GetRemainingPowerUses(powerIntimidatingPresence) > 0));
+        powerIntimidatingPresence.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(c =>
+                c.HasConditionOfTypeOrSubType(ConditionRaging) &&
+                c.GetRemainingPowerUses(powerIntimidatingPresence) > 0));
 
         var powerIntimidatingPresenceRageCost = FeatureDefinitionPowerBuilder
             .Create(powerIntimidatingPresence, $"Power{Name}IntimidatingPresenceRageCost")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.RagePoints)
             .AddToDB();
 
-        powerIntimidatingPresenceRageCost.AddCustomSubFeatures(new ValidatorsValidatePowerUse(c =>
-            c.HasConditionOfTypeOrSubType(ConditionRaging) &&
-            c.GetRemainingPowerUses(powerIntimidatingPresence) == 0));
-
-        var powerIntimidatingPresenceNoCost = FeatureDefinitionPowerBuilder
-            .Create(powerIntimidatingPresence, $"Power{Name}IntimidatingPresenceNoCost")
-            .SetUsesFixed(ActivationTime.NoCost)
-            .AddToDB();
-
-        powerIntimidatingPresenceNoCost.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
-            new MagicEffectFinishedByMeAnyIntimidatingPresence(powerIntimidatingPresenceNoCost));
+        powerIntimidatingPresenceRageCost.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(c =>
+                c.HasConditionOfTypeOrSubType(ConditionRaging) &&
+                c.GetRemainingPowerUses(powerIntimidatingPresence) == 0),
+            new MagicEffectFinishedByMeAnyIntimidatingPresence(
+                powerIntimidatingPresence, powerIntimidatingPresenceRageCost));
 
         var featureSetIntimidatingPresence = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}IntimidatingPresence")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                powerIntimidatingPresence, powerIntimidatingPresenceRageCost, powerIntimidatingPresenceNoCost)
+                powerIntimidatingPresence, powerIntimidatingPresenceRageCost)
             .AddToDB();
 
         // MAIN
@@ -125,7 +120,7 @@ public sealed class PathOfTheRavager : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class MagicEffectFinishedByMeAnyIntimidatingPresence(
-        FeatureDefinitionPower powerNoCost) : IMagicEffectFinishedByMeAny
+        FeatureDefinitionPower powerLongRest, FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMeAny
     {
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
@@ -140,13 +135,19 @@ public sealed class PathOfTheRavager : AbstractSubclass
 
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (powerNoCost == null)
+            var power = rulesetCharacter.GetRemainingPowerUses(powerLongRest) > 0
+                ? powerLongRest
+                : rulesetCharacter.GetRemainingPowerUses(powerRageCost) > 0
+                    ? powerRageCost
+                    : null;
+
+            if (power == null)
             {
                 yield break;
             }
 
             if (ServiceRepository.GetService<IGameLocationBattleService>()
-                    is not GameLocationBattleManager gameLocationBattleManager ||
+                    is not GameLocationBattleManager { IsBattleInProgress: true } gameLocationBattleManager ||
                 ServiceRepository.GetService<IGameLocationActionService>()
                     is not GameLocationActionManager gameLocationActionManager ||
                 ServiceRepository.GetService<IRulesetImplementationService>()
@@ -155,7 +156,7 @@ public sealed class PathOfTheRavager : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(powerNoCost, rulesetCharacter);
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var targets = gameLocationBattleManager.Battle
                 .GetContenders(attacker, attacker, true, withinRange: 6);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
@@ -173,6 +174,16 @@ public sealed class PathOfTheRavager : AbstractSubclass
             gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", attacker);
 
             yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            if (power == powerRageCost)
+            {
+                rulesetCharacter.SpendRagePoint();
+            }
         }
     }
 }
