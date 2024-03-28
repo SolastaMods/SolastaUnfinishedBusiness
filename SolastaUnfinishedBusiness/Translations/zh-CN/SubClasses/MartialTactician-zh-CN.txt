@@ -1,4 +1,4 @@
-Feature/&FeatureAdaptiveStrategyDescription=每当你在一次攻击中投出严重失误或致命一击时，就会获得一个卓越骰。这种增益每回合只能发生一次，并且不会使你超过最大卓越骰限制。
+Feature/&FeatureAdaptiveStrategyDescription=每当你在一次攻击骰中掷出严重失误或重击时，就会获得一个卓越骰。每回合至多以此法获得一个卓越骰，并且不会使你超过最大卓越骰限制。
 Feature/&FeatureAdaptiveStrategyTitle=战技：适应
 Feature/&FeatureImproviseStrategyDescription=将你的卓越骰最大值增加 2。
 Feature/&FeatureImproviseStrategyTitle=战技：即兴发挥
@@ -12,7 +12,7 @@ Feature/&FeatureSetTacticianHonedCraftDescription=获得你选择的技能或工
 Feature/&FeatureSetTacticianHonedCraftTitle=砥砺技能
 Feature/&FeatureSetTacticianSharpMindDescription=获得你选择的技能熟练项。
 Feature/&FeatureSetTacticianSharpMindTitle=欺骗思想
-Feature/&FeatureSetTacticianTacticalAwarenessDescription=当你没有失能时，你将获得以下好处：\n• 每回合一次，你的武器攻击会造成相当于你熟练加值的额外伤害。\n• 你进行的借机攻击具有优势。\n• 对你的借机攻击是在劣势的情况下进行的。
+Feature/&FeatureSetTacticianTacticalAwarenessDescription=当你没有失能时，你将获得以下好处：\n• 每回合一次，你的武器攻击会造成相当于你熟练加值的额外伤害。\n• 你进行的借机攻击具有优势。\n• 对你的借机攻击具有劣势。
 Feature/&FeatureSetTacticianTacticalAwarenessTitle=战术意识
 Feature/&FeatureTacticianGambitDieSizeD10Description=你的卓越骰升级为 D10。
 Feature/&FeatureTacticianGambitDieSizeD10Title=开局骰子尺寸 (d10)
