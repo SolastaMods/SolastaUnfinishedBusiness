@@ -18,7 +18,7 @@ ModUi/&AllRecipesInDm=冒险中的所有配方
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序列</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿<color=#D89555>森林之甲</color>或<color=#D89555>光明使者之衣</color>
 ModUi/&AllowBeardlessDwarves=允许无须<color=#D89555>矮人</color>
-ModUi/&AllowClubsToBeThrown=允许木棒像匕首或手斧一样投掷
+ModUi/&AllowClubsToBeThrown=允许 <color=#D89555>短棒</color> 像 <color=#D89555>匕首</color> 或 <color=#D89555>手斧</color> 一样投掷
 ModUi/&AllowDisplayingNonSuggestedSpells=允许在每个列表上使用 mod 非建议的法术
 ModUi/&AllowDisplayingOfficialSpells=允许每个列表中使用游戏官方法术
 ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>穿上金属盔甲
@@ -49,7 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>更改日志</color></b>
 ModUi/&Character=特点
 ModUi/&CharactersPool=角色池
 ModUi/&Classes=<color=#F0DAA0>职业</color>
-ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>冷冻免疫</color>还赋予对冻寒和冻结条件的免疫力
+ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>冷冻免疫</color>还赋予对冻寒和冻结条件的免疫
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>冷冻抗性</color>还可以增强对冻寒状态的免疫，并将冻结状态降低为冻寒状态
 ModUi/&Combat=<color=#F0DAA0>战斗：</color>
 ModUi/&Crafting=<color=#F0DAA0>制作：</color>
@@ -231,8 +231,8 @@ ModUi/&RemoveAttunementRequirements=删除同调要求<b><i><color=#C04040E0>[�
 ModUi/&RemoveBugVisualModels=用游戏中的替代视觉效果替换蜘蛛类模型<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=移除<color=#D89555>狂笑术</color>的类人敌人限制
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>缠绕</color>效果，并强制进行力量检定以挣脱藤蔓
-ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除<color=#D89555>Shadowcaster</color>的学派限制
-ModUi/&RemoveSchoolRestrictionsFromSpellBlade=移除<color=#D89555>Spellblade</color>的学派限制
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除<color=#D89555>暗影法师</color>的学派限制
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=移除<color=#D89555>法刃</color>的学派限制
 ModUi/&RestockAntiquarians=补货古文物协会<i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=补货奥术协会<i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=补货丹塔尔之环<i><color=#F0DAA0>[Joriel Foxeye]</color></i>
@@ -255,7 +255,7 @@ ModUi/&SettingsLoad=•加载导出的设置
 ModUi/&SettingsOpenFolder=打开导出的设置文件夹
 ModUi/&SettingsRefresh=刷新
 ModUi/&SettingsRemove=移除
-ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[测试]</color></b>显示按钮，打开有关受控怪物的信息<i><color=#F0DAA0>[野性德鲁伊、召唤物、NPC追随者等。]</color></i>
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[测试]</color></b>显示按钮，打开有关受控怪物的信息<i><color=#F0DAA0>[荒野形态德鲁伊、召唤物、NPC追随者等。]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=在英雄头像上显示<color=#D89555>引导神力</color>次数，类似于法术位
 ModUi/&ShowCraftedItemOnRecipeIcon=在商店和库存中的配方项目附近显示制作的项目图标 <i><color=#F0DAA0>[将鼠标悬停在它上面将显示制作物品的工具提示]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细的工具提示中显示制作配方
@@ -270,7 +270,7 @@ ModUi/&StealthBreaksWhenCastingVerbose=施放言语成分法术时启用隐匿�
 ModUi/&StealthDoesNotBreakWithSubtle=如果 <color=#D89555>精妙超魔</color> 并且没有材料成分，则启用隐匿不会破坏
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=格罗姆的商店出售所有非魔法服装<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=格罗姆的商店出售所有非魔法乐器<b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=在雨果的商店将<color=#D89555>奥术法杖</color>、<color=#D89555>德鲁伊项链</color>、<color=#D89555>法杖</color>和<color=#D89555>棍棒</color>设置为焦点项目
+ModUi/&StockHugoStoreWithAdditionalFoci=在雨果的商店将<color=#D89555>奥术法杖</color>、<color=#D89555>德鲁伊项链</color>、<color=#D89555>法杖</color>和<color=#D89555>短棒</color>设置为法器项目
 ModUi/&Subclasses=<color=#F0DAA0>子职</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+在商店中交换配方和制作的物品图标</i>
 ModUi/&TargetLanguage=目标语言
@@ -297,7 +297,7 @@ ModUi/&UseOfficialFlankingRules=使用官方 DnD 夹击规则<i><color=#F0DAA0>[
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 还可以进行远程攻击<color=#F0DAA0>[禁用精确数学]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 还启用触及攻击<color=#F0DAA0>[禁用精确数学]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 将优势改为 +1 攻击掷骰</i>
-ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到2磅
-ModUi/&UseOfficialObscurementRules=使用官方的<color=#D89555>光照、掩蔽和视野</color>战斗规则\n<i><color=#F0DAA0>[察觉到防御者的攻击者获得 优势，没有察觉到的攻击者获得 劣势\n 严重掩蔽的区域造成失明状态，其中针对该生物的攻击骰具有 优势，并且该生物的攻击骰具有 劣势\n 如果攻击者没有视野，则无法施放针对个人的所有距离法术，除了那些明确没有说明需要视野的]</color></i>
+ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到 2 磅
+ModUi/&UseOfficialObscurementRules=使用官方的<color=#D89555>光照、掩蔽和视野</color>战斗规则\n<i><color=#F0DAA0>[察觉到防御者的攻击者获得优势，没有察觉到的攻击者获得劣势\n 严重掩蔽的区域造成失明状态，其中针对该生物的攻击骰具有优势，并且该生物的攻击骰具有劣势\n 如果攻击者没有视野，则无法施放针对个人的所有距离法术，除了那些明确没有说明需要视野的]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时请使用官方<color=#D89555>小型体型种族规则</color><i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
