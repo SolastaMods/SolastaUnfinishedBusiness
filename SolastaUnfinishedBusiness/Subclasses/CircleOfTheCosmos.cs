@@ -73,17 +73,20 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
         // Constellation Form
 
-        var powerConstellationForm = FeatureDefinitionPowerSharedPoolBuilder
+        var powerConstellationForm = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ConstellationForm")
             .SetGuiPresentation($"FeatureSet{Name}ConstellationForm", Category.Feature,
                 Sprites.GetSprite("ConstellationForm", Resources.PowerConstellationForm, 256, 128))
-            .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
             .AddToDB();
 
-        var powerArcherConstellationForm = BuildArcher(ActivationTime.BonusAction);
-        var powerChaliceConstellationForm = BuildChalice(ActivationTime.BonusAction);
-        var powerDragonConstellationForm = BuildDragon(ActivationTime.BonusAction);
+        powerConstellationForm.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(c => c is not RulesetCharacterMonster),
+            new MagicEffectFinishedByMeAnyConstellationForm(powerConstellationForm));
 
+        var powerArcherConstellationForm = BuildArcher(ActivationTime.BonusAction, powerConstellationForm);
+        var powerChaliceConstellationForm = BuildChalice(ActivationTime.BonusAction, powerConstellationForm);
+        var powerDragonConstellationForm = BuildDragon(ActivationTime.BonusAction, powerConstellationForm);
         var featureSetConstellationForm = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ConstellationForm")
             .SetGuiPresentation(Category.Feature)
@@ -102,6 +105,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             powerDragonConstellationForm);
         ForceGlobalUniqueEffects.AddToGroup(
             ForceGlobalUniqueEffects.Group.ConstellationForm,
+            PowerDruidWildShape,
             powerArcherConstellationForm, powerChaliceConstellationForm, powerDragonConstellationForm);
 
         // LEVEL 06
@@ -292,7 +296,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static FeatureDefinitionPowerSharedPool BuildArcher(ActivationTime activationTime)
+    private static FeatureDefinitionPowerSharedPool BuildArcher(
+        ActivationTime activationTime, FeatureDefinitionPower pool)
     {
         var powerArcher = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Archer")
@@ -365,7 +370,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var powerArcherConstellationForm = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ArcherConstellationForm")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetSharedPool(activationTime, PowerDruidWildShape)
+            .SetSharedPool(activationTime, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -392,7 +397,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         return powerArcherConstellationForm;
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildChalice(ActivationTime activationTime)
+    private static FeatureDefinitionPowerSharedPool BuildChalice(
+        ActivationTime activationTime, FeatureDefinitionPower pool)
     {
         var powerChalice = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Chalice")
@@ -451,7 +457,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var powerChaliceConstellationForm = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ChaliceConstellationForm")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetSharedPool(activationTime, PowerDruidWildShape)
+            .SetSharedPool(activationTime, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -477,7 +483,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         return powerChaliceConstellationForm;
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildDragon(ActivationTime activationTime)
+    private static FeatureDefinitionPowerSharedPool BuildDragon(
+        ActivationTime activationTime, FeatureDefinitionPower pool)
     {
         var dieRollModifierDragonAbility = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}DragonAbility")
@@ -559,7 +566,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var powerDragonConstellationForm = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}DragonConstellationForm")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetSharedPool(activationTime, PowerDruidWildShape)
+            .SetSharedPool(activationTime, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -588,6 +595,39 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     //
     // Constellation Form
     //
+
+    private sealed class MagicEffectFinishedByMeAnyConstellationForm(FeatureDefinitionPower pool)
+        : IMagicEffectFinishedByMeAny
+    {
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            if (action.ActionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
+            {
+                yield break;
+            }
+
+            RulesetUsablePower usablePower;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetEffectPower.PowerDefinition == PowerDruidWildShape)
+            {
+                usablePower = PowerProvider.Get(pool, rulesetAttacker);
+                rulesetAttacker.UsePower(usablePower);
+                // this is required as MulticlassWildshapeContext.UpdateUsablePowers get called before
+                usablePower = PowerProvider.Get(pool, rulesetAttacker.OriginalFormCharacter);
+                rulesetAttacker.UsePower(usablePower);
+            }
+            else if (rulesetEffectPower.PowerDefinition is FeatureDefinitionPowerSharedPool powerSharedPool &&
+                     powerSharedPool.SharedPool == pool)
+            {
+                usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetAttacker);
+                rulesetAttacker.UsePower(usablePower);
+            }
+        }
+    }
 
     private sealed class ModifyEffectDescriptionConstellationForm(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor

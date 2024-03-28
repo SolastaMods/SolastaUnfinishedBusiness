@@ -2,8 +2,9 @@
 
 *** ATTENTION ***: ONLY COMPATIBLE UMM versions are between 0.24.0 and 0.27.10. MOD WON'T BOOT WITH ANYTHING ELSE.
 
-- added a check on UMM version on mod startup and exit earlier if not compatible
+- added a check on UMM version at mod startup and exit earlier if not compatible
 - added Path of the Ravager subclass [UA Berserker]
+- fixed Circle of the Stars constellation forms powers integration with wildshape one
 - fixed Ranger Wildmaster beast using char level instead of class level on HPs calculation
 - fixed Ranger Wildmaster bear and eagle second attacks
 - fixed Reckless Attack not working when activated by enemies or unarmed
