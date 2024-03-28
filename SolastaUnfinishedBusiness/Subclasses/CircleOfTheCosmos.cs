@@ -468,7 +468,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetLightSourceForm(
-                                LightSourceType.Basic, 10, 10,
+                                LightSourceType.Basic, 2, 2,
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
@@ -577,7 +577,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetLightSourceForm(
-                                LightSourceType.Basic, 10, 10,
+                                LightSourceType.Basic, 2, 2,
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())

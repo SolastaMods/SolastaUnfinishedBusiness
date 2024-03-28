@@ -55,7 +55,6 @@ internal static class OtherFeats
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
-        var featSkilled = BuildSkilled();
         var featTough = BuildTough();
         var featVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var featWarCaster = BuildWarcaster();
@@ -63,7 +62,6 @@ internal static class OtherFeats
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
-        var skillExpertGroup = BuildSkillExpert(feats);
 
         // building this way to keep backward compatibility
         var featMonkShieldExpert = BuildFeatFromFightingStyle(MonkShieldExpert.ShieldExpertName);
@@ -89,7 +87,6 @@ internal static class OtherFeats
             featPoisonousSkin,
             featPolearmExpert,
             featSentinel,
-            featSkilled,
             featTough,
             featVersatilityAdept,
             featWarCaster);
@@ -148,9 +145,7 @@ internal static class OtherFeats
             FeatDefinitions.ArcaneAppraiser,
             FeatDefinitions.Manipulator,
             featHealer,
-            featPickPocket,
-            featSkilled,
-            skillExpertGroup);
+            featPickPocket);
     }
 
     #region Arcane Archer Adept
@@ -402,6 +397,7 @@ internal static class OtherFeats
 
     #endregion
 
+#if false
     #region Skilled
 
     private static FeatDefinition BuildSkilled()
@@ -469,6 +465,8 @@ internal static class OtherFeats
     }
 
     #endregion
+
+#endif
 
     #region Tough
 

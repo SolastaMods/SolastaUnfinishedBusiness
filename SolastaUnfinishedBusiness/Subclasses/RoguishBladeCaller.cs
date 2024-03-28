@@ -43,7 +43,6 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionTargetedByGuidingBolt)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
             .AddToDB();
 
         var additionalDamageBladeMark = FeatureDefinitionAdditionalDamageBuilder
