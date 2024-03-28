@@ -33,7 +33,7 @@
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
-  "additionalDamageType": "",
+  "additionalDamageType": "Ranger",
   "additionalDamageQuantity": "AbilityBonus",
   "additionalDamageDieType": "D1",
   "additionalDamageDieNumber": 1,

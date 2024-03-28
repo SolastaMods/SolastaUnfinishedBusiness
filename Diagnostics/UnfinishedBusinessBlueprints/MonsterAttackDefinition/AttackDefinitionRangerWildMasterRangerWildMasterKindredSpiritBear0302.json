@@ -91,12 +91,12 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 2,
-          "dieType": "D4",
+          "diceNumber": 1,
+          "dieType": "D10",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
-          "damageType": "DamageSlashing",
+          "damageType": "DamagePiercing",
           "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
@@ -135,7 +135,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "9965935bbc0e77a4f83847531aa62d74",
+        "m_AssetGUID": "bfca154d6d0a635488be19794a6e8a7c",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -183,7 +183,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3032162b7f87dbd47ac3086fcc378425",
+        "m_AssetGUID": "483954b672766974b994d40d183c07f0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -314,7 +314,7 @@
   "itemDefinitionMainHand": null,
   "itemDefinitionOffHand": null,
   "useAnimationTag": true,
-  "animationTag": "Dagger",
+  "animationTag": "NoWeapon",
   "isMultiattack": false,
   "multiattackParticles": [],
   "multiattackImpactParticles": [],
@@ -355,10 +355,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Claw_Heavy",
-        "id": 1423590348,
-        "guid": "A16416FB-C4A3-4682-B4FE-E8E5743FC4A4",
-        "name": "A16416FB-C4A3-4682-B4FE-E8E5743FC4A4"
+        "objectName": "Bite",
+        "id": 1645043423,
+        "guid": "46E28CEC-4B37-486B-B67E-2D6A15692B3C",
+        "name": "46E28CEC-4B37-486B-B67E-2D6A15692B3C"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {
@@ -375,12 +375,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "MonsterAttacks/&Attack_Claws_Title",
+    "title": "MonsterAttacks/&Attack_Bite_Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b36b8f3eeb5447e41b86004e886c3170",
-      "m_SubObjectName": "Attack_Spirit_Bear_Claw",
+      "m_AssetGUID": "51b34961094b1c2429dd6f949310a7ce",
+      "m_SubObjectName": "Attack_Spirit_Bear_Bite",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
