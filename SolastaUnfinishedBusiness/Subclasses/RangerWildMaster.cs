@@ -111,7 +111,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, RangerClass)
                     .SetFeatures(HpBonus, HpBonus, HpBonus, HpBonus, HpBonus)
                     .AddToDB())
             .AddToDB();
@@ -513,7 +513,7 @@ public sealed class RangerWildMaster : AbstractSubclass
         beastCompanionAttack1.EffectDescription.FindFirstDamageForm().BonusDamage = 0;
 
         var beastCompanionAttack2 = MonsterAttackDefinitionBuilder
-            .Create(beastCompanion03.AttackIterations[0].MonsterAttackDefinition,
+            .Create(beastCompanion03.AttackIterations[1].MonsterAttackDefinition,
                 $"AttackDefinition{Name}{beastCompanion03.Name}02")
             .AddToDB();
 
@@ -625,7 +625,7 @@ public sealed class RangerWildMaster : AbstractSubclass
         beastCompanionAttack1.EffectDescription.FindFirstDamageForm().BonusDamage = 0;
 
         var beastCompanionAttack2 = MonsterAttackDefinitionBuilder
-            .Create(beastCompanion03.AttackIterations[0].MonsterAttackDefinition,
+            .Create(beastCompanion03.AttackIterations[1].MonsterAttackDefinition,
                 $"AttackDefinition{Name}{beastCompanion03.Name}02")
             .AddToDB();
 
