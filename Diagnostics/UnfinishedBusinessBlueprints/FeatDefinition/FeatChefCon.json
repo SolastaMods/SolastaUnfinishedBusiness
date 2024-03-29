@@ -8,15 +8,19 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatChef",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0",
+    "Definition:PowerFeatChefCookMeal:5915ec28-4dad-59f9-9e00-930a82223a78",
+    "Definition:PowerFeatChefCookTreat:6f753be6-0727-5ab4-a720-5caaed19fb9a"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfConstitutionTitle",
-    "description": "Awaken the Beast [Con], Badlands Marauder, Chef [Con], Creed of Arun, Crusher [Con], Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra",
+    "title": "Feat/&FeatChefConTitle",
+    "description": "Feat/&FeatChefConDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d0acb623-d0e3-5abb-a409-4c3dc88d470d",
+  "guid": "9d6be418-4ca7-553d-80e0-551c44a51ffd",
   "contentPack": 9999,
-  "name": "FeatGroupHalfConstitution"
+  "name": "FeatChefCon"
 }

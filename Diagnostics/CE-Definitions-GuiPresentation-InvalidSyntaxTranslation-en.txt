@@ -709,17 +709,17 @@ DieRollModifierDamageTypeDependentFeatElementalMasterDamagePoison	Description='P
 DieRollModifierDamageTypeDependentFeatElementalMasterDamageThunder	Title='Elemental Master [Thunder]'.
 DieRollModifierDamageTypeDependentFeatElementalMasterDamageThunder	Description='Thunder damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.'.
 FeatAwakenTheBeastWithinCharisma	Title='Awaken the Beast [Cha]'.
-FeatAwakenTheBeastWithinCharisma	Description='Increase your Charisma score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatAwakenTheBeastWithinCharisma	Description='Increase your Charisma by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
 FeatAwakenTheBeastWithinConstitution	Title='Awaken the Beast [Con]'.
-FeatAwakenTheBeastWithinConstitution	Description='Increase your Constitution score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatAwakenTheBeastWithinConstitution	Description='Increase your Constitution by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
 FeatAwakenTheBeastWithinDexterity	Title='Awaken the Beast [Dex]'.
-FeatAwakenTheBeastWithinDexterity	Description='Increase your Dexterity score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatAwakenTheBeastWithinDexterity	Description='Increase your Dexterity by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
 FeatAwakenTheBeastWithinIntelligence	Title='Awaken the Beast [Int]'.
-FeatAwakenTheBeastWithinIntelligence	Description='Increase your Intelligence score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatAwakenTheBeastWithinIntelligence	Description='Increase your Intelligence by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
 FeatAwakenTheBeastWithinStrength	Title='Awaken the Beast [Str]'.
-FeatAwakenTheBeastWithinStrength	Description='Increase your Strength score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatAwakenTheBeastWithinStrength	Description='Increase your Strength by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
 FeatAwakenTheBeastWithinWisdom	Title='Awaken the Beast [Wis]'.
-FeatAwakenTheBeastWithinWisdom	Description='Increase your Wisdom score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatAwakenTheBeastWithinWisdom	Description='Increase your Wisdom by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
 FeatElementalAdeptDamageAcid	Title='Elemental Adept [Acid]'.
 FeatElementalAdeptDamageAcid	Description='Acid damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.'.
 FeatElementalAdeptDamageCold	Title='Elemental Adept [Cold]'.
@@ -751,11 +751,14 @@ FeatGroupAlchemist	Description='Initiate Alchemist, Master Alchemist'.
 FeatGroupApothecary	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and medicine, or expertise if already proficient.'.
 FeatGroupArmor	Description='Armor Master, Discretion of the Coedymwarth, Heavy Armor Master, Medium Armor Master, Might of the Iron Legion, Moderately Armored, Sturdiness of the Tundra'.
-FeatGroupAwakenTheBeastWithin	Description='Increase any ability score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
-FeatGroupBlessedSoul	Description='Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.'.
+FeatGroupAwakenTheBeastWithin	Description='Increase any ability by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatGroupBlessedSoul	Description='Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.'.
 FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hauler, Robust, Tough'.
 FeatGroupCelestialTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.'.
+FeatGroupChef	Description='Increase your Wisdom or Constitution by 1, to a maximum of 20.
+You can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.
+Once a day, you may spend an hour to cook treats that provide temporary HP when eaten.'.
 FeatGroupClassBound	Description='Awaken the Beast, Blessed Soul, Call for Charge, Close Quarters, Cunning Escape, Expand the Hunt, Exploiter, Hardy, Natural Fluidity, Poisoner, Potent Spellcaster, Primal Rage, Slay thy Enemies, Spiritual Fluidity'.
 FeatGroupCloseQuarters	Description='You are experienced with fighting in close quarters and gain the following benefits:
 • Your Dexterity or Intelligence increases by 1, to a maximum of 20.
@@ -772,26 +775,26 @@ FeatGroupElementalMaster	Description='When you gain this feat, choose one of the
 FeatGroupElementalTouch	Description='The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional elemental damage equal to your proficiency bonus.'.
 FeatGroupElvenAccuracy	Description='You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity or one of your mental attributes by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.'.
 FeatGroupEnchanter	Description='Initiate Enchanter, Master Enchanter'.
-FeatGroupFadeAway	Description='You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity or Intelligence score by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.'.
+FeatGroupFadeAway	Description='You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity or Intelligence by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.'.
 FeatGroupFightingStyle	Description='Archery, Defense, Dueling, Great Weapon Fighting, Protection, Two Weapon Fighting'.
 FeatGroupFlameTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.'.
 FeatGroupGeneralAdept	Description='Arcane Archer Adept, Eldritch Adept, Fighting Initiate, Infusion Adept, Magic Initiate, Martial Adept, Metamagic Adept, Versatility Adept'.
 FeatGroupHalfAttributes	Description='Half Charisma, Half Constitution, Half Dexterity, Half Intelligence, Half Strength, Half Wisdom'.
 FeatGroupHalfCharisma	Description='Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Elven Accuracy [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Iridescent Touched [Cha], Peregrination Touched [Cha], Retinue Touched [Cha], Second Chance [Cha], Shadow Touched [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]'.
-FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Creed of Arun, Crusher [Con], Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra'.
+FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Chef [Con], Creed of Arun, Crusher [Con], Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra'.
 FeatGroupHalfDexterity	Description='Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy'.
 FeatGroupHalfIntelligence	Description='Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]'.
 FeatGroupHalfStrength	Description='Awaken the Beast [Str], Creed of Einar, Crusher [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str]'.
-FeatGroupHalfWisdom	Description='Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision'.
-FeatGroupHardy	Description='Increase your Strength or Constitution score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.'.
+FeatGroupHalfWisdom	Description='Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Chef [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision'.
+FeatGroupHardy	Description='Increase your Strength or Constitution by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.'.
 FeatGroupIridescentTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.'.
 FeatGroupMagicInitiate	Description='Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatGroupMediumArmor	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.'.
 FeatGroupMeleeCombat	Description='Always Ready, Blade Mastery, Charger, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Polearm Master, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack'.
-FeatGroupOldTactics	Description='Increase your Strength or Dexterity score by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.'.
+FeatGroupOldTactics	Description='Increase your Strength or Dexterity by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.'.
 FeatGroupPeregrinationTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.'.
 FeatGroupPiercer	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
@@ -800,24 +803,24 @@ FeatGroupPlaneTouchedMagic	Description='Aegis Touched, Celestial Touched, Fey Te
 FeatGroupPotentSpellcaster	Description='You can add your spellcaster attribute modifier to the damage you deal with any cantrip in your repertoire.'.
 FeatGroupPrecisionFocused	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.'.
-FeatGroupPrimalRage	Description='Increase your Strength or Constitution score by 1, to a maximum of 20. You gain one additional Rage usage between rests.'.
+FeatGroupPrimalRage	Description='Increase your Strength or Constitution by 1, to a maximum of 20. You gain one additional Rage usage between rests.'.
 FeatGroupRaceBound	Description='Dragon Wings, Elven Accuracy, Fade Away, Infernal Constitution, Revenant Blade, Second Chance, Squat Nimbleness'.
 FeatGroupRangedCombat	Description='Bow Mastery, Crossbow Expert, Crossbow Mastery, Discretion of the Coedymwarth, Piercer, Sharpshooter, Take Aim, Uncanny Accuracy, Wise Archery'.
 FeatGroupRetinueTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the bless, heroism and enhance ability spells once per long rest and you can cast these spells with your spell slots.'.
 FeatGroupRevenantGreatSword	Description='You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
-• Increase your Dexterity or Strength score by 1, to a maximum of 20.
+• Increase your Dexterity or Strength by 1, to a maximum of 20.
 • While you are holding a great sword, you gain a +1 bonus to armor class.
 • Great sword has the finesse property when you wield it.'.
-FeatGroupSecondChance	Description='Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20. When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.'.
+FeatGroupSecondChance	Description='Increase your Dexterity, Constitution, or Charisma by 1, to a maximum of 20. When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.'.
 FeatGroupShadowTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.'.
-FeatGroupSkills	Description='Arcane Appraiser, Healer, Manipulator, Pickpocket'.
+FeatGroupSkills	Description='Arcane Appraiser, Chef, Healer, Manipulator, Pickpocket'.
 FeatGroupSlasher	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.'.
 FeatGroupSpellCombat	Description='Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster'.
 FeatGroupSpellSniper	Description='You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
-FeatGroupSquatNimbleness	Description='You are uncommonly nimble for your race. Increase your Strength or Dexterity score by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.'.
+FeatGroupSquatNimbleness	Description='You are uncommonly nimble for your race. Increase your Strength or Dexterity by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.'.
 FeatGroupSupportCombat	Description='Call for Charge, Gift of the Chromatic Dragon, Hardy, Healer, Inspiring Leader, Mender, Sentinel'.
 FeatGroupTelekinetic	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.'.

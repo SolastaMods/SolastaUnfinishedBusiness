@@ -8,15 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatChef",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfConstitutionTitle",
-    "description": "Awaken the Beast [Con], Badlands Marauder, Chef [Con], Creed of Arun, Crusher [Con], Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra",
+    "title": "Feat/&FeatGroupChefTitle",
+    "description": "Increase your Wisdom or Constitution by 1, to a maximum of 20.\nYou can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.\nOnce a day, you may spend an hour to cook treats that provide temporary HP when eaten.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d0acb623-d0e3-5abb-a409-4c3dc88d470d",
+  "guid": "83d166d0-1ee1-53c4-8f89-84d4ab2afdd3",
   "contentPack": 9999,
-  "name": "FeatGroupHalfConstitution"
+  "name": "FeatGroupChef"
 }

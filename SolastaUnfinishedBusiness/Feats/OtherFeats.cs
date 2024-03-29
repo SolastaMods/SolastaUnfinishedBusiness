@@ -59,6 +59,8 @@ internal static class OtherFeats
         var featVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var featWarCaster = BuildWarcaster();
 
+        var chefGroup = BuildChef(feats);
+
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
@@ -144,6 +146,7 @@ internal static class OtherFeats
         GroupFeats.MakeGroup("FeatGroupSkills", null,
             FeatDefinitions.ArcaneAppraiser,
             FeatDefinitions.Manipulator,
+            chefGroup,
             featHealer,
             featPickPocket);
     }
@@ -1524,6 +1527,89 @@ internal static class OtherFeats
         }
 
         return feat;
+    }
+
+    #endregion
+
+    #region Chef
+
+    private static FeatDefinition BuildChef(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatChef";
+
+        var powerTreat = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Treat")
+            .SetGuiPresentation($"Item{Name}Treat", Category.Item, PowerFunctionGoodberryHealing)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(5)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var itemTreat = ItemDefinitionBuilder
+            .Create(ItemDefinitions.Berry_Ration, $"Item{Name}Treat")
+            .SetOrUpdateGuiPresentation(Category.Item)
+            .SetUsableDeviceDescription(powerTreat)
+            .AddToDB();
+
+        var powerCookTreat = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}CookTreat")
+            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther)
+            .SetUsesFixed(ActivationTime.Hours1, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonItemForm(itemTreat, 1)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var powerCookMeal = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}CookMeal")
+            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther)
+            .SetUsesFixed(ActivationTime.Hours1, RechargeRate.ShortRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 6)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false,
+                                HealingCap.MaximumHitPoints)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var featCon = FeatDefinitionBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Arun, powerCookTreat, powerCookMeal)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var featWis = FeatDefinitionBuilder
+            .Create($"{Name}Wis")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, powerCookTreat, powerCookMeal)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(featWis, featCon);
+
+        return GroupFeats.MakeGroup("FeatGroupChef", Name, featCon, featWis);
     }
 
     #endregion

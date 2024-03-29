@@ -3,7 +3,7 @@
 *** ATTENTION ***: ONLY COMPATIBLE UMM versions are between 0.24.0 and 0.27.10. MOD WON'T BOOT WITH ANYTHING ELSE.
 
 - added a check on UMM version at mod startup to exit earlier if not compatible
-- added Charger feat
+- added Charger and Chef feats
 - added Interface > Game UI > 'Enable the hero with best proficiency to roll dialogue choices'
 - added Path of the Ravager subclass [UA Berserker]
 - added Ranger Wildmaster new beast companion models
