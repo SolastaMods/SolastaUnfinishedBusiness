@@ -107,6 +107,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Abilita la selezione dei talenti ai livelli
 ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Guerriero</color> <b>Specializzazione arma</b> ai livelli di classe 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altro tipo di arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona abilità e competenze sugli strumenti dagli sfondi]</color></i>
 ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti punteggio abilità invece delle impostazioni razziali predefinite]</color></i>
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Consenti all'eroe con la migliore competenza di effettuare scelte di dialogo
 ModUi/&EnableHigherGroundRules=Abilita le regole del terreno più alto <i><color=#F0DAA0>[+1 per colpire se si attacca da un terreno più alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Abilita <color=#1E81B0>CTRL-MAIUSC-(D)</color> per visualizzare la sovrapposizione di debug
 ModUi/&EnableHotkeyToggleHud=Abilita <color=#1E81B0>CTRL-MAIUSC-(H)</color> per alternare la visualizzazione dell'HUD

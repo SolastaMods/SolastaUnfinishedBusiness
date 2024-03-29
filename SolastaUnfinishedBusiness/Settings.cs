@@ -363,6 +363,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Campaigns and Locations
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
+    public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }

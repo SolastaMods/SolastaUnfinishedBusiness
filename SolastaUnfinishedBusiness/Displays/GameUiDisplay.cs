@@ -145,6 +145,13 @@ internal static class GameUiDisplay
             }
         }
 
+
+        toggle = Main.Settings.EnableHeroWithBestProficiencyToRollChoice;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHeroWithBestProficiencyToRollChoice"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHeroWithBestProficiencyToRollChoice = toggle;
+        }
+
         toggle = Main.Settings.EnableLogDialoguesToConsole;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
         {
