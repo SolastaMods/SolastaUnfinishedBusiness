@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
@@ -34,6 +35,7 @@ internal static class MeleeCombatFeats
     {
         var featAlwaysReady = BuildAlwaysReady();
         var featBladeMastery = BuildBladeMastery();
+        var featCharger = BuildCharger();
         var featCleavingAttack = BuildCleavingAttack();
         var featCrusherStr = BuildCrusherStr();
         var featCrusherCon = BuildCrusherCon();
@@ -57,6 +59,7 @@ internal static class MeleeCombatFeats
         feats.AddRange(
             featAlwaysReady,
             featBladeMastery,
+            featCharger,
             featCleavingAttack,
             featCrusherCon,
             featCrusherStr,
@@ -108,6 +111,7 @@ internal static class MeleeCombatFeats
             FeatDefinitions.TripAttack,
             featAlwaysReady,
             featBladeMastery,
+            featCharger,
             featCleavingAttack,
             featDefensiveDuelist,
             featDevastatingStrikes,
@@ -349,6 +353,212 @@ internal static class MeleeCombatFeats
                     ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
                     ValidatorsCharacter.HasMeleeWeaponInMainHand))
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Charger
+
+    private static FeatDefinition BuildCharger()
+    {
+        const string Name = "FeatCharger";
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .Build())
+            .AddToDB();
+
+        powerPool.AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyCharger(powerPool));
+
+        var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("Charger")
+            .SetDamageDice(DieType.D8, 1)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .AddCustomSubFeatures(
+                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
+                    (OperationType.Set, mode != null)))
+            .AddToDB();
+
+        var conditionAdditionalDamage = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AdditionalDamage")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalDamage)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
+        var powerAddDamage = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}AddDamage")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionAdditionalDamage))
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        var powerShove = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}Shove")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(powerPool, true, powerAddDamage, powerShove);
+
+        var featureExtraAttack = FeatureDefinitionBuilder
+            .Create($"Feature{Name}ExtraAttack")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(
+                new AddExtraMainHandAttack(
+                    ActionDefinitions.ActionType.Bonus,
+                    ValidatorsCharacter.HasMeleeWeaponOrUnarmedInMainHand,
+                    ValidatorsCharacter.HasAnyOfConditions(ConditionDashing)))
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create("FeatCharger")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(featureExtraAttack, powerPool, powerAddDamage, powerShove)
+            .AddToDB();
+    }
+
+    internal sealed class PhysicalAttackBeforeHitConfirmedOnEnemyCharger(FeatureDefinitionPower powerPool)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
+    {
+        private const string DirX = "DirectionX";
+        private const string DirY = "DirectionY";
+        private const string DirZ = "DirectionZ";
+        private const string StraightLine = "StraightLine";
+
+        private static readonly EffectForm ShoveForm = EffectFormBuilder
+            .Create()
+            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+            .Build();
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (actionManager == null ||
+                battleManager is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            var attackerPosition = attacker.LocationPosition;
+            var defenderPosition = defender.LocationPosition;
+
+            var attackDirectionX = attackerPosition.x - defenderPosition.x;
+            var attackDirectionY = attackerPosition.y - defenderPosition.y;
+            var attackDirectionZ = attackerPosition.z - defenderPosition.z;
+
+            if (!attacker.OncePerTurnIsValid(powerPool.Name) ||
+                attackDirectionX != attacker.UsedSpecialFeatures[DirX] ||
+                attackDirectionY != attacker.UsedSpecialFeatures[DirY] ||
+                attackDirectionZ != attacker.UsedSpecialFeatures[DirZ] ||
+                (attacker.UsedSpecialFeatures.TryGetValue(StraightLine, out var distance) && distance < 2))
+            {
+                yield break;
+            }
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { actionModifier },
+                StringParameter = powerPool.Name,
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            attacker.UsedSpecialFeatures.TryAdd(powerPool.Name, 0);
+
+            // add the shove form direct to the attack
+            var option = reactionRequest.SelectedSubOption;
+            var subPowers = powerPool.GetBundle()?.SubPowers;
+
+            if (subPowers != null &&
+                subPowers[option].Name == "PowerFeatChargerShove")
+            {
+                actualEffectForms.Add(ShoveForm);
+            }
+        }
+
+        internal static void RecordStraightLine(GameLocationCharacter mover, int3 destination)
+        {
+            var origin = mover.LocationPosition;
+
+            mover.UsedSpecialFeatures.TryAdd(DirX, 0);
+            mover.UsedSpecialFeatures.TryAdd(DirY, 0);
+            mover.UsedSpecialFeatures.TryAdd(DirZ, 0);
+
+            var previousDirectionX = mover.UsedSpecialFeatures[DirX];
+            var previousDirectionY = mover.UsedSpecialFeatures[DirY];
+            var previousDirectionZ = mover.UsedSpecialFeatures[DirZ];
+
+            var directionX = origin.x - destination.x;
+            var directionY = origin.y - destination.y;
+            var directionZ = origin.z - destination.z;
+
+            mover.UsedSpecialFeatures[DirX] = directionX;
+            mover.UsedSpecialFeatures[DirY] = directionY;
+            mover.UsedSpecialFeatures[DirZ] = directionZ;
+
+            mover.UsedSpecialFeatures.TryAdd(StraightLine, 0);
+
+            mover.UsedSpecialFeatures[StraightLine] =
+                previousDirectionX == directionX &&
+                previousDirectionY == directionY &&
+                previousDirectionZ == directionZ
+                    ? mover.UsedSpecialFeatures[StraightLine] + 1
+                    : 1;
+        }
     }
 
     #endregion

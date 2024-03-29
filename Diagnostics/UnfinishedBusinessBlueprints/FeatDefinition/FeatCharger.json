@@ -11,12 +11,17 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:FeatureFeatChargerExtraAttack:0a36808f-c6a1-5d08-94f2-836cd474886b",
+    "Definition:PowerFeatCharger:0056b8c2-a289-5538-a686-e9dde2f1e07e",
+    "Definition:PowerFeatChargerAddDamage:0abf52fa-8c95-5c96-b094-793846dfe0cb",
+    "Definition:PowerFeatChargerShove:4a1112ca-de81-507c-8b7f-87ea0ac38ccd"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupMeleeCombatTitle",
-    "description": "Always Ready, Blade Mastery, Charger, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Polearm Master, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack",
+    "title": "Feat/&FeatChargerTitle",
+    "description": "Feat/&FeatChargerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "76afeff2-9e1c-50bc-91b5-fdcd072eeb7e",
+  "guid": "58f245b7-7465-56e0-9c17-6dd395c5f193",
   "contentPack": 9999,
-  "name": "FeatGroupMeleeCombat"
+  "name": "FeatCharger"
 }

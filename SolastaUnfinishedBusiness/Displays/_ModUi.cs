@@ -63,6 +63,7 @@ internal static class ModUi
         "FarStep",
         "FeatBladeMastery",
         "FeatBlindFighting",
+        "FeatCharger",
         "FeatCleavingAttack",
         "FeatDeadeye",
         "FeatDefensiveDuelist",
