@@ -418,8 +418,8 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             GameLocationCharacter defender)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart ||
-                characterActionUsePower.activePower.PowerDefinition.OverriddenPower != PowerBarbarianRageStart)
+                (characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart &&
+                 characterActionUsePower.activePower.PowerDefinition.OverriddenPower != PowerBarbarianRageStart))
             {
                 yield break;
             }
