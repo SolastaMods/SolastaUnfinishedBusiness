@@ -376,7 +376,9 @@ internal static class MeleeCombatFeats
                     .Build())
             .AddToDB();
 
-        powerPool.AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyCharger(powerPool));
+        powerPool.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new PhysicalAttackBeforeHitConfirmedOnEnemyCharger(powerPool));
 
         var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}")
