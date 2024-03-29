@@ -47,5 +47,5 @@ Spell/&ThunderStrikeDescription=发出一阵雷鸣般的声音，迫使与你相
 Spell/&ThunderStrikeTitle=鸣雷破
 Spell/&TollTheDeadDescription=你指向一个处于距离内、你能看见的生物，一阵哀痛的铃声在空中鸣响。目标必须通过一次感知豁免检定，否则受到 1d8 点黯蚀伤害。若目标失去了任何量的生命值，它改为受到 1d12 点黯蚀伤害。
 Spell/&TollTheDeadTitle=亡者丧钟
-Spell/&WrackDescription=对范围内的一个生物释放一波极度痛苦。目标必须进行一次体质豁免检定，否则将受到 1d8 黯蚀伤害，并阻止他们疾走或逃离。
+Spell/&WrackDescription=对范围内的一个生物释放一波极度痛苦。目标必须进行一次体质豁免检定，否则将受到 1d8 黯蚀伤害，并阻止他们疾走或撤离。
 Spell/&WrackTitle=折磨术
