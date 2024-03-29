@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupPrimalRageTitle",
-    "description": "Increase your Strength or Constitution score by 1, to a maximum of 20. You gain one additional Rage usage between rests.",
+    "description": "Increase your Strength or Constitution by 1, to a maximum of 20. You gain one additional Rage usage between rests.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupHardyTitle",
-    "description": "Increase your Strength or Constitution score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.",
+    "description": "Increase your Strength or Constitution by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

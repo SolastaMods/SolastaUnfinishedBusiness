@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupBlessedSoulTitle",
-    "description": "Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.",
+    "description": "Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
