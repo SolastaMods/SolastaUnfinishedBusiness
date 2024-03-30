@@ -923,11 +923,8 @@ public sealed class MartialForceKnight : AbstractSubclass
             var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var intMod = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
 
-            if (intMod > rulesetCharacter.TemporaryHitPoints)
-            {
-                rulesetCharacter.ReceiveTemporaryHitPoints(
-                    intMod, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
-            }
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                intMod, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
         }
 
         public void OnSavingThrowInitiated(

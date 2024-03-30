@@ -209,12 +209,8 @@ public sealed class OathOfAltruism : AbstractSubclass
                 var chaMod = GetChaModifier(rulesetCharacter);
                 var tempHitPoints = (profBonus * 2) + chaMod;
 
-                if (tempHitPoints > rulesetCharacter.TemporaryHitPoints)
-                {
-                    rulesetCharacter.ReceiveTemporaryHitPoints(
-                        tempHitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn,
-                        rulesetCharacter.guid);
-                }
+                rulesetCharacter.ReceiveTemporaryHitPoints(
+                    tempHitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
             }
 
             yield break;

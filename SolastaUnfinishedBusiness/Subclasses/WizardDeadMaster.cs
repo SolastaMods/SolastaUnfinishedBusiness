@@ -368,11 +368,10 @@ public sealed class WizardDeadMaster : AbstractSubclass
             {
                 rulesetAttacker.ReceiveHealing(healingReceived, true, rulesetAttacker.Guid);
             }
-            else if (healingReceived > rulesetAttacker.TemporaryHitPoints)
+            else
             {
                 rulesetAttacker.ReceiveTemporaryHitPoints(
-                    healingReceived, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn,
-                    rulesetAttacker.Guid);
+                    healingReceived, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetAttacker.Guid);
             }
         }
     }

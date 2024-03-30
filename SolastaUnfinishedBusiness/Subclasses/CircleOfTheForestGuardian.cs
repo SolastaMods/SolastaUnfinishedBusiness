@@ -165,11 +165,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             _ => 4
         };
 
-        if (hitPoints > rulesetCharacter.TemporaryHitPoints)
-        {
-            rulesetCharacter.ReceiveTemporaryHitPoints(
-                hitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
-        }
+        rulesetCharacter.ReceiveTemporaryHitPoints(
+            hitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
         if (levels < 14)
         {

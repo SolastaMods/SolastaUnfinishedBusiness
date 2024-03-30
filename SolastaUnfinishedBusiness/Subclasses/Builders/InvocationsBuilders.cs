@@ -1413,14 +1413,9 @@ internal static class InvocationsBuilders
             }
 
             var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
-            var tempHitPoints = 10 * classLevel;
 
-            if (tempHitPoints > rulesetDefender.TemporaryHitPoints)
-            {
-                rulesetDefender.ReceiveTemporaryHitPoints(
-                    classLevel * 10, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn,
-                    rulesetDefender.Guid);
-            }
+            rulesetDefender.ReceiveTemporaryHitPoints(
+                classLevel * 10, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetDefender.Guid);
         }
     }
 

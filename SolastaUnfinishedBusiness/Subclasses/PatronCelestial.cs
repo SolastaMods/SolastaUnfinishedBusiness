@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -318,28 +317,20 @@ public class PatronCelestial : AbstractSubclass
                 yield break;
             }
 
+            var allies =
+                gameLocationCharacterService.PartyCharacters.Union(gameLocationCharacterService.GuestCharacters);
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Warlock);
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                 rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma));
 
-            foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
+            foreach (var ally in allies)
             {
-                var rulesetLocationCharacter = gameLocationCharacter.RulesetCharacter;
-                var tempHitPoints =
-                    (classLevel / (rulesetLocationCharacter == rulesetCharacter ? 1 : 2)) +
-                    charismaModifier;
+                var rulesetAlly = ally.RulesetCharacter;
+                var tempHitPoints = (classLevel / (rulesetAlly == rulesetCharacter ? 1 : 2)) + charismaModifier;
 
-                if (tempHitPoints <= rulesetLocationCharacter.TemporaryHitPoints)
-                {
-                    continue;
-                }
-
-                EffectHelpers.StartVisualEffect(
-                    actingCharacter, gameLocationCharacter, ShadowDagger, EffectHelpers.EffectType.Effect);
-
-                rulesetLocationCharacter.ReceiveTemporaryHitPoints(
+                rulesetAlly.ReceiveTemporaryHitPoints(
                     tempHitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
             }
         }
