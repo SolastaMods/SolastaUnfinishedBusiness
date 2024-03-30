@@ -368,12 +368,6 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Name, Category.Feat)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
-                    .Build())
             .AddToDB();
 
         powerPool.AddCustomSubFeatures(
@@ -481,15 +475,19 @@ internal static class MeleeCombatFeats
             var attackerPosition = attacker.LocationPosition;
             var defenderPosition = defender.LocationPosition;
 
-            var attackDirectionX = attackerPosition.x - defenderPosition.x;
-            var attackDirectionY = attackerPosition.y - defenderPosition.y;
-            var attackDirectionZ = attackerPosition.z - defenderPosition.z;
+            var attackDirectionX = Math.Sign(attackerPosition.x - defenderPosition.x);
+            var attackDirectionY = Math.Sign(attackerPosition.y - defenderPosition.y);
+            var attackDirectionZ = Math.Sign(attackerPosition.z - defenderPosition.z);
 
-            if (!attacker.OncePerTurnIsValid(powerPool.Name) ||
+            InitDirections(attacker);
+
+            if ((!ValidatorsWeapon.IsMelee(attackMode) &&
+                 !ValidatorsWeapon.IsUnarmed(attackMode)) ||
+                !attacker.OncePerTurnIsValid(powerPool.Name) ||
                 attackDirectionX != attacker.UsedSpecialFeatures[DirX] ||
                 attackDirectionY != attacker.UsedSpecialFeatures[DirY] ||
                 attackDirectionZ != attacker.UsedSpecialFeatures[DirZ] ||
-                (attacker.UsedSpecialFeatures.TryGetValue(StraightLine, out var distance) && distance < 2))
+                attacker.UsedSpecialFeatures[StraightLine] < 2)
             {
                 yield break;
             }
@@ -533,27 +531,31 @@ internal static class MeleeCombatFeats
             }
         }
 
-        internal static void RecordStraightLine(GameLocationCharacter mover, int3 destination)
+        private static void InitDirections(GameLocationCharacter mover)
         {
-            var origin = mover.LocationPosition;
-
             mover.UsedSpecialFeatures.TryAdd(DirX, 0);
             mover.UsedSpecialFeatures.TryAdd(DirY, 0);
             mover.UsedSpecialFeatures.TryAdd(DirZ, 0);
+            mover.UsedSpecialFeatures.TryAdd(StraightLine, 0);
+        }
+
+        internal static void RecordStraightLine(GameLocationCharacter mover, int3 destination)
+        {
+            InitDirections(mover);
+
+            var origin = mover.LocationPosition;
 
             var previousDirectionX = mover.UsedSpecialFeatures[DirX];
             var previousDirectionY = mover.UsedSpecialFeatures[DirY];
             var previousDirectionZ = mover.UsedSpecialFeatures[DirZ];
 
-            var directionX = origin.x - destination.x;
-            var directionY = origin.y - destination.y;
-            var directionZ = origin.z - destination.z;
+            var directionX = Math.Sign(origin.x - destination.x);
+            var directionY = Math.Sign(origin.y - destination.y);
+            var directionZ = Math.Sign(origin.z - destination.z);
 
             mover.UsedSpecialFeatures[DirX] = directionX;
             mover.UsedSpecialFeatures[DirY] = directionY;
             mover.UsedSpecialFeatures[DirZ] = directionZ;
-
-            mover.UsedSpecialFeatures.TryAdd(StraightLine, 0);
 
             mover.UsedSpecialFeatures[StraightLine] =
                 previousDirectionX == directionX &&
