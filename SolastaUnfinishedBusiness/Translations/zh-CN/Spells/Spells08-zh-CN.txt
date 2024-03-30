@@ -1,4 +1,4 @@
-Condition/&ConditionMindBlankDescription=免疫精神伤害和魅惑状态。
-Condition/&ConditionMindBlankTitle=心灵壁障
-Spell/&MindBlankDescription=在法术结束之前，你接触的一个自愿生物免疫心灵伤害、任何能感知其情绪或阅读其思想的效果、占卜法术和魅惑状态。
-Spell/&MindBlankTitle=心灵壁障
+Condition/&ConditionMindBlankDescription=免疫心灵伤害和魅惑状态。
+Condition/&ConditionMindBlankTitle=心灵屏障
+Spell/&MindBlankDescription=在法术结束之前，你接触的一个自愿生物免疫心灵伤害、任何能感知其情绪或阅读其思想的效果、预言法术和魅惑状态。
+Spell/&MindBlankTitle=心灵屏障
