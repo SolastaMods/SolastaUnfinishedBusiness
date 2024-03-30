@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Gewährt Immunität gegenüber Bewegungseinschränkungen und Zurückhaltung.
 Condition/&ConditionFeatMobileAfterDashTitle=Freiheit
+Feat/&FeatAlertDescription=Immer auf der Suche nach Gefahren, erhältst du die folgenden Vorteile:\n• Du kannst nicht überrascht werden, solange du bei Bewusstsein bist.\n• Du erhältst einen Bonus von +5 auf Initiative.\n• Andere Kreaturen nicht Gewinnen Sie einen Vorteil bei Angriffswürfen gegen Sie, weil Sie von Ihnen nicht wahrgenommen werden.
+Feat/&FeatAlertTitle=Alarm
 Feat/&FeatArcaneArcherAdeptDescription=Du verfügst über arkane Magie und eine Bogenausbildung, die es dir ermöglicht, spezielle Kampfmanöver durchzuführen.
 Feat/&FeatArcaneArcherAdeptTitle=Arkaner Bogenschützen-Adept
 Feat/&FeatAstralArmsDescription=Erhöhe deine Weisheit um 1 auf maximal 20.\nWenn du in deinem Zug einen unbewaffneten Schlag ausführst, beträgt deine Reichweite dafür 10 Fuß. Andere Kreaturen provozieren einen Gelegenheitsangriff von dir, wenn sie in die Reichweite gelangen, die du mit unbewaffnetem Angriff hast .

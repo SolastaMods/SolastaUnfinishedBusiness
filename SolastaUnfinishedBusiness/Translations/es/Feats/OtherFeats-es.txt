@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Otorga inmunidad a las restricciones de movimiento, además de ser restringido.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertad
+Feat/&FeatAlertDescription=Siempre atento al peligro, obtienes los siguientes beneficios:\n• No te pueden sorprender mientras estás consciente.\n• Obtienes una bonificación de +5 a la iniciativa.\n• Otras criaturas no lo hacen. obtener ventaja en las tiradas de ataque contra ti como resultado de no ser percibido por ti.
+Feat/&FeatAlertTitle=Alerta
 Feat/&FeatArcaneArcherAdeptDescription=Tienes magia arcana y entrenamiento con arco que te permite realizar maniobras de combate especiales.
 Feat/&FeatArcaneArcherAdeptTitle=Adepto Arquero Arcano
 Feat/&FeatAstralArmsDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nCuando realizas un ataque desarmado en tu turno, tu alcance es de 10 pies. Otras criaturas provocan un ataque de oportunidad de tu parte cuando entran en el alcance que tienes con armas desarmadas. .

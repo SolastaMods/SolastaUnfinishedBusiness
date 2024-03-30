@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=拘束されるだけでなく、移動制限に対する免疫も付与されます。
 Condition/&ConditionFeatMobileAfterDashTitle=自由
+Feat/&FeatAlertDescription=常に危険に注意を払うと、次のような利点が得られます:\n・意識がある間は驚かない。\n・主導権に +5 ボーナスを得る。\n・他のクリーチャーには与えられない。あなたに気づかれないことで、あなたに対する攻撃ロールで有利になります。
+Feat/&FeatAlertTitle=アラート
 Feat/&FeatArcaneArcherAdeptDescription=特別な戦闘操作を実行できるようにする秘術の魔法と弓の訓練があります。
 Feat/&FeatArcaneArcherAdeptTitle=アーケイン・アーチャー・アデプト
 Feat/&FeatAstralArmsDescription=知恵を 1 増やして、最大 20 まで増やします。\n自分のターンに素手攻撃を行う場合、その攻撃までの距離は 10 フィートです。他のクリーチャーが素手で攻撃できる範囲に入ると、あなたからの機会攻撃を引き起こします。 。

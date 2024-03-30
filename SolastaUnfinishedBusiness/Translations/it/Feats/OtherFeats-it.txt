@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Garantisce l'immunità alle restrizioni di movimento oltre ad essere trattenuto.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertà
+Feat/&FeatAlertDescription=Sempre in allerta per il pericolo, ottieni i seguenti vantaggi:\n• Non puoi essere sorpreso mentre sei cosciente.\n• Ottieni un bonus di +5 all'iniziativa.\n• Le altre creature no ottieni vantaggio ai tiri per colpire contro di te perché non sei percepito da te.
+Feat/&FeatAlertTitle=Mettere in guardia
 Feat/&FeatArcaneArcherAdeptDescription=Possiedi la magia arcana e l'addestramento con l'arco che ti consentono di eseguire speciali manovre di combattimento.
 Feat/&FeatArcaneArcherAdeptTitle=Adepto dell'arciere arcano
 Feat/&FeatAstralArmsDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nQuando effettui un colpo senz'armi nel tuo turno, la tua portata è di 3 metri. Altre creature provocano un attacco di opportunità da parte tua quando entrano nella portata che hai con disarmato .
