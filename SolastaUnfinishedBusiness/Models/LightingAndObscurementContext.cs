@@ -160,12 +160,12 @@ internal static class LightingAndObscurementContext
 
         static bool InvisibleAdvantage(RuleDefinitions.TrendInfo trendInfo)
         {
-            return trendInfo.sourceName == ConditionInvisible.Name && trendInfo.value == 1;
+            return trendInfo.sourceName == ConditionInvisibleBase.Name && trendInfo.value == 1;
         }
 
         static bool InvisibleDisadvantage(RuleDefinitions.TrendInfo trendInfo)
         {
-            return trendInfo.sourceName == ConditionInvisible.Name && trendInfo.value == -1;
+            return trendInfo.sourceName == ConditionInvisibleBase.Name && trendInfo.value == -1;
         }
 
         // conditions with parent inherit their features which makes true sight quite hard to manage

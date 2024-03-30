@@ -22,15 +22,16 @@ internal static class InvocationsContext
     {
         // kept for backward compatibility
         _ = BuildBreathOfTheNight();
-        _ = BuildChillingBlast();
-        _ = BuildCorrosiveBlast();
-        _ = BuildFieryBlast();
-        _ = BuildFulminateBlast();
-        _ = BuildNecroticBlast();
         _ = BuildPoisonousBlast();
-        _ = BuildPsychicBlast();
-        _ = BuildRadiantBlast();
-        _ = BuildThunderBlast();
+
+        LoadInvocation(BuildChillingBlast());
+        LoadInvocation(BuildCorrosiveBlast());
+        LoadInvocation(BuildFieryBlast());
+        LoadInvocation(BuildFulminateBlast());
+        LoadInvocation(BuildNecroticBlast());
+        LoadInvocation(BuildPsychicBlast());
+        LoadInvocation(BuildRadiantBlast());
+        LoadInvocation(BuildThunderBlast());
 
         LoadInvocation(BuildAbilitiesOfTheChainMaster());
         LoadInvocation(BuildAspectOfTheMoon());
