@@ -1,4 +1,4 @@
-Condition/&ConditionAuraOfPerseveranceDescription=你不会生病，对毒素伤害有抗性，并且在对抗导致以下任何情况的效果时具有优势：失明、魅惑、耳聋、恐慌、麻痹、中毒和昏迷。
+Condition/&ConditionAuraOfPerseveranceDescription=你不会生病，对毒素伤害有抗性，并且在对抗导致以下任何情况的效果时具有优势：目盲、魅惑、耳聋、恐慌、麻痹、中毒和昏迷。
 Condition/&ConditionAuraOfPerseveranceTitle=净化灵光
 Condition/&ConditionAuraOfVitalityDescription=你对黯蚀伤害有抗性，你的最大生命值不会减少。此外，当生命值为 0 的非敌对生物在灵光中开始回合时，它会恢复 1 点生命值。
 Condition/&ConditionAuraOfVitalityTitle=生命灵光
@@ -18,7 +18,7 @@ Feedback/&AdditionalDamageBeastForestGuardianFormat=自然守护者！
 Feedback/&AdditionalDamageBeastForestGuardianLine=由于自然守护者 (+{2})，{0} 对 {1} 造成更多伤害
 Feedback/&AdditionalDamageStaggeringSmiteFormat=惊惧斩！
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} 通过惊惧斩对 {1} 造成更多伤害 (+{2})
-Spell/&AuraOfPerseveranceDescription=你身上散发出半径 30 尺的灵光，具有净化能量。直到法术结束前，灵光会随着你移动，以你为中心。灵光中的每个非敌对生物（包括你）都不会患病，对毒素伤害有抗性，并且在对抗导致以下任何情况的效果时具有优势：失明、魅惑、耳聋、恐慌、失能、中毒，昏迷。
+Spell/&AuraOfPerseveranceDescription=你身上散发出半径 30 尺的灵光，具有净化能量。直到法术结束前，灵光会随着你移动，以你为中心。灵光中的每个非敌对生物（包括你）都不会患病，对毒素伤害有抗性，并且在对抗导致以下任何情况的效果时具有优势：目盲、魅惑、耳聋、恐慌、失能、中毒，昏迷。
 Spell/&AuraOfPerseveranceTitle=净化灵光
 Spell/&AuraOfVitalityDescription=你身上散发出半径 30 尺的灵光，具有维持生命的能量。直到法术结束前，灵光会随着你移动，以你为中心。灵光中的每个非敌对生物（包括你）都具有对黯蚀伤害的抗性，并且其最大生命值不会减少。此外，当生命值为 0 的非敌对生物在灵光中开始回合时，它会恢复 1 点生命值。
 Spell/&AuraOfVitalityTitle=生命灵光
