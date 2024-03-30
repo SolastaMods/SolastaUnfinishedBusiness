@@ -43,7 +43,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "UntilLongRest",
+    "durationType": "UntilAnyRest",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,

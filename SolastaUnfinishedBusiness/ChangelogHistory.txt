@@ -1,16 +1,11 @@
 1.5.97.3:
 
-*** ATTENTION ***: ONLY COMPATIBLE UMM versions are between 0.24.0 and 0.27.10. MOD WON'T BOOT WITH ANYTHING ELSE.
-
-- added a check on UMM version at mod startup to exit earlier if not compatible
-- added Charger and Chef feats
-- added Interface > Game UI > 'Enable the hero with best proficiency to roll dialogue choices'
+- added Charger feat
+- added 'Enable the hero with best proficiency to roll dialogue choices'
 - added Path of the Ravager subclass [UA Berserker]
-- added Ranger Wildmaster new beast companion models
-- fixed Circle of the Stars constellation forms integration with wildshape
 - fixed Circle of the Stars chalice and dragon constellation light range
-- fixed Ranger Wildmaster beast using char level instead of class level on HPs calculation
-- fixed Ranger Wildmaster bear and eagle second attacks
+- fixed Circle of the Stars constellation form integration with wildshape
+- fixed Ranger Wildmaster beast using char level instead of class level
 - fixed Reckless Attack not working when activated by enemies or unarmed
 
 1.5.97.2:

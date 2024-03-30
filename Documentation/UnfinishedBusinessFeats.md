@@ -33,7 +33,7 @@ When you make an unarmed strike on your turn, your reach for it is 10 ft. Other 
 
 # 8. - Awaken the Beast
 
-Increase any ability by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+Increase any ability score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
 
 # 9. - *Blade Mastery* ©
 

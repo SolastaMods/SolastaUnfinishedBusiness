@@ -71,18 +71,13 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(SpellSneakAttack)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 6, 5)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel,
+                DiceByRankBuilder.InterpolateDiceByRankTable(1, 20, (1, 1), (5, 2), (11, 3), (17, 4)))
             .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
             .AddToDB();
-
-        // another odd dice damage progression
-        for (var i = 0; i < 4; i++)
-        {
-            additionalDamageSpellSneakAttack.DiceByRankTable[i].diceNumber = 1;
-        }
 
         // LEVEL 06
 
