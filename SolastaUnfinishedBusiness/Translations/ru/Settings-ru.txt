@@ -3,7 +3,7 @@ ModUi/&AddAllToStore=Всё в магазин
 ModUi/&AddBleedingToLesserRestoration=Добавить <color=#D89555>Кровотечение</color> к состояниям, снимаемым <color=#D89555>Высшим</color> и <color=#D89555>Малым восстановлением</color>
 ModUi/&AddCustomIconsToOfficialItems=Добавить кастомные значки к официальным игровым предметам <i><color=#F0DAA0>[боеприпасы, рецепты, наборы и т.д.]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Включить <color=#D89555>Восприятие тьмы</color> для рас <color=#D89555>Тёмных эльфов</color>, <color=#D89555>Тёмных кобольдов</color> и <color=#D89555>Серых дварфов</color> <i><color=#F0DAA0>\n[даёт преимущество при проверках восприятия, когда персонаж не на свету или находится в магической темноте]</color></i>
-ModUi/&AddDexModifierToEnemiesInitiativeRoll=Добавьте <color=#D89555>Модификатор ловкости</color> врагам <color=#D89555>Бросок инициативы</color>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=Добавлять <color=#D89555>модификатор Ловкости</color> к <color=#D89555>броскам Инициативы</color> противников
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Включить <color=#D89555>Воинам</color> добавление уровня класса к повторным спасброскам умения <color=#D89555>Упорный</color>
 ModUi/&AddHelpActionToAllRaces=Добавить действие <color=#D89555>Помощь</color> всем игровым расам <i><color=#F0DAA0>[вы можете помочь дружественному существу атаковать другое существо, находящееся в пределах 1 клетки от вас]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Включить гуманоидов в список предпочтительных противников для <color=#D89555>Следопытам</color>
