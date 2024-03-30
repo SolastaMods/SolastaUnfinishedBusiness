@@ -1480,22 +1480,68 @@ public static class RulesetCharacterPatcher
     public static class RollInitiative_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(RulesetCharacter __instance, ref int forcedInitiative)
+        public static bool Prefix(RulesetCharacter __instance, out int __result, int forcedInitiative)
         {
             //PATCH: allows summons to have forced initiative of a summoner
-            if (!__instance.HasSubFeatureOfType<ForceInitiativeToSummoner>())
+            if (__instance.HasSubFeatureOfType<ForceInitiativeToSummoner>())
             {
-                return;
+                var summoner = __instance.GetMySummoner();
+
+                if (summoner != null)
+                {
+                    forcedInitiative = summoner.lastInitiative;
+                }
             }
 
-            var summoner = __instance.GetMySummoner();
+            __result = RollInitiative(__instance, forcedInitiative);
 
-            if (summoner == null)
+            return false;
+        }
+
+        private static int RollInitiative(RulesetCharacter __instance, int forcedInitiative)
+        {
+            int resultRoll;
+
+            if (forcedInitiative <= 0)
             {
-                return;
+                var advantageValue = 0;
+                
+                //PATCH: supports AddDexModifierToEnemiesInitiativeRoll
+                var currentValue =
+                    Main.Settings.AddDexModifierToEnemiesInitiativeRoll &&
+                    __instance is RulesetCharacterMonster
+                        ? AttributeDefinitions.ComputeAbilityScoreModifier(
+                            __instance.TryGetAttributeValue(AttributeDefinitions.Dexterity))
+                        : __instance.GetAttribute(AttributeDefinitions.Initiative).CurrentValue;
+
+                __instance.RefreshInitiative(ref advantageValue);
+
+                var advantageType = advantageValue switch
+                {
+                    > 0 => AdvantageType.Advantage,
+                    < 0 => AdvantageType.Disadvantage,
+                    _ => AdvantageType.None
+                };
+
+                var rollDie = __instance.RollDie(
+                    DieType.D20, RollContext.InitiativeRoll, false, advantageType,
+                    out var firstRoll, out var secondRoll);
+
+                resultRoll = Mathf.Clamp(rollDie + currentValue, 1, int.MaxValue);
+
+                __instance.LastInitiativeRoll = rollDie;
+                __instance.LastInitiativeModifier = currentValue;
+
+                var initiativeRolled = __instance.InitiativeRolled;
+
+                initiativeRolled?.Invoke(__instance, resultRoll, advantageType, firstRoll, currentValue, secondRoll);
+            }
+            else
+            {
+                resultRoll = forcedInitiative;
             }
 
-            forcedInitiative = summoner.lastInitiative;
+            return resultRoll;
         }
     }
 

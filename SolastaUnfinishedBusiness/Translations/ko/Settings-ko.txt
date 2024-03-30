@@ -3,6 +3,7 @@ ModUi/&AddAllToStore=전부 상점에 추가
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상급 치유</color>와 <color=#D89555>하급 치유</color> 주문으로 제거할 수 있는 상태이상에 <color=#D89555>출혈</color> 상태 추가
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 커스텀 아이콘 추가 <i><color=#F0DAA0>[탄환, 제조, 도구 등.]</color></i> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> 및 <color=#D89555>Gray Dwarf</color>에서 <color=#D89555>Darkness Perceptive</color>를 활성화하세요. color> <i><color=#F0DAA0>\n[빛이 없거나 마법의 어둠 속에서 인지 검사에 이점을 부여합니다.]</color></i>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=적 <color=#D89555>선제 굴림</color>에 <color=#D89555>민첩 수정치</color> 추가
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>불굴</color> 저장 던지기 재굴림에 <color=#D89555>파이터</color> 레벨 추가
 ModUi/&AddHelpActionToAllRaces=모든 플레이어블 종족의 행동 선택지에 <color=#D89555>도움</color> 행동을 추가 <i><color=#F0DAA0>[우호적인 크리쳐 하나가 자신과 1칸 내에 있는 크리쳐 하나를 공격하는 것을 도울 수 있습니다]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 인간형 선호 적 활성화

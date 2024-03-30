@@ -3,6 +3,7 @@ ModUi/&AddAllToStore=Ajouter tout au magasin
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> à celles supprimées par <color=#D89555>Restauration suprême</color> et <color=#D89555>Restauration partielle</color>
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux objets officiels du jeu <i><color=#F0DAA0>[munitions, recettes, outils, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Activez <color=#D89555>Darkness Perceptive</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Grey Dwarf</ color> <i><color=#F0DAA0>\n[accorde un avantage sur les tests de perception lorsqu'il n'est pas éclairé ou dans l'obscurité magique]</color></i>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=Ajoutez un <color=#D89555>Modificateur de dextérité</color> aux ennemis un <color=#D89555>Jet d'initiative</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Ajoutez le niveau <color=#D89555>Combattant</color> à la relance du jet de sauvegarde <color=#D89555>Indomptable</color>.
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les Ascendances jouables <i><color=#F0DAA0>[vous pouvez aider une créature alliée à attaquer une créature à moins de 1,50 mètre de vous, lui donnant l'avantage]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Activer les ennemis humanoïdes préférés des <color=#D89555>Rangers</color>
