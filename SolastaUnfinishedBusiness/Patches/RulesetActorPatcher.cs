@@ -182,7 +182,7 @@ public static class RulesetActorPatcher
                      or ExtraSituationalContext.HasMeleeWeaponInMainHandWithFreeOffhand
                      or ExtraSituationalContext.IsNotInBrightLight
                      or ExtraSituationalContext.IsRagingAndDualWielding
-                     or ExtraSituationalContext.AttackerNextToTargetOrYeomanWithLongbow
+                     or ExtraSituationalContext.AttackerWithMeleeOrUnarmedAndTargetWithinReachOrYeomanWithLongbow
                      or ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget
                      or ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield
                      or ExtraSituationalContext.WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff));

@@ -170,7 +170,7 @@ internal enum ExtraSituationalContext
     HasSimpleOrMartialWeaponInHands = 9005,
     IsNotInBrightLight = 9007,
     IsRagingAndDualWielding = 9008,
-    AttackerNextToTargetOrYeomanWithLongbow = 9009,
+    AttackerWithMeleeOrUnarmedAndTargetWithinReachOrYeomanWithLongbow = 9009,
     NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 9010,
     TargetIsFavoriteEnemy = 9012,
     IsNotConditionSource = 9013,

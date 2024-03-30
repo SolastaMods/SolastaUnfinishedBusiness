@@ -77,7 +77,7 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget =>
                 NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(contextParams),
 
-            ExtraSituationalContext.AttackerNextToTargetOrYeomanWithLongbow =>
+            ExtraSituationalContext.AttackerWithMeleeOrUnarmedAndTargetWithinReachOrYeomanWithLongbow =>
                 AttackerNextToTargetOrYeomanWithLongbow(contextParams),
 
             // supports Monk Shield Expert scenarios
@@ -102,11 +102,13 @@ internal static class CustomSituationalContext
         var sourceCharacter = GameLocationCharacter.GetFromActor(source);
         var targetCharacter = GameLocationCharacter.GetFromActor(contextParams.target);
 
-        if (sourceCharacter.IsWithinRange(targetCharacter, 1))
+        var weapon = source.GetMainWeapon();
+        var reachRange = weapon?.ItemDefinition.WeaponDescription.ReachRange ?? 1;
+
+        if (sourceCharacter.IsWithinRange(targetCharacter, reachRange))
         {
             return true;
         }
-
 
         var pathOfTheYeomanLevels = source.GetSubclassLevel(
             DatabaseHelper.CharacterClassDefinitions.Barbarian, PathOfTheYeoman.Name);
