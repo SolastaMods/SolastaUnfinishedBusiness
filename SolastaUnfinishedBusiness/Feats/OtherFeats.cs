@@ -71,6 +71,7 @@ internal static class OtherFeats
         var featSentinel = BuildFeatFromFightingStyle(Sentinel.SentinelName);
 
         feats.AddRange(
+            FeatAlert,
             featArcaneArcherAdept,
             featAstralArms,
             featEldritchAdept,
@@ -112,6 +113,7 @@ internal static class OtherFeats
             spellSniperGroup);
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
+            FeatAlert,
             featGiftOfTheChromaticDragon,
             featHealer,
             featInspiringLeader,
@@ -369,6 +371,29 @@ internal static class OtherFeats
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
             .AddToDB();
     }
+
+    #endregion
+
+    #region Alert
+
+    private const string FeatAlertName = "FeatAlert";
+
+    internal static readonly FeatDefinition FeatAlert = FeatDefinitionBuilder
+        .Create(FeatAlertName)
+        .SetGuiPresentation(Category.Feat)
+        .AddFeatures(
+            FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{FeatAlertName}Initiative")
+                .SetGuiPresentationNoContent(true)
+                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Initiative, 5)
+                .AddToDB(),
+            FeatureDefinitionConditionAffinityBuilder
+                .Create($"ConditionAffinity{FeatAlertName}Surprised")
+                .SetGuiPresentationNoContent(true)
+                .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                .SetConditionType(ConditionDefinitions.ConditionSurprised)
+                .AddToDB())
+        .AddToDB();
 
     #endregion
 

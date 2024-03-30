@@ -367,6 +367,7 @@
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>false</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthBreaksWhenAttackHits>false</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>false</StealthBreaksWhenAttackMisses>
+    <AddDexModifierToEnemiesInitiativeRoll>false</AddDexModifierToEnemiesInitiativeRoll>
     <DontEndTurnAfterReady>false</DontEndTurnAfterReady>
     <KeepInvisibilityWhenUsingItems>false</KeepInvisibilityWhenUsingItems>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false

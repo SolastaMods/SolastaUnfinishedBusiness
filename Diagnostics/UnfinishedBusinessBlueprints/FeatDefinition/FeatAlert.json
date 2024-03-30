@@ -11,12 +11,15 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierFeatAlertInitiative:0daab1fe-0266-51e2-be76-14d6702e2236",
+    "Definition:ConditionAffinityFeatAlertSurprised:f846074c-4054-5695-a7e8-a689fe9d638a"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupSupportCombatTitle",
-    "description": "Alert, Call for Charge, Gift of the Chromatic Dragon, Hardy, Healer, Inspiring Leader, Mender, Sentinel",
+    "title": "Feat/&FeatAlertTitle",
+    "description": "Feat/&FeatAlertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1db5b688-e646-5e50-bdb0-1187118afb67",
+  "guid": "828b436b-32b3-5a5f-a496-45164422e2f5",
   "contentPack": 9999,
-  "name": "FeatGroupSupportCombat"
+  "name": "FeatAlert"
 }

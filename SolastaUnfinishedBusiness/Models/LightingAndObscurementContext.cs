@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using TA;
 using UnityEngine;
@@ -30,6 +31,31 @@ internal static class LightingAndObscurementContext
     // called from GLBM.CanAttack to correctly determine ADV/DIS scenarios
     internal static void ApplyObscurementRules(BattleDefinitions.AttackEvaluationParams attackParams)
     {
+        var attackAdvantageTrends = attackParams.attackModifier.AttackAdvantageTrends;
+        var abilityCheckAdvantageTrends = attackParams.attackModifier.AbilityCheckAdvantageTrends;
+
+        var defender = attackParams.defender;
+        var defenderActor = defender.RulesetActor;
+        var defenderHasAlertFeat =
+            defenderActor is RulesetCharacter rulesetCharacter &&
+            rulesetCharacter.GetOriginalHero() is { } rulesetCharacterHero &&
+            rulesetCharacterHero.TrainedFeats.Contains(OtherFeats.FeatAlert);
+        
+        if (defenderHasAlertFeat)
+        {
+            if (attackAdvantageTrends.Any(BlindedAdvantage))
+            {
+                attackAdvantageTrends.RemoveAll(BlindedAdvantage);
+                abilityCheckAdvantageTrends.RemoveAll(BlindedAdvantage);
+            }
+
+            if (attackAdvantageTrends.Any(InvisibleAdvantage))
+            {
+                attackAdvantageTrends.RemoveAll(InvisibleAdvantage);
+                abilityCheckAdvantageTrends.RemoveAll(InvisibleAdvantage);
+            }
+        }
+        
         if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules ||
             attackParams.effectDescription is
                 { RangeType: not (RuleDefinitions.RangeType.MeleeHit or RuleDefinitions.RangeType.RangeHit) })
@@ -37,23 +63,8 @@ internal static class LightingAndObscurementContext
             return;
         }
 
-        const string TAG = "Perceive";
-
-        var attackAdvantageTrends = attackParams.attackModifier.AttackAdvantageTrends;
-        var abilityCheckAdvantageTrends = attackParams.attackModifier.AbilityCheckAdvantageTrends;
-
         var attacker = attackParams.attacker;
         var attackerActor = attacker.RulesetActor;
-        var attackerIsBlind = attackerActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
-        var attackerIsInvisible = attackerActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionInvisible);
-        var attackerIsStealthy = attackerActor.HasConditionOfType(ConditionStealthy);
-        var attackerHasNoLight = attacker.LightingState is LightingState.Unlit or LightingState.Darkness;
-
-        var defender = attackParams.defender;
-        var defenderActor = defender.RulesetActor;
-        var defenderIsBlind = defenderActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
-        var defenderIsInvisible = defenderActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionInvisible);
-        var defenderHasNoLight = defender.LightingState is LightingState.Unlit or LightingState.Darkness;
 
         HandleTrueSightSpecialCase();
 
@@ -64,11 +75,35 @@ internal static class LightingAndObscurementContext
             {
                 attackAdvantageTrends.RemoveAll(BlindedAdvantage);
                 attackAdvantageTrends.RemoveAll(BlindedDisadvantage);
+                
+                abilityCheckAdvantageTrends.RemoveAll(BlindedAdvantage);
+                abilityCheckAdvantageTrends.RemoveAll(BlindedDisadvantage);
+            }
+
+            if (attackAdvantageTrends.Any(InvisibleAdvantage) &&
+                attackAdvantageTrends.Any(InvisibleDisadvantage))
+            {
+                attackAdvantageTrends.RemoveAll(InvisibleAdvantage);
+                attackAdvantageTrends.RemoveAll(InvisibleDisadvantage);
+                
+                abilityCheckAdvantageTrends.RemoveAll(InvisibleAdvantage);
+                abilityCheckAdvantageTrends.RemoveAll(InvisibleDisadvantage);
             }
         }
+        
+        const string TAG = "Perceive";
+
+        var attackerIsBlind = attackerActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
+        var attackerIsInvisible = attackerActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionInvisible);
+        var attackerIsStealthy = attackerActor.HasConditionOfType(ConditionStealthy);
+        var attackerHasNoLight = attacker.LightingState is LightingState.Unlit or LightingState.Darkness;
+
+        var defenderIsBlind = defenderActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
+        var defenderIsInvisible = defenderActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionInvisible);
+        var defenderHasNoLight = defender.LightingState is LightingState.Unlit or LightingState.Darkness;
 
         var attackerCanPerceiveDefender = attacker.CanPerceiveTarget(defender);
-        var defenderCanPerceiveAttacker = defender.CanPerceiveTarget(attacker);
+        var defenderCanPerceiveAttacker = defenderHasAlertFeat || defender.CanPerceiveTarget(attacker);
 
         var adv =
             !attackerIsStealthy &&
@@ -121,6 +156,16 @@ internal static class LightingAndObscurementContext
         static bool BlindedDisadvantage(RuleDefinitions.TrendInfo trendInfo)
         {
             return trendInfo.sourceName == ConditionBlinded.Name && trendInfo.value == -1;
+        }
+
+        static bool InvisibleAdvantage(RuleDefinitions.TrendInfo trendInfo)
+        {
+            return trendInfo.sourceName == ConditionInvisible.Name && trendInfo.value == 1;
+        }
+
+        static bool InvisibleDisadvantage(RuleDefinitions.TrendInfo trendInfo)
+        {
+            return trendInfo.sourceName == ConditionInvisible.Name && trendInfo.value == -1;
         }
 
         // conditions with parent inherit their features which makes true sight quite hard to manage

@@ -459,6 +459,7 @@
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>true</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthBreaksWhenAttackHits>true</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>
+    <AddDexModifierToEnemiesInitiativeRoll>true</AddDexModifierToEnemiesInitiativeRoll>
     <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
     <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
@@ -989,6 +990,7 @@
     <FeatSliderPosition>4</FeatSliderPosition>
     <FeatEnabled>
         <string>FeatGroupAegisTouched</string>
+        <string>FeatAlert</string>
         <string>FeatAlwaysReady</string>
         <string>FeatGroupApothecary</string>
         <string>FeatArcaneArcherAdept</string>

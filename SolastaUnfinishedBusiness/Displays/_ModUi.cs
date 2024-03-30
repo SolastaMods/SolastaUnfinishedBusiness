@@ -61,6 +61,7 @@ internal static class ModUi
         "EnduringSting",
         "EnsnaringStrike",
         "FarStep",
+        "FeatAlert",
         "FeatBladeMastery",
         "FeatBlindFighting",
         "FeatCharger",
