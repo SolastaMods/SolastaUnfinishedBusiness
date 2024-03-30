@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Grants immunity to movement restrictions as well as being restrained.
 Condition/&ConditionFeatMobileAfterDashTitle=Freedom
+Feat/&FeatAlertDescription=Always on the lookout for danger, you gain the following benefits:\n• You can't be surprised while you are conscious.\n• You gain a +5 bonus to initiative.\n• Other creatures don't gain advantage on attack rolls against you as a result of not being perceived by you.
+Feat/&FeatAlertTitle=Alert
 Feat/&FeatArcaneArcherAdeptDescription=You have arcane magic and bow training that allows you to perform special combat maneuvers.
 Feat/&FeatArcaneArcherAdeptTitle=Arcane Archer Adept
 Feat/&FeatAstralArmsDescription=Increase your Wisdom by 1, to a maximum of 20.\nWhen you make an unarmed strike on your turn, your reach for it is 10 ft. Other creatures provoke an opportunity attack from you when they enter the reach you have with unarmed.

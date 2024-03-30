@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=免疫束缚及移动限制效应。
 Condition/&ConditionFeatMobileAfterDashTitle=行动自如
+Feat/&FeatAlertDescription=时刻警惕危险，您将获得以下好处：\n• 当您有意识时，您不会感到惊讶。\n• 您的主动性获得 +5 加值。\n• 其他生物则不会由于不被你察觉而在攻击检定中获得优势。
+Feat/&FeatAlertTitle=警报
 Feat/&FeatArcaneArcherAdeptDescription=你掌握的奥术魔法与弓箭训练，允许你执行特殊的战斗策略。
 Feat/&FeatArcaneArcherAdeptTitle=魔射专家
 Feat/&FeatAstralArmsDescription=你的感知 +1，上限为 20 点。\n当你在你的回合进行攻击时，你的攻击范围为 10 尺。其他生物进入你的徒手攻击范围时会引发你的借机攻击.

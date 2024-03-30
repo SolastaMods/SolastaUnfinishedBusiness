@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=이동 제한 및 구속에 면역이 됩니다.
 Condition/&ConditionFeatMobileAfterDashTitle=자유
+Feat/&FeatAlertDescription=항상 위험을 경계하면 다음과 같은 이점을 얻을 수 있습니다.\n• 의식이 있는 동안에는 놀라지 않습니다.\n• 주도력에 +5 보너스를 얻습니다.\n• 다른 생물은 그렇지 않습니다. 당신이 인식하지 못한 결과로 당신에 대한 공격 굴림에서 이점을 얻습니다.
+Feat/&FeatAlertTitle=알리다
 Feat/&FeatArcaneArcherAdeptDescription=당신은 특별한 전투 기동을 수행할 수 있는 신비한 마법과 활 훈련을 가지고 있습니다.
 Feat/&FeatArcaneArcherAdeptTitle=비전 궁수 숙련자
 Feat/&FeatAstralArmsDescription=지혜가 1 증가하여 최대 20까지 증가합니다.\n당신의 차례에 비무장 공격을 가할 때 도달 범위는 10피트입니다. 다른 생물이 비무장 공격 범위에 들어갈 때 기회 공격을 유발합니다. .
