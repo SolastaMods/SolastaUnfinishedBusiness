@@ -486,7 +486,7 @@ Whenever an opponent attacks you from a nearby cell, you are granted an immediat
 
 * Intimidating Presence
 
-Whenever you start raging as a free action, and while you are raging on subsequent turns as a bonus action, you can strike terror into others with your intimidating presence. Each enemy creature within 30 feet of you must make a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Strength modifier). On a failed save, a creature has the Frightened condition for 1 minute. At the end of each of the Frightened creature’s turns, the creature repeats the saving throw, ending the effect on itself on a success. Once you use this feature, you can’t use it again until you finish a Long Rest. If you’ve run out of uses of this feature, you can expend a use of your Rage to use it again. 
+Whenever you start raging as a free action, and while you are raging on subsequent turns as a bonus action, you can strike terror into others with your intimidating presence. Each enemy creature within 30 feet of you must make a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Strength modifier). On a failed save, a creature has the Frightened condition for 1 minute. At the end of each of the Frightened creature's turns, the creature repeats the saving throw, ending the effect on itself on a success. Once you use this feature, you can't use it again until you finish a Long Rest. If you've run out of uses of this feature, you can expend a use of your Rage to use it again. 
 
 
 

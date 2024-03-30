@@ -54,7 +54,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Cold Infusion",
-    "description": "As a bonus action, you can touch a simple or martial weapon and infuse it with Cold damage. For the next minute, the weapon deals an extra 1d4 Cold damage when it hits. After you use this bonus action, you can’t do so again until you finish a long rest.",
+    "description": "As a bonus action, you can touch a simple or martial weapon and infuse it with Cold damage. For the next minute, the weapon deals an extra 1d4 Cold damage when it hits. After you use this bonus action, you can't do so again until you finish a long rest.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8440ca8497e8ca64f811d09a9d4679d9",
