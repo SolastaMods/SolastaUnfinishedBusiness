@@ -81,7 +81,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddToDB();
 
         powerConstellationForm.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(c => c is not RulesetCharacterMonster),
             new MagicEffectFinishedByMeAnyConstellationForm(powerConstellationForm));
 
         var powerArcherConstellationForm = BuildArcher(ActivationTime.BonusAction, powerConstellationForm);
@@ -129,7 +128,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             powerDragonConstellationForm);
         ForceGlobalUniqueEffects.AddToGroup(
             ForceGlobalUniqueEffects.Group.ConstellationForm,
-            PowerDruidWildShape,
             powerArcherConstellationForm, powerChaliceConstellationForm, powerDragonConstellationForm);
 
         // LEVEL 06
@@ -640,9 +638,18 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             {
                 usablePower = PowerProvider.Get(pool, rulesetAttacker);
                 rulesetAttacker.UsePower(usablePower);
+
                 // this is required as MulticlassWildshapeContext.UpdateUsablePowers get called before
-                usablePower = PowerProvider.Get(pool, rulesetAttacker.OriginalFormCharacter);
-                rulesetAttacker.UsePower(usablePower);
+                var rulesetMonster = ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters
+                    .FirstOrDefault(x => x.RulesetCharacter.OriginalFormCharacter == rulesetAttacker)?.RulesetCharacter;
+
+                if (rulesetMonster == null)
+                {
+                    yield break;
+                }
+
+                usablePower = PowerProvider.Get(pool, rulesetMonster);
+                rulesetMonster.UsePower(usablePower);
             }
             else if (rulesetEffectPower.PowerDefinition is FeatureDefinitionPowerSharedPool powerSharedPool &&
                      powerSharedPool.SharedPool == pool)
