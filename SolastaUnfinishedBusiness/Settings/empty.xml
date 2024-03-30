@@ -319,8 +319,12 @@
     <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
     <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
     <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
-    <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+    <EnableBarbarianBrutalStrike>false</EnableBarbarianBrutalStrike>
+    <DisableBarbarianBrutalCritical>false</DisableBarbarianBrutalCritical>
+    <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
+    <EnableBarbarianRecklessSameBuffDebuffDuration>false</EnableBarbarianRecklessSameBuffDebuffDuration>
+    <EnableBarbarianRegainOneRageAtShortRest>false</EnableBarbarianRegainOneRageAtShortRest>
     <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
@@ -379,6 +383,7 @@
     <ChangeSleetStormToCube>false</ChangeSleetStormToCube>
     <UseHeightOneCylinderEffect>false</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>false</FixEldritchBlastRange>
+    <FixRingOfRegenerationHealRate>false</FixRingOfRegenerationHealRate>
     <AllowAnyClassToUseArcaneShieldstaff>false</AllowAnyClassToUseArcaneShieldstaff>
     <IdentifyAfterRest>false</IdentifyAfterRest>
     <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
@@ -826,6 +831,7 @@
         </item>
     </SpellListSpellEnabled>
     <EnableAdditionalIconsOnLevelMap>false</EnableAdditionalIconsOnLevelMap>
+    <EnableHeroWithBestProficiencyToRollChoice>false</EnableHeroWithBestProficiencyToRollChoice>
     <EnableLogDialoguesToConsole>false</EnableLogDialoguesToConsole>
     <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <MarkInvisibleTeleportersOnLevelMap>false</MarkInvisibleTeleportersOnLevelMap>

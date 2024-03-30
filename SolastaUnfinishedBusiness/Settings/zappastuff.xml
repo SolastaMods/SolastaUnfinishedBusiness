@@ -411,17 +411,21 @@
     <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
     <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
     <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
-    <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+    <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
+    <DisableBarbarianBrutalCritical>true</DisableBarbarianBrutalCritical>
+    <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
+    <EnableBarbarianRecklessSameBuffDebuffDuration>true</EnableBarbarianRecklessSameBuffDebuffDuration>
+    <EnableBarbarianRegainOneRageAtShortRest>true</EnableBarbarianRegainOneRageAtShortRest>
     <AddFighterLevelToIndomitableSavingReroll>true</AddFighterLevelToIndomitableSavingReroll>
-    <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
-    <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
+    <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
+    <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt10>true</EnableRangerNatureShroudAt10>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
     <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>true
     </EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>
     <EnableMonkDoNotRequireAttackActionForFlurry>true</EnableMonkDoNotRequireAttackActionForFlurry>
-    <EnableMonkFightingStyle>true</EnableMonkFightingStyle>
+    <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
     <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>true</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
@@ -471,6 +475,7 @@
     <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
     <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>true</FixEldritchBlastRange>
+    <FixRingOfRegenerationHealRate>false</FixRingOfRegenerationHealRate>
     <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
     <IdentifyAfterRest>true</IdentifyAfterRest>
     <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
@@ -793,6 +798,7 @@
                 <ArrayOfString>
                     <string>PathOfTheElements</string>
                     <string>PathOfTheLight</string>
+                    <string>PathOfTheRavager</string>
                     <string>PathOfTheReaver</string>
                     <string>PathOfTheSavagery</string>
                     <string>PathOfTheSpirits</string>
@@ -995,8 +1001,10 @@
         <string>FeatBowMastery</string>
         <string>FeatCallForCharge</string>
         <string>FeatGroupCelestialTouched</string>
+        <string>FeatCharger</string>
         <string>FeatCharismaticDefense</string>
         <string>FeatCharismaticPrecision</string>
+        <string>FeatGroupChef</string>
         <string>FeatGroupCloseQuarters</string>
         <string>FeatRangedExpert</string>
         <string>FeatCrossbowMastery</string>
@@ -1564,6 +1572,7 @@
         </item>
     </SpellListSpellEnabled>
     <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
+    <EnableHeroWithBestProficiencyToRollChoice>true</EnableHeroWithBestProficiencyToRollChoice>
     <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
     <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
