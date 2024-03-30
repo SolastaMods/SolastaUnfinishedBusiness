@@ -87,11 +87,35 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var powerArcherConstellationForm = BuildArcher(ActivationTime.BonusAction, powerConstellationForm);
         var powerChaliceConstellationForm = BuildChalice(ActivationTime.BonusAction, powerConstellationForm);
         var powerDragonConstellationForm = BuildDragon(ActivationTime.BonusAction, powerConstellationForm);
+        var powerDisableConstellationForm = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}DisableConstellationForm")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("ConstellationForm", Resources.PowerConstellationForm, 256, 128))
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        ConstellationFormConditions
+                            .Select(conditionName =>
+                                DatabaseRepository
+                                    .GetDatabase<ConditionDefinition>()
+                                    .GetElement(conditionName))
+                            .Select(condition =>
+                                EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Remove))
+                            .ToArray())
+                    .Build())
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConstellationFormConditions)))
+            .AddToDB();
+
         var featureSetConstellationForm = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ConstellationForm")
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(
                 powerConstellationForm,
+                powerDisableConstellationForm,
                 powerArcherConstellationForm,
                 powerChaliceConstellationForm,
                 powerDragonConstellationForm)

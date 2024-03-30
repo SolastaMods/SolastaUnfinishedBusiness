@@ -1,12 +1,15 @@
 1.5.97.3:
 
-- added Charger and Chef feats
 - added 'Add Dexterity Modifier to enemies Initiative Roll'
 - added 'Enable the hero with best proficiency to roll dialogue choices'
+- added Charger and Chef feats
 - added Path of the Ravager subclass [UA Berserker]
+- added Revert Starry Form power to Circle of the Stars
+- changed Ranger Wildmaster beast companion models to non-spirit ones
 - fixed Circle of the Stars chalice and dragon constellation light range
 - fixed Circle of the Stars constellation form integration with wildshape
 - fixed Ranger Wildmaster beast using char level instead of class level
+- fixed Ranger Wildmaster bear and eagle 2nd attack to be different than 1st
 - fixed Reckless Attack not working with enemies, reach weapons, and unarmed
 
 1.5.97.2:
