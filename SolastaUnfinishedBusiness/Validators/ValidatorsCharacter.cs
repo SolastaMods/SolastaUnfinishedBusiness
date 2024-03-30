@@ -100,11 +100,7 @@ internal static class ValidatorsCharacter
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), LongbowType);
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponOrUnarmedInMainHand = character =>
-    {
-        var weapon = character.GetMainWeapon();
-
-        return ValidatorsWeapon.IsUnarmed(weapon?.ItemDefinition, null) || HasMeleeWeaponInMainHand(character);
-    };
+        IsUnarmedInMainHand(character) || HasMeleeWeaponInMainHand(character);
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainHand = character =>
     {
@@ -145,7 +141,7 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
         HasMeleeWeaponInMainHand(character) && HasMeleeWeaponInOffHand(character);
 
-    internal static readonly IsCharacterValidHandler IsUnarmedInMainHand = character =>
+    private static readonly IsCharacterValidHandler IsUnarmedInMainHand = character =>
         ValidatorsWeapon.IsUnarmed(character.GetMainWeapon()?.ItemDefinition, null);
 
     internal static readonly IsCharacterValidHandler IsNotInBrightLight = character =>

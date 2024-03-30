@@ -80,7 +80,7 @@ internal static class EldritchVersatilityBuilders
             .Setup(InvocationPoolTypeCustom.Pools.EldritchVersatilityPool, 1, true)
             .AddToDB();
 
-    public static readonly FeatureDefinition FeatureEldritchVersatilityGrantPoolAndSwitch = 
+    private static readonly FeatureDefinition FeatureEldritchVersatilityGrantPoolAndSwitch = 
         FeatureDefinitionBuilder
             .Create($"Feature{Name}GrantPoolAndSwitch")
             .SetGuiPresentationNoContent(true)
@@ -1351,7 +1351,7 @@ internal static class EldritchVersatilityBuilders
             {
                 return;
             }
-            tag = hero.ActiveFeatures.Keys.Contains(tag) ? tag : hero.ActiveFeatures.Keys.Last();
+            tag = hero.ActiveFeatures.ContainsKey(tag) ? tag : hero.ActiveFeatures.Keys.Last();
             hero.ActiveFeatures[tag].TryAdd(PowerEldritchVersatilityPointPool);
             hero.ActiveFeatures[tag].TryAdd(PowerVersatilitySwitch);
         }

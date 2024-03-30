@@ -210,9 +210,10 @@ public sealed class MartialWeaponMaster : AbstractSubclass
     // Helpers
     //
 
-    internal static bool HasSpecializedWeapon(
+    private static bool HasSpecializedWeapon(
         RulesetCharacter rulesetCharacter,
         RulesetAttackMode rulesetAttackMode = null,
+        // ReSharper disable once SuggestBaseTypeForParameter
         WeaponTypeDefinition weaponTypeDefinition = null)
     {
         var specializedWeapons = rulesetCharacter
