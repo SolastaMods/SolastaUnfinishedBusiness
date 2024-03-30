@@ -428,7 +428,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             if (classLevel > rulesetCharacter.TemporaryHitPoints)
             {
                 rulesetCharacter.ReceiveTemporaryHitPoints(
-                    classLevel, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+                    classLevel, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
             }
 
             yield break;

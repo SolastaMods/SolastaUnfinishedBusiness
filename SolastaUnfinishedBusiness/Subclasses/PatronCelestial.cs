@@ -340,7 +340,7 @@ public class PatronCelestial : AbstractSubclass
                     actingCharacter, gameLocationCharacter, ShadowDagger, EffectHelpers.EffectType.Effect);
 
                 rulesetLocationCharacter.ReceiveTemporaryHitPoints(
-                    tempHitPoints, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+                    tempHitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
             }
         }
     }

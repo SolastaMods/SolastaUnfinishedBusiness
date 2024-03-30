@@ -403,7 +403,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             if (totalHealing > rulesetCharacter.TemporaryHitPoints)
             {
                 rulesetCharacter.ReceiveTemporaryHitPoints(
-                    totalHealing, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
+                    totalHealing, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
             }
 
             //

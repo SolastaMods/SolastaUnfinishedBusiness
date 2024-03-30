@@ -926,7 +926,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             if (intMod > rulesetCharacter.TemporaryHitPoints)
             {
                 rulesetCharacter.ReceiveTemporaryHitPoints(
-                    intMod, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+                    intMod, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
             }
         }
 

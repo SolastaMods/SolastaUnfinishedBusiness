@@ -212,7 +212,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 if (tempHitPoints > rulesetCharacter.TemporaryHitPoints)
                 {
                     rulesetCharacter.ReceiveTemporaryHitPoints(
-                        tempHitPoints, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
+                        tempHitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn,
                         rulesetCharacter.guid);
                 }
             }

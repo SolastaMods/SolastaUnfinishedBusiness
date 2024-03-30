@@ -1418,7 +1418,7 @@ internal static class InvocationsBuilders
             if (tempHitPoints > rulesetDefender.TemporaryHitPoints)
             {
                 rulesetDefender.ReceiveTemporaryHitPoints(
-                    classLevel * 10, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
+                    classLevel * 10, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn,
                     rulesetDefender.Guid);
             }
         }

@@ -250,7 +250,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             if (temporaryHitPoints > rulesetCharacter.TemporaryHitPoints)
             {
                 rulesetCharacter.ReceiveTemporaryHitPoints(
-                    temporaryHitPoints, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
+                    temporaryHitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn,
                     rulesetCharacter.Guid);
             }
         }

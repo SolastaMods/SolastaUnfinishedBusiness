@@ -551,7 +551,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             if (levels > rulesetCharacter.TemporaryHitPoints)
             {
                 rulesetCharacter.ReceiveTemporaryHitPoints(
-                    levels, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
+                    levels, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
             }
 
             var spellRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>

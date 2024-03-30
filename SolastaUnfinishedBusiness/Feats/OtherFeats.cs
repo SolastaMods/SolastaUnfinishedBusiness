@@ -256,7 +256,7 @@ internal static class OtherFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetDurationData(DurationType.UntilAnyRest)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -1544,7 +1544,7 @@ internal static class OtherFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetDurationData(DurationType.UntilAnyRest)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder

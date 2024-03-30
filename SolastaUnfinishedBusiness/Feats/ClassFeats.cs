@@ -559,7 +559,7 @@ internal static class ClassFeats
             if (tempHitPoints > __instance.TemporaryHitPoints)
             {
                 __instance.ReceiveTemporaryHitPoints(
-                    2 * classLevel, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
+                    2 * classLevel, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn,
                     TemporaryHitPointsGuid);
             }
         }
@@ -668,7 +668,7 @@ internal static class ClassFeats
             if (healingReceived > rulesetCharacter.TemporaryHitPoints)
             {
                 rulesetCharacter.ReceiveTemporaryHitPoints(
-                    healingReceived, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
+                    healingReceived, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn,
                     rulesetCharacter.Guid);
             }
         }

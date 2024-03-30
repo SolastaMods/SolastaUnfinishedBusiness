@@ -1489,8 +1489,11 @@ internal static class Level20SubclassesContext
         {
             var clericLevel = target.GetClassLevel(CharacterClassDefinitions.Cleric);
 
-            target.ReceiveTemporaryHitPoints(clericLevel, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn,
-                rulesetCondition.SourceGuid);
+            if (clericLevel > target.TemporaryHitPoints)
+            {
+                target.ReceiveTemporaryHitPoints(clericLevel, DurationType.UntilAnyRest, 1, TurnOccurenceType.EndOfTurn,
+                    rulesetCondition.SourceGuid);
+            }
         }
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)

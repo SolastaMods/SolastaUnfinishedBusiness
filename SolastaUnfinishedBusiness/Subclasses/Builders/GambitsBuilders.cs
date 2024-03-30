@@ -741,7 +741,7 @@ internal static class GambitsBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetDurationData(DurationType.UntilAnyRest)
                     .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder

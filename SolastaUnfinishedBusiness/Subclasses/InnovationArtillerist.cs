@@ -114,7 +114,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(MassCureWounds)
-                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetDurationData(DurationType.UntilAnyRest)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
                     .SetParticleEffectParameters(MassCureWounds)
                     .SetEffectForms(

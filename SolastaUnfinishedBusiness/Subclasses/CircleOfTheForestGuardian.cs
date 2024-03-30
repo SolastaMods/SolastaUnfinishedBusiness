@@ -168,7 +168,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         if (hitPoints > rulesetCharacter.TemporaryHitPoints)
         {
             rulesetCharacter.ReceiveTemporaryHitPoints(
-                hitPoints, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+                hitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
         }
 
         if (levels < 14)
@@ -187,7 +187,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                      .GetContenders(locationCharacter, isOppositeSide: false, withinRange: 3))
         {
             ally.RulesetCharacter.ReceiveTemporaryHitPoints(
-                hitPoints, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+                hitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
         }
     }
 
