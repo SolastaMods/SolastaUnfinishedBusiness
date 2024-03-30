@@ -217,6 +217,7 @@ internal static class RaceFeats
             .SetValidators(ValidatorsFeat.IsTiefling)
             .AddToDB();
 
+        var featDwarvenFortitude = BuildDwarvenFortitude();
         var featGroupSecondChance = BuildSecondChance(feats);
 
         //
@@ -225,6 +226,7 @@ internal static class RaceFeats
 
         feats.AddRange(
             featDragonWings,
+            featDwarvenFortitude,
             featFadeAwayDex,
             featFadeAwayInt,
             featElvenAccuracyDexterity,
@@ -275,6 +277,7 @@ internal static class RaceFeats
 
         GroupFeats.MakeGroup("FeatGroupRaceBound", null,
             featDragonWings,
+            featDwarvenFortitude,
             featInfernalConstitution,
             featGroupsElvenAccuracy,
             featGroupFadeAway,
@@ -283,6 +286,67 @@ internal static class RaceFeats
             featGroupSquatNimbleness);
     }
 
+    #region Dwarven Fortitude
+
+    private static FeatDefinitionWithPrerequisites BuildDwarvenFortitude()
+    {
+        const string Name = "FeatDwarvenFortitude";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .AddFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"Feature{Name}")
+                    .SetGuiPresentation(Name, Category.Feat)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Constitution, 1)
+                    .AddCustomSubFeatures(new ActionFinishedByMeDwarvenFortitude())
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.IsDwarf)
+            .AddToDB();
+    }
+
+    private sealed class ActionFinishedByMeDwarvenFortitude : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            if (characterAction.ActionId is not (ActionDefinitions.Id.Dodge or ActionDefinitions.Id.UncannyDodge))
+            {
+                yield break;
+            }
+
+            var attacker = characterAction.ActingCharacter;
+            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("DwarvenFortitude", reactionParams);
+
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
+
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService,
+                previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var hero = attacker.RulesetCharacter.GetOriginalHero();
+
+            hero?.RollHitDie();
+        }
+    }
+
+    #endregion
 
     #region Second Chance
 

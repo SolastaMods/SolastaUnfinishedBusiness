@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,12 +11,14 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:FeatureFeatDwarvenFortitude:bcbc96a9-451a-5735-af20-ad791bb4a340"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfConstitutionTitle",
-    "description": "Awaken the Beast [Con], Badlands Marauder, Chef [Con], Creed of Arun, Crusher [Con], Dwarven Fortitude, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra",
+    "title": "Feat/&FeatDwarvenFortitudeTitle",
+    "description": "Feat/&FeatDwarvenFortitudeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d0acb623-d0e3-5abb-a409-4c3dc88d470d",
+  "guid": "3a0cdf8b-c7b1-56e1-a8b5-8cea0e4e8550",
   "contentPack": 9999,
-  "name": "FeatGroupHalfConstitution"
+  "name": "FeatDwarvenFortitude"
 }

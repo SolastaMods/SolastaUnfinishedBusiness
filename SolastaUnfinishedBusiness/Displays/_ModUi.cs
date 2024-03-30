@@ -70,6 +70,7 @@ internal static class ModUi
         "FeatDefensiveDuelist",
         "FeatDragonWings",
         "FeatDualWeaponDefense",
+        "FeatDwarvenFortitude",
         "FeatEldritchAdept",
         "FeatFellHanded",
         "FeatGiftOfTheChromaticDragon",

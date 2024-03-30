@@ -2,7 +2,7 @@
 
 - added 'Add Dexterity Modifier to enemies Initiative Roll'
 - added 'Enable the hero with best proficiency to roll dialogue choices'
-- added Alert, Charger and Chef feats
+- added Alert, Charger, Chef, and Dwarven Fortitude feats
 - added Path of the Ravager subclass [UA Berserker]
 - added Revert Starry Form power to Circle of the Stars
 - changed Ranger Wildmaster beast companion models to non-spirit ones
