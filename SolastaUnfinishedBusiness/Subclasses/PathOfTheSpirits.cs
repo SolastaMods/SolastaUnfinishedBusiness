@@ -410,7 +410,8 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     }
 
     private sealed class MagicEffectFinishedByMeAnySpiritWalker(
-        FeatureDefinitionPower powerLongRest, FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMeAny
+        FeatureDefinitionPower powerLongRest,
+        FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMeAny
     {
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,

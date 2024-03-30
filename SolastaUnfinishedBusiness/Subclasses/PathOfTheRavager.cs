@@ -130,7 +130,7 @@ public sealed class PathOfTheRavager : AbstractSubclass
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 (characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart &&
-                characterActionUsePower.activePower.PowerDefinition.OverriddenPower != PowerBarbarianRageStart))
+                 characterActionUsePower.activePower.PowerDefinition.OverriddenPower != PowerBarbarianRageStart))
             {
                 yield break;
             }
