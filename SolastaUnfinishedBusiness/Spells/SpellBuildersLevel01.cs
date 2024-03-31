@@ -1284,8 +1284,7 @@ internal static partial class SpellBuilders
         var damageAffinitySkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}")
             .SetGuiPresentationNoContent(true)
-            .SetDamageAffinityType(DamageAffinityType.None)
-            .SetRetaliate(powerSkinOfRetribution, 1, true)
+            .SetRetaliate(powerSkinOfRetribution, 1)
             .AddToDB();
 
         var conditionSkinOfRetribution = ConditionDefinitionBuilder

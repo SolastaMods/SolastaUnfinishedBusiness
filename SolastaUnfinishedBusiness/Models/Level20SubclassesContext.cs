@@ -941,9 +941,7 @@ internal static class Level20SubclassesContext
         var damageAffinityOathOfMotherlandFlamesOfMotherland = FeatureDefinitionDamageAffinityBuilder
             .Create("DamageAffinityOathOfMotherlandFlamesOfMotherland")
             .SetGuiPresentationNoContent(true)
-            .SetDamageAffinityType(DamageAffinityType.None)
-            .SetDamageType(DamageTypeFire)
-            .SetRetaliate(powerOathOfMotherlandFlamesOfMotherlandRetaliate, 1, true)
+            .SetRetaliate(powerOathOfMotherlandFlamesOfMotherlandRetaliate, 1)
             .AddToDB();
 
         var conditionOathOfMotherlandFlamesOfMotherland = ConditionDefinitionBuilder
