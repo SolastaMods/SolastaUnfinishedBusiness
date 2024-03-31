@@ -5,7 +5,7 @@
   "damageType": "DamageFire",
   "savingThrowAdvantageType": "None",
   "savingThrowModifier": 0,
-  "damageAffinityType": "Resistance",
+  "damageAffinityType": "None",
   "flatDamageReduction": 0,
   "flatDamageReductionOnlyAppliesToFirstDamageForm": true,
   "tagsIgnoringAffinity": [],

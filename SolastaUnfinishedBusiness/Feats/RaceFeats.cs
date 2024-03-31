@@ -416,12 +416,14 @@ internal static class RaceFeats
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
+        power.AddCustomSubFeatures(new MagicEffectFinishedByMeAnyFlamesOfPhlegethos(power));
+
         var dieRollModifierFire = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}Fire")
             .SetGuiPresentation("FeatGroupFlamesOfPhlegethos", Category.Feat)
             .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
                 "Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll")
-            .AddCustomSubFeatures(new ValidateDieRollModifierFlamesOfPhlegethos(power))
+            .AddCustomSubFeatures(new ValidateDieRollModifierFlamesOfPhlegethos())
             .AddToDB();
 
         var flamesCha = FeatDefinitionWithPrerequisitesBuilder
@@ -446,8 +448,8 @@ internal static class RaceFeats
             "FeatGroupFlamesOfPhlegethos", Name, ValidatorsFeat.IsTiefling, flamesCha, flamesInt);
     }
 
-    private sealed class ValidateDieRollModifierFlamesOfPhlegethos(FeatureDefinitionPower power)
-        : IValidateDieRollModifier, IMagicEffectFinishedByMeAny
+    private sealed class MagicEffectFinishedByMeAnyFlamesOfPhlegethos(FeatureDefinitionPower power)
+        : IMagicEffectFinishedByMeAny
     {
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
@@ -474,6 +476,7 @@ internal static class RaceFeats
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                StringParameter = "FeatFlamesOfPhlegethos",
                 RulesetEffect = implementationManagerService
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower
@@ -485,7 +488,10 @@ internal static class RaceFeats
 
             yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
+    }
 
+    private sealed class ValidateDieRollModifierFlamesOfPhlegethos : IValidateDieRollModifier
+    {
         public bool CanModifyRoll(
             RulesetCharacter character,
             List<FeatureDefinition> features,
