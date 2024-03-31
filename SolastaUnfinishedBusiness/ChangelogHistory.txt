@@ -2,10 +2,10 @@
 
 - added 'Add Dexterity Modifier to enemies Initiative Roll'
 - added 'Enable the hero with best proficiency to roll dialogue choices'
-- added Alert, Charger, Chef, Dwarven Fortitude, and Flames of Phlegethos feats
-- added Path of the Ravager subclass [UA Berserker]
-- added Revert Starry Form power to Circle of the Stars
-- changed Ranger Wildmaster beast companion models to non-spirit ones
+- added Alert, Charger, Chef, Dwarven Fortitude, and Flames of Phlegethos
+- added Path of the Ravager [UA Path of the Berserker]
+- improved Circle of the Stars with revert starry form power
+- improved Ranger Wildmaster with new non-spirit companion models
 - fixed Circle of the Stars chalice and dragon constellation light range
 - fixed Circle of the Stars constellation form integration with wildshape
 - fixed Ranger Wildmaster beast using char level instead of class level

@@ -476,10 +476,12 @@ internal static class RaceFeats
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { new ActionModifier() },
                 StringParameter = "PowerFeatFlamesOfPhlegethos",
                 RulesetEffect = implementationManagerService
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower
+                UsablePower = usablePower,
+                TargetCharacters = { attacker }
             };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
