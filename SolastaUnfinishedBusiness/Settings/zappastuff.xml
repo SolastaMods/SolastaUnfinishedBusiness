@@ -4,6 +4,7 @@
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
+    <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
     <DisplayFeatsToggle>false</DisplayFeatsToggle>
     <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
@@ -660,23 +661,31 @@
     <RaceSliderPosition>4</RaceSliderPosition>
     <RaceEnabled>
         <string>RaceMalakh</string>
-        <string>RaceDarkelf</string>
         <string>RaceFairy</string>
         <string>RaceBolgrif</string>
         <string>RaceOligath</string>
-        <string>RaceGrayDwarf</string>
-        <string>RaceHalfElfVariant</string>
         <string>RaceImp</string>
-        <string>RaceIronbornDwarf</string>
         <string>RaceKobold</string>
-        <string>RaceObsidianDwarf</string>
         <string>RaceOni</string>
-        <string>RaceTiefling</string>
         <string>RaceBattleborn</string>
         <string>RaceWendigo</string>
         <string>RaceWildling</string>
         <string>RaceWyrmkin</string>
     </RaceEnabled>
+    <SubraceSliderPosition>4</SubraceSliderPosition>
+    <SubraceEnabled>
+        <string>RaceDarkelf</string>
+        <string>RaceTieflingDevilTongue</string>
+        <string>RaceTieflingFeral</string>
+        <string>RaceGrayDwarf</string>
+        <string>RaceHalfElfDark</string>
+        <string>RaceHalfElfHigh</string>
+        <string>RaceHalfElfSylvan</string>
+        <string>RaceIronbornDwarf</string>
+        <string>RaceTieflingMephistopheles</string>
+        <string>RaceObsidianDwarf</string>
+        <string>RaceTieflingZariel</string>
+    </SubraceEnabled>
     <BackgroundSliderPosition>4</BackgroundSliderPosition>
     <BackgroundEnabled>
         <string>BackgroundDevoted</string>
@@ -1017,10 +1026,10 @@
         <string>FeatDragonWings</string>
         <string>FeatDualFlurry</string>
         <string>FeatDualWeaponDefense</string>
+        <string>FeatDwarvenFortitude</string>
         <string>FeatEldritchAdept</string>
         <string>FeatGroupElementalAdept</string>
         <string>FeatGroupElementalMaster</string>
-        <string>FeatGroupElementalTouch</string>
         <string>FeatGroupElvenAccuracy</string>
         <string>FeatExpandTheHunt</string>
         <string>FeatExploiter</string>
@@ -1030,6 +1039,7 @@
         <string>FeatGroupTeleportation</string>
         <string>FeatGroupFightingStyle</string>
         <string>FeatGroupFlameTouched</string>
+        <string>FeatGroupFlamesOfPhlegethos</string>
         <string>FeatFrostAdaptation</string>
         <string>FeatGiftOfTheChromaticDragon</string>
         <string>FeatCleavingAttack</string>
@@ -1108,15 +1118,10 @@
         <string>FeatGroupUnarmoredCombat</string>
         <string>FeatGroupCreed</string>
         <string>FeatGroupCriticalVirtuoso</string>
+        <string>FeatGroupElementalTouch</string>
         <string>FeatGroupEnchanter</string>
         <string>FeatGroupGeneralAdept</string>
         <string>FeatGroupHalfAttributes</string>
-        <string>FeatGroupHalfCharisma</string>
-        <string>FeatGroupHalfConstitution</string>
-        <string>FeatGroupHalfDexterity</string>
-        <string>FeatGroupHalfIntelligence</string>
-        <string>FeatGroupHalfStrength</string>
-        <string>FeatGroupHalfWisdom</string>
         <string>FeatGroupPlaneTouchedMagic</string>
         <string>FeatGroupRaceBound</string>
         <string>FeatGroupSkills</string>
@@ -1143,11 +1148,15 @@
         <string>InvocationAspectOfTheMoon</string>
         <string>InvocationBondOfTheTalisman</string>
         <string>InvocationCallOfTheBeast</string>
+        <string>InvocationChillingBlast</string>
         <string>InvocationPerniciousCloak</string>
+        <string>InvocationCorrosiveBlast</string>
         <string>InvocationSpectralShield</string>
         <string>InvocationDiscerningGaze</string>
         <string>InvocationEldritchMind</string>
         <string>InvocationEldritchSmite</string>
+        <string>InvocationFieryBlast</string>
+        <string>InvocationFulminateBlast</string>
         <string>InvocationBreakerAndBanisher</string>
         <string>InvocationGiftOfTheEverLivingOnes</string>
         <string>InvocationGiftOfTheHunter</string>
@@ -1157,11 +1166,15 @@
         <string>InvocationHinderingBlast</string>
         <string>InvocationVexingHex</string>
         <string>InvocationStasis</string>
+        <string>InvocationNecroticBlast</string>
+        <string>InvocationPsychicBlast</string>
+        <string>InvocationRadiantBlast</string>
         <string>InvocationInexorableHex</string>
         <string>InvocationShroudOfShadow</string>
         <string>InvocationKinesis</string>
         <string>InvocationSuperiorPactWeapon</string>
         <string>InvocationTenaciousPlague</string>
+        <string>InvocationThunderBlast</string>
         <string>InvocationTombOfFrost</string>
         <string>InvocationTrickstersEscape</string>
         <string>InvocationUltimatePactWeapon</string>

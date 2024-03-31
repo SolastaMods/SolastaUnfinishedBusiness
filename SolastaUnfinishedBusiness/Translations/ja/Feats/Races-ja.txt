@@ -1,3 +1,5 @@
+Condition/&ConditionFeatFlamesOfPhlegethosDescription=あなたから 5 フィート以内にいるクリーチャーが近接攻撃で攻撃すると、1d4 の火炎ダメージを受けます。
+Condition/&ConditionFeatFlamesOfPhlegethosTitle=フレゲトスの炎
 Feat/&FeatDragonWingsDescription=あなたは竜の翼を生やします。重装甲を着用していない場合は、一定時間飛行できるようになります。
 Feat/&FeatDragonWingsTitle=ドラゴンの翼
 Feat/&FeatDwarvenFortitudeDescription=あなたにはドワーフの英雄の血が流れています。次の利点が得られます。\n・耐久スコアが 1 増加し、最大 20 になります。\n・戦闘で回避アクションを行うたびに、1 ヒット ダイを消費して自分を回復できます。サイコロを振り、体力修正値を加え、合計に等しい数のヒット ポイントを回復します（最低 1）。
@@ -29,6 +31,7 @@ Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=レヴナント�
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=フレゲトスの炎により、{0} は {1} のダイスを {2} から {3} に振り直します。
 Feedback/&AdditionalDamageOrcishFuryFormat=オークの怒り
 Feedback/&AdditionalDamageOrcishFuryLine=オークの怒りは追加の +{2} ダメージを与える！
+Feedback/&DwarvenFortitudeHitDieRolled={0} は {2} を出して、{3} = {4} を回復しました。
 Reaction/&CustomReactionDwarvenFortitudeDescription=自分自身を回復するために 1 つのヒット ダイを消費できます。
 Reaction/&CustomReactionDwarvenFortitudeReactDescription=自分自身を回復するために 1 つのヒット ダイを消費できます。
 Reaction/&CustomReactionDwarvenFortitudeReactTitle=ドワーフの不屈の精神

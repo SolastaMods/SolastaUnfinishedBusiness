@@ -1,3 +1,5 @@
+Condition/&ConditionFeatFlamesOfPhlegethosDescription=任何距离你 5 英尺以内的生物如果用近战攻击击中你，都会受到 1d4 火焰伤害。
+Condition/&ConditionFeatFlamesOfPhlegethosTitle=弗莱格索斯之焰
 Feat/&FeatDragonWingsDescription=你长出了龙的翅膀。如果你没有穿着重甲，你将获得有限时间的飞行能力。
 Feat/&FeatDragonWingsTitle=龙翼
 Feat/&FeatDwarvenFortitudeDescription=你的血管里流淌着矮人英雄的血液。您将获得以下好处：\n• 将您的体质得分提高 1 点，最高可达 20。\n• 每当您在战斗中采取闪避动作时，您都可以花费一个命中骰子来治愈自己。掷骰子，添加你的体质调整值，并恢复等于总生命值的生命值（最少 1）。
@@ -29,6 +31,7 @@ Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=英魂之刃
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=由于 Phlegethos 之焰，{0} 会将 {1} 骰子从 {2} 重新投掷到 {3}。
 Feedback/&AdditionalDamageOrcishFuryFormat=兽人之怒
 Feedback/&AdditionalDamageOrcishFuryLine=兽人之怒造成额外 +{2} 伤害！
+Feedback/&DwarvenFortitudeHitDieRolled={0}投掷了{2}并治愈了{3} = {4}。
 Reaction/&CustomReactionDwarvenFortitudeDescription=你可以花费一枚命中骰子来治愈自己。
 Reaction/&CustomReactionDwarvenFortitudeReactDescription=你可以花费一枚命中骰子来治愈自己。
 Reaction/&CustomReactionDwarvenFortitudeReactTitle=矮人坚韧

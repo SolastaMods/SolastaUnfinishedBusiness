@@ -1,3 +1,5 @@
+Condition/&ConditionFeatFlamesOfPhlegethosDescription=Qualsiasi creatura entro 1,5 metri da te che ti colpisce con un attacco in mischia subisce 1d4 danni da fuoco.
+Condition/&ConditionFeatFlamesOfPhlegethosTitle=Fiamme di Flegeto
 Feat/&FeatDragonWingsDescription=Ti spuntano ali draconiche. Ottieni la capacità di volare per un tempo limitato se non indossi un'armatura pesante.
 Feat/&FeatDragonWingsTitle=Ali del drago
 Feat/&FeatDwarvenFortitudeDescription=Hai il sangue degli eroi nani che scorre nelle tue vene. Ottieni i seguenti benefici:\n• Aumenta il tuo punteggio di Costituzione di 1, fino a un massimo di 20.\n• Ogni volta che esegui l'azione Schivare in combattimento, puoi spendere un Dado Vita per curarti. Lancia il dado, aggiungi il tuo modificatore di Costituzione e riacquista un numero di punti ferita pari al totale (minimo 1).
@@ -29,6 +31,7 @@ Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Lama Revenant
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=A causa delle Fiamme di Phlegethos {0} ritira il dado {1} da {2} a {3}.
 Feedback/&AdditionalDamageOrcishFuryFormat=Furia degli Orchi
 Feedback/&AdditionalDamageOrcishFuryLine=La Furia degli Orchi infligge +{2} danni extra!
+Feedback/&DwarvenFortitudeHitDieRolled={0} ha tirato un {2} e ha curato {3} = {4}.
 Reaction/&CustomReactionDwarvenFortitudeDescription=Puoi spendere un Dado Vita per curarti.
 Reaction/&CustomReactionDwarvenFortitudeReactDescription=Puoi spendere un Dado Vita per curarti.
 Reaction/&CustomReactionDwarvenFortitudeReactTitle=Fortezza nanica

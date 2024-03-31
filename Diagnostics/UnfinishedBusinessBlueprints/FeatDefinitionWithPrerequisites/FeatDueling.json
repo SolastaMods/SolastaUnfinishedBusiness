@@ -16,7 +16,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&DuelingTitle",
     "description": "FightingStyle/&DuelingDescription",
     "spriteReference": {
@@ -39,6 +39,6 @@
   },
   "contentCopyright": "UserContent",
   "guid": "16bf67fc-0afc-5eac-954f-d15574176e85",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatDueling"
 }

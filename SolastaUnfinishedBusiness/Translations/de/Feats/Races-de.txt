@@ -1,3 +1,5 @@
+Condition/&ConditionFeatFlamesOfPhlegethosDescription=Jede Kreatur im Umkreis von 5 Fuß um dich, die dich mit einem Nahkampfangriff trifft, erleidet 1W4 Feuerschaden.
+Condition/&ConditionFeatFlamesOfPhlegethosTitle=Flammen von Phlegethos
 Feat/&FeatDragonWingsDescription=Dir wachsen Drachenflügel. Wenn Sie keine schwere Rüstung tragen, erhalten Sie für eine begrenzte Zeit die Fähigkeit zu fliegen.
 Feat/&FeatDragonWingsTitle=Drachenflügel
 Feat/&FeatDwarvenFortitudeDescription=In deinen Adern fließt das Blut von Zwergenhelden. Sie erhalten die folgenden Vorteile:\n• Erhöhen Sie Ihren Konstitutionswert um 1 auf maximal 20.\n• Immer wenn Sie im Kampf die Ausweichaktion ausführen, können Sie einen Trefferwürfel ausgeben, um sich selbst zu heilen. Wirf den Würfel, füge deinen Konstitutionsmodifikator hinzu und erhalte eine Anzahl an Trefferpunkten zurück, die der Gesamtsumme entspricht (mindestens 1).
@@ -29,6 +31,7 @@ Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Wiedergängerkli
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=Aufgrund der Flammen von Phlegethos würfelt {0} den {1}-Würfel erneut von {2} auf {3}.
 Feedback/&AdditionalDamageOrcishFuryFormat=Orkischer Zorn
 Feedback/&AdditionalDamageOrcishFuryLine=Orcish Fury verursacht zusätzlichen +{2} Schaden!
+Feedback/&DwarvenFortitudeHitDieRolled={0} hat eine {2} gewürfelt und {3} = {4} geheilt.
 Reaction/&CustomReactionDwarvenFortitudeDescription=Du kannst einen Trefferwürfel ausgeben, um dich selbst zu heilen.
 Reaction/&CustomReactionDwarvenFortitudeReactDescription=Du kannst einen Trefferwürfel ausgeben, um dich selbst zu heilen.
 Reaction/&CustomReactionDwarvenFortitudeReactTitle=Zwergenstärke

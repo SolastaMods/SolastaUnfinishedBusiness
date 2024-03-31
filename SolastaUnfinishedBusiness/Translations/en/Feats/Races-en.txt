@@ -1,3 +1,5 @@
+Condition/&ConditionFeatFlamesOfPhlegethosDescription=Any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.
+Condition/&ConditionFeatFlamesOfPhlegethosTitle=Flames of Phlegethos
 Feat/&FeatDragonWingsDescription=You sprout draconic wings. You gain the ability to fly for a limited time if you aren't wearing heavy armor.
 Feat/&FeatDragonWingsTitle=Dragon Wings
 Feat/&FeatDwarvenFortitudeDescription=You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:\n• Increase your Constitution score by 1, to a maximum of 20.\n• Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).
@@ -29,6 +31,7 @@ Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Revenant Blade
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=Because of Flames of Phlegethos {0} re-rolls the {1} die from a {2} to a {3}.
 Feedback/&AdditionalDamageOrcishFuryFormat=Orcish Fury
 Feedback/&AdditionalDamageOrcishFuryLine=Orcish Fury deals extra +{2} damage!
+Feedback/&DwarvenFortitudeHitDieRolled={0} rolled a {2} and healed {3} = {4}.
 Reaction/&CustomReactionDwarvenFortitudeDescription=You can spend one Hit Die to heal yourself.
 Reaction/&CustomReactionDwarvenFortitudeReactDescription=You can spend one Hit Die to heal yourself.
 Reaction/&CustomReactionDwarvenFortitudeReactTitle=Dwarven Fortitude

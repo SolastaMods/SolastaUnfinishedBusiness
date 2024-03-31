@@ -16,7 +16,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&ArcheryTitle",
     "description": "FightingStyle/&ArcheryDescription",
     "spriteReference": {
@@ -39,6 +39,6 @@
   },
   "contentCopyright": "UserContent",
   "guid": "f1386edb-5dc2-59f3-b379-a506a35108bc",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatArchery"
 }

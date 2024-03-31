@@ -1,3 +1,5 @@
+Condition/&ConditionFeatFlamesOfPhlegethosDescription=Qualquer criatura a até 1,5 metro de você que o atinja com um ataque corpo a corpo sofre 1d4 de dano de fogo.
+Condition/&ConditionFeatFlamesOfPhlegethosTitle=Chamas de Flegeto
 Feat/&FeatDragonWingsDescription=Você brota asas dracônicas. Você ganha a habilidade de voar por um tempo limitado se não estiver usando uma armadura pesada.
 Feat/&FeatDragonWingsTitle=Asas de Dragão
 Feat/&FeatDwarvenFortitudeDescription=Você tem o sangue de heróis anões fluindo em suas veias. Você ganha os seguintes benefícios:\n• Aumente seu valor de Constituição em 1, até um máximo de 20.\n• Sempre que realizar a ação Esquiva em combate, você pode gastar um Dado de Vida para se curar. Jogue o dado, adicione seu modificador de Constituição e recupere um número de pontos de vida igual ao total (mínimo de 1).
@@ -29,6 +31,7 @@ Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Lâmina Regressa
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=Por causa das Chamas de Phlegethos {0} rola novamente o dado {1} de {2} para {3}.
 Feedback/&AdditionalDamageOrcishFuryFormat=Fúria Orc
 Feedback/&AdditionalDamageOrcishFuryLine=Fúria Orc causa +{2} de dano extra!
+Feedback/&DwarvenFortitudeHitDieRolled={0} rolou um {2} e curou {3} = {4}.
 Reaction/&CustomReactionDwarvenFortitudeDescription=Você pode gastar um Dado de Vida para se curar.
 Reaction/&CustomReactionDwarvenFortitudeReactDescription=Você pode gastar um Dado de Vida para se curar.
 Reaction/&CustomReactionDwarvenFortitudeReactTitle=Fortaleza dos Anões

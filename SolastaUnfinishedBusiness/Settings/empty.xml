@@ -4,6 +4,7 @@
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
+    <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
     <DisplayFeatsToggle>false</DisplayFeatsToggle>
     <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
@@ -441,6 +442,8 @@
     <RestockTowerOfKnowledge>false</RestockTowerOfKnowledge>
     <RaceSliderPosition>4</RaceSliderPosition>
     <RaceEnabled/>
+    <SubraceSliderPosition>4</SubraceSliderPosition>
+    <SubraceEnabled/>
     <BackgroundSliderPosition>4</BackgroundSliderPosition>
     <BackgroundEnabled/>
     <KlassListSliderPosition>
