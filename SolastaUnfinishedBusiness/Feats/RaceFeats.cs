@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -218,6 +219,7 @@ internal static class RaceFeats
             .AddToDB();
 
         var featDwarvenFortitude = BuildDwarvenFortitude();
+        var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
         var featGroupSecondChance = BuildSecondChance(feats);
 
         //
@@ -281,6 +283,7 @@ internal static class RaceFeats
             featInfernalConstitution,
             featGroupsElvenAccuracy,
             featGroupFadeAway,
+            featGroupFlamesOfPhlegethos,
             featGroupRevenantGreatSword,
             featGroupSecondChance,
             featGroupSquatNimbleness);
@@ -349,6 +352,146 @@ internal static class RaceFeats
             }
 
             rulesetHero.RollHitDie();
+        }
+    }
+
+    #endregion
+
+    #region Flames of Phlegethos
+
+    private static FeatDefinition BuildFlamesOfPhlegethos(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatFlamesOfPhlegethos";
+
+        var powerRetaliate = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Retaliate")
+            .SetGuiPresentation("FeatGroupFlamesOfPhlegethos", Category.Feat)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 1, DieType.D4))
+                    .SetParticleEffectParameters(FireBolt)
+                    .Build())
+            .AddToDB();
+
+        var damageAffinity = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetRetaliate(powerRetaliate, 1)
+            .AddToDB();
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation("FeatGroupFlamesOfPhlegethos", Category.Feat,
+                DatabaseHelper.ConditionDefinitions.ConditionDivineFavor)
+            .SetPossessive()
+            .AddFeatures(damageAffinity)
+            .AddToDB();
+
+        condition.GuiPresentation.description = Gui.NoLocalization;
+
+        var lightSourceForm =
+            FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation("FeatGroupFlamesOfPhlegethos", Category.Feat)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(condition),
+                        EffectFormBuilder
+                            .Create()
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 6, 6,
+                                lightSourceForm.lightSourceForm.color,
+                                lightSourceForm.lightSourceForm.graphicsPrefabReference)
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        var dieRollModifierFire = FeatureDefinitionDieRollModifierBuilder
+            .Create($"DieRollModifier{Name}Fire")
+            .SetGuiPresentation("FeatGroupFlamesOfPhlegethos", Category.Feat)
+            .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
+                "Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll")
+            .AddCustomSubFeatures(new ValidateDieRollModifierFlamesOfPhlegethos(power))
+            .AddToDB();
+
+        var flamesCha = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Cha")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsTiefling)
+            .SetFeatures(AttributeModifierCreed_Of_Solasta, dieRollModifierFire, power)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var flamesInt = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Int")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsTiefling)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, dieRollModifierFire, power)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(flamesCha, flamesInt);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupFlamesOfPhlegethos", Name, ValidatorsFeat.IsTiefling, flamesCha, flamesInt);
+    }
+
+    private sealed class ValidateDieRollModifierFlamesOfPhlegethos(FeatureDefinitionPower power)
+        : IValidateDieRollModifier, IMagicEffectFinishedByMeAny
+    {
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            if (!action.ActionParams.activeEffect.EffectDescription.EffectForms.Any(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeFire))
+            {
+                yield break;
+            }
+
+            if (ServiceRepository.GetService<IGameLocationBattleService>()
+                    is not GameLocationBattleManager gameLocationBattleManager ||
+                ServiceRepository.GetService<IGameLocationActionService>()
+                    is not GameLocationActionManager gameLocationActionManager ||
+                ServiceRepository.GetService<IRulesetImplementationService>()
+                    is not RulesetImplementationManager implementationManagerService)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower
+            };
+
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+
+            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", attacker);
+
+            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+        }
+
+        public bool CanModifyRoll(
+            RulesetCharacter character,
+            List<FeatureDefinition> features,
+            List<string> damageTypes)
+        {
+            return damageTypes.Contains(DamageTypeFire);
         }
     }
 

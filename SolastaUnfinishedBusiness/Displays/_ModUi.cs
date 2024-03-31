@@ -80,6 +80,7 @@ internal static class ModUi
         "FeatGroupElvenAccuracy",
         "FeatGroupFadeAway",
         "FeatGroupFightingStyle",
+        "FeatGroupFlamesOfPhlegethos",
         "FeatGroupMagicInitiate",
         "FeatGroupMediumArmor",
         "FeatGroupPiercer",
