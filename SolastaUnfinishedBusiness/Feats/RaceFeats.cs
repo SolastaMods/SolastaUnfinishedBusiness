@@ -326,6 +326,14 @@ internal static class RaceFeats
             }
 
             var attacker = characterAction.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetHero = rulesetAttacker.GetOriginalHero();
+
+            if (rulesetHero == null || rulesetHero.RemainingHitDiceCount() == 0)
+            {
+                yield break;
+            }
+
             var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
             var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("DwarvenFortitude", reactionParams);
@@ -340,9 +348,7 @@ internal static class RaceFeats
                 yield break;
             }
 
-            var hero = attacker.RulesetCharacter.GetOriginalHero();
-
-            hero?.RollHitDie();
+            rulesetHero.RollHitDie();
         }
     }
 

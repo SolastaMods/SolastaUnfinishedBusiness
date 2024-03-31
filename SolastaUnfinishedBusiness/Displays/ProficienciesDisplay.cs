@@ -223,6 +223,11 @@ internal static class ProficienciesDisplay
                         toggle && ModUi.TabletopDefinitions.Contains(feat));
                 }
 
+                foreach (var featGroup in FeatsContext.FeatGroups)
+                {
+                    FeatsContext.SwitchFeatGroup(featGroup, toggle);
+                }
+
                 foreach (var fightingStyles in FightingStyleContext.FightingStyles)
                 {
                     FightingStyleContext.Switch(fightingStyles,
