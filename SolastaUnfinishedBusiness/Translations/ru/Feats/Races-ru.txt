@@ -1,4 +1,4 @@
-Condition/&ConditionFeatFlamesOfPhlegethosDescription=Любое существо в пределах 5 футов от вас, которое поражает вас рукопашной атакой, получает урон огнём 1d4.
+Condition/&ConditionFeatFlamesOfPhlegethosDescription=Все существа в радиусе 5 футов получают 1d4 урона огнём, если попадают по вам рукопашной атакой.
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=Пламя Флегетоса
 Feat/&FeatDragonWingsDescription=Вы отращиваете драконьи крылья. Вы получаете возможность летать ограниченное время, если не носите тяжёлой брони.
 Feat/&FeatDragonWingsTitle=Крылья дракона
@@ -31,7 +31,7 @@ Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Призрак �
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=Из-за Пламени Флегетоса {0} перебрасывает кость {1} с {2} на {3}.
 Feedback/&AdditionalDamageOrcishFuryFormat=Орочье буйство
 Feedback/&AdditionalDamageOrcishFuryLine=Орочье буйство наносит дополнительно +{2} урона!
-Feedback/&DwarvenFortitudeHitDieRolled={0} выкинул {2} и вылечил {3} = {4}.
+Feedback/&DwarvenFortitudeHitDieRolled={0} выкинул {2} и восстановил {3} = {4}.
 Reaction/&CustomReactionDwarvenFortitudeDescription=Вы можете потратить Кость Хитов чтобы вылечить себя.
 Reaction/&CustomReactionDwarvenFortitudeReactDescription=Вы можете потратить Кость Хитов чтобы вылечить себя.
 Reaction/&CustomReactionDwarvenFortitudeReactTitle=Дварфийская стойкость
