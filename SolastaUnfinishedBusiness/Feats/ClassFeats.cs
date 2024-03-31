@@ -64,7 +64,11 @@ internal static class ClassFeats
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featCallForCharge,
+            featPoisoner,
             hardyGroup);
+
+        GroupFeats.FeatGroupTools.AddFeats(
+            featPoisoner);
 
         GroupFeats.MakeGroup("FeatGroupClassBound", null,
             featCallForCharge,
@@ -72,7 +76,6 @@ internal static class ClassFeats
             featExpandTheHunt,
             featExploiter,
             featNaturalFluidity,
-            featPoisoner,
             featSlayTheEnemies,
             featSpiritualFluidity,
             awakenTheBeastWithinGroup,

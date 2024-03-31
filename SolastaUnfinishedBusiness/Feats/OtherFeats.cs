@@ -95,6 +95,7 @@ internal static class OtherFeats
             featWarCaster);
 
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
+            FeatAlert,
             featMobile);
 
         GroupFeats.FeatGroupDefenseCombat.AddFeats(
@@ -113,16 +114,19 @@ internal static class OtherFeats
             spellSniperGroup);
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
-            FeatAlert,
             featGiftOfTheChromaticDragon,
+            chefGroup,
             featHealer,
             featInspiringLeader,
             featSentinel);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
             featAstralArms,
-            featMonkInitiate,
             featPoisonousSkin);
+
+        GroupFeats.FeatGroupSkills.AddFeats(
+            featHealer,
+            featPickPocket);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -143,14 +147,8 @@ internal static class OtherFeats
             featMagicInitiate,
             featMartialAdept,
             featMetamagicAdept,
+            featMonkInitiate,
             featVersatilityAdept);
-
-        GroupFeats.MakeGroup("FeatGroupSkills", null,
-            FeatDefinitions.ArcaneAppraiser,
-            FeatDefinitions.Manipulator,
-            chefGroup,
-            featHealer,
-            featPickPocket);
     }
 
     #region Arcane Archer Adept

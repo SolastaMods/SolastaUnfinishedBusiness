@@ -270,8 +270,6 @@ internal static class RaceFeats
             featSquatNimblenessDex,
             featSquatNimblenessStr);
 
-        GroupFeats.FeatGroupAgilityCombat.AddFeats(featDragonWings);
-
         GroupFeats.FeatGroupDefenseCombat.AddFeats(featGroupFadeAway);
 
         GroupFeats.FeatGroupTwoHandedCombat.AddFeats(featGroupRevenantGreatSword);

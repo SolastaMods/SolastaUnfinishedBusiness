@@ -32,7 +32,7 @@ internal static class GroupFeats
         TwinBlade);
 
     internal static FeatDefinition FeatGroupElementalTouch { get; } = MakeGroup("FeatGroupElementalTouch",
-        "Touch",
+        BurningTouch.FamilyTag,
         BurningTouch,
         ToxicTouch,
         ElectrifyingTouch,
@@ -63,6 +63,18 @@ internal static class GroupFeats
 
     internal static FeatDefinition FeatGroupUnarmoredCombat { get; } = MakeGroup("FeatGroupUnarmoredCombat", null,
         FeatGroupElementalTouch);
+
+    internal static FeatDefinition FeatGroupSkills { get; } = MakeGroup("FeatGroupSkills", null,
+        ArcaneAppraiser,
+        InitiateEnchanter,
+        Manipulator);
+
+    internal static FeatDefinition FeatGroupTools { get; } = MakeGroup("FeatGroupTools", null,
+        InitiateAlchemist,
+        MasterAlchemist,
+        InitiateEnchanter,
+        MasterEnchanter,
+        Lockbreaker);
 
     private static void ApplyDynamicDescription(FeatDefinition groupDefinition)
     {
