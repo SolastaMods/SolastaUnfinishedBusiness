@@ -17,17 +17,20 @@ internal static class BackgroundsAndRacesDisplay
         {
             var toggle =
                 Main.Settings.DisplayBackgroundsToggle &&
-                Main.Settings.DisplayRacesToggle;
+                Main.Settings.DisplayRacesToggle &&
+                Main.Settings.DisplaySubracesToggle;
 
             if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
                 Main.Settings.DisplayBackgroundsToggle = toggle;
                 Main.Settings.DisplayRacesToggle = toggle;
+                Main.Settings.DisplaySubracesToggle = toggle;
             }
 
             toggle =
                 BackgroundsContext.Backgrounds.Count == Main.Settings.BackgroundEnabled.Count &&
-                RacesContext.Races.Count == Main.Settings.RaceEnabled.Count;
+                RacesContext.Races.Count == Main.Settings.RaceEnabled.Count &&
+                RacesContext.Subraces.Count == Main.Settings.SubraceEnabled.Count;
 
             if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
             {
@@ -39,6 +42,11 @@ internal static class BackgroundsAndRacesDisplay
                 foreach (var race in RacesContext.Races)
                 {
                     RacesContext.Switch(race, toggle);
+                }
+
+                foreach (var subrace in RacesContext.Subraces)
+                {
+                    RacesContext.SwitchSubrace(subrace, toggle);
                 }
             }
 
@@ -53,6 +61,11 @@ internal static class BackgroundsAndRacesDisplay
                 foreach (var race in RacesContext.Races)
                 {
                     RacesContext.Switch(race, toggle && ModUi.TabletopDefinitions.Contains(race));
+                }
+
+                foreach (var subrace in RacesContext.Subraces)
+                {
+                    RacesContext.SwitchSubrace(subrace, toggle && ModUi.TabletopDefinitions.Contains(subrace));
                 }
             }
         }
@@ -84,7 +97,20 @@ internal static class BackgroundsAndRacesDisplay
         Main.Settings.DisplayRacesToggle = displayToggle;
         Main.Settings.RaceSliderPosition = sliderPos;
 
-        _displayTabletop = isBackgroundTabletop && isRaceTabletop;
+        displayToggle = Main.Settings.DisplaySubracesToggle;
+        sliderPos = Main.Settings.SubraceSliderPosition;
+        var isSubraceTabletop = ModUi.DisplayDefinitions(
+            Gui.Localize("ModUi/&Subraces"),
+            RacesContext.SwitchSubrace,
+            RacesContext.Subraces,
+            Main.Settings.SubraceEnabled,
+            ref displayToggle,
+            ref sliderPos,
+            headerRendering: RacesHeader);
+        Main.Settings.DisplaySubracesToggle = displayToggle;
+        Main.Settings.SubraceSliderPosition = sliderPos;
+
+        _displayTabletop = isBackgroundTabletop && isRaceTabletop && isSubraceTabletop;
 
 #if false
         displayToggle = Main.Settings.DisplayDeitiesToggle;

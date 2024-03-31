@@ -476,7 +476,7 @@ internal static class RaceFeats
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                StringParameter = "FeatFlamesOfPhlegethos",
+                StringParameter = "PowerFeatFlamesOfPhlegethos",
                 RulesetEffect = implementationManagerService
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower

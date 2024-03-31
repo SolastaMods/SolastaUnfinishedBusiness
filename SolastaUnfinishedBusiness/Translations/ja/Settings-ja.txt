@@ -274,6 +274,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=ゴリムのストアに魔法�
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=ゴリムのストアに魔法以外の楽器をすべて揃える <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=ヒューゴのストアに<color=#D89555>秘術の杖</color>、<color=#D89555>ドルイドの首</color>、<color=#D89555>スタッフ</color>、<color=#D89555>クラブ</color> フォーカスアイテムとして設定
 ModUi/&Subclasses=<color=#F0DAA0>サブクラス</color>
+ModUi/&Subraces=<color=#F0DAA0>サブレース</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピと作成アイテムのアイコンを交換</i>
 ModUi/&TargetLanguage=目標とする言語
 ModUi/&Tools=ツール

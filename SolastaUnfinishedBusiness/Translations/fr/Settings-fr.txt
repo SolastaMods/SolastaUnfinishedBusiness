@@ -274,6 +274,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=Approvisionner le magasin de Gor
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Approvisionner le magasin de Gorim avec tous les instruments de musique non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Approvisionner le magasin d'Hugo avec des <color=#D89555>Bâton d'Arcane</color>, <color=#D89555>Collier de Druide</color>, <color=#D89555>Bâton</color> et <color=#D89555>Gourdin</color> définis comme des focalisateurs de sort
 ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
+ModUi/&Subraces=<color=#F0DAA0>Sous-accolades</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets d'artisanat dans les boutiques</i>
 ModUi/&TargetLanguage=Langue cible
 ModUi/&Tools=Outils

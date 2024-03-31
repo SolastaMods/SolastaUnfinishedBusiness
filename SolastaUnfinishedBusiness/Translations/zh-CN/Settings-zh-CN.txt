@@ -274,6 +274,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=格罗姆的商店出售所有�
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=格罗姆的商店出售所有非魔法乐器<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=在雨果的商店将<color=#D89555>奥术法杖</color>、<color=#D89555>德鲁伊项链</color>、<color=#D89555>法杖</color>和<color=#D89555>短棒</color>设置为法器项目
 ModUi/&Subclasses=<color=#F0DAA0>子职</color>
+ModUi/&Subraces=<color=#F0DAA0>亚种</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+在商店中交换配方和制作的物品图标</i>
 ModUi/&TargetLanguage=目标语言
 ModUi/&Tools=工具

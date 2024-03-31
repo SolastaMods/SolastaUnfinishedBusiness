@@ -10,8 +10,8 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class RacesContext
 {
     internal static Dictionary<CharacterRaceDefinition, float> RaceScaleMap { get; } = [];
-
     internal static HashSet<CharacterRaceDefinition> Races { get; private set; } = [];
+    internal static HashSet<CharacterRaceDefinition> Subraces { get; private set; } = [];
 
     internal static void Load()
     {
@@ -20,23 +20,36 @@ internal static class RacesContext
         LoadRace(RaceBattlebornBuilder.RaceBattleborn);
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
         LoadRace(RaceFairyBuilder.RaceFairy);
-        LoadRace(RaceHalfElfBuilder.RaceHalfElfVariant);
         LoadRace(RaceImpBuilder.RaceImp);
         LoadRace(RaceKoboldBuilder.RaceKobold);
         LoadRace(RaceMalakhBuilder.RaceMalakh);
         LoadRace(RaceOligathBuilder.RaceOligath);
-        LoadRace(RaceTieflingBuilder.RaceTiefling);
         LoadRace(RaceWendigoBuilder.RaceWendigo);
         LoadRace(RaceWildlingBuilder.RaceWildling);
         LoadRace(RaceWyrmkinBuilder.RaceWyrmkin);
         LoadRace(RaceOniBuilder.RaceOni);
-        LoadRace(SubraceDarkelfBuilder.SubraceDarkelf);
-        LoadRace(SubraceGrayDwarfBuilder.SubraceGrayDwarf);
-        LoadRace(SubraceIronbornDwarfBuilder.SubraceIronbornDwarf);
-        LoadRace(SubraceObsidianDwarfBuilder.SubraceObsidianDwarf);
+
+        _ = RaceTieflingBuilder.RaceTiefling;
+
+        LoadSubrace(RaceTieflingBuilder.RaceTieflingDevilTongue);
+        LoadSubrace(RaceTieflingBuilder.RaceTieflingFeral);
+        LoadSubrace(RaceTieflingBuilder.RaceTieflingMephistopheles);
+        LoadSubrace(RaceTieflingBuilder.RaceTieflingZariel);
+
+        _ = RaceHalfElfBuilder.RaceHalfElfVariant;
+
+        LoadSubrace(RaceHalfElfBuilder.RaceHalfElfHighVariant);
+        LoadSubrace(RaceHalfElfBuilder.RaceHalfElfSylvanVariant);
+        LoadSubrace(RaceHalfElfBuilder.RaceHalfElfDarkVariant);
+
+        LoadSubrace(SubraceDarkelfBuilder.SubraceDarkelf);
+        LoadSubrace(SubraceGrayDwarfBuilder.SubraceGrayDwarf);
+        LoadSubrace(SubraceIronbornDwarfBuilder.SubraceIronbornDwarf);
+        LoadSubrace(SubraceObsidianDwarfBuilder.SubraceObsidianDwarf);
 
         // sorting
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
+        Subraces = Subraces.OrderBy(x => x.FormatTitle()).ToHashSet();
 
         // settings paring
         foreach (var name in Main.Settings.RaceEnabled
@@ -44,6 +57,13 @@ internal static class RacesContext
                      .ToList())
         {
             Main.Settings.RaceEnabled.Remove(name);
+        }
+
+        foreach (var name in Main.Settings.SubraceEnabled
+                     .Where(name => Subraces.All(x => x.Name != name))
+                     .ToList())
+        {
+            Main.Settings.SubraceEnabled.Remove(name);
         }
 
         if (Main.Settings.EnableSortingFutureFeatures)
@@ -57,18 +77,12 @@ internal static class RacesContext
     {
         Races.Add(characterRaceDefinition);
         UpdateRaceVisibility(characterRaceDefinition);
-        // if (characterRaceDefinition.SubRaces.Count > 0)
-        // {
-        //     foreach (var subRace in characterRaceDefinition.SubRaces)
-        //     {
-        //         LoadRace(subRace);
-        //     }
-        // }
-        // else
-        // {
-        //     Races.Add(characterRaceDefinition);
-        //     UpdateRaceVisibility(characterRaceDefinition);
-        // }
+    }
+
+    private static void LoadSubrace([NotNull] CharacterRaceDefinition characterRaceDefinition)
+    {
+        Subraces.Add(characterRaceDefinition);
+        UpdateSubraceVisibility(characterRaceDefinition);
     }
 
     private static void UpdateRaceVisibility([NotNull] CharacterRaceDefinition characterRaceDefinition)
@@ -78,26 +92,29 @@ internal static class RacesContext
 
         characterRaceDefinition.SubRaces.ForEach(x => x.GuiPresentation.hidden =
             !Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name));
+    }
 
-        // var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
-        // var masterRace = dbCharacterRaceDefinition
-        //     .FirstOrDefault(x => x.SubRaces.Contains(characterRaceDefinition));
-        //
-        // if (masterRace == null)
-        // {
-        //     return;
-        // }
-        //
-        // masterRace.GuiPresentation.hidden = masterRace.SubRaces.All(x => x.GuiPresentation.Hidden);
+    private static void UpdateSubraceVisibility([NotNull] CharacterRaceDefinition characterRaceDefinition)
+    {
+        characterRaceDefinition.GuiPresentation.hidden =
+            !Main.Settings.SubraceEnabled.Contains(characterRaceDefinition.Name);
+
+        if (RaceHalfElfBuilder.RaceHalfElfVariant.SubRaces.Contains(characterRaceDefinition))
+        {
+            var hidden = RaceHalfElfBuilder.RaceHalfElfVariant.SubRaces.All(x => x.GuiPresentation.Hidden);
+
+            RaceHalfElfBuilder.RaceHalfElfVariant.GuiPresentation.hidden = hidden;
+        }
+        else if (RaceTieflingBuilder.RaceTiefling.SubRaces.Contains(characterRaceDefinition))
+        {
+            var hidden = RaceTieflingBuilder.RaceTiefling.SubRaces.All(x => x.GuiPresentation.Hidden);
+
+            RaceTieflingBuilder.RaceTiefling.GuiPresentation.hidden = hidden;
+        }
     }
 
     internal static void Switch(CharacterRaceDefinition characterRaceDefinition, bool active)
     {
-        // if (!Races.Contains(characterRaceDefinition))
-        // {
-        //     return;
-        // }
-
         var name = characterRaceDefinition.Name;
 
         if (active)
@@ -110,5 +127,21 @@ internal static class RacesContext
         }
 
         UpdateRaceVisibility(characterRaceDefinition);
+    }
+
+    internal static void SwitchSubrace(CharacterRaceDefinition characterRaceDefinition, bool active)
+    {
+        var name = characterRaceDefinition.Name;
+
+        if (active)
+        {
+            Main.Settings.SubraceEnabled.TryAdd(name);
+        }
+        else
+        {
+            Main.Settings.SubraceEnabled.Remove(name);
+        }
+
+        UpdateSubraceVisibility(characterRaceDefinition);
     }
 }

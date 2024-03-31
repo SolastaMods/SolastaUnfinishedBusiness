@@ -141,13 +141,6 @@ internal static partial class DatabaseHelper
         internal static CharacterRaceDefinition HalfOrc { get; } = GetDefinition<CharacterRaceDefinition>("HalfOrc");
         internal static CharacterRaceDefinition HalfElf { get; } = GetDefinition<CharacterRaceDefinition>("HalfElf");
         internal static CharacterRaceDefinition Halfling { get; } = GetDefinition<CharacterRaceDefinition>("Halfling");
-
-        internal static CharacterRaceDefinition HalflingIsland { get; } =
-            GetDefinition<CharacterRaceDefinition>("HalflingIsland");
-
-        internal static CharacterRaceDefinition HalflingMarsh { get; } =
-            GetDefinition<CharacterRaceDefinition>("HalflingMarsh");
-
         internal static CharacterRaceDefinition Human { get; } = GetDefinition<CharacterRaceDefinition>("Human");
         internal static CharacterRaceDefinition Gnome { get; } = GetDefinition<CharacterRaceDefinition>("Gnome");
         internal static CharacterRaceDefinition Tiefling { get; } = GetDefinition<CharacterRaceDefinition>("Tiefling");

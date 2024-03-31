@@ -274,6 +274,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=고림의 만물상이 마법 �
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=고림의 만물상이 마법 효과가 없는 악기만 판매함 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=휴고의 상점에 <color=#D89555>비전 스태프</color>, <color=#D89555>드루이드 목걸이</color>, <color=#D89555>스태프</color>, <color=#D89555>클럽</color>을 주문 매개체 아이템으로 비축
 ModUi/&Subclasses=<color=#F0DAA0>서브클래스</color>
+ModUi/&Subraces=<color=#F0DAA0>하위 경주</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 제작법 및 제작 아이템 아이콘 바꾸기</i>
 ModUi/&TargetLanguage=대상 언어
 ModUi/&Tools=도구
