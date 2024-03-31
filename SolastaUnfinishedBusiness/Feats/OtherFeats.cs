@@ -1505,17 +1505,24 @@ internal static class OtherFeats
     {
         var fightingStyleFeats = DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
-            .Where(x => x.Name is not (
-                MonkShieldExpert.ShieldExpertName or
-                PolearmExpert.PolearmExpertName or
-                Sentinel.SentinelName))
+            .Where(x =>
+                x.ContentPack == CeContentPackContext.CeContentPack &&
+                x.Name is not (
+                    MonkShieldExpert.ShieldExpertName or
+                    PolearmExpert.PolearmExpertName or
+                    Sentinel.SentinelName))
             .Select(BuildFightingStyleFeat)
             .OfType<FeatDefinition>()
-            .ToList();
+            .ToArray();
 
-        var vanillaFightingStyleFeats =
-            fightingStyleFeats.Where(x => x.ContentPack != CeContentPackContext.CeContentPack).ToArray();
+        var vanillaFightingStyleFeats = DatabaseRepository
+            .GetDatabase<FightingStyleDefinition>()
+            .Where(x => x.ContentPack != CeContentPackContext.CeContentPack)
+            .Select(BuildFightingStyleFeat)
+            .OfType<FeatDefinition>()
+            .ToArray();
 
+        GroupFeats.FeatGroupFightingStyle.AddFeats(fightingStyleFeats);
         GroupFeats.FeatGroupFightingStyle.AddFeats(vanillaFightingStyleFeats);
 
         return GroupFeats.FeatGroupFightingStyle;
@@ -1541,14 +1548,9 @@ internal static class OtherFeats
         // supports custom pools [only superior technique now]
         feat.Features.AddRange(fightingStyle.Features.OfType<FeatureDefinitionCustomInvocationPool>());
 
-        if (fightingStyle.ContentPack == CeContentPackContext.CeContentPack &&
-            !Main.Settings.FightingStyleEnabled.Contains(fightingStyle.Name))
+        if (!Main.Settings.FightingStyleEnabled.Contains(fightingStyle.Name))
         {
             guiPresentation.hidden = true;
-        }
-        else
-        {
-            feat.contentPack = GamingPlatformDefinitions.ContentPack.BaseGame;
         }
 
         return feat;

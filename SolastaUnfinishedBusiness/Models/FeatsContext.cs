@@ -46,8 +46,17 @@ internal static class FeatsContext
         // tweak the groups to make display simpler on mod UI
         Feats.RemoveWhere(x => x.FormatTitle().Contains("["));
 
+        foreach (var child in AttributeDefinitions.AbilityScoreNames
+                     .Select(attribute => DatabaseRepository.GetDatabase<FeatDefinition>()
+                         .GetElement($"FeatGroupHalf{attribute}")))
+        {
+            FeatGroups.Remove(child);
+        }
+
         foreach (var featGroup in FeatGroups
-                     .Where(featGroup => !string.IsNullOrEmpty(featGroup.FamilyTag))
+                     .Where(featGroup =>
+                         !string.IsNullOrEmpty(featGroup.FamilyTag) &&
+                         featGroup.Name != "FeatGroupElementalTouch")
                      .ToList())
         {
             FeatGroups.Remove(featGroup);
@@ -136,6 +145,16 @@ internal static class FeatsContext
         }
 
         var name = featDefinition.Name;
+
+        if (name == "FeatGroupHalfAttributes")
+        {
+            foreach (var child in AttributeDefinitions.AbilityScoreNames
+                         .Select(attribute =>
+                             DatabaseRepository.GetDatabase<FeatDefinition>().GetElement($"FeatGroupHalf{attribute}")))
+            {
+                child.GuiPresentation.hidden = !active;
+            }
+        }
 
         if (active)
         {
