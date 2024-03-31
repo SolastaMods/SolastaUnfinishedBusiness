@@ -40,7 +40,7 @@ internal static class LightingAndObscurementContext
             defenderActor is RulesetCharacter rulesetCharacter &&
             rulesetCharacter.GetOriginalHero() is { } rulesetCharacterHero &&
             rulesetCharacterHero.TrainedFeats.Contains(OtherFeats.FeatAlert);
-        
+
         if (defenderHasAlertFeat)
         {
             if (attackAdvantageTrends.Any(BlindedAdvantage))
@@ -55,7 +55,7 @@ internal static class LightingAndObscurementContext
                 abilityCheckAdvantageTrends.RemoveAll(InvisibleAdvantage);
             }
         }
-        
+
         if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules ||
             attackParams.effectDescription is
                 { RangeType: not (RuleDefinitions.RangeType.MeleeHit or RuleDefinitions.RangeType.RangeHit) })
@@ -75,7 +75,7 @@ internal static class LightingAndObscurementContext
             {
                 attackAdvantageTrends.RemoveAll(BlindedAdvantage);
                 attackAdvantageTrends.RemoveAll(BlindedDisadvantage);
-                
+
                 abilityCheckAdvantageTrends.RemoveAll(BlindedAdvantage);
                 abilityCheckAdvantageTrends.RemoveAll(BlindedDisadvantage);
             }
@@ -85,12 +85,12 @@ internal static class LightingAndObscurementContext
             {
                 attackAdvantageTrends.RemoveAll(InvisibleAdvantage);
                 attackAdvantageTrends.RemoveAll(InvisibleDisadvantage);
-                
+
                 abilityCheckAdvantageTrends.RemoveAll(InvisibleAdvantage);
                 abilityCheckAdvantageTrends.RemoveAll(InvisibleDisadvantage);
             }
         }
-        
+
         const string TAG = "Perceive";
 
         var attackerIsBlind = attackerActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);

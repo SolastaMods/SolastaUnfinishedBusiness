@@ -160,7 +160,7 @@ internal static class RulesDisplay
         {
             Main.Settings.AddDexModifierToEnemiesInitiativeRoll = toggle;
         }
-        
+
         toggle = Main.Settings.DontEndTurnAfterReady;
         if (UI.Toggle(Gui.Localize("ModUi/&DontEndTurnAfterReady"), ref toggle, UI.AutoWidth()))
         {

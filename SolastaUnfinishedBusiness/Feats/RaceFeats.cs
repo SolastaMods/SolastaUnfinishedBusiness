@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -15,6 +14,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
@@ -52,8 +52,7 @@ internal static class RaceFeats
                                 EffectFormBuilder
                                     .Create()
                                     .SetConditionForm(
-                                        DatabaseHelper.ConditionDefinitions.ConditionFlying12,
-                                        ConditionForm.ConditionOperation.Add)
+                                        ConditionDefinitions.ConditionFlying12, ConditionForm.ConditionOperation.Add)
                                     .Build())
                             .Build())
                     .AddToDB())
@@ -180,7 +179,7 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Misaye,
-                DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
+                FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
                 FeatureDefinitionProficiencyBuilder
                     .Create("ProficiencyFeatSquatNimblenessAcrobatics")
                     .SetGuiPresentationNoContent(true)
@@ -195,7 +194,7 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Einar,
-                DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
+                FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
                 FeatureDefinitionProficiencyBuilder
                     .Create("ProficiencyFeatSquatNimblenessAthletics")
                     .SetGuiPresentationNoContent(true)
@@ -295,21 +294,25 @@ internal static class RaceFeats
     {
         const string Name = "FeatDwarvenFortitude";
 
+        var feature = FeatureDefinitionAttributeModifierBuilder
+            .Create($"Feature{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Constitution, 1)
+            .AddToDB();
+
+        feature.AddCustomSubFeatures(new ActionFinishedByMeDwarvenFortitude(feature));
+
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
-            .AddFeatures(
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create($"Feature{Name}")
-                    .SetGuiPresentation(Name, Category.Feat)
-                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Constitution, 1)
-                    .AddCustomSubFeatures(new ActionFinishedByMeDwarvenFortitude())
-                    .AddToDB())
+            .AddFeatures(feature)
             .SetValidators(ValidatorsFeat.IsDwarf)
             .AddToDB();
     }
 
-    private sealed class ActionFinishedByMeDwarvenFortitude : IActionFinishedByMe
+    private sealed class ActionFinishedByMeDwarvenFortitude(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition feature) : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
@@ -323,7 +326,7 @@ internal static class RaceFeats
                 yield break;
             }
 
-            if (characterAction.ActionId is not (ActionDefinitions.Id.Dodge or ActionDefinitions.Id.UncannyDodge))
+            if (characterAction.ActionId is not ActionDefinitions.Id.Dodge)
             {
                 yield break;
             }
@@ -337,21 +340,53 @@ internal static class RaceFeats
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            var reactionParams =
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                {
+                    StringParameter = "Reaction/&CustomReactionDwarvenFortitudeDescription"
+                };
             var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("DwarvenFortitude", reactionParams);
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService,
-                previousReactionCount);
+            yield return gameLocationBattleService.WaitForReactions(
+                attacker, gameLocationActionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
+            EffectHelpers.StartVisualEffect(attacker, attacker, CureWounds, EffectHelpers.EffectType.Effect);
+            rulesetHero.HitDieRolled += HitDieRolled;
             rulesetHero.RollHitDie();
+            rulesetHero.HitDieRolled -= HitDieRolled;
+        }
+
+        private void HitDieRolled(
+            RulesetCharacter character,
+            DieType dieType,
+            int value,
+            AdvantageType advantageType,
+            int roll1,
+            int roll2,
+            int modifier,
+            bool isBonus)
+        {
+            const string BASE_LINE = "Feedback/&DwarvenFortitudeHitDieRolled";
+
+            character.ShowDieRoll(
+                dieType, roll1, roll2, advantage: advantageType, title: feature.GuiPresentation.Title);
+
+            character.LogCharacterActivatesAbility(
+                Gui.NoLocalization, BASE_LINE, true,
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                    (ConsoleStyleDuplet.ParameterType.Positive, $"{value - modifier}+{modifier}"),
+                    (ConsoleStyleDuplet.ParameterType.Positive, $"{value}")
+                ]);
         }
     }
 
@@ -383,13 +418,11 @@ internal static class RaceFeats
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
-            .SetGuiPresentation("FeatGroupFlamesOfPhlegethos", Category.Feat,
-                DatabaseHelper.ConditionDefinitions.ConditionDivineFavor)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
             .SetPossessive()
-            .AddFeatures(damageAffinity)
+            .SetFeatures(damageAffinity)
+            .CopyParticleReferences(ConditionDefinitions.ConditionOnFire)
             .AddToDB();
-
-        condition.GuiPresentation.description = Gui.NoLocalization;
 
         var lightSourceForm =
             FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
@@ -438,7 +471,7 @@ internal static class RaceFeats
             .Create($"{Name}Int")
             .SetGuiPresentation(Category.Feat)
             .SetValidators(ValidatorsFeat.IsTiefling)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, dieRollModifierFire, power)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, dieRollModifierFire, power)
             .SetFeatFamily(Name)
             .AddToDB();
 

@@ -1505,7 +1505,7 @@ public static class RulesetCharacterPatcher
             if (forcedInitiative <= 0)
             {
                 var advantageValue = 0;
-                
+
                 //PATCH: supports AddDexModifierToEnemiesInitiativeRoll
                 var currentValue =
                     Main.Settings.AddDexModifierToEnemiesInitiativeRoll &&
