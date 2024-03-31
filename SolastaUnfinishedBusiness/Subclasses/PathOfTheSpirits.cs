@@ -451,9 +451,11 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "SpiritWalker",
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower
+                UsablePower = usablePower,
+                TargetCharacters = { attacker }
             };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;

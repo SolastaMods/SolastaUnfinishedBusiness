@@ -186,9 +186,11 @@ public sealed class PathOfTheReaver : AbstractSubclass
             StringParameter = "Bloodbath",
             StringParameter2 = "UseBloodbathDescription".Formatted(
                 Category.Reaction, totalHealing.ToString()),
+            ActionModifiers = { new ActionModifier() },
             RulesetEffect = implementationManagerService
                 .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-            UsablePower = usablePower
+            UsablePower = usablePower,
+            TargetCharacters = { attacker }
         };
 
         var count = gameLocationActionService.PendingReactionRequestGroups.Count;

@@ -411,12 +411,10 @@ public sealed class WayOfTheTempest : AbstractSubclass
                         .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
                                   y.SourceGuid == rulesetAttacker.Guid))
                 .ToList();
-            //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets

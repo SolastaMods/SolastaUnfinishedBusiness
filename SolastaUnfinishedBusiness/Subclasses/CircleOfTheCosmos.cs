@@ -896,7 +896,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter2 = "SpendPowerWealCosmosOmenAttackDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
@@ -977,7 +976,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter2 = "SpendPowerWealCosmosOmenSavingDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
@@ -1067,7 +1065,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter2 = "SpendPowerWoeCosmosOmenAttackDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
@@ -1148,7 +1145,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter2 = "SpendPowerWoeCosmosOmenSavingDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
@@ -1236,7 +1232,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             var usablePower = PowerProvider.Get(magicEffect, rulesetCharacter);
             var effectPower = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
                 .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
 
             effectPower.remainingRounds = remainingRounds;

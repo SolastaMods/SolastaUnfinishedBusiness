@@ -398,9 +398,11 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "UmbralSoul",
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
             };
 
             var count = gameLocationActionService.PendingReactionRequestGroups.Count;
@@ -418,8 +420,8 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
-            EffectHelpers.StartVisualEffect(defender, defender, PowerDefilerMistyFormEscape,
-                EffectHelpers.EffectType.Caster);
+            EffectHelpers.StartVisualEffect(
+                defender, defender, PowerDefilerMistyFormEscape, EffectHelpers.EffectType.Caster);
             ServiceRepository.GetService<ICommandService>()?
                 .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
         }

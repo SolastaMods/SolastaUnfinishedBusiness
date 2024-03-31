@@ -282,7 +282,6 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 StringParameter = "RoyalKnightInspiringProtection",
                 StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false),
                 UsablePower = usablePower
             };

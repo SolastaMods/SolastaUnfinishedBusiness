@@ -280,7 +280,6 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             {
                 StringParameter = "OrganDonation",
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower
             };

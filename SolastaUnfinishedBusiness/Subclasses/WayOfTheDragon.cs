@@ -805,9 +805,11 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "ReactiveHide",
+                    ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
                 };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;

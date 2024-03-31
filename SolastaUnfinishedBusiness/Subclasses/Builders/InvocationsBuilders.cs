@@ -1395,7 +1395,6 @@ internal static class InvocationsBuilders
                     StringParameter = "TombOfFrost",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        //CHECK: no need for AddAsActivePowerToSource
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }

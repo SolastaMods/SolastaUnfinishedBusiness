@@ -1369,7 +1369,6 @@ internal static partial class CharacterContext
             {
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }

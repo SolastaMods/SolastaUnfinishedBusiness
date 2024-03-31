@@ -1058,7 +1058,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
             var usablePower = PowerProvider.Get(_powerEldritchDetonation, rulesetCharacter);
             var effectPower = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
                 .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(

@@ -985,7 +985,6 @@ internal static partial class SpellBuilders
             {
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { _secondTarget }

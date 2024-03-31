@@ -1513,7 +1513,6 @@ internal static class Level20SubclassesContext
             {
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { actingCharacter }

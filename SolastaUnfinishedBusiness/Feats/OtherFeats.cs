@@ -1343,12 +1343,10 @@ internal static class OtherFeats
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPoisonousSkin, rulesetMe);
-            //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetMe, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { target }

@@ -635,7 +635,6 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     StringParameter = "MoonlightGuise",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        //CHECK: no need for AddAsActivePowerToSource
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
