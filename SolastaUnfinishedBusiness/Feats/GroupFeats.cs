@@ -18,7 +18,43 @@ internal static class GroupFeats
     internal const string FightingStyle = "FightingStyle";
     private static readonly List<FeatDefinition> Groups = [];
 
+    private static FeatDefinition FeatGroupElementalTouch { get; } = MakeGroup("FeatGroupElementalTouch",
+        BurningTouch.FamilyTag,
+        BurningTouch,
+        ToxicTouch,
+        ElectrifyingTouch,
+        IcyTouch,
+        MeltingTouch);
+
     internal static FeatDefinition FeatGroupFightingStyle { get; } = MakeGroup("FeatGroupFightingStyle", FightingStyle);
+
+    //
+    // Crusher & Piercer
+    //
+
+    internal static FeatDefinition FeatGroupCrusher { get; } = MakeGroup("FeatGroupCrusher", Crusher);
+
+    internal static FeatDefinition FeatGroupPiercer { get; } = MakeGroup("FeatGroupPiercer", Piercer);
+
+    //
+    // Skill & Tools
+    //
+
+    internal static FeatDefinition FeatGroupSkills { get; } = MakeGroup("FeatGroupSkills", null,
+        ArcaneAppraiser,
+        InitiateEnchanter,
+        Manipulator);
+
+    internal static FeatDefinition FeatGroupTools { get; } = MakeGroup("FeatGroupTools", null,
+        InitiateAlchemist,
+        MasterAlchemist,
+        InitiateEnchanter,
+        MasterEnchanter,
+        Lockbreaker);
+
+    //
+    // Combat Groups
+    //
 
     internal static FeatDefinition FeatGroupAgilityCombat { get; } = MakeGroup("FeatGroupAgilityCombat", null,
         EagerForBattle,
@@ -31,17 +67,13 @@ internal static class GroupFeats
         RaiseShield,
         TwinBlade);
 
-    internal static FeatDefinition FeatGroupElementalTouch { get; } = MakeGroup("FeatGroupElementalTouch",
-        BurningTouch.FamilyTag,
-        BurningTouch,
-        ToxicTouch,
-        ElectrifyingTouch,
-        IcyTouch,
-        MeltingTouch);
-
-    internal static FeatDefinition FeatGroupPiercer { get; } = MakeGroup("FeatGroupPiercer", Piercer);
-
-    internal static FeatDefinition FeatGroupMeleeCombat { get; } = MakeGroup("FeatGroupMeleeCombat", null);
+    internal static FeatDefinition FeatGroupMeleeCombat { get; } = MakeGroup("FeatGroupMeleeCombat", null,
+        FeatGroupElementalTouch,
+        FeatGroupCrusher,
+        FeatGroupPiercer,
+        DauntingPush,
+        DistractingGambit,
+        TripAttack);
 
     internal static FeatDefinition FeatGroupRangedCombat { get; } = MakeGroup("FeatGroupRangedCombat", null,
         FeatGroupPiercer,
@@ -61,38 +93,13 @@ internal static class GroupFeats
         ForestallingStrength,
         FollowUpStrike);
 
+    internal static FeatDefinition FeatGroupTwoWeaponCombat { get; } = MakeGroup("FeatGroupTwoWeaponCombat", null,
+        Ambidextrous,
+        TwinBlade);
+
     internal static FeatDefinition FeatGroupUnarmoredCombat { get; } = MakeGroup("FeatGroupUnarmoredCombat", null,
+        FeatGroupCrusher,
         FeatGroupElementalTouch);
-
-    internal static FeatDefinition FeatGroupSkills { get; } = MakeGroup("FeatGroupSkills", null,
-        ArcaneAppraiser,
-        InitiateEnchanter,
-        Manipulator);
-
-    internal static FeatDefinition FeatGroupTools { get; } = MakeGroup("FeatGroupTools", null,
-        InitiateAlchemist,
-        MasterAlchemist,
-        InitiateEnchanter,
-        MasterEnchanter,
-        Lockbreaker);
-
-    private static void ApplyDynamicDescription(FeatDefinition groupDefinition)
-    {
-        var groupedFeat = groupDefinition.GetFirstSubFeatureOfType<GroupedFeat>();
-
-        if (groupedFeat == null)
-        {
-            return;
-        }
-
-        var titles = groupedFeat.GetSubFeats(true)
-            .Select(x => x.FormatTitle())
-            .OrderBy(x => x)
-            .ToArray();
-        var title = string.Join(", ", titles);
-
-        groupDefinition.guiPresentation.description = Gui.Format(groupDefinition.guiPresentation.description, title);
-    }
 
     internal static void Load(Action<FeatDefinition> loader)
     {
@@ -170,6 +177,28 @@ internal static class GroupFeats
             featGroupHalfWisdom,
             featGroupHalfCharisma);
     }
+
+    private static void ApplyDynamicDescription(FeatDefinition groupDefinition)
+    {
+        var groupedFeat = groupDefinition.GetFirstSubFeatureOfType<GroupedFeat>();
+
+        if (groupedFeat == null)
+        {
+            return;
+        }
+
+        var titles = groupedFeat.GetSubFeats(true)
+            .Select(x => x.FormatTitle())
+            .OrderBy(x => x)
+            .ToArray();
+        var title = string.Join(", ", titles);
+
+        groupDefinition.guiPresentation.description = Gui.Format(groupDefinition.guiPresentation.description, title);
+    }
+
+    //
+    // Group Builders
+    //
 
     internal static FeatDefinition MakeGroup(string name, string family, params FeatDefinition[] feats)
     {

@@ -1138,7 +1138,6 @@ FeatGiftOfTheChromaticDragon	FeatDefinition	FeatDefinition	18cae195-bdf3-5d8c-bb
 FeatGreatWeapon	FeatDefinitionWithPrerequisites	FeatDefinition	96cb0fa7-ea6c-51a7-9eb6-84fc602d9501
 FeatGroupAegisTouched	FeatDefinition	FeatDefinition	d44096ee-4801-5161-9b3c-e5916304bbda
 FeatGroupAgilityCombat	FeatDefinition	FeatDefinition	3d77dbe9-b434-55b4-af78-5cd2d190d494
-FeatGroupAlchemist	FeatDefinition	FeatDefinition	1bdd5719-e3f7-5faa-ad3e-d0049354c6ca
 FeatGroupApothecary	FeatDefinition	FeatDefinition	9b53f105-90af-5055-a801-00415348a616
 FeatGroupArmor	FeatDefinition	FeatDefinition	eb002d8a-4f64-5057-b205-1479683055e7
 FeatGroupAwakenTheBeastWithin	FeatDefinitionWithPrerequisites	FeatDefinition	9c4afa86-2d53-50ce-a04c-c2eed3b3b260
@@ -1149,7 +1148,6 @@ FeatGroupChef	FeatDefinition	FeatDefinition	83d166d0-1ee1-53c4-8f89-84d4ab2afdd3
 FeatGroupClassBound	FeatDefinition	FeatDefinition	c98daa86-03c4-5550-86f8-80178d6ec6f5
 FeatGroupCloseQuarters	FeatDefinitionWithPrerequisites	FeatDefinition	94abe162-6e43-5da9-8f5e-a61ac972df8e
 FeatGroupCreed	FeatDefinition	FeatDefinition	fa6d77ba-64d9-5e53-807b-375a3239f17f
-FeatGroupCriticalVirtuoso	FeatDefinition	FeatDefinition	17be5861-9ee7-5d67-b4cd-13b0265a1a2d
 FeatGroupCrusher	FeatDefinition	FeatDefinition	2b736153-fa6a-509c-8447-e9edb59b2cc4
 FeatGroupDefenseCombat	FeatDefinition	FeatDefinition	41b14fa2-53a6-57cd-9655-ae19d9ffe57a
 FeatGroupDefenseExpert	FeatDefinition	FeatDefinition	66e3f8c9-5bc1-5415-b2a3-0631450564a9
@@ -1157,7 +1155,6 @@ FeatGroupElementalAdept	FeatDefinition	FeatDefinition	60c01354-01f3-5375-bae9-06
 FeatGroupElementalMaster	FeatDefinition	FeatDefinition	60495c2d-1dd3-5139-81a9-28fc8bd648c2
 FeatGroupElementalTouch	FeatDefinition	FeatDefinition	66f44d06-1557-52db-a92a-a97d3b993e41
 FeatGroupElvenAccuracy	FeatDefinitionWithPrerequisites	FeatDefinition	fc305079-6815-5a08-b3e5-fcfeea95d903
-FeatGroupEnchanter	FeatDefinition	FeatDefinition	f3ff3f2a-49fe-5333-8c0b-84eb3adebb90
 FeatGroupFadeAway	FeatDefinitionWithPrerequisites	FeatDefinition	b6aa78a6-05c3-593b-ae5f-e177740a73c2
 FeatGroupFightingStyle	FeatDefinition	FeatDefinition	a9395b1c-83fc-5649-9eb2-508ed6e87571
 FeatGroupFlamesOfPhlegethos	FeatDefinitionWithPrerequisites	FeatDefinition	6d0664d1-aaa0-5b8c-a8ed-ca5206e0b2ba

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupToolsTitle",
-    "description": "Alchemist, Apothecary, Enchanter, Lock Breaker, Scriber, Toxicologist",
+    "description": "Initiate Alchemist, Initiate Enchanter, Lock Breaker, Master Alchemist, Master Enchanter, Poisoner, Scriber, Toxicologist",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

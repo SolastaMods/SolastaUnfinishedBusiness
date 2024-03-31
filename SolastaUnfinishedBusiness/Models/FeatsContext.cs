@@ -83,6 +83,9 @@ internal static class FeatsContext
             Main.Settings.FeatGroupEnabled.Remove(name);
         }
 
+        // handle Half Attributes sub groups special case
+        SwitchHalfAttributes(Main.Settings.FeatGroupEnabled.Contains("FeatGroupHalfAttributes"));
+
         // avoids restart on level up UI
         GuiWrapperContext.RecacheFeats();
     }
@@ -137,6 +140,16 @@ internal static class FeatsContext
         GuiWrapperContext.RecacheFeats();
     }
 
+    internal static void SwitchHalfAttributes(bool active)
+    {
+        foreach (var child in AttributeDefinitions.AbilityScoreNames
+                     .Select(attribute =>
+                         DatabaseRepository.GetDatabase<FeatDefinition>().GetElement($"FeatGroupHalf{attribute}")))
+        {
+            child.GuiPresentation.hidden = !active;
+        }
+    }
+
     internal static void SwitchFeatGroup(FeatDefinition featDefinition, bool active)
     {
         if (!FeatGroups.Contains(featDefinition))
@@ -148,12 +161,7 @@ internal static class FeatsContext
 
         if (name == "FeatGroupHalfAttributes")
         {
-            foreach (var child in AttributeDefinitions.AbilityScoreNames
-                         .Select(attribute =>
-                             DatabaseRepository.GetDatabase<FeatDefinition>().GetElement($"FeatGroupHalf{attribute}")))
-            {
-                child.GuiPresentation.hidden = !active;
-            }
+            SwitchHalfAttributes(active);
         }
 
         if (active)

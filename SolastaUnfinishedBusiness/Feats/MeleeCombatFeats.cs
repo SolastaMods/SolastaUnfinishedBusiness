@@ -29,10 +29,12 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MeleeCombatFeats
 {
-    internal static FeatDefinition FeatFencer;
+    internal static FeatDefinition FeatFencer { get; private set; }
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        FeatFencer = BuildFencer();
+
         var featAlwaysReady = BuildAlwaysReady();
         var featBladeMastery = BuildBladeMastery();
         var featCharger = BuildCharger();
@@ -42,7 +44,6 @@ internal static class MeleeCombatFeats
         var featDefensiveDuelist = BuildDefensiveDuelist();
         var featDevastatingStrikes = BuildDevastatingStrikes();
         var featFellHanded = BuildFellHanded();
-        FeatFencer = BuildFencer();
         var featHammerThePoint = BuildHammerThePoint();
         var featLongSwordFinesse = BuildLongswordFinesse();
         var featOldTacticsDex = BuildOldTacticsDex();
@@ -57,6 +58,7 @@ internal static class MeleeCombatFeats
         var featSpearMastery = BuildSpearMastery();
 
         feats.AddRange(
+            FeatFencer,
             featAlwaysReady,
             featBladeMastery,
             featCharger,
@@ -66,7 +68,6 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
-            FeatFencer,
             featHammerThePoint,
             featLongSwordFinesse,
             featOldTacticsDex,
@@ -80,10 +81,6 @@ internal static class MeleeCombatFeats
             featSlasherStr,
             featSpearMastery);
 
-        var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", GroupFeats.Crusher,
-            featCrusherStr,
-            featCrusherCon);
-
         var featGroupOldTactics = GroupFeats.MakeGroup("FeatGroupOldTactics", GroupFeats.OldTactics,
             featOldTacticsDex,
             featOldTacticsStr);
@@ -92,20 +89,20 @@ internal static class MeleeCombatFeats
             featSlasherDex,
             featSlasherStr);
 
-        GroupFeats.FeatGroupDefenseCombat.AddFeats(
-            featAlwaysReady,
-            featDefensiveDuelist);
+        GroupFeats.FeatGroupCrusher.AddFeats(
+            featCrusherStr,
+            featCrusherCon);
 
         GroupFeats.FeatGroupPiercer.AddFeats(
             featPiercerDex,
             featPiercerStr);
 
+        GroupFeats.FeatGroupDefenseCombat.AddFeats(
+            featAlwaysReady,
+            featDefensiveDuelist);
+
         GroupFeats.FeatGroupMeleeCombat.AddFeats(
-            GroupFeats.FeatGroupElementalTouch,
-            GroupFeats.FeatGroupPiercer,
-            FeatDefinitions.DauntingPush,
-            FeatDefinitions.DistractingGambit,
-            FeatDefinitions.TripAttack,
+            FeatFencer,
             featAlwaysReady,
             featBladeMastery,
             featCharger,
@@ -113,14 +110,12 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
-            FeatFencer,
             featHammerThePoint,
             featLongSwordFinesse,
             featPowerAttack,
             featRecklessAttack,
             featSavageAttack,
             featSpearMastery,
-            featGroupCrusher,
             featGroupOldTactics,
             featGroupSlasher);
     }

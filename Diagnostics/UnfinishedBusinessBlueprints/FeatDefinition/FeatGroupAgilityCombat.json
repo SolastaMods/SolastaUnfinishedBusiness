@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupAgilityCombatTitle",
-    "description": "Cunning Escape, Dragon Wings, Eager for Battle, Forest Runner, Mobile, Ready or Not, Rush to Battle",
+    "description": "Alert, Cunning Escape, Eager for Battle, Forest Runner, Mobile, Ready or Not, Rush to Battle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
