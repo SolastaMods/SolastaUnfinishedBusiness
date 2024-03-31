@@ -1601,6 +1601,8 @@ internal static class OtherFeats
                     .Build())
             .AddToDB();
 
+        powerCookTreat.AddCustomSubFeatures(new ModifyEffectDescriptionCookTreat(powerCookTreat));
+
         var powerCookMeal = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CookMeal")
             .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther)
@@ -1635,6 +1637,28 @@ internal static class OtherFeats
         feats.AddRange(featWis, featCon);
 
         return GroupFeats.MakeGroup("FeatGroupChef", Name, featCon, featWis);
+    }
+
+    private sealed class ModifyEffectDescriptionCookTreat(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerCookTreat) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerCookTreat;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.EffectForms[0].SummonForm.number =
+                character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            return effectDescription;
+        }
     }
 
     #endregion
