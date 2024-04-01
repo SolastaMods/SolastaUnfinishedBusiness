@@ -245,6 +245,7 @@ public class Settings : UnityModManager.ModSettings
     public bool StealthBreaksWhenAttackHits { get; set; }
     public bool StealthBreaksWhenAttackMisses { get; set; }
     public bool AddDexModifierToEnemiesInitiativeRoll { get; set; }
+    public bool EnemiesAlwaysRollInitiative { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }

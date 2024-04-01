@@ -148,6 +148,7 @@ ModUi/&EnableVttCamera=Habilite <color=#1E81B0>CTRL-SHIFT-(V)</color> para alter
 ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=#F0DAA0>[en lugar de una opción exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentajes de probabilidad de encuentros aleatorios</color>
 ModUi/&Encounters=Encuentros
+ModUi/&EnemiesAlwaysRollInitiative=<i>+ Los enemigos siempre tiran iniciativa en lugar de un valor forzado <color=#F0DAA0>[es decir: Sorak Assassin]</color></i>
 ModUi/&ExpandAll=Expandir todo
 ModUi/&FactionHelp=<color=#C04040E0>Cargar un juego de campaña oficial para modificar las relaciones entre facciones...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Facciones:</color>

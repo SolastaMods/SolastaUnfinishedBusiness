@@ -1492,6 +1492,11 @@ public static class RulesetCharacterPatcher
                     forcedInitiative = summoner.lastInitiative;
                 }
             }
+            else if (Main.Settings.EnemiesAlwaysRollInitiative &&
+                     __instance.Side == Side.Enemy)
+            {
+                forcedInitiative = -1;
+            }
 
             __result = RollInitiative(__instance, forcedInitiative);
 

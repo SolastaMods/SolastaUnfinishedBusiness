@@ -148,6 +148,7 @@ ModUi/&EnableVttCamera=启用 <color=#1E81B0>CTRL-SHIFT-(V)</color> 切换 VTT �
 ModUi/&EnablesAsiAndFeat=启用属性分数增加和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>
 ModUi/&Encounters=遭遇
+ModUi/&EnemiesAlwaysRollInitiative=<i>+敌人总是投出主动权而不是强制值<color=#F0DAA0>[即：索拉克刺客]</color></i>
 ModUi/&ExpandAll=展开全部
 ModUi/&FactionHelp=<color=#C04040E0>加载官方战役游戏以修改派系关系...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>派系：</color>

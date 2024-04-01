@@ -148,6 +148,7 @@ ModUi/&EnableVttCamera=<color=#1E81B0>CTRL-SHIFT-(V)</color> を有効にして 
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と特技の選択の両方を有効にします<i><color=#F0DAA0>[排他的な選択肢の代わりに]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>ランダムな遭遇確率を設定する</color>
 ModUi/&Encounters=出会い
+ModUi/&EnemiesAlwaysRollInitiative=<i>+ 敵は強制値の代わりに常にイニシアチブをロールします<color=#F0DAA0>[例: ソラク・アサシン]</color></i>
 ModUi/&ExpandAll=すべて展開
 ModUi/&FactionHelp=<color=#C04040E0>公式キャンペーン ゲームをロードして派閥関係を変更します...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>派閥:</color>

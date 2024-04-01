@@ -148,6 +148,7 @@ ModUi/&EnableVttCamera=Activez <color=#1E81B0>CTRL-SHIFT-(V)</color> pour bascul
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation de Caractéristiques et la sélection des Dons lors des changement de niveaux concernés <i><color=#F0DAA0>[au lieu d'un choix mutuellement exclusif]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Définir un pourcentage de chances de rencontres aléatoires</color>
 ModUi/&Encounters=Rencontres
+ModUi/&EnemiesAlwaysRollInitiative=<i>+ Les ennemis lancent toujours l'initiative au lieu d'une valeur forcée <color=#F0DAA0>[c'est-à-dire : Sorak Assassin]</color></i>
 ModUi/&ExpandAll=Afficher tout
 ModUi/&FactionHelp=<color=#C04040E0>Chargez une sauvegarde de campagne officielle pour modifier les relations entre les factions...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Factions :</color>
