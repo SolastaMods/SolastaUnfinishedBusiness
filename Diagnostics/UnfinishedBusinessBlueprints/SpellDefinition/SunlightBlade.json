@@ -14,8 +14,8 @@
   "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Touch",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
