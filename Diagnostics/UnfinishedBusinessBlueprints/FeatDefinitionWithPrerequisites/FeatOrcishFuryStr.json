@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,15 +8,19 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatOrcishFury",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityOrcishFuryToggle:b813b4c4-7712-5653-b451-697868cb9b41",
+    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
+    "Definition:PowerFeatOrcishFuryImpishWrath:16e3a36d-f549-5ea1-8b52-e542ece068b3"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupBodyResilienceTitle",
-    "description": "Badlands Marauder, Blessing of the Elements, Creed of the Gods, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hauler, Robust, Tough",
+    "title": "Feat/&FeatOrcishFuryStrTitle",
+    "description": "Feat/&FeatOrcishFuryStrDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "53158993-e0b8-5031-afc1-fbeaebc70fc1",
+  "guid": "9f350278-ce91-56d7-911a-24615c0547aa",
   "contentPack": 9999,
-  "name": "FeatGroupBodyResilience"
+  "name": "FeatOrcishFuryStr"
 }
