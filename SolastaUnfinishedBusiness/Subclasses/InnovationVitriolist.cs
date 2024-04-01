@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -228,9 +229,17 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .Create($"AdditionalDamage{Name}Infusion")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("Infusion")
-            .SetAttackModeOnly()
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
             .SetSpecificDamageType(DamageTypeAcid)
+            .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty(
+                (_, _, _, _, _, mode, effect) =>
+                    (OperationType.Set,
+                        (mode != null && mode.EffectDescription.EffectForms.Any(x =>
+                            x.FormType == EffectForm.EffectFormType.Damage &&
+                            x.DamageForm.DamageType == DamageTypeAcid)) ||
+                        (effect != null && effect.EffectDescription.EffectForms.Any(x =>
+                            x.FormType == EffectForm.EffectFormType.Damage &&
+                            x.DamageForm.DamageType == DamageTypeAcid)))))
             .AddToDB();
 
         var featureSetVitriolicInfusion = FeatureDefinitionFeatureSetBuilder
