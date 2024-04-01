@@ -402,6 +402,7 @@ public static class GameLocationCharacterExtensions
         }
 
         // burn one main attack
+        instance.HasAttackedSinceLastTurn = true;
         instance.UsedMainAttacks++;
         rulesetCharacter.ExecutedAttacks++;
         rulesetCharacter.RefreshAttackModes();
