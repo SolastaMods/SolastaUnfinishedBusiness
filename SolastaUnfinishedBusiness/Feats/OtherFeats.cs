@@ -518,7 +518,7 @@ internal static class OtherFeats
                             .Create()
                             .SetTempHpForm(5)
                             .Build())
-                    .SetParticleEffectParameters(Goodberry)
+                    .SetEffectEffectParameters(Goodberry)
                     .Build())
             .AddToDB();
 
@@ -542,7 +542,7 @@ internal static class OtherFeats
                             .Create()
                             .SetSummonItemForm(itemTreat, 1)
                             .Build())
-                    .SetParticleEffectParameters(Goodberry)
+                    .SetEffectEffectParameters(Goodberry)
                     .Build())
             .AddToDB();
 
@@ -562,7 +562,7 @@ internal static class OtherFeats
                             .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false,
                                 HealingCap.MaximumHitPoints)
                             .Build())
-                    .SetParticleEffectParameters(Goodberry)
+                    .SetEffectEffectParameters(Goodberry)
                     .Build())
             .AddToDB();
 
