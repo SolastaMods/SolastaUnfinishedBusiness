@@ -3,6 +3,7 @@ ModUi/&AddAllToStore=전부 상점에 추가
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상급 치유</color>와 <color=#D89555>하급 치유</color> 주문으로 제거할 수 있는 상태이상에 <color=#D89555>출혈</color> 상태 추가
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 커스텀 아이콘 추가 <i><color=#F0DAA0>[탄환, 제조, 도구 등.]</color></i> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> 및 <color=#D89555>Gray Dwarf</color>에서 <color=#D89555>Darkness Perceptive</color>를 활성화하세요. color> <i><color=#F0DAA0>\n[빛이 없거나 마법의 어둠 속에서 인지 검사에 이점을 부여합니다.]</color></i>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=적 <color=#D89555>선제 굴림</color>에 <color=#D89555>민첩 수정치</color> 추가
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>불굴</color> 저장 던지기 재굴림에 <color=#D89555>파이터</color> 레벨 추가
 ModUi/&AddHelpActionToAllRaces=모든 플레이어블 종족의 행동 선택지에 <color=#D89555>도움</color> 행동을 추가 <i><color=#F0DAA0>[우호적인 크리쳐 하나가 자신과 1칸 내에 있는 크리쳐 하나를 공격하는 것을 도울 수 있습니다]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 인간형 선호 적 활성화
@@ -107,6 +108,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=클래스 레벨 6, 14에 재주 선택 활
 ModUi/&EnableFighterWeaponSpecialization=<color=#D89555>파이터</color> 클래스 레벨 8 과 16에서 <b>무기 특화</b> 활성화<i><color=#F0DAA0>[명중과 피해에 +1을 얻지만 다른 무기 유형으론 불리점을 받습니다]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 활성화 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 종족 활성화 <i><color=#F0DAA0>[종족 기본값 대신 능력치 점수 할당]</color></i>
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=최고의 능력을 갖춘 영웅이 대화 선택을 할 수 있도록 활성화
 ModUi/&EnableHigherGroundRules=고지대 규칙 활성화 <i><color=#F0DAA0>[고지대에서 공격할 경우 명중 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 눌러 활성화
 ModUi/&EnableHotkeyToggleHud=HUD 표시를<color=#1E81B0>CTRL-SHIFT-(H)</color>로 전환 활성화
@@ -146,6 +148,7 @@ ModUi/&EnableVttCamera=<color=#1E81B0>CTRL-SHIFT-(V)</color>를 활성화하여 
 ModUi/&EnablesAsiAndFeat=능력치 증가와 재주 선택을 동시에 받기 <i><color=#F0DAA0>[기존엔 둘 중 하나만 선택 가능]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>랜덤 인카운터 확률 조정</color>
 ModUi/&Encounters=조우(인카운터)
+ModUi/&EnemiesAlwaysRollInitiative=<i>+ 적들은 강제 값 대신 항상 주도권을 굴립니다. <color=#F0DAA0>[예: 설악 암살자]</color></i>
 ModUi/&ExpandAll=모두 펼치기
 ModUi/&FactionHelp=<color=#C04040E0>세력 우호도를 수정하려면 공식 캠페인을 불러와야 합니다...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>세력:</color>
@@ -272,6 +275,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=고림의 만물상이 마법 �
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=고림의 만물상이 마법 효과가 없는 악기만 판매함 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=휴고의 상점에 <color=#D89555>비전 스태프</color>, <color=#D89555>드루이드 목걸이</color>, <color=#D89555>스태프</color>, <color=#D89555>클럽</color>을 주문 매개체 아이템으로 비축
 ModUi/&Subclasses=<color=#F0DAA0>서브클래스</color>
+ModUi/&Subraces=<color=#F0DAA0>하위 경주</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 제작법 및 제작 아이템 아이콘 바꾸기</i>
 ModUi/&TargetLanguage=대상 언어
 ModUi/&Tools=도구

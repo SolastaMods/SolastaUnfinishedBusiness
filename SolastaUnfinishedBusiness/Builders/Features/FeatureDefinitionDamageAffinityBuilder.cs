@@ -39,12 +39,12 @@ internal class FeatureDefinitionDamageAffinityBuilder
 
     internal FeatureDefinitionDamageAffinityBuilder SetRetaliate(
         FeatureDefinitionPower featureDefinitionPower,
-        int rangeCells,
-        bool retaliateWhenHit = false)
+        int rangeCells)
     {
+        Definition.damageAffinityType = DamageAffinityType.None;
         Definition.retaliatePower = featureDefinitionPower;
         Definition.retaliateRangeCells = rangeCells;
-        Definition.retaliateWhenHit = retaliateWhenHit;
+        Definition.retaliateWhenHit = true;
         return this;
     }
 

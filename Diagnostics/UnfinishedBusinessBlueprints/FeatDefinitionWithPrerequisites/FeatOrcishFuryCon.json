@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,15 +8,19 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatOrcishFury",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityOrcishFuryToggle:b813b4c4-7712-5653-b451-697868cb9b41",
+    "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0",
+    "Definition:PowerFeatOrcishFuryImpishWrath:16e3a36d-f549-5ea1-8b52-e542ece068b3"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupEnchanterTitle",
-    "description": "Initiate Enchanter, Master Enchanter",
+    "title": "Feat/&FeatOrcishFuryConTitle",
+    "description": "Feat/&FeatOrcishFuryConDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f3ff3f2a-49fe-5333-8c0b-84eb3adebb90",
+  "guid": "aade328f-3240-593d-b30b-8d729d3e2027",
   "contentPack": 9999,
-  "name": "FeatGroupEnchanter"
+  "name": "FeatOrcishFuryCon"
 }

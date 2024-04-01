@@ -25,9 +25,7 @@ internal static class TwoWeaponCombatFeats
         GroupFeats.FeatGroupDefenseCombat.AddFeats(
             featDualWeaponDefense);
 
-        GroupFeats.MakeGroup("FeatGroupTwoWeaponCombat", null,
-            FeatDefinitions.Ambidextrous,
-            FeatDefinitions.TwinBlade,
+        GroupFeats.FeatGroupTwoWeaponCombat.AddFeats(
             featDualFlurry,
             featDualWeaponDefense);
     }

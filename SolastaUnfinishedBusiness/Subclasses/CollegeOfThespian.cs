@@ -297,12 +297,10 @@ public sealed class CollegeOfThespian : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
-            //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets

@@ -456,7 +456,41 @@ On the turn that you enter your rage, you can choose to illuminate up to three e
 
 
 
-## 3. Path of the Reaver
+## 3. Path of the Ravager
+
+The Path of the Ravager is a path of untrammeled fury, slick with blood. As you enter the ravager's rage, you thrill in the chaos of battle, heedless of your own health or well-being.
+
+
+### Level 3
+
+* Frenzy
+
+Once during your turn, if you use your Reckless Attack while you are raging, the first Strength-based weapon attack that you hit an enemy with deals 2d6 extra damage of the same type as your weapon. This damage is increased to 3d6 at 9th level, and 4d6 at 16th level. 
+
+
+### Level 6
+
+* Mindless Rage
+
+You can't be charmed or frightened while raging.
+
+
+### Level 10
+
+* Retaliation
+
+Whenever an opponent attacks you from a nearby cell, you are granted an immediate melee attack against that opponent.
+
+
+### Level 14
+
+* Intimidating Presence
+
+Whenever you start raging as a free action, and while you are raging on subsequent turns as a bonus action, you can strike terror into others with your intimidating presence. Each enemy creature within 30 feet of you must make a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Strength modifier). On a failed save, a creature has the Frightened condition for 1 minute. At the end of each of the Frightened creature's turns, the creature repeats the saving throw, ending the effect on itself on a success. Once you use this feature, you can't use it again until you finish a Long Rest. If you've run out of uses of this feature, you can expend a use of your Rage to use it again. 
+
+
+
+## 4. Path of the Reaver
 
 All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
 
@@ -494,7 +528,7 @@ Starting at 14th level, your blood becomes permanently corrupted, damaging creat
 
 
 
-## 4. Path of the Savagery
+## 5. Path of the Savagery
 
 Barbarians who walk the Path of the Savage are forces of nature, fighting less like men, and more like wild beasts. They strike with explosive speed and power, leveraging twin blades akin to a wild animal fighting with claws and fangs.
 
@@ -532,7 +566,7 @@ Starting at 14th level, while you are raging, whenever you hit a creature with a
 
 
 
-## 5. Path of the Totem Warrior
+## 6. Path of the Totem Warrior
 
 Barbarians who follow the Path of the Totem Warrior accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 
@@ -570,7 +604,7 @@ Starting at 14th level, choose an animal to hone your spiritual connection to, g
 
 
 
-## 6. Path of the Yeoman
+## 7. Path of the Yeoman
 
 Barbarians following the Path of the Yeoman ignore melee weapons to master the longbow. No less strong than barbarians that follow other paths, their arrows fell the mightiest of foes and their single-minded focus increases their already formidable defenses to incredible heights.
 
@@ -3389,7 +3423,7 @@ You learn two Versatilities.
 
 * Versatility Switch
 
-Each turn, you can switch between Strength, Intelligence, Wisdom or Versatile. When using versatilities, treat the chosen ability score as 10 + 2 * Proficiency Bonus. If you choose versatile, your Strength, Intelligence or Wisdom gain a bonus equal to the amount of versatilities you have learnt.
+Each turn, you can switch among Strength, Intelligence, Wisdom or Versatile. If you choose an ability score, treat the chosen ability score as 10 + 2 * [Proficiency Bonus] when using versatilities. If you choose Versatile, your Strength, Intelligence and Wisdom gain a bonus equal to the amount of versatilities you have learnt.
 
 
 ### Level 6

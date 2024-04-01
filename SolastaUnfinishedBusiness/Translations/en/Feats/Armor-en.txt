@@ -1,4 +1,4 @@
-Feat/&FeatHeavyArmorMasterDescription=You can use your armor to deflect strikes that would kill others. Increase your Strength score by 1, to a maximum of 20. While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from attacks is reduced by 3.
+Feat/&FeatHeavyArmorMasterDescription=You can use your armor to deflect strikes that would kill others. Increase your Strength by 1, to a maximum of 20. While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from attacks is reduced by 3.
 Feat/&FeatHeavyArmorMasterTitle=Heavy Armor Master
 Feat/&FeatMediumArmorDexDescription=Increase your Dexterity by 1, to a maximum of 20.\nYou gain proficiency with medium armor and shields.
 Feat/&FeatMediumArmorDexTitle=Moderately Armored [Dex]

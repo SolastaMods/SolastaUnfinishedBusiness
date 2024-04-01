@@ -173,7 +173,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             if (activeEffect != null ||
                 !attacker.IsMyTurn() ||
                 !ValidatorsWeapon.IsTwoHandedRanged(attackMode) ||
-                rulesetAttacker.HasAnyConditionOfType(condition.Name))
+                rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, condition.Name))
             {
                 yield break;
             }

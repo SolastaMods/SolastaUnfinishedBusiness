@@ -114,7 +114,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(MassCureWounds)
-                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetDurationData(DurationType.UntilAnyRest)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
                     .SetParticleEffectParameters(MassCureWounds)
                     .SetEffectForms(
@@ -1058,7 +1058,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
             var usablePower = PowerProvider.Get(_powerEldritchDetonation, rulesetCharacter);
             var effectPower = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
                 .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(

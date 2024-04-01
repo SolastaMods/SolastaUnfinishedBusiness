@@ -237,8 +237,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             {
                 RulesetEffect = implementationManagerService
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
+                UsablePower = usablePower
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?

@@ -127,7 +127,7 @@
     "customMaterials": [],
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "2965466ace50ec94bbf7f067ace406df",
+      "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -137,27 +137,27 @@
       "y": -1.0,
       "z": 0.0
     },
-    "overrideCharacterShaderColors": true,
+    "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.152941167,
-      "g": 0.745098054,
-      "b": 0.389533758,
-      "a": 1.0
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
     },
     "secondCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.325490177,
-      "g": 0.831372559,
-      "b": 0.8157103,
-      "a": 1.0
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
     },
     "hasPhantomDistortion": true,
     "hasPhantomFadingFeet": true,
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "48afe6d0fa3bbe44e8afeac916500cbc",
+      "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -185,23 +185,23 @@
     "femaleModelScale": 0.655,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
-    "hideDuringCutscene": true,
+    "hideDuringCutscene": false,
     "hasLightingCutscene": true,
-    "canGeneratePortrait": true,
+    "canGeneratePortrait": false,
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
-      "z": -12.0
+      "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
-      "y": 0.5
+      "y": 0.4
     },
-    "portraitCameraFOV": 20.0,
+    "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
@@ -219,12 +219,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSpiritWolfTitle",
-    "description": "Monster/&SpiritDescription",
+    "title": "Monster/&TutoAlphaWolfTitle",
+    "description": "Monster/&TutoAlphaWolfDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f0c21bbf7b2430746a0e97ee7740ea79",
-      "m_SubObjectName": "KindredSpiritWolf",
+      "m_AssetGUID": "df90a485abda0494d9e335c7d62b27f0",
+      "m_SubObjectName": "CustomPortrait_AlphaWolf",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

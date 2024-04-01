@@ -3,6 +3,7 @@ ModUi/&AddAllToStore=Agregar todo a la tienda
 ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangrado</color> a las eliminadas por <color=#D89555>Restauración mayor</color> y <color=#D89555>Restauración menor</color>
 ModUi/&AddCustomIconsToOfficialItems=Añade iconos personalizados a los elementos oficiales del juego <i><color=#F0DAA0>[municiones, recetas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requiere reinicio] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Habilite <color=#D89555>Percepción de oscuridad</color> en <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> y <color=#D89555>Gray Dwarf</color>. color> <i><color=#F0DAA0>\n[otorga ventaja en las pruebas de percepción cuando no está iluminado o bajo oscuridad mágica]</color></i>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=Añade <color=#D89555>Modificador de Destreza</color> a los enemigos <color=#D89555>Tirada de Iniciativa</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Añade el nivel <color=#D89555>Luchador</color> a la repetición de la tirada de salvación <color=#D89555>Indomable</color>.
 ModUi/&AddHelpActionToAllRaces=Agrega la acción <color=#D89555>Ayuda</color> a todas las razas jugables <i><color=#F0DAA0>[puedes ayudar a una criatura amiga a atacar a una criatura a 5 pies de ti]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Habilitar enemigos preferidos humanoides <color=#D89555>Rangers</color>
@@ -107,6 +108,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de dotes en los niv
 ModUi/&EnableFighterWeaponSpecialization=Habilitar <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles de clase 8 y 16 <i><color=#F0DAA0>[Obtiene +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite fondos flexibles <i><color=#F0DAA0>[seleccione competencias de habilidades y herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de puntaje de habilidad en lugar de los valores raciales predeterminados]</color></i>
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permitir que el héroe con mayor competencia realice opciones de diálogo.
 ModUi/&EnableHigherGroundRules=Habilitar reglas básicas más altas <i><color=#F0DAA0>[+1 para golpear si se ataca desde un terreno más alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para mostrar la superposición de depuración
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar la pantalla HUD
@@ -146,6 +148,7 @@ ModUi/&EnableVttCamera=Habilite <color=#1E81B0>CTRL-SHIFT-(V)</color> para alter
 ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=#F0DAA0>[en lugar de una opción exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentajes de probabilidad de encuentros aleatorios</color>
 ModUi/&Encounters=Encuentros
+ModUi/&EnemiesAlwaysRollInitiative=<i>+ Los enemigos siempre tiran iniciativa en lugar de un valor forzado <color=#F0DAA0>[es decir: Sorak Assassin]</color></i>
 ModUi/&ExpandAll=Expandir todo
 ModUi/&FactionHelp=<color=#C04040E0>Cargar un juego de campaña oficial para modificar las relaciones entre facciones...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Facciones:</color>
@@ -272,6 +275,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=Almacene la tienda de Gorim con 
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Almacene la tienda de Gorim con todos los instrumentos musicales no mágicos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Almacene la tienda de Hugo con <color=#D89555>Bastón arcano</color>, <color=#D89555>Cuello de druida</color>, <color=#D89555>Bastón</color> y <color=#D89555>Club</color> establecer como elementos de enfoque
 ModUi/&Subclasses=<color=#F0DAA0>Subclases</color>
+ModUi/&Subraces=<color=#F0DAA0>Subrazas</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y artículos creados en la tienda</i>
 ModUi/&TargetLanguage=Lengua de llegada
 ModUi/&Tools=Herramientas

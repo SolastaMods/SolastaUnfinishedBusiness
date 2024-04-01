@@ -141,13 +141,6 @@ internal static partial class DatabaseHelper
         internal static CharacterRaceDefinition HalfOrc { get; } = GetDefinition<CharacterRaceDefinition>("HalfOrc");
         internal static CharacterRaceDefinition HalfElf { get; } = GetDefinition<CharacterRaceDefinition>("HalfElf");
         internal static CharacterRaceDefinition Halfling { get; } = GetDefinition<CharacterRaceDefinition>("Halfling");
-
-        internal static CharacterRaceDefinition HalflingIsland { get; } =
-            GetDefinition<CharacterRaceDefinition>("HalflingIsland");
-
-        internal static CharacterRaceDefinition HalflingMarsh { get; } =
-            GetDefinition<CharacterRaceDefinition>("HalflingMarsh");
-
         internal static CharacterRaceDefinition Human { get; } = GetDefinition<CharacterRaceDefinition>("Human");
         internal static CharacterRaceDefinition Gnome { get; } = GetDefinition<CharacterRaceDefinition>("Gnome");
         internal static CharacterRaceDefinition Tiefling { get; } = GetDefinition<CharacterRaceDefinition>("Tiefling");
@@ -217,6 +210,9 @@ internal static partial class DatabaseHelper
 
         internal static CharacterSubclassDefinition MartialSpellblade { get; } =
             GetDefinition<CharacterSubclassDefinition>("MartialSpellblade");
+
+        internal static CharacterSubclassDefinition PathBerserker { get; } =
+            GetDefinition<CharacterSubclassDefinition>("PathBerserker");
 
         internal static CharacterSubclassDefinition PathClaw { get; } =
             GetDefinition<CharacterSubclassDefinition>("PathClaw");
@@ -910,6 +906,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionActionAffinity ActionAffinityMountaineerShieldCharge { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMountaineerShieldCharge");
+
+        internal static FeatureDefinitionActionAffinity ActionAffinityRetaliation { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRetaliation");
 
         internal static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction");
@@ -1642,6 +1641,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerBardGiveBardicInspiration { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBardGiveBardicInspiration");
+
+        internal static FeatureDefinitionPower PowerBerserkerIntimidatingPresence { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBerserkerIntimidatingPresence");
+
+        internal static FeatureDefinitionPower PowerBerserkerMindlessRage { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBerserkerMindlessRage");
 
         internal static FeatureDefinitionPower PowerCircleLandNaturalRecovery { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerCircleLandNaturalRecovery");
@@ -3023,8 +3028,13 @@ internal static partial class DatabaseHelper
     {
         internal static MonsterDefinition Air_Elemental { get; } = GetDefinition<MonsterDefinition>("Air_Elemental");
 
+        internal static MonsterDefinition AlphaWolf { get; } = GetDefinition<MonsterDefinition>("AlphaWolf");
+
         internal static MonsterDefinition Ape_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("Ape_MonsterDefinition");
+
+        internal static MonsterDefinition BlackBear { get; } =
+            GetDefinition<MonsterDefinition>("BlackBear");
 
         internal static MonsterDefinition BlackDragon_MasterOfNecromancy { get; } =
             GetDefinition<MonsterDefinition>("BlackDragon_MasterOfNecromancy");
@@ -3068,6 +3078,8 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Ghost { get; } = GetDefinition<MonsterDefinition>("Ghost");
         internal static MonsterDefinition Ghoul { get; } = GetDefinition<MonsterDefinition>("Ghoul");
         internal static MonsterDefinition Giant_Ape { get; } = GetDefinition<MonsterDefinition>("Giant_Ape");
+
+        internal static MonsterDefinition Giant_Eagle { get; } = GetDefinition<MonsterDefinition>("Giant_Eagle");
 
         internal static MonsterDefinition GoldDragon_AerElai { get; } =
             GetDefinition<MonsterDefinition>("GoldDragon_AerElai");

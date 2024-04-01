@@ -46,8 +46,17 @@ internal static class FeatsContext
         // tweak the groups to make display simpler on mod UI
         Feats.RemoveWhere(x => x.FormatTitle().Contains("["));
 
+        foreach (var child in AttributeDefinitions.AbilityScoreNames
+                     .Select(attribute => DatabaseRepository.GetDatabase<FeatDefinition>()
+                         .GetElement($"FeatGroupHalf{attribute}")))
+        {
+            FeatGroups.Remove(child);
+        }
+
         foreach (var featGroup in FeatGroups
-                     .Where(featGroup => !string.IsNullOrEmpty(featGroup.FamilyTag))
+                     .Where(featGroup =>
+                         !string.IsNullOrEmpty(featGroup.FamilyTag) &&
+                         featGroup.Name != "FeatGroupElementalTouch")
                      .ToList())
         {
             FeatGroups.Remove(featGroup);
@@ -73,6 +82,9 @@ internal static class FeatsContext
         {
             Main.Settings.FeatGroupEnabled.Remove(name);
         }
+
+        // handle Half Attributes sub groups special case
+        SwitchHalfAttributes(Main.Settings.FeatGroupEnabled.Contains("FeatGroupHalfAttributes"));
 
         // avoids restart on level up UI
         GuiWrapperContext.RecacheFeats();
@@ -128,6 +140,16 @@ internal static class FeatsContext
         GuiWrapperContext.RecacheFeats();
     }
 
+    private static void SwitchHalfAttributes(bool active)
+    {
+        foreach (var child in AttributeDefinitions.AbilityScoreNames
+                     .Select(attribute =>
+                         DatabaseRepository.GetDatabase<FeatDefinition>().GetElement($"FeatGroupHalf{attribute}")))
+        {
+            child.GuiPresentation.hidden = !active;
+        }
+    }
+
     internal static void SwitchFeatGroup(FeatDefinition featDefinition, bool active)
     {
         if (!FeatGroups.Contains(featDefinition))
@@ -136,6 +158,11 @@ internal static class FeatsContext
         }
 
         var name = featDefinition.Name;
+
+        if (name == "FeatGroupHalfAttributes")
+        {
+            SwitchHalfAttributes(active);
+        }
 
         if (active)
         {

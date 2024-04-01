@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -224,6 +225,10 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for Polearm Expert AoO
             //Stores character movements to be processed later
             AttacksOfOpportunity.ProcessOnCharacterMoveStart(mover, destination);
+
+            //PATCH: records on StraightLine special feature how many cells a hero moved in a straight line
+            //Stores character last straight line distance to be processed later
+            MeleeCombatFeats.PhysicalAttackBeforeHitConfirmedOnEnemyCharger.RecordStraightLine(mover, destination);
         }
     }
 

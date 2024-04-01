@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -14,6 +16,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
@@ -51,8 +54,7 @@ internal static class RaceFeats
                                 EffectFormBuilder
                                     .Create()
                                     .SetConditionForm(
-                                        DatabaseHelper.ConditionDefinitions.ConditionFlying12,
-                                        ConditionForm.ConditionOperation.Add)
+                                        ConditionDefinitions.ConditionFlying12, ConditionForm.ConditionOperation.Add)
                                     .Build())
                             .Build())
                     .AddToDB())
@@ -179,7 +181,7 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Misaye,
-                DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
+                FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
                 FeatureDefinitionProficiencyBuilder
                     .Create("ProficiencyFeatSquatNimblenessAcrobatics")
                     .SetGuiPresentationNoContent(true)
@@ -194,7 +196,7 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Einar,
-                DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
+                FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
                 FeatureDefinitionProficiencyBuilder
                     .Create("ProficiencyFeatSquatNimblenessAthletics")
                     .SetGuiPresentationNoContent(true)
@@ -217,6 +219,9 @@ internal static class RaceFeats
             .SetValidators(ValidatorsFeat.IsTiefling)
             .AddToDB();
 
+        var featDwarvenFortitude = BuildDwarvenFortitude();
+        var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
+        var featGroupOrcishFury = BuildOrcishFury(feats);
         var featGroupSecondChance = BuildSecondChance(feats);
 
         //
@@ -225,6 +230,7 @@ internal static class RaceFeats
 
         feats.AddRange(
             featDragonWings,
+            featDwarvenFortitude,
             featFadeAwayDex,
             featFadeAwayInt,
             featElvenAccuracyDexterity,
@@ -267,22 +273,510 @@ internal static class RaceFeats
             featSquatNimblenessDex,
             featSquatNimblenessStr);
 
-        GroupFeats.FeatGroupAgilityCombat.AddFeats(featDragonWings);
-
         GroupFeats.FeatGroupDefenseCombat.AddFeats(featGroupFadeAway);
 
         GroupFeats.FeatGroupTwoHandedCombat.AddFeats(featGroupRevenantGreatSword);
 
         GroupFeats.MakeGroup("FeatGroupRaceBound", null,
             featDragonWings,
+            featDwarvenFortitude,
             featInfernalConstitution,
             featGroupsElvenAccuracy,
             featGroupFadeAway,
+            featGroupFlamesOfPhlegethos,
+            featGroupOrcishFury,
             featGroupRevenantGreatSword,
             featGroupSecondChance,
             featGroupSquatNimbleness);
     }
 
+    #region Dwarven Fortitude
+
+    private static FeatDefinitionWithPrerequisites BuildDwarvenFortitude()
+    {
+        const string Name = "FeatDwarvenFortitude";
+
+        var feature = FeatureDefinitionAttributeModifierBuilder
+            .Create($"Feature{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Constitution, 1)
+            .AddToDB();
+
+        feature.AddCustomSubFeatures(new ActionFinishedByMeDwarvenFortitude(feature));
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .AddFeatures(feature)
+            .SetValidators(ValidatorsFeat.IsDwarf)
+            .AddToDB();
+    }
+
+    private sealed class ActionFinishedByMeDwarvenFortitude(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition feature) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            if (characterAction.ActionId is not ActionDefinitions.Id.Dodge)
+            {
+                yield break;
+            }
+
+            var attacker = characterAction.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetHero = rulesetAttacker.GetOriginalHero();
+
+            if (rulesetHero == null || rulesetHero.RemainingHitDiceCount() == 0)
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                {
+                    StringParameter = "Reaction/&CustomReactionDwarvenFortitudeDescription"
+                };
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("DwarvenFortitude", reactionParams);
+
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
+
+            yield return gameLocationBattleService.WaitForReactions(
+                attacker, gameLocationActionService, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            EffectHelpers.StartVisualEffect(attacker, attacker, CureWounds, EffectHelpers.EffectType.Effect);
+            rulesetHero.HitDieRolled += HitDieRolled;
+            rulesetHero.RollHitDie();
+            rulesetHero.HitDieRolled -= HitDieRolled;
+        }
+
+        private void HitDieRolled(
+            RulesetCharacter character,
+            DieType dieType,
+            int value,
+            AdvantageType advantageType,
+            int roll1,
+            int roll2,
+            int modifier,
+            bool isBonus)
+        {
+            const string BASE_LINE = "Feedback/&DwarvenFortitudeHitDieRolled";
+
+            character.ShowDieRoll(
+                dieType, roll1, roll2, advantage: advantageType, title: feature.GuiPresentation.Title);
+
+            character.LogCharacterActivatesAbility(
+                Gui.NoLocalization, BASE_LINE, true,
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                    (ConsoleStyleDuplet.ParameterType.Positive, $"{value - modifier}+{modifier}"),
+                    (ConsoleStyleDuplet.ParameterType.Positive, $"{value}")
+                ]);
+        }
+    }
+
+    #endregion
+
+    #region Flames of Phlegethos
+
+    private static FeatDefinition BuildFlamesOfPhlegethos(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatFlamesOfPhlegethos";
+
+        var powerRetaliate = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Retaliate")
+            .SetGuiPresentation("FeatGroupFlamesOfPhlegethos", Category.Feat)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 1, DieType.D4))
+                    .SetParticleEffectParameters(FireBolt)
+                    .Build())
+            .AddToDB();
+
+        var damageAffinity = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetRetaliate(powerRetaliate, 1)
+            .AddToDB();
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
+            .SetPossessive()
+            .SetFeatures(damageAffinity)
+            .CopyParticleReferences(ConditionDefinitions.ConditionOnFire)
+            .AddToDB();
+
+        var lightSourceForm =
+            FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation("FeatGroupFlamesOfPhlegethos", Category.Feat)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(condition),
+                        EffectFormBuilder
+                            .Create()
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 6, 6,
+                                lightSourceForm.lightSourceForm.color,
+                                lightSourceForm.lightSourceForm.graphicsPrefabReference)
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new MagicEffectFinishedByMeAnyFlamesOfPhlegethos(power));
+
+        var dieRollModifierFire = FeatureDefinitionDieRollModifierBuilder
+            .Create($"DieRollModifier{Name}Fire")
+            .SetGuiPresentation("FeatGroupFlamesOfPhlegethos", Category.Feat)
+            .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
+                "Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll")
+            .AddCustomSubFeatures(new ValidateDieRollModifierFlamesOfPhlegethos())
+            .AddToDB();
+
+        var flamesCha = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Cha")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsTiefling)
+            .SetFeatures(AttributeModifierCreed_Of_Solasta, dieRollModifierFire, power)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var flamesInt = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Int")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsTiefling)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, dieRollModifierFire, power)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(flamesCha, flamesInt);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupFlamesOfPhlegethos", Name, ValidatorsFeat.IsTiefling, flamesCha, flamesInt);
+    }
+
+    private sealed class MagicEffectFinishedByMeAnyFlamesOfPhlegethos(FeatureDefinitionPower power)
+        : IMagicEffectFinishedByMeAny
+    {
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            if (!action.ActionParams.activeEffect.EffectDescription.EffectForms.Any(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeFire))
+            {
+                yield break;
+            }
+
+            if (ServiceRepository.GetService<IGameLocationBattleService>()
+                    is not GameLocationBattleManager gameLocationBattleManager ||
+                ServiceRepository.GetService<IGameLocationActionService>()
+                    is not GameLocationActionManager gameLocationActionManager ||
+                ServiceRepository.GetService<IRulesetImplementationService>()
+                    is not RulesetImplementationManager implementationManagerService)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { new ActionModifier() },
+                StringParameter = "PowerFeatFlamesOfPhlegethos",
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { attacker }
+            };
+
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+
+            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", attacker);
+
+            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+        }
+    }
+
+    private sealed class ValidateDieRollModifierFlamesOfPhlegethos : IValidateDieRollModifier
+    {
+        public bool CanModifyRoll(
+            RulesetCharacter character,
+            List<FeatureDefinition> features,
+            List<string> damageTypes)
+        {
+            return damageTypes.Contains(DamageTypeFire);
+        }
+    }
+
+    #endregion
+
+    #region Orcish Fury
+
+    private static FeatDefinition BuildOrcishFury(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatOrcishFury";
+
+        var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("OrcishFury")
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+            .AddToDB();
+
+        var conditionAdditionalDamage = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AdditionalDamage")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalDamage)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ImpishWrath")
+            .SetGuiPresentation("FeatGroupOrcishFury", Category.Feat)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .DelegatedToAction()
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new CustomBehaviorOrcishFury(power, conditionAdditionalDamage));
+
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "OrcishFuryToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.OrcishFuryToggle)
+            .SetActivatedPower(power)
+            .AddToDB();
+
+        var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityOrcishFuryToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(power)))
+            .AddToDB();
+
+        var orcishFuryStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsHalfOrc)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, actionAffinityImpishWrathToggle, power)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var orcishFuryCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsHalfOrc)
+            .SetFeatures(AttributeModifierCreed_Of_Arun, actionAffinityImpishWrathToggle, power)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(orcishFuryStr, orcishFuryCon);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupOrcishFury", Name, ValidatorsFeat.IsHalfOrc, orcishFuryStr, orcishFuryCon);
+    }
+
+    private sealed class CustomBehaviorOrcishFury(
+        FeatureDefinitionPower power,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
+            IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByEnemy
+    {
+        private bool _knockOutPrevented;
+        private bool _shouldTrigger;
+
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        {
+            if (!_shouldTrigger)
+            {
+                yield break;
+            }
+
+            var rulesetTarget = target.RulesetCharacter;
+
+            _shouldTrigger = false;
+            rulesetTarget.KnockOutPrevented -= KnockOutPreventedHandler;
+
+            if (!_knockOutPrevented)
+            {
+                yield break;
+            }
+
+            _knockOutPrevented = false;
+
+            if (!target.CanReact())
+            {
+                yield break;
+            }
+
+            rulesetTarget.LogCharacterUsedPower(power);
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var attackMode = target.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
+
+            var attackActionParams =
+                new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
+                {
+                    AttackMode = attackModeCopy,
+                    TargetCharacters = { characterAction.ActingCharacter },
+                    ActionModifiers = { new ActionModifier() }
+                };
+
+            actionService.ExecuteAction(attackActionParams, null, true);
+        }
+
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
+            _shouldTrigger = true;
+            _knockOutPrevented = false;
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!ValidatorsWeapon.IsOfWeaponType(CustomSituationalContext.SimpleOrMartialWeapons)
+                    (attackMode, null, null) ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle) ||
+                rulesetAttacker.GetRemainingPowerUses(power) == 0)
+            {
+                yield break;
+            }
+
+            rulesetAttacker.InflictCondition(
+                conditionDefinition.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionDefinition.Name,
+                0,
+                0,
+                0);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
+            _shouldTrigger = true;
+            _knockOutPrevented = false;
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!ValidatorsWeapon.IsOfWeaponType(CustomSituationalContext.SimpleOrMartialWeapons)
+                    (attackMode, null, null) ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle) ||
+                rulesetAttacker.GetRemainingPowerUses(power) == 0)
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+
+            rulesetAttacker.UsePower(usablePower);
+        }
+
+        private void KnockOutPreventedHandler(RulesetCharacter character, BaseDefinition source)
+        {
+            _knockOutPrevented = source == DamageAffinityHalfOrcRelentlessEndurance;
+        }
+    }
+
+    #endregion
 
     #region Second Chance
 

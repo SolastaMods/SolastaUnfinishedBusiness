@@ -1,3 +1,20 @@
+1.5.97.3:
+
+- added 'Add Dexterity Modifier to enemies Initiative Roll'
+- added 'Enable the hero with best proficiency to roll dialogue choices'
+- added Alert, Charger, and Chef feats
+- added Dwarven Fortitude, Flames of Phlegethos, and Orcish Fury feats
+- added Path of the Ravager subclass [UA Path of the Berserker]
+- improved Circle of the Stars with revert starry form power
+- improved Ranger Wildmaster with new non-spirit companion models
+- fixed Circle of the Stars chalice and dragon constellation light range
+- fixed Circle of the Stars constellation form integration with wildshape
+- fixed Innovation Vitriolist vitriolic infusion adding acid PB to all attacks
+- fixed Ranger Wildmaster beast using char level instead of class level
+- fixed Ranger Wildmaster bear and eagle 2nd attack to be different than 1st
+- fixed Reckless Attack not working with enemies, reach weapons, and unarmed
+- fixed Way of Dragon reaction hide and sub interaction with cantrip attacks
+ 
 1.5.97.2:
 
 - added 'Enable Barbarian brutal strike at levels 9, 13 and 17'
@@ -5,7 +22,7 @@
 - added 'Enable Barbarian regain one rage use over a short rest at level 7'
 - added 'Disable Barbarian brutal critical at levels 9, 13, and 17'
 - added 'Set Ring of Regeneration heal rate to 1 HP per 3 minutes' [by ImpPhil]
-- fixed Circle of the Moon archer constellation light range
+- fixed Circle of the Stars archer constellation light range
 - fixed Devastating Strikes feat as a better fit for Barbarians
 - fixed Inspired Leader feat temp HPs to endure until long rest
 

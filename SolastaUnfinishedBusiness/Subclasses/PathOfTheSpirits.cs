@@ -13,6 +13,7 @@ using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -145,7 +146,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
         powerSpiritGuardiansRageCost.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new ActionFinishedBySpiritWalker(powerSpiritGuardians, powerSpiritGuardiansRageCost));
+            new MagicEffectFinishedByMeAnySpiritWalker(powerSpiritGuardians, powerSpiritGuardiansRageCost));
 
         #endregion
 
@@ -408,8 +409,8 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         return powerHonedAnimalAspectsWolf;
     }
 
-    private sealed class ActionFinishedBySpiritWalker(
-        FeatureDefinitionPower powerNoCost,
+    private sealed class MagicEffectFinishedByMeAnySpiritWalker(
+        FeatureDefinitionPower powerLongRest,
         FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMeAny
     {
         public IEnumerator OnMagicEffectFinishedByMeAny(
@@ -418,14 +419,15 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             GameLocationCharacter defender)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != FeatureDefinitionPowers.PowerBarbarianRageStart)
+                (characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart &&
+                 characterActionUsePower.activePower.PowerDefinition.OverriddenPower != PowerBarbarianRageStart))
             {
                 yield break;
             }
 
             var rulesetCharacter = attacker.RulesetCharacter;
-            var power = rulesetCharacter.GetRemainingPowerUses(powerNoCost) > 0
-                ? powerNoCost
+            var power = rulesetCharacter.GetRemainingPowerUses(powerLongRest) > 0
+                ? powerLongRest
                 : rulesetCharacter.GetRemainingPowerUses(powerRageCost) > 0
                     ? powerRageCost
                     : null;
@@ -449,9 +451,11 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "SpiritWalker",
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower
+                UsablePower = usablePower,
+                TargetCharacters = { attacker }
             };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;

@@ -108,7 +108,7 @@
     "customMaterials": [],
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "06a468f2a92070841bf16acd0e7bd262",
+      "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -118,27 +118,27 @@
       "y": -1.0,
       "z": 0.0
     },
-    "overrideCharacterShaderColors": true,
+    "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.152941167,
-      "g": 0.745098054,
-      "b": 0.389533758,
-      "a": 1.0
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
     },
     "secondCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.325490177,
-      "g": 0.831372559,
-      "b": 0.8157103,
-      "a": 1.0
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
     },
     "hasPhantomDistortion": true,
     "hasPhantomFadingFeet": true,
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "7f5170280f2dadd4aa5091e5d9145b4c",
+      "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -148,25 +148,27 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "hasPrefabVariants": true,
+    "monsterPresentationDefinitions": [
+      "Definition:Eagle_Giant_Presentation:cf7c5b5357de9c74e9163a92dc1210c9"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "b1bd642eab224bd4bbbf5ce48c869a9e",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.655,
+    "maleModelScale": 0.9,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "b1bd642eab224bd4bbbf5ce48c869a9e",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.655,
+    "femaleModelScale": 0.9,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
-    "hideDuringCutscene": true,
+    "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": true,
     "needMerchantPortrait": false,
@@ -200,12 +202,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSpiritEagleTitle",
-    "description": "Monster/&SpiritDescription",
+    "title": "Monster/&GiantEagle_Title",
+    "description": "Monster/&GiantEagle_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d802c8670a28fe544abd53ce549a07b1",
-      "m_SubObjectName": "KindredSpiritEagle",
+      "m_AssetGUID": "3a0dcd7bdfbf6a74bba78cb8a1831ee4",
+      "m_SubObjectName": "CustomPortrait_Giant_Eagle",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

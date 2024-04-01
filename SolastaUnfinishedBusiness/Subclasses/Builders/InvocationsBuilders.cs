@@ -821,7 +821,8 @@ internal static class InvocationsBuilders
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
-            return character.HasAnyConditionOfType(conditionPerniciousCloakSelf.Name);
+            return character.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionPerniciousCloakSelf.Name);
         }
     }
 
@@ -1394,7 +1395,6 @@ internal static class InvocationsBuilders
                     StringParameter = "TombOfFrost",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        //CHECK: no need for AddAsActivePowerToSource
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
@@ -1412,14 +1412,9 @@ internal static class InvocationsBuilders
             }
 
             var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
-            var tempHitPoints = 10 * classLevel;
 
-            if (tempHitPoints > rulesetDefender.TemporaryHitPoints)
-            {
-                rulesetDefender.ReceiveTemporaryHitPoints(
-                    classLevel * 10, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
-                    rulesetDefender.Guid);
-            }
+            rulesetDefender.ReceiveTemporaryHitPoints(
+                classLevel * 10, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetDefender.Guid);
         }
     }
 

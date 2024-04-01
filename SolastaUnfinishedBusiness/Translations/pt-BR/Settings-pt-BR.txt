@@ -3,6 +3,7 @@ ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Ative <color=#D89555>Darkness Perceptive</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</ color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicionado <color=#D89555>Modificador de Destreza</color> aos inimigos <color=#D89555>Rolagem de Iniciativa</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Adicionado o nível <color=#D89555>Lutador</color> à nova rolagem do teste de resistência <color=#D89555>Indomável</color>
 ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 m de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ativar <color=#D89555>Rangers</color> inimigos humanóides preferidos
@@ -107,6 +108,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilite a seleção de talentos nos nívei
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Fighter</color> <b>Especialização em Arma</b> nos níveis de classe 8 e 16 <i><color=#F0DAA0>[obtenha +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar planos de fundo flexíveis <i><color=#F0DAA0>[selecione proficiências de habilidades e ferramentas dos planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces=Habilite raças flexíveis <i><color=#F0DAA0>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Permita que o herói com melhor proficiência faça escolhas de diálogo
 ModUi/&EnableHigherGroundRules=Habilitar regras de terreno mais alto <i><color=#F0DAA0>[+1 para acertar se atacar de um terreno mais alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para exibir a sobreposição de depuração
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar a exibição do HUD
@@ -146,6 +148,7 @@ ModUi/&EnableVttCamera=Ative <color=#1E81B0>CTRL-SHIFT-(V)</color> para alternar
 ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributos e a seleção de talentos <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Definir chances de porcentagem de encontros aleatórios</color>
 ModUi/&Encounters=Encontros
+ModUi/&EnemiesAlwaysRollInitiative=<i>+ Os inimigos sempre rolam a iniciativa em vez de um valor forçado <color=#F0DAA0>[ou seja: Sorak Assassin]</color></i>
 ModUi/&ExpandAll=Expandir todos
 ModUi/&FactionHelp=<color=#C04040E0>Carregue um jogo de campanha oficial para modificar as relações entre as facções...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Facções:</color>
@@ -272,6 +275,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=Armazene a loja de Gorim com tod
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Loja de estoque de Gorim com todos os instrumentos musicais não mágicos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Loja do Stock Hugo com <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço de Druida</color>, <color=#D89555>Cajado</color> e <color=#D89555>Club</color> definido como itens de foco
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
+ModUi/&Subraces=<color=#F0DAA0>Sub-raças</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>
 ModUi/&TargetLanguage=Idioma Alvo
 ModUi/&Tools=Ferramentas

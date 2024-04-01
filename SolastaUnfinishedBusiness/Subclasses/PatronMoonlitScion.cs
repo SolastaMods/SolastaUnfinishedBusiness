@@ -548,11 +548,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 0,
                 0);
 
-            if (levels > rulesetCharacter.TemporaryHitPoints)
-            {
-                rulesetCharacter.ReceiveTemporaryHitPoints(
-                    levels, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
-            }
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                levels, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
 
             var spellRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
                 x.SpellCastingClass == CharacterClassDefinitions.Warlock);
@@ -638,7 +635,6 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     StringParameter = "MoonlightGuise",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        //CHECK: no need for AddAsActivePowerToSource
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }

@@ -804,7 +804,7 @@ internal static class Level20Context
                 yield break;
             }
 
-            if (rulesetDefender.HasAnyConditionOfTypeOrSubType(ConditionIncapacitated))
+            if (rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated))
             {
                 yield break;
             }
@@ -880,7 +880,6 @@ internal static class Level20Context
             {
                 StringParameter = "RogueStrokeOfLuck",
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower
             };

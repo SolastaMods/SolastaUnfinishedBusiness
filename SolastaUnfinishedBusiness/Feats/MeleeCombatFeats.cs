@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
@@ -28,19 +29,21 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MeleeCombatFeats
 {
-    internal static FeatDefinition FeatFencer;
+    internal static FeatDefinition FeatFencer { get; private set; }
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        FeatFencer = BuildFencer();
+
         var featAlwaysReady = BuildAlwaysReady();
         var featBladeMastery = BuildBladeMastery();
+        var featCharger = BuildCharger();
         var featCleavingAttack = BuildCleavingAttack();
         var featCrusherStr = BuildCrusherStr();
         var featCrusherCon = BuildCrusherCon();
         var featDefensiveDuelist = BuildDefensiveDuelist();
         var featDevastatingStrikes = BuildDevastatingStrikes();
         var featFellHanded = BuildFellHanded();
-        FeatFencer = BuildFencer();
         var featHammerThePoint = BuildHammerThePoint();
         var featLongSwordFinesse = BuildLongswordFinesse();
         var featOldTacticsDex = BuildOldTacticsDex();
@@ -55,15 +58,16 @@ internal static class MeleeCombatFeats
         var featSpearMastery = BuildSpearMastery();
 
         feats.AddRange(
+            FeatFencer,
             featAlwaysReady,
             featBladeMastery,
+            featCharger,
             featCleavingAttack,
             featCrusherCon,
             featCrusherStr,
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
-            FeatFencer,
             featHammerThePoint,
             featLongSwordFinesse,
             featOldTacticsDex,
@@ -77,10 +81,6 @@ internal static class MeleeCombatFeats
             featSlasherStr,
             featSpearMastery);
 
-        var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", GroupFeats.Crusher,
-            featCrusherStr,
-            featCrusherCon);
-
         var featGroupOldTactics = GroupFeats.MakeGroup("FeatGroupOldTactics", GroupFeats.OldTactics,
             featOldTacticsDex,
             featOldTacticsStr);
@@ -89,37 +89,33 @@ internal static class MeleeCombatFeats
             featSlasherDex,
             featSlasherStr);
 
-        GroupFeats.FeatGroupDefenseCombat.AddFeats(
-            featAlwaysReady,
-            featDefensiveDuelist);
+        GroupFeats.FeatGroupCrusher.AddFeats(
+            featCrusherStr,
+            featCrusherCon);
 
         GroupFeats.FeatGroupPiercer.AddFeats(
             featPiercerDex,
             featPiercerStr);
 
-        GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
-            featGroupCrusher);
+        GroupFeats.FeatGroupDefenseCombat.AddFeats(
+            featAlwaysReady,
+            featDefensiveDuelist);
 
         GroupFeats.FeatGroupMeleeCombat.AddFeats(
-            GroupFeats.FeatGroupElementalTouch,
-            GroupFeats.FeatGroupPiercer,
-            FeatDefinitions.DauntingPush,
-            FeatDefinitions.DistractingGambit,
-            FeatDefinitions.TripAttack,
+            FeatFencer,
             featAlwaysReady,
             featBladeMastery,
+            featCharger,
             featCleavingAttack,
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
-            FeatFencer,
             featHammerThePoint,
             featLongSwordFinesse,
             featPowerAttack,
             featRecklessAttack,
             featSavageAttack,
             featSpearMastery,
-            featGroupCrusher,
             featGroupOldTactics,
             featGroupSlasher);
     }
@@ -349,6 +345,217 @@ internal static class MeleeCombatFeats
                     ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
                     ValidatorsCharacter.HasMeleeWeaponInMainHand))
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Charger
+
+    private static FeatDefinition BuildCharger()
+    {
+        const string Name = "FeatCharger";
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .AddToDB();
+
+        powerPool.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new PhysicalAttackBeforeHitConfirmedOnEnemyCharger(powerPool));
+
+        var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("Charger")
+            .SetDamageDice(DieType.D8, 1)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetImpactParticleReference(FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
+            .AddCustomSubFeatures(
+                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
+                    (OperationType.Set, mode != null)))
+            .AddToDB();
+
+        var conditionAdditionalDamage = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AdditionalDamage")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalDamage)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
+        var powerAddDamage = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}AddDamage")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionAdditionalDamage))
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        var powerShove = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}Shove")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(powerPool, true, powerAddDamage, powerShove);
+
+        var featureExtraAttack = FeatureDefinitionBuilder
+            .Create($"Feature{Name}ExtraAttack")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(
+                new AddExtraMainHandAttack(
+                    ActionDefinitions.ActionType.Bonus,
+                    ValidatorsCharacter.HasMeleeWeaponOrUnarmedInMainHand,
+                    ValidatorsCharacter.HasAnyOfConditions(ConditionDashing)))
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create("FeatCharger")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(featureExtraAttack, powerPool, powerAddDamage, powerShove)
+            .AddToDB();
+    }
+
+    internal sealed class PhysicalAttackBeforeHitConfirmedOnEnemyCharger(FeatureDefinitionPower powerPool)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
+    {
+        private const string DirX = "DirectionX";
+        private const string DirY = "DirectionY";
+        private const string DirZ = "DirectionZ";
+        private const string StraightLine = "StraightLine";
+
+        private static readonly EffectForm ShoveForm = EffectFormBuilder
+            .Create()
+            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+            .Build();
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (actionManager == null ||
+                battleManager is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            var attackerPosition = attacker.LocationPosition;
+            var defenderPosition = defender.LocationPosition;
+
+            var attackDirectionX = Math.Sign(attackerPosition.x - defenderPosition.x);
+            var attackDirectionY = Math.Sign(attackerPosition.y - defenderPosition.y);
+            var attackDirectionZ = Math.Sign(attackerPosition.z - defenderPosition.z);
+
+            InitDirections(attacker);
+
+            if ((!ValidatorsWeapon.IsMelee(attackMode) &&
+                 !ValidatorsWeapon.IsUnarmed(attackMode)) ||
+                !attacker.OncePerTurnIsValid(powerPool.Name) ||
+                attackDirectionX != attacker.UsedSpecialFeatures[DirX] ||
+                attackDirectionY != attacker.UsedSpecialFeatures[DirY] ||
+                attackDirectionZ != attacker.UsedSpecialFeatures[DirZ] ||
+                attacker.UsedSpecialFeatures[StraightLine] < 2)
+            {
+                yield break;
+            }
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { actionModifier },
+                StringParameter = powerPool.Name,
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            attacker.UsedSpecialFeatures.TryAdd(powerPool.Name, 0);
+
+            // add the shove form direct to the attack
+            var option = reactionRequest.SelectedSubOption;
+            var subPowers = powerPool.GetBundle()?.SubPowers;
+
+            if (subPowers != null &&
+                subPowers[option].Name == "PowerFeatChargerShove")
+            {
+                actualEffectForms.Add(ShoveForm);
+            }
+        }
+
+        private static void InitDirections(GameLocationCharacter mover)
+        {
+            mover.UsedSpecialFeatures.TryAdd(DirX, 0);
+            mover.UsedSpecialFeatures.TryAdd(DirY, 0);
+            mover.UsedSpecialFeatures.TryAdd(DirZ, 0);
+            mover.UsedSpecialFeatures.TryAdd(StraightLine, 0);
+        }
+
+        internal static void RecordStraightLine(GameLocationCharacter mover, int3 destination)
+        {
+            InitDirections(mover);
+
+            var origin = mover.LocationPosition;
+
+            var previousDirectionX = mover.UsedSpecialFeatures[DirX];
+            var previousDirectionY = mover.UsedSpecialFeatures[DirY];
+            var previousDirectionZ = mover.UsedSpecialFeatures[DirZ];
+
+            var directionX = Math.Sign(origin.x - destination.x);
+            var directionY = Math.Sign(origin.y - destination.y);
+            var directionZ = Math.Sign(origin.z - destination.z);
+
+            mover.UsedSpecialFeatures[DirX] = directionX;
+            mover.UsedSpecialFeatures[DirY] = directionY;
+            mover.UsedSpecialFeatures[DirZ] = directionZ;
+
+            mover.UsedSpecialFeatures[StraightLine] =
+                previousDirectionX == directionX &&
+                previousDirectionY == directionY &&
+                previousDirectionZ == directionZ
+                    ? mover.UsedSpecialFeatures[StraightLine] + 1
+                    : 1;
+        }
     }
 
     #endregion
@@ -692,7 +899,8 @@ internal static class MeleeCombatFeats
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetCharacter.HasAnyConditionOfType(conditionDefinition.Name))
+                !rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionDefinition.Name))
             {
                 return;
             }

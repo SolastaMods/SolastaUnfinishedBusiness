@@ -130,9 +130,11 @@ internal static class PrecisionFocusedFeats
 
         feats.AddRange(featArcanePrecision, featCharismaticPrecision, featWisePrecision);
 
-        GroupFeats.MakeGroup("FeatGroupPrecisionFocused", PrecisionFocused,
+        var featGroup = GroupFeats.MakeGroup("FeatGroupPrecisionFocused", PrecisionFocused,
             featArcanePrecision,
             featCharismaticPrecision,
             featWisePrecision);
+
+        GroupFeats.FeatGroupSupportCombat.AddFeats(featGroup);
     }
 }

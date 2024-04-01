@@ -239,7 +239,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
                 yield break;
             }
 
-            if (!rulesetCharacter.HasAnyConditionOfType(ConditionReckless))
+            if (!rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagCombat, ConditionReckless))
             {
                 yield break;
             }
@@ -247,12 +247,8 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Barbarian);
             var temporaryHitPoints = (classLevel + 1) / 2;
 
-            if (temporaryHitPoints > rulesetCharacter.TemporaryHitPoints)
-            {
-                rulesetCharacter.ReceiveTemporaryHitPoints(
-                    temporaryHitPoints, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
-                    rulesetCharacter.Guid);
-            }
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                temporaryHitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
         }
     }
 }

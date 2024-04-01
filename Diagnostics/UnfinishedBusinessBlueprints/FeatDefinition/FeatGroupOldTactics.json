@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupOldTacticsTitle",
-    "description": "Increase your Strength or Dexterity score by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.",
+    "description": "Increase your Strength or Dexterity by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

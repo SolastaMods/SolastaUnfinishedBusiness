@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,15 +8,19 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatFlamesOfPhlegethos",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
+    "Definition:DieRollModifierFeatFlamesOfPhlegethosFire:40e36780-3ac8-57ef-adb4-49a992d5ed28",
+    "Definition:PowerFeatFlamesOfPhlegethos:8dc5d818-588d-5ad6-85d1-9bb23a856c66"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupCriticalVirtuosoTitle",
-    "description": "Improved Critical, Superior Critical",
+    "title": "Feat/&FeatFlamesOfPhlegethosIntTitle",
+    "description": "Feat/&FeatFlamesOfPhlegethosIntDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "17be5861-9ee7-5d67-b4cd-13b0265a1a2d",
+  "guid": "9eeec6db-e20b-5d1b-8bd4-53e4fa4408d7",
   "contentPack": 9999,
-  "name": "FeatGroupCriticalVirtuoso"
+  "name": "FeatFlamesOfPhlegethosInt"
 }

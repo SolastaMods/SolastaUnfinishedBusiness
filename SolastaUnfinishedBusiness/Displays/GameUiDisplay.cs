@@ -145,16 +145,24 @@ internal static class GameUiDisplay
             }
         }
 
-        toggle = Main.Settings.EnableLogDialoguesToConsole;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableLogDialoguesToConsole = toggle;
-        }
-
         toggle = Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered;
         if (UI.Toggle(Gui.Localize("ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableHeroWithBestProficiencyToRollChoice;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHeroWithBestProficiencyToRollChoice"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHeroWithBestProficiencyToRollChoice = toggle;
+        }
+
+        toggle = Main.Settings.EnableLogDialoguesToConsole;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableLogDialoguesToConsole = toggle;
         }
 
         toggle = Main.Settings.EnableAlternateVotingSystem;
@@ -420,6 +428,8 @@ internal static class GameUiDisplay
         {
             Main.Settings.EnableVttCamera = toggle;
         }
+
+        UI.Label();
 
         toggle = Main.Settings.EnableCancelEditOnRightMouseClick;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCancelEditOnRightMouseClick"), ref toggle))

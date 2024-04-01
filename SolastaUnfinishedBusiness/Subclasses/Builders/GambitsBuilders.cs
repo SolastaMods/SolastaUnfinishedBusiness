@@ -741,7 +741,7 @@ internal static class GambitsBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetDurationData(DurationType.UntilAnyRest)
                     .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
@@ -1570,6 +1570,11 @@ internal static class GambitsBuilders
             manager.AddInterruptRequest(reactionRequest);
 
             yield return battle.WaitForReactions(actingCharacter, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
 
             var dieType = GetGambitDieSize(caster);
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);

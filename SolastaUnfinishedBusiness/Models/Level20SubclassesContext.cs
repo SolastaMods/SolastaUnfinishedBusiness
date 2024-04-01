@@ -941,9 +941,7 @@ internal static class Level20SubclassesContext
         var damageAffinityOathOfMotherlandFlamesOfMotherland = FeatureDefinitionDamageAffinityBuilder
             .Create("DamageAffinityOathOfMotherlandFlamesOfMotherland")
             .SetGuiPresentationNoContent(true)
-            .SetDamageAffinityType(DamageAffinityType.None)
-            .SetDamageType(DamageTypeFire)
-            .SetRetaliate(powerOathOfMotherlandFlamesOfMotherlandRetaliate, 1, true)
+            .SetRetaliate(powerOathOfMotherlandFlamesOfMotherlandRetaliate, 1)
             .AddToDB();
 
         var conditionOathOfMotherlandFlamesOfMotherland = ConditionDefinitionBuilder
@@ -1489,8 +1487,8 @@ internal static class Level20SubclassesContext
         {
             var clericLevel = target.GetClassLevel(CharacterClassDefinitions.Cleric);
 
-            target.ReceiveTemporaryHitPoints(clericLevel, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn,
-                rulesetCondition.SourceGuid);
+            target.ReceiveTemporaryHitPoints(
+                clericLevel, DurationType.UntilAnyRest, 1, TurnOccurenceType.EndOfTurn, rulesetCondition.SourceGuid);
         }
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -1515,7 +1513,6 @@ internal static class Level20SubclassesContext
             {
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { actingCharacter }
@@ -2163,7 +2160,8 @@ internal static class Level20SubclassesContext
             var caster = actionParams.ActingCharacter;
             var targets = actionParams.TargetCharacters
                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                            x.RulesetCharacter.HasAnyConditionOfTypeOrSubType("ConditionHitByDirtyFighting"))
+                            x.RulesetCharacter.HasConditionOfCategoryAndType(
+                                AttributeDefinitions.TagEffect, "ConditionHitByDirtyFighting"))
                 .ToList(); // avoid changing enumerator
 
             if (caster == null || targets.Count == 0)

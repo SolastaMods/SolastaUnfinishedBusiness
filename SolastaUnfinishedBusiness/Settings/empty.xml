@@ -4,6 +4,7 @@
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
+    <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
     <DisplayFeatsToggle>false</DisplayFeatsToggle>
     <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
@@ -319,8 +320,12 @@
     <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
     <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
     <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
-    <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+    <EnableBarbarianBrutalStrike>false</EnableBarbarianBrutalStrike>
+    <DisableBarbarianBrutalCritical>false</DisableBarbarianBrutalCritical>
+    <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
+    <EnableBarbarianRecklessSameBuffDebuffDuration>false</EnableBarbarianRecklessSameBuffDebuffDuration>
+    <EnableBarbarianRegainOneRageAtShortRest>false</EnableBarbarianRegainOneRageAtShortRest>
     <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
     <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
     <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
@@ -363,6 +368,7 @@
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>false</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthBreaksWhenAttackHits>false</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>false</StealthBreaksWhenAttackMisses>
+    <AddDexModifierToEnemiesInitiativeRoll>false</AddDexModifierToEnemiesInitiativeRoll>
     <DontEndTurnAfterReady>false</DontEndTurnAfterReady>
     <KeepInvisibilityWhenUsingItems>false</KeepInvisibilityWhenUsingItems>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
@@ -379,6 +385,7 @@
     <ChangeSleetStormToCube>false</ChangeSleetStormToCube>
     <UseHeightOneCylinderEffect>false</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>false</FixEldritchBlastRange>
+    <FixRingOfRegenerationHealRate>false</FixRingOfRegenerationHealRate>
     <AllowAnyClassToUseArcaneShieldstaff>false</AllowAnyClassToUseArcaneShieldstaff>
     <IdentifyAfterRest>false</IdentifyAfterRest>
     <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
@@ -435,6 +442,8 @@
     <RestockTowerOfKnowledge>false</RestockTowerOfKnowledge>
     <RaceSliderPosition>4</RaceSliderPosition>
     <RaceEnabled/>
+    <SubraceSliderPosition>4</SubraceSliderPosition>
+    <SubraceEnabled/>
     <BackgroundSliderPosition>4</BackgroundSliderPosition>
     <BackgroundEnabled/>
     <KlassListSliderPosition>
@@ -826,6 +835,7 @@
         </item>
     </SpellListSpellEnabled>
     <EnableAdditionalIconsOnLevelMap>false</EnableAdditionalIconsOnLevelMap>
+    <EnableHeroWithBestProficiencyToRollChoice>false</EnableHeroWithBestProficiencyToRollChoice>
     <EnableLogDialoguesToConsole>false</EnableLogDialoguesToConsole>
     <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <MarkInvisibleTeleportersOnLevelMap>false</MarkInvisibleTeleportersOnLevelMap>

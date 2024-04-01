@@ -8,31 +8,6 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal static class RulesetActorExtensions
 {
-    /// <summary>
-    ///     Makes using RulesetActor.EnumerateFeaturesToBrowse simpler
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="actor"></param>
-    /// <param name="populateActorFeaturesToBrowse">
-    ///     Set to true to populate actor.FeaturesToBrowse as well as returning
-    ///     features.  false to just return features.
-    /// </param>
-    /// <param name="featuresOrigin"></param>
-    [NotNull]
-    internal static ICollection<T> EnumerateFeaturesToBrowse<T>(
-        [NotNull] this RulesetActor actor,
-        bool populateActorFeaturesToBrowse = false,
-        [CanBeNull] Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin = null)
-    {
-        var features = populateActorFeaturesToBrowse ? actor.FeaturesToBrowse : [];
-
-        actor.EnumerateFeaturesToBrowse<T>(features, featuresOrigin);
-
-        return features
-            .OfType<T>()
-            .ToList();
-    }
-
     [NotNull]
     private static List<T> FeaturesByType<T>([CanBeNull] RulesetActor actor) where T : class
     {

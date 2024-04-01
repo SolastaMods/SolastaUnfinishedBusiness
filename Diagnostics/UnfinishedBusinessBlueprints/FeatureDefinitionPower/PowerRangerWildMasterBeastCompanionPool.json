@@ -179,8 +179,8 @@
     "description": "Feature/&PowerRangerWildMasterBeastCompanionPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f0c21bbf7b2430746a0e97ee7740ea79",
-      "m_SubObjectName": "KindredSpiritWolf",
+      "m_AssetGUID": "957eec7a8104a44469ea221963733af8",
+      "m_SubObjectName": "WildShape",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

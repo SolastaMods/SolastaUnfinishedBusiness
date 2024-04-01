@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -136,10 +136,10 @@
     "lightCounterDispellsEffect": false,
     "hideSavingThrowAnimation": false
   },
-  "delegatedToAction": false,
+  "delegatedToAction": true,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -175,11 +175,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetCircleOfTheCosmosConstellationFormTitle",
-    "description": "Feature/&FeatureSetCircleOfTheCosmosConstellationFormDescription",
+    "title": "Feat/&FeatGroupOrcishFuryTitle",
+    "description": "Feat/&FeatGroupOrcishFuryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e023f384-a272-5732-8df1-ec5f92160383",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -196,7 +196,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dbf6e93f-335d-5e15-b1bb-8352a2ccb402",
+  "guid": "16e3a36d-f549-5ea1-8b52-e542ece068b3",
   "contentPack": 9999,
-  "name": "PowerCircleOfTheCosmosConstellationForm"
+  "name": "PowerFeatOrcishFuryImpishWrath"
 }

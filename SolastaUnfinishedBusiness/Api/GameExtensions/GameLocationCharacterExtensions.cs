@@ -390,14 +390,11 @@ public static class GameLocationCharacterExtensions
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
-            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(instance, Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { instance }
+                UsablePower = usablePower
             };
 
             ServiceRepository.GetService<ICommandService>()?
@@ -405,6 +402,7 @@ public static class GameLocationCharacterExtensions
         }
 
         // burn one main attack
+        instance.HasAttackedSinceLastTurn = true;
         instance.UsedMainAttacks++;
         rulesetCharacter.ExecutedAttacks++;
         rulesetCharacter.RefreshAttackModes();

@@ -17,4 +17,4 @@ Feedback/&AdditionalDamageHexLine={0} 个灵魂巫咒 {1} (+{2})
 Proxy/&ProxyPactWeaponDescription=精神契约武器，击中时造成 1d8 + 魅力调整值 点力场伤害。该伤害在 10 级时提升至 2d8，在 14 级时提升至 3d8。
 Proxy/&ProxyPactWeaponTitle=精神契约武器
 Subclass/&PatronSoulBladeDescription=你与一件智能武器达成了交易，你用灵魂来喂养它以换取力量。
-Subclass/&PatronSoulBladeTitle=魂刃
+Subclass/&PatronSoulBladeTitle=咒剑

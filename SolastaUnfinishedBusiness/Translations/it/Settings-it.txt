@@ -3,6 +3,7 @@ ModUi/&AddAllToStore=Aggiungi tutto al negozio
 ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555> Sanguinamento</color> a quelle rimosse da <color=#D89555> Maggiore</color> e <color=#D89555> Restauro minore</color>
 ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate agli oggetti di gioco ufficiali <i><color=#F0DAA0>[munizioni, ricette, kit, ecc.]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percettivo dell'oscurità</color> su <color=#D89555>Elfo Oscuro</color>, <color=#D89555>Coboldo Oscuro</color> e <color=#D89555>Nano Grigio</ color> <i><color=#F0DAA0>\n[concede vantaggio alle prove di percezione quando spento o nell'oscurità magica]</color></i>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=Aggiungi <color=#D89555> Modificatore di Destrezza</color> ai nemici <color=#D89555> Tiro di Iniziativa</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Aggiungi il livello <color=#D89555>Guerriero</color> al tiro salvezza di <color=#D89555>Indomabile</color>
 ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze giocabili <i><color=#F0DAA0>[puoi aiutare una creatura amica ad attaccare una creatura entro 1,5 metri da te]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti umanoidi <color=#D89555>Ranger</color>
@@ -107,6 +108,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Abilita la selezione dei talenti ai livelli
 ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Guerriero</color> <b>Specializzazione arma</b> ai livelli di classe 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altro tipo di arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona abilità e competenze sugli strumenti dagli sfondi]</color></i>
 ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti punteggio abilità invece delle impostazioni razziali predefinite]</color></i>
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Consenti all'eroe con la migliore competenza di effettuare scelte di dialogo
 ModUi/&EnableHigherGroundRules=Abilita le regole del terreno più alto <i><color=#F0DAA0>[+1 per colpire se si attacca da un terreno più alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Abilita <color=#1E81B0>CTRL-MAIUSC-(D)</color> per visualizzare la sovrapposizione di debug
 ModUi/&EnableHotkeyToggleHud=Abilita <color=#1E81B0>CTRL-MAIUSC-(H)</color> per alternare la visualizzazione dell'HUD
@@ -146,6 +148,7 @@ ModUi/&EnableVttCamera=Abilita <color=#1E81B0>CTRL-SHIFT-(V)</color> per attivar
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Imposta probabilità percentuali di incontri casuali</color>
 ModUi/&Encounters=Incontri
+ModUi/&EnemiesAlwaysRollInitiative=<i>+ I nemici tirano sempre l'iniziativa invece di un valore forzato <color=#F0DAA0>[es: Sorak Assassin]</color></i>
 ModUi/&ExpandAll=Espandi tutto
 ModUi/&FactionHelp=<color=#C04040E0>Carica un gioco della campagna ufficiale per modificare le relazioni tra fazioni...</color>
 ModUi/&FactionRelations=<color=#F0DAA0> Fazioni:</color>
@@ -272,6 +275,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=Fai scorta del negozio di Gorim 
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Fai scorta del negozio di Gorim con tutti gli strumenti musicali non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta del negozio di Hugo con <color=#D89555> Bastone Arcano</color>, <color=#D89555> Collo del Druido</color>, <color=#D89555> Bastone</color> e <color=#D89555> Mazza</color> impostato come elementi focali
 ModUi/&Subclasses=<color=#F0DAA0>Sottoclassi</color>
+ModUi/&Subraces=<color=#F0DAA0>Sottorazze</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti realizzati nel negozio</i>
 ModUi/&TargetLanguage=Lingua di destinazione
 ModUi/&Tools=Utensili

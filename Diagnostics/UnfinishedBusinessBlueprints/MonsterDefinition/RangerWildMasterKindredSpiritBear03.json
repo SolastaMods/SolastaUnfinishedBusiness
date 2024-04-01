@@ -94,11 +94,18 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
-    "useCustomMaterials": false,
-    "customMaterials": [],
+    "useCustomMaterials": true,
+    "customMaterials": [
+      {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "6d78705604cefec44929b33387fb3984",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    ],
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "06a468f2a92070841bf16acd0e7bd262",
+      "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -108,27 +115,27 @@
       "y": -1.0,
       "z": 0.0
     },
-    "overrideCharacterShaderColors": true,
+    "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.152941167,
-      "g": 0.745098054,
-      "b": 0.389533758,
-      "a": 1.0
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
     },
     "secondCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.325490177,
-      "g": 0.831372559,
-      "b": 0.8157103,
-      "a": 1.0
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
     },
     "hasPhantomDistortion": true,
     "hasPhantomFadingFeet": true,
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "ab52a2d7f64eec443b86221d0ba4e0ef",
+      "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -138,8 +145,10 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "hasPrefabVariants": true,
+    "monsterPresentationDefinitions": [
+      "Definition:Black_Bear_Presentation:cf6f250950eb6cb4fa3fbd52cd589ef7"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "cc36634f504fa7049a4499a91749d7d5",
@@ -156,7 +165,7 @@
     "femaleModelScale": 0.655,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
-    "hideDuringCutscene": true,
+    "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,
     "needMerchantPortrait": false,
@@ -190,12 +199,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSpiritBearTitle",
-    "description": "Monster/&SpiritDescription",
+    "title": "Monster/&BlackBear_Title",
+    "description": "Monster/&BlackBear_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "943d38399cb94af4db6e5fbcf3d55efa",
-      "m_SubObjectName": "KindredSpiritBear",
+      "m_AssetGUID": "1f23bba0872efd04197fc69418687e1f",
+      "m_SubObjectName": "CustomPortrait_BlackBear",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

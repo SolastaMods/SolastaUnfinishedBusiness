@@ -100,6 +100,18 @@ internal static class TranspileHelper
             occurrence, 0, patchContext, codeInstructions);
     }
 
+    public static IEnumerable<CodeInstruction> ReplaceRemoveAt(
+        this IEnumerable<CodeInstruction> instructions,
+        int occurrence,
+        string patchContext,
+        params CodeInstruction[] codeInstructions)
+    {
+        return instructions.ReplaceCodeImpl(i =>
+                i.opcode == OpCodes.Callvirt &&
+                i.operand.ToString().Contains("RemoveAt"),
+            occurrence, 0, patchContext, codeInstructions);
+    }
+
     // 2 bypass replace load field
     public static IEnumerable<CodeInstruction> ReplaceLoadField(
         this IEnumerable<CodeInstruction> instructions,

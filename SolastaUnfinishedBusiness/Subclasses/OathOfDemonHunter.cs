@@ -244,7 +244,6 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 StringParameter = "LightEnergyCrossbowBolt",
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }

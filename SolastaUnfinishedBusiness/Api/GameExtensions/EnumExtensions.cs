@@ -55,6 +55,7 @@ internal enum ExtraActionId
     Withdraw,
     ForcePoweredStrikeToggle,
     BrutalStrikeToggle,
+    OrcishFuryToggle,
     PrioritizeAction = 10000
 }
 
@@ -167,12 +168,10 @@ internal enum ExtraSituationalContext
     HasGreatswordInHands = 9001,
     HasLongswordInHands = 9002,
     HasMeleeWeaponInMainHandWithFreeOffhand = 9003,
-    HasShieldInHands = 9004,
     HasSimpleOrMartialWeaponInHands = 9005,
-    HasSpecializedWeaponInHands = 9006,
     IsNotInBrightLight = 9007,
     IsRagingAndDualWielding = 9008,
-    MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow = 9009,
+    AttackerWithMeleeOrUnarmedAndTargetWithinReachOrYeomanWithLongbow = 9009,
     NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 9010,
     TargetIsFavoriteEnemy = 9012,
     IsNotConditionSource = 9013,

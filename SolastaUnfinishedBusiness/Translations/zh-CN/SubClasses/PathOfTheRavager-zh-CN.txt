@@ -1,0 +1,14 @@
+Feature/&AdditionalDamagePathOfTheRavagerFrenzyDescription=你的回合一次，如果你在狂暴时使用鲁莽攻击，那么你第一次命中敌人的力量武器攻击会造成 2d6 点与你的武器相同类型的额外伤害。该伤害在 9 级时增加至 3d6，在 16 级时增加至 4d6。
+Feature/&AdditionalDamagePathOfTheRavagerFrenzyTitle=狂乱
+Feature/&FeatureSetPathOfTheRavagerIntimidatingPresenceDescription=在你开始狂暴的回合以一个自由动作，或在狂暴持续中的回合以一个附赠动作，你可以展现自己可怖的存在令敌人瑟瑟发抖。距离你 30 英尺内的每个敌方生物都必须进行一次感知豁免检定（DC 等于 8 + 你的熟练加值 + 你的力量调整值）。豁免失败的生物会陷入恐惧状态 1 分钟。这些生物在自己每个回合结束时会重复豁免检定，成功后恐惧结束。一旦您使用此特性，直到完成长休不能再次使用，但你可以消耗一次狂暴来再次使用它。
+Feature/&FeatureSetPathOfTheRavagerIntimidatingPresenceTitle=可怖存在
+Feature/&PowerPathOfTheRavagerIntimidatingPresenceDescription=在你开始狂暴的回合以一个自由动作，或在狂暴持续中的回合以一个附赠动作，你可以展现自己可怖的存在令敌人瑟瑟发抖。距离你 30 英尺内的每个敌方生物都必须进行一次感知豁免检定（DC 等于 8 + 你的熟练加值 + 你的力量调整值）。豁免失败的生物会陷入恐惧状态 1 分钟。这些生物在自己每个回合结束时会重复豁免检定，成功后恐惧结束。一旦您使用此特性，直到完成长休不能再次使用，但你可以消耗一次狂暴来再次使用它。
+Feature/&PowerPathOfTheRavagerIntimidatingPresenceTitle=可怖存在
+Feedback/&AdditionalDamageFrenzyFormat=狂乱
+Feedback/&AdditionalDamageFrenzyLine=狂乱造成额外 +{2} 伤害！
+Reaction/&UseIntimidatingPresenceDescription=你可以没有消耗地使用可怖存在特性。
+Reaction/&UseIntimidatingPresenceReactDescription=你可以没有消耗地使用可怖存在特性。
+Reaction/&UseIntimidatingPresenceReactTitle=可怖存在
+Reaction/&UseIntimidatingPresenceTitle=可怖存在
+Subclass/&PathOfTheRavagerDescription=破坏者是一条不受约束的愤怒之路，充满鲜血。当你进入破坏者的狂怒时，你会在战斗的混乱中感到兴奋，不顾自己的健康与周全。
+Subclass/&PathOfTheRavagerTitle=破坏者道途

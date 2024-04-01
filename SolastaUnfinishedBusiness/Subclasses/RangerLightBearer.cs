@@ -329,7 +329,8 @@ public sealed class RangerLightBearer : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetDefender.HasAnyConditionOfType(conditionDefinition.Name))
+                !rulesetDefender.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                    conditionDefinition.Name))
             {
                 yield break;
             }
@@ -424,11 +425,8 @@ public sealed class RangerLightBearer : AbstractSubclass
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger);
 
-            if (classLevel > rulesetCharacter.TemporaryHitPoints)
-            {
-                rulesetCharacter.ReceiveTemporaryHitPoints(
-                    classLevel, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
-            }
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                classLevel, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
             yield break;
         }

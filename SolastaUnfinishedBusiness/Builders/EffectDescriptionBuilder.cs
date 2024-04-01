@@ -209,15 +209,6 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetTargetProximityData(
-        bool requiresTargetProximity,
-        int targetProximityDistance)
-    {
-        _effect.requiresTargetProximity = requiresTargetProximity;
-        _effect.targetProximityDistance = targetProximityDistance;
-        return this;
-    }
-
     internal EffectDescriptionBuilder SetTargetFiltering(
         TargetFilteringMethod targetFilteringMethod,
         TargetFilteringTag targetFilteringTag = TargetFilteringTag.No,

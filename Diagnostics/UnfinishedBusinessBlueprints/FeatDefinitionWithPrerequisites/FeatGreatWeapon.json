@@ -16,7 +16,7 @@
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&GreatWeaponTitle",
     "description": "FightingStyle/&GreatWeaponDescription",
     "spriteReference": {
@@ -39,6 +39,6 @@
   },
   "contentCopyright": "UserContent",
   "guid": "96cb0fa7-ea6c-51a7-9eb6-84fc602d9501",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "FeatGreatWeapon"
 }

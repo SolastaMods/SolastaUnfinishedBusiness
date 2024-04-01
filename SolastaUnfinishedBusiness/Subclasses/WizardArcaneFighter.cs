@@ -110,7 +110,8 @@ public sealed class WizardArcaneFighter : AbstractSubclass
         {
             if (!attacker.IsMyTurn() ||
                 !ValidatorsWeapon.IsMelee(attackMode) ||
-                attacker.RulesetCharacter.HasAnyConditionOfType(conditionSpellFighting.Name))
+                attacker.RulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionSpellFighting.Name))
             {
                 yield break;
             }

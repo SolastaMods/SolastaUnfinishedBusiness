@@ -155,6 +155,22 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AddDexModifierToEnemiesInitiativeRoll;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDexModifierToEnemiesInitiativeRoll"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddDexModifierToEnemiesInitiativeRoll = toggle;
+            Main.Settings.EnemiesAlwaysRollInitiative = toggle;
+        }
+
+        if (Main.Settings.AddDexModifierToEnemiesInitiativeRoll)
+        {
+            toggle = Main.Settings.EnemiesAlwaysRollInitiative;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnemiesAlwaysRollInitiative"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnemiesAlwaysRollInitiative = toggle;
+            }
+        }
+
         toggle = Main.Settings.DontEndTurnAfterReady;
         if (UI.Toggle(Gui.Localize("ModUi/&DontEndTurnAfterReady"), ref toggle, UI.AutoWidth()))
         {

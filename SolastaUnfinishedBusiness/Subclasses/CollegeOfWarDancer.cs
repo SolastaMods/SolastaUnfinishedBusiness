@@ -379,7 +379,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
     {
         public bool IsValid(RulesetActor rulesetActor)
         {
-            return rulesetActor.HasAnyConditionOfType(ConditionWarDance.Name);
+            return rulesetActor.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionWarDance.Name);
         }
 
         public string ConcentrationAttribute(RulesetActor rulesetActor)

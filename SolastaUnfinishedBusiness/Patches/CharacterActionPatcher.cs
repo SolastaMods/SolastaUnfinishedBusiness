@@ -59,7 +59,7 @@ public static class CharacterActionPatcher
         {
             var isProtectedPower =
                 action is CharacterActionUsePower or CharacterActionSpendPower or CharacterActionDoNothing &&
-                action.ActionParams.UsablePower != null &&
+                action.ActionParams is { UsablePower: not null } &&
                 action.ActionParams.UsablePower.PowerDefinition
                     .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
 
@@ -72,6 +72,7 @@ public static class CharacterActionPatcher
             //BUGFIX: vanilla always consume a main action on battle surprise phase even if a bonus power or spell
             if (Gui.Battle != null &&
                 Gui.Battle.CurrentRound == 1 &&
+                Gui.Battle.InitiativeSortedContenders.Count > 0 &&
                 Gui.Battle.ActiveContender == Gui.Battle.InitiativeSortedContenders[0])
             {
                 // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault

@@ -764,7 +764,11 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            var reactionParams =
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                {
+                    StringParameter = "Reaction/&CustomReactionMartialArcaneArcherGuidedShotDescription"
+                };
             var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("MartialArcaneArcherGuidedShot", reactionParams);
 

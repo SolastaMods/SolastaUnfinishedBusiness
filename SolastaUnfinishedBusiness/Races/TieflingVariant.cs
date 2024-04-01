@@ -24,6 +24,10 @@ namespace SolastaUnfinishedBusiness.Races;
 internal static class RaceTieflingBuilder
 {
     internal static CharacterRaceDefinition RaceTiefling { get; } = BuildTiefling();
+    internal static CharacterRaceDefinition RaceTieflingDevilTongue { get; private set; }
+    internal static CharacterRaceDefinition RaceTieflingFeral { get; private set; }
+    internal static CharacterRaceDefinition RaceTieflingMephistopheles { get; private set; }
+    internal static CharacterRaceDefinition RaceTieflingZariel { get; private set; }
 
     private static bool IsFlightValid(RulesetCharacter character)
     {
@@ -66,7 +70,7 @@ internal static class RaceTieflingBuilder
                     .AddToDB())
             .AddToDB();
 
-        var raceTieflingDevilTongue = CharacterRaceDefinitionBuilder
+        RaceTieflingDevilTongue = CharacterRaceDefinitionBuilder
             .Create(Tiefling, "RaceTieflingDevilTongue")
             .SetOrUpdateGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
@@ -74,7 +78,7 @@ internal static class RaceTieflingBuilder
                 castSpellTieflingDevilTongue)
             .AddToDB();
 
-        raceTieflingDevilTongue.contentPack = contentPack;
+        RaceTieflingDevilTongue.contentPack = contentPack;
 
         //
         // Feral
@@ -152,7 +156,7 @@ internal static class RaceTieflingBuilder
             .AddFeatureSet(powerDemonicWingsSprout, powerDemonicWingsDismiss)
             .AddToDB();
 
-        var raceTieflingFeral = CharacterRaceDefinitionBuilder
+        RaceTieflingFeral = CharacterRaceDefinitionBuilder
             .Create(Tiefling, "RaceTieflingFeral")
             .SetOrUpdateGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
@@ -161,7 +165,7 @@ internal static class RaceTieflingBuilder
                 featureSetDemonicWings)
             .AddToDB();
 
-        raceTieflingDevilTongue.contentPack = contentPack;
+        RaceTieflingFeral.contentPack = contentPack;
 
         //
         // Mephistopheles
@@ -183,7 +187,7 @@ internal static class RaceTieflingBuilder
                     .AddToDB())
             .AddToDB();
 
-        var raceTieflingMephistopheles = CharacterRaceDefinitionBuilder
+        RaceTieflingMephistopheles = CharacterRaceDefinitionBuilder
             .Create(Tiefling, "RaceTieflingMephistopheles")
             .SetOrUpdateGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
@@ -191,7 +195,7 @@ internal static class RaceTieflingBuilder
                 castSpellTieflingMephistopheles)
             .AddToDB();
 
-        raceTieflingMephistopheles.contentPack = contentPack;
+        RaceTieflingMephistopheles.contentPack = contentPack;
 
         //
         // Zariel
@@ -219,7 +223,7 @@ internal static class RaceTieflingBuilder
                     .AddToDB())
             .AddToDB();
 
-        var raceTieflingZariel = CharacterRaceDefinitionBuilder
+        RaceTieflingZariel = CharacterRaceDefinitionBuilder
             .Create(Tiefling, "RaceTieflingZariel")
             .SetOrUpdateGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
@@ -227,7 +231,7 @@ internal static class RaceTieflingBuilder
                 castSpellTieflingZariel)
             .AddToDB();
 
-        raceTieflingZariel.contentPack = contentPack;
+        RaceTieflingZariel.contentPack = contentPack;
 
         #endregion
 
@@ -255,10 +259,10 @@ internal static class RaceTieflingBuilder
 
         raceTiefling.contentPack = contentPack;
         raceTiefling.subRaces.SetRange(
-            raceTieflingDevilTongue,
-            raceTieflingFeral,
-            raceTieflingMephistopheles,
-            raceTieflingZariel);
+            RaceTieflingDevilTongue,
+            RaceTieflingFeral,
+            RaceTieflingMephistopheles,
+            RaceTieflingZariel);
 
         return raceTiefling;
     }

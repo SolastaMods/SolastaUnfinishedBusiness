@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:AdditionalDamageFeatOrcishFury:4164e6e5-bac4-50ea-8b60-03d23bed2641"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -16,7 +18,7 @@
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    "Attacked"
+    "Attacks"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -129,9 +131,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feat/&FeatShieldTechniquesTitle",
-    "description": "Feat/&FeatShieldTechniquesDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -151,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9c4e8aae-976d-52fa-b19b-32e520bb8e2d",
+  "guid": "9cecaaaa-7826-5d22-ac71-ce458f981d9e",
   "contentPack": 9999,
-  "name": "ConditionShieldTechniquesResistance"
+  "name": "ConditionFeatOrcishFuryAdditionalDamage"
 }

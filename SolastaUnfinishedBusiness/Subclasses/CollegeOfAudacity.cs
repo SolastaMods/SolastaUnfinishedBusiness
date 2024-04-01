@@ -435,7 +435,8 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 yield break;
             }
 
-            if (!rulesetCharacter.HasAnyConditionOfType(conditionExtraMovement.Name))
+            if (!rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionExtraMovement.Name))
             {
                 rulesetCharacter.InflictCondition(
                     conditionExtraMovement.Name,

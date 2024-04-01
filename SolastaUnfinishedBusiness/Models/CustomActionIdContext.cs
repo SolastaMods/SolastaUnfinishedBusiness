@@ -37,6 +37,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.PressTheAdvantageToggle,
         (Id)ExtraActionId.SupremeWillToggle,
         (Id)ExtraActionId.ImpishWrathToggle, // defined in sub race
+        (Id)ExtraActionId.OrcishFuryToggle, // defined in sub race
         (Id)ExtraActionId.QuiveringPalmToggle
     ];
 

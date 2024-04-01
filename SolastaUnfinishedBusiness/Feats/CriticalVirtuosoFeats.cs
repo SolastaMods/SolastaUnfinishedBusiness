@@ -50,7 +50,7 @@ internal static class CriticalVirtuosoFeats
 
         feats.AddRange(featImprovedCritical, featSuperiorCritical);
 
-        GroupFeats.MakeGroup("FeatGroupCriticalVirtuoso", null,
+        GroupFeats.FeatGroupSupportCombat.AddFeats(
             featImprovedCritical,
             featSuperiorCritical);
     }

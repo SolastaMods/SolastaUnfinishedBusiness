@@ -64,7 +64,11 @@ internal static class ClassFeats
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featCallForCharge,
+            featPoisoner,
             hardyGroup);
+
+        GroupFeats.FeatGroupTools.AddFeats(
+            featPoisoner);
 
         GroupFeats.MakeGroup("FeatGroupClassBound", null,
             featCallForCharge,
@@ -72,7 +76,6 @@ internal static class ClassFeats
             featExpandTheHunt,
             featExploiter,
             featNaturalFluidity,
-            featPoisoner,
             featSlayTheEnemies,
             featSpiritualFluidity,
             awakenTheBeastWithinGroup,
@@ -554,14 +557,9 @@ internal static class ClassFeats
             }
 
             var classLevel = rulesetCharacterHero.GetClassLevel(Druid);
-            var tempHitPoints = 2 * classLevel;
 
-            if (tempHitPoints > __instance.TemporaryHitPoints)
-            {
-                __instance.ReceiveTemporaryHitPoints(
-                    2 * classLevel, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
-                    TemporaryHitPointsGuid);
-            }
+            __instance.ReceiveTemporaryHitPoints(
+                2 * classLevel, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, TemporaryHitPointsGuid);
         }
     }
 
@@ -665,12 +663,8 @@ internal static class ClassFeats
             var dieRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
             var healingReceived = classLevel + dieRoll;
 
-            if (healingReceived > rulesetCharacter.TemporaryHitPoints)
-            {
-                rulesetCharacter.ReceiveTemporaryHitPoints(
-                    healingReceived, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
-                    rulesetCharacter.Guid);
-            }
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                healingReceived, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
         }
     }
 
@@ -1146,8 +1140,8 @@ internal static class ClassFeats
         var advantageOnFavorite = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}Favorite")
             .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
-            .SetSituationalContext(ExtraSituationalContext.TargetIsFavoriteEnemy)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
+            .SetSituationalContext(ExtraSituationalContext.TargetIsFavoriteEnemy)
             .AddToDB();
 
         var toHitOnRegular = FeatureDefinitionCombatAffinityBuilder

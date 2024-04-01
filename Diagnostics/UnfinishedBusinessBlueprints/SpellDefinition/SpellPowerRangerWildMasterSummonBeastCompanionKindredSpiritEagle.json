@@ -166,8 +166,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Summon Spirit Eagle",
-    "description": "A Spirit Eagle bonded to a Ranger.",
+    "title": "Summon Badlands Eagle",
+    "description": "A Badlands Eagle bonded to a Ranger.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d802c8670a28fe544abd53ce549a07b1",

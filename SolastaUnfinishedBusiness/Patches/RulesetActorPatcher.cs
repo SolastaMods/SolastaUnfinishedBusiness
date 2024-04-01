@@ -153,6 +153,45 @@ public static class RulesetActorPatcher
         }
     }
 
+    //PATCH: supports ExtraSituationalContext that touches ArmorClass
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RefreshFlagArmorClassDependencyToPositioning))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshFlagArmorClassDependencyToPositioning_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetActor __instance)
+        {
+            __instance.isArmorClassDependentToPositioning = __instance
+                .GetFeaturesByType<FeatureDefinitionAttributeModifier>()
+                .Any(attributeModifier =>
+                    attributeModifier.ModifiedAttribute == AttributeDefinitions.ArmorClass &&
+                    (attributeModifier.SituationalContext
+                         is SituationalContext.AttackerAwayFromTarget
+                         or SituationalContext.AttackerNextToTarget
+                         or SituationalContext.AttackerOnHigherGroundThanTarget
+                         or SituationalContext.NextToWallWithShieldAndMaxMediumArmor
+                         or SituationalContext.RagingSurroundedByEnemies
+                         or SituationalContext.ConsciousAllyNextToTarget
+                         or SituationalContext.WearingShieldEnemyNextToAbleEnemy ||
+                     // BEGIN PATCH
+                     (ExtraSituationalContext)attributeModifier.SituationalContext
+                     is ExtraSituationalContext.HasBladeMasteryWeaponTypesInHands
+                     or ExtraSituationalContext.HasGreatswordInHands
+                     or ExtraSituationalContext.HasLongswordInHands
+                     or ExtraSituationalContext.HasMeleeWeaponInMainHandWithFreeOffhand
+                     or ExtraSituationalContext.IsNotInBrightLight
+                     or ExtraSituationalContext.IsRagingAndDualWielding
+                     or ExtraSituationalContext.AttackerWithMeleeOrUnarmedAndTargetWithinReachOrYeomanWithLongbow
+                     or ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget
+                     or ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield
+                     or ExtraSituationalContext.WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff));
+            // END PATCH
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.InflictDamage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

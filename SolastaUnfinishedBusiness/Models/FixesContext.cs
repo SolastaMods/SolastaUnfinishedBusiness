@@ -509,10 +509,10 @@ internal static class FixesContext
 
     private static void FixRecklessAttackForReachWeaponsAndPathOfTheYeoman()
     {
-        //BEHAVIOR: Makes `Reckless` context check if main hand weapon is melee or long bow if Path of the Yeoman
+        //BEHAVIOR: Makes `Reckless` context check if main hand weapon is melee/unarmed within reach or long bow if Path of the Yeoman
         //instead of if character is next to target
-        FeatureDefinitionCombatAffinitys.CombatAffinityReckless.situationalContext =
-            (SituationalContext)ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow;
+        FeatureDefinitionCombatAffinitys.CombatAffinityReckless.situationalContext = (SituationalContext)
+            ExtraSituationalContext.AttackerWithMeleeOrUnarmedAndTargetWithinReachOrYeomanWithLongbow;
     }
 
     private static void FixSmitesAndStrikesDiceProgression()
@@ -676,7 +676,6 @@ internal static class FixesContext
             {
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }

@@ -276,7 +276,8 @@ public static class RulesetImplementationManagerPatcher
 
             //TODO: make this an interface in case other features need it
             //PATCH: supports Umbral Stalker level 17th
-            if (rulesetActor.HasAnyConditionOfType(RoguishUmbralStalker.ConditionShadowDanceAdditionalDice.Name))
+            if (rulesetActor.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, RoguishUmbralStalker.ConditionShadowDanceAdditionalDice.Name))
             {
                 rollDamageOption = 2;
             }
@@ -917,7 +918,7 @@ public static class RulesetImplementationManagerPatcher
         {
             if (caster == null ||
                 caster.Side == target.Side ||
-                !caster.HasAnyConditionOfType(selfConditionName))
+                !caster.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, selfConditionName))
             {
                 return;
             }

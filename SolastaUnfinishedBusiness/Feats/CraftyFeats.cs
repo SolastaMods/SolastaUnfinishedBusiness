@@ -117,7 +117,7 @@ internal static class CraftyFeats
             featToxicologistCha);
 
         //
-        // Others
+        // Scriber
         //
 
         var featCraftyScriber = FeatDefinitionBuilder
@@ -127,21 +127,9 @@ internal static class CraftyFeats
             .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyScrollKit, proficiencyCraftyArcana)
             .AddToDB();
 
-        var featGroupAlchemist = GroupFeats.MakeGroup("FeatGroupAlchemist", null,
-            FeatDefinitions.InitiateAlchemist,
-            FeatDefinitions.MasterAlchemist);
-
-        var featGroupEnchanter = GroupFeats.MakeGroup("FeatGroupEnchanter", null,
-            FeatDefinitions.InitiateEnchanter,
-            FeatDefinitions.MasterEnchanter);
-
-        GroupFeats.MakeGroup("FeatGroupTools", null,
-            FeatDefinitions.Lockbreaker,
-            featGroupApothecary,
-            featGroupToxicologist,
-            featCraftyScriber,
-            featGroupAlchemist,
-            featGroupEnchanter);
+        //
+        // MAIN
+        //
 
         feats.AddRange(
             featApothecaryInt,
@@ -151,5 +139,18 @@ internal static class CraftyFeats
             featToxicologistWis,
             featToxicologistCha,
             featCraftyScriber);
+
+        GroupFeats.FeatGroupSkills.AddFeats(
+            featGroupApothecary,
+            featGroupToxicologist,
+            featCraftyScriber);
+
+        GroupFeats.FeatGroupTools.AddFeats(
+            featGroupToxicologist,
+            featCraftyScriber,
+            FeatDefinitions.InitiateAlchemist,
+            FeatDefinitions.MasterAlchemist,
+            FeatDefinitions.InitiateEnchanter,
+            FeatDefinitions.MasterEnchanter);
     }
 }

@@ -3,6 +3,7 @@ ModUi/&AddAllToStore=すべてをストアに追加
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>出血</color>状態を<color=#D89555>より大きな修復</color>と<color=#D89555>より小さな修復</color>によって除去された状態に追加します。
 ModUi/&AddCustomIconsToOfficialItems=公式ゲーム アイテム <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要] にカスタム アイコンを追加します。 </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>グレイドワーフ</color>の<color=#D89555>闇の知覚</color>を有効にするcolor> <i><color=#F0DAA0>\n[照明が当たっていないとき、または魔法の暗闇の下で知覚チェックで有利になる]</color></i>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=敵の<color=#D89555>イニシアティブロール</color>に<color=#D89555>器用さ修正</color>を追加する
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>ファイター</color>レベルを<color=#D89555>不屈</color>セーヴィングスローのリロールに追加
 ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加<i><color=#F0DAA0>[味方のクリーチャーが自分から5フィート以内のクリーチャーを攻撃するのを助けることができます]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color>が好む人型の敵を有効にする
@@ -107,6 +108,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=クラスレベル6および14で特技選�
 ModUi/&EnableFighterWeaponSpecialization=クラスレベル 8 と 16 で<color=#D89555>ファイター</color>の<b>武器スペシャライゼーション</b>を有効にします<i><color=#F0DAA0>[ヒットとダメージに +1 を獲得しますが、他のものでは不利になります。武器の種類]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[スキルとツールの習熟度を背景から選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトの代わりに能力スコア ポイントを割り当てる]</color></i>
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=最も熟練したヒーローが会話の選択肢をロールできるようにします
 ModUi/&EnableHigherGroundRules=高地ルールを有効にする <i><color=#F0DAA0>[高地から攻撃する場合、ヒット数 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=<color=#1E81B0>CTRL-SHIFT-(D)</color> を有効にしてデバッグ オーバーレイを表示します
 ModUi/&EnableHotkeyToggleHud=<color=#1E81B0>CTRL-SHIFT-(H)</color> を有効にして HUD 表示を切り替えます
@@ -146,6 +148,7 @@ ModUi/&EnableVttCamera=<color=#1E81B0>CTRL-SHIFT-(V)</color> を有効にして 
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と特技の選択の両方を有効にします<i><color=#F0DAA0>[排他的な選択肢の代わりに]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>ランダムな遭遇確率を設定する</color>
 ModUi/&Encounters=出会い
+ModUi/&EnemiesAlwaysRollInitiative=<i>+ 敵は強制値の代わりに常にイニシアチブをロールします<color=#F0DAA0>[例: ソラク・アサシン]</color></i>
 ModUi/&ExpandAll=すべて展開
 ModUi/&FactionHelp=<color=#C04040E0>公式キャンペーン ゲームをロードして派閥関係を変更します...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>派閥:</color>
@@ -272,6 +275,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=ゴリムのストアに魔法�
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=ゴリムのストアに魔法以外の楽器をすべて揃える <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=ヒューゴのストアに<color=#D89555>秘術の杖</color>、<color=#D89555>ドルイドの首</color>、<color=#D89555>スタッフ</color>、<color=#D89555>クラブ</color> フォーカスアイテムとして設定
 ModUi/&Subclasses=<color=#F0DAA0>サブクラス</color>
+ModUi/&Subraces=<color=#F0DAA0>サブレース</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピと作成アイテムのアイコンを交換</i>
 ModUi/&TargetLanguage=目標とする言語
 ModUi/&Tools=ツール

@@ -29,6 +29,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool DisplayRacesToggle { get; set; }
+    public bool DisplaySubracesToggle { get; set; }
     public bool DisplayBackgroundsToggle { get; set; }
     public bool DisplayFeatsToggle { get; set; }
     public bool DisplayFeatGroupsToggle { get; set; }
@@ -135,7 +136,8 @@ public class Settings : UnityModManager.ModSettings
         "PowerRiftWalkerRiftStrike",
         "PowerSorcerousPsionMindOverMatter",
         "PowerWayOfTheDistantHandZenArrowTechnique",
-        "PowerWayOfTheDistantHandZenArrowUpgradedTechnique"
+        "PowerWayOfTheDistantHandZenArrowUpgradedTechnique",
+        "PowerFeatChefCookMeal"
     ];
 
     //
@@ -242,6 +244,8 @@ public class Settings : UnityModManager.ModSettings
     public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
     public bool StealthBreaksWhenAttackHits { get; set; }
     public bool StealthBreaksWhenAttackMisses { get; set; }
+    public bool AddDexModifierToEnemiesInitiativeRoll { get; set; }
+    public bool EnemiesAlwaysRollInitiative { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
@@ -328,6 +332,8 @@ public class Settings : UnityModManager.ModSettings
 
     public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> RaceEnabled { get; } = [];
+    public int SubraceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
+    public List<string> SubraceEnabled { get; } = [];
     public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> BackgroundEnabled { get; } = [];
     public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = new();
@@ -363,6 +369,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Campaigns and Locations
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
+    public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }

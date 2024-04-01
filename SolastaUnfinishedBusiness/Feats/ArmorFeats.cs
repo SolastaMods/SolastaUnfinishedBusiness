@@ -117,28 +117,6 @@ internal static class ArmorFeats
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasShield, ValidatorsCharacter.HasAttacked))
             .AddToDB();
 
-        var conditionShieldTechniquesResistance = ConditionDefinitionBuilder
-            .Create(ConditionShieldTechniquesResistanceName)
-            .SetGuiPresentation(Name, Category.Feat)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-#if false
-            .SetFeatures(
-                DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityColdResistance,
-                DamageAffinityFireResistance,
-                DamageAffinityForceDamageResistance,
-                DamageAffinityLightningResistance,
-                DamageAffinityNecroticResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinityPoisonResistance,
-                DamageAffinityRadiantResistance,
-                DamageAffinitySlashingResistance,
-                DamageAffinityThunderResistance)
-#endif
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
-            .AddToDB();
-
         var conditionShieldTechniquesSavingThrow = ConditionDefinitionBuilder
             .Create($"Condition{Name}SavingThrow")
             .SetGuiPresentation(Name, Category.Feat)
@@ -157,13 +135,6 @@ internal static class ArmorFeats
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Feat)
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionShieldTechniquesResistance))
-                    .Build())
             .AddToDB();
 
         powerShieldTechniques.AddCustomSubFeatures(
@@ -236,6 +207,14 @@ internal static class ArmorFeats
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
             yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            actionModifier.DefenderDamageMultiplier *= 0.5f;
+            rulesetDefender.DamageHalved(rulesetDefender, powerShieldTechniques);
         }
 
         // add +2 on DEX savings

@@ -477,6 +477,9 @@ internal static partial class CharacterContext
             Dwarf.RacePresentation.needBeard = false;
             DwarfHill.RacePresentation.needBeard = false;
             DwarfSnow.RacePresentation.needBeard = false;
+            SubraceGrayDwarfBuilder.SubraceGrayDwarf.RacePresentation.needBeard = false;
+            SubraceIronbornDwarfBuilder.SubraceIronbornDwarf.RacePresentation.needBeard = false;
+            SubraceObsidianDwarfBuilder.SubraceObsidianDwarf.RacePresentation.needBeard = false;
             Dwarf.RacePresentation.MaleBeardShapeOptions.Add(BeardShape_None.Name);
         }
 

@@ -73,22 +73,48 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
         // Constellation Form
 
-        var powerConstellationForm = FeatureDefinitionPowerSharedPoolBuilder
+        var powerConstellationForm = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ConstellationForm")
             .SetGuiPresentation($"FeatureSet{Name}ConstellationForm", Category.Feature,
                 Sprites.GetSprite("ConstellationForm", Resources.PowerConstellationForm, 256, 128))
-            .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
             .AddToDB();
 
-        var powerArcherConstellationForm = BuildArcher(ActivationTime.BonusAction);
-        var powerChaliceConstellationForm = BuildChalice(ActivationTime.BonusAction);
-        var powerDragonConstellationForm = BuildDragon(ActivationTime.BonusAction);
+        powerConstellationForm.AddCustomSubFeatures(
+            new MagicEffectFinishedByMeAnyConstellationForm(powerConstellationForm));
+
+        var powerArcherConstellationForm = BuildArcher(ActivationTime.BonusAction, powerConstellationForm);
+        var powerChaliceConstellationForm = BuildChalice(ActivationTime.BonusAction, powerConstellationForm);
+        var powerDragonConstellationForm = BuildDragon(ActivationTime.BonusAction, powerConstellationForm);
+        var powerDisableConstellationForm = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}DisableConstellationForm")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("ConstellationForm", Resources.PowerConstellationForm, 256, 128))
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        ConstellationFormConditions
+                            .Select(conditionName =>
+                                DatabaseRepository
+                                    .GetDatabase<ConditionDefinition>()
+                                    .GetElement(conditionName))
+                            .Select(condition =>
+                                EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Remove))
+                            .ToArray())
+                    .Build())
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConstellationFormConditions)))
+            .AddToDB();
 
         var featureSetConstellationForm = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ConstellationForm")
             .SetGuiPresentation(Category.Feature)
             .SetFeatureSet(
                 powerConstellationForm,
+                powerDisableConstellationForm,
                 powerArcherConstellationForm,
                 powerChaliceConstellationForm,
                 powerDragonConstellationForm)
@@ -292,7 +318,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static FeatureDefinitionPowerSharedPool BuildArcher(ActivationTime activationTime)
+    private static FeatureDefinitionPowerSharedPool BuildArcher(
+        ActivationTime activationTime, FeatureDefinitionPower pool)
     {
         var powerArcher = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Archer")
@@ -365,7 +392,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var powerArcherConstellationForm = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ArcherConstellationForm")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetSharedPool(activationTime, PowerDruidWildShape)
+            .SetSharedPool(activationTime, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -392,7 +419,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         return powerArcherConstellationForm;
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildChalice(ActivationTime activationTime)
+    private static FeatureDefinitionPowerSharedPool BuildChalice(
+        ActivationTime activationTime, FeatureDefinitionPower pool)
     {
         var powerChalice = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Chalice")
@@ -451,7 +479,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var powerChaliceConstellationForm = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ChaliceConstellationForm")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetSharedPool(activationTime, PowerDruidWildShape)
+            .SetSharedPool(activationTime, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -462,7 +490,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetLightSourceForm(
-                                LightSourceType.Basic, 10, 10,
+                                LightSourceType.Basic, 2, 2,
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
@@ -477,7 +505,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         return powerChaliceConstellationForm;
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildDragon(ActivationTime activationTime)
+    private static FeatureDefinitionPowerSharedPool BuildDragon(
+        ActivationTime activationTime, FeatureDefinitionPower pool)
     {
         var dieRollModifierDragonAbility = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}DragonAbility")
@@ -559,7 +588,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var powerDragonConstellationForm = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}DragonConstellationForm")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetSharedPool(activationTime, PowerDruidWildShape)
+            .SetSharedPool(activationTime, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -570,7 +599,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetLightSourceForm(
-                                LightSourceType.Basic, 10, 10,
+                                LightSourceType.Basic, 2, 2,
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
@@ -588,6 +617,48 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     //
     // Constellation Form
     //
+
+    private sealed class MagicEffectFinishedByMeAnyConstellationForm(FeatureDefinitionPower pool)
+        : IMagicEffectFinishedByMeAny
+    {
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            if (action.ActionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
+            {
+                yield break;
+            }
+
+            RulesetUsablePower usablePower;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetEffectPower.PowerDefinition == PowerDruidWildShape)
+            {
+                usablePower = PowerProvider.Get(pool, rulesetAttacker);
+                rulesetAttacker.UsePower(usablePower);
+
+                // this is required as MulticlassWildshapeContext.UpdateUsablePowers get called before
+                var rulesetMonster = ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters
+                    .FirstOrDefault(x => x.RulesetCharacter.OriginalFormCharacter == rulesetAttacker)?.RulesetCharacter;
+
+                if (rulesetMonster == null)
+                {
+                    yield break;
+                }
+
+                usablePower = PowerProvider.Get(pool, rulesetMonster);
+                rulesetMonster.UsePower(usablePower);
+            }
+            else if (rulesetEffectPower.PowerDefinition is FeatureDefinitionPowerSharedPool powerSharedPool &&
+                     powerSharedPool.SharedPool == pool)
+            {
+                usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetAttacker);
+                rulesetAttacker.UsePower(usablePower);
+            }
+        }
+    }
 
     private sealed class ModifyEffectDescriptionConstellationForm(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
@@ -825,7 +896,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter2 = "SpendPowerWealCosmosOmenAttackDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
@@ -906,7 +976,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter2 = "SpendPowerWealCosmosOmenSavingDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
@@ -996,7 +1065,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter2 = "SpendPowerWoeCosmosOmenAttackDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
@@ -1077,7 +1145,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter2 = "SpendPowerWoeCosmosOmenSavingDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
@@ -1165,7 +1232,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             var usablePower = PowerProvider.Get(magicEffect, rulesetCharacter);
             var effectPower = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
                 .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
 
             effectPower.remainingRounds = remainingRounds;

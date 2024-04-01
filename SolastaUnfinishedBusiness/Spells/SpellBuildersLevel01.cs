@@ -1284,8 +1284,7 @@ internal static partial class SpellBuilders
         var damageAffinitySkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}")
             .SetGuiPresentationNoContent(true)
-            .SetDamageAffinityType(DamageAffinityType.None)
-            .SetRetaliate(powerSkinOfRetribution, 1, true)
+            .SetRetaliate(powerSkinOfRetribution, 1)
             .AddToDB();
 
         var conditionSkinOfRetribution = ConditionDefinitionBuilder
@@ -1849,7 +1848,6 @@ internal static partial class SpellBuilders
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets

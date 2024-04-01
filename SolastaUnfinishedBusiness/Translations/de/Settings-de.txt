@@ -3,6 +3,7 @@ ModUi/&AddAllToStore=Alles zum Speichern hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Blutung</color> zu den Zuständen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=Aktivieren Sie <color=#D89555>Darkness Perceptive</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> und <color=#D89555>Gray Dwarf</ Farbe> <i><color=#F0DAA0>\n[Gewährt Vorteil bei Wahrnehmungsprüfungen, wenn es nicht beleuchtet ist oder sich in magischer Dunkelheit befindet]</color></i>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=Füge den <color=#D89555>Geschicklichkeitsmodifikator</color> zum <color=#D89555>Initiativwurf</color> der Feinde hinzu
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Füge die Stufe <color=#D89555>Kämpfer</color> zur Wiederholung des Rettungswurfs <color=#D89555>Unbezwingbar</color> hinzu
 ModUi/&AddHelpActionToAllRaces=Füge die Aktion <color=#D89555>Hilfe</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur in einem Umkreis von 5 Fuß um dich anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aktiviere <color=#D89555>Rangers</color> humanoide bevorzugte Feinde
@@ -107,6 +108,7 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktivieren Sie die Talentauswahl auf den Kl
 ModUi/&EnableFighterWeaponSpecialization=Aktiviere <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf den Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalte +1 auf Treffer und Schaden, aber einen Nachteil gegenüber allen anderen Waffentyp]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[wählen Sie Fähigkeiten und Werkzeugkenntnisse aus Hintergründen aus]</color></i>
 ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[Weisen Sie Fähigkeitspunktepunkte anstelle der Rassenstandards zu]</color></i>
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=Ermöglichen Sie dem Helden mit den besten Fähigkeiten, Dialogentscheidungen zu treffen
 ModUi/&EnableHigherGroundRules=Aktivieren Sie höhere Bodenregeln <i><color=#F0DAA0>[+1 für Treffer, wenn Sie von einem höheren Boden aus angreifen]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(D)</color>, um das Debug-Overlay anzuzeigen
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(H)</color>, um die HUD-Anzeige umzuschalten
@@ -146,6 +148,7 @@ ModUi/&EnableVttCamera=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(V)</color>, 
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Leistungsauswahl <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Legen Sie die prozentuale Chance auf zufällige Begegnungen fest</color>
 ModUi/&Encounters=Begegnungen
+ModUi/&EnemiesAlwaysRollInitiative=<i>+ Gegner würfeln immer Initiative anstelle eines erzwungenen Wertes <color=#F0DAA0>[d. h.: Sorak-Attentäter]</color></i>
 ModUi/&ExpandAll=Alle erweitern
 ModUi/&FactionHelp=<color=#C04040E0>Laden Sie ein offizielles Kampagnenspiel, um die Fraktionsbeziehungen zu ändern...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Fraktionen:</color>
@@ -272,6 +275,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=Lagern Sie Gorims Laden mit alle
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Lagern Sie Gorims Laden mit allen nicht-magischen Musikinstrumenten <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Lagern Sie Hugos Laden mit <color=#D89555>Arkanstab</color>, <color=#D89555>Druidenhals</color>, <color=#D89555>Stab</color> und <color=#D89555>Keule</color> als Fokuselemente festlegen
 ModUi/&Subclasses=<color=#F0DAA0>Unterklassen</color>
+ModUi/&Subraces=<color=#F0DAA0>Subraces</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Rezepte und Symbole für hergestellte Gegenstände im Shop austauschen</i>
 ModUi/&TargetLanguage=Zielsprache
 ModUi/&Tools=Werkzeug

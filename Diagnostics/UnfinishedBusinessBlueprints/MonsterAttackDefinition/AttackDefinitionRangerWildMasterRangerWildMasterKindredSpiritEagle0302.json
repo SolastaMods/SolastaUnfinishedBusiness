@@ -96,7 +96,7 @@
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
-          "damageType": "DamageSlashing",
+          "damageType": "DamagePiercing",
           "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
@@ -135,7 +135,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e8ccfd6351ab133459df3fa7d42b9b4f",
+        "m_AssetGUID": "26d711e7b571fd64eb59f3018d5ef8e0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -183,7 +183,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "48cac5a373b83b44cae043445652e0ae",
+        "m_AssetGUID": "8f1b462d39de5a8479f20f678f63bf71",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -355,10 +355,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Dagger",
-        "id": 3732162827,
-        "guid": "DB4DFA1B-D792-4829-84B5-823BDED5DAE2",
-        "name": "DB4DFA1B-D792-4829-84B5-823BDED5DAE2"
+        "objectName": "Beak_Eagleatriarch",
+        "id": 1268847255,
+        "guid": "EE83037D-6255-4AF9-9734-E77956E955FB",
+        "name": "EE83037D-6255-4AF9-9734-E77956E955FB"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {
@@ -375,12 +375,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "MonsterAttacks/&Attack_Talons_Title",
+    "title": "MonsterAttacks/&Attack_Beak_Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ab6a6b49ccc035048aba87eedc6c45e3",
-      "m_SubObjectName": "Attack_Spirit_Eagle_Talons",
+      "m_AssetGUID": "d40c1e2843fe0864eb4e561644d2f60a",
+      "m_SubObjectName": "Attack_Spirit_Eagle_Beak",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

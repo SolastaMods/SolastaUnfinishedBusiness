@@ -1,14 +1,14 @@
-Action/&AudaciousWhirlToggleDescription=激活/停用无畏旋舞
-Action/&AudaciousWhirlToggleTitle=无畏旋舞
+Action/&AudaciousWhirlToggleDescription=激活/停用剑舞旋舞
+Action/&AudaciousWhirlToggleTitle=剑舞旋舞
 Action/&MasterfulWhirlToggleDescription=激活/停用旋舞大师
 Action/&MasterfulWhirlToggleTitle=旋舞大师
 Feature/&AttributeModifierCollegeOfAudacityDefensiveWhirlDescription=旋舞骰值添加到护甲等级。
 Feature/&AttributeModifierCollegeOfAudacityDefensiveWhirlTitle=守御旋舞
 Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlDescription=每当你在回合中采取攻击动作时，你的步行速度都会增加 10 尺，直到回合结束，如果你在此动作中进行的武器攻击击中了生物，你可以花费一次诗人激励。伤害等于你在诗人激励骰上掷出的数值。你还可以选择特定的策略：\n• <b>守御旋舞</b>：你可以将诗人激励骰子添加到你的 AC 中，直到下一回合开始。\n• <b>乱击旋舞</b>：你对你周围 5 尺内的所有其他敌方生物造成额外伤害。\n• <b>推击旋舞</b>：你获得撤离的好处，直到你的回合结束。
-Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlTitle=无畏旋舞
+Feature/&FeatureSetCollegeOfAudacityAudaciousWhirlTitle=剑舞旋舞
 Feature/&FeatureSetCollegeOfAudacityBonusProficienciesDescription=你获得中甲和弯刀熟练项。你还可以使用武器作为吟游诗人法术的法器。
 Feature/&FeatureSetCollegeOfAudacityBonusProficienciesTitle=附赠熟练项
-Feature/&FeatureSetCollegeOfAudacityMasterfulWhirlDescription=每当你使用“无畏旋舞”能力时，你都可以掷出 D6 并使用它，而不是花费诗人激励骰。
+Feature/&FeatureSetCollegeOfAudacityMasterfulWhirlDescription=每当你使用“剑舞旋舞”能力时，你都可以掷出 D6 并使用它，而不是花费诗人激励骰。
 Feature/&FeatureSetCollegeOfAudacityMasterfulWhirlTitle=旋舞大师
 Feature/&FightingStyleChoiceCollegeOfAudacityDescription=你采用一种特定的战斗风格作为你的专精。选择对决或双武器战斗。
 Feature/&FightingStyleChoiceCollegeOfAudacityTitle=战斗风格
@@ -22,5 +22,5 @@ Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlDescriptio
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescription=旋舞
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=旋舞
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlTitle=旋舞
-Subclass/&CollegeOfAudacityDescription=无畏学院的吟游诗人通过大胆的武器技巧来娱乐。他们表演吞剑、扔刀、杂耍、模拟格斗等特技。尽管他们使用武器来娱乐，但他们本身也是训练有素、技术精湛的战士。
-Subclass/&CollegeOfAudacityTitle=无畏学院
+Subclass/&CollegeOfAudacityDescription=剑舞学院的吟游诗人通过大胆的武器技巧来娱乐。他们表演吞剑、扔刀、杂耍、模拟格斗等特技。尽管他们使用武器来娱乐，但他们本身也是训练有素、技术精湛的战士。
+Subclass/&CollegeOfAudacityTitle=剑舞学院
