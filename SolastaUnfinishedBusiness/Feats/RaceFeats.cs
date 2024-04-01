@@ -569,8 +569,7 @@ internal static class RaceFeats
             .DelegatedToAction()
             .AddToDB();
 
-        power.AddCustomSubFeatures(
-            new MagicEffectBeforeHitConfirmedOnEnemyOrcishFury(power, conditionAdditionalDamage));
+        power.AddCustomSubFeatures(new CustomBehaviorOrcishFury(power, conditionAdditionalDamage));
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "OrcishFuryToggle")
@@ -592,7 +591,7 @@ internal static class RaceFeats
         var orcishFuryStr = FeatDefinitionWithPrerequisitesBuilder
             .Create($"{Name}Str")
             .SetGuiPresentation(Category.Feat)
-            .SetValidators(ValidatorsFeat.IsTiefling)
+            .SetValidators(ValidatorsFeat.IsHalfOrc)
             .SetFeatures(AttributeModifierCreed_Of_Einar, actionAffinityImpishWrathToggle, power)
             .SetFeatFamily(Name)
             .AddToDB();
@@ -600,7 +599,7 @@ internal static class RaceFeats
         var orcishFuryCon = FeatDefinitionWithPrerequisitesBuilder
             .Create($"{Name}Con")
             .SetGuiPresentation(Category.Feat)
-            .SetValidators(ValidatorsFeat.IsTiefling)
+            .SetValidators(ValidatorsFeat.IsHalfOrc)
             .SetFeatures(AttributeModifierCreed_Of_Arun, actionAffinityImpishWrathToggle, power)
             .SetFeatFamily(Name)
             .AddToDB();
@@ -611,11 +610,79 @@ internal static class RaceFeats
             "FeatGroupOrcishFury", Name, ValidatorsFeat.IsHalfOrc, orcishFuryStr, orcishFuryCon);
     }
 
-    private sealed class MagicEffectBeforeHitConfirmedOnEnemyOrcishFury(
+    private sealed class CustomBehaviorOrcishFury(
         FeatureDefinitionPower power,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition) : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        ConditionDefinition conditionDefinition)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
+            IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByEnemy
     {
+        private bool _knockOutPrevented;
+        private bool _shouldTrigger;
+
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        {
+            if (!_shouldTrigger)
+            {
+                yield break;
+            }
+
+            var rulesetTarget = target.RulesetCharacter;
+
+            _shouldTrigger = false;
+            rulesetTarget.KnockOutPrevented -= KnockOutPreventedHandler;
+
+            if (!_knockOutPrevented)
+            {
+                yield break;
+            }
+
+            _knockOutPrevented = false;
+
+            if (!target.CanReact())
+            {
+                yield break;
+            }
+
+            rulesetTarget.LogCharacterUsedPower(power);
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var attackMode = target.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
+
+            var attackActionParams =
+                new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
+                {
+                    AttackMode = attackModeCopy,
+                    TargetCharacters = { characterAction.ActingCharacter },
+                    ActionModifiers = { new ActionModifier() }
+                };
+
+            actionService.ExecuteAction(attackActionParams, null, true);
+        }
+
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
+            _shouldTrigger = true;
+            _knockOutPrevented = false;
+
+            yield break;
+        }
+
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -653,6 +720,27 @@ internal static class RaceFeats
                 0);
         }
 
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
+            _shouldTrigger = true;
+            _knockOutPrevented = false;
+
+            yield break;
+        }
+
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -680,6 +768,11 @@ internal static class RaceFeats
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
 
             rulesetAttacker.UsePower(usablePower);
+        }
+
+        private void KnockOutPreventedHandler(RulesetCharacter character, BaseDefinition source)
+        {
+            _knockOutPrevented = source == DamageAffinityHalfOrcRelentlessEndurance;
         }
     }
 
