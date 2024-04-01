@@ -60,7 +60,6 @@ internal static class OtherFeats
         var featWarCaster = BuildWarcaster();
 
         var chefGroup = BuildChef(feats);
-
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
@@ -169,6 +168,28 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Astral Arms
+
+    private static FeatDefinition BuildAstralArms()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatAstralArms")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Maraike)
+            .AddCustomSubFeatures(
+                new CanMakeAoOOnReachEntered { AllowRange = false, WeaponValidator = ValidWeapon },
+                new IncreaseWeaponReach(1, ValidWeapon))
+            .AddToDB();
+
+        static bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
+        {
+            return ValidatorsWeapon.IsUnarmed(attackMode);
+        }
+    }
+
+    #endregion
+
     #region Eldritch Adept
 
     private static FeatDefinitionWithPrerequisites BuildEldritchAdept()
@@ -204,23 +225,6 @@ internal static class OtherFeats
                     .AddToDB(),
                 FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance)
             .SetGuiPresentation(Category.Feat)
-            .AddToDB();
-    }
-
-    #endregion
-
-    #region Tactician Adept
-
-    private static FeatDefinitionWithPrerequisites BuildTacticianAdept()
-    {
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create("FeatTacticianAdept")
-            .SetGuiPresentation(Category.Feat, hidden: true)
-            .SetFeatures(
-                GambitsBuilders.GambitPool,
-                GambitsBuilders.Learn2Gambit,
-                MartialTactician.BuildGambitPoolIncrease(1, "FeatTacticianAdept"))
-            .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
     }
 
@@ -349,6 +353,34 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Metamagic Adept
+
+    private static FeatDefinitionWithPrerequisites BuildMetamagicAdept()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatMetamagicAdept")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                ActionAffinitySorcererMetamagicToggle,
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(
+                        AttributeModifierOperation.AddHalfProficiencyBonus,
+                        AttributeDefinitions.SorceryPoints)
+                    .AddToDB(),
+                FeatureDefinitionPointPoolBuilder
+                    .Create("PointPoolFeatMetamagicAdept")
+                    .SetGuiPresentationNoContent(true)
+                    .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
+                    .AddToDB())
+            .SetMustCastSpellsPrerequisite()
+            .SetValidators(ValidatorsFeat.IsLevel2)
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Monk Initiate
 
     private static FeatDefinition BuildMonkInitiate()
@@ -369,29 +401,6 @@ internal static class OtherFeats
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
             .AddToDB();
     }
-
-    #endregion
-
-    #region Alert
-
-    private const string FeatAlertName = "FeatAlert";
-
-    internal static readonly FeatDefinition FeatAlert = FeatDefinitionBuilder
-        .Create(FeatAlertName)
-        .SetGuiPresentation(Category.Feat)
-        .AddFeatures(
-            FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{FeatAlertName}Initiative")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Initiative, 5)
-                .AddToDB(),
-            FeatureDefinitionConditionAffinityBuilder
-                .Create($"ConditionAffinity{FeatAlertName}Surprised")
-                .SetGuiPresentationNoContent(true)
-                .SetConditionAffinityType(ConditionAffinityType.Immunity)
-                .SetConditionType(ConditionDefinitions.ConditionSurprised)
-                .AddToDB())
-        .AddToDB();
 
     #endregion
 
@@ -423,76 +432,22 @@ internal static class OtherFeats
 
     #endregion
 
-#if false
-    #region Skilled
+    #region Tactician Adept
 
-    private static FeatDefinition BuildSkilled()
+    private static FeatDefinitionWithPrerequisites BuildTacticianAdept()
     {
-        const string Name = "FeatSkilled";
-
-        return FeatDefinitionBuilder
-            .Create(Name)
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatTacticianAdept")
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .SetFeatures(
-                FeatureDefinitionPointPoolBuilder
-                    .Create($"PointPool{Name}Skill")
-                    .SetGuiPresentation("PointPoolBackgroundSkillSelect2", Category.Background)
-                    .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
-                    .OnlyUniqueChoices()
-                    .AddToDB(),
-                FeatureDefinitionPointPoolBuilder
-                    .Create($"PointPool{Name}Tool")
-                    .SetGuiPresentation("FeatSkilled", Category.Feat, "Feature/&ToolGainChoicesSingleDescription")
-                    .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)
-                    .OnlyUniqueChoices()
-                    .AddToDB())
-            .SetGuiPresentation(Category.Feat)
+                GambitsBuilders.GambitPool,
+                GambitsBuilders.Learn2Gambit,
+                MartialTactician.BuildGambitPoolIncrease(1, "FeatTacticianAdept"))
+            .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
     }
 
     #endregion
-
-    #region Skill Expert
-
-    private static FeatDefinition BuildSkillExpert(List<FeatDefinition> feats)
-    {
-        const string Name = "FeatSkillExpert";
-
-        var skill = FeatureDefinitionPointPoolBuilder.Create($"PointPool{Name}Skill")
-            .SetGuiPresentation("PointPoolBackgroundSkillSelect1", Category.Background)
-            .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
-            .AddToDB();
-        var expertise = FeatureDefinitionPointPoolBuilder.Create($"PointPool{Name}Expertise")
-            .SetGuiPresentation("PointPoolBackgroundSkillSelect1", Category.Background)
-            .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
-            .AddToDB();
-            
-        var skillExpertFeats = AttributeDefinitions.AbilityScoreNames
-            .Select(attribute =>
-                FeatDefinitionBuilder
-                    .Create(Name + attribute)
-                    .SetGuiPresentation(
-                        "FeatSkillExpertTitle".Formatted(Category.Feat, attribute.Substring(0, 3)),
-                        "FeatSkillExpertDescription".Formatted(Category.Feat, attribute))
-                    .SetFeatures(
-                        skill,
-                        expertise,
-                        FeatureDefinitionAttributeModifierBuilder
-                            .Create($"AttributeModifier{Name}{attribute}")
-                            .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
-                            .SetModifier(AttributeModifierOperation.Additive, attribute, 1)
-                            .AddToDB())
-                    .SetFeatFamily("SkillExpert")
-                    .AddToDB())
-            .ToList();
-
-        feats.AddRange(skillExpertFeats);
-        
-        return GroupFeats.MakeGroup("FeatGroupSkillExpert", "SkillExpert", skillExpertFeats);
-    }
-
-    #endregion
-
-#endif
 
     #region Tough
 
@@ -513,57 +468,7 @@ internal static class OtherFeats
 
     #endregion
 
-    #region Metamagic Adept
-
-    private static FeatDefinitionWithPrerequisites BuildMetamagicAdept()
-    {
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create("FeatMetamagicAdept")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                ActionAffinitySorcererMetamagicToggle,
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(
-                        AttributeModifierOperation.AddHalfProficiencyBonus,
-                        AttributeDefinitions.SorceryPoints)
-                    .AddToDB(),
-                FeatureDefinitionPointPoolBuilder
-                    .Create("PointPoolFeatMetamagicAdept")
-                    .SetGuiPresentationNoContent(true)
-                    .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
-                    .AddToDB())
-            .SetMustCastSpellsPrerequisite()
-            .SetValidators(ValidatorsFeat.IsLevel2)
-            .AddToDB();
-    }
-
-    #endregion
-
-    #region Astral Arms
-
-    private static FeatDefinition BuildAstralArms()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatAstralArms")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Maraike)
-            .AddCustomSubFeatures(
-                new CanMakeAoOOnReachEntered { AllowRange = false, WeaponValidator = ValidWeapon },
-                new IncreaseWeaponReach(1, ValidWeapon))
-            .AddToDB();
-
-        static bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
-        {
-            return ValidatorsWeapon.IsUnarmed(attackMode);
-        }
-    }
-
-    #endregion
-
-    #region Common Helpers
+    #region Helpers
 
     internal sealed class SpellTag
     {
@@ -573,6 +478,371 @@ internal static class OtherFeats
         }
 
         internal string Name { get; }
+    }
+
+    #endregion
+
+    #region Alert
+
+    private const string FeatAlertName = "FeatAlert";
+
+    internal static readonly FeatDefinition FeatAlert = FeatDefinitionBuilder
+        .Create(FeatAlertName)
+        .SetGuiPresentation(Category.Feat)
+        .AddFeatures(
+            FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{FeatAlertName}Initiative")
+                .SetGuiPresentationNoContent(true)
+                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Initiative, 5)
+                .AddToDB(),
+            FeatureDefinitionConditionAffinityBuilder
+                .Create($"ConditionAffinity{FeatAlertName}Surprised")
+                .SetGuiPresentationNoContent(true)
+                .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                .SetConditionType(ConditionDefinitions.ConditionSurprised)
+                .AddToDB())
+        .AddToDB();
+
+    #endregion
+
+    #region Chef
+
+    private static FeatDefinition BuildChef(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatChef";
+
+        var powerTreat = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Treat")
+            .SetGuiPresentation($"Item{Name}Treat", Category.Item, PowerFunctionGoodberryHealing)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.UntilAnyRest)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(5)
+                            .Build())
+                    .SetParticleEffectParameters(Goodberry)
+                    .Build())
+            .AddToDB();
+
+        var itemTreat = ItemDefinitionBuilder
+            .Create(ItemDefinitions.Berry_Ration, $"Item{Name}Treat")
+            .SetOrUpdateGuiPresentation(Category.Item)
+            .SetUsableDeviceDescription(powerTreat)
+            .AddToDB();
+
+        var powerCookTreat = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}CookTreat")
+            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther)
+            .SetUsesFixed(ActivationTime.Hours1, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.UntilAnyRest, 8)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonItemForm(itemTreat, 1)
+                            .Build())
+                    .SetParticleEffectParameters(Goodberry)
+                    .Build())
+            .AddToDB();
+
+        powerCookTreat.AddCustomSubFeatures(new ModifyEffectDescriptionCookTreat(powerCookTreat));
+
+        var powerCookMeal = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}CookMeal")
+            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther)
+            .SetUsesFixed(ActivationTime.Hours1, RechargeRate.ShortRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 6)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false,
+                                HealingCap.MaximumHitPoints)
+                            .Build())
+                    .SetParticleEffectParameters(Goodberry)
+                    .Build())
+            .AddToDB();
+
+        var featCon = FeatDefinitionBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Arun, powerCookTreat, powerCookMeal)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var featWis = FeatDefinitionBuilder
+            .Create($"{Name}Wis")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, powerCookTreat, powerCookMeal)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(featWis, featCon);
+
+        return GroupFeats.MakeGroup("FeatGroupChef", Name, featCon, featWis);
+    }
+
+    private sealed class ModifyEffectDescriptionCookTreat(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerCookTreat) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerCookTreat;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.EffectForms[0].SummonForm.number =
+                character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            return effectDescription;
+        }
+    }
+
+    #endregion
+
+    #region Elemental Adept
+
+    private static FeatDefinition BuildElementalAdept(List<FeatDefinition> feats)
+    {
+        const string NAME = "FeatElementalAdept";
+
+        var elementalAdeptFeats = new List<FeatDefinition>();
+
+        var damageTypes = new[]
+        {
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
+        };
+
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (var damageType in damageTypes)
+        {
+            var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
+            var guiPresentation = new GuiPresentationBuilder(
+                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
+                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
+                .Build();
+
+            var feat = FeatDefinitionBuilder
+                .Create($"{NAME}{damageType}")
+                .SetGuiPresentation(guiPresentation)
+                .SetFeatures(
+                    FeatureDefinitionDieRollModifierBuilder
+                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
+                        .SetGuiPresentation(guiPresentation)
+                        .SetModifiers(RollContext.AttackDamageValueRoll, 1, 1, 1,
+                            "Feature/&DieRollModifierFeatElementalAdeptReroll")
+                        .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
+                        .AddToDB(),
+                    FeatureDefinitionDieRollModifierBuilder
+                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}Magic")
+                        .SetGuiPresentation(guiPresentation)
+                        .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
+                            "Feature/&DieRollModifierFeatElementalAdeptReroll")
+                        .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
+                        .AddToDB())
+                .SetMustCastSpellsPrerequisite()
+                .SetFeatFamily("ElementalAdept")
+                .AddToDB();
+
+            elementalAdeptFeats.Add(feat);
+        }
+
+        var elementalAdeptGroup =
+            GroupFeats.MakeGroup("FeatGroupElementalAdept", "ElementalAdept", elementalAdeptFeats);
+
+        feats.AddRange(elementalAdeptFeats);
+
+        return elementalAdeptGroup;
+    }
+
+    private sealed class ModifyDamageResistanceElementalAdept : IModifyDamageAffinity, IValidateDieRollModifier
+    {
+        private readonly List<string> _damageTypes = [];
+
+        public ModifyDamageResistanceElementalAdept(params string[] damageTypes)
+        {
+            _damageTypes.AddRange(damageTypes);
+        }
+
+        public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
+        {
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance } y &&
+                _damageTypes.Contains(y.DamageType));
+        }
+
+        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
+            List<string> damageTypes)
+        {
+            return _damageTypes.Intersect(damageTypes).Any();
+        }
+    }
+
+    #endregion
+
+    #region Elemental Master
+
+    private static FeatDefinition BuildElementalMaster(List<FeatDefinition> feats)
+    {
+        const string NAME = "FeatElementalMaster";
+
+        var elementalAdeptFeats = new List<FeatDefinition>();
+
+        var damageTypes = new[]
+        {
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
+        };
+
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (var damageType in damageTypes)
+        {
+            var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
+            var guiPresentation = new GuiPresentationBuilder(
+                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
+                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
+                .Build();
+
+            var feat = FeatDefinitionBuilder
+                .Create($"{NAME}{damageType}")
+                .SetGuiPresentation(guiPresentation)
+                .SetFeatures(
+                    FeatureDefinitionDieRollModifierBuilder
+                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
+                        .SetGuiPresentation(guiPresentation)
+                        .SetModifiers(RollContext.AttackRoll, 1, 1, 1,
+                            "Feature/&DieRollModifierFeatElementalMasterReroll")
+                        .AddCustomSubFeatures(new ModifyDamageResistanceElementalMaster(damageType))
+                        .AddToDB(),
+                    FeatureDefinitionDamageAffinityBuilder
+                        .Create($"DamageAffinity{NAME}{damageType}")
+                        .SetGuiPresentation(guiPresentation)
+                        .SetDamageAffinityType(DamageAffinityType.Resistance)
+                        .SetDamageType(damageType)
+                        .AddToDB())
+                .SetMustCastSpellsPrerequisite()
+                .SetFeatFamily("ElementalMaster")
+                .SetKnownFeatsPrerequisite($"FeatElementalAdept{damageType}")
+                .AddToDB();
+
+            elementalAdeptFeats.Add(feat);
+        }
+
+        var elementalAdeptGroup =
+            GroupFeats.MakeGroup("FeatGroupElementalMaster", "ElementalMaster", elementalAdeptFeats);
+
+        feats.AddRange(elementalAdeptFeats);
+
+        return elementalAdeptGroup;
+    }
+
+    private sealed class ModifyDamageResistanceElementalMaster : IModifyDamageAffinity, IValidateDieRollModifier
+    {
+        private readonly List<string> _damageTypes = [];
+
+        public ModifyDamageResistanceElementalMaster(params string[] damageTypes)
+        {
+            _damageTypes.AddRange(damageTypes);
+        }
+
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Immunity } y &&
+                _damageTypes.Contains(y.DamageType));
+        }
+
+        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
+            List<string> damageTypes)
+        {
+            return _damageTypes.Intersect(damageTypes).Any();
+        }
+    }
+
+    #endregion
+
+    #region Fighting Initiate
+
+    private static FeatDefinitionWithPrerequisites BuildFeatFromFightingStyle(string fightingStyleName)
+    {
+        var db = DatabaseRepository.GetDatabase<FightingStyleDefinition>();
+        var feat = BuildFightingStyleFeat(db.GetElement(fightingStyleName));
+
+        feat.Validators.Clear();
+        feat.familyTag = string.Empty;
+        feat.hasFamilyTag = false;
+
+        return feat;
+    }
+
+    private static FeatDefinition BuildFightingInitiate()
+    {
+        var fightingStyleFeats = DatabaseRepository
+            .GetDatabase<FightingStyleDefinition>()
+            .Where(x =>
+                x.ContentPack == CeContentPackContext.CeContentPack &&
+                x.Name is not (
+                    MonkShieldExpert.ShieldExpertName or
+                    PolearmExpert.PolearmExpertName or
+                    Sentinel.SentinelName))
+            .Select(BuildFightingStyleFeat)
+            .OfType<FeatDefinition>()
+            .ToArray();
+
+        var vanillaFightingStyleFeats = DatabaseRepository
+            .GetDatabase<FightingStyleDefinition>()
+            .Where(x => x.ContentPack != CeContentPackContext.CeContentPack)
+            .Select(BuildFightingStyleFeat)
+            .OfType<FeatDefinition>()
+            .ToArray();
+
+        GroupFeats.FeatGroupFightingStyle.AddFeats(fightingStyleFeats);
+        GroupFeats.FeatGroupFightingStyle.AddFeats(vanillaFightingStyleFeats);
+
+        return GroupFeats.FeatGroupFightingStyle;
+    }
+
+    private static FeatDefinitionWithPrerequisites BuildFightingStyleFeat(FightingStyleDefinition fightingStyle)
+    {
+        // we need a brand new one to avoid issues with FS getting hidden
+        var guiPresentation = new GuiPresentation(fightingStyle.GuiPresentation);
+        var feat = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"Feat{fightingStyle.Name}")
+            .SetGuiPresentation(guiPresentation)
+            .SetFeatures(
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"ProficiencyFeat{fightingStyle.Name}")
+                    .SetProficiencies(ProficiencyType.FightingStyle, fightingStyle.Name)
+                    .SetGuiPresentation(guiPresentation)
+                    .AddToDB())
+            .SetFeatFamily(GroupFeats.FightingStyle)
+            .SetValidators(ValidatorsFeat.ValidateNotFightingStyle(fightingStyle))
+            .AddToDB();
+
+        // supports custom pools [only superior technique now]
+        feat.Features.AddRange(fightingStyle.Features.OfType<FeatureDefinitionCustomInvocationPool>());
+
+        if (!Main.Settings.FightingStyleEnabled.Contains(fightingStyle.Name))
+        {
+            guiPresentation.hidden = true;
+        }
+
+        return feat;
     }
 
     #endregion
@@ -905,198 +1175,6 @@ internal static class OtherFeats
             effectDescription.EffectForms[0].HealingForm.bonusHealing = characterLevel + medicineBonus;
 
             return effectDescription;
-        }
-    }
-
-    #endregion
-
-    #region War Caster
-
-    private static FeatDefinition BuildWarcaster()
-    {
-        return FeatDefinitionBuilder
-            .Create(FeatWarCaster)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionMagicAffinityBuilder
-                    .Create(MagicAffinityFeatWarCaster)
-                    .SetGuiPresentation(FeatWarCaster, Category.Feat)
-                    .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
-                        SpellParamsModifierType.None)
-                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
-                    .SetHandsFullCastingModifiers(true, true, true)
-                    .AddToDB())
-            .SetMustCastSpellsPrerequisite()
-            .AddCustomSubFeatures(WarCasterMarker.Mark)
-            .AddToDB();
-    }
-
-    internal class WarCasterMarker
-    {
-        private WarCasterMarker()
-        {
-        }
-
-        public static WarCasterMarker Mark { get; } = new();
-    }
-
-    #endregion
-
-    #region Elemental Adept
-
-    private static FeatDefinition BuildElementalAdept(List<FeatDefinition> feats)
-    {
-        const string NAME = "FeatElementalAdept";
-
-        var elementalAdeptFeats = new List<FeatDefinition>();
-
-        var damageTypes = new[]
-        {
-            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
-        };
-
-        // ReSharper disable once LoopCanBeConvertedToQuery
-        foreach (var damageType in damageTypes)
-        {
-            var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
-            var guiPresentation = new GuiPresentationBuilder(
-                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
-                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
-                .Build();
-
-            var feat = FeatDefinitionBuilder
-                .Create($"{NAME}{damageType}")
-                .SetGuiPresentation(guiPresentation)
-                .SetFeatures(
-                    FeatureDefinitionDieRollModifierBuilder
-                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetModifiers(RollContext.AttackDamageValueRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalAdeptReroll")
-                        .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
-                        .AddToDB(),
-                    FeatureDefinitionDieRollModifierBuilder
-                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}Magic")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalAdeptReroll")
-                        .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
-                        .AddToDB())
-                .SetMustCastSpellsPrerequisite()
-                .SetFeatFamily("ElementalAdept")
-                .AddToDB();
-
-            elementalAdeptFeats.Add(feat);
-        }
-
-        var elementalAdeptGroup =
-            GroupFeats.MakeGroup("FeatGroupElementalAdept", "ElementalAdept", elementalAdeptFeats);
-
-        feats.AddRange(elementalAdeptFeats);
-
-        return elementalAdeptGroup;
-    }
-
-    private sealed class ModifyDamageResistanceElementalAdept : IModifyDamageAffinity, IValidateDieRollModifier
-    {
-        private readonly List<string> _damageTypes = [];
-
-        public ModifyDamageResistanceElementalAdept(params string[] damageTypes)
-        {
-            _damageTypes.AddRange(damageTypes);
-        }
-
-        public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
-        {
-            features.RemoveAll(x =>
-                x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance } y &&
-                _damageTypes.Contains(y.DamageType));
-        }
-
-        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
-            List<string> damageTypes)
-        {
-            return _damageTypes.Intersect(damageTypes).Any();
-        }
-    }
-
-    #endregion
-
-    #region Elemental Master
-
-    private static FeatDefinition BuildElementalMaster(List<FeatDefinition> feats)
-    {
-        const string NAME = "FeatElementalMaster";
-
-        var elementalAdeptFeats = new List<FeatDefinition>();
-
-        var damageTypes = new[]
-        {
-            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
-        };
-
-        // ReSharper disable once LoopCanBeConvertedToQuery
-        foreach (var damageType in damageTypes)
-        {
-            var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
-            var guiPresentation = new GuiPresentationBuilder(
-                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
-                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
-                .Build();
-
-            var feat = FeatDefinitionBuilder
-                .Create($"{NAME}{damageType}")
-                .SetGuiPresentation(guiPresentation)
-                .SetFeatures(
-                    FeatureDefinitionDieRollModifierBuilder
-                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetModifiers(RollContext.AttackRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalMasterReroll")
-                        .AddCustomSubFeatures(new ModifyDamageResistanceElementalMaster(damageType))
-                        .AddToDB(),
-                    FeatureDefinitionDamageAffinityBuilder
-                        .Create($"DamageAffinity{NAME}{damageType}")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetDamageAffinityType(DamageAffinityType.Resistance)
-                        .SetDamageType(damageType)
-                        .AddToDB())
-                .SetMustCastSpellsPrerequisite()
-                .SetFeatFamily("ElementalMaster")
-                .SetKnownFeatsPrerequisite($"FeatElementalAdept{damageType}")
-                .AddToDB();
-
-            elementalAdeptFeats.Add(feat);
-        }
-
-        var elementalAdeptGroup =
-            GroupFeats.MakeGroup("FeatGroupElementalMaster", "ElementalMaster", elementalAdeptFeats);
-
-        feats.AddRange(elementalAdeptFeats);
-
-        return elementalAdeptGroup;
-    }
-
-    private sealed class ModifyDamageResistanceElementalMaster : IModifyDamageAffinity, IValidateDieRollModifier
-    {
-        private readonly List<string> _damageTypes = [];
-
-        public ModifyDamageResistanceElementalMaster(params string[] damageTypes)
-        {
-            _damageTypes.AddRange(damageTypes);
-        }
-
-        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
-        {
-            features.RemoveAll(x =>
-                x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Immunity } y &&
-                _damageTypes.Contains(y.DamageType));
-        }
-
-        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
-            List<string> damageTypes)
-        {
-            return _damageTypes.Intersect(damageTypes).Any();
         }
     }
 
@@ -1483,184 +1561,34 @@ internal static class OtherFeats
 
     #endregion
 
-    #region Fighting Initiate
+    #region War Caster
 
-    private static FeatDefinitionWithPrerequisites BuildFeatFromFightingStyle(string fightingStyleName)
+    private static FeatDefinition BuildWarcaster()
     {
-        var db = DatabaseRepository.GetDatabase<FightingStyleDefinition>();
-        var feat = BuildFightingStyleFeat(db.GetElement(fightingStyleName));
-
-        feat.Validators.Clear();
-        feat.familyTag = string.Empty;
-        feat.hasFamilyTag = false;
-
-        return feat;
-    }
-
-    private static FeatDefinition BuildFightingInitiate()
-    {
-        var fightingStyleFeats = DatabaseRepository
-            .GetDatabase<FightingStyleDefinition>()
-            .Where(x =>
-                x.ContentPack == CeContentPackContext.CeContentPack &&
-                x.Name is not (
-                    MonkShieldExpert.ShieldExpertName or
-                    PolearmExpert.PolearmExpertName or
-                    Sentinel.SentinelName))
-            .Select(BuildFightingStyleFeat)
-            .OfType<FeatDefinition>()
-            .ToArray();
-
-        var vanillaFightingStyleFeats = DatabaseRepository
-            .GetDatabase<FightingStyleDefinition>()
-            .Where(x => x.ContentPack != CeContentPackContext.CeContentPack)
-            .Select(BuildFightingStyleFeat)
-            .OfType<FeatDefinition>()
-            .ToArray();
-
-        GroupFeats.FeatGroupFightingStyle.AddFeats(fightingStyleFeats);
-        GroupFeats.FeatGroupFightingStyle.AddFeats(vanillaFightingStyleFeats);
-
-        return GroupFeats.FeatGroupFightingStyle;
-    }
-
-    private static FeatDefinitionWithPrerequisites BuildFightingStyleFeat(FightingStyleDefinition fightingStyle)
-    {
-        // we need a brand new one to avoid issues with FS getting hidden
-        var guiPresentation = new GuiPresentation(fightingStyle.GuiPresentation);
-        var feat = FeatDefinitionWithPrerequisitesBuilder
-            .Create($"Feat{fightingStyle.Name}")
-            .SetGuiPresentation(guiPresentation)
+        return FeatDefinitionBuilder
+            .Create(FeatWarCaster)
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionProficiencyBuilder
-                    .Create($"ProficiencyFeat{fightingStyle.Name}")
-                    .SetProficiencies(ProficiencyType.FightingStyle, fightingStyle.Name)
-                    .SetGuiPresentation(guiPresentation)
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create(MagicAffinityFeatWarCaster)
+                    .SetGuiPresentation(FeatWarCaster, Category.Feat)
+                    .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
+                        SpellParamsModifierType.None)
+                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
+                    .SetHandsFullCastingModifiers(true, true, true)
                     .AddToDB())
-            .SetFeatFamily(GroupFeats.FightingStyle)
-            .SetValidators(ValidatorsFeat.ValidateNotFightingStyle(fightingStyle))
+            .SetMustCastSpellsPrerequisite()
+            .AddCustomSubFeatures(WarCasterMarker.Mark)
             .AddToDB();
-
-        // supports custom pools [only superior technique now]
-        feat.Features.AddRange(fightingStyle.Features.OfType<FeatureDefinitionCustomInvocationPool>());
-
-        if (!Main.Settings.FightingStyleEnabled.Contains(fightingStyle.Name))
-        {
-            guiPresentation.hidden = true;
-        }
-
-        return feat;
     }
 
-    #endregion
-
-    #region Chef
-
-    private static FeatDefinition BuildChef(List<FeatDefinition> feats)
+    internal class WarCasterMarker
     {
-        const string Name = "FeatChef";
-
-        var powerTreat = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Treat")
-            .SetGuiPresentation($"Item{Name}Treat", Category.Item, PowerFunctionGoodberryHealing)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.UntilAnyRest)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetTempHpForm(5)
-                            .Build())
-                    .SetParticleEffectParameters(Goodberry)
-                    .Build())
-            .AddToDB();
-
-        var itemTreat = ItemDefinitionBuilder
-            .Create(ItemDefinitions.Berry_Ration, $"Item{Name}Treat")
-            .SetOrUpdateGuiPresentation(Category.Item)
-            .SetUsableDeviceDescription(powerTreat)
-            .AddToDB();
-
-        var powerCookTreat = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}CookTreat")
-            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther)
-            .SetUsesFixed(ActivationTime.Hours1, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.UntilAnyRest, 8)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetSummonItemForm(itemTreat, 1)
-                            .Build())
-                    .SetParticleEffectParameters(Goodberry)
-                    .Build())
-            .AddToDB();
-
-        powerCookTreat.AddCustomSubFeatures(new ModifyEffectDescriptionCookTreat(powerCookTreat));
-
-        var powerCookMeal = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}CookMeal")
-            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther)
-            .SetUsesFixed(ActivationTime.Hours1, RechargeRate.ShortRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 6)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false,
-                                HealingCap.MaximumHitPoints)
-                            .Build())
-                    .SetParticleEffectParameters(Goodberry)
-                    .Build())
-            .AddToDB();
-
-        var featCon = FeatDefinitionBuilder
-            .Create($"{Name}Con")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Arun, powerCookTreat, powerCookMeal)
-            .SetFeatFamily(Name)
-            .AddToDB();
-
-        var featWis = FeatDefinitionBuilder
-            .Create($"{Name}Wis")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Maraike, powerCookTreat, powerCookMeal)
-            .SetFeatFamily(Name)
-            .AddToDB();
-
-        feats.AddRange(featWis, featCon);
-
-        return GroupFeats.MakeGroup("FeatGroupChef", Name, featCon, featWis);
-    }
-
-    private sealed class ModifyEffectDescriptionCookTreat(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerCookTreat) : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        private WarCasterMarker()
         {
-            return definition == powerCookTreat;
         }
 
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            effectDescription.EffectForms[0].SummonForm.number =
-                character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-            return effectDescription;
-        }
+        public static WarCasterMarker Mark { get; } = new();
     }
 
     #endregion
