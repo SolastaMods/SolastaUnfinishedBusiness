@@ -96,6 +96,9 @@ internal static class ValidatorsFeat
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsGnome =
         ValidateIsRace(Gnome.FormatTitle(), Gnome);
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsHalfOrc =
+        ValidateIsRace(HalfOrc.FormatTitle(), HalfOrc);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsTiefling =
         ValidateIsRace(Tiefling.FormatTitle(), Tiefling, RaceTieflingBuilder.RaceTiefling);
 

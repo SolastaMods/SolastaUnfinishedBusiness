@@ -55,6 +55,7 @@ internal enum ExtraActionId
     Withdraw,
     ForcePoweredStrikeToggle,
     BrutalStrikeToggle,
+    OrcishFuryToggle,
     PrioritizeAction = 10000
 }
 

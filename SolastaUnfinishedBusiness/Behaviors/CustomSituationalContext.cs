@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Behaviors;
 
 internal static class CustomSituationalContext
 {
-    private static readonly WeaponTypeDefinition[] SimpleOrMartialWeapons = DatabaseRepository
+    internal static readonly WeaponTypeDefinition[] SimpleOrMartialWeapons = DatabaseRepository
         .GetDatabase<WeaponTypeDefinition>()
         .Where(x => x.WeaponCategory is "MartialWeaponCategory" or "SimpleWeaponCategory")
         .ToArray();

@@ -83,6 +83,7 @@ internal static class ModUi
         "FeatGroupFlamesOfPhlegethos",
         "FeatGroupMagicInitiate",
         "FeatGroupMediumArmor",
+        "FeatGroupOrcishFury",
         "FeatGroupPiercer",
         "FeatGroupRevenantGreatSword",
         "FeatGroupSecondChance",

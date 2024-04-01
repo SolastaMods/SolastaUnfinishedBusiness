@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -219,6 +221,7 @@ internal static class RaceFeats
 
         var featDwarvenFortitude = BuildDwarvenFortitude();
         var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
+        var featGroupOrcishFury = BuildOrcishFury(feats);
         var featGroupSecondChance = BuildSecondChance(feats);
 
         //
@@ -281,6 +284,7 @@ internal static class RaceFeats
             featGroupsElvenAccuracy,
             featGroupFadeAway,
             featGroupFlamesOfPhlegethos,
+            featGroupOrcishFury,
             featGroupRevenantGreatSword,
             featGroupSecondChance,
             featGroupSquatNimbleness);
@@ -531,6 +535,151 @@ internal static class RaceFeats
             List<string> damageTypes)
         {
             return damageTypes.Contains(DamageTypeFire);
+        }
+    }
+
+    #endregion
+
+    #region Orcish Fury
+
+    private static FeatDefinition BuildOrcishFury(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatOrcishFury";
+
+        var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("OrcishFury")
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+            .AddToDB();
+
+        var conditionAdditionalDamage = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AdditionalDamage")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalDamage)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ImpishWrath")
+            .SetGuiPresentation("FeatGroupOrcishFury", Category.Feat)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .DelegatedToAction()
+            .AddToDB();
+
+        power.AddCustomSubFeatures(
+            new MagicEffectBeforeHitConfirmedOnEnemyOrcishFury(power, conditionAdditionalDamage));
+
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "OrcishFuryToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.OrcishFuryToggle)
+            .SetActivatedPower(power)
+            .AddToDB();
+
+        var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityOrcishFuryToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(power)))
+            .AddToDB();
+
+        var orcishFuryStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsTiefling)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, actionAffinityImpishWrathToggle, power)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var orcishFuryCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsTiefling)
+            .SetFeatures(AttributeModifierCreed_Of_Arun, actionAffinityImpishWrathToggle, power)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(orcishFuryStr, orcishFuryCon);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupOrcishFury", Name, ValidatorsFeat.IsHalfOrc, orcishFuryStr, orcishFuryCon);
+    }
+
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemyOrcishFury(
+        FeatureDefinitionPower power,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition) : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!ValidatorsWeapon.IsOfWeaponType(CustomSituationalContext.SimpleOrMartialWeapons)
+                    (attackMode, null, null) ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle) ||
+                rulesetAttacker.GetRemainingPowerUses(power) == 0)
+            {
+                yield break;
+            }
+
+            rulesetAttacker.InflictCondition(
+                conditionDefinition.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionDefinition.Name,
+                0,
+                0,
+                0);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!ValidatorsWeapon.IsOfWeaponType(CustomSituationalContext.SimpleOrMartialWeapons)
+                    (attackMode, null, null) ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle) ||
+                rulesetAttacker.GetRemainingPowerUses(power) == 0)
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+
+            rulesetAttacker.UsePower(usablePower);
         }
     }
 

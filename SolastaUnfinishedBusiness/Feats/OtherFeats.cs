@@ -93,6 +93,10 @@ internal static class OtherFeats
             featVersatilityAdept,
             featWarCaster);
 
+        GroupFeats.FeatGroupBodyResilience.AddFeats(
+            featTough,
+            featFrostAdaptation);
+
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
             FeatAlert,
             featMobile);
@@ -126,17 +130,6 @@ internal static class OtherFeats
         GroupFeats.FeatGroupSkills.AddFeats(
             featHealer,
             featPickPocket);
-
-        GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
-            FeatDefinitions.BadlandsMarauder,
-            FeatDefinitions.BlessingOfTheElements,
-            FeatDefinitions.Enduring_Body,
-            FeatDefinitions.FocusedSleeper,
-            FeatDefinitions.HardToKill,
-            FeatDefinitions.Hauler,
-            FeatDefinitions.Robust,
-            featTough,
-            featFrostAdaptation);
 
         GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
             featArcaneArcherAdept,

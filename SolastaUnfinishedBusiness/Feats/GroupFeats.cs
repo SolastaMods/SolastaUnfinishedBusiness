@@ -18,6 +18,22 @@ internal static class GroupFeats
     internal const string FightingStyle = "FightingStyle";
     private static readonly List<FeatDefinition> Groups = [];
 
+    internal static FeatDefinition FeatGroupBodyResilience { get; } = MakeGroup("FeatGroupBodyResilience", null,
+        BadlandsMarauder,
+        BlessingOfTheElements,
+        Enduring_Body,
+        FocusedSleeper,
+        HardToKill,
+        Hauler,
+        Robust,
+        MakeGroup("FeatGroupCreed", null,
+            Creed_Of_Einar,
+            Creed_Of_Misaye,
+            Creed_Of_Arun,
+            Creed_Of_Pakri,
+            Creed_Of_Maraike,
+            Creed_Of_Solasta));
+
     private static FeatDefinition FeatGroupElementalTouch { get; } = MakeGroup("FeatGroupElementalTouch",
         BurningTouch.FamilyTag,
         BurningTouch,
@@ -103,16 +119,7 @@ internal static class GroupFeats
 
     internal static void Load(Action<FeatDefinition> loader)
     {
-        MakeGroup("FeatGroupCreed", null,
-            Creed_Of_Einar,
-            Creed_Of_Misaye,
-            Creed_Of_Arun,
-            Creed_Of_Pakri,
-            Creed_Of_Maraike,
-            Creed_Of_Solasta);
-
         MakeFeatGroupHalfAttributes();
-
         Groups.ForEach(ApplyDynamicDescription);
         Groups.ForEach(loader);
     }

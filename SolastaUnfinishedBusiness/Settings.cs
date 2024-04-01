@@ -136,7 +136,8 @@ public class Settings : UnityModManager.ModSettings
         "PowerRiftWalkerRiftStrike",
         "PowerSorcerousPsionMindOverMatter",
         "PowerWayOfTheDistantHandZenArrowTechnique",
-        "PowerWayOfTheDistantHandZenArrowUpgradedTechnique"
+        "PowerWayOfTheDistantHandZenArrowUpgradedTechnique",
+        "PowerFeatChefCookMeal"
     ];
 
     //

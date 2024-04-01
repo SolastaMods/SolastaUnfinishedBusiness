@@ -140,7 +140,7 @@ internal static class FeatsContext
         GuiWrapperContext.RecacheFeats();
     }
 
-    internal static void SwitchHalfAttributes(bool active)
+    private static void SwitchHalfAttributes(bool active)
     {
         foreach (var child in AttributeDefinitions.AbilityScoreNames
                      .Select(attribute =>
