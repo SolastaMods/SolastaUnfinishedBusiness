@@ -3,7 +3,7 @@ ModUi/&AddAllToStore=全部添加到商店
 ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>流血</color>状态添加到<color=#D89555>高等复原术</color>和<color=#D89555>次级复原术</color>的移除列表里
 ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>黑暗精灵</color>、<color=#D89555>黑暗狗头人</color>和<color=#D89555>灰矮人</color>启用<color=#D89555>黑暗感知</color><i><color=#F0DAA0>\n[在未照明或在魔法黑暗下时察觉检定具有优势]</color></i>
-ModUi/&AddDexModifierToEnemiesInitiativeRoll=为敌人添加<color=#D89555>敏捷调整剂</color><color=#D89555>主动翻滚</color>
+ModUi/&AddDexModifierToEnemiesInitiativeRoll=为敌人<color=#D89555>先攻骰值</color>添加<color=#D89555>敏捷调整值</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=将<color=#D89555>战士</color>等级添加到<color=#D89555>不屈</color>豁免重投中
 ModUi/&AddHelpActionToAllRaces=为所有可玩种族添加<color=#D89555>帮助</color>动作<i><color=#F0DAA0>[你可以帮助友方生物攻击距离你5尺以内的生物]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=启用<color=#D89555>游侠</color>类人生物宿敌
@@ -19,7 +19,7 @@ ModUi/&AllRecipesInDm=冒险中的所有配方
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序列</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿<color=#D89555>森林之甲</color>或<color=#D89555>光明使者之衣</color>
 ModUi/&AllowBeardlessDwarves=允许无须<color=#D89555>矮人</color>
-ModUi/&AllowClubsToBeThrown=允许 <color=#D89555>短棒</color> 像 <color=#D89555>匕首</color> 或 <color=#D89555>手斧</color> 一样投掷
+ModUi/&AllowClubsToBeThrown=允许<color=#D89555>短棒</color>像<color=#D89555>匕首</color>或<color=#D89555>手斧</color>一样投掷
 ModUi/&AllowDisplayingNonSuggestedSpells=允许在每个列表上使用 mod 非建议的法术
 ModUi/&AllowDisplayingOfficialSpells=允许每个列表中使用游戏官方法术
 ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>穿上金属盔甲
@@ -64,7 +64,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>：继续重新掷出任�
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>：将攻击的总伤害加倍，而不是掷额外的骰子。<i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>神灵</color>
 ModUi/&DisableAutoEquip=禁用自动装备物品栏中的物品
-ModUi/&DisableBarbarianBrutalCritical=<i>+ 同时在 9、13 和 17 级禁用<color=#D89555>野蛮人</color> <b>残酷致命</b></i>
+ModUi/&DisableBarbarianBrutalCritical=<i>+ 同时在<color=#D89555>野蛮人</color> 9、13 和 17 级禁用<b>凶蛮重击</b></i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=禁用此模组提供的专长的施法先决条件<b><i><color=#C04040E0>[需要重新启动]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=禁用此mod提供的职业专长的等级前提条件
 ModUi/&DisableRacePrerequisitesOnModFeats=禁用此mod提供的专长的种族前提条件
@@ -87,10 +87,10 @@ ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和�
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+向地城编辑器添加新物品</i>
 ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属性选择/+1技能]</color></i>
 ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用英雄魅力调整值来确定选择权重]</color></i>
-ModUi/&EnableBarbarianBrutalStrike=在职业等级 9、13 和 17 启用<color=#D89555>野蛮人</color><b>凶蛮打击</b>和<b>精通凶蛮打击</b>
-ModUi/&EnableBarbarianFightingStyle=在 2 级启用<color=#D89555>野蛮人</color><b>战斗风格</b>
+ModUi/&EnableBarbarianBrutalStrike=在<color=#D89555>野蛮人</color> 9、13 和 17 级启用<b>凶蛮打击</b>和<b>精通凶蛮打击</b>
+ModUi/&EnableBarbarianFightingStyle=在<color=#D89555>野蛮人</color> 2 级启用<b>战斗风格</b>
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>野蛮人</color><b>鲁莽攻击</b>增益和减益以在下一回合开始时完成
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=在等级 7 时启用<color=#D89555>野蛮人</color>在短休后恢复一次狂暴次数
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=在<color=#D89555>野蛮人</color> 7 级时启用在短休后恢复一次狂暴次数
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
 ModUi/&EnableCantripsTriggeringOnWarMagic=启用戏法触发<color=#D89555>战争魔法</color>，可以用附赠动作发动一次武器攻击
@@ -103,12 +103,12 @@ ModUi/&EnableCustomPortraitsHelp=。将你的自定义肖像放在子文件夹 <
 ModUi/&EnableDungeonMakerModdedContent=启用地城编辑器Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150 和 200x200 的地牢大小以及简洁的混合来自所有环境的素材]</color></i>
 ModUi/&EnableEpicPointsAndArray=启用史诗级 35 点购点和默认骰<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练面板显示<i><color=#F0DAA0>[奥术射击、注法、战技和多种功能]</color></i>\n<b><i><color=#C04040E0>[角色性能提升检查。使用风险自负]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=在等级 2、10 和 18 启用专长选择
+ModUi/&EnableFeatsAtEvenLevels=在等级 2、10 和 18 级启用专长选择
 ModUi/&EnableFeatsAtEvenLevelsMiddle=在 6 级和 14 级启用专长选择
-ModUi/&EnableFighterWeaponSpecialization=在 8 级和 16 级启用<color=#D89555>战士</color><b>武器专攻</b><i><color=#F0DAA0>[获得+1命中和伤害，但是使用其他武器时将获得劣势]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=在<color=#D89555>战士</color> 8 级和 16 级启用<b>武器专攻</b><i><color=#F0DAA0>[获得+1命中和伤害，但是使用其他武器时将获得劣势]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活的背景<i><color=#F0DAA0>[自由选择背景提供的技能和工具熟练项]</color></i>
 ModUi/&EnableFlexibleRaces=启用灵活的种族<i><color=#F0DAA0>[自由分配种族属性加值]</color></i>
-ModUi/&EnableHeroWithBestProficiencyToRollChoice=让最熟练的英雄滚动对话选择
+ModUi/&EnableHeroWithBestProficiencyToRollChoice=让最熟练的英雄投掷对话选择
 ModUi/&EnableHigherGroundRules=启用夹击规则<i><color=#F0DAA0>[从高处射击时 +1 命中，前后夹击敌人时 +1 命中，如果敌人被四个盟友包围则获得优势]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=启用<color=#1E81B0>CTRL-SHIFT-(D)</color>以显示调试覆盖
 ModUi/&EnableHotkeyToggleHud=启用<color=#1E81B0>CTRL-SHIFT-(H)</color>切换HUD显示
@@ -120,21 +120,21 @@ ModUi/&EnableLevel20=启用20级<b><i><color=#C04040E0>[需要重启]</color></i
 ModUi/&EnableLogDialoguesToConsole=在叙述序列期间启用日志对话到游戏控制台
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义活动中启用记录无效引用
 ModUi/&EnableMinInOutAttributes=<i>+强制属性值最低的前置条件</i>
-ModUi/&EnableMonkAbundantKi=在第 1 级启用<color=#D89555>武僧</color><b>丰富的气</b><i><color=#F0DAA0>[获得额外的等于熟练加值一半的气]</color> </i>
+ModUi/&EnableMonkAbundantKi=在<color=#D89555>武僧</color> 1 级启用<b>丰富的气</b><i><color=#F0DAA0>[获得额外的等于熟练加值一半的气]</color> </i>
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=启用<color=#D89555>武僧</color><b>武术 - 额外徒手攻击</b>，在使用前不需要进行攻击动作
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=启用<color=#D89555>武僧</color><b>疾风连击</b>，在使用前不需要进行攻击动作
-ModUi/&EnableMonkFightingStyle=在第 2 级启用<color=#D89555>武僧</color><b>战斗风格</b>选择
+ModUi/&EnableMonkFightingStyle=在<color=#D89555>武僧</color> 2 级启用<b>战斗风格</b>选择
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>武僧</color><b>改进的无甲移动</b>沿垂直表面移动而不会掉落
-ModUi/&EnableMonkWeaponSpecialization=在第 2 级和 11 级启用<color=#D89555>武僧</color><b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的武僧武器]</color></i>
+ModUi/&EnableMonkWeaponSpecialization=在<color=#D89555>武僧</color> 2 级和 11 级启用<b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
-ModUi/&EnableRangerNatureShroudAt10=在第 10 级启用<color=#D89555>游侠</color><b>自然面纱</b>功能<i><color=#F0DAA0>[作为附赠动作，你可以神奇地变得隐形，直到下回合开始]</color></i>
-ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于5人或6人的队伍]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=在<color=#D89555>游侠</color> 10 级启用<b>自然面纱</b>功能<i><color=#F0DAA0>[作为附赠动作，你可以神奇地变得隐形，直到下回合开始]</color></i>
+ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于 5 人或 6 人的队伍]</color></i>
 ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的咒语或法术</i>
 ModUi/&EnableRespec=在休息操作后启用洗点
-ModUi/&EnableRogueCunningStrike=在第 5 级和 14 级时启用<color=#D89555>游荡者</color><b>诡诈打击</b>和<b>凶狡打击</b><i><color=#F0DAA0>[你放弃1个偷袭骰子可获得额外的命中效果]</color></i>
-ModUi/&EnableRogueFightingStyle=在第 2 级启用<color=#D89555>游荡者</color><b>战斗风格</b>选择
-ModUi/&EnableRogueSteadyAim=在第 3 级时启用<color=#D89555>游荡者</color><b>手稳就准</b><i><color=#F0DAA0>[作为附赠动作，在当前回合中为你的下一次攻击检定带来优势，如果你还没移动]</color></i>
+ModUi/&EnableRogueCunningStrike=在<color=#D89555>游荡者</color> 5 级和 14 级时启用<b>诡诈打击</b>和<b>凶狡打击</b><i><color=#F0DAA0>[你放弃 1 个偷袭骰子可获得额外的命中效果]</color></i>
+ModUi/&EnableRogueFightingStyle=在<color=#D89555>游荡者</color> 2 级启用<b>战斗风格</b>选择
+ModUi/&EnableRogueSteadyAim=在<color=#D89555>游荡者</color> 3 级时启用<b>手稳就准</b><i><color=#F0DAA0>[作为附赠动作，在当前回合中为你的下一次攻击检定带来优势，如果你还没移动]</color></i>
 ModUi/&EnableRogueStrSaving=启用<color=#D89555>游荡者</color>在<b>诡诈/凶狡打击</b>、<b>虚弱/精通打击</b>和<b>剑刃冰雹</b>上使用敏捷或力量调整值
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
@@ -145,7 +145,7 @@ ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池的切换来设�
 ModUi/&EnableTooltipDistance=在战斗中将鼠标悬停在角色上时启用在工具提示上显示距离
 ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素咒唤</color>和<color=#D89555>精类咒唤</color>的升环
 ModUi/&EnableVttCamera=启用 <color=#1E81B0>CTRL-SHIFT-(V)</color> 切换 VTT 摄像头<i><color=#F0DAA0>[右键单击并拖动以定位摄像头，WASD 进行平移和 Page Up/向下翻页放大]</color></i>
-ModUi/&EnablesAsiAndFeat=启用属性分数增加和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
+ModUi/&EnablesAsiAndFeat=启用属性值提升和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>
 ModUi/&Encounters=遭遇
 ModUi/&ExpandAll=展开全部
