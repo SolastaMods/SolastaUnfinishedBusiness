@@ -10,5 +10,5 @@ Reaction/&UseIntimidatingPresenceDescription=你可以没有消耗地使用威�
 Reaction/&UseIntimidatingPresenceReactDescription=你可以没有消耗地使用威慑之姿特性。
 Reaction/&UseIntimidatingPresenceReactTitle=威慑之姿
 Reaction/&UseIntimidatingPresenceTitle=威慑之姿
-Subclass/&PathOfTheRavagerDescription=破坏者是一条不受约束的愤怒之路，充满鲜血。当你进入破坏者的狂怒时，你会在战斗的混乱中感到兴奋，不顾自己的健康与周全。
-Subclass/&PathOfTheRavagerTitle=破坏者道途
+Subclass/&PathOfTheRavagerDescription=毁灭者是一条不受约束的愤怒之路，充满鲜血。当你进入毁灭者的狂怒时，你会在战斗的混乱中感到兴奋，不顾自己的健康与周全。
+Subclass/&PathOfTheRavagerTitle=毁灭者道途
