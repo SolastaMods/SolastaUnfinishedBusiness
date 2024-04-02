@@ -1,6 +1,7 @@
 1.5.97.4:
 
 - added Dungeon Delver and Durable feats
+- fixed Merciless frightening enemies within attacker range instead of downed creature
 
 1.5.97.3:
 
