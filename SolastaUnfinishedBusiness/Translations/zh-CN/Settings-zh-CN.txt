@@ -128,9 +128,9 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>�
 ModUi/&EnableMonkWeaponSpecialization=在<color=#D89555>武僧</color> 2 级和 11 级启用<b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
-ModUi/&EnableRangerNatureShroudAt10=在<color=#D89555>游侠</color> 10 级启用<b>自然面纱</b>功能<i><color=#F0DAA0>[作为附赠动作，你可以神奇地变得隐形，直到下回合开始]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=在<color=#D89555>游侠</color> 10 级启用<b>自然面纱</b>特性<i><color=#F0DAA0>[作为附赠动作，你可以神奇地变得隐形，直到下回合开始]</color></i>
 ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于 5 人或 6 人的队伍]</color></i>
-ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的咒语或法术</i>
+ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的戏法或法术</i>
 ModUi/&EnableRespec=在休息操作后启用洗点
 ModUi/&EnableRogueCunningStrike=在<color=#D89555>游荡者</color> 5 级和 14 级时启用<b>诡诈打击</b>和<b>凶狡打击</b><i><color=#F0DAA0>[你放弃 1 个偷袭骰子可获得额外的命中效果]</color></i>
 ModUi/&EnableRogueFightingStyle=在<color=#D89555>游荡者</color> 2 级启用<b>战斗风格</b>选择
