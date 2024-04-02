@@ -1,6 +1,6 @@
 1.5.97.4:
 
-- added Dungeon Delver feat
+- added Dungeon Delver and Durable feats
 
 1.5.97.3:
 

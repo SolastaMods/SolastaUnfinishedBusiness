@@ -11,12 +11,14 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfConstitutionTitle",
-    "description": "Awaken the Beast [Con], Badlands Marauder, Chef [Con], Creed of Arun, Crusher [Con], Durable, Dwarven Fortitude, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Orcish Fury [Con], Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra",
+    "title": "Feat/&FeatDurableTitle",
+    "description": "Feat/&FeatDurableDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d0acb623-d0e3-5abb-a409-4c3dc88d470d",
+  "guid": "507c9456-f232-5cd5-a303-28520f1a2438",
   "contentPack": 9999,
-  "name": "FeatGroupHalfConstitution"
+  "name": "FeatDurable"
 }

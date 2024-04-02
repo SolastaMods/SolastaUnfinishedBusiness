@@ -1104,6 +1104,7 @@ FeatDualFlurry	FeatDefinition	FeatDefinition	35fc6f50-0114-581e-b387-10cc3fd85ea
 FeatDualWeaponDefense	FeatDefinition	FeatDefinition	6bf7da81-c996-51e3-b723-6d9c4878a8ea
 FeatDueling	FeatDefinitionWithPrerequisites	FeatDefinition	16bf67fc-0afc-5eac-954f-d15574176e85
 FeatDungeonDelver	FeatDefinition	FeatDefinition	39f908ce-e12a-567b-a6dc-8354c6a1ce51
+FeatDurable	FeatDefinition	FeatDefinition	507c9456-f232-5cd5-a303-28520f1a2438
 FeatDwarvenFortitude	FeatDefinitionWithPrerequisites	FeatDefinition	3a0cdf8b-c7b1-56e1-a8b5-8cea0e4e8550
 FeatEldritchAdept	FeatDefinitionWithPrerequisites	FeatDefinition	39163aa7-6819-59e4-ac4d-d0d8e29659d0
 FeatEldritchVersatilityAdept	FeatDefinition	FeatDefinition	1e68a070-b687-5a5b-a7f0-f69b0060b798
