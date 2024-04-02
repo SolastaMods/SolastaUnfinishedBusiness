@@ -71,7 +71,6 @@ internal static class ModUi
         "FeatDragonWings",
         "FeatDualWeaponDefense",
         "FeatDungeonDelver",
-        "FeatDurable",
         "FeatDwarvenFortitude",
         "FeatEldritchAdept",
         "FeatFellHanded",

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -79,7 +77,6 @@ internal static class OtherFeats
             featAstralArms,
             featEldritchAdept,
             featDungeonDelver,
-            FeatDurable,
             featFrostAdaptation,
             featGiftOfTheChromaticDragon,
             featHealer,
@@ -101,7 +98,6 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupBodyResilience.AddFeats(
             featDungeonDelver,
-            FeatDurable,
             featTough,
             featFrostAdaptation);
 
@@ -479,47 +475,6 @@ internal static class OtherFeats
         }
 
         internal string Name { get; }
-    }
-
-    #endregion
-
-    #region Durable
-
-    internal static FeatDefinition FeatDurable { get; } = FeatDefinitionBuilder
-        .Create("FeatDurable")
-        .SetGuiPresentation(Category.Feat)
-        .SetFeatures(AttributeModifierCreed_Of_Arun)
-        .AddToDB();
-
-    internal static void HandleDurableBehavior(RulesetCharacterHero hero, DieType die, ref int dieRoll)
-    {
-        if (!hero.TrainedFeats.Contains(FeatDurable))
-        {
-            return;
-        }
-
-        var diceMaxValue = DiceMaxValue[(int)die];
-        var constitution = hero.TryGetAttributeValue(AttributeDefinitions.Constitution);
-        var minimum = 2 *
-                      Math.Min(
-                          diceMaxValue,
-                          Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(constitution)));
-
-        if (dieRoll >= minimum)
-        {
-            return;
-        }
-
-        hero.LogCharacterActivatesAbility(
-            Gui.NoLocalization, "Feat/&FeatDurableReroll", true,
-            extra:
-            [
-                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(die)),
-                (ConsoleStyleDuplet.ParameterType.Negative, $"{dieRoll}"),
-                (ConsoleStyleDuplet.ParameterType.Positive, $"{minimum}")
-            ]);
-
-        dieRoll = minimum;
     }
 
     #endregion
