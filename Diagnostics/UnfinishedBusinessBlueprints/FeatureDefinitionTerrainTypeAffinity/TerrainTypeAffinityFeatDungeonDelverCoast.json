@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionTerrainTypeAffinity, Assembly-CSharp",
+  "terrainType": "Coast",
+  "travelSpeedMultiplier": 1.0,
+  "foodYieldMultiplier": 1.0,
+  "ingredientYieldMultiplier": 1.0,
+  "ignoreTravelPacePerceptionMalus": true,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&FeatDungeonDelverTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "85fd881b-3a48-52a7-a505-e541de6cc412",
+  "contentPack": 9999,
+  "name": "TerrainTypeAffinityFeatDungeonDelverCoast"
+}

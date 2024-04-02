@@ -752,7 +752,7 @@ You gain proficiency with herbalism kit and medicine, or expertise if already pr
 FeatGroupArmor	Description='Armor Master, Discretion of the Coedymwarth, Heavy Armor Master, Medium Armor Master, Might of the Iron Legion, Moderately Armored, Sturdiness of the Tundra'.
 FeatGroupAwakenTheBeastWithin	Description='Increase any ability score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
 FeatGroupBlessedSoul	Description='Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.'.
-FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Creed of the Gods, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hauler, Robust, Tough'.
+FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Creed of the Gods, Dungeon Delver, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hauler, Robust, Tough'.
 FeatGroupCelestialTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.'.
 FeatGroupChef	Description='Increase your Wisdom or Constitution by 1, to a maximum of 20.

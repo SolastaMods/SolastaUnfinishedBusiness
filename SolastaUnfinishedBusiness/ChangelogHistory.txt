@@ -1,3 +1,7 @@
+1.5.97.4:
+
+- added Dungeon Delver feat
+
 1.5.97.3:
 
 - added 'Add Dexterity Modifier to enemies Initiative Roll'
