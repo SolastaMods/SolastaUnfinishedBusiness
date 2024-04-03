@@ -56,7 +56,7 @@ internal static class EldritchVersatilityBuilders
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(VersatilitySupportRulesetCondition.BindingDefinition))
                 .Build())
-        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden,  RestrictEffectToNotTerminateWhileUnconscious.Marker)
         .AddToDB();
 
     public static readonly FeatureDefinitionCustomInvocationPool Learn1Versatility =
