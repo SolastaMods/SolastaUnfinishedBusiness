@@ -148,7 +148,7 @@ ModUi/&EnableVttCamera=Включать камеру виртуальной на
 ModUi/&EnablesAsiAndFeat=Включить возможность и повышать характеристики, и выбирать <color=#D89555>черту</color> одновременно <i><color=#F0DAA0>[вместо того, чтобы делать выбор между этими вариантами]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Вероятность случайных событий в процентах</color>
 ModUi/&Encounters=События
-ModUi/&EnemiesAlwaysRollInitiative=<i>+ Враги всегда бросают инициативу вместо принудительного значения <color=#F0DAA0>[например: Сорак-убийца]</color></i>
+ModUi/&EnemiesAlwaysRollInitiative=<i>+ Противники всегда совершают бросок инициативы вместо установки фиксированного значения <color=#F0DAA0>[например: Ассасин Сорр-Аккат]</color></i>
 ModUi/&ExpandAll=Раскрыть все
 ModUi/&FactionHelp=<color=#C04040E0>Загрузите игру официальной кампании, чтобы изменить отношения фракций...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Фракции:</color>
