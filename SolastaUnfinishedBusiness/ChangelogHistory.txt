@@ -1,7 +1,7 @@
 1.5.97.4:
 
-- added Dungeon Delver and Durable feats
-- fixed Merciless frightening enemies within attacker range instead of downed creature
+- added Mage Slayer feat
+- fixed Merciless fighting style effect center point
 
 1.5.97.3:
 
