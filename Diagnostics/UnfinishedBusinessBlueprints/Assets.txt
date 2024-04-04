@@ -1159,6 +1159,7 @@ FeatGroupElementalMaster	FeatDefinition	FeatDefinition	60495c2d-1dd3-5139-81a9-2
 FeatGroupElementalTouch	FeatDefinition	FeatDefinition	66f44d06-1557-52db-a92a-a97d3b993e41
 FeatGroupElvenAccuracy	FeatDefinitionWithPrerequisites	FeatDefinition	fc305079-6815-5a08-b3e5-fcfeea95d903
 FeatGroupFadeAway	FeatDefinitionWithPrerequisites	FeatDefinition	b6aa78a6-05c3-593b-ae5f-e177740a73c2
+FeatGroupFeyTeleport	FeatDefinition	FeatDefinition	75b3ad41-b691-5d33-837d-68dac2ecce7a
 FeatGroupFightingStyle	FeatDefinition	FeatDefinition	a9395b1c-83fc-5649-9eb2-508ed6e87571
 FeatGroupFlamesOfPhlegethos	FeatDefinitionWithPrerequisites	FeatDefinition	6d0664d1-aaa0-5b8c-a8ed-ca5206e0b2ba
 FeatGroupFlameTouched	FeatDefinition	FeatDefinition	d56829e9-dad7-5512-a8e3-7a221bcc5774
@@ -1179,7 +1180,7 @@ FeatGroupOldTactics	FeatDefinition	FeatDefinition	d342abc3-7b52-5741-a845-3e40e6
 FeatGroupOrcishFury	FeatDefinitionWithPrerequisites	FeatDefinition	8fe763cc-9898-538e-9fed-25a68811f9e5
 FeatGroupPeregrinationTouched	FeatDefinition	FeatDefinition	c63ecda5-05cc-5170-856c-38a291dafec7
 FeatGroupPiercer	FeatDefinition	FeatDefinition	c30ffa73-1fa8-5227-931f-f55dbe5b48e2
-FeatGroupPlaneTouchedMagic	FeatDefinition	FeatDefinition	937ec083-fac8-53c1-8e3e-e19b79a1b415
+FeatGroupPlaneMagic	FeatDefinition	FeatDefinition	8384bce4-37cf-5e61-87a7-6df96c3fa347
 FeatGroupPotentSpellcaster	FeatDefinitionWithPrerequisites	FeatDefinition	4d9dc230-ba64-5731-88cf-7de4903fdb8c
 FeatGroupPrecisionFocused	FeatDefinition	FeatDefinition	6883a6a3-69f3-5dfb-80ab-4a2f36f43c4f
 FeatGroupPrimalRage	FeatDefinitionWithPrerequisites	FeatDefinition	fe465cae-c21b-50d6-b5ca-7d8102ef5a44
@@ -1196,7 +1197,6 @@ FeatGroupSpellSniper	FeatDefinition	FeatDefinition	05d05e21-7def-588f-86e5-acdb2
 FeatGroupSquatNimbleness	FeatDefinitionWithPrerequisites	FeatDefinition	cb268495-247b-525b-8f30-d1e5b539d086
 FeatGroupSupportCombat	FeatDefinition	FeatDefinition	1db5b688-e646-5e50-bdb0-1187118afb67
 FeatGroupTelekinetic	FeatDefinition	FeatDefinition	f0f267c0-c1e7-57f6-8151-e16e800c37a9
-FeatGroupTeleportation	FeatDefinition	FeatDefinition	9975285e-172f-531f-b635-e72d33e69d91
 FeatGroupTools	FeatDefinition	FeatDefinition	533f04c1-ef50-5a40-b34e-a9f1c0a59db2
 FeatGroupToxicologist	FeatDefinition	FeatDefinition	2dc87af9-11e7-5ce7-a6d3-6a83c84d6627
 FeatGroupTwoHandedCombat	FeatDefinition	FeatDefinition	00b1dcb6-8c27-5c86-aa90-c233a56732bf

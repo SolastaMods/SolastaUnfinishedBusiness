@@ -15,7 +15,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupTeleportationTitle",
+    "title": "Feat/&FeatGroupFeyTeleportTitle",
     "description": "Increase one of your mental attributes by 1, to a maximum of 20.\nYou can use misty step once per short rest, and you can cast this spell with your spell slots.\nYou gain proficiency in Tirmarian.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9975285e-172f-531f-b635-e72d33e69d91",
+  "guid": "75b3ad41-b691-5d33-837d-68dac2ecce7a",
   "contentPack": 9999,
-  "name": "FeatGroupTeleportation"
+  "name": "FeatGroupFeyTeleport"
 }

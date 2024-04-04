@@ -15,7 +15,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupPlaneTouchedMagicTitle",
+    "title": "Feat/&FeatGroupPlaneMagicTitle",
     "description": "Aegis Touched, Celestial Touched, Fey Teleportation, Flame Touched, Iridescent Touched, Peregrination Touched, Retinue Touched, Shadow Touched, Telekinetic, Verdant Touched",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "937ec083-fac8-53c1-8e3e-e19b79a1b415",
+  "guid": "8384bce4-37cf-5e61-87a7-6df96c3fa347",
   "contentPack": 9999,
-  "name": "FeatGroupPlaneTouchedMagic"
+  "name": "FeatGroupPlaneMagic"
 }
