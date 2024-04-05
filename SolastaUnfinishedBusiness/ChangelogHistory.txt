@@ -1,6 +1,7 @@
 1.5.97.4:
 
 - added Mage Slayer feat
+- fixed Artificer spell storing item menu with too many items
 - fixed Artillerist firearm, detonate, flamethrower, and fortified
 - fixed Maddening Hex and Relentless Hex interaction with Hexblade
 - fixed Merciless fighting style effect center point

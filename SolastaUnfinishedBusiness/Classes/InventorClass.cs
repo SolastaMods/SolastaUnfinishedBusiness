@@ -36,12 +36,16 @@ internal static class InventorClass
     private static int _infusionPoolIncreases;
     private static readonly List<FeatureDefinitionPowerSharedPool> SpellStoringItemPowers = [];
 
-    private static readonly FeatureDefinitionPower PowerInventorSpellStoringItem = FeatureDefinitionPowerBuilder
+    private static readonly FeatureDefinitionPower PowerInventorSpellStoringItem1 = FeatureDefinitionPowerBuilder
         .Create("PowerInventorSpellStoringItem")
         .SetGuiPresentation(Category.Feature, ItemDefinitions.WandMagicMissile)
-        .SetUsesFixed(
-            ActivationTime.Action,
-            RechargeRate.LongRest)
+        .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerInventorSpellStoringItem2 = FeatureDefinitionPowerBuilder
+        .Create("PowerInventorSpellStoringItem2")
+        .SetGuiPresentation("PowerInventorSpellStoringItem", Category.Feature, ItemDefinitions.WandMagicMissile)
+        .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
         .AddToDB();
 
     private static readonly int[] Costs = [0, 0, 0, 0, 0];
@@ -687,33 +691,48 @@ internal static class InventorClass
             Main.Error("found a null power when trying to switch a spell storing item");
         }
 
-        var subPowers = PowerInventorSpellStoringItem.GetBundle()?.SubPowers;
+        Switch(spell.SpellLevel == 1 ? PowerInventorSpellStoringItem1 : PowerInventorSpellStoringItem2, active);
 
-        if (active)
+        return;
+
+        static void Switch(FeatureDefinitionPower power, bool active)
         {
-            subPowers?.TryAdd(power);
-        }
-        else
-        {
-            subPowers?.Remove(power);
+            var subPowers = power.GetBundle()?.SubPowers;
+
+            if (active)
+            {
+                subPowers?.TryAdd(power);
+            }
+            else
+            {
+                subPowers?.Remove(power);
+            }
         }
     }
 
     internal static void LateLoadSpellStoringItem()
     {
-        Class.FeatureUnlocks.Add(new FeatureUnlockByLevel(BuildSpellStoringItem(), 11));
+        var featureSet = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetSpellStoringItem")
+            .SetGuiPresentation("PowerInventorSpellStoringItem", Category.Feature)
+            .AddFeatureSet(
+                BuildSpellStoringItem(1, PowerInventorSpellStoringItem1),
+                BuildSpellStoringItem(2, PowerInventorSpellStoringItem2))
+            .AddToDB();
+
+        Class.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSet, 11));
         Class.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    private static FeatureDefinitionPower BuildSpellStoringItem()
+    private static FeatureDefinitionPower BuildSpellStoringItem(int level, FeatureDefinitionPower power)
     {
         var spells = SpellsContext.Spells
-            .Where(x => x.SpellLevel is 1 or 2 && x.castingTime == ActivationTime.Action);
+            .Where(x => x.SpellLevel == level && x.castingTime == ActivationTime.Action);
 
         // build powers for all level 1 and 2 spells to allow better integration with custom spells selection
         SpellStoringItemPowers.AddRange(spells
             .Select(spell =>
-                BuildCreateSpellStoringItemPower(BuildWandOfSpell(spell), spell, PowerInventorSpellStoringItem)));
+                BuildCreateSpellStoringItemPower(BuildWandOfSpell(spell), spell, power)));
 
         // only register the ones indeed in the inventor spell list
         var inventorPowers = SpellStoringItemPowers
@@ -722,16 +741,11 @@ internal static class InventorClass
             .Cast<FeatureDefinitionPower>()
             .ToArray();
 
-        PowerBundle.RegisterPowerBundle(PowerInventorSpellStoringItem, true, inventorPowers);
+        PowerBundle.RegisterPowerBundle(power, true, inventorPowers);
+        ForceGlobalUniqueEffects.AddToGroup(
+            ForceGlobalUniqueEffects.Group.InventorSpellStoringItem, [.. inventorPowers]);
 
-        // need this extra step to avoid co-variant array conversion warning
-        var baseDefinitions = new List<BaseDefinition>();
-
-        baseDefinitions.AddRange(inventorPowers);
-        ForceGlobalUniqueEffects.AddToGroup(ForceGlobalUniqueEffects.Group.InventorSpellStoringItem,
-            [.. baseDefinitions]);
-
-        return PowerInventorSpellStoringItem;
+        return power;
     }
 
     private static FeatureDefinitionPowerSharedPool BuildCreateSpellStoringItemPower(
