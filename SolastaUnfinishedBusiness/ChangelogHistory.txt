@@ -2,6 +2,7 @@
 
 - added Mage Slayer feat
 - fixed Merciless fighting style effect center point
+- fixed Ranger Wildmaster bear additional HPs
 
 1.5.97.3:
 
