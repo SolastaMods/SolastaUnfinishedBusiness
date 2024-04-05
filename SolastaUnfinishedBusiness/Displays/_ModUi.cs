@@ -213,6 +213,7 @@ internal static class ModUi
         "VileBrew",
         "VitalityTransfer",
         "VoidGrasp",
+        "WardingBond",
         "WayOfSilhouette",
         "Weird",
         "WizardBladeDancer",
