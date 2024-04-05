@@ -23,7 +23,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
 {
     private const string Name = "SoulBlade";
     internal const string FullName = $"Patron{Name}";
-    internal const string ConditionHex = $"";
+    internal const string ConditionHex = $"Condition{Name}HexDefender";
 
     public PatronSoulBlade()
     {
