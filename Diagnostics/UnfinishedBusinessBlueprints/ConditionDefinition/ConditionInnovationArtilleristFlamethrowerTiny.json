@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityInnovationArtilleristFlamethrowerTiny:04a22078-4f03-5669-bf34-fb9188751216"
+    "Definition:ActionAffinityInnovationArtilleristFlamethrowerTiny:04a22078-4f03-5669-bf34-fb9188751216",
+    "Definition:PowerInnovationArtilleristFlamethrower:7cfd7fdb-f510-5f72-97af-61e945df19ae"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
