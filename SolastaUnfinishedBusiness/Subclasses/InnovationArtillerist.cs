@@ -1013,20 +1013,15 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     // Eldritch Detonation
 
-    private sealed class MagicEffectFinishedByMeEldritchDetonation : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeEldritchDetonation(FeatureDefinitionPower powerEldritchDetonation)
+        : IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerEldritchDetonation;
-
-        internal MagicEffectFinishedByMeEldritchDetonation(FeatureDefinitionPower powerEldritchDetonation)
-        {
-            _powerEldritchDetonation = powerEldritchDetonation;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var gameLocationTargetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
 
-            if (gameLocationTargetingService == null)
+            if (gameLocationTargetingService == null ||
+                Gui.Battle == null)
             {
                 yield break;
             }
@@ -1036,18 +1031,17 @@ public sealed class InnovationArtillerist : AbstractSubclass
             var selectedTarget = action.ActionParams.TargetCharacters[0];
             var targets = Gui.Battle.AllContenders
                 .Where(x =>
-                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && x.IsWithinRange(selectedTarget, 4))
+                    x != selectedTarget &&
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    x.IsWithinRange(selectedTarget, 4))
                 .ToList();
 
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(_powerEldritchDetonation, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerEldritchDetonation, rulesetCharacter);
             var effectPower = implementationManagerService
                 .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
-
-            gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
-                selectedTarget, effectPower.EffectDescription, targets, []);
 
             var actionParams = new CharacterActionParams(actingCharacter, Id.PowerNoCost)
             {

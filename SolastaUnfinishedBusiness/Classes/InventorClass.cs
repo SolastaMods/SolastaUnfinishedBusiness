@@ -34,7 +34,8 @@ internal static class InventorClass
     private static SpellListDefinition _spellList;
     private static FeatureDefinitionCastSpell _spellCasting;
     private static int _infusionPoolIncreases;
-    private static readonly List<FeatureDefinitionPowerSharedPool> SpellStoringItemPowers = [];
+    private static readonly List<FeatureDefinitionPowerSharedPool> SpellStoringItemPowers1 = [];
+    private static readonly List<FeatureDefinitionPowerSharedPool> SpellStoringItemPowers2 = [];
 
     private static readonly FeatureDefinitionPower PowerInventorSpellStoringItem1 = FeatureDefinitionPowerBuilder
         .Create("PowerInventorSpellStoringItem")
@@ -465,7 +466,6 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    //TODO: rework to be 1 feature
     internal static FeatureDefinition BuildInfusionPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
@@ -683,15 +683,35 @@ internal static class InventorClass
             return;
         }
 
-        var power = SpellStoringItemPowers.FirstOrDefault(x => x.SourceDefinition == spell);
-
-        // Main.Enabled as during initialization the powers weren't registered yet
-        if (Main.Enabled && power == null)
+        switch (spell.SpellLevel)
         {
-            Main.Error("found a null power when trying to switch a spell storing item");
-        }
+            case 1:
+            {
+                var power = SpellStoringItemPowers1.FirstOrDefault(x => x.SourceDefinition == spell);
 
-        Switch(spell.SpellLevel == 1 ? PowerInventorSpellStoringItem1 : PowerInventorSpellStoringItem2, active);
+                // Main.Enabled as during initialization the powers weren't registered yet
+                if (Main.Enabled && power == null)
+                {
+                    Main.Error("found a null power when trying to switch a spell storing item");
+                }
+
+                Switch(PowerInventorSpellStoringItem1, active);
+                break;
+            }
+            case 2:
+            {
+                var power = SpellStoringItemPowers2.FirstOrDefault(x => x.SourceDefinition == spell);
+
+                // Main.Enabled as during initialization the powers weren't registered yet
+                if (Main.Enabled && power == null)
+                {
+                    Main.Error("found a null power when trying to switch a spell storing item");
+                }
+
+                Switch(PowerInventorSpellStoringItem2, active);
+                break;
+            }
+        }
 
         return;
 
@@ -729,13 +749,15 @@ internal static class InventorClass
         var spells = SpellsContext.Spells
             .Where(x => x.SpellLevel == level && x.castingTime == ActivationTime.Action);
 
+        var spellStoringItems = level == 1 ? SpellStoringItemPowers1 : SpellStoringItemPowers2;
+
         // build powers for all level 1 and 2 spells to allow better integration with custom spells selection
-        SpellStoringItemPowers.AddRange(spells
+        spellStoringItems.AddRange(spells
             .Select(spell =>
                 BuildCreateSpellStoringItemPower(BuildWandOfSpell(spell), spell, power)));
 
         // only register the ones indeed in the inventor spell list
-        var inventorPowers = SpellStoringItemPowers
+        var inventorPowers = spellStoringItems
             .Where(x => SpellList
                 .ContainsSpell(x.SourceDefinition as SpellDefinition))
             .Cast<FeatureDefinitionPower>()
