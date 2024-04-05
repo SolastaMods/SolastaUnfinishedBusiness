@@ -1171,7 +1171,7 @@ internal static class InvocationsBuilders
     {
         return rulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionMalediction.Name)
                || rulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionCursed.Name)
-               || rulesetCharacter.HasConditionOfType("ConditionPatronSoulbladeHexDefender");
+               || rulesetCharacter.HasConditionOfType(PatronSoulBlade.ConditionHex);
     }
 
     private static (bool, string) ValidateHex(InvocationDefinition invocationDefinition, RulesetCharacterHero hero)

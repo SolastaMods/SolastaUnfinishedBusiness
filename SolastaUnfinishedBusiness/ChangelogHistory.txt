@@ -2,6 +2,7 @@
 
 - added Mage Slayer feat
 - fixed Artillerist firearm, detonate, flamethrower, and fortified
+- fixed Maddening Hex and Relentless Hex interaction with Hexblade
 - fixed Merciless fighting style effect center point
 - fixed Wildmaster bear companion additional HPs
 
