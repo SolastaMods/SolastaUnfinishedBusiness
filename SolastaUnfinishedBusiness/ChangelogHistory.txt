@@ -1,8 +1,9 @@
 1.5.97.4:
 
 - added Mage Slayer feat
+- fixed Artillerist firearm, detonate, flamethrower, and fortified
 - fixed Merciless fighting style effect center point
-- fixed Ranger Wildmaster bear additional HPs
+- fixed Wildmaster bear companion additional HPs
 
 1.5.97.3:
 
