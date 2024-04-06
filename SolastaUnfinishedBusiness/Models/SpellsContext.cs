@@ -283,8 +283,6 @@ internal static class SpellsContext
         RegisterSpell(PsychicWhip, 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
-        DatabaseHelper.SpellDefinitions.WardingBond.contentPack = CeContentPackContext.CeContentPack;
-        RegisterSpell(DatabaseHelper.SpellDefinitions.WardingBond, 0, SpellListCleric);
         RegisterSpell(Web, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 
         // 3rd level
