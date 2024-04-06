@@ -1192,6 +1192,7 @@ internal static class OtherFeats
                     ConditionDefinitionBuilder
                         .Create($"Condition{FeatMageSlayerName}")
                         .SetGuiPresentation(FeatMageSlayerName, Category.Feat, Gui.NoLocalization)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
                         .AddFeatures(FeatureDefinitionMagicAffinityBuilder
                             .Create($"MagicAffinity{FeatMageSlayerName}")
                             .SetGuiPresentation(FeatMageSlayerName, Category.Feat)
@@ -1287,7 +1288,7 @@ internal static class OtherFeats
                 defender != helper ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
-                effectDescription?.savingThrowDifficultyAbility is not
+                effectDescription?.savingThrowAbility is not
                     (AttributeDefinitions.Intelligence or AttributeDefinitions.Wisdom or AttributeDefinitions.Charisma))
             {
                 yield break;
@@ -1295,12 +1296,14 @@ internal static class OtherFeats
 
             var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
-                StringParameter = "CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name)
+                StringParameter = "Reaction/&CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name)
             };
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToSpendPower(reactionParams);
+            var reactionRequest = new ReactionRequestCustom("MageSlayer", reactionParams);
+
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
             yield return battleManager.WaitForReactions(attacker, actionService, count);
 
@@ -1330,7 +1333,8 @@ internal static class OtherFeats
 
             var (attackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(caster);
 
-            if (attackMode == null)
+            if (attackMode == null ||
+                !defender.CanReact())
             {
                 yield break;
             }
