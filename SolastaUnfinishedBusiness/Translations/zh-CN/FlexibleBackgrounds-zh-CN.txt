@@ -1,12 +1,12 @@
-Background/&PointPoolBackgroundSkillSelect1Description=选择1个技能熟练度。
+Background/&PointPoolBackgroundSkillSelect1Description=选择 1 个技能熟练项。
 Background/&PointPoolBackgroundSkillSelect1Title=技能
-Background/&PointPoolBackgroundSkillSelect2Description=选择2个技能熟练项。
+Background/&PointPoolBackgroundSkillSelect2Description=选择 2 个技能熟练项。
 Background/&PointPoolBackgroundSkillSelect2Title=技能
-Background/&PointPoolBackgroundSkillSelect3Description=选择3个技能熟练项。
+Background/&PointPoolBackgroundSkillSelect3Description=选择 3 个技能熟练项。
 Background/&PointPoolBackgroundSkillSelect3Title=技能
-Background/&PointPoolBackgroundToolSelect2Description=选择2个工具熟练项。
+Background/&PointPoolBackgroundToolSelect2Description=选择 2 个工具熟练项。
 Background/&PointPoolBackgroundToolSelect2Title=工具
-Background/&PointPoolBackgroundToolSelectDescription=选择工具熟练项。
+Background/&PointPoolBackgroundToolSelectDescription=选择 1 个工具熟练项。
 Background/&PointPoolBackgroundToolSelectTitle=工具
 Background/&SuggestedSkillsAcademicBackgroundDescription=奥秘，自然和洞悉。
 Background/&SuggestedSkillsAcademicBackgroundTitle=推荐技能
