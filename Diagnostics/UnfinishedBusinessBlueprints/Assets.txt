@@ -1100,6 +1100,9 @@ FeatDeadeye	FeatDefinition	FeatDefinition	0e725cf6-1b88-5534-ab03-1f6d1a71454a
 FeatDefense	FeatDefinitionWithPrerequisites	FeatDefinition	a13f121b-4a09-50e7-867a-334ae5354112
 FeatDefensiveDuelist	FeatDefinition	FeatDefinition	d1199d7a-4173-53cb-9fe8-f0f2ecf22268
 FeatDevastatingStrikes	FeatDefinition	FeatDefinition	ca663b00-d67c-5c2a-8152-3fa0776446c4
+FeatDragonFearCha	FeatDefinitionWithPrerequisites	FeatDefinition	06b1f905-07cf-5d9d-8661-78fc7505fe7e
+FeatDragonFearCon	FeatDefinitionWithPrerequisites	FeatDefinition	b68488ec-f38a-5e7d-9cc4-783472ff3599
+FeatDragonFearStr	FeatDefinitionWithPrerequisites	FeatDefinition	41d8750f-90a2-5245-a003-e6e722af0b46
 FeatDragonWings	FeatDefinitionWithPrerequisites	FeatDefinition	88c27267-9a5d-5756-9193-6ac6262071d7
 FeatDualFlurry	FeatDefinition	FeatDefinition	35fc6f50-0114-581e-b387-10cc3fd85eac
 FeatDualWeaponDefense	FeatDefinition	FeatDefinition	6bf7da81-c996-51e3-b723-6d9c4878a8ea
@@ -1156,6 +1159,7 @@ FeatGroupCreed	FeatDefinition	FeatDefinition	fa6d77ba-64d9-5e53-807b-375a3239f17
 FeatGroupCrusher	FeatDefinition	FeatDefinition	2b736153-fa6a-509c-8447-e9edb59b2cc4
 FeatGroupDefenseCombat	FeatDefinition	FeatDefinition	41b14fa2-53a6-57cd-9655-ae19d9ffe57a
 FeatGroupDefenseExpert	FeatDefinition	FeatDefinition	66e3f8c9-5bc1-5415-b2a3-0631450564a9
+FeatGroupDragonFear	FeatDefinitionWithPrerequisites	FeatDefinition	6205c79e-4051-5a70-8fd3-6a9b1cd70c9c
 FeatGroupElementalAdept	FeatDefinition	FeatDefinition	60c01354-01f3-5375-bae9-06def82b8f58
 FeatGroupElementalMaster	FeatDefinition	FeatDefinition	60495c2d-1dd3-5139-81a9-28fc8bd648c2
 FeatGroupElementalTouch	FeatDefinition	FeatDefinition	66f44d06-1557-52db-a92a-a97d3b993e41
@@ -2809,6 +2813,7 @@ PowerFeatCleavingAttackTurnOff	FeatureDefinitionPower	FeatureDefinition	d8ee2c18
 PowerFeatDeadeye	FeatureDefinitionPower	FeatureDefinition	6b6652ad-65b7-566f-b7bd-9e39cec7c35a
 PowerFeatDeadeyeTurnOff	FeatureDefinitionPower	FeatureDefinition	010980db-5af3-5c2c-866f-f14171d83568
 PowerFeatDefensiveDuelist	FeatureDefinitionPower	FeatureDefinition	4940450d-ded7-58fe-8fc8-e6ff8cff27d0
+PowerFeatDragonFear	FeatureDefinitionPower	FeatureDefinition	ca4272e3-9ab1-584b-bfbd-1ec7995d286a
 PowerFeatDragonWings	FeatureDefinitionPower	FeatureDefinition	513ddaaa-a69e-5e71-a68a-d5b7862a04e4
 PowerFeatFadeAwayInvisible	FeatureDefinitionPower	FeatureDefinition	8de79a66-fafc-5582-b685-fd05c2bc61e6
 PowerFeatFellHandedAdvantage	FeatureDefinitionPower	FeatureDefinition	6634f39d-7b2f-57ee-ac9b-bdd86bdc4b1e
@@ -5196,6 +5201,7 @@ PowerFeatCleavingAttackTurnOff	FeatureDefinitionPower	FeatureDefinitionPower	d8e
 PowerFeatDeadeye	FeatureDefinitionPower	FeatureDefinitionPower	6b6652ad-65b7-566f-b7bd-9e39cec7c35a
 PowerFeatDeadeyeTurnOff	FeatureDefinitionPower	FeatureDefinitionPower	010980db-5af3-5c2c-866f-f14171d83568
 PowerFeatDefensiveDuelist	FeatureDefinitionPower	FeatureDefinitionPower	4940450d-ded7-58fe-8fc8-e6ff8cff27d0
+PowerFeatDragonFear	FeatureDefinitionPower	FeatureDefinitionPower	ca4272e3-9ab1-584b-bfbd-1ec7995d286a
 PowerFeatDragonWings	FeatureDefinitionPower	FeatureDefinitionPower	513ddaaa-a69e-5e71-a68a-d5b7862a04e4
 PowerFeatFadeAwayInvisible	FeatureDefinitionPower	FeatureDefinitionPower	8de79a66-fafc-5582-b685-fd05c2bc61e6
 PowerFeatFellHandedAdvantage	FeatureDefinitionPower	FeatureDefinitionPower	6634f39d-7b2f-57ee-ac9b-bdd86bdc4b1e

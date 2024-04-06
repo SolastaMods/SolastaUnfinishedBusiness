@@ -35,6 +35,7 @@ internal static class RaceFeats
         var featDwarvenFortitude = BuildDwarvenFortitude();
         var featInfernalConstitution = BuildInfernalConstitution();
         var featWoodElfMagic = BuildWoodElfMagic();
+        var featGroupDragonFear = BuildDragonFear(feats);
         var featGroupsElvenAccuracy = BuildElvenAccuracy(feats);
         var featGroupFadeAway = BuildFadeAway(feats);
         var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
@@ -59,6 +60,7 @@ internal static class RaceFeats
             featDwarvenFortitude,
             featInfernalConstitution,
             featWoodElfMagic,
+            featGroupDragonFear,
             featGroupsElvenAccuracy,
             featGroupFadeAway,
             featGroupFlamesOfPhlegethos,
@@ -429,6 +431,103 @@ internal static class RaceFeats
             .AddToDB();
 
         return feat;
+    }
+
+    #endregion
+
+    #region Dragon Fear
+
+    private static FeatDefinition BuildDragonFear(List<FeatDefinition> feats)
+    {
+        const string DragonFear = "DragonFear";
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatDragonFear")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Charisma, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new MagicEffectFinishedByMeAnyDragonFear(power));
+
+        var featDragonFearStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatDragonFearStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(power, AttributeModifierCreed_Of_Einar)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .AddToDB();
+
+        var featDragonFearCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatDragonFearCon")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(power, AttributeModifierCreed_Of_Arun)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .AddToDB();
+
+        var featDragonFearCha = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatDragonFearCha")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(power, AttributeModifierCreed_Of_Solasta)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .AddToDB();
+
+        feats.AddRange(featDragonFearStr, featDragonFearCon, featDragonFearCha);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupDragonFear",
+            DragonFear,
+            ValidatorsFeat.IsDragonborn,
+            featDragonFearStr,
+            featDragonFearCon,
+            featDragonFearCha);
+    }
+
+    private sealed class MagicEffectFinishedByMeAnyDragonFear(
+        FeatureDefinitionPower powerDragonFear) : IMagicEffectFinishedByMeAny
+    {
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            if (action.ActionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
+            {
+                yield break;
+            }
+
+            RulesetUsablePower usablePower;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetEffectPower.PowerDefinition.Name.StartsWith("PowerDragonbornBreathWeapon"))
+            {
+                usablePower = PowerProvider.Get(powerDragonFear, rulesetAttacker);
+                rulesetAttacker.UsePower(usablePower);
+            }
+            else if (rulesetEffectPower.PowerDefinition == powerDragonFear)
+            {
+                usablePower = rulesetAttacker.UsablePowers.FirstOrDefault(x =>
+                    x.PowerDefinition.Name.StartsWith("PowerDragonbornBreathWeapon"));
+
+                if (usablePower != null)
+                {
+                    rulesetAttacker.UsePower(usablePower);
+                }
+            }
+        }
     }
 
     #endregion
