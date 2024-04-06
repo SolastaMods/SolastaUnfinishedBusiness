@@ -88,7 +88,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Build())
             .AddCustomSubFeatures(
                 HasModifiedUses.Marker,
-                IsModifyPowerPool.Marker,
                 ReactionResourceArcaneShot.Instance,
                 new SpendPowerFinishedByMeArcaneShot(),
                 new RestrictReactionAttackMode((_, attacker, _, _, _) =>

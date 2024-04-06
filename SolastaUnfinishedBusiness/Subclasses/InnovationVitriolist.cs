@@ -57,7 +57,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .Build())
-            .AddCustomSubFeatures(IsModifyPowerPool.Marker, HasModifiedUses.Marker)
+            .AddCustomSubFeatures(HasModifiedUses.Marker)
             .AddToDB();
 
         var powerUseModifierMixtureIntelligenceModifier = FeatureDefinitionPowerUseModifierBuilder

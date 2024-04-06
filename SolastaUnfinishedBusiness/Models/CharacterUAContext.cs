@@ -950,7 +950,6 @@ internal static partial class CharacterContext
 
         powerPool.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            IsModifyPowerPool.Marker,
             new CustomBehaviorCunningStrike(powerPool));
 
         // Disarm

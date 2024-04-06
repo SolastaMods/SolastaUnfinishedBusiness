@@ -43,11 +43,12 @@ internal static class InventorClass
         .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
         .AddToDB();
 
-    private static readonly FeatureDefinitionPower PowerInventorSpellStoringItem2 = FeatureDefinitionPowerBuilder
-        .Create("PowerInventorSpellStoringItem2")
-        .SetGuiPresentation("PowerInventorSpellStoringItem", Category.Feature, ItemDefinitions.WandMagicMissile)
-        .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-        .AddToDB();
+    private static readonly FeatureDefinitionPower PowerInventorSpellStoringItem2 =
+        FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerInventorSpellStoringItem2")
+            .SetGuiPresentation("PowerInventorSpellStoringItem", Category.Feature, ItemDefinitions.WandMagicMissile)
+            .SetSharedPool(ActivationTime.Action, PowerInventorSpellStoringItem1)
+            .AddToDB();
 
     private static readonly int[] Costs = [0, 0, 0, 0, 0];
 
@@ -598,7 +599,6 @@ internal static class InventorClass
             .SetGuiPresentation(InfusionsName, Category.Feature)
             .AddCustomSubFeatures(
                 HasModifiedUses.Marker,
-                IsModifyPowerPool.Marker,
                 ModifyPowerVisibility.Hidden)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 0)
             .AddToDB();

@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
@@ -114,6 +115,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
                 HasModifiedUses.Marker,
+                IsModifyPowerPool.Marker,
                 ModifyPowerVisibility.Hidden,
                 new ValidatorsValidatePowerUse(HasInjuredDefender),
                 new ModifyRestPowerTitleHandler(GetRestPowerTitle),
