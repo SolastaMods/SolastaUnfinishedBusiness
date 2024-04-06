@@ -2,7 +2,7 @@
 
 - added Burning Hex and Chilling Hex invocations
 - added Conjure Goblinoids spell [suggested to Druid and Ranger]
-- added Dark-Elf Magic, Mage Slayer, and Wood-Elf Magic feats
+- added Dark-Elf Magic, Dragon Fear, Dragon Hide, Mage Slayer, and Wood-Elf Magic feats
 - fixed Artificer spell storing item menu with too many items [2 powers instead of 1]
 - fixed Artillerist firearm [wrong dice], detonate [wrong area], flamethrower [wrong DC], and fortified [always active]
 - fixed Destructive Wave necrotic sub spell requiring concentration
