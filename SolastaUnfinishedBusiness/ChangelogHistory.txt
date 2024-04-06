@@ -6,6 +6,7 @@
 - fixed Artillerist firearm, detonate, flamethrower, and fortified
 - fixed Maddening Hex and Relentless Hex interaction with Hexblade
 - fixed Merciless fighting style effect center point
+- fixed Vitriolist refund mixtures and paragon
 - fixed Wildmaster bear companion additional HPs
 
 1.5.97.3:

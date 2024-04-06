@@ -265,8 +265,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionInnovationVitriolistArsenalTitle",
-    "description": "Condition/&ConditionInnovationVitriolistArsenalDescription",
+    "title": "Rules/&ConditionShockedTitle",
+    "description": "Rules/&ConditionShockedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "37a0b9c04d666bc4eaf93a2a5ad0e2d2",
