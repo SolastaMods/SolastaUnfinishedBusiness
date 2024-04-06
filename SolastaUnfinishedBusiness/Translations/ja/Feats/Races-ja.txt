@@ -48,3 +48,7 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosDescription=フレゲトスの炎に点�
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=フレゲトスの炎に点火することができます。
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=フレゲトスの炎
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=フレゲトスの炎
+Tag/&DarkElfMagicCantripSpecialTagTitle=ダークエルフの魔法のキャントリップ
+Tag/&DarkElfMagicSpellSpecialTagTitle=ダークエルフの魔法の呪文
+Tag/&WoodElfMagicCantripSpecialTagTitle=ウッドエルフの魔法のキャントリップ
+Tag/&WoodElfMagicSpellSpecialTagTitle=ウッドエルフの魔法の呪文

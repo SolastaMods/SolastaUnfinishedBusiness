@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -302,40 +303,51 @@ internal static class RaceFeats
     {
         const string Name = "FeatDarkElfMagic";
 
-        var powerDetectMagic = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}DetectMagic")
-            .SetGuiPresentation(DetectMagic.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(DetectMagic)
-                    .Build())
+        var detectMagicCantrip = SpellDefinitionBuilder
+            .Create(DetectMagic, "DetectMagicCantrip")
+            .SetSpellLevel(0)
             .AddToDB();
 
-        var powerLevitate = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Levitate")
-            .SetGuiPresentation(Levitate.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(Levitate)
-                    .Build())
+        var spellListCantrip = SpellListDefinitionBuilder
+            .Create($"SpellList{Name}")
+            .SetGuiPresentationNoContent(true)
+            .ClearSpells()
+            .SetSpellsAtLevel(0, detectMagicCantrip)
+            .SetSpellsAtLevel(1, DispelMagic, Levitate)
+            .FinalizeSpells(true, 1)
             .AddToDB();
 
-        var powerDispelMagic = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}DispelMagic")
-            .SetGuiPresentation(DispelMagic.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(DispelMagic)
-                    .Build())
+        var castSpell = FeatureDefinitionCastSpellBuilder
+            .Create($"CastSpell{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+            .SetSpellKnowledge(SpellKnowledge.Selection)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.LongRest)
+            .SetSlotsPerLevel(SharedSpellsContext.InitiateCastingSlots)
+            .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetReplacedSpells(1, 0)
+            .AddCustomSubFeatures(new OtherFeats.SpellTag("DarkElfMagic"))
+            .SetSpellList(spellListCantrip)
+            .AddToDB();
+
+        var pointPoolCantrip = FeatureDefinitionPointPoolBuilder
+            .Create($"PointPool{Name}Cantrip")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellListCantrip, "DarkElfMagic")
+            .AddToDB();
+
+        var pointPoolSpell = FeatureDefinitionPointPoolBuilder
+            .Create($"PointPool{Name}Spell")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 2, spellListCantrip, "DarkElfMagic")
             .AddToDB();
 
         var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(powerDetectMagic, powerLevitate, powerDispelMagic)
+            .SetFeatures(castSpell, pointPoolCantrip, pointPoolSpell)
             .SetValidators(ValidatorsFeat.IsDarkElfOrHalfElfDark)
             .AddToDB();
 
@@ -353,43 +365,45 @@ internal static class RaceFeats
         var spellListCantrip = SpellListDefinitionBuilder
             .Create($"SpellList{Name}")
             .SetGuiPresentationNoContent(true)
-            .FinalizeSpells()
+            .ClearSpells()
+            .SetSpellsAtLevel(1, PassWithoutTrace, Longstrider)
+            .FinalizeSpells(true, 1)
             .AddToDB();
 
         //explicitly re-use druid spell list, so custom cantrips selected for druid will show here 
         spellListCantrip.SpellsByLevel[0].Spells = SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells;
 
-        var castSpellCantrip = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, $"CastSpell{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
+        var castSpell = FeatureDefinitionCastSpellBuilder
+            .Create($"CastSpell{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+            .SetSpellKnowledge(SpellKnowledge.Selection)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.LongRest)
+            .SetSlotsPerLevel(SharedSpellsContext.InitiateCastingSlots)
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetReplacedSpells(1, 0)
+            .AddCustomSubFeatures(new OtherFeats.SpellTag("WoodElfMagic"))
             .SetSpellList(spellListCantrip)
             .AddToDB();
 
-        var powerLongstrider = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Longstrider")
-            .SetGuiPresentation(Longstrider.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(Longstrider)
-                    .Build())
+        var pointPoolCantrip = FeatureDefinitionPointPoolBuilder
+            .Create($"PointPool{Name}Cantrip")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellListCantrip, "WoodElfMagic")
             .AddToDB();
 
-        var powerPassWithoutTrace = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}PassWithoutTrace")
-            .SetGuiPresentation(PassWithoutTrace.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(PassWithoutTrace)
-                    .Build())
+        var pointPoolSpell = FeatureDefinitionPointPoolBuilder
+            .Create($"PointPool{Name}Spell")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 2, spellListCantrip, "WoodElfMagic")
             .AddToDB();
 
         var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(castSpellCantrip, powerLongstrider, powerPassWithoutTrace)
+            .SetFeatures(castSpell, pointPoolCantrip, pointPoolSpell)
             .SetValidators(ValidatorsFeat.IsSylvanElf)
             .AddToDB();
 

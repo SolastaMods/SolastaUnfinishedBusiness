@@ -12,9 +12,9 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PowerFeatDarkElfMagicDetectMagic:5d364b77-c388-5339-96dc-b3ebe44c2110",
-    "Definition:PowerFeatDarkElfMagicDispelMagic:ed35564f-985b-5c6a-8ed4-3887f06ef07b",
-    "Definition:PowerFeatDarkElfMagicLevitate:f182572a-145f-5b99-b45f-7048c96de81b"
+    "Definition:CastSpellFeatDarkElfMagic:6fb3273c-08be-5009-975a-dfcf5384dfe5",
+    "Definition:PointPoolFeatDarkElfMagicCantrip:fd956d8b-b301-59f6-afc0-bbf280a3fbc0",
+    "Definition:PointPoolFeatDarkElfMagicSpell:52448c4a-bc36-5fed-9205-ede1f740087e"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

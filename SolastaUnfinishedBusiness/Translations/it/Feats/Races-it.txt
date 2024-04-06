@@ -48,3 +48,7 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosDescription=Puoi accendere le tue Fiamme
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=Puoi accendere le tue Fiamme di Flegeto.
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Fiamme di Flegeto
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Fiamme di Flegeto
+Tag/&DarkElfMagicCantripSpecialTagTitle=Trucchetti magici degli Elfi Oscuri
+Tag/&DarkElfMagicSpellSpecialTagTitle=Incantesimi magici degli Elfi Oscuri
+Tag/&WoodElfMagicCantripSpecialTagTitle=Trucchetti magici degli Elfi Silvani
+Tag/&WoodElfMagicSpellSpecialTagTitle=Incantesimi magici degli Elfi Silvani

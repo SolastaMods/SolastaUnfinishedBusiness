@@ -13,8 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:CastSpellFeatWoodElfMagic:8514aa49-b23f-572f-8ec6-a33c5942d7b2",
-    "Definition:PowerFeatWoodElfMagicLongstrider:a0662c21-2946-50a8-a5b7-3d01174152cd",
-    "Definition:PowerFeatWoodElfMagicPassWithoutTrace:b974878c-7227-55ae-97ed-ef5cd1ac1569"
+    "Definition:PointPoolFeatWoodElfMagicCantrip:1ff209e8-5014-5601-8748-d5cb8197e8ff",
+    "Definition:PointPoolFeatWoodElfMagicSpell:ed2e344f-25b1-5247-a572-0a66e7157157"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -48,3 +48,7 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosDescription=Du kannst deine Flammen von 
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=Du kannst deine Flammen von Phlegethos entzünden.
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Flammen von Phlegethos
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Flammen von Phlegethos
+Tag/&DarkElfMagicCantripSpecialTagTitle=Dunkelelfen-Magie-Cantrips
+Tag/&DarkElfMagicSpellSpecialTagTitle=Zaubersprüche der Dunkelelfen
+Tag/&WoodElfMagicCantripSpecialTagTitle=Waldelfen-Magie-Cantrips
+Tag/&WoodElfMagicSpellSpecialTagTitle=Zaubersprüche der Waldelfen

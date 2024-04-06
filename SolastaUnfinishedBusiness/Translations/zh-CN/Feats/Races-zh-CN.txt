@@ -48,3 +48,7 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosDescription=点燃弗莱格索斯之焰�
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=点燃弗莱格索斯之焰。
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=弗莱格索斯之焰
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=弗莱格索斯之焰
+Tag/&DarkElfMagicCantripSpecialTagTitle=黑暗精灵魔法戏法
+Tag/&DarkElfMagicSpellSpecialTagTitle=黑暗精灵魔法咒语
+Tag/&WoodElfMagicCantripSpecialTagTitle=木精灵魔法戏法
+Tag/&WoodElfMagicSpellSpecialTagTitle=木精灵魔法咒语

@@ -48,3 +48,7 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosDescription=Vous pouvez allumer vos Flam
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=Vous pouvez allumer vos Flammes de Phlegethos.
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Flammes de Phlégéthos
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Flammes de Phlégéthos
+Tag/&DarkElfMagicCantripSpecialTagTitle=Cantrips magiques des elfes noirs
+Tag/&DarkElfMagicSpellSpecialTagTitle=Sorts magiques des elfes noirs
+Tag/&WoodElfMagicCantripSpecialTagTitle=Cantrips magiques des elfes des bois
+Tag/&WoodElfMagicSpellSpecialTagTitle=Sorts magiques des elfes des bois
