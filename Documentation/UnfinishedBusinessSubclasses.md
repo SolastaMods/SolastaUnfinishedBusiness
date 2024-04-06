@@ -257,7 +257,7 @@ Starting at 3rd level, you gain the ability to use a Vitriolic Mixture of your o
 • Corrosion: On a hit the creature takes 2d8 acid damage. The creature also gets the AC reduced by 2 until the end of their next turn.
 • Misery: On a hit the creature takes 2d8 acid damage which lingers on their skin dealing an additional 2d4 acid damage at the end of their next turn.
 • Viscosity: On a hit the creature takes 2d8 acid damage. The creature is also confused until the end of their next turn.
-All damage dice increase at 7th, 14th, and 18th levels.
+All damage dice increase at 7th, 14th, and 18th levels. You can use this feature a number of times per long rest equal to your proficiency bonus + Intelligence modifier.
 
 * Vitriolist Spells
 
@@ -295,7 +295,7 @@ You have learned to make your Vitriolic Mixture's so potent that they are able t
 
 * Vitriolist Paragon
 
-Starting at 15th level, you have mastered your Vitriolic Mixtures. Whenever a creature is affected by any of your Vitriolic Mixtures it must now also succeed a Wisdom Saving throw or it will become Paralyzed as your mixture slowly consumes it.
+Starting at 15th level, you have mastered your Vitriolic Mixtures. Whenever a creature is affected by any of your Vitriolic Mixtures it must now also succeed a Constitution Saving throw or it will become Incapacitated as your mixture slowly consumes it.
 
 
 

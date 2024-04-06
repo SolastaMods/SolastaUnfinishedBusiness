@@ -1,20 +1,24 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionRestrained:ec9fa707d4174c54bbdecde60a860c2c",
-  "conditionType": "Detrimental",
-  "features": [],
+  "parentCondition": "Definition:ConditionIncapacitated:24d96cfe3b77b9a4b951bfb0e02fc018",
+  "conditionType": "Neutral",
+  "features": [
+    "Definition:ActionAffinityConditionIncapacitated:0a38f5c8f6d13a0479249a8e935f64c0",
+    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc",
+    "Definition:MagicAffinityCantConcentrate:054b51a209a98f340ae1e96dc75b7079"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
+  "specialDuration": true,
   "durationType": "Round",
-  "durationParameterDie": "D4",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "EndOfSourceTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -38,19 +42,19 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "d8e73c164ff3dad4197a0e0830c6573e",
+    "m_AssetGUID": "14c7cbd4107c3da46bf04c894e4a61be",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "4f7aac5a0d8b3a74aa5c75817922ef5e",
+    "m_AssetGUID": "2493405866ecdfb4290d962e2ee3ab92",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "637c9a990c79eb249beaf07c80aae51a",
+    "m_AssetGUID": "211c37507a1ae35419d899c49a2712a3",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -263,12 +267,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionRestrainedTitle",
-    "description": "Rules/&ConditionRestrainedDescription",
+    "title": "Rules/&ConditionIncapacitatedTitle",
+    "description": "Rules/&ConditionIncapacitatedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",
-      "m_SubObjectName": "ConditionRestrained",
+      "m_AssetGUID": "cfdf2152d04bcff41aab30fd13412ad6",
+      "m_SubObjectName": "ConditionIncapacitated",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -284,7 +288,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "398c926b-07ec-56dc-bd63-c7a33ccde61c",
+  "guid": "32b62b7e-00a4-5769-ac28-ccfa7d6db963",
   "contentPack": 9999,
-  "name": "ConditionMartialArcaneArcherGraspingArrow"
+  "name": "ConditionInnovationVitriolistParagon"
 }

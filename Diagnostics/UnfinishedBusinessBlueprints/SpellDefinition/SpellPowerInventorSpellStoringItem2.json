@@ -2,13 +2,17 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
   "subspellsList": [
-    "Definition:SpellPowerCreateSpellStoringWandOfCureWounds:266af657-efd7-52ff-9e78-17ac1538ca14",
-    "Definition:SpellPowerCreateSpellStoringWandOfDetectMagic:445d8d95-70c2-58f8-b594-e7e64699a380",
-    "Definition:SpellPowerCreateSpellStoringWandOfFaerieFire:87a7f66d-7441-5302-aeaf-7917e4859b08",
-    "Definition:SpellPowerCreateSpellStoringWandOfFalseLife:a7ba596a-c1c3-5ff4-be37-9e5f4b403bb5",
-    "Definition:SpellPowerCreateSpellStoringWandOfGrease:950f86e9-f52f-5706-aef0-2ec4cbf1ce24",
-    "Definition:SpellPowerCreateSpellStoringWandOfJump:2a1c6a52-abf3-5eb4-b05c-1dd1d51f73ad",
-    "Definition:SpellPowerCreateSpellStoringWandOfLongstrider:75212485-bfb8-5fa1-987d-cc85d4c45515"
+    "Definition:SpellPowerCreateSpellStoringWandOfAid:6918f728-abe9-5d29-8fe1-4615b153f054",
+    "Definition:SpellPowerCreateSpellStoringWandOfBlur:df53557a-f022-5107-821c-f9ffec20339d",
+    "Definition:SpellPowerCreateSpellStoringWandOfDarkvision:d59b80ea-a878-589f-bd83-7859e6a5abc8",
+    "Definition:SpellPowerCreateSpellStoringWandOfEnhanceAbility:5a1c2af1-e06d-59cc-b36a-58c911c1c79c",
+    "Definition:SpellPowerCreateSpellStoringWandOfHeatMetal:fa4b2cea-7954-590d-9583-ca765b374ee6",
+    "Definition:SpellPowerCreateSpellStoringWandOfInvisibility:3d5d8b2b-61ad-5713-9e57-bb3e0b10771c",
+    "Definition:SpellPowerCreateSpellStoringWandOfLesserRestoration:74829b05-e117-5bbd-8c88-8ae6ad144f35",
+    "Definition:SpellPowerCreateSpellStoringWandOfLevitate:65faa1e8-8d58-5fba-809b-ad687f339c86",
+    "Definition:SpellPowerCreateSpellStoringWandOfProtectionFromPoison:14464b01-5974-5845-8f44-3255661ac027",
+    "Definition:SpellPowerCreateSpellStoringWandOfSeeInvisibility:013ae371-c645-5d7f-86a8-c29edea9de61",
+    "Definition:SpellPowerCreateSpellStoringWandOfSpiderClimb:afc50e93-bfce-5358-9e57-63e8738ec40e"
   ],
   "compactSubspellsTooltip": false,
   "implemented": true,
@@ -195,7 +199,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9554c142-baca-5de1-b372-80e38aab6194",
+  "guid": "1bfeae12-cf8a-5368-aecf-0ab93e2ce62f",
   "contentPack": 9999,
-  "name": "SpellPowerInventorSpellStoringItem"
+  "name": "SpellPowerInventorSpellStoringItem2"
 }

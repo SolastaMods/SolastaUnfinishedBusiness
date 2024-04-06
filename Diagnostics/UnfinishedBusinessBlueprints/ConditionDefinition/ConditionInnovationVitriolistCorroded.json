@@ -134,8 +134,8 @@
     "description": "Condition/&ConditionInnovationVitriolistCorrodedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f554d88f62e1e2346a7e7420f554ce64",
-      "m_SubObjectName": "ConditionWarningEncumbered",
+      "m_AssetGUID": "194beb1762264e64c9bef59db437cac5",
+      "m_SubObjectName": "HeatMetal",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
