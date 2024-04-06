@@ -551,7 +551,15 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeForce, 3, DieType.D8)
-                            .Build())
+                            .Build(),
+                        EffectFormBuilder
+                            .ConditionForm(conditionFlamethrowerTiny, ConditionForm.ConditionOperation.Remove, true,
+                                true),
+                        EffectFormBuilder
+                            .ConditionForm(conditionForceBallistaTiny, ConditionForm.ConditionOperation.Remove, true,
+                                true),
+                        EffectFormBuilder
+                            .ConditionForm(conditionProtectorTiny, ConditionForm.ConditionOperation.Remove, true, true))
                     .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(
@@ -906,6 +914,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .Build())
             .SetUniqueInstance()
             .AddCustomSubFeatures(
+                ModifyPowerVisibility.Hidden,
                 SkipEffectRemovalOnLocationChange.Always,
                 CannonLimiter)
             .AddToDB();
