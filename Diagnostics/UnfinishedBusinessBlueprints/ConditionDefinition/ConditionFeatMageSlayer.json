@@ -7,8 +7,8 @@
     "Definition:MagicAffinityFeatMageSlayer:c405c8a0-9ba5-5b41-aefc-18efe87c1a67"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,

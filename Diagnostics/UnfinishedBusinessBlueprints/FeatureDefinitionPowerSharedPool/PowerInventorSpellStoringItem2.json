@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",

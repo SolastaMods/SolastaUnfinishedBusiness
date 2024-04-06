@@ -12,9 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:CastSpellFeatDarkElfMagic:6fb3273c-08be-5009-975a-dfcf5384dfe5",
-    "Definition:PointPoolFeatDarkElfMagicCantrip:fd956d8b-b301-59f6-afc0-bbf280a3fbc0",
-    "Definition:PointPoolFeatDarkElfMagicSpell:52448c4a-bc36-5fed-9205-ede1f740087e"
+    "Definition:CastSpellFeatDarkElfMagic:6fb3273c-08be-5009-975a-dfcf5384dfe5"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

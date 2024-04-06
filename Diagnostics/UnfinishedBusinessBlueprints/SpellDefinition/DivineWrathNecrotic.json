@@ -11,7 +11,7 @@
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
-  "requiresConcentration": true,
+  "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",

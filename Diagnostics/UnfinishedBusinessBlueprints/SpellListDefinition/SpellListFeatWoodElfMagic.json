@@ -21,14 +21,15 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 1,
       "spells": [
-        "Definition:Longstrider:79bd842bd1a7d65499d148a671f7ce83",
-        "Definition:PassWithoutTrace:f6e7156667938ea48ba53c669cc59019"
+        "Definition:Longstrider:79bd842bd1a7d65499d148a671f7ce83"
       ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 2,
-      "spells": []
+      "spells": [
+        "Definition:PassWithoutTrace:f6e7156667938ea48ba53c669cc59019"
+      ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",

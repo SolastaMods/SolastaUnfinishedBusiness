@@ -2,14 +2,15 @@
 
 - added Conjure Goblinoids spell
 - added Dark-Elf Magic, Mage Slayer, and Wood-Elf Magic feats
-- fixed Artificer spell storing item menu with too many items
-- fixed Artillerist firearm, detonate, flamethrower, and fortified
+- fixed Artificer spell storing item menu with too many items [2 powers instead of 1]
+- fixed Artillerist firearm [wrong dice], detonate [wrong area], flamethrower [wrong DC], and fortified [always active]
 - fixed Destructive Wave necrotic sub spell requiring concentration
-- fixed Enhanced Focus infusion to be closer to tabletop
+- fixed Enhanced Focus infusion to be closer to tabletop [ignore cover instead of DC bonus]
 - fixed Maddening Hex and Relentless Hex interaction with Hexblade
-- fixed Merciless fighting style effect center point
-- fixed Vitriolist refund mixtures and paragon
-- fixed Wildmaster bear companion additional HPs
+- fixed Merciless fighting style effect center point [downed creature instead of attacker]
+- fixed Vitriolist paragon [CON savings instead of WIS and incapacitated instead of paralyzed]
+- fixed Vitriolist refund mixtures [reaction pop up instead of lowest avail slot] 
+- fixed Wildmaster bear companion additional HPs [class level instead of char level]
 - fixed Wildmaster eagle and wolf companions not allowed in combat
 
 1.5.97.3:

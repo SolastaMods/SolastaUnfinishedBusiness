@@ -424,7 +424,7 @@
     "lightCounterDispellsEffect": false,
     "hideSavingThrowAnimation": false
   },
-  "delegatedToAction": false,
+  "delegatedToAction": true,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
   "activationTime": "Action",
@@ -462,7 +462,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&PowerInnovationArtilleristFlamethrowerTitle",
     "description": "Feature/&PowerInnovationArtilleristFlamethrowerDescription",
     "spriteReference": {
