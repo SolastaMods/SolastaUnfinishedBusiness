@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -219,7 +220,9 @@ internal static class RaceFeats
             .SetValidators(ValidatorsFeat.IsTiefling)
             .AddToDB();
 
+        var featDarkElfMagic = BuildDarkElfMagic();
         var featDwarvenFortitude = BuildDwarvenFortitude();
+        var featWoodElfMagic = BuildWoodElfMagic();
         var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
         var featGroupOrcishFury = BuildOrcishFury(feats);
         var featGroupSecondChance = BuildSecondChance(feats);
@@ -229,6 +232,7 @@ internal static class RaceFeats
         //
 
         feats.AddRange(
+            featDarkElfMagic,
             featDragonWings,
             featDwarvenFortitude,
             featFadeAwayDex,
@@ -241,7 +245,8 @@ internal static class RaceFeats
             featRevenantGreatSwordStr,
             featSquatNimblenessDex,
             featSquatNimblenessStr,
-            featInfernalConstitution);
+            featInfernalConstitution,
+            featWoodElfMagic);
 
         var featGroupsElvenAccuracy = GroupFeats.MakeGroupWithPreRequisite(
             "FeatGroupElvenAccuracy",
@@ -278,6 +283,7 @@ internal static class RaceFeats
         GroupFeats.FeatGroupTwoHandedCombat.AddFeats(featGroupRevenantGreatSword);
 
         GroupFeats.MakeGroup("FeatGroupRaceBound", null,
+            featDarkElfMagic,
             featDragonWings,
             featDwarvenFortitude,
             featInfernalConstitution,
@@ -287,8 +293,124 @@ internal static class RaceFeats
             featGroupOrcishFury,
             featGroupRevenantGreatSword,
             featGroupSecondChance,
-            featGroupSquatNimbleness);
+            featGroupSquatNimbleness,
+            featWoodElfMagic);
     }
+
+    #region Dark-Elf Magic
+
+    private static FeatDefinitionWithPrerequisites BuildDarkElfMagic()
+    {
+        const string Name = "FeatDarkElfMagic";
+
+        var detectMagicCantrip = SpellDefinitionBuilder
+            .Create(DetectMagic, "DetectMagicCantrip")
+            .SetSpellLevel(0)
+            .AddToDB();
+
+        var spellListCantrip = SpellListDefinitionBuilder
+            .Create($"SpellList{Name}")
+            .SetGuiPresentationNoContent(true)
+            .ClearSpells()
+            .SetSpellsAtLevel(0, detectMagicCantrip)
+            .SetSpellsAtLevel(1, DispelMagic, Levitate)
+            .FinalizeSpells(true, 1)
+            .AddToDB();
+
+        var castSpell = FeatureDefinitionCastSpellBuilder
+            .Create($"CastSpell{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+            .SetSpellKnowledge(SpellKnowledge.Selection)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.LongRest)
+            .SetSlotsPerLevel(SharedSpellsContext.InitiateCastingSlots)
+            .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetReplacedSpells(1, 0)
+            .AddCustomSubFeatures(new OtherFeats.SpellTag("DarkElfMagic"))
+            .SetSpellList(spellListCantrip)
+            .AddToDB();
+
+        var pointPoolCantrip = FeatureDefinitionPointPoolBuilder
+            .Create($"PointPool{Name}Cantrip")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellListCantrip, "DarkElfMagic")
+            .AddToDB();
+
+        var pointPoolSpell = FeatureDefinitionPointPoolBuilder
+            .Create($"PointPool{Name}Spell")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 2, spellListCantrip, "DarkElfMagic")
+            .AddToDB();
+
+        var feat = FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(castSpell, pointPoolCantrip, pointPoolSpell)
+            .SetValidators(ValidatorsFeat.IsDarkElfOrHalfElfDark)
+            .AddToDB();
+
+        return feat;
+    }
+
+    #endregion
+
+    #region Wood-Elf Magic
+
+    private static FeatDefinitionWithPrerequisites BuildWoodElfMagic()
+    {
+        const string Name = "FeatWoodElfMagic";
+
+        var spellListCantrip = SpellListDefinitionBuilder
+            .Create($"SpellList{Name}")
+            .SetGuiPresentationNoContent(true)
+            .ClearSpells()
+            .SetSpellsAtLevel(1, PassWithoutTrace, Longstrider)
+            .FinalizeSpells(true, 1)
+            .AddToDB();
+
+        //explicitly re-use druid spell list, so custom cantrips selected for druid will show here 
+        spellListCantrip.SpellsByLevel[0].Spells = SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells;
+
+        var castSpell = FeatureDefinitionCastSpellBuilder
+            .Create($"CastSpell{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+            .SetSpellKnowledge(SpellKnowledge.Selection)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.LongRest)
+            .SetSlotsPerLevel(SharedSpellsContext.InitiateCastingSlots)
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetReplacedSpells(1, 0)
+            .AddCustomSubFeatures(new OtherFeats.SpellTag("WoodElfMagic"))
+            .SetSpellList(spellListCantrip)
+            .AddToDB();
+
+        var pointPoolCantrip = FeatureDefinitionPointPoolBuilder
+            .Create($"PointPool{Name}Cantrip")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellListCantrip, "WoodElfMagic")
+            .AddToDB();
+
+        var pointPoolSpell = FeatureDefinitionPointPoolBuilder
+            .Create($"PointPool{Name}Spell")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 2, spellListCantrip, "WoodElfMagic")
+            .AddToDB();
+
+        var feat = FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(castSpell, pointPoolCantrip, pointPoolSpell)
+            .SetValidators(ValidatorsFeat.IsSylvanElf)
+            .AddToDB();
+
+        return feat;
+    }
+
+    #endregion
 
     #region Dwarven Fortitude
 

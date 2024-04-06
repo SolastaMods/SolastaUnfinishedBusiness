@@ -3,9 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:ActionAffinityInnovationArtilleristProtector:4bbfc8d3-5f77-5526-82cc-343a0b7a581f"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,

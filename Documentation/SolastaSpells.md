@@ -350,763 +350,755 @@ Makes enemies indifferent to your allies unless they are wounded.
 
 Reduced falling damage and advantage on Dexterity checks.
 
-# 89. - Conjure Goblinoids (V,S) level 2 Conjuration [Concentration]
-
-Conjures 2 goblins who obey your orders unless you lose concentration.
-
-# 90. - Darkness (V) level 2 Evocation [Concentration]
+# 89. - Darkness (V) level 2 Evocation [Concentration]
 
 Create an area of magical darkness.
 
-# 91. - Darkvision (V,S) level 2 Transmutation
+# 90. - Darkvision (V,S) level 2 Transmutation
 
 Grant Darkvision to the target.
 
-# 92. - Eagle's Splendor (V,S) level 2 Transmutation [Concentration]
+# 91. - Eagle's Splendor (V,S) level 2 Transmutation [Concentration]
 
 Advantage on Charisma checks.
 
-# 93. - Enhance Ability (V,S) level 2 Transmutation [Concentration]
+# 92. - Enhance Ability (V,S) level 2 Transmutation [Concentration]
 
 Grant temporary powers to an ally for up to one hour.
 
-# 94. - Find Traps (V,S) level 2 Evocation
+# 93. - Find Traps (V,S) level 2 Evocation
 
 Spot mechanical and magical traps, but not natural hazards.
 
-# 95. - Flame Blade (V,S) level 2 Evocation [Concentration]
+# 94. - Flame Blade (V,S) level 2 Evocation [Concentration]
 
 Evokes a fiery blade for ten minutes that you can wield in battle.
 
-# 96. - Flaming Sphere (V,S) level 2 Evocation [Concentration]
+# 95. - Flaming Sphere (V,S) level 2 Evocation [Concentration]
 
 Summons a movable, burning sphere.
 
-# 97. - Fox's Cunning (V,S) level 2 Transmutation [Concentration]
+# 96. - Fox's Cunning (V,S) level 2 Transmutation [Concentration]
 
 Advantage on Intelligence checks.
 
-# 98. - Heat Metal (V,S) level 2 Transmutation [Concentration]
+# 97. - Heat Metal (V,S) level 2 Transmutation [Concentration]
 
 Causes metallic armor worn by a target creature to glow red hot, causing fire damage and disadvantage to attack rolls and ability checks. The damage can be repeated every turn with a bonus action.
 
-# 99. - Hold Person (V,S) level 2 Enchantment [Concentration]
+# 98. - Hold Person (V,S) level 2 Enchantment [Concentration]
 
 Paralyze a humanoid you can see for a limited time.
 
-# 100. - Invisibility (V,S) level 2 Illusion [Concentration]
+# 99. - Invisibility (V,S) level 2 Illusion [Concentration]
 
 Make an ally invisible for a limited time.
 
-# 101. - Knock (V) level 2 Transmutation
+# 100. - Knock (V) level 2 Transmutation
 
 Magically open locked doors, chests, and the like.
 
-# 102. - Lesser Restoration (V,S) level 2 Abjuration
+# 101. - Lesser Restoration (V,S) level 2 Abjuration
 
 Remove a detrimental condition from an ally.
+
+# 102. - Levitate (V,S) level 2 Transmutation [Concentration]
+
+Allow a creature to levitate and gain control of its aerial movement for a limited time. Can affect enemies if their size is medium or smaller.
 
 # 103. - Levitate (V,S) level 2 Transmutation [Concentration]
 
 Allow a creature to levitate and gain control of its aerial movement for a limited time. Can affect enemies if their size is medium or smaller.
 
-# 104. - Levitate (V,S) level 2 Transmutation [Concentration]
-
-Allow a creature to levitate and gain control of its aerial movement for a limited time. Can affect enemies if their size is medium or smaller.
-
-# 105. - Magic Weapon (V,S) level 2 Transmutation [Concentration]
+# 104. - Magic Weapon (V,S) level 2 Transmutation [Concentration]
 
 A nonmagical weapon becomes a +1 weapon for up to one hour.
 
-# 106. - Misty Step (V) level 2 Conjuration
+# 105. - Misty Step (V) level 2 Conjuration
 
 Teleports you to a free cell you can see, no more than 6 cells away.
 
-# 107. - Moon Beam (V,S) level 2 Evocation [Concentration]
+# 106. - Moon Beam (V,S) level 2 Evocation [Concentration]
 
 Conjures a vertical column of moonlight which causes radiant damage. Shapechangers have disadvantage on the save.
 
-# 108. - Owl's Wisdom (V,S) level 2 Transmutation [Concentration]
+# 107. - Owl's Wisdom (V,S) level 2 Transmutation [Concentration]
 
 Advantage on Wisdom checks.
 
-# 109. - Pass Without Trace (V,S) level 2 Abjuration [Concentration]
+# 108. - Pass Without Trace (V,S) level 2 Abjuration [Concentration]
 
 Make yourself and up to 5 allies stealthier for one hour.
 
-# 110. - Prayer of Healing (V) level 2 Evocation
+# 109. - Prayer of Healing (V) level 2 Evocation
 
 Heal multiple allies at the same time.
 
-# 111. - Protection from Poison (V,S) level 2 Abjuration
+# 110. - Protection from Poison (V,S) level 2 Abjuration
 
 Cures and protects against poison.
 
-# 112. - Ray of Enfeeblement (V,S) level 2 Necromancy [Concentration]
+# 111. - Ray of Enfeeblement (V,S) level 2 Necromancy [Concentration]
 
 Weaken an enemy so they deal less damage for one minute.
 
-# 113. - Scorching Ray (V,S) level 2 Evocation
+# 112. - Scorching Ray (V,S) level 2 Evocation
 
 Fling rays of fire at one or more enemies.
 
-# 114. - See Invisibility (V,S) level 2 Divination
+# 113. - See Invisibility (V,S) level 2 Divination
 
 You can see invisible creatures.
 
-# 115. - Shatter (V,S) level 2 Evocation
+# 114. - Shatter (V,S) level 2 Evocation
 
 Triggers a sudden noise that causes Thunder Damage in a 2-cell radius.
 
-# 116. - Silence (V,S) level 2 Illusion [Concentration]
+# 115. - Silence (V,S) level 2 Illusion [Concentration]
 
 Creates a sphere four cells in radius, inside which sound cannot exist. Stops thunder damage and prevents spellcasting using verbal components.
 
-# 117. - Spider Climb (V,S) level 2 Transmutation [Concentration]
+# 116. - Spider Climb (V,S) level 2 Transmutation [Concentration]
 
 Touch an ally to allow them to climb walls like a spider for a limited time.
 
-# 118. - Spike Growth (V,S) level 2 Transmutation [Concentration]
+# 117. - Spike Growth (V,S) level 2 Transmutation [Concentration]
 
 Grows spikes and thorns in the area, making the terrain difficult and causing damage for every cell of movement.
 
-# 119. - Spiritual Weapon (V,S) level 2 Evocation
+# 118. - Spiritual Weapon (V,S) level 2 Evocation
 
 Summon a weapon that fights for you.
 
-# 120. - Warding Bond (V,S) level 2 Abjuration
-
-Creates a bond with the target, who gains +1 AC, +1 to saving throws and resistance to all damage, but you share all damage it receives. Lasts for one hour.
-
-# 121. - Animate Dead (V,S) level 3 Necromancy
+# 119. - Animate Dead (V,S) level 3 Necromancy
 
 Create an undead servant.
 
-# 122. - Beacon of Hope (V,S) level 3 Abjuration [Concentration]
+# 120. - Beacon of Hope (V,S) level 3 Abjuration [Concentration]
 
 Raise hope and vitality.
 
-# 123. - Bestow Curse (V,S) level 3 Necromancy [Concentration]
+# 121. - Bestow Curse (V,S) level 3 Necromancy [Concentration]
 
 Curses a creature you can touch.
 
-# 124. - Bestow Curse (Action) (V,S) level 3 Necromancy [Concentration]
+# 122. - Bestow Curse (Action) (V,S) level 3 Necromancy [Concentration]
 
 Must make a WIS saving throw to act.
 
-# 125. - Bestow Curse (Attack) (V,S) level 3 Necromancy [Concentration]
+# 123. - Bestow Curse (Attack) (V,S) level 3 Necromancy [Concentration]
 
 Disadvantage to attack roll against caster.
 
-# 126. - Bestow Curse (Charisma) (V,S) level 3 Necromancy [Concentration]
+# 124. - Bestow Curse (Charisma) (V,S) level 3 Necromancy [Concentration]
 
 Disadvantage on CHA saving throws and ability checks.
 
-# 127. - Bestow Curse (Constitution) (V,S) level 3 Necromancy [Concentration]
+# 125. - Bestow Curse (Constitution) (V,S) level 3 Necromancy [Concentration]
 
 Disadvantage on CON saving throws and ability checks.
 
-# 128. - Bestow Curse (Damage) (V,S) level 3 Necromancy [Concentration]
+# 126. - Bestow Curse (Damage) (V,S) level 3 Necromancy [Concentration]
 
 Caster's attacks and spells against the target deal an extra 1d8 necrotic damage.
 
-# 129. - Bestow Curse (Dexterity) (V,S) level 3 Necromancy [Concentration]
+# 127. - Bestow Curse (Dexterity) (V,S) level 3 Necromancy [Concentration]
 
 Disadvantage on DEX saving throws and ability checks.
 
-# 130. - Bestow Curse (Intelligence) (V,S) level 3 Necromancy [Concentration]
+# 128. - Bestow Curse (Intelligence) (V,S) level 3 Necromancy [Concentration]
 
 Disadvantage on INT saving throws and ability checks.
 
-# 131. - Bestow Curse (Strength) (V,S) level 3 Necromancy [Concentration]
+# 129. - Bestow Curse (Strength) (V,S) level 3 Necromancy [Concentration]
 
 Disadvantage on STR saving throws and ability checks.
 
-# 132. - Bestow Curse (Wisdom) (V,S) level 3 Necromancy [Concentration]
+# 130. - Bestow Curse (Wisdom) (V,S) level 3 Necromancy [Concentration]
 
 Disadvantage on WIS saving throws and ability checks.
 
-# 133. - Call Lightning (V,S) level 3 Conjuration [Concentration]
+# 131. - Call Lightning (V,S) level 3 Conjuration [Concentration]
 
 Conjures a storm cloud from which you can call a vertical bolt of lightning to strike targets, dealing 3D10 lightning damage. Another bolt can be repeated every turn by using an action.
 
-# 134. - Conjure 1 Beast (V,S) level 3 Conjuration [Concentration]
+# 132. - Conjure 1 Beast (V,S) level 3 Conjuration [Concentration]
 
 1 powerful beast is conjured
 
-# 135. - Conjure 2 Beasts (V,S) level 3 Conjuration [Concentration]
+# 133. - Conjure 2 Beasts (V,S) level 3 Conjuration [Concentration]
 
 2 beasts are conjured
 
-# 136. - Conjure 4 Beasts (V,S) level 3 Conjuration [Concentration]
+# 134. - Conjure 4 Beasts (V,S) level 3 Conjuration [Concentration]
 
 4 medium beasts are conjured
 
-# 137. - Conjure Animal (V,S) level 3 Conjuration [Concentration]
+# 135. - Conjure Animal (V,S) level 3 Conjuration [Concentration]
 
 Summon spirits in the form of beasts to help you in battle
 
-# 138. - Counterspell (S) level 3 Abjuration
+# 136. - Counterspell (S) level 3 Abjuration
 
 Interrupt an enemy's spellcasting.
 
-# 139. - Create Food (S) level 3 Conjuration
+# 137. - Create Food (S) level 3 Conjuration
 
 Conjure 15 units of food.
 
-# 140. - Daylight (V,S) level 3 Evocation
+# 138. - Daylight (V,S) level 3 Evocation
 
 Summon a globe of bright light.
 
-# 141. - Dispel Magic (V,S) level 3 Abjuration
+# 139. - Dispel Magic (V,S) level 3 Abjuration
 
 End active spells on a creature or object.
 
-# 142. - Fear (V,S) level 3 Illusion [Concentration]
+# 140. - Fear (V,S) level 3 Illusion [Concentration]
 
 Frighten creatures and force them to flee.
 
-# 143. - Fireball (V,S) level 3 Evocation
+# 141. - Fireball (V,S) level 3 Evocation
 
 Launch a fireball that explodes from a point of your choosing.
 
-# 144. - Fly (V,S) level 3 Transmutation [Concentration]
+# 142. - Fly (V,S) level 3 Transmutation [Concentration]
 
 An ally you touch gains the ability to fly for a limited time.
 
-# 145. - Haste (V,S) level 3 Transmutation [Concentration]
+# 143. - Haste (V,S) level 3 Transmutation [Concentration]
 
 Make an ally faster and more agile, and grant them an additional action for a limited time.
 
-# 146. - Hypnotic Pattern (S) level 3 Illusion [Concentration]
+# 144. - Hypnotic Pattern (S) level 3 Illusion [Concentration]
 
 Charms enemies to make them harmless until attacked, but also affects allies in range.
 
-# 147. - Lightning Bolt (V,S) level 3 Evocation
+# 145. - Lightning Bolt (V,S) level 3 Evocation
 
 Unleash a stroke of lightning in a direction of your choice, damaging everyone it touches.
 
-# 148. - Mass Healing Word (V) level 3 Evocation
+# 146. - Mass Healing Word (V) level 3 Evocation
 
 Instantly heals up to six allies you can see.
 
-# 149. - Protection from Acid (V,S) level 3 Abjuration [Concentration]
+# 147. - Protection from Acid (V,S) level 3 Abjuration [Concentration]
 
 Touch one willing creature to give them resistance to this damage type.
 
-# 150. - Protection from Cold (V,S) level 3 Abjuration [Concentration]
+# 148. - Protection from Cold (V,S) level 3 Abjuration [Concentration]
 
 Touch one willing creature to give them resistance to this damage type.
 
-# 151. - Protection from Energy (V,S) level 3 Abjuration [Concentration]
+# 149. - Protection from Energy (V,S) level 3 Abjuration [Concentration]
 
 Touch one willing creature to give them resistance to this damage type.
 
-# 152. - Protection from Fire (V,S) level 3 Abjuration [Concentration]
+# 150. - Protection from Fire (V,S) level 3 Abjuration [Concentration]
 
 Touch one willing creature to give them resistance to this damage type.
 
-# 153. - Protection from Lightning (V,S) level 3 Abjuration [Concentration]
+# 151. - Protection from Lightning (V,S) level 3 Abjuration [Concentration]
 
 Touch one willing creature to give them resistance to this damage type.
 
-# 154. - Protection from Thunder (V,S) level 3 Abjuration [Concentration]
+# 152. - Protection from Thunder (V,S) level 3 Abjuration [Concentration]
 
 Touch one willing creature to give them resistance to this damage type.
 
-# 155. - Remove Curse (V,S) level 3 Abjuration
+# 153. - Remove Curse (V,S) level 3 Abjuration
 
 Removes all curses affecting the target.
 
-# 156. - Revivify (M,V,S) level 3 Necromancy
+# 154. - Revivify (M,V,S) level 3 Necromancy
 
 Brings one creature back to life, up to 1 minute after death.
 
-# 157. - Sleet Storm (V,S) level 3 Conjuration [Concentration]
+# 155. - Sleet Storm (V,S) level 3 Conjuration [Concentration]
 
 Creates an area where the ground is slippery, vision is obscured, and concentration is harder.
 
-# 158. - Slow (V,S) level 3 Transmutation [Concentration]
+# 156. - Slow (V,S) level 3 Transmutation [Concentration]
 
 Slows and impairs the actions of up to 6 creatures.
 
-# 159. - Spirit Guardians (V,S) level 3 Conjuration [Concentration]
+# 157. - Spirit Guardians (V,S) level 3 Conjuration [Concentration]
 
 Call forth spirits to protect you.
 
-# 160. - Stinking Cloud (V,S) level 3 Conjuration [Concentration]
+# 158. - Stinking Cloud (V,S) level 3 Conjuration [Concentration]
 
 Create a cloud of incapacitating, noxious gas.
 
-# 161. - Tongues (V) level 3 Divination
+# 159. - Tongues (V) level 3 Divination
 
 Grants knowledge of all languages for one hour.
 
-# 162. - Vampiric Touch (V,S) level 3 Necromancy [Concentration]
+# 160. - Vampiric Touch (V,S) level 3 Necromancy [Concentration]
 
 Grants you a life-draining melee attack for one minute.
 
-# 163. - Water Breathing (V,S) level 3 Transmutation
+# 161. - Water Breathing (V,S) level 3 Transmutation
 
 Grants up to ten creatures the ability to breathe underwater.
 
-# 164. - Water Walk (V,S) level 3 Transmutation
+# 162. - Water Walk (V,S) level 3 Transmutation
 
 Grants you to ability to walk on liquid surfaces for one hour.
 
-# 165. - Wind Wall (V,S) level 3 Evocation [Concentration]
+# 163. - Wind Wall (V,S) level 3 Evocation [Concentration]
 
 Create a wall of wind that causes damage, pushes creatures and objects away, and disperses fogs and gases.
 
-# 166. - Banishment (V,S) level 4 Abjuration [Concentration]
+# 164. - Banishment (V,S) level 4 Abjuration [Concentration]
 
 Banishes a creature as long as you concentrate. The creature can be permanently banished if it is extraplanar.
 
-# 167. - Black Tentacles (V,S) level 4 Conjuration [Concentration]
+# 165. - Black Tentacles (V,S) level 4 Conjuration [Concentration]
 
 Conjures black tentacles that restrain and damage creatures within the area of effect.
 
-# 168. - Blight (V,S) level 4 Necromancy
+# 166. - Blight (V,S) level 4 Necromancy
 
 Drains life from a creature, causing massive necrotic damage.
 
-# 169. - Cold Shield (V,S) level 4 Evocation
+# 167. - Cold Shield (V,S) level 4 Evocation
 
 Resistance to fire damage; attackers receive cold damage.
 
-# 170. - Confusion (V,S) level 4 Enchantment [Concentration]
+# 168. - Confusion (V,S) level 4 Enchantment [Concentration]
 
 Creates confusion and erratic behavior in a creature, possibly leading it to attack its allies.
 
-# 171. - Conjure 1 Elemental (V,S) level 4 Conjuration [Concentration]
+# 169. - Conjure 1 Elemental (V,S) level 4 Conjuration [Concentration]
 
 You conjure one Skarn Ghoul (CR 2)
 
-# 172. - Conjure 1 Elemental (V,S) level 4 Conjuration [Concentration]
+# 170. - Conjure 1 Elemental (V,S) level 4 Conjuration [Concentration]
 
 You conjure one Wind Snake (CR 2)
 
-# 173. - Conjure 2 Elementals (V,S) level 4 Conjuration [Concentration]
+# 171. - Conjure 2 Elementals (V,S) level 4 Conjuration [Concentration]
 
 You conjure two Fire Jesters (CR 1)
 
-# 174. - Conjure 4 Elementals (V,S) level 4 Conjuration [Concentration]
+# 172. - Conjure 4 Elementals (V,S) level 4 Conjuration [Concentration]
 
 4 elementals are conjured (CR 1/2).
 
-# 175. - Conjure Minor Elementals (V,S) level 4 Conjuration [Concentration]
+# 173. - Conjure Minor Elementals (V,S) level 4 Conjuration [Concentration]
 
 Conjure elemental creatures under your command, which are dismissed when the spell ends or is broken.
 
-# 176. - Death Ward (V,S) level 4 Abjuration
+# 174. - Death Ward (V,S) level 4 Abjuration
 
 Protects the creature once against instant death or being reduced to 0 hit points.
 
-# 177. - Dimension Door (V) level 4 Conjuration
+# 175. - Dimension Door (V) level 4 Conjuration
 
 Transfers the caster and a friendly creature to a specified destination.
 
-# 178. - Dominate Beast (V,S) level 4 Enchantment [Concentration]
+# 176. - Dominate Beast (V,S) level 4 Enchantment [Concentration]
 
 Grants you control over an enemy beast.
 
-# 179. - Dreadful Omen (V,S) level 4 Enchantment
+# 177. - Dreadful Omen (V,S) level 4 Enchantment
 
 You whisper dreadful words that cause immense mental anguish in your enemies. On a failed wisdom saving throw, they take psychic damage and become frightened until the end of their next turn, moving away from you as much as possible. On a successful save, they take half as much damage and are not frightened.
 
-# 180. - Fire Shield (V,S) level 4 Evocation
+# 178. - Fire Shield (V,S) level 4 Evocation
 
 Grants resistance to fire or cold, and damages creatures attacking the caster with melee attacks.
 
-# 181. - Freedom of Movement (V,S) level 4 Abjuration
+# 179. - Freedom of Movement (V,S) level 4 Abjuration
 
 Grants immunity to movement restrictions, as well as being paralyzed or restrained.
 
-# 182. - Giant Insect (V,S) level 4 Transmutation [Concentration]
+# 180. - Giant Insect (V,S) level 4 Transmutation [Concentration]
 
 Conjures a giant version of a natural insect or arthropod.
 
-# 183. - Greater Invisibility (V,S) level 4 Illusion [Concentration]
+# 181. - Greater Invisibility (V,S) level 4 Illusion [Concentration]
 
 Target becomes invisible for the duration, even when attacking or casting spells.
 
-# 184. - Guardian of Faith (V) level 4 Conjuration
+# 182. - Guardian of Faith (V) level 4 Conjuration
 
 Conjures a large spectral guardian that damages approaching enemies.
 
-# 185. - Ice Storm (V,S) level 4 Evocation
+# 183. - Ice Storm (V,S) level 4 Evocation
 
 Causes bludgeoning and cold damage in the area, and turns the ground into difficult terrain.
 
-# 186. - Identify Creatures (V,S) level 4 Divination
+# 184. - Identify Creatures (V,S) level 4 Divination
 
 Reveals full bestiary knowledge for the affected creatures.
 
-# 187. - Phantasmal Killer (V,S) level 4 Illusion [Concentration]
+# 185. - Phantasmal Killer (V,S) level 4 Illusion [Concentration]
 
 Causes psychic damage to the target creature with each turn, unless a saving throw is successful or the effect ends.
 
-# 188. - Stoneskin (M,V,S) level 4 Abjuration [Concentration]
+# 186. - Stoneskin (M,V,S) level 4 Abjuration [Concentration]
 
 Grants resistance to non-magical bludgeoning, slashing, and piercing damage.
 
-# 189. - Wall of Fire (V,S) level 4 Evocation [Concentration]
+# 187. - Wall of Fire (V,S) level 4 Evocation [Concentration]
 
 Create a burning wall that injures creatures in or next to it.
 
-# 190. - Wall of Fire (line) (V,S) level 4 Evocation [Concentration]
+# 188. - Wall of Fire (line) (V,S) level 4 Evocation [Concentration]
 
 Create a burning wall that injures creatures in or next to it.
 
-# 191. - Wall of Fire (Ring/Inner) (V,S) level 4 Evocation [Concentration]
+# 189. - Wall of Fire (Ring/Inner) (V,S) level 4 Evocation [Concentration]
 
 Create a burning wall that injures creatures in or next to it.
 
-# 192. - Wall of Fire (Ring/Outer) (V,S) level 4 Evocation [Concentration]
+# 190. - Wall of Fire (Ring/Outer) (V,S) level 4 Evocation [Concentration]
 
 Create a burning wall that injures creatures in or next to it.
 
-# 193. - Warm Shield (V,S) level 4 Evocation
+# 191. - Warm Shield (V,S) level 4 Evocation
 
 Resistance to cold damage; attackers receive fire damage.
 
-# 194. - Blinding Sickness (V,S) level 5 Necromancy
+# 192. - Blinding Sickness (V,S) level 5 Necromancy
 
 The creature has disadvantage on Wisdom checks and Wisdom saving throws, and is blinded.
 
-# 195. - Cloudkill (V,S) level 5 Conjuration [Concentration]
+# 193. - Cloudkill (V,S) level 5 Conjuration [Concentration]
 
 Creates an obscuring and poisonous cloud. The cloud moves every round.
 
-# 196. - Cone of Cold (V,S) level 5 Evocation
+# 194. - Cone of Cold (V,S) level 5 Evocation
 
 Inflicts massive cold damage in the cone of effect.
 
-# 197. - Conjure Elemental (V,S) level 5 Conjuration [Concentration]
+# 195. - Conjure Elemental (V,S) level 5 Conjuration [Concentration]
 
 Conjures an elemental of the chosen element that fights alongside you. If you lose concentration, the elemental remains and becomes hostile.
 
-# 198. - Conjure Elemental (Air) (V,S) level 5 Conjuration [Concentration]
+# 196. - Conjure Elemental (Air) (V,S) level 5 Conjuration [Concentration]
 
 Conjures an elemental of the chosen element that fights alongside you. If you lose concentration, the elemental remains and becomes hostile.
 
-# 199. - Conjure Elemental (Earth) (V,S) level 5 Conjuration [Concentration]
+# 197. - Conjure Elemental (Earth) (V,S) level 5 Conjuration [Concentration]
 
 Conjures an elemental of the chosen element that fights alongside you. If you lose concentration, the elemental remains and becomes hostile.
 
-# 200. - Conjure Elemental (Fire) (V,S) level 5 Conjuration [Concentration]
+# 198. - Conjure Elemental (Fire) (V,S) level 5 Conjuration [Concentration]
 
 Conjures an elemental of the chosen element that fights alongside you. If you lose concentration, the elemental remains and becomes hostile.
 
-# 201. - Contagion (V,S) level 5 Necromancy
+# 199. - Contagion (V,S) level 5 Necromancy
 
 Hit a creature to inflict a disease from the options.
 
-# 202. - Dispel Evil and Good (V,S) level 5 Abjuration [Concentration]
+# 200. - Dispel Evil and Good (V,S) level 5 Abjuration [Concentration]
 
 Celestial, elementals, feys, fiends, and undead have disadvantage on attacks against you. This spell also allows you to cancel hostile enchantments or dismiss extraplanar creatures hit by your attacks once.
 
-# 203. - Dominate Person (V,S) level 5 Enchantment [Concentration]
+# 201. - Dominate Person (V,S) level 5 Enchantment [Concentration]
 
 Grants you control over an enemy creature.
 
-# 204. - Filth Fever (V,S) level 5 Necromancy
+# 202. - Filth Fever (V,S) level 5 Necromancy
 
 The creature has disadvantage on Strength checks, Strength saving throws, and attack rolls that use Strength.
 
-# 205. - Flame Strike (V,S) level 5 Evocation
+# 203. - Flame Strike (V,S) level 5 Evocation
 
 Conjures a burning column of fire and radiance affecting all creatures inside.
 
-# 206. - Flesh Rot (V,S) level 5 Necromancy
+# 204. - Flesh Rot (V,S) level 5 Necromancy
 
 The creature has disadvantage on Charisma checks and is vulnerable to all damage.
 
-# 207. - Greater Restoration (V,S) level 5 Abjuration
+# 205. - Greater Restoration (V,S) level 5 Abjuration
 
 Removes one detrimental condition, such as a charm or curse, or an effect that reduces an ability score or hit points.
 
-# 208. - Hold Monster (V,S) level 5 Enchantment [Concentration]
+# 206. - Hold Monster (V,S) level 5 Enchantment [Concentration]
 
 Paralyzes a creature unless it succeeds a WIS saving throw. No effect on undead.
 
-# 209. - Hold Monster (V,S) level 5 Enchantment [Concentration]
+# 207. - Hold Monster (V,S) level 5 Enchantment [Concentration]
 
 Paralyzes a creature unless it succeeds a WIS saving throw. No effect on undead.
 
-# 210. - Insect Plague (V,S) level 5 Conjuration [Concentration]
+# 208. - Insect Plague (V,S) level 5 Conjuration [Concentration]
 
 Summons a sphere of biting insects.
 
-# 211. - Mass Cure Wounds (V,S) level 5 Evocation
+# 209. - Mass Cure Wounds (V,S) level 5 Evocation
 
 Heals up to 6 creatures.
 
-# 212. - Mind Twist (V,S) level 5 Enchantment
+# 210. - Mind Twist (V,S) level 5 Enchantment
 
 Causes massive psychic damage to all creatures around you, and incapacitates them if they fail their INT saving throw.
 
-# 213. - Mindfire (V,S) level 5 Necromancy
+# 211. - Mindfire (V,S) level 5 Necromancy
 
 The creature has disadvantage on Intelligence checks and Intelligence saving throws, and behaves as if under the effects of the confusion spell during combat.
 
-# 214. - Raise Dead (M,V,S) level 5 Necromancy
+# 212. - Raise Dead (M,V,S) level 5 Necromancy
 
 Brings one creature back to life, up to 10 days after death.
 
-# 215. - Seizure (V,S) level 5 Necromancy
+# 213. - Seizure (V,S) level 5 Necromancy
 
 The creature has disadvantage on Dexterity checks, Dexterity saving throws, and attack rolls that use Dexterity.
 
-# 216. - Slimy Doom (V,S) level 5 Necromancy
+# 214. - Slimy Doom (V,S) level 5 Necromancy
 
 The creature has disadvantage on Constitution checks and Constitution saving throws. In addition, whenever the creature takes damage, it is stunned until the end of its next turn.
 
-# 217. - Wall of Force (V,S) level 5 Evocation [Concentration]
+# 215. - Wall of Force (V,S) level 5 Evocation [Concentration]
 
 Conjures an invisible wall that blocks movement and attacks.
 
-# 218. - Blade Barrier (V,S) level 6 Evocation [Concentration]
+# 216. - Blade Barrier (V,S) level 6 Evocation [Concentration]
 
 Conjures a wall of razor sharp blades which causes 6d10 slashing damage to anyone crossing it
 
-# 219. - Blade Barrier (Ring) (V,S) level 6 Evocation [Concentration]
+# 217. - Blade Barrier (Ring) (V,S) level 6 Evocation [Concentration]
 
 Conjures a wall of razor sharp blades which causes 6d10 slashing damage to anyone crossing it
 
-# 220. - Blade Barrier (Wall) (V,S) level 6 Evocation [Concentration]
+# 218. - Blade Barrier (Wall) (V,S) level 6 Evocation [Concentration]
 
 Conjures a wall of razor sharp blades which causes 6d10 slashing damage to anyone crossing it
 
-# 221. - Chain Lightning (V,S) level 6 Evocation
+# 219. - Chain Lightning (V,S) level 6 Evocation
 
 Target a creature with lightning, which can arc to 3 other targets within 6 cells.
 
-# 222. - Circle of Death (M,V,S) level 6 Necromancy
+# 220. - Circle of Death (M,V,S) level 6 Necromancy
 
 A sphere of negative energy causes Necrotic damage from a point you choose
 
-# 223. - Conjure Fey (V,S) level 6 Conjuration [Concentration]
+# 221. - Conjure Fey (V,S) level 6 Conjuration [Concentration]
 
 Conjures a fey creature of challenge rating 1 to 6 to fight alongside you. If you lose concentration, the creature stays but becomes hostile.
 
-# 224. - Conjure Fey - Ape (V,S) level 6 Conjuration [Concentration]
+# 222. - Conjure Fey - Ape (V,S) level 6 Conjuration [Concentration]
 
 Conjures a fey creature of challenge rating 1 to 6 to fight alongside you. If you lose concentration, the creature stays but becomes hostile.
 
-# 225. - Conjure Fey - Bear (V,S) level 6 Conjuration [Concentration]
+# 223. - Conjure Fey - Bear (V,S) level 6 Conjuration [Concentration]
 
 Conjures a fey creature of challenge rating 1 to 6 to fight alongside you. If you lose concentration, the creature stays but becomes hostile.
 
-# 226. - Conjure Fey - Dryad (V,S) level 6 Conjuration [Concentration]
+# 224. - Conjure Fey - Dryad (V,S) level 6 Conjuration [Concentration]
 
 Conjures a fey creature of challenge rating 1 to 6 to fight alongside you. If you lose concentration, the creature stays but becomes hostile.
 
-# 227. - Conjure Fey - Eagle (V,S) level 6 Conjuration [Concentration]
+# 225. - Conjure Fey - Eagle (V,S) level 6 Conjuration [Concentration]
 
 Conjures a fey creature of challenge rating 1 to 6 to fight alongside you. If you lose concentration, the creature stays but becomes hostile.
 
-# 228. - Conjure Fey - Green Hag (V,S) level 6 Conjuration [Concentration]
+# 226. - Conjure Fey - Green Hag (V,S) level 6 Conjuration [Concentration]
 
 Conjures a fey creature of challenge rating 1 to 6 to fight alongside you. If you lose concentration, the creature stays but becomes hostile.
 
-# 229. - Conjure Fey - Wolf (V,S) level 6 Conjuration [Concentration]
+# 227. - Conjure Fey - Wolf (V,S) level 6 Conjuration [Concentration]
 
 Conjures a fey creature of challenge rating 1 to 6 to fight alongside you. If you lose concentration, the creature stays but becomes hostile.
 
-# 230. - Disintegrate (V,S) level 6 Transmutation
+# 228. - Disintegrate (V,S) level 6 Transmutation
 
 Causes massive force damage on the target, which can be disintegrated if reduced to 0 hit points
 
-# 231. - Eyebite (V,S) level 6 Necromancy [Concentration]
+# 229. - Eyebite (V,S) level 6 Necromancy [Concentration]
 
 Your eyes gain a specific property which can target a creature each turn
 
-# 232. - Eyebite (Asleep) (V,S) level 6 Necromancy [Concentration]
+# 230. - Eyebite (Asleep) (V,S) level 6 Necromancy [Concentration]
 
 The creature falls asleep unless shaken or hurt
 
-# 233. - Eyebite (Panicked) (V,S) level 6 Necromancy [Concentration]
+# 231. - Eyebite (Panicked) (V,S) level 6 Necromancy [Concentration]
 
 The creature becomes frightened and must run away from you
 
-# 234. - Eyebite (Sickened) (V,S) level 6 Necromancy [Concentration]
+# 232. - Eyebite (Sickened) (V,S) level 6 Necromancy [Concentration]
 
 The creature has disadvantage to attacks until a WIS save is succeeded
 
-# 235. - Freezing Sphere (V,S) level 6 Evocation
+# 233. - Freezing Sphere (V,S) level 6 Evocation
 
 Toss a huge ball of cold energy that explodes on impact
 
-# 236. - Globe Of Invulnerability (V,S) level 6 Abjuration [Concentration]
+# 234. - Globe Of Invulnerability (V,S) level 6 Abjuration [Concentration]
 
 A sphere surrounding you prevents any spell up to 5th level to affect anyone inside it.
 
-# 237. - Harm (V,S) level 6 Necromancy
+# 235. - Harm (V,S) level 6 Necromancy
 
 Inflicts devastating necrotic damage and reduces the maximum hit points accordingly. Cannot drop the target below 1 hit points
 
-# 238. - Heal (V,S) level 6 Evocation
+# 236. - Heal (V,S) level 6 Evocation
 
 Heals 70 hit points and also removes blindness and diseases
 
-# 239. - Heroes Feast (M,V,S) level 6 Conjuration
+# 237. - Heroes Feast (M,V,S) level 6 Conjuration
 
 Summons a feast which cures most ailments and grants immunity to poisonand being frightened, WIS save advantage, and increased maximum hitpoints
 
-# 240. - Hilarity (V) level 6 Enchantment [Concentration]
+# 238. - Hilarity (V) level 6 Enchantment [Concentration]
 
 Choose one target. They fall down laughing, becoming prone and incapacitated, and take psychic damage until they save at the end of one of their turns, or until the spell ends.
 
-# 241. - Sunbeam (V,S) level 6 Evocation [Concentration]
+# 239. - Sunbeam (V,S) level 6 Evocation [Concentration]
 
 You conjure a line of radiance which can burn and blind creatures in the line of effect; undead and oozes save with disadvantage. The beam can be retargeted each turn
 
-# 242. - True Seeing (V,S) level 6 Divination
+# 240. - True Seeing (V,S) level 6 Divination
 
 A creature you touch gains True Sight for one hour
 
-# 243. - Wall of Thorns (V,S) level 6 Conjuration [Concentration]
+# 241. - Wall of Thorns (V,S) level 6 Conjuration [Concentration]
 
 Creates a wall of tough of needle-sharp thorns, that hurts and slows every creature in it.
 
-# 244. - Wall of Thorns (Line) (V,S) level 6 Conjuration [Concentration]
+# 242. - Wall of Thorns (Line) (V,S) level 6 Conjuration [Concentration]
 
 Creates a wall of tough of needle-sharp thorns, that hurts and slows every creature in it.
 
-# 245. - Wall of Thorns (Ring) (V,S) level 6 Evocation [Concentration]
+# 243. - Wall of Thorns (Ring) (V,S) level 6 Evocation [Concentration]
 
 Creates a wall of tough of needle-sharp thorns, that hurts and slows every creature in it.
 
-# 246. - Arcane Sword (M,V,S) level 7 Evocation [Concentration]
+# 244. - Arcane Sword (M,V,S) level 7 Evocation [Concentration]
 
 Summon a weapon that fights for you.
 
-# 247. - Conjure a Couatl (V,S) level 7 Conjuration [Concentration]
+# 245. - Conjure a Couatl (V,S) level 7 Conjuration [Concentration]
 
 A Couatl is conjured to your plane.
 
-# 248. - Conjure a Kutkartal (V,S) level 7 Conjuration [Concentration]
+# 246. - Conjure a Kutkartal (V,S) level 7 Conjuration [Concentration]
 
 A Kutkartal is conjured to your plane.
 
-# 249. - Conjure a Melek (V,S) level 7 Conjuration [Concentration]
+# 247. - Conjure a Melek (V,S) level 7 Conjuration [Concentration]
 
 A Melek is conjured to your plane.
 
-# 250. - Conjure Celestial (V,S) level 7 Conjuration [Concentration]
+# 248. - Conjure Celestial (V,S) level 7 Conjuration [Concentration]
 
 Conjures a celestial creature of challenge rating 4 that fights alongside you. If you lose concentration, the creature is dismissed.
 
-# 251. - Delayed Blast Fireball (V,S) level 7 Evocation [Concentration]
+# 249. - Delayed Blast Fireball (V,S) level 7 Evocation [Concentration]
 
 Conjures a ball of fire that grows more powerful with time, detonating when a creature enters its space or when the spell ends.
 
-# 252. - Divine Word (V) level 7 Evocation
+# 250. - Divine Word (V) level 7 Evocation
 
 Utter a divine word that inflicts various negative conditions on enemies you can see, based on their HP. Also banishes all celestials, elementals, feys, and fiends if they fail their saving throws.
 
-# 253. - Finger of Death (V,S) level 7 Necromancy
+# 251. - Finger of Death (V,S) level 7 Necromancy
 
 Send negative energy coursing through a creature within range.
 
-# 254. - Fire Storm (V,S) level 7 Evocation
+# 252. - Fire Storm (V,S) level 7 Evocation
 
 Causes a wide wall of roaring flames to burst up wherever you choose within range.
 
-# 255. - Gravity Slam (V,S) level 7 Transmutation
+# 253. - Gravity Slam (V,S) level 7 Transmutation
 
 Increase gravity to slam everyone in a specific area onto the ground.
 
-# 256. - Prismatic Spray (V,S) level 7 Evocation
+# 254. - Prismatic Spray (V,S) level 7 Evocation
 
 Each creature within the cone of effect is randomly affected by one or two (roll 8 on d8) rays with the following effects:
 
-# 257. - Regenerate (V,S) level 7 Transmutation
+# 255. - Regenerate (V,S) level 7 Transmutation
 
 Touch a creature and stimulate its natural healing ability.
 
-# 258. - Resurrection (M,V,S) level 7 Necromancy
+# 256. - Resurrection (M,V,S) level 7 Necromancy
 
 Brings one creature back to life, up to 100 years after death.
 
-# 259. - Symbol (V,S) level 7 Abjuration
+# 257. - Symbol (V,S) level 7 Abjuration
 
 Inscribe a glyph on a surface. When an enemy starts its turn in the area or enters it, the glyph's effect is applied in a sphere with a 12-cell radius.
 
-# 260. - Symbol of Death (M,V,S) level 7 Abjuration
+# 258. - Symbol of Death (M,V,S) level 7 Abjuration
 
 Each enemy must make a Constitution saving throw, taking 10d10 necrotic damage on a failed save or half as much on a successful save.
 
-# 261. - Symbol of Fear (M,V,S) level 7 Abjuration
+# 259. - Symbol of Fear (M,V,S) level 7 Abjuration
 
 Each enemy must make a Wisdom saving throw, becoming frightened and trying to move away on a failed save.
 
-# 262. - Symbol of Hopelessness (M,V,S) level 7 Abjuration
+# 260. - Symbol of Hopelessness (M,V,S) level 7 Abjuration
 
 Each enemy must make a Charisma saving throw. On a failed save, the target is overwhelmed by despair for 1 minute, unable to attack or target any creature with harmful abilities, spells, or other magical effects.
 
-# 263. - Symbol of Insanity (M,V,S) level 7 Abjuration
+# 261. - Symbol of Insanity (M,V,S) level 7 Abjuration
 
 Each enemy must make an Intelligence saving throw, On a failed save, the target is driven insane for 1 minute, moving erratically and unable to take any actions.
 
-# 264. - Symbol of Pain (M,V,S) level 7 Abjuration
+# 262. - Symbol of Pain (M,V,S) level 7 Abjuration
 
 Each enemy must make a Constitution saving throw. On a failed save, they become incapacitated by excruciating pain for 1 minute.
 
-# 265. - Symbol of Sleep (M,V,S) level 7 Abjuration
+# 263. - Symbol of Sleep (M,V,S) level 7 Abjuration
 
 Each enemy must make a Wisdom saving throw. On a failed save, they fall unconscious for 10 minutes.
 
-# 266. - Symbol of Stunning (M,V,S) level 7 Abjuration
+# 264. - Symbol of Stunning (M,V,S) level 7 Abjuration
 
 Each enemy must make a Wisdom saving throw or become stunned for 1 minute.
 
-# 267. - Divine Blade (V,S) level 8 Evocation [Concentration]
+# 265. - Divine Blade (V,S) level 8 Evocation [Concentration]
 
 A glowing blade of pure energy springs from your hand. On a hit, the target takes 6d8 radiant damage and must roll a Wisdom saving throw to avoid being stunned until the end of its next turn.
 
-# 268. - Dominate Monster (V,S) level 8 Enchantment [Concentration]
+# 266. - Dominate Monster (V,S) level 8 Enchantment [Concentration]
 
 Grants you control over an enemy creature of any type.
 
-# 269. - Earthquake (V,S) level 8 Evocation [Concentration]
+# 267. - Earthquake (V,S) level 8 Evocation [Concentration]
 
 You create a seismic disturbance that violently shakes the ground and the creatures standing on it for the duration of the spell.
 
-# 270. - Feeblemind (V,S) level 8 Enchantment
+# 268. - Feeblemind (V,S) level 8 Enchantment
 
 You blast the mind of one creature, attempting to shatter its intellect and personality. The target takes 4d6 psychic damage and must make an Intelligence saving throw. On a failed save, the creature's Intelligence, Charisma and Wisdom scores become 1 and it is unable to cast spells. These effects last for 1 minute.
 
-# 271. - Holy Aura (V,S) level 8 Abjuration [Concentration]
+# 269. - Holy Aura (V,S) level 8 Abjuration [Concentration]
 
 Allies within 6 cells of you when you cast Holy Aura gain advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends. In addition, when a fiend or an undead hits an affected creature with a melee attack, they must succeed on a Constitution saving throw or be blinded until the spell ends.
 
-# 272. - Incendiary Cloud (V,S) level 8 Conjuration [Concentration]
+# 270. - Incendiary Cloud (V,S) level 8 Conjuration [Concentration]
 
 A cloud of smoke appears in a sphere with a 4-cell radius. The cloud damages each creature inside it, and moves away from you each turn until the end of the spell's duration or until a moderate wind disperses the cloud.
 
-# 273. - Maze (V,S) level 8 Abjuration [Concentration]
+# 271. - Maze (V,S) level 8 Abjuration [Concentration]
 
 You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the spell's duration or until it escapes the maze.
 
-# 274. - Power Word Stun (V) level 8 Enchantment
+# 272. - Power Word Stun (V) level 8 Enchantment
 
 Overwhelm the mind of a creature that has 150 hit points or fewer, leaving it stunned.
 
-# 275. - Spell Ward (V,S) level 8 Abjuration [Concentration]
+# 273. - Spell Ward (V,S) level 8 Abjuration [Concentration]
 
 Creates a mobile globe that is impenetrable to enemy spells cast from outside it.
 
-# 276. - Sunburst (V,S) level 8 Evocation
+# 274. - Sunburst (V,S) level 8 Evocation
 
 Brilliant sunlight blazes in a sphere with a 12-cell radius. Each creature that fails a Constitution saving throw takes radiant damage and is blinded for 1 minute. Any darkness created by a spell in the area is dispelled.
 
-# 277. - Thunderstorm (V,S) level 8 Transmutation
+# 275. - Thunderstorm (V,S) level 8 Transmutation
 
 You create a blast of thunder in a sphere that causes thunder and lightning damage to everyone, and can blind or stun those who fail a CON saving throw.
 
-# 278. - Wild Shapes (V,S) level 8 Transmutation [Concentration]
+# 276. - Wild Shapes (V,S) level 8 Transmutation [Concentration]
 
 Turns other creatures in to beasts for one day.
 

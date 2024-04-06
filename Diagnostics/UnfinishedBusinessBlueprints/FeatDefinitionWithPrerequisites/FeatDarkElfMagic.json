@@ -1,0 +1,46 @@
+{
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:CastSpellFeatDarkElfMagic:6fb3273c-08be-5009-975a-dfcf5384dfe5",
+    "Definition:PointPoolFeatDarkElfMagicCantrip:fd956d8b-b301-59f6-afc0-bbf280a3fbc0",
+    "Definition:PointPoolFeatDarkElfMagicSpell:52448c4a-bc36-5fed-9205-ede1f740087e"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatDarkElfMagicTitle",
+    "description": "Feat/&FeatDarkElfMagicDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "70d177b4-2580-5195-894c-a9368b7681cf",
+  "contentPack": 9999,
+  "name": "FeatDarkElfMagic"
+}

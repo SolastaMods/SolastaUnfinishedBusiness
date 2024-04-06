@@ -1,0 +1,46 @@
+{
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:CastSpellFeatWoodElfMagic:8514aa49-b23f-572f-8ec6-a33c5942d7b2",
+    "Definition:PointPoolFeatWoodElfMagicCantrip:1ff209e8-5014-5601-8748-d5cb8197e8ff",
+    "Definition:PointPoolFeatWoodElfMagicSpell:ed2e344f-25b1-5247-a572-0a66e7157157"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatWoodElfMagicTitle",
+    "description": "Feat/&FeatWoodElfMagicDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d945cb80-7efa-56a2-8365-01e0b0f5738a",
+  "contentPack": 9999,
+  "name": "FeatWoodElfMagic"
+}

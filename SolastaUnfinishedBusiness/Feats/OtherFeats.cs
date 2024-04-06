@@ -1375,8 +1375,9 @@ internal static class OtherFeats
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
+                                .SetParentCondition(ConditionDefinitions.ConditionFreedomOfMovement)
                                 .SetPossessive()
-                                .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                                .SetFeatures()
                                 .AddToDB()))
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)

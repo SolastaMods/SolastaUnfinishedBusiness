@@ -79,31 +79,41 @@ internal static class ValidatorsFeat
     // Races
     //
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
+        IsDarkElfOrHalfElfDark =
+            ValidateIsRaceOrSubrace(
+                $"{SubraceDarkelfBuilder.SubraceDarkelf.FormatTitle()}, {RaceHalfElfBuilder.RaceHalfElfDarkVariant.FormatTitle()}",
+                SubraceDarkelfBuilder.SubraceDarkelf, RaceHalfElfBuilder.RaceHalfElfDarkVariant);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDragonborn =
-        ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
+        ValidateIsRaceOrSubrace(Dragonborn.FormatTitle(), Dragonborn);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDwarf =
-        ValidateIsRace(Dwarf.FormatTitle(), Dwarf);
+        ValidateIsRaceOrSubrace(Dwarf.FormatTitle(), Dwarf);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsHalfling =
-        ValidateIsRace(Halfling.FormatTitle(), Halfling);
+        ValidateIsRaceOrSubrace(Halfling.FormatTitle(), Halfling);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsElfOfHalfElf =
-        ValidateIsRace(
+        ValidateIsRaceOrSubrace(
             $"{Elf.FormatTitle()}, {HalfElf.FormatTitle()}",
             Elf, HalfElf, RaceHalfElfBuilder.RaceHalfElfVariant);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsGnome =
-        ValidateIsRace(Gnome.FormatTitle(), Gnome);
+        ValidateIsRaceOrSubrace(Gnome.FormatTitle(), Gnome);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsHalfOrc =
-        ValidateIsRace(HalfOrc.FormatTitle(), HalfOrc);
+        ValidateIsRaceOrSubrace(HalfOrc.FormatTitle(), HalfOrc);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsTiefling =
-        ValidateIsRace(Tiefling.FormatTitle(), Tiefling, RaceTieflingBuilder.RaceTiefling);
+        ValidateIsRaceOrSubrace(Tiefling.FormatTitle(), Tiefling, RaceTieflingBuilder.RaceTiefling);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSylvanElf =
+        ValidateIsRaceOrSubrace($"{ElfSylvan.FormatTitle()}, {RaceHalfElfBuilder.RaceHalfElfSylvanVariant.FormatTitle()}",
+            ElfSylvan, RaceHalfElfBuilder.RaceHalfElfSylvanVariant);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSmallRace =
-        ValidateIsRace(
+        ValidateIsRaceOrSubrace(
             $"{Dwarf.FormatTitle()}, {Gnome.FormatTitle()}, {Halfling.FormatTitle()}, {RaceFairyBuilder.RaceFairy.FormatTitle()}, {RaceImpBuilder.RaceImp.FormatTitle()}, {RaceKoboldBuilder.RaceKobold.FormatTitle()}",
             Dwarf, Gnome, Halfling,
             RaceFairyBuilder.RaceFairy,
@@ -196,7 +206,7 @@ internal static class ValidatorsFeat
 
     [NotNull]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsRace(
+    private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsRaceOrSubrace(
         string description, params CharacterRaceDefinition[] characterRaceDefinition)
     {
         return (_, hero) =>
@@ -206,10 +216,11 @@ internal static class ValidatorsFeat
                 return (true, string.Empty);
             }
 
-            var isRace = characterRaceDefinition.Contains(hero.RaceDefinition);
+            var isRaceOrSubrace = characterRaceDefinition.Contains(hero.RaceDefinition) ||
+                         characterRaceDefinition.Contains(hero.SubRaceDefinition);
             var guiFormat = Gui.Format("Tooltip/&PreReqIs", description);
 
-            return isRace
+            return isRaceOrSubrace
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };

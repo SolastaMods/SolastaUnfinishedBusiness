@@ -208,6 +208,7 @@ internal static class RaceMalakhBuilder
         var conditionAngelicFlight = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}AngelicFlight")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
             .SetConditionType(ConditionType.Beneficial)
             .AddFeatures(additionalDamageMalakhAngelicForm)
             .AddToDB();

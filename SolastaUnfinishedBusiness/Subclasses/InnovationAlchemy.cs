@@ -772,7 +772,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyPool")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, HasModifiedUses.Marker)
+            .AddCustomSubFeatures(HasModifiedUses.Marker, IsModifyPowerPool.Marker, ModifyPowerVisibility.Hidden)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 3)
             .AddToDB();
 

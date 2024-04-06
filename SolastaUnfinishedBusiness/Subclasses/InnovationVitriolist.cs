@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
+using UnityEngine;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -56,7 +57,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .Build())
-            .AddCustomSubFeatures(HasModifiedUses.Marker)
+            .AddCustomSubFeatures(IsModifyPowerPool.Marker, HasModifiedUses.Marker)
             .AddToDB();
 
         var powerUseModifierMixtureIntelligenceModifier = FeatureDefinitionPowerUseModifierBuilder
@@ -75,7 +76,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
 
         var conditionCorroded = ConditionDefinitionBuilder
             .Create($"Condition{Name}Corroded")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeavilyEncumbered)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeatMetal)
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
@@ -95,7 +96,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .RollSaveOnlyIfRelevantForms()
                     .SetParticleEffectParameters(AcidSplash)
@@ -135,7 +136,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .RollSaveOnlyIfRelevantForms()
                     .SetParticleEffectParameters(AcidArrow)
@@ -162,7 +163,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .RollSaveOnlyIfRelevantForms()
                     .SetParticleEffectParameters(AcidSplash)
@@ -194,7 +195,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .RollSaveOnlyIfRelevantForms()
                     .SetParticleEffectParameters(PowerDragonBreath_Acid)
@@ -268,7 +269,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
 
         var conditionArsenal = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionShocked, $"Condition{Name}Arsenal")
-            .SetGuiPresentation(Category.Condition)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{Name}Arsenal")
@@ -305,7 +306,10 @@ public sealed class InnovationVitriolist : AbstractSubclass
 
         // Vitriolic Mixtures - Behavior
 
-        powerMixture.AddCustomSubFeatures(new ModifyMagicEffectAnyOnTargetMixture(conditionArsenal, mixturePowers));
+        powerMixture.AddCustomSubFeatures(
+            new ModifyEffectDescriptionMixture(
+                conditionArsenal, ConditionDefinitions.ConditionIncapacitated, mixturePowers));
+
         PowerBundle.RegisterPowerBundle(powerMixture, true, mixturePowers.OfType<FeatureDefinitionPower>());
 
         // MAIN
@@ -328,22 +332,14 @@ public sealed class InnovationVitriolist : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
-    // Mixtures - Add additional PB damage to any acid damage / Add additional conditions at 9 and 15
+    // Mixtures - add additional PB damage to any acid damage / add shocked at 9 and paralyzed at 15
     //
 
-    private sealed class ModifyMagicEffectAnyOnTargetMixture : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionMixture(
+        ConditionDefinition conditionArsenal,
+        ConditionDefinition conditionParagon,
+        params FeatureDefinition[] mixturePowers) : IModifyEffectDescription
     {
-        private readonly ConditionDefinition _conditionArsenal;
-        private readonly List<FeatureDefinition> _mixturePowers = [];
-
-        public ModifyMagicEffectAnyOnTargetMixture(
-            ConditionDefinition conditionArsenal,
-            params FeatureDefinition[] mixturePowers)
-        {
-            _conditionArsenal = conditionArsenal;
-            _mixturePowers.AddRange(mixturePowers);
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
@@ -361,32 +357,29 @@ public sealed class InnovationVitriolist : AbstractSubclass
             var levels = character.GetClassLevel(InventorClass.Class);
 
             // Infusion - add additional PB damage to any acid damage
-            if (levels >= 5)
-            {
-                var pb = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var pb = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
-                foreach (var effectForm in effectDescription.EffectForms
-                             .Where(x => x.FormType == EffectForm.EffectFormType.Damage &&
-                                         x.DamageForm.DamageType == DamageTypeAcid))
-                {
-                    effectForm.DamageForm.bonusDamage += pb;
-                }
+            foreach (var effectForm in effectDescription.EffectForms
+                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage &&
+                                     x.DamageForm.DamageType == DamageTypeAcid))
+            {
+                effectForm.DamageForm.bonusDamage += pb;
             }
 
             // Arsenal - add shocked at 9
-            if (levels >= 9 && _mixturePowers.Contains(definition))
+            if (levels >= 9 && mixturePowers.Contains(definition))
             {
-                effectDescription.EffectForms.Add(EffectFormBuilder.ConditionForm(_conditionArsenal));
+                effectDescription.EffectForms.Add(EffectFormBuilder.ConditionForm(conditionArsenal));
             }
 
             // Paragon - add paralyzed at 15
-            if (levels >= 15 && _mixturePowers.Contains(definition))
+            if (levels >= 15 && mixturePowers.Contains(definition))
             {
                 effectDescription.EffectForms.Add(
                     EffectFormBuilder
                         .Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(ConditionDefinitions.ConditionParalyzed, ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(conditionParagon, ConditionForm.ConditionOperation.Add)
                         .Build());
             }
 
@@ -403,41 +396,54 @@ public sealed class InnovationVitriolist : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerMixture, rulesetCharacter);
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            rulesetCharacter.RepayPowerUse(usablePower);
-
-            var spellRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
-
-            if (spellRepertoire == null)
+            if (gameLocationActionService == null || gameLocationBattleService == null)
             {
                 yield break;
             }
 
-            var slotLevel = spellRepertoire.GetLowestAvailableSlotLevel();
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerMixture, rulesetCharacter);
+            var spellRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
+            var slotLevel = spellRepertoire!.GetLowestAvailableSlotLevel();
+            var reactionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendSpellSlot)
+            {
+                IntParameter = slotLevel, StringParameter = "RefundMixture", SpellRepertoire = spellRepertoire
+            };
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            spellRepertoire.SpendSpellSlot(slotLevel);
+            gameLocationActionService.ReactToSpendSpellSlot(reactionParams);
+
+            yield return gameLocationBattleService.WaitForReactions(actingCharacter, gameLocationActionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var slotUsed = reactionParams.IntParameter;
+
+            usablePower.remainingUses = Mathf.Min(usablePower.MaxUses, usablePower.remainingUses + slotUsed);
+            spellRepertoire.SpendSpellSlot(slotUsed);
         }
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
             var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
-
-            if (spellRepertoire == null)
-            {
-                return false;
-            }
-
             var canUsePowerMixture = character.GetRemainingPowerUses(powerMixture) > 0;
-            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
+            var hasSpellSlotsAvailable = spellRepertoire!.GetLowestAvailableSlotLevel() > 0;
 
             return !canUsePowerMixture && hasSpellSlotsAvailable;
         }
     }
 
     //
-    // Arsenal - Bypass Acid Resistance / Change Acid Immunity to Acid Resistance
+    // Arsenal - bypass acid resistance / change acid immunity to acid resistance
     //
 
     private sealed class ModifyDamageAffinityArsenal : IModifyDamageAffinity

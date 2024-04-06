@@ -1171,7 +1171,7 @@ internal static class InvocationsBuilders
     {
         return rulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionMalediction.Name)
                || rulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionCursed.Name)
-               || rulesetCharacter.HasConditionOfType("ConditionPatronSoulbladeHexDefender");
+               || rulesetCharacter.HasConditionOfType(PatronSoulBlade.ConditionHex);
     }
 
     private static (bool, string) ValidateHex(InvocationDefinition invocationDefinition, RulesetCharacterHero hero)
@@ -1286,9 +1286,10 @@ internal static class InvocationsBuilders
         var conditionTombOfFrost = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Name}")
             .SetGuiPresentation(Name, Category.Invocation, ConditionDefinitions.ConditionChilled)
+            .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(DamageAffinityFireVulnerability)
+            .SetFeatures(DamageAffinityFireVulnerability)
             .CopyParticleReferences(PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
 

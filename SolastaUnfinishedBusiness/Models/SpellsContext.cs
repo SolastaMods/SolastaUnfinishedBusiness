@@ -275,12 +275,16 @@ internal static class SpellsContext
         RegisterSpell(BuildBindingIce(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildCloudOfDaggers(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
+        DatabaseHelper.SpellDefinitions.ConjureGoblinoids.contentPack = CeContentPackContext.CeContentPack;
+        RegisterSpell(DatabaseHelper.SpellDefinitions.ConjureGoblinoids, 0, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildNoxiousSpray(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(PetalStorm, 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
         RegisterSpell(PsychicWhip, 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        DatabaseHelper.SpellDefinitions.WardingBond.contentPack = CeContentPackContext.CeContentPack;
+        RegisterSpell(DatabaseHelper.SpellDefinitions.WardingBond, 0, SpellListCleric);
         RegisterSpell(Web, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 
         // 3rd level
