@@ -420,6 +420,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         var conditionGraspingArrow = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionRestrained, $"Condition{Name}GraspingArrow")
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
+            .SetFeatures()
             .SetConditionParticleReference(
                 ConditionDefinitions.ConditionRestrainedByMagicalArrow.conditionParticleReference)
             .AddToDB();

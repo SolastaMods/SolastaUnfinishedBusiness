@@ -64,6 +64,7 @@ public sealed class OathOfAncients : AbstractSubclass
 
         var conditionNaturesWrath = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionRestrainedByEntangle, $"Condition{Name}NaturesWrath")
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .AddToDB();
 
         //Free single target entangle on Channel Divinity use

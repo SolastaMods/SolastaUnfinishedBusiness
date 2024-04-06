@@ -701,8 +701,8 @@ internal static partial class SpellBuilders
         var conditionIrresistiblePerformance = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionCharmed, $"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionCharmed)
-            .SetPossessive()
             .SetParentCondition(ConditionDefinitions.ConditionCharmed)
+            .SetPossessive()
             .SetFeatures(actionAffinityIrresistiblePerformance)
             .AddToDB();
 

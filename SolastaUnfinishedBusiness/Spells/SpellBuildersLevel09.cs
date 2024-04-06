@@ -292,6 +292,8 @@ internal static partial class SpellBuilders
         var conditionTimeStop = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, "ConditionTimeStop")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
+            .SetFeatures()
             .SetInterruptionDamageThreshold(1)
             .SetSpecialInterruptions(ConditionInterruption.Attacked, ConditionInterruption.Damaged)
             .CopyParticleReferences(ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime)

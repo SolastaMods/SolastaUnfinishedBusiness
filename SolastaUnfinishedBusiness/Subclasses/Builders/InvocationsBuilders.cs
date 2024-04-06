@@ -1286,9 +1286,10 @@ internal static class InvocationsBuilders
         var conditionTombOfFrost = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Name}")
             .SetGuiPresentation(Name, Category.Invocation, ConditionDefinitions.ConditionChilled)
+            .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(DamageAffinityFireVulnerability)
+            .SetFeatures(DamageAffinityFireVulnerability)
             .CopyParticleReferences(PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
 
