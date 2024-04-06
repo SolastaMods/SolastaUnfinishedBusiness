@@ -274,7 +274,6 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

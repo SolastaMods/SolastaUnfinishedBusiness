@@ -4,6 +4,7 @@
 - added Dark-Elf Magic, Mage Slayer, and Wood-Elf Magic feats
 - fixed Artificer spell storing item menu with too many items
 - fixed Artillerist firearm, detonate, flamethrower, and fortified
+- fixed Destructive Wave necrotic sub spell requiring concentration
 - fixed Enhanced Focus infusion to be closer to tabletop
 - fixed Maddening Hex and Relentless Hex interaction with Hexblade
 - fixed Merciless fighting style effect center point
