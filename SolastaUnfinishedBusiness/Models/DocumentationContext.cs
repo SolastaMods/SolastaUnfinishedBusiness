@@ -49,7 +49,8 @@ internal static class DocumentationContext
         DumpOthers<SpellDefinition>("UnfinishedBusinessSpells",
             x => x.ContentPack == CeContentPackContext.CeContentPack && SpellsContext.Spells.Contains(x));
         DumpOthers<SpellDefinition>("SolastaSpells",
-            x => x.ContentPack != CeContentPackContext.CeContentPack);
+            x => x.ContentPack != CeContentPackContext.CeContentPack &&
+                 !SpellsContext.SpellsChildMaster.ContainsKey(x) && x.implemented);
         DumpOthers<ItemDefinition>("UnfinishedBusinessItems",
             x => x.ContentPack == CeContentPackContext.CeContentPack &&
                  (x.IsArmor || x.IsWeapon));
