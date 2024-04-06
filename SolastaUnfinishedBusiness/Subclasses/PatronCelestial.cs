@@ -77,6 +77,7 @@ public class PatronCelestial : AbstractSubclass
 
         powerHealingLight.AddCustomSubFeatures(
             HasModifiedUses.Marker,
+            IsModifyPowerPool.Marker,
             new ModifyPowerPoolAmountHealingLight(powerHealingLight));
 
         var healingLightPowers = new List<FeatureDefinitionPower>();

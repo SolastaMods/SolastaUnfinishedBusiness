@@ -113,8 +113,8 @@ public sealed class InnovationWeapon : AbstractSubclass
             .Create(NAME)
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
-                ModifyPowerVisibility.Hidden,
                 HasModifiedUses.Marker,
+                ModifyPowerVisibility.Hidden,
                 new ValidatorsValidatePowerUse(HasInjuredDefender),
                 new ModifyRestPowerTitleHandler(GetRestPowerTitle),
                 new TargetDefendingBlade())

@@ -597,9 +597,9 @@ internal static class InventorClass
             .Create("PowerInfusionPool")
             .SetGuiPresentation(InfusionsName, Category.Feature)
             .AddCustomSubFeatures(
-                ModifyPowerVisibility.Hidden,
+                HasModifiedUses.Marker,
                 IsModifyPowerPool.Marker,
-                HasModifiedUses.Marker)
+                ModifyPowerVisibility.Hidden)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 0)
             .AddToDB();
     }
