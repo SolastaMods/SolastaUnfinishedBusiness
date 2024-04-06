@@ -955,11 +955,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 rulesetCaster = summoner.RulesetCharacter;
             }
 
-            var pb = rulesetCaster.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var intelligence = rulesetCaster.TryGetAttributeValue(AttributeDefinitions.Intelligence);
-            var intMod = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
+            var repertoire = rulesetCaster.GetClassSpellRepertoire(InventorClass.Class);
 
-            return 8 + pb + intMod;
+            return repertoire?.SaveDC ?? 15;
         }
     }
 
