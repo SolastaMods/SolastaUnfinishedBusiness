@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -74,7 +73,7 @@ internal sealed class Executioner : AbstractFightingStyle
             }
 
             var survivalistLevel = attacker.RulesetCharacter
-                .GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger, RangerSurvivalist.Name);
+                .GetSubclassLevel(CharacterClassDefinitions.Ranger, RangerSurvivalist.Name);
 
             if (survivalistLevel >= 11)
             {

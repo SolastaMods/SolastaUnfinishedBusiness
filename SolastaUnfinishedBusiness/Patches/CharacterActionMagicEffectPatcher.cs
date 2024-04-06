@@ -993,7 +993,7 @@ public static class CharacterActionMagicEffectPatcher
                                  rulesetCharacter.GetOriginalHero() is { } rulesetCharacterHero &&
                                  rulesetCharacterHero.TrainedFeats.Contains(OtherFeats.FeatMageSlayer)))
                 {
-                    yield return 
+                    yield return
                         OtherFeats.CustomBehaviorMageSlayer.HandleEnemyCastSpellWithin5Ft(actingCharacter, ally);
                 }
             }
