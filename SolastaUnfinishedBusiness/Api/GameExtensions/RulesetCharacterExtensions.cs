@@ -277,7 +277,7 @@ internal static class RulesetCharacterExtensions
         var gameLocationCharacter = instance.GetMySummoner();
         var rulesetCharacter = gameLocationCharacter?.RulesetCharacter ?? instance;
 
-        if (string.IsNullOrEmpty(className) || instance is not RulesetCharacterHero hero)
+        if (string.IsNullOrEmpty(className) || rulesetCharacter is not RulesetCharacterHero hero)
         {
             return rulesetCharacter.GetClassSpellRepertoire();
         }

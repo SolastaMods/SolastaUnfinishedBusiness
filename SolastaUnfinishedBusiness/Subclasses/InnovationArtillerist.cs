@@ -406,8 +406,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
         powerEldritchCannonCommand.AddCustomSubFeatures(
             new CharacterBeforeTurnEndListenerEldritchCannonCommand(
                 conditionEldritchCannonCommand,
-                powerEldritchCannonCommand,
-                conditionFlamethrower, conditionForceBallista, conditionProtector));
+                powerEldritchCannonCommand));
 
         // Dismiss Cannon
 
@@ -964,15 +963,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
         private static int GetDC(RulesetCharacter rulesetCharacter)
         {
-            var rulesetCaster = rulesetCharacter;
-            var summoner = rulesetCharacter.GetMySummoner();
-
-            if (summoner != null)
-            {
-                rulesetCaster = summoner.RulesetCharacter;
-            }
-
-            var repertoire = rulesetCaster.GetClassSpellRepertoire(InventorClass.Class);
+            var repertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
 
             return repertoire?.SaveDC ?? 15;
         }
@@ -1123,11 +1114,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
     private sealed class CharacterBeforeTurnEndListenerEldritchCannonCommand(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionEldritchCannonCommand,
-        FeatureDefinitionPower power,
-        params ConditionDefinition[] conditions) : ICharacterBeforeTurnEndListener
+        FeatureDefinitionPower power) : ICharacterBeforeTurnEndListener
     {
-        private readonly string[] _conditionNames = conditions.Select(x => x.Name).ToArray();
-
         public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);

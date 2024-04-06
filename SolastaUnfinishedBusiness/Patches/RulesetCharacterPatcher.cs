@@ -313,8 +313,17 @@ public static class RulesetCharacterPatcher
                 return;
             }
 
-            var repertoire =
-                __instance.GetClassSpellRepertoire(__instance.FindClassHoldingFeature(featureDefinitionPower));
+            var user = __instance;
+
+            // this is required by Artillerist which has powers tied to caster
+            var summoner = user.GetMySummoner();
+
+            if (summoner != null)
+            {
+                user = summoner.RulesetCharacter;
+            }
+
+            var repertoire = user.GetClassSpellRepertoire(user.FindClassHoldingFeature(featureDefinitionPower));
 
             if (repertoire == null)
             {
