@@ -83,7 +83,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
         var powerFlamethrower = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{Flamethrower}")
-            .SetGuiPresentation(Category.Feature, FlameStrike)
+            .SetGuiPresentation(Category.Feature, FlameStrike, hidden: true)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -106,13 +106,14 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetAlterationForm(AlterationForm.Type.LightUp)
                             .Build())
                     .Build())
+            .DelegatedToAction()
             .AddToDB();
 
         powerFlamethrower.AddCustomSubFeatures(new CustomBehaviorFlamethrower(powerFlamethrower));
 
         var powerForceBallista = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{ForceBallista}")
-            .SetGuiPresentation(Category.Feature, EldritchBlast)
+            .SetGuiPresentation(Category.Feature, EldritchBlast, hidden: true)
             .SetUsesFixed(ActivationTime.Action)
             .SetUseSpellAttack()
             .SetEffectDescription(
@@ -132,12 +133,13 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
                             .Build())
                     .Build())
+            .DelegatedToAction()
             .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelInventor.Instance)
             .AddToDB();
 
         var powerProtector = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{Protector}")
-            .SetGuiPresentation(Category.Feature, MassCureWounds)
+            .SetGuiPresentation(Category.Feature, MassCureWounds, hidden: true)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -151,6 +153,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetTempHpForm(5, DieType.D8, 1)
                             .Build())
                     .Build())
+            .DelegatedToAction()
             .AddToDB();
 
         // Action Affinities Medium Cannon
@@ -397,11 +400,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetConditionForm(conditionEldritchCannonCommand, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(c =>
-                    Gui.Battle != null &&
-                    ValidatorsCharacter.HasAnyOfConditions(
-                        conditionFlamethrower.Name, conditionForceBallista.Name, conditionProtector.Name)(c)))
+            .AddCustomSubFeatures(ValidatorsValidatePowerUse.InCombat, new ValidatorsValidatePowerUse(HasCannon))
             .AddToDB();
 
         powerEldritchCannonCommand.AddCustomSubFeatures(
@@ -429,10 +428,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetCounterForm(CounterForm.CounterType.DismissCreature, 0, 0, false, false)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(c =>
-                    ValidatorsCharacter.HasAnyOfConditions(
-                        conditionFlamethrower.Name, conditionForceBallista.Name, conditionProtector.Name)(c)))
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(HasCannon))
             .AddToDB();
 
         // Refund Cannon
@@ -561,9 +557,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                         EffectFormBuilder
                             .ConditionForm(conditionProtectorTiny, ConditionForm.ConditionOperation.Remove, true, true))
                     .Build())
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(
-                    conditionFlamethrowerTiny.Name, conditionForceBallistaTiny.Name, conditionProtectorTiny.Name)))
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(HasTinyCannon))
             .AddToDB();
 
         var powerDetonate = FeatureDefinitionPowerBuilder
@@ -584,8 +578,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(
-                    conditionFlamethrower.Name, conditionForceBallista.Name, conditionProtector.Name)),
+                new ValidatorsValidatePowerUse(HasCannon),
                 new MagicEffectFinishedByMeEldritchDetonation(powerDetonateSelf))
             .AddToDB();
 
@@ -744,6 +737,22 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private static bool HasCannon(RulesetCharacter character)
+    {
+        return ValidatorsCharacter.HasAnyOfConditions(
+            $"Condition{Name}{Flamethrower}",
+            $"Condition{Name}{ForceBallista}",
+            $"Condition{Name}{Protector}")(character);
+    }
+
+    private static bool HasTinyCannon(RulesetCharacter character)
+    {
+        return ValidatorsCharacter.HasAnyOfConditions(
+            $"Condition{Name}{Flamethrower}Tiny",
+            $"Condition{Name}{ForceBallista}Tiny",
+            $"Condition{Name}{Protector}Tiny")(character);
+    }
 
     private static FeatureDefinitionPowerSharedPool BuildFlamethrowerPower(
         FeatureDefinitionPower sharedPoolPower,
@@ -914,7 +923,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .Build())
             .SetUniqueInstance()
             .AddCustomSubFeatures(
-                ModifyPowerVisibility.Hidden,
                 SkipEffectRemovalOnLocationChange.Always,
                 CannonLimiter)
             .AddToDB();
@@ -1125,7 +1133,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
 
             if (status != ActionStatus.Available ||
-                !ValidatorsCharacter.HasAnyOfConditions(_conditionNames)(locationCharacter.RulesetCharacter))
+                !HasCannon(locationCharacter.RulesetCharacter))
             {
                 return;
             }
