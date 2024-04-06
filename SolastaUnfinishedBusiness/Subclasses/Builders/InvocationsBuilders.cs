@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -758,8 +759,8 @@ internal static class InvocationsBuilders
                 return;
             }
 
-            var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                caster.TryGetAttributeValue(AttributeDefinitions.Charisma));
+            var charismaModifier = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(
+                caster.TryGetAttributeValue(AttributeDefinitions.Charisma)));
 
             var damageForm = new DamageForm
             {
@@ -782,7 +783,7 @@ internal static class InvocationsBuilders
             };
 
             RulesetActor.InflictDamage(
-                charismaModifier,
+                damageForm.BonusDamage,
                 damageForm,
                 damageForm.DamageType,
                 applyFormsParams,
@@ -791,7 +792,7 @@ internal static class InvocationsBuilders
                 caster.Guid,
                 false,
                 [],
-                new RollInfo(DieType.D1, [], charismaModifier),
+                new RollInfo(damageForm.DieType, [], damageForm.BonusDamage),
                 true,
                 out _);
         }
@@ -1040,6 +1041,197 @@ internal static class InvocationsBuilders
 
     #endregion
 
+    #region Burning Hex
+
+    internal static InvocationDefinition BuildChillingHex()
+    {
+        const string NAME = "InvocationChillingHex";
+
+        var powerInvocationChillingHex = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Invocation, RayOfFrost)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetBonusMode(AddBonusMode.AbilityBonus)
+                        .SetDamageForm(DamageTypeFire)
+                        .Build())
+                    .SetParticleEffectParameters(PowerDomainElementalIceLance)
+                    .SetCasterEffectParameters(PowerPactChainPseudodragon)
+                    .Build())
+            .AddToDB();
+
+        powerInvocationChillingHex.AddCustomSubFeatures(
+            new FilterTargetingCharacterChillingHex(powerInvocationChillingHex));
+
+        return InvocationDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, FireBolt)
+            .SetValidators(ValidateHex)
+            .SetGrantedFeature(powerInvocationChillingHex)
+            .AddToDB();
+    }
+
+    private sealed class FilterTargetingCharacterChillingHex(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerVexingHex)
+        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
+                || rulesetEffectPower.PowerDefinition != powerVexingHex)
+            {
+                return true;
+            }
+
+            var rulesetCharacter = target.RulesetCharacter;
+
+            if (rulesetCharacter == null)
+            {
+                return true;
+            }
+
+            var isValid = CanApplyHex(rulesetCharacter);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveMaledictionCurseOrHex");
+            }
+
+            return isValid;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var attacker = action.ActingCharacter;
+            var defender = action.ActionParams.TargetCharacters[0];
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var charismaModifier = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Charisma)));
+
+            // apply damage to all targets
+            foreach (var target in Gui.Battle.GetContenders(defender, withinRange: 1))
+            {
+                var rulesetTarget = target.RulesetCharacter;
+                var damageForm = new DamageForm
+                {
+                    DamageType = DamageTypeCold,
+                    DieType = DieType.D1,
+                    DiceNumber = 0,
+                    BonusDamage = charismaModifier
+                };
+
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = rulesetAttacker,
+                    targetCharacter = rulesetTarget,
+                    position = target.LocationPosition
+                };
+
+                EffectHelpers.StartVisualEffect(attacker, defender, PowerDomainElementalIceLance);
+                RulesetActor.InflictDamage(
+                    damageForm.BonusDamage,
+                    damageForm,
+                    damageForm.DamageType,
+                    applyFormsParams,
+                    rulesetTarget,
+                    false,
+                    rulesetAttacker.Guid,
+                    false,
+                    [],
+                    new RollInfo(damageForm.DieType, [], damageForm.BonusDamage),
+                    false,
+                    out _);
+            }
+        }
+    }
+
+    #endregion
+
+    #region Burning Hex
+
+    internal static InvocationDefinition BuildBurningHex()
+    {
+        const string NAME = "InvocationBurningHex";
+
+        var powerInvocationBurningHex = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Invocation, Blindness)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetBonusMode(AddBonusMode.AbilityBonus)
+                        .SetDamageForm(DamageTypeFire)
+                        .Build())
+                    .SetParticleEffectParameters(PowerDomainElementalFireBurst)
+                    .SetCasterEffectParameters(PowerPactChainPseudodragon)
+                    .Build())
+            .AddToDB();
+
+        powerInvocationBurningHex.AddCustomSubFeatures(
+            new FilterTargetingCharacterBurningHex(powerInvocationBurningHex));
+
+        return InvocationDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, FireBolt)
+            .SetRequirements(5)
+            .SetValidators(ValidateHex)
+            .SetGrantedFeature(powerInvocationBurningHex)
+            .AddToDB();
+    }
+
+    private sealed class FilterTargetingCharacterBurningHex(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerVexingHex) : IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
+                || rulesetEffectPower.PowerDefinition != powerVexingHex)
+            {
+                return true;
+            }
+
+            var rulesetCharacter = target.RulesetCharacter;
+
+            if (rulesetCharacter == null)
+            {
+                return true;
+            }
+
+            var isValid = CanApplyHex(rulesetCharacter);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveMaledictionCurseOrHex");
+            }
+
+            return isValid;
+        }
+    }
+
+    #endregion
+
     #region Vexing Hex
 
     internal static InvocationDefinition BuildVexingHex()
@@ -1119,13 +1311,11 @@ internal static class InvocationsBuilders
             var defender = action.ActionParams.TargetCharacters[0];
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Charisma));
+            var charismaModifier = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Charisma)));
 
             // apply damage to all targets
-            foreach (var target in Gui.Battle
-                         .GetContenders(attacker, withinRange: 1)
-                         .Where(x => x != defender))
+            foreach (var target in Gui.Battle.GetContenders(defender, excludeSelf: false, withinRange: 1))
             {
                 var rulesetTarget = target.RulesetCharacter;
                 var damageForm = new DamageForm
@@ -1135,9 +1325,6 @@ internal static class InvocationsBuilders
                     DiceNumber = 0,
                     BonusDamage = charismaModifier
                 };
-                var rolls = new List<int>();
-                var damageRoll = rulesetAttacker.RollDamage(
-                    damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
                 var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
                 {
                     sourceCharacter = rulesetAttacker,
@@ -1147,7 +1334,7 @@ internal static class InvocationsBuilders
 
                 EffectHelpers.StartVisualEffect(attacker, defender, PowerSorakDreadLaughter);
                 RulesetActor.InflictDamage(
-                    damageRoll,
+                    damageForm.BonusDamage,
                     damageForm,
                     damageForm.DamageType,
                     applyFormsParams,
@@ -1156,7 +1343,7 @@ internal static class InvocationsBuilders
                     rulesetAttacker.Guid,
                     false,
                     [],
-                    new RollInfo(damageForm.DieType, rolls, 0),
+                    new RollInfo(damageForm.DieType, [], damageForm.BonusDamage),
                     false,
                     out _);
             }

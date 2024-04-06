@@ -131,6 +131,8 @@ internal static class ModUi
         "InvocationAbilitiesOfTheChainMaster",
         "InvocationAspectOfTheMoon",
         "InvocationBondOfTheTalisman",
+        "InvocationBurningHex",
+        "InvocationChillingHex",
         "InvocationEldritchMind",
         "InvocationEldritchSmite",
         "InvocationGiftOfTheEverLivingOnes",
