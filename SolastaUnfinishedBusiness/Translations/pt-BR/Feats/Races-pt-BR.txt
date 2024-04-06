@@ -1,5 +1,7 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=Qualquer criatura a até 1,5 metro de você que o atinja com um ataque corpo a corpo sofre 1d4 de dano de fogo.
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=Chamas de Flegeto
+Feat/&FeatDarkElfMagicDescription=Você aprende mais sobre a magia típica dos elfos negros. Você aprende o feitiço Detectar Magia e pode lançá-lo à vontade, sem gastar um espaço de feitiço. Você também aprende Levitar e Dissipar Magia, cada um dos quais você pode lançar uma vez sem gastar um espaço de feitiço. Você recupera a habilidade de conjurar a magia desta forma quando termina um descanso longo. Carisma é sua habilidade de lançar feitiços para esses feitiços.
+Feat/&FeatDarkElfMagicTitle=Magia dos Elfos Negros
 Feat/&FeatDragonWingsDescription=Você brota asas dracônicas. Você ganha a habilidade de voar por um tempo limitado se não estiver usando uma armadura pesada.
 Feat/&FeatDragonWingsTitle=Asas de Dragão
 Feat/&FeatDwarvenFortitudeDescription=Você tem o sangue de heróis anões fluindo em suas veias. Você ganha os seguintes benefícios:\n• Aumente seu valor de Constituição em 1, até um máximo de 20.\n• Sempre que realizar a ação Esquiva em combate, você pode gastar um Dado de Vida para se curar. Jogue o dado, adicione seu modificador de Constituição e recupere um número de pontos de vida igual ao total (mínimo de 1).
@@ -26,6 +28,8 @@ Feat/&FeatSquatNimblenessDexDescription=Você é incomumente ágil para sua raç
 Feat/&FeatSquatNimblenessDexTitle=Agilidade de agachamento [Dex]
 Feat/&FeatSquatNimblenessStrDescription=Você é incomumente ágil para sua raça. Aumente seu valor de Força em 1, até um máximo de 20. Aumente sua velocidade de caminhada em 1,5 metro. Você ganha proficiência ou experiência na perícia Atletismo.
 Feat/&FeatSquatNimblenessStrTitle=Agilidade de agachamento [Str]
+Feat/&FeatWoodElfMagicDescription=Você aprende a magia das florestas primitivas, que são reverenciadas e protegidas por seu povo. Você aprende um truque de Druida à sua escolha. Você também aprende os feitiços Longstrider e Pass Without Trace, cada um dos quais você pode lançar uma vez sem gastar um espaço de feitiço. Você recupera a habilidade de conjurar essas duas magias desta forma quando termina um descanso longo.
+Feat/&FeatWoodElfMagicTitle=Magia dos Elfos da Floresta
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Enquanto estiver empunhando uma espada grande, você ganha +1 de bônus na classe de armadura.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Lâmina Regressada
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=Por causa das Chamas de Phlegethos {0} rola novamente o dado {1} de {2} para {3}.

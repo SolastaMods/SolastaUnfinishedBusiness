@@ -1,5 +1,7 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=あなたから 5 フィート以内にいるクリーチャーが近接攻撃で攻撃すると、1d4 の火炎ダメージを受けます。
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=フレゲトスの炎
+Feat/&FeatDarkElfMagicDescription=ダークエルフに特有の魔法をさらに学びます。あなたは Detect Magic 呪文を学び、呪文スロットを消費せずに自由に唱えることができます。また、Levitate と Dispel Magic も学びます。これらはそれぞれ、呪文スロットを消費せずに 1 回唱えることができます。長い休息を終えると、この方法で呪文を唱える能力が回復します。カリスマ性は、これらの呪文を唱える能力です。
+Feat/&FeatDarkElfMagicTitle=ダークエルフの魔法
 Feat/&FeatDragonWingsDescription=あなたは竜の翼を生やします。重装甲を着用していない場合は、一定時間飛行できるようになります。
 Feat/&FeatDragonWingsTitle=ドラゴンの翼
 Feat/&FeatDwarvenFortitudeDescription=あなたにはドワーフの英雄の血が流れています。次の利点が得られます。\n・耐久スコアが 1 増加し、最大 20 になります。\n・戦闘で回避アクションを行うたびに、1 ヒット ダイを消費して自分を回復できます。サイコロを振り、体力修正値を加え、合計に等しい数のヒット ポイントを回復します（最低 1）。
@@ -26,6 +28,8 @@ Feat/&FeatSquatNimblenessDexDescription=あなたは種族にしては珍しく�
 Feat/&FeatSquatNimblenessDexTitle=スクワットの敏捷性 [Dex]
 Feat/&FeatSquatNimblenessStrDescription=あなたは種族にしては珍しく機敏です。筋力スコアが 1 増加し、最大 20 になります。歩行速度が 5 フィート増加します。陸上競技スキルの熟練度または専門知識が得られます。
 Feat/&FeatSquatNimblenessStrTitle=スクワットの敏捷性[Str]
+Feat/&FeatWoodElfMagicDescription=あなたは、人々に尊敬され守られている原始の森の魔法を学びます。選択したドルイドのキャントリップを 1 つ習得します。また、Longstrider と Pass Without Trace の呪文も学びます。これらはそれぞれ、呪文スロットを消費せずに 1 回唱えることができます。長い休息を終えると、この方法でこれら 2 つの呪文を唱える能力が回復します。
+Feat/&FeatWoodElfMagicTitle=ウッドエルフの魔法
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=あなたがグレートソードを持っている間、あなたはアーマークラスに+1のボーナスを獲得します。
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=レヴナントブレード
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=フレゲトスの炎により、{0} は {1} のダイスを {2} から {3} に振り直します。

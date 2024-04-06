@@ -1,5 +1,7 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=Any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=Flames of Phlegethos
+Feat/&FeatDarkElfMagicDescription=You learn more of the magic typical of dark elves. You learn the Detect Magic spell and can cast it at will, without expending a spell slot. You also learn Levitate and Dispel Magic, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Charisma is your spellcasting ability for these spells.
+Feat/&FeatDarkElfMagicTitle=Dark-Elf Magic
 Feat/&FeatDragonWingsDescription=You sprout draconic wings. You gain the ability to fly for a limited time if you aren't wearing heavy armor.
 Feat/&FeatDragonWingsTitle=Dragon Wings
 Feat/&FeatDwarvenFortitudeDescription=You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:\n• Increase your Constitution score by 1, to a maximum of 20.\n• Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).
@@ -26,6 +28,8 @@ Feat/&FeatSquatNimblenessDexDescription=You are uncommonly nimble for your race.
 Feat/&FeatSquatNimblenessDexTitle=Squat Nimbleness [Dex]
 Feat/&FeatSquatNimblenessStrDescription=You are uncommonly nimble for your race. Increase your Strength by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill.
 Feat/&FeatSquatNimblenessStrTitle=Squat Nimbleness [Str]
+Feat/&FeatWoodElfMagicDescription=You learn the magic of the primeval woods, which are revered and protected by your people. You learn one Druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest.
+Feat/&FeatWoodElfMagicTitle=Wood-Elf Magic
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=While you are holding a great sword, you gain a +1 bonus to armor class.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Revenant Blade
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=Because of Flames of Phlegethos {0} re-rolls the {1} die from a {2} to a {3}.

@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,12 +11,16 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:PowerFeatDarkElfMagicDetectMagic:5d364b77-c388-5339-96dc-b3ebe44c2110",
+    "Definition:PowerFeatDarkElfMagicDispelMagic:ed35564f-985b-5c6a-8ed4-3887f06ef07b",
+    "Definition:PowerFeatDarkElfMagicLevitate:f182572a-145f-5b99-b45f-7048c96de81b"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupRaceBoundTitle",
-    "description": "Dark-Elf Magic, Dragon Wings, Dwarven Fortitude, Elven Accuracy, Fade Away, Flames of Phlegethos, Infernal Constitution, Orcish Fury, Revenant Blade, Second Chance, Squat Nimbleness, Wood-Elf Magic",
+    "title": "Feat/&FeatDarkElfMagicTitle",
+    "description": "Feat/&FeatDarkElfMagicDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "08dd4258-765f-5a45-97c8-468f0baedc22",
+  "guid": "70d177b4-2580-5195-894c-a9368b7681cf",
   "contentPack": 9999,
-  "name": "FeatGroupRaceBound"
+  "name": "FeatDarkElfMagic"
 }

@@ -1,5 +1,7 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=任何距离你 5 英尺以内的生物如果用近战攻击击中你，都会受到 1d4 火焰伤害。
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=弗莱格索斯之焰
+Feat/&FeatDarkElfMagicDescription=你会学到更多黑暗精灵典型的魔法。你学会了探测魔法法术并且可以随意施展它，而不需要消耗法术位。你还可以学习悬浮魔法和驱散魔法，每一种魔法你都可以施放一次，而不需要消耗法术位。当你完成长时间的休息后，你将重新获得以这种方式施展法术的能力。魅力是你施展这些法术的能力。
+Feat/&FeatDarkElfMagicTitle=黑暗精灵魔法
 Feat/&FeatDragonWingsDescription=你长出了龙的翅膀。如果你没有穿着重甲，你将获得有限时间的飞行能力。
 Feat/&FeatDragonWingsTitle=龙翼
 Feat/&FeatDwarvenFortitudeDescription=你的血管里流淌着矮人英雄的血液。你获得以下好处：\n• 你的体质 +1，上限为 20。\n• 每当您在战斗中采取闪避动作时，您都可以消耗一个生命骰来恢复 骰值 + 你的体质调整值 的生命值（至少 1 点）。
@@ -26,6 +28,8 @@ Feat/&FeatSquatNimblenessDexDescription=你在你的种族中异常敏捷。你�
 Feat/&FeatSquatNimblenessDexTitle=低身机敏【敏捷】
 Feat/&FeatSquatNimblenessStrDescription=你在你的种族中异常敏捷。你的力量 +1，上限为 20。将你的步行速度提高 5 尺。你获得运动技能的熟练项或专精。
 Feat/&FeatSquatNimblenessStrTitle=低身机敏【力量】
+Feat/&FeatWoodElfMagicDescription=你学习了原始森林的魔力，它们受到你的人民的崇敬和保护。你可以学习一种你选择的德鲁伊戏法。你还可以学习“长行者”和“无痕通行”法术，每个法术都可以施展一次而无需消耗法术位。当你完成长时间的休息后，你将重新获得以这种方式施展这两个法术的能力。
+Feat/&FeatWoodElfMagicTitle=木精灵魔法
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=当你手持一把巨剑时，你的护甲等级获得 +1 加值。
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=英魂之刃
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=由于弗莱格索斯之焰，{0} 将 {1} 骰子从 {2} 重新投掷到 {3}。

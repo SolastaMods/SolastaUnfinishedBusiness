@@ -219,7 +219,9 @@ internal static class RaceFeats
             .SetValidators(ValidatorsFeat.IsTiefling)
             .AddToDB();
 
+        var featDarkElfMagic = BuildDarkElfMagic();
         var featDwarvenFortitude = BuildDwarvenFortitude();
+        var featWoodElfMagic = BuildWoodElfMagic();
         var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
         var featGroupOrcishFury = BuildOrcishFury(feats);
         var featGroupSecondChance = BuildSecondChance(feats);
@@ -229,6 +231,7 @@ internal static class RaceFeats
         //
 
         feats.AddRange(
+            featDarkElfMagic,
             featDragonWings,
             featDwarvenFortitude,
             featFadeAwayDex,
@@ -241,7 +244,8 @@ internal static class RaceFeats
             featRevenantGreatSwordStr,
             featSquatNimblenessDex,
             featSquatNimblenessStr,
-            featInfernalConstitution);
+            featInfernalConstitution,
+            featWoodElfMagic);
 
         var featGroupsElvenAccuracy = GroupFeats.MakeGroupWithPreRequisite(
             "FeatGroupElvenAccuracy",
@@ -278,6 +282,7 @@ internal static class RaceFeats
         GroupFeats.FeatGroupTwoHandedCombat.AddFeats(featGroupRevenantGreatSword);
 
         GroupFeats.MakeGroup("FeatGroupRaceBound", null,
+            featDarkElfMagic,
             featDragonWings,
             featDwarvenFortitude,
             featInfernalConstitution,
@@ -287,8 +292,111 @@ internal static class RaceFeats
             featGroupOrcishFury,
             featGroupRevenantGreatSword,
             featGroupSecondChance,
-            featGroupSquatNimbleness);
+            featGroupSquatNimbleness,
+            featWoodElfMagic);
     }
+
+    #region Dark-Elf Magic
+
+    private static FeatDefinitionWithPrerequisites BuildDarkElfMagic()
+    {
+        const string Name = "FeatDarkElfMagic";
+
+        var powerDetectMagic = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}DetectMagic")
+            .SetGuiPresentation(DetectMagic.GuiPresentation)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(DetectMagic)
+                    .Build())
+            .AddToDB();
+
+        var powerLevitate = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Levitate")
+            .SetGuiPresentation(Levitate.GuiPresentation)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Levitate)
+                    .Build())
+            .AddToDB();
+
+        var powerDispelMagic = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}DispelMagic")
+            .SetGuiPresentation(DispelMagic.GuiPresentation)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(DispelMagic)
+                    .Build())
+            .AddToDB();
+
+        var feat = FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(powerDetectMagic, powerLevitate, powerDispelMagic)
+            .SetValidators(ValidatorsFeat.IsDarkElfOrHalfElfDark)
+            .AddToDB();
+
+        return feat;
+    }
+
+    #endregion
+
+    #region Wood-Elf Magic
+
+    private static FeatDefinitionWithPrerequisites BuildWoodElfMagic()
+    {
+        const string Name = "FeatWoodElfMagic";
+
+        var spellListCantrip = SpellListDefinitionBuilder
+            .Create($"SpellList{Name}")
+            .SetGuiPresentationNoContent(true)
+            .FinalizeSpells()
+            .AddToDB();
+
+        //explicitly re-use druid spell list, so custom cantrips selected for druid will show here 
+        spellListCantrip.SpellsByLevel[0].Spells = SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells;
+
+        var castSpellCantrip = FeatureDefinitionCastSpellBuilder
+            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, $"CastSpell{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
+            .SetSpellList(spellListCantrip)
+            .AddToDB();
+
+        var powerLongstrider = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Longstrider")
+            .SetGuiPresentation(Longstrider.GuiPresentation)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Longstrider)
+                    .Build())
+            .AddToDB();
+
+        var powerPassWithoutTrace = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}PassWithoutTrace")
+            .SetGuiPresentation(PassWithoutTrace.GuiPresentation)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PassWithoutTrace)
+                    .Build())
+            .AddToDB();
+
+        var feat = FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(castSpellCantrip, powerLongstrider, powerPassWithoutTrace)
+            .SetValidators(ValidatorsFeat.IsSylvanElf)
+            .AddToDB();
+
+        return feat;
+    }
+
+    #endregion
 
     #region Dwarven Fortitude
 

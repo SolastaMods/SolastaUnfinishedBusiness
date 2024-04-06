@@ -1,7 +1,7 @@
 1.5.97.4:
 
 - added Conjure Goblinoids and Warding Bond spells
-- added Mage Slayer feat
+- added Dark-Elf Magic, Mage Slayer, and Wood-Elf Magic feats
 - fixed Artificer spell storing item menu with too many items
 - fixed Artillerist firearm, detonate, flamethrower, and fortified
 - fixed Maddening Hex and Relentless Hex interaction with Hexblade

@@ -1,5 +1,7 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=근접 공격으로 당신을 공격하는 당신으로부터 5피트 내의 모든 생물은 1d4의 화염 피해를 입습니다.
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=플레게토스의 불꽃
+Feat/&FeatDarkElfMagicDescription=다크 엘프의 전형적인 마법에 대해 더 많이 배웁니다. 당신은 Detect Magic 주문을 배우고 주문 슬롯을 확장하지 않고도 마음대로 시전할 수 있습니다. 또한 주문 슬롯을 소모하지 않고 한 번만 시전할 수 있는 Levitate 및 Dispel Magic도 배웁니다. 긴 휴식을 마치면 이런 식으로 주문을 시전할 수 있는 능력을 다시 얻습니다. 카리스마는 이러한 주문에 대한 주문 시전 능력입니다.
+Feat/&FeatDarkElfMagicTitle=다크 엘프 마법
 Feat/&FeatDragonWingsDescription=당신은 용의 날개를 돋아냅니다. 무거운 갑옷을 입지 않으면 제한된 시간 동안 비행할 수 있는 능력을 얻습니다.
 Feat/&FeatDragonWingsTitle=드래곤 날개
 Feat/&FeatDwarvenFortitudeDescription=당신의 혈관에는 드워프 영웅들의 피가 흐르고 있습니다. 다음과 같은 이점이 있습니다.\n• 건강 점수가 1씩 증가하여 최대 20이 됩니다.\n• 전투에서 회피 행동을 취할 때마다 적중 주사위 1개를 소비하여 자신을 치료할 수 있습니다. 주사위를 굴리고 헌법 수정치를 추가하고 총합과 동일한 체력(최소 1)을 회복합니다.
@@ -26,6 +28,8 @@ Feat/&FeatSquatNimblenessDexDescription=당신은 당신의 종족에 비해 매
 Feat/&FeatSquatNimblenessDexTitle=스쿼트 민첩성 [덱스]
 Feat/&FeatSquatNimblenessStrDescription=당신은 당신의 종족에 비해 매우 민첩합니다. 근력 점수를 1 증가시켜 최대 20까지 증가시킵니다. 걷는 속도를 5피트 증가시킵니다. 운동 기술에 대한 숙련도나 전문성을 얻습니다.
 Feat/&FeatSquatNimblenessStrTitle=스쿼트 민첩성 [Str]
+Feat/&FeatWoodElfMagicDescription=당신은 당신의 사람들이 존경하고 보호하는 원시림의 마법을 배웁니다. 당신은 당신이 선택한 드루이드 캔트립 하나를 배웁니다. 또한 주문 슬롯을 확장하지 않고 한 번만 시전할 수 있는 Longstrider 및 Pass Without Trace 주문도 배웁니다. 긴 휴식을 마치면 이런 식으로 이 두 주문을 시전할 수 있는 능력을 다시 얻습니다.
+Feat/&FeatWoodElfMagicTitle=우드엘프 매직
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=당신이 위대한 검을 들고 있는 동안, 당신은 갑옷 등급에 +1 보너스를 얻습니다.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=레버넌트 블레이드
 Feature/&DieRollModifierFeatFlamesOfPhlegethosReroll=Flames of Phlegethos 때문에 {0}는 {1} 주사위를 {2}에서 {3}로 다시 굴립니다.

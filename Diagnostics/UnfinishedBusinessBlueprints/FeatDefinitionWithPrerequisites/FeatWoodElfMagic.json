@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,12 +11,16 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:CastSpellFeatWoodElfMagic:8514aa49-b23f-572f-8ec6-a33c5942d7b2",
+    "Definition:PowerFeatWoodElfMagicLongstrider:a0662c21-2946-50a8-a5b7-3d01174152cd",
+    "Definition:PowerFeatWoodElfMagicPassWithoutTrace:b974878c-7227-55ae-97ed-ef5cd1ac1569"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupRaceBoundTitle",
-    "description": "Dark-Elf Magic, Dragon Wings, Dwarven Fortitude, Elven Accuracy, Fade Away, Flames of Phlegethos, Infernal Constitution, Orcish Fury, Revenant Blade, Second Chance, Squat Nimbleness, Wood-Elf Magic",
+    "title": "Feat/&FeatWoodElfMagicTitle",
+    "description": "Feat/&FeatWoodElfMagicDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "08dd4258-765f-5a45-97c8-468f0baedc22",
+  "guid": "d945cb80-7efa-56a2-8365-01e0b0f5738a",
   "contentPack": 9999,
-  "name": "FeatGroupRaceBound"
+  "name": "FeatWoodElfMagic"
 }
