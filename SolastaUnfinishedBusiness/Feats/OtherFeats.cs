@@ -467,12 +467,14 @@ internal static class OtherFeats
 
     internal sealed class SpellTag
     {
-        internal SpellTag(string spellTag)
+        internal SpellTag(string spellTag, bool forceFixedList = false)
         {
             Name = spellTag;
+            ForceFixedList = forceFixedList;
         }
 
         internal string Name { get; }
+        internal bool ForceFixedList { get; }
     }
 
     #endregion

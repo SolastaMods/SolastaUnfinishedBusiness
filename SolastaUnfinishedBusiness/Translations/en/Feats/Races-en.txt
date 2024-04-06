@@ -48,7 +48,4 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosDescription=You can ignite your Flames o
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=You can ignite your Flames of Phlegethos.
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Flames of Phlegethos
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Flames of Phlegethos
-Tag/&DarkElfMagicCantripSpecialTagTitle=Dark-Elf Magic Cantrips
-Tag/&DarkElfMagicSpellSpecialTagTitle=Dark-Elf Magic Spells
 Tag/&WoodElfMagicCantripSpecialTagTitle=Wood-Elf Magic Cantrips
-Tag/&WoodElfMagicSpellSpecialTagTitle=Wood-Elf Magic Spells

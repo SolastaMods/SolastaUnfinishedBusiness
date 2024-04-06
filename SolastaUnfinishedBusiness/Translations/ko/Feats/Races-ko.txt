@@ -48,7 +48,4 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosDescription=플레게토스의 불꽃을
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=플레게토스의 불꽃을 점화할 수 있습니다.
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=플레게토스의 불꽃
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=플레게토스의 불꽃
-Tag/&DarkElfMagicCantripSpecialTagTitle=다크엘프 마법 캔트립
-Tag/&DarkElfMagicSpellSpecialTagTitle=다크 엘프 마법 주문
 Tag/&WoodElfMagicCantripSpecialTagTitle=우드 엘프 매직 캔트립
-Tag/&WoodElfMagicSpellSpecialTagTitle=우드 엘프 마법 주문

@@ -48,7 +48,4 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosDescription=Puedes encender tus Llamas d
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=Puedes encender tus Llamas de Phlegethos.
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Llamas de Flegetos
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Llamas de Flegetos
-Tag/&DarkElfMagicCantripSpecialTagTitle=Trucos mágicos de los elfos oscuros
-Tag/&DarkElfMagicSpellSpecialTagTitle=Hechizos mágicos de los elfos oscuros
 Tag/&WoodElfMagicCantripSpecialTagTitle=Trucos mágicos de los elfos del bosque
-Tag/&WoodElfMagicSpellSpecialTagTitle=Hechizos mágicos de los elfos del bosque

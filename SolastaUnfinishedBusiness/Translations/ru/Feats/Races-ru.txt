@@ -48,7 +48,4 @@ Reaction/&UsePowerFeatFlamesOfPhlegethosDescription=Вы можете зажеч
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactDescription=Вы можете зажечь Пламя Флегетоса.
 Reaction/&UsePowerFeatFlamesOfPhlegethosReactTitle=Пламя Флегетоса
 Reaction/&UsePowerFeatFlamesOfPhlegethosTitle=Пламя Флегетоса
-Tag/&DarkElfMagicCantripSpecialTagTitle=Заговоры тёмных эльфов
-Tag/&DarkElfMagicSpellSpecialTagTitle=Заклинания тёмных эльфов
 Tag/&WoodElfMagicCantripSpecialTagTitle=Заговоры лесных эльфов
-Tag/&WoodElfMagicSpellSpecialTagTitle=Заклинания лесных эльфов

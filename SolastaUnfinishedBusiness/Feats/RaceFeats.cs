@@ -308,12 +308,23 @@ internal static class RaceFeats
             .SetSpellLevel(0)
             .AddToDB();
 
+        var levitateSpell = SpellDefinitionBuilder
+            .Create(Levitate, "LevitateSpell")
+            .SetSpellLevel(1)
+            .AddToDB();
+
+        var dispelMagicSpell = SpellDefinitionBuilder
+            .Create(DispelMagic, "DispelMagicSpell")
+            .SetSpellLevel(2)
+            .AddToDB();
+
         var spellListCantrip = SpellListDefinitionBuilder
             .Create($"SpellList{Name}")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(0, detectMagicCantrip)
-            .SetSpellsAtLevel(1, DispelMagic, Levitate)
+            .SetSpellsAtLevel(1, levitateSpell)
+            .SetSpellsAtLevel(2, dispelMagicSpell)
             .FinalizeSpells(true, 1)
             .AddToDB();
 
@@ -321,34 +332,22 @@ internal static class RaceFeats
             .Create($"CastSpell{Name}")
             .SetGuiPresentation(Name, Category.Feat)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
-            .SetSpellKnowledge(SpellKnowledge.Selection)
+            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .SetSpellKnowledge(SpellKnowledge.FixedList)
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest)
-            .SetSlotsPerLevel(SharedSpellsContext.InitiateCastingSlots)
-            .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
             .SetReplacedSpells(1, 0)
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
             .AddCustomSubFeatures(new OtherFeats.SpellTag("DarkElfMagic"))
             .SetSpellList(spellListCantrip)
-            .AddToDB();
-
-        var pointPoolCantrip = FeatureDefinitionPointPoolBuilder
-            .Create($"PointPool{Name}Cantrip")
-            .SetGuiPresentationNoContent(true)
-            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellListCantrip, "DarkElfMagic")
-            .AddToDB();
-
-        var pointPoolSpell = FeatureDefinitionPointPoolBuilder
-            .Create($"PointPool{Name}Spell")
-            .SetGuiPresentationNoContent(true)
-            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 2, spellListCantrip, "DarkElfMagic")
             .AddToDB();
 
         var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(castSpell, pointPoolCantrip, pointPoolSpell)
-            .SetValidators(ValidatorsFeat.IsDarkElfOrHalfElfDark)
+            .SetFeatures(castSpell)
+            .SetValidators(ValidatorsFeat.IsDarkElfOrHalfElfDark, ValidatorsFeat.IsLevel4)
             .AddToDB();
 
         return feat;
@@ -366,7 +365,8 @@ internal static class RaceFeats
             .Create($"SpellList{Name}")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
-            .SetSpellsAtLevel(1, PassWithoutTrace, Longstrider)
+            .SetSpellsAtLevel(1, Longstrider)
+            .SetSpellsAtLevel(2, PassWithoutTrace)
             .FinalizeSpells(true, 1)
             .AddToDB();
 
@@ -377,14 +377,14 @@ internal static class RaceFeats
             .Create($"CastSpell{Name}")
             .SetGuiPresentation(Name, Category.Feat)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+            .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
             .SetSpellKnowledge(SpellKnowledge.Selection)
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest)
-            .SetSlotsPerLevel(SharedSpellsContext.InitiateCastingSlots)
-            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
             .SetReplacedSpells(1, 0)
-            .AddCustomSubFeatures(new OtherFeats.SpellTag("WoodElfMagic"))
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .AddCustomSubFeatures(new OtherFeats.SpellTag("WoodElfMagic", true))
             .SetSpellList(spellListCantrip)
             .AddToDB();
 
@@ -394,17 +394,11 @@ internal static class RaceFeats
             .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellListCantrip, "WoodElfMagic")
             .AddToDB();
 
-        var pointPoolSpell = FeatureDefinitionPointPoolBuilder
-            .Create($"PointPool{Name}Spell")
-            .SetGuiPresentationNoContent(true)
-            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 2, spellListCantrip, "WoodElfMagic")
-            .AddToDB();
-
         var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(castSpell, pointPoolCantrip, pointPoolSpell)
-            .SetValidators(ValidatorsFeat.IsSylvanElf)
+            .SetFeatures(castSpell, pointPoolCantrip)
+            .SetValidators(ValidatorsFeat.IsSylvanElf, ValidatorsFeat.IsLevel4)
             .AddToDB();
 
         return feat;
