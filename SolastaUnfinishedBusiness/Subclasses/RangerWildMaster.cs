@@ -682,7 +682,6 @@ public sealed class RangerWildMaster : AbstractSubclass
 
         power.AddCustomSubFeatures(
             SkipEffectRemovalOnLocationChange.Always,
-            ValidatorsValidatePowerUse.NotInCombat,
             new ModifyEffectDescriptionSummonBeastCompanion(power, beastCompanion03, beastCompanion11));
 
         return power;
@@ -767,7 +766,6 @@ public sealed class RangerWildMaster : AbstractSubclass
 
         power.AddCustomSubFeatures(
             SkipEffectRemovalOnLocationChange.Always,
-            ValidatorsValidatePowerUse.NotInCombat,
             new ModifyEffectDescriptionSummonBeastCompanion(power, beastCompanion03, beastCompanion11));
 
         return power;

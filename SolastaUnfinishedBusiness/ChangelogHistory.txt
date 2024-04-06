@@ -10,6 +10,7 @@
 - fixed Merciless fighting style effect center point
 - fixed Vitriolist refund mixtures and paragon
 - fixed Wildmaster bear companion additional HPs
+- fixed Wildmaster eagle and wolf companions not allowed in combat
 
 1.5.97.3:
 
