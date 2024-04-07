@@ -109,7 +109,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .DelegatedToAction()
             .AddToDB();
 
-        powerFlamethrower.AddCustomSubFeatures(new CustomBehaviorFlamethrower(powerFlamethrower));
+        powerFlamethrower.AddCustomSubFeatures(new CustomBehaviorForceCasterSpellDC(powerFlamethrower));
 
         var powerForceBallista = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{ForceBallista}")
@@ -134,7 +134,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Build())
                     .Build())
             .DelegatedToAction()
-            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelInventor.Instance)
             .AddToDB();
 
         var powerProtector = FeatureDefinitionPowerBuilder
@@ -540,7 +539,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 4)
                     .SetParticleEffectParameters(Fireball)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                        EffectDifficultyClassComputation.FixedValue, AttributeDefinitions.Wisdom, 17)
+                        EffectDifficultyClassComputation.FixedValue)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -556,8 +555,37 @@ public sealed class InnovationArtillerist : AbstractSubclass
                         EffectFormBuilder
                             .ConditionForm(conditionProtectorTiny, ConditionForm.ConditionOperation.Remove, true, true))
                     .Build())
+            .AddToDB();
+
+        powerDetonateSelf.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(HasTinyCannon),
+            new CustomBehaviorForceCasterSpellDC(powerDetonateSelf));
+
+        var powerDetonateCannon = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{EldritchCannon}DetonateCannon")
+            .SetGuiPresentation(ELDRITCH_DETONATION, Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Fireball)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 4)
+                    .SetParticleEffectParameters(Fireball)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.FixedValue)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeForce, 3, DieType.D8)
+                            .Build())
+                    .Build())
             .AddCustomSubFeatures(new ValidatorsValidatePowerUse(HasTinyCannon))
             .AddToDB();
+
+        powerDetonateCannon.AddCustomSubFeatures(
+            new MagicEffectFinishedByMeEldritchDetonationDismiss(),
+            new CustomBehaviorForceCasterSpellDC(powerDetonateCannon));
 
         var powerDetonate = FeatureDefinitionPowerBuilder
             .Create(ELDRITCH_DETONATION)
@@ -569,16 +597,10 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetRestrictedCreatureFamilies(InventorClass.InventorConstructFamily)
-                    .SetParticleEffectParameters(Counterspell)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetCounterForm(CounterForm.CounterType.DismissCreature, 0, 0, false, false)
-                            .Build())
                     .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(HasCannon),
-                new MagicEffectFinishedByMeEldritchDetonation(powerDetonateSelf))
+                new MagicEffectFinishedByMeEldritchDetonationDetonate(powerDetonateCannon))
             .AddToDB();
 
         // Explosive Cannon
@@ -590,13 +612,13 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
         var powerFlamethrower09 =
             BuildFlamethrowerPower(powerExplosiveCannonPool, conditionFlamethrower, 9,
-                powerFlamethrower, actionAffinityFlamethrower);
+                powerFlamethrower, powerDetonateCannon, actionAffinityFlamethrower);
         var powerForceBallista09 =
             BuildForceBallistaPower(powerExplosiveCannonPool, conditionForceBallista, 9,
-                powerForceBallista, actionAffinityForceBallista);
+                powerForceBallista, powerDetonateCannon, actionAffinityForceBallista);
         var powerProtector09 =
             BuildProtectorPower(powerExplosiveCannonPool, conditionProtector, 9,
-                powerProtector, actionAffinityProtector);
+                powerProtector, powerDetonateCannon, actionAffinityProtector);
         var powerTinyFlamethrower09 =
             BuildTinyFlamethrowerPower(powerExplosiveCannonPool, conditionFlamethrowerTiny, 9);
         var powerTinyForceBallista09 =
@@ -931,7 +953,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     // Flamethrower
 
-    private sealed class CustomBehaviorFlamethrower(
+    private sealed class CustomBehaviorForceCasterSpellDC(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerFlamethrower) : IMagicEffectInitiatedByMe, IModifyEffectDescription
     {
@@ -1019,23 +1041,23 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     // Eldritch Detonation
 
-    private sealed class MagicEffectFinishedByMeEldritchDetonation(FeatureDefinitionPower powerEldritchDetonation)
+    private sealed class MagicEffectFinishedByMeEldritchDetonationDetonate(
+        FeatureDefinitionPower powerEldritchDetonation)
         : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var gameLocationTargetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
 
-            if (gameLocationTargetingService == null ||
-                Gui.Battle == null)
+            if (gameLocationTargetingService == null || gameLocationCharacterService == null)
             {
                 yield break;
             }
 
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
             var selectedTarget = action.ActionParams.TargetCharacters[0];
-            var targets = Gui.Battle.AllContenders
+            var rulesetTarget = selectedTarget.RulesetCharacter;
+            var targets = gameLocationCharacterService.AllValidEntities
                 .Where(x =>
                     x != selectedTarget &&
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
@@ -1045,11 +1067,11 @@ public sealed class InnovationArtillerist : AbstractSubclass
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerEldritchDetonation, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerEldritchDetonation, rulesetTarget);
             var effectPower = implementationManagerService
-                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
+                .MyInstantiateEffectPower(rulesetTarget, usablePower, false);
 
-            var actionParams = new CharacterActionParams(actingCharacter, Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(selectedTarget, Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = effectPower,
@@ -1059,6 +1081,37 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    // can only dismiss the cannon after it fully detonates
+    private sealed class MagicEffectFinishedByMeEldritchDetonationDismiss : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetCharacter, targetCharacter = rulesetCharacter
+            };
+
+            implementationService.ApplyEffectForms(
+                [
+                    new EffectForm
+                    {
+                        formType = EffectForm.EffectFormType.Counter,
+                        counterForm = new CounterForm { type = CounterForm.CounterType.DismissCreature }
+                    }
+                ],
+                applyFormsParams,
+                [],
+                out _,
+                out _);
+
+            yield break;
         }
     }
 
