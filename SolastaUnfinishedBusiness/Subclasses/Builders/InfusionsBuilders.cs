@@ -36,15 +36,10 @@ internal static class InventorInfusions
                 .Create($"MagicAffinity{name}")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
                 .SetCastingModifiers(1)
-                .AddToDB(),
-            FeatureDefinitionCombatAffinityBuilder
-                .Create($"CombatAffinity{name}")
-                .SetGuiPresentation(name, Category.Feature)
-                .SetIgnoreCover()
                 .AddToDB());
 
-        UpgradeInfusionPower(
-            power, UpgradeLevel, FeatureDefinitionMagicAffinityBuilder
+        UpgradeInfusionPower(power, UpgradeLevel,
+            FeatureDefinitionMagicAffinityBuilder
                 //TODO: RAW needs to require attunement
                 .Create($"MagicAffinity{name}Upgraded")
                 .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)

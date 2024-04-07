@@ -554,6 +554,16 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for features removing ranged attack disadvantage
             RemoveRangedAttackInMeleeDisadvantage.CheckToRemoveRangedDisadvantage(attackParams);
 
+            //PATCH: check if weapon has MagicAffinityInfusionEnhanceArcaneFocus Infusion
+            //TODO: create an interface if ever required by other use cases
+            if (attackParams.attacker.RulesetActor is RulesetCharacter rulesetCharacter &&
+                rulesetCharacter.Items
+                    .Any(x => x.DynamicItemProperties
+                        .Any(y => y.FeatureDefinition.Name == "MagicAffinityInfusionEnhanceArcaneFocus")))
+            {
+                attackParams.attackModifier.coverType = CoverType.None;
+            }
+
             if (!__result)
             {
                 return;
@@ -1038,7 +1048,7 @@ public static class GameLocationBattleManagerPatcher
                         selectedSpellDefinition);
                 }
             }
-            
+
             //PATCH: support the one case we need to check a behavior on enemy so no interface unless required
             // ReSharper disable once InvertIf
             if (caster.Side == Side.Enemy && Gui.Battle != null)
