@@ -884,7 +884,11 @@ public static class RulesetImplementationManagerPatcher
                 OathOfAncients.ConditionElderChampionEnemy);
             OnRollSavingThrowOath(caster, target, sourceDefinition, OathOfDread.ConditionAspectOfDreadName,
                 OathOfDread.ConditionAspectOfDreadEnemy);
-            PathOfTheSavagery.OnRollSavingThrowFuriousDefense(target, ref savingThrowAbility);
+
+            if (target is RulesetCharacter rulesetCharacter)
+            {
+                PathOfTheSavagery.OnRollSavingThrowFuriousDefense(rulesetCharacter, ref savingThrowAbility);
+            }
 
             //PATCH: illusionary spells against creatures with True Sight should automatically save
             if (!Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange ||

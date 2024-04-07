@@ -150,11 +150,11 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         return (diceNumber, upgradeDiceMap[dieType], upgradeDiceMap[versatileDieType]);
     }
 
-
-    internal static void OnRollSavingThrowFuriousDefense(RulesetActor defender, ref string abilityScoreName)
+    internal static void OnRollSavingThrowFuriousDefense(RulesetCharacter defender, ref string abilityScoreName)
     {
         if (abilityScoreName != AttributeDefinitions.Dexterity ||
-            !defender.HasConditionOfTypeOrSubType(ConditionRaging))
+            !defender.HasConditionOfTypeOrSubType(ConditionRaging) ||
+            defender.GetSubclassLevel(CharacterClassDefinitions.Barbarian, Name) < 6)
         {
             return;
         }

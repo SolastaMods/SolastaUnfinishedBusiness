@@ -10,6 +10,7 @@
 - fixed Maddening Hex and Relentless Hex interaction with Hexblade
 - fixed Merciless fighting style effect center point [downed creature instead of attacker]
 - fixed Opportunist seize the chance [trigger on enemy instead of all]
+- fixed Savagery furious defense [using DEX on all barbs instead of savagery 6 or higher]
 - fixed Vitriolist paragon [CON savings instead of WIS and incapacitated instead of paralyzed]
 - fixed Vitriolist refund mixtures [reaction pop up instead of lowest avail slot] 
 - fixed Wildmaster bear companion additional HPs [class level instead of char level]
