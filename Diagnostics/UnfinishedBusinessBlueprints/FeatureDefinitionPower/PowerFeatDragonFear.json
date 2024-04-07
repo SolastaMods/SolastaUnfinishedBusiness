@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "2a5fb39a57ad3754ebaaaccd9e92e9ce",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -151,7 +151,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b295854ad38bcdb4faa4a2e09bdb30dd",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -163,7 +163,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "5fdb7c7065db33a40abfc52e627a0726",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -332,9 +332,9 @@
     "description": "Feature/&PowerFeatDragonFearDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "3c0ead0251ff3ba4ca05fc28e4ba5647",
+      "m_SubObjectName": "VengefulSpirits",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

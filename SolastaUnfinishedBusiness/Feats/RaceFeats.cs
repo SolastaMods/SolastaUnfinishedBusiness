@@ -446,7 +446,7 @@ internal static class RaceFeats
 
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerFeatDragonFear")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerSorcererHauntedSoulVengefulSpirits)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -462,6 +462,7 @@ internal static class RaceFeats
                             .SetConditionForm(ConditionDefinitions.ConditionFrightened,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(Fear)
                     .Build())
             .AddToDB();
 
@@ -503,12 +504,9 @@ internal static class RaceFeats
     }
 
     private sealed class MagicEffectFinishedByMeAnyDragonFear(
-        FeatureDefinitionPower powerDragonFear) : IMagicEffectFinishedByMeAny
+        FeatureDefinitionPower powerDragonFear) : IActionFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
-            CharacterActionMagicEffect action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action.ActionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
             {
@@ -516,7 +514,7 @@ internal static class RaceFeats
             }
 
             RulesetUsablePower usablePower;
-            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
             if (rulesetEffectPower.PowerDefinition.Name.StartsWith("PowerDragonbornBreathWeapon"))
             {
@@ -548,14 +546,14 @@ internal static class RaceFeats
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityDragonHideToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.DragonHideToggle)
-            .AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyDragonHide())
+            .AddCustomSubFeatures(new ModifyWeaponAttackModeDragonHide())
             .AddToDB();
 
         var attributeModifier = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}")
             .SetGuiPresentation("FeatGroupDragonHide", Category.Feat)
             .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
+            .SetDexPlusAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Constitution)
             .AddToDB();
 
         var featDragonHideStr = FeatDefinitionWithPrerequisitesBuilder
@@ -593,30 +591,24 @@ internal static class RaceFeats
             featDragonHideCha);
     }
 
-    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyDragonHide : IPhysicalAttackBeforeHitConfirmedOnEnemy
+    private sealed class ModifyWeaponAttackModeDragonHide : IModifyWeaponAttackMode
     {
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget, bool criticalHit)
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsUnarmed(attackMode))
+            if (!ValidatorsWeapon.IsUnarmed(attackMode) ||
+                !character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DragonHideToggle))
             {
-                yield break;
+                return;
             }
 
-            var damageForm = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
+            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
 
-            if (damageForm != null)
+            if (damage == null)
             {
-                damageForm.DamageForm.DamageType = DamageTypeSlashing;
+                return;
             }
+
+            damage.DamageType = DamageTypeSlashing;
         }
     }
 

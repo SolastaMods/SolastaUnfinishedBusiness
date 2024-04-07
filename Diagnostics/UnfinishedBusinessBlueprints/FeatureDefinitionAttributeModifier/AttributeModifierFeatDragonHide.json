@@ -1,11 +1,11 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "Additive",
-  "modifierValue": 3,
+  "modifierOperation": "SetWithDexPlusOtherAbilityScoreBonusIfBetter",
+  "modifierValue": 10,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "NotWearingArmorOrMageArmor",
-  "minimum1": false,
+  "minimum1": true,
   "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
