@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
-using UnityEngine;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -81,7 +80,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}Corroded")
-                    .SetGuiPresentation($"Condition{Name}Corroded", Category.Condition)
+                    .SetGuiPresentation($"Condition{Name}Corroded", Category.Condition, Gui.NoLocalization)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -2)
                     .AddToDB())
             .AddToDB();
@@ -258,7 +257,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
         var powerRefundMixture = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}RefundMixture")
             .SetGuiPresentation(Category.Feature, PowerDomainInsightForeknowledge)
-            .SetUsesFixed(ActivationTime.NoCost)
+            .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -271,7 +270,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
 
         var conditionArsenal = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionShocked, $"Condition{Name}Arsenal")
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{Name}Arsenal")
@@ -379,7 +378,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
     //
 
     private sealed class CustomBehaviorRefundMixture(FeatureDefinitionPower powerMixture)
-        : IValidatePowerUse, IMagicEffectFinishedByMe
+        : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
@@ -395,7 +394,6 @@ public sealed class InnovationVitriolist : AbstractSubclass
 
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerMixture, rulesetCharacter);
             var spellRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
             var slotLevel = spellRepertoire!.GetLowestAvailableSlotLevel();
             var reactionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendSpellSlot)
@@ -414,18 +412,10 @@ public sealed class InnovationVitriolist : AbstractSubclass
             }
 
             var slotUsed = reactionParams.IntParameter;
+            var usablePower = PowerProvider.Get(powerMixture, rulesetCharacter);
 
-            usablePower.remainingUses = Mathf.Min(usablePower.MaxUses, usablePower.remainingUses + slotUsed);
+            rulesetCharacter.UpdateUsageForPowerPool(-slotUsed, usablePower);
             spellRepertoire.SpendSpellSlot(slotUsed);
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
-        {
-            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
-            var canUsePowerMixture = character.GetRemainingPowerUses(powerMixture) > 0;
-            var hasSpellSlotsAvailable = spellRepertoire!.GetLowestAvailableSlotLevel() > 0;
-
-            return !canUsePowerMixture && hasSpellSlotsAvailable;
         }
     }
 

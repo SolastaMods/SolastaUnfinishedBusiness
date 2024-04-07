@@ -17,10 +17,11 @@
 
 known issues:
 
-- cannons don't trigger battle start.
-- detonate Cannon explosion is centered on both hero and cannon.
-- dragon hide toggle only refreshes attack mode if inventory button is pressed.
-- medium cannon Fortified Position doesn't grant buff to self.
+- Cannons don't trigger battle start.
+- Detonate Cannon is centered on both hero and cannon.
+- Dragon Hide toggle only refreshes attack if inventory is opened.
+- Fortified Position medium cannon doesn't grant buff to self.
+- Orcish Aggression offers cells you cannot click on selection grid.
 - Mage Slayer doesn't trigger reaction on unidentified spells.
 
 1.5.97.3:
