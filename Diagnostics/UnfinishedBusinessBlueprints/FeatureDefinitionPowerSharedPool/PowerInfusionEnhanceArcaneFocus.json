@@ -83,11 +83,6 @@
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
               "featureDefinition": "Definition:MagicAffinityInfusionEnhanceArcaneFocus:8633cef2-5382-5847-a5cd-5d1cbbe4aad1",
               "level": 0
-            },
-            {
-              "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:CombatAffinityInfusionEnhanceArcaneFocus:d24e8e10-e544-5f77-8acd-0d9dc6830c85",
-              "level": 0
             }
           ],
           "usageLimitation": "Unlimited",

@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,12 +11,14 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:PowerFeatOrcishAggression:0f1f5b7c-3433-52a1-9b03-6323fa9b40b7"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupRaceBoundTitle",
-    "description": "Dark-Elf Magic, Dragon Fear, Dragon Hide, Dragon Wings, Dwarven Fortitude, Elven Accuracy, Fade Away, Flames of Phlegethos, Infernal Constitution, Orcish Aggression, Orcish Fury, Revenant Blade, Second Chance, Squat Nimbleness, Wood-Elf Magic",
+    "title": "Feat/&FeatOrcishAggressionTitle",
+    "description": "Feat/&FeatOrcishAggressionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "08dd4258-765f-5a45-97c8-468f0baedc22",
+  "guid": "eb973019-2856-5f69-8700-17ab7eefdb79",
   "contentPack": 9999,
-  "name": "FeatGroupRaceBound"
+  "name": "FeatOrcishAggression"
 }
