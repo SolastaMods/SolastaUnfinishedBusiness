@@ -2,13 +2,14 @@
 
 - added Burning Hex and Chilling Hex invocations
 - added Conjure Goblinoids spell [suggested to Druid and Ranger]
-- added Dark-Elf Magic, Dragon Fear, Mage Slayer, and Wood-Elf Magic feats
+- added Dark-Elf Magic, Dragon Fear, Dragon Hide, Mage Slayer, and Wood-Elf Magic feats
 - fixed Artificer spell storing item menu with too many items [2 powers instead of 1]
 - fixed Artillerist firearm [progression], detonate [area], flamethrower [DC], and fortified [activation]
 - fixed Destructive Wave necrotic sub spell requiring concentration
 - fixed Enhanced Focus infusion to be closer to tabletop [ignore cover instead of DC bonus]
 - fixed Maddening Hex and Relentless Hex interaction with Hexblade
 - fixed Merciless fighting style effect center point [downed creature instead of attacker]
+- fixed Opportunist seize the chance [trigger on enemy instead of all]
 - fixed Vitriolist paragon [CON savings instead of WIS and incapacitated instead of paralyzed]
 - fixed Vitriolist refund mixtures [reaction pop up instead of lowest avail slot] 
 - fixed Wildmaster bear companion additional HPs [class level instead of char level]

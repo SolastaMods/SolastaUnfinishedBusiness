@@ -38,7 +38,8 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.SupremeWillToggle,
         (Id)ExtraActionId.ImpishWrathToggle, // defined in sub race
         (Id)ExtraActionId.OrcishFuryToggle, // defined in sub race
-        (Id)ExtraActionId.QuiveringPalmToggle
+        (Id)ExtraActionId.QuiveringPalmToggle,
+        (Id)ExtraActionId.DragonHideToggle
     ];
 
     internal static FeatureDefinitionPower FarStep { get; private set; }
@@ -250,6 +251,13 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CunningStrikeToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "DragonHideToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.DragonHideToggle)
             .AddToDB();
 
         ActionDefinitionBuilder

@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "ArmorClass",
+  "modifierOperation": "Additive",
+  "modifierValue": 3,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "NotWearingArmorOrMageArmor",
+  "minimum1": false,
+  "useBonusFromCaster": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&FeatGroupDragonHideTitle",
+    "description": "Feat/&FeatGroupDragonHideDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "bce7860d-dfcf-5b30-bf28-1f09f2767d59",
+  "contentPack": 9999,
+  "name": "AttributeModifierFeatDragonHide"
+}

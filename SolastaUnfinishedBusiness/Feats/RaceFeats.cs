@@ -18,6 +18,7 @@ using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
@@ -36,6 +37,7 @@ internal static class RaceFeats
         var featInfernalConstitution = BuildInfernalConstitution();
         var featWoodElfMagic = BuildWoodElfMagic();
         var featGroupDragonFear = BuildDragonFear(feats);
+        var featGroupDragonHide = BuildDragonHide(feats);
         var featGroupsElvenAccuracy = BuildElvenAccuracy(feats);
         var featGroupFadeAway = BuildFadeAway(feats);
         var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
@@ -61,6 +63,7 @@ internal static class RaceFeats
             featInfernalConstitution,
             featWoodElfMagic,
             featGroupDragonFear,
+            featGroupDragonHide,
             featGroupsElvenAccuracy,
             featGroupFadeAway,
             featGroupFlamesOfPhlegethos,
@@ -469,6 +472,7 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(power, AttributeModifierCreed_Of_Einar)
             .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(DragonFear)
             .AddToDB();
 
         var featDragonFearCon = FeatDefinitionWithPrerequisitesBuilder
@@ -476,6 +480,7 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(power, AttributeModifierCreed_Of_Arun)
             .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(DragonFear)
             .AddToDB();
 
         var featDragonFearCha = FeatDefinitionWithPrerequisitesBuilder
@@ -483,6 +488,7 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(power, AttributeModifierCreed_Of_Solasta)
             .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(DragonFear)
             .AddToDB();
 
         feats.AddRange(featDragonFearStr, featDragonFearCon, featDragonFearCha);
@@ -526,6 +532,90 @@ internal static class RaceFeats
                 {
                     rulesetAttacker.UsePower(usablePower);
                 }
+            }
+        }
+    }
+
+    #endregion
+
+    #region Dragon Hide
+
+    private static FeatDefinition BuildDragonHide(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatDragonHide";
+
+        var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityDragonHideToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.DragonHideToggle)
+            .AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyDragonHide())
+            .AddToDB();
+
+        var attributeModifier = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}")
+            .SetGuiPresentation("FeatGroupDragonHide", Category.Feat)
+            .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
+            .AddToDB();
+
+        var featDragonHideStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(actionAffinityToggle, attributeModifier, AttributeModifierCreed_Of_Einar)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var featDragonHideCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(actionAffinityToggle, attributeModifier, AttributeModifierCreed_Of_Arun)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var featDragonHideCha = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Cha")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(actionAffinityToggle, attributeModifier, AttributeModifierCreed_Of_Solasta)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(featDragonHideStr, featDragonHideCon, featDragonHideCha);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupDragonHide",
+            Name,
+            ValidatorsFeat.IsDragonborn,
+            featDragonHideStr,
+            featDragonHideCon,
+            featDragonHideCha);
+    }
+
+    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyDragonHide : IPhysicalAttackBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget, bool criticalHit)
+        {
+            if (!ValidatorsWeapon.IsUnarmed(attackMode))
+            {
+                yield break;
+            }
+
+            var damageForm = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
+
+            if (damageForm != null)
+            {
+                damageForm.DamageForm.DamageType = DamageTypeSlashing;
             }
         }
     }
@@ -822,7 +912,7 @@ internal static class RaceFeats
             .AddToDB();
 
         var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+            .Create(ActionAffinitySorcererMetamagicToggle,
                 "ActionAffinityOrcishFuryToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle)

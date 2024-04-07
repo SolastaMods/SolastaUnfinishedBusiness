@@ -9,17 +9,18 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "DragonFear",
+  "familyTag": "FeatDragonHide",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
-    "Definition:PowerFeatDragonFear:ca4272e3-9ab1-584b-bfbd-1ec7995d286a"
+    "Definition:ActionAffinityDragonHideToggle:6dd47cc8-a766-5bb4-b37b-e2e90d7b14c0",
+    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
+    "Definition:AttributeModifierFeatDragonHide:bce7860d-dfcf-5b30-bf28-1f09f2767d59"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatDragonFearChaTitle",
-    "description": "Feat/&FeatDragonFearChaDescription",
+    "title": "Feat/&FeatDragonHideStrTitle",
+    "description": "Feat/&FeatDragonHideStrDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "06b1f905-07cf-5d9d-8661-78fc7505fe7e",
+  "guid": "cea1df46-3285-58de-80b9-9790dbd04edf",
   "contentPack": 9999,
-  "name": "FeatDragonFearCha"
+  "name": "FeatDragonHideStr"
 }
