@@ -35,6 +35,7 @@ internal static class RaceFeats
         var featDragonWings = BuildDragonWings();
         var featDwarvenFortitude = BuildDwarvenFortitude();
         var featInfernalConstitution = BuildInfernalConstitution();
+        var featOrcishAggression = BuildOrcishAggression();
         var featWoodElfMagic = BuildWoodElfMagic();
         var featGroupDragonFear = BuildDragonFear(feats);
         var featGroupDragonHide = BuildDragonHide(feats);
@@ -51,6 +52,7 @@ internal static class RaceFeats
             featDragonWings,
             featDwarvenFortitude,
             featInfernalConstitution,
+            featOrcishAggression,
             featWoodElfMagic);
 
         GroupFeats.FeatGroupDefenseCombat.AddFeats(featGroupFadeAway);
@@ -61,6 +63,7 @@ internal static class RaceFeats
             featDragonWings,
             featDwarvenFortitude,
             featInfernalConstitution,
+            featOrcishAggression,
             featWoodElfMagic,
             featGroupDragonFear,
             featGroupDragonHide,
@@ -859,6 +862,137 @@ internal static class RaceFeats
             List<string> damageTypes)
         {
             return damageTypes.Contains(DamageTypeFire);
+        }
+    }
+
+    #endregion
+
+    #region Orcish Aggression
+
+    private static FeatDefinitionWithPrerequisites BuildOrcishAggression()
+    {
+        const string Name = "FeatOrcishAggression";
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 24, TargetType.Position)
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.InCombat,
+            new CustomBehaviorOrcishAggression(power));
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsHalfOrc)
+            .SetFeatures(power)
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorOrcishAggression(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerOrcishAggression)
+        : IFilterTargetingPosition, IModifyEffectDescription, IMagicEffectFinishedByMe
+    {
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            cursorLocationSelectPosition.validPositionsCache.Clear();
+
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
+            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+            var maxRange = actingCharacter.MaxTacticalMoves;
+            var enemies = Gui.Battle.GetContenders(actingCharacter);
+            var validDestinations = ServiceRepository.GetService<IGameLocationPathfindingService>()
+                .ComputeValidDestinations(actingCharacter, false, maxRange);
+
+            foreach (var position in validDestinations.Select(x => x.position))
+            {
+                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                    !positioningService.CanPlaceCharacter(
+                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                    !positioningService.CanCharacterStayAtPosition_Floor(
+                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
+                {
+                    continue;
+                }
+
+                if (DistanceCalculation.GetDistanceFromPositions(position, actingCharacter.LocationPosition) > maxRange)
+                {
+                    continue;
+                }
+
+                foreach (var enemy in enemies)
+                {
+                    if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                    {
+                        yield return null;
+                    }
+
+                    var currentDistance = DistanceCalculation.GetDistanceFromCharacters(actingCharacter, enemy);
+                    var newDistance = DistanceCalculation.GetDistanceFromPositions(position, enemy.LocationPosition);
+
+                    if (newDistance >= currentDistance)
+                    {
+                        continue;
+                    }
+
+                    cursorLocationSelectPosition.validPositionsCache.Add(position);
+                }
+            }
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var targetPosition = action.ActionParams.Positions[0];
+            var actionParams =
+                new CharacterActionParams(actingCharacter, ActionDefinitions.Id.TacticalMove)
+                {
+                    Positions = { targetPosition }
+                };
+
+            actingCharacter.UsedTacticalMoves = 0;
+            ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(actionParams, null, true);
+
+            yield break;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerOrcishAggression;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var glc = GameLocationCharacter.GetFromActor(character);
+
+            if (glc == null)
+            {
+                return effectDescription;
+            }
+
+            //effectDescription.rangeParameter = glc.MaxTacticalMoves;
+
+            return effectDescription;
         }
     }
 

@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
 internal static class DistanceCalculation
 {
-    private static float GetDistanceFromPositions(int3 position1, int3 position2) //, bool useDefault = false)
+    internal static float GetDistanceFromPositions(int3 position1, int3 position2) //, bool useDefault = false)
     {
         // if (useDefault)
         // {

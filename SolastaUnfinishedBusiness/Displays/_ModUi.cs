@@ -104,6 +104,7 @@ internal static class ModUi
         "FeatMediumArmorMaster",
         "FeatMetamagicAdept",
         "FeatMobile",
+        "FeatOrcishAggression",
         "FeatPoisoner",
         "FeatPolearmExpert",
         "FeatRangedExpert",

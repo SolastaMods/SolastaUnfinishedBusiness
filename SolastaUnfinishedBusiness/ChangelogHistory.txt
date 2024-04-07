@@ -2,7 +2,7 @@
 
 - added Burning Hex and Chilling Hex invocations
 - added Conjure Goblinoids spell [suggested to Druid and Ranger]
-- added Dark-Elf Magic, Dragon Fear, Dragon Hide, Mage Slayer, and Wood-Elf Magic feats
+- added Dark-Elf Magic, Dragon Fear, Dragon Hide, Mage Slayer, Orcish Aggression, and Wood-Elf Magic feats
 - fixed Artificer spell storing item menu with too many items [2 powers instead of 1]
 - fixed Artillerist firearm [progression], detonate [area], flamethrower [DC], and fortified [activation]
 - fixed Destructive Wave necrotic sub spell requiring concentration
@@ -14,6 +14,14 @@
 - fixed Vitriolist refund mixtures [reaction pop up instead of lowest avail slot] 
 - fixed Wildmaster bear companion additional HPs [class level instead of char level]
 - fixed Wildmaster eagle and wolf companions not allowed in combat
+
+known issues:
+
+- cannons don't trigger battle start.
+- detonate Cannon explosion is centered on both hero and cannon.
+- dragon hide toggle only refreshes attack mode if inventory button is pressed.
+- medium cannon Fortified Position doesn't grant buff to self.
+- Mage Slayer doesn't trigger reaction on unidentified spells.
 
 1.5.97.3:
 
