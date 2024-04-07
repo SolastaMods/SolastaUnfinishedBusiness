@@ -75,12 +75,12 @@ public sealed class InnovationVitriolist : AbstractSubclass
 
         var conditionCorroded = ConditionDefinitionBuilder
             .Create($"Condition{Name}Corroded")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeatMetal)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionHeatMetal)
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}Corroded")
-                    .SetGuiPresentation($"Condition{Name}Corroded", Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation($"Condition{Name}Corroded", Category.Condition)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -2)
                     .AddToDB())
             .AddToDB();
