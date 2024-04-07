@@ -84,7 +84,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                             .SetConditionForm(conditionBlessedWarrior, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(new PhysicalPhysicalAttackInitiatedByMeBlessedWarrior(conditionBlessedWarrior))
+            .AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyBlessedWarrior(conditionBlessedWarrior))
             .AddToDB();
 
         // Lifebringer
@@ -305,7 +305,7 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Warrior
     //
 
-    private sealed class PhysicalPhysicalAttackInitiatedByMeBlessedWarrior(
+    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyBlessedWarrior(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition) : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {

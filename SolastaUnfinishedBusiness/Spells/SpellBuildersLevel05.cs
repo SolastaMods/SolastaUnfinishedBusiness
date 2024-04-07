@@ -964,7 +964,7 @@ internal static partial class SpellBuilders
         {
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;
             var targetRulesetCharacter = targetCharacter.RulesetCharacter;
-            var isEnemy = actingCharacter.Side != targetCharacter.Side;
+            var isEnemy = actingCharacter.IsOppositeSide(targetCharacter.Side);
 
             if (isEnemy)
             {

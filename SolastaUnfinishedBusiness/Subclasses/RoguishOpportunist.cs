@@ -311,7 +311,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (gameLocationActionManager == null ||
-                helper.Side == defender.Side ||
+                !helper.IsOppositeSide(defender.Side) ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 helper.IsMyTurn() ||
