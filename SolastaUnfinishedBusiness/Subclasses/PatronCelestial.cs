@@ -299,7 +299,7 @@ public class PatronCelestial : AbstractSubclass
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                 attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma));
 
-            effectForm.DamageForm.BonusDamage = charismaModifier;
+            effectForm.DamageForm.BonusDamage += charismaModifier;
         }
     }
 

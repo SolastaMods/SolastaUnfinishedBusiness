@@ -212,16 +212,11 @@ public sealed class DomainDefiler : AbstractSubclass
     // Insidious Death Magic
     //
 
-    private sealed class CustomBehaviorInsidiousDeathMagic :
-        IPhysicalAttackBeforeHitConfirmedOnEnemy, IMagicEffectBeforeHitConfirmedOnEnemy
+    private sealed class CustomBehaviorInsidiousDeathMagic(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionInsidiousDeathMagic) 
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IMagicEffectBeforeHitConfirmedOnEnemy
     {
-        private readonly ConditionDefinition _conditionInsidiousDeathMagic;
-
-        internal CustomBehaviorInsidiousDeathMagic(ConditionDefinition conditionInsidiousDeathMagic)
-        {
-            _conditionInsidiousDeathMagic = conditionInsidiousDeathMagic;
-        }
-
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -278,7 +273,7 @@ public sealed class DomainDefiler : AbstractSubclass
             }
 
             rulesetDefender.InflictCondition(
-                _conditionInsidiousDeathMagic.Name,
+                conditionInsidiousDeathMagic.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfSourceTurn,
@@ -286,7 +281,7 @@ public sealed class DomainDefiler : AbstractSubclass
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionInsidiousDeathMagic.Name,
+                conditionInsidiousDeathMagic.Name,
                 0,
                 0,
                 0);

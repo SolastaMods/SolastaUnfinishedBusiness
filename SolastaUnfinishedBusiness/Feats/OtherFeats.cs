@@ -1193,7 +1193,8 @@ internal static class OtherFeats
                         .Create($"Condition{FeatMageSlayerName}")
                         .SetGuiPresentation(FeatMageSlayerName, Category.Feat, Gui.NoLocalization)
                         .SetSilent(Silent.WhenAddedOrRemoved)
-                        .AddFeatures(FeatureDefinitionMagicAffinityBuilder
+                        .AddFeatures(
+                            FeatureDefinitionMagicAffinityBuilder
                             .Create($"MagicAffinity{FeatMageSlayerName}")
                             .SetGuiPresentation(FeatMageSlayerName, Category.Feat)
                             .SetConcentrationModifiers(ConcentrationAffinity.Disadvantage, 0)

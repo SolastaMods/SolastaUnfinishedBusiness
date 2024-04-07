@@ -222,6 +222,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .AddFeatureSet(mixturePowers)
             .AddToDB();
 
+        PowerBundle.RegisterPowerBundle(powerMixture, true, mixturePowers.OfType<FeatureDefinitionPower>());
+
         // LEVEL 05
 
         // Vitriolic Infusion
@@ -283,9 +285,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
         var featureArsenal = FeatureDefinitionBuilder
             .Create($"Feature{Name}Arsenal")
             .SetGuiPresentation($"FeatureSet{Name}Arsenal", Category.Feature)
+            .AddCustomSubFeatures(new ModifyDamageAffinityArsenal())
             .AddToDB();
-
-        featureArsenal.AddCustomSubFeatures(new ModifyDamageAffinityArsenal());
 
         // Vitriolic Arsenal
 
@@ -304,15 +305,11 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        // Vitriolic Mixtures - Behavior
+        // MAIN
 
         powerMixture.AddCustomSubFeatures(
             new ModifyEffectDescriptionMixture(
                 conditionArsenal, ConditionDefinitions.ConditionIncapacitated, mixturePowers));
-
-        PowerBundle.RegisterPowerBundle(powerMixture, true, mixturePowers.OfType<FeatureDefinitionPower>());
-
-        // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -332,7 +329,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
-    // Mixtures - add additional PB damage to any acid damage / add shocked at 9 and paralyzed at 15
+    // Mixtures - add shocked at 9 and paralyzed at 15
     //
 
     private sealed class ModifyEffectDescriptionMixture(
@@ -355,16 +352,6 @@ public sealed class InnovationVitriolist : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var levels = character.GetClassLevel(InventorClass.Class);
-
-            // Infusion - add additional PB damage to any acid damage
-            var pb = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-            foreach (var effectForm in effectDescription.EffectForms
-                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage &&
-                                     x.DamageForm.DamageType == DamageTypeAcid))
-            {
-                effectForm.DamageForm.bonusDamage += pb;
-            }
 
             // Arsenal - add shocked at 9
             if (levels >= 9 && mixturePowers.Contains(definition))

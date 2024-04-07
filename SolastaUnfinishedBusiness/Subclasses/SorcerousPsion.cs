@@ -313,7 +313,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                              x.FormType == EffectForm.EffectFormType.Damage
                              && x.DamageForm.DamageType == DamageTypePsychic))
             {
-                effectForm.DamageForm.BonusDamage = charismaModifier;
+                effectForm.DamageForm.BonusDamage += charismaModifier;
             }
         }
 
