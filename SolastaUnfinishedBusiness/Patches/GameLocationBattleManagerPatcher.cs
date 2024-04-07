@@ -1038,6 +1038,21 @@ public static class GameLocationBattleManagerPatcher
                         selectedSpellDefinition);
                 }
             }
+            
+            //PATCH: support the one case we need to check a behavior on enemy so no interface unless required
+            // ReSharper disable once InvertIf
+            if (caster.Side == Side.Enemy && Gui.Battle != null)
+            {
+                foreach (var ally in Gui.Battle.GetContenders(caster, withinRange: 1)
+                             .Where(x =>
+                                 x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } rulesetCharacter &&
+                                 rulesetCharacter.GetOriginalHero() is { } rulesetCharacterHero &&
+                                 rulesetCharacterHero.TrainedFeats.Contains(OtherFeats.FeatMageSlayer)))
+                {
+                    yield return
+                        OtherFeats.CustomBehaviorMageSlayer.HandleEnemyCastSpellWithin5Ft(caster, ally);
+                }
+            }
         }
     }
 

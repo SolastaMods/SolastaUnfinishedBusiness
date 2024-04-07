@@ -984,20 +984,6 @@ public static class CharacterActionMagicEffectPatcher
 
             var actingCharacter = __instance.ActingCharacter;
 
-            //PATCH: support the one case we need to check a behavior on enemy so no interface unless required
-            if (actingCharacter.Side == Side.Enemy && Gui.Battle != null)
-            {
-                foreach (var ally in Gui.Battle.GetContenders(actingCharacter, withinRange: 1)
-                             .Where(x =>
-                                 x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } rulesetCharacter &&
-                                 rulesetCharacter.GetOriginalHero() is { } rulesetCharacterHero &&
-                                 rulesetCharacterHero.TrainedFeats.Contains(OtherFeats.FeatMageSlayer)))
-                {
-                    yield return
-                        OtherFeats.CustomBehaviorMageSlayer.HandleEnemyCastSpellWithin5Ft(actingCharacter, ally);
-                }
-            }
-
             //PATCH: support for `IMagicalAttackFinishedByMe`
             foreach (var magicalAttackFinishedByMe in actingCharacter.RulesetCharacter
                          .GetSubFeaturesByType<IMagicEffectFinishedByMeAny>())
