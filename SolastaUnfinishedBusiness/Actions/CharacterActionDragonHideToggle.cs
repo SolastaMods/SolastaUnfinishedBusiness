@@ -12,5 +12,7 @@ public class CharacterActionDragonHideToggle(CharacterActionParams actionParams)
     public override IEnumerator ExecuteImpl()
     {
         yield return ActingCharacter.RulesetCharacter.FlipToggle(ExtraActionId.DragonHideToggle);
+
+        ActingCharacter.RulesetCharacter.RefreshAttackModes(true);
     }
 }
