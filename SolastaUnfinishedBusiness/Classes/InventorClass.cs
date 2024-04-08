@@ -937,7 +937,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
         var usablePower = PowerProvider.Get(power, rulesetHelper);
-        var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
+        var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
         {
             StringParameter = "InventorFlashOfGenius",
             StringParameter2 = FormatReactionDescription(action, attacker, defender, helper),

@@ -18,9 +18,9 @@
 
 known issues:
 
+- Artillerist Force Ballista tiny cannon doesn't force DIS within 5 ft.
+- Artillerist Fortified Position medium cannon doesn't grant buff to self.
 - Dragon Hide toggle only refreshes attack if inventory is opened.
-- Force Ballista tiny cannon doesn't force DIS within 5 ft.
-- Fortified Position medium cannon doesn't grant buff to self.
 - Orcish Aggression consumes remaining tactical moves.
 - Orcish Aggression offers cells you cannot click on selection grid.
 
