@@ -1,6 +1,6 @@
 Condition/&ConditionFeatFlamesOfPhlegethosDescription=任何距离你 5 尺以内的生物如果用近战攻击击中你，都会受到 1d4 火焰伤害。
 Condition/&ConditionFeatFlamesOfPhlegethosTitle=弗莱格索斯之焰
-Feat/&FeatDarkElfMagicDescription=你会学到更多黑暗精灵典型的魔法。你学会了 <b>侦测魔法</b> 法术并且可以随意施展它，而不需要消耗法术位。你还可以学习 <b>浮空术</b> 和 <b>解除魔法</b>，每一种魔法你都可以施展一次，而不需要消耗法术位。当你完成长时间的休息后，你将重新获得以这种方式施展法术的能力。魅力是你施展这些法术的属性。
+Feat/&FeatDarkElfMagicDescription=你会学到更多黑暗精灵典型的魔法。你学会了 <b>侦测魔法</b> 法术并且可以随意施展它，而不需要消耗法术位。你还可以学习 <b>浮空术</b> 和 <b>解除魔法</b>，每一种魔法你都可以施展一次，而不需要消耗法术位。当你完成长休后，你将重新获得以这种方式施展法术的能力。魅力是你施展这些法术的属性。
 Feat/&FeatDarkElfMagicTitle=黑暗精灵魔法
 Feat/&FeatDragonFearChaDescription=当你生气时，你会散发出威胁的气息。你将获得以下好处：\n• 将你的魅力 +1，上限为 20。\n• 你可以使用喷吐武器特性进行咆哮，从而取代呼出破坏性能量，迫使你的每个生物在你周围 30 尺内选择进行一次感知豁免检定（DC 8 + 你的熟练加值 + 你的魅力调整值）。豁免失败后，目标会受到恐慌 1 分钟。如果恐慌的目标受到任何伤害，它可以重复豁免检定，成功后结束对自身的效果。
 Feat/&FeatDragonFearChaTitle=龙之恐惧【魅力】
@@ -42,7 +42,7 @@ Feat/&FeatSquatNimblenessDexDescription=你在你的种族中异常敏捷。你�
 Feat/&FeatSquatNimblenessDexTitle=低身机敏【敏捷】
 Feat/&FeatSquatNimblenessStrDescription=你在你的种族中异常敏捷。你的力量 +1，上限为 20。将你的步行速度提高 5 尺。你获得运动技能的熟练项或专精。
 Feat/&FeatSquatNimblenessStrTitle=低身机敏【力量】
-Feat/&FeatWoodElfMagicDescription=你学习了原始森林的魔力，它们受到你的人民的崇敬和保护。你可以学习一种你选择的德鲁伊戏法。你还可以学习“长行者”和“无痕通行”法术，每个法术都可以施展一次而无需消耗法术位。当你完成长时间的休息后，你将重新获得以这种方式施展这两个法术的能力。
+Feat/&FeatWoodElfMagicDescription=你学习了原始森林的魔力，它们受到你的人民的崇敬和保护。你可以学习一种你选择的德鲁伊戏法。你还可以学习 <b>大步奔行</b> 和 <b>行动无踪</b> 法术，每个法术都可以施展一次而无需消耗法术位。当你完成长休后，你将重新获得以这种方式施展这两个法术的能力。
 Feat/&FeatWoodElfMagicTitle=木精灵魔法
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=当你手持一把巨剑时，你的护甲等级获得 +1 加值。
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=英魂之刃
