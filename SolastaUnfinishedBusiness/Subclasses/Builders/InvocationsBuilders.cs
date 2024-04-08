@@ -1123,7 +1123,7 @@ internal static class InvocationsBuilders
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Charisma)));
 
             // apply damage to all targets
-            foreach (var target in Gui.Battle.GetContenders(defender, withinRange: 1))
+            foreach (var target in Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1))
             {
                 var rulesetTarget = target.RulesetCharacter;
                 var damageForm = new DamageForm
@@ -1141,7 +1141,7 @@ internal static class InvocationsBuilders
                     position = target.LocationPosition
                 };
 
-                EffectHelpers.StartVisualEffect(attacker, defender, PowerDomainElementalIceLance);
+                EffectHelpers.StartVisualEffect(attacker, defender, PowerDomainElementalIceLance, EffectHelpers.EffectType.Effect);
                 RulesetActor.InflictDamage(
                     damageForm.BonusDamage,
                     damageForm,
@@ -1192,7 +1192,6 @@ internal static class InvocationsBuilders
         return InvocationDefinitionWithPrerequisitesBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, FireBolt)
-            .SetRequirements(5)
             .SetValidators(ValidateHex)
             .SetGrantedFeature(powerInvocationBurningHex)
             .AddToDB();
