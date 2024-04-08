@@ -899,7 +899,7 @@ internal static class RaceFeats
     private sealed class CustomBehaviorOrcishAggression(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerOrcishAggression)
-        : IFilterTargetingPosition, IModifyEffectDescription, IMagicEffectFinishedByMe
+        : IFilterTargetingPosition, IModifyEffectDescription, IMagicEffectFinishedByMe, IActionFinishedByMe
     {
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
@@ -966,6 +966,7 @@ internal static class RaceFeats
                     Positions = { targetPosition }
                 };
 
+            actingCharacter.UsedSpecialFeatures.TryAdd("UsedTacticalMoves", actingCharacter.UsedTacticalMoves);
             actingCharacter.UsedTacticalMoves = 0;
             ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(actionParams, null, true);
 
@@ -990,9 +991,21 @@ internal static class RaceFeats
                 return effectDescription;
             }
 
-            //effectDescription.rangeParameter = glc.MaxTacticalMoves;
+            effectDescription.rangeParameter = glc.MaxTacticalMoves;
 
             return effectDescription;
+        }
+
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is not CharacterActionMoveStepWalk ||
+                !action.ActingCharacter.UsedSpecialFeatures.TryGetValue("UsedTacticalMoves", out var usedTacticalMoves))
+            {
+                yield break;
+            }
+
+            action.ActingCharacter.UsedTacticalMoves = usedTacticalMoves;
+            action.ActingCharacter.UsedSpecialFeatures.Remove("UsedTacticalMoves");
         }
     }
 
