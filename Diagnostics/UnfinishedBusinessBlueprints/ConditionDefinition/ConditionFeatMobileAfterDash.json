@@ -1,11 +1,9 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionFreedomOfMovement:551c4afd41e56ac4da8d50da083beff4",
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:MovementAffinityFreedomOfMovement:097ce72cf88822243afb196bbddc360c"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,

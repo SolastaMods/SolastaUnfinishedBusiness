@@ -110,6 +110,15 @@ public static class RulesetEffectPowerPatcher
             }
 
             var user = __instance.User;
+
+            // this is required by Artillerist which has powers tied to caster
+            var summoner = user.GetMySummoner();
+
+            if (summoner != null)
+            {
+                user = summoner.RulesetCharacter;
+            }
+
             var repertoire = user.GetClassSpellRepertoire(user.FindClassHoldingFeature(power));
 
             if (repertoire != null)
@@ -137,6 +146,15 @@ public static class RulesetEffectPowerPatcher
             }
 
             var user = __instance.User;
+
+            // this is required by Artillerist which has powers tied to caster
+            var summoner = user.GetMySummoner();
+
+            if (summoner != null)
+            {
+                user = summoner.RulesetCharacter;
+            }
+
             var repertoire = user.GetClassSpellRepertoire(user.FindClassHoldingFeature(power));
 
             if (repertoire != null)

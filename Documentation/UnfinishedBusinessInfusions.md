@@ -10,7 +10,7 @@ The bonus increases to +2 when you reach level 10 of Artificer class.
 
 # 3. - Enhance Focus
 
-Infuse staff or a spell focus to grant +1 to spell attack rolls and DC.
+Infuse staff or a spell focus to grant +1 to spell attack rolls and ignore enemy cover.
 The bonus increases to +2 when you reach level 10 of Artificer class.
 
 # 4. - Enhance Weapon

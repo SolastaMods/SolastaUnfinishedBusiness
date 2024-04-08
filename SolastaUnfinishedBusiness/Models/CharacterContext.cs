@@ -517,7 +517,9 @@ internal static partial class CharacterContext
     internal static void SwitchDragonbornElementalBreathUsages()
     {
         var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
-            .Where(x => x.Name.StartsWith("PowerDragonbornBreathWeapon"));
+            .Where(x =>
+                x.Name.StartsWith("PowerDragonbornBreathWeapon") ||
+                x.Name == "PowerFeatDragonFear");
 
         foreach (var power in powers)
         {

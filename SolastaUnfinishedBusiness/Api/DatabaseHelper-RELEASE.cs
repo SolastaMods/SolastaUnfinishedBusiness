@@ -442,8 +442,8 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionHasted { get; } =
             GetDefinition<ConditionDefinition>("ConditionHasted");
 
-        internal static ConditionDefinition ConditionHeavilyEncumbered { get; } =
-            GetDefinition<ConditionDefinition>("ConditionHeavilyEncumbered");
+        internal static ConditionDefinition ConditionHeatMetal { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHeatMetal");
 
         internal static ConditionDefinition ConditionHeavilyObscured { get; } =
             GetDefinition<ConditionDefinition>("ConditionHeavilyObscured");

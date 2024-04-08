@@ -768,11 +768,21 @@ When you hit a creature with an attack that deals bludgeoning damage, once per t
 FeatGroupDefenseCombat	Description='Always Ready, Cloak and Dagger, Defensive Duelist, Dual Wielder, Fade Away, Monastic Shield Training, Raise Shield, Shield Master, Twin Blade, Unarmored Expert'.
 FeatGroupDefenseExpert	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.'.
+FeatGroupDragonFear	Description='When angered, you radiate menace. You gain the following benefits:
+• Increase your Strength, Constitution, or Charisma by 1, to a maximum of 20.
+• Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failed save, a target becomes frightened for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.'.
+FeatGroupDragonHide	Description='You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:
+• Increase your Strength, Constitution, or Charisma by 1, up to a maximum of 20.
+• Your scales harden. While you aren't wearing armor, your armor class is equal to 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.
+• You can grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.'.
 FeatGroupElementalAdept	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.'.
 FeatGroupElementalMaster	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore immunity to damage of the chosen type. In addition, when you roll attack for a spell you cast that deals damage of that type, you can reroll any 1s.'.
 FeatGroupElementalTouch	Description='The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional elemental damage equal to your proficiency bonus.'.
 FeatGroupElvenAccuracy	Description='You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity or one of your mental attributes by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.'.
 FeatGroupFadeAway	Description='You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity or Intelligence by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.'.
+FeatGroupFeyTeleport	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+You can use misty step once per short rest, and you can cast this spell with your spell slots.
+You gain proficiency in Tirmarian.'.
 FeatGroupFightingStyle	Description='Archery, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Merciless, Protection, Pugilist, Rope it Up, Shield Expert, Superior Technique, Torchbearer, Two Weapon Fighting'.
 FeatGroupFlamesOfPhlegethos	Description='You learn to call on hellfire to serve your commands. You gain the following benefits:
 • Increase your Intelligence or Charisma by 1, to a maximum of 20.
@@ -782,11 +792,11 @@ FeatGroupFlameTouched	Description='Increase one of your mental attributes by 1, 
 You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.'.
 FeatGroupGeneralAdept	Description='Arcane Archer Adept, Eldritch Adept, Fighting Initiate, Infusion Adept, Magic Initiate, Martial Adept, Metamagic Adept, Monk Initiate, Versatility Adept'.
 FeatGroupHalfAttributes	Description='Half Charisma, Half Constitution, Half Dexterity, Half Intelligence, Half Strength, Half Wisdom'.
-FeatGroupHalfCharisma	Description='Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Elven Accuracy [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Flames of Phlegethos [Cha], Iridescent Touched [Cha], Peregrination Touched [Cha], Retinue Touched [Cha], Second Chance [Cha], Shadow Touched [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]'.
-FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Chef [Con], Creed of Arun, Crusher [Con], Dwarven Fortitude, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Orcish Fury [Con], Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra'.
+FeatGroupHalfCharisma	Description='Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Dragon Fear [Cha], Dragon Hide [Cha], Elven Accuracy [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Flames of Phlegethos [Cha], Iridescent Touched [Cha], Peregrination Touched [Cha], Retinue Touched [Cha], Second Chance [Cha], Shadow Touched [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]'.
+FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Chef [Con], Creed of Arun, Crusher [Con], Dragon Fear [Con], Dragon Hide [Con], Dwarven Fortitude, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Orcish Fury [Con], Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra'.
 FeatGroupHalfDexterity	Description='Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy'.
 FeatGroupHalfIntelligence	Description='Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Flames of Phlegethos [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]'.
-FeatGroupHalfStrength	Description='Awaken the Beast [Str], Creed of Einar, Crusher [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str]'.
+FeatGroupHalfStrength	Description='Awaken the Beast [Str], Creed of Einar, Crusher [Str], Dragon Fear [Str], Dragon Hide [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str]'.
 FeatGroupHalfWisdom	Description='Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Chef [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision'.
 FeatGroupHardy	Description='Increase your Strength or Constitution by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.'.
 FeatGroupIridescentTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
@@ -804,12 +814,12 @@ FeatGroupPeregrinationTouched	Description='Increase one of your mental attribute
 You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.'.
 FeatGroupPiercer	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.'.
-FeatGroupPlaneTouchedMagic	Description='Aegis Touched, Celestial Touched, Fey Teleportation, Flame Touched, Iridescent Touched, Peregrination Touched, Retinue Touched, Shadow Touched, Telekinetic, Verdant Touched'.
+FeatGroupPlaneMagic	Description='Aegis Touched, Celestial Touched, Fey Teleportation, Flame Touched, Iridescent Touched, Peregrination Touched, Retinue Touched, Shadow Touched, Telekinetic, Verdant Touched'.
 FeatGroupPotentSpellcaster	Description='You can add your spellcaster attribute modifier to the damage you deal with any cantrip in your repertoire.'.
 FeatGroupPrecisionFocused	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.'.
 FeatGroupPrimalRage	Description='Increase your Strength or Constitution by 1, to a maximum of 20. You gain one additional Rage usage between rests.'.
-FeatGroupRaceBound	Description='Dragon Wings, Dwarven Fortitude, Elven Accuracy, Fade Away, Flames of Phlegethos, Infernal Constitution, Orcish Fury, Revenant Blade, Second Chance, Squat Nimbleness'.
+FeatGroupRaceBound	Description='Dark-Elf Magic, Dragon Fear, Dragon Hide, Dragon Wings, Dwarven Fortitude, Elven Accuracy, Fade Away, Flames of Phlegethos, Infernal Constitution, Orcish Aggression, Orcish Fury, Revenant Blade, Second Chance, Squat Nimbleness, Wood-Elf Magic'.
 FeatGroupRangedCombat	Description='Bow Mastery, Crossbow Expert, Crossbow Mastery, Discretion of the Coedymwarth, Piercer, Sharpshooter, Take Aim, Uncanny Accuracy, Wise Archery'.
 FeatGroupRetinueTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the bless, heroism and enhance ability spells once per long rest and you can cast these spells with your spell slots.'.
@@ -820,18 +830,15 @@ FeatGroupRevenantGreatSword	Description='You are descended from a master of the 
 FeatGroupSecondChance	Description='Increase your Dexterity, Constitution, or Charisma by 1, to a maximum of 20. When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.'.
 FeatGroupShadowTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.'.
-FeatGroupSkills	Description='Apothecary, Arcane Appraiser, Healer, Initiate Enchanter, Manipulator, Pickpocket, Scriber, Toxicologist'.
+FeatGroupSkills	Description='Apothecary, Arcane Appraiser, Healer, Initiate Enchanter, Manipulator, Pickpocket, Scriber, Squat Nimbleness, Toxicologist'.
 FeatGroupSlasher	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.'.
 FeatGroupSpellCombat	Description='Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster'.
 FeatGroupSpellSniper	Description='You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatGroupSquatNimbleness	Description='You are uncommonly nimble for your race. Increase your Strength or Dexterity by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.'.
-FeatGroupSupportCombat	Description='Call for Charge, Chef, Gift of the Chromatic Dragon, Hardy, Healer, Improved Critical, Inspiring Leader, Mender, Poisoner, Precision Focused, Sentinel, Superior Critical'.
+FeatGroupSupportCombat	Description='Call for Charge, Chef, Gift of the Chromatic Dragon, Hardy, Healer, Improved Critical, Inspiring Leader, Mage Slayer, Mender, Poisoner, Precision Focused, Sentinel, Superior Critical'.
 FeatGroupTelekinetic	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.'.
-FeatGroupTeleportation	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-You can use misty step once per short rest, and you can cast this spell with your spell slots.
-You gain proficiency in Tirmarian.'.
 FeatGroupTools	Description='Initiate Alchemist, Initiate Enchanter, Lock Breaker, Master Alchemist, Master Enchanter, Poisoner, Scriber, Toxicologist'.
 FeatGroupToxicologist	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.'.
@@ -1034,6 +1041,8 @@ PowerCreateSpellStoringWandOfColorSpray	Title='Color Spray'.
 PowerCreateSpellStoringWandOfColorSpray	Description='Create a wand that can cast <b>Color Spray (I)</b> spell using your Artificer spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfComprehendLanguages	Title='Comprehend Languages'.
 PowerCreateSpellStoringWandOfComprehendLanguages	Description='Create a wand that can cast <b>Comprehend Languages (I)</b> spell using your Artificer spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfConjureGoblinoids	Title='Conjure Goblinoids'.
+PowerCreateSpellStoringWandOfConjureGoblinoids	Description='Create a wand that can cast <b>Conjure Goblinoids (II)</b> spell using your Artificer spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfCureWounds	Title='Cure Wounds'.
 PowerCreateSpellStoringWandOfCureWounds	Description='Create a wand that can cast <b>Cure Wounds (I)</b> spell using your Artificer spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfDarkness	Title='Darkness'.
@@ -1453,6 +1462,8 @@ SpellStoringWandOfColorSpray	Title='Wand of Color Spray'.
 SpellStoringWandOfColorSpray	Description='This wand allows casting the <b>Color Spray</b> spell using spell casting stats of the Artificer who created it.'.
 SpellStoringWandOfComprehendLanguages	Title='Wand of Comprehend Languages'.
 SpellStoringWandOfComprehendLanguages	Description='This wand allows casting the <b>Comprehend Languages</b> spell using spell casting stats of the Artificer who created it.'.
+SpellStoringWandOfConjureGoblinoids	Title='Wand of Conjure Goblinoids'.
+SpellStoringWandOfConjureGoblinoids	Description='This wand allows casting the <b>Conjure Goblinoids</b> spell using spell casting stats of the Artificer who created it.'.
 SpellStoringWandOfCureWounds	Title='Wand of Cure Wounds'.
 SpellStoringWandOfCureWounds	Description='This wand allows casting the <b>Cure Wounds</b> spell using spell casting stats of the Artificer who created it.'.
 SpellStoringWandOfDarkness	Title='Wand of Darkness'.

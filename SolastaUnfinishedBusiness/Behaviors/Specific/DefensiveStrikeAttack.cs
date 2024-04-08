@@ -45,7 +45,7 @@ internal static class DefensiveStrikeAttack
         var unitCharacter = unit.RulesetCharacter;
 
         if (!attacker.IsOppositeSide(unit.Side) ||
-            defender.Side != unit.Side ||
+            defender.IsOppositeSide(unit.Side) ||
             unit == defender ||
             !unitCharacter.HasSubFeatureOfType<DefensiveStrikeMarker>())
         {

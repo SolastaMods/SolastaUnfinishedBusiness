@@ -90,11 +90,11 @@ internal static class BootContext
 
         ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
         {
-            // Late initialized to allow feats and races from other mods
-            CharacterContext.LateLoad();
-
             // There are feats that need all character classes loaded before they can properly be setup.
             FeatsContext.LateLoad();
+
+            // Late initialized to allow feats and races from other mods
+            CharacterContext.LateLoad();
 
             // Custom invocations
             InvocationsContext.LateLoad();

@@ -331,6 +331,7 @@
         <string>PowerSorcerousPsionMindOverMatter</string>
         <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
         <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
+        <string>PowerFeatChefCookMeal</string>
         <string>AnimateDead</string>
         <string>ArcaneSword</string>
         <string>ConjureAnimalsFourBeasts</string>
@@ -461,6 +462,7 @@
     <StealthBreaksWhenAttackHits>true</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>
     <AddDexModifierToEnemiesInitiativeRoll>true</AddDexModifierToEnemiesInitiativeRoll>
+    <EnemiesAlwaysRollInitiative>false</EnemiesAlwaysRollInitiative>
     <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
     <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
@@ -1021,8 +1023,11 @@
         <string>FeatCrossbowMastery</string>
         <string>FeatGroupCrusher</string>
         <string>FeatCunningEscape</string>
+        <string>FeatDarkElfMagic</string>
         <string>FeatDefensiveDuelist</string>
         <string>FeatDevastatingStrikes</string>
+        <string>FeatGroupDragonFear</string>
+        <string>FeatGroupDragonHide</string>
         <string>FeatDragonWings</string>
         <string>FeatDualFlurry</string>
         <string>FeatDualWeaponDefense</string>
@@ -1036,7 +1041,7 @@
         <string>FeatGroupFadeAway</string>
         <string>FeatFellHanded</string>
         <string>FeatFencer</string>
-        <string>FeatGroupTeleportation</string>
+        <string>FeatGroupFeyTeleport</string>
         <string>FeatGroupFightingStyle</string>
         <string>FeatGroupFlameTouched</string>
         <string>FeatGroupFlamesOfPhlegethos</string>
@@ -1053,6 +1058,7 @@
         <string>FeatInspiringLeader</string>
         <string>FeatGroupIridescentTouched</string>
         <string>FeatLongswordFinesse</string>
+        <string>FeatMageSlayer</string>
         <string>FeatGroupMagicInitiate</string>
         <string>FeatTacticianAdept</string>
         <string>FeatMediumArmorMaster</string>
@@ -1063,6 +1069,8 @@
         <string>FeatMonkInitiate</string>
         <string>FeatNaturalFluidity</string>
         <string>FeatGroupOldTactics</string>
+        <string>FeatOrcishAggression</string>
+        <string>FeatGroupOrcishFury</string>
         <string>FeatGroupPeregrinationTouched</string>
         <string>FeatPickPocket</string>
         <string>FeatGroupPiercer</string>
@@ -1100,10 +1108,10 @@
         <string>FeatZenArcher</string>
         <string>FeatWiseDefense</string>
         <string>FeatWisePrecision</string>
+        <string>FeatWoodElfMagic</string>
     </FeatEnabled>
     <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
     <FeatGroupEnabled>
-        <string>FeatGroupAlchemist</string>
         <string>FeatGroupArmor</string>
         <string>FeatGroupBodyResilience</string>
         <string>FeatGroupClassBound</string>
@@ -1117,12 +1125,10 @@
         <string>FeatGroupTwoWeaponCombat</string>
         <string>FeatGroupUnarmoredCombat</string>
         <string>FeatGroupCreed</string>
-        <string>FeatGroupCriticalVirtuoso</string>
         <string>FeatGroupElementalTouch</string>
-        <string>FeatGroupEnchanter</string>
         <string>FeatGroupGeneralAdept</string>
         <string>FeatGroupHalfAttributes</string>
-        <string>FeatGroupPlaneTouchedMagic</string>
+        <string>FeatGroupPlaneMagic</string>
         <string>FeatGroupRaceBound</string>
         <string>FeatGroupSkills</string>
         <string>FeatGroupTools</string>
@@ -1147,8 +1153,11 @@
         <string>InvocationAbilitiesOfTheChainMaster</string>
         <string>InvocationAspectOfTheMoon</string>
         <string>InvocationBondOfTheTalisman</string>
+        <string>InvocationBreathOfTheNight</string>
+        <string>InvocationBurningHex</string>
         <string>InvocationCallOfTheBeast</string>
         <string>InvocationChillingBlast</string>
+        <string>InvocationChillingHex</string>
         <string>InvocationPerniciousCloak</string>
         <string>InvocationCorrosiveBlast</string>
         <string>InvocationSpectralShield</string>
@@ -1167,6 +1176,7 @@
         <string>InvocationVexingHex</string>
         <string>InvocationStasis</string>
         <string>InvocationNecroticBlast</string>
+        <string>InvocationPoisonousBlast</string>
         <string>InvocationPsychicBlast</string>
         <string>InvocationRadiantBlast</string>
         <string>InvocationInexorableHex</string>
@@ -1336,6 +1346,7 @@
                     <string>EarthTremor</string>
                     <string>ElementalInfusion</string>
                     <string>IceBlade</string>
+                    <string>ConjureGoblinoids</string>
                     <string>NoxiousSpray</string>
                     <string>PetalStorm</string>
                     <string>ProtectThreshold</string>
@@ -1411,6 +1422,7 @@
                     <string>SpikeBarrage</string>
                     <string>SearingSmite</string>
                     <string>StrikeWithTheWind</string>
+                    <string>ConjureGoblinoids</string>
                     <string>AdderFangs</string>
                     <string>ElementalWeapon</string>
                     <string>FlameArrows</string>

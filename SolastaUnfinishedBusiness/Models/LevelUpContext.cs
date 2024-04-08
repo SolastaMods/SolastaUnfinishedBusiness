@@ -543,6 +543,7 @@ internal static class LevelUpContext
             var tag = spellTag.Name;
             var finalTag = classTag + tag + tag;
 
+            // grant cantrips from selection or fixed list
             if (heroBuildingData.AcquiredCantrips.TryGetValue(finalTag, out var cantrips))
             {
                 foreach (var cantrip in cantrips)
@@ -550,9 +551,27 @@ internal static class LevelUpContext
                     hero.GrantCantrip(cantrip, featureDefinitionCastSpell);
                 }
             }
+            else if (featureDefinitionCastSpell.SpellKnowledge == SpellKnowledge.FixedList)
+            {
+                foreach (var spell in featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel
+                             .Where(x => x.Level == 0)
+                             .SelectMany(x => x.Spells))
+                {
+                    hero.GrantCantrip(spell, featureDefinitionCastSpell);
+                }
+            }
 
-            // ReSharper disable once InvertIf
-            if (heroBuildingData.AcquiredSpells.TryGetValue(finalTag, out var spells))
+            // grant spells from fixed list or selection
+            if (spellTag.ForceFixedList || featureDefinitionCastSpell.SpellKnowledge == SpellKnowledge.FixedList)
+            {
+                foreach (var spell in featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel
+                             .Where(x => x.Level > 0)
+                             .SelectMany(x => x.Spells))
+                {
+                    hero.GrantSpell(spell, featureDefinitionCastSpell);
+                }
+            }
+            else if (heroBuildingData.AcquiredSpells.TryGetValue(finalTag, out var spells))
             {
                 foreach (var spell in spells)
                 {

@@ -11,12 +11,12 @@
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
+  "specialDuration": true,
   "durationType": "Round",
   "durationParameterDie": "D4",
-  "durationParameter": 1,
+  "durationParameter": 0,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -265,13 +265,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionInnovationVitriolistArsenalTitle",
-    "description": "Condition/&ConditionInnovationVitriolistArsenalDescription",
+    "title": "Rules/&ConditionShockedTitle",
+    "description": "Rules/&ConditionShockedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "37a0b9c04d666bc4eaf93a2a5ad0e2d2",
+      "m_SubObjectName": "ConditionShockingGrasp",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

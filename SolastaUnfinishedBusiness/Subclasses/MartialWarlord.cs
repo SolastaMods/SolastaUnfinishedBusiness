@@ -77,7 +77,6 @@ public sealed class MartialWarlord : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
                     .Build())
             .AddCustomSubFeatures(
-                IsModifyPowerPool.Marker,
                 new MagicEffectFinishedByMePressTheAdvantage(),
                 new RestrictReactionAttackMode((_, attacker, _, mode, _) =>
                     mode != null && // IsWeaponOrUnarmedAttack

@@ -106,15 +106,6 @@ internal sealed class ModManager<TCore, TSettings>
         }
     }
 
-#if DEBUG
-    internal void Unload()
-    {
-        _harmonyInstance.UnpatchAll();
-        Enabled = false;
-        Patched = false;
-    }
-#endif
-
     #endregion
 
     #region Fields & Properties

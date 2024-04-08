@@ -56,6 +56,7 @@ internal enum ExtraActionId
     ForcePoweredStrikeToggle,
     BrutalStrikeToggle,
     OrcishFuryToggle,
+    DragonHideToggle,
     PrioritizeAction = 10000
 }
 
@@ -153,13 +154,11 @@ internal enum ExtraOriginOfAmount
     // SourceSpellCastingAbility = ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility,
     // SourceSpellAttack = ConditionDefinition.OriginOfAmount.SourceSpellAttack,
     SourceAbilityBonus = 9000, // attribute name should be in the `additionalDamageType` field of the condition
-    SourceCharacterLevel,
-    SourceClassLevel, // class name should be in the `additionalDamageType` field of the condition
+    SourceClassLevel = 9002, // class name should be in the `additionalDamageType` field of the condition
     SourceCopyAttributeFromSummoner, // attribute name should be in the `additionalDamageType` field of the condition
     SourceGambitDieRoll,
     SourceProficiencyAndAbilityBonus,
-    SourceProficiencyBonus,
-    SourceProficiencyBonusNegative
+    SourceProficiencyBonus
 }
 
 internal enum ExtraSituationalContext

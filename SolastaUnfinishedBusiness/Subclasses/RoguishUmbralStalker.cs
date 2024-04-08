@@ -76,8 +76,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeNecrotic)
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-            .SetImpactParticleReference(
-                Power_HornOfBlasting.EffectDescription.EffectParticleParameters.impactParticleReference)
+            .SetImpactParticleReference(Power_HornOfBlasting)
             .AddCustomSubFeatures(ClassFeats.ModifyAdditionalDamageFormCloseQuarters.Marker)
             .AddToDB();
 

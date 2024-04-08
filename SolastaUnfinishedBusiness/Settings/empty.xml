@@ -281,6 +281,7 @@
         <string>PowerSorcerousPsionMindOverMatter</string>
         <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
         <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
+        <string>PowerFeatChefCookMeal</string>
     </EffectsThatTargetDistantIndividualsAndDontRequireSight>
     <DisableUnofficialTranslations>false</DisableUnofficialTranslations>
     <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
@@ -369,6 +370,7 @@
     <StealthBreaksWhenAttackHits>false</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>false</StealthBreaksWhenAttackMisses>
     <AddDexModifierToEnemiesInitiativeRoll>false</AddDexModifierToEnemiesInitiativeRoll>
+    <EnemiesAlwaysRollInitiative>false</EnemiesAlwaysRollInitiative>
     <DontEndTurnAfterReady>false</DontEndTurnAfterReady>
     <KeepInvisibilityWhenUsingItems>false</KeepInvisibilityWhenUsingItems>
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false

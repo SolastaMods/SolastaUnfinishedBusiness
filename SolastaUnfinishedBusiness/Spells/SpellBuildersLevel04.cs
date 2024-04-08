@@ -545,7 +545,7 @@ internal static partial class SpellBuilders
 
         var conditionHindered = ConditionDefinitionBuilder
             .Create(ConditionRestrainedByMagicalArrow, $"ConditionHindered{NAME}")
-            .SetOrUpdateGuiPresentation("ConditionHindered", Category.Rules)
+            .SetOrUpdateGuiPresentation(ConditionHindered.Name, Category.Rules)
             .SetParentCondition(ConditionHindered)
             .AddToDB();
 
@@ -701,8 +701,8 @@ internal static partial class SpellBuilders
         var conditionIrresistiblePerformance = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionCharmed, $"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionCharmed)
-            .SetPossessive()
             .SetParentCondition(ConditionDefinitions.ConditionCharmed)
+            .SetPossessive()
             .SetFeatures(actionAffinityIrresistiblePerformance)
             .AddToDB();
 

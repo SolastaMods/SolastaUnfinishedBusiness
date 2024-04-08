@@ -77,6 +77,7 @@ public class PatronCelestial : AbstractSubclass
 
         powerHealingLight.AddCustomSubFeatures(
             HasModifiedUses.Marker,
+            IsModifyPowerPool.Marker,
             new ModifyPowerPoolAmountHealingLight(powerHealingLight));
 
         var healingLightPowers = new List<FeatureDefinitionPower>();
@@ -298,7 +299,7 @@ public class PatronCelestial : AbstractSubclass
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                 attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma));
 
-            effectForm.DamageForm.BonusDamage = charismaModifier;
+            effectForm.DamageForm.BonusDamage += charismaModifier;
         }
     }
 

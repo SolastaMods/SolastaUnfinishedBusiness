@@ -12,11 +12,13 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
@@ -27,15 +29,58 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class RaceFeats
 {
-    private const string ElvenPrecision = "ElvenPrecision";
-    private const string FadeAway = "FadeAway";
-    private const string RevenantGreatSword = "RevenantGreatSword";
-    private const string SquatNimbleness = "SquatNimbleness";
-
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        // Dragon Wings
-        var featDragonWings = FeatDefinitionWithPrerequisitesBuilder
+        var featDarkElfMagic = BuildDarkElfMagic();
+        var featDragonWings = BuildDragonWings();
+        var featDwarvenFortitude = BuildDwarvenFortitude();
+        var featInfernalConstitution = BuildInfernalConstitution();
+        var featOrcishAggression = BuildOrcishAggression();
+        var featWoodElfMagic = BuildWoodElfMagic();
+        var featGroupDragonFear = BuildDragonFear(feats);
+        var featGroupDragonHide = BuildDragonHide(feats);
+        var featGroupsElvenAccuracy = BuildElvenAccuracy(feats);
+        var featGroupFadeAway = BuildFadeAway(feats);
+        var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
+        var featGroupOrcishFury = BuildOrcishFury(feats);
+        var featGroupRevenantGreatSword = BuildRevenant(feats);
+        var featGroupSecondChance = BuildSecondChance(feats);
+        var featGroupSquatNimbleness = BuildSquatNimbleness(feats);
+
+        feats.AddRange(
+            featDarkElfMagic,
+            featDragonWings,
+            featDwarvenFortitude,
+            featInfernalConstitution,
+            featOrcishAggression,
+            featWoodElfMagic);
+
+        GroupFeats.FeatGroupDefenseCombat.AddFeats(featGroupFadeAway);
+        GroupFeats.FeatGroupTwoHandedCombat.AddFeats(featGroupRevenantGreatSword);
+        GroupFeats.FeatGroupSkills.AddFeats(featGroupSquatNimbleness);
+        GroupFeats.MakeGroup("FeatGroupRaceBound", null,
+            featDarkElfMagic,
+            featDragonWings,
+            featDwarvenFortitude,
+            featInfernalConstitution,
+            featOrcishAggression,
+            featWoodElfMagic,
+            featGroupDragonFear,
+            featGroupDragonHide,
+            featGroupsElvenAccuracy,
+            featGroupFadeAway,
+            featGroupFlamesOfPhlegethos,
+            featGroupOrcishFury,
+            featGroupRevenantGreatSword,
+            featGroupSecondChance,
+            featGroupSquatNimbleness);
+    }
+
+    #region Dragon Wings
+
+    private static FeatDefinitionWithPrerequisites BuildDragonWings()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatDragonWings")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
@@ -60,10 +105,15 @@ internal static class RaceFeats
                     .AddToDB())
             .SetValidators(ValidatorsFeat.IsDragonborn)
             .AddToDB();
+    }
 
-        //
-        // Fade Away support
-        //
+    #endregion
+
+    #region Fade Away
+
+    private static FeatDefinition BuildFadeAway(List<FeatDefinition> feats)
+    {
+        const string FadeAway = "FadeAway";
 
         var powerFeatFadeAwayInvisible = FeatureDefinitionPowerBuilder
             .Create("PowerFeatFadeAwayInvisible")
@@ -78,7 +128,6 @@ internal static class RaceFeats
                     .Build())
             .AddToDB();
 
-        // Fade Away (Dexterity)
         var featFadeAwayDex = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatFadeAwayDex")
             .SetGuiPresentation(Category.Feat)
@@ -89,7 +138,6 @@ internal static class RaceFeats
             .SetFeatFamily(FadeAway)
             .AddToDB();
 
-        // Fade Away (Intelligence)
         var featFadeAwayInt = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatFadeAwayInt")
             .SetGuiPresentation(Category.Feat)
@@ -100,7 +148,24 @@ internal static class RaceFeats
             .SetFeatFamily(FadeAway)
             .AddToDB();
 
-        // Elven Accuracy (Dexterity)
+        feats.AddRange(featFadeAwayDex, featFadeAwayInt);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupFadeAway",
+            FadeAway,
+            ValidatorsFeat.IsGnome,
+            featFadeAwayDex,
+            featFadeAwayInt);
+    }
+
+    #endregion
+
+    #region Elven Accuracy
+
+    private static FeatDefinition BuildElvenAccuracy(List<FeatDefinition> feats)
+    {
+        const string ElvenPrecision = "ElvenPrecision";
+
         var featElvenAccuracyDexterity = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatElvenAccuracyDexterity")
             .SetGuiPresentation(Category.Feat)
@@ -110,7 +175,6 @@ internal static class RaceFeats
             .AddCustomSubFeatures(Behaviors.Specific.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
-        // Elven Accuracy (Intelligence)
         var featElvenAccuracyIntelligence = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatElvenAccuracyIntelligence")
             .SetGuiPresentation(Category.Feat)
@@ -120,7 +184,6 @@ internal static class RaceFeats
             .AddCustomSubFeatures(Behaviors.Specific.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
-        // Elven Accuracy (Wisdom)
         var featElvenAccuracyWisdom = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatElvenAccuracyWisdom")
             .SetGuiPresentation(Category.Feat)
@@ -130,7 +193,6 @@ internal static class RaceFeats
             .AddCustomSubFeatures(Behaviors.Specific.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
-        // Elven Accuracy (Charisma)
         var featElvenAccuracyCharisma = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatElvenAccuracyCharisma")
             .SetGuiPresentation(Category.Feat)
@@ -140,9 +202,48 @@ internal static class RaceFeats
             .AddCustomSubFeatures(Behaviors.Specific.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
-        //
-        // Revenant support
-        //
+        feats.AddRange(
+            featElvenAccuracyDexterity,
+            featElvenAccuracyIntelligence,
+            featElvenAccuracyWisdom,
+            featElvenAccuracyCharisma);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupElvenAccuracy",
+            ElvenPrecision,
+            ValidatorsFeat.IsElfOfHalfElf,
+            featElvenAccuracyCharisma,
+            featElvenAccuracyDexterity,
+            featElvenAccuracyIntelligence,
+            featElvenAccuracyWisdom);
+    }
+
+    #endregion
+
+    #region Infernal Constitution
+
+    private static FeatDefinitionWithPrerequisites BuildInfernalConstitution()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatInfernalConstitution")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Arun,
+                SavingThrowAffinityAntitoxin,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityPoisonResistance)
+            .SetValidators(ValidatorsFeat.IsTiefling)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Revenant
+
+    private static FeatDefinition BuildRevenant(List<FeatDefinition> feats)
+    {
+        const string RevenantGreatSword = "RevenantGreatSword";
 
         var validWeapon = ValidatorsWeapon.IsOfWeaponType(GreatswordType);
 
@@ -155,7 +256,6 @@ internal static class RaceFeats
                 new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon))
             .AddToDB();
 
-        // Revenant Great Sword (Dexterity)
         var featRevenantGreatSwordDex = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatRevenantGreatSwordDex")
             .SetGuiPresentation(Category.Feat)
@@ -164,7 +264,6 @@ internal static class RaceFeats
             .SetFeatFamily(RevenantGreatSword)
             .AddToDB();
 
-        // Revenant Great Sword (Strength)
         var featRevenantGreatSwordStr = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatRevenantGreatSwordStr")
             .SetGuiPresentation(Category.Feat)
@@ -173,9 +272,24 @@ internal static class RaceFeats
             .SetFeatFamily(RevenantGreatSword)
             .AddToDB();
 
-        //
-        // Squat Nimbleness
-        //
+        feats.AddRange(featRevenantGreatSwordDex, featRevenantGreatSwordStr);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupRevenantGreatSword",
+            RevenantGreatSword,
+            ValidatorsFeat.IsElfOfHalfElf,
+            featRevenantGreatSwordDex,
+            featRevenantGreatSwordStr);
+    }
+
+    #endregion
+
+    #region Squat Nimbleness
+
+    private static FeatDefinition BuildSquatNimbleness(List<FeatDefinition> feats)
+    {
+        const string SquatNimbleness = "SquatNimbleness";
+
         var featSquatNimblenessDex = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatSquatNimblenessDex")
             .SetGuiPresentation(Category.Feat)
@@ -206,89 +320,302 @@ internal static class RaceFeats
             .SetFeatFamily(SquatNimbleness)
             .AddToDB();
 
-        //Infernal Constitution
-        var featInfernalConstitution = FeatDefinitionWithPrerequisitesBuilder
-            .Create("FeatInfernalConstitution")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Arun,
-                SavingThrowAffinityAntitoxin,
-                DamageAffinityColdResistance,
-                DamageAffinityFireResistance,
-                DamageAffinityPoisonResistance)
-            .SetValidators(ValidatorsFeat.IsTiefling)
-            .AddToDB();
+        feats.AddRange(featSquatNimblenessStr, featSquatNimblenessDex);
 
-        var featDwarvenFortitude = BuildDwarvenFortitude();
-        var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
-        var featGroupOrcishFury = BuildOrcishFury(feats);
-        var featGroupSecondChance = BuildSecondChance(feats);
-
-        //
-        // set feats to be registered in mod settings
-        //
-
-        feats.AddRange(
-            featDragonWings,
-            featDwarvenFortitude,
-            featFadeAwayDex,
-            featFadeAwayInt,
-            featElvenAccuracyDexterity,
-            featElvenAccuracyIntelligence,
-            featElvenAccuracyWisdom,
-            featElvenAccuracyCharisma,
-            featRevenantGreatSwordDex,
-            featRevenantGreatSwordStr,
-            featSquatNimblenessDex,
-            featSquatNimblenessStr,
-            featInfernalConstitution);
-
-        var featGroupsElvenAccuracy = GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupElvenAccuracy",
-            ElvenPrecision,
-            ValidatorsFeat.IsElfOfHalfElf,
-            featElvenAccuracyCharisma,
-            featElvenAccuracyDexterity,
-            featElvenAccuracyIntelligence,
-            featElvenAccuracyWisdom);
-
-        var featGroupFadeAway = GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupFadeAway",
-            FadeAway,
-            ValidatorsFeat.IsGnome,
-            featFadeAwayDex,
-            featFadeAwayInt);
-
-        var featGroupRevenantGreatSword = GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupRevenantGreatSword",
-            RevenantGreatSword,
-            ValidatorsFeat.IsElfOfHalfElf,
-            featRevenantGreatSwordDex,
-            featRevenantGreatSwordStr);
-
-        var featGroupSquatNimbleness = GroupFeats.MakeGroupWithPreRequisite(
+        return GroupFeats.MakeGroupWithPreRequisite(
             "FeatGroupSquatNimbleness",
             SquatNimbleness,
             ValidatorsFeat.IsSmallRace,
             featSquatNimblenessDex,
             featSquatNimblenessStr);
-
-        GroupFeats.FeatGroupDefenseCombat.AddFeats(featGroupFadeAway);
-
-        GroupFeats.FeatGroupTwoHandedCombat.AddFeats(featGroupRevenantGreatSword);
-
-        GroupFeats.MakeGroup("FeatGroupRaceBound", null,
-            featDragonWings,
-            featDwarvenFortitude,
-            featInfernalConstitution,
-            featGroupsElvenAccuracy,
-            featGroupFadeAway,
-            featGroupFlamesOfPhlegethos,
-            featGroupOrcishFury,
-            featGroupRevenantGreatSword,
-            featGroupSecondChance,
-            featGroupSquatNimbleness);
     }
+
+    #endregion
+
+    #region Dark-Elf Magic
+
+    private static FeatDefinitionWithPrerequisites BuildDarkElfMagic()
+    {
+        const string Name = "FeatDarkElfMagic";
+
+        var detectMagicCantrip = SpellDefinitionBuilder
+            .Create(DetectMagic, "DetectMagicCantrip")
+            .SetSpellLevel(0)
+            .AddToDB();
+
+        var levitateSpell = SpellDefinitionBuilder
+            .Create(Levitate, "LevitateSpell")
+            .SetSpellLevel(1)
+            .AddToDB();
+
+        var dispelMagicSpell = SpellDefinitionBuilder
+            .Create(DispelMagic, "DispelMagicSpell")
+            .SetSpellLevel(2)
+            .AddToDB();
+
+        var spellListCantrip = SpellListDefinitionBuilder
+            .Create($"SpellList{Name}")
+            .SetGuiPresentationNoContent(true)
+            .ClearSpells()
+            .SetSpellsAtLevel(0, detectMagicCantrip)
+            .SetSpellsAtLevel(1, levitateSpell)
+            .SetSpellsAtLevel(2, dispelMagicSpell)
+            .FinalizeSpells(true, 1)
+            .AddToDB();
+
+        var castSpell = FeatureDefinitionCastSpellBuilder
+            .Create($"CastSpell{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .SetSpellKnowledge(SpellKnowledge.FixedList)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.LongRest)
+            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
+            .SetReplacedSpells(1, 0)
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .AddCustomSubFeatures(new OtherFeats.SpellTag("DarkElfMagic"))
+            .SetSpellList(spellListCantrip)
+            .AddToDB();
+
+        var feat = FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(castSpell)
+            .SetValidators(ValidatorsFeat.IsDarkElfOrHalfElfDark, ValidatorsFeat.IsLevel4)
+            .AddToDB();
+
+        return feat;
+    }
+
+    #endregion
+
+    #region Wood-Elf Magic
+
+    private static FeatDefinitionWithPrerequisites BuildWoodElfMagic()
+    {
+        const string Name = "FeatWoodElfMagic";
+
+        var spellListCantrip = SpellListDefinitionBuilder
+            .Create($"SpellList{Name}")
+            .SetGuiPresentationNoContent(true)
+            .ClearSpells()
+            .SetSpellsAtLevel(1, Longstrider)
+            .SetSpellsAtLevel(2, PassWithoutTrace)
+            .FinalizeSpells(true, 1)
+            .AddToDB();
+
+        //explicitly re-use druid spell list, so custom cantrips selected for druid will show here 
+        spellListCantrip.SpellsByLevel[0].Spells = SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells;
+
+        var castSpell = FeatureDefinitionCastSpellBuilder
+            .Create($"CastSpell{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+            .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
+            .SetSpellKnowledge(SpellKnowledge.Selection)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.LongRest)
+            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
+            .SetReplacedSpells(1, 0)
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .AddCustomSubFeatures(new OtherFeats.SpellTag("WoodElfMagic", true))
+            .SetSpellList(spellListCantrip)
+            .AddToDB();
+
+        var pointPoolCantrip = FeatureDefinitionPointPoolBuilder
+            .Create($"PointPool{Name}Cantrip")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellListCantrip, "WoodElfMagic")
+            .AddToDB();
+
+        var feat = FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(castSpell, pointPoolCantrip)
+            .SetValidators(ValidatorsFeat.IsSylvanElf, ValidatorsFeat.IsLevel4)
+            .AddToDB();
+
+        return feat;
+    }
+
+    #endregion
+
+    #region Dragon Fear
+
+    private static FeatDefinition BuildDragonFear(List<FeatDefinition> feats)
+    {
+        const string DragonFear = "DragonFear";
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatDragonFear")
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerSorcererHauntedSoulVengefulSpirits)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Charisma, 8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(Fear)
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new MagicEffectFinishedByMeAnyDragonFear(power));
+
+        var featDragonFearStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatDragonFearStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(power, AttributeModifierCreed_Of_Einar)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(DragonFear)
+            .AddToDB();
+
+        var featDragonFearCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatDragonFearCon")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(power, AttributeModifierCreed_Of_Arun)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(DragonFear)
+            .AddToDB();
+
+        var featDragonFearCha = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatDragonFearCha")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(power, AttributeModifierCreed_Of_Solasta)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(DragonFear)
+            .AddToDB();
+
+        feats.AddRange(featDragonFearStr, featDragonFearCon, featDragonFearCha);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupDragonFear",
+            DragonFear,
+            ValidatorsFeat.IsDragonborn,
+            featDragonFearStr,
+            featDragonFearCon,
+            featDragonFearCha);
+    }
+
+    private sealed class MagicEffectFinishedByMeAnyDragonFear(
+        FeatureDefinitionPower powerDragonFear) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action.ActionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
+            {
+                yield break;
+            }
+
+            RulesetUsablePower usablePower;
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetEffectPower.PowerDefinition.Name.StartsWith("PowerDragonbornBreathWeapon"))
+            {
+                usablePower = PowerProvider.Get(powerDragonFear, rulesetAttacker);
+                rulesetAttacker.UsePower(usablePower);
+            }
+            else if (rulesetEffectPower.PowerDefinition == powerDragonFear)
+            {
+                usablePower = rulesetAttacker.UsablePowers.FirstOrDefault(x =>
+                    x.PowerDefinition.Name.StartsWith("PowerDragonbornBreathWeapon"));
+
+                if (usablePower != null)
+                {
+                    rulesetAttacker.UsePower(usablePower);
+                }
+            }
+        }
+    }
+
+    #endregion
+
+    #region Dragon Hide
+
+    private static FeatDefinition BuildDragonHide(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatDragonHide";
+
+        var actionAffinityToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityDragonHideToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.DragonHideToggle)
+            .AddCustomSubFeatures(new ModifyWeaponAttackModeDragonHide())
+            .AddToDB();
+
+        var attributeModifier = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}")
+            .SetGuiPresentation("FeatGroupDragonHide", Category.Feat)
+            .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
+            .SetDexPlusAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Constitution)
+            .AddToDB();
+
+        var featDragonHideStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(actionAffinityToggle, attributeModifier, AttributeModifierCreed_Of_Einar)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var featDragonHideCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(actionAffinityToggle, attributeModifier, AttributeModifierCreed_Of_Arun)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var featDragonHideCha = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Cha")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(actionAffinityToggle, attributeModifier, AttributeModifierCreed_Of_Solasta)
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(featDragonHideStr, featDragonHideCon, featDragonHideCha);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupDragonHide",
+            Name,
+            ValidatorsFeat.IsDragonborn,
+            featDragonHideStr,
+            featDragonHideCon,
+            featDragonHideCha);
+    }
+
+    private sealed class ModifyWeaponAttackModeDragonHide : IModifyWeaponAttackMode
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (!ValidatorsWeapon.IsUnarmed(attackMode) ||
+                !character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DragonHideToggle))
+            {
+                return;
+            }
+
+            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            damage.DamageType = DamageTypeSlashing;
+        }
+    }
+
+    #endregion
 
     #region Dwarven Fortitude
 
@@ -540,6 +867,150 @@ internal static class RaceFeats
 
     #endregion
 
+    #region Orcish Aggression
+
+    private static FeatDefinitionWithPrerequisites BuildOrcishAggression()
+    {
+        const string Name = "FeatOrcishAggression";
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 24, TargetType.Position)
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.InCombat,
+            new CustomBehaviorOrcishAggression(power));
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsHalfOrc)
+            .SetFeatures(power)
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorOrcishAggression(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerOrcishAggression)
+        : IFilterTargetingPosition, IModifyEffectDescription, IMagicEffectFinishedByMe, IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is not CharacterActionMoveStepWalk ||
+                !action.ActingCharacter.UsedSpecialFeatures.TryGetValue("UsedTacticalMoves", out var usedTacticalMoves))
+            {
+                yield break;
+            }
+
+            action.ActingCharacter.UsedTacticalMoves = usedTacticalMoves;
+            action.ActingCharacter.UsedSpecialFeatures.Remove("UsedTacticalMoves");
+        }
+
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            cursorLocationSelectPosition.validPositionsCache.Clear();
+
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
+            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+            var maxRange = actingCharacter.MaxTacticalMoves;
+            var enemies = Gui.Battle.GetContenders(actingCharacter);
+            var validDestinations = ServiceRepository.GetService<IGameLocationPathfindingService>()
+                .ComputeValidDestinations(actingCharacter, false, maxRange);
+
+            foreach (var position in validDestinations.Select(x => x.position))
+            {
+                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                    !positioningService.CanPlaceCharacter(
+                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                    !positioningService.CanCharacterStayAtPosition_Floor(
+                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
+                {
+                    continue;
+                }
+
+                if (DistanceCalculation.GetDistanceFromPositions(position, actingCharacter.LocationPosition) > maxRange)
+                {
+                    continue;
+                }
+
+                foreach (var enemy in enemies)
+                {
+                    if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                    {
+                        yield return null;
+                    }
+
+                    var currentDistance = DistanceCalculation.GetDistanceFromCharacters(actingCharacter, enemy);
+                    var newDistance = DistanceCalculation.GetDistanceFromPositions(position, enemy.LocationPosition);
+
+                    if (newDistance >= currentDistance)
+                    {
+                        continue;
+                    }
+
+                    cursorLocationSelectPosition.validPositionsCache.Add(position);
+                }
+            }
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var targetPosition = action.ActionParams.Positions[0];
+            var actionParams =
+                new CharacterActionParams(actingCharacter, ActionDefinitions.Id.TacticalMove)
+                {
+                    Positions = { targetPosition }
+                };
+
+            actingCharacter.UsedSpecialFeatures.TryAdd("UsedTacticalMoves", actingCharacter.UsedTacticalMoves);
+            actingCharacter.UsedTacticalMoves = 0;
+            ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(actionParams, null, true);
+
+            yield break;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerOrcishAggression;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var glc = GameLocationCharacter.GetFromActor(character);
+
+            if (glc == null)
+            {
+                return effectDescription;
+            }
+
+            effectDescription.rangeParameter = glc.MaxTacticalMoves;
+
+            return effectDescription;
+        }
+    }
+
+    #endregion
+
     #region Orcish Fury
 
     private static FeatDefinition BuildOrcishFury(List<FeatDefinition> feats)
@@ -580,7 +1051,7 @@ internal static class RaceFeats
             .AddToDB();
 
         var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+            .Create(ActionAffinitySorcererMetamagicToggle,
                 "ActionAffinityOrcishFuryToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle)

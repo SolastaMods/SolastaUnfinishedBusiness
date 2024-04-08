@@ -23,6 +23,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
 {
     private const string Name = "SoulBlade";
     internal const string FullName = $"Patron{Name}";
+    internal const string ConditionHex = $"Condition{Name}HexDefender";
 
     public PatronSoulBlade()
     {
@@ -63,7 +64,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
         // Hex
 
         var conditionHexDefender = ConditionDefinitionBuilder
-            .Create($"Condition{Name}HexDefender")
+            .Create(ConditionHex)
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)

@@ -950,7 +950,6 @@ internal static partial class CharacterContext
 
         powerPool.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            IsModifyPowerPool.Marker,
             new CustomBehaviorCunningStrike(powerPool));
 
         // Disarm
@@ -1139,8 +1138,9 @@ internal static partial class CharacterContext
 
         var conditionKnockOut = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Devious}KnockOut")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
-                ConditionDefinitions.ConditionAsleep)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionAsleep)
+            .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
+            .SetFeatures()
             .SetSpecialInterruptions(ConditionInterruption.Damaged)
             .AddToDB();
 

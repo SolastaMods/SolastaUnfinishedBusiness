@@ -20,11 +20,10 @@ internal static class InvocationsContext
 
     internal static void LateLoad()
     {
-        // kept for backward compatibility
-        _ = BuildBreathOfTheNight();
-        _ = BuildPoisonousBlast();
-
+        LoadInvocation(BuildBreathOfTheNight());
+        LoadInvocation(BuildBurningHex());
         LoadInvocation(BuildChillingBlast());
+        LoadInvocation(BuildChillingHex());
         LoadInvocation(BuildCorrosiveBlast());
         LoadInvocation(BuildFieryBlast());
         LoadInvocation(BuildFulminateBlast());
@@ -32,7 +31,6 @@ internal static class InvocationsContext
         LoadInvocation(BuildPsychicBlast());
         LoadInvocation(BuildRadiantBlast());
         LoadInvocation(BuildThunderBlast());
-
         LoadInvocation(BuildAbilitiesOfTheChainMaster());
         LoadInvocation(BuildAspectOfTheMoon());
         LoadInvocation(BuildBondOfTheTalisman());
@@ -50,6 +48,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildInexorableHex());
         LoadInvocation(BuildKinesis());
         LoadInvocation(BuildPerniciousCloak());
+        LoadInvocation(BuildPoisonousBlast());
         LoadInvocation(BuildShroudOfShadow());
         LoadInvocation(BuildSpectralShield());
         LoadInvocation(BuildStasis());

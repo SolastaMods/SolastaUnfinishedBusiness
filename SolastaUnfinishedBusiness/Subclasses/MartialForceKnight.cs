@@ -41,7 +41,6 @@ public sealed class MartialForceKnight : AbstractSubclass
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 3)
         .AddCustomSubFeatures(
             HasModifiedUses.Marker,
-            IsModifyPowerPool.Marker,
             ModifyPowerVisibility.Hidden)
         .AddToDB();
 

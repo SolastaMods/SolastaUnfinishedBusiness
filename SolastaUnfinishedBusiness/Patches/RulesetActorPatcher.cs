@@ -246,16 +246,6 @@ public static class RulesetActorPatcher
                         sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                     break;
 
-                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonusNegative:
-                    sourceAmount =
-                        -sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-                    break;
-
-                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
-                    sourceAmount =
-                        sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-                    break;
-
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
                     sourceAmount = sourceCharacter.GetClassLevel(source);
                     break;

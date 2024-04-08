@@ -426,7 +426,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}Chalice")
             .SetGuiPresentation(Category.Feature, PowerPaladinLayOnHands)
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -879,7 +878,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 action.AttackSuccessDelta + MaxDieTypeValue < 0 ||
                 rulesetHelper.GetRemainingPowerUses(powerWeal) == 0 ||
                 !helper.CanReact() ||
-                attacker.Side != helper.Side ||
+                attacker.IsOppositeSide(helper.Side) ||
                 !helper.IsWithinRange(attacker, 6) ||
                 !helper.CanPerceiveTarget(attacker))
             {
@@ -959,7 +958,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 action.SaveOutcomeDelta + MaxDieTypeValue < 0 ||
                 rulesetHelper.GetRemainingPowerUses(powerWeal) == 0 ||
                 !helper.CanReact() ||
-                defender.Side != helper.Side ||
+                defender.IsOppositeSide(helper.Side) ||
                 !helper.IsWithinRange(defender, 6) ||
                 !helper.CanPerceiveTarget(defender))
             {

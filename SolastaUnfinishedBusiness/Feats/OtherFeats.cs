@@ -79,6 +79,7 @@ internal static class OtherFeats
             featHealer,
             featInfusionAdept,
             featInspiringLeader,
+            FeatMageSlayer,
             featMagicInitiate,
             featMartialAdept,
             featMetamagicAdept,
@@ -121,6 +122,7 @@ internal static class OtherFeats
             chefGroup,
             featHealer,
             featInspiringLeader,
+            FeatMageSlayer,
             featSentinel);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
@@ -465,12 +467,14 @@ internal static class OtherFeats
 
     internal sealed class SpellTag
     {
-        internal SpellTag(string spellTag)
+        internal SpellTag(string spellTag, bool forceFixedList = false)
         {
             Name = spellTag;
+            ForceFixedList = forceFixedList;
         }
 
         internal string Name { get; }
+        internal bool ForceFixedList { get; }
     }
 
     #endregion
@@ -1173,6 +1177,189 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Mage Slayer
+
+    private const string FeatMageSlayerName = "FeatMageSlayer";
+
+    internal static readonly FeatDefinition FeatMageSlayer = FeatDefinitionBuilder
+        .Create(FeatMageSlayerName)
+        .SetGuiPresentation(FeatMageSlayerName, Category.Feat)
+        .AddFeatures(
+            FeatureDefinitionBuilder
+                .Create($"Feature{FeatMageSlayerName}")
+                .SetGuiPresentationNoContent(true)
+                .AddCustomSubFeatures(new CustomBehaviorMageSlayer(
+                    ConditionDefinitionBuilder
+                        .Create($"Condition{FeatMageSlayerName}")
+                        .SetGuiPresentation(FeatMageSlayerName, Category.Feat, Gui.NoLocalization)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .AddFeatures(
+                            FeatureDefinitionMagicAffinityBuilder
+                                .Create($"MagicAffinity{FeatMageSlayerName}")
+                                .SetGuiPresentation(FeatMageSlayerName, Category.Feat)
+                                .SetConcentrationModifiers(ConcentrationAffinity.Disadvantage, 0)
+                                .AddToDB())
+                        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                        .AddToDB()))
+                .AddToDB())
+        .AddToDB();
+
+    internal sealed class CustomBehaviorMageSlayer(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionConcentrationDisadvantage)
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, ITryAlterOutcomeSavingThrow
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            defender.RulesetCharacter.InflictCondition(
+                conditionConcentrationDisadvantage.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionConcentrationDisadvantage.Name,
+                0,
+                0,
+                0);
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            defender.RulesetCharacter.InflictCondition(
+                conditionConcentrationDisadvantage.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionConcentrationDisadvantage.Name,
+                0,
+                0,
+                0);
+
+            yield break;
+        }
+
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck)
+        {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            var effectDescription = action.ActionParams.AttackMode?.EffectDescription ??
+                                    action.ActionParams.RulesetEffect?.EffectDescription;
+
+            if (gameLocationActionManager == null ||
+                defender != helper ||
+                !action.RolledSaveThrow ||
+                action.SaveOutcome != RollOutcome.Failure ||
+                effectDescription?.savingThrowAbility is not
+                    (AttributeDefinitions.Intelligence or AttributeDefinitions.Wisdom or AttributeDefinitions.Charisma))
+            {
+                yield break;
+            }
+
+            var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            {
+                StringParameter =
+                    "Reaction/&CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name)
+            };
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            var reactionRequest = new ReactionRequestCustom("MageSlayer", reactionParams);
+
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            action.RolledSaveThrow = true;
+            action.saveOutcomeDelta = 0;
+            action.saveOutcome = RollOutcome.Success;
+        }
+
+        internal static IEnumerator HandleEnemyCastSpellWithin5Ft(
+            GameLocationCharacter caster,
+            GameLocationCharacter defender)
+        {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var (attackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(caster);
+
+            if (attackMode == null ||
+                !defender.CanReact())
+            {
+                yield break;
+            }
+
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.AttackOpportunity)
+            {
+                StringParameter = defender.Name,
+                ActionModifiers = { actionModifier },
+                AttackMode = attackMode,
+                TargetCharacters = { caster }
+            };
+
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("MageSlayer", actionParams);
+
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
+
+            yield return gameLocationBattleService.WaitForReactions(caster, gameLocationActionService, count);
+        }
+    }
+
+    #endregion
+
     #region Mobile
 
     private static FeatDefinition BuildMobile()
@@ -1196,8 +1383,9 @@ internal static class OtherFeats
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
+                                .SetParentCondition(ConditionDefinitions.ConditionFreedomOfMovement)
                                 .SetPossessive()
-                                .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                                .SetFeatures()
                                 .AddToDB()))
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)

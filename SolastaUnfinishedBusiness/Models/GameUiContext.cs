@@ -1137,7 +1137,7 @@ internal static class GameUiContext
             var position = gameLocationCharacterService.PartyCharacters[0].LocationPosition;
             var currentCharacter = Global.CurrentCharacter ??
                                    gameLocationCharacterService.PartyCharacters[0].RulesetCharacter;
-            var locationCharacter = gameLocationCharacterService.AllValidEntities
+            var locationCharacter = gameLocationCharacterService.PartyCharacters
                 .FirstOrDefault(x => x.RulesetCharacter == currentCharacter);
 
             return locationCharacter?.LocationPosition ?? position;

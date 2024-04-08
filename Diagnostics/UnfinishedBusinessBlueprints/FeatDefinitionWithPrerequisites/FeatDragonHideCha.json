@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -9,14 +9,18 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "FeyTeleport",
+  "familyTag": "FeatDragonHide",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityDragonHideToggle:6dd47cc8-a766-5bb4-b37b-e2e90d7b14c0",
+    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
+    "Definition:AttributeModifierFeatDragonHide:bce7860d-dfcf-5b30-bf28-1f09f2767d59"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupTeleportationTitle",
-    "description": "Increase one of your mental attributes by 1, to a maximum of 20.\nYou can use misty step once per short rest, and you can cast this spell with your spell slots.\nYou gain proficiency in Tirmarian.",
+    "title": "Feat/&FeatDragonHideChaTitle",
+    "description": "Feat/&FeatDragonHideChaDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9975285e-172f-531f-b635-e72d33e69d91",
+  "guid": "0e594953-9af2-5952-a879-e4aae0c5ef44",
   "contentPack": 9999,
-  "name": "FeatGroupTeleportation"
+  "name": "FeatDragonHideCha"
 }
