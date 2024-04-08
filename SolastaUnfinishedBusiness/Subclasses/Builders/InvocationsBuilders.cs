@@ -1141,7 +1141,8 @@ internal static class InvocationsBuilders
                     position = target.LocationPosition
                 };
 
-                EffectHelpers.StartVisualEffect(attacker, defender, PowerDomainElementalIceLance, EffectHelpers.EffectType.Effect);
+                EffectHelpers.StartVisualEffect(attacker, defender, PowerDomainElementalIceLance,
+                    EffectHelpers.EffectType.Effect);
                 RulesetActor.InflictDamage(
                     damageForm.BonusDamage,
                     damageForm,

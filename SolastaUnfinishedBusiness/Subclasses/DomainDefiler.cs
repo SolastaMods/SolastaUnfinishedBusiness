@@ -214,7 +214,7 @@ public sealed class DomainDefiler : AbstractSubclass
 
     private sealed class CustomBehaviorInsidiousDeathMagic(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionInsidiousDeathMagic) 
+        ConditionDefinition conditionInsidiousDeathMagic)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IMagicEffectBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(

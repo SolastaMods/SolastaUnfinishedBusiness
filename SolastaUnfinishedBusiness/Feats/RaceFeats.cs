@@ -901,6 +901,18 @@ internal static class RaceFeats
         FeatureDefinitionPower powerOrcishAggression)
         : IFilterTargetingPosition, IModifyEffectDescription, IMagicEffectFinishedByMe, IActionFinishedByMe
     {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is not CharacterActionMoveStepWalk ||
+                !action.ActingCharacter.UsedSpecialFeatures.TryGetValue("UsedTacticalMoves", out var usedTacticalMoves))
+            {
+                yield break;
+            }
+
+            action.ActingCharacter.UsedTacticalMoves = usedTacticalMoves;
+            action.ActingCharacter.UsedSpecialFeatures.Remove("UsedTacticalMoves");
+        }
+
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
             cursorLocationSelectPosition.validPositionsCache.Clear();
@@ -994,18 +1006,6 @@ internal static class RaceFeats
             effectDescription.rangeParameter = glc.MaxTacticalMoves;
 
             return effectDescription;
-        }
-
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (action is not CharacterActionMoveStepWalk ||
-                !action.ActingCharacter.UsedSpecialFeatures.TryGetValue("UsedTacticalMoves", out var usedTacticalMoves))
-            {
-                yield break;
-            }
-
-            action.ActingCharacter.UsedTacticalMoves = usedTacticalMoves;
-            action.ActingCharacter.UsedSpecialFeatures.Remove("UsedTacticalMoves");
         }
     }
 

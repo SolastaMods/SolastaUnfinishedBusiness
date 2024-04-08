@@ -95,7 +95,7 @@ internal static class BootContext
 
             // Late initialized to allow feats and races from other mods
             CharacterContext.LateLoad();
-            
+
             // Custom invocations
             InvocationsContext.LateLoad();
 

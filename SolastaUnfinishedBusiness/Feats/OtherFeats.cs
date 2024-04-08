@@ -1195,10 +1195,10 @@ internal static class OtherFeats
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .AddFeatures(
                             FeatureDefinitionMagicAffinityBuilder
-                            .Create($"MagicAffinity{FeatMageSlayerName}")
-                            .SetGuiPresentation(FeatMageSlayerName, Category.Feat)
-                            .SetConcentrationModifiers(ConcentrationAffinity.Disadvantage, 0)
-                            .AddToDB())
+                                .Create($"MagicAffinity{FeatMageSlayerName}")
+                                .SetGuiPresentation(FeatMageSlayerName, Category.Feat)
+                                .SetConcentrationModifiers(ConcentrationAffinity.Disadvantage, 0)
+                                .AddToDB())
                         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                         .AddToDB()))
                 .AddToDB())
@@ -1297,7 +1297,8 @@ internal static class OtherFeats
 
             var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
-                StringParameter = "Reaction/&CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name)
+                StringParameter =
+                    "Reaction/&CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name)
             };
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;

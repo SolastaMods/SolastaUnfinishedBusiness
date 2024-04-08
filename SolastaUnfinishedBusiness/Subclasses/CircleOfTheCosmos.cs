@@ -426,7 +426,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}Chalice")
             .SetGuiPresentation(Category.Feature, PowerPaladinLayOnHands)
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

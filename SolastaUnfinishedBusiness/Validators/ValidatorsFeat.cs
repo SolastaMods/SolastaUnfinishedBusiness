@@ -109,7 +109,8 @@ internal static class ValidatorsFeat
         ValidateIsRaceOrSubrace(Tiefling.FormatTitle(), Tiefling, RaceTieflingBuilder.RaceTiefling);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSylvanElf =
-        ValidateIsRaceOrSubrace($"{ElfSylvan.FormatTitle()}, {RaceHalfElfBuilder.RaceHalfElfSylvanVariant.FormatTitle()}",
+        ValidateIsRaceOrSubrace(
+            $"{ElfSylvan.FormatTitle()}, {RaceHalfElfBuilder.RaceHalfElfSylvanVariant.FormatTitle()}",
             ElfSylvan, RaceHalfElfBuilder.RaceHalfElfSylvanVariant);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSmallRace =
@@ -217,7 +218,7 @@ internal static class ValidatorsFeat
             }
 
             var isRaceOrSubrace = characterRaceDefinition.Contains(hero.RaceDefinition) ||
-                         characterRaceDefinition.Contains(hero.SubRaceDefinition);
+                                  characterRaceDefinition.Contains(hero.SubRaceDefinition);
             var guiFormat = Gui.Format("Tooltip/&PreReqIs", description);
 
             return isRaceOrSubrace
