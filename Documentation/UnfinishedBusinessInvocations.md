@@ -16,7 +16,7 @@ You can cast Fog Cloud at will, without expending a spell slot.
 
 # 5. - *Burning Hex* ©
 
-As a bonus action, you cause a target cursed by your Hexblade's Curse to take fire damage equal to your Charisma modifier (minimum of 1).
+As a bonus action, you cause a cursed target to take fire damage equal to your Charisma modifier (minimum of 1). 
 
 # 6. - Call of the Beast
 
@@ -28,7 +28,7 @@ You can change the damage type of the eldritch blast to cold damage instead of f
 
 # 8. - *Chilling Hex* ©
 
-As a bonus action, you cause frost to swirl around a target cursed by your Hexblade's Curse, dealing cold damage to each of your enemies within 5 feet of the target. The cold damage equals your Charisma modifier (minimum of 1).
+As a bonus action, you cause frost to swirl around a cursed target, dealing cold damage to each of your enemies within 5 feet of the target. The cold damage equals your Charisma modifier (minimum of 1).
 
 # 9. - *Cloak of Flies* ©
 
