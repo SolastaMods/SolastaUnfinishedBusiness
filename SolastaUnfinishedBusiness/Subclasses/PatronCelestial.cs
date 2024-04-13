@@ -77,8 +77,12 @@ public class PatronCelestial : AbstractSubclass
 
         powerHealingLight.AddCustomSubFeatures(
             HasModifiedUses.Marker,
-            IsModifyPowerPool.Marker,
-            new ModifyPowerPoolAmountHealingLight(powerHealingLight));
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = powerHealingLight,
+                Type = PowerPoolBonusCalculationType.ClassLevel,
+                Attribute = WarlockClass
+            });
 
         var healingLightPowers = new List<FeatureDefinitionPower>();
 
@@ -249,21 +253,6 @@ public class PatronCelestial : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    //
-    // Healing Light
-    //
-
-    private sealed class ModifyPowerPoolAmountHealingLight(FeatureDefinitionPower powerHealingLight)
-        : IModifyPowerPoolAmount
-    {
-        public FeatureDefinitionPower PowerPool { get; } = powerHealingLight;
-
-        public int PoolChangeAmount(RulesetCharacter character)
-        {
-            return character.GetClassLevel(CharacterClassDefinitions.Warlock);
-        }
-    }
 
     //
     // Radiant Soul
