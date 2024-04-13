@@ -613,8 +613,16 @@ internal static class RaceFeats
                 return;
             }
 
-            damage.DieType = DieType.D4;
-            damage.DiceNumber = 1;
+            if ((int)damage.DieType < 3)
+            {
+                damage.DieType = DieType.D4;
+            }
+
+            if (damage.DiceNumber < 1)
+            {
+                damage.DiceNumber = 1;
+            }
+
             damage.DamageType = DamageTypeSlashing;
         }
     }
