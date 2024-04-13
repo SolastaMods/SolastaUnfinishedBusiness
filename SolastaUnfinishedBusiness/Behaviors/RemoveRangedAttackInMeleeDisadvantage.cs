@@ -45,7 +45,7 @@ internal class RemoveRangedAttackInMeleeDisadvantage
 
         var character = attackParams.attacker?.RulesetCharacter;
 
-        if (character == null)
+        if (character == null || attackParams.attackMode == null)
         {
             return;
         }
