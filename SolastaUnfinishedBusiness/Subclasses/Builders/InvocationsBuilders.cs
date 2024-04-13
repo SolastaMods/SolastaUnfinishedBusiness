@@ -872,6 +872,8 @@ internal static class InvocationsBuilders
                     .Create("AdditionalActionAbilityQuasit")
                     .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionDefinitions.ActionType.Main)
+                    .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                    .SetMaxAttacksNumber(1)
                     .AddToDB(),
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionHasted)
             .SetSilent(Silent.WhenAddedOrRemoved)
