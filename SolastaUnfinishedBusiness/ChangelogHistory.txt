@@ -1,3 +1,17 @@
+1.5.97.5:
+
+- fixed Abilities of the Chain Master invocation to be main action only
+- fixed Burning Hex feat to also apply on fire condition
+- fixed Chilling Hex feat damage type to Cold
+- fixed Dragon Fear feat double combat log
+- fixed Dragon Hide feat claw attack to be 1d4 + str unless better die type/count
+- fixed Mage Slayer feat saving to be once per LR
+- fixed Martial Warlord coordinated assault power to be once per turn
+- fixed Path of The Totem bear totem power to not force disadvantage against Barb
+- fixed Patron Celestial healing light power missing from action bar
+- fixed removed ranged attack in melee disadvantage to not apply on ranged magical effects
+- fixed Vitriolist viscosity mixture power to apply hindered instead of confused
+
 1.5.97.4:
 
 - added Burning Hex and Chilling Hex invocations

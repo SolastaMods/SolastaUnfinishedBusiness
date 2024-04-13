@@ -1046,7 +1046,7 @@ internal static class RaceFeats
             .AddToDB();
 
         var power = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ImpishWrath")
+            .Create($"Power{Name}OrcishFury")
             .SetGuiPresentation("FeatGroupOrcishFury", Category.Feat)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .DelegatedToAction()
