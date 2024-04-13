@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -1181,10 +1182,17 @@ internal static class OtherFeats
 
     private const string FeatMageSlayerName = "FeatMageSlayer";
 
+    private static readonly FeatureDefinitionPower PowerMageSlayerSaving = FeatureDefinitionPowerBuilder
+        .Create($"Power{FeatMageSlayerName}Saving")
+        .SetGuiPresentation(FeatMageSlayerName, Category.Feat, hidden: true)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .AddToDB();
+
     internal static readonly FeatDefinition FeatMageSlayer = FeatDefinitionBuilder
         .Create(FeatMageSlayerName)
         .SetGuiPresentation(FeatMageSlayerName, Category.Feat)
         .AddFeatures(
+            PowerMageSlayerSaving,
             FeatureDefinitionBuilder
                 .Create($"Feature{FeatMageSlayerName}")
                 .SetGuiPresentationNoContent(true)
@@ -1282,6 +1290,7 @@ internal static class OtherFeats
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
+            var rulesetDefender = defender.RulesetCharacter;
             var effectDescription = action.ActionParams.AttackMode?.EffectDescription ??
                                     action.ActionParams.RulesetEffect?.EffectDescription;
 
@@ -1289,16 +1298,19 @@ internal static class OtherFeats
                 defender != helper ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
+                rulesetDefender.GetRemainingPowerUses(PowerMageSlayerSaving) == 0 ||
                 effectDescription?.savingThrowAbility is not
                     (AttributeDefinitions.Intelligence or AttributeDefinitions.Wisdom or AttributeDefinitions.Charisma))
             {
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            var usablePower = PowerProvider.Get(PowerMageSlayerSaving, rulesetDefender);
+            var reactionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
                 StringParameter =
-                    "Reaction/&CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name)
+                    "CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
+                UsablePower = usablePower
             };
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
@@ -1317,6 +1329,9 @@ internal static class OtherFeats
             action.RolledSaveThrow = true;
             action.saveOutcomeDelta = 0;
             action.saveOutcome = RollOutcome.Success;
+
+            rulesetDefender.UsePower(usablePower);
+            rulesetDefender.LogCharacterUsedPower(PowerMageSlayerSaving);
         }
 
         internal static IEnumerator HandleEnemyCastSpellWithin5Ft(
