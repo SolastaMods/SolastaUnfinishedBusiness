@@ -48,8 +48,8 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                 FeatureDefinitionActionAffinityBuilder
                     .Create(ActionAffinityRogueCunningAction, $"ActionAffinity{Name}CunningAction")
                     .SetOrUpdateGuiPresentation(Category.Feature)
-                    .AddToDB(),
-                PowerPathOfTheSpiritsWolfLeadership())
+                    .AddToDB())
+            .AddFeatureSet(PowerPathOfTheSpiritsWolfLeadership())
             .AddToDB();
 
         #endregion
@@ -270,7 +270,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower PowerPathOfTheSpiritsWolfLeadership()
+    private static FeatureDefinitionFeatureSet PowerPathOfTheSpiritsWolfLeadership()
     {
         var combatAffinityWolfLeadershipPack = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}WolfLeadershipPack")
@@ -291,6 +291,14 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
         combatAffinityWolfLeadershipPack.requiredCondition = conditionPathOfTheSpiritsWolfLeadershipPack;
 
+        // need this as ExcludeCaster has no effect on recurring conditions set on self
+        var conditionAffinityWolfLeadershipPack = FeatureDefinitionConditionAffinityBuilder
+            .Create($"ConditionAffinity{Name}WolfLeadershipPack")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionType(conditionPathOfTheSpiritsWolfLeadershipPack)
+            .SetConditionAffinityType(ConditionAffinityType.Immunity)
+            .AddToDB();
+
         var powerPathOfTheSpiritsWolfLeadership = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}WolfLeadership")
             .SetGuiPresentation(Category.Feature)
@@ -301,32 +309,48 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Permanent)
-                    .ExcludeCaster()
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack))
                     .Build())
             .AddToDB();
 
-        return powerPathOfTheSpiritsWolfLeadership;
+        var featureSetWolfLeadership = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}WolfLeadership")
+            .SetGuiPresentation($"Power{Name}WolfLeadership", Category.Feature)
+            .AddFeatureSet(powerPathOfTheSpiritsWolfLeadership, conditionAffinityWolfLeadershipPack)
+            .AddToDB();
+        
+        return featureSetWolfLeadership;
     }
 
-    private static FeatureDefinitionPower PowerPathOfTheSpiritsHonedBear()
+    private static FeatureDefinition[] PowerPathOfTheSpiritsHonedBear()
     {
+        var combatAffinityHonedAnimalAspectsBear = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{Name}HonedAnimalAspectsBear")
+            .SetGuiPresentation($"Condition{Name}HonedAnimalAspectsBear", Category.Condition,
+                Gui.NoLocalization)
+            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+            .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
+            .AddToDB();
+
         var conditionHonedAnimalAspectsBear = ConditionDefinitionBuilder
             .Create($"Condition{Name}HonedAnimalAspectsBear")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
-            .SetFeatures(
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{Name}HonedAnimalAspectsBear")
-                    .SetGuiPresentation($"Condition{Name}HonedAnimalAspectsBear", Category.Condition,
-                        Gui.NoLocalization)
-                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                    .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
-                    .AddToDB())
+            .SetFeatures(combatAffinityHonedAnimalAspectsBear)
+            .AddToDB();
+
+        combatAffinityHonedAnimalAspectsBear.requiredCondition = conditionHonedAnimalAspectsBear;
+
+        // need this as ExcludeCaster has no effect on recurring conditions set on self
+        var conditionAffinityHonedAnimalAspectsBear = FeatureDefinitionConditionAffinityBuilder
+            .Create($"ConditionAffinity{Name}HonedAnimalAspectsBear")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionType(conditionHonedAnimalAspectsBear)
+            .SetConditionAffinityType(ConditionAffinityType.Immunity)
             .AddToDB();
 
         var powerHonedAnimalAspectsBear = FeatureDefinitionPowerBuilder
@@ -339,14 +363,13 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
-                    .ExcludeCaster()
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHonedAnimalAspectsBear))
                     .Build())
             .AddToDB();
 
-        return powerHonedAnimalAspectsBear;
+        return [powerHonedAnimalAspectsBear, conditionAffinityHonedAnimalAspectsBear];
     }
 
     private static FeatureDefinitionPower PowerPathOfTheSpiritsHonedEagle()
