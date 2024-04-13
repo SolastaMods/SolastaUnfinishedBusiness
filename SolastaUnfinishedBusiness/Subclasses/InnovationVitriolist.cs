@@ -197,14 +197,14 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .RollSaveOnlyIfRelevantForms()
-                    .SetParticleEffectParameters(PowerDragonBreath_Acid)
+                    .SetParticleEffectParameters(PowerDomainOblivionMarkOfFate)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeAcid, 2, DieType.D8)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (14, 2), (18, 3))
                             .Build(),
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionConfused))
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionHindered))
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
