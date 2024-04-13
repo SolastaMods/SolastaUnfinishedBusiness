@@ -522,17 +522,19 @@ internal static class RaceFeats
             if (rulesetEffectPower.PowerDefinition.Name.StartsWith("PowerDragonbornBreathWeapon"))
             {
                 usablePower = PowerProvider.Get(powerDragonFear, rulesetAttacker);
-                rulesetAttacker.UsePower(usablePower);
+                usablePower.Consume();
             }
             else if (rulesetEffectPower.PowerDefinition == powerDragonFear)
             {
                 usablePower = rulesetAttacker.UsablePowers.FirstOrDefault(x =>
                     x.PowerDefinition.Name.StartsWith("PowerDragonbornBreathWeapon"));
 
-                if (usablePower != null)
+                if (usablePower == null)
                 {
-                    rulesetAttacker.UsePower(usablePower);
+                    yield break;
                 }
+
+                usablePower.Consume();
             }
         }
     }
