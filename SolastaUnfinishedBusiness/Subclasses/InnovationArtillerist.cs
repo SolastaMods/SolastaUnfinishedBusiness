@@ -439,6 +439,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetCasterEffectParameters(PowerMartialSpellbladeArcaneEscape)
                     .Build())
             .AddCustomSubFeatures(new CustomBehaviorRefundCannon())
             .AddToDB();
@@ -1006,7 +1007,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             {
                 rulesetCharacter.RepayPowerUse(rulesetPower);
             }
-
+            
             var spellRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
 
             if (spellRepertoire == null)
