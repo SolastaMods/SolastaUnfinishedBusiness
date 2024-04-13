@@ -16,7 +16,7 @@ You can cast Fog Cloud at will, without expending a spell slot.
 
 # 5. - *Burning Hex* ©
 
-As a bonus action, you cause a cursed target to take fire damage equal to your Charisma modifier (minimum of 1). 
+As a bonus action, you cause a cursed target to take fire damage equal to your Charisma modifier (minimum of 1) and become on fire. 
 
 # 6. - Call of the Beast
 

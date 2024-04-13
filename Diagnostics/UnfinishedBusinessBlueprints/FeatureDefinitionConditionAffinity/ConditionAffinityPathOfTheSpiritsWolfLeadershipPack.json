@@ -1,13 +1,14 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Main",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [
-    "AttackMain"
-  ],
-  "maxAttacksNumber": 1,
-  "triggerCondition": "None",
+  "$type": "FeatureDefinitionConditionAffinity, Assembly-CSharp",
+  "conditionType": "ConditionPathOfTheSpiritsWolfLeadershipPack",
+  "savingThrowAdvantageType": "None",
+  "savingThrowModifier": 0,
+  "conditionAffinityType": "Immunity",
+  "silent": false,
+  "rerollSaveWhenGained": false,
+  "rerollAdvantageType": "None",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -32,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c59cad05-8ced-59b9-ab1a-83788d33f5db",
+  "guid": "56bca621-33a9-53f3-b952-a2c14dc55a8e",
   "contentPack": 9999,
-  "name": "AdditionalActionAbilityQuasit"
+  "name": "ConditionAffinityPathOfTheSpiritsWolfLeadershipPack"
 }

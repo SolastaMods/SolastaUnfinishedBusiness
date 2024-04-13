@@ -22,7 +22,7 @@
   "myDamageReductionDiceNumber": 1,
   "myDamageReductionDieType": "D4",
   "situationalContext": 9013,
-  "requiredCondition": null,
+  "requiredCondition": "Definition:ConditionPathOfTheLightIlluminated:d7cf64bc-7d7a-56b2-8e06-c2b0abd66212",
   "nullifiedBySenses": [],
   "nullifiedBySelfSenses": [],
   "multiAttackAffinity": false,

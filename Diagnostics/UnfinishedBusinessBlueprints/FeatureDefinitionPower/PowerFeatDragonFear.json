@@ -75,7 +75,7 @@
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": true,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionFrightened",
@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2a5fb39a57ad3754ebaaaccd9e92e9ce",
+        "m_AssetGUID": "c7dab70ff98d3ac4695734f118d8b9f2",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -151,7 +151,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b295854ad38bcdb4faa4a2e09bdb30dd",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

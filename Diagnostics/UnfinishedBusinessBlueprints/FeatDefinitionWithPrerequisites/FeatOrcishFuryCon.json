@@ -14,7 +14,7 @@
   "features": [
     "Definition:ActionAffinityOrcishFuryToggle:b813b4c4-7712-5653-b451-697868cb9b41",
     "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0",
-    "Definition:PowerFeatOrcishFuryImpishWrath:16e3a36d-f549-5ea1-8b52-e542ece068b3"
+    "Definition:PowerFeatOrcishFuryOrcishFury:a49d868b-b6f9-58b6-b895-379c6e17aa97"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

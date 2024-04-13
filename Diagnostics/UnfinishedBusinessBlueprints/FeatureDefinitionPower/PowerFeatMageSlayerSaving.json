@@ -136,7 +136,7 @@
     "lightCounterDispellsEffect": false,
     "hideSavingThrowAnimation": false
   },
-  "delegatedToAction": true,
+  "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
   "activationTime": "NoCost",
@@ -161,7 +161,7 @@
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 3,
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -174,9 +174,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&FeatureSetMartialWarlordCoordinatedAssaultTitle",
-    "description": "Feature/&FeatureSetMartialWarlordCoordinatedAssaultDescription",
+    "hidden": true,
+    "title": "Feat/&FeatMageSlayerTitle",
+    "description": "Feat/&FeatMageSlayerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -196,7 +196,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a31cf84e-d255-569e-9275-8b1016f36b7e",
+  "guid": "41511e64-3106-5c83-8fe3-a0aca351e2e7",
   "contentPack": 9999,
-  "name": "PowerMartialWarlordCoordinatedAssault"
+  "name": "PowerFeatMageSlayerSaving"
 }
