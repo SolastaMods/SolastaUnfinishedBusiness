@@ -465,7 +465,7 @@ internal static class RaceFeats
                             .SetConditionForm(ConditionDefinitions.ConditionFrightened,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetParticleEffectParameters(Fear)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDragonFrightfulPresence)
                     .Build())
             .AddToDB();
 
@@ -613,6 +613,8 @@ internal static class RaceFeats
                 return;
             }
 
+            damage.DieType = DieType.D4;
+            damage.DiceNumber = 1;
             damage.DamageType = DamageTypeSlashing;
         }
     }
