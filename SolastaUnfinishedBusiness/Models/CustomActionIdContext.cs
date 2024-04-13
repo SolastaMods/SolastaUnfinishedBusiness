@@ -36,8 +36,8 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.PaladinSmiteToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
         (Id)ExtraActionId.SupremeWillToggle,
-        (Id)ExtraActionId.ImpishWrathToggle, // defined in sub race
-        (Id)ExtraActionId.OrcishFuryToggle, // defined in sub race
+        (Id)ExtraActionId.ImpishWrathToggle,
+        (Id)ExtraActionId.OrcishFuryToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,
         (Id)ExtraActionId.DragonHideToggle
     ];
@@ -230,13 +230,6 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.BrutalStrikeToggle)
-            .AddToDB();
-
-        ActionDefinitionBuilder
-            .Create(MetamagicToggle, "CoordinatedAssaultToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.CoordinatedAssaultToggle)
             .AddToDB();
 
         ActionDefinitionBuilder

@@ -48,11 +48,6 @@ internal static class IconsOnPortrait
             pools.Add(PortraitPointForcePoints.Instance);
         }
 
-        if (character.HasAnyFeature(MartialWarlord.PowerCoordinatedAssault))
-        {
-            pools.Add(PortraitPointCoordinatedAssault.Instance);
-        }
-
         foreach (var provider in pools)
         {
             CustomPortraitPointPool.Setup(provider, character, poolPrefab, layout);
