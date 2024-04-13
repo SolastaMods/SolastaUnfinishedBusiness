@@ -1043,7 +1043,7 @@ internal static class InvocationsBuilders
 
     #endregion
 
-    #region Burning Hex
+    #region Chilling Hex
 
     internal static InvocationDefinition BuildChillingHex()
     {
@@ -1061,15 +1061,14 @@ internal static class InvocationsBuilders
                     .SetEffectForms(EffectFormBuilder
                         .Create()
                         .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .SetDamageForm(DamageTypeFire)
+                        .SetDamageForm(DamageTypeCold)
                         .Build())
                     .SetParticleEffectParameters(PowerDomainElementalIceLance)
                     .SetCasterEffectParameters(PowerPactChainPseudodragon)
                     .Build())
             .AddToDB();
 
-        powerInvocationChillingHex.AddCustomSubFeatures(
-            new FilterTargetingCharacterChillingHex(powerInvocationChillingHex));
+        powerInvocationChillingHex.AddCustomSubFeatures(new CustomBehaviorChillingHex(powerInvocationChillingHex));
 
         return InvocationDefinitionWithPrerequisitesBuilder
             .Create(NAME)
@@ -1079,7 +1078,7 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private sealed class FilterTargetingCharacterChillingHex(
+    private sealed class CustomBehaviorChillingHex(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerVexingHex)
         : IFilterTargetingCharacter, IMagicEffectFinishedByMe
@@ -1178,12 +1177,26 @@ internal static class InvocationsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .SetDamageForm(DamageTypeFire)
-                        .Build())
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Constitution)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDamageForm(DamageTypeFire)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionOnFire,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
                     .SetParticleEffectParameters(PowerDomainElementalFireBurst)
                     .SetCasterEffectParameters(PowerPactChainPseudodragon)
                     .Build())
