@@ -29,7 +29,7 @@ public static class GuiCharacterPatcher
             RectTransform uniqueLevelSlotsGroup)
         {
             //PATCH: Don't display Unique Level Spell Slots if MC hero (MULTICLASS)
-            if (uniqueLevelSlotsGroup == null || spellRepertoire == null)
+            if (!uniqueLevelSlotsGroup || spellRepertoire == null)
             {
                 return;
             }
@@ -349,7 +349,7 @@ public static class GuiCharacterPatcher
             var hero = __instance.GuiCharacter?.RulesetCharacterHero;
             var tooltip = __instance.GuiTooltip;
 
-            if (tooltip == null)
+            if (!tooltip)
             {
                 return;
             }

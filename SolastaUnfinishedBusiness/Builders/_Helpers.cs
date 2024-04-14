@@ -65,7 +65,7 @@ internal static class Sorting
             return -1;
         }
 
-        if (a.FeatureDefinition == null || b.FeatureDefinition == null)
+        if (!a.FeatureDefinition || !b.FeatureDefinition)
         {
             return 0;
         }

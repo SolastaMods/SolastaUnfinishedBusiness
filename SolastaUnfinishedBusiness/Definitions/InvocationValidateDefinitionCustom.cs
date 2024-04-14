@@ -106,7 +106,7 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IValidateDefin
 
         var requiredSpell = invocation.RequiredKnownSpell;
 
-        if (requiredSpell == null)
+        if (!requiredSpell)
         {
             return true;
         }
@@ -136,7 +136,7 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IValidateDefin
 
         var requiredPact = invocation.RequiredPact;
 
-        if (requiredPact == null)
+        if (!requiredPact)
         {
             return true;
         }

@@ -148,7 +148,7 @@ public static class CharacterActionPanelPatcher
             var actionDefinitions =
                 ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions;
 
-            if (power != null)
+            if (power)
             {
                 var bundle = power.GetBundle();
 
@@ -171,7 +171,7 @@ public static class CharacterActionPanelPatcher
                 return false;
             }
 
-            if (definition.GrantedSpell != null)
+            if (definition.GrantedSpell)
             {
                 if (__instance.actionId == ActionDefinitions.Id.CastInvocation)
                 {
@@ -272,7 +272,7 @@ public static class CharacterActionPanelPatcher
 
             var table = __instance.actionPerformanceTable;
 
-            if (table == null)
+            if (!table)
             {
                 return;
             }
@@ -300,7 +300,7 @@ public static class CharacterActionPanelPatcher
                 grid.spacing = new Vector2(3, 5);
             }
 
-            if (grid != null)
+            if (grid)
             {
                 var width = (int)__instance.RectTransform.rect.width;
                 var constraint = width / 35;
@@ -326,7 +326,7 @@ public static class CharacterActionPanelPatcher
 
                 var item = child.GetComponent<ActionTypePerformanceItem>();
 
-                if (item == null)
+                if (!item)
                 {
                     continue;
                 }
@@ -348,7 +348,7 @@ public static class CharacterActionPanelPatcher
 
                 var btn = item.GetComponent<Button>();
 
-                if (btn != null)
+                if (btn)
                 {
                     continue;
                 }

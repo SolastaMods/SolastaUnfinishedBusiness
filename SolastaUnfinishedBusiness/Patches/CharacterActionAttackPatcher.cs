@@ -30,11 +30,16 @@ public static class CharacterActionAttackPatcher
 
         private static IEnumerator ExecuteImpl(CharacterActionAttack __instance)
         {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
             var actingCharacter = __instance.ActingCharacter;
             var actionParams = __instance.ActionParams;
             var attackMode = actionParams.AttackMode;
-
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var locationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var locationEntityFactoryService = ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
@@ -100,7 +105,7 @@ public static class CharacterActionAttackPatcher
             attackParams.opportunityAttack = __instance.ActionId == ActionDefinitions.Id.AttackOpportunity;
             attackParams.readiedAttack = __instance.ActionId == ActionDefinitions.Id.AttackReadied;
 
-            var canAttack = battleService.CanAttack(attackParams);
+            var canAttack = battleManager.CanAttack(attackParams);
 
             if (!canAttack)
             {
@@ -109,7 +114,7 @@ public static class CharacterActionAttackPatcher
                 attackModifier = attackModifiers[0];
             }
 
-            yield return battleService.HandleCharacterPhysicalAttackInitiated(
+            yield return battleManager.HandleCharacterPhysicalAttackInitiated(
                 __instance, actingCharacter, target, attackModifier, attackMode);
 
             // Determine the attack success
@@ -236,7 +241,7 @@ public static class CharacterActionAttackPatcher
             // If this roll is failed (not critically), can we use a bardic inspiration to change the outcome?
             if (__instance.AttackRollOutcome == RollOutcome.Failure)
             {
-                yield return battleService.HandleBardicInspirationForAttack(
+                yield return battleManager.HandleBardicInspirationForAttack(
                     __instance, actingCharacter, target, attackModifier);
 
                 // BEGIN PATCH
@@ -255,8 +260,7 @@ public static class CharacterActionAttackPatcher
 
             //PATCH: support for `ITryAlterOutcomeAttack`
             foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack
-                         .Handler(battleService as GameLocationBattleManager,
-                             __instance, actingCharacter, target, attackModifier))
+                         .Handler(battleManager, __instance, actingCharacter, target, attackModifier))
             {
                 yield return tryAlterOutcomeAttack;
             }
@@ -350,7 +354,7 @@ public static class CharacterActionAttackPatcher
                     distanceToTarget / GameConfiguration.CharacterAnimation.ProjectileSpeedCellsPerSecond;
 
                 //TODO: Mask thrown weapon here !
-                yield return battleService.HandleRangeAttackVFX(
+                yield return battleManager.HandleRangeAttackVFX(
                     actingCharacter, target, attackMode, sourcePoint, impactPoint, projectileFlightDuration);
             }
 
@@ -368,7 +372,7 @@ public static class CharacterActionAttackPatcher
                 // No need to test this even if the hit was automatic (natural 20). Warning: Critical Success can occur without rolling a 20 (Champion fighter crits at 19)
                 if (__instance.AttackRoll != DiceMaxValue[(int)DieType.D20] && !attackMode.AutomaticHit)
                 {
-                    yield return battleService.HandleCharacterAttackHitPossible(
+                    yield return battleManager.HandleCharacterAttackHitPossible(
                         actingCharacter,
                         target,
                         attackMode,
@@ -450,7 +454,7 @@ public static class CharacterActionAttackPatcher
                     {
                         // Handle special modification of damages (sneak attack, smite, uncanny dodge)
                         attackHasDamaged = true;
-                        yield return battleService.HandleCharacterAttackHitConfirmed(
+                        yield return battleManager.HandleCharacterAttackHitConfirmed(
                             __instance,
                             actingCharacter,
                             target,
@@ -487,17 +491,16 @@ public static class CharacterActionAttackPatcher
                         // Legendary Resistance or Indomitable?
                         if (__instance.SaveOutcome == RollOutcome.Failure)
                         {
-                            yield return battleService.HandleFailedSavingThrow(
-                                __instance, actingCharacter,
-                                target, attackModifier, false, hasBorrowedLuck);
+                            yield return battleManager.HandleFailedSavingThrow(
+                                __instance, actingCharacter, target, attackModifier, false, hasBorrowedLuck);
                         }
 
                         // BEGIN PATCH
 
                         //PATCH: support for `ITryAlterOutcomeSavingThrow`
                         foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                     battleService as GameLocationBattleManager,
-                                     __instance, actingCharacter, target, attackModifier, hasBorrowedLuck))
+                                     battleManager, __instance, actingCharacter, target, attackModifier,
+                                     hasBorrowedLuck))
                         {
                             yield return tryAlterOutcomeSavingThrow;
                         }
@@ -565,7 +568,7 @@ public static class CharacterActionAttackPatcher
                     var saveOutcomeSuccess =
                         __instance.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
 
-                    yield return battleService.HandleDefenderBeforeDamageReceived(
+                    yield return battleManager.HandleDefenderBeforeDamageReceived(
                         actingCharacter,
                         target,
                         attackMode,
@@ -588,15 +591,15 @@ public static class CharacterActionAttackPatcher
                     // Call this now that the damage has been properly applied
                     if (damageReceived > 0 || damageAbsorbedByTemporaryHitPoints)
                     {
-                        yield return battleService.HandleDefenderOnDamageReceived(
+                        yield return battleManager.HandleDefenderOnDamageReceived(
                             actingCharacter, target, damageReceived, null, __instance.effectiveDamageTypes);
 
-                        yield return battleService.HandleAttackerOnDefenderDamageReceived(
+                        yield return battleManager.HandleAttackerOnDefenderDamageReceived(
                             actingCharacter, target, damageReceived, null, __instance.effectiveDamageTypes);
 
                         if (!damageAbsorbedByTemporaryHitPoints)
                         {
-                            yield return battleService.HandleReactionToDamageShare(target, damageReceived);
+                            yield return battleManager.HandleReactionToDamageShare(target, damageReceived);
                         }
                     }
 
@@ -605,7 +608,7 @@ public static class CharacterActionAttackPatcher
                         // Reset this since we do not want to apply the motion form later on
                         isResultingActionSpendPowerWithMotionForm = false;
 
-                        yield return battleService.HandleTargetReducedToZeroHP(
+                        yield return battleManager.HandleTargetReducedToZeroHP(
                             actingCharacter, target, attackMode, null);
                     }
                 }
@@ -685,11 +688,11 @@ public static class CharacterActionAttackPatcher
             }
 
             // Handle specific reactions after the attack has been executed
-            yield return battleService.HandleCharacterPhysicalAttackFinished(
+            yield return battleManager.HandleCharacterPhysicalAttackFinished(
                 __instance, actingCharacter,
                 target, attackParams.attackMode, __instance.AttackRollOutcome, damageReceived);
 
-            yield return battleService.HandleCharacterAttackFinished(
+            yield return battleManager.HandleCharacterAttackFinished(
                 __instance, actingCharacter, target,
                 attackParams.attackMode, null, __instance.AttackRollOutcome, damageReceived);
 
@@ -697,15 +700,15 @@ public static class CharacterActionAttackPatcher
 
             //PATCH: support for Sentinel Fighting Style - allows attacks of opportunity on enemies attacking allies
             yield return AttacksOfOpportunity.ProcessOnCharacterAttackFinished(
-                battleService as GameLocationBattleManager, actingCharacter, target);
+                battleManager, actingCharacter, target);
 
             //PATCH: support for Defensive Strike Power - allows adding Charisma modifier and chain reactions
             yield return DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(
-                battleService as GameLocationBattleManager, actingCharacter, target);
+                battleManager, actingCharacter, target);
 
             //PATCH: support for Aura of the Guardian power - allows swapping hp on enemy attacking ally
             yield return GuardianAura.ProcessOnCharacterAttackHitFinished(
-                battleService as GameLocationBattleManager, actingCharacter, target, attackMode, null, damageReceived);
+                battleManager, actingCharacter, target, attackMode, null, damageReceived);
 
             // END PATCH
 
@@ -813,7 +816,7 @@ public static class CharacterActionAttackPatcher
             target.RulesetActor.ProcessConditionsMatchingInterruption(
                 ConditionInterruption.PhysicalAttackReceivedExecuted);
 
-            yield return battleService.HandleCharacterAttackOrMagicEffectFinishedLate(
+            yield return battleManager.HandleCharacterAttackOrMagicEffectFinishedLate(
                 __instance, actingCharacter);
         }
     }

@@ -50,7 +50,7 @@ internal static class ItemRecipeGenerationHelper
             var presentation = baseConfig.presentation;
 
 #pragma warning disable IDE0270
-            if (presentation == null)
+            if (!presentation)
 #pragma warning restore IDE0270
             {
                 presentation = baseItem;
@@ -68,7 +68,7 @@ internal static class ItemRecipeGenerationHelper
 
                 if (itemCollection.CustomSubFeatures != null)
                 {
-                    newItem.AddCustomSubFeatures(itemCollection.CustomSubFeatures.ToArray());
+                    newItem.AddCustomSubFeatures([.. itemCollection.CustomSubFeatures]);
                 }
 
                 ingredients.AddRange(itemData.Recipe.Ingredients
@@ -77,7 +77,7 @@ internal static class ItemRecipeGenerationHelper
                     .Select(x => x.ItemDefinition));
 
                 var craftingManual = RecipeHelper.BuildRecipeManual(newItem, itemData.Recipe.CraftingHours,
-                    itemData.Recipe.CraftingDC, ingredients.ToArray());
+                    itemData.Recipe.CraftingDC, [.. ingredients]);
 
                 if (!RecipeBooks.TryGetValue(baseItem.Name, out var value1))
                 {

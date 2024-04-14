@@ -162,7 +162,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
     {
         AssetReferenceSprite sprite = null;
 
-        if (spriteDefinition != null)
+        if (spriteDefinition)
         {
             sprite = spriteDefinition.GuiPresentation.spriteReference;
         }
@@ -261,7 +261,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
         where TBuilder : IDefinitionBuilder
     {
         var definitionName = builder.Name;
-        var sprite = definition == null ? null : definition.GuiPresentation.spriteReference;
+        var sprite = !definition ? null : definition.GuiPresentation.spriteReference;
 
         return SetGuiPresentation(builder,
             GuiPresentationBuilder.Build(null, definitionName, category, sprite, sortOrder, hidden));
@@ -276,7 +276,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
         where TBuilder : IDefinitionBuilder
     {
         var gui = builder.GetGuiPresentation();
-        var sprite = definition == null ? null : definition.GuiPresentation.spriteReference;
+        var sprite = !definition ? null : definition.GuiPresentation.spriteReference;
 
         return SetGuiPresentation(builder, GuiPresentationBuilder.Build(gui, title, description, sprite));
     }
@@ -293,7 +293,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
         where TBuilder : IDefinitionBuilder
     {
         var gui = builder.GetGuiPresentation();
-        var sprite = definition == null ? null : definition.GuiPresentation.spriteReference;
+        var sprite = !definition ? null : definition.GuiPresentation.spriteReference;
 
         return SetGuiPresentation(builder, GuiPresentationBuilder.Build(gui, name, category, sprite, sortOrder));
     }
@@ -312,7 +312,7 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
     {
         var gui = builder.GetGuiPresentation();
         var definitionName = builder.Name;
-        var sprite = definition == null ? null : definition.GuiPresentation.spriteReference;
+        var sprite = !definition ? null : definition.GuiPresentation.spriteReference;
 
         return SetGuiPresentation(builder,
             GuiPresentationBuilder.Build(gui, definitionName, category, sprite, sortOrder));

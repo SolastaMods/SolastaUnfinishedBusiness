@@ -48,7 +48,7 @@ public static class RulesetCharacterPatcher
                      .Select(slot => slot.EquipedItem)
                      .SelectMany(equipedItem => equipedItem.DynamicItemProperties
                          .Select(dynamicItemProperty => dynamicItemProperty.FeatureDefinition)
-                         .Where(definition => definition != null && definition is T)))
+                         .Where(definition => definition && definition is T)))
         {
             featuresToBrowse.Add(definition);
 
@@ -195,23 +195,9 @@ public static class RulesetCharacterPatcher
                 return;
             }
 
-            // var rulesetEffectPower =
-            //     sourceCharacter.PowersUsedByMe.FirstOrDefault(x =>
-            //         x.trackedConditionGuids.Contains(activeCondition.guid));
-            //
-            // if (rulesetEffectPower != null)
-            // {
-            //     sourceCharacter.TerminatePower(rulesetEffectPower);
-            // }
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-
-            if (gameLocationCharacterService == null)
-            {
-                return;
-            }
-
-            foreach (var targetRulesetCharacter in gameLocationCharacterService.AllValidEntities
+            foreach (var targetRulesetCharacter in characterService.AllValidEntities
                          .Select(x => x.RulesetActor)
                          .OfType<RulesetCharacter>()
                          .ToList())
@@ -1230,7 +1216,7 @@ public static class RulesetCharacterPatcher
 
                 var spell = definition.GrantedSpell;
 
-                if (spell == null)
+                if (!spell)
                 {
                     continue;
                 }
@@ -1438,7 +1424,7 @@ public static class RulesetCharacterPatcher
             //BEGIN PATCH
             var spellcastingClass = spellRepertoire.SpellCastingClass;
 
-            if (spellcastingClass == null && spellRepertoire.SpellCastingSubclass != null)
+            if (!spellcastingClass && spellRepertoire.SpellCastingSubclass)
             {
                 spellcastingClass = LevelUpContext.GetClassForSubclass(spellRepertoire.SpellCastingSubclass);
             }
@@ -1573,7 +1559,7 @@ public static class RulesetCharacterPatcher
             var powerOriginClass = usablePower.OriginClass;
 
             //Only try to get repertoire for powers that have origin class
-            if (powerOriginClass == null)
+            if (!powerOriginClass)
             {
                 return;
             }
@@ -2006,7 +1992,7 @@ public static class RulesetCharacterPatcher
             //used for features that are not granted directly through class but need to scale with class levels
             var classHolder = featureDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>()?.Class;
 
-            if (classHolder == null)
+            if (!classHolder)
             {
                 return;
             }

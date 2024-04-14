@@ -74,7 +74,7 @@ public static class GuiInvocationDefinitionPatcher
             //PATCH: show custom subtitle for custom invocations
             var feature = __instance.InvocationDefinition as InvocationDefinitionCustom;
 
-            if (feature == null || feature.PoolType == null)
+            if (!feature || feature.PoolType == null)
             {
                 return;
             }

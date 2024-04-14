@@ -449,7 +449,7 @@ public static class CharacterBuildingManagerPatcher
 
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-            if (selectedClass == null)
+            if (!selectedClass)
             {
                 return true;
             }
@@ -665,7 +665,7 @@ public static class CharacterBuildingManagerPatcher
         {
             var subRaceDefinition = heroBuildingData.HeroCharacter.SubRaceDefinition;
 
-            return subRaceDefinition != null
+            return subRaceDefinition
                 ? subRaceDefinition.RacePresentation.PreferedSkinColors
                 : racePresentation.PreferedSkinColors;
         }
@@ -676,7 +676,7 @@ public static class CharacterBuildingManagerPatcher
         {
             var subRaceDefinition = heroBuildingData.HeroCharacter.SubRaceDefinition;
 
-            return subRaceDefinition != null
+            return subRaceDefinition
                 ? subRaceDefinition.RacePresentation.PreferedHairColors
                 : racePresentation.PreferedHairColors;
         }

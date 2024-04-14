@@ -66,7 +66,7 @@ public static class DeterministicRandomPatcher
 
             var service = ServiceRepository.GetService<IGameService>();
 
-            if (service == null || service.Game == null || DeterministicRandom.lockFlags.Count > 0)
+            if (service == null || !service.Game || DeterministicRandom.lockFlags.Count > 0)
             {
                 __result = (float)MyRandom.NextDouble();
 
@@ -100,7 +100,7 @@ public static class DeterministicRandomPatcher
 
             var service = ServiceRepository.GetService<IGameService>();
 
-            if (service == null || service.Game == null || DeterministicRandom.lockFlags.Count > 0)
+            if (service == null || !service.Game || DeterministicRandom.lockFlags.Count > 0)
             {
                 __result = MyRandom.Next(min, max);
 
@@ -134,7 +134,7 @@ public static class DeterministicRandomPatcher
 
             var service = ServiceRepository.GetService<IGameService>();
 
-            if (service == null || service.Game == null || DeterministicRandom.lockFlags.Count > 0)
+            if (service == null || !service.Game || DeterministicRandom.lockFlags.Count > 0)
             {
                 __result = Next(min, max);
 

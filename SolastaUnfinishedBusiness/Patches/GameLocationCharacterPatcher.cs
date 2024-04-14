@@ -579,15 +579,15 @@ public static class GameLocationCharacterPatcher
 
                         if (__instance is IIlluminable illuminable)
                         {
-                            var gameLocationVisibilityManager =
+                            var visibilityManager =
                                 ServiceRepository.GetService<IGameLocationVisibilityService>() as
                                     GameLocationVisibilityManager;
 
-                            if (gameLocationVisibilityManager != null)
+                            if (visibilityManager)
                             {
-                                illuminable.GetAllPositionsToCheck(gameLocationVisibilityManager.positionCache);
+                                illuminable.GetAllPositionsToCheck(visibilityManager.positionCache);
 
-                                var gridAccessor = new GridAccessor(gameLocationVisibilityManager.positionCache[0]);
+                                var gridAccessor = new GridAccessor(visibilityManager.positionCache[0]);
 
                                 isExterior = gridAccessor.sector.IsExterior;
                             }
@@ -600,7 +600,7 @@ public static class GameLocationCharacterPatcher
                     }
                     //END PATCH
 
-                    if (effectAndCondition.condition != null)
+                    if (effectAndCondition.condition)
                     {
                         newCondition = RulesetCondition.CreateActiveCondition(
                             __instance.RulesetCharacter.Guid,
@@ -617,10 +617,10 @@ public static class GameLocationCharacterPatcher
 
                     if (effectAndCondition.effect != null)
                     {
-                        var rulesetImplementationService =
+                        var implementationService =
                             ServiceRepository.GetService<IRulesetImplementationService>();
 
-                        __instance.affectingLightEffects.Add(rulesetImplementationService
+                        __instance.affectingLightEffects.Add(implementationService
                             .InstantiateEffectEnvironment(
                                 __instance.RulesetCharacter, effectAndCondition.effect, -1, 0, false, new BoxInt(),
                                 new int3(), string.Empty, false));

@@ -37,7 +37,7 @@ public static class InvocationItemPatcher
 
             var gui = new GuiPresentationBuilder(custom.GuiPresentation).Build();
             var item = custom.Item;
-            var dataProvider = item == null
+            var dataProvider = !item
                 ? new CustomTooltipProvider(custom, gui)
                 : new CustomItemTooltipProvider(custom, gui, item);
 

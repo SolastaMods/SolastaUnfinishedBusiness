@@ -261,7 +261,7 @@ internal static class ItemsAndCraftingDisplay
         var gameFactionService = ServiceRepository.GetService<IGameFactionService>();
 
         // NOTE: don't use gameCampaign?. which bypasses Unity object lifetime check
-        if (gameFactionService != null && gameCampaign != null &&
+        if (gameFactionService != null && gameCampaign &&
             gameCampaign.CampaignDefinitionName != "UserCampaign")
         {
             foreach (var faction in gameFactionService.RegisteredFactions)

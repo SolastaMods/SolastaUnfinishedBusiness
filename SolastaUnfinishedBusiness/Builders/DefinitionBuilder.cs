@@ -114,10 +114,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     {
         var fieldInDungeonEditor = AccessTools.Field(typeof(TDefinition), "inDungeonEditor");
 
-        if (fieldInDungeonEditor != null)
-        {
-            fieldInDungeonEditor.SetValue(Definition, false);
-        }
+        fieldInDungeonEditor?.SetValue(Definition, false);
     }
 
     /// <summary>

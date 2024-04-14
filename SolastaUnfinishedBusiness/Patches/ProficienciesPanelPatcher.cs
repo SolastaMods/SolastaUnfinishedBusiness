@@ -35,7 +35,7 @@ public static class ProficienciesPanelPatcher
         {
             //PATCH: support for custom invocations
             //unloads all custom sub-panels
-            if (__instance.toggleGroup != null)
+            if (__instance.toggleGroup)
             {
                 var childCount = __instance.toggleGroup.childCount;
 

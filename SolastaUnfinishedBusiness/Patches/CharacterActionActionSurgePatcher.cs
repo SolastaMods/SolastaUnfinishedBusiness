@@ -31,12 +31,6 @@ public static class CharacterActionActionSurgePatcher
             }
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            if (actionService == null)
-            {
-                yield break;
-            }
-
             var actionParams = action.ActionParams.Clone();
 
             actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.PowerNoCost];

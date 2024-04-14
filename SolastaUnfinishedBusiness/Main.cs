@@ -38,7 +38,7 @@ internal static class Main
 
         var game = Gui.Game;
 
-        if (game == null)
+        if (!game)
         {
             return;
         }

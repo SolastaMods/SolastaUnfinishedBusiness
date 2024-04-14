@@ -34,7 +34,7 @@ public static class InventorySlotBoxPatcher
 
         private static void ModifyCustomItemFlags(InventorySlotBox box, ItemDefinition definition)
         {
-            if (box.itemFlagsTableInstance == null)
+            if (!box.itemFlagsTableInstance)
             {
                 return;
             }
@@ -57,7 +57,7 @@ public static class InventorySlotBoxPatcher
         {
             var hero = box.GuiCharacter?.RulesetCharacterHero ?? Global.InspectedHero;
 
-            if (item == null || box.equipedItemImage == null)
+            if (!item || !box.equipedItemImage)
             {
                 return;
             }
@@ -84,7 +84,7 @@ public static class InventorySlotBoxPatcher
         public static void Prefix(InventorySlotBox __instance)
         {
             //PATCH: Enable inventory taint non proficient items in red (paint them back white)
-            if (__instance.equipedItemImage == null)
+            if (!__instance.equipedItemImage)
             {
                 return;
             }
@@ -101,7 +101,7 @@ public static class InventorySlotBoxPatcher
         [UsedImplicitly]
         public static void Prefix(InventorySlotBox __instance)
         {
-            if (__instance.itemFlagsTableInstance == null)
+            if (!__instance.itemFlagsTableInstance)
             {
                 return;
             }

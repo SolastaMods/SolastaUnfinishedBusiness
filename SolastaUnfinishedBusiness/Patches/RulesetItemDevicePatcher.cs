@@ -24,7 +24,7 @@ public static class RulesetItemDevicePatcher
 
             var power = function.DeviceFunctionDescription?.FeatureDefinitionPower;
 
-            if (power == null)
+            if (!power)
             {
                 return;
             }

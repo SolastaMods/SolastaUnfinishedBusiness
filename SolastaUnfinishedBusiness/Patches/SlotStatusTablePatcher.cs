@@ -52,7 +52,7 @@ public static class SlotStatusTablePatcher
 
             // spellRepertoire is null during level up...
             if (heroWithSpellRepertoire == null || spellLevel == 0 ||
-                !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) || spellRepertoire.SpellCastingRace != null)
+                !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) || spellRepertoire.SpellCastingRace)
             {
                 return;
             }

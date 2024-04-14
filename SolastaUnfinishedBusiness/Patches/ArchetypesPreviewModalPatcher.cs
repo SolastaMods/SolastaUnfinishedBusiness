@@ -33,7 +33,7 @@ public static class ArchetypesPreviewModalPatcher
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-            if (selectedClass != null
+            if (selectedClass
                 && isLevelingUp
                 && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
                 && featureUnlockByLevel.Level <= levels + 1)
@@ -71,7 +71,7 @@ public static class ArchetypesPreviewModalPatcher
             {
                 var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-                if (selectedClass != null
+                if (selectedClass
                     && hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
                 {
                     subclasses = [characterSubclassDefinition.Name];

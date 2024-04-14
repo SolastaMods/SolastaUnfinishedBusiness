@@ -25,7 +25,7 @@ public static class InvocationActivationBoxPatcher
         var slotTable = boxRect.Find(TableName);
 
         // don't use null propagation on unity objects
-        if (slotTable != null)
+        if (slotTable)
         {
             slotTable.gameObject.SetActive(false);
         }
@@ -33,7 +33,7 @@ public static class InvocationActivationBoxPatcher
         var highTransform = boxRect.Find(HighSlotsName);
 
         // don't use null propagation on unity objects
-        if (highTransform != null)
+        if (highTransform)
         {
             highTransform.gameObject.SetActive(false);
         }
@@ -114,7 +114,7 @@ public static class InvocationActivationBoxPatcher
         {
             var feature = invocation.invocationDefinition as InvocationDefinitionCustom;
 
-            if (feature == null || feature.PoolType == null || feature.grantedSpell != null)
+            if (!feature || feature.PoolType == null || feature.grantedSpell)
             {
                 return;
             }
@@ -122,7 +122,7 @@ public static class InvocationActivationBoxPatcher
             var tooltip = instance.tooptip;
             var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
             var item = feature.Item;
-            var dataProvider = item == null
+            var dataProvider = !item
                 ? new CustomTooltipProvider(feature, gui)
                 : new CustomItemTooltipProvider(feature, gui, item);
 
@@ -137,7 +137,7 @@ public static class InvocationActivationBoxPatcher
         {
             var power = invocation.invocationDefinition.GetPower();
 
-            if (power == null)
+            if (!power)
             {
                 return;
             }
@@ -161,7 +161,7 @@ public static class InvocationActivationBoxPatcher
             RectTransform tableTransform;
             GuiLabel highSlots;
 
-            if (slotTable == null)
+            if (!slotTable)
             {
                 var panel = Gui.GuiService.GetScreen<PowerSelectionPanel>();
                 var powerBox = panel.usablePowerPrefab.GetComponent<UsablePowerBox>();

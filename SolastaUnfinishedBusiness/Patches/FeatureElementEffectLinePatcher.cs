@@ -26,7 +26,8 @@ public class FeatureElementEffectLinePatcher
         public static void Prefix([NotNull] FeatureElementEffectLine __instance)
         {
             var tooltip = __instance.tooltip;
-            if (tooltip != null)
+
+            if (tooltip)
             {
                 tooltip.Content = String.Empty;
             }

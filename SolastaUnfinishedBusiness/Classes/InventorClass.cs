@@ -690,7 +690,7 @@ internal static class InventorClass
                 var power = SpellStoringItemPowers1.FirstOrDefault(x => x.SourceDefinition == spell);
 
                 // Main.Enabled as during initialization the powers weren't registered yet
-                if (Main.Enabled && power == null)
+                if (Main.Enabled && !power)
                 {
                     Main.Error("found a null power when trying to switch a spell storing item");
                 }
@@ -703,7 +703,7 @@ internal static class InventorClass
                 var power = SpellStoringItemPowers2.FirstOrDefault(x => x.SourceDefinition == spell);
 
                 // Main.Enabled as during initialization the powers weren't registered yet
-                if (Main.Enabled && power == null)
+                if (Main.Enabled && !power)
                 {
                     Main.Error("found a null power when trying to switch a spell storing item");
                 }

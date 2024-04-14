@@ -101,7 +101,7 @@ public static class MapGadgetItemPatcher
                 .SelectMany(x => x.FunctorParams)
                 .OfType<FunctorParametersDescription>()
                 .Where(x => x.Type == FunctorDefinitions.FunctorQuitLocation)
-                .Where(x => x.locationDefinition != null)
+                .Where(x => x.locationDefinition)
                 .Select(Destination)
                 .FirstOrDefault(x => x != null);
         }

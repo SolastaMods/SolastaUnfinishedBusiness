@@ -582,7 +582,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         var gainedRace = currentHero.RaceDefinition;
 
-        if (gainedRace != null)
+        if (gainedRace)
         {
             _gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedRace.FeatureUnlocks
                     .Where(f => f.Level == currentHero.ClassesHistory.Count)

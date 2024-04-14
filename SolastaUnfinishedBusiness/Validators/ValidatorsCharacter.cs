@@ -256,7 +256,7 @@ internal static class ValidatorsCharacter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMonkWeapon(this RulesetCharacter character, ItemDefinition itemDefinition)
     {
-        return itemDefinition != null && itemDefinition.IsWeapon &&
+        return itemDefinition && itemDefinition.IsWeapon &&
                character.IsMonkWeapon(itemDefinition.WeaponDescription);
     }
 

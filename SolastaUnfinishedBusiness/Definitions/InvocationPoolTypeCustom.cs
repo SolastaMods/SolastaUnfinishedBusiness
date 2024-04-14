@@ -41,13 +41,13 @@ internal class InvocationPoolTypeCustom
     internal static int GetClassOrSubclassLevel(RulesetCharacterHero hero, string classOrSubclassName)
     {
         if (TryGetDefinition<CharacterClassDefinition>(classOrSubclassName, out var classDefinition) &&
-            classDefinition != null)
+            classDefinition)
         {
             return hero.GetClassLevel(classDefinition);
         }
 
         if (!TryGetDefinition<CharacterSubclassDefinition>(classOrSubclassName, out var subclassDefinition) ||
-            subclassDefinition == null)
+            !subclassDefinition)
         {
             return 0;
         }
@@ -55,7 +55,7 @@ internal class InvocationPoolTypeCustom
         var classDefinitionFromSubclass = hero.ClassesAndSubclasses
             .FirstOrDefault(x => x.Value == subclassDefinition);
 
-        return classDefinitionFromSubclass.Key != null
+        return classDefinitionFromSubclass.Key
             // ReSharper disable once TailRecursiveCall
             ? GetClassOrSubclassLevel(hero, classDefinitionFromSubclass.Key.Name)
             : 0;
@@ -64,13 +64,13 @@ internal class InvocationPoolTypeCustom
     internal static string GetClassOrSubclassTitle(string classOrSubclassName)
     {
         if (TryGetDefinition<CharacterClassDefinition>(classOrSubclassName, out var classDefinition) &&
-            classDefinition != null)
+            classDefinition)
         {
             return classDefinition.FormatTitle();
         }
 
         if (TryGetDefinition<CharacterSubclassDefinition>(classOrSubclassName, out var subclassDefinition) &&
-            subclassDefinition != null)
+            subclassDefinition)
         {
             return subclassDefinition.FormatTitle();
         }

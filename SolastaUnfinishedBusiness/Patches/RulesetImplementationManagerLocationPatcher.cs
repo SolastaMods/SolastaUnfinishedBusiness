@@ -116,7 +116,6 @@ public static class RulesetImplementationManagerLocationPatcher
             EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
-            // Main.Log2($"CustomSwap", true);
             var motionForm = effectForm.MotionForm;
 
             if (motionForm.Type != (MotionForm.MotionType)ExtraMotionType.CustomSwap)
@@ -125,12 +124,6 @@ public static class RulesetImplementationManagerLocationPatcher
             }
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            if (actionService == null)
-            {
-                return true;
-            }
-
             var attacker = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
             var defender = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
 

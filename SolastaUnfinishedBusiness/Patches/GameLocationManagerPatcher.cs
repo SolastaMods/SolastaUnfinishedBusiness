@@ -143,7 +143,7 @@ public static class GameLocationManagerPatcher
         {
             var baseDefinition = effect.SourceDefinition;
 
-            if (baseDefinition != null)
+            if (baseDefinition)
             {
                 var skip = baseDefinition.GetFirstSubFeatureOfType<IPreventRemoveEffectOnLocationChange>();
 

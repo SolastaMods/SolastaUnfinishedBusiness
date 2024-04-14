@@ -26,10 +26,10 @@ public static class GameLocationBattlePatcher
                 return;
             }
 
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-            if (!gameLocationCharacterService.PartyCharacters.Contains(__instance.ActiveContender)
-                && !gameLocationCharacterService.GuestCharacters.Contains(__instance.ActiveContender))
+            if (!characterService.PartyCharacters.Contains(__instance.ActiveContender)
+                && !characterService.GuestCharacters.Contains(__instance.ActiveContender))
             {
                 __result = __instance.EnemyContenders;
             }
@@ -50,10 +50,10 @@ public static class GameLocationBattlePatcher
                 return;
             }
 
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-            if (!gameLocationCharacterService.PartyCharacters.Contains(__instance.ActiveContender)
-                && !gameLocationCharacterService.GuestCharacters.Contains(__instance.ActiveContender))
+            if (!characterService.PartyCharacters.Contains(__instance.ActiveContender)
+                && !characterService.GuestCharacters.Contains(__instance.ActiveContender))
             {
                 __result = __instance.PlayerContenders;
             }

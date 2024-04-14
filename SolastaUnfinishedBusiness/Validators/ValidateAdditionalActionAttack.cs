@@ -49,7 +49,7 @@ internal class ValidateAdditionalActionAttack : IValidateAdditionalActionAttack
     {
         var feature = character.GetCurrentAdditionalActionFeature(type);
 
-        if (feature == null)
+        if (!feature)
         {
             return;
         }

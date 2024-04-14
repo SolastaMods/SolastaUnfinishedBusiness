@@ -55,7 +55,7 @@ internal class StockUnitDescriptionBuilder
 
     internal StockUnitDescription Build()
     {
-        if (_itemDefinition == null)
+        if (!_itemDefinition)
         {
             throw new ArgumentException("StockUnitDescriptionBuilder: trying to build with empty item!");
         }

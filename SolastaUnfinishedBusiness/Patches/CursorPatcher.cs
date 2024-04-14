@@ -30,12 +30,12 @@ public static class CursorPatcher
             var screen = Gui.CurrentLocationScreen;
 
             // Don't use ?? on Unity object
-            if (screen == null)
+            if (!screen)
             {
                 screen = Gui.GuiService.GetScreen<UserLocationEditorScreen>();
             }
 
-            if (screen == null || !screen.Visible)
+            if (!screen || !screen.Visible)
             {
                 return;
             }

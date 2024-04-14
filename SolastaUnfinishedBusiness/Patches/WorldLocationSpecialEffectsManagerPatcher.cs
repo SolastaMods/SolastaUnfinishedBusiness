@@ -36,7 +36,7 @@ public static class WorldLocationSpecialEffectsManagerPatcher
                 prefabLoop = Attack_Minotaur_Elite_Charged_Gore.ChargeLoopParticle;
             }
 
-            if (prefabStart == null)
+            if (!prefabStart)
             {
                 return false;
             }
@@ -45,7 +45,7 @@ public static class WorldLocationSpecialEffectsManagerPatcher
 
             WorldLocationPoolManager.GetElement(prefabStart, true).GetComponent<ParticleSetup>().Setup(sentParameters);
 
-            if (prefabLoop == null)
+            if (!prefabLoop)
             {
                 return false;
             }
@@ -86,7 +86,7 @@ public static class WorldLocationSpecialEffectsManagerPatcher
 
             ParticleSetup particleSetup;
 
-            if (prefabEnd != null)
+            if (prefabEnd)
             {
                 var sentParameters = new ParticleSentParameters(character, character, string.Empty);
 
@@ -129,7 +129,7 @@ public static class WorldLocationSpecialEffectsManagerPatcher
                 prefabPrepare = Attack_Minotaur_Elite_Charged_Gore.ChargePrepareParticle;
             }
 
-            if (prefabPrepare == null)
+            if (!prefabPrepare)
             {
                 return false;
             }

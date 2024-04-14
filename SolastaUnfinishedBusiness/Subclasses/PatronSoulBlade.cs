@@ -249,7 +249,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
         public int GetCriticalThreshold(
             int current, RulesetCharacter me, RulesetCharacter target, BaseDefinition attackMethod)
         {
-            if (target == null || attackMethod == null)
+            if (target == null || !attackMethod)
             {
                 return current;
             }

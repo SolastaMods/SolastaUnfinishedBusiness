@@ -65,7 +65,7 @@ public static class UserGadgetPatcher
                          "VolumetricTrigger"))
             {
                 foreach (var boxCollider in gadgetFlowDescription.BoxColliders
-                             .Where(boxCollider => boxCollider != null))
+                             .Where(boxCollider => boxCollider))
                 {
                     boxCollider.size = new Vector3(2, boxCollider.size.y, 2);
                 }

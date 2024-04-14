@@ -25,7 +25,7 @@ public static class CharacterReactionSubitemPatcher
             var heroWithSpellRepertoire = spellRepertoire?.GetCasterHero();
 
             if (heroWithSpellRepertoire == null ||
-                !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) || spellRepertoire.SpellCastingRace != null)
+                !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) || spellRepertoire.SpellCastingRace)
             {
                 return;
             }
@@ -57,7 +57,7 @@ public static class CharacterReactionSubitemPatcher
 
             var background = toggle.FindChildRecursive("Background");
 
-            if (background == null)
+            if (!background)
             {
                 return;
             }

@@ -64,9 +64,9 @@ internal class ItemPropertyDescriptionBuilder
         // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
         switch (_property.Type)
         {
-            case ItemPropertyDescription.PropertyType.Feature when _property.FeatureDefinition == null:
+            case ItemPropertyDescription.PropertyType.Feature when !_property.FeatureDefinition:
                 throw new ArgumentException("ItemPropertyDescriptionBuilder empty FeatureDefinition!");
-            case ItemPropertyDescription.PropertyType.Condition when _property.ConditionDefinition == null:
+            case ItemPropertyDescription.PropertyType.Condition when !_property.ConditionDefinition:
                 throw new ArgumentException("ItemPropertyDescriptionBuilder empty ConditionDefinition!");
         }
     }

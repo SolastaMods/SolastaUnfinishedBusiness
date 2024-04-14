@@ -74,7 +74,7 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
             ref FeatureDefinitionFightingStyleChoice fightingStyleChoiceFeature)
         {
             //PATCH: allow fighting styles to be granted from subs
-            if (fightingStyleChoiceFeature != null)
+            if (fightingStyleChoiceFeature)
             {
                 return;
             }
@@ -82,7 +82,7 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
             var hero = __instance.currentHero;
             var lastGainedSubclass = LevelUpContext.GetSelectedSubclass(hero);
 
-            if (lastGainedSubclass == null)
+            if (!lastGainedSubclass)
             {
                 return;
             }
@@ -97,7 +97,7 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
                     .FirstOrDefault();
             }
 
-            __result = fightingStyleChoiceFeature != null;
+            __result = fightingStyleChoiceFeature;
         }
     }
 }
