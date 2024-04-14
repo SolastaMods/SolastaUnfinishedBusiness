@@ -24,7 +24,7 @@ public static class WorldLocationSpecialEffectsManagerPatcher
             GameObject prefabStart;
             GameObject prefabLoop;
 
-            if (actionParams.AttackMode.SourceDefinition is MonsterAttackDefinition sourceDefinition)
+            if (actionParams.AttackMode?.SourceDefinition is MonsterAttackDefinition sourceDefinition)
             {
                 prefabStart = sourceDefinition.ChargeStartParticle;
                 prefabLoop = sourceDefinition.ChargeLoopParticle;
@@ -74,7 +74,7 @@ public static class WorldLocationSpecialEffectsManagerPatcher
         {
             GameObject prefabEnd;
 
-            if (actionParams.AttackMode.SourceDefinition is MonsterAttackDefinition sourceDefinition)
+            if (actionParams.AttackMode?.SourceDefinition is MonsterAttackDefinition sourceDefinition)
             {
                 prefabEnd = sourceDefinition.ChargeEndParticle;
             }
@@ -119,7 +119,7 @@ public static class WorldLocationSpecialEffectsManagerPatcher
         {
             GameObject prefabPrepare;
 
-            if (actionParams.AttackMode.SourceDefinition is MonsterAttackDefinition sourceDefinition)
+            if (actionParams.AttackMode?.SourceDefinition is MonsterAttackDefinition sourceDefinition)
             {
                 prefabPrepare = sourceDefinition.ChargePrepareParticle;
             }

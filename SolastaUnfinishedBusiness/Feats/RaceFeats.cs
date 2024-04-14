@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -881,6 +882,8 @@ internal static class RaceFeats
 
     #region Orcish Aggression
 
+    internal static FeatDefinitionWithPrerequisites FeatOrcishAggression { get; private set; }
+
     private static FeatDefinitionWithPrerequisites BuildOrcishAggression()
     {
         const string Name = "FeatOrcishAggression";
@@ -889,110 +892,90 @@ internal static class RaceFeats
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Feat)
             .SetUsesFixed(ActivationTime.BonusAction)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 24, TargetType.Position)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.IndividualsUnique)
                     .Build())
             .AddToDB();
 
         power.AddCustomSubFeatures(
-            ValidatorsValidatePowerUse.InCombat,
+            new ValidatorsValidatePowerUse(ValidatorsCharacter.HasMeleeWeaponInMainHand, _ => Gui.Battle != null),
             new CustomBehaviorOrcishAggression(power));
 
-        return FeatDefinitionWithPrerequisitesBuilder
+        FeatOrcishAggression = FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetValidators(ValidatorsFeat.IsHalfOrc)
             .SetFeatures(power)
             .AddToDB();
+
+        return FeatOrcishAggression;
     }
 
-    private sealed class CustomBehaviorOrcishAggression(
+    internal sealed class CustomBehaviorOrcishAggression(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerOrcishAggression)
-        : IFilterTargetingPosition, IModifyEffectDescription, IMagicEffectFinishedByMe, IActionFinishedByMe
+        : IModifyEffectDescription, IMagicEffectFinishedByMe, IActionFinishedByMe, IFilterTargetingCharacter
     {
+        private CharacterActionParams _actionParams;
+
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
+            var actingCharacter = action.ActingCharacter;
+            
             if (action is not CharacterActionMoveStepWalk ||
-                !action.ActingCharacter.UsedSpecialFeatures.TryGetValue("UsedTacticalMoves", out var usedTacticalMoves))
+                !actingCharacter.UsedSpecialFeatures.TryGetValue("UsedTacticalMoves", out var usedTacticalMoves))
             {
                 yield break;
             }
 
-            action.ActingCharacter.UsedTacticalMoves = usedTacticalMoves;
-            action.ActingCharacter.UsedSpecialFeatures.Remove("UsedTacticalMoves");
+            actingCharacter.UsedTacticalMoves = usedTacticalMoves;
+            actingCharacter.UsedSpecialFeatures.Remove("UsedTacticalMoves");
+            //actingCharacter.BurnOneMainAttack();
         }
 
-        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
+        public bool EnforceFullSelection => true;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            cursorLocationSelectPosition.validPositionsCache.Clear();
-
-            if (Gui.Battle == null)
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != powerOrcishAggression)
             {
-                yield break;
+                return true;
             }
 
-            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService =
-                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+            var service = ServiceRepository.GetService<IGameLocationBattleService>();
+            var actingCharacter = __instance.ActionParams.ActingCharacter;
 
-            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
-            var maxRange = actingCharacter.MaxTacticalMoves;
-            var enemies = Gui.Battle.GetContenders(actingCharacter);
-            var validDestinations = ServiceRepository.GetService<IGameLocationPathfindingService>()
-                .ComputeValidDestinations(actingCharacter, false, maxRange);
-
-            foreach (var position in validDestinations.Select(x => x.position))
+            if (service.CanChargeTarget(actingCharacter, target, actingCharacter.LocationPosition,
+                    target.LocationPosition, actingCharacter.MaxTacticalMoves, out _))
             {
-                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
-                    !positioningService.CanPlaceCharacter(
-                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
-                    !positioningService.CanCharacterStayAtPosition_Floor(
-                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
-                {
-                    continue;
-                }
-
-                if (DistanceCalculation.GetDistanceFromPositions(position, actingCharacter.LocationPosition) > maxRange)
-                {
-                    continue;
-                }
-
-                foreach (var enemy in enemies)
-                {
-                    if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
-                    {
-                        yield return null;
-                    }
-
-                    var currentDistance = DistanceCalculation.GetDistanceFromCharacters(actingCharacter, enemy);
-                    var newDistance = DistanceCalculation.GetDistanceFromPositions(position, enemy.LocationPosition);
-
-                    if (newDistance >= currentDistance)
-                    {
-                        continue;
-                    }
-
-                    cursorLocationSelectPosition.validPositionsCache.Add(position);
-                }
+                return true;
             }
+
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToChargeTarget");
+
+            return false;
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
-            var targetPosition = action.ActionParams.Positions[0];
-            var actionParams =
-                new CharacterActionParams(actingCharacter, ActionDefinitions.Id.TacticalMove)
+            var targetCharacter = action.ActionParams.TargetCharacters[0];
+
+            _actionParams =
+                new CharacterActionParams(actingCharacter, ActionDefinitions.Id.Charge)
                 {
-                    Positions = { targetPosition }
+                    ActionModifiers = { new ActionModifier() },
+                    TargetCharacters = { targetCharacter },
+                    AttackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain)
                 };
 
             actingCharacter.UsedSpecialFeatures.TryAdd("UsedTacticalMoves", actingCharacter.UsedTacticalMoves);
             actingCharacter.UsedTacticalMoves = 0;
-            ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(_actionParams, null, true);
 
             yield break;
         }
@@ -1018,6 +1001,53 @@ internal static class RaceFeats
             effectDescription.rangeParameter = glc.MaxTacticalMoves;
 
             return effectDescription;
+        }
+
+        internal static IEnumerator ExecuteImpl(CharacterActionCharge characterActionCharge)
+        {
+            var service = ServiceRepository.GetService<IGameLocationBattleService>();
+            var origin = characterActionCharge.ActingCharacter.LocationPosition;
+            var targetPosition = characterActionCharge.ActionParams.TargetCharacters[0].LocationPosition;
+            var positions = new List<int3>();
+            var orientation = characterActionCharge.ActingCharacter.Orientation;
+
+            if (!service.CanChargeTarget(
+                    characterActionCharge.ActingCharacter,
+                    characterActionCharge.ActionParams.TargetCharacters[0],
+                    origin,
+                    targetPosition,
+                    characterActionCharge.ActingCharacter.RemainingTacticalMoves,
+                    out var destination,
+                    positions))
+            {
+                yield break;
+            }
+
+            var path = new List<GameLocationCharacterDefinitions.PathStep>();
+
+            path.AddRange(
+                positions
+                    .Where(x => x != characterActionCharge.ActingCharacter.LocationPosition)
+                    .Select(x => new GameLocationCharacterDefinitions.PathStep
+                    {
+                        moveCost = 1, position = x, moveMode = MoveMode.Walk
+                    }));
+
+            var actionID = "Move_Charge_" + characterActionCharge.ActingCharacter.SystemName;
+            var chargeActionParams = new CharacterActionParams(
+                characterActionCharge.ActingCharacter,
+                ActionDefinitions.Id.TacticalMove,
+                ActionDefinitions.MoveStance.Charge,
+                destination, orientation) { AttackMode = characterActionCharge.ActionParams.AttackMode };
+            var characterActionMoveStepWalk = new CharacterActionMoveStepWalk(chargeActionParams, actionID, path);
+            var attackActionParams = new CharacterActionParams(
+                characterActionCharge.ActingCharacter, ActionDefinitions.Id.AttackFree,
+                characterActionCharge.ActionParams.AttackMode, characterActionCharge.ActionParams.TargetCharacters[0],
+                characterActionCharge.ActionParams.ActionModifiers[0]) { BoolParameter = true, BoolParameter2 = true };
+            var characterActionAttack = new CharacterActionAttack(attackActionParams);
+
+            characterActionCharge.ResultingActions.Add(characterActionMoveStepWalk);
+            characterActionCharge.ResultingActions.Add(characterActionAttack);
         }
     }
 

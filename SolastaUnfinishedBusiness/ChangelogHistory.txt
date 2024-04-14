@@ -7,9 +7,9 @@
 - fixed Dragon Hide feat claw attack to be 1d4 + str unless better die type/count
 - fixed Mage Slayer feat saving to be once per LR
 - fixed Martial Warlord coordinated assault power to be once per turn
+- fixed Orcish Aggression to require melee, a straight line, and attack with main in the end
 - fixed Path of The Totem bear totem power to not force disadvantage against Barb
 - fixed Patron Celestial healing light power missing from action bar
-- fixed removed ranged attack in melee disadvantage to not apply on ranged magical effects
 - fixed Vitriolist viscosity mixture power to apply hindered instead of confused
 
 1.5.97.4:

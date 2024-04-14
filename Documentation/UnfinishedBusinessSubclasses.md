@@ -256,7 +256,7 @@ You gain the ability to use a Vitriolic Mixture of your own making:
 • Affliction: On a hit the creature takes 2d4 acid damage and 2d4 poison damage. The creature is also poisoned until the end of their next turn.
 • Corrosion: On a hit the creature takes 2d8 acid damage. The creature also gets the AC reduced by 2 until the end of their next turn.
 • Misery: On a hit the creature takes 2d8 acid damage which lingers on their skin dealing an additional 2d4 acid damage at the end of their next turn.
-• Viscosity: On a hit the creature takes 2d8 acid damage. The creature is also confused until the end of their next turn.
+• Viscosity: On a hit the creature takes 2d8 acid damage. The creature is also hindered until the end of their next turn.
 All damage dice increase at 7th, 14th, and 18th levels. You can use this feature a number of times per long rest equal to your proficiency bonus + Intelligence modifier.
 
 * Vitriolist Spells

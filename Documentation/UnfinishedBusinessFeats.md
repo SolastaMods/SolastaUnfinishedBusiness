@@ -344,7 +344,7 @@ Increase your Strength or Dexterity by 1. Once per round, when a prone enemy wit
 
 # 70. - *Orcish Aggression* ©
 
-As a bonus action, you can move up to your speed toward an enemy of your choice that you can see or hear. You must end this move closer to the enemy than you started.
+Feat/&FeatOrcishAggressionDescription
 
 # 71. - *Orcish Fury* ©
 
