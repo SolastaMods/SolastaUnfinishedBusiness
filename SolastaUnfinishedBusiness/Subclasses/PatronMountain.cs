@@ -240,10 +240,7 @@ public class PatronMountain : AbstractSubclass
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -262,7 +259,8 @@ public class PatronMountain : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetHelper);
@@ -271,17 +269,16 @@ public class PatronMountain : AbstractSubclass
                 {
                     StringParameter = "BarrierOfStone",
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManagerService
+                    RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(actionParams, "UsePower", helper);
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
-
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 }

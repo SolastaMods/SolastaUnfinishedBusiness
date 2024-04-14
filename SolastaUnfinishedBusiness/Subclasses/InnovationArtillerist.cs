@@ -1007,7 +1007,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             {
                 rulesetCharacter.RepayPowerUse(rulesetPower);
             }
-            
+
             var spellRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
 
             if (spellRepertoire == null)
@@ -1048,28 +1048,21 @@ public sealed class InnovationArtillerist : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var gameLocationTargetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
-
-            if (gameLocationTargetingService == null || gameLocationCharacterService == null)
-            {
-                yield break;
-            }
-
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var selectedTarget = action.ActionParams.TargetCharacters[0];
             var rulesetTarget = selectedTarget.RulesetCharacter;
-            var targets = gameLocationCharacterService.AllValidEntities
+            var targets = characterService.AllValidEntities
                 .Where(x =>
                     x != selectedTarget &&
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x.IsWithinRange(selectedTarget, 4))
                 .ToList();
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerEldritchDetonation, rulesetTarget);
-            var effectPower = implementationManagerService
+            var effectPower = implementationManager
                 .MyInstantiateEffectPower(rulesetTarget, usablePower, false);
 
             var actionParams = new CharacterActionParams(selectedTarget, Id.PowerNoCost)
@@ -1082,6 +1075,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+
+            yield break;
         }
     }
 

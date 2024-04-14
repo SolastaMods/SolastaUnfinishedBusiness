@@ -300,15 +300,9 @@ public class PatronCelestial : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-
-            if (gameLocationCharacterService == null)
-            {
-                yield break;
-            }
-
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var allies =
-                gameLocationCharacterService.PartyCharacters.Union(gameLocationCharacterService.GuestCharacters);
+                characterService.PartyCharacters.Union(characterService.GuestCharacters);
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Warlock);
@@ -323,6 +317,8 @@ public class PatronCelestial : AbstractSubclass
                 rulesetAlly.ReceiveTemporaryHitPoints(
                     tempHitPoints, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
             }
+
+            yield break;
         }
     }
 
@@ -339,12 +335,10 @@ public class PatronCelestial : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
+                {
+                    IsBattleInProgress: true
+                } battleManager)
             {
                 yield break;
             }
@@ -356,27 +350,27 @@ public class PatronCelestial : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
-            var targets = gameLocationBattleService.Battle
+            var targets = battleManager.Battle
                 .GetContenders(defender, withinRange: 5);
             var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "SearingVengeance",
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets
             };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {

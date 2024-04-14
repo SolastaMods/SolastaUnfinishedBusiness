@@ -342,14 +342,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (manager == null)
-            {
-                yield break;
-            }
-
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
@@ -361,17 +355,16 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 {
                     StringParameter = "HailOfBlades",
                     ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                    RulesetEffect = implementationManagerService
+                    RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                     UsablePower = usablePower,
                     targetCharacters = targets
                 };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = manager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(actionParams, "UsePower", attacker);
 
-            manager.ReactToUsePower(actionParams, "UsePower", attacker);
-
-            yield return battleManager.WaitForReactions(attacker, manager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
 
         private enum BladeMarkStatus

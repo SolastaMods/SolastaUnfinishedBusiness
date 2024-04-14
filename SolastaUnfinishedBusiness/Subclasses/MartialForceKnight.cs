@@ -673,7 +673,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (actionManager == null)
+            if (!actionManager)
             {
                 yield break;
             }
@@ -692,7 +692,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPsionicAdept, rulesetCharacter);
@@ -700,7 +700,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             {
                 ActionModifiers = { new ActionModifier() },
                 StringParameter = "PsionicAdept",
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
@@ -780,14 +780,6 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionManager == null)
-            {
-                yield break;
-            }
-
             var rulesetHelper = helper.RulesetCharacter;
 
             if (!helper.CanReact() ||
@@ -815,7 +807,8 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerKineticBarrier, rulesetHelper);
@@ -825,17 +818,17 @@ public sealed class MartialForceKnight : AbstractSubclass
                     StringParameter = "KineticBarrier",
                     StringParameter2 = FormatReactionDescription(attacker, defender, helper),
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManagerService
+                    RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
+            actionService.ReactToUsePower(actionParams, "UsePower", helper);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
 
         private static string FormatReactionDescription(
@@ -1031,24 +1024,17 @@ public sealed class MartialForceKnight : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            if (actionService == null)
-            {
-                yield break;
-            }
-
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(rulesetCharacter, null, spellTelekineticGrasp, 5, false);
-
             var actionParams = action.ActionParams.Clone();
 
             actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
             actionParams.RulesetEffect = effectSpell;
-
             actionService.ExecuteAction(actionParams, null, true);
+
+            yield break;
         }
     }
 }

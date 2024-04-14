@@ -281,7 +281,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             var level = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Bard);
             var power = level >= 14 ? power14 : power6;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
@@ -289,7 +289,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,

@@ -513,13 +513,6 @@ public sealed class PatronMoonlitScion : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            if (actionService == null)
-            {
-                yield break;
-            }
-
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var levels = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Warlock);
@@ -555,13 +548,15 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 x.SpellCastingClass == CharacterClassDefinitions.Warlock);
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(rulesetCharacter, spellRepertoire, MoonBeam, slotLevel, false);
-
             var actionParams = action.ActionParams.Clone();
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>();
 
-            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
+            actionParams.ActionDefinition = actionManager.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
             actionParams.RulesetEffect = effectSpell;
 
-            actionService.ExecuteAction(actionParams, null, true);
+            actionManager.ExecuteAction(actionParams, null, true);
+
+            yield break;
         }
 
         public HashSet<SpellDefinition> SpellsThatShouldNotRollConcentrationCheckFromDamage(
@@ -609,10 +604,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -625,7 +617,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerMoonlightGuise, rulesetDefender);
@@ -634,17 +627,16 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 {
                     StringParameter = "MoonlightGuise",
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManagerService
+                    RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 }

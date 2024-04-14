@@ -320,7 +320,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation($"Power{Name}WolfLeadership", Category.Feature)
             .AddFeatureSet(powerPathOfTheSpiritsWolfLeadership, conditionAffinityWolfLeadershipPack)
             .AddToDB();
-        
+
         return featureSetWolfLeadership;
     }
 
@@ -441,6 +441,14 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
+            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
+                {
+                    IsBattleInProgress: true
+                } battleManager)
+            {
+                yield break;
+            }
+
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 (characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart &&
                  characterActionUsePower.activePower.PowerDefinition.OverriddenPower != PowerBarbarianRageStart))
@@ -455,37 +463,30 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     ? powerRageCost
                     : null;
 
-            if (power == null)
+            if (!power)
             {
                 yield break;
             }
 
-            if (ServiceRepository.GetService<IGameLocationBattleService>()
-                    is not GameLocationBattleManager gameLocationBattleManager ||
-                ServiceRepository.GetService<IGameLocationActionService>()
-                    is not GameLocationActionManager gameLocationActionManager ||
-                ServiceRepository.GetService<IRulesetImplementationService>()
-                    is not RulesetImplementationManager implementationManagerService)
-            {
-                yield break;
-            }
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "SpiritWalker",
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { attacker }
             };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
 
-            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", attacker);
-
-            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {

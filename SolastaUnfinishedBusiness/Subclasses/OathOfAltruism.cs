@@ -236,14 +236,6 @@ public sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionManager == null)
-            {
-                yield break;
-            }
-
             var rulesetHelper = helper.RulesetCharacter;
 
             if (helper == defender ||
@@ -272,7 +264,8 @@ public sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerSpiritualShielding, rulesetHelper);
@@ -283,17 +276,16 @@ public sealed class OathOfAltruism : AbstractSubclass
                     StringParameter2 = "UseSpiritualShieldingDescription".Formatted(
                         Category.Reaction, attacker.Name, defender.Name, chaMod.ToString()),
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManagerService
+                    RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(actionParams, "UsePower", helper);
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
-
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 }

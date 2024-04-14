@@ -258,7 +258,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 return false;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
             var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
@@ -266,7 +266,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
             evalParams.FillForPhysicalRangeAttack(
                 caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
-            return gameLocationBattleService.CanAttack(evalParams);
+            return battleService.CanAttack(evalParams);
         }
 
         [CanBeNull]

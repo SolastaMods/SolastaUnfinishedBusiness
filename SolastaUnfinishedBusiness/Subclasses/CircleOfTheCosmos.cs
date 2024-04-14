@@ -868,13 +868,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (gameLocationActionManager == null ||
-                action.AttackRollOutcome != RollOutcome.Failure ||
+            if (action.AttackRollOutcome != RollOutcome.Failure ||
                 action.AttackSuccessDelta + MaxDieTypeValue < 0 ||
                 rulesetHelper.GetRemainingPowerUses(powerWeal) == 0 ||
                 !helper.CanReact() ||
@@ -885,7 +881,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPool, rulesetHelper);
@@ -894,11 +891,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter = "WealCosmosOmenAttack",
                 StringParameter2 = "SpendPowerWealCosmosOmenAttackDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
             actionService.ReactToSpendPower(reactionParams);
@@ -947,13 +943,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (gameLocationActionManager == null ||
-                !action.RolledSaveThrow ||
+            if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 action.SaveOutcomeDelta + MaxDieTypeValue < 0 ||
                 rulesetHelper.GetRemainingPowerUses(powerWeal) == 0 ||
@@ -965,7 +957,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPool, rulesetHelper);
@@ -974,11 +967,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter = "WealCosmosOmenSaving",
                 StringParameter2 = "SpendPowerWealCosmosOmenSavingDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
             actionService.ReactToSpendPower(reactionParams);
@@ -1037,13 +1029,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (gameLocationActionManager == null ||
-                action.AttackRollOutcome != RollOutcome.Success ||
+            if (action.AttackRollOutcome != RollOutcome.Success ||
                 action.AttackSuccessDelta - MaxDieTypeValue >= 0 ||
                 rulesetHelper.GetRemainingPowerUses(powerWoe) == 0 ||
                 !helper.CanReact() ||
@@ -1054,7 +1042,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPool, rulesetHelper);
@@ -1063,11 +1052,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter = "WoeCosmosOmenAttack",
                 StringParameter2 = "SpendPowerWoeCosmosOmenAttackDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
             actionService.ReactToSpendPower(reactionParams);
@@ -1116,13 +1104,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (gameLocationActionManager == null ||
-                !action.RolledSaveThrow ||
+            if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Success ||
                 action.SaveOutcomeDelta - MaxDieTypeValue >= 0 ||
                 rulesetHelper.GetRemainingPowerUses(powerWoe) == 0 ||
@@ -1134,7 +1118,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPool, rulesetHelper);
@@ -1143,11 +1128,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 StringParameter = "WoeCosmosOmenSaving",
                 StringParameter2 = "SpendPowerWoeCosmosOmenSavingDescription".Formatted(
                     Category.Reaction, attacker.Name, defender.Name, helper.Name),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
             actionService.ReactToSpendPower(reactionParams);
@@ -1226,11 +1210,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             rulesetCharacter.RemoveCondition(activeCondition);
 
-            var implementationManagerService = ServiceRepository.GetService<IRulesetImplementationService>()
+            var implementationManager = ServiceRepository.GetService<IRulesetImplementationService>()
                 as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(magicEffect, rulesetCharacter);
-            var effectPower = implementationManagerService
+            var effectPower = implementationManager
                 .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
 
             effectPower.remainingRounds = remainingRounds;

@@ -427,14 +427,14 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
@@ -498,14 +498,14 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
             var actionParamsDiscordance = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false),
                 UsablePower = usablePowerDiscordance,
                 targetCharacters = targets
@@ -536,7 +536,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var actionParamsTurmoil = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false),
                 UsablePower = usablePowerTurmoil,
                 targetCharacters = targets
@@ -613,14 +613,14 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
             var actionParams = new CharacterActionParams(ally, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAlly, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { ally }

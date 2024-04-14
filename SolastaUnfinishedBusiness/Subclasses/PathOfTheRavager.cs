@@ -128,6 +128,14 @@ public sealed class PathOfTheRavager : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
+            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
+                {
+                    IsBattleInProgress: true
+                } battleManager)
+            {
+                yield break;
+            }
+
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 (characterActionUsePower.activePower.PowerDefinition != PowerBarbarianRageStart &&
                  characterActionUsePower.activePower.PowerDefinition.OverriddenPower != PowerBarbarianRageStart))
@@ -143,39 +151,32 @@ public sealed class PathOfTheRavager : AbstractSubclass
                     ? powerRageCost
                     : null;
 
-            if (power == null)
+            if (!power)
             {
                 yield break;
             }
 
-            if (ServiceRepository.GetService<IGameLocationBattleService>()
-                    is not GameLocationBattleManager { IsBattleInProgress: true } gameLocationBattleManager ||
-                ServiceRepository.GetService<IGameLocationActionService>()
-                    is not GameLocationActionManager gameLocationActionManager ||
-                ServiceRepository.GetService<IRulesetImplementationService>()
-                    is not RulesetImplementationManager implementationManagerService)
-            {
-                yield break;
-            }
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
-            var targets = gameLocationBattleManager.Battle
+            var targets = battleManager.Battle
                 .GetContenders(attacker, attacker, true, withinRange: 6);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 StringParameter = "IntimidatingPresence",
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets
             };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
 
-            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", attacker);
-
-            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {

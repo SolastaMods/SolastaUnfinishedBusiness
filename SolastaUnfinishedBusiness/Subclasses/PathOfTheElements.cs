@@ -424,9 +424,7 @@ public sealed class PathOfTheElements : AbstractSubclass
     {
         public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
-            if (Gui.Battle == null || implementationService == null)
+            if (Gui.Battle == null)
             {
                 return;
             }
@@ -483,6 +481,8 @@ public sealed class PathOfTheElements : AbstractSubclass
                 };
 
                 EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, magicEffect);
+
+                var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
                 implementationService.ApplyEffectForms(
                     [new EffectForm { damageForm = damageForm }],
@@ -606,7 +606,8 @@ public sealed class PathOfTheElements : AbstractSubclass
             var actionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (actionService == null || battleManager is not { IsBattleInProgress: true })
+            if (!actionService ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }

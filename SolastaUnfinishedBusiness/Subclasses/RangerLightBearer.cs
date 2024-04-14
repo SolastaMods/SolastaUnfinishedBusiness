@@ -372,12 +372,10 @@ public sealed class RangerLightBearer : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
+                {
+                    IsBattleInProgress: true
+                } battleManager)
             {
                 yield break;
             }
@@ -390,27 +388,27 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
-            var targets = gameLocationBattleService.Battle
+            var targets = battleManager.Battle
                 .GetContenders(attacker, withinRange: 5);
             var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
             {
                 StringParameter = "BlessedGlow",
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets
             };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(actionParams, "UsePower", attacker);
 
-            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", attacker);
-
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 

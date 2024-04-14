@@ -1568,10 +1568,7 @@ internal static class InvocationsBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1588,7 +1585,8 @@ internal static class InvocationsBuilders
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerTombOfFrost, rulesetDefender);
@@ -1597,17 +1595,17 @@ internal static class InvocationsBuilders
                 {
                     StringParameter = "TombOfFrost",
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManagerService
+                    RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
+            actionService.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {

@@ -307,14 +307,14 @@ public sealed class WayOfTheTempest : AbstractSubclass
                 return false;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
             evalParams.FillForPhysicalReachAttack(
                 caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
-            return gameLocationBattleService.CanAttack(evalParams);
+            return battleService.CanAttack(evalParams);
         }
 
         [CanBeNull]
@@ -401,7 +401,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
@@ -414,7 +414,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets

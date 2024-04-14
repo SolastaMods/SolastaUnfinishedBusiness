@@ -254,11 +254,11 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
         {
             const string ERROR = "DISPLACEMENT: aborted as cannot place character on destination";
 
-            var gameLocationPositioningService =
+            var positioningManager =
                 ServiceRepository.GetService<IGameLocationPositioningService>() as GameLocationPositioningManager;
 
             //fall back to target original position
-            if (gameLocationPositioningService == null)
+            if (!positioningManager)
             {
                 return target.LocationPosition;
             }
@@ -274,7 +274,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                 {
                     finalPosition = position + new int3(x, 0, y);
 
-                    canPlaceCharacter = gameLocationPositioningService.CanPlaceCharacterImpl(
+                    canPlaceCharacter = positioningManager.CanPlaceCharacterImpl(
                         target, target.RulesetCharacter.SizeParams, finalPosition, CellHelpers.PlacementMode.Station);
 
                     if (canPlaceCharacter)
@@ -320,7 +320,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
@@ -328,7 +328,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets
