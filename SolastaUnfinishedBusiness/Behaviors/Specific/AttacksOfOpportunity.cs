@@ -206,11 +206,11 @@ internal class CustomReactionAttack
             yield return BeforeReaction(attacker, mover, battleManager, actionManager, reactionRequest);
         }
 
-        var previousReactionCount = actionManager.PendingReactionRequestGroups.Count;
+        var count = actionManager.PendingReactionRequestGroups.Count;
 
         actionManager.AddInterruptRequest(reactionRequest);
 
-        yield return battleManager.WaitForReactions(mover, actionManager, previousReactionCount);
+        yield return battleManager.WaitForReactions(mover, actionManager, count);
 
         if (AfterReaction != null)
         {

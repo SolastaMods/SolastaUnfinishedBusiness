@@ -44,7 +44,7 @@ public class ModifyEffectDescriptionOnLevels(
 
     private int GetLevel(RulesetCharacter character)
     {
-        return klass == null
+        return !klass
             ? character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel)
             : character.GetClassLevel(klass);
     }

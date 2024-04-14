@@ -58,7 +58,7 @@ public static class ActionSwitching
         // extra null checks required as some custom campaigns NPCs might produce a null here
         foreach (var feature in parentList
                      .Where(feature =>
-                         (feature != null && feature.AllowsDuplicate) ||
+                         (feature && feature.AllowsDuplicate) ||
                          (features != null && features.All(x => x.feature != feature))))
         {
             switch (feature)
@@ -79,7 +79,7 @@ public static class ActionSwitching
     {
         list ??= [];
 
-        if (condition.parentCondition != null)
+        if (condition.parentCondition)
         {
             GetConditionFeatures<T>(condition.parentCondition, list);
         }
@@ -160,11 +160,11 @@ public static class ActionSwitching
             }
 
             var grantedFeature = invocation.InvocationDefinition.GrantedFeature;
-            if (grantedFeature != null && grantedFeature is T)
+            if (grantedFeature && grantedFeature is T)
             {
                 features.Add((grantedFeature, invocation.InvocationDefinition.Name));
             }
-            else if (grantedFeature != null &&
+            else if (grantedFeature &&
                      grantedFeature is FeatureDefinitionFeatureSet set)
             {
                 EnumerateFeaturesHierarchically<T>(features, set.FeatureSet, invocation.InvocationDefinition.Name);

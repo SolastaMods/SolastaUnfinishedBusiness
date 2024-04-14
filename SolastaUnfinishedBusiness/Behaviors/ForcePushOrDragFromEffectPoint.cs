@@ -55,7 +55,7 @@ internal sealed class ForcePushOrDragFromEffectPoint
     {
         var source = formsParams.activeEffect?.SourceDefinition;
 
-        if (source == null)
+        if (!source)
         {
             return true;
         }

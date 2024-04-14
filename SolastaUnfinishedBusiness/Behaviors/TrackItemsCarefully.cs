@@ -19,12 +19,6 @@ internal class TrackItemsCarefully
         }
 
         var entityService = ServiceRepository.GetService<IRulesetEntityService>();
-
-        if (entityService == null)
-        {
-            return;
-        }
-
         var allEntities = entityService.RulesetEntities.Values;
 
         ProcessSummonedItems(activeEffect, allEntities);

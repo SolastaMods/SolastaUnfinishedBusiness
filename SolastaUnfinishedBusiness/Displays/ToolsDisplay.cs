@@ -173,14 +173,14 @@ internal static class ToolsDisplay
             Main.Settings.EncounterPercentageChance = intValue;
         }
 
-        if (Gui.GameCampaign == null)
+        if (!Gui.GameCampaign)
         {
             return;
         }
 
         var gameCampaign = Gui.GameCampaign;
 
-        if (gameCampaign == null)
+        if (!gameCampaign)
         {
             return;
         }

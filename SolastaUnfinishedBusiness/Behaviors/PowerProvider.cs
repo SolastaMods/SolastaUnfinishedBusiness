@@ -114,7 +114,7 @@ internal static class PowerProvider
             return;
         }
 
-        if (classDefinition == null)
+        if (!classDefinition)
         {
             classDefinition = actor.FindClassHoldingFeature(power);
         }

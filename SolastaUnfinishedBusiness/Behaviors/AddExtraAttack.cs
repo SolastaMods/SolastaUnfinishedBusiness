@@ -191,7 +191,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         var strikeDefinition = mainHandItem?.ItemDefinition;
 
 #pragma warning disable IDE0270
-        if (strikeDefinition == null)
+        if (!strikeDefinition)
 #pragma warning restore IDE0270
         {
             strikeDefinition = hero.UnarmedStrikeDefinition;

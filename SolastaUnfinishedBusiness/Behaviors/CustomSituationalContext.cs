@@ -131,10 +131,10 @@ internal static class CustomSituationalContext
             return false;
         }
 
-        var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+        var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
 
         return HasVisibleCharactersOfSideNextToCharacter(gameLocationCharacter) ||
-               gameLocationPositioningService.IsNextToWall(gameLocationCharacter.LocationPosition);
+               positioningService.IsNextToWall(gameLocationCharacter.LocationPosition);
     }
 
     private static bool HasVisibleCharactersOfSideNextToCharacter(GameLocationCharacter character)

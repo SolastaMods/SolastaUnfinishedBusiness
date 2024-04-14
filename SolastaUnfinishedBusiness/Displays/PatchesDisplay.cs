@@ -139,8 +139,8 @@ internal static class PatchesDisplay
     private static Patch[] EnabledPatchesForMethod([NotNull] MethodBase method)
     {
         return _patches.TryGetValue(method, out var result)
-            ? result.OrderBy(p => p.owner).ToArray()
-            : Array.Empty<Patch>();
+            ? [.. result.OrderBy(p => p.owner)]
+            : [];
     }
 
     private static void RefreshListOfPatchOwners()

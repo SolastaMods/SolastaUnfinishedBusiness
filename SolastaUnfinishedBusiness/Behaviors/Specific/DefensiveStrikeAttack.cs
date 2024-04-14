@@ -90,14 +90,13 @@ internal static class DefensiveStrikeAttack
         var charisma = unitCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma);
         var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
 
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-        if (actionManager == null)
+        if (!actionManager)
         {
             yield break;
         }
-
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
         var actionParams = new CharacterActionParams(unit, (Id)ExtraActionId.DoNothingReaction)
         {

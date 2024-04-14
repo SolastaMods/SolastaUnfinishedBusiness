@@ -33,7 +33,7 @@ internal static class EffectsDisplay
 
         UI.Label();
 
-        if (Gui.GameCampaign == null || Gui.GameCampaign.Party.CharactersList.Count < 2)
+        if (!Gui.GameCampaign || Gui.GameCampaign.Party.CharactersList.Count < 2)
         {
             UI.Label("You must have a game open with at least 2 heroes in the party...".Red().Bold());
             UI.Label();
@@ -114,7 +114,7 @@ internal static class EffectsDisplay
 
     private static void DisplayEffects(EffectHelpers.EffectType effectType)
     {
-        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
         UI.Label();
 
@@ -129,8 +129,8 @@ internal static class EffectsDisplay
             {
                 UI.ActionButton("+".Bold().Red(), () =>
                     {
-                        var source = gameLocationCharacterService.PartyCharacters[0];
-                        var target = gameLocationCharacterService.PartyCharacters[1];
+                        var source = characterService.PartyCharacters[0];
+                        var target = characterService.PartyCharacters[1];
 
                         EffectHelpers.StartVisualEffect(source, target, effect.Value.First().Item2, effectType);
                     },
@@ -145,7 +145,7 @@ internal static class EffectsDisplay
 
     private static void DisplayConditionEffects()
     {
-        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
         UI.Label();
 
@@ -160,7 +160,7 @@ internal static class EffectsDisplay
             {
                 UI.ActionButton("+".Bold().Red(), () =>
                     {
-                        var source = gameLocationCharacterService.PartyCharacters[0];
+                        var source = characterService.PartyCharacters[0];
                         var rulesetCharacter = source.RulesetCharacter;
                         var baseDefinition = conditionEffect.Value.First().Item2;
 
