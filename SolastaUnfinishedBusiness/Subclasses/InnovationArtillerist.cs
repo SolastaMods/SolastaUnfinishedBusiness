@@ -677,6 +677,20 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
+        var conditionFlamethrowerTiny15 = ConditionDefinitionBuilder
+            .Create(conditionFlamethrowerTiny, $"Condition{Name}{Flamethrower}Tiny15")
+            .SetParentCondition(conditionFlamethrowerTiny)
+            .AddFeatures(powerFortifiedPositionTiny)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
+        var conditionForceBallistaTiny15 = ConditionDefinitionBuilder
+            .Create(conditionForceBallistaTiny, $"Condition{Name}{ForceBallista}Tiny15")
+            .SetParentCondition(conditionForceBallistaTiny)
+            .AddFeatures(powerFortifiedPositionTiny)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
         var conditionProtectorTiny15 = ConditionDefinitionBuilder
             .Create(conditionProtectorTiny, $"Condition{Name}{Protector}Tiny15")
             .SetParentCondition(conditionProtectorTiny)
@@ -702,9 +716,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
             BuildProtectorPower(powerFortifiedPositionPool, conditionProtector, 15,
                 powerProtector, actionAffinityProtector, powerFortifiedPosition);
         var powerTinyFlamethrower15 =
-            BuildTinyFlamethrowerPower(powerFortifiedPositionPool, conditionFlamethrowerTiny, 15);
+            BuildTinyFlamethrowerPower(powerFortifiedPositionPool, conditionFlamethrowerTiny15, 15);
         var powerTinyForceBallista15 =
-            BuildTinyForceBallistaPower(powerFortifiedPositionPool, conditionForceBallistaTiny, 15);
+            BuildTinyForceBallistaPower(powerFortifiedPositionPool, conditionForceBallistaTiny15, 15);
         var powerTinyProtector15 =
             BuildTinyProtectorPower(powerFortifiedPositionPool, conditionProtectorTiny15, 15);
 

@@ -1,9 +1,10 @@
 1.5.97.5:
 
 - fixed Abilities of the Chain Master invocation to be main action only
+- fixed Artillerist tiny fortified position power to be on all 3 cannon forms
 - fixed Burning Hex feat to also apply on fire condition
 - fixed Chilling Hex feat damage type to Cold
-- fixed Dragon Fear feat double combat log
+- fixed Dragon Fear feat double combat log and feat description
 - fixed Dragon Hide feat claw attack to be 1d4 + str unless better die type/count
 - fixed Mage Slayer feat saving to be once per LR
 - fixed Martial Warlord coordinated assault power to be once per turn
