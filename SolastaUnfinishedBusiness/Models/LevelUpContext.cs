@@ -128,14 +128,14 @@ internal static class LevelUpContext
                 levelUpData.SelectedClass == Sorcerer ||
                 levelUpData.SelectedClass == Warlock ||
                 levelUpData.SelectedClass == Wizard ||
-                (inventorClass != null && levelUpData.SelectedClass == inventorClass)
+                (inventorClass && levelUpData.SelectedClass == inventorClass)
             ) &&
             !(
                 classesAndLevels.ContainsKey(Ranger) ||
                 classesAndLevels.ContainsKey(Sorcerer) ||
                 classesAndLevels.ContainsKey(Warlock) ||
                 classesAndLevels.ContainsKey(Wizard) ||
-                (inventorClass != null && classesAndLevels.ContainsKey(inventorClass))
+                (inventorClass && classesAndLevels.ContainsKey(inventorClass))
             );
 
         if (required)
@@ -197,8 +197,8 @@ internal static class LevelUpContext
         [NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x =>
-            (x.SpellCastingClass != null && x.SpellCastingClass == GetSelectedClass(rulesetCharacterHero))
-            || (x.SpellCastingSubclass != null &&
+            (x.SpellCastingClass && x.SpellCastingClass == GetSelectedClass(rulesetCharacterHero))
+            || (x.SpellCastingSubclass &&
                 x.SpellCastingSubclass == GetSelectedSubclass(rulesetCharacterHero)));
     }
 
@@ -239,7 +239,7 @@ internal static class LevelUpContext
     internal static bool IsMulticlass([NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
-               && levelUpData.SelectedClass != null
+               && levelUpData.SelectedClass
                && (rulesetCharacterHero.ClassesAndLevels.Count > 1
                    || !rulesetCharacterHero.ClassesAndLevels.ContainsKey(levelUpData.SelectedClass));
     }
@@ -303,13 +303,13 @@ internal static class LevelUpContext
                     break;
 
                 case FeatureDefinitionCastSpell featureDefinitionCastSpell
-                    when featureDefinitionCastSpell.SpellListDefinition != null:
+                    when featureDefinitionCastSpell.SpellListDefinition:
                     allowedSpells.AddRange(
                         featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(x => x.Spells));
                     break;
 
                 case FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity
-                    when featureDefinitionMagicAffinity.ExtendedSpellList != null:
+                    when featureDefinitionMagicAffinity.ExtendedSpellList:
                     allowedSpells.AddRange(
                         featureDefinitionMagicAffinity.ExtendedSpellList.SpellsByLevel.SelectMany(x => x.Spells));
                     break;
@@ -344,15 +344,15 @@ internal static class LevelUpContext
             var castingFeature = spellRepertoire.SpellCastingFeature;
             var tag = "Multiclass";
 
-            if (spellRepertoire.spellCastingClass != null)
+            if (spellRepertoire.spellCastingClass)
             {
                 tag = $"{ExtraClassTag}|{spellRepertoire.spellCastingClass.Name}";
             }
-            else if (spellRepertoire.spellCastingSubclass != null)
+            else if (spellRepertoire.spellCastingSubclass)
             {
                 tag = $"{ExtraSubclassTag}|{spellRepertoire.spellCastingSubclass.Name}";
             }
-            else if (spellRepertoire.spellCastingRace != null)
+            else if (spellRepertoire.spellCastingRace)
             {
                 tag = "Race";
             }
@@ -509,7 +509,7 @@ internal static class LevelUpContext
             .Where(x => x.Level == characterLevel)
             .Do(x => grantedFeatures.Add(x.FeatureDefinition));
 
-        if (subRaceDefinition != null)
+        if (subRaceDefinition)
         {
             subRaceDefinition.FeatureUnlocks
                 .Where(x => x.Level == characterLevel)
@@ -645,15 +645,15 @@ internal static class LevelUpContext
                 return 1;
             }
 
-            var title1 = a.SpellCastingClass != null
+            var title1 = a.SpellCastingClass
                 ? a.SpellCastingClass.FormatTitle()
-                : a.SpellCastingSubclass != null
+                : a.SpellCastingSubclass
                     ? a.SpellCastingSubclass.FormatTitle()
                     : a.SpellCastingRace.FormatTitle();
 
-            var title2 = b.SpellCastingClass != null
+            var title2 = b.SpellCastingClass
                 ? b.SpellCastingClass.FormatTitle()
-                : b.SpellCastingSubclass != null
+                : b.SpellCastingSubclass
                     ? b.SpellCastingSubclass.FormatTitle()
                     : b.SpellCastingRace.FormatTitle();
 
@@ -876,7 +876,7 @@ internal static class LevelUpContext
         {
             var screen = Gui.GuiService.GetScreen<CharacterLevelUpScreen>();
 
-            if (screen != null && screen.Visible)
+            if (screen && screen.Visible)
             {
                 characterStagePanel = screen.CurrentStagePanel;
             }
@@ -885,7 +885,7 @@ internal static class LevelUpContext
         {
             var screen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
 
-            if (screen != null && screen.Visible)
+            if (screen && screen.Visible)
             {
                 characterStagePanel = screen.CurrentStagePanel;
             }

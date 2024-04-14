@@ -203,7 +203,7 @@ internal static class GameUiContext
     {
         foreach (var spellTable in SpellLineTables
                      .Where(spellTable =>
-                         spellTable != null && spellTable.gameObject.activeSelf && spellTable.childCount > 0))
+                         spellTable && spellTable.gameObject.activeSelf && spellTable.childCount > 0))
         {
             Gui.ReleaseChildrenToPool(spellTable);
             spellTable.SetParent(null);
@@ -570,7 +570,7 @@ internal static class GameUiContext
             var isInvisible = __instance.IsInvisible();
             var isEnabled = __instance.CheckIsEnabled();
 
-            if (worldGadget != null)
+            if (worldGadget)
             {
                 SetTeleporterGadgetActiveAnimation(worldGadget, isEnabled && !isInvisible);
             }
@@ -1092,7 +1092,7 @@ internal static class GameUiContext
 
         internal static void RefreshCharacterControlPanel()
         {
-            if (Gui.CurrentLocationScreen != null && Gui.CurrentLocationScreen is GameLocationBaseScreen location)
+            if (Gui.CurrentLocationScreen && Gui.CurrentLocationScreen is GameLocationBaseScreen location)
             {
                 location.CharacterControlPanel.RefreshNow();
             }

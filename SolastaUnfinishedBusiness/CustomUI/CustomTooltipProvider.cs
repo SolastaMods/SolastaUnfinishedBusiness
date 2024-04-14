@@ -51,7 +51,7 @@ internal class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvid
 
     public override void SetupSprite(Image image, object context = null)
     {
-        if (image.sprite != null)
+        if (image.sprite)
         {
             ReleaseSprite(image);
             image.sprite = null;

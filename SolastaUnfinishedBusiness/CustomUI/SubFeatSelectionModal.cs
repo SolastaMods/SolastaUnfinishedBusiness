@@ -211,7 +211,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         //register this screen
         var guiMgr = Gui.GuiService as GuiManager;
 
-        if (guiMgr != null)
+        if (guiMgr)
         {
             guiMgr.screensByType.Add(GetType(), this);
         }
@@ -452,7 +452,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
 
     public void CancelPerformed(InputAction.CallbackContext context)
     {
-        if (this == null)
+        if (!this)
         {
             return;
         }

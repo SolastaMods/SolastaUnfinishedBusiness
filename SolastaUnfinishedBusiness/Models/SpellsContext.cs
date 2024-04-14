@@ -81,7 +81,7 @@ internal static class SpellsContext
                 switch (featureDefinition)
                 {
                     case FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity
-                        when featureDefinitionMagicAffinity.ExtendedSpellList != null &&
+                        when featureDefinitionMagicAffinity.ExtendedSpellList &&
                              !spellLists.ContainsValue(featureDefinitionMagicAffinity.ExtendedSpellList):
                         spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
 
@@ -99,7 +99,7 @@ internal static class SpellsContext
 
                         break;
                     case FeatureDefinitionCastSpell featureDefinitionCastSpell
-                        when featureDefinitionCastSpell.SpellListDefinition != null &&
+                        when featureDefinitionCastSpell.SpellListDefinition &&
                              !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition):
                         spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
 

@@ -83,7 +83,7 @@ internal static class MulticlassGameUiContext
         var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
         var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
         var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-        var classSpellLevel = spellRepertoire.spellCastingRace != null
+        var classSpellLevel = spellRepertoire.spellCastingRace
             ? spellRepertoire.MaxSpellLevelOfSpellCastingLevel
             : SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
 
@@ -468,7 +468,7 @@ internal static class MulticlassGameUiContext
         group.slotStatusTable.gameObject.SetActive(true);
         group.SpellLevel = spellLevel;
 
-        if (spellFeature != null)
+        if (spellFeature)
         {
             foreach (var spellRepertoire in localHeroCharacter.SpellRepertoires
                          .Where(spellRepertoire => spellRepertoire.SpellCastingFeature == spellFeature))
@@ -495,7 +495,7 @@ internal static class MulticlassGameUiContext
             localHeroCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(group.features);
 
             foreach (var spell in from FeatureDefinitionMagicAffinity feature in @group.features
-                     where feature.ExtendedSpellList != null
+                     where feature.ExtendedSpellList
                      from spell in feature.ExtendedSpellList
                          .SpellsByLevel[spellListDefinition.HasCantrips ? spellLevel : spellLevel - 1].Spells
                      where !allSpells.Contains(spell) && (!ritualOnly || spell.Ritual) &&
@@ -635,7 +635,7 @@ internal static class MulticlassGameUiContext
         PointPool pointPool,
         IDictionary<SpellDefinition, string> extraSpellsMap)
     {
-        var spellsOverriden = pointPool.spellListOverride != null;
+        var spellsOverriden = pointPool.spellListOverride;
         var spellLevel = __instance.SpellLevel;
 
         // avoids auto prepared spells from other classes to bleed in

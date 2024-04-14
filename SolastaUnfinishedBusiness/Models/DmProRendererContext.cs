@@ -40,7 +40,7 @@ internal static class DmProRendererContext
         {
             TemplateVegetationMaskArea = prefab.GetComponentInChildren<VegetationMaskArea>();
 
-            if (TemplateVegetationMaskArea != null)
+            if (TemplateVegetationMaskArea)
             {
                 break;
             }
@@ -283,7 +283,7 @@ internal static class DmProRendererContext
         // ReSharper disable once StringLiteralTypo
         var postfix = perspective ? "_Pers" : "_Top";
 
-        if (environmentDefinition != null &&
+        if (environmentDefinition &&
             prefabByEnvironmentDescription.Environment == environmentDefinition.Name)
         {
             str1 = "Gui/Bitmaps/Props-" + environmentName + "/";

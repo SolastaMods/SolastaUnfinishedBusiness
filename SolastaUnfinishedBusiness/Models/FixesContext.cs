@@ -255,7 +255,7 @@ internal static class FixesContext
         foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
         {
             foreach (var staticProperty in item.StaticProperties
-                         .Where(x => x.FeatureDefinition != null &&
+                         .Where(x => x.FeatureDefinition &&
                                      x.FeatureDefinition.Name.StartsWith("AttributeModifierArmor")))
             {
                 staticProperty.knowledgeAffinity = KnowledgeAffinity.ActiveAndVisible;

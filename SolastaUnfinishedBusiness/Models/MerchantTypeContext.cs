@@ -349,7 +349,7 @@ internal static class RecipeHelper
         var recipes = DatabaseRepository.GetDatabase<ItemDefinition>()
             .Where(d => d.IsDocument)
             .Where(d => d.DocumentDescription != null)
-            .Where(d => d.DocumentDescription.RecipeDefinition != null);
+            .Where(d => d.DocumentDescription.RecipeDefinition);
 
         foreach (var recipe in recipes)
         {

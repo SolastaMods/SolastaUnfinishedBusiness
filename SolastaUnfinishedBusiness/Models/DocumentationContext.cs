@@ -446,7 +446,7 @@ internal static class DocumentationContext
             }
         }
 
-        if (featureDefinitionCastSpell != null)
+        if (featureDefinitionCastSpell)
         {
             outString.AppendLine();
             outString.AppendLine("*Spells:*");

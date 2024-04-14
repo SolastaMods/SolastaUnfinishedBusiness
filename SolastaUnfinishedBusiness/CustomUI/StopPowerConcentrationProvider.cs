@@ -21,7 +21,7 @@ internal sealed class StopPowerConcentrationProvider : CustomConcentrationContro
 
     public void Stop(RulesetCharacter character)
     {
-        if (StopPower == null)
+        if (!StopPower)
         {
             return;
         }
@@ -33,14 +33,14 @@ internal sealed class StopPowerConcentrationProvider : CustomConcentrationContro
             return;
         }
 
-        var implementationManagerService =
+        var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
         var usablePower = PowerProvider.Get(StopPower, character);
         var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.PowerNoCost)
         {
             ActionModifiers = { new ActionModifier() },
-            RulesetEffect = implementationManagerService.MyInstantiateEffectPower(character, usablePower, true),
+            RulesetEffect = implementationManager.MyInstantiateEffectPower(character, usablePower, true),
             UsablePower = usablePower,
             TargetCharacters = { locationCharacter },
             SkipAnimationsAndVFX = true

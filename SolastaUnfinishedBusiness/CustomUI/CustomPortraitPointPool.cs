@@ -40,7 +40,7 @@ internal class CustomPortraitPointPool : MonoBehaviour
         var name = $"CustomPool({provider.Name})";
         var child = parent.Find(name);
 
-        if (child != null)
+        if (child)
         {
             pool = child.GetComponent<CustomPortraitPointPool>();
         }
@@ -60,7 +60,7 @@ internal class CustomPortraitPointPool : MonoBehaviour
     {
         var image = transform.Find("SorceryPointsImage").GetComponent<Image>();
 
-        if (image == null)
+        if (!image)
         {
             return;
         }
@@ -77,14 +77,14 @@ internal class CustomPortraitPointPool : MonoBehaviour
         // ReSharper disable once StringLiteralTypo
         var label = transform.Find("SorceyPointsLabel")?.GetComponent<GuiLabel>();
 
-        if (label != null)
+        if (label)
         {
             label.Text = provider.GetPoints(character);
         }
 
         var tooltip = GetComponent<GuiTooltip>();
 
-        if (tooltip != null)
+        if (tooltip)
         {
             tooltip.Content = provider.Tooltip(character);
         }

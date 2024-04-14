@@ -107,7 +107,7 @@ internal static class SharedSpellsContext
         var warlockLevel = 0;
         var warlock = rulesetCharacterHero.ClassesAndLevels.Keys.FirstOrDefault(x => x == Warlock);
 
-        if (warlock != null)
+        if (warlock)
         {
             warlockLevel = rulesetCharacterHero.ClassesAndLevels[warlock];
         }
@@ -181,7 +181,7 @@ internal static class SharedSpellsContext
 
             string subclassName = null;
 
-            if (currentCharacterSubclassDefinition != null)
+            if (currentCharacterSubclassDefinition)
             {
                 subclassName = currentCharacterSubclassDefinition.Name;
             }

@@ -509,7 +509,7 @@ internal static class TranslatorContext
         {
             get
             {
-                if (_exporter != null)
+                if (_exporter)
                 {
                     return _exporter;
                 }
