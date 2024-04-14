@@ -1,15 +1,16 @@
 1.5.97.5:
 
+- added Bountiful Luck feat
 - fixed Abilities of the Chain Master invocation to be main action only
 - fixed Artillerist tiny fortified position power to be on all 3 cannon forms
-- fixed Burning Hex feat to also apply on fire condition
+- fixed Burning Hex feat to also apply on fire 1d4 condition for 1 minute
 - fixed Chilling Hex feat damage type to Cold
 - fixed Dragon Fear feat double combat log and feat description
 - fixed Dragon Hide feat claw attack to be 1d4 + str unless better die type/count
 - fixed Mage Slayer feat saving to be once per LR
 - fixed Martial Warlord coordinated assault power to be once per turn
 - fixed Orcish Aggression to require melee, a straight line, and attack with main in the end
-- fixed Path of The Totem bear totem power to not force disadvantage against Barb
+- fixed Path of The Totem bear totem power to not force disadvantage against source
 - fixed Patron Celestial healing light power missing from action bar
 - fixed Vitriolist viscosity mixture power to apply hindered instead of confused
 

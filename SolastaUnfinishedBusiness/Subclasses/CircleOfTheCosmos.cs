@@ -966,7 +966,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             {
                 StringParameter = "WealCosmosOmenSaving",
                 StringParameter2 = "SpendPowerWealCosmosOmenSavingDescription".Formatted(
-                    Category.Reaction, attacker.Name, defender.Name, helper.Name),
+                    Category.Reaction, defender.Name, attacker.Name, helper.Name),
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
@@ -1127,7 +1127,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             {
                 StringParameter = "WoeCosmosOmenSaving",
                 StringParameter2 = "SpendPowerWoeCosmosOmenSavingDescription".Formatted(
-                    Category.Reaction, attacker.Name, defender.Name, helper.Name),
+                    Category.Reaction, defender.Name, attacker.Name, helper.Name),
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower

@@ -64,6 +64,7 @@ internal static class ModUi
         "FeatAlert",
         "FeatBladeMastery",
         "FeatBlindFighting",
+        "FeatBountifulLuck",
         "FeatCharger",
         "FeatCleavingAttack",
         "FeatDarkElfMagic",
