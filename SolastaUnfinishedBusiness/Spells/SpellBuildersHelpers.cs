@@ -56,14 +56,14 @@ internal static partial class SpellBuilders
                 return false;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
             evalParams.FillForPhysicalReachAttack(
                 caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
-            return gameLocationBattleService.CanAttack(evalParams);
+            return battleService.CanAttack(evalParams);
         }
 
         [NotNull]

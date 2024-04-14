@@ -1067,10 +1067,7 @@ internal static partial class SpellBuilders
             GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1097,15 +1094,16 @@ internal static partial class SpellBuilders
             var slotLevel = rulesetDefender.GetLowestSlotLevelAndRepertoireToCastSpell(
                 spellDefinition, out var spellRepertoire);
 
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
             {
                 IntParameter = slotLevel, StringParameter = spellDefinition.Name, SpellRepertoire = spellRepertoire
             };
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToSpendSpellSlot(reactionParams);
+            actionService.ReactToSpendSpellSlot(reactionParams);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1684,7 +1682,7 @@ internal static partial class SpellBuilders
 
             var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
 
-            if (Gui.Battle == null || gameLocationScreenBattle == null)
+            if (Gui.Battle == null || !gameLocationScreenBattle)
             {
                 yield break;
             }
@@ -1840,14 +1838,14 @@ internal static partial class SpellBuilders
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets
