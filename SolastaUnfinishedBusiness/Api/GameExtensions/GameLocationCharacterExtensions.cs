@@ -212,11 +212,6 @@ public static class GameLocationCharacterExtensions
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-        if (actionService == null)
-        {
-            return false;
-        }
-
         var hasReactionInQueue = actionService.PendingReactionRequestGroups
             .SelectMany(x => x.Requests)
             .Any(x => x.Character == instance);
@@ -324,7 +319,7 @@ public static class GameLocationCharacterExtensions
             }
 
             var grantedSpell = definition.GrantedSpell;
-            if (isValid && grantedSpell != null)
+            if (isValid && grantedSpell)
             {
                 if (!canCastSpells)
                 {
@@ -386,13 +381,13 @@ public static class GameLocationCharacterExtensions
         if (!Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
             rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) > 0)
         {
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
             var actionParams = new CharacterActionParams(instance, Id.SpendPower)
             {
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower
             };

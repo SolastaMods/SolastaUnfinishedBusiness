@@ -41,7 +41,7 @@ internal static class CustomizedSubFeatureDefinitions
     {
         var results = new List<T>();
 
-        if (definition == null)
+        if (!definition)
         {
             return results;
         }
@@ -64,7 +64,7 @@ internal static class CustomizedSubFeatureDefinitions
     [CanBeNull]
     internal static T GetFirstSubFeatureOfType<T>([CanBeNull] this BaseDefinition definition) where T : class
     {
-        if (definition == null)
+        if (!definition)
         {
             return null;
         }

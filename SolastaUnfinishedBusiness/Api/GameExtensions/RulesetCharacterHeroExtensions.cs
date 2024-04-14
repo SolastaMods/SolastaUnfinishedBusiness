@@ -105,7 +105,7 @@ internal static class RulesetCharacterHeroExtensions
 
     internal static int GetClassLevel(this RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
     {
-        return classDefinition != null && hero.ClassesAndLevels.TryGetValue(classDefinition, out var classLevel)
+        return classDefinition && hero.ClassesAndLevels.TryGetValue(classDefinition, out var classLevel)
             ? classLevel
             : 0;
     }

@@ -80,7 +80,7 @@ internal static partial class UI
     {
         get
         {
-            if (_rarityTexture == null)
+            if (!_rarityTexture)
             {
                 _rarityTexture = new Texture2D(1, 1);
             }
@@ -107,7 +107,7 @@ internal static partial class UI
     {
         get
         {
-            if (_submenuTexture == null)
+            if (!_submenuTexture)
             {
                 _submenuTexture = new Texture2D(1, 1);
                 _submenuTexture.SetPixel(0, 0, new Color(0.3f, 0.3f, 0.3f, 0.65f));
@@ -150,7 +150,7 @@ internal static partial class UI
     [UsedImplicitly]
     private static GUIStyle FillStyle(Color color)
     {
-        if (_fillTexture == null)
+        if (!_fillTexture)
         {
             _fillTexture = new Texture2D(1, 1);
         }
@@ -166,7 +166,7 @@ internal static partial class UI
     [UsedImplicitly]
     private static void Div(Color color, float indent = 0, float height = 0, float width = 0)
     {
-        if (_fillTexture == null)
+        if (!_fillTexture)
         {
             _fillTexture = new Texture2D(1, 1);
         }

@@ -12,7 +12,7 @@ internal static class UnityImageExtensions
         [CanBeNull] AssetReferenceSprite spriteReference,
         bool changeActiveStatus = false)
     {
-        if (imageComponent.sprite != null)
+        if (imageComponent.sprite)
         {
             Gui.ReleaseAddressableAsset(imageComponent.sprite);
             imageComponent.sprite = null;

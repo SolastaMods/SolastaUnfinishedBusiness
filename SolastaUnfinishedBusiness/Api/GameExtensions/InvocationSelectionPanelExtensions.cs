@@ -46,11 +46,11 @@ public static class InvocationSelectionPanelExtensions
 
         var child = invocationPanel.transform.Find("Header/InvocationLabel");
 
-        if (child != null)
+        if (child)
         {
             var label = child.GetComponent<GuiLabel>();
 
-            if (label != null)
+            if (label)
             {
                 label.Text = actionId is Id.CastInvocation or (Id)ExtraActionId.CastInvocationBonus
                     ? "Feature/&PointPoolWarlockInvocationInitialTitle"

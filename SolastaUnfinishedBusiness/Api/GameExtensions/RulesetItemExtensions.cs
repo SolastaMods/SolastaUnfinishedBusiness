@@ -22,7 +22,7 @@ internal static class RulesetItemExtensions
     internal static List<T> GetSubFeaturesByType<T>(this RulesetItem item) where T : class
     {
         // this check is required to allow game to correctly boot on POI as well as hero import process
-        if (Gui.GameCampaign != null)
+        if (Gui.GameCampaign)
         {
             return FeaturesByType<FeatureDefinition>(item)
                 .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
@@ -35,7 +35,7 @@ internal static class RulesetItemExtensions
     internal static bool HasSubFeatureOfType<T>(this RulesetItem item) where T : class
     {
         // this check is required to allow game to correctly boot on POI as well as hero import process
-        if (Gui.GameCampaign != null)
+        if (Gui.GameCampaign)
         {
             return FeaturesByType<FeatureDefinition>(item)
                 .SelectMany(f => f.GetAllSubFeaturesOfType<T>())

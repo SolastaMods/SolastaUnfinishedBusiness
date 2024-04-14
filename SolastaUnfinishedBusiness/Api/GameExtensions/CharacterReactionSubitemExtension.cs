@@ -25,7 +25,7 @@ internal static class CharacterReactionSubitemExtension
         {
             title = "Reaction/&WarcasterAttackTitle";
 
-            if (tooltip != null)
+            if (tooltip)
             {
                 tooltip.Disabled = false;
                 if (reactionRequest.ReactionParams.attackMode?.sourceObject is RulesetItem weapon)
@@ -46,7 +46,7 @@ internal static class CharacterReactionSubitemExtension
 
             title = spell.GuiPresentation.Title;
 
-            if (tooltip != null)
+            if (tooltip)
             {
                 tooltip.Disabled = false;
                 ServiceRepository.GetService<IGuiWrapperService>()
@@ -87,12 +87,12 @@ internal static class CharacterReactionSubitemExtension
         var spell = spellRepertoire.KnownSpells[slotLevel];
         var power = PowerBundle.GetPower(spell);
 
-        if (power == null)
+        if (!power)
         {
             return;
         }
 
-        if (tooltip != null)
+        if (tooltip)
         {
             tooltip.Disabled = false;
             ServiceRepository.GetService<IGuiWrapperService>()
@@ -122,7 +122,7 @@ internal static class CharacterReactionSubitemExtension
     {
         var background = root.FindChildRecursive("Background");
 
-        if (background == null)
+        if (!background)
         {
             return null;
         }

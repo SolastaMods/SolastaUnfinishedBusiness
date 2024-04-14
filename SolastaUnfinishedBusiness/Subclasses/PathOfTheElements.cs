@@ -603,10 +603,10 @@ public sealed class PathOfTheElements : AbstractSubclass
                 yield break;
             }
 
-            var actionService =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionService ||
+            if (!actionManager ||
                 battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
@@ -614,12 +614,12 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             var reactionParams =
                 new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction);
-            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("ElementalConduitWildfire", reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            actionService.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, actionService, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

@@ -30,7 +30,7 @@ internal static class EffectHelpers
             _ => throw new ArgumentOutOfRangeException(nameof(effectType), effectType, null)
         };
 
-        if (prefab == null)
+        if (!prefab)
         {
             return;
         }
@@ -59,7 +59,7 @@ internal static class EffectHelpers
             _ => throw new ArgumentOutOfRangeException(nameof(effectType), effectType, null)
         };
 
-        if (prefab == null)
+        if (!prefab)
         {
             return;
         }

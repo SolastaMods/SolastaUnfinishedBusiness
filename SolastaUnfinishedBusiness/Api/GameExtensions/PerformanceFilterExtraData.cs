@@ -78,9 +78,9 @@ internal class PerformanceFilterExtraData
         data.Feature = feature;
         data.Origin = origin;
 #pragma warning disable IDE0031
-        data._name = feature != null ? feature.Name : null;
+        data._name = feature ? feature.Name : null;
 #pragma warning restore IDE0031
-        data._customSpellcasting = feature != null && feature.HasSubFeatureOfType<ActionWithCustomSpellTracking>();
+        data._customSpellcasting = feature && feature.HasSubFeatureOfType<ActionWithCustomSpellTracking>();
     }
 
     private void Clear()
@@ -193,7 +193,7 @@ internal class PerformanceFilterExtraData
 
     public string FormatTitle()
     {
-        if (Feature == null)
+        if (!Feature)
         {
             return null;
         }

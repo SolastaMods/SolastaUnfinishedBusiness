@@ -770,12 +770,12 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 {
                     StringParameter = "Reaction/&CustomReactionMartialArcaneArcherGuidedShotDescription"
                 };
-            var previousReactionCount = actionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("MartialArcaneArcherGuidedShot", reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
             actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, actionManager, previousReactionCount);
+            yield return battle.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
