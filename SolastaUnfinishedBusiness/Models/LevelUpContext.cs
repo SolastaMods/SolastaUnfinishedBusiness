@@ -86,7 +86,7 @@ internal static class LevelUpContext
 
         levelUpData.SelectedClass = characterClassDefinition;
 
-        if (characterClassDefinition == null)
+        if (!characterClassDefinition)
         {
             levelUpData.SelectedSubclass = null;
 
@@ -99,8 +99,8 @@ internal static class LevelUpContext
         levelUpData.SelectedSubclass = subclass;
 
         levelUpData.RequiresDeity =
-            (levelUpData.SelectedClass == Cleric && !classesAndLevels.ContainsKey(Cleric))
-            || (levelUpData.SelectedClass == Paladin && rulesetCharacterHero.DeityDefinition == null);
+            (levelUpData.SelectedClass == Cleric && !classesAndLevels.ContainsKey(Cleric)) ||
+            (levelUpData.SelectedClass == Paladin && !rulesetCharacterHero.DeityDefinition);
 
         levelUpData.GrantedItems = [];
 
@@ -678,7 +678,7 @@ internal static class LevelUpContext
         // only repertoires with a casting class
         var spellCastingClass = spellRepertoire.SpellCastingClass;
 
-        if (spellCastingClass == null)
+        if (!spellCastingClass)
         {
             return;
         }
@@ -794,7 +794,7 @@ internal static class LevelUpContext
             RecursiveGrantCustomFeatures(hero, classTag, classFeatures);
         }
 
-        if (selectedSubclass == null)
+        if (!selectedSubclass)
         {
             return;
         }

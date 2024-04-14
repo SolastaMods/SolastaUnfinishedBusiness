@@ -235,7 +235,7 @@ internal static class GameUiContext
         spellRepertoireSecondaryLine.Unbind();
         spellRepertoireSecondaryLine.gameObject.SetActive(false);
 
-        if (spellRepertoireLinesTable.parent.GetComponent<VerticalLayoutGroup>() == null)
+        if (!spellRepertoireLinesTable.parent.GetComponent<VerticalLayoutGroup>())
         {
             GameObject spellLineHolder = new();
 
@@ -521,7 +521,7 @@ internal static class GameUiContext
             .SelectMany(ws => ws.WorldGadgets)
             .FirstOrDefault(wg => wg.GameGadget == __instance);
 
-        if (worldGadget == null)
+        if (!worldGadget)
         {
             return;
         }
@@ -590,8 +590,8 @@ internal static class GameUiContext
         }
 
         var activator = DatabaseHelper.GadgetDefinitions.Activator;
-        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-        var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+        var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
         var feedbackPosition = __instance.GameGadget.FeedbackPosition;
 
         // activators aren't detected in their original position so we handle them in a different way
@@ -599,9 +599,9 @@ internal static class GameUiContext
         {
             var position = new int3((int)feedbackPosition.x, (int)feedbackPosition.y, (int)feedbackPosition.z);
 
-            foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
+            foreach (var gameLocationCharacter in characterService.PartyCharacters)
             {
-                visible = gameLocationVisibilityService.IsCellPerceivedByCharacter(position, gameLocationCharacter);
+                visible = visibilityService.IsCellPerceivedByCharacter(position, gameLocationCharacter);
 
                 if (visible)
                 {
@@ -623,13 +623,12 @@ internal static class GameUiContext
                     continue;
                 }
 
-                var position = new int3((int)feedbackPosition.x + x, (int)feedbackPosition.y,
-                    (int)feedbackPosition.z + z);
+                var position = new int3(
+                    (int)feedbackPosition.x + x, (int)feedbackPosition.y, (int)feedbackPosition.z + z);
 
-                foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
+                foreach (var gameLocationCharacter in characterService.PartyCharacters)
                 {
-                    visible = gameLocationVisibilityService.IsCellPerceivedByCharacter(position,
-                        gameLocationCharacter);
+                    visible = visibilityService.IsCellPerceivedByCharacter(position, gameLocationCharacter);
 
                     if (visible)
                     {
@@ -1076,7 +1075,7 @@ internal static class GameUiContext
 
         private static void TogglePanelVisibility(GuiPanel guiPanel, bool forceHide = false)
         {
-            if (guiPanel == null)
+            if (!guiPanel)
             {
                 return;
             }
@@ -1126,18 +1125,11 @@ internal static class GameUiContext
 
         internal static int3 GetLeaderPosition()
         {
-            var gameLocationCharacterService =
-                ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
-
-            if (gameLocationCharacterService == null)
-            {
-                return int3.invalid;
-            }
-
-            var position = gameLocationCharacterService.PartyCharacters[0].LocationPosition;
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var position = characterService.PartyCharacters[0].LocationPosition;
             var currentCharacter = Global.CurrentCharacter ??
-                                   gameLocationCharacterService.PartyCharacters[0].RulesetCharacter;
-            var locationCharacter = gameLocationCharacterService.PartyCharacters
+                                   characterService.PartyCharacters[0].RulesetCharacter;
+            var locationCharacter = characterService.PartyCharacters
                 .FirstOrDefault(x => x.RulesetCharacter == currentCharacter);
 
             return locationCharacter?.LocationPosition ?? position;
@@ -1145,23 +1137,22 @@ internal static class GameUiContext
 
         private static void TeleportParty(int3 position)
         {
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var boxInt = new BoxInt(position, int3.zero, int3.zero);
 
             // 20 to improve teleport behavior on campaigns with different heights
             boxInt.Inflate(1, 20, 1);
 
-            var characters =
-                gameLocationCharacterService.PartyCharacters.Union(gameLocationCharacterService.GuestCharacters);
+            var characters = characterService.PartyCharacters.Union(characterService.GuestCharacters);
 
             foreach (var gameLocationCharacter in characters)
             {
                 foreach (var alternatePosition in boxInt.EnumerateAllPositionsWithin())
                 {
-                    if (!gameLocationPositioningService.CanPlaceCharacter(
+                    if (!positioningService.CanPlaceCharacter(
                             gameLocationCharacter, alternatePosition, CellHelpers.PlacementMode.Station)
-                        || !gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                        || !positioningService.CanCharacterStayAtPosition_Floor(
                             gameLocationCharacter, alternatePosition, true))
                     {
                         continue;

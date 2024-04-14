@@ -40,20 +40,15 @@ internal static class PlayerControllerContext
     internal static void RefreshGuiState()
     {
         var controllersChoicesCopy = ControllersChoices.ToDictionary(x => x.Key, x => x.Value);
-        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
         ControllersChoices.Clear();
         PlayerCharacters.Clear();
-
-        if (gameLocationCharacterService != null)
-        {
-            PlayerCharacters.AddRange(gameLocationCharacterService.PartyCharacters);
-            PlayerCharacters.AddRange(gameLocationCharacterService.GuestCharacters);
-        }
-
+        PlayerCharacters.AddRange(characterService.PartyCharacters);
+        PlayerCharacters.AddRange(characterService.GuestCharacters);
         PlayerCharacters.ForEach(x =>
             ControllersChoices.Add(x, controllersChoicesCopy.TryGetValue(x, out var choice) ? choice : 0));
-        playerCharactersChoices = ControllersChoices.Values.ToArray();
+        playerCharactersChoices = [.. ControllersChoices.Values];
     }
 
     private static void UpdatePartyControllerIds(bool reset = false)

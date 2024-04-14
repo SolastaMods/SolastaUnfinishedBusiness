@@ -112,7 +112,7 @@ internal static class PickPocketContext
             switch (monster.CharacterFamily)
             {
                 case "Humanoid" when monster.DefaultFaction == "HostileMonsters" &&
-                                     monster.StealableLootDefinition == null:
+                                     !monster.StealableLootDefinition:
                 {
                     if (monster.ChallengeRating < 1.0)
                     {
@@ -145,7 +145,7 @@ internal static class PickPocketContext
                     break;
                 }
                 case "Undead" when monster.DefaultFaction.Contains("HostileMonsters") &&
-                                   monster.StealableLootDefinition == null && !monster.Name.Contains("Ghost") &&
+                                   !monster.StealableLootDefinition && !monster.Name.Contains("Ghost") &&
                                    !monster.Name.Contains("Spectral") && !monster.Name.Contains("Servant"):
                     monster.stealableLootDefinition = pickPocketableLootUndead;
                     break;

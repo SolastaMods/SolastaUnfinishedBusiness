@@ -165,11 +165,6 @@ internal static class CraftingContext
     {
         var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
 
-        if (gameLoreService == null)
-        {
-            return;
-        }
-
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
             gameLoreService.LearnRecipe(recipeBookDefinition.DocumentDescription.RecipeDefinition, false);

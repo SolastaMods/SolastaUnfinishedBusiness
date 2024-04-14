@@ -167,7 +167,7 @@ internal static class FlexibleRacesContext
         {
             var characterRaceDefinition = dbCharacterRaceDefinition.GetElement(keyValuePair.Key, true);
 
-            if (characterRaceDefinition == null)
+            if (!characterRaceDefinition)
             {
                 continue;
             }
@@ -190,7 +190,7 @@ internal static class FlexibleRacesContext
         {
             var characterRaceDefinition = dbCharacterRaceDefinition.GetElement(keyValuePair.Key, true);
 
-            if (characterRaceDefinition == null)
+            if (!characterRaceDefinition)
             {
                 continue;
             }

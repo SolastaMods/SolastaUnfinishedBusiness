@@ -94,7 +94,7 @@ internal static class FixesContext
         {
             var spellListDefinition = magicAffinityDefinition.ExtendedSpellList;
 
-            if (spellListDefinition == null)
+            if (!spellListDefinition)
             {
                 continue;
             }
@@ -134,7 +134,7 @@ internal static class FixesContext
 
             var spellListDefinition = castSpellDefinition.SpellListDefinition;
 
-            if (spellListDefinition == null)
+            if (!spellListDefinition)
             {
                 continue;
             }
@@ -668,14 +668,14 @@ internal static class FixesContext
                 yield break;
             }
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }

@@ -232,7 +232,7 @@ internal static class TranslatorContext
     {
         var modFontAsset = fontBundle.LoadAsset<TMP_FontAsset>($"{fontName}.asset");
 
-        if (modFontAsset == null)
+        if (!modFontAsset)
         {
             Main.Error($"Font asset {fontName} not found.");
 

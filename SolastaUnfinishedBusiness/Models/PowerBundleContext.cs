@@ -32,7 +32,7 @@ internal static class PowerBundleContext
             var powerName = functorParameters.StringParameter;
             var power = PowerBundle.GetPower(powerName);
 
-            if (power == null && !DatabaseHelper.TryGetDefinition(powerName, out power))
+            if (!power && !DatabaseHelper.TryGetDefinition(powerName, out power))
             {
                 yield break;
             }
@@ -51,7 +51,7 @@ internal static class PowerBundleContext
 
                 fromActor ??= GameLocationCharacter.GetFromActor(ruleChar);
 
-                var implementationManagerService =
+                var implementationManager =
                     ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
                 if (fromActor != null)
@@ -61,7 +61,7 @@ internal static class PowerBundleContext
                     var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerNoCost)
                     {
                         ActionModifiers = { new ActionModifier() },
-                        RulesetEffect = implementationManagerService
+                        RulesetEffect = implementationManager
                             .MyInstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true)
                             .AddAsActivePowerToSource(),
                         UsablePower = usablePower,
@@ -82,7 +82,7 @@ internal static class PowerBundleContext
                     var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
 
                     formsParams.FillSourceAndTarget(ruleChar, ruleChar);
-                    formsParams.FillFromActiveEffect(implementationManagerService
+                    formsParams.FillFromActiveEffect(implementationManager
                         .MyInstantiateEffectPower(ruleChar, usablePower, false)
                         .AddAsActivePowerToSource());
                     formsParams.effectSourceType = EffectSourceType.Power;

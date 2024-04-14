@@ -48,32 +48,32 @@ internal static class DelegatesContext
     {
         Main.Info("Location Ready");
 
-        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-        // gameLocationCharacterService.CharacterCreated += CharacterCreated;
-        // gameLocationCharacterService.CharacterRevealed += CharacterRevealed;
-        // gameLocationCharacterService.CharacterKilled += CharacterKilled;
-        // gameLocationCharacterService.CharacterDestroying += CharacterDestroying;
+        // characterService.CharacterCreated += CharacterCreated;
+        // characterService.CharacterRevealed += CharacterRevealed;
+        // characterService.CharacterKilled += CharacterKilled;
+        // characterService.CharacterDestroying += CharacterDestroying;
 
-        var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-        gameLocationActionService.ActionStarted += ActionStarted;
+        actionService.ActionStarted += ActionStarted;
 
-        gameLocationActionService.ActionChainStarted += ActionChainStarted;
-        gameLocationActionService.ActionChainFinished += ActionChainFinished;
-        gameLocationActionService.MagicEffectPreparing += MagicEffectPreparing;
-        gameLocationActionService.MagicEffectPreparingOnTarget += MagicEffectPreparingOnTarget;
-        gameLocationActionService.MagicEffectLaunch += MagicEffectLaunch;
-        gameLocationActionService.MagicEffectCastOnTarget += MagicEffectCastOnTarget;
-        gameLocationActionService.MagicEffectCastOnZone += MagicEffectCastOnZone;
-        gameLocationActionService.MagicEffectBeforeHitTarget += MagicEffectBeforeHitTarget;
-        gameLocationActionService.MagicEffectHitTarget += MagicEffectHitTarget;
-        gameLocationActionService.SpellCast += SpellCast;
-        gameLocationActionService.ActionUsed += ActionUsed;
-        gameLocationActionService.ShoveActionUsed += ShoveActionUsed;
-        gameLocationActionService.ItemUsed += ItemUsed;
+        actionService.ActionChainStarted += ActionChainStarted;
+        actionService.ActionChainFinished += ActionChainFinished;
+        actionService.MagicEffectPreparing += MagicEffectPreparing;
+        actionService.MagicEffectPreparingOnTarget += MagicEffectPreparingOnTarget;
+        actionService.MagicEffectLaunch += MagicEffectLaunch;
+        actionService.MagicEffectCastOnTarget += MagicEffectCastOnTarget;
+        actionService.MagicEffectCastOnZone += MagicEffectCastOnZone;
+        actionService.MagicEffectBeforeHitTarget += MagicEffectBeforeHitTarget;
+        actionService.MagicEffectHitTarget += MagicEffectHitTarget;
+        actionService.SpellCast += SpellCast;
+        actionService.ActionUsed += ActionUsed;
+        actionService.ShoveActionUsed += ShoveActionUsed;
+        actionService.ItemUsed += ItemUsed;
 
-        foreach (var gameLocationCharacter in gameLocationCharacterService.ValidCharacters)
+        foreach (var gameLocationCharacter in characterService.ValidCharacters)
         {
             // gameLocationCharacter.Placed += Placed;
             // gameLocationCharacter.MoveStarted += MoveStarted;
@@ -177,31 +177,31 @@ internal static class DelegatesContext
     {
         Main.Info("Location Unloading");
 
-        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-        // gameLocationCharacterService.CharacterCreated -= CharacterCreated;
-        // gameLocationCharacterService.CharacterRevealed -= CharacterRevealed;
-        // gameLocationCharacterService.CharacterKilled -= CharacterKilled;
-        // gameLocationCharacterService.CharacterDestroying -= CharacterDestroying;
+        // characterService.CharacterCreated -= CharacterCreated;
+        // characterService.CharacterRevealed -= CharacterRevealed;
+        // characterService.CharacterKilled -= CharacterKilled;
+        // characterService.CharacterDestroying -= CharacterDestroying;
 
-        var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-        gameLocationActionService.ActionStarted -= ActionStarted;
-        gameLocationActionService.ActionChainStarted -= ActionChainStarted;
-        gameLocationActionService.ActionChainFinished -= ActionChainFinished;
-        gameLocationActionService.MagicEffectPreparing -= MagicEffectPreparing;
-        gameLocationActionService.MagicEffectPreparingOnTarget -= MagicEffectPreparingOnTarget;
-        gameLocationActionService.MagicEffectLaunch -= MagicEffectLaunch;
-        gameLocationActionService.MagicEffectCastOnTarget -= MagicEffectCastOnTarget;
-        gameLocationActionService.MagicEffectCastOnZone -= MagicEffectCastOnZone;
-        gameLocationActionService.MagicEffectBeforeHitTarget -= MagicEffectBeforeHitTarget;
-        gameLocationActionService.MagicEffectHitTarget -= MagicEffectHitTarget;
-        gameLocationActionService.SpellCast -= SpellCast;
-        gameLocationActionService.ActionUsed -= ActionUsed;
-        gameLocationActionService.ShoveActionUsed -= ShoveActionUsed;
-        gameLocationActionService.ItemUsed -= ItemUsed;
+        actionService.ActionStarted -= ActionStarted;
+        actionService.ActionChainStarted -= ActionChainStarted;
+        actionService.ActionChainFinished -= ActionChainFinished;
+        actionService.MagicEffectPreparing -= MagicEffectPreparing;
+        actionService.MagicEffectPreparingOnTarget -= MagicEffectPreparingOnTarget;
+        actionService.MagicEffectLaunch -= MagicEffectLaunch;
+        actionService.MagicEffectCastOnTarget -= MagicEffectCastOnTarget;
+        actionService.MagicEffectCastOnZone -= MagicEffectCastOnZone;
+        actionService.MagicEffectBeforeHitTarget -= MagicEffectBeforeHitTarget;
+        actionService.MagicEffectHitTarget -= MagicEffectHitTarget;
+        actionService.SpellCast -= SpellCast;
+        actionService.ActionUsed -= ActionUsed;
+        actionService.ShoveActionUsed -= ShoveActionUsed;
+        actionService.ItemUsed -= ItemUsed;
 
-        foreach (var gameLocationCharacter in gameLocationCharacterService.ValidCharacters)
+        foreach (var gameLocationCharacter in characterService.ValidCharacters)
         {
             // gameLocationCharacter.Placed -= Placed;
             // gameLocationCharacter.MoveStarted -= MoveStarted;

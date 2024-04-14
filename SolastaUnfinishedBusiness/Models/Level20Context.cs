@@ -699,7 +699,7 @@ internal static class Level20Context
                     ? CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat
                     : null;
 
-            if (power == null)
+            if (!power)
             {
                 yield break;
             }
@@ -849,14 +849,6 @@ internal static class Level20Context
             GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionManager == null)
-            {
-                yield break;
-            }
-
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 yield break;
@@ -872,23 +864,23 @@ internal static class Level20Context
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "RogueStrokeOfLuck",
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower
             };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToSpendPower(reactionParams);
 
-            gameLocationActionManager.ReactToSpendPower(reactionParams);
-
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
