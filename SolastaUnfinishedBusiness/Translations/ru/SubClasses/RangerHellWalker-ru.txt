@@ -1,5 +1,3 @@
-Condition/&ConditionRangerHellWalkerDammingStrikeDescription=Вы получаете 1d6 огненного урона каждый ход.
-Condition/&ConditionRangerHellWalkerDammingStrikeTitle=Проклинающий удар
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Вы получаете 1d6 некротического урона в конце каждого вашего хода, вы напуганы, а огненные атаки наложившего метку игнорируют ваше сопротивление.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Отмечен проклятыми
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Когда вы впервые поражаете существо атакой в свой ход, вы можете заставить его совершить спасбросок Телосложения против Сл ваших заклинаний и отметить его в случае провала. Пока существо отмечено таким образом, оно получает 1d6 урона огнём в начале каждого своего хода в течение 1 минуты. В конце каждого своего хода существо может повторить спасбросок, завершив эффект при успехе.

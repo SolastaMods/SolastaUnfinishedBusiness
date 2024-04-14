@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,15 +8,17 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "ElementalAdept",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:FeatureFeatBountifulLuck:6acae5c1-9683-5fd4-a875-6211b539393f"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupElementalAdeptTitle",
-    "description": "When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage to the chosen type. In addition, when you roll damage for a spell you cast that deals damage to that type, you can reroll any 1s.",
+    "title": "Feat/&FeatBountifulLuckTitle",
+    "description": "Feat/&FeatBountifulLuckDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "60c01354-01f3-5375-bae9-06def82b8f58",
+  "guid": "928c788c-03ed-5ae8-af5f-a71e2e1f98bf",
   "contentPack": 9999,
-  "name": "FeatGroupElementalAdept"
+  "name": "FeatBountifulLuck"
 }

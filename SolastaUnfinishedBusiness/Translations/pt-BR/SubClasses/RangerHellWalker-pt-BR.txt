@@ -1,5 +1,3 @@
-Condition/&ConditionRangerHellWalkerDammingStrikeDescription=Você sofre 1d6 de dano de fogo a cada rodada.
-Condition/&ConditionRangerHellWalkerDammingStrikeTitle=Golpe Maldito
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Você sofre 1d6 de dano necrótico no final de cada um de seus turnos, fica assustado e os ataques de fogo do marcador contornam sua resistência.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Marcado pelos Amaldiçoados
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Quando você atinge uma criatura pela primeira vez com um ataque em seu turno, você pode forçá-la a ter sucesso em um teste de resistência de Constituição contra sua CD de magia ou marcá-la. Enquanto uma criatura estiver marcada desta forma, ela sofre 1d6 de dano de fogo no início de cada um de seus turnos por 1 minuto. No final de cada um de seus turnos, a criatura pode repetir este teste de resistência, encerrando os efeitos em caso de sucesso.

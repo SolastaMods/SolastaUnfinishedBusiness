@@ -1,5 +1,3 @@
-Condition/&ConditionRangerHellWalkerDammingStrikeDescription=매 라운드마다 1d6의 화염 피해를 입습니다.
-Condition/&ConditionRangerHellWalkerDammingStrikeTitle=저주의 일격
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=매 턴이 끝날 때마다 1d6의 괴사 피해를 입고 겁에 질려 마커의 불 공격이 저항을 우회합니다.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Dammed의 표시
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=당신의 턴에 공격으로 생물을 처음 공격할 때, 당신은 그것이 당신의 주문 DC에 대한 헌법 내성 굴림에서 성공하도록 강제하거나 표시하도록 할 수 있습니다. 생물이 이런 식으로 표시되어 있는 동안, 1분 동안 각 턴이 시작될 때 1d6의 화염 피해를 입습니다. 매 턴이 끝날 때마다 생물은 이 내성 굴림을 반복하여 성공에 대한 효과를 끝낼 수 있습니다.

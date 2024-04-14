@@ -1,5 +1,3 @@
-Condition/&ConditionRangerHellWalkerDammingStrikeDescription=Du erleidest jede Runde 1W6 Feuerschaden.
-Condition/&ConditionRangerHellWalkerDammingStrikeTitle=Verdammender Schlag
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Du erleidest am Ende jedes deiner Züge 1W6 nekrotischen Schaden, du hast Angst und Feuerangriffe des Markers umgehen deinen Widerstand.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Gekennzeichnet durch die Verdammten
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Wenn du in deinem Zug eine Kreatur zum ersten Mal mit einem Angriff triffst, kannst du ihr einen erfolgreichen konstitutionsrettenden Wurf gegen deinen Zauber-SG erzwingen oder ihn markieren lassen. Während eine Kreatur auf diese Weise markiert ist, erleidet sie zu Beginn jedes ihrer Züge 1 Minute lang 1W6 Feuerschaden. Am Ende jedes Zuges kann die Kreatur diesen Rettungswurf wiederholen und so die Effekte mit einem Erfolg beenden.

@@ -80,7 +80,7 @@ You send a jolt of green energy toward the target momentarily disorientating the
 
 # 20. - *Chromatic Orb* © (M,V,S) level 1 Evocation
 
-You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose.
+You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage to the type you chose.
 
 # 21. - *Earth Tremor* © (V,S) level 1 Evocation
 
@@ -88,7 +88,7 @@ You strike the ground and unleash a tremor of seismic force, hurling up earth, r
 
 # 22. - Elemental Infusion (S) level 1 Abjuration
 
-The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.
+The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage to the triggering type, and the spell ends. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.
 
 # 23. - *Ensnaring Strike* © (V) level 1 Conjuration [Concentration]
 
@@ -334,7 +334,7 @@ A poisonous wave erupts from you, engulfing those close by. Each creature within
 
 # 81. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
 
-You raise both hands as you evoke six transparent blades around you as a bonus action. When you cast this spell, and as a bonus action on each subsequent turn, you can throw one of these blades at a creature within 60 feet from you. Make a ranged spell attack. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage of each blade increases by 1d8 for each slot level above 6th.
+You raise both hands as you evoke six transparent blades around you as a bonus action. When you cast this spell, and as a bonus action on each subsequent turn, you can throw one of these blades at a creature within 60 feet from you. Make a ranged spell attack. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage to each blade increases by 1d8 for each slot level above 6th.
 
 # 82. - *Tasha's Otherworldly Guise* © (M,V,S) level 6 Transmutation [Concentration]
 
