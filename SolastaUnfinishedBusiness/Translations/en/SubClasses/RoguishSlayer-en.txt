@@ -1,12 +1,12 @@
-Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Increase the damage of your next sneak attack by an extra 3d6, until the end of your next turn. This damage increases to 4d6 at 13th level, and 5d6 at 17th level.
+Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Increase the damage to your next sneak attack by an extra 3d6, until the end of your next turn. This damage increases to 4d6 at 13th level, and 5d6 at 17th level.
 Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=Chain of Execution
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=You are marked by the Slayer.
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=Slayer's Mark
-Feature/&FeatureRoguishSlayerChainOfExecutionDescription=Starting at 9th level, whenever you reduce a creature to 0 hit points, or whenever a creature damaged by your sneak attack dies before the start of your next turn, increase the damage of your next sneak attack by half your total sneak dice (rounded up), until the end of your next turn.
+Feature/&FeatureRoguishSlayerChainOfExecutionDescription=Starting at 9th level, whenever you reduce a creature to 0 hit points, or whenever a creature damaged by your sneak attack dies before the start of your next turn, increase the damage to your next sneak attack by half your total sneak dice (rounded up), until the end of your next turn.
 Feature/&FeatureRoguishSlayerChainOfExecutionTitle=Chain of Execution
 Feature/&FeatureRoguishSlayerEliminationDescription=Starting at 3rd level, you are at your deadliest when you get the drop on your enemies. You have advantage on attack rolls against any creature that hasn't taken a turn in the combat yet. In addition, any hit you score against a creature that is surprised is a critical hit.
 Feature/&FeatureRoguishSlayerEliminationTitle=Elimination
-Feature/&FeatureRoguishSlayerFatalStrikeDescription=Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is surprised, it must make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier). On a failed save, double the damage of your attack against the creature.
+Feature/&FeatureRoguishSlayerFatalStrikeDescription=Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is surprised, it must make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier). On a failed save, double the damage to your attack against the creature.
 Feature/&FeatureRoguishSlayerFatalStrikeTitle=Fatal Strike
 Feature/&PowerRoguishSlayerCloakOfShadowsDescription=Starting at 13th level, you can use your bonus action to become invisible for 1 minute.  You can use this feature a number of times per long rest equal to your Dexterity modifier.
 Feature/&PowerRoguishSlayerCloakOfShadowsTitle=Cloak of Shadows
