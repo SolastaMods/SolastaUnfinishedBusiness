@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -59,18 +60,10 @@ public sealed class RangerHellWalker : AbstractSubclass
         // Damning Strike
 
         var conditionDammingStrike = ConditionDefinitionBuilder
-            .Create($"Condition{Name}DammingStrike")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionOnFire)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetPossessive()
-            .CopyParticleReferences(ConditionDefinitions.ConditionOnFire)
-            .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-            .SetRecurrentEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeFire, 1, DieType.D6)
-                    .SetCreatedBy()
-                    .Build())
+            .Create(ConditionDefinitions.ConditionOnFire, $"Condition{Name}DammingStrike")
+            .SetParentCondition(ConditionDefinitions.ConditionOnFire)
+            .SetFeatures()
+            .SetSpecialInterruptions(Array.Empty<ConditionInterruption>())
             .AddToDB();
 
         var additionalDamageDammingStrike = FeatureDefinitionAdditionalDamageBuilder
@@ -118,13 +111,11 @@ public sealed class RangerHellWalker : AbstractSubclass
         // Mark of the Dammed
 
         var conditionMarkOfTheDammed = ConditionDefinitionBuilder
-            .Create($"Condition{Name}MarkOfTheDammed")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPoisoned)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetPossessive()
+            .Create(ConditionDefinitions.ConditionFrightened, $"Condition{Name}MarkOfTheDammed")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .SetParentCondition(ConditionDefinitions.ConditionFrightened)
-            .CopyParticleReferences(ConditionDefinitions.ConditionOnFire)
-            .SetFeatures(ConditionDefinitions.ConditionFrightened.Features)
+            .SetPossessive()
+            .SetFeatures()
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -143,12 +134,9 @@ public sealed class RangerHellWalker : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    // .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
-                    //     EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            //.HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
                             .SetConditionForm(conditionMarkOfTheDammed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())

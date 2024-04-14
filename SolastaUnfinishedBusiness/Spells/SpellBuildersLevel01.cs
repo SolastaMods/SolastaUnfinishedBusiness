@@ -400,9 +400,7 @@ internal static partial class SpellBuilders
                 new ConditionOperationDescription
                 {
                     operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionOnFire, $"Condition{NAME}Enemy")
-                        .AddToDB(),
+                    conditionDefinition = ConditionOnFire,
                     hasSavingThrow = true,
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,

@@ -1179,24 +1179,13 @@ internal static class InvocationsBuilders
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Dexterity,
-                        true,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Constitution)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetBonusMode(AddBonusMode.AbilityBonus)
                             .SetDamageForm(DamageTypeFire)
                             .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(ConditionDefinitions.ConditionOnFire,
-                                ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionOnFire1D4))
                     .SetParticleEffectParameters(PowerDomainElementalFireBurst)
                     .SetCasterEffectParameters(PowerPactChainPseudodragon)
                     .Build())
