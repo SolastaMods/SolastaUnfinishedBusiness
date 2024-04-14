@@ -74,10 +74,11 @@ internal sealed class Interception : AbstractFightingStyle
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            var gameLocationActionManager =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -104,13 +105,12 @@ internal sealed class Interception : AbstractFightingStyle
                     StringParameter = "CustomReactionInterceptionDescription"
                         .Formatted(Category.Reaction, defender.Name, attacker.Name)
                 };
-
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom(Name, reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

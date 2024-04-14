@@ -997,10 +997,7 @@ internal static class OtherFeats
             // ReSharper disable once ParameterTypeCanBeEnumerable.Local
             List<EffectForm> actualEffectForms)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1023,7 +1020,8 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var damageType = effectForm.DamageForm.DamageType;
@@ -1036,17 +1034,16 @@ internal static class OtherFeats
                     StringParameter2 = "UseReactiveResistanceDescription".Formatted(
                         Category.Reaction, attacker.Name, damageTitle),
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManagerService
+                    RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1287,14 +1284,14 @@ internal static class OtherFeats
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var gameLocationActionManager =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             var rulesetDefender = defender.RulesetCharacter;
             var effectDescription = action.ActionParams.AttackMode?.EffectDescription ??
                                     action.ActionParams.RulesetEffect?.EffectDescription;
 
-            if (gameLocationActionManager == null ||
+            if (!actionManager ||
                 defender != helper ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
@@ -1312,14 +1309,12 @@ internal static class OtherFeats
                     "CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
                 UsablePower = usablePower
             };
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
-
             var reactionRequest = new ReactionRequestCustom("MageSlayer", reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1338,12 +1333,13 @@ internal static class OtherFeats
             GameLocationCharacter caster,
             GameLocationCharacter defender)
         {
-            var gameLocationActionService =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
+            var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1363,13 +1359,12 @@ internal static class OtherFeats
                 AttackMode = attackMode,
                 TargetCharacters = { caster }
             };
-
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("MageSlayer", actionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(caster, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(caster, actionManager, count);
         }
     }
 
@@ -1613,14 +1608,14 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPoisonousSkin, rulesetMe);
             var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetMe, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { target }

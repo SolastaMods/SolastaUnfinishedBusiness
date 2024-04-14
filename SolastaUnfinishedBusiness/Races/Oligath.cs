@@ -166,10 +166,7 @@ internal static class RaceOligathBuilder
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -188,7 +185,8 @@ internal static class RaceOligathBuilder
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerStoneEndurance, rulesetDefender);
@@ -196,17 +194,16 @@ internal static class RaceOligathBuilder
             {
                 StringParameter = "StoneEndurance",
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
             };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(actionParams, "UsePower", defender);
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 }
