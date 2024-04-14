@@ -113,42 +113,19 @@ internal static class MulticlassInOutRulesContext
         var charisma = MyGetAttribute(hero, AttributeDefinitions.Charisma) -
                        itemsAttributeModifiers[AttributeDefinitions.Charisma];
 
-        switch (classDefinition.Name)
+        return classDefinition.Name switch
         {
-            case BarbarianClass:
-                return strength >= 13;
-
-            case BardClass:
-            case SorcererClass:
-            case WarlockClass:
-                return charisma >= 13;
-
-            case ClericClass:
-            case DruidClass:
-                return wisdom >= 13;
-
-            case FighterClass:
-                return strength >= 13 || dexterity >= 13;
-
-            case MonkClass:
-                return wisdom >= 13 && dexterity >= 13;
-
-            case RangerClass:
-                return dexterity >= 13 && wisdom >= 13;
-
-            case PaladinClass:
-                return strength >= 13 && charisma >= 13;
-
-            case RogueClass:
-                return dexterity >= 13;
-
-            case WizardClass:
-            case InventorClass.ClassName:
-                return intelligence >= 13;
-
-            default:
-                return false;
-        }
+            BarbarianClass => strength >= 13,
+            BardClass or SorcererClass or WarlockClass => charisma >= 13,
+            ClericClass or DruidClass => wisdom >= 13,
+            FighterClass => strength >= 13 || dexterity >= 13,
+            MonkClass => wisdom >= 13 && dexterity >= 13,
+            RangerClass => dexterity >= 13 && wisdom >= 13,
+            PaladinClass => strength >= 13 && charisma >= 13,
+            RogueClass => dexterity >= 13,
+            WizardClass or InventorClass.ClassName => intelligence >= 13,
+            _ => false
+        };
     }
 
     private static bool IsSupported([NotNull] BaseDefinition classDefinition)

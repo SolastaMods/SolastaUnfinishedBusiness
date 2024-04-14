@@ -703,15 +703,13 @@ internal static class TranslatorContext
 
                         outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
                         // magicSkySword : Only place parameters can be translated
-                        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-                        switch (outcome.validatorDescription.type)
+                        outcome.validatorDescription.stringParameter = outcome.validatorDescription.type switch
                         {
-                            case QuestDefinitions.QuestValidatorType.EnterLocation:
-                            case QuestDefinitions.QuestValidatorType.LeaveLocation:
-                                outcome.validatorDescription.stringParameter =
-                                    Translate(outcome.validatorDescription.stringParameter, languageCode);
-                                break;
-                        }
+                            QuestDefinitions.QuestValidatorType.EnterLocation
+                                or QuestDefinitions.QuestValidatorType.LeaveLocation => Translate(
+                                    outcome.validatorDescription.stringParameter, languageCode),
+                            _ => outcome.validatorDescription.stringParameter
+                        };
                     }
                 }
             }

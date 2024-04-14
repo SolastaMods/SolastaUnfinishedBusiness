@@ -397,14 +397,11 @@ internal static class EldritchVersatilityBuilders
                         return false;
                     }
 
-                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-                    switch (usage)
+                    modifyCurrent = usage switch
                     {
-                        case PointUsage.BlastBreakthrough:
-                        case PointUsage.BlastEmpower:
-                            modifyCurrent = Math.Max(modifyCurrent, -BeamNumber);
-                            break;
-                    }
+                        PointUsage.BlastBreakthrough or PointUsage.BlastEmpower => Math.Max(modifyCurrent, -BeamNumber),
+                        _ => modifyCurrent
+                    };
 
                     CurrentPoints += modifyCurrent;
 
