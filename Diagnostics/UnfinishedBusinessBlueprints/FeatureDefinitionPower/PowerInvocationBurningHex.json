@@ -113,8 +113,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionOnFire1D4",
-          "conditionDefinition": "Definition:ConditionOnFire1D4:c832b5142b6541b40a0d925d502e0f9d",
+          "conditionDefinitionName": "ConditionOnFire",
+          "conditionDefinition": "Definition:ConditionOnFire:16ca5e0ef0891e445a26be9ae27a72de",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

@@ -12,13 +12,14 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
+    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
     "Definition:PowerFeatOrcishAggression:0f1f5b7c-3433-52a1-9b03-6323fa9b40b7"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatOrcishAggressionTitle",
-    "description": "Feat/&FeatOrcishAggressionDescription",
+    "title": "Feat/&FeatOrcishAggressionStrTitle",
+    "description": "Feat/&FeatOrcishAggressionStrDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "eb973019-2856-5f69-8700-17ab7eefdb79",
+  "guid": "b2d597c7-05a1-5639-bd42-3bf8fe4e5883",
   "contentPack": 9999,
-  "name": "FeatOrcishAggression"
+  "name": "FeatOrcishAggressionStr"
 }

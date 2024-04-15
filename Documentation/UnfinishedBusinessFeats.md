@@ -348,9 +348,11 @@ You may use a WildShape form to restore a spent spell slot, up to the maximum of
 
 Increase your Strength or Dexterity by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.
 
-# 71. - *Orcish Aggression* ©
+# 71. - Orcish Aggression
 
-As a bonus action, when wielding a melee weapon in main hand, you can charge up to your speed toward an enemy of your choice and attack the creature with your main weapon.
+Your aggression burns tirelessly. You gain the following benefits:
+• Increase your Strength or Constitution by 1, up to a maximum of 20.
+• As a bonus action, when wielding a melee weapon in main hand, you can charge up to your speed toward an enemy of your choice and free attack the creature with your main weapon.
 
 # 72. - *Orcish Fury* ©
 

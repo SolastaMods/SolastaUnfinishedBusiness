@@ -1191,6 +1191,7 @@ FeatGroupMagicInitiate	FeatDefinition	FeatDefinition	c9eb9385-67a0-5edb-8e5f-f87
 FeatGroupMediumArmor	FeatDefinition	FeatDefinition	787303d6-ad88-510c-a74d-15bd56d1ad02
 FeatGroupMeleeCombat	FeatDefinition	FeatDefinition	76afeff2-9e1c-50bc-91b5-fdcd072eeb7e
 FeatGroupOldTactics	FeatDefinition	FeatDefinition	d342abc3-7b52-5741-a845-3e40e699a5ce
+FeatGroupOrcishAggression	FeatDefinitionWithPrerequisites	FeatDefinition	22866d8f-9e83-553a-bd72-544f5ffda788
 FeatGroupOrcishFury	FeatDefinitionWithPrerequisites	FeatDefinition	8fe763cc-9898-538e-9fed-25a68811f9e5
 FeatGroupPeregrinationTouched	FeatDefinition	FeatDefinition	c63ecda5-05cc-5170-856c-38a291dafec7
 FeatGroupPiercer	FeatDefinition	FeatDefinition	c30ffa73-1fa8-5227-931f-f55dbe5b48e2
@@ -1252,7 +1253,8 @@ FeatMonkShieldExpert	FeatDefinitionWithPrerequisites	FeatDefinition	40aae7ca-8de
 FeatNaturalFluidity	FeatDefinitionWithPrerequisites	FeatDefinition	0f7ab357-9ce6-5a4e-8833-b25db493c19c
 FeatOldTacticsDex	FeatDefinition	FeatDefinition	6431e575-edf1-54b8-a5f6-802e190b9385
 FeatOldTacticsStr	FeatDefinition	FeatDefinition	0aabc417-70b8-56e8-b2ff-c1cc2425bb5d
-FeatOrcishAggression	FeatDefinitionWithPrerequisites	FeatDefinition	eb973019-2856-5f69-8700-17ab7eefdb79
+FeatOrcishAggressionCon	FeatDefinitionWithPrerequisites	FeatDefinition	108dbec7-60da-5a4c-9a01-86549e795182
+FeatOrcishAggressionStr	FeatDefinitionWithPrerequisites	FeatDefinition	b2d597c7-05a1-5639-bd42-3bf8fe4e5883
 FeatOrcishFuryCon	FeatDefinitionWithPrerequisites	FeatDefinition	aade328f-3240-593d-b30b-8d729d3e2027
 FeatOrcishFuryStr	FeatDefinitionWithPrerequisites	FeatDefinition	9f350278-ce91-56d7-911a-24615c0547aa
 FeatPeregrinationTouchedCha	FeatDefinition	FeatDefinition	f549db6e-b322-5795-829a-c10219fe1aab

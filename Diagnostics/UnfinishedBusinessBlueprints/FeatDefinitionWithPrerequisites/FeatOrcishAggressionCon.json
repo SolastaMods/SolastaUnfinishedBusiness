@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,12 +11,15 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0",
+    "Definition:PowerFeatOrcishAggression:0f1f5b7c-3433-52a1-9b03-6323fa9b40b7"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfStrengthTitle",
-    "description": "Awaken the Beast [Str], Creed of Einar, Crusher [Str], Dragon Fear [Str], Dragon Hide [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Aggression [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str], Weapon Master [Str]",
+    "title": "Feat/&FeatOrcishAggressionConTitle",
+    "description": "Feat/&FeatOrcishAggressionConDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "70f5f340-191c-5c60-acbc-b303295d1095",
+  "guid": "108dbec7-60da-5a4c-9a01-86549e795182",
   "contentPack": 9999,
-  "name": "FeatGroupHalfStrength"
+  "name": "FeatOrcishAggressionCon"
 }

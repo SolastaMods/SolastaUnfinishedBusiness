@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,15 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatOrcishAggression",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfStrengthTitle",
-    "description": "Awaken the Beast [Str], Creed of Einar, Crusher [Str], Dragon Fear [Str], Dragon Hide [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Aggression [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str], Weapon Master [Str]",
+    "title": "Feat/&FeatGroupOrcishAggressionTitle",
+    "description": "Your aggression burns tirelessly. You gain the following benefits:\n• Increase your Strength or Constitution by 1, up to a maximum of 20.\n• As a bonus action, when wielding a melee weapon in main hand, you can charge up to your speed toward an enemy of your choice and free attack the creature with your main weapon.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "70f5f340-191c-5c60-acbc-b303295d1095",
+  "guid": "22866d8f-9e83-553a-bd72-544f5ffda788",
   "contentPack": 9999,
-  "name": "FeatGroupHalfStrength"
+  "name": "FeatGroupOrcishAggression"
 }
