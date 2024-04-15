@@ -1185,7 +1185,7 @@ internal static class InvocationsBuilders
                             .SetBonusMode(AddBonusMode.AbilityBonus)
                             .SetDamageForm(DamageTypeFire)
                             .Build(),
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionOnFire1D4))
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionOnFire))
                     .SetParticleEffectParameters(PowerDomainElementalFireBurst)
                     .SetCasterEffectParameters(PowerPactChainPseudodragon)
                     .Build())

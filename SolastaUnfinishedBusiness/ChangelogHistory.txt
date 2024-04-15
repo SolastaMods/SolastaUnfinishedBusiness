@@ -4,6 +4,7 @@
 - balanced Burning Hex invocation to also apply on fire 1d4 condition for 1 minute
 - balanced Orcish Aggression to require melee, PB/LR, and finish charge with free main attack
 - balanced Vitriolist viscosity mixture power to apply hindered instead of confused
+- fixed cantrips casting interaction with action switching setting to allow bonus spells
 - fixed Abilities of the Chain Master invocation to be main action only
 - fixed Chilling Hex invocation damage type to Cold
 - fixed Dragon Fear feat double combat log and feat description
