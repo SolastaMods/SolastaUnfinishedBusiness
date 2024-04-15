@@ -1635,7 +1635,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionPower PowerPatronTimekeeperAccelerate { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperAccelerate");
-        
+
         internal static FeatureDefinitionPower PowerMartialSpellbladeArcaneEscape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMartialSpellbladeArcaneEscape");
 
@@ -2145,6 +2145,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionProficiency ProficiencyWizardWeapon { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyWizardWeapon");
+    }
+
+    internal static class FeatureDefinitionDieRollModifiers
+    {
+        internal static FeatureDefinitionDieRollModifier DieRollModifierHalfingLucky { get; } =
+            GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierHalfingLucky");
     }
 
     internal static class FeatureDefinitionRegenerations

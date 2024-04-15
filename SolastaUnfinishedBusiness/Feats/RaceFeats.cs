@@ -450,6 +450,14 @@ internal static class RaceFeats
     {
         const string Name = "FeatBountifulLuck";
 
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
+        FeatureDefinitionDieRollModifiers.DieRollModifierHalfingLucky.AddCustomSubFeatures(
+            new ValidateDieRollModifierHalflingLucky(condition));
+
         var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
@@ -457,11 +465,7 @@ internal static class RaceFeats
                 FeatureDefinitionBuilder
                     .Create($"Feature{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .AddCustomSubFeatures(new CustomBehaviorBountifulLuck(
-                        ConditionDefinitionBuilder
-                            .Create($"Condition{Name}")
-                            .SetGuiPresentationNoContent(true)
-                            .AddToDB()))
+                    .AddCustomSubFeatures(new CustomBehaviorBountifulLuck(condition))
                     .AddToDB())
             .SetValidators(ValidatorsFeat.IsHalfling)
             .AddToDB();
@@ -641,6 +645,19 @@ internal static class RaceFeats
                     (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
                     extra
                 ]);
+        }
+    }
+
+    private sealed class ValidateDieRollModifierHalflingLucky(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IValidateDieRollModifier
+    {
+        public bool CanModifyRoll(
+            RulesetCharacter character,
+            List<FeatureDefinition> features,
+            List<string> damageTypes)
+        {
+            return !character.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, condition.Name);
         }
     }
 
