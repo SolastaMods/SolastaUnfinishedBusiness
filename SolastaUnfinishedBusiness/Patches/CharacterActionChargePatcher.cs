@@ -22,7 +22,8 @@ public static class CharacterActionChargePatcher
             CharacterActionCharge __instance)
         {
             if (__instance.ActingCharacter.RulesetCharacter.GetOriginalHero() is not { } hero ||
-                !hero.TrainedFeats.Contains(RaceFeats.FeatOrcishAggression))
+                (!hero.TrainedFeats.Contains(RaceFeats.FeatOrcishAggressionStr) &&
+                 !hero.TrainedFeats.Contains(RaceFeats.FeatOrcishAggressionCon)))
             {
                 return true;
             }

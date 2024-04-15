@@ -37,13 +37,13 @@ internal static class RaceFeats
         var featDragonWings = BuildDragonWings();
         var featDwarvenFortitude = BuildDwarvenFortitude();
         var featInfernalConstitution = BuildInfernalConstitution();
-        var featOrcishAggression = BuildOrcishAggression();
         var featWoodElfMagic = BuildWoodElfMagic();
         var featGroupDragonFear = BuildDragonFear(feats);
         var featGroupDragonHide = BuildDragonHide(feats);
         var featGroupsElvenAccuracy = BuildElvenAccuracy(feats);
         var featGroupFadeAway = BuildFadeAway(feats);
         var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
+        var featGroupOrcishAggression = BuildOrcishAggression(feats);
         var featGroupOrcishFury = BuildOrcishFury(feats);
         var featGroupRevenantGreatSword = BuildRevenant(feats);
         var featGroupSecondChance = BuildSecondChance(feats);
@@ -55,7 +55,6 @@ internal static class RaceFeats
             featDragonWings,
             featDwarvenFortitude,
             featInfernalConstitution,
-            featOrcishAggression,
             featWoodElfMagic);
 
         GroupFeats.FeatGroupDefenseCombat.AddFeats(featGroupFadeAway);
@@ -67,13 +66,13 @@ internal static class RaceFeats
             featDragonWings,
             featDwarvenFortitude,
             featInfernalConstitution,
-            featOrcishAggression,
             featWoodElfMagic,
             featGroupDragonFear,
             featGroupDragonHide,
             featGroupsElvenAccuracy,
             featGroupFadeAway,
             featGroupFlamesOfPhlegethos,
+            featGroupOrcishAggression,
             featGroupOrcishFury,
             featGroupRevenantGreatSword,
             featGroupSecondChance,
@@ -1088,9 +1087,10 @@ internal static class RaceFeats
 
     #region Orcish Aggression
 
-    internal static FeatDefinitionWithPrerequisites FeatOrcishAggression { get; private set; }
+    internal static FeatDefinitionWithPrerequisites FeatOrcishAggressionStr { get; private set; }
+    internal static FeatDefinitionWithPrerequisites FeatOrcishAggressionCon { get; private set; }
 
-    private static FeatDefinitionWithPrerequisites BuildOrcishAggression()
+    private static FeatDefinition BuildOrcishAggression(List<FeatDefinition> feats)
     {
         const string Name = "FeatOrcishAggression";
 
@@ -1110,14 +1110,25 @@ internal static class RaceFeats
             new ValidatorsValidatePowerUse(ValidatorsCharacter.HasMeleeWeaponInMainHand, _ => Gui.Battle != null),
             new CustomBehaviorOrcishAggression(power));
 
-        FeatOrcishAggression = FeatDefinitionWithPrerequisitesBuilder
-            .Create(Name)
+        FeatOrcishAggressionStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Str")
             .SetGuiPresentation(Category.Feat)
             .SetValidators(ValidatorsFeat.IsHalfOrc)
-            .SetFeatures(power)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, power)
             .AddToDB();
 
-        return FeatOrcishAggression;
+        FeatOrcishAggressionCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsHalfOrc)
+            .SetFeatures(AttributeModifierCreed_Of_Arun, power)
+            .AddToDB();
+
+        feats.AddRange(FeatOrcishAggressionStr, FeatOrcishAggressionCon);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupOrcishAggression", Name, ValidatorsFeat.IsHalfOrc, FeatOrcishAggressionStr,
+            FeatOrcishAggressionCon);
     }
 
     internal sealed class CustomBehaviorOrcishAggression(
