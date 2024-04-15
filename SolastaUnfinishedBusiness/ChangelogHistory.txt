@@ -4,10 +4,11 @@
 - fixed Abilities of the Chain Master invocation to be main action only
 - fixed Artillerist tiny fortified position power to be on all 3 cannon forms
 - fixed Burning Hex feat to also apply on fire 1d4 condition for 1 minute
+- fixed Circle of the Stars inverted attacked and defender names on weal / woe saving reactions 
 - fixed Chilling Hex feat damage type to Cold
 - fixed Dragon Fear feat double combat log and feat description
 - fixed Dragon Hide feat claw attack to be 1d4 + str unless better die type/count
-- fixed Mage Slayer feat saving to be once per LR
+- fixed Mage Slayer feat saving reaction to be once per long rest
 - fixed Martial Warlord coordinated assault power to be once per turn
 - fixed Orcish Aggression to require melee, a straight line, and attack with main in the end
 - fixed Path of The Totem bear totem power to not force disadvantage against source

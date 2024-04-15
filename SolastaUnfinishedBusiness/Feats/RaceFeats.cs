@@ -472,25 +472,8 @@ internal static class RaceFeats
 
     private sealed class CustomBehaviorBountifulLuck(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionBountifulLuck)
-        : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow, IModifyDiceRoll
+        ConditionDefinition conditionBountifulLuck) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
     {
-        private int _result;
-
-        public void BeforeRoll(
-            RollContext rollContext,
-            RulesetCharacter rulesetCharacter,
-            ref DieType dieType,
-            ref AdvantageType advantageType)
-        {
-            // empty
-        }
-
-        public void AfterRoll(RollContext rollContext, RulesetCharacter rulesetCharacter, ref int result)
-        {
-            _result = rollContext is RollContext.SavingThrow or RollContext.AttackRoll ? result : 0;
-        }
-
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -503,8 +486,9 @@ internal static class RaceFeats
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (!actionManager ||
-                _result != 1 ||
+                action.AttackRoll != 1 ||
                 action.AttackRollOutcome != RollOutcome.CriticalFailure ||
+                attacker == helper ||
                 attacker.IsOppositeSide(helper.Side) ||
                 !helper.CanReact() ||
                 !helper.IsWithinRange(attacker, 6) ||
@@ -583,13 +567,15 @@ internal static class RaceFeats
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
+            var savingRoll = action.SaveOutcomeDelta - saveModifier.savingThrowModifier + action.GetSaveDC() - 1;
+
             if (!actionManager ||
-                _result != 1 ||
-                !action.RolledSaveThrow ||
+                savingRoll != 1 ||
                 action.SaveOutcome != RollOutcome.Failure ||
-                attacker.IsOppositeSide(helper.Side) ||
+                defender == helper ||
+                defender.IsOppositeSide(helper.Side) ||
                 !helper.CanReact() ||
-                !helper.IsWithinRange(attacker, 6) ||
+                !helper.IsWithinRange(defender, 6) ||
                 !helper.CanPerceiveTarget(defender))
             {
                 yield break;
@@ -1112,8 +1098,8 @@ internal static class RaceFeats
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentation(Name, Category.Feat)
-            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetGuiPresentation(Name, Category.Feat, FeatureDefinitionPowers.PowerPatronTimekeeperAccelerate)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
