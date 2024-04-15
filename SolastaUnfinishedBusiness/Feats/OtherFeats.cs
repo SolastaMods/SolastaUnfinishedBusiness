@@ -64,6 +64,7 @@ internal static class OtherFeats
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
+        var weaponMasterGroup = BuildWeaponMaster(feats);
 
         // building this way to keep backward compatibility
         var featMonkShieldExpert = BuildFeatFromFightingStyle(MonkShieldExpert.ShieldExpertName);
@@ -124,7 +125,8 @@ internal static class OtherFeats
             featHealer,
             featInspiringLeader,
             FeatMageSlayer,
-            featSentinel);
+            featSentinel,
+            weaponMasterGroup);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
             featAstralArms,
@@ -460,6 +462,67 @@ internal static class OtherFeats
                     .AddToDB())
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Weapon Master
+
+    private static FeatDefinition BuildWeaponMaster(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatWeaponMaster";
+
+        var simpleOrMartialWeapons = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
+            .Where(x =>
+                x != WeaponTypeDefinitions.UnarmedStrikeType &&
+                x != CustomWeaponsContext.ThunderGauntletType &&
+                x != CustomWeaponsContext.LightningLauncherType);
+
+        foreach (var weaponTypeDefinition in simpleOrMartialWeapons)
+        {
+            var weaponTypeName = weaponTypeDefinition.Name;
+            var featureMonkWeaponSpecialization = FeatureDefinitionProficiencyBuilder
+                .Create($"Proficiency{Name}{weaponTypeName}")
+                .SetGuiPresentationNoContent(true)
+                .SetProficiencies(ProficiencyType.Weapon, weaponTypeName)
+                .AddToDB();
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocation{Name}{weaponTypeName}")
+                .SetGuiPresentation(
+                    weaponTypeDefinition.GuiPresentation.Title,
+                    weaponTypeDefinition.GuiPresentation.Description,
+                    CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
+                .SetPoolType(InvocationPoolTypeCustom.Pools.WeaponMasterChoice)
+                .SetGrantedFeature(featureMonkWeaponSpecialization)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
+                .AddToDB();
+        }
+
+        var invocationPool = CustomInvocationPoolDefinitionBuilder
+            .Create($"InvocationPool{Name}")
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.WeaponMasterChoice, 4)
+            .AddToDB();
+
+        var weaponMasterStr = FeatDefinitionBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, invocationPool)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var weaponMasterDex = FeatDefinitionBuilder
+            .Create($"{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, invocationPool)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(weaponMasterStr, weaponMasterDex);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupWeaponMaster", Name, weaponMasterStr, weaponMasterDex);
     }
 
     #endregion

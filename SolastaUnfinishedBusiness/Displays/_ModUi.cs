@@ -97,6 +97,7 @@ internal static class ModUi
         "FeatGroupSquatNimbleness",
         "FeatGroupTelekinetic",
         "FeatGroupFeyTeleport",
+        "FeatGroupWeaponMaster",
         "FeatHealer",
         "FeatHeavyArmorMaster",
         "FeatInfernalConstitution",

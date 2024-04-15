@@ -180,6 +180,9 @@ internal class InvocationPoolTypeCustom
         internal static readonly InvocationPoolTypeCustom KindredSpiritChoice =
             Register("KindredSpiritChoice", hidden: true);
 
+        internal static readonly InvocationPoolTypeCustom WeaponMasterChoice =
+            Register("FeatWeaponMasterChoice", hidden: true);
+
         internal static readonly InvocationPoolTypeCustom MartialWeaponMasterWeaponSpecialization =
             Register("MartialWeaponMaster", hidden: true);
 

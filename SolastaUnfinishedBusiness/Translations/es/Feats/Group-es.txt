@@ -128,3 +128,5 @@ Feat/&FeatGroupUnarmoredCombatDescription={0}
 Feat/&FeatGroupUnarmoredCombatTitle=Combate: sin armadura
 Feat/&FeatGroupVerdantTouchedDescription=Aumenta uno de tus atributos mentales en 1, hasta un máximo de 20.\nObtienes la capacidad de lanzar los hechizos piel de corteza, enredo y baya buena una vez por descanso prolongado y puedes lanzar estos hechizos con tus espacios de hechizo.
 Feat/&FeatGroupVerdantTouchedTitle=Verde tocado
+Feat/&FeatGroupWeaponMasterDescription=Has practicado extensamente con una variedad de armas y has obtenido los siguientes beneficios:\n• Aumenta tu puntuación de Fuerza o Destreza en 1, hasta un máximo de 20. \n• Obtienes competencia con cuatro armas de tu elección. Cada uno debe ser un arma simple o marcial.
+Feat/&FeatGroupWeaponMasterTitle=Maestro de armas

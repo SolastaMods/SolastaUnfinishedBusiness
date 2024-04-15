@@ -128,3 +128,5 @@ Feat/&FeatGroupUnarmoredCombatDescription={0}
 Feat/&FeatGroupUnarmoredCombatTitle=전투: 비무장
 Feat/&FeatGroupVerdantTouchedDescription=정신 속성 중 하나를 1 증가시켜 최대 20까지 증가시킵니다.\n긴 휴식마다 한 번씩 나무껍질, 얽힘, 굿베리 주문을 시전할 수 있는 능력을 얻고 이러한 주문을 주문 슬롯으로 시전할 수 있습니다.
 Feat/&FeatGroupVerdantTouchedTitle=신록의 감동
+Feat/&FeatGroupWeaponMasterDescription=다양한 무기를 사용하여 광범위하게 연습하여 다음과 같은 이점을 얻었습니다.\n• 힘 또는 민첩 점수를 1 올려 최대 20까지 높입니다. \n• 선택한 4가지 무기를 능숙하게 사용할 수 있습니다. 각각은 단순한 무기이거나 전투용 무기여야 합니다.
+Feat/&FeatGroupWeaponMasterTitle=무기 마스터

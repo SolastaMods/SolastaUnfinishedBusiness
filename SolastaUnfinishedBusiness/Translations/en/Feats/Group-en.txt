@@ -128,3 +128,5 @@ Feat/&FeatGroupUnarmoredCombatDescription={0}
 Feat/&FeatGroupUnarmoredCombatTitle=Combat: Unarmored
 Feat/&FeatGroupVerdantTouchedDescription=Increase one of your mental attributes by 1, to a maximum of 20.\nYou gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
 Feat/&FeatGroupVerdantTouchedTitle=Verdant Touched
+Feat/&FeatGroupWeaponMasterDescription=You have practiced extensively with a variety of weapons, gaining the following benefits:\n• Increase your Strength or Dexterity score by 1, to a maximum of 20. \n• You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.
+Feat/&FeatGroupWeaponMasterTitle=Weapon Master

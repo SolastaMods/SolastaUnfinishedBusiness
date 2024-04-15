@@ -128,3 +128,5 @@ Feat/&FeatGroupUnarmoredCombatDescription={0}
 Feat/&FeatGroupUnarmoredCombatTitle=Combat : sans armure
 Feat/&FeatGroupVerdantTouchedDescription=Augmentez l'un de vos attributs mentaux de 1, jusqu'à un maximum de 20.\nVous gagnez la capacité de lancer les sorts peau d'écorce, enchevêtrement et myrtille une fois par repos long et vous pouvez lancer ces sorts avec vos emplacements de sorts.
 Feat/&FeatGroupVerdantTouchedTitle=Touché verdoyant
+Feat/&FeatGroupWeaponMasterDescription=Vous vous êtes beaucoup entraîné avec une variété d'armes, bénéficiant des avantages suivants :\n• Augmentez votre score de force ou de dextérité de 1, jusqu'à un maximum de 20. \n• Vous maîtrisez quatre armes de votre choix. Chacun doit être une arme simple ou martiale.
+Feat/&FeatGroupWeaponMasterTitle=Maître d'armes

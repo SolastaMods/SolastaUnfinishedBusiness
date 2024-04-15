@@ -1,6 +1,6 @@
 1.5.97.5:
 
-- added Bountiful Luck feat
+- added Bountiful Luck, and Weapon Master feats
 - fixed Abilities of the Chain Master invocation to be main action only
 - fixed Artillerist tiny fortified position power to be on all 3 cannon forms
 - fixed Burning Hex feat to also apply on fire 1d4 condition for 1 minute

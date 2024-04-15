@@ -128,3 +128,5 @@ Feat/&FeatGroupUnarmoredCombatDescription={0}
 Feat/&FeatGroupUnarmoredCombatTitle=Combate: Sem Armadura
 Feat/&FeatGroupVerdantTouchedDescription=Aumente um de seus atributos mentais em 1, até um máximo de 20.\nVocê ganha a habilidade de lançar os feitiços pele de casca, emaranhar e fruta boa uma vez por descanso longo e pode lançar esses feitiços com seus espaços de feitiço.
 Feat/&FeatGroupVerdantTouchedTitle=Verdejante Tocado
+Feat/&FeatGroupWeaponMasterDescription=Você praticou extensivamente com uma variedade de armas, obtendo os seguintes benefícios:\n• Aumente seu valor de Força ou Destreza em 1, até um máximo de 20. \n• Você ganha proficiência com quatro armas de sua escolha. Cada uma deve ser uma arma simples ou marcial.
+Feat/&FeatGroupWeaponMasterTitle=Mestre das Armas

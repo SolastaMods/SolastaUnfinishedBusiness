@@ -1,0 +1,45 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatWeaponMaster",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
+    "Definition:InvocationPoolFeatWeaponMaster:c687e7fe-f5cb-5789-a29e-ed73cbff3fb1"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatWeaponMasterDexTitle",
+    "description": "Feat/&FeatWeaponMasterDexDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6d530af3-df84-5683-bf1f-5722fb7a2bd0",
+  "contentPack": 9999,
+  "name": "FeatWeaponMasterDex"
+}

@@ -529,21 +529,27 @@ You gain advantage on checks to maintain concentration.
 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 
-# 107. - Wise Archery
+# 107. - *Weapon Master* ©
+
+You have practiced extensively with a variety of weapons, gaining the following benefits:
+• Increase your Strength or Dexterity score by 1, to a maximum of 20. 
+• You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.
+
+# 108. - Wise Archery
 
 Your intuition guides your hand when using a bow. Increase your Wisdom attribute by 1, to a maximum of 20. You can use your Wisdom modifier instead of your Dexterity modifer for the attack and damage rolls with these weapons.
 
-# 108. - Wise Defense
+# 109. - Wise Defense
 
 Increase your Wisdom by 1, to a maximum of 20.
 While you are not wearing any armor or shield, your armor class is equal to 10 + your Dexterity modifier + your Wisdom modifier.
 
-# 109. - Wise Precision
+# 110. - Wise Precision
 
 Increase your Wisdom by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Wisdom for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
 
-# 110. - *Wood-Elf Magic* ©
+# 111. - *Wood-Elf Magic* ©
 
 You learn the magic of the primeval woods, which are revered and protected by your people. You learn one Druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest.
 

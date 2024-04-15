@@ -128,3 +128,5 @@ Feat/&FeatGroupUnarmoredCombatDescription={0}
 Feat/&FeatGroupUnarmoredCombatTitle=戦闘: 非武装
 Feat/&FeatGroupVerdantTouchedDescription=精神属性の 1 つを 1 つ増やし、最大 20 まで増やします。\n長い休息ごとに 1 回、バークスキン、エンタングル、グッドベリーの呪文を唱える能力を獲得し、これらの呪文を呪文スロットで唱えることができます。
 Feat/&FeatGroupVerdantTouchedTitle=緑豊かなタッチ
+Feat/&FeatGroupWeaponMasterDescription=あなたはさまざまな武器を使って徹底的に練習し、次のような利点を得ました:\n• 強さまたは器用さのスコアが 1 増加し、最大 20 になります。\n• 選択した 4 つの武器の熟練度が上がります。それぞれが単純な武器か武用武器でなければなりません。
+Feat/&FeatGroupWeaponMasterTitle=ウェポンマスター
