@@ -403,8 +403,8 @@ public static class GameLocationCharacterPatcher
 
             //PATCH: support for action switching interaction with metamagic quickened spell
             if (Main.Settings.EnableActionSwitching
-                && actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell
-                && rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
+                && actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell1
+                && rulesetEffectSpell1.MetamagicOption == MetamagicQuickenedSpell)
             {
                 // another hack to ensure we don't get offered more than we should on action switching
                 // for whatever reason we get the spell casting state loaded before we get to this point
@@ -423,7 +423,8 @@ public static class GameLocationCharacterPatcher
             //PATCH: ensure if a main spell is cast, no more bonus spells are allowed
             if (Main.Settings.EnableActionSwitching
                 && actionParams.ActionDefinition.ActionType == ActionDefinitions.ActionType.Main
-                && actionParams.RulesetEffect is RulesetEffectSpell)
+                && actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell2
+                && rulesetEffectSpell2.SpellDefinition.SpellLevel > 0)
             {
                 __instance.UsedBonusSpell = true;
             }
