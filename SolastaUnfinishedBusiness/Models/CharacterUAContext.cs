@@ -520,7 +520,8 @@ internal static partial class CharacterContext
 
             rulesetDefender.RemoveCondition(activeCondition);
 
-            var bonusAttackRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
+            var bonusAttackRoll =
+                rulesetAttacker.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _, out _);
 
             actionModifier.AttackRollModifier += bonusAttackRoll;
             actionModifier.AttacktoHitTrends.Add(new TrendInfo(

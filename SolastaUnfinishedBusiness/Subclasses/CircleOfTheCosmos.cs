@@ -906,7 +906,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            var dieRoll = RollDie(DieType, AdvantageType.None, out _, out _);
+            var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
             attackModifier.AttacktoHitTrends.Add(
                 new TrendInfo(dieRoll, FeatureSourceType.Power, powerWeal.Name, powerWeal)
@@ -982,7 +982,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            var dieRoll = RollDie(DieType, AdvantageType.None, out _, out _);
+            var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
             action.RolledSaveThrow = true;
             action.saveOutcomeDelta += dieRoll;
@@ -1067,7 +1067,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
+            var dieRoll = -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
             attackModifier.AttacktoHitTrends.Add(
                 new TrendInfo(dieRoll, FeatureSourceType.Power, powerWoe.Name, powerWoe)
@@ -1143,7 +1143,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
+            var dieRoll = -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
             action.RolledSaveThrow = true;
             action.saveOutcomeDelta += dieRoll;

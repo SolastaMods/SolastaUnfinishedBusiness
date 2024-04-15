@@ -519,7 +519,8 @@ internal static class RaceFeats
                 yield break;
             }
 
-            var dieRoll = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+            var rulesetHelper = helper.RulesetCharacter;
+            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
 
             action.AttackRoll = dieRoll;
             action.AttackSuccessDelta += dieRoll - 1;
@@ -528,8 +529,6 @@ internal static class RaceFeats
             {
                 action.AttackRollOutcome = RollOutcome.Success;
             }
-
-            var rulesetHelper = helper.RulesetCharacter;
 
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,
@@ -603,7 +602,8 @@ internal static class RaceFeats
                 yield break;
             }
 
-            var dieRoll = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+            var rulesetHelper = helper.RulesetCharacter;
+            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
 
             action.RolledSaveThrow = true;
             action.saveOutcomeDelta += dieRoll - 1;
@@ -619,8 +619,6 @@ internal static class RaceFeats
             {
                 extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
             }
-
-            var rulesetHelper = helper.RulesetCharacter;
 
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,

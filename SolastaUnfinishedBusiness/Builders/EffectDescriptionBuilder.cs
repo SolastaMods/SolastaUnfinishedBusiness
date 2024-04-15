@@ -71,12 +71,6 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value)
-    {
-        _effect.canBePlacedOnCharacter = value;
-        return this;
-    }
-
     internal EffectDescriptionBuilder SetParticleEffectParameters(IMagicEffect reference)
     {
         return SetParticleEffectParameters(reference.EffectDescription.EffectParticleParameters);

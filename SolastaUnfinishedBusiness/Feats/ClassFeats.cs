@@ -652,15 +652,16 @@ internal static class ClassFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower
-                || characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
             {
                 yield break;
             }
 
             var rulesetCharacter = attacker.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(Fighter);
-            var dieRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
+            var dieRoll =
+                rulesetCharacter.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _, out _);
             var healingReceived = classLevel + dieRoll;
 
             rulesetCharacter.ReceiveTemporaryHitPoints(
