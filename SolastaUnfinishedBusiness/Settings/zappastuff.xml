@@ -673,6 +673,7 @@
         <string>RaceWendigo</string>
         <string>RaceWildling</string>
         <string>RaceWyrmkin</string>
+        <string>RaceLizardfolk</string>
     </RaceEnabled>
     <SubraceSliderPosition>4</SubraceSliderPosition>
     <SubraceEnabled>

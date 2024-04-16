@@ -171,7 +171,7 @@ internal static class ValidatorsWeapon
         return itemDefinition
                && itemDefinition.IsWeapon
                && itemDefinition.WeaponDescription != null
-               && itemDefinition.WeaponDescription.WeaponTypeDefinition == UnarmedStrikeType
+               && itemDefinition.WeaponDescription.WeaponTypeDefinition.Name == UnarmedStrikeType.Name
                && IsWithinReach(attackMode?.ReachRange ?? 1);
     }
 
