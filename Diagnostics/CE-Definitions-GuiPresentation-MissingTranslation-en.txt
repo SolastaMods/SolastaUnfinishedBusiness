@@ -1,2 +1,0 @@
-InvocationPoolFeatWeaponMaster	Title='Feature/&InvocationPoolFeatWeaponMasterTitle'.
-InvocationPoolFeatWeaponMaster	Description='Feature/&InvocationPoolFeatWeaponMasterDescription'.

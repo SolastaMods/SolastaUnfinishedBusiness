@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "MeleeHit",
+    "rangeType": "Distance",
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
@@ -300,8 +300,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatOrcishAggressionTitle",
-    "description": "Feat/&FeatOrcishAggressionDescription",
+    "title": "Feature/&PowerFeatOrcishAggressionTitle",
+    "description": "Feature/&PowerFeatOrcishAggressionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c78676582e2ee9c40a5866ae24aaa966",

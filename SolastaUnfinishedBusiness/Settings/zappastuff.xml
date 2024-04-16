@@ -1049,6 +1049,7 @@
         <string>FeatFrostAdaptation</string>
         <string>FeatGiftOfTheChromaticDragon</string>
         <string>FeatCleavingAttack</string>
+        <string>FeatGroupGrudgeBearer</string>
         <string>FeatHammerThePoint</string>
         <string>FeatGroupHardy</string>
         <string>FeatHealer</string>
@@ -1070,7 +1071,7 @@
         <string>FeatMonkInitiate</string>
         <string>FeatNaturalFluidity</string>
         <string>FeatGroupOldTactics</string>
-        <string>FeatOrcishAggression</string>
+        <string>FeatGroupOrcishAggression</string>
         <string>FeatGroupOrcishFury</string>
         <string>FeatGroupPeregrinationTouched</string>
         <string>FeatPickPocket</string>
@@ -1106,6 +1107,7 @@
         <string>FeatGroupVerdantTouched</string>
         <string>FeatEldritchVersatilityAdept</string>
         <string>FeatWarCaster</string>
+        <string>FeatGroupWeaponMaster</string>
         <string>FeatZenArcher</string>
         <string>FeatWiseDefense</string>
         <string>FeatWisePrecision</string>

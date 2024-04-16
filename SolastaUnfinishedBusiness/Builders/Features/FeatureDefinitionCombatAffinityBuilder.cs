@@ -1,6 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -92,6 +93,13 @@ internal class FeatureDefinitionCombatAffinityBuilder
     internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(ExtraSituationalContext context)
     {
         Definition.situationalContext = (SituationalContext)context;
+        return this;
+    }
+
+    internal FeatureDefinitionCombatAffinityBuilder SetOtherCharacterFamilyRestrictions(
+        params string[] otherCharacterFamilyRestrictions)
+    {
+        Definition.otherCharacterFamilyRestrictions.SetRange(otherCharacterFamilyRestrictions);
         return this;
     }
 

@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 1,
+  "requiredPact": null,
+  "grantedFeature": "Definition:CombatAffinityFeatGrudgeBearerMonstrosity:a14fd629-1931-5724-9e32-7db10063dfe2",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monstrosity",
+    "description": "Monstrosities are monsters in the strictest sense - frightening creatures that are not ordinary, not truly natural, and almost never benign. Some are the results of magical experimentation gone awry, and others are the product of terrible curses. They defy categorization, and in some sense serve as a catch-all category for creatures that don't fit into any other type.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "fac8eafa-e6e2-5548-9ee0-1246c8cd804d",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "78fb412a-f8d3-5b61-815e-8f16553c8806",
+  "contentPack": 9999,
+  "name": "CustomInvocationFeatGrudgeBearerMonstrosity"
+}

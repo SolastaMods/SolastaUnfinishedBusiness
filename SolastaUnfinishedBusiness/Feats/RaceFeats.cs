@@ -43,6 +43,7 @@ internal static class RaceFeats
         var featGroupsElvenAccuracy = BuildElvenAccuracy(feats);
         var featGroupFadeAway = BuildFadeAway(feats);
         var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
+        var featGroupGrudgeBearer = BuildGrudgeBearer(feats);
         var featGroupOrcishAggression = BuildOrcishAggression(feats);
         var featGroupOrcishFury = BuildOrcishFury(feats);
         var featGroupRevenantGreatSword = BuildRevenant(feats);
@@ -72,6 +73,7 @@ internal static class RaceFeats
             featGroupsElvenAccuracy,
             featGroupFadeAway,
             featGroupFlamesOfPhlegethos,
+            featGroupGrudgeBearer,
             featGroupOrcishAggression,
             featGroupOrcishFury,
             featGroupRevenantGreatSword,
@@ -440,6 +442,136 @@ internal static class RaceFeats
             .AddToDB();
 
         return feat;
+    }
+
+    #endregion
+
+    #region Grudge Bearer
+
+    private static FeatDefinition BuildGrudgeBearer(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatGrudgeBearer";
+
+        var preferredEnemies = FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice.FeatureSet;
+        var preferredEnemySprites = new Dictionary<string, byte[]>
+        {
+            { "Aberration", Resources.PreferredEnemyAberration },
+            { "Beast", Resources.PreferredEnemyBeast },
+            { "Celestial", Resources.PreferredEnemyCelestial },
+            { "Construct", Resources.PreferredEnemyConstruct },
+            { "Dragon", Resources.PreferredEnemyDragon },
+            { "Elemental", Resources.PreferredEnemyElemental },
+            { "Fey", Resources.PreferredEnemyFey },
+            { "Fiend", Resources.PreferredEnemyFiend },
+            { "Giant", Resources.PreferredEnemyGiant },
+            { "Humanoid", Resources.PreferredEnemyHumanoid },
+            { "Monstrosity", Resources.PreferredEnemyMonstrosity },
+            { "Ooze", Resources.PreferredEnemyOoze },
+            { "Plant", Resources.PreferredEnemyPlant },
+            { "Undead", Resources.PreferredEnemyUndead }
+        };
+
+        foreach (var featureDefinitionPreferredEnemy in preferredEnemies.OfType<FeatureDefinitionAdditionalDamage>())
+        {
+            var familyName = featureDefinitionPreferredEnemy.RequiredCharacterFamily.Name;
+            var guiPresentation = featureDefinitionPreferredEnemy.RequiredCharacterFamily.GuiPresentation;
+            var sprite = Sprites.GetSprite(familyName, preferredEnemySprites[familyName], 128);
+            var enemyTitle = Gui.Localize($"CharacterFamily/&{familyName}Title");
+
+            var combatAffinity = FeatureDefinitionCombatAffinityBuilder
+                .Create($"CombatAffinity{Name}{familyName}")
+                .SetGuiPresentation("FeatGroupGrudgeBearer", Category.Feat, Gui.NoLocalization)
+                .SetAttackOnMeAdvantage(AdvantageType.Disadvantage)
+                .SetOtherCharacterFamilyRestrictions(familyName)
+                .AddToDB();
+
+            combatAffinity.AddCustomSubFeatures(new ModifyAttackActionModifierGrudgeBearer(combatAffinity, familyName));
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocation{Name}{familyName}")
+                .SetGuiPresentation(
+                    Gui.Format(guiPresentation.Title, enemyTitle),
+                    Gui.Format(guiPresentation.Description, enemyTitle),
+                    sprite)
+                .SetPoolType(InvocationPoolTypeCustom.Pools.GrudgeBearerChoice)
+                .SetGrantedFeature(combatAffinity)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
+                .AddToDB();
+        }
+
+        var invocationPool = CustomInvocationPoolDefinitionBuilder
+            .Create($"InvocationPool{Name}")
+            .SetGuiPresentationNoContent(true)
+            .Setup(InvocationPoolTypeCustom.Pools.GrudgeBearerChoice)
+            .AddToDB();
+
+        var featGrudgeBearerStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsDwarf)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, invocationPool)
+            .AddToDB();
+
+        var featGrudgeBearerCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsDwarf)
+            .SetFeatures(AttributeModifierCreed_Of_Arun, invocationPool)
+            .AddToDB();
+
+        var featGrudgeBearerWis = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Wis")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsDwarf)
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, invocationPool)
+            .AddToDB();
+
+        feats.AddRange(featGrudgeBearerStr, featGrudgeBearerCon, featGrudgeBearerWis);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupGrudgeBearer", Name, ValidatorsFeat.IsDwarf,
+            featGrudgeBearerStr, featGrudgeBearerCon, featGrudgeBearerWis);
+    }
+
+    private sealed class ModifyAttackActionModifierGrudgeBearer(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition, string familyName)
+        : IModifyAttackActionModifier
+    {
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            string effectName,
+            ref ActionModifier attackModifier)
+        {
+            if (defender is not RulesetCharacterMonster monster ||
+                monster.CharacterFamily != familyName)
+            {
+                return;
+            }
+
+            var battle = Gui.Battle;
+
+            // always grant advantage on battle round zero
+            if (battle == null)
+            {
+                attackModifier.AttackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+
+                return;
+            }
+
+            if (battle.CurrentRound > 1)
+            {
+                return;
+            }
+
+            // battle round one from here
+            attackModifier.AttackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+        }
     }
 
     #endregion
@@ -1113,13 +1245,13 @@ internal static class RaceFeats
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentation(Name, Category.Feat, FeatureDefinitionPowers.PowerPatronTimekeeperAccelerate)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerPatronTimekeeperAccelerate)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 0, TargetType.IndividualsUnique)
                     .Build())
             .AddToDB();
 
@@ -1127,8 +1259,9 @@ internal static class RaceFeats
             new ValidatorsValidatePowerUse(ValidatorsCharacter.HasMeleeWeaponInMainHand, _ => Gui.Battle != null),
             new CustomBehaviorOrcishAggression(power));
 
+        // kept name for backward compatibility
         FeatOrcishAggressionStr = FeatDefinitionWithPrerequisitesBuilder
-            .Create($"{Name}Str")
+            .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetValidators(ValidatorsFeat.IsHalfOrc)
             .SetFeatures(AttributeModifierCreed_Of_Einar, power)
@@ -1153,6 +1286,7 @@ internal static class RaceFeats
         FeatureDefinitionPower powerOrcishAggression)
         : IModifyEffectDescription, IMagicEffectFinishedByMe, IActionFinishedByMe, IFilterTargetingCharacter
     {
+        private const string UsedTacticalMoves = "UsedTacticalMoves";
         private CharacterActionParams _actionParams;
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
@@ -1160,14 +1294,13 @@ internal static class RaceFeats
             var actingCharacter = action.ActingCharacter;
 
             if (action is not CharacterActionMoveStepWalk ||
-                !actingCharacter.UsedSpecialFeatures.TryGetValue("UsedTacticalMoves", out var usedTacticalMoves))
+                !actingCharacter.UsedSpecialFeatures.TryGetValue(UsedTacticalMoves, out var usedTacticalMoves))
             {
                 yield break;
             }
 
             actingCharacter.UsedTacticalMoves = usedTacticalMoves;
-            actingCharacter.UsedSpecialFeatures.Remove("UsedTacticalMoves");
-            //actingCharacter.BurnOneMainAttack();
+            actingCharacter.UsedSpecialFeatures.Remove(UsedTacticalMoves);
         }
 
         public bool EnforceFullSelection => true;
@@ -1207,7 +1340,7 @@ internal static class RaceFeats
                     AttackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain)
                 };
 
-            actingCharacter.UsedSpecialFeatures.TryAdd("UsedTacticalMoves", actingCharacter.UsedTacticalMoves);
+            actingCharacter.UsedSpecialFeatures.TryAdd(UsedTacticalMoves, actingCharacter.UsedTacticalMoves);
             actingCharacter.UsedTacticalMoves = 0;
             ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(_actionParams, null, true);
 
@@ -1277,7 +1410,8 @@ internal static class RaceFeats
             var attackActionParams = new CharacterActionParams(
                 characterActionCharge.ActingCharacter, ActionDefinitions.Id.AttackFree,
                 characterActionCharge.ActionParams.AttackMode, characterActionCharge.ActionParams.TargetCharacters[0],
-                characterActionCharge.ActionParams.ActionModifiers[0]) { BoolParameter = true, BoolParameter2 = true };
+                characterActionCharge.ActionParams
+                    .ActionModifiers[0]); // { BoolParameter = true, BoolParameter2 = true };
             var characterActionAttack = new CharacterActionAttack(attackActionParams);
 
             characterActionCharge.ResultingActions.Add(characterActionMoveStepWalk);

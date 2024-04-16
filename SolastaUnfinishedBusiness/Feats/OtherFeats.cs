@@ -501,7 +501,7 @@ internal static class OtherFeats
 
         var invocationPool = CustomInvocationPoolDefinitionBuilder
             .Create($"InvocationPool{Name}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .Setup(InvocationPoolTypeCustom.Pools.WeaponMasterChoice, 4)
             .AddToDB();
 
