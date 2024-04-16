@@ -303,7 +303,7 @@ public sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            if (downedCreature.RulesetCharacter.HasConditionOfType(MarkDamagedByGambit))
+            if (!downedCreature.RulesetCharacter.HasConditionOfType(MarkDamagedByGambit))
             {
                 yield break;
             }
