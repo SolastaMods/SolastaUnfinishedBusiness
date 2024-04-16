@@ -4,7 +4,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -176,17 +175,11 @@ public sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        feature.AddCustomSubFeatures(new OnReducedToZeroHpByMeOvercomingStrategy(GambitsBuilders.GambitPool, feature));
-
         ConditionDefinitionBuilder
             .Create(MarkDamagedByGambit)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(
-                new RefundPowerUseWhenTargetWithConditionDies(GambitsBuilders.GambitPool, feature),
-                //by default this condition is applied under Effects tag, which is removed right at death - too early for us to detect
-                //this feature will add this effect under Combat tag, which is not removed
-                new ForceConditionCategory(AttributeDefinitions.TagCombat))
+            .AddCustomSubFeatures(new RefundPowerUseWhenTargetWithConditionDies(GambitsBuilders.GambitPool, feature))
             .SetSpecialDuration(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
             .AddToDB();
 
@@ -286,58 +279,10 @@ public sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    private class OnReducedToZeroHpByMeOvercomingStrategy(
+    private class RefundPowerUseWhenTargetWithConditionDies(
         FeatureDefinitionPower power,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition feature)
-        : IOnReducedToZeroHpByMe
-    {
-        public IEnumerator HandleReducedToZeroHpByMe(
-            GameLocationCharacter attacker,
-            GameLocationCharacter downedCreature,
-            RulesetAttackMode attackMode,
-            RulesetEffect activeEffect)
-        {
-            if (attacker.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (!downedCreature.RulesetCharacter.HasConditionOfType(MarkDamagedByGambit))
-            {
-                yield break;
-            }
-
-            if (attackMode == null)
-            {
-                yield break;
-            }
-
-            // once per turn
-            if (!attacker.OncePerTurnIsValid(feature.Name))
-            {
-                yield break;
-            }
-
-            var character = attacker.RulesetCharacter;
-
-            if (character is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
-            {
-                yield break;
-            }
-
-            attacker.UsedSpecialFeatures.TryAdd(feature.Name, 1);
-            character.LogCharacterUsedFeature(feature, indent: true);
-            character.UpdateUsageForPower(power, -1);
-        }
-    }
-
-    private class RefundPowerUseWhenTargetWithConditionDies(FeatureDefinitionPower power, FeatureDefinition feature)
         : IOnConditionAddedOrRemoved
     {
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -360,20 +305,15 @@ public sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            if (!character.HasAnyFeature(feature))
-            {
-                return;
-            }
+            var glc = GameLocationCharacter.GetFromActor(character);
 
-            var locCharacter = GameLocationCharacter.GetFromActor(character);
-
-            if (locCharacter == null)
+            if (glc == null)
             {
                 return;
             }
 
             // once per turn
-            if (!locCharacter.OncePerTurnIsValid("FeatureOvercomingStrategy"))
+            if (!glc.OncePerTurnIsValid(feature.Name))
             {
                 return;
             }
@@ -383,7 +323,7 @@ public sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            locCharacter.UsedSpecialFeatures.TryAdd("FeatureOvercomingStrategy", 1);
+            glc.UsedSpecialFeatures.TryAdd(feature.Name, 1);
             character.LogCharacterUsedFeature(feature, indent: true);
             character.UpdateUsageForPower(power, -1);
         }
@@ -391,8 +331,7 @@ public sealed class MartialTactician : AbstractSubclass
 
     private sealed class PhysicalAttackInitiatedByMeTacticalAwareness(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition)
-        : IPhysicalAttackInitiatedByMe
+        FeatureDefinition featureDefinition) : IPhysicalAttackInitiatedByMe
     {
         public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager battleManager,
