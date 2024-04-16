@@ -6,7 +6,7 @@
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
-    <DisplayFeatsToggle>false</DisplayFeatsToggle>
+    <DisplayFeatsToggle>true</DisplayFeatsToggle>
     <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
     <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
     <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
@@ -1005,8 +1005,6 @@
         <string>FeatAlwaysReady</string>
         <string>FeatGroupApothecary</string>
         <string>FeatArcaneArcherAdept</string>
-        <string>FeatArcaneDefense</string>
-        <string>FeatArcanePrecision</string>
         <string>FeatAstralArms</string>
         <string>FeatGroupAwakenTheBeastWithin</string>
         <string>FeatBladeMastery</string>
@@ -1016,8 +1014,6 @@
         <string>FeatCallForCharge</string>
         <string>FeatGroupCelestialTouched</string>
         <string>FeatCharger</string>
-        <string>FeatCharismaticDefense</string>
-        <string>FeatCharismaticPrecision</string>
         <string>FeatGroupChef</string>
         <string>FeatGroupCloseQuarters</string>
         <string>FeatRangedExpert</string>
@@ -1109,8 +1105,6 @@
         <string>FeatWarCaster</string>
         <string>FeatGroupWeaponMaster</string>
         <string>FeatZenArcher</string>
-        <string>FeatWiseDefense</string>
-        <string>FeatWisePrecision</string>
         <string>FeatWoodElfMagic</string>
     </FeatEnabled>
     <FeatGroupSliderPosition>4</FeatGroupSliderPosition>

@@ -32,7 +32,7 @@ internal static class PatchesDisplay
             var methodBases = _patches?.Keys
                 .Distinct()
                 .OrderBy(m => m.Name)
-                .ToArray() ?? Array.Empty<MethodBase>();
+                .ToArray() ?? [];
 
             UI.Label($"Total: {methodBases.Length.ToString().Cyan()}".Orange());
 
