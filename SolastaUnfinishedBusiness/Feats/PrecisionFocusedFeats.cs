@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -52,6 +53,7 @@ internal static class PrecisionFocusedFeats
                 powerArcanePrecision)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
             .SetFeatFamily(PrecisionFocused)
+            .AddCustomSubFeatures(FeatsContext.HideFromFeats.Marker)
             .AddToDB();
 
         // Charismatic Precision
@@ -89,6 +91,7 @@ internal static class PrecisionFocusedFeats
                 powerCharismaticPrecision)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
             .SetFeatFamily(PrecisionFocused)
+            .AddCustomSubFeatures(FeatsContext.HideFromFeats.Marker)
             .AddToDB();
 
         // Wise Precision
@@ -126,6 +129,7 @@ internal static class PrecisionFocusedFeats
                 powerWisePrecision)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
             .SetFeatFamily(PrecisionFocused)
+            .AddCustomSubFeatures(FeatsContext.HideFromFeats.Marker)
             .AddToDB();
 
         feats.AddRange(featArcanePrecision, featCharismaticPrecision, featWisePrecision);

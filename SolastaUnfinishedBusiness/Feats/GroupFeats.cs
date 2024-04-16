@@ -16,7 +16,7 @@ internal static class GroupFeats
     internal const string Crusher = "Crusher";
     internal const string OldTactics = "OldTactics";
     internal const string FightingStyle = "FightingStyle";
-    private static readonly List<FeatDefinition> Groups = [];
+    internal static List<FeatDefinition> Groups { get; } = [];
 
     internal static FeatDefinition FeatGroupBodyResilience { get; } = MakeGroup("FeatGroupBodyResilience", null,
         BadlandsMarauder,

@@ -45,6 +45,7 @@ internal static class FeatsContext
 
         // tweak the groups to make display simpler on mod UI
         Feats.RemoveWhere(x => x.FormatTitle().Contains("["));
+        Feats.RemoveWhere(x => x.HasSubFeatureOfType<HideFromFeats>());
 
         foreach (var child in AttributeDefinitions.AbilityScoreNames
                      .Select(attribute => DatabaseRepository.GetDatabase<FeatDefinition>()
@@ -64,8 +65,14 @@ internal static class FeatsContext
         }
 
         // sorting
-        Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
-        FeatGroups = FeatGroups.OrderBy(x => x.FormatTitle()).ToHashSet();
+        Feats = [.. Feats.OrderBy(x => x.FormatTitle())];
+        FeatGroups = [.. FeatGroups.OrderBy(x => x.FormatTitle())];
+
+        foreach (var groupedFeat in GroupFeats.Groups
+                     .Select(groupDefinition => groupDefinition.GetFirstSubFeatureOfType<GroupedFeat>()))
+        {
+            groupedFeat?.Feats.Sort((a, b) => String.CompareOrdinal(a.FormatTitle(), b.FormatTitle()));
+        }
 
         // settings paring feats
         foreach (var name in Main.Settings.FeatEnabled
@@ -83,7 +90,7 @@ internal static class FeatsContext
             Main.Settings.FeatGroupEnabled.Remove(name);
         }
 
-        // handle Half Attributes sub groups special case
+        // handle Half Attributes subgroups special case
         SwitchHalfAttributes(Main.Settings.FeatGroupEnabled.Contains("FeatGroupHalfAttributes"));
 
         // avoids restart on level up UI
@@ -295,5 +302,10 @@ internal static class FeatsContext
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(table);
+    }
+
+    internal sealed class HideFromFeats
+    {
+        internal static readonly HideFromFeats Marker = new();
     }
 }
