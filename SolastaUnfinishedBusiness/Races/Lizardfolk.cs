@@ -195,7 +195,10 @@ internal static class RaceLizardfolkBuilder
             return attacks;
         }
 
-        private static void ApplyAttackModeModifiers(GameLocationCharacter caster, RulesetAttackMode attackMode)
+        private static void ApplyAttackModeModifiers(
+            // ReSharper disable once SuggestBaseTypeForParameter
+            GameLocationCharacter caster,
+            RulesetAttackMode attackMode)
         {
             // for handling Pugilist bonus damage specifically
             if (caster.RulesetCharacter is not RulesetCharacterHero hero)
