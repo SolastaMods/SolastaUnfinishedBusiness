@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "ArmorClass",
+  "modifierOperation": "Set",
+  "modifierValue": 13,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "NotWearingArmor",
+  "minimum1": false,
+  "useBonusFromCaster": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AttributeModifierLizardfolkNaturalArmorTitle",
+    "description": "Feature/&AttributeModifierLizardfolkNaturalArmorDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5986ea6d-00f8-5e26-93ee-e8bbdccbe3cc",
+  "contentPack": 9999,
+  "name": "AttributeModifierLizardfolkNaturalArmor"
+}

@@ -1,6 +1,7 @@
 1.5.97.5:
 
 - added Bountiful Luck, Grudge Bearer, and Weapon Master feats
+- added Lizardfolk race [by Otearaisu]
 - balanced Burning Hex invocation to also apply on fire 1d6 condition for 1 minute
 - balanced Orcish Aggression to grant STR or CON, PB/LR, require melee, and finish charge with free main attack
 - balanced Vitriolist viscosity mixture power to apply hindered instead of confused
