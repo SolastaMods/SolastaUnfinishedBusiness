@@ -16,6 +16,7 @@
 - fixed Martial Warlord coordinated assault power to be once per turn
 - fixed Path of The Totem bear totem power to not force disadvantage against source
 - fixed Patron Celestial healing light power missing from action bar
+- fixed Patron Mountain eternal guardian power not reducing damage from barrier of stone
 
 1.5.97.4:
 

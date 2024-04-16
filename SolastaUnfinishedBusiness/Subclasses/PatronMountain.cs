@@ -142,11 +142,10 @@ public class PatronMountain : AbstractSubclass
         // Eternal Guardian
 
         var powerEternalGuardian = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}EternalGuardian")
-            .SetGuiPresentation(Category.Feature)
+            .Create(powerBarrierOfStone, $"Power{Name}EternalGuardian")
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
             .SetOverriddenPower(powerBarrierOfStone)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         powerBarrierOfStone.AddCustomSubFeatures(
