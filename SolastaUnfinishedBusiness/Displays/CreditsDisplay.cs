@@ -68,7 +68,7 @@ internal static class CreditsDisplay
         ("RedOrca", "Path of the Light"),
         ("HIEROT", "Patron Eldritch Surge"),
 
-        ("Otearaisu", "Aasimar, Battleborn, Goliath, Oni, Wendigo, Wildling, Wyrmkin"),
+        ("Otearaisu", "Aasimar, Battleborn, Goliath, Lizardfolk, Oni, Wendigo, Wildling, Wyrmkin"),
         ("Remunos", "Ironborn Dwarf, Obsidian Dwarf"),
         ("Holic75", "Firbolg"),
         ("Bazou", "fighting styles, rules, spells"),

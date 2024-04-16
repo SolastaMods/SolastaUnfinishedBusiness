@@ -1,0 +1,10 @@
+Feature/&AttributeModifierLizardfolkNaturalArmorDescription=当你不穿盔甲时，你的基础AC是13+你的敏捷调整值。当你使用天生护甲时，护盾的好处照常适用。
+Feature/&AttributeModifierLizardfolkNaturalArmorTitle=天然护甲
+Feature/&FeatureLizardfolkClawsDescription=你可以用你的爪子进行徒手攻击。用它们攻击会造成 1d6 + 你的力量调整值的挥砍伤害，而不是徒手攻击通常造成的钝击伤害。
+Feature/&FeatureLizardfolkClawsTitle=利爪
+Feature/&PointPoolLizardfolkNaturesIntuitionDescription=您精通以下您选择的技能之一：动物处理、医学、自然、感知、隐秘、生存。
+Feature/&PointPoolLizardfolkNaturesIntuitionTitle=自然的直觉
+Feature/&PowerLizardfolkHungryJawsDescription=你可能会陷入疯狂的进食状态。作为奖励动作，你可以用爪子进行特殊攻击。如果攻击命中，则会造成正常伤害，并且你会获得相当于你的熟练加值的临时生命值。你可以使用该特质的次数等于你的熟练加值，并且当你完成长时间休息后，你会重新获得所有消耗的使用次数。
+Feature/&PowerLizardfolkHungryJawsTitle=血腥利爪
+Race/&RaceLizardfolkDescription=一些贤者认为蜥蜴人是龙裔和狗头人的远房表亲。然而，尽管蜥蜴人与其他鳞片种族很相似，但他们是自己的人民，并且自世界创造以来就生活在主物质位面的世界上。蜥蜴人被众神赋予了非凡的物理防御能力和与自然世界的神秘联系，他们可以在对其他人来说是致命的情况下仅靠自己的智慧生存。正因为如此，许多蜥蜴人神话都声称他们的人民被众神安置在主物质位面来守护其自然奇观。
+Race/&RaceLizardfolkTitle=蜥蜴人

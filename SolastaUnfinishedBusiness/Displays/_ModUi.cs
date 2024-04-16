@@ -191,6 +191,7 @@ internal static class ModUi
         "RaceHalfElfHigh",
         "RaceHalfElfSylvan",
         // "RaceTiefling",
+        "RaceLizardfolk",
         "RaceTieflingDevilTongue",
         "RaceTieflingFeral",
         "RaceTieflingMephistopheles",

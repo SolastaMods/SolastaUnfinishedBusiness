@@ -1,25 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
-using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
-using SolastaUnfinishedBusiness.Subclasses;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Interfaces;
-using System.Linq;
 using static ActionDefinitions;
-using System.Collections;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
-using System;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -27,19 +25,22 @@ internal static class RaceLizardfolkBuilder
 {
     private const string Name = "Lizardfolk";
     private const string TagHungryJaws = "TagHungryJaws";
+
+    private static readonly WeaponDescription HungryJawsWeaponDescription =
+        new(ItemDefinitions.UnarmedStrikeBase.WeaponDescription);
+
     internal static CharacterRaceDefinition RaceLizardfolk { get; } = BuildLizardfolk();
-    internal static WeaponDescription hungryJawsWeaponDescription;
 
     [NotNull]
     private static CharacterRaceDefinition BuildLizardfolk()
     {
         // custom effects on hit
-        hungryJawsWeaponDescription = CustomWeaponsContext.UnarmedStrikeClaws.WeaponDescription.DeepCopy();
-        hungryJawsWeaponDescription.WeaponTypeDefinition.meleeImpactParticleReference =
+        HungryJawsWeaponDescription.WeaponTypeDefinition.meleeImpactParticleReference =
             SpellDefinitions.InflictWounds.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         var attributeModifierLizardfolkNaturalArmor = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}NaturalArmor")
+            .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.ArmorClass, 13)
             .SetSituationalContext(SituationalContext.NotWearingArmor)
             .AddToDB();
@@ -65,12 +66,11 @@ internal static class RaceLizardfolkBuilder
 
         var powerLizardfolkHungryJaws = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HungryJaws")
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetGuiPresentation(Category.Feature, Sprites.GetSprite(Name, Resources.PowerHungryJaws, 256, 128))
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .Build())
             .AddToDB();
@@ -99,7 +99,7 @@ internal static class RaceLizardfolkBuilder
                 pointPoolLizardfolkNaturesIntuition,
                 featureLizardfolkClaws,
                 powerLizardfolkHungryJaws
-                )
+            )
             .AddToDB();
 
         RacesContext.RaceScaleMap[raceLizardfolk] = 5.4f / 6.4f;
@@ -110,6 +110,8 @@ internal static class RaceLizardfolkBuilder
 
     private sealed class AttackAfterMagicEffectHungryJaws : IAttackAfterMagicEffect
     {
+        private const int MaxAttacks = 1;
+
         public IAttackAfterMagicEffect.CanAttackHandler CanAttack { get; } =
             CanMeleeAttack;
 
@@ -144,15 +146,18 @@ internal static class RaceLizardfolkBuilder
             {
                 return attacks;
             }
-            RulesetAttackMode attackMode = null;
-            var attackModifiers = rulesetCharacter is RulesetCharacterHero hero ?
-                hero.attackModifiers : rulesetCharacter is RulesetCharacterMonster monster 
-                ? monster.attackModifiers : new List<IAttackModificationProvider>();
 
-            attackMode = rulesetCharacter.TryRefreshAttackMode(
+            var attackModifiers = rulesetCharacter switch
+            {
+                RulesetCharacterHero hero => hero.attackModifiers,
+                RulesetCharacterMonster monster => monster.attackModifiers,
+                _ => []
+            };
+
+            var attackMode = rulesetCharacter.TryRefreshAttackMode(
                 ActionType.NoCost,
                 CustomWeaponsContext.UnarmedStrikeClaws,
-                hungryJawsWeaponDescription,
+                HungryJawsWeaponDescription,
                 ValidatorsCharacter.IsFreeOffhandVanilla(rulesetCharacter),
                 true,
                 EquipmentDefinitions.SlotTypeOffHand,
@@ -162,29 +167,26 @@ internal static class RaceLizardfolkBuilder
 
             attackMode.HasPriority = true;
 
-            
             //get copy to be sure we don't break existing mode
             var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
             rulesetAttackModeCopy.Copy(attackMode);
 
             attackMode = rulesetAttackModeCopy;
-            
             attackMode.AddAttackTagAsNeeded(TagHungryJaws);
             ApplyAttackModeModifiers(caster, attackMode);
-            var maxAttacks = 1;
 
             var attackModifier = new ActionModifier();
 
             foreach (var target in targets.Where(t => CanMeleeAttack(caster, t)))
             {
                 var attackActionParams =
-                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
+                    new CharacterActionParams(caster, Id.AttackFree) { AttackMode = attackMode };
 
                 attackActionParams.TargetCharacters.Add(target);
                 attackActionParams.ActionModifiers.Add(attackModifier);
                 attacks.Add(attackActionParams);
 
-                if (attackActionParams.TargetCharacters.Count >= maxAttacks)
+                if (attackActionParams.TargetCharacters.Count >= MaxAttacks)
                 {
                     break;
                 }
@@ -227,21 +229,17 @@ internal static class RaceLizardfolkBuilder
             return true;
         }
     }
-    internal class PhysicalAttackFinishedByMeHungryJaws : IPhysicalAttackFinishedByMe
+
+    private class PhysicalAttackFinishedByMeHungryJaws(FeatureDefinitionPower powerHungryJaws)
+        : IPhysicalAttackFinishedByMe
     {
-        private FeatureDefinitionPower power;
-
-        public PhysicalAttackFinishedByMeHungryJaws(FeatureDefinitionPower power)
-        {
-            this.power = power;
-        }
-
-        public IEnumerator OnPhysicalAttackFinishedByMe(GameLocationBattleManager battleManager, 
-            CharacterAction action, 
-            GameLocationCharacter attacker, 
-            GameLocationCharacter defender, 
-            RulesetAttackMode attackMode, 
-            RollOutcome rollOutcome, 
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             if (!attackMode.AttackTags.Contains(TagHungryJaws))
@@ -249,19 +247,18 @@ internal static class RaceLizardfolkBuilder
                 yield break;
             }
 
-            if (action.AttackRollOutcome != RollOutcome.Success
-                && action.AttackRollOutcome != RollOutcome.CriticalSuccess)
+            // regain charge if missed
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
-                // regain charge if missed
-                attacker.RulesetCharacter.UpdateUsageForPower(power, -1);
+                attacker.RulesetCharacter.UpdateUsageForPower(powerHungryJaws, -1);
+
                 yield break;
             }
 
             var bonus = attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
             attacker.RulesetCharacter.ReceiveTemporaryHitPoints(
                 bonus, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, attacker.RulesetCharacter.Guid);
-            yield break;
         }
     }
 }
-

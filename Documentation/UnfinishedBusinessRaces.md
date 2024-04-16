@@ -586,7 +586,48 @@ Common, Draconic.
 
 
 
-# 23. - Mephistopheles
+# 23. - Lizardfolk
+
+The saurian lizardfolk are thought by some sages to be distant cousins of dragonborn and kobolds. Despite their resemblance to those other scaled folk, however, lizardfolk are their own people and have lived on the worlds of the Material Plane since the worlds’ creation. Gifted by the gods with remarkable physical defenses and a mystical connection to the natural world, lizardfolk can survive with just their wits in situations that would be deadly for other folk. Because of that fact, many lizardfolk myths state that their people were placed by the gods in the Material Plane to guard its natural wonders.
+
+
+## Level 1
+
+* Ability Score Increase
+
+Use three boosts on ability scores in any combination of your choosing.
+
+* Blooding Claws
+
+You can throw yourself into a feeding frenzy. As a bonus action, you can make a special attack with your claws. If the attack hits, it deals its normal damage, and you gain temporary hit points equal to your proficiency bonus. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. 
+
+* Claws
+
+You can use your claws to make an unarmed strike. Attacking with them deal 1d6 + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike.
+
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
+* Languages
+
+Common and one language of your choice.
+
+* Move
+
+6◎
+
+* Natural Armor
+
+When you aren't wearing armor, your base AC is 13 + your Dexterity modifier. A shield�s benefits apply as normal while you use your natural armor.
+
+* Nature's Intuition
+
+You are proficient with one of the following skills of your choice: Animal Handling, Medicine, Nature, Perception, Stealth, Survival.
+
+
+
+# 24. - Mephistopheles
 
 Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
 
@@ -603,7 +644,7 @@ You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th 
 
 
 
-# 24. - Obsidian Dwarf
+# 25. - Obsidian Dwarf
 
 In ages past, a group of dwarves were enslaved by fire giants as miners and craftsmen. The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors. The dwarves rebelled, won their freedom, and retreated to the Badlands. Calling themselves the Obsidian Dwarves, they have grown and prospered.
 
@@ -624,7 +665,7 @@ Common, Dwarvish, and Giant
 
 
 
-# 25. - Oni
+# 26. - Oni
 
 Oni are Demon-like creatures from far eastern island kingdom of Himoto. They came to Solasta through activated major gates.
 
@@ -661,7 +702,7 @@ At 3rd level, you can cast Thunderous Smite once per long rest. Wisdom is your s
 
 
 
-# 26. - Tiefling
+# 27. - Tiefling
 
 One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
 
@@ -686,7 +727,7 @@ You have resistance to fire damage.
 
 
 
-# 27. - Warforged
+# 28. - Warforged
 
 The battleborn are results of arcane experiments, blending flesh, alchemy and magic to create perfect battlefield soldiers. Created to serve as weapons, they must now find a purpose beyond war. A battleborn can be a loyal ally, a cold-hearted killing machine, or a wandering soul searching for purpose and meaning.
 
@@ -719,7 +760,7 @@ You gain one skill proficiency and one tool proficiency of your choice.
 
 
 
-# 28. - Wendigo
+# 29. - Wendigo
 
 Wendigos arrived in Solasta through the rift during the Cataclysm. Stealthy despite their size, Wendigos would lunge at unsuspecting victims with their long arms.
 
@@ -764,7 +805,7 @@ On the first round of combat, if you hit a creature with an attack roll and it's
 
 
 
-# 29. - Wildling
+# 30. - Wildling
 
 Wildlings are offsprings of humans and tieflings that mostly inherited the tiefling parent's feral characteristics. Different in looks and nature, wildlings have spent most of their lives in forests or other less inhabited regions of Solasta as self-sufficient hunters and travelers.
 
@@ -805,7 +846,7 @@ You have proficiency in Perception and Stealth skills.
 
 
 
-# 30. - Wyrmkin
+# 31. - Wyrmkin
 
 Wyrmkins are larger cousins of Dragonborns descended from another race of dragons. Unlike Dragonborns, they can see in the dark.
 
@@ -826,7 +867,7 @@ Common, Draconic.
 
 
 
-# 31. - Zariel
+# 32. - Zariel
 
 Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 
