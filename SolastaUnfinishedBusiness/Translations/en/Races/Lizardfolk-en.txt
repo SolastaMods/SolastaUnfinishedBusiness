@@ -1,4 +1,4 @@
-Feature/&AttributeModifierLizardfolkNaturalArmorDescription=When you aren't wearing armor, your base AC is 13 + your Dexterity modifier. A shield�s benefits apply as normal while you use your natural armor.
+Feature/&AttributeModifierLizardfolkNaturalArmorDescription=When you aren't wearing armor, your base AC is 13 + your Dexterity modifier. A shield's benefits apply as normal while you use your natural armor.
 Feature/&AttributeModifierLizardfolkNaturalArmorTitle=Natural Armor
 Feature/&FeatureLizardfolkClawsDescription=You can use your claws to make an unarmed strike. Attacking with them deal 1d6 + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike.
 Feature/&FeatureLizardfolkClawsTitle=Claws
