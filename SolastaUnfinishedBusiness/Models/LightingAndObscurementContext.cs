@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using TA;
 using UnityEngine;
 using static LocationDefinitions;
+using static SenseMode;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.EffectProxyDefinitions;
@@ -150,22 +151,22 @@ internal static class LightingAndObscurementContext
 
         static bool BlindedAdvantage(RuleDefinitions.TrendInfo trendInfo)
         {
-            return trendInfo.sourceName == ConditionBlinded.Name && trendInfo.value == 1;
+            return trendInfo is { sourceName: RuleDefinitions.ConditionBlinded, value: 1 };
         }
 
         static bool BlindedDisadvantage(RuleDefinitions.TrendInfo trendInfo)
         {
-            return trendInfo.sourceName == ConditionBlinded.Name && trendInfo.value == -1;
+            return trendInfo is { sourceName: RuleDefinitions.ConditionBlinded, value: -1 };
         }
 
         static bool InvisibleAdvantage(RuleDefinitions.TrendInfo trendInfo)
         {
-            return trendInfo.sourceName == ConditionInvisibleBase.Name && trendInfo.value == 1;
+            return trendInfo is { sourceName: RuleDefinitions.ConditionInvisible, value: 1 };
         }
 
         static bool InvisibleDisadvantage(RuleDefinitions.TrendInfo trendInfo)
         {
-            return trendInfo.sourceName == ConditionInvisibleBase.Name && trendInfo.value == -1;
+            return trendInfo is { sourceName: RuleDefinitions.ConditionInvisible, value: -1 };
         }
 
         // conditions with parent inherit their features which makes true sight quite hard to manage
@@ -181,7 +182,7 @@ internal static class LightingAndObscurementContext
             if (attackerActor is RulesetCharacter attackerCharacter)
             {
                 var senseModeTrueSightAttacker =
-                    attackerCharacter.SenseModes.FirstOrDefault(x => x.SenseType == SenseMode.Type.Truesight);
+                    attackerCharacter.SenseModes.FirstOrDefault(x => x.SenseType == Type.Truesight);
 
                 if (senseModeTrueSightAttacker != null &&
                     attacker.IsWithinRange(defender, senseModeTrueSightAttacker.SenseRange))
@@ -194,7 +195,7 @@ internal static class LightingAndObscurementContext
             if (defenderActor is RulesetCharacter defenderCharacter)
             {
                 var senseModeTrueSightDefender =
-                    defenderCharacter.SenseModes.FirstOrDefault(x => x.SenseType == SenseMode.Type.Truesight);
+                    defenderCharacter.SenseModes.FirstOrDefault(x => x.SenseType == Type.Truesight);
 
                 if (senseModeTrueSightDefender != null &&
                     defender.IsWithinRange(attacker, senseModeTrueSightDefender.SenseRange))
@@ -296,7 +297,7 @@ internal static class LightingAndObscurementContext
         var targetIsInvisible =
             target != null && target.RulesetActor.HasConditionOfTypeOrSubType(ConditionInvisible.Name);
 
-        var senseModesToPrevent = new List<SenseMode.Type>();
+        var senseModesToPrevent = new List<Type>();
 
         if (target != null)
         {
@@ -319,63 +320,63 @@ internal static class LightingAndObscurementContext
             var senseType = senseMode.SenseType;
 
             // UNLIT
-            if (targetLightingState is LightingState.Unlit && senseType is SenseMode.Type.NormalVision)
+            if (targetLightingState is LightingState.Unlit && senseType is Type.NormalVision)
             {
                 continue;
             }
 
             // MAGICAL DARKNESS
             if (sourceIsBlindFromDarkness && senseType is
-                    SenseMode.Type.DetectInvisibility or
-                    SenseMode.Type.NormalVision or
-                    SenseMode.Type.Darkvision or
-                    SenseMode.Type.SuperiorDarkvision)
+                    Type.DetectInvisibility or
+                    Type.NormalVision or
+                    Type.Darkvision or
+                    Type.SuperiorDarkvision)
             {
                 continue;
             }
 
             if (targetLightingState is LightingState.Darkness && senseType is
-                    SenseMode.Type.DetectInvisibility or
-                    SenseMode.Type.NormalVision or
-                    SenseMode.Type.Darkvision or
-                    SenseMode.Type.SuperiorDarkvision)
+                    Type.DetectInvisibility or
+                    Type.NormalVision or
+                    Type.Darkvision or
+                    Type.SuperiorDarkvision)
             {
                 continue;
             }
 
             // HEAVILY OBSCURED
             if (sourceIsBlindNotFromDarkness && senseType is
-                    SenseMode.Type.DetectInvisibility or
-                    SenseMode.Type.NormalVision or
-                    SenseMode.Type.Darkvision or
-                    SenseMode.Type.SuperiorDarkvision or
-                    SenseMode.Type.Truesight)
+                    Type.DetectInvisibility or
+                    Type.NormalVision or
+                    Type.Darkvision or
+                    Type.SuperiorDarkvision or
+                    Type.Truesight)
             {
                 continue;
             }
 
             if (targetLightingState is (LightingState)MyLightingState.HeavilyObscured && senseType is
-                    SenseMode.Type.DetectInvisibility or
-                    SenseMode.Type.NormalVision or
-                    SenseMode.Type.Darkvision or
-                    SenseMode.Type.SuperiorDarkvision or
-                    SenseMode.Type.Truesight)
+                    Type.DetectInvisibility or
+                    Type.NormalVision or
+                    Type.Darkvision or
+                    Type.SuperiorDarkvision or
+                    Type.Truesight)
             {
                 continue;
             }
 
             // TREMOR SENSE
-            if (targetIsNotTouchingGround && senseType is SenseMode.Type.Tremorsense)
+            if (targetIsNotTouchingGround && senseType is Type.Tremorsense)
             {
                 continue;
             }
 
             // INVISIBLE
             if (targetIsInvisible && senseType is
-                    SenseMode.Type.NormalVision or
-                    SenseMode.Type.Darkvision or
-                    SenseMode.Type.SuperiorDarkvision or
-                    SenseMode.Type.Truesight)
+                    Type.NormalVision or
+                    Type.Darkvision or
+                    Type.SuperiorDarkvision or
+                    Type.Truesight)
             {
                 continue;
             }
@@ -787,12 +788,10 @@ internal static class LightingAndObscurementContext
             // vanilla has this set as disadvantage so we flip it with nullified requirements
             CombatAffinityHeavilyObscured.attackOnMeAdvantage = RuleDefinitions.AdvantageType.Advantage;
             CombatAffinityHeavilyObscured.nullifiedBySenses = [];
-            CombatAffinityHeavilyObscured.nullifiedBySelfSenses =
-                [SenseMode.Type.Blindsight, SenseMode.Type.Tremorsense];
+            CombatAffinityHeavilyObscured.nullifiedBySelfSenses = [Type.Blindsight, Type.Tremorsense];
 
             CombatAffinityHeavilyObscuredSelf.nullifiedBySenses = [];
-            CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses =
-                [SenseMode.Type.Blindsight, SenseMode.Type.Tremorsense];
+            CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses = [Type.Blindsight, Type.Tremorsense];
         }
         else
         {
@@ -849,16 +848,33 @@ internal static class LightingAndObscurementContext
 
             // vanilla has this set as disadvantage so we flip it with nullified requirements
             CombatAffinityHeavilyObscured.attackOnMeAdvantage = RuleDefinitions.AdvantageType.Disadvantage;
-            CombatAffinityHeavilyObscured.nullifiedBySenses =
-                [SenseMode.Type.Truesight, SenseMode.Type.Blindsight];
+            CombatAffinityHeavilyObscured.nullifiedBySenses = [Type.Truesight, Type.Blindsight];
             CombatAffinityHeavilyObscured.nullifiedBySelfSenses = [];
 
             CombatAffinityHeavilyObscuredSelf.nullifiedBySenses = [];
-            CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses =
-                [SenseMode.Type.Truesight, SenseMode.Type.Blindsight];
+            CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses = [Type.Truesight, Type.Blindsight];
         }
 
         SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
+    }
+
+    internal static void SwitchInvisibleCreaturesCanBeTarget()
+    {
+        var modSenses = new List<Type> { Type.Blindsight, Type.Tremorsense, Type.Truesight, Type.DetectInvisibility };
+        var vanillaSenses = new List<Type> { Type.Truesight, Type.DetectInvisibility };
+
+        if (Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget)
+        {
+            ConditionInvisibleBase.Features.SetRange(CombatAffinityInvisible);
+            CombatAffinityInvisible.nullifiedBySenses = modSenses;
+            CombatAffinityInvisibleStalker.nullifiedBySenses = modSenses;
+        }
+        else
+        {
+            ConditionInvisibleBase.Features.SetRange(CombatAffinityInvisible, PerceptionAffinityConditionInvisible);
+            CombatAffinityInvisible.nullifiedBySenses = vanillaSenses;
+            CombatAffinityInvisibleStalker.nullifiedBySenses = vanillaSenses;
+        }
     }
 
     internal static void SwitchHeavilyObscuredOnObscurementRules()

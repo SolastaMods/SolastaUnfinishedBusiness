@@ -237,6 +237,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
     public bool UseOfficialLightingObscurementAndVisionRules { get; set; }
+    public bool OfficialObscurementRulesInvisibleCreaturesCanBeTarget { get; set; }
     public bool OfficialObscurementRulesCancelAdvDisPairs { get; set; }
     public bool OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker { get; set; }
     public bool OfficialObscurementRulesMagicalDarknessAsProjectileBlocker { get; set; }

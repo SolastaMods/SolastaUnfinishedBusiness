@@ -214,6 +214,7 @@ ModUi/&NoExperienceOnLevelUp=레벨 업에 경험치가 필요하지 않게 설�
 ModUi/&OfferAdditionalLoreFriendlyNames=캐릭터 생성 시 세계관에 어울리는 이름을 추가
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ <color=#D89555>장점 / 단점</color> 맹목 및 인식 쌍 취소 <color=#F0DAA0>[공식 <color=#D89555>장점 / 단점</color> 규칙과 함께 유용함]< /색상></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ <color=#D89555>심하게 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>클라우드 킬</color>, <color=#D89555>안개 구름 </color>, <color=#D89555>발화 구름</color>, <color=#D89555>꽃잎 폭풍</color>, <color=#D89555>진눈깨비</color>, <color=#D89555> 악취나는 구름</color>]</color></i>
+ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 투명 생물은 심하게 가려져 표적이 될 수 있으며 생물에 대한 공격 굴림에는 불리한 점이 있고 생물의 공격 굴림에는 이점이 있습니다.</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>마법으로 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>어둠</color> 주문 효과의 모든 소스]</color ></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 필요할 때마다 몬스터와 NPC에 <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> 및 <color=#D89555>TrueSight</color>를 추가합니다.\n <color=#F0DAA0>[설정 컬렉션 <b>암흑시야를 가져야 하는 괴물</b>, <b>진정한 시야를 가져야 하는 괴물</b>, <b>눈이 멀게 해야 하는 괴물</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 주문 목록에서 가장 강력한 크리쳐만 표시</i>

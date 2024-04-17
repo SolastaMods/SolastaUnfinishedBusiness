@@ -214,6 +214,7 @@ ModUi/&NoExperienceOnLevelUp=升级不需要经验
 ModUi/&OfferAdditionalLoreFriendlyNames=在角色创建时提供额外的知识友好名称
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 取消<color=#D89555>优势/劣势</color>盲法和感知对<color=#F0DAA0>[与官方<color=#D89555>优势/劣势</color>规则结合使用]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ 将<color=#D89555>重度遮蔽</color>区域更改为射弹阻挡器<color=#F0DAA0>[<color=#D89555>死云术</color>、<color=#D89555>云雾术</color>、<color=#D89555>焚云术</color>、<color=#D89555>花瓣风暴</color>、<color=#D89555>雪雨暴</color>、<color=#D89555>臭云术</color>]</color></i>
+ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 隐形生物被严重遮挡，可以成为目标，针对该生物的攻击检定具有劣势，而该生物的攻击检定具有优势</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ 将<color=#D89555>魔法遮蔽</color>区域更改为射弹阻挡器<color=#F0DAA0>[<color=#D89555>黑暗术</color>法术效果的任何来源]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 在适当的时候向怪物和 NPC 添加 <color=#D89555>黑暗视觉</color>、<color=#D89555>盲视</color> 和 <color=#D89555>真实视觉</color>\n <color=#F0DAA0>[设置集合<b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+只显示魔法列表中最强大的生物</i>

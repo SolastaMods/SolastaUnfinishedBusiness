@@ -214,6 +214,7 @@ ModUi/&NoExperienceOnLevelUp=レベルアップに経験は必要ありません
 ModUi/&OfferAdditionalLoreFriendlyNames=キャラクター作成時に追加の伝承にわかりやすい名前を提供する
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ <color=#D89555>有利 / 不利</color> の盲目および認識されたペアをキャンセル<color=#F0DAA0>[公式の<color=#D89555>有利 / 不利</color> ルールと併用すると便利]< /カラー></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+<color=#D89555>非常に遮蔽された</color>エリアを発射物ブロッカーに変更<color=#F0DAA0>[<color=#D89555>クラウドキル</color>、<color=#D89555>フォグクラウド</color>、<color=#D89555>焼夷雲</color>、<color=#D89555>ペタルストーム</color>、<color=#D89555>みぞれの嵐</color>、<color=#D89555>臭い雲</color>]</color></i>
+ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 目に見えないクリーチャーはかなり隠されており、対象となる可能性があり、そのクリーチャーに対する攻撃ロールは不利になり、クリーチャーの攻撃ロールは有利になります</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+<color=#D89555>魔法で隠された</color>エリアを発射物ブロッカーに変更<color=#F0DAA0>[<color=#D89555>ダークネス</color>の呪文効果の発生源]</color ></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 必要に応じて、<color=#D89555>ダークビジョン</color>、<color=#D89555>ブラインドサイト</color>、<color=#D89555>トゥルーサイト</color>をモンスターやNPCに追加します\n <color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストで最も強力なクリーチャーのみを表示</i>
