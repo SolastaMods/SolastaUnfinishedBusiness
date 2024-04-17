@@ -3,6 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -14,6 +15,7 @@ using static RuleDefinitions;
 using static AttributeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
@@ -43,7 +45,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
                 // Dexterity Checks
                 SkillDefinitions.Acrobatics,
                 // Charisma Checks
-                SkillDefinitions.Perception)
+                SkillDefinitions.Performance)
             .AddToDB();
 
         // Elegant Fighting
@@ -52,15 +54,16 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
         var conditionElegantFightingInitiative = ConditionDefinitionBuilder
             .Create($"Condition{Name}ElegantFightingInitiative")
-            .SetGuiPresentation(ElegantFightingName, Category.Feature, Gui.NoLocalization)
-            .SetPossessive()
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}ElegantFightingInitiative")
                     .SetGuiPresentation(ElegantFightingName, Category.Feature, Gui.NoLocalization)
                     .SetAddConditionAmount(Initiative)
-                    .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmorOrShield)
+                    .SetSituationalContext(SituationalContext.NotWearingArmorOrShield)
                     .AddToDB())
+            .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
             .AddToDB();
 
@@ -68,86 +71,68 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .Create($"AttributeModifier{Name}ElegantFightingArmorClass")
             .SetGuiPresentation(ElegantFightingName, Category.Feature, Gui.NoLocalization)
             .SetDexPlusAbilityScore(ArmorClass, Charisma)
-            .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmorOrShield)
-            .AddCustomSubFeatures(
-                new CharacterBattleStartedListenerElegantFightingInitiative(conditionElegantFightingInitiative))
+            .SetSituationalContext(SituationalContext.NotWearingArmorOrShield)
             .AddToDB();
 
-        const string ElegantStepsName = $"Power{Name}ElegantSteps";
+        attributeModifierElegantStepsArmorClass.AddCustomSubFeatures(
+            new CharacterBattleStartedListenerElegantFightingInitiative(
+                attributeModifierElegantStepsArmorClass, conditionElegantFightingInitiative));
 
-        var conditionElegantSteps = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ElegantSteps")
-            .SetGuiPresentation(ElegantStepsName, Category.Feature, Gui.NoLocalization)
-            .SetFeatures(
-                FeatureDefinitionActionAffinityBuilder
-                    .Create($"ActionAffinity{Name}ElegantSteps")
-                    .SetGuiPresentation(ElegantStepsName, Category.Feature, Gui.NoLocalization)
-                    .SetAuthorizedActions(
-                        ActionDefinitions.Id.DashBonus,
-                        ActionDefinitions.Id.DisengageBonus,
-                        ActionDefinitions.Id.HideBonus)
-                    .AddToDB())
+        var powerDash = FeatureDefinitionPowerBuilder
+            .Create(PowerMonkStepOfTheWindDash, $"Power{Name}Dash")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield))
             .AddToDB();
 
-        var powerElegantSteps = FeatureDefinitionPowerBuilder
-            .Create(ElegantStepsName)
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionElegantSteps))
-                    .Build())
+        var powerDisengage = FeatureDefinitionPowerBuilder
+            .Create(PowerMonkStepOftheWindDisengage, $"Power{Name}Disengage")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
             .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(
-                    ValidatorsCharacter.HasNoneOfConditions(conditionElegantSteps.Name),
-                    ValidatorsCharacter.HasAvailableBonusAction))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield))
+            .AddToDB();
+
+        var powerDodge = FeatureDefinitionPowerBuilder
+            .Create(PowerMonkPatientDefense, $"Power{Name}Dodge")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield))
             .AddToDB();
 
         var featureSetElegantFighting = FeatureDefinitionFeatureSetBuilder
             .Create(ElegantFightingName)
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(attributeModifierElegantStepsArmorClass, powerElegantSteps)
+            .SetFeatureSet(attributeModifierElegantStepsArmorClass, powerDash, powerDisengage, powerDodge)
             .AddToDB();
 
         // LEVEL 06
 
         // Evasive Footwork
 
-        const string EvasiveFootworkName = $"Power{Name}EvasiveFootwork";
-
         var conditionEvasiveFootwork = ConditionDefinitionBuilder
             .Create($"Condition{Name}EvasiveFootwork")
-            .SetGuiPresentation(EvasiveFootworkName, Category.Feature, Gui.NoLocalization)
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}EvasiveFootwork")
-                    .SetGuiPresentation(EvasiveFootworkName, Category.Feature, Gui.NoLocalization)
+                    .SetGuiPresentationNoContent(true)
                     .SetAddConditionAmount(ArmorClass)
                     .AddToDB())
+            .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddToDB();
 
-        var powerEvasiveFootwork = FeatureDefinitionPowerBuilder
-            .Create(EvasiveFootworkName)
+        var featureEvasiveFootwork = FeatureDefinitionBuilder
+            .Create($"Feature{Name}EvasiveFootwork")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionEvasiveFootwork))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerKnightLeadership)
-                    .Build())
             .AddToDB();
 
-        powerEvasiveFootwork.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
-            new AttackBeforeHitPossibleOnMeOrAllyEvasiveFootwork(powerEvasiveFootwork, conditionEvasiveFootwork));
+        featureEvasiveFootwork.AddCustomSubFeatures(
+            new AttackBeforeHitPossibleOnMeOrAllyEvasiveFootwork(featureEvasiveFootwork, conditionEvasiveFootwork));
 
         // Extra Attack
 
@@ -175,7 +160,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .AddToDB();
 
         conditionAmazingDisplay.GuiPresentation.description = Gui.NoLocalization;
-        
+
         var conditionAmazingDisplayMarker = ConditionDefinitionBuilder
             .Create($"Condition{Name}AmazingDisplayMarker")
             .SetGuiPresentationNoContent(true)
@@ -243,7 +228,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CollegeOfWarDancer, 256))
             .AddFeaturesAtLevel(3, dieRollModifierGrace, featureSetElegantFighting)
-            .AddFeaturesAtLevel(6, powerEvasiveFootwork, AttributeModifierCasterFightingExtraAttack)
+            .AddFeaturesAtLevel(6, featureEvasiveFootwork, AttributeModifierCasterFightingExtraAttack)
             .AddFeaturesAtLevel(14, featureSetAmazingDisplay)
             .AddToDB();
     }
@@ -258,7 +243,10 @@ public sealed class CollegeOfElegance : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class CharacterBattleStartedListenerElegantFightingInitiative(
-        BaseDefinition conditionElegantFightingInitiative) : ICharacterBattleStartedListener
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAttributeModifier attributeModifierElegantFightingInitiative,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionElegantFightingInitiative) : ICharacterBattleStartedListener
     {
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
@@ -279,11 +267,18 @@ public sealed class CollegeOfElegance : AbstractSubclass
                 dieRoll,
                 0,
                 0);
+
+            rulesetCharacter.LogCharacterUsedFeature(
+                attributeModifierElegantFightingInitiative,
+                "Feedback/&EvasiveFootworkInitiativeIncrease", true,
+                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
         }
     }
 
     private class AttackBeforeHitPossibleOnMeOrAllyEvasiveFootwork(
-        FeatureDefinitionPower powerEvasiveFootwork,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureEvasiveFootwork,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionEvasiveFootwork) : IAttackBeforeHitPossibleOnMeOrAlly
     {
@@ -341,21 +336,11 @@ public sealed class CollegeOfElegance : AbstractSubclass
                 yield break;
             }
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerEvasiveFootwork, rulesetHelper);
-            var actionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "EvasiveFootwork",
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
-            var reactionRequest = new ReactionRequestCustom(Name, actionParams);
+            var actionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            {
+                StringParameter = "Reaction/&CustomReactionEvasiveFootworkDescription"
+            };
+            var reactionRequest = new ReactionRequestCustom("EvasiveFootwork", actionParams);
             var count = actionManager.PendingReactionRequestGroups.Count;
 
             actionManager.AddInterruptRequest(reactionRequest);
@@ -367,17 +352,28 @@ public sealed class CollegeOfElegance : AbstractSubclass
                 yield break;
             }
 
-            if (!rulesetHelper.TryGetConditionOfCategoryAndType(
-                    TagEffect, conditionEvasiveFootwork.Name, out var activeCondition))
-            {
-                yield break;
-            }
-
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
-            activeCondition.amount = dieRoll;
+            rulesetHelper.InflictCondition(
+                conditionEvasiveFootwork.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                TagEffect,
+                rulesetHelper.guid,
+                rulesetHelper.CurrentFaction.Name,
+                1,
+                conditionEvasiveFootwork.Name,
+                dieRoll,
+                0,
+                0);
 
-            rulesetHelper.RefreshArmorClass();
+            EffectHelpers.StartVisualEffect(defender, defender, PowerKnightLeadership, EffectHelpers.EffectType.Effect);
+            rulesetHelper.LogCharacterUsedFeature(
+                featureEvasiveFootwork,
+                "Feedback/&EvasiveFootworkACIncrease", true,
+                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
         }
     }
 

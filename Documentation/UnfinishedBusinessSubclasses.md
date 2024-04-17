@@ -663,7 +663,7 @@ The College of Elegance is the home of bards who mastered the art of bodily moti
 You express your battle arts through nimbleness and movement. While you are wearing no armor and not wielding a shield, you gain the following benefits:
 • Your Armor Class equals 10 + your Dexterity modifier + your Charisma modifier.
 • Whenever you roll initiative, you add your Bardic Inspiration die to your initiative.
-• You can expend a Bardic Inspiration die and use your bonus action to gain benefits of Dash or Disengage actions. 
+• You can expend a Bardic Inspiration die and use your bonus action to gain benefits of Dash, Disengage or Dodge actions. 
 
 * Grace
 
@@ -672,13 +672,13 @@ When you make a Charisma (Performance) or Dexterity (Acrobatics) check, you can 
 
 ### Level 6
 
-* Evasive Footwork 
-
-Whenever an attack is about to hit you, and you are wearing no armor and not wielding a shield, you can use your reaction to add your Bardic Inspiration die to your Armor Class for that attack, potentially causing it to miss. 
-
 * Extra Attack
 
 You gain an extra attack and can now attack up to 2 times in your turn.
+
+* Feature/&FeatureCollegeOfEleganceEvasiveFootworkTitle
+
+Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription
 
 
 ### Level 14

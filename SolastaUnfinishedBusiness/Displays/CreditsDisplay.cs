@@ -15,15 +15,14 @@ internal static class CreditsDisplay
     private static bool _displayPatches;
 #endif
 
-    // ReSharper disable once MemberCanBePrivate.Global
-    internal static readonly List<(string, string)> CreditsTable =
+    private static readonly List<(string, string)> CreditsTable =
     [
         ("Zappastuff",
             "gameplay, infrastructure, maintenance, mod UI, quality of life, rules, " +
             "backgrounds, feats, fighting styles, maneuvers, invocations, metamagic, spells, " +
             "Fairy, Half-elf, Tiefling, " +
             "Circle of the Ancient Forest, Circle of the Eternal Grove, Circle of the Stars, " +
-            "College of Eloquence, College of Life, College of Swords, College of Thespian, College of Valor, " +
+            "College of Elegance, College of Eloquence, College of Life, College of Swords, College of Thespian, College of Valor, " +
             "Innovation Artillerist, Innovation Vitriolist, Innovation Vivisectionist, " +
             "Martial Arcane Archer, Martial Banneret, Martial Guardian, Martial Psi Warrior, Martial Warlord, Martial Weapon Master, " +
             "Oath of Altruism, Oath of Dread, Oath of Thunder, " +
@@ -39,7 +38,7 @@ internal static class CreditsDisplay
         ("HiddenHax",
             "quality assurance, SFX, sprites, homebrew design [" +
             "Circle of the Eternal Grove, " +
-            "College of Swords, College of Thespian, College of Eloquence, " +
+            "College of Elegance, College of Eloquence, College of Swords, College of Thespian, " +
             "Martial Arcane Archer, Martial Guardian, Martial Psi Warrior, Martial Warlord, Martial Weapon Master, " +
             "Oath of Dread, " +
             "Path of the Elements, Path of the Ravager, Path of the Reaver, Path of the Savagery, " +

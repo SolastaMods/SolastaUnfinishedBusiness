@@ -9,7 +9,7 @@
   "validityContext": "AbilityCheck",
   "validSkills": [
     "Acrobatics",
-    "Perception"
+    "Performance"
   ],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,

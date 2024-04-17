@@ -7,7 +7,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
-    "itemSelectionType": "None",
+    "itemSelectionType": "Equiped",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -17,7 +17,7 @@
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
-    "targetFilteringMethod": "CharacterOnly",
+    "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -30,10 +30,10 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
+    "targetSide": "Enemy",
     "durationType": "Round",
-    "durationParameter": 0,
-    "endOfEffect": "EndOfTurn",
+    "durationParameter": 1,
+    "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -67,7 +67,7 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 1,
+        "levelMultiplier": 0,
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
@@ -75,11 +75,11 @@
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
+        "saveOccurence": "StartOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionCollegeOfEleganceEvasiveFootwork",
-          "conditionDefinition": "Definition:ConditionCollegeOfEleganceEvasiveFootwork:36cc9d51-b6ac-57c5-968b-92c42aab364d",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionDodgingPatientDefense:98edcd71a1453784dbfc6f9246211d15",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a0d09c5799993824a985192a9026fb4f",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -249,7 +249,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a9d1125f03ed66a4482a3dc3be9308fc",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -261,7 +261,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e3712590851cdf84ba480fad91059b34",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -292,7 +292,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -315,7 +315,7 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
+  "abilityScore": "Charisma",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
@@ -328,13 +328,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCollegeOfEleganceEvasiveFootworkTitle",
-    "description": "Feature/&PowerCollegeOfEleganceEvasiveFootworkDescription",
+    "title": "Feature/&PowerCollegeOfEleganceDodgeTitle",
+    "description": "Feature/&PowerCollegeOfEleganceDodgeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "af9d07858e9c30649a612fc1e1087035",
+      "m_SubObjectName": "PatientDefense",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -349,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7fbbe855-f9ab-5ee4-b8b9-dc803ccb3b4b",
+  "guid": "c94eebe7-d727-5d16-be60-0c130a91345d",
   "contentPack": 9999,
-  "name": "PowerCollegeOfEleganceEvasiveFootwork"
+  "name": "PowerCollegeOfEleganceDodge"
 }

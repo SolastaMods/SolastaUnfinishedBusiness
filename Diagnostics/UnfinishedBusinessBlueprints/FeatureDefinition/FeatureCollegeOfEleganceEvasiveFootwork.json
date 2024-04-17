@@ -1,17 +1,10 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "SetWithDexPlusOtherAbilityScoreBonusIfBetter",
-  "modifierValue": 10,
-  "modifierAbilityScore": "Charisma",
-  "situationalContext": "NotWearingArmorOrShield",
-  "minimum1": true,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetCollegeOfEleganceElegantFightingTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&FeatureCollegeOfEleganceEvasiveFootworkTitle",
+    "description": "Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4a0d527c-57c7-543a-bb6e-a8c0437d5fca",
+  "guid": "283399c1-2184-5ef0-8344-ed5527356844",
   "contentPack": 9999,
-  "name": "AttributeModifierCollegeOfEleganceElegantFightingArmorClass"
+  "name": "FeatureCollegeOfEleganceEvasiveFootwork"
 }

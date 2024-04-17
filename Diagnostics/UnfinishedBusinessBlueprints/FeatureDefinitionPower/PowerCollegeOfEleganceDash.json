@@ -7,7 +7,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
-    "itemSelectionType": "None",
+    "itemSelectionType": "Equiped",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -17,7 +17,7 @@
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
-    "targetFilteringMethod": "CharacterOnly",
+    "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -30,7 +30,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
+    "targetSide": "Enemy",
     "durationType": "Round",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
@@ -67,7 +67,7 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 1,
+        "levelMultiplier": 0,
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
@@ -75,11 +75,11 @@
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
+        "saveOccurence": "StartOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionCollegeOfEleganceElegantSteps",
-          "conditionDefinition": "Definition:ConditionCollegeOfEleganceElegantSteps:de326c5c-249e-58d6-96e1-7b272eea8bac",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionDashingBonusStepOfTheWind:f632b0b5deb722b438276d2864001a2a",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -292,7 +292,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -315,7 +315,7 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
+  "abilityScore": "Charisma",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
@@ -328,13 +328,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCollegeOfEleganceElegantStepsTitle",
-    "description": "Feature/&PowerCollegeOfEleganceElegantStepsDescription",
+    "title": "Feature/&PowerCollegeOfEleganceDashTitle",
+    "description": "Feature/&PowerCollegeOfEleganceDashDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "d8e96a65908c8174297a08ca2aeb3a27",
+      "m_SubObjectName": "StepOfTheWindDash",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -349,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e9ab4b19-05d3-5da3-b985-1cf4ddd1530d",
+  "guid": "68a9b74d-5071-57f8-a3d4-c777f46e89c4",
   "contentPack": 9999,
-  "name": "PowerCollegeOfEleganceElegantSteps"
+  "name": "PowerCollegeOfEleganceDash"
 }
