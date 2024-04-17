@@ -3,18 +3,16 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:ActionAffinityCollegeOfEleganceElegantSteps:4fc4dd7f-b83a-5fbb-beac-beb10e13cfe7"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
+  "specialDuration": true,
+  "durationType": "UntilAnyRest",
   "durationParameterDie": "D4",
-  "durationParameter": 1,
+  "durationParameter": 0,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
@@ -129,8 +127,8 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerCollegeOfEleganceElegantStepsTitle",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "de326c5c-249e-58d6-96e1-7b272eea8bac",
+  "guid": "d5128081-6b01-5168-95e4-8acce239ba2b",
   "contentPack": 9999,
-  "name": "ConditionCollegeOfEleganceElegantSteps"
+  "name": "ConditionCollegeOfEleganceAmazingDisplayMarker"
 }

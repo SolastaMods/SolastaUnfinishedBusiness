@@ -15,17 +15,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerLizardfolkHungryJaws:4a3567e3-1747-59b1-a62e-93d3fd8cb32d",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureLizardfolkClaws:91701ff4-6a19-5300-90f4-65378290c008",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerLizardfolkHungryJaws:4a3567e3-1747-59b1-a62e-93d3fd8cb32d",
       "level": 1
     },
     {

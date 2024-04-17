@@ -1,16 +1,27 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Initiative",
-  "modifierOperation": "AddConditionAmount",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "NotWearingArmorOrMageArmorOrShield",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
+  "allowedActionTypes": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+  ],
+  "eitherMainOrBonus": false,
+  "maxAttacksNumber": -1,
+  "forbiddenActions": [],
+  "authorizedActions": [],
+  "restrictedActions": [],
+  "actionExecutionModifiers": [],
+  "specialBehaviour": "None",
+  "randomBehaviorDie": "D10",
+  "randomBehaviourOptions": [],
+  "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetCollegeOfEleganceElegantFightingTitle",
+    "title": "Feature/&FeatureSetCollegeOfEleganceAmazingDisplayTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -31,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "77e99247-1df6-545f-8a09-d30fd2122b5f",
+  "guid": "66761f7b-66c6-5e1d-a27a-5c6823fd6f51",
   "contentPack": 9999,
-  "name": "AttributeModifierCollegeOfEleganceElegantFightingInitiative"
+  "name": "ActionAffinityCollegeOfEleganceAmazingDisplay"
 }

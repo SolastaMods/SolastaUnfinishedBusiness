@@ -2,9 +2,10 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
-    "Definition:ActionAffinityCollegeOfEleganceElegantSteps:4fc4dd7f-b83a-5fbb-beac-beb10e13cfe7"
+    "Definition:ActionAffinityCollegeOfEleganceAmazingDisplay:66761f7b-66c6-5e1d-a27a-5c6823fd6f51",
+    "Definition:MovementAffinityCollegeOfEleganceAmazingDisplay:a3913032-93b8-515b-875c-2b616e16cd9a"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -130,13 +131,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCollegeOfEleganceElegantStepsTitle",
+    "title": "Feature/&FeatureSetCollegeOfEleganceAmazingDisplayTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "5d503f63f4583dd4a9bd2460a783a470",
+      "m_SubObjectName": "ConditionSlowed",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +152,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "de326c5c-249e-58d6-96e1-7b272eea8bac",
+  "guid": "0fbf92d0-a246-5b69-b014-de638e90604b",
   "contentPack": 9999,
-  "name": "ConditionCollegeOfEleganceElegantSteps"
+  "name": "ConditionCollegeOfEleganceAmazingDisplay"
 }
