@@ -128,7 +128,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>�
 ModUi/&EnableMonkWeaponSpecialization=在<color=#D89555>武僧</color> 2 级和 11 级启用<b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
-ModUi/&EnableRangerNatureShroudAt10=在<color=#D89555>游侠</color> 10 级启用<b>自然面纱</b>特性<i><color=#F0DAA0>[作为附赠动作，你可以神奇地变得隐形，直到下回合开始]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=在<color=#D89555>游侠</color> 10 级启用<b>自然面纱</b>特性<i><color=#F0DAA0>[作为附赠动作，你可以魔法地变得隐形，直到下回合开始]</color></i>
 ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于 5 人或 6 人的队伍]</color></i>
 ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的戏法或法术</i>
 ModUi/&EnableRespec=在休息操作后启用洗点
@@ -207,14 +207,14 @@ ModUi/&MaxAllowedClasses=<color=white>最大允许职业</color>
 ModUi/&Merchants=<color=#F0DAA0>商家：</color>
 ModUi/&Metamagic=<color=#F0DAA0>超魔</color>
 ModUi/&Monsters=<color=#F0DAA0>怪物：</color>
-ModUi/&MovementGridWidthModifier=<color=white>将移动网格宽度乘以</color> <color=#C04040E0>[%]</color>
+ModUi/&MovementGridWidthModifier=<color=white>将移动格子宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>点击法术会反转消耗的默认曲目槽类型\n<i><color=#F0DAA0>[<color=#D89555>术士</color>消耗白色法术位，其他职业消耗绿色的]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>乘以获得的经验</color><color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=升级不需要经验
 ModUi/&OfferAdditionalLoreFriendlyNames=在角色创建时提供额外的知识友好名称
-ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 取消<color=#D89555>优势/劣势</color>盲法和感知对<color=#F0DAA0>[与官方<color=#D89555>优势/劣势</color>规则结合使用]</color></i>
+ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 取消对目盲、隐形和感知到的<color=#D89555>优势/劣势</color><color=#F0DAA0>[与官方<color=#D89555>优势/劣势</color>规则结合使用]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ 将<color=#D89555>重度遮蔽</color>区域更改为射弹阻挡器<color=#F0DAA0>[<color=#D89555>死云术</color>、<color=#D89555>云雾术</color>、<color=#D89555>焚云术</color>、<color=#D89555>花瓣风暴</color>、<color=#D89555>雪雨暴</color>、<color=#D89555>臭云术</color>]</color></i>
-ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 隐形生物被严重遮挡，可以成为目标，针对该生物的攻击检定具有劣势，而该生物的攻击检定具有优势</i>
+ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 隐形生物被重度遮蔽，可以成为目标，针对该生物的攻击检定具有劣势，而该生物的攻击检定具有优势</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ 将<color=#D89555>魔法遮蔽</color>区域更改为射弹阻挡器<color=#F0DAA0>[<color=#D89555>黑暗术</color>法术效果的任何来源]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 在适当的时候向怪物和 NPC 添加 <color=#D89555>黑暗视觉</color>、<color=#D89555>盲视</color> 和 <color=#D89555>真实视觉</color>\n <color=#F0DAA0>[设置集合<b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+只显示魔法列表中最强大的生物</i>
