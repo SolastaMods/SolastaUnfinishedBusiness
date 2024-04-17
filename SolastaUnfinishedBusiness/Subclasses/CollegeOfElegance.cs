@@ -190,7 +190,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "AmazingDisplayToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
-            .SetActionId(ExtraActionId.ImpishWrathToggle)
+            .SetActionId(ExtraActionId.AmazingDisplayToggle)
             .SetActivatedPower(powerAmazingDisplay)
             .AddToDB();
 
