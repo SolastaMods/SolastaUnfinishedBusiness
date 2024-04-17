@@ -119,7 +119,6 @@ public sealed class RangerSurvivalist : AbstractSubclass
         var conditionImprovedDisablingStrike = ConditionDefinitionBuilder
             .Create(conditionDisablingStrike, $"Condition{Name}ImprovedDisablingStrike")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetParentCondition(ConditionDefinitions.ConditionHindered)
             .AddFeatures(attributeModifierImprovedDisablingStrike)
             .AddToDB();
 

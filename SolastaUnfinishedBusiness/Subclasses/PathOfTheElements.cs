@@ -328,7 +328,6 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         var conditionElementalConduitStorm = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}{ElementalConduit}Storm")
-            .SetParentCondition(ConditionDefinitions.ConditionFlying)
             // don't use vanilla RageStop with permanent conditions
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .AddToDB();

@@ -113,7 +113,6 @@ internal static class RaceTieflingBuilder
 
         var conditionTieflingFeralWings = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, "ConditionTieflingFeralWings")
-            .SetParentCondition(ConditionDefinitions.ConditionFlying)
             .AddToDB();
 
         conditionTieflingFeralWings.AddCustomSubFeatures(new CheckTieflingFeralFlying(conditionTieflingFeralWings));

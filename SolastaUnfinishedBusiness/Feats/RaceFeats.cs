@@ -535,8 +535,8 @@ internal static class RaceFeats
 
     private sealed class ModifyAttackActionModifierGrudgeBearer(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition, string familyName)
-        : IModifyAttackActionModifier
+        FeatureDefinition featureDefinition,
+        string familyName) : IModifyAttackActionModifier
     {
         public void OnAttackComputeModifier(
             RulesetCharacter myself,

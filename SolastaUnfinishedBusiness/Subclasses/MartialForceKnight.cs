@@ -282,14 +282,11 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             var conditionPsionicPropulsion = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionFlying, $"Condition{Name}PsionicPropulsion{i}")
-                .SetGuiPresentation($"Power{Name}PsionicPropulsion", Category.Feature,
-                    ConditionDefinitions.ConditionFlying)
+                .SetOrUpdateGuiPresentation($"Power{Name}PsionicPropulsion", Category.Feature)
                 .SetPossessive()
                 .SetParentCondition(ConditionDefinitions.ConditionFlying)
                 .SetFeatures(moveModeFly, moveModeMove, FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging)
                 .AddToDB();
-
-            conditionPsionicPropulsion.GuiPresentation.description = Gui.NoLocalization;
 
             // there is indeed a typo on tag
             // ReSharper disable once StringLiteralTypo
