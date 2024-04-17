@@ -1,6 +1,7 @@
 1.5.97.5:
 
 - added Bountiful Luck, Grudge Bearer, and Weapon Master feats
+- added College of Elegance subclass [design by HiddenHax]
 - added Lizardfolk race [by Otearaisu]
 - added official invisibility rules under lightning and obscurement rules
 - balanced Burning Hex invocation to also apply on fire 1d6 condition for 1 minute

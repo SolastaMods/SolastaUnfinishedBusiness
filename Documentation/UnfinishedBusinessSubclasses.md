@@ -651,7 +651,45 @@ Increase the damage dice of longbows from d8 to d12. While raging and not wearin
 
 # Bard
 
-## 1. College of Eloquence
+## 1. College of Elegance
+
+The College of Elegance is the home of bards who mastered the art of bodily motion. They see exquisite beauty in dancing and expressing oneself through mesmerizing gestures, wearing flashy outfits and oftentimes looking to be the center of attention. In combat, these bards weave elegant steps seamlessly into battle maneuvers, pairing them with a weapon of choice and creating an unforgettable spectacle for friends and foes alike. 
+
+
+### Level 3
+
+* Elegant Fighting
+
+You express your battle arts through nimbleness and movement. While you are wearing no armor and not wielding a shield, you gain the following benefits:
+• Your Armor Class equals 10 + your Dexterity modifier + your Charisma modifier.
+• Whenever you roll initiative, you add your Bardic Inspiration die to your initiative.
+• You can expend a Bardic Inspiration die and use your bonus action to gain benefits of Dash or Disengage actions. 
+
+* Grace
+
+When you make a Charisma (Performance) or Dexterity (Acrobatics) check, you can treat a d20 roll of 9 or lower as a 10.
+
+
+### Level 6
+
+* Evasive Footwork 
+
+Whenever an attack is about to hit you, and you are wearing no armor and not wielding a shield, you can use your reaction to add your Bardic Inspiration die to your Armor Class for that attack, potentially causing it to miss. 
+
+* Extra Attack
+
+You gain an extra attack and can now attack up to 2 times in your turn.
+
+
+### Level 14
+
+* Amazing Display
+
+Whenever you take the Attack action, you can perform an impressive set of moves that leave your enemies in amazement. All enemy creatures within 30 feet of you that can see you must pass a Wisdom saving throw against your spellcasting DC or become amazed until the end of your next turn. Amazed creatures cannot use reactions and have their movement speed reduced to 0. Creatures that are immune to charm are also immune to this effect. Whether a creature passes or fails the saving throw, it becomes immune to further amazed effects. You can use this feature a number of times per long rest equal to your proficiency bonus.
+
+
+
+## 2. College of Eloquence
 
 Bards of the College of Eloquence use music and unwavering determination to embolden the hearts of their allies, while demoralizing their enemies. Drawing inspiration from the stories of heroes of old, great deeds and extraordinary events, these bards courageously fight to preserve their ideals, leaving a long-lasting impression on those around them.
 
@@ -686,7 +724,7 @@ You can use your bonus action to activate Heroic Inspiration. Heroic Inspiration
 
 
 
-## 2. College of Life
+## 3. College of Life
 
 Masters of manipulating both matter and life energy.
 
@@ -727,7 +765,7 @@ You have immunity to necrotic damage, and your hit point maximum can't be reduce
 
 
 
-## 3. College of Swords
+## 4. College of Swords
 
 Bards of the College of Swords entertain through daring feats of weapon prowess. They perform stunts such as sword swallowing, knife throwing and juggling, and mock combats. Though they use their weapons to entertain, they are also highly trained and skilled warriors in their own right.
 
@@ -769,7 +807,7 @@ Whenever you use an Audacious Whirl option, you can roll a D6 and use it instead
 
 
 
-## 4. College of Thespian
+## 5. College of Thespian
 
 College of Thespian bards see no distinction between art and war. They see it as their duty to keep the legend of the great battle of the Cataclysm alive through their performance, either on stage, or on the battlefield.
 
@@ -812,7 +850,7 @@ Any creature that fails its saving throw against your Terrific Performance also 
 
 
 
-## 5. College of Valor
+## 6. College of Valor
 
 Bards of the College of Valor gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
 
@@ -847,7 +885,7 @@ You can use your arcane powers to shield yourself as a reaction. This gives you 
 
 
 
-## 6. College of War Dancer
+## 7. College of War Dancer
 
 College of War Dancer bards are master the art of fighting who considers the battle field is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
 

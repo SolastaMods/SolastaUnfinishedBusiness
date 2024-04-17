@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AttributeModifierCollegeOfEleganceElegantFightingArmorClass:4a0d527c-57c7-543a-bb6e-a8c0437d5fca",
+    "Definition:PowerCollegeOfEleganceElegantSteps:e9ab4b19-05d3-5da3-b985-1cf4ddd1530d"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetCollegeOfEleganceElegantFightingTitle",
+    "description": "Feature/&FeatureSetCollegeOfEleganceElegantFightingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "153891d0-5813-576f-b56b-c69aa32c90ca",
+  "contentPack": 9999,
+  "name": "FeatureSetCollegeOfEleganceElegantFighting"
+}
