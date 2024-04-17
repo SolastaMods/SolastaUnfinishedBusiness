@@ -728,6 +728,7 @@ internal static class LightingAndObscurementContext
         }
 
         SwitchHeavilyObscuredOnObscurementRules();
+        SwitchInvisibleCreaturesCanBeTarget();
         SwitchMagicalDarknessOnObscurementRules();
         SwitchMonstersOnObscurementRules();
 

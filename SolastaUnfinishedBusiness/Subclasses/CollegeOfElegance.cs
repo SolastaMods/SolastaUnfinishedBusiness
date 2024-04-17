@@ -49,7 +49,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
         // Elegant Fighting
 
         const string ElegantFightingName = $"FeatureSet{Name}ElegantFighting";
-        
+
         var conditionElegantFightingInitiative = ConditionDefinitionBuilder
             .Create($"Condition{Name}ElegantFightingInitiative")
             .SetGuiPresentation(ElegantFightingName, Category.Feature, Gui.NoLocalization)
@@ -74,7 +74,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .AddToDB();
 
         const string ElegantStepsName = $"Power{Name}ElegantSteps";
-        
+
         var conditionElegantSteps = ConditionDefinitionBuilder
             .Create($"Condition{Name}ElegantSteps")
             .SetGuiPresentation(ElegantStepsName, Category.Feature, Gui.NoLocalization)
@@ -101,7 +101,9 @@ public sealed class CollegeOfElegance : AbstractSubclass
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionElegantSteps))
                     .Build())
             .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionElegantSteps.Name)))
+                new ValidatorsValidatePowerUse(
+                    ValidatorsCharacter.HasNoneOfConditions(conditionElegantSteps.Name),
+                    ValidatorsCharacter.HasAvailableBonusAction))
             .AddToDB();
 
         var featureSetElegantFighting = FeatureDefinitionFeatureSetBuilder
@@ -115,7 +117,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
         // Evasive Footwork
 
         const string EvasiveFootworkName = $"Power{Name}EvasiveFootwork";
-        
+
         var conditionEvasiveFootwork = ConditionDefinitionBuilder
             .Create($"Condition{Name}EvasiveFootwork")
             .SetGuiPresentation(EvasiveFootworkName, Category.Feature, Gui.NoLocalization)
@@ -155,6 +157,32 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
         const string AmazingDisplayName = $"FeatureSet{Name}AmazingDisplay";
 
+        var conditionAmazingDisplay = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AmazingDisplay")
+            .SetGuiPresentation(AmazingDisplayName, Category.Feature, ConditionDefinitions.ConditionSlowed)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{Name}AmazingDisplay")
+                    .SetGuiPresentation(AmazingDisplayName, Category.Feature, Gui.NoLocalization)
+                    .SetAllowedActionTypes(reaction: false)
+                    .AddToDB(),
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create($"MovementAffinity{Name}AmazingDisplay")
+                    .SetGuiPresentation(AmazingDisplayName, Category.Feature, Gui.NoLocalization)
+                    .SetBaseSpeedMultiplicativeModifier(0)
+                    .AddToDB())
+            .AddToDB();
+
+        conditionAmazingDisplay.GuiPresentation.description = Gui.NoLocalization;
+        
+        var conditionAmazingDisplayMarker = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AmazingDisplayMarker")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.UntilAnyRest)
+            .AddToDB();
+
         var powerAmazingDisplayEnemy = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AmazingDisplayEnemy")
             .SetGuiPresentation(AmazingDisplayName, Category.Feature)
@@ -166,11 +194,11 @@ public sealed class CollegeOfElegance : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, Wisdom, true, EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionAmazingDisplayMarker),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(ConditionDefinitions.ConditionHindered,
-                                ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionAmazingDisplay, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
@@ -184,7 +212,8 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .AddToDB();
 
         powerAmazingDisplay.AddCustomSubFeatures(
-            new PhysicalAttackFinishedByMeAmazingDisplay(powerAmazingDisplay, powerAmazingDisplayEnemy));
+            new PhysicalAttackFinishedByMeAmazingDisplay(
+                conditionAmazingDisplayMarker, powerAmazingDisplay, powerAmazingDisplayEnemy));
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "AmazingDisplayToggle")
@@ -276,7 +305,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
             {
                 yield break;
             }
-            
+
             if (rulesetEffect != null &&
                 rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
             {
@@ -353,6 +382,8 @@ public sealed class CollegeOfElegance : AbstractSubclass
     }
 
     private class PhysicalAttackFinishedByMeAmazingDisplay(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionAmazingDisplayMarker,
         FeatureDefinitionPower powerAmazingDisplay,
         FeatureDefinitionPower powerAmazingDisplayEnemy) : IPhysicalAttackFinishedByMe
     {
@@ -381,14 +412,23 @@ public sealed class CollegeOfElegance : AbstractSubclass
             {
                 yield break;
             }
-            
+
             var targets = Gui.Battle.GetContenders(attacker, hasToPerceivePerceiver: true, withinRange: 6);
+
+            // remove enemies previously target by amazing display
+            targets.RemoveAll(x =>
+                x.RulesetCharacter.HasConditionOfCategoryAndType(TagEffect, conditionAmazingDisplayMarker.Name));
+
+            // remove enemies immune to charmed
+            targets.RemoveAll(x =>
+                x.RulesetCharacter.GetFeaturesByType<IConditionAffinityProvider>().Any(y =>
+                    y.ConditionAffinityType == ConditionAffinityType.Immunity && y.ConditionType == ConditionCharmed));
 
             if (targets.Count == 0)
             {
                 yield break;
             }
-            
+
             var usablePower = PowerProvider.Get(powerAmazingDisplay, rulesetAttacker);
 
             rulesetAttacker.UsePower(usablePower);
@@ -406,7 +446,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
                     UsablePower = usablePowerEnemy,
                     targetCharacters = targets
                 };
-            
+
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<ICommandService>()?
                 .ExecuteAction(actionParams, null, true);
