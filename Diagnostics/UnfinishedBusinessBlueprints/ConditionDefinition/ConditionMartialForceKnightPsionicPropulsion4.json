@@ -271,7 +271,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&PowerMartialForceKnightPsionicPropulsionTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&PowerMartialForceKnightPsionicPropulsionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "77cdd4e7a89c9c04c934505ffedebdfa",

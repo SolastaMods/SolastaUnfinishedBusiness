@@ -619,7 +619,7 @@ Common and one language of your choice.
 
 * Natural Armor
 
-When you aren't wearing armor, your base AC is 13 + your Dexterity modifier. A shield�s benefits apply as normal while you use your natural armor.
+When you aren't wearing armor, your base AC is 13 + your Dexterity modifier. A shield's benefits apply as normal while you use your natural armor.
 
 * Nature's Intuition
 
