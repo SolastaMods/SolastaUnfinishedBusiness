@@ -76,3 +76,4 @@ Spell/&VitalityTransferDescription=Sacrificas parte de tu salud para reparar las
 Spell/&VitalityTransferTitle=Transferencia de vida
 Spell/&WinterBreathDescription=Crea una ráfaga de viento frío para congelar a tus enemigos y derribarlos.
 Spell/&WinterBreathTitle=Aliento de invierno
+Tooltip/&MustBeAuraOfLife=Debe estar dentro del rango del Aura de Vitalidad

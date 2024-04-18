@@ -76,3 +76,4 @@ Spell/&VitalityTransferDescription=Вы жертвуете своим здоро
 Spell/&VitalityTransferTitle=Передача жизни
 Spell/&WinterBreathDescription=Создайте порыв холодного ветра, чтобы заморозить врагов и сбить их с ног.
 Spell/&WinterBreathTitle=Дыхание зимы
+Tooltip/&MustBeAuraOfLife=Должно находиться в пределах диапазона Ауры Живучести.

@@ -1,12 +1,12 @@
-Feature/&FeatureWayOfWealAndWoeBrutalWealDescription=After you make an attack roll with a monk weapon or a unarmed attack, and critically hit, you deal additional damage equal to one roll of your martial arts die.
+Feature/&FeatureWayOfWealAndWoeBrutalWealDescription=After you make an attack roll with a monk weapon or an unarmed attack, and critically hit, you deal additional damage equal to one roll of your martial arts die.
 Feature/&FeatureWayOfWealAndWoeBrutalWealTitle=Brutal Weal
-Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=After you make an attack roll with a monk weapon or a unarmed attack, and critically hit, you refund 1 Ki point.
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=After you make an attack roll with a monk weapon or an unarmed attack, and critically hit, you refund 1 Ki point.
 Feature/&FeatureWayOfWealAndWoeSelfPropelledWealTitle=Propelled Weal
-Feature/&FeatureWayOfWealAndWoeTheirWoeDescription=After you make an attack roll with a monk weapon or a unarmed attack, and critically miss, you instead deal the Woe damage to the target instead of yourself.
+Feature/&FeatureWayOfWealAndWoeTheirWoeDescription=After you make an attack roll with a monk weapon or an unarmed attack, and critically miss, you instead deal the Woe damage to the target instead of yourself.
 Feature/&FeatureWayOfWealAndWoeTheirWoeTitle=Their Woe
-Feature/&FeatureWayOfWealAndWoeWealDescription=After you make an attack roll with a monk weapon or a unarmed attack increase your critical hit and critical miss range by one. It resets back to 20 and 1 when you complete a long rest, critically hit, or miss.
+Feature/&FeatureWayOfWealAndWoeWealDescription=After you make an attack roll with a monk weapon or an unarmed attack increase your critical hit and critical miss range by one. It resets back to 20 and 1 when you complete a long rest, critically hit, or miss.
 Feature/&FeatureWayOfWealAndWoeWealTitle=Weal
-Feature/&FeatureWayOfWealAndWoeWoeDescription=After you make an attack roll with a monk weapon or a unarmed attack, and critically miss, you take damage equal to one roll of your martial arts die.
+Feature/&FeatureWayOfWealAndWoeWoeDescription=After you make an attack roll with a monk weapon or an unarmed attack, and critically miss, you take damage equal to one roll of your martial arts die.
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
 Feedback/&WoeReroll=Because of {1} {2} re-rolls the attack roll die from a {3} to a {4}
 Subclass/&WayOfWealAndWoeDescription=Monks of the Way of Weal and Woe focus on both prosperity and adversity to engage their enemies in battle.

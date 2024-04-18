@@ -1,4 +1,4 @@
-Condition/&ConditionPathOfTheYeomanBulwarkDescription=Enemies adjacent to you do not impose disadvantage on attacks you make with a longbow, and you may use your reaction to perform an opportunity attack with a longbow against an enemy that moves within within 5 feet of you.
+Condition/&ConditionPathOfTheYeomanBulwarkDescription=Enemies adjacent to you do not impose disadvantage on attacks you make with a longbow, and you may use your reaction to perform an opportunity attack with a longbow against an enemy that moves within 5 feet of you.
 Condition/&ConditionPathOfTheYeomanBulwarkTitle=Bulwark
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowDescription=While raging, not wearing heavy armor, and wielding a longbow, you may shove as a bonus action.
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowTitle=Staggering Blow
@@ -12,7 +12,7 @@ Feature/&FeaturePathOfTheYeomanStrongBowDescription=You can use your Strength mo
 Feature/&FeaturePathOfTheYeomanStrongBowTitle=Strong Bow
 Feature/&MovementAffinityPathOfTheYeomanBulwarkDescription=Your speed is reduced to 0.
 Feature/&MovementAffinityPathOfTheYeomanBulwarkTitle=Bulwark
-Feature/&PowerPathOfTheYeomanBulwarkDescription=You may use a bonus action on your turn to assume a braced stance for one minute. The stance only ends early if you fall unconscious. While braced your movement speed is set to 0 and cannot be increased and you gain the following benefits:\n• Enemies adjacent to you do not impose disadvantage on attacks you make with a longbow.\n• Enemy ranged attacks with weapons against you have disadvantage.\n• You may use your reaction to perform an opportunity attack with a longbow against an enemy that moves within within 5 feet of you.
+Feature/&PowerPathOfTheYeomanBulwarkDescription=You may use a bonus action on your turn to assume a braced stance for one minute. The stance only ends early if you fall unconscious. While braced your movement speed is set to 0 and cannot be increased, and you gain the following benefits:\n• Enemies adjacent to you do not impose disadvantage on attacks you make with a longbow.\n• Enemy ranged attacks with weapons against you have disadvantage.\n• You may use your reaction to perform an opportunity attack with a longbow against an enemy that moves within 5 feet of you.
 Feature/&PowerPathOfTheYeomanBulwarkTitle=Bulwark
 Feature/&ProficiencyPathOfTheYeomanFletcherDescription=Gain proficiency with Smith's Tools.
 Feature/&ProficiencyPathOfTheYeomanFletcherTitle=Fletcher

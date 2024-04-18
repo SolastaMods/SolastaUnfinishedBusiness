@@ -1,4 +1,4 @@
-Feature/&AttackModifierEnchantWeaponDescription=Your non two-handed weapon attacks count as magical and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style these changes also apply to your offhand attack.
+Feature/&AttackModifierEnchantWeaponDescription=Your non-two-handed weapon attacks count as magical, and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style these changes also apply to your offhand attack.
 Feature/&AttackModifierEnchantWeaponTitle=Arcane Weapon
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=You gain an extra attack and can now attack up to 2 times in your turn.
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=Extra Attack

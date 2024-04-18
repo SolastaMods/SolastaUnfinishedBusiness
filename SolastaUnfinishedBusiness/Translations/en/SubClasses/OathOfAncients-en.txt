@@ -14,5 +14,5 @@ Feature/&PowerOathOfAncientsNaturesWrathDescription=You can use your Channel Div
 Feature/&PowerOathOfAncientsNaturesWrathTitle=Channel Divinity: Nature's Wrath
 Feature/&PowerOathOfAncientsTurnFaithlessDescription=You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 ft of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: Turn the Faithless
-Subclass/&OathOfAncientsDescription=An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
+Subclass/&OathOfAncientsDescription=An Oath from a more primitive time which one dedicates themselves to utilizing nature for good.
 Subclass/&OathOfAncientsTitle=Oath of Ancients

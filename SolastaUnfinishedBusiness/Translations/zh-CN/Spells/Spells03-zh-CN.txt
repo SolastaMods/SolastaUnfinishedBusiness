@@ -76,3 +76,4 @@ Spell/&VitalityTransferDescription=你牺牲了一些生命值来治愈另一个
 Spell/&VitalityTransferTitle=生命转换
 Spell/&WinterBreathDescription=制造一阵冷风来冻寒你的敌人并将他们击倒。
 Spell/&WinterBreathTitle=冬息术
+Tooltip/&MustBeAuraOfLife=必须在活力光环范围内

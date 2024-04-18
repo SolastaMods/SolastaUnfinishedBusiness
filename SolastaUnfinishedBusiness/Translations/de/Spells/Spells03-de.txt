@@ -76,3 +76,4 @@ Spell/&VitalityTransferDescription=Du opferst einen Teil deiner Gesundheit, um d
 Spell/&VitalityTransferTitle=Lebensübertragung
 Spell/&WinterBreathDescription=Erzeuge einen kalten Windstoß, um deine Feinde zu kühlen und sie zu Boden zu werfen.
 Spell/&WinterBreathTitle=Winteratem
+Tooltip/&MustBeAuraOfLife=Muss innerhalb der Reichweite der Aura der Vitalität liegen

@@ -14,5 +14,5 @@ Feedback/&ActivateWarDancerAttack={1} grants {0} extra attack!
 Feedback/&ActivateWarDancerMomentum={0} gains {1}!
 Feedback/&AdditionalDamageMomentumFormat=Momentum Strike
 Feedback/&AdditionalDamageMomentumLine={0} deals a momentum strike on {1} (+{2})
-Subclass/&CollegeOfWarDancerDescription=College of War Dancer bards are master the art of fighting who considers the battle field is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
+Subclass/&CollegeOfWarDancerDescription=College of War Dancer bards are master the art of fighting who considers the battlefield is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
 Subclass/&CollegeOfWarDancerTitle=College of War Dancer

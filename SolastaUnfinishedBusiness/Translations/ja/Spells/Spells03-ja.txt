@@ -76,3 +76,4 @@ Spell/&VitalityTransferDescription=他のクリーチャーの傷を修復する
 Spell/&VitalityTransferTitle=ライフトランスファー
 Spell/&WinterBreathDescription=冷たい風を起こして敵を冷やし、伏せさせます。
 Spell/&WinterBreathTitle=冬の息吹
+Tooltip/&MustBeAuraOfLife=オーラ・オブ・バイタリティの範囲内にある必要があります

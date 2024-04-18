@@ -76,3 +76,4 @@ Spell/&VitalityTransferDescription=Vous sacrifiez une partie de votre santé pou
 Spell/&VitalityTransferTitle=Transfert de vitalité
 Spell/&WinterBreathDescription=Créez un souffle de vent froid pour refroidir vos ennemis et les renverser.
 Spell/&WinterBreathTitle=Souffle d'hiver
+Tooltip/&MustBeAuraOfLife=Doit être à portée de l'Aura de Vitalité

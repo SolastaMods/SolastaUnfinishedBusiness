@@ -76,3 +76,4 @@ Spell/&VitalityTransferDescription=Você sacrifica parte de sua saúde para cura
 Spell/&VitalityTransferTitle=Transferência de Vida
 Spell/&WinterBreathDescription=Crie uma rajada de vento frio para esfriar seus inimigos e derrubá-los.
 Spell/&WinterBreathTitle=Respiração de inverno
+Tooltip/&MustBeAuraOfLife=Deve estar dentro do alcance da Aura de Vitalidade

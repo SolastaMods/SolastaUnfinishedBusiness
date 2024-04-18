@@ -76,3 +76,4 @@ Spell/&VitalityTransferDescription=당신은 다른 생물의 부상을 치료�
 Spell/&VitalityTransferTitle=생명 전이
 Spell/&WinterBreathDescription=차가운 바람을 일으켜 적들을 냉각시키고 쓰러뜨립니다.
 Spell/&WinterBreathTitle=겨울의 숨결
+Tooltip/&MustBeAuraOfLife=활력의 오라 범위 내에 있어야 합니다.
