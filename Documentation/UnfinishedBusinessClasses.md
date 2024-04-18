@@ -35,7 +35,7 @@ Constitution,Intelligence
 
 * Artificer Spellcasting
 
-Can cast spells from the Artificer Spells list. You can use item that bears your infusion or any universal focus as a focus for your spells. You can cast a spell as a ritual if the spell has the ritual tag and you have it prepared.
+Can cast spells from the Artificer Spells list. You can use item that bears your infusion or any universal focus as a focus for your spells. You can cast a spell as a ritual if the spell has the ritual tag, and you have it prepared.
 
 
 ## Level 2

@@ -1909,8 +1909,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionWitchBoltSelf.AddCustomSubFeatures(
-            AddUsablePowersFromCondition.Marker,
-            new CustomBehaviorWitchBolt(spell, powerWitchBolt, conditionWitchBoltSelf));
+            AddUsablePowersFromCondition.Marker, new CustomBehaviorWitchBolt(spell, powerWitchBolt));
 
         return spell;
     }
@@ -1919,9 +1918,7 @@ internal static partial class SpellBuilders
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellWitchBolt,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerWitchBolt,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionWitchBolt) : IActionFinishedByMe
+        FeatureDefinitionPower powerWitchBolt) : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {

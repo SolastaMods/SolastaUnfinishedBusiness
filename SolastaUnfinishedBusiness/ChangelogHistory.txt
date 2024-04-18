@@ -1,6 +1,6 @@
 1.5.97.5:
 
-- added Aura of Vitality spell at 3rd suggested to Clerics and Paladins
+- added Aura of Vitality, and Witch Bolt spells
 - added Bountiful Luck, Grudge Bearer, and Weapon Master feats
 - added College of Elegance subclass [design by HiddenHax]
 - added Lizardfolk race [by Otearaisu]

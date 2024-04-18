@@ -91,7 +91,7 @@ Strength +2, Wisdom +1
 
 * Crystal Defense
 
-You can use your action to activate Crystal Defense. When Crystal Defense is active, your AC increases by +4. You are prone, your speed is 0 and you can't make any actions except to use bonus Action to deactivate Crystal Defense.
+You can use your action to activate Crystal Defense. When Crystal Defense is active, your AC increases by +4. You are prone, your speed is 0, and you can't make any actions except to use bonus Action to deactivate Crystal Defense.
 
 * Hard Scales
 
@@ -729,7 +729,7 @@ You have resistance to fire damage.
 
 # 28. - Warforged
 
-The battleborn are results of arcane experiments, blending flesh, alchemy and magic to create perfect battlefield soldiers. Created to serve as weapons, they must now find a purpose beyond war. A battleborn can be a loyal ally, a cold-hearted killing machine, or a wandering soul searching for purpose and meaning.
+The battleborn are results of arcane experiments, blending flesh, alchemy and magic to create perfect battlefield soldiers. Created to serve as weapons, they must now find a purpose beyond war. A battleborn can be a loyal ally, a cold-hearted killing machine, or a wandering soul-searching for purpose and meaning.
 
 
 ## Level 1

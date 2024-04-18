@@ -1,13 +1,13 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Item",
-    "itemSelectionType": "Carried",
+    "targetType": "Self",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "ItemProperty",
+        "formType": "Summon",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -71,22 +71,22 @@
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
+        "hasSavingThrow": true,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "itemPropertyForm": {
-          "$type": "ItemPropertyForm, Assembly-CSharp",
-          "featureBySlotLevel": [
-            {
-              "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttributeModifierDomainSmithReinforceArmor2:1a259a66-ef66-5c31-b1c5-38c90eb090ca",
-              "level": 0
-            }
-          ],
-          "usageLimitation": "Unlimited",
-          "useAmount": 1
+        "summonForm": {
+          "$type": "SummonForm, Assembly-CSharp",
+          "summonType": "InventoryItem",
+          "itemDefinition": "Definition:SpellStoringWandOfWitchBolt:016d3eed-88aa-564d-a442-5ad4483917aa",
+          "trackItem": true,
+          "monsterDefinitionName": "",
+          "number": 1,
+          "conditionDefinition": null,
+          "persistOnConcentrationLoss": true,
+          "decisionPackage": null,
+          "effectProxyDefinitionName": null
         },
         "hasFilterId": false,
         "filterId": 0
@@ -118,7 +118,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "c61bb30a4b6e80642a36538c6ff1d675",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -252,7 +252,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "f4489c0ea1762ec4dbe7fedbbcf0d4a8",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -264,7 +264,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "3b107035e3bdbc6418aedb674221f5e3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -288,7 +288,7 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0",
+    "animationMagicEffect": "Animation1",
     "lightCounterDispellsEffect": false,
     "hideSavingThrowAnimation": false
   },
@@ -311,7 +311,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -326,17 +326,17 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerDomainSmithReinforceArmor1:0d5087c4-0cc6-53a3-907e-b4d0e7e7d218",
+  "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerDomainSmithReinforceArmorTitle",
-    "description": "Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +2 AC.",
+    "title": "Witch Bolt",
+    "description": "Create a wand that can cast <b>Witch Bolt (I)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "48258cb7b5be9e942a13ecf70cd8903a",
-      "m_SubObjectName": "MageArmor",
+      "m_AssetGUID": "e3bcc5a91ea27ce47b7c381de2451536",
+      "m_SubObjectName": "LightningBolt",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -352,7 +352,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9b2235ed-8905-5281-bda5-43213a7f77bd",
+  "guid": "5cc05fe2-1118-5d92-979c-40c4dbf757b8",
   "contentPack": 9999,
-  "name": "PowerDomainSmithReinforceArmor6"
+  "name": "PowerCreateSpellStoringWandOfWitchBolt"
 }

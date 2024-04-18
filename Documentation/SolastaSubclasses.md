@@ -562,7 +562,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Living Tempest
 
-As an bonus action, you can give yourself a flying speed equal to your walking speed.
+As a bonus action, you can give yourself a flying speed equal to your walking speed.
 
 
 ### Level 20
@@ -956,7 +956,7 @@ Mark a creature you see so it receives additional necrotic damage equal to your 
 
 * Keeper of Oblivion
 
-You steal the life-force from your foes as they step to the gates of oblivion, to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you, allies within 30 ft of you regain hit points from a pool equals to your Cleric level. Allies with lowest health are healed first until the pool is fully consumed. Once you use it, you can't do so again until the start of your next turn.
+You steal the life-force from your foes as they step to the gates of oblivion, to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you, allies within 30 ft of you regain hit points from a pool equals to your Cleric level. Allies with the lowest health are healed first until the pool is fully consumed. Once you use it, you can't do so again until the start of your next turn.
 
 
 ### Level 20
@@ -2291,7 +2291,7 @@ At level 14, as a bonus action, you can teleport up to 6 cells to any unoccupied
 
 * Rift Magic Mastery
 
-Starting at 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you can now regain any slot level upon rolling a 18, 19 or 20.
+Starting at 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you can now regain any slot level upon rolling an 18, 19 or 20.
 
 
 

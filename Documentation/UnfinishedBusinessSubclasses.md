@@ -45,7 +45,7 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 * Armor Modification
 
-You have learned how to use your artificer infusions to specially modify armors - now you can put weapon enhancement infusions on armor and they will affect built-in Thunder Gauntlet and Lightning Launcher weapons. In addition, the maximum number of items you can infuse at once increases by 2.
+You have learned how to use your artificer infusions to specially modify armors - now you can put weapon enhancement infusions on armor, and they will affect built-in Thunder Gauntlet and Lightning Launcher weapons. In addition, the maximum number of items you can infuse at once increases by 2.
 
 
 ### Level 15
@@ -160,7 +160,7 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 * Force Jolt
 
-When you hit an enemy with your attack you can channel magical energy through the strike to make target take extra 2d6 Force damage. You can uses this power number of times equal to your Intelligence modifier per long rest, but no more than once per turn.
+When you hit an enemy with your attack you can channel magical energy through the strike to make target take extra 2d6 Force damage. You can use this power number of times equal to your Intelligence modifier per long rest, but no more than once per turn.
 
 
 ### Level 15
@@ -217,7 +217,7 @@ You can spend additional charge when creating a bomb to make it more potent. Pre
 
 * Elemental Bombs
 
-You've learned how to change damage type of a bomb into Cold, Lightning, Acid or Poison. Those bombs deal slightly less damage than Fire ones, but include additional effects.
+You've learned how to change damage type of bomb into Cold, Lightning, Acid or Poison. Those bombs deal slightly less damage than Fire ones, but include additional effects.
 
 * Refund Alchemy Charge
 
@@ -228,7 +228,7 @@ Gain up to 5 alchemy charges by spending spell slots.
 
 * Advanced Bombs
 
-You've learned how to change damage type of a bomb into Force, Radiant, Necrotic, Thunder or Psychic. Those bombs deal slightly less damage than Fire ones, but include additional effects.
+You've learned how to change damage type of bomb into Force, Radiant, Necrotic, Thunder or Psychic. Those bombs deal slightly less damage than Fire ones, but include additional effects.
 
 * Improved Concentrated Bombs
 
@@ -295,7 +295,7 @@ You have learned to make your Vitriolic Mixture's so potent that they are able t
 
 * Vitriolist Paragon
 
-You have mastered your Vitriolic Mixtures. Whenever a creature is affected by any of your Vitriolic Mixtures it must now also succeed a Constitution Saving throw or it will become Incapacitated as your mixture slowly consumes it.
+You have mastered your Vitriolic Mixtures. Whenever a creature is affected by any of your Vitriolic Mixtures it must now also succeed a Constitution Saving throw, or it will become Incapacitated as your mixture slowly consumes it.
 
 
 
@@ -503,7 +503,7 @@ Your hit point maximum increases by 3, and increases by 1 whenever you gain a le
 
 * Voracious Fury
 
-Starting at 3rd level, you can channel your inner corruption into your melee weapon strikes. While you're raging, the first creature you hit on each of your turns with a melee weapon attack takes extra necrotic damage equal to your proficiency bonus and you regain an equal amount of hit points. Additionally, both extra damage and healing of this feature are increased by the same amount when you are below half your maximum hit points or when you critically hit a creature. These bonuses stack.
+Starting at 3rd level, you can channel your inner corruption into your melee weapon strikes. While you're raging, the first creature you hit on each of your turns with a melee weapon attack takes extra necrotic damage equal to your proficiency bonus, and you regain an equal amount of hit points. Additionally, both extra damage and healing of this feature are increased by the same amount when you are below half your maximum hit points or when you critically hit a creature. These bonuses stack.
 
 
 ### Level 6
@@ -635,10 +635,10 @@ While raging, not wearing heavy armor, and wielding a longbow, you may shove as 
 
 * Bulwark
 
-You may use a bonus action on your turn to assume a braced stance for one minute. The stance only ends early if you fall unconscious. While braced your movement speed is set to 0 and cannot be increased and you gain the following benefits:
+You may use a bonus action on your turn to assume a braced stance for one minute. The stance only ends early if you fall unconscious. While braced your movement speed is set to 0 and cannot be increased, and you gain the following benefits:
 • Enemies adjacent to you do not impose disadvantage on attacks you make with a longbow.
 • Enemy ranged attacks with weapons against you have disadvantage.
-• You may use your reaction to perform an opportunity attack with a longbow against an enemy that moves within within 5 feet of you.
+• You may use your reaction to perform an opportunity attack with a longbow against an enemy that moves within 5 feet of you.
 
 
 ### Level 14
@@ -887,7 +887,7 @@ You can use your arcane powers to shield yourself as a reaction. This gives you 
 
 ## 7. College of War Dancer
 
-College of War Dancer bards are master the art of fighting who considers the battle field is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
+College of War Dancer bards are master the art of fighting who considers the battlefield is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
 
 
 ### Level 3
@@ -990,7 +990,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Dying Light
 
-You learn Circle of Death and Finger of Death spells and it is added to the list of spells known. They are always prepared, don't count towards your prepared spells limit, and are treated as cleric spells for you. Whenever you deal necrotic damage, you can deal maximum damage instead of rolling. You can use this feature once per long rest.
+You learn Circle of Death and Finger of Death spells, and it is added to the list of spells known. They are always prepared, don't count towards your prepared spells limit, and are treated as cleric spells for you. Whenever you deal necrotic damage, you can deal maximum damage instead of rolling. You can use this feature once per long rest.
 
 
 
@@ -1022,7 +1022,7 @@ Gain proficiency in heavy armor.
 
 * Reinforce Armor
 
-Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +1 AC.
+Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +1 AC.
 
 * Smithing Tools Proficient
 
@@ -1044,7 +1044,7 @@ Gain fire resistance and while wearing armor gain +1 AC.
 
 * Reinforce Armor
 
-Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +2 AC.
+Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +2 AC.
 
 
 ### Level 8
@@ -1065,14 +1065,14 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Reinforce Armor
 
-Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +3 AC.
+Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +3 AC.
 
 
 ### Level 16
 
 * Reinforce Armor
 
-Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +4 AC.
+Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +4 AC.
 
 
 ### Level 17
@@ -1081,7 +1081,7 @@ Once per short rest, you may reinforce a non magical piece of armor or shield. T
 
 Your blessed affinity with fire and metal becomes more powerful. While wearing armor, you gain the following benefits:
 • You gain immunity to fire damage.
-• You have resistance to bludgeoning, piercing, and slashing damage from non magical attacks.
+• You have resistance to bludgeoning, piercing, and slashing damage from non-magical attacks.
 
 
 
@@ -1217,7 +1217,7 @@ Circle of the Forest Guardian Druids are sworn to protect the forests and all th
 
 * Bark Ward
 
-You can use your bonus action and expend an use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 4 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 6 at 6th level, and the power is improved at 10th. The bark lasts for one minute, or until you become incapacitated.
+You can use your bonus action and expend a use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 4 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 6 at 6th level, and the power is improved at 10th. The bark lasts for one minute, or until you become incapacitated.
 
 * Expanded Spells
 
@@ -1236,7 +1236,7 @@ You can use your bonus action and expend an use of your Wild Shape feature to co
 
 * Sylvan Magic
 
-Your non-two-handed weapon attacks count as magical and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style, these changes also apply to your offhand attack.
+Your non-two-handed weapon attacks count as magical, and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style, these changes also apply to your offhand attack.
 
 
 ### Level 6
@@ -1254,7 +1254,7 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 * Improved Bark Ward
 
-You can use your bonus action and expend an use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 8 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 10 at 14th level. In addition, you have poison immunity while Bark Ward is active, and whenever a creature damages you with a melee weapon attack while within 5ft of you and while you have any temporary hit points, the creature receives 2d8 piercing damage. The improved bark lasts for one minute, or until you become incapacitated.
+You can use your bonus action and expend a use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 8 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 10 at 14th level. In addition, you have poison immunity while Bark Ward is active, and whenever a creature damages you with a melee weapon attack while within 5ft of you and while you have any temporary hit points, the creature receives 2d8 piercing damage. The improved bark lasts for one minute, or until you become incapacitated.
 
 
 ### Level 14
@@ -1289,7 +1289,7 @@ Your Combat Healing now heals you for 2d8 hit points.
 
 * Primal Strike
 
-Starting at 6th level, your attacks in beast form count as magical for the purpose of overcoming resistance and immunity to non magical attacks and damage. You can also transform into a beast with a challenge rating as high as your druid level divided by 3, rounded down.
+Starting at 6th level, your attacks in beast form count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage. You can also transform into a beast with a challenge rating as high as your druid level divided by 3, rounded down.
 
 
 ### Level 10
@@ -1391,7 +1391,7 @@ You infuse your arrows with divination magic, making them more likely to hit the
 
 * Magic Arrow
 
-You gain the ability to infuse arrows with magic. Whenever you fire a non magical arrow from a shortbow or longbow, you can make it magical for the purpose of overcoming resistance and immunity to non magical attacks and damage. The magic fades from the arrow immediately after it hits or misses its target.
+You gain the ability to infuse arrows with magic. Whenever you fire a non-magical arrow from a shortbow or longbow, you can make it magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage. The magic fades from the arrow immediately after it hits or misses its target.
 
 
 ### Level 10
@@ -1654,7 +1654,7 @@ You can no longer be surprised, and you can use your reaction twice per round in
 
 * Impervious Protector
 
-You gain resistance to all non magical bludgeoning, piercing and slashing damage as long as you are wearing heavy armor, and if you roll initiative and are missing at least one use of your Grand Challenge feature, you regain one use of it.
+You gain resistance to all non-magical bludgeoning, piercing and slashing damage as long as you are wearing heavy armor, and if you roll initiative and are missing at least one use of your Grand Challenge feature, you regain one use of it.
 
 
 
@@ -1974,32 +1974,32 @@ Monks of the Way of Weal and Woe focus on both prosperity and adversity to engag
 
 * Weal
 
-After you make an attack roll with a monk weapon or a unarmed attack increase your critical hit and critical miss range by one. It resets back to 20 and 1 when you complete a long rest, critically hit, or miss.
+After you make an attack roll with a monk weapon or an unarmed attack increase your critical hit and critical miss range by one. It resets back to 20 and 1 when you complete a long rest, critically hit, or miss.
 
 * Woe
 
-After you make an attack roll with a monk weapon or a unarmed attack, and critically miss, you take damage equal to one roll of your martial arts die.
+After you make an attack roll with a monk weapon or an unarmed attack, and critically miss, you take damage equal to one roll of your martial arts die.
 
 
 ### Level 6
 
 * Propelled Weal
 
-After you make an attack roll with a monk weapon or a unarmed attack, and critically hit, you refund 1 Ki point.
+After you make an attack roll with a monk weapon or an unarmed attack, and critically hit, you refund 1 Ki point.
 
 
 ### Level 11
 
 * Brutal Weal
 
-After you make an attack roll with a monk weapon or a unarmed attack, and critically hit, you deal additional damage equal to one roll of your martial arts die.
+After you make an attack roll with a monk weapon or an unarmed attack, and critically hit, you deal additional damage equal to one roll of your martial arts die.
 
 
 ### Level 17
 
 * Their Woe
 
-After you make an attack roll with a monk weapon or a unarmed attack, and critically miss, you instead deal the Woe damage to the target instead of yourself.
+After you make an attack roll with a monk weapon or an unarmed attack, and critically miss, you instead deal the Woe damage to the target instead of yourself.
 
 
 
@@ -2107,7 +2107,7 @@ You passively grant the following benefits:
 
 ## 2. Oath of Ancients
 
-An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
+An Oath from a more primitive time which one dedicates themselves to utilizing nature for good.
 
 
 ### Level 3
@@ -2293,7 +2293,7 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 ## 5. Oath of Hatred
 
-An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
+An Oath of Hatred paladin has dedicated himself to the punishment of evildoers by channeling hate.
 
 
 ### Level 3
@@ -2369,7 +2369,7 @@ When an enemy creature hits you with a melee attack while being up to 5 feet awa
 
 * Mjolnir
 
-When wielding a War Hammer, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them but you have disadvantage to attack with any other weapon type different than War Hammers.
+When wielding a War Hammer, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them, but you have disadvantage to attack with any other weapon type different from War Hammers.
 
 * Oath of Thunder
 
@@ -2394,7 +2394,7 @@ Once per turn, you deal an additional 1d4 thunder damage with Battle Axes and Wa
 
 * Stormbreaker
 
-When wielding Battle Axes or War Hammers, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them but you have disadvantage to attack with any other weapon type different than Battle Axes and War Hammers.
+When wielding Battle Axes or War Hammers, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them, but you have disadvantage to attack with any other weapon type different from Battle Axes and War Hammers.
 
 
 ### Level 15
@@ -2619,7 +2619,7 @@ You have the ability to conjure holy light. When you cast Light, you can force a
 
 * Angelic Form
 
-You are able to briefly transform into a holy form. As an action, for up to 1 minute, you can give yourself a flying speed equal to your walking speed, and your attacks also count as magical. Additionally you gain a number of temporary hit points equal to your ranger level. You can use this power once per long rest.
+You are able to briefly transform into a holy form. As an action, for up to 1 minute, you can give yourself a flying speed equal to your walking speed, and your attacks also count as magical. Additionally, you gain a number of temporary hit points equal to your ranger level. You can use this power once per long rest.
 
 
 ### Level 15
@@ -2804,7 +2804,7 @@ When you take the Attack action with a quarterstaff, you can use your bonus acti
 * Swift as the Wind
 
 Your quarterstaff versatile damage die changes from a d8 to a d10.
-Climbing no longer costs you extra moves and you can jump an additional 10 feet.
+Climbing no longer costs you extra moves, and you can jump an additional 10 feet.
 You have advantage on prone and shove attempts.
 You must be wielding a quarterstaff in two hands for these to work.
 
@@ -2818,7 +2818,7 @@ Dodge as a bonus action a number of times equals to your Dexterity modifier.
 * Fluid Motions
 
 You are unaffected by difficult terrain.
-You can move along walls and you don't take damage on falls up to 30 feet.
+You can move along walls, and you don't take damage on falls up to 30 feet.
 Opportunity attacks are made with disadvantage against you.
 You must be wielding a quarterstaff in two hands for these to work.
 
@@ -2862,7 +2862,7 @@ Starting at 9th level, whenever you deal sneak attack damage to a creature, that
 
 * Arcane Backlash
 
-Starting at 13th level, learn Counterspell if you haven't done so already. Whenever you successfully interrupt a spell using it, deal your sneak attack as force damage to that creature. Additionally, once per long rest, you cast Counterspell at it highest level without expending a spell slot.
+Starting at 13th level, learn Counterspell if you haven't done so already. Whenever you successfully interrupt a spell using it, deal your sneak attack as force damage to that creature. Additionally, once per long rest, you cast Counterspell at its highest level without expending a spell slot.
 
 * Counterspell
 
@@ -2893,7 +2893,7 @@ Blade Callers are descendants of legendary assassins, or so the urban stories go
 
 * Blade Bond
 
-Starting at 3rd level, you attune yourself to the blades you wield. Your attacks with daggers are considered magical for purposes of overcoming resistances and immunities to non magical weapons, their short and long throwing range is increased by 20 feet, and they immediately return into your hands if you throw them.
+Starting at 3rd level, you attune yourself to the blades you wield. Your attacks with daggers are considered magical for purposes of overcoming resistances and immunities to non-magical weapons, their short and long throwing range is increased by 20 feet, and they immediately return into your hands if you throw them.
 
 * Blade Mark
 
@@ -2980,7 +2980,7 @@ During the first round of combat, you roll all attack rolls with advantage. In a
 
 * Seize the Chance
 
-Starting at 9th level, when an enemy first fails a saving throw and it is not your turn, you can use your reaction to make an attack of opportunity against it.
+Starting at 9th level, when an enemy first fails a saving throw, and it is not your turn, you can use your reaction to make an attack of opportunity against it.
 
 
 ### Level 13
@@ -3216,7 +3216,7 @@ Forceblades combine martial prowess with inborn magical talents to outmatch thei
 
 * Arcane Weapon
 
-Your non two-handed weapon attacks count as magical and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style these changes also apply to your offhand attack.
+Your non-two-handed weapon attacks count as magical, and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style these changes also apply to your offhand attack.
 
 * Expanded Spells
 
@@ -3577,7 +3577,7 @@ You can wear Light Armor, Medium Armor and Shield and also gain proficiency with
 
 * Soul Empowered
 
-Your main weapon single handed attacks count as magical and you use your spell casting modifier on attack and damage rolls. You lift the restriction on single handed if you take Pact of Blade, and you lift the restriction on main attack if you take the Two Weapon fighting style.
+Your main weapon single-handed attacks count as magical, and you use your spell casting modifier on attack and damage rolls. You lift the restriction on single-handed if you take Pact of Blade, and you lift the restriction on main attack if you take the Two Weapon fighting style.
 
 * Soul Hex
 
@@ -3605,7 +3605,7 @@ You can use the power of souls to defend yourself. As a reaction, you can gain +
 
 * Master Hex
 
-You can use Soul Hex twice per short rest now and you can use a bonus action to apply the hex to another creature within 30 feet of you if the original target was slain.
+You can use Soul Hex twice per short rest now, and you can use a bonus action to apply the hex to another creature within 30 feet of you if the original target was slain.
 
 
 
@@ -3642,7 +3642,7 @@ New Moon: You are obscured in non-magical darkness. If you move to a tile that i
 
 * Midnight Blessing
 
-You are resistant to radiant damage while Full Moon cloak is active and you are resistant to cold damage while New Moon cloak is active. You also learn Moon Beam spell if you haven't already done so. You can cast it once per long rest without expanding a spell slot at your highest slot level. When you cast Moon Beam this way, you gain temporary hit points equal to your warlock level and taking damage cannot break your concentration for this spell.
+You are resistant to radiant damage while Full Moon cloak is active, and you are resistant to cold damage while New Moon cloak is active. You also learn Moon Beam spell if you haven't already done so. You can cast it once per long rest without expanding a spell slot at your highest slot level. When you cast Moon Beam this way, you gain temporary hit points equal to your warlock level and taking damage cannot break your concentration for this spell.
 
 
 ### Level 10
@@ -3789,7 +3789,7 @@ Arcane Fighters channel magic into their weapons in order to perform devastating
 
 * Arcane Weapon
 
-Your non two-handed weapon attacks count as magical and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style these changes also apply to your offhand attack.
+Your non-two-handed weapon attacks count as magical, and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style these changes also apply to your offhand attack.
 
 * Armor and Weapons
 
@@ -3983,7 +3983,7 @@ Once per long rest, you can recover spell slots (in addition to Arcane Recovery)
 
 * Be Prepared
 
-Prepare proficiency bonus additional spells so you always have what you need.
+Prepare proficiency bonus additional spells, so you always have what you need.
 
 * Breadth of Knowledge
 
@@ -4005,7 +4005,7 @@ Scribing spells takes 1/4 the time and cost, and you have advantage.
 
 * Extra Prepared
 
-Prepare Intelligence modifier additional spells so you always have what you need.
+Prepare Intelligence modifier additional spells, so you always have what you need.
 
 
 ### Level 14
