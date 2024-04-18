@@ -1,12 +1,11 @@
 Action/&AmazingDisplayToggleDescription=Ativar/desativar exibição incrível
-Action/&AmazingDisplayToggleTitle=Exibição incrível
+Action/&AmazingDisplayToggleTitle=Espantado
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Quando você faz um teste de Carisma (Atuação) ou Destreza (Acrobacia), você pode tratar um resultado de 9 ou menos no d20 como 10.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Graça
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=Sempre que um ataque estiver prestes a atingi-lo e você não estiver usando nenhuma armadura e não estiver empunhando um escudo, você pode usar sua reação para adicionar seu dado de Inspiração de Bardo à sua Classe de Armadura para esse ataque, potencialmente fazendo com que ele erre.
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkTitle=Trabalho de pés evasivo
 Feature/&FeatureSetCollegeOfEleganceAmazingDisplayDescription=Sempre que você realiza a ação de Ataque, você pode realizar um conjunto impressionante de movimentos que deixam seus inimigos surpresos. Todas as criaturas inimigas a até 9 metros de você que puderem vê-lo devem passar em um teste de resistência de Sabedoria contra sua CD de lançamento de magias ou ficarão maravilhadas até o final do seu próximo turno. Criaturas espantadas não podem usar reações e têm sua velocidade de movimento reduzida a 0. Criaturas imunes a encanto também são imunes a este efeito. Quer uma criatura passe ou falhe no teste de resistência, ela se torna imune a outros efeitos de espanto. Você pode usar esse recurso um número de vezes por descanso longo igual ao seu bônus de proficiência.
 Feature/&FeatureSetCollegeOfEleganceAmazingDisplayTitle=Exibição incrível
-Feature/&FeatureSetCollegeOfEleganceElegantFightingDescription=Você expressa suas artes de batalha por meio de agilidade e movimento. Enquanto não estiver usando armadura e sem escudo, você ganha os seguintes benefícios:\n• Sua Classe de Armadura é igual a 10 + seu modificador de Destreza + seu modificador de Carisma.\n• Sempre que você joga iniciativa, você adiciona sua Inspiração de Bardo. dado para sua iniciativa.\n• Você pode gastar um dado de Inspiração de Bardo e usar sua ação bônus para obter benefícios de ações de Investida, Desengajar ou Esquiva.
 Feature/&FeatureSetCollegeOfEleganceElegantFightingTitle=Luta Elegante
 Feature/&PowerCollegeOfEleganceDashDescription=Você pode gastar 1 dado de bardo para realizar a ação Correr como uma ação bônus no seu turno.
 Feature/&PowerCollegeOfEleganceDashTitle=Passos elegantes: Dash

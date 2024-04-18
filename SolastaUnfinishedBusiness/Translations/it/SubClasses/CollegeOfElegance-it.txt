@@ -1,12 +1,11 @@
 Action/&AmazingDisplayToggleDescription=Attiva/disattiva Visualizzazione straordinaria
-Action/&AmazingDisplayToggleTitle=Visualizzazione straordinaria
+Action/&AmazingDisplayToggleTitle=Stupito
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Quando effettui una prova di Carisma (Prestazione) o Destrezza (Acrobazia), puoi considerare un tiro d20 pari a 9 o inferiore come un 10.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Adornare
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=Ogni volta che un attacco sta per colpirti e non indossi alcuna armatura né impugni uno scudo, puoi usare la tua reazione per aggiungere il tuo dado di Ispirazione Bardica alla tua Classe Armatura per quell'attacco, facendolo potenzialmente fallire.
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkTitle=Gioco di gambe evasivo
 Feature/&FeatureSetCollegeOfEleganceAmazingDisplayDescription=Ogni volta che esegui l'azione Attacco, puoi eseguire una serie impressionante di mosse che lasciano sbalorditi i tuoi nemici. Tutte le creature nemiche entro 9 metri da te che possono vederti devono superare un tiro salvezza di Saggezza contro la tua CD di lancio di incantesimi o rimanere stupiti fino alla fine del tuo turno successivo. Le creature stupite non possono usare reazioni e la loro velocità di movimento è ridotta a 0. Anche le creature immuni allo charme sono immuni a questo effetto. Sia che una creatura superi o fallisca il tiro salvezza, diventa immune a ulteriori effetti di stupore. Puoi utilizzare questo privilegio un numero di volte per riposo lungo pari al tuo bonus di competenza.
 Feature/&FeatureSetCollegeOfEleganceAmazingDisplayTitle=Visualizzazione straordinaria
-Feature/&FeatureSetCollegeOfEleganceElegantFightingDescription=Esprimi le tue arti di battaglia attraverso l'agilità e il movimento. Finché non indossi alcuna armatura e non impugni uno scudo, ottieni i seguenti vantaggi:\n• La tua Classe Armatura è pari a 10 + il tuo modificatore di Destrezza + il tuo modificatore di Carisma.\n• Ogni volta che tiri l'iniziativa, aggiungi la tua Ispirazione Bardica muori alla tua iniziativa.\n• Puoi spendere un dado di Ispirazione Bardica e usare la tua azione bonus per ottenere i benefici delle azioni Scattare, Disingaggiare o Schivare.
 Feature/&FeatureSetCollegeOfEleganceElegantFightingTitle=Combattimento elegante
 Feature/&PowerCollegeOfEleganceDashDescription=Puoi spendere 1 dado bardico per eseguire l'azione Scattare come azione bonus nel tuo turno.
 Feature/&PowerCollegeOfEleganceDashTitle=Passi eleganti: Dash

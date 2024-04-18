@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "98c2ea7962df3d745b81ab2ccb914eb2",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -332,9 +332,9 @@
     "description": "Feature/&PowerCollegeOfEleganceDodgeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "af9d07858e9c30649a612fc1e1087035",
-      "m_SubObjectName": "PatientDefense",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "34d62fff-1a5d-5bb5-9245-82dab12a21a3",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

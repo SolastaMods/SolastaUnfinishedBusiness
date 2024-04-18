@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "cf6d5420416e9d447b5594f6f3eb9ca0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -332,9 +332,9 @@
     "description": "Feature/&PowerCollegeOfEleganceDashDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d8e96a65908c8174297a08ca2aeb3a27",
-      "m_SubObjectName": "StepOfTheWindDash",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "a3d62438-3686-571b-952a-d218b7c2f22e",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -1,12 +1,11 @@
 Action/&AmazingDisplayToggleDescription=Activar/desactivar Amazing Display
-Action/&AmazingDisplayToggleTitle=Pantalla increíble
+Action/&AmazingDisplayToggleTitle=Asombrado
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Cuando realizas una prueba de Carisma (Actuación) o Destreza (Acrobacia), puedes tratar una tirada de d20 de 9 o menos como un 10.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Gracia
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=Siempre que un ataque esté a punto de golpearte y no lleves armadura ni empuñes un escudo, puedes usar tu reacción para agregar tu dado de Inspiración Bárdica a tu Clase de Armadura para ese ataque, lo que podría provocar que falle.
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkTitle=Juego de pies evasivo
 Feature/&FeatureSetCollegeOfEleganceAmazingDisplayDescription=Cada vez que realizas la acción de Ataque, puedes realizar una impresionante serie de movimientos que dejan a tus enemigos asombrados. Todas las criaturas enemigas a 30 pies de ti que puedan verte deben pasar una tirada de salvación de Sabiduría contra tu CD de lanzamiento de hechizos o quedarán asombradas hasta el final de tu siguiente turno. Las criaturas asombradas no pueden usar reacciones y su velocidad de movimiento se reduce a 0. Las criaturas que son inmunes al encanto también lo son a este efecto. Ya sea que una criatura pase o falle la tirada de salvación, se vuelve inmune a más efectos de asombro. Puedes usar esta función una cantidad de veces por descanso prolongado igual a tu bonificación de competencia.
 Feature/&FeatureSetCollegeOfEleganceAmazingDisplayTitle=Pantalla increíble
-Feature/&FeatureSetCollegeOfEleganceElegantFightingDescription=Expresas tus artes de batalla a través de agilidad y movimiento. Mientras no llevas armadura ni empuñas un escudo, obtienes los siguientes beneficios:\n• Tu Clase de Armadura es igual a 10 + tu modificador de Destreza + tu modificador de Carisma.\n• Siempre que tiras iniciativa, añades tu Inspiración Bárdica muere por tu iniciativa.\n• Puedes gastar un dado de inspiración bárdica y usar tu acción adicional para obtener beneficios de las acciones de carrera, retirada o esquiva.
 Feature/&FeatureSetCollegeOfEleganceElegantFightingTitle=Lucha elegante
 Feature/&PowerCollegeOfEleganceDashDescription=Puedes gastar 1 dado de bardo para realizar la acción Dash como acción adicional en tu turno.
 Feature/&PowerCollegeOfEleganceDashTitle=Pasos elegantes: Dash

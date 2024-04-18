@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "cf6d5420416e9d447b5594f6f3eb9ca0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -332,9 +332,9 @@
     "description": "Feature/&PowerCollegeOfEleganceDisengageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c2edafe7c6bb2fa429da9ef1fe1bd3c2",
-      "m_SubObjectName": "StepOfTheWindDisengage",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "deddf09c-a5cf-5cd7-bc65-9404b374476d",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
