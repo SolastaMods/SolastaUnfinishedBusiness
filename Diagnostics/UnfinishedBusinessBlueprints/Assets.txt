@@ -1039,6 +1039,7 @@ ConditionWayOfZenArcheryFlurryOfArrows	ConditionDefinition	ConditionDefinition	9
 ConditionWeird	ConditionDefinition	ConditionDefinition	13f3b2a2-1344-5cc0-ba61-5776b0f52220
 ConditionWildlingAgile	ConditionDefinition	ConditionDefinition	78eb64cb-30f4-50f7-b45a-8b28796eabf5
 ConditionWildlingTired	ConditionDefinition	ConditionDefinition	0479b648-9d67-5286-83d6-9993c17d283f
+ConditionWitchBolt	ConditionDefinition	ConditionDefinition	cfc584b3-e55a-59d7-ae96-d37d2a6bbfe4
 ConditionWitchBoltSelf	ConditionDefinition	ConditionDefinition	e289f769-f048-5a95-ae98-f75c177fe934
 ConditionWizardGraviturgistDensityDecrease	ConditionDefinition	ConditionDefinition	66476f3a-6781-5224-84b8-f3d0d24e8302
 ConditionWizardGraviturgistDensityIncrease	ConditionDefinition	ConditionDefinition	47932b8e-70ad-5c32-bedf-c53abb251ed4
@@ -1059,6 +1060,7 @@ DecisionBreakFreeConditionNoxiousSpray	TA.AI.DecisionDefinition	TA.AI.DecisionDe
 DecisionBreakFreeConditionRestrainedByEntangle	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	2a416669-5ec8-53c1-b07b-8fe6f29da4d2
 DecisionBreakFreeConditionVileBrew	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	4b3278e8-334a-58d6-8c75-2f48e28b4e54
 EffectGreenElementalBreath	EffectProxyDefinition	EffectProxyDefinition	1b305d09-3001-59d9-a97f-32ba86034933
+EffectProxyFaithfulHound	EffectProxyDefinition	EffectProxyDefinition	f16e0c65-dfe3-5ff9-8fb3-8cf7ae0e61ae
 ProxyEarthTremor	EffectProxyDefinition	EffectProxyDefinition	fdec4a73-e825-5a14-9f0e-1faca83c21d3
 ProxyPactWeapon1	EffectProxyDefinition	EffectProxyDefinition	55354187-cf9d-5ebf-80d9-0f2dfcce49fc
 ProxyPactWeapon2	EffectProxyDefinition	EffectProxyDefinition	9735ef98-063a-550a-9b2a-11ad53a8629e
@@ -11326,6 +11328,7 @@ ElementalWeaponDamageLightning	SpellDefinition	SpellDefinition	cb81afa7-86c5-5be
 ElementalWeaponDamageThunder	SpellDefinition	SpellDefinition	286c3937-6260-5e91-afef-65cc0fac3ddd
 EnduringSting	SpellDefinition	SpellDefinition	2c6213d1-b9cd-5488-86cf-237326e79bbf
 EnsnaringStrike	SpellDefinition	SpellDefinition	3793748b-7d90-5c0e-bb05-4fedc284e7f1
+FaithfulHound	SpellDefinition	SpellDefinition	64dc7fce-e519-5231-afd2-be1142f88462
 FarStep	SpellDefinition	SpellDefinition	1adf1412-2248-5b36-805b-5076ef23ea04
 FindFamiliar	SpellDefinition	SpellDefinition	bb9f406d-0011-5248-9df9-aed0cba95948
 FlameArrows	SpellDefinition	SpellDefinition	a1cdc677-6c15-557d-8c80-3e485e878e01

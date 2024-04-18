@@ -4,21 +4,21 @@
   "subspellsList": [],
   "compactSubspellsTooltip": false,
   "implemented": true,
-  "schoolOfMagic": "SchoolEvocation",
-  "spellLevel": 1,
+  "schoolOfMagic": "SchoolConjuration",
+  "spellLevel": 4,
   "ritual": false,
   "uniqueInstance": false,
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
-  "requiresConcentration": true,
+  "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "RangeHit",
+    "rangeType": "Distance",
     "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
+    "targetType": "Position",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -42,9 +42,9 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Minute",
-    "durationParameter": 1,
+    "targetSide": "Ally",
+    "durationType": "Hour",
+    "durationParameter": 8,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -75,7 +75,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Damage",
+        "formType": "Summon",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -88,76 +88,17 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "damageForm": {
-          "$type": "DamageForm, Assembly-CSharp",
-          "versatile": false,
-          "diceNumber": 1,
-          "dieType": "D12",
-          "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D1",
-          "bonusDamage": 0,
-          "damageType": "DamageLightning",
-          "ancestryType": "Sorcerer",
-          "healFromInflictedDamage": "Never",
-          "hitPointsFloor": 0,
-          "forceKillOnZeroHp": false,
-          "specialDeathCondition": null,
-          "ignoreFlyingCharacters": false,
-          "ignoreCriticalDoubleDice": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionWitchBolt",
-          "conditionDefinition": "Definition:ConditionWitchBolt:cfc584b3-e55a-59d7-ae96-d37d2a6bbfe4",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionWitchBoltSelf",
-          "conditionDefinition": "Definition:ConditionWitchBoltSelf:e289f769-f048-5a95-ae98-f75c177fe934",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+        "summonForm": {
+          "$type": "SummonForm, Assembly-CSharp",
+          "summonType": "EffectProxy",
+          "itemDefinition": null,
+          "trackItem": false,
+          "monsterDefinitionName": "",
+          "number": 0,
+          "conditionDefinition": null,
+          "persistOnConcentrationLoss": true,
+          "decisionPackage": null,
+          "effectProxyDefinitionName": "EffectProxyFaithfulHound"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -166,11 +107,11 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "PerAdditionalSlotLevel",
+      "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 1,
+      "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -189,13 +130,13 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "44e6449335f642743a6c8d5fda526cfd",
+        "m_AssetGUID": "a6ca7038401125c4096926082f9acb33",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "6a8b8119774067740a6895a72319a60d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -213,7 +154,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "21e21b4d608aa6b4ea89119fc05c9e56",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -225,7 +166,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "579f0985fff7e2243a922184fedb2db0",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -237,7 +178,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "7ee946178940d56438b69281484e7a39",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -377,17 +318,17 @@
   "specificMaterialComponentConsumed": true,
   "terminateOnItemUnequip": false,
   "displayConditionDuration": false,
-  "vocalSpellSemeType": "Attack",
+  "vocalSpellSemeType": "Buff",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&WitchBoltTitle",
-    "description": "Spell/&WitchBoltDescription",
+    "title": "Spell/&FaithfulHoundTitle",
+    "description": "Spell/&FaithfulHoundDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e3bcc5a91ea27ce47b7c381de2451536",
-      "m_SubObjectName": "LightningBolt",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "9ccae0cf-fedf-5b4b-a2fa-770939e6b8e9",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -402,7 +343,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "006bdb1e-41ef-51a1-b24a-cc14305fe958",
+  "guid": "64dc7fce-e519-5231-afd2-be1142f88462",
   "contentPack": 9999,
-  "name": "WitchBolt"
+  "name": "FaithfulHound"
 }

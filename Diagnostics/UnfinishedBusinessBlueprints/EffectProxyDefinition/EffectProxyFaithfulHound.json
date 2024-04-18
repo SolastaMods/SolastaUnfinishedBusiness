@@ -1,0 +1,156 @@
+{
+  "$type": "EffectProxyDefinition, Assembly-CSharp",
+  "canMove": false,
+  "canRotate": true,
+  "canMoveOnCharacters": false,
+  "canAttack": true,
+  "canTriggerPower": false,
+  "autoTerminateOnTriggerPower": false,
+  "incrementalDamageDice": 0,
+  "actionId": "ProxySpiritualWeapon",
+  "freeActionId": "ProxySpiritualWeaponFree",
+  "attackMethod": "CasterSpellAbility",
+  "firstAttackIsFree": true,
+  "constrainedToSpellArea": false,
+  "damageDie": "D8",
+  "damageDieNum": 4,
+  "damageType": "DamagePiercing",
+  "addAbilityToDamage": false,
+  "attackPower": null,
+  "impactsPlacement": false,
+  "additionalFeatures": [],
+  "attackParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "f9e21af1cbcd41d4d985159f3301aec6",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "attackImpactParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "0b56bd038a356ba42874cd0e10e15e26",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "addLightSource": false,
+  "lightSourceForm": {
+    "$type": "LightSourceForm, Assembly-CSharp",
+    "lightSourceType": "Basic",
+    "brightRange": 4,
+    "dimAdditionalRange": 4,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "graphicsPrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "applyToSelf": false,
+    "forceOnSelf": false
+  },
+  "lightSourceOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "spellImmunityFromOutside": false,
+  "maxSpellLevelImmunity": 1,
+  "hasPresentation": true,
+  "prefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "isEmptyPresentation": false,
+  "modelScale": 1.0,
+  "showWorldLocationFeedbacks": true,
+  "hasPortrait": true,
+  "portraitSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "f4e17315dd7a28b488efbdcc3dbbb032",
+    "m_SubObjectName": "ProxySpiritualWeapon",
+    "m_SubObjectType": ""
+  },
+  "startEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "stopEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "soundEffectOnHitDescription": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Damage",
+          "id": 1103537035,
+          "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
+          "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
+        },
+        "objectName": "Longsword",
+        "id": 3955957070,
+        "guid": "62A5773C-C085-45FF-81BD-20147B55AD74",
+        "name": "62A5773C-C085-45FF-81BD-20147B55AD74"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Proxy/&EffectProxyFaithfulHoundTitle",
+    "description": "Proxy/&EffectProxyFaithfulHoundDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "d4fa46dbc25279242a2b1e7626ee1da2",
+      "m_SubObjectName": "ArcaneSword",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f16e0c65-dfe3-5ff9-8fb3-8cf7ae0e61ae",
+  "contentPack": 9999,
+  "name": "EffectProxyFaithfulHound"
+}
