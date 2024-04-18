@@ -147,6 +147,11 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="FaithfulHound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/FaithfulHound.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="StrikeWithTheWind" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/StrikeWithTheWind.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089

@@ -380,9 +380,10 @@ internal static partial class SpellBuilders
     }
 
     private sealed class FilterTargetingCharacterAuraOfVitality(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellAuraOfVitality,
-        ConditionDefinition conditionAuraOfVitality)
-        : IFilterTargetingCharacter
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionAuraOfVitality) : IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
 

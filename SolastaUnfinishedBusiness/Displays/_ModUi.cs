@@ -61,6 +61,7 @@ internal static class ModUi
         "ElementalWeapon",
         "EnduringSting",
         "EnsnaringStrike",
+        "FaithfulHound",
         "FarStep",
         "FeatAlert",
         "FeatBladeMastery",

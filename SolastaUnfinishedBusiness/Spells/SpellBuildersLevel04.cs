@@ -217,6 +217,54 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Brain Bulwark
+
+    internal static SpellDefinition BuildFaithfulHound()
+    {
+        const string NAME = "FaithfulHound";
+
+        var proxyFaithfulHound = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyArcaneSword, $"EffectProxy{NAME}")
+            .SetOrUpdateGuiPresentation(Category.Proxy)
+            .AddToDB();
+
+        proxyFaithfulHound.additionalFeatures.Clear();
+        proxyFaithfulHound.canMove = false;
+        proxyFaithfulHound.damageDie = DieType.D8;
+        proxyFaithfulHound.damageDieNum = 4;
+        proxyFaithfulHound.damageType = DamageTypePiercing;
+        proxyFaithfulHound.prefabReference =
+            MonsterDefinitions.KindredSpiritWolf.MonsterPresentation.malePrefabReference;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.FaithfulHound, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 8)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxyFaithfulHound)
+                            .Build())
+                    .SetParticleEffectParameters(DispelMagic)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Psychic Lance
 
     internal static SpellDefinition BuildPsychicLance()
