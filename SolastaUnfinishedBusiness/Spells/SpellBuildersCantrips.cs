@@ -673,7 +673,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetIgnoreCover()
                     .SetEffectAdvancement( // this is needed for tooltip
-                        EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1, incrementMultiplier: 1)
+                        EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(
                             conditionBoomingBlade, ConditionForm.ConditionOperation.Add, true),
@@ -837,7 +837,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
                     .SetIgnoreCover()
                     .SetEffectAdvancement(
-                        EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1, incrementMultiplier: 1)
+                        EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .ConditionForm(conditionResonatingStrike, ConditionForm.ConditionOperation.Add, true))

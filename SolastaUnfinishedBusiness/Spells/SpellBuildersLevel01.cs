@@ -35,7 +35,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetTargetingData(Side.Enemy, RangeType.RangeHit, 18, TargetType.IndividualsUnique)
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalTargetsPerIncrement:1)
             .SetParticleEffectParameters(ShockingGrasp)
             .SetEffectForms(
                 EffectFormBuilder
@@ -170,7 +170,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement:1)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Dexterity,
@@ -367,7 +367,7 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D4)
                             .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalTargetsPerIncrement:1)
                     .SetParticleEffectParameters(Sparkle)
                     .SetSpeed(SpeedType.CellsPerSeconds, 20)
                     .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
@@ -774,7 +774,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

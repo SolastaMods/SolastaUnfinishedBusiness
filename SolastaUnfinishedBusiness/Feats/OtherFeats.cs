@@ -267,7 +267,6 @@ internal static class OtherFeats
                             .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
                             .SetBonusMode(AddBonusMode.AbilityBonus)
                             .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetParticleEffectParameters(MagicWeapon)
                     .Build())
             .AddToDB();
