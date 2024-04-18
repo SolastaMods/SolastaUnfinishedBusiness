@@ -268,6 +268,7 @@ internal static class SpellsContext
         RegisterSpell(ThunderousSmite, 0, SpellListPaladin);
         RegisterSpell(BuildVileBrew(), 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildVoidGrasp(), 0, SpellListWarlock);
+        RegisterSpell(BuildWitchBolt(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(WrathfulSmite, 0, SpellListPaladin);
 
         // 2nd level

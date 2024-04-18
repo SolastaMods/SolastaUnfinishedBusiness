@@ -1856,4 +1856,90 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+
+    #region Witch Bolt
+
+    internal static SpellDefinition BuildWitchBolt()
+    {
+        const string NAME = "WitchBolt";
+
+        var powerWitchBolt = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, LightningBolt)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 1, DieType.D12))
+                    .SetParticleEffectParameters(LightningBolt)
+                    .Build())
+            .AddToDB();
+
+        var conditionWitchBoltSelf = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Self")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powerWitchBolt)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, LightningBolt)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeLightning, 1, DieType.D12),
+                        EffectFormBuilder.ConditionForm(conditionWitchBoltSelf, ConditionForm.ConditionOperation.Add,
+                            true, true))
+                    .SetParticleEffectParameters(LightningBolt)
+                    .Build())
+            .AddToDB();
+
+        conditionWitchBoltSelf.AddCustomSubFeatures(
+            AddUsablePowersFromCondition.Marker,
+            new CustomBehaviorWitchBolt(spell, powerWitchBolt, conditionWitchBoltSelf));
+
+        return spell;
+    }
+
+    private sealed class CustomBehaviorWitchBolt(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellWitchBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerWitchBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionWitchBolt) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is CharacterActionUsePower actionUsePower &&
+                actionUsePower.activePower.PowerDefinition == powerWitchBolt)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetSpell = rulesetCharacter.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellWitchBolt);
+
+            if (rulesetSpell != null)
+            {
+                rulesetCharacter.TerminateSpell(rulesetSpell);
+            }
+        }
+    }
+
+    #endregion
 }

@@ -228,6 +228,7 @@ internal static class ModUi
         "WardingBond",
         "WayOfSilhouette",
         "Weird",
+        "WitchBolt",
         "WizardBladeDancer",
         "WizardDeadMaster",
         "WizardGraviturgist",
