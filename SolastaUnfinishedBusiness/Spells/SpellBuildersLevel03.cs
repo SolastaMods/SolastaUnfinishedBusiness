@@ -106,7 +106,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement:1)
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
             .SetSavingThrowData(
                 false,
                 AttributeDefinitions.Dexterity,
@@ -216,7 +216,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
                     .ExcludeCaster()
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, additionalDicePerIncrement:1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Constitution,
@@ -319,7 +319,7 @@ internal static partial class SpellBuilders
         var powerAuraOfLife = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, sprite)
-            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None, 10)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

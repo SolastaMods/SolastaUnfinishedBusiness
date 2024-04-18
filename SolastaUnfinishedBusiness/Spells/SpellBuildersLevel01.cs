@@ -35,7 +35,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetTargetingData(Side.Enemy, RangeType.RangeHit, 18, TargetType.IndividualsUnique)
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalTargetsPerIncrement:1)
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
             .SetParticleEffectParameters(ShockingGrasp)
             .SetEffectForms(
                 EffectFormBuilder
@@ -170,7 +170,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement:1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Dexterity,
@@ -367,7 +367,8 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D4)
                             .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalTargetsPerIncrement:1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
                     .SetParticleEffectParameters(Sparkle)
                     .SetSpeed(SpeedType.CellsPerSeconds, 20)
                     .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
@@ -1867,6 +1868,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionShocked)
             .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
             .AddToDB();
 
         var powerWitchBolt = FeatureDefinitionPowerBuilder
@@ -1876,7 +1878,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 1, DieType.D12))
                     .SetParticleEffectParameters(LightningBolt)
@@ -1913,18 +1914,18 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeLightning, 1, DieType.D12)
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionWitchBolt),
-                        EffectFormBuilder.ConditionForm(conditionWitchBoltSelf, ConditionForm.ConditionOperation.Add,
-                            true, true))
+                        EffectFormBuilder.ConditionForm(
+                            conditionWitchBoltSelf, ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(LightningBolt)
                     .Build())
             .AddToDB();
 
         powerWitchBolt.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(c => GameLocationCharacter.GetFromActor(c)?.OnceInMyTurnIsValid($"Power{NAME}") == true),
             new CustomBehaviorWitchBolt(spell, powerWitchBolt, conditionWitchBolt));
 
         conditionWitchBoltSelf.AddCustomSubFeatures(
-            AddUsablePowersFromCondition.Marker, new ActionFinishedByMeWitchBolt(spell, powerWitchBolt));
+            AddUsablePowersFromCondition.Marker,
+            new ActionFinishedByMeWitchBolt(spell, powerWitchBolt));
 
         return spell;
     }
@@ -1942,7 +1943,7 @@ internal static partial class SpellBuilders
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                 rulesetEffectPower.PowerDefinition != powerWitchBolt)
+                rulesetEffectPower.PowerDefinition != powerWitchBolt)
             {
                 return true;
             }
@@ -1996,6 +1997,8 @@ internal static partial class SpellBuilders
         {
             switch (action)
             {
+                case CharacterActionMove:
+                    yield break;
                 case CharacterActionUsePower actionUsePower when
                     actionUsePower.activePower.PowerDefinition == powerWitchBolt:
                     yield break;

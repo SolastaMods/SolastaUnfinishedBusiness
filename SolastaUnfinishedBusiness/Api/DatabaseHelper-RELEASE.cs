@@ -13,6 +13,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionPerceptionAffinity PerceptionAffinityConditionBlinded { get; } =
             GetDefinition<FeatureDefinitionPerceptionAffinity>("PerceptionAffinityConditionBlinded");
+
         internal static FeatureDefinitionPerceptionAffinity PerceptionAffinityConditionInvisible { get; } =
             GetDefinition<FeatureDefinitionPerceptionAffinity>("PerceptionAffinityConditionInvisible");
     }
@@ -1215,10 +1216,10 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCombatAffinity CombatAffinityInvisible { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityInvisible");
-        
+
         internal static FeatureDefinitionCombatAffinity CombatAffinityInvisibleStalker { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityInvisibleStalker");
-        
+
         internal static FeatureDefinitionCombatAffinity CombatAffinityPackTactics { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPackTactics");
 
@@ -1655,6 +1656,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerBardGiveBardicInspiration { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBardGiveBardicInspiration");
+
+        internal static FeatureDefinitionPower PowerBardHeroismAtRoadsEnd { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHeroismAtRoadsEnd");
+
+        internal static FeatureDefinitionPower PowerBardHopeSingSongOfHope { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHopeSingSongOfHope");
 
         internal static FeatureDefinitionPower PowerBerserkerIntimidatingPresence { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBerserkerIntimidatingPresence");
