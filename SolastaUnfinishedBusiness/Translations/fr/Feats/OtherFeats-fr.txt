@@ -1,6 +1,6 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Accorde l'immunité aux restrictions de mouvement ainsi qu'à la contention.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberté
-Feat/&FeatAlertDescription=Toujours à l'affût du danger, vous bénéficiez des avantages suivants :\n• Vous ne pouvez pas être surpris tant que vous êtes conscient.\n• Vous bénéficiez d'un bonus de +5 à l'initiative.\n• Les autres créatures ne le font pas. obtenez un avantage aux jets d’attaque contre vous parce que vous n’êtes pas perçu.
+Feat/&FeatAlertDescription=Toujours à l'affût du danger, vous bénéficiez des avantages suivants :\n• Vous ne pouvez pas être surpris tant que vous êtes conscient.\n• Vous bénéficiez d'un bonus de +5 à l'initiative.\n• Les autres créatures ne le font pas. obtenez un avantage aux jets d'attaque contre vous parce que vous n'êtes pas perçu.
 Feat/&FeatAlertTitle=Alerte
 Feat/&FeatArcaneArcherAdeptDescription=Vous avez une formation à la magie des arcanes et à l'arc qui vous permet d'effectuer des manœuvres de combat spéciales.
 Feat/&FeatArcaneArcherAdeptTitle=Adepte archer des arcanes

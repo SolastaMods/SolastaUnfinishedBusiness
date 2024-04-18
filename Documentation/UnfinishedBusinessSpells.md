@@ -290,7 +290,7 @@ You weave a song into the air, causing those who hear it to applaud its magnific
 
 # 70. - *Mordenkainen's Faithful Hound* © (V,S) level 4 Conjuration
 
-You conjure a phantom watchdog in an unoccupied space that you can see within range, where it remains for the duration. The hound is invisible to all creatures except you and can't be harmed. At the start of each of your turns, the hound attempts to bite one creature within 5 feet of it that is hostile to you. The hound’s attack bonus is equal to your spellcasting ability modifier + your proficiency bonus. On a hit, it deals 4d8 piercing damage.
+You conjure a phantom watchdog in an unoccupied space that you can see within range, where it remains for the duration. The hound is invisible to all creatures except you and can't be harmed. At the start of each of your turns, the hound attempts to bite one creature within 5 feet of it that is hostile to you. The hound's attack bonus is equal to your spellcasting ability modifier + your proficiency bonus. On a hit, it deals 4d8 piercing damage.
 
 # 71. - *Raulothim's Psychic Lance* © (V) level 4 Enchantment
 
