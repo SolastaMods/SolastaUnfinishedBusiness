@@ -4,7 +4,7 @@
   "modifierOperation": "AddConditionAmount",
   "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
-  "situationalContext": "NotWearingArmorOrShield",
+  "situationalContext": "None",
   "minimum1": false,
   "useBonusFromCaster": false,
   "guiPresentation": {

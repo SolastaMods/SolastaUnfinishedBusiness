@@ -21,9 +21,9 @@
   "additionalFeatures": [],
   "attackParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "f9e21af1cbcd41d4d985159f3301aec6",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "attackImpactParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
