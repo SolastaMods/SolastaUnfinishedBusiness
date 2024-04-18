@@ -351,7 +351,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}{EldritchCannon}HitPoints")
             .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPoints)
+            .SetAddConditionAmount(AttributeDefinitions.HitPoints)
             .AddToDB();
 
         var summoningAffinityEldritchCannon = FeatureDefinitionSummoningAffinityBuilder
@@ -371,8 +371,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .Create($"Condition{Name}{EldritchCannon}HitPoints")
                     .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, InventorClass.ClassName)
                     .SetFeatures(hpBonus, hpBonus, hpBonus, hpBonus, hpBonus)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, InventorClass.ClassName)
                     .AddToDB())
             .AddToDB();
 

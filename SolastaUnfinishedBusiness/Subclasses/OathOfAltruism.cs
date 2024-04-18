@@ -50,8 +50,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}SpiritualShielding")
                     .SetGuiPresentation($"Condition{Name}SpiritualShielding", Category.Condition, Gui.NoLocalization)
-                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
-                        AttributeDefinitions.ArmorClass)
+                    .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
                     .AddToDB())
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus, AttributeDefinitions.Charisma)

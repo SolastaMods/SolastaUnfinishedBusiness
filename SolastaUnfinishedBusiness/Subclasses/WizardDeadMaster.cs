@@ -71,8 +71,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierDeadMasterUndeadChains")
             .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount,
-                AttributeDefinitions.HitPoints)
+            .SetAddConditionAmount(AttributeDefinitions.HitPoints)
             .AddToDB();
 
         var attackBonus = FeatureDefinitionAttackModifierBuilder
