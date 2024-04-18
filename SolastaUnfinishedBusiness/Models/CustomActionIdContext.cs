@@ -20,26 +20,27 @@ public static class CustomActionIdContext
 {
     private static readonly List<Id> ExtraActionIdToggles =
     [
+        (Id)ExtraActionId.AmazingDisplayToggle,
         (Id)ExtraActionId.ArcaneArcherToggle,
         (Id)ExtraActionId.AudaciousWhirlToggle,
         (Id)ExtraActionId.BrutalStrikeToggle,
         (Id)ExtraActionId.CompellingStrikeToggle,
         (Id)ExtraActionId.CoordinatedAssaultToggle,
         (Id)ExtraActionId.CunningStrikeToggle,
+        (Id)ExtraActionId.DragonHideToggle,
         (Id)ExtraActionId.DyingLightToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
         (Id)ExtraActionId.ForcePoweredStrikeToggle,
         (Id)ExtraActionId.GloomBladeToggle,
         (Id)ExtraActionId.HailOfBladesToggle,
+        (Id)ExtraActionId.ImpishWrathToggle,
         (Id)ExtraActionId.MasterfulWhirlToggle,
         (Id)ExtraActionId.MindSculptToggle,
+        (Id)ExtraActionId.OrcishFuryToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
-        (Id)ExtraActionId.SupremeWillToggle,
-        (Id)ExtraActionId.ImpishWrathToggle,
-        (Id)ExtraActionId.OrcishFuryToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,
-        (Id)ExtraActionId.DragonHideToggle
+        (Id)ExtraActionId.SupremeWillToggle
     ];
 
     internal static FeatureDefinitionPower FarStep { get; private set; }

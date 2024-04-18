@@ -25,7 +25,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class CollegeOfElegance : AbstractSubclass
 {
     private const string Name = "CollegeOfElegance";
-    private const ActionDefinitions.Id AmazingDisplayToggle = (ActionDefinitions.Id)ExtraActionId.ImpishWrathToggle;
+    private const ActionDefinitions.Id AmazingDisplayToggle = (ActionDefinitions.Id)ExtraActionId.AmazingDisplayToggle;
 
     public CollegeOfElegance()
     {
@@ -78,28 +78,27 @@ public sealed class CollegeOfElegance : AbstractSubclass
             new CharacterBattleStartedListenerElegantFightingInitiative(
                 attributeModifierElegantStepsArmorClass, conditionElegantFightingInitiative));
 
+        var validator = new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield);
+        
         var powerDash = FeatureDefinitionPowerBuilder
             .Create(PowerMonkStepOfTheWindDash, $"Power{Name}Dash")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield))
+            .AddCustomSubFeatures(validator)
             .AddToDB();
 
         var powerDisengage = FeatureDefinitionPowerBuilder
             .Create(PowerMonkStepOftheWindDisengage, $"Power{Name}Disengage")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield))
+            .AddCustomSubFeatures(validator)
             .AddToDB();
 
         var powerDodge = FeatureDefinitionPowerBuilder
             .Create(PowerMonkPatientDefense, $"Power{Name}Dodge")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield))
+            .AddCustomSubFeatures(validator)
             .AddToDB();
 
         var featureSetElegantFighting = FeatureDefinitionFeatureSetBuilder
@@ -146,6 +145,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .Create($"Condition{Name}AmazingDisplay")
             .SetGuiPresentation(AmazingDisplayName, Category.Feature, ConditionDefinitions.ConditionSlowed)
             .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{Name}AmazingDisplay")
@@ -427,7 +427,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerAmazingDisplay, rulesetAttacker);
 
-            rulesetAttacker.UsePower(usablePower);
+            usablePower.Consume();
 
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
