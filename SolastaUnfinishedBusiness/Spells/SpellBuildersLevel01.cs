@@ -1866,17 +1866,18 @@ internal static partial class SpellBuilders
         var conditionWitchBolt = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionShocked)
+            .SetPossessive()
             .AddToDB();
 
         var powerWitchBolt = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, LightningBolt)
-            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 1, DieType.D12))
                     .SetParticleEffectParameters(LightningBolt)
                     .Build())
@@ -1918,17 +1919,17 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-
         powerWitchBolt.AddCustomSubFeatures(
-            new FilterTargetingCharacterWitchBolt(spell, powerWitchBolt, conditionWitchBolt));
+            new ValidatorsValidatePowerUse(c => GameLocationCharacter.GetFromActor(c)?.OnceInMyTurnIsValid($"Power{NAME}") == true),
+            new CustomBehaviorWitchBolt(spell, powerWitchBolt, conditionWitchBolt));
 
         conditionWitchBoltSelf.AddCustomSubFeatures(
-            AddUsablePowersFromCondition.Marker, new CustomBehaviorWitchBolt(spell, powerWitchBolt));
+            AddUsablePowersFromCondition.Marker, new ActionFinishedByMeWitchBolt(spell, powerWitchBolt));
 
         return spell;
     }
 
-    private sealed class FilterTargetingCharacterWitchBolt(
+    private sealed class CustomBehaviorWitchBolt(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellWitchBolt,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
@@ -1940,8 +1941,8 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
-                || rulesetEffectPower.PowerDefinition != powerWitchBolt)
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                 rulesetEffectPower.PowerDefinition != powerWitchBolt)
             {
                 return true;
             }
@@ -1985,7 +1986,7 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class CustomBehaviorWitchBolt(
+    private sealed class ActionFinishedByMeWitchBolt(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellWitchBolt,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
@@ -1993,10 +1994,15 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (action is CharacterActionUsePower actionUsePower &&
-                actionUsePower.activePower.PowerDefinition == powerWitchBolt)
+            switch (action)
             {
-                yield break;
+                case CharacterActionUsePower actionUsePower when
+                    actionUsePower.activePower.PowerDefinition == powerWitchBolt:
+                    yield break;
+                case CharacterActionCastSpell actionCastSpell when
+                    actionCastSpell.activeSpell.SpellDefinition == spellWitchBolt:
+                    action.ActingCharacter.UsedSpecialFeatures.TryAdd(powerWitchBolt.Name, 0);
+                    yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;

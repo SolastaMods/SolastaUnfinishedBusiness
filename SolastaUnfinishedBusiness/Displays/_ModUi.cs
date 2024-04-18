@@ -29,7 +29,7 @@ namespace SolastaUnfinishedBusiness.Displays;
 internal static class ModUi
 {
     internal const int DontDisplayDescription = 4;
-    internal const float PixelsPerColumn = 220;
+    internal const float PixelsPerColumn = 230;
 
     internal static readonly HashSet<string> TabletopDefinitionNames =
     [
