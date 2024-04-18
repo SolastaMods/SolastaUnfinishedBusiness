@@ -2765,6 +2765,36 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] PowerEleganceDash {
+            get {
+                object obj = ResourceManager.GetObject("PowerEleganceDash", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerEleganceDisengage {
+            get {
+                object obj = ResourceManager.GetObject("PowerEleganceDisengage", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerEleganceDodge {
+            get {
+                object obj = ResourceManager.GetObject("PowerEleganceDodge", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] PowerFarStep {
             get {
                 object obj = ResourceManager.GetObject("PowerFarStep", resourceCulture);
