@@ -61,7 +61,6 @@ public sealed class CollegeOfElegance : AbstractSubclass
                     .Create($"AttributeModifier{Name}ElegantFightingInitiative")
                     .SetGuiPresentation(ElegantFightingName, Category.Feature, Gui.NoLocalization)
                     .SetAddConditionAmount(Initiative)
-                    .SetSituationalContext(SituationalContext.NotWearingArmorOrShield)
                     .AddToDB())
             .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
@@ -79,7 +78,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
                 attributeModifierElegantStepsArmorClass, conditionElegantFightingInitiative));
 
         var validator = new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield);
-        
+
         var powerDash = FeatureDefinitionPowerBuilder
             .Create(PowerMonkStepOfTheWindDash, $"Power{Name}Dash")
             .SetOrUpdateGuiPresentation(Category.Feature)
@@ -253,6 +252,12 @@ public sealed class CollegeOfElegance : AbstractSubclass
             var rulesetCharacter = locationCharacter.RulesetCharacter;
             var dieType = rulesetCharacter.GetBardicInspirationDieValue();
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+
+            if (!ValidatorsCharacter.HasNoArmor(rulesetCharacter) ||
+                !ValidatorsCharacter.HasNoShield(rulesetCharacter))
+            {
+                return;
+            }
 
             rulesetCharacter.InflictCondition(
                 conditionElegantFightingInitiative.Name,
