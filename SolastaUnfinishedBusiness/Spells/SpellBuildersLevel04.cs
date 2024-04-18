@@ -228,7 +228,6 @@ internal static partial class SpellBuilders
             .SetOrUpdateGuiPresentation(Category.Proxy)
             .AddToDB();
 
-        proxyFaithfulHound.actionId = Id.AttackFree;
         proxyFaithfulHound.additionalFeatures.Clear();
         proxyFaithfulHound.attackParticle = new AssetReference();
         proxyFaithfulHound.canMove = false;
