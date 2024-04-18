@@ -1863,6 +1863,11 @@ internal static partial class SpellBuilders
     {
         const string NAME = "WitchBolt";
 
+        var conditionWitchBolt = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionShocked)
+            .AddToDB();
+
         var powerWitchBolt = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, LightningBolt)
@@ -1900,18 +1905,84 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeLightning, 1, DieType.D12),
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeLightning, 1, DieType.D12)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(conditionWitchBolt),
                         EffectFormBuilder.ConditionForm(conditionWitchBoltSelf, ConditionForm.ConditionOperation.Add,
                             true, true))
                     .SetParticleEffectParameters(LightningBolt)
                     .Build())
             .AddToDB();
 
+
+        powerWitchBolt.AddCustomSubFeatures(
+            new FilterTargetingCharacterWitchBolt(spell, powerWitchBolt, conditionWitchBolt));
+
         conditionWitchBoltSelf.AddCustomSubFeatures(
             AddUsablePowersFromCondition.Marker, new CustomBehaviorWitchBolt(spell, powerWitchBolt));
 
         return spell;
+    }
+
+    private sealed class FilterTargetingCharacterWitchBolt(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellWitchBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerWitchBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionWitchBolt) : IFilterTargetingCharacter, IModifyEffectDescription
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
+                || rulesetEffectPower.PowerDefinition != powerWitchBolt)
+            {
+                return true;
+            }
+
+            var rulesetTarget = target.RulesetCharacter;
+
+            var isValid = rulesetTarget.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionWitchBolt.Name);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWitchBolt");
+            }
+
+            return isValid;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerWitchBolt;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var rulesetSpell = character.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellWitchBolt);
+
+            if (rulesetSpell == null)
+            {
+                return effectDescription;
+            }
+
+            var effectLevel = rulesetSpell.EffectLevel;
+
+            effectDescription.EffectForms[0].DamageForm.DiceNumber = effectLevel;
+
+            return effectDescription;
+        }
     }
 
     private sealed class CustomBehaviorWitchBolt(
