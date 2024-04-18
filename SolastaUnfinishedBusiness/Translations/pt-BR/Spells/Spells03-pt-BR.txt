@@ -1,3 +1,5 @@
+Condition/&ConditionAuraOfLifeDescription=Você pode ser direcionado para recuperar 2d6 pontos de vida.
+Condition/&ConditionAuraOfLifeTitle=Aura da Vida
 Condition/&ConditionBlindedByBlindingSmiteTitle=Cegado por Blinding Smite
 Condition/&ConditionBlindedByHungerOfTheVoidTitle=Cegado pela Fome de Hadar
 Condition/&ConditionCorruptingBoltDescription=A criatura fica vulnerável à próxima instância de dano que receber.
@@ -32,6 +34,8 @@ Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Mortalha Espiritual!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} causa {2} de dano radiante a {1} da Mortalha Espiritual!
 Spell/&AdderFangsDescription=Você cria a aparência de uma enorme cobra verde que aparece por um instante antes de atacar seu inimigo. Escolha uma criatura dentro do alcance. O alvo deve fazer um teste de resistência de constituição, sofrendo 4d10 de dano de veneno em caso de falha, ou metade desse dano em caso de sucesso. Uma criatura que falhe no teste de resistência também é envenenada, e sua velocidade é reduzida pela metade enquanto estiver envenenada por esta magia. No final de cada um de seus turnos, um alvo pode fazer um teste de resistência de constituição, encerrando o veneno em caso de sucesso. Caso contrário, o veneno dura 1 minuto. Quando você conjura esta magia usando um espaço de magia de 4º nível ou superior, você pode escolher uma criatura adicional dentro do alcance para cada nível do espaço acima do 3º.
 Spell/&AdderFangsTitle=Presas de Adder
+Spell/&AuraOfLifeDescription=A energia curativa irradia de você em uma aura com um raio de 9 metros. Até o feitiço terminar, a aura se move com você, centrada em você. Você pode usar uma ação bônus para fazer com que uma criatura na aura (incluindo você) recupere 2d6 pontos de vida.
+Spell/&AuraOfLifeTitle=Aura de Vitalidade
 Spell/&BlindingSmiteDescription=No seu próximo golpe, sua arma brilha com uma luz brilhante e o ataque causa 3d8 de dano radiante extra ao alvo. Além disso, o alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará cego até o feitiço terminar.\nUma criatura cegada por este feitiço faz outro teste de resistência de Constituição no final de cada um de seus turnos. Em um salvamento bem-sucedido, ele não fica mais cego.
 Spell/&BlindingSmiteTitle=Golpe Cegante
 Spell/&BoomingStepDescription=Você se teletransporta para um espaço desocupado que você pode ver dentro do alcance. Imediatamente após você desaparecer, um estrondo estrondoso soa, e cada criatura a até 3 metros do espaço que você deixou deve realizar um teste de resistência de Constituição, sofrendo 3d10 de dano trovejante se falhar na resistência, ou metade do dano se obtiver sucesso. Você também pode teletransportar um aliado disposto. Quando você conjura esta magia usando um espaço de magia de 4º nível ou superior, o dano aumenta em 1d10 para cada nível do espaço acima do 3º.

@@ -29,7 +29,7 @@ internal static class SpellsContext
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = [];
 
     internal static readonly SpellDefinition AirBlast = BuildAirBlast();
-    internal static readonly SpellDefinition AuraOfVitality = BuildAuraOfVitality();
+    internal static readonly SpellDefinition AuraOfLife = BuildAuraOfLife();
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
     internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
     internal static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
@@ -55,7 +55,6 @@ internal static class SpellsContext
     internal static readonly SpellDefinition Wrack = BuildWrack();
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
     internal static HashSet<SpellDefinition> Spells { get; private set; } = [];
-
 
     [NotNull]
     internal static SortedList<string, SpellListDefinition> SpellLists
@@ -286,6 +285,7 @@ internal static class SpellsContext
         RegisterSpell(Web, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 
         // 3rd level
+        RegisterSpell(BuildAuraOfVitality(), 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BuildAdderFangs(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWarlock);
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
         RegisterSpell(BuildBoomingStep(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
@@ -303,7 +303,7 @@ internal static class SpellsContext
 
         // 4th level
         RegisterSpell(BuildAuraOfPerseverance(), 0, SpellListCleric, SpellListPaladin);
-        RegisterSpell(AuraOfVitality, 0, SpellListCleric, SpellListPaladin);
+        RegisterSpell(AuraOfLife, 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BuildBlessingOfRime(), 0, SpellListBard, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
@@ -347,7 +347,7 @@ internal static class SpellsContext
         RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
         RegisterSpell(BuildWeird(), 0, SpellListWarlock, SpellListWizard);
 
-        Spells = Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle()).ToHashSet();
+        Spells = [.. Spells.OrderBy(x => x.SpellLevel).ThenBy(x => x.FormatTitle())];
 
         foreach (var kvp in SpellListContextTab)
         {

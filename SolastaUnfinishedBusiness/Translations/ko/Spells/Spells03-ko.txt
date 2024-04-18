@@ -1,3 +1,5 @@
+Condition/&ConditionAuraOfLifeDescription=2d6 체력을 회복하도록 목표를 세울 수 있습니다.
+Condition/&ConditionAuraOfLifeTitle=생명의 아우라
 Condition/&ConditionBlindedByBlindingSmiteTitle=눈부신 일격으로 눈이 멀다
 Condition/&ConditionBlindedByHungerOfTheVoidTitle=하다르의 굶주림으로 눈이 멀다
 Condition/&ConditionCorruptingBoltDescription=생물은 받는 다음 피해 인스턴스에 취약합니다.
@@ -32,6 +34,8 @@ Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=영혼의 장막!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0}이 Spirit Shroud의 {1}에 {2}의 빛나는 피해를 입힙니다!
 Spell/&AdderFangsDescription=당신은 적을 덮치기 전 순간적으로 나타나는 거대한 녹색 뱀의 모습을 만듭니다. 범위 내의 생물을 선택하십시오. 목표는 체력 내성 굴림을 해야 하며, 실패 시 4d10의 독 피해를 입거나, 성공하면 절반의 피해를 입어야 합니다. 내성굴림에 실패한 생명체 역시 중독되며, 이 주문에 중독된 동안 속도는 절반으로 줄어듭니다. 각 턴이 끝날 때 목표는 체력 내성 굴림을 하여 성공 시 독을 끝낼 수 있습니다. 그렇지 않으면 독은 1분 동안 지속됩니다. 4레벨 이상의 주문 슬롯을 사용하여 이 주문을 시전할 때, 3레벨 이상의 각 슬롯 레벨에 대해 범위 내의 추가 생물을 목표로 삼을 수 있습니다.
 Spell/&AdderFangsTitle=애더의 송곳니
+Spell/&AuraOfLifeDescription=치유 에너지는 반경 30피트의 오라로 당신에게서 방출됩니다. 주문이 끝날 때까지 오라는 당신을 중심으로 당신과 함께 움직입니다. 당신은 오라에 있는 한 생물(당신 포함)이 2d6 체력을 회복하도록 하기 위해 보너스 행동을 사용할 수 있습니다.
+Spell/&AuraOfLifeTitle=활력의 오라
 Spell/&BlindingSmiteDescription=다음 공격 시 무기가 밝은 빛으로 타오르고, 공격은 대상에게 추가로 3d8의 빛나는 피해를 입힙니다. 추가적으로, 대상은 건강 내성 굴림에 성공해야 하며 그렇지 않으면 주문이 끝날 때까지 눈이 멀어야 합니다.\n이 주문에 의해 눈이 먼 생물은 각 턴이 끝날 때 또 다른 건강 내성 굴림을 합니다. 저장에 성공하면 더 이상 눈이 멀지 않습니다.
 Spell/&BlindingSmiteTitle=눈부신 일격
 Spell/&BoomingStepDescription=당신은 범위 내에서 볼 수 있는 비어 있는 공간으로 자신을 순간이동시킵니다. 당신이 사라진 직후 천둥 같은 굉음이 울리고, 당신이 떠난 공간에서 10피트 내의 각 생물은 건강 내성 굴림을 해야 하며, 내성 굴림에 실패하면 3d10 천둥 피해를 입거나, 성공하면 절반의 피해를 입습니다. 또한 기꺼이 동맹 한 명을 순간이동시킬 수도 있습니다. 4레벨 이상의 주문 슬롯을 사용하여 이 주문을 시전하면 3레벨 이상의 슬롯 레벨마다 피해가 1d10씩 증가합니다.

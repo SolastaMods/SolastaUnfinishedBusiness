@@ -34,6 +34,7 @@ internal static class ModUi
     internal static readonly HashSet<string> TabletopDefinitionNames =
     [
         "AirBlast",
+        "AuraOfLife",
         "AuraOfPerseverance",
         "AuraOfVitality",
         "BanishingSmite",

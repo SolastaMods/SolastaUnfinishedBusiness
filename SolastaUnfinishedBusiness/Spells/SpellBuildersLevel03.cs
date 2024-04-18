@@ -23,6 +23,105 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    #region Aura of Vitality
+
+    internal static SpellDefinition BuildAuraOfVitality()
+    {
+        // kept this name for backward compatibility reasons
+        const string NAME = "AuraOfLife";
+
+        var sprite = Sprites.GetSprite(NAME, Resources.AuraOfVitality, 128);
+        
+        var powerAuraOfLife = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, sprite)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(HealingComputation.Dice, 0, DieType.D6, 2, false, HealingCap.MaximumHitPoints)
+                            .Build())
+                    .SetParticleEffectParameters(HealingWord)
+                    .Build())
+            .AddToDB();
+
+        var conditionAuraOfLifeSelf = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Self")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powerAuraOfLife)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddToDB();
+        
+        var conditionAuraOfLife = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionHeroism)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, sprite)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)   
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionAuraOfLife),
+                        EffectFormBuilder.ConditionForm(conditionAuraOfLifeSelf, ConditionForm.ConditionOperation.Add, 
+                            true, true))
+                    .SetParticleEffectParameters(DivineWord)
+                    .Build())
+            .AddToDB();
+
+        spell.AddCustomSubFeatures(new FilterTargetingCharacterAuraOfVitality(spell, conditionAuraOfLife));
+        
+        return spell;
+    }
+
+    private sealed class FilterTargetingCharacterAuraOfVitality(SpellDefinition spellAuraOfVitality, ConditionDefinition conditionAuraOfVitality)
+        : IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell
+                || rulesetEffectSpell.SpellDefinition != spellAuraOfVitality)
+            {
+                return true;
+            }
+
+            var rulesetTarget = target.RulesetCharacter;
+
+            var isValid = rulesetTarget.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionAuraOfVitality.Name);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeAuraOfLife");
+            }
+
+            return isValid;
+        }
+    }
+    
+    #endregion
+    
     #region Blinding Smite
 
     internal static SpellDefinition BuildBlindingSmite()

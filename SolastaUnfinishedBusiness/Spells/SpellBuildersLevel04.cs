@@ -344,10 +344,11 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Aura of Vitality
+    #region Aura of Life
 
-    internal static SpellDefinition BuildAuraOfVitality()
+    internal static SpellDefinition BuildAuraOfLife()
     {
+        // kept this name for backward compatibility reasons
         const string NAME = "AuraOfVitality";
 
         var conditionAffinityLifeDrained = FeatureDefinitionConditionAffinityBuilder
