@@ -672,13 +672,13 @@ When you make a Charisma (Performance) or Dexterity (Acrobatics) check, you can 
 
 ### Level 6
 
+* Evasive Footwork 
+
+Whenever an attack is about to hit you, and you are wearing no armor and not wielding a shield, you can use your reaction to add your Bardic Inspiration die to your Armor Class for that attack, potentially causing it to miss. 
+
 * Extra Attack
 
 You gain an extra attack and can now attack up to 2 times in your turn.
-
-* Feature/&FeatureCollegeOfEleganceEvasiveFootworkTitle
-
-Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription
 
 
 ### Level 14
@@ -745,7 +745,7 @@ Your Transmute Force grants you Necrotic Resistance.
 * Transmute Force
 
 You can enact your will on reality with special powers a number of times a day equal to your proficiency bonus:
-• Constitution Saves: Use your Transmute Force to grant Superior Darkvision until the next long rest.
+• Constitution Saves: Use your Transmute Force to grant proficiency with Constitution Saves until the next long rest.
 • Elemental Resistance: Use your Transmute Force to grant resistance to acid, cold, fire, lightning, necrotic, poison and thunder damage until the end of your next long rest.
 • Fly: Use your Transmute Force to grant the ability of flight.
 • Heal: Use your Transmute Force to heal up to 6 targets.
