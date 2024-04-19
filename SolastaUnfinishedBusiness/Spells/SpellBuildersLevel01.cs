@@ -1923,9 +1923,12 @@ internal static partial class SpellBuilders
         powerWitchBolt.AddCustomSubFeatures(
             new CustomBehaviorWitchBolt(spell, powerWitchBolt, conditionWitchBolt));
 
+        conditionWitchBolt.AddCustomSubFeatures(
+            new ActionFinishedByMeWitchBoltEnemy(spell, conditionWitchBolt));
+
         conditionWitchBoltSelf.AddCustomSubFeatures(
             AddUsablePowersFromCondition.Marker,
-            new ActionFinishedByMeWitchBolt(spell, powerWitchBolt));
+            new ActionFinishedByMeWitchBolt(spell, powerWitchBolt, conditionWitchBolt));
 
         return spell;
     }
@@ -1991,14 +1994,14 @@ internal static partial class SpellBuilders
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellWitchBolt,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerWitchBolt) : IActionFinishedByMe
+        FeatureDefinitionPower powerWitchBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionWitchBolt) : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             switch (action)
             {
-                case CharacterActionMove:
-                    yield break;
                 case CharacterActionUsePower actionUsePower when
                     actionUsePower.activePower.PowerDefinition == powerWitchBolt:
                     yield break;
@@ -2008,7 +2011,73 @@ internal static partial class SpellBuilders
                     yield break;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (action.ActionId is ActionDefinitions.Id.TacticalMove or ActionDefinitions.Id.SpecialMove)
+            {
+                if (Gui.Battle == null)
+                {
+                    yield break;
+                }
+
+                var stillInRange = Gui.Battle.GetContenders(actingCharacter, withinRange: 6).Any(x =>
+                    x.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionWitchBolt.Name, out var activeCondition) &&
+                    rulesetCharacter.Guid == activeCondition.SourceGuid);
+
+                if (stillInRange)
+                {
+                    yield break;
+                }
+            }
+
+            var rulesetSpell = rulesetCharacter.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellWitchBolt);
+
+            if (rulesetSpell != null)
+            {
+                rulesetCharacter.TerminateSpell(rulesetSpell);
+            }
+        }
+    }
+
+    private sealed class ActionFinishedByMeWitchBoltEnemy(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellWitchBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionWitchBolt) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionWitchBolt.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            var stillInRange = Gui.Battle.GetContenders(actingCharacter, withinRange: 6).Any(x =>
+                x.RulesetCharacter.Guid == activeCondition.SourceGuid);
+
+            if (stillInRange)
+            {
+                yield break;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+
+            if (rulesetCaster == null)
+            {
+                yield break;
+            }
+
             var rulesetSpell = rulesetCharacter.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellWitchBolt);
 
             if (rulesetSpell != null)

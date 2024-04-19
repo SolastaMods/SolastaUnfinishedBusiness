@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -18,7 +19,6 @@ using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static ActionDefinitions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -263,7 +263,8 @@ internal static class RaceLizardfolkBuilder
 
             attacker.RulesetCharacter.ReceiveTemporaryHitPoints(
                 bonus, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, attacker.RulesetCharacter.Guid);
-            EffectHelpers.StartVisualEffect(attacker, attacker, SpellDefinitions.CureWounds, EffectHelpers.EffectType.Effect);
+            EffectHelpers.StartVisualEffect(
+                attacker, attacker, SpellDefinitions.CureWounds, EffectHelpers.EffectType.Effect);
         }
     }
 }
