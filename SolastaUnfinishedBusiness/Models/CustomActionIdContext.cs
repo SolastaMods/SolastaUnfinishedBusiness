@@ -77,6 +77,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(ProxySpiritualWeapon, "ActionProxyFaithfulHound")
             .SetActionId(ExtraActionId.ProxyHoundWeapon)
+            .SetActionType(ActionType.NoCost)
             .AddToDB();
 
         ActionDefinitionBuilder

@@ -227,7 +227,7 @@ internal static partial class SpellBuilders
 
         var proxyFaithfulHound = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyArcaneSword, $"Proxy{NAME}")
-            .SetOrUpdateGuiPresentation(Category.Proxy)
+            .SetGuiPresentation(Category.Proxy, sprite)
             .SetPortrait(sprite)
             .SetActionId(ExtraActionId.ProxyHoundWeapon, ExtraActionId.ProxyHoundWeaponFree)
             .SetAttackMethod(ProxyAttackMethod.CasterSpellAbility, DamageTypePiercing, DieType.D8, 4)

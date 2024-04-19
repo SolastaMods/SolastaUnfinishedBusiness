@@ -181,7 +181,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                             .Create()
                             .SetSummonEffectProxyForm(
                                 EffectProxyDefinitionBuilder
-                                    .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
+                                    .Create(EffectProxyDefinitions.ProxyStinkingCloud, "ProxyElementalBreathGreen")
                                     .SetOrUpdateGuiPresentation($"Power{Name}ElementalBreathGreen", Category.Feature)
                                     .AddToDB())
                             .Build(),

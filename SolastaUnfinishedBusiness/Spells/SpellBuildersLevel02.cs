@@ -417,7 +417,7 @@ internal static partial class SpellBuilders
 
     internal static readonly EffectProxyDefinition ProxyPetalStorm = EffectProxyDefinitionBuilder
         .Create(EffectProxyDefinitions.ProxyInsectPlague, "ProxyPetalStorm")
-        .SetGuiPresentation("PetalStorm", Category.Spell)
+        .SetGuiPresentation("PetalStorm", Category.Spell, WindWall)
         .SetPortrait(WindWall.GuiPresentation.SpriteReference)
         .SetActionId(ExtraActionId.ProxyPetalStorm)
         .SetAttackMethod(ProxyAttackMethod.ReproduceDamageForms)
