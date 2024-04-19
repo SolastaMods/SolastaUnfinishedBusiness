@@ -1,5 +1,6 @@
 Action/&AmazingDisplayToggleDescription=Activar/desactivar Amazing Display
-Action/&AmazingDisplayToggleTitle=Asombrado
+Action/&AmazingDisplayToggleTitle=Pantalla increíble
+Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Asombrado
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Cuando realizas una prueba de Carisma (Actuación) o Destreza (Acrobacia), puedes tratar una tirada de d20 de 9 o menos como un 10.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Gracia
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=Siempre que un ataque esté a punto de golpearte y no lleves armadura ni empuñes un escudo, puedes usar tu reacción para agregar tu dado de Inspiración Bárdica a tu Clase de Armadura para ese ataque, lo que podría provocar que falle.

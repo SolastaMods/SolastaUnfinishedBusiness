@@ -1,5 +1,6 @@
 Action/&AmazingDisplayToggleDescription=Ativar/desativar exibição incrível
-Action/&AmazingDisplayToggleTitle=Espantado
+Action/&AmazingDisplayToggleTitle=Exibição incrível
+Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Espantado
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Quando você faz um teste de Carisma (Atuação) ou Destreza (Acrobacia), você pode tratar um resultado de 9 ou menos no d20 como 10.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Graça
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=Sempre que um ataque estiver prestes a atingi-lo e você não estiver usando nenhuma armadura e não estiver empunhando um escudo, você pode usar sua reação para adicionar seu dado de Inspiração de Bardo à sua Classe de Armadura para esse ataque, potencialmente fazendo com que ele erre.

@@ -1,5 +1,6 @@
 Action/&AmazingDisplayToggleDescription=素晴らしいディスプレイの有効化/無効化
-Action/&AmazingDisplayToggleTitle=驚いた
+Action/&AmazingDisplayToggleTitle=素晴らしいディスプレイ
+Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=驚いた
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=あなたがカリスマ性 (パフォーマンス) または 器用さ (アクロバット) チェックを行うとき、9 以下の d20 ロールを 10 として扱うことができます。
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=グレース
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=攻撃があなたに当たろうとしているとき、あなたが鎧を着ておらず、盾を持っていないときはいつでも、その反応を利用してその攻撃の鎧クラスに Bardic Inspire ダイスを追加することができ、攻撃を失敗させる可能性があります。

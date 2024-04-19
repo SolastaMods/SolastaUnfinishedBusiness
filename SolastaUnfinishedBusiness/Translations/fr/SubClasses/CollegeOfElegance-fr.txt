@@ -1,5 +1,6 @@
 Action/&AmazingDisplayToggleDescription=Activer/désactiver Amazing Display
-Action/&AmazingDisplayToggleTitle=Étonné
+Action/&AmazingDisplayToggleTitle=Affichage étonnant
+Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Étonné
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Lorsque vous effectuez un test de Charisme (Performance) ou de Dextérité (Acrobaties), vous pouvez traiter un résultat d20 de 9 ou moins comme un 10.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=La grâce
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=Chaque fois qu'une attaque est sur le point de vous frapper et que vous ne portez ni armure ni bouclier, vous pouvez utiliser votre réaction pour ajouter votre dé d'inspiration bardique à votre classe d'armure pour cette attaque, la faisant potentiellement rater.

@@ -1,5 +1,6 @@
 Action/&AmazingDisplayToggleDescription=激活/停用惊奇展示
-Action/&AmazingDisplayToggleTitle=惊讶
+Action/&AmazingDisplayToggleTitle=令人惊叹的显示
+Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=惊讶
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=当你进行魅力（表演）或敏捷（特技）检定时，你可以将 9 或更低的 d20 检定视为 10。
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=优雅
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=每当攻击即将命中你，并且你没有穿着护甲且没有挥舞盾牌时，针对该攻击你可以利用你的反应将你的吟游诗人激励骰添加到你的护甲等级，这可能会导致攻击未命中。

@@ -1,5 +1,6 @@
 Action/&AmazingDisplayToggleDescription=Amazing Display aktivieren/deaktivieren
-Action/&AmazingDisplayToggleTitle=Erstaunt
+Action/&AmazingDisplayToggleTitle=Erstaunliche Darstellung
+Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Erstaunt
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Wenn Sie einen Wurf auf Charisma (Leistung) oder Geschicklichkeit (Akrobatik) durchführen, können Sie einen W20-Wurf von 9 oder weniger als 10 behandeln.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Anmut
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=Immer wenn Sie von einem Angriff getroffen werden und Sie keine Rüstung tragen und keinen Schild tragen, können Sie Ihre Reaktion nutzen, um Ihren bardischen Inspirationswürfel zu Ihrer Rüstungsklasse für diesen Angriff hinzuzufügen, was möglicherweise dazu führt, dass er fehlschlägt.
