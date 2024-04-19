@@ -7,7 +7,7 @@
   "canTriggerPower": false,
   "autoTerminateOnTriggerPower": false,
   "incrementalDamageDice": 0,
-  "actionId": "ProxyFlamingSphere",
+  "actionId": 9058,
   "freeActionId": "NoAction",
   "attackMethod": "ReproduceDamageForms",
   "firstAttackIsFree": false,

@@ -98,7 +98,7 @@
           "conditionDefinition": null,
           "persistOnConcentrationLoss": true,
           "decisionPackage": null,
-          "effectProxyDefinitionName": "EffectProxyFaithfulHound"
+          "effectProxyDefinitionName": "ProxyFaithfulHound"
         },
         "hasFilterId": false,
         "filterId": 0

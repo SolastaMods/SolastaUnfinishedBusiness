@@ -119,15 +119,12 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         for (var i = 1; i <= 3; i++)
         {
-            var proxyPactWeapon = EffectProxyDefinitionBuilder
+            proxyPactWeapons[i - 1] = EffectProxyDefinitionBuilder
                 .Create(EffectProxyDefinitions.ProxyArcaneSword, $"ProxyPactWeapon{i}")
                 .SetOrUpdateGuiPresentation("ProxyPactWeapon", Category.Proxy)
+                .SetActionId(ExtraActionId.ProxyPactWeapon, ExtraActionId.ProxyPactWeaponFree)
+                .SetAttackMethod(ProxyAttackMethod.CasterSpellAbility, DamageTypeForce, DieType.D8, i, true)
                 .AddToDB();
-
-            proxyPactWeapon.damageDie = DieType.D8;
-            proxyPactWeapon.damageDieNum = i;
-            proxyPactWeapon.addAbilityToDamage = true;
-            proxyPactWeapons[i - 1] = proxyPactWeapon;
         }
 
         var conditionSummonPactWeapon = ConditionDefinitionBuilder

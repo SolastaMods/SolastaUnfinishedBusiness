@@ -223,22 +223,24 @@ internal static partial class SpellBuilders
     {
         const string NAME = "FaithfulHound";
 
+        var sprite = Sprites.GetSprite(NAME, Resources.FaithfulHound, 128);
+
         var proxyFaithfulHound = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyArcaneSword, $"EffectProxy{NAME}")
+            .Create(EffectProxyDefinitions.ProxyArcaneSword, $"Proxy{NAME}")
             .SetOrUpdateGuiPresentation(Category.Proxy)
+            .SetPortrait(sprite)
+            .SetActionId(ExtraActionId.ProxyHoundWeapon, ExtraActionId.ProxyHoundWeaponFree)
+            .SetAttackMethod(ProxyAttackMethod.CasterSpellAbility, DamageTypePiercing, DieType.D8, 4)
+            .SetAdditionalFeatures()
+            .SetCanMove(false, false)
             .AddToDB();
 
-        proxyFaithfulHound.additionalFeatures.Clear();
         proxyFaithfulHound.attackParticle = new AssetReference();
-        proxyFaithfulHound.canMove = false;
-        proxyFaithfulHound.damageDie = DieType.D8;
-        proxyFaithfulHound.damageDieNum = 4;
-        proxyFaithfulHound.damageType = DamageTypePiercing;
         proxyFaithfulHound.prefabReference = MonsterDefinitions.FeyWolf.MonsterPresentation.malePrefabReference;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.FaithfulHound, 128))
+            .SetGuiPresentation(Category.Spell, sprite)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(4)
             .SetCastingTime(ActivationTime.Action)

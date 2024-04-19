@@ -7,8 +7,8 @@
   "canTriggerPower": false,
   "autoTerminateOnTriggerPower": false,
   "incrementalDamageDice": 0,
-  "actionId": "ProxySpiritualWeapon",
-  "freeActionId": "ProxySpiritualWeaponFree",
+  "actionId": 9056,
+  "freeActionId": 9057,
   "attackMethod": "CasterSpellAbility",
   "firstAttackIsFree": true,
   "constrainedToSpellArea": false,
@@ -74,9 +74,9 @@
   "hasPortrait": true,
   "portraitSpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "f4e17315dd7a28b488efbdcc3dbbb032",
-    "m_SubObjectName": "ProxySpiritualWeapon",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "9ccae0cf-fedf-5b4b-a2fa-770939e6b8e9",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "startEvent": {
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
@@ -129,8 +129,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Proxy/&EffectProxyFaithfulHoundTitle",
-    "description": "Proxy/&EffectProxyFaithfulHoundDescription",
+    "title": "Proxy/&ProxyFaithfulHoundTitle",
+    "description": "Proxy/&ProxyFaithfulHoundDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d4fa46dbc25279242a2b1e7626ee1da2",
@@ -150,7 +150,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f16e0c65-dfe3-5ff9-8fb3-8cf7ae0e61ae",
+  "guid": "54fa139b-edd2-55ed-aaa6-6e95ddf41256",
   "contentPack": 9999,
-  "name": "EffectProxyFaithfulHound"
+  "name": "ProxyFaithfulHound"
 }

@@ -415,16 +415,14 @@ internal static partial class SpellBuilders
 
     #region Petal Storm
 
-    [NotNull] internal static readonly EffectProxyDefinition ProxyPetalStorm = EffectProxyDefinitionBuilder
+    internal static readonly EffectProxyDefinition ProxyPetalStorm = EffectProxyDefinitionBuilder
         .Create(EffectProxyDefinitions.ProxyInsectPlague, "ProxyPetalStorm")
         .SetGuiPresentation("PetalStorm", Category.Spell)
-        .SetCanMove()
-        .SetIsEmptyPresentation(false)
-        .SetCanMoveOnCharacters()
-        .SetAttackMethod(ProxyAttackMethod.ReproduceDamageForms)
-        .SetActionId(ActionDefinitions.Id.ProxyFlamingSphere)
         .SetPortrait(WindWall.GuiPresentation.SpriteReference)
-        .AddAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove6)
+        .SetActionId(ExtraActionId.ProxyPetalStorm)
+        .SetAttackMethod(ProxyAttackMethod.ReproduceDamageForms)
+        .SetAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove6)
+        .SetCanMove()
         .AddToDB();
 
     internal static SpellDefinition BuildPetalStorm()
