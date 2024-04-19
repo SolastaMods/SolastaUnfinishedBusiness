@@ -1,6 +1,6 @@
 Action/&AmazingDisplayToggleDescription=Активировать/деактивировать Удивительное зрелище
 Action/&AmazingDisplayToggleTitle=Удивительное зрелище
-Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Удивительное зрелище
+Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Впечатлён
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Когда вы совершаете проверку Харизмы (Выступление) или Ловкости (Акробатика), вы можете считать бросок d20 с результатом "9" или ниже как "10".
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Грация
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=Всякий раз, когда по вам должна попасть атака, при этом вы не носите доспехи и не используете щит, вы можете реакцией добавить кость бардского вдохновения к своему классу доспеха для этой атаки, что потенциально может привести к её промаху.
