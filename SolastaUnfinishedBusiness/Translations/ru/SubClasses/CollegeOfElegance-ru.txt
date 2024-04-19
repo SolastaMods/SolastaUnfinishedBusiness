@@ -1,5 +1,5 @@
 Action/&AmazingDisplayToggleDescription=Активировать/деактивировать Удивительное зрелище
-Action/&AmazingDisplayToggleTitle=Поражен
+Action/&AmazingDisplayToggleTitle=Удивительное зрелище
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=Когда вы совершаете проверку Харизмы (Выступление) или Ловкости (Акробатика), вы можете считать бросок d20 с результатом "9" или ниже как "10".
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Грация
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=Всякий раз, когда по вам должна попасть атака, при этом вы не носите доспехи и не используете щит, вы можете реакцией добавить кость бардского вдохновения к своему классу доспеха для этой атаки, что потенциально может привести к её промаху.
@@ -14,7 +14,7 @@ Feature/&PowerCollegeOfEleganceDisengageDescription=Вы можете потра
 Feature/&PowerCollegeOfEleganceDisengageTitle=Элегантные шаги: Отход
 Feature/&PowerCollegeOfEleganceDodgeDescription=Вы можете потратить 1 кость бардовского вдохновения, чтобы совершить действие Уклонение бонусным действием в свой ход.
 Feature/&PowerCollegeOfEleganceDodgeTitle=Элегантные шаги: Уклонение
-Feedback/&AmazingDisplayNotTriggered={1} не активировал силу «Потрясающее отображение», так как не было обнаружено врагов, на которых можно было бы нацелиться.
+Feedback/&AmazingDisplayNotTriggered={1} не активировал умение Удивительное зрелище, так как не было обнаружено подходящих в качестве целей противников
 Feedback/&DieRollModifierCollegeOfEleganceGraceReroll=Благодаря Грации, {0} считает значение на кости {1} равным 10.
 Feedback/&EvasiveFootworkACIncrease={0} использует {1}, чтобы бросить кость бардовского вдохновения ({2}) и увеличить КД на {3}
 Reaction/&CustomReactionEvasiveFootworkDescription=Вас вот-вот поразит атака! Вы можете использовать Уклончивые движения ног, чтобы предотвратить удар.
