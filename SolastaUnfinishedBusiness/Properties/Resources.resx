@@ -1257,6 +1257,12 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="ImpBadland" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Races/ImpBadland.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="ImpInfernal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/ImpInfernal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -1669,6 +1675,27 @@
   <data name="PowerHungryJaws" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>
       ..\Resources\Powers\PowerHungryJaws.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PowerImpHospitality" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ..\Resources\Powers\PowerImpHospitality.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PowerImpPassage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ..\Resources\Powers\PowerImpPassage.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PowerImpSpite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ..\Resources\Powers\PowerImpSpite.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>

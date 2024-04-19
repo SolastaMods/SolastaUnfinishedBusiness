@@ -1812,6 +1812,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] ImpBadland {
+            get {
+                object obj = ResourceManager.GetObject("ImpBadland", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ImpForest {
             get {
                 object obj = ResourceManager.GetObject("ImpForest", resourceCulture);
@@ -2908,6 +2918,36 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] PowerHungryJaws {
             get {
                 object obj = ResourceManager.GetObject("PowerHungryJaws", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerImpHospitality {
+            get {
+                object obj = ResourceManager.GetObject("PowerImpHospitality", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerImpPassage {
+            get {
+                object obj = ResourceManager.GetObject("PowerImpPassage", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerImpSpite {
+            get {
+                object obj = ResourceManager.GetObject("PowerImpSpite", resourceCulture);
                 return ((byte[])(obj));
             }
         }
