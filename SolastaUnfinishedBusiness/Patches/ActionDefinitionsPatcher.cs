@@ -30,9 +30,13 @@ public static class ActionDefinitionsPatcher
     public static class IsProxyAction_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(ref bool __result, ActionDefinitions.Id actionId)
+        public static void Postfix(ref bool __result, ActionDefinitions.Id actionId, bool includeFree = true)
         {
-            if (actionId is (ActionDefinitions.Id)ExtraActionId.PactWeapon)
+            if (actionId == (ActionDefinitions.Id)ExtraActionId.ProxyHoundWeapon ||
+                actionId == (ActionDefinitions.Id)ExtraActionId.ProxyPactWeapon ||
+                actionId == (ActionDefinitions.Id)ExtraActionId.ProxyPetalStorm ||
+                (actionId == (ActionDefinitions.Id)ExtraActionId.ProxyHoundWeaponFree && includeFree) ||
+                (actionId == (ActionDefinitions.Id)ExtraActionId.ProxyPactWeaponFree && includeFree))
             {
                 __result = true;
             }
@@ -48,8 +52,8 @@ public static class ActionDefinitionsPatcher
         public static void Postfix(ref bool __result, ActionDefinitions.Id actionId)
         {
             if (actionId
-                is (ActionDefinitions.Id)ExtraActionId.HoundWeaponFree
-                or (ActionDefinitions.Id)ExtraActionId.PactWeaponFree)
+                is (ActionDefinitions.Id)ExtraActionId.ProxyHoundWeaponFree
+                or (ActionDefinitions.Id)ExtraActionId.ProxyPactWeaponFree)
             {
                 __result = true;
             }

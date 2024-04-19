@@ -30,6 +30,16 @@ internal static partial class DatabaseHelper
             GetDefinition<ActionDefinition>("GrantBardicInspiration");
 
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
+
+        internal static ActionDefinition ProxyFlamingSphere { get; } =
+            GetDefinition<ActionDefinition>("ProxyFlamingSphere");
+
+        internal static ActionDefinition ProxySpiritualWeapon { get; } =
+            GetDefinition<ActionDefinition>("ProxySpiritualWeapon");
+
+        internal static ActionDefinition ProxySpiritualWeaponFree { get; } =
+            GetDefinition<ActionDefinition>("ProxySpiritualWeaponFree");
+
         internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
         internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
         internal static ActionDefinition RecklessAttack { get; } = GetDefinition<ActionDefinition>("RecklessAttack");

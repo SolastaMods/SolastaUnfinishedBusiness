@@ -54,6 +54,35 @@ public static class CustomActionIdContext
         BuildDoNothingActions();
         BuildPrioritizeAction();
         BuildFarStepAction();
+        BuildProxyActions();
+    }
+
+    private static void BuildProxyActions()
+    {
+        ActionDefinitionBuilder
+            .Create(ProxySpiritualWeapon, "ActionProxyPactWeapon")
+            .SetActionId(ExtraActionId.ProxyPactWeapon)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(ProxySpiritualWeaponFree, "ActionProxyPactWeaponFree")
+            .SetActionId(ExtraActionId.ProxyPactWeaponFree)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(ProxyFlamingSphere, "ActionProxyPetalStorm")
+            .SetActionId(ExtraActionId.ProxyPetalStorm)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(ProxySpiritualWeapon, "ActionProxyFaithfulHound")
+            .SetActionId(ExtraActionId.ProxyHoundWeapon)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(ProxySpiritualWeaponFree, "ActionProxyFaithfulHoundFree")
+            .SetActionId(ExtraActionId.ProxyHoundWeaponFree)
+            .AddToDB();
     }
 
     private static void BuildCustomInvocationActions()
