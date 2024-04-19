@@ -17,7 +17,6 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;

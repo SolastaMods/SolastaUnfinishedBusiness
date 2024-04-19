@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
