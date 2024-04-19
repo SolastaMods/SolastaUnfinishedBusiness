@@ -452,6 +452,7 @@
     <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
     <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
     <UseOfficialLightingObscurementAndVisionRules>true</UseOfficialLightingObscurementAndVisionRules>
+    <OfficialObscurementRulesInvisibleCreaturesCanBeTarget>false</OfficialObscurementRulesInvisibleCreaturesCanBeTarget>
     <OfficialObscurementRulesCancelAdvDisPairs>false</OfficialObscurementRulesCancelAdvDisPairs>
     <OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>false
     </OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>
@@ -826,6 +827,7 @@
             <value>
                 <ArrayOfString>
                     <string>CollegeOfAudacity</string>
+                    <string>CollegeOfElegance</string>
                     <string>CollegeOfGuts</string>
                     <string>CollegeOfLife</string>
                     <string>CollegeOfThespian</string>
@@ -1322,6 +1324,7 @@
                     <string>Wrack</string>
                     <string>Sanctuary</string>
                     <string>ProtectThreshold</string>
+                    <string>AuraOfLife</string>
                     <string>VitalityTransfer</string>
                     <string>SpiritShroud</string>
                     <string>AuraOfVitality</string>
@@ -1383,6 +1386,7 @@
                     <string>ElementalWeapon</string>
                     <string>FlameArrows</string>
                     <string>BrainBulwark</string>
+                    <string>FaithfulHound</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -1396,6 +1400,7 @@
                     <string>ThunderousSmite</string>
                     <string>WrathfulSmite</string>
                     <string>ProtectThreshold</string>
+                    <string>AuraOfLife</string>
                     <string>BlindingSmite</string>
                     <string>CrusadersMantle</string>
                     <string>ElementalWeapon</string>
@@ -1455,6 +1460,7 @@
                     <string>ElementalInfusion</string>
                     <string>IceBlade</string>
                     <string>VileBrew</string>
+                    <string>WitchBolt</string>
                     <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
                     <string>MirrorImage</string>
@@ -1500,6 +1506,7 @@
                     <string>TollTheDead</string>
                     <string>SkinOfRetribution</string>
                     <string>VoidGrasp</string>
+                    <string>WitchBolt</string>
                     <string>CloudOfDaggers</string>
                     <string>MirrorImage</string>
                     <string>NoxiousSpray</string>
@@ -1557,6 +1564,7 @@
                     <string>Mule</string>
                     <string>RadiantMotes</string>
                     <string>VileBrew</string>
+                    <string>WitchBolt</string>
                     <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
                     <string>MirrorImage</string>
@@ -1574,6 +1582,7 @@
                     <string>WinterBreath</string>
                     <string>BrainBulwark</string>
                     <string>GravitySinkhole</string>
+                    <string>FaithfulHound</string>
                     <string>PsychicLance</string>
                     <string>FarStep</string>
                     <string>Incineration</string>

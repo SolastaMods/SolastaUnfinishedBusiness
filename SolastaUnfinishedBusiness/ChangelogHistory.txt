@@ -16,7 +16,7 @@
 - fixed Dragon Hide feat claw attack to be 1d4 + str unless better die type/count from Monk or other sources
 - fixed Mage Slayer feat saving reaction to be once per long rest
 - fixed Artillerist tiny fortified position power to be present on all 3 cannon types
-- fixed Circle of the Stars inverted attacker and defender names on weal / woe saving modals
+- fixed Circle of the Stars inverted attacker and defender names on weal/woe saving modals
 - fixed Martial Tactician overcome strategy power to trigger on all required scenarios
 - fixed Martial Warlord coordinated assault power to be once per turn
 - fixed Path of The Totem bear totem power to not force disadvantage against source
