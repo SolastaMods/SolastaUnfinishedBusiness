@@ -30,7 +30,7 @@ You drive a disorienting spike of psychic energy into the mind of one creature y
 
 # 8. - Minor Lifesteal (V,S) level 0 Necromancy
 
-You drain vital energy from a nearby enemy creature. Make a melee spell attack against a creature within 5 feet of you. On a hit, the creature takes 1d6 necrotic damage and you heal for half the damage dealt (rounded down). This spell has no effect on undead and constructs. The spell's damage increases by an additional die at 5th, 11th and 17th level.
+You drain vital energy from a nearby enemy creature. Make a melee spell attack against a creature within 5 feet of you. On a hit, the creature takes 1d6 necrotic damage, and you heal for half the damage dealt (rounded down). This spell has no effect on undead and constructs. The spell's damage increases by an additional die at 5th, 11th and 17th level.
 
 # 9. - *Sapping Sting* © (V,S) level 0 Necromancy
 

@@ -1,7 +1,7 @@
 # 1. - Aegis Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest and you can cast these spells with your spell slots.
+You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest, and you can cast these spells with your spell slots.
 
 # 2. - *Alert* ©
 
@@ -60,7 +60,7 @@ You may use your bonus action to call for a charge. When you do, until the start
 # 13. - Celestial Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
+You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest, and you can cast these spells with your spell slots.
 
 # 14. - *Charger* ©
 
@@ -141,7 +141,7 @@ You are a master of fighting with paired weapons. On any turn where you hit twic
 
 You master fighting with two weapons, gaining the following benefits:
 • You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
-• You can use two-weapon fighting even when the one handed melee weapons you are wielding aren't light.
+• You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.
 
 # 29. - *Dwarven Fortitude* ©
 
@@ -171,7 +171,7 @@ Increase your Wisdom by 1, to a maximum of 20. You can choose one additional fav
 
 # 35. - Exploiter
 
-You are constantly aware of the battlefield around you, honing this awareness into lethal prowess. When a creature within reach of your melee weapon takes damage from an attack that originated from a creature other than yourself, you may use your reaction to make a melee weapon attack against the damaged creature.
+You are constantly aware of the surrounding battlefield, honing this awareness into lethal prowess. When a creature within reach of your melee weapon takes damage from an attack that originated from a creature other than yourself, you may use your reaction to make a melee weapon attack against the damaged creature.
 
 # 36. - *Fade Away* ©
 
@@ -201,7 +201,7 @@ Archery, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Execu
 # 41. - Flame Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
+You gain the ability to cast the burning hands and scorching ray spells once per long rest, and you can cast these and hellish rebuke with your spell slots.
 
 # 42. - *Flames of Phlegethos* ©
 
@@ -215,7 +215,7 @@ You learn to call on hellfire to serve your commands. You gain the following ben
 Increase your Constitution by 1, to a maximum of 20.
 You have resistance to Cold damage.
 You are immune to the effects of moderately cold weather.
-You are also Chilled instead of Frozen in extremely cold weather.
+You are also Chilled instead of Frozen in freezing weather.
 
 # 44. - *Gift of the Chromatic Dragon* ©
 
@@ -227,7 +227,7 @@ You've manifested some of the power of chromatic dragons, granting you the follo
 
 You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes:
 • On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.
-• Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to your to hit in order to do additional +10 damage.
+• Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to your attack roll in order to do additional +10 damage.
 
 # 46. - *Grudge Bearer* ©
 
@@ -274,7 +274,7 @@ You can spend 10 minutes to inspire all friendly creatures, including you, withi
 # 55. - Iridescent Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
+You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest, and you can cast these spells with your spell slots.
 
 # 56. - Longsword Finesse
 
@@ -285,7 +285,7 @@ You are descended from a master of the longsword, and some of that mastery has p
 
 # 57. - *Mage Slayer* ©
 
-You have practiced techniques in melee combat against spellcasters, gaining the following benefits:
+You have practiced techniques in melee combat against spell-casters, gaining the following benefits:
 • When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.
 • When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.
 • If you fail an Intelligence, a Wisdom, or a Charisma Saving Throw, you can cause yourself to succeed instead. Once you use this benefit, you can't use it again until you finish a Long Rest.
@@ -298,7 +298,7 @@ Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two
 
 You have martial training that allows you to perform special combat techniques called maneuvers:
 • You learn two maneuvers of your choice from the Battle Master subclass. The Maneuver DC of these maneuvers is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher.
-• You gain 1 Superiority Die. The die is a d6 and it doesn't increase in size if you are not a Battle Master. This die is used to fuel your maneuvers. It is expended when you use it, and is regained when you finish a short or long rest.
+• You gain 1 Superiority Die. The die is a d6, and it doesn't increase in size if you are not a Battle Master. This die is used to fuel your maneuvers. It is expended when you use it, and is regained when you finish a short or long rest.
 
 # 60. - *Medium Armor Master* ©
 
@@ -312,7 +312,7 @@ You learn two metamagic options of your choice from the sorcerer class and gain 
 
 # 62. - *Mobile* ©
 
-You are exceptionally speedy and agile. Your speed increases by 10 ft and you are immune to difficult terrain when dashing. When you make a melee attack against a creature you are immune to attack of opportunity from the creature unless it has immunity to that.
+You are exceptionally speedy and agile. Your speed increases by 10 ft, and you are immune to difficult terrain when dashing. When you make a melee attack against a creature you are immune to attack of opportunity from the creature unless it has immunity to that.
 
 # 63. - *Moderately Armored* ©
 
@@ -351,7 +351,7 @@ Your fury burns tirelessly. You gain the following benefits:
 # 70. - Peregrination Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.
+You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest, and you can cast these spells with your spell slots.
 
 # 71. - Pickpocket
 
@@ -360,7 +360,7 @@ You gain proficiency with Sleight of Hand, or expertise if already proficient. Y
 # 72. - *Piercer* ©
 
 Increase your Strength or Dexterity by 1, to a maximum of 20.
-When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
+When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1, and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
 
 # 73. - *Poisoner* ©
 
@@ -385,7 +385,7 @@ You can add your spellcaster attribute modifier to the damage you deal with any 
 
 # 77. - Power Attack
 
-You have learned to trade accuracy to land deadlier blows. When attacking unarmed or with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
+You have learned to trade accuracy to land deadlier blows. When attacking unarmed or with melee weapons, you can choose to take a -3 penalty to your attack roll in order to do additional damage equal to 3 + your proficiency bonus.
 
 # 78. - Precision Focused
 
@@ -403,7 +403,7 @@ Before you make your first attack on your turn, you can decide to attack reckles
 # 81. - Retinue Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the bless, heroism and enhance ability spells once per long rest and you can cast these spells with your spell slots.
+You gain the ability to cast the bless, heroism and enhance ability spells once per long rest, and you can cast these spells with your spell slots.
 
 # 82. - *Revenant Blade* ©
 
@@ -435,12 +435,12 @@ You have mastered techniques to take advantage of every drop in any enemy's guar
 # 87. - Shadow Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
+You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest, and you can cast these spells with your spell slots.
 
 # 88. - *Sharpshooter* ©
 
 You have learned to trade accuracy to land deadlier shots:
-• When attacking with a ranged weapon, you can choose to take a -5 penalty to your to hit in order to do additional +10 damage.
+• When attacking with a ranged weapon, you can choose to take a -5 penalty to your attack roll in order to do additional +10 damage.
 • Attacks at long range don't impose disadvantage and ranged weapon attack ignores half cover and three-quarters cover.
 
 # 89. - *Shield Master* ©
@@ -504,7 +504,7 @@ While you are not wearing any armor, your armor class is equal to 10 + your Dext
 # 101. - Verdant Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
+You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest, and you can cast these spells with your spell slots.
 
 # 102. - Versatility Adept
 

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupFlameTouchedTitle",
-    "description": "Increase one of your mental attributes by 1, to a maximum of 20.\nYou gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.",
+    "description": "Increase one of your mental attributes by 1, to a maximum of 20.\nYou gain the ability to cast the burning hands and scorching ray spells once per long rest, and you can cast these and hellish rebuke with your spell slots.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -662,7 +662,6 @@ The College of Elegance is the home of bards who mastered the art of bodily moti
 
 You express your battle arts through nimbleness and movement. While you are wearing no armor and not wielding a shield, you gain the following benefits:
 • Your Armor Class equals 10 + your Dexterity modifier + your Charisma modifier.
-• Whenever you roll initiative, you add your Bardic Inspiration die to your initiative.
 • You can expend a Bardic Inspiration die and use your bonus action to gain benefits of Dash, Disengage or Dodge actions. 
 
 * Grace
@@ -1089,7 +1088,7 @@ Your blessed affinity with fire and metal becomes more powerful. While wearing a
 
 ## 1. Circle of the Ancient Forest
 
-You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
+You have forged a relationship with a powerful nature entity: Ancient Dryads, Arch-druids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 
 
 ### Level 2
@@ -1157,7 +1156,7 @@ Cast Wall of Thorns a number of times a day equal to your proficiency bonus.
 
 ## 2. Circle of the Eternal Grove
 
-The Circle of the Eternal Grove strives to protect and preserve as many living beings as it can. These druids understand the significance of every lifeform in the natural cycle, be it large or small, and that every one of them is worth saving.
+The Circle of the Eternal Grove strives to protect and preserve as many living beings as it can. These druids understand the significance of every life form in the natural cycle, be it large or small, and that every one of them is worth saving.
 
 
 ### Level 2
@@ -1940,14 +1939,14 @@ Monks of the Way of the Tempest push their bodies beyond its physical limitation
 
 * Tempest's Swiftness
 
-Starting at 3rd level, your base movement speed is increased by 10 feet. Whenever you use your Flurry of Blows feature, you also gain the benefits of the disengage action.
+Starting at 3rd level, your base movement speed is increased by 10 feet. Whenever you use your Flurry of Blows, you also gain the benefits of the disengage action.
 
 
 ### Level 6
 
 * Gathering Storm
 
-Starting at 6th level, you become resistant to lightning damage and your bonus attacks provided by your Flurry of Blows feature each deal additional lightning damage equal to your martial arts die.
+Starting at 6th level, you become resistant to lightning damage and your bonus attacks provided by your Flurry of Blows each deal additional lightning damage equal to your martial arts die.
 
 
 ### Level 11
@@ -2012,7 +2011,7 @@ A weapon is an extension of oneself, and a plain rendition of the one that wield
 
 * Flurry of Arrows
 
-Whenever you use your Flurry of Blows feature, you can replace one unarmed attack with a bow attack.
+Whenever you use your Flurry of Blows, you can replace one unarmed attack with a bow attack.
 
 * One with the Bow
 

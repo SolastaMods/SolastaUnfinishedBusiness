@@ -116,7 +116,7 @@ Charisma +1
 
 * Dark Elf Weapon Training
 
-You have proficiency with rapiers, shortswords, and hand crossbows.
+You have proficiency with rapiers, short swords, and hand crossbows.
 
 * Languages
 
@@ -176,7 +176,7 @@ Tieflings with a lineage connected to Malcanthet or other Succubi inherit a frag
 
 Intelligence +1
 
-* Devil'S Tongue Magic
+* Devil's Tongue Magic
 
 You know the Vicious Mockery cantrip. At 3rd level you learn Charm Person and at 5th level, Calm Emotions. Both can be used once per long rest.
 
@@ -238,7 +238,7 @@ You know the Word of Radiance cantrip. At 3rd level you learn Faerie Fire and at
 
 # 9. - Feral
 
-These tieflings display features and abilities which make them much more characteristically demonic such as a forked tail and large bat-like wings. Because of this, many feral tieflings are forced to hiding to avoid scrutiny or being hunted while others embrace this fiendish nature.
+These tieflings display features and abilities which make them much more characteristically demonic such as a forked tail and large bat-like wings. Because of this, many feral tieflings are forced to hide to avoid scrutiny or being hunted while others embrace this fiendish nature.
 
 
 ## Level 1
@@ -259,7 +259,7 @@ You know the Produce Flame cantrip. At 3rd level you learn Burning Hands. It can
 
 # 10. - Firbolg
 
-Filborgs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+Filborgs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, filborgs demonstrate formidable skills with weapons and nature magic.
 
 
 ## Level 1
@@ -646,7 +646,7 @@ You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th 
 
 # 25. - Obsidian Dwarf
 
-In ages past, a group of dwarves were enslaved by fire giants as miners and craftsmen. The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors. The dwarves rebelled, won their freedom, and retreated to the Badlands. Calling themselves the Obsidian Dwarves, they have grown and prospered.
+In ages past, a group of dwarves was enslaved by fire giants as miners and craftsmen. The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors. The dwarves rebelled, won their freedom, and retreated to the Badlands. Calling themselves the Obsidian Dwarves, they have grown and prospered.
 
 
 ## Level 1
@@ -801,7 +801,7 @@ You have proficiency in Stealth skill.
 
 * Sucker Punch
 
-On the first round of combat, if you hit a creature with an attack roll and it's initiative is lower than you, the creature takes an extra 2d6 damage.
+On the first round of combat, if you hit a creature with an attack roll, and it's initiative is lower than you, the creature takes an extra 2d6 damage.
 
 
 

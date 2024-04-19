@@ -1,7 +1,7 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
   "id": 9056,
-  "actionType": "Bonus",
+  "actionType": "NoCost",
   "actionScope": "All",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
