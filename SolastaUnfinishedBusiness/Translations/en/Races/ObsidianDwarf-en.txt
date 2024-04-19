@@ -4,5 +4,5 @@ Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=You have resistanc
 Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Cradled by Fire
 Feature/&ProficiencyObsidianDwarfLanguagesDescription=Common, Dwarvish, and Giant
 Feature/&ProficiencyObsidianDwarfLanguagesTitle=Languages
-Race/&RaceObsidianDwarfDescription=In ages past, a group of dwarves were enslaved by fire giants as miners and craftsmen. The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors. The dwarves rebelled, won their freedom, and retreated to the Badlands. Calling themselves the Obsidian Dwarves, they have grown and prospered.
+Race/&RaceObsidianDwarfDescription=In ages past, a group of dwarves was enslaved by fire giants as miners and craftsmen. The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors. The dwarves rebelled, won their freedom, and retreated to the Badlands. Calling themselves the Obsidian Dwarves, they have grown and prospered.
 Race/&RaceObsidianDwarfTitle=Obsidian Dwarf

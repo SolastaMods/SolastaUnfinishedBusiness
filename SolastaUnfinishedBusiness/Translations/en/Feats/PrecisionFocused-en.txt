@@ -1,6 +1,6 @@
-Feat/&FeatArcanePrecisionDescription=Increase your Intelligence by 1, to a maximum of 20.\nYou can use a bonus action to select a weapon. Its attacks count as magical and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
+Feat/&FeatArcanePrecisionDescription=Increase your Intelligence by 1, to a maximum of 20.\nYou can use a bonus action to select a weapon. Its attacks count as magical, and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
 Feat/&FeatArcanePrecisionTitle=Arcane Precision
-Feat/&FeatCharismaticPrecisionDescription=Increase your Charisma by 1, to a maximum of 20.\nYou can use a bonus action to select a weapon. Its attacks count as magical and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
+Feat/&FeatCharismaticPrecisionDescription=Increase your Charisma by 1, to a maximum of 20.\nYou can use a bonus action to select a weapon. Its attacks count as magical, and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
 Feat/&FeatCharismaticPrecisionTitle=Charismatic Precision
-Feat/&FeatWisePrecisionDescription=Increase your Wisdom by 1, to a maximum of 20.\nYou can use a bonus action to select a weapon. Its attacks count as magical and you use your Wisdom for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
+Feat/&FeatWisePrecisionDescription=Increase your Wisdom by 1, to a maximum of 20.\nYou can use a bonus action to select a weapon. Its attacks count as magical, and you use your Wisdom for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
 Feat/&FeatWisePrecisionTitle=Wise Precision
