@@ -94,7 +94,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .Create(DatabaseHelper.ActionDefinitions.FlurryOfBlows, "ActionTempestFury")
             .SetOrUpdateGuiPresentation(Category.Action)
             .SetActionId(ExtraActionId.TempestFury)
-            .SetActivatedPower(powerTempestFury, ActionDefinitions.ActionParameter.ActivatePower, false)
+            .SetActivatedPower(powerTempestFury, usePowerTooltip: false)
             .SetStealthBreakerBehavior(ActionDefinitions.StealthBreakerBehavior.RollIfTargets)
             .OverrideClassName("UsePower")
             .AddToDB();

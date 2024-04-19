@@ -23,6 +23,11 @@
 - fixed Patron Celestial healing light power missing from action bar
 - fixed Patron Mountain eternal guardian power not reducing damage from 6th level onwards
 
+known issues:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Artillerist Fortified Position medium cannon doesn't grant buff to self
+
 1.5.97.4:
 
 - added Burning Hex and Chilling Hex invocations
