@@ -1265,6 +1265,7 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Feat)
             .SetValidators(ValidatorsFeat.IsHalfOrc)
             .SetFeatures(AttributeModifierCreed_Of_Einar, power)
+            .SetFeatFamily(Name)
             .AddToDB();
 
         FeatOrcishAggressionCon = FeatDefinitionWithPrerequisitesBuilder
@@ -1272,6 +1273,7 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Feat)
             .SetValidators(ValidatorsFeat.IsHalfOrc)
             .SetFeatures(AttributeModifierCreed_Of_Arun, power)
+            .SetFeatFamily(Name)
             .AddToDB();
 
         feats.AddRange(FeatOrcishAggressionStr, FeatOrcishAggressionCon);
