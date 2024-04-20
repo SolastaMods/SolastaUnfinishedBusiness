@@ -775,7 +775,6 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -2004,6 +2003,12 @@ internal static partial class SpellBuilders
             {
                 case CharacterActionUsePower actionUsePower when
                     actionUsePower.activePower.PowerDefinition == powerWitchBolt:
+                    yield break;
+                case CharacterActionSpendPower actionSpendPower when
+                    actionSpendPower.activePower.PowerDefinition.ActivationTime
+                        is ActivationTime.OnSpellNoCantripDamageAuto
+                        or ActivationTime.OnAttackOrSpellHitAuto
+                        or ActivationTime.OnKillCreatureWithSpell1OrMoreCR1OrMoreAuto:
                     yield break;
                 case CharacterActionCastSpell actionCastSpell when
                     actionCastSpell.activeSpell.SpellDefinition == spellWitchBolt:
