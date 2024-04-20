@@ -231,6 +231,7 @@ internal static class ModUi
         "WayOfSilhouette",
         "Weird",
         "WitchBolt",
+        "WitherAndBloom",
         "WizardBladeDancer",
         "WizardDeadMaster",
         "WizardGraviturgist",
