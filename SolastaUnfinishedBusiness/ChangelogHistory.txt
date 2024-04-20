@@ -8,6 +8,7 @@
 - balanced Burning Hex invocation to also apply on fire 1d6 condition for 1 minute
 - balanced Orcish Aggression to grant STR or CON, PB/LR, require melee, and finish charge with free main attack
 - balanced Vitriolist viscosity mixture power to apply hindered instead of confused
+- fixed attack cantrips to trigger with all non ranged melee weapons
 - fixed cantrips casting interaction with action switching setting to allow bonus spells
 - fixed Ice Knife spell to increase dice with higher slots
 - fixed Abilities of the Chain Master invocation to be main action only
