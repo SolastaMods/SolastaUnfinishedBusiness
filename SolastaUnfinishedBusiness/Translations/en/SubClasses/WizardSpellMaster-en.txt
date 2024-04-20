@@ -1,8 +1,8 @@
-Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepare Intelligence modifier additional spells so you always have what you need.
+Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepare Intelligence modifier additional spells, so you always have what you need.
 Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Extra Prepared
 Feature/&MagicAffinitySpellMasterKnowledgeDescription=Scribe an additional spell at each level up.
 Feature/&MagicAffinitySpellMasterKnowledgeTitle=Breadth of Knowledge
-Feature/&MagicAffinitySpellMasterPreparedDescription=Prepare proficiency bonus additional spells so you always have what you need.
+Feature/&MagicAffinitySpellMasterPreparedDescription=Prepare proficiency bonus additional spells, so you always have what you need.
 Feature/&MagicAffinitySpellMasterPreparedTitle=Be Prepared
 Feature/&MagicAffinitySpellMasterRecoveryDescription=Once per long rest, you can recover spell slots (in addition to Arcane Recovery).
 Feature/&MagicAffinitySpellMasterRecoveryTitle=Arcane Depth

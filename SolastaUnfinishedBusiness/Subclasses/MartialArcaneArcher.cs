@@ -697,7 +697,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (PowerSpent == null || !ArcaneShotPowers.TryGetValue(PowerSpent, out var arcaneArcherData))
+            if (!PowerSpent || !ArcaneShotPowers.TryGetValue(PowerSpent, out var arcaneArcherData))
             {
                 yield break;
             }
@@ -741,10 +741,10 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            var gameLocationActionManager =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationActionManager == null)
+            if (!actionManager)
             {
                 yield break;
             }
@@ -770,12 +770,12 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 {
                     StringParameter = "Reaction/&CustomReactionMartialArcaneArcherGuidedShotDescription"
                 };
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("MartialArcaneArcherGuidedShot", reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
+            yield return battle.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

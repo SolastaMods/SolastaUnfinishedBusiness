@@ -100,7 +100,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
             // don't use ? on Unity Objects
 #pragma warning disable IDE0031
-            if (CommonData.AttackModesPanel != null)
+            if (CommonData.AttackModesPanel)
 #pragma warning restore IDE0031
             {
                 CommonData.AttackModesPanel.RefreshNow();
@@ -108,7 +108,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
             // don't use ? on Unity Objects
 #pragma warning disable IDE0031
-            if (CommonData.PersonalityMapPanel != null)
+            if (CommonData.PersonalityMapPanel)
 #pragma warning restore IDE0031
             {
                 CommonData.PersonalityMapPanel.RefreshNow();
@@ -440,7 +440,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         CharacterBuildingService.GetLastAssignedClassAndLevel(currentHero, out _gainedClass, out _gainedClassLevel);
         _gainedCharacterLevel = currentHero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
 
-        if (_gainedClass == null)
+        if (!_gainedClass)
         {
             return;
         }
@@ -461,7 +461,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private string GetSubClassTag()
     {
-        return _gainedSubclass == null
+        return !_gainedSubclass
             ? null
             : AttributeDefinitions.GetSubclassTag(_gainedClass, _gainedClassLevel, _gainedSubclass);
     }
@@ -501,7 +501,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         _gainedCustomFeatures.Clear();
 
-        if (_gainedClass == null)
+        if (!_gainedClass)
         {
             return;
         }
@@ -582,7 +582,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         var gainedRace = currentHero.RaceDefinition;
 
-        if (gainedRace != null)
+        if (gainedRace)
         {
             _gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedRace.FeatureUnlocks
                     .Where(f => f.Level == currentHero.ClassesHistory.Count)
@@ -801,7 +801,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         base.OnEndHide();
 
-        if (_backdrop.sprite == null)
+        if (!_backdrop.sprite)
         {
             return;
         }
@@ -1345,7 +1345,7 @@ internal static class SpellBoxExtensions
         var feature = instance.GetFeature();
         var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
         var item = feature.Item;
-        var dataProvider = item == null
+        var dataProvider = !item
             ? new CustomTooltipProvider(feature, gui)
             : new CustomItemTooltipProvider(feature, gui, item);
 

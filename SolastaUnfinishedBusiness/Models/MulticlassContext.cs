@@ -459,7 +459,7 @@ internal static class MulticlassContext
         //
         if (LevelUpContext.IsLevelingUp(rulesetCharacterHero)
             && LevelUpContext.IsClassSelectionStage(rulesetCharacterHero)
-            && selectedSubClass != null)
+            && selectedSubClass)
         {
             filteredFeatureUnlockByLevels.AddRange(selectedSubClass.FeatureUnlocks);
         }

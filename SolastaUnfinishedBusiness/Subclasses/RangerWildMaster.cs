@@ -62,7 +62,7 @@ public sealed class RangerWildMaster : AbstractSubclass
         var acBonus = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}ArmorClass")
             .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass)
+            .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
             .AddToDB();
 
         var toHit = FeatureDefinitionAttackModifierBuilder

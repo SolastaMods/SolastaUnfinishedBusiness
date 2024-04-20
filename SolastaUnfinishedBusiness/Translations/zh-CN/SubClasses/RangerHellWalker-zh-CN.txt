@@ -1,5 +1,3 @@
-Condition/&ConditionRangerHellWalkerDammingStrikeDescription=你每轮受到 1d6 点火焰伤害。
-Condition/&ConditionRangerHellWalkerDammingStrikeTitle=斥逐打击
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=你在你的每个回合结束时受到 1d6 黯蚀伤害，你感到恐慌，来自标记的火焰攻击会忽视你的抗性。
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=斥逐印记
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=当你在你的回合中第一次用攻击击中一个生物时，你可以迫使它通过一次对抗你的法术 DC 的体质豁免检定或对其进行标记。当一个生物被这样标记时，它会在其每个回合开始时受到 1d6 火焰伤害，持续 1 分钟。在它的每个回合结束时，该生物可以重复该豁免检定，成功则结束该效果。

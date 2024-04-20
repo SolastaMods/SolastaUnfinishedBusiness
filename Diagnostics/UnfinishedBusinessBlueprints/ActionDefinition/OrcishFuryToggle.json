@@ -20,7 +20,7 @@
   "removedConditionName": "",
   "preventsSerialization": false,
   "baseActionForFailureTooltips": null,
-  "activatedPower": "Definition:PowerFeatOrcishFuryImpishWrath:16e3a36d-f549-5ea1-8b52-e542ece068b3",
+  "activatedPower": "Definition:PowerFeatOrcishFuryOrcishFury:a49d868b-b6f9-58b6-b895-379c6e17aa97",
   "displayPowerTooltip": true,
   "dieType": "D10",
   "abilityScore": "Dexterity",

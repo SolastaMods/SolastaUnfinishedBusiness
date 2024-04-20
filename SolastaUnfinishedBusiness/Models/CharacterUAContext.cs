@@ -328,7 +328,7 @@ internal static partial class CharacterContext
         {
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (actionManager == null ||
+            if (!actionManager ||
                 battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
@@ -358,7 +358,7 @@ internal static partial class CharacterContext
                 0,
                 0);
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerBarbarianBrutalStrike, rulesetAttacker);
@@ -366,7 +366,7 @@ internal static partial class CharacterContext
             {
                 ActionModifiers = { actionModifier },
                 StringParameter = powerBarbarianBrutalStrike.Name,
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
@@ -520,7 +520,8 @@ internal static partial class CharacterContext
 
             rulesetDefender.RemoveCondition(activeCondition);
 
-            var bonusAttackRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
+            var bonusAttackRoll =
+                rulesetAttacker.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _, out _);
 
             actionModifier.AttackRollModifier += bonusAttackRoll;
             actionModifier.AttacktoHitTrends.Add(new TrendInfo(
@@ -1275,13 +1276,13 @@ internal static partial class CharacterContext
 
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (actionManager == null ||
+            if (!actionManager ||
                 battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
@@ -1289,7 +1290,7 @@ internal static partial class CharacterContext
             {
                 ActionModifiers = { actionModifier },
                 StringParameter = powerRogueCunningStrike.Name,
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
@@ -1343,7 +1344,8 @@ internal static partial class CharacterContext
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (_selectedPower == null || _selectedPower.EffectDescription.RangeType != RangeType.MeleeHit)
+            if (!_selectedPower ||
+                _selectedPower.EffectDescription.RangeType != RangeType.MeleeHit)
             {
                 yield break;
             }
@@ -1361,14 +1363,14 @@ internal static partial class CharacterContext
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }

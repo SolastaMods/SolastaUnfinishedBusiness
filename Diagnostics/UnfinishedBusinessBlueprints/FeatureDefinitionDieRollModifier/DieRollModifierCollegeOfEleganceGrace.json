@@ -1,0 +1,47 @@
+{
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
+  "minRollValue": 10,
+  "maxRollValue": 0,
+  "minRerollValue": 0,
+  "rerollCount": 0,
+  "rerollLocalizationKey": "Feedback/&DieRollModifierCollegeOfEleganceGraceReroll",
+  "forcedDamageOnDice": "None",
+  "validityContext": "AbilityCheck",
+  "validSkills": [
+    "Acrobatics",
+    "Performance"
+  ],
+  "requireProficiency": false,
+  "bardicInspirationAddChoice": false,
+  "bardicInspirationForceMaxRoll": false,
+  "bardicInspirationAdvantage": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&DieRollModifierCollegeOfEleganceGraceTitle",
+    "description": "Feature/&DieRollModifierCollegeOfEleganceGraceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b54e5790-8478-5388-bb37-3afe6788047f",
+  "contentPack": 9999,
+  "name": "DieRollModifierCollegeOfEleganceGrace"
+}

@@ -104,7 +104,7 @@ public static class RulesetCharacterMonsterExtensions
 
                 var key = attackModifier as FeatureDefinition;
 
-                if (key != null && featuresOrigin.TryGetValue(key, out var value))
+                if (key && featuresOrigin.TryGetValue(key, out var value))
                 {
                     attackMode.ToHitBonusTrends.Add(new TrendInfo(attackRollModifier, value.sourceType,
                         featuresOrigin[key].sourceName, featuresOrigin[key].source));
@@ -211,7 +211,7 @@ public static class RulesetCharacterMonsterExtensions
 
                 var key = attackModifier as FeatureDefinition;
 
-                if (key != null && featuresOrigin.TryGetValue(key, out var value))
+                if (key && featuresOrigin.TryGetValue(key, out var value))
                 {
                     firstDamageForm1.DamageBonusTrends.Add(new TrendInfo(num, value.sourceType,
                         featuresOrigin[key].sourceName, featuresOrigin[key].source));

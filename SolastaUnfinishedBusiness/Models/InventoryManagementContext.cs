@@ -229,7 +229,7 @@ internal static class InventoryManagementContext
 
     internal static void ResetControls()
     {
-        if (BySortGroup == null)
+        if (!BySortGroup)
         {
             return;
         }

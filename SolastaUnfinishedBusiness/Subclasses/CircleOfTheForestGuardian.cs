@@ -35,7 +35,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                 BuildSpellGroup(2, EnsnaringStrike, Shield),
                 BuildSpellGroup(3, LesserRestoration, SpikeGrowth),
                 BuildSpellGroup(5, ProtectionFromEnergy, DispelMagic),
-                BuildSpellGroup(7, AuraOfVitality, FreedomOfMovement),
+                BuildSpellGroup(7, AuraOfLife, FreedomOfMovement),
                 BuildSpellGroup(9, GreaterRestoration, HoldMonster))
             .SetSpellcastingClass(CharacterClassDefinitions.Druid)
             .AddToDB();

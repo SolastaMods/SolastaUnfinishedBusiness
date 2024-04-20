@@ -1,0 +1,10 @@
+Feature/&AttributeModifierLizardfolkNaturalArmorDescription=When you aren't wearing armor, your base AC is 13 + your Dexterity modifier. A shield's benefits apply as normal while you use your natural armor.
+Feature/&AttributeModifierLizardfolkNaturalArmorTitle=Natural Armor
+Feature/&FeatureLizardfolkClawsDescription=You can use your claws to make an unarmed strike. Attacking with them deal 1d6 + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike.
+Feature/&FeatureLizardfolkClawsTitle=Claws
+Feature/&PointPoolLizardfolkNaturesIntuitionDescription=You are proficient with one of the following skills of your choice: Animal Handling, Medicine, Nature, Perception, Stealth, Survival.
+Feature/&PointPoolLizardfolkNaturesIntuitionTitle=Nature's Intuition
+Feature/&PowerLizardfolkHungryJawsDescription=You can throw yourself into a feeding frenzy. As a bonus action, you can make a special attack with your claws. If the attack hits, it deals its normal damage, and you gain temporary hit points equal to your proficiency bonus. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. 
+Feature/&PowerLizardfolkHungryJawsTitle=Feeding Claws
+Race/&RaceLizardfolkDescription=The saurian lizardfolk are thought by some sages to be distant cousins of dragonborn and kobolds. Despite their resemblance to those other scaled folk, however, lizardfolk are their own people and have lived on the worlds of the Material Plane since the worlds' creation. Gifted by the gods with remarkable physical defenses and a mystical connection to the natural world, lizardfolk can survive with just their wits in situations that would be deadly for other folk. Because of that fact, many lizardfolk myths state that their people were placed by the gods in the Material Plane to guard its natural wonders.
+Race/&RaceLizardfolkTitle=Lizardfolk

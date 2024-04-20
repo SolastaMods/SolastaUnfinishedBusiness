@@ -397,14 +397,11 @@ internal static class EldritchVersatilityBuilders
                         return false;
                     }
 
-                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-                    switch (usage)
+                    modifyCurrent = usage switch
                     {
-                        case PointUsage.BlastBreakthrough:
-                        case PointUsage.BlastEmpower:
-                            modifyCurrent = Math.Max(modifyCurrent, -BeamNumber);
-                            break;
-                    }
+                        PointUsage.BlastBreakthrough or PointUsage.BlastEmpower => Math.Max(modifyCurrent, -BeamNumber),
+                        _ => modifyCurrent
+                    };
 
                     CurrentPoints += modifyCurrent;
 
@@ -1225,11 +1222,7 @@ internal static class EldritchVersatilityBuilders
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionManager == null ||
-                helper.Side != defender.Side ||
+            if (helper.Side != defender.Side ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 !helper.CanReact() ||
@@ -1257,15 +1250,16 @@ internal static class EldritchVersatilityBuilders
                 yield break;
             }
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var actionParams = new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
             {
                 StringParameter = "CustomReactionEldritchWard".Formatted(Category.Reaction, defender.Name)
             };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            RequestCustomReaction(gameLocationActionManager, "EldritchWard", actionParams, requiredSaveAddition);
+            RequestCustomReaction(actionService, "EldritchWard", actionParams, requiredSaveAddition);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {

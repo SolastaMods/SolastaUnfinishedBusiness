@@ -109,7 +109,7 @@ internal static class RulesetCharacterExtensions
         var usablePowers = character.UsablePowers;
         var overridenPowers = new List<FeatureDefinitionPower>();
 
-        foreach (var power in usablePowers.Where(x => x.PowerDefinition.OverriddenPower != null))
+        foreach (var power in usablePowers.Where(x => x.PowerDefinition.OverriddenPower))
         {
             overridenPowers.TryAdd(power.PowerDefinition.OverriddenPower);
         }
@@ -273,7 +273,7 @@ internal static class RulesetCharacterExtensions
         this RulesetCharacter instance,
         CharacterClassDefinition classDefinition)
     {
-        var className = classDefinition == null ? string.Empty : classDefinition.name;
+        var className = !classDefinition ? string.Empty : classDefinition.name;
         var gameLocationCharacter = instance.GetMySummoner();
         var rulesetCharacter = gameLocationCharacter?.RulesetCharacter ?? instance;
 
@@ -284,7 +284,7 @@ internal static class RulesetCharacterExtensions
 
         CharacterSubclassDefinition subclassDefinition = null;
 
-        if (classDefinition != null)
+        if (classDefinition)
         {
             hero.ClassesAndSubclasses.TryGetValue(classDefinition, out subclassDefinition);
         }
@@ -318,7 +318,7 @@ internal static class RulesetCharacterExtensions
 
         var (caster, definition) = EffectHelpers.GetCharacterAndSourceDefinitionByEffectGuid(guid);
 
-        if (caster == null || definition == null)
+        if (caster == null || !definition)
         {
             return false;
         }
@@ -412,7 +412,7 @@ internal static class RulesetCharacterExtensions
 
         var labelScreen = Gui.GuiService.GetScreen<GameLocationLabelScreen>();
 
-        if (labelScreen == null)
+        if (!labelScreen)
         {
             return;
         }
@@ -420,7 +420,7 @@ internal static class RulesetCharacterExtensions
         var worldChar = labelScreen.characterLabelsMap.Keys
             .FirstOrDefault(x => x.gameCharacter.RulesetCharacter == character);
 
-        if (worldChar == null)
+        if (!worldChar)
         {
             return;
         }

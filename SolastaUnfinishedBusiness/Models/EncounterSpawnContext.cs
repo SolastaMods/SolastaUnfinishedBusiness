@@ -56,11 +56,6 @@ internal static class EncountersSpawnContext
 
         var monsterDefinitionDatabase = DatabaseRepository.GetDatabase<MonsterDefinition>();
 
-        if (monsterDefinitionDatabase == null)
-        {
-            return Monsters;
-        }
-
         Monsters.AddRange(monsterDefinitionDatabase.Where(x =>
             x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster));
         Monsters.Sort((a, b) => Math.Abs(a.ChallengeRating - b.ChallengeRating) < 0.001f
@@ -148,8 +143,8 @@ internal static class EncountersSpawnContext
 
     private static void StageEncounter(int3 position)
     {
-        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-        var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+        var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
         var positions = new List<int3>();
         var formationPositions = new List<int3>();
         var sizeList = new List<RulesetActor.SizeParameters>();
@@ -165,7 +160,7 @@ internal static class EncountersSpawnContext
 
         foreach (var gameLocationCharacter in EncounterCharacters
                      .Select(character =>
-                         gameLocationCharacterService.CreateCharacter(
+                         characterService.CreateCharacter(
                              PlayerControllerManager.DmControllerId, character, Side.Enemy,
                              new GameLocationBehaviourPackage
                              {
@@ -184,15 +179,15 @@ internal static class EncountersSpawnContext
             characters.Add(gameLocationCharacter);
         }
 
-        gameLocationPositioningService.ComputeFormationPlacementPositions(
+        positioningService.ComputeFormationPlacementPositions(
             characters, position, LocationDefinitions.Orientation.North, formationPositions,
             CellHelpers.PlacementMode.Station, positions, sizeList, 25);
 
         for (var index = 0; index < positions.Count; index++)
         {
-            gameLocationPositioningService.PlaceCharacter(characters[index], positions[index],
-                LocationDefinitions.Orientation.North);
-            gameLocationCharacterService.RevealCharacter(characters[index]);
+            positioningService.PlaceCharacter(
+                characters[index], positions[index], LocationDefinitions.Orientation.North);
+            characterService.RevealCharacter(characters[index]);
         }
 
         Heroes.Clear();

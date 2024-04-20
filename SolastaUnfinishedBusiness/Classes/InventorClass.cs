@@ -690,7 +690,7 @@ internal static class InventorClass
                 var power = SpellStoringItemPowers1.FirstOrDefault(x => x.SourceDefinition == spell);
 
                 // Main.Enabled as during initialization the powers weren't registered yet
-                if (Main.Enabled && power == null)
+                if (Main.Enabled && !power)
                 {
                     Main.Error("found a null power when trying to switch a spell storing item");
                 }
@@ -703,7 +703,7 @@ internal static class InventorClass
                 var power = SpellStoringItemPowers2.FirstOrDefault(x => x.SourceDefinition == spell);
 
                 // Main.Enabled as during initialization the powers weren't registered yet
-                if (Main.Enabled && power == null)
+                if (Main.Enabled && !power)
                 {
                     Main.Error("found a null power when trying to switch a spell storing item");
                 }
@@ -915,15 +915,11 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             yield break;
         }
 
-        var gameLocationActionManager =
-            ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
         var rulesetHelper = helper.RulesetCharacter;
         var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
         var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
-        if (gameLocationActionManager == null ||
-            !action.RolledSaveThrow ||
+        if (!action.RolledSaveThrow ||
             action.SaveOutcome != RollOutcome.Failure ||
             !helper.CanReact() ||
             !helper.CanPerceiveTarget(defender) ||
@@ -933,7 +929,9 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             yield break;
         }
 
-        var implementationManagerService =
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
         var usablePower = PowerProvider.Get(power, rulesetHelper);
@@ -941,16 +939,15 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         {
             StringParameter = "InventorFlashOfGenius",
             StringParameter2 = FormatReactionDescription(action, attacker, defender, helper),
-            RulesetEffect = implementationManagerService
+            RulesetEffect = implementationManager
                 .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
             UsablePower = usablePower
         };
+        var count = actionService.PendingReactionRequestGroups.Count;
 
-        var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+        actionService.ReactToSpendPower(reactionParams);
 
-        gameLocationActionManager.ReactToSpendPower(reactionParams);
-
-        yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+        yield return battleManager.WaitForReactions(attacker, actionService, count);
 
         if (!reactionParams.ReactionValidated)
         {

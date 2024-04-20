@@ -288,7 +288,7 @@ internal static class EncountersDisplay
 
         UI.Label();
 
-        if (Gui.Game == null)
+        if (!Gui.Game)
         {
             UI.Label("Load a game to modify heroes AI...".Bold().Red(), UI.AutoWidth());
         }

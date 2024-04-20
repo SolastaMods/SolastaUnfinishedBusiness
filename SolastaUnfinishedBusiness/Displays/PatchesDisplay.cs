@@ -1,5 +1,4 @@
 ﻿#if DEBUG
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -32,7 +31,7 @@ internal static class PatchesDisplay
             var methodBases = _patches?.Keys
                 .Distinct()
                 .OrderBy(m => m.Name)
-                .ToArray() ?? Array.Empty<MethodBase>();
+                .ToArray() ?? [];
 
             UI.Label($"Total: {methodBases.Length.ToString().Cyan()}".Orange());
 
@@ -139,8 +138,8 @@ internal static class PatchesDisplay
     private static Patch[] EnabledPatchesForMethod([NotNull] MethodBase method)
     {
         return _patches.TryGetValue(method, out var result)
-            ? result.OrderBy(p => p.owner).ToArray()
-            : Array.Empty<Patch>();
+            ? [.. result.OrderBy(p => p.owner)]
+            : [];
     }
 
     private static void RefreshListOfPatchOwners()

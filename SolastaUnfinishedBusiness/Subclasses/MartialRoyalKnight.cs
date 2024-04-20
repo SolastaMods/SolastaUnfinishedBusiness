@@ -256,15 +256,11 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 yield break;
             }
 
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
             RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var rulesetOriginalHelper);
 
             var originalHelper = GameLocationCharacter.GetFromActor(rulesetOriginalHelper);
 
-            if (gameLocationActionManager == null ||
-                !action.RolledSaveThrow ||
+            if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 !originalHelper.CanReact() ||
                 !originalHelper.CanPerceiveTarget(defender) ||
@@ -273,7 +269,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerInspiringProtection, rulesetOriginalHelper);
@@ -281,16 +278,16 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             {
                 StringParameter = "RoyalKnightInspiringProtection",
                 StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false),
                 UsablePower = usablePower
             };
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToSpendPower(reactionParams);
+            actionService.ReactToSpendPower(reactionParams);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {

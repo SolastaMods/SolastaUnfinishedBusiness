@@ -21,7 +21,7 @@ public static class MessageModalPatcher
             //PATCH: offers an input field when in the context of character export
             if (!Main.Settings.EnableCharacterExport || __instance.contentLabel.Text != InputModalMark)
             {
-                if (InputField != null)
+                if (InputField)
                 {
                     InputField.gameObject.SetActive(false);
                 }
@@ -30,7 +30,7 @@ public static class MessageModalPatcher
             }
 
             // add this check here to avoid a restart required on this UI toggle
-            if (InputField == null)
+            if (!InputField)
             {
                 Load();
             }

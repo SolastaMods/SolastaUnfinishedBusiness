@@ -26,7 +26,7 @@ public static class NarrativeStateAnswerChoicePatcher
                 return;
             }
 
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
             DiceRolls.Clear();
 
@@ -42,7 +42,7 @@ public static class NarrativeStateAnswerChoicePatcher
 
             console.AddEntry(entry);
 
-            foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
+            foreach (var gameLocationCharacter in characterService.PartyCharacters)
             {
                 var dieRoll = RuleDefinitions.RollDie(
                     RuleDefinitions.DieType.D20, RuleDefinitions.AdvantageType.None, out _, out _);
@@ -79,7 +79,7 @@ public static class NarrativeStateAnswerChoicePatcher
             // compute weights using charisma modifier
             var computedVotes = 0;
             var networkingService = ServiceRepository.GetService<INetworkingService>();
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var playersInRoom = networkingService.GetPlayersInRoom();
             var votes = new Dictionary<int, int>();
 
@@ -93,7 +93,7 @@ public static class NarrativeStateAnswerChoicePatcher
                     continue;
                 }
 
-                var hero = gameLocationCharacterService.PartyCharacters[heroIndex];
+                var hero = characterService.PartyCharacters[heroIndex];
                 var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                     hero.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma));
 
@@ -112,7 +112,7 @@ public static class NarrativeStateAnswerChoicePatcher
             {
                 foreach (var heroIndex in votes.Keys.ToList())
                 {
-                    var hero = gameLocationCharacterService.PartyCharacters[heroIndex];
+                    var hero = characterService.PartyCharacters[heroIndex];
 
                     votes[heroIndex] += DiceRolls[hero.Guid];
                 }

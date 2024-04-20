@@ -35,7 +35,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetTargetingData(Side.Enemy, RangeType.RangeHit, 18, TargetType.IndividualsUnique)
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
             .SetParticleEffectParameters(ShockingGrasp)
             .SetEffectForms(
                 EffectFormBuilder
@@ -170,7 +170,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Dexterity,
@@ -367,7 +367,8 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D4)
                             .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
                     .SetParticleEffectParameters(Sparkle)
                     .SetSpeed(SpeedType.CellsPerSeconds, 20)
                     .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
@@ -400,9 +401,7 @@ internal static partial class SpellBuilders
                 new ConditionOperationDescription
                 {
                     operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionOnFire, $"Condition{NAME}Enemy")
-                        .AddToDB(),
+                    conditionDefinition = ConditionOnFire,
                     hasSavingThrow = true,
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
@@ -776,7 +775,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1067,10 +1066,7 @@ internal static partial class SpellBuilders
             GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1097,15 +1093,16 @@ internal static partial class SpellBuilders
             var slotLevel = rulesetDefender.GetLowestSlotLevelAndRepertoireToCastSpell(
                 spellDefinition, out var spellRepertoire);
 
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
             {
                 IntParameter = slotLevel, StringParameter = spellDefinition.Name, SpellRepertoire = spellRepertoire
             };
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToSpendSpellSlot(reactionParams);
+            actionService.ReactToSpendSpellSlot(reactionParams);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1684,7 +1681,7 @@ internal static partial class SpellBuilders
 
             var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
 
-            if (Gui.Battle == null || gameLocationScreenBattle == null)
+            if (Gui.Battle == null || !gameLocationScreenBattle)
             {
                 yield break;
             }
@@ -1840,14 +1837,14 @@ internal static partial class SpellBuilders
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets
@@ -1856,6 +1853,237 @@ internal static partial class SpellBuilders
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    #endregion
+
+    #region Witch Bolt
+
+    internal static SpellDefinition BuildWitchBolt()
+    {
+        const string NAME = "WitchBolt";
+
+        var conditionWitchBolt = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionShocked)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .AddToDB();
+
+        var powerWitchBolt = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, LightningBolt)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 1, DieType.D12))
+                    .SetParticleEffectParameters(LightningBolt)
+                    .Build())
+            .AddToDB();
+
+        var conditionWitchBoltSelf = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Self")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powerWitchBolt)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, LightningBolt)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeLightning, 1, DieType.D12)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(conditionWitchBolt),
+                        EffectFormBuilder.ConditionForm(
+                            conditionWitchBoltSelf, ConditionForm.ConditionOperation.Add, true, true))
+                    .SetParticleEffectParameters(LightningBolt)
+                    .Build())
+            .AddToDB();
+
+        powerWitchBolt.AddCustomSubFeatures(
+            new CustomBehaviorWitchBolt(spell, powerWitchBolt, conditionWitchBolt));
+
+        conditionWitchBolt.AddCustomSubFeatures(
+            new ActionFinishedByMeWitchBoltEnemy(spell, conditionWitchBolt));
+
+        conditionWitchBoltSelf.AddCustomSubFeatures(
+            AddUsablePowersFromCondition.Marker,
+            new ActionFinishedByMeWitchBolt(spell, powerWitchBolt, conditionWitchBolt));
+
+        return spell;
+    }
+
+    private sealed class CustomBehaviorWitchBolt(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellWitchBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerWitchBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionWitchBolt) : IFilterTargetingCharacter, IModifyEffectDescription
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != powerWitchBolt)
+            {
+                return true;
+            }
+
+            var rulesetTarget = target.RulesetCharacter;
+
+            var isValid = rulesetTarget.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionWitchBolt.Name);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWitchBolt");
+            }
+
+            return isValid;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerWitchBolt;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var rulesetSpell = character.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellWitchBolt);
+
+            if (rulesetSpell == null)
+            {
+                return effectDescription;
+            }
+
+            var effectLevel = rulesetSpell.EffectLevel;
+
+            effectDescription.EffectForms[0].DamageForm.DiceNumber = effectLevel;
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class ActionFinishedByMeWitchBolt(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellWitchBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerWitchBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionWitchBolt) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            switch (action)
+            {
+                case CharacterActionUsePower actionUsePower when
+                    actionUsePower.activePower.PowerDefinition == powerWitchBolt:
+                    yield break;
+                case CharacterActionCastSpell actionCastSpell when
+                    actionCastSpell.activeSpell.SpellDefinition == spellWitchBolt:
+                    action.ActingCharacter.UsedSpecialFeatures.TryAdd(powerWitchBolt.Name, 0);
+                    yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (action.ActionId is ActionDefinitions.Id.TacticalMove or ActionDefinitions.Id.SpecialMove)
+            {
+                if (Gui.Battle == null)
+                {
+                    yield break;
+                }
+
+                var stillInRange = Gui.Battle.GetContenders(actingCharacter, withinRange: 6).Any(x =>
+                    x.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionWitchBolt.Name, out var activeCondition) &&
+                    rulesetCharacter.Guid == activeCondition.SourceGuid);
+
+                if (stillInRange)
+                {
+                    yield break;
+                }
+            }
+
+            var rulesetSpell = rulesetCharacter.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellWitchBolt);
+
+            if (rulesetSpell != null)
+            {
+                rulesetCharacter.TerminateSpell(rulesetSpell);
+            }
+        }
+    }
+
+    private sealed class ActionFinishedByMeWitchBoltEnemy(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellWitchBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionWitchBolt) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionWitchBolt.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            var stillInRange = Gui.Battle.GetContenders(actingCharacter, withinRange: 6).Any(x =>
+                x.RulesetCharacter.Guid == activeCondition.SourceGuid);
+
+            if (stillInRange)
+            {
+                yield break;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+
+            if (rulesetCaster == null)
+            {
+                yield break;
+            }
+
+            var rulesetSpell = rulesetCharacter.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellWitchBolt);
+
+            if (rulesetSpell != null)
+            {
+                rulesetCharacter.TerminateSpell(rulesetSpell);
+            }
         }
     }
 

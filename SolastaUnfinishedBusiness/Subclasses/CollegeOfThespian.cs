@@ -293,14 +293,14 @@ public sealed class CollegeOfThespian : AbstractSubclass
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Bard);
             var power = classLevel < 14 ? powerTerrificPerformance : powerImprovedTerrificPerformance;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets

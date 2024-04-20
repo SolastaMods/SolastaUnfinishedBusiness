@@ -15,7 +15,8 @@ public static class StockUnitLinePatcher
         const string NAME = "RECIPE_ITEM";
 
         var t = factionGroup.parent.Find(NAME);
-        if (t != null || justRetrieve)
+
+        if (t || justRetrieve)
         {
             return t;
         }
@@ -32,14 +33,14 @@ public static class StockUnitLinePatcher
 
     private static Image SetupCraftedItem(Transform t, BaseDefinition item)
     {
-        if (t == null)
+        if (!t)
         {
             return null;
         }
 
         var img = t.Find("IncompatibleImage").GetComponent<Image>();
         var tooltip = t.GetComponent<GuiTooltip>();
-        if (item != null)
+        if (item)
         {
             img.color = Color.white;
             img.sprite = Gui.LoadAssetSync<Sprite>(item.GuiPresentation.SpriteReference);
@@ -47,7 +48,7 @@ public static class StockUnitLinePatcher
                 .GetGuiItemDefinition(item.Name)
                 .SetupTooltip(tooltip);
         }
-        else if (img.sprite != null)
+        else if (img.sprite)
         {
             Gui.ReleaseAddressableAsset(img.sprite);
             img.sprite = null;
@@ -69,7 +70,8 @@ public static class StockUnitLinePatcher
             var crafted = Main.Settings.ShowCraftedItemOnRecipeIcon
                 ? RecipeHelper.GetCraftedItem(__instance.StockUnit.ItemDefinition)
                 : null;
-            if (crafted == null)
+
+            if (!crafted)
             {
                 item.gameObject.SetActive(false);
                 __instance.itemImage.transform.localPosition = new Vector3(33, 0, 0);
@@ -78,7 +80,9 @@ public static class StockUnitLinePatcher
             {
                 item.gameObject.SetActive(true);
                 __instance.itemImage.transform.localPosition = new Vector3(58, 0, 0);
+
                 var img = SetupCraftedItem(item, crafted);
+
                 if (Main.Settings.SwapCraftedItemAndRecipeIcons)
                 {
                     (img.sprite, __instance.itemImage.sprite) = (__instance.itemImage.sprite, img.sprite);

@@ -581,6 +581,32 @@ A magic wand capable of revealing the hidden properties of unidentified magic it
 CustomInvocationCreateInfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
 CustomInvocationCreateInfusedReplicaWandOfMagicDetection	Description='Create replica <b>Wand of Magic Detection</b>:
 Casts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.'.
+CustomInvocationFeatGrudgeBearerAberration	Title='Aberration'.
+CustomInvocationFeatGrudgeBearerAberration	Description='Aberrations are utterly alien beings. Many of them have innate magical abilities drawn from the creature's alien mind rather than the mystical forces of the world.'.
+CustomInvocationFeatGrudgeBearerBeast	Title='Beast'.
+CustomInvocationFeatGrudgeBearerBeast	Description='Beasts are nonhumanoid creatures that are a natural part of the fantasy ecology. Some of them have magical powers, but most are unintelligent and lack any society or language.'.
+CustomInvocationFeatGrudgeBearerCelestial	Title='Celestial'.
+CustomInvocationFeatGrudgeBearerCelestial	Description='Celestials are creatures native to the Upper Planes. Many of them are the servants of deities, employed as messengers or agents in the mortal realm and throughout the planes. Celestials are good by nature, so the exceptional celestial who strays from a good alignment is a horrifying rarity.'.
+CustomInvocationFeatGrudgeBearerConstruct	Title='Construct'.
+CustomInvocationFeatGrudgeBearerConstruct	Description='Constructs are made, not born. Some are programmed by their creators to follow a simple set of instructions, while others are imbued with sentience and capable of independent thought.'.
+CustomInvocationFeatGrudgeBearerDragon	Title='Dragon'.
+CustomInvocationFeatGrudgeBearerDragon	Description='Dragons are large reptilian creatures of ancient origin and tremendous power. True dragons, including the good metallic dragons and the evil chromatic dragons, are highly intelligent and have innate magic.'.
+CustomInvocationFeatGrudgeBearerElemental	Title='Elemental'.
+CustomInvocationFeatGrudgeBearerElemental	Description='Elementals are creatures native to the elemental planes. Some creatures of this type are little more than animate masses of their respective elements, including the creatures simply called elementals. Others have biological forms infused with elemental energy.'.
+CustomInvocationFeatGrudgeBearerFey	Title='Fey'.
+CustomInvocationFeatGrudgeBearerFey	Description='Fey are magical creatures closely tied to the forces of nature. They dwell in twilight groves and misty forests.'.
+CustomInvocationFeatGrudgeBearerFiend	Title='Fiend'.
+CustomInvocationFeatGrudgeBearerFiend	Description='Fiends are creatures of wickedness that are native to the Lower Planes. A few are the servants of deities, but many more labor under the leadership of archdevils and demon princes. Evil priests and mages sometimes summon fiends to the material world to do their bidding. If an evil celestial is a rarity, a good fiend is almost inconceivable.'.
+CustomInvocationFeatGrudgeBearerGiant	Title='Giant'.
+CustomInvocationFeatGrudgeBearerGiant	Description='Giants tower over humans and their kind. They are humanlike in shape, though some have multiple heads or deformities. The six varieties of true giant are hill giants, stone giants, frost giants, fire giants, cloud giants, and storm giants. Besides these, creatures such as ogres and trolls are giants.'.
+CustomInvocationFeatGrudgeBearerMonstrosity	Title='Monstrosity'.
+CustomInvocationFeatGrudgeBearerMonstrosity	Description='Monstrosities are monsters in the strictest sense - frightening creatures that are not ordinary, not truly natural, and almost never benign. Some are the results of magical experimentation gone awry, and others are the product of terrible curses. They defy categorization, and in some sense serve as a catch-all category for creatures that don't fit into any other type.'.
+CustomInvocationFeatGrudgeBearerOoze	Title='Ooze'.
+CustomInvocationFeatGrudgeBearerOoze	Description='Oozes are gelatinous creatures that rarely have a fixed shape. They are mostly subterranean, dwelling in caves and dungeons and feeding on refuse, carrion, or creatures unlucky enough to get in their way.'.
+CustomInvocationFeatGrudgeBearerPlant	Title='Plant'.
+CustomInvocationFeatGrudgeBearerPlant	Description='Plants in this context are vegetable creatures, not ordinary flora. Most of them are ambulatory, and some are carnivorous. The quintessential plants are the shambling mound and the treant. Fungal creatures also fall into this category.'.
+CustomInvocationFeatGrudgeBearerUndead	Title='Undead'.
+CustomInvocationFeatGrudgeBearerUndead	Description='Undead are once-living creatures brought to a horrifying state of undeath through the practice of necromantic magic or some unholy curse.'.
 CustomInvocationPathOfTheElementsBlizzard	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Cold damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
 CustomInvocationPathOfTheElementsStorm	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Lightning damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
 CustomInvocationPathOfTheElementsWildfire	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Fire damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
@@ -745,7 +771,7 @@ FeatElementalMasterDamagePoison	Description='Poison damage type spells you cast 
 FeatElementalMasterDamageThunder	Title='Elemental Master [Thunder]'.
 FeatElementalMasterDamageThunder	Description='Thunder damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.'.
 FeatGroupAegisTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest and you can cast these spells with your spell slots.'.
+You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupAgilityCombat	Description='Alert, Cunning Escape, Eager for Battle, Forest Runner, Mobile, Ready or Not, Rush to Battle'.
 FeatGroupApothecary	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and medicine, or expertise if already proficient.'.
@@ -754,7 +780,7 @@ FeatGroupAwakenTheBeastWithin	Description='Increase any ability score by 1, to a
 FeatGroupBlessedSoul	Description='Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.'.
 FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Creed of the Gods, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hauler, Robust, Tough'.
 FeatGroupCelestialTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.'.
+You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupChef	Description='Increase your Wisdom or Constitution by 1, to a maximum of 20.
 You can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.
 Once a day, you may spend an hour to cook a number of treats equal to your proficiency bonus that provide 5 temporary HP when eaten.'.
@@ -770,13 +796,13 @@ FeatGroupDefenseExpert	Description='Increase one of your mental attributes by 1,
 While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.'.
 FeatGroupDragonFear	Description='When angered, you radiate menace. You gain the following benefits:
 • Increase your Strength, Constitution, or Charisma by 1, to a maximum of 20.
-• Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failed save, a target becomes frightened for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.'.
+• Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failed save, a target becomes frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.'.
 FeatGroupDragonHide	Description='You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:
 • Increase your Strength, Constitution, or Charisma by 1, up to a maximum of 20.
 • Your scales harden. While you aren't wearing armor, your armor class is equal to 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.
 • You can grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.'.
-FeatGroupElementalAdept	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.'.
-FeatGroupElementalMaster	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore immunity to damage of the chosen type. In addition, when you roll attack for a spell you cast that deals damage of that type, you can reroll any 1s.'.
+FeatGroupElementalAdept	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage to the chosen type. In addition, when you roll damage for a spell you cast that deals damage to that type, you can reroll any 1s.'.
+FeatGroupElementalMaster	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore immunity to damage to the chosen type. In addition, when you roll attack for a spell you cast that deals damage to that type, you can reroll any 1s.'.
 FeatGroupElementalTouch	Description='The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional elemental damage equal to your proficiency bonus.'.
 FeatGroupElvenAccuracy	Description='You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity or one of your mental attributes by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.'.
 FeatGroupFadeAway	Description='You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity or Intelligence by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.'.
@@ -789,54 +815,61 @@ FeatGroupFlamesOfPhlegethos	Description='You learn to call on hellfire to serve 
 • When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.
 • Whenever you use a power or spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.'.
 FeatGroupFlameTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.'.
+You gain the ability to cast the burning hands and scorching ray spells once per long rest, and you can cast these and hellish rebuke with your spell slots.'.
 FeatGroupGeneralAdept	Description='Arcane Archer Adept, Eldritch Adept, Fighting Initiate, Infusion Adept, Magic Initiate, Martial Adept, Metamagic Adept, Monk Initiate, Versatility Adept'.
+FeatGroupGrudgeBearer	Description='You have a deep hatred for a particular kind of creature. Choose your foes, a type of creature to bear the burden of your wrath: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. You gain the following benefits:
+• Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20.
+• During the first round of any combat against your chosen foes, your attack rolls against any of them have advantage.
+• When any of your chosen foes makes an opportunity attack against you, it makes the attack roll with disadvantage.'.
 FeatGroupHalfAttributes	Description='Half Charisma, Half Constitution, Half Dexterity, Half Intelligence, Half Strength, Half Wisdom'.
 FeatGroupHalfCharisma	Description='Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Dragon Fear [Cha], Dragon Hide [Cha], Elven Accuracy [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Flames of Phlegethos [Cha], Iridescent Touched [Cha], Peregrination Touched [Cha], Retinue Touched [Cha], Second Chance [Cha], Shadow Touched [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]'.
-FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Chef [Con], Creed of Arun, Crusher [Con], Dragon Fear [Con], Dragon Hide [Con], Dwarven Fortitude, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Orcish Fury [Con], Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra'.
-FeatGroupHalfDexterity	Description='Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy'.
+FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Chef [Con], Creed of Arun, Crusher [Con], Dragon Fear [Con], Dragon Hide [Con], Dwarven Fortitude, Enduring Body, Focused Sleeper, Frost Adaptation, Grudge Bearer [Con], Hard to Kill, Hardy [Con], Infernal Constitution, Orcish Aggression [Con], Orcish Fury [Con], Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra'.
+FeatGroupHalfDexterity	Description='Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy, Weapon Master [Dex]'.
 FeatGroupHalfIntelligence	Description='Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Flames of Phlegethos [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]'.
-FeatGroupHalfStrength	Description='Awaken the Beast [Str], Creed of Einar, Crusher [Str], Dragon Fear [Str], Dragon Hide [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str]'.
-FeatGroupHalfWisdom	Description='Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Chef [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision'.
+FeatGroupHalfStrength	Description='Awaken the Beast [Str], Creed of Einar, Crusher [Str], Dragon Fear [Str], Dragon Hide [Str], Grudge Bearer [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Aggression [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str], Weapon Master [Str]'.
+FeatGroupHalfWisdom	Description='Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Chef [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Grudge Bearer [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision'.
 FeatGroupHardy	Description='Increase your Strength or Constitution by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.'.
 FeatGroupIridescentTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.'.
+You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupMagicInitiate	Description='Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatGroupMediumArmor	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.'.
 FeatGroupMeleeCombat	Description='Always Ready, Blade Mastery, Charger, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Polearm Master, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack'.
 FeatGroupOldTactics	Description='Increase your Strength or Dexterity by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.'.
+FeatGroupOrcishAggression	Description='Your aggression burns tirelessly. You gain the following benefits:
+• Increase your Strength or Constitution by 1, up to a maximum of 20.
+• As a bonus action, when wielding a melee weapon in main hand, you can charge up to your speed toward an enemy of your choice and free attack the creature with your main weapon.'.
 FeatGroupOrcishFury	Description='Your fury burns tirelessly. You gain the following benefits:
 • Increase your Strength or Constitution by 1, up to a maximum of 20.
-• When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.
+• When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage to the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.
 • Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.'.
 FeatGroupPeregrinationTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.'.
+You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupPiercer	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
-When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.'.
+When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1, and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.'.
 FeatGroupPlaneMagic	Description='Aegis Touched, Celestial Touched, Fey Teleportation, Flame Touched, Iridescent Touched, Peregrination Touched, Retinue Touched, Shadow Touched, Telekinetic, Verdant Touched'.
 FeatGroupPotentSpellcaster	Description='You can add your spellcaster attribute modifier to the damage you deal with any cantrip in your repertoire.'.
 FeatGroupPrecisionFocused	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.'.
 FeatGroupPrimalRage	Description='Increase your Strength or Constitution by 1, to a maximum of 20. You gain one additional Rage usage between rests.'.
-FeatGroupRaceBound	Description='Dark-Elf Magic, Dragon Fear, Dragon Hide, Dragon Wings, Dwarven Fortitude, Elven Accuracy, Fade Away, Flames of Phlegethos, Infernal Constitution, Orcish Aggression, Orcish Fury, Revenant Blade, Second Chance, Squat Nimbleness, Wood-Elf Magic'.
+FeatGroupRaceBound	Description='Bountiful Luck, Dark-Elf Magic, Dragon Fear, Dragon Hide, Dragon Wings, Dwarven Fortitude, Elven Accuracy, Fade Away, Flames of Phlegethos, Grudge Bearer, Infernal Constitution, Orcish Aggression, Orcish Fury, Revenant Blade, Second Chance, Squat Nimbleness, Wood-Elf Magic'.
 FeatGroupRangedCombat	Description='Bow Mastery, Crossbow Expert, Crossbow Mastery, Discretion of the Coedymwarth, Piercer, Sharpshooter, Take Aim, Uncanny Accuracy, Wise Archery'.
 FeatGroupRetinueTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the bless, heroism and enhance ability spells once per long rest and you can cast these spells with your spell slots.'.
+You gain the ability to cast the bless, heroism and enhance ability spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupRevenantGreatSword	Description='You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity or Strength by 1, to a maximum of 20.
 • While you are holding a great sword, you gain a +1 bonus to armor class.
 • Great sword has the finesse property when you wield it.'.
 FeatGroupSecondChance	Description='Increase your Dexterity, Constitution, or Charisma by 1, to a maximum of 20. When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.'.
 FeatGroupShadowTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.'.
+You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupSkills	Description='Apothecary, Arcane Appraiser, Healer, Initiate Enchanter, Manipulator, Pickpocket, Scriber, Squat Nimbleness, Toxicologist'.
 FeatGroupSlasher	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.'.
 FeatGroupSpellCombat	Description='Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster'.
 FeatGroupSpellSniper	Description='You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatGroupSquatNimbleness	Description='You are uncommonly nimble for your race. Increase your Strength or Dexterity by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.'.
-FeatGroupSupportCombat	Description='Call for Charge, Chef, Gift of the Chromatic Dragon, Hardy, Healer, Improved Critical, Inspiring Leader, Mage Slayer, Mender, Poisoner, Precision Focused, Sentinel, Superior Critical'.
+FeatGroupSupportCombat	Description='Call for Charge, Chef, Gift of the Chromatic Dragon, Hardy, Healer, Improved Critical, Inspiring Leader, Mage Slayer, Mender, Poisoner, Precision Focused, Sentinel, Superior Critical, Weapon Master'.
 FeatGroupTelekinetic	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.'.
 FeatGroupTools	Description='Initiate Alchemist, Initiate Enchanter, Lock Breaker, Master Alchemist, Master Enchanter, Poisoner, Scriber, Toxicologist'.
@@ -846,7 +879,10 @@ FeatGroupTwoHandedCombat	Description='Follow Up Strike, Forestalling Strength, M
 FeatGroupTwoWeaponCombat	Description='Ambidextrous, Dual Flurry, Dual Wielder, Twin Blade'.
 FeatGroupUnarmoredCombat	Description='Astral Reach, Crusher, Elemental Touch, Poisonous Skin, Unarmored Expert'.
 FeatGroupVerdantTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.'.
+You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest, and you can cast these spells with your spell slots.'.
+FeatGroupWeaponMaster	Description='You have practiced extensively with a variety of weapons, gaining the following benefits:
+• Increase your Strength or Dexterity score by 1, to a maximum of 20. 
+• You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.'.
 FeatMagicInitiateBard	Title='Magic Initiate [Bard]'.
 FeatMagicInitiateBard	Description='You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatMagicInitiateCleric	Title='Magic Initiate [Cleric]'.
@@ -1155,10 +1191,12 @@ PowerCreateSpellStoringWandOfVileBrew	Title='Tasha's Caustic Brew'.
 PowerCreateSpellStoringWandOfVileBrew	Description='Create a wand that can cast <b>Tasha's Caustic Brew (I)</b> spell using your Artificer spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfVoidGrasp	Title='Arms of Hadar'.
 PowerCreateSpellStoringWandOfVoidGrasp	Description='Create a wand that can cast <b>Arms of Hadar (I)</b> spell using your Artificer spell attack modifier and save DC.'.
-PowerDomainSmithReinforceArmor1	Description='Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +1 AC.'.
-PowerDomainSmithReinforceArmor11	Description='Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +3 AC.'.
-PowerDomainSmithReinforceArmor16	Description='Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +4 AC.'.
-PowerDomainSmithReinforceArmor6	Description='Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +2 AC.'.
+PowerCreateSpellStoringWandOfWitchBolt	Title='Witch Bolt'.
+PowerCreateSpellStoringWandOfWitchBolt	Description='Create a wand that can cast <b>Witch Bolt (I)</b> spell using your Artificer spell attack modifier and save DC.'.
+PowerDomainSmithReinforceArmor1	Description='Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +1 AC.'.
+PowerDomainSmithReinforceArmor11	Description='Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +3 AC.'.
+PowerDomainSmithReinforceArmor16	Description='Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +4 AC.'.
+PowerDomainSmithReinforceArmor6	Description='Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +2 AC.'.
 PowerFeatNaturalFluidityGainSlot1	Title='Gain Slot Level 1'.
 PowerFeatNaturalFluidityGainSlot1	Description='Gain 1 additional slot level 1 by using one WildShape form.'.
 PowerFeatNaturalFluidityGainSlot2	Title='Gain Slot Level 2'.
@@ -1240,21 +1278,21 @@ PowerSharedPoolCelestialHealingLight5	Description='As a bonus action, you can he
 PowerSharedPoolCelestialHealingLight6	Title='Healing Light 6D6'.
 PowerSharedPoolCelestialHealingLight6	Description='As a bonus action, you can heal one creature you can see within 60 feet of you, spending 6 dice from the pool. Roll the dice you spend, add them together, and restore a number of hit points equal to the total. Your pool regains all expended dice when you finish a long rest.'.
 PowerSharedPoolElementalistEnhancedAir	Title='Channeling Air Plane'.
-PowerSharedPoolElementalistEnhancedAir	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistEnhancedAir	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage to the same type to first hit each round.'.
 PowerSharedPoolElementalistEnhancedEarth	Title='Channeling Earth Plane'.
-PowerSharedPoolElementalistEnhancedEarth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistEnhancedEarth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage to the same type to first hit each round.'.
 PowerSharedPoolElementalistEnhancedFire	Title='Channeling Fire Plane'.
-PowerSharedPoolElementalistEnhancedFire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistEnhancedFire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage to the same type to first hit each round.'.
 PowerSharedPoolElementalistEnhancedIce	Title='Channeling Ice Plane'.
-PowerSharedPoolElementalistEnhancedIce	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistEnhancedIce	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage to the same type to first hit each round.'.
 PowerSharedPoolElementalistNormalAir	Title='Air Plane'.
-PowerSharedPoolElementalistNormalAir	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalAir	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply proficiency bonus as damage to the same type to first hit each round.'.
 PowerSharedPoolElementalistNormalEarth	Title='Earth Plane'.
-PowerSharedPoolElementalistNormalEarth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalEarth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply proficiency bonus as damage to the same type to first hit each round.'.
 PowerSharedPoolElementalistNormalFire	Title='Fire Plane'.
-PowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply proficiency bonus as damage to the same type to first hit each round.'.
 PowerSharedPoolElementalistNormalIce	Title='Ice Plane'.
-PowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply proficiency bonus as damage of the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply proficiency bonus as damage to the same type to first hit each round.'.
 PowerWayOfTheDiscordanceBurstOfDisharmony10	Title='Burst of Disharmony [10 Ki]'.
 PowerWayOfTheDiscordanceBurstOfDisharmony10	Description='Spend 10 Ki Point to deal 11d6 necrotic damage.'.
 PowerWayOfTheDiscordanceBurstOfDisharmony2	Title='Burst of Disharmony [2 Ki]'.
@@ -1391,21 +1429,21 @@ SpellPowerSharedPoolCelestialHealingLight5	Description='As a bonus action, you c
 SpellPowerSharedPoolCelestialHealingLight6	Title='Healing Light 6D6'.
 SpellPowerSharedPoolCelestialHealingLight6	Description='As a bonus action, you can heal one creature you can see within 60 feet of you, spending 6 dice from the pool. Roll the dice you spend, add them together, and restore a number of hit points equal to the total. Your pool regains all expended dice when you finish a long rest.'.
 SpellPowerSharedPoolElementalistEnhancedAir	Title='Channeling Air Plane'.
-SpellPowerSharedPoolElementalistEnhancedAir	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedAir	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage to the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistEnhancedEarth	Title='Channeling Earth Plane'.
-SpellPowerSharedPoolElementalistEnhancedEarth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedEarth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage to the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistEnhancedFire	Title='Channeling Fire Plane'.
-SpellPowerSharedPoolElementalistEnhancedFire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedFire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage to the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistEnhancedIce	Title='Channeling Ice Plane'.
-SpellPowerSharedPoolElementalistEnhancedIce	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedIce	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage to the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistNormalAir	Title='Air Plane'.
-SpellPowerSharedPoolElementalistNormalAir	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalAir	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply proficiency bonus as damage to the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistNormalEarth	Title='Earth Plane'.
-SpellPowerSharedPoolElementalistNormalEarth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalEarth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply proficiency bonus as damage to the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistNormalFire	Title='Fire Plane'.
-SpellPowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply proficiency bonus as damage to the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistNormalIce	Title='Ice Plane'.
-SpellPowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply proficiency bonus as damage of the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply proficiency bonus as damage to the same type to first hit each round.'.
 SpellPowerWayOfTheDiscordanceBurstOfDisharmony10	Title='Burst of Disharmony [10 Ki]'.
 SpellPowerWayOfTheDiscordanceBurstOfDisharmony10	Description='Spend 10 Ki Point to deal 11d6 necrotic damage.'.
 SpellPowerWayOfTheDiscordanceBurstOfDisharmony2	Title='Burst of Disharmony [2 Ki]'.
@@ -1576,3 +1614,5 @@ SpellStoringWandOfVileBrew	Title='Wand of Tasha's Caustic Brew'.
 SpellStoringWandOfVileBrew	Description='This wand allows casting the <b>Tasha's Caustic Brew</b> spell using spell casting stats of the Artificer who created it.'.
 SpellStoringWandOfVoidGrasp	Title='Wand of Arms of Hadar'.
 SpellStoringWandOfVoidGrasp	Description='This wand allows casting the <b>Arms of Hadar</b> spell using spell casting stats of the Artificer who created it.'.
+SpellStoringWandOfWitchBolt	Title='Wand of Witch Bolt'.
+SpellStoringWandOfWitchBolt	Description='This wand allows casting the <b>Witch Bolt</b> spell using spell casting stats of the Artificer who created it.'.

@@ -88,8 +88,8 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialLightingObscurementAndVisionRules = toggle;
-            Main.Settings.OfficialObscurementRulesCancelAdvDisPairs =
-                Main.Settings.UseOfficialAdvantageDisadvantageRules;
+            Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget = toggle;
+            Main.Settings.OfficialObscurementRulesCancelAdvDisPairs = toggle;
             Main.Settings.OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker = false;
             Main.Settings.OfficialObscurementRulesMagicalDarknessAsProjectileBlocker = false;
             Main.Settings.OfficialObscurementRulesTweakMonsters = toggle;
@@ -101,6 +101,14 @@ internal static class RulesDisplay
 
         if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
+            toggle = Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget;
+            if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget = toggle;
+                LightingAndObscurementContext.SwitchInvisibleCreaturesCanBeTarget();
+            }
+
             toggle = Main.Settings.OfficialObscurementRulesCancelAdvDisPairs;
             if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesCancelAdvDisPairs"), ref toggle,
                     UI.AutoWidth()))

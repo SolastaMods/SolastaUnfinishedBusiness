@@ -273,10 +273,10 @@ public sealed class OathOfHatred : AbstractSubclass
             GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            var gameLocationActionManager =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationActionManager == null)
+            if (!actionManager)
             {
                 yield break;
             }
@@ -304,12 +304,12 @@ public sealed class OathOfHatred : AbstractSubclass
                 StringParameter = Gui.Format(
                     "Reaction/&CustomReactionHatredArdentHateDescription", guiAttacker.Name, guiDefender.Name)
             };
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("HatredArdentHate", reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
+            yield return battle.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

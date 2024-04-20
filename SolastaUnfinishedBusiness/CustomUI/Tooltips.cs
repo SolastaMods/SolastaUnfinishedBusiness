@@ -154,12 +154,12 @@ internal static class Tooltips
             }
 
             // don't use ? on a type deriving from an unity object
-            if (_tooltipInfoCharacterDescription != null)
+            if (_tooltipInfoCharacterDescription)
             {
                 _tmpUGui ??= _tooltipInfoCharacterDescription.transform.GetComponentInChildren<TextMeshProUGUI>();
             }
 
-            if (_distanceTextObject == null)
+            if (!_distanceTextObject)
             {
                 GenerateDistanceText(distance, _tmpUGui, characterToMeasureFrom);
             }
@@ -170,7 +170,7 @@ internal static class Tooltips
 
             // don't use ? on a type deriving from an unity object
 #pragma warning disable IDE0031
-            if (_distanceTextObject != null)
+            if (_distanceTextObject)
 #pragma warning restore IDE0031
             {
                 _distanceTextObject.SetActive(true);
@@ -180,7 +180,7 @@ internal static class Tooltips
         {
             // don't use ? on a type deriving from an unity object
 #pragma warning disable IDE0031
-            if (_distanceTextObject != null)
+            if (_distanceTextObject)
 #pragma warning restore IDE0031
             {
                 _distanceTextObject.SetActive(false);

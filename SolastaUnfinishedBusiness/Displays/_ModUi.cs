@@ -29,11 +29,12 @@ namespace SolastaUnfinishedBusiness.Displays;
 internal static class ModUi
 {
     internal const int DontDisplayDescription = 4;
-    internal const float PixelsPerColumn = 220;
+    internal const float PixelsPerColumn = 230;
 
     internal static readonly HashSet<string> TabletopDefinitionNames =
     [
         "AirBlast",
+        "AuraOfLife",
         "AuraOfPerseverance",
         "AuraOfVitality",
         "BanishingSmite",
@@ -60,10 +61,12 @@ internal static class ModUi
         "ElementalWeapon",
         "EnduringSting",
         "EnsnaringStrike",
+        "FaithfulHound",
         "FarStep",
         "FeatAlert",
         "FeatBladeMastery",
         "FeatBlindFighting",
+        "FeatBountifulLuck",
         "FeatCharger",
         "FeatCleavingAttack",
         "FeatDarkElfMagic",
@@ -84,8 +87,10 @@ internal static class ModUi
         "FeatGroupFadeAway",
         "FeatGroupFightingStyle",
         "FeatGroupFlamesOfPhlegethos",
+        "FeatGroupGrudgeBearer",
         "FeatGroupMagicInitiate",
         "FeatGroupMediumArmor",
+        "FeatGroupOrcishAggression",
         "FeatGroupOrcishFury",
         "FeatGroupPiercer",
         "FeatGroupRevenantGreatSword",
@@ -96,6 +101,7 @@ internal static class ModUi
         "FeatGroupSquatNimbleness",
         "FeatGroupTelekinetic",
         "FeatGroupFeyTeleport",
+        "FeatGroupWeaponMaster",
         "FeatHealer",
         "FeatHeavyArmorMaster",
         "FeatInfernalConstitution",
@@ -104,7 +110,6 @@ internal static class ModUi
         "FeatMediumArmorMaster",
         "FeatMetamagicAdept",
         "FeatMobile",
-        "FeatOrcishAggression",
         "FeatPoisoner",
         "FeatPolearmExpert",
         "FeatRangedExpert",
@@ -188,6 +193,7 @@ internal static class ModUi
         "RaceHalfElfHigh",
         "RaceHalfElfSylvan",
         // "RaceTiefling",
+        "RaceLizardfolk",
         "RaceTieflingDevilTongue",
         "RaceTieflingFeral",
         "RaceTieflingMephistopheles",
@@ -223,6 +229,7 @@ internal static class ModUi
         "WardingBond",
         "WayOfSilhouette",
         "Weird",
+        "WitchBolt",
         "WizardBladeDancer",
         "WizardDeadMaster",
         "WizardGraviturgist",

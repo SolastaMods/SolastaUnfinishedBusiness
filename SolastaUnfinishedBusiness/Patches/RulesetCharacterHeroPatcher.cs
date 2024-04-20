@@ -152,7 +152,7 @@ public static class RulesetCharacterHeroPatcher
             //used for features that are not granted directly through class but need to scale with class levels
             var classHolder = featureDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>()?.Class;
 
-            if (classHolder == null)
+            if (!classHolder)
             {
                 return;
             }
@@ -482,12 +482,14 @@ public static class RulesetCharacterHeroPatcher
             IAttackModificationProvider attackModifier)
         {
             var feature = attackModifier as FeatureDefinition;
-            if (feature == null)
+
+            if (!feature)
             {
                 return true;
             }
 
             var provider = feature.GetFirstSubFeatureOfType<IModifyProviderRank>();
+
             if (provider == null)
             {
                 return true;
@@ -495,12 +497,14 @@ public static class RulesetCharacterHeroPatcher
 
             var rank = provider.GetRank(__instance);
             var dieTypeOfRank = attackModifier.GetDieTypeOfRank(rank);
+
             if (rank <= 0)
             {
                 return false;
             }
 
             var damage = attackMode.EffectDescription.FindFirstDamageForm();
+
             if (dieTypeOfRank > damage.DieType)
             {
                 damage.DieType = dieTypeOfRank;
@@ -796,13 +800,13 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static bool Prefix(RulesetCharacterHero __instance, out bool __result)
         {
-            var maxLevel = Gui.Game == null ? Level20Context.GameMaxLevel : Gui.Game.CampaignDefinition.LevelCap;
+            var maxLevel = !Gui.Game ? Level20Context.GameMaxLevel : Gui.Game.CampaignDefinition.LevelCap;
             var levelCap = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : maxLevel;
             var level = __instance.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             var experience = __instance.TryGetAttributeValue(AttributeDefinitions.Experience);
             var nextLevelThreshold = ComputeNextLevelThreshold(level + 1);
 
-            __result = ((Main.Settings.NoExperienceOnLevelUp && Gui.GameLocation != null) ||
+            __result = ((Main.Settings.NoExperienceOnLevelUp && Gui.GameLocation) ||
                         (nextLevelThreshold > 0 && experience >= nextLevelThreshold)) &&
                        __instance.ClassesHistory.Count < levelCap;
 
@@ -960,7 +964,7 @@ public static class RulesetCharacterHeroPatcher
 
             // only standard ammunition
             if (currentAmmunitionSlot?.EquipedItem == null ||
-                currentAmmunitionSlot.EquipedItem.ItemDefinition == null ||
+                !currentAmmunitionSlot.EquipedItem.ItemDefinition ||
                 currentAmmunitionSlot.EquipedItem.ItemDefinition.AmmunitionDescription?.EffectDescription == null ||
                 currentAmmunitionSlot.EquipedItem.ItemDefinition.AmmunitionDescription.EffectDescription
                     .FindFirstDamageForm() != null)

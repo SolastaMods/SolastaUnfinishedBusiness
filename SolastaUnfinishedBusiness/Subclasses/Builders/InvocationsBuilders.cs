@@ -872,6 +872,8 @@ internal static class InvocationsBuilders
                     .Create("AdditionalActionAbilityQuasit")
                     .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionDefinitions.ActionType.Main)
+                    .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                    .SetMaxAttacksNumber(1)
                     .AddToDB(),
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionHasted)
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -1041,7 +1043,7 @@ internal static class InvocationsBuilders
 
     #endregion
 
-    #region Burning Hex
+    #region Chilling Hex
 
     internal static InvocationDefinition BuildChillingHex()
     {
@@ -1059,15 +1061,14 @@ internal static class InvocationsBuilders
                     .SetEffectForms(EffectFormBuilder
                         .Create()
                         .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .SetDamageForm(DamageTypeFire)
+                        .SetDamageForm(DamageTypeCold)
                         .Build())
                     .SetParticleEffectParameters(PowerDomainElementalIceLance)
                     .SetCasterEffectParameters(PowerPactChainPseudodragon)
                     .Build())
             .AddToDB();
 
-        powerInvocationChillingHex.AddCustomSubFeatures(
-            new FilterTargetingCharacterChillingHex(powerInvocationChillingHex));
+        powerInvocationChillingHex.AddCustomSubFeatures(new CustomBehaviorChillingHex(powerInvocationChillingHex));
 
         return InvocationDefinitionWithPrerequisitesBuilder
             .Create(NAME)
@@ -1077,7 +1078,7 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private sealed class FilterTargetingCharacterChillingHex(
+    private sealed class CustomBehaviorChillingHex(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerVexingHex)
         : IFilterTargetingCharacter, IMagicEffectFinishedByMe
@@ -1176,12 +1177,15 @@ internal static class InvocationsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .SetDamageForm(DamageTypeFire)
-                        .Build())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDamageForm(DamageTypeFire)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionOnFire))
                     .SetParticleEffectParameters(PowerDomainElementalFireBurst)
                     .SetCasterEffectParameters(PowerPactChainPseudodragon)
                     .Build())
@@ -1553,10 +1557,7 @@ internal static class InvocationsBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1573,7 +1574,8 @@ internal static class InvocationsBuilders
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerTombOfFrost, rulesetDefender);
@@ -1582,17 +1584,17 @@ internal static class InvocationsBuilders
                 {
                     StringParameter = "TombOfFrost",
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManagerService
+                    RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
+            actionService.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {

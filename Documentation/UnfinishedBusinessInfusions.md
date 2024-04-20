@@ -20,7 +20,7 @@ The bonus increases to +2 when you reach level 10 of Artificer class. Will repla
 
 # 5. - Major Elemental
 
-Attacks made with this weapon deal an additional 1d4 damage of the selected type.
+Attacks made with this weapon deal an additional 1d4 damage to the selected type.
 Only one additional damage infusion can be active per weapon.
 
 # 6. - Mind Sharpener
@@ -29,7 +29,7 @@ Infuse body armor or clothes to provide advantage on rolls to maintain concentra
 
 # 7. - Minor Elemental
 
-Once per turn, when you hit a creature with this weapon, deal an additional 1d6 damage of the selected type.
+Once per turn, when you hit a creature with this weapon, deal an additional 1d6 damage to the selected type.
 Only one additional damage infusion can be active per weapon.
 
 # 8. - Repeating Shot

@@ -1151,7 +1151,7 @@ internal static partial class CharacterContext
         {
             cursorLocationSelectPosition.validPositionsCache.Clear();
 
-            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
             var summoner = source.RulesetCharacter.GetMySummoner();
             var boxInt = new BoxInt(summoner.LocationPosition, int3.zero, int3.zero);
@@ -1160,9 +1160,9 @@ internal static partial class CharacterContext
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
-                if (gameLocationPositioningService.CanPlaceCharacter(
+                if (positioningService.CanPlaceCharacter(
                         source, position, CellHelpers.PlacementMode.Station) &&
-                    gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                    positioningService.CanCharacterStayAtPosition_Floor(
                         source, position, onlyCheckCellsWithRealGround: true))
                 {
                     cursorLocationSelectPosition.validPositionsCache.Add(position);

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupRaceBoundTitle",
-    "description": "Dark-Elf Magic, Dragon Fear, Dragon Hide, Dragon Wings, Dwarven Fortitude, Elven Accuracy, Fade Away, Flames of Phlegethos, Infernal Constitution, Orcish Aggression, Orcish Fury, Revenant Blade, Second Chance, Squat Nimbleness, Wood-Elf Magic",
+    "description": "Bountiful Luck, Dark-Elf Magic, Dragon Fear, Dragon Hide, Dragon Wings, Dwarven Fortitude, Elven Accuracy, Fade Away, Flames of Phlegethos, Grudge Bearer, Infernal Constitution, Orcish Aggression, Orcish Fury, Revenant Blade, Second Chance, Squat Nimbleness, Wood-Elf Magic",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

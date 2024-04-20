@@ -44,7 +44,7 @@ public static class UsableDeviceFunctionBoxPatcher
             var canOvercharge = functionDescription.CanOverchargeSpell;
             var minCharge = 1;
 
-            if (power != null)
+            if (power)
             {
                 var provider = power.GetFirstSubFeatureOfType<ICustomOverchargeProvider>();
 
@@ -81,13 +81,15 @@ public static class UsableDeviceFunctionBoxPatcher
             RulesetDeviceFunction rulesetDeviceFunction)
         {
             var panel = box.transform.GetComponentInParent<DeviceSelectionPanel>();
-            if (panel == null)
+
+            if (!panel)
             {
                 Main.Error("Couldn't find DeviceSelectionPanel for Poisoner feat patch!");
                 return;
             }
 
             var actionType = panel.ActionType;
+
             if (actionType != ActionDefinitions.ActionType.Bonus)
             {
                 return;
@@ -129,6 +131,7 @@ public static class UsableDeviceFunctionBoxPatcher
             }
 
             var validator = feature.GetFirstSubFeatureOfType<ValidateDeviceFunctionUse>();
+
             return validator == null || validator(user, device, deviceFunction);
         }
 
@@ -149,6 +152,7 @@ public static class UsableDeviceFunctionBoxPatcher
             }
 
             var validator = feature.GetFirstSubFeatureOfType<ValidateDeviceFunctionUse>();
+
             return validator == null || validator(user, device, deviceFunction);
         }
     }

@@ -161,12 +161,6 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            if (actionService == null)
-            {
-                yield break;
-            }
-
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -179,6 +173,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
             actionService.ExecuteAction(actionParams, null, true);
+
+            yield break;
         }
     }
 
@@ -248,19 +244,11 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(featureShadowFlurry.Name, 1);
-
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            if (actionService == null)
-            {
-                yield break;
-            }
-
             var actionParams = action.ActionParams.Clone();
 
             actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.AttackFree];
-
+            attacker.UsedSpecialFeatures.TryAdd(featureShadowFlurry.Name, 1);
             attacker.RulesetCharacter.LogCharacterUsedFeature(featureShadowFlurry);
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
@@ -315,10 +303,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             // ReSharper disable once SuggestBaseTypeForParameter
             List<EffectForm> actualEffectForms)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -342,7 +327,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerShadowSanctuary, rulesetDefender);
@@ -351,17 +337,16 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 {
                     StringParameter = "ShadowySanctuary",
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManagerService
+                    RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(actionParams, "UsePower", defender);
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {

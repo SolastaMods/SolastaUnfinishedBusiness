@@ -73,7 +73,7 @@ public static class CharacterReactionItemPatcher
         private static List<RulesetSpellRepertoire> SpellRepertoiresNoRace(RulesetCharacter rulesetCharacter)
         {
             return rulesetCharacter.SpellRepertoires
-                .Where(x => x.SpellCastingRace == null)
+                .Where(x => !x.SpellCastingRace)
                 .ToList();
         }
 

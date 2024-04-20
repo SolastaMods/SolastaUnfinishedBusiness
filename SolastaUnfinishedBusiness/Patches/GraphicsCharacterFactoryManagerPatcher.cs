@@ -60,14 +60,14 @@ public static class GraphicsCharacterFactoryManagerPatcher
 
             var boneTransform = graphicsCharacter.GetBoneTransform(boneType);
 
-            if (boneTransform == null)
+            if (!boneTransform)
             {
                 return;
             }
 
             var transform = boneTransform.Find(rulesetItem.Name);
 
-            if (transform == null)
+            if (!transform)
             {
                 return;
             }

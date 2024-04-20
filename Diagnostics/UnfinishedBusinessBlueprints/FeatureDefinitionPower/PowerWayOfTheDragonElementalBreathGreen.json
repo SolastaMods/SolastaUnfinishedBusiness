@@ -121,7 +121,7 @@
           "conditionDefinition": null,
           "persistOnConcentrationLoss": true,
           "decisionPackage": null,
-          "effectProxyDefinitionName": "EffectGreenElementalBreath"
+          "effectProxyDefinitionName": "ProxyElementalBreathGreen"
         },
         "hasFilterId": false,
         "filterId": 0

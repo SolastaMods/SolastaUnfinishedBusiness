@@ -312,14 +312,14 @@ internal static class RecipeHelper
                     ? GetCraftedItem(definition)
                     : null;
 
-                if (item == null)
+                if (!item)
                 {
                     return;
                 }
 
-                if (img != null)
+                if (img)
                 {
-                    if (img.sprite != null)
+                    if (img.sprite)
                     {
                         Gui.ReleaseAddressableAsset(img.sprite);
                         img.sprite = null;
@@ -329,7 +329,7 @@ internal static class RecipeHelper
                     if (spriteReference != null && spriteReference.RuntimeKeyIsValid())
                     {
                         img.sprite = Gui.LoadAssetSync<Sprite>(spriteReference);
-                        if (obj != null)
+                        if (obj)
                         {
                             obj.gameObject.SetActive(true);
                             obj.localScale = new Vector3(2f, 2f, 1f);
@@ -337,7 +337,7 @@ internal static class RecipeHelper
                     }
                 }
 
-                if (tooltip != null)
+                if (tooltip)
                 {
                     ServiceRepository.GetService<IGuiWrapperService>()
                         .GetGuiItemDefinition(item.Name)
@@ -349,7 +349,7 @@ internal static class RecipeHelper
         var recipes = DatabaseRepository.GetDatabase<ItemDefinition>()
             .Where(d => d.IsDocument)
             .Where(d => d.DocumentDescription != null)
-            .Where(d => d.DocumentDescription.RecipeDefinition != null);
+            .Where(d => d.DocumentDescription.RecipeDefinition);
 
         foreach (var recipe in recipes)
         {
@@ -376,7 +376,7 @@ internal static class RecipeHelper
     {
         if (!item.IsDocument
             || item.DocumentDescription == null
-            || item.DocumentDescription.RecipeDefinition == null)
+            || !item.DocumentDescription.RecipeDefinition)
         {
             return null;
         }
@@ -388,7 +388,7 @@ internal static class RecipeHelper
     {
         if (!item.IsDocument
             || item.DocumentDescription == null
-            || item.DocumentDescription.RecipeDefinition == null)
+            || !item.DocumentDescription.RecipeDefinition)
         {
             return false;
         }

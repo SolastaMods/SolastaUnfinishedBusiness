@@ -23,7 +23,7 @@ internal class PowerPoolDevice
 
         var powers = baseItem.UsableDeviceDescription.deviceFunctions
             .Select(d => d.FeatureDefinitionPower)
-            .Where(p => p != null);
+            .Where(p => p);
 
         foreach (var power in powers)
         {

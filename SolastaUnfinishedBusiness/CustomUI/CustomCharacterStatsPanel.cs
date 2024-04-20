@@ -80,13 +80,15 @@ public class CustomCharacterStatsPanel
     private static GameLocationBaseScreen GetActiveScreen()
     {
         var explore = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
-        if (explore != null && explore.Visible)
+
+        if (explore && explore.Visible)
         {
             return explore;
         }
 
         var battle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
-        if (battle != null && battle.Visible)
+
+        if (battle && battle.Visible)
         {
             return battle;
         }
@@ -97,13 +99,15 @@ public class CustomCharacterStatsPanel
     public void Bind(RulesetCharacter target)
     {
         var screen = GetActiveScreen();
-        if (screen == null)
+
+        if (!screen)
         {
             return;
         }
 
         _character = target;
         _guiCharacter = new GuiCharacter(_character);
+
         var parent = screen.CharacterControlPanel.ActiveCharacterPanel.transform;
 
         _root.parent = parent;

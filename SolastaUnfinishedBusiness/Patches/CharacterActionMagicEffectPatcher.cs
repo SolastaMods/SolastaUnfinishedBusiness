@@ -114,10 +114,16 @@ public static class CharacterActionMagicEffectPatcher
             __instance.showCasting = !actionParams.SkipAnimationsAndVFX;
             __instance.needToWaitCastAnimation = false;
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
             var rulesetService = ServiceRepository.GetService<IRulesetImplementationService>();
             var targetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
-            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
 
             rulesetService.ClearDamageFormsByIndex();
             __instance.TargetItem = actionParams.TargetItem;
@@ -137,10 +143,10 @@ public static class CharacterActionMagicEffectPatcher
 
             var impactPoint = !actionParams.HasMagneticTargeting && useFloatingImpactPoint
                 ? actionParams.CursorHoveredPosition
-                : gameLocationPositioningService.GetWorldPositionFromGridPosition(impactGridPoint);
-            var lineOrigin = gameLocationPositioningService.GetWorldPositionFromGridPosition(impactGridPoint);
-            var castingPoint = gameLocationPositioningService.GetWorldPositionFromGridPosition(castingGridPoint);
-            var impactPlanePoint = gameLocationPositioningService.GetImpactPlanePosition(impactPoint);
+                : positioningService.GetWorldPositionFromGridPosition(impactGridPoint);
+            var lineOrigin = positioningService.GetWorldPositionFromGridPosition(impactGridPoint);
+            var castingPoint = positioningService.GetWorldPositionFromGridPosition(castingGridPoint);
+            var impactPlanePoint = positioningService.GetImpactPlanePosition(impactPoint);
 
             // Store the position in the active effect.
             if (actionParams.RulesetEffect.EntityImplementation is GameLocationEffect gameLocationEffect)
@@ -272,7 +278,7 @@ public static class CharacterActionMagicEffectPatcher
             __instance.CheckInterruptionBefore();
 
             // Handle spell countering
-            yield return __instance.WaitSpellCastAction(battleService);
+            yield return __instance.WaitSpellCastAction(battleManager);
 
             if (__instance.Countered)
             {
@@ -390,7 +396,7 @@ public static class CharacterActionMagicEffectPatcher
                 }
 
                 // Handle specific reactions after the attack has been executed
-                yield return battleService.HandleCharacterAttackFinished(
+                yield return battleManager.HandleCharacterAttackFinished(
                     __instance, actingCharacter, target, null, actionParams.RulesetEffect, __instance.AttackRollOutcome,
                     damageReceived);
 
@@ -404,7 +410,7 @@ public static class CharacterActionMagicEffectPatcher
 
                 //PATCH: support for Sentinel Fighting Style - allows attacks of opportunity on enemies attacking allies
                 var extraAttacksOfOpportunityEvents =
-                    AttacksOfOpportunity.ProcessOnCharacterAttackFinished(battleService as GameLocationBattleManager,
+                    AttacksOfOpportunity.ProcessOnCharacterAttackFinished(battleManager,
                         actingCharacter, target);
 
                 while (extraAttacksOfOpportunityEvents.MoveNext())
@@ -414,7 +420,7 @@ public static class CharacterActionMagicEffectPatcher
 
                 //PATCH: support for Defensive Strike Power - allows adding Charisma modifier and chain reactions
                 var extraDefensiveStrikeAttackEvents =
-                    DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(battleService as GameLocationBattleManager,
+                    DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(battleManager,
                         actingCharacter, target);
 
                 while (extraDefensiveStrikeAttackEvents.MoveNext())
@@ -424,7 +430,7 @@ public static class CharacterActionMagicEffectPatcher
 
                 //PATCH: support for Aura of the Guardian power - allows swapping hp on enemy attacking ally
                 var extraGuardianAuraEvents =
-                    GuardianAura.ProcessOnCharacterAttackHitFinished(battleService as GameLocationBattleManager,
+                    GuardianAura.ProcessOnCharacterAttackHitFinished(battleManager,
                         actingCharacter, target, null, actionParams.RulesetEffect, damageReceived);
 
                 while (extraGuardianAuraEvents.MoveNext())
@@ -500,9 +506,9 @@ public static class CharacterActionMagicEffectPatcher
             if (__instance.isPostSpecialMove)
             {
                 // Check for end of move triggers (readied attacks for instance)
-                if (battleService.IsBattleInProgress)
+                if (battleManager.IsBattleInProgress)
                 {
-                    yield return battleService.HandleCharacterMoveEnd(actingCharacter);
+                    yield return battleManager.HandleCharacterMoveEnd(actingCharacter);
                 }
             }
 
@@ -545,7 +551,7 @@ public static class CharacterActionMagicEffectPatcher
 
             yield return __instance.HandlePostExecution();
 
-            yield return battleService.HandleCharacterAttackOrMagicEffectFinishedLate(__instance, actingCharacter);
+            yield return battleManager.HandleCharacterAttackOrMagicEffectFinishedLate(__instance, actingCharacter);
         }
     }
 
@@ -579,8 +585,14 @@ public static class CharacterActionMagicEffectPatcher
             bool firstTarget,
             bool checkMagicalAttackDamage)
         {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
             var actingCharacter = __instance.ActingCharacter;
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var effectDescription = activeEffect.EffectDescription;
 
             __instance.AttackRollOutcome = RollOutcome.Success;
@@ -625,7 +637,7 @@ public static class CharacterActionMagicEffectPatcher
                 // If this roll is failed (not critically), can we use a bardic inspiration to change the outcome?
                 if (__instance.AttackRollOutcome == RollOutcome.Failure)
                 {
-                    yield return battleService.HandleBardicInspirationForAttack(
+                    yield return battleManager.HandleBardicInspirationForAttack(
                         __instance, actingCharacter, target, attackModifier);
 
                     // BEGIN PATCH
@@ -644,7 +656,7 @@ public static class CharacterActionMagicEffectPatcher
 
                 //PATCH: support for `ITryAlterOutcomeAttack`
                 foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack
-                             .Handler(battleService as GameLocationBattleManager,
+                             .Handler(battleManager,
                                  __instance, actingCharacter, target, attackModifier))
                 {
                     yield return tryAlterOutcomeAttack;
@@ -661,7 +673,7 @@ public static class CharacterActionMagicEffectPatcher
                     if (__instance.AttackRoll != DiceMaxValue[(int)DieType.D20])
                     {
                         // Can the target do anything to change the outcome of the hit?
-                        yield return battleService.HandleCharacterAttackHitPossible(
+                        yield return battleManager.HandleCharacterAttackHitPossible(
                             actingCharacter,
                             target,
                             null,
@@ -723,7 +735,7 @@ public static class CharacterActionMagicEffectPatcher
                         // Handle special cases, if there is at least one damage
                         if (checkMagicalAttackDamage && __instance.HasOneDamageForm(actualEffectForms))
                         {
-                            yield return battleService.HandleCharacterMagicalAttackHitConfirmed(
+                            yield return battleManager.HandleCharacterMagicalAttackHitConfirmed(
                                 __instance,
                                 actingCharacter,
                                 target,
@@ -761,7 +773,7 @@ public static class CharacterActionMagicEffectPatcher
                 // Handle special cases, if there is at least one damage
                 if (checkMagicalAttackDamage && __instance.HasOneDamageForm(actualEffectForms))
                 {
-                    yield return battleService.HandleCharacterMagicalAttackHitConfirmed(
+                    yield return battleManager.HandleCharacterMagicalAttackHitConfirmed(
                         __instance,
                         actingCharacter,
                         target,
@@ -804,7 +816,7 @@ public static class CharacterActionMagicEffectPatcher
                     // Legendary Resistance or Indomitable?
                     if (__instance.RolledSaveThrow && __instance.SaveOutcome == RollOutcome.Failure)
                     {
-                        yield return battleService.HandleFailedSavingThrow(
+                        yield return battleManager.HandleFailedSavingThrow(
                             __instance,
                             actingCharacter,
                             target,
@@ -817,7 +829,7 @@ public static class CharacterActionMagicEffectPatcher
 
                     //PATCH: support for `ITryAlterOutcomeSavingThrow`
                     foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                 battleService as GameLocationBattleManager,
+                                 battleManager,
                                  __instance, actingCharacter, target, attackModifier, hasBorrowedLuck))
                     {
                         yield return tryAlterOutcomeSavingThrow;

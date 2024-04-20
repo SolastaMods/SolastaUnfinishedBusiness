@@ -313,19 +313,11 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(featureStalkersFlurry.Name, 1);
-
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            if (actionService == null)
-            {
-                yield break;
-            }
-
             var actionParams = action.ActionParams.Clone();
 
             actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.AttackFree];
-
+            attacker.UsedSpecialFeatures.TryAdd(featureStalkersFlurry.Name, 1);
             attacker.RulesetCharacter.LogCharacterUsedFeature(featureStalkersFlurry);
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
@@ -348,10 +340,9 @@ public sealed class RangerGloomStalker : AbstractSubclass
             GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationActionManager == null)
+            if (!actionManager)
             {
                 yield break;
             }
@@ -375,12 +366,12 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 {
                     StringParameter = "Reaction/&CustomReactionShadowyDodgeDescription"
                 };
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("ShadowyDodge", reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

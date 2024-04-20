@@ -57,7 +57,7 @@ internal static class GUIHelper
 
     internal static void Div(float indent = 0, float height = 25, float width = 0)
     {
-        if (_fillTexture == null)
+        if (!_fillTexture)
         {
             _fillTexture = new Texture2D(1, 1);
         }

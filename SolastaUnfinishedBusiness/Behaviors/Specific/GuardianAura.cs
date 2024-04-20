@@ -143,7 +143,7 @@ internal static class GuardianAura
     {
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-        if (actionManager == null)
+        if (!actionManager)
         {
             return;
         }

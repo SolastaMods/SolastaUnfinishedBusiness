@@ -197,14 +197,14 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .RollSaveOnlyIfRelevantForms()
-                    .SetParticleEffectParameters(PowerDragonBreath_Acid)
+                    .SetParticleEffectParameters(PowerDomainOblivionMarkOfFate)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeAcid, 2, DieType.D8)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (14, 2), (18, 3))
                             .Build(),
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionConfused))
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionHindered))
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
@@ -382,16 +382,14 @@ public sealed class InnovationVitriolist : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService == null)
+            if (!battleManager)
             {
                 yield break;
             }
 
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var spellRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
@@ -400,11 +398,11 @@ public sealed class InnovationVitriolist : AbstractSubclass
             {
                 IntParameter = slotLevel, StringParameter = "RefundMixture", SpellRepertoire = spellRepertoire
             };
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToSpendSpellSlot(reactionParams);
+            actionService.ReactToSpendSpellSlot(reactionParams);
 
-            yield return gameLocationBattleService.WaitForReactions(actingCharacter, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(actingCharacter, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {

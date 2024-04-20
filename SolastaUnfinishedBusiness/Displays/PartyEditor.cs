@@ -417,7 +417,7 @@ public static class PartyEditor
     {
 #pragma warning disable IDE0031
         // don't use ? or ?? or a type deriving from an UnityEngine.Object to avoid bypassing lifetime check
-        var chars = Gui.GameCampaign == null
+        var chars = !Gui.GameCampaign
             ? null
             : Gui.GameCampaign.Party?.CharactersList?.Select(ch => ch.RulesetCharacter).ToList();
 #if DEBUG

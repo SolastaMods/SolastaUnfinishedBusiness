@@ -219,8 +219,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionConfused",
-          "conditionDefinition": "Definition:ConditionConfused:be780d885f411094f8359c0e368c778d",
+          "conditionDefinitionName": "ConditionHindered",
+          "conditionDefinition": "Definition:ConditionHindered:a7ec75561313d2a41aab8635a306ed41",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -256,7 +256,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f04bb791bd984074a96e2fffdb8b8ceb",
+        "m_AssetGUID": "926d3775a95842642888296706e55459",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -280,7 +280,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "f2704c344c5c9234793653ed7ae44eb3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -292,7 +292,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e55a5651748145a499f955e63ebefbbd",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -304,7 +304,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a3a03a7b24d73c44d861fe7850b26e25",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

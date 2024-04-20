@@ -7,7 +7,7 @@ public static class InvocationDefinitionExtensions
 {
     internal static bool IsPermanent(this InvocationDefinition invocation)
     {
-        return invocation.GrantedFeature != null && invocation.GetPower() == null;
+        return invocation.GrantedFeature && !invocation.GetPower();
     }
 
     internal static ActionType GetActionType(this InvocationDefinition invocation)
@@ -19,7 +19,7 @@ public static class InvocationDefinitionExtensions
 
         var time = RuleDefinitions.ActivationTime.Action;
 
-        if (invocation.GrantedSpell != null)
+        if (invocation.GrantedSpell)
         {
             time = invocation.GrantedSpell.ActivationTime;
         }

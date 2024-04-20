@@ -1,0 +1,10 @@
+Feature/&AttributeModifierLizardfolkNaturalArmorDescription=Quando non indossi l'armatura, la tua CA base è 13 + il tuo modificatore di Destrezza. I benefici di uno scudo si applicano normalmente mentre usi la tua armatura naturale.
+Feature/&AttributeModifierLizardfolkNaturalArmorTitle=Armatura naturale
+Feature/&FeatureLizardfolkClawsDescription=Puoi usare i tuoi artigli per sferrare un colpo senz'armi. Attaccando con essi infliggono 1d6 + il tuo modificatore di Forza danni taglienti, invece dei danni contundenti normali per un colpo senz'armi.
+Feature/&FeatureLizardfolkClawsTitle=Artigli
+Feature/&PointPoolLizardfolkNaturesIntuitionDescription=Sei competente in una delle seguenti abilità a tua scelta: Addestramento di animali, Medicina, Natura, Percezione, Furtività, Sopravvivenza.
+Feature/&PointPoolLizardfolkNaturesIntuitionTitle=L'intuizione della natura
+Feature/&PowerLizardfolkHungryJawsDescription=Puoi gettarti in una frenesia alimentare. Come azione bonus, puoi effettuare un attacco speciale con i tuoi artigli. Se l'attacco va a segno, infligge il normale danno e ottieni punti ferita temporanei pari al tuo bonus di competenza. Puoi utilizzare questo tratto un numero di volte pari al tuo bonus di competenza e recuperi tutti gli usi spesi quando termini un riposo lungo.
+Feature/&PowerLizardfolkHungryJawsTitle=Artigli d'alimentazione
+Race/&RaceLizardfolkDescription=Alcuni saggi ritengono che i lucertoloidi sauri siano lontani cugini dei dragonidi e dei coboldi. Nonostante la loro somiglianza con gli altri popoli in scaglie, tuttavia, i lucertoloidi sono un popolo a sé stante e vivono sui mondi del Piano Materiale sin dalla creazione dei mondi. Dotati dagli dei di notevoli difese fisiche e di una connessione mistica con il mondo naturale, i lucertoloidi possono sopravvivere con il solo ingegno in situazioni che sarebbero mortali per gli altri. Per questo motivo, molti miti dei lucertoloidi affermano che il loro popolo fu posto dagli dei nel Piano Materiale per custodirne le meraviglie naturali.
+Race/&RaceLizardfolkTitle=Lucertoloidi

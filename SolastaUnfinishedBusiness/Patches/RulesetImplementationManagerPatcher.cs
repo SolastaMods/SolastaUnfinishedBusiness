@@ -337,7 +337,7 @@ public static class RulesetImplementationManagerPatcher
             var summonForm = effectForm.SummonForm;
 
             if (summonForm.SummonType != SummonForm.Type.InventoryItem
-                || summonForm.ItemDefinition == null
+                || !summonForm.ItemDefinition
                 || summonForm.Number != 1
                 || !summonForm.TrackItem
                 || formsParams.targetType != TargetType.Self
@@ -631,7 +631,7 @@ public static class RulesetImplementationManagerPatcher
                         {
                             currentValue = originalHero.ClassesAndLevels[characterClassDefinition];
                         }
-                        else if (spellRepertoire.SpellCastingSubclass != null)
+                        else if (spellRepertoire.SpellCastingSubclass)
                         {
                             var characterClass = originalHero.ClassesAndSubclasses
                                 .FirstOrDefault(x => x.Value == spellRepertoire.SpellCastingSubclass).Key;

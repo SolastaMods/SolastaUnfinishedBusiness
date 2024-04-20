@@ -19,17 +19,17 @@ public interface IGroupedFeat
 
 public class GroupedFeat : IGroupedFeat
 {
-    private readonly List<FeatDefinition> _feats = [];
-
     public GroupedFeat(IEnumerable<FeatDefinition> feats)
     {
-        _feats.AddRange(feats);
-        _feats.Sort(FeatsContext.CompareFeats);
+        Feats.AddRange(feats);
+        Feats.Sort(FeatsContext.CompareFeats);
     }
+
+    internal List<FeatDefinition> Feats { get; } = [];
 
     public List<FeatDefinition> GetSubFeats(bool includeHidden = false, bool onlyModded = false)
     {
-        return _feats
+        return Feats
             .Where(x =>
                 (includeHidden || !x.GuiPresentation.hidden) &&
                 (!onlyModded || x.ContentPack == CeContentPackContext.CeContentPack))
@@ -42,7 +42,7 @@ public class GroupedFeat : IGroupedFeat
     {
         foreach (var featDefinition in featDefinitions)
         {
-            _feats.TryAdd(featDefinition);
+            Feats.TryAdd(featDefinition);
         }
     }
 
@@ -50,7 +50,7 @@ public class GroupedFeat : IGroupedFeat
     {
         foreach (var featDefinition in featDefinitions)
         {
-            _feats.Remove(featDefinition);
+            Feats.Remove(featDefinition);
         }
     }
 }
@@ -211,7 +211,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         //register this screen
         var guiMgr = Gui.GuiService as GuiManager;
 
-        if (guiMgr != null)
+        if (guiMgr)
         {
             guiMgr.screensByType.Add(GetType(), this);
         }
@@ -452,7 +452,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
 
     public void CancelPerformed(InputAction.CallbackContext context)
     {
-        if (this == null)
+        if (!this)
         {
             return;
         }

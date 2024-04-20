@@ -391,12 +391,11 @@ public sealed class OathOfDread : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var gameLocationActionService =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -448,13 +447,12 @@ public sealed class OathOfDread : AbstractSubclass
                 AttackMode = retaliationMode,
                 TargetCharacters = { attacker }
             };
-
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("HarrowingCrusade", actionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
         }
     }
 }

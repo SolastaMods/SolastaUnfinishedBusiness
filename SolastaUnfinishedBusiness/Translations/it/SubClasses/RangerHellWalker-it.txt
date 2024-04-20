@@ -1,5 +1,3 @@
-Condition/&ConditionRangerHellWalkerDammingStrikeDescription=Subisci 1d6 danni da fuoco ogni round.
-Condition/&ConditionRangerHellWalkerDammingStrikeTitle=Colpo Dannata
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Subisci 1d6 danni necrotici alla fine di ciascuno dei tuoi turni, sei spaventato e gli attacchi di fuoco provenienti dal segnalino superano la tua resistenza.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Contrassegnato dai Dannati
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Quando colpisci per la prima volta una creatura con un attacco nel tuo turno, puoi forzarla a superare un tiro salvezza su Costituzione contro la CD del tuo incantesimo o farla marchiare. Mentre una creatura è marchiata in questo modo, subisce 1d6 danni da fuoco all'inizio di ciascuno dei suoi turni per 1 minuto. Alla fine di ciascuno dei suoi turni, la creatura può ripetere questo tiro salvezza, ponendo termine agli effetti in caso di successo.

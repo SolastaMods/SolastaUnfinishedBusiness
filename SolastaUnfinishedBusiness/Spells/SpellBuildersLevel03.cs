@@ -106,7 +106,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
             .SetSavingThrowData(
                 false,
                 AttributeDefinitions.Dexterity,
@@ -216,7 +216,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
                     .ExcludeCaster()
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Constitution,
@@ -303,6 +303,110 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Aura of Vitality
+
+    internal static SpellDefinition BuildAuraOfVitality()
+    {
+        // kept this name for backward compatibility reasons
+        const string NAME = "AuraOfLife";
+
+        var sprite = Sprites.GetSprite(NAME, Resources.AuraOfVitality, 128);
+
+        var powerAuraOfLife = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, sprite)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(HealingComputation.Dice, 0, DieType.D6, 2, false,
+                                HealingCap.MaximumHitPoints)
+                            .Build())
+                    .SetParticleEffectParameters(HealingWord)
+                    .Build())
+            .AddToDB();
+
+        var conditionAuraOfLifeSelf = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Self")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powerAuraOfLife)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddToDB();
+
+        var conditionAuraOfLife = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionHeroism)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, sprite)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionAuraOfLife),
+                        EffectFormBuilder.ConditionForm(conditionAuraOfLifeSelf, ConditionForm.ConditionOperation.Add,
+                            true, true))
+                    .SetParticleEffectParameters(DivineWord)
+                    .Build())
+            .AddToDB();
+
+        spell.AddCustomSubFeatures(new FilterTargetingCharacterAuraOfVitality(spell, conditionAuraOfLife));
+
+        return spell;
+    }
+
+    private sealed class FilterTargetingCharacterAuraOfVitality(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellAuraOfVitality,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionAuraOfVitality) : IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell
+                || rulesetEffectSpell.SpellDefinition != spellAuraOfVitality)
+            {
+                return true;
+            }
+
+            var rulesetTarget = target.RulesetCharacter;
+
+            var isValid = rulesetTarget.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionAuraOfVitality.Name);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeAuraOfLife");
+            }
+
+            return isValid;
+        }
     }
 
     #endregion
@@ -682,14 +786,14 @@ internal static partial class SpellBuilders
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), _targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = _targets
@@ -1060,7 +1164,7 @@ internal static partial class SpellBuilders
             }
 
             // leap damage on enemies within 10 ft from target
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
             var targets = battleManager.Battle
@@ -1068,7 +1172,7 @@ internal static partial class SpellBuilders
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets

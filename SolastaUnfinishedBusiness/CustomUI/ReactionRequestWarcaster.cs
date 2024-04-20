@@ -37,7 +37,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
         {
             var spell = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition;
 
-            if (spell == null)
+            if (!spell)
             {
                 return 0;
             }

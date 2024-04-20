@@ -212,14 +212,6 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionService == null)
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
@@ -235,7 +227,8 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerTrialMark, rulesetAttacker);
@@ -243,17 +236,17 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             {
                 StringParameter = "LightEnergyCrossbowBolt",
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
             };
 
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", attacker);
+            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 

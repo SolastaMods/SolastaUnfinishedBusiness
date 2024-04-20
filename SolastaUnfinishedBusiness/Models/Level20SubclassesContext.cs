@@ -1505,14 +1505,14 @@ internal static class Level20SubclassesContext
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
             var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { actingCharacter }
@@ -1856,12 +1856,10 @@ internal static class Level20SubclassesContext
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
+                {
+                    IsBattleInProgress: true
+                } battleManager)
             {
                 yield break;
             }
@@ -1873,7 +1871,8 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
@@ -1881,17 +1880,16 @@ internal static class Level20SubclassesContext
             {
                 StringParameter = "PhysicalPerfection",
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
             };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -2136,14 +2134,14 @@ internal static class Level20SubclassesContext
                 return false;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
             evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
                 target.LocationPosition, attackModifier);
 
-            return gameLocationBattleService.CanAttack(evalParams);
+            return battleManager.CanAttack(evalParams);
         }
 
         [CanBeNull]

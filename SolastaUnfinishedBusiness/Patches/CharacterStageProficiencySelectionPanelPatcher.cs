@@ -44,7 +44,7 @@ public static class CharacterStageProficiencySelectionPanelPatcher
             //PATCH: support for skipping skill and tool proficiency picking if you picked all available, but still have points remaining
             var item = CurrentStepItem(__instance);
 
-            if (item == null)
+            if (!item)
             {
                 return;
             }
@@ -114,7 +114,7 @@ public static class CharacterStageProficiencySelectionPanelPatcher
 
             var item = CurrentStepItem(__instance);
 
-            if (item == null || !item.ignoreAvailable || (item.PoolType != Skill && item.PoolType != Tool))
+            if (!item || !item.ignoreAvailable || (item.PoolType != Skill && item.PoolType != Tool))
             {
                 return true;
             }

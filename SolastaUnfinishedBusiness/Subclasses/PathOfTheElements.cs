@@ -328,7 +328,6 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         var conditionElementalConduitStorm = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}{ElementalConduit}Storm")
-            .SetParentCondition(ConditionDefinitions.ConditionFlying)
             // don't use vanilla RageStop with permanent conditions
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .AddToDB();
@@ -424,9 +423,7 @@ public sealed class PathOfTheElements : AbstractSubclass
     {
         public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
-            if (Gui.Battle == null || implementationService == null)
+            if (Gui.Battle == null)
             {
                 return;
             }
@@ -483,6 +480,8 @@ public sealed class PathOfTheElements : AbstractSubclass
                 };
 
                 EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, magicEffect);
+
+                var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
                 implementationService.ApplyEffectForms(
                     [new EffectForm { damageForm = damageForm }],
@@ -603,22 +602,23 @@ public sealed class PathOfTheElements : AbstractSubclass
                 yield break;
             }
 
-            var actionService =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (actionService == null || battleManager is not { IsBattleInProgress: true })
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
 
             var reactionParams =
                 new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction);
-            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("ElementalConduitWildfire", reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            actionService.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, actionService, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

@@ -1,10 +1,10 @@
 Condition/&ConditionOathOfThunderDivineBoltDescription=Your movement speed is halved.
 Condition/&ConditionOathOfThunderDivineBoltTitle=Divine Bolt
-Feature/&FeatureOathOfThunderAxesBoonDescription=When wielding Battle Axes or War Hammers, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them but you have disadvantage to attack with any other weapon type different than Battle Axes and War Hammers.
+Feature/&FeatureOathOfThunderAxesBoonDescription=When wielding Battle Axes or War Hammers, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them, but you have disadvantage to attack with any other weapon type different from Battle Axes and War Hammers.
 Feature/&FeatureOathOfThunderAxesBoonTitle=Stormbreaker
 Feature/&FeatureOathOfThunderGodOfThunderDescription=Once per turn, you deal an additional 1d4 thunder damage with Battle Axes and War Hammers. This damage increases to 2d4 at 15th.
 Feature/&FeatureOathOfThunderGodOfThunderTitle=God of Thunder
-Feature/&FeatureOathOfThunderHammersBoonDescription=When wielding a War Hammer, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them but you have disadvantage to attack with any other weapon type different than War Hammers.
+Feature/&FeatureOathOfThunderHammersBoonDescription=When wielding a War Hammer, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them, but you have disadvantage to attack with any other weapon type different from War Hammers.
 Feature/&FeatureOathOfThunderHammersBoonTitle=Mjolnir
 Feature/&FeatureSetOathOfThunderStormHeraldDescription=You gain a flying speed of 12 cells, and are immune to Thunder and Lightning damage. As a bonus action, you can summon a bolt of lightning to strike a 3x3 point you choose within 60 feet of you. Each affected creature must roll a Dexterity saving throw, taking 3d10 lightning damage on a failed saving throw, or half as much damage on a successful one. You can use this feature a number of times per long rest equal to your proficiency modifier.
 Feature/&FeatureSetOathOfThunderStormHeraldTitle=Storm Herald

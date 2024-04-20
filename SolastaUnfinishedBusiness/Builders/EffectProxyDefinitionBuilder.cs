@@ -1,5 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
@@ -20,43 +22,45 @@ internal class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefin
     internal EffectProxyDefinitionBuilder SetPortrait(AssetReferenceSprite portraitSpriteReference)
     {
         Definition.hasPortrait = true;
+        Definition.isEmptyPresentation = false;
         Definition.portraitSpriteReference = portraitSpriteReference;
         return this;
     }
 
-    internal EffectProxyDefinitionBuilder AddAdditionalFeatures(params FeatureDefinition[] features)
+    internal EffectProxyDefinitionBuilder SetActionId(
+        ExtraActionId actionId, ExtraActionId freeActionId = (ExtraActionId)ActionDefinitions.Id.NoAction)
     {
-        Definition.AdditionalFeatures.AddRange(features);
+        Definition.actionId = (ActionDefinitions.Id)actionId;
+        Definition.freeActionId = (ActionDefinitions.Id)freeActionId;
+        Definition.firstAttackIsFree = freeActionId != (ExtraActionId)ActionDefinitions.Id.NoAction;
         return this;
     }
 
-    internal EffectProxyDefinitionBuilder SetIsEmptyPresentation(bool value)
-    {
-        Definition.isEmptyPresentation = value;
-        return this;
-    }
-
-    internal EffectProxyDefinitionBuilder SetCanMove()
-    {
-        Definition.canMove = true;
-        return this;
-    }
-
-    internal EffectProxyDefinitionBuilder SetCanMoveOnCharacters()
-    {
-        Definition.canMoveOnCharacters = true;
-        return this;
-    }
-
-    internal EffectProxyDefinitionBuilder SetActionId(ActionDefinitions.Id actionId)
-    {
-        Definition.actionId = actionId;
-        return this;
-    }
-
-    internal EffectProxyDefinitionBuilder SetAttackMethod(ProxyAttackMethod proxyAttackMethod)
+    internal EffectProxyDefinitionBuilder SetAttackMethod(
+        ProxyAttackMethod proxyAttackMethod,
+        string damageType = DamageTypeRadiant,
+        DieType damageDie = DieType.D8,
+        int damageDieNum = 1,
+        bool addAbilityToDamage = false)
     {
         Definition.attackMethod = proxyAttackMethod;
+        Definition.damageDie = damageDie;
+        Definition.damageDieNum = damageDieNum;
+        Definition.damageType = damageType;
+        Definition.addAbilityToDamage = addAbilityToDamage;
+        return this;
+    }
+
+    internal EffectProxyDefinitionBuilder SetAdditionalFeatures(params FeatureDefinition[] features)
+    {
+        Definition.AdditionalFeatures.SetRange(features);
+        return this;
+    }
+
+    internal EffectProxyDefinitionBuilder SetCanMove(bool canMove = true, bool canMoveOnCharacters = true)
+    {
+        Definition.canMove = canMove;
+        Definition.canMoveOnCharacters = canMoveOnCharacters;
         return this;
     }
 }

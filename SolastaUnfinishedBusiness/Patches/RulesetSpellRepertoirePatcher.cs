@@ -17,9 +17,9 @@ public static class RulesetSpellRepertoirePatcher
 {
     private static bool FormatTitle(RulesetSpellRepertoire __instance, ref string __result)
     {
-        if (__instance.SpellCastingClass != null
-            || __instance.SpellCastingSubclass != null
-            || __instance.SpellCastingRace != null)
+        if (__instance.SpellCastingClass
+            || __instance.SpellCastingSubclass
+            || __instance.SpellCastingRace)
         {
             return true;
         }
@@ -172,7 +172,7 @@ public static class RulesetSpellRepertoirePatcher
         [UsedImplicitly]
         public static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
-            if (__instance.SpellCastingFeature == null)
+            if (!__instance.SpellCastingFeature)
             {
                 return;
             }

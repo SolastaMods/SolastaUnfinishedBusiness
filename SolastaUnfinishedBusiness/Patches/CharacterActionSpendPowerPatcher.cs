@@ -34,7 +34,7 @@ public static class CharacterActionSpendPowerPatcher
             var rulesetEffect = actionParams.RulesetEffect;
             var effectDescription = rulesetEffect.EffectDescription;
 
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
             // Retrieve the target
             __instance.targets.Clear();
@@ -59,8 +59,8 @@ public static class CharacterActionSpendPowerPatcher
             if (__instance.activePower is { OriginItem: null })
             {
                 // Fire shield retaliation has no class or race origin
-                if (__instance.activePower.UsablePower.OriginClass != null ||
-                    __instance.activePower.UsablePower.OriginRace != null)
+                if (__instance.activePower.UsablePower.OriginClass ||
+                    __instance.activePower.UsablePower.OriginRace)
                 {
                     actingCharacter.RulesetCharacter.UsePower(__instance.activePower.UsablePower);
                 }
@@ -108,11 +108,11 @@ public static class CharacterActionSpendPowerPatcher
                     if (__instance.RolledSaveThrow)
                     {
                         // Legendary Resistance or Indomitable?
-                        var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+                        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
 
                         if (__instance.SaveOutcome == RuleDefinitions.RollOutcome.Failure)
                         {
-                            yield return battleService.HandleFailedSavingThrow(
+                            yield return battleManager.HandleFailedSavingThrow(
                                 __instance, actingCharacter, target, actionModifier, false, hasBorrowedLuck);
                         }
 
@@ -120,7 +120,7 @@ public static class CharacterActionSpendPowerPatcher
 
                         //PATCH: support for `ITryAlterOutcomeSavingThrow`
                         foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                     battleService as GameLocationBattleManager,
+                                     battleManager as GameLocationBattleManager,
                                      __instance, actingCharacter, target, actionModifier, hasBorrowedLuck))
                         {
                             yield return tryAlterOutcomeSavingThrow;
@@ -145,7 +145,7 @@ public static class CharacterActionSpendPowerPatcher
                         1,
                         null);
                     applyFormsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
-                    rulesetImplementationService.ApplyEffectForms(
+                    implementationService.ApplyEffectForms(
                         effectDescription.EffectForms,
                         applyFormsParams,
                         null,
@@ -155,15 +155,15 @@ public static class CharacterActionSpendPowerPatcher
                         terminateEffectOnTarget: out _);
 
                     // Impact particles
-                    var gameLocationPositioningService =
+                    var positioningService =
                         ServiceRepository.GetService<IGameLocationPositioningService>();
                     var impactPoint = new Vector3();
                     var impactRotation = Quaternion.identity;
 
-                    gameLocationPositioningService.ComputeImpactCenterPositionAndRotation(
+                    positioningService.ComputeImpactCenterPositionAndRotation(
                         target, ref impactPoint, ref impactRotation);
 
-                    var impactPlanePoint = gameLocationPositioningService.GetImpactPlanePosition(impactPoint);
+                    var impactPlanePoint = positioningService.GetImpactPlanePosition(impactPoint);
                     var impactTarget = new ActionDefinitions.MagicEffectCastData
                     {
                         Source = __instance.activePower.Name,

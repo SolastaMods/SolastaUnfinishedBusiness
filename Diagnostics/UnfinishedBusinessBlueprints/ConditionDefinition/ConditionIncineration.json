@@ -1,11 +1,9 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionOnFire:16ca5e0ef0891e445a26be9ae27a72de",
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:ActionAffinityConditionOnFire:8a75fa48a86a0f24ea26200a5c553a8d"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -18,6 +16,7 @@
   "forceTurnOccurence": false,
   "turnOccurence": "StartOfTurn",
   "specialInterruptions": [
+    "Extinguish",
     "Revive"
   ],
   "interruptionRequiresSavingThrow": false,

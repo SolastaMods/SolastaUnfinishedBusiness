@@ -22,7 +22,7 @@
   "myDamageReductionDiceNumber": 1,
   "myDamageReductionDieType": "D4",
   "situationalContext": 9013,
-  "requiredCondition": null,
+  "requiredCondition": "Definition:ConditionPathOfTheSpiritsHonedAnimalAspectsBear:b3df2be0-017f-578d-b107-1b024ea18d66",
   "nullifiedBySenses": [],
   "nullifiedBySelfSenses": [],
   "multiAttackAffinity": false,

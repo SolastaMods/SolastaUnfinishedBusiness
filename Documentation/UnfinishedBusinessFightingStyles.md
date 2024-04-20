@@ -28,11 +28,11 @@ When you reduce a target to 0 HP using a melee weapon attack on your turn, enemi
 
 # 8. - Pugilist
 
-Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
+Your unarmed strikes deal an additional 1d4 bludgeoning damage, and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
 
 # 9. - Rope it Up
 
-Your thrown strikes get +1 to attack and damage rolls, you increase both it's long and short range by 10 feet and it returns to your hand immediately after it is used to make a thrown attack.
+Your thrown strikes get +1 to attack and damage rolls, you increase both it's long and short range by 10 feet, and it returns to your hand immediately after it is used to make a thrown attack.
 
 # 10. - Shield Expert
 
@@ -42,10 +42,10 @@ You have trained in the use of a shield as a weapon. It becomes a melee weapon t
 
 You have martial training that allows you to perform special combat techniques called maneuvers:
 • You learn one maneuver of your choice from the Battle Master subclass. The Maneuver DC of these maneuvers is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher.
-• You gain 1 Superiority Die. The die is a d6 and it doesn't increase in size if you are not a Battle Master. This die is used to fuel your maneuvers. It is expended when you use it, and is regained when you finish a short or long rest.
+• You gain 1 Superiority Die. The die is a d6, and it doesn't increase in size if you are not a Battle Master. This die is used to fuel your maneuvers. It is expended when you use it, and is regained when you finish a short or long rest.
 
 # 12. - Torchbearer
 
-You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 3 turns or until extinguished.
+You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
 
 

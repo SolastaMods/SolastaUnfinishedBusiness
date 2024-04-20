@@ -28,7 +28,7 @@ public static class HigherLevelFeaturesModalPatcher
             var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-            if (selectedClass != null
+            if (selectedClass
                 && isLevelingUp
                 && isClassSelectionStage
                 && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels))

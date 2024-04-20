@@ -77,7 +77,7 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static bool IsMelee([CanBeNull] ItemDefinition itemDefinition)
     {
-        return itemDefinition != null
+        return itemDefinition
                && ((itemDefinition.WeaponDescription != null
                     && itemDefinition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee)
                    || itemDefinition.IsArmor /* for shields */);
@@ -118,7 +118,7 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsShield([CanBeNull] ItemDefinition itemDefinition)
     {
-        return itemDefinition != null
+        return itemDefinition
                && itemDefinition.IsArmor
                && itemDefinition.ArmorDescription != null
                && itemDefinition.ArmorDescription.ArmorType == ShieldType.Name;
@@ -135,7 +135,7 @@ internal static class ValidatorsWeapon
         [CanBeNull] ItemDefinition itemDefinition,
         params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
-        return itemDefinition != null
+        return itemDefinition
                && itemDefinition.IsWeapon
                && itemDefinition.WeaponDescription != null
                && weaponTypeDefinitions.Contains(itemDefinition.WeaponDescription.WeaponTypeDefinition);
@@ -168,10 +168,10 @@ internal static class ValidatorsWeapon
 
         itemDefinition = attackMode?.SourceDefinition as ItemDefinition ?? itemDefinition;
 
-        return itemDefinition != null
+        return itemDefinition
                && itemDefinition.IsWeapon
                && itemDefinition.WeaponDescription != null
-               && itemDefinition.WeaponDescription.WeaponTypeDefinition == UnarmedStrikeType
+               && itemDefinition.WeaponDescription.WeaponTypeDefinition.Name == UnarmedStrikeType.Name
                && IsWithinReach(attackMode?.ReachRange ?? 1);
     }
 
@@ -184,7 +184,7 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool HasAnyWeaponTag([CanBeNull] ItemDefinition itemDefinition, [NotNull] params string[] tags)
     {
-        return itemDefinition != null
+        return itemDefinition
                && itemDefinition.IsWeapon
                && itemDefinition.WeaponDescription != null
                && tags.Any(t => itemDefinition.WeaponDescription.WeaponTags.Contains(t));

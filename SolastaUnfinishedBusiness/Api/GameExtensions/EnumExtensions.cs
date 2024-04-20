@@ -57,6 +57,11 @@ internal enum ExtraActionId
     BrutalStrikeToggle,
     OrcishFuryToggle,
     DragonHideToggle,
+    AmazingDisplayToggle,
+    ProxyHoundWeapon,
+    ProxyPetalStorm,
+    ProxyPactWeapon,
+    ProxyPactWeaponFree,
     PrioritizeAction = 10000
 }
 

@@ -456,7 +456,7 @@ internal static class MeleeCombatFeats
         {
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (actionManager == null ||
+            if (!actionManager ||
                 battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
@@ -484,7 +484,7 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
@@ -492,7 +492,7 @@ internal static class MeleeCombatFeats
             {
                 ActionModifiers = { actionModifier },
                 StringParameter = powerPool.Name,
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
@@ -626,14 +626,6 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionManager == null)
-            {
-                yield break;
-            }
-
             var rulesetHelper = helper.RulesetCharacter;
 
             if (helper != defender ||
@@ -661,7 +653,8 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerDefensiveDuelist, rulesetHelper);
@@ -670,17 +663,16 @@ internal static class MeleeCombatFeats
                 {
                     StringParameter = "DefensiveDuelist",
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManagerService
+                    RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(actionParams, "UsePower", helper);
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
-
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 
@@ -801,12 +793,13 @@ internal static class MeleeCombatFeats
     {
         public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
-            var gameLocationActionService =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
+            var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -850,13 +843,12 @@ internal static class MeleeCombatFeats
                 AttackMode = retaliationMode,
                 TargetCharacters = { enemy }
             };
-
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("OldTactics", actionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(enemy, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(enemy, actionManager, count);
         }
     }
 
@@ -1509,7 +1501,7 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var attackModifier = action.ActionParams.ActionModifiers[0];
@@ -1536,7 +1528,7 @@ internal static class MeleeCombatFeats
                     break;
             }
 
-            if (power == null || attackRoll == 0)
+            if (!power || attackRoll == 0)
             {
                 yield break;
             }
@@ -1563,7 +1555,7 @@ internal static class MeleeCombatFeats
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }

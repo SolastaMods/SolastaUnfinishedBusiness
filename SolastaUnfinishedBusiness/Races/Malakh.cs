@@ -208,8 +208,6 @@ internal static class RaceMalakhBuilder
         var conditionAngelicFlight = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}AngelicFlight")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
-            .SetParentCondition(ConditionDefinitions.ConditionFlying)
-            .SetConditionType(ConditionType.Beneficial)
             .AddFeatures(additionalDamageMalakhAngelicForm)
             .AddToDB();
 
@@ -273,9 +271,7 @@ internal static class RaceMalakhBuilder
     {
         public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
-            if (Gui.Battle == null || implementationService == null)
+            if (Gui.Battle == null)
             {
                 return;
             }
@@ -317,6 +313,8 @@ internal static class RaceMalakhBuilder
                 };
 
                 EffectHelpers.StartVisualEffect(locationCharacter, enemy, SpellDefinitions.BrandingSmite);
+
+                var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
                 implementationService.ApplyEffectForms(
                     [new EffectForm { damageForm = damageForm }],

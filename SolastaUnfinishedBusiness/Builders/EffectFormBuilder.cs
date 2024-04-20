@@ -133,10 +133,10 @@ internal class EffectFormBuilder
             ConditionDefinition = condition,
             applyToSelf = applyToSelf,
             forceOnSelf = forceOnSelf,
-            conditionsList = conditionsList.ToList()
+            conditionsList = [.. conditionsList]
         };
 
-        if (condition != null)
+        if (condition)
         {
             conditionForm.conditionDefinitionName = condition.Name;
         }

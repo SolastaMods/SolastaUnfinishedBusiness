@@ -13,7 +13,6 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -238,7 +237,7 @@ public sealed class InnovationWeapon : AbstractSubclass
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierInnovationWeaponSummonSteelDefenderHP")
             .SetGuiPresentationNoContent()
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPoints)
+            .SetAddConditionAmount(AttributeDefinitions.HitPoints)
             .AddToDB();
 
         var toHit = FeatureDefinitionAttackModifierBuilder

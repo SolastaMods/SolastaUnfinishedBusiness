@@ -1,0 +1,269 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "Neutral",
+  "dualSex": true,
+  "minimalAge": 200,
+  "maximalAge": 99,
+  "baseHeight": 96,
+  "baseWeight": 260,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolAbilityScore3:6045e81f-0b72-5085-8243-234da1816050",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureLizardfolkClaws:91701ff4-6a19-5300-90f4-65378290c008",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerLizardfolkHungryJaws:4a3567e3-1747-59b1-a62e-93d3fd8cb32d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetLanguageCommonPlusOne:1126ecfe-540b-5e61-a9b9-923a1c0da0e8",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierLizardfolkNaturalArmor:5986ea6d-00f8-5e26-93ee-e8bbdccbe3cc",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolLizardfolkNaturesIntuition:3f259ec5-0397-5637-84f1-53a714f2e01b",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "HumanFlag"
+    }
+  ],
+  "languageAutolearnPreference": [
+    "Language_Dwarvish",
+    "Language_Halfling",
+    "Language_Elvish"
+  ],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 6.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Dragonborn",
+    "armorAssetPrefix": "Human",
+    "helmetAssetPrefix": "Dragonborn",
+    "faceShapeAssetPrefix": "Dragonborn",
+    "hairShapeAssetPrefix": "Dragonborn",
+    "beardShapeAssetPrefix": "Dragonborn",
+    "hornsTailAssetPrefix": "Dragonborn",
+    "maleNameOptions": [
+      "Race/&DragonbornMaleName1Title",
+      "Race/&DragonbornMaleName2Title",
+      "Race/&DragonbornMaleName3Title",
+      "Race/&DragonbornMaleName4Title",
+      "Race/&DragonbornMaleName5Title",
+      "Race/&DragonbornMaleName6Title",
+      "Race/&DragonbornMaleName7Title",
+      "Race/&DragonbornMaleName8Title",
+      "Race/&DragonbornMaleName9Title",
+      "Race/&DragonbornMaleName10Title",
+      "Race/&DragonbornMaleName11Title",
+      "Race/&DragonbornMaleName12Title",
+      "Race/&DragonbornMaleName13Title",
+      "Race/&DragonbornMaleName14Title",
+      "Race/&DragonbornMaleName15Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&DragonbornFemaleName1Title",
+      "Race/&DragonbornFemaleName2Title",
+      "Race/&DragonbornFemaleName3Title",
+      "Race/&DragonbornFemaleName4Title",
+      "Race/&DragonbornFemaleName5Title",
+      "Race/&DragonbornFemaleName6Title",
+      "Race/&DragonbornFemaleName7Title",
+      "Race/&DragonbornFemaleName8Title",
+      "Race/&DragonbornFemaleName9Title",
+      "Race/&DragonbornFemaleName10Title",
+      "Race/&DragonbornFemaleName11Title",
+      "Race/&DragonbornFemaleName12Title",
+      "Race/&DragonbornFemaleName13Title",
+      "Race/&DragonbornFemaleName14Title",
+      "Race/&DragonbornFemaleName15Title"
+    ],
+    "hasSurName": true,
+    "surNameTitle": "Race/&DragonbornSurNameTitle",
+    "surNameOptions": [
+      "Race/&DragonbornSurName1Title",
+      "Race/&DragonbornSurName2Title",
+      "Race/&DragonbornSurName3Title",
+      "Race/&DragonbornSurName4Title",
+      "Race/&DragonbornSurName5Title",
+      "Race/&DragonbornSurName6Title",
+      "Race/&DragonbornSurName7Title",
+      "Race/&DragonbornSurName8Title",
+      "Race/&DragonbornSurName9Title",
+      "Race/&DragonbornSurName10Title",
+      "Race/&DragonbornSurName11Title",
+      "Race/&DragonbornSurName12Title",
+      "Race/&DragonbornSurName13Title",
+      "Race/&DragonbornSurName14Title"
+    ],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "BodyDecoration",
+      "EyeColor",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "Scars",
+      "Horns",
+      "Tail",
+      "BodyDecorationColor",
+      "TailLength"
+    ],
+    "needBeard": false,
+    "defaultMusculature": 100,
+    "originOptions": [
+      "Origin_Dragonborn"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_D",
+      "FaceShape_E"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_D",
+      "FaceShape_E"
+    ],
+    "dontSortFaceShapes": false,
+    "maxRandomFaceShapeIndex": 0,
+    "maleHairShapeOptions": [
+      "HairShape_None"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_None"
+    ],
+    "maleHornsOptions": [
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E",
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E",
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_A",
+      "Tail_B",
+      "Tail_C",
+      "Tail_D",
+      "Tail_E",
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_A",
+      "Tail_B",
+      "Tail_C",
+      "Tail_D",
+      "Tail_E",
+      "Tail_None"
+    ],
+    "maleBeardShapeOptions": [
+      "BeardShape_None"
+    ],
+    "showHelmet": false,
+    "showGauntlets": false,
+    "showShoes": false,
+    "hasGenderRelatedBodyDecoration": true,
+    "hasSpecificBodyDecorationForFaceshape": false,
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM1",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 29,
+      "maxValue": 29
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 0
+    },
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.5,
+      "maxValue": 0.75
+    },
+    "musicalInstrumentScale": 1.0,
+    "raceAnimationTag": "Dragonborn"
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&RaceLizardfolkTitle",
+    "description": "Race/&RaceLizardfolkDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "12ec63ce-5058-5694-850c-f8aa906224d0",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b531bcfd-b3a2-5756-9007-a5158076a2c5",
+  "contentPack": 9999,
+  "name": "RaceLizardfolk"
+}

@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -31,45 +32,49 @@ internal static class RaceFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        var featBountifulLuck = BuildFeatBountifulLuck();
         var featDarkElfMagic = BuildDarkElfMagic();
         var featDragonWings = BuildDragonWings();
         var featDwarvenFortitude = BuildDwarvenFortitude();
         var featInfernalConstitution = BuildInfernalConstitution();
-        var featOrcishAggression = BuildOrcishAggression();
         var featWoodElfMagic = BuildWoodElfMagic();
         var featGroupDragonFear = BuildDragonFear(feats);
         var featGroupDragonHide = BuildDragonHide(feats);
         var featGroupsElvenAccuracy = BuildElvenAccuracy(feats);
         var featGroupFadeAway = BuildFadeAway(feats);
         var featGroupFlamesOfPhlegethos = BuildFlamesOfPhlegethos(feats);
+        var featGroupGrudgeBearer = BuildGrudgeBearer(feats);
+        var featGroupOrcishAggression = BuildOrcishAggression(feats);
         var featGroupOrcishFury = BuildOrcishFury(feats);
         var featGroupRevenantGreatSword = BuildRevenant(feats);
         var featGroupSecondChance = BuildSecondChance(feats);
         var featGroupSquatNimbleness = BuildSquatNimbleness(feats);
 
         feats.AddRange(
+            featBountifulLuck,
             featDarkElfMagic,
             featDragonWings,
             featDwarvenFortitude,
             featInfernalConstitution,
-            featOrcishAggression,
             featWoodElfMagic);
 
         GroupFeats.FeatGroupDefenseCombat.AddFeats(featGroupFadeAway);
         GroupFeats.FeatGroupTwoHandedCombat.AddFeats(featGroupRevenantGreatSword);
         GroupFeats.FeatGroupSkills.AddFeats(featGroupSquatNimbleness);
         GroupFeats.MakeGroup("FeatGroupRaceBound", null,
+            featBountifulLuck,
             featDarkElfMagic,
             featDragonWings,
             featDwarvenFortitude,
             featInfernalConstitution,
-            featOrcishAggression,
             featWoodElfMagic,
             featGroupDragonFear,
             featGroupDragonHide,
             featGroupsElvenAccuracy,
             featGroupFadeAway,
             featGroupFlamesOfPhlegethos,
+            featGroupGrudgeBearer,
+            featGroupOrcishAggression,
             featGroupOrcishFury,
             featGroupRevenantGreatSword,
             featGroupSecondChance,
@@ -441,6 +446,355 @@ internal static class RaceFeats
 
     #endregion
 
+    #region Grudge Bearer
+
+    private static FeatDefinition BuildGrudgeBearer(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatGrudgeBearer";
+
+        var preferredEnemies = FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice.FeatureSet;
+        var preferredEnemySprites = new Dictionary<string, byte[]>
+        {
+            { "Aberration", Resources.PreferredEnemyAberration },
+            { "Beast", Resources.PreferredEnemyBeast },
+            { "Celestial", Resources.PreferredEnemyCelestial },
+            { "Construct", Resources.PreferredEnemyConstruct },
+            { "Dragon", Resources.PreferredEnemyDragon },
+            { "Elemental", Resources.PreferredEnemyElemental },
+            { "Fey", Resources.PreferredEnemyFey },
+            { "Fiend", Resources.PreferredEnemyFiend },
+            { "Giant", Resources.PreferredEnemyGiant },
+            { "Humanoid", Resources.PreferredEnemyHumanoid },
+            { "Monstrosity", Resources.PreferredEnemyMonstrosity },
+            { "Ooze", Resources.PreferredEnemyOoze },
+            { "Plant", Resources.PreferredEnemyPlant },
+            { "Undead", Resources.PreferredEnemyUndead }
+        };
+
+        foreach (var featureDefinitionPreferredEnemy in preferredEnemies.OfType<FeatureDefinitionAdditionalDamage>())
+        {
+            var familyName = featureDefinitionPreferredEnemy.RequiredCharacterFamily.Name;
+            var guiPresentation = featureDefinitionPreferredEnemy.RequiredCharacterFamily.GuiPresentation;
+            var sprite = Sprites.GetSprite(familyName, preferredEnemySprites[familyName], 128);
+            var enemyTitle = Gui.Localize($"CharacterFamily/&{familyName}Title");
+
+            var combatAffinity = FeatureDefinitionCombatAffinityBuilder
+                .Create($"CombatAffinity{Name}{familyName}")
+                .SetGuiPresentation("FeatGroupGrudgeBearer", Category.Feat, Gui.NoLocalization)
+                .SetAttackOnMeAdvantage(AdvantageType.Disadvantage)
+                .SetOtherCharacterFamilyRestrictions(familyName)
+                .AddToDB();
+
+            combatAffinity.AddCustomSubFeatures(new ModifyAttackActionModifierGrudgeBearer(combatAffinity, familyName));
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocation{Name}{familyName}")
+                .SetGuiPresentation(
+                    Gui.Format(guiPresentation.Title, enemyTitle),
+                    Gui.Format(guiPresentation.Description, enemyTitle),
+                    sprite)
+                .SetPoolType(InvocationPoolTypeCustom.Pools.GrudgeBearerChoice)
+                .SetGrantedFeature(combatAffinity)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
+                .AddToDB();
+        }
+
+        var invocationPool = CustomInvocationPoolDefinitionBuilder
+            .Create($"InvocationPool{Name}")
+            .SetGuiPresentationNoContent(true)
+            .Setup(InvocationPoolTypeCustom.Pools.GrudgeBearerChoice)
+            .AddToDB();
+
+        var featGrudgeBearerStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsDwarf)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, invocationPool)
+            .AddToDB();
+
+        var featGrudgeBearerCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsDwarf)
+            .SetFeatures(AttributeModifierCreed_Of_Arun, invocationPool)
+            .AddToDB();
+
+        var featGrudgeBearerWis = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Wis")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsDwarf)
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, invocationPool)
+            .AddToDB();
+
+        feats.AddRange(featGrudgeBearerStr, featGrudgeBearerCon, featGrudgeBearerWis);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupGrudgeBearer", Name, ValidatorsFeat.IsDwarf,
+            featGrudgeBearerStr, featGrudgeBearerCon, featGrudgeBearerWis);
+    }
+
+    private sealed class ModifyAttackActionModifierGrudgeBearer(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition,
+        string familyName) : IModifyAttackActionModifier
+    {
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            string effectName,
+            ref ActionModifier attackModifier)
+        {
+            if (defender is not RulesetCharacterMonster monster ||
+                monster.CharacterFamily != familyName)
+            {
+                return;
+            }
+
+            var battle = Gui.Battle;
+
+            // always grant advantage on battle round zero
+            if (battle == null)
+            {
+                attackModifier.AttackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+
+                return;
+            }
+
+            if (battle.CurrentRound > 1)
+            {
+                return;
+            }
+
+            // battle round one from here
+            attackModifier.AttackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+        }
+    }
+
+    #endregion
+
+    #region Bountiful Luck
+
+    private static FeatDefinitionWithPrerequisites BuildFeatBountifulLuck()
+    {
+        const string Name = "FeatBountifulLuck";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
+        FeatureDefinitionDieRollModifiers.DieRollModifierHalfingLucky.AddCustomSubFeatures(
+            new ValidateDieRollModifierHalflingLucky(condition));
+
+        var feat = FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .AddCustomSubFeatures(new CustomBehaviorBountifulLuck(condition))
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.IsHalfling)
+            .AddToDB();
+
+        return feat;
+    }
+
+    private sealed class CustomBehaviorBountifulLuck(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionBountifulLuck) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
+    {
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier attackModifier)
+        {
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (!actionManager ||
+                action.AttackRoll != 1 ||
+                action.AttackRollOutcome != RollOutcome.CriticalFailure ||
+                attacker == helper ||
+                attacker.IsOppositeSide(helper.Side) ||
+                !helper.CanReact() ||
+                !helper.IsWithinRange(attacker, 6) ||
+                !helper.CanPerceiveTarget(attacker))
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "CustomReactionBountifulLuckAttackDescription".Formatted(
+                        Category.Reaction, attacker.Name, defender.Name, helper.Name)
+                };
+            var count = actionManager.PendingReactionRequestGroups.Count;
+
+            var reactionRequest = new ReactionRequestCustom("BountifulLuckAttack", reactionParams)
+            {
+                Resource = ReactionResourceChannelDivinity.Instance
+            };
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var rulesetHelper = helper.RulesetCharacter;
+            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            action.AttackRoll = dieRoll;
+            action.AttackSuccessDelta += dieRoll - 1;
+
+            if (action.AttackSuccessDelta >= 0)
+            {
+                action.AttackRollOutcome = RollOutcome.Success;
+            }
+
+            rulesetHelper.InflictCondition(
+                conditionBountifulLuck.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetHelper.guid,
+                rulesetHelper.CurrentFaction.Name,
+                1,
+                conditionBountifulLuck.Name,
+                0,
+                0,
+                0);
+
+            rulesetHelper.LogCharacterActivatesAbility(
+                "Feat/&FeatBountifulLuckTitle",
+                "Feedback/&BountifulLuckAttackToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                ]);
+        }
+
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier saveModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck)
+        {
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            var savingRoll = action.SaveOutcomeDelta - saveModifier.savingThrowModifier + action.GetSaveDC() - 1;
+
+            if (!actionManager ||
+                savingRoll != 1 ||
+                action.SaveOutcome != RollOutcome.Failure ||
+                defender == helper ||
+                defender.IsOppositeSide(helper.Side) ||
+                !helper.CanReact() ||
+                !helper.IsWithinRange(defender, 6) ||
+                !helper.CanPerceiveTarget(defender))
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "CustomReactionBountifulLuckSavingDescription".Formatted(
+                        Category.Reaction, defender.Name, attacker.Name, helper.Name)
+                };
+            var count = actionManager.PendingReactionRequestGroups.Count;
+
+            var reactionRequest = new ReactionRequestCustom("BountifulLuckSaving", reactionParams)
+            {
+                Resource = ReactionResourceChannelDivinity.Instance
+            };
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var rulesetHelper = helper.RulesetCharacter;
+            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            action.RolledSaveThrow = true;
+            action.saveOutcomeDelta += dieRoll - 1;
+
+            (ConsoleStyleDuplet.ParameterType, string) extra;
+
+            if (action.saveOutcomeDelta >= 0)
+            {
+                action.saveOutcome = RollOutcome.Success;
+                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
+            }
+            else
+            {
+                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
+            }
+
+            rulesetHelper.InflictCondition(
+                conditionBountifulLuck.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetHelper.guid,
+                rulesetHelper.CurrentFaction.Name,
+                1,
+                conditionBountifulLuck.Name,
+                0,
+                0,
+                0);
+
+            rulesetHelper.LogCharacterActivatesAbility(
+                "Feat/&FeatBountifulLuckTitle",
+                "Feedback/&BountifulLuckSavingToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                    extra
+                ]);
+        }
+    }
+
+    private sealed class ValidateDieRollModifierHalflingLucky(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IValidateDieRollModifier
+    {
+        public bool CanModifyRoll(
+            RulesetCharacter character,
+            List<FeatureDefinition> features,
+            List<string> damageTypes)
+        {
+            return !character.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, condition.Name);
+        }
+    }
+
+    #endregion
+
     #region Dragon Fear
 
     private static FeatDefinition BuildDragonFear(List<FeatDefinition> feats)
@@ -461,11 +815,11 @@ internal static class RaceFeats
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(ConditionDefinitions.ConditionFrightened,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetParticleEffectParameters(Fear)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDragonFrightfulPresence)
                     .Build())
             .AddToDB();
 
@@ -522,17 +876,19 @@ internal static class RaceFeats
             if (rulesetEffectPower.PowerDefinition.Name.StartsWith("PowerDragonbornBreathWeapon"))
             {
                 usablePower = PowerProvider.Get(powerDragonFear, rulesetAttacker);
-                rulesetAttacker.UsePower(usablePower);
+                usablePower.Consume();
             }
             else if (rulesetEffectPower.PowerDefinition == powerDragonFear)
             {
                 usablePower = rulesetAttacker.UsablePowers.FirstOrDefault(x =>
                     x.PowerDefinition.Name.StartsWith("PowerDragonbornBreathWeapon"));
 
-                if (usablePower != null)
+                if (usablePower == null)
                 {
-                    rulesetAttacker.UsePower(usablePower);
+                    yield break;
                 }
+
+                usablePower.Consume();
             }
         }
     }
@@ -611,6 +967,16 @@ internal static class RaceFeats
                 return;
             }
 
+            if ((int)damage.DieType < 3)
+            {
+                damage.DieType = DieType.D4;
+            }
+
+            if (damage.DiceNumber < 1)
+            {
+                damage.DiceNumber = 1;
+            }
+
             damage.DamageType = DamageTypeSlashing;
         }
     }
@@ -645,12 +1011,13 @@ internal static class RaceFeats
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            var gameLocationActionService =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
+            var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -674,13 +1041,12 @@ internal static class RaceFeats
                 {
                     StringParameter = "Reaction/&CustomReactionDwarvenFortitudeDescription"
                 };
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("DwarvenFortitude", reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(
-                attacker, gameLocationActionService, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -750,7 +1116,7 @@ internal static class RaceFeats
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
             .SetPossessive()
             .SetFeatures(damageAffinity)
-            .CopyParticleReferences(ConditionDefinitions.ConditionOnFire)
+            .CopyParticleReferences(ConditionDefinitions.ConditionOnFire1D4)
             .AddToDB();
 
         var lightSourceForm =
@@ -818,21 +1184,23 @@ internal static class RaceFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
+            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
+                {
+                    IsBattleInProgress: true
+                } battleManager)
+            {
+                yield break;
+            }
+
             if (!action.ActionParams.activeEffect.EffectDescription.EffectForms.Any(x =>
                     x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeFire))
             {
                 yield break;
             }
 
-            if (ServiceRepository.GetService<IGameLocationBattleService>()
-                    is not GameLocationBattleManager gameLocationBattleManager ||
-                ServiceRepository.GetService<IGameLocationActionService>()
-                    is not GameLocationActionManager gameLocationActionManager ||
-                ServiceRepository.GetService<IRulesetImplementationService>()
-                    is not RulesetImplementationManager implementationManagerService)
-            {
-                yield break;
-            }
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var rulesetCharacter = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
@@ -840,17 +1208,16 @@ internal static class RaceFeats
             {
                 ActionModifiers = { new ActionModifier() },
                 StringParameter = "PowerFeatFlamesOfPhlegethos",
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { attacker }
             };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
 
-            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", attacker);
-
-            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 
@@ -869,118 +1236,113 @@ internal static class RaceFeats
 
     #region Orcish Aggression
 
-    private static FeatDefinitionWithPrerequisites BuildOrcishAggression()
+    internal static FeatDefinitionWithPrerequisites FeatOrcishAggressionStr { get; private set; }
+    internal static FeatDefinitionWithPrerequisites FeatOrcishAggressionCon { get; private set; }
+
+    private static FeatDefinition BuildOrcishAggression(List<FeatDefinition> feats)
     {
         const string Name = "FeatOrcishAggression";
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentation(Name, Category.Feat)
-            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerPatronTimekeeperAccelerate)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 24, TargetType.Position)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 0, TargetType.IndividualsUnique)
                     .Build())
             .AddToDB();
 
         power.AddCustomSubFeatures(
-            ValidatorsValidatePowerUse.InCombat,
+            new ValidatorsValidatePowerUse(ValidatorsCharacter.HasMeleeWeaponInMainHand, _ => Gui.Battle != null),
             new CustomBehaviorOrcishAggression(power));
 
-        return FeatDefinitionWithPrerequisitesBuilder
+        // kept name for backward compatibility
+        FeatOrcishAggressionStr = FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetValidators(ValidatorsFeat.IsHalfOrc)
-            .SetFeatures(power)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, power)
             .AddToDB();
+
+        FeatOrcishAggressionCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetValidators(ValidatorsFeat.IsHalfOrc)
+            .SetFeatures(AttributeModifierCreed_Of_Arun, power)
+            .AddToDB();
+
+        feats.AddRange(FeatOrcishAggressionStr, FeatOrcishAggressionCon);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupOrcishAggression", Name, ValidatorsFeat.IsHalfOrc, FeatOrcishAggressionStr,
+            FeatOrcishAggressionCon);
     }
 
-    private sealed class CustomBehaviorOrcishAggression(
+    internal sealed class CustomBehaviorOrcishAggression(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerOrcishAggression)
-        : IFilterTargetingPosition, IModifyEffectDescription, IMagicEffectFinishedByMe, IActionFinishedByMe
+        : IModifyEffectDescription, IMagicEffectFinishedByMe, IActionFinishedByMe, IFilterTargetingCharacter
     {
+        private const string UsedTacticalMoves = "UsedTacticalMoves";
+        private CharacterActionParams _actionParams;
+
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
+            var actingCharacter = action.ActingCharacter;
+
             if (action is not CharacterActionMoveStepWalk ||
-                !action.ActingCharacter.UsedSpecialFeatures.TryGetValue("UsedTacticalMoves", out var usedTacticalMoves))
+                !actingCharacter.UsedSpecialFeatures.TryGetValue(UsedTacticalMoves, out var usedTacticalMoves))
             {
                 yield break;
             }
 
-            action.ActingCharacter.UsedTacticalMoves = usedTacticalMoves;
-            action.ActingCharacter.UsedSpecialFeatures.Remove("UsedTacticalMoves");
+            actingCharacter.UsedTacticalMoves = usedTacticalMoves;
+            actingCharacter.UsedSpecialFeatures.Remove(UsedTacticalMoves);
         }
 
-        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
+        public bool EnforceFullSelection => true;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            cursorLocationSelectPosition.validPositionsCache.Clear();
-
-            if (Gui.Battle == null)
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != powerOrcishAggression)
             {
-                yield break;
+                return true;
             }
 
-            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService =
-                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+            var service = ServiceRepository.GetService<IGameLocationBattleService>();
+            var actingCharacter = __instance.ActionParams.ActingCharacter;
 
-            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
-            var maxRange = actingCharacter.MaxTacticalMoves;
-            var enemies = Gui.Battle.GetContenders(actingCharacter);
-            var validDestinations = ServiceRepository.GetService<IGameLocationPathfindingService>()
-                .ComputeValidDestinations(actingCharacter, false, maxRange);
-
-            foreach (var position in validDestinations.Select(x => x.position))
+            if (service.CanChargeTarget(actingCharacter, target, actingCharacter.LocationPosition,
+                    target.LocationPosition, actingCharacter.MaxTacticalMoves, out _))
             {
-                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
-                    !positioningService.CanPlaceCharacter(
-                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
-                    !positioningService.CanCharacterStayAtPosition_Floor(
-                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
-                {
-                    continue;
-                }
-
-                if (DistanceCalculation.GetDistanceFromPositions(position, actingCharacter.LocationPosition) > maxRange)
-                {
-                    continue;
-                }
-
-                foreach (var enemy in enemies)
-                {
-                    if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
-                    {
-                        yield return null;
-                    }
-
-                    var currentDistance = DistanceCalculation.GetDistanceFromCharacters(actingCharacter, enemy);
-                    var newDistance = DistanceCalculation.GetDistanceFromPositions(position, enemy.LocationPosition);
-
-                    if (newDistance >= currentDistance)
-                    {
-                        continue;
-                    }
-
-                    cursorLocationSelectPosition.validPositionsCache.Add(position);
-                }
+                return true;
             }
+
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToChargeTarget");
+
+            return false;
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
-            var targetPosition = action.ActionParams.Positions[0];
-            var actionParams =
-                new CharacterActionParams(actingCharacter, ActionDefinitions.Id.TacticalMove)
+            var targetCharacter = action.ActionParams.TargetCharacters[0];
+
+            _actionParams =
+                new CharacterActionParams(actingCharacter, ActionDefinitions.Id.Charge)
                 {
-                    Positions = { targetPosition }
+                    ActionModifiers = { new ActionModifier() },
+                    TargetCharacters = { targetCharacter },
+                    AttackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain)
                 };
 
-            actingCharacter.UsedSpecialFeatures.TryAdd("UsedTacticalMoves", actingCharacter.UsedTacticalMoves);
+            actingCharacter.UsedSpecialFeatures.TryAdd(UsedTacticalMoves, actingCharacter.UsedTacticalMoves);
             actingCharacter.UsedTacticalMoves = 0;
-            ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(_actionParams, null, true);
 
             yield break;
         }
@@ -1006,6 +1368,54 @@ internal static class RaceFeats
             effectDescription.rangeParameter = glc.MaxTacticalMoves;
 
             return effectDescription;
+        }
+
+        internal static IEnumerator ExecuteImpl(CharacterActionCharge characterActionCharge)
+        {
+            var service = ServiceRepository.GetService<IGameLocationBattleService>();
+            var origin = characterActionCharge.ActingCharacter.LocationPosition;
+            var targetPosition = characterActionCharge.ActionParams.TargetCharacters[0].LocationPosition;
+            var positions = new List<int3>();
+            var orientation = characterActionCharge.ActingCharacter.Orientation;
+
+            if (!service.CanChargeTarget(
+                    characterActionCharge.ActingCharacter,
+                    characterActionCharge.ActionParams.TargetCharacters[0],
+                    origin,
+                    targetPosition,
+                    characterActionCharge.ActingCharacter.RemainingTacticalMoves,
+                    out var destination,
+                    positions))
+            {
+                yield break;
+            }
+
+            var path = new List<GameLocationCharacterDefinitions.PathStep>();
+
+            path.AddRange(
+                positions
+                    .Where(x => x != characterActionCharge.ActingCharacter.LocationPosition)
+                    .Select(x => new GameLocationCharacterDefinitions.PathStep
+                    {
+                        moveCost = 1, position = x, moveMode = MoveMode.Walk
+                    }));
+
+            var actionID = "Move_Charge_" + characterActionCharge.ActingCharacter.SystemName;
+            var chargeActionParams = new CharacterActionParams(
+                characterActionCharge.ActingCharacter,
+                ActionDefinitions.Id.TacticalMove,
+                ActionDefinitions.MoveStance.Charge,
+                destination, orientation) { AttackMode = characterActionCharge.ActionParams.AttackMode };
+            var characterActionMoveStepWalk = new CharacterActionMoveStepWalk(chargeActionParams, actionID, path);
+            var attackActionParams = new CharacterActionParams(
+                characterActionCharge.ActingCharacter, ActionDefinitions.Id.AttackFree,
+                characterActionCharge.ActionParams.AttackMode, characterActionCharge.ActionParams.TargetCharacters[0],
+                characterActionCharge.ActionParams
+                    .ActionModifiers[0]); // { BoolParameter = true, BoolParameter2 = true };
+            var characterActionAttack = new CharacterActionAttack(attackActionParams);
+
+            characterActionCharge.ResultingActions.Add(characterActionMoveStepWalk);
+            characterActionCharge.ResultingActions.Add(characterActionAttack);
         }
     }
 
@@ -1034,7 +1444,7 @@ internal static class RaceFeats
             .AddToDB();
 
         var power = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ImpishWrath")
+            .Create($"Power{Name}OrcishFury")
             .SetGuiPresentation("FeatGroupOrcishFury", Category.Feat)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .DelegatedToAction()
@@ -1319,10 +1729,10 @@ internal static class RaceFeats
             GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            var gameLocationActionManager =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationActionManager == null)
+            if (!actionManager)
             {
                 yield break;
             }
@@ -1347,12 +1757,12 @@ internal static class RaceFeats
                 {
                     StringParameter = "Reaction/&CustomReactionSecondChanceDescription"
                 };
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("SecondChance", reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

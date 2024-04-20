@@ -1,7 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerPathOfTheSpiritsHonedAnimalAspectsBear:4981076e-281f-5c33-9846-3b2c40dff8ec"
+    "Definition:PowerPathOfTheSpiritsHonedAnimalAspectsBear:4981076e-281f-5c33-9846-3b2c40dff8ec",
+    "Definition:ConditionAffinityPathOfTheSpiritsHonedAnimalAspectsBear:99aef076-2914-5b24-bd13-b09f4cf95bf0"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

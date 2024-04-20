@@ -20,7 +20,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
 
         var title = transform.Find("ProficiencySectionHeader/Title");
 
-        if (title != null)
+        if (title)
         {
             title.GetComponent<GuiLabel>().Text = type.PanelTitle;
         }
@@ -87,7 +87,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
 
         var custom = panel.GetComponent<CustomInvocationSubPanel>();
 
-        if (custom != null)
+        if (custom)
         {
             invocations = all.OfType<InvocationDefinitionCustom>()
                 .Where(x => x.PoolType == custom.Type);
@@ -117,7 +117,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
 
     public static void AddCustomSubPanels(ProficienciesPanel panel)
     {
-        if (panel.toggleGroup == null || !Main.Settings.EnableExtendedProficienciesPanelDisplay)
+        if (!panel.toggleGroup || !Main.Settings.EnableExtendedProficienciesPanelDisplay)
         {
             return;
         }

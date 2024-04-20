@@ -327,25 +327,19 @@ internal static class RaceWyrmkinBuilder
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var gameLocationActionService =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
-            // only trigger on a hit
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender.IsMyTurn() ||
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                defender.IsMyTurn() ||
                 !defender.CanReact() ||
                 rulesetDefender.GetRemainingPowerUses(powerHighWyrmkinSwiftRetribution) == 0)
             {
@@ -373,13 +367,12 @@ internal static class RaceWyrmkinBuilder
                 AttackMode = retaliationMode,
                 TargetCharacters = { attacker }
             };
-
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("ReactiveRetribution", actionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!actionParams.ReactionValidated)
             {

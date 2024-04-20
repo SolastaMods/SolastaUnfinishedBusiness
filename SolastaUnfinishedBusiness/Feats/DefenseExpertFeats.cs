@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
@@ -28,6 +29,7 @@ internal static class DefenseExpertFeats
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
             .SetFeatFamily(DefenseExpert)
+            .AddCustomSubFeatures(FeatsContext.HideFromFeats.Marker)
             .AddToDB();
 
         // Charismatic Defense
@@ -44,6 +46,7 @@ internal static class DefenseExpertFeats
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
             .SetFeatFamily(DefenseExpert)
+            .AddCustomSubFeatures(FeatsContext.HideFromFeats.Marker)
             .AddToDB();
 
         // Wise Defense
@@ -55,6 +58,7 @@ internal static class DefenseExpertFeats
                 AttributeModifierMonkUnarmoredDefense)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
             .SetFeatFamily(DefenseExpert)
+            .AddCustomSubFeatures(FeatsContext.HideFromFeats.Marker)
             .AddToDB();
 
         //

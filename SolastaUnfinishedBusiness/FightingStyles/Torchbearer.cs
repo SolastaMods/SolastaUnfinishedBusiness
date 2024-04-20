@@ -19,19 +19,12 @@ internal sealed class Torchbearer : AbstractFightingStyle
         .SetGuiPresentation(Category.Feature,
             Sprites.GetSprite("PowerTorchBearer", Resources.PowerTorchBearer, 256, 128))
         .SetUsesFixed(ActivationTime.BonusAction)
+        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
-                .Create(SpellDefinitions.Fireball.EffectDescription)
-                .SetCanBePlacedOnCharacter(false)
-                .SetDurationData(DurationType.Round, 3)
-                .SetSpeed(SpeedType.Instant, 11f)
+                .Create()
+                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(ConditionDefinitions.ConditionOnFire1D4, ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
-                        .Build())
                 .SetSavingThrowData(
                     false,
                     AttributeDefinitions.Dexterity,
@@ -39,8 +32,14 @@ internal sealed class Torchbearer : AbstractFightingStyle
                     EffectDifficultyClassComputation.FixedValue,
                     AttributeDefinitions.Dexterity,
                     8)
+                .SetParticleEffectParameters(SpellDefinitions.FireBolt)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(ConditionDefinitions.ConditionOnFire1D4, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
+                        .Build())
                 .Build())
-        .SetShowCasting(false)
         .AddCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasLightSourceOffHand))
         .AddToDB();
 

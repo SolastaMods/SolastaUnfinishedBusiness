@@ -26,12 +26,12 @@ public static class FunctorPatcher
                 return;
             }
 
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var len = functorParameters.PlayerPlacementMarkers.Length;
             var idx = 0;
 
             // only conjured units should teleport with the party
-            foreach (var guestCharacter in gameLocationCharacterService.GuestCharacters
+            foreach (var guestCharacter in characterService.GuestCharacters
                          .ToList()
                          .Where(x => x.RulesetCharacter.Tags.Contains(AttributeDefinitions.TagConjure)))
             {
@@ -45,7 +45,7 @@ public static class FunctorPatcher
                 if (!rulesetCharacter.ConditionsByCategory.Values.Select(rulesetConditions => rulesetConditions
                         .Where(x => x.ConditionDefinition ==
                                     DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature)
-                        .Any(x => gameLocationCharacterService.PartyCharacters.Any(y =>
+                        .Any(x => characterService.PartyCharacters.Any(y =>
                             y.RulesetCharacter.Guid == x.SourceGuid))).Any(found => found))
                 {
                     continue;

@@ -35,7 +35,7 @@ public static class CharacterInspectionScreenPatcher
             {
                 var child = __instance.toggleGroup.transform.GetChild(index);
 
-                if (index <= 3 && Gui.Game != null)
+                if (index <= 3 && Gui.Game)
                 {
                     continue;
                 }

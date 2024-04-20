@@ -249,12 +249,6 @@ public sealed class RoguishDuelist : AbstractSubclass
             rulesetDefender.RemoveCondition(activeCondition);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            if (actionService == null)
-            {
-                yield break;
-            }
-
             var actionParams = action.ActionParams.Clone();
             var attackModeMain = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 

@@ -1,3 +1,34 @@
+1.5.97.5:
+
+- added Aura of Vitality, Mordenkainen's Faithful Hound, and Witch Bolt spells
+- added Bountiful Luck, Grudge Bearer, and Weapon Master feats
+- added College of Elegance subclass [design by HiddenHax]
+- added Lizardfolk race [by Otearaisu]
+- added official invisibility rules under lightning and obscurement rules
+- balanced Burning Hex invocation to also apply on fire 1d6 condition for 1 minute
+- balanced Orcish Aggression to grant STR or CON, PB/LR, require melee, and finish charge with free main attack
+- balanced Vitriolist viscosity mixture power to apply hindered instead of confused
+- fixed attack cantrips to trigger with all non ranged melee weapons
+- fixed cantrips casting interaction with action switching setting to allow bonus spells
+- fixed Ice Knife spell to increase dice with higher slots
+- fixed Abilities of the Chain Master invocation to be main action only
+- fixed Chilling Hex invocation damage type to Cold
+- fixed Dragon Fear feat double combat log and feat description
+- fixed Dragon Hide feat claw attack to be 1d4 + str unless better die type/count from Monk or other sources
+- fixed Mage Slayer feat saving reaction to be once per long rest
+- fixed Artillerist tiny fortified position power to be present on all 3 cannon types
+- fixed Circle of the Stars inverted attacker and defender names on weal/woe saving modals
+- fixed Martial Tactician overcome strategy power to trigger on all required scenarios
+- fixed Martial Warlord coordinated assault power to be once per turn
+- fixed Path of The Totem bear totem power to not force disadvantage against source
+- fixed Patron Celestial healing light power missing from action bar
+- fixed Patron Mountain eternal guardian power not reducing damage from 6th level onwards
+
+known issues:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Artillerist Fortified Position medium cannon doesn't grant buff to self
+
 1.5.97.4:
 
 - added Burning Hex and Chilling Hex invocations

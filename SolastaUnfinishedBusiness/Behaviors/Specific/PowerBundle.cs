@@ -303,7 +303,7 @@ internal static class PowerBundle
     {
         var key = $"{definition.GetType()}:{definition.Name}:";
 
-        if (metamagic != null)
+        if (metamagic)
         {
             key += metamagic.Name;
         }
@@ -376,7 +376,7 @@ internal static class PowerBundle
             modifiers.TryAdd(modifier);
         }
 
-        if (metamagic != null)
+        if (metamagic)
         {
             // all metamagic from metamagic feature are valid so no need to filter
             modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyEffectDescription>());
@@ -457,7 +457,7 @@ internal static class PowerBundle
     [CanBeNull]
     internal static Bundle GetBundle([CanBeNull] this FeatureDefinitionPower master)
     {
-        if (master == null)
+        if (!master)
         {
             return null;
         }
@@ -555,8 +555,8 @@ internal static class PowerBundle
 
         var usablePower = activePower.UsablePower;
 
-        if (usablePower.OriginClass != null
-            || usablePower.OriginRace != null
+        if (usablePower.OriginClass
+            || usablePower.OriginRace
             || usablePower.PowerDefinition.RechargeRate == RechargeRate.AtWill)
         {
             return;
@@ -598,7 +598,7 @@ internal static class PowerBundle
 
         subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (power, _) =>
         {
-            if (box != null && box.powerEngaged != null)
+            if (box && box.powerEngaged != null)
             {
                 box.powerEngaged(power);
             }
@@ -623,7 +623,7 @@ internal static class PowerBundle
         var invocation = box.Invocation;
         var masterPower = invocation.InvocationDefinition.GetPower();
 
-        if (masterPower == null)
+        if (!masterPower)
         {
             return true;
         }
@@ -648,7 +648,7 @@ internal static class PowerBundle
 
         subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (_, i) =>
         {
-            if (box != null)
+            if (box)
             {
                 selected(invocation, i);
             }
@@ -670,13 +670,13 @@ internal static class PowerBundle
     {
         var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
 
-        if (subpowerSelectionModal == null)
+        if (!subpowerSelectionModal)
         {
             return;
         }
 
         // required to support the after rest action menu that doesn't keep state
-        if (_parent != null)
+        if (_parent)
         {
             subpowerSelectionModal.transform.parent = _parent;
         }
@@ -739,31 +739,28 @@ internal static class PowerBundle
 
         yield return null;
 
-        var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-        if (gameLocationActionService != null && gameLocationCharacterService != null)
+        bool needsToWait;
+
+        do
         {
-            bool needsToWait;
+            needsToWait = characterService.PartyCharacters
+                .Any(partyCharacter => actionService.IsCharacterActing(partyCharacter));
 
-            do
+            if (needsToWait)
             {
-                needsToWait = gameLocationCharacterService.PartyCharacters
-                    .Any(partyCharacter => gameLocationActionService.IsCharacterActing(partyCharacter));
-
-                if (needsToWait)
-                {
-                    yield return null;
-                }
-            } while (needsToWait);
-        }
+                yield return null;
+            }
+        } while (needsToWait);
 
         item.AfterRestActionTaken?.Invoke();
         item.executing = false;
 
         var button = item.button;
 
-        if (button != null)
+        if (button)
         {
             button.interactable = true;
         }

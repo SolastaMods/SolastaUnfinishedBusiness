@@ -25,7 +25,7 @@ internal static class CharacterInspectionScreenEnhancement
         var selectedClass = SelectedClass;
 
         return original
-               + (selectedClass == null
+               + (!selectedClass
                    ? string.Empty
                    : selectedClass.Name);
     }
@@ -40,7 +40,7 @@ internal static class CharacterInspectionScreenEnhancement
             .Where(x => x.Key == SelectedClass)
             .Select(classesAndSubclass => classesAndSubclass.Value));
 
-        if (Global.InspectedHero.DeityDefinition != null && (SelectedClass == Paladin || SelectedClass == Cleric))
+        if (Global.InspectedHero.DeityDefinition && (SelectedClass == Paladin || SelectedClass == Cleric))
         {
             badgeDefinitions.Add(Global.InspectedHero.DeityDefinition);
         }
@@ -85,7 +85,7 @@ internal static class CharacterInspectionScreenEnhancement
             .ToDictionary(x => x.Key, _ => Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
 
         foreach (var kvp in classLevelFightingStyle
-                     .Where(x => SelectedClass != null && x.Key.Contains(SelectedClass.Name)))
+                     .Where(x => SelectedClass && x.Key.Contains(SelectedClass.Name)))
         {
             classBadges.Add(kvp.Value);
         }
@@ -198,7 +198,7 @@ internal static class CharacterInspectionScreenEnhancement
         var backGroup = panel.transform.Find("BackgroundGroup")?.GetComponent<RectTransform>();
         var classGroup = panel.transform.Find("ClassGroup")?.GetComponent<RectTransform>();
 
-        if (classGroup == null || backGroup == null)
+        if (!classGroup || !backGroup)
         {
             return;
         }
@@ -212,28 +212,28 @@ internal static class CharacterInspectionScreenEnhancement
         //this is actually top-right one
         var child = backGroup.Find("OrnamentBottomRight")?.GetComponent<RectTransform>();
 
-        if (child != null)
+        if (child)
         {
             child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 5, 50);
         }
 
         child = backGroup.Find("BackgroundImageMask")?.GetComponent<RectTransform>();
 
-        if (child != null)
+        if (child)
         {
             child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 218);
         }
 
         child = backGroup.Find("BackgroundDescriptionGroup")?.GetComponent<RectTransform>();
 
-        if (child != null)
+        if (child)
         {
             child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 65, 175);
         }
 
         child = classGroup.Find("ClassFeaturesGroup")?.GetComponent<RectTransform>();
 
-        if (child != null)
+        if (child)
         {
             child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 20, 642);
             child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 260, 590);
@@ -245,7 +245,7 @@ internal static class CharacterInspectionScreenEnhancement
 
         child = classGroup.Find("ClassDescriptionGroup")?.GetComponent<RectTransform>();
 
-        if (child != null)
+        if (child)
         {
             child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 0, 355);
             child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 270);
@@ -264,7 +264,7 @@ internal static class CharacterInspectionScreenEnhancement
         // abort on a SC hero
         if (hero?.ClassesAndLevels == null || hero.ClassesAndLevels.Count == 1)
         {
-            if (ClassSelector != null)
+            if (ClassSelector)
             {
                 ClassSelector.gameObject.SetActive(false);
             }
@@ -274,7 +274,7 @@ internal static class CharacterInspectionScreenEnhancement
 
         Transform labelsGroup;
 
-        if (ClassSelector == null)
+        if (!ClassSelector)
         {
             var voice = backGroup.FindChildRecursive("Voice");
 

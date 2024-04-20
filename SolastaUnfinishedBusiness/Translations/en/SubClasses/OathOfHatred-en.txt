@@ -20,5 +20,5 @@ Reaction/&CustomReactionHatredArdentHateDescription={0} misses {1} and can use A
 Reaction/&CustomReactionHatredArdentHateReactDescription=Hit instead.
 Reaction/&CustomReactionHatredArdentHateReactTitle=Hit
 Reaction/&CustomReactionHatredArdentHateTitle=Ardent Hate
-Subclass/&OathOfHatredDescription=An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
+Subclass/&OathOfHatredDescription=An Oath of Hatred paladin has dedicated himself to the punishment of evildoers by channeling hate.
 Subclass/&OathOfHatredTitle=Oath of Hatred

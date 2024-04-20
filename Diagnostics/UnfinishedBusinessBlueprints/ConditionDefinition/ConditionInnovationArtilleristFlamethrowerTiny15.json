@@ -1,26 +1,25 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
-  "conditionType": "Detrimental",
+  "parentCondition": "Definition:ConditionInnovationArtilleristFlamethrowerTiny:145ada90-6990-5182-b60b-5c10a807001d",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityConditionOnFire:8a75fa48a86a0f24ea26200a5c553a8d"
+    "Definition:ActionAffinityInnovationArtilleristFlamethrowerTiny:04a22078-4f03-5669-bf34-fb9188751216",
+    "Definition:PowerInnovationArtilleristFlamethrower:7cfd7fdb-f510-5f72-97af-61e945df19ae",
+    "Definition:PowerInnovationArtilleristFortifiedPositionAuraTiny:c865879f-e8e7-59e3-a612-6fa319fe7fb1"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Minute",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "StartOfTurn",
-  "specialInterruptions": [
-    "Extinguish",
-    "Revive"
-  ],
+  "turnOccurence": "EndOfTurn",
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -28,43 +27,7 @@
   "keepConditionIfSavingThrowSucceeds": false,
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
-  "recurrentEffectForms": [
-    {
-      "$type": "EffectForm, Assembly-CSharp",
-      "formType": "Damage",
-      "addBonusMode": "None",
-      "applyLevel": "No",
-      "levelType": "ClassLevel",
-      "levelMultiplier": 0,
-      "diceByLevelTable": [],
-      "createdByCharacter": false,
-      "createdByCondition": true,
-      "hasSavingThrow": false,
-      "savingThrowAffinity": "None",
-      "dcModifier": 0,
-      "canSaveToCancel": false,
-      "saveOccurence": "StartOfTurn",
-      "damageForm": {
-        "$type": "DamageForm, Assembly-CSharp",
-        "versatile": false,
-        "diceNumber": 1,
-        "dieType": "D6",
-        "overrideWithBardicInspirationDie": false,
-        "versatileDieType": "D1",
-        "bonusDamage": 0,
-        "damageType": "DamageFire",
-        "ancestryType": "Sorcerer",
-        "healFromInflictedDamage": "Never",
-        "hitPointsFloor": 0,
-        "forceKillOnZeroHp": false,
-        "specialDeathCondition": null,
-        "ignoreFlyingCharacters": false,
-        "ignoreCriticalDoubleDice": false
-      },
-      "hasFilterId": false,
-      "filterId": 0
-    }
-  ],
+  "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
@@ -79,19 +42,19 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "63f0f32d7d04cf343b2bd3018fa241e0",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "e13d321e7272a644daf36f792d2677e7",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "9cfcfe3680cc81f40867d8787cde2e5b",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -261,7 +224,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -304,13 +267,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionOnFireTitle",
-    "description": "Rules/&ConditionOnFireDescription",
+    "title": "Feature/&PowerInnovationArtilleristFlamethrowerTitle",
+    "description": "Feature/&PowerInnovationArtilleristFlamethrowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ff6270383db04594f95ddb79f0bb7956",
-      "m_SubObjectName": "ConditionOnFire",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -325,7 +288,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0ff9619d-461b-5294-9480-5da8d4aea7fb",
+  "guid": "9af499c4-b6e9-5ac6-b68c-3cdf55c13585",
   "contentPack": 9999,
-  "name": "ConditionSearingSmiteEnemy"
+  "name": "ConditionInnovationArtilleristFlamethrowerTiny15"
 }

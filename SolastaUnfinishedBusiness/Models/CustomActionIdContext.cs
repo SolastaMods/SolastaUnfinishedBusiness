@@ -20,26 +20,27 @@ public static class CustomActionIdContext
 {
     private static readonly List<Id> ExtraActionIdToggles =
     [
+        (Id)ExtraActionId.AmazingDisplayToggle,
         (Id)ExtraActionId.ArcaneArcherToggle,
         (Id)ExtraActionId.AudaciousWhirlToggle,
         (Id)ExtraActionId.BrutalStrikeToggle,
         (Id)ExtraActionId.CompellingStrikeToggle,
         (Id)ExtraActionId.CoordinatedAssaultToggle,
         (Id)ExtraActionId.CunningStrikeToggle,
+        (Id)ExtraActionId.DragonHideToggle,
         (Id)ExtraActionId.DyingLightToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
         (Id)ExtraActionId.ForcePoweredStrikeToggle,
         (Id)ExtraActionId.GloomBladeToggle,
         (Id)ExtraActionId.HailOfBladesToggle,
+        (Id)ExtraActionId.ImpishWrathToggle,
         (Id)ExtraActionId.MasterfulWhirlToggle,
         (Id)ExtraActionId.MindSculptToggle,
+        (Id)ExtraActionId.OrcishFuryToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
-        (Id)ExtraActionId.SupremeWillToggle,
-        (Id)ExtraActionId.ImpishWrathToggle, // defined in sub race
-        (Id)ExtraActionId.OrcishFuryToggle, // defined in sub race
         (Id)ExtraActionId.QuiveringPalmToggle,
-        (Id)ExtraActionId.DragonHideToggle
+        (Id)ExtraActionId.SupremeWillToggle
     ];
 
     internal static FeatureDefinitionPower FarStep { get; private set; }
@@ -53,6 +54,31 @@ public static class CustomActionIdContext
         BuildDoNothingActions();
         BuildPrioritizeAction();
         BuildFarStepAction();
+        BuildProxyActions();
+    }
+
+    private static void BuildProxyActions()
+    {
+        ActionDefinitionBuilder
+            .Create(ProxySpiritualWeapon, "ActionProxyPactWeapon")
+            .SetActionId(ExtraActionId.ProxyPactWeapon)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(ProxySpiritualWeaponFree, "ActionProxyPactWeaponFree")
+            .SetActionId(ExtraActionId.ProxyPactWeaponFree)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(ProxyFlamingSphere, "ActionProxyPetalStorm")
+            .SetActionId(ExtraActionId.ProxyPetalStorm)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(ProxySpiritualWeapon, "ActionProxyFaithfulHound")
+            .SetActionId(ExtraActionId.ProxyHoundWeapon)
+            .SetActionType(ActionType.NoCost)
+            .AddToDB();
     }
 
     private static void BuildCustomInvocationActions()
@@ -230,13 +256,6 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.BrutalStrikeToggle)
-            .AddToDB();
-
-        ActionDefinitionBuilder
-            .Create(MetamagicToggle, "CoordinatedAssaultToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.CoordinatedAssaultToggle)
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -459,6 +478,14 @@ public static class CustomActionIdContext
             case (Id)ExtraActionId.CrystalDefenseOff:
             {
                 result = character.HasConditionOfType(RaceWyrmkinBuilder.ConditionCrystalDefenseName)
+                    ? ActionStatus.Available
+                    : ActionStatus.Unavailable;
+                return;
+            }
+            case (Id)ExtraActionId.ProxyHoundWeapon:
+            {
+                result = character.ControlledEffectProxies.Any(x =>
+                    x.EffectProxyDefinition.Name == "ProxyFaithfulHound" && x.ExecutedAttacks == 0)
                     ? ActionStatus.Available
                     : ActionStatus.Unavailable;
                 return;

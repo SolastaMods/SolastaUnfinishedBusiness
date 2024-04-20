@@ -89,11 +89,11 @@ internal static class SubclassesContext
         var klass = subclassBuilder.Klass;
         var subclass = subclassBuilder.Subclass;
 
-        if (subclassBuilder.SubclassChoice != null && subclassBuilder.DeityDefinition == null)
+        if (subclassBuilder.SubclassChoice && !subclassBuilder.DeityDefinition)
         {
             SubclassesChoiceList.Add(subclass, subclassBuilder.SubclassChoice);
         }
-        else if (subclassBuilder.SubclassChoice == null && subclassBuilder.DeityDefinition != null)
+        else if (!subclassBuilder.SubclassChoice && subclassBuilder.DeityDefinition)
         {
             DeityChoiceList.Add(subclass, subclassBuilder.DeityDefinition);
         }

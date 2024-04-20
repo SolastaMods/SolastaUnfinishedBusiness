@@ -83,7 +83,7 @@ public static class CharacterStageClassSelectionPanelPatcher
 
             var levels = 0;
 
-            if (selectedClass != null
+            if (selectedClass
                 && hero.ClassesAndLevels.TryGetValue(selectedClass, out levels)
                 && featureUnlockByLevel.Level != levels + 1)
             {

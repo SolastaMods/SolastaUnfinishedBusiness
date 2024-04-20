@@ -3,7 +3,7 @@
   "featureSet": [
     "Definition:PowerPathOfTheSpiritsBearResistance:6108c7a0-185a-5217-9deb-3ce576514705",
     "Definition:ActionAffinityPathOfTheSpiritsCunningAction:ea43e6ee-4530-5abd-81c4-0b3cb5fc0289",
-    "Definition:PowerPathOfTheSpiritsWolfLeadership:e47c29ae-454d-5117-9da9-2c107c6e7e6a"
+    "Definition:FeatureSetPathOfTheSpiritsWolfLeadership:e52f727e-7414-5123-b199-f3afc2aa42c2"
   ],
   "mode": "Exclusion",
   "ancestryDamageTypeMap": [],

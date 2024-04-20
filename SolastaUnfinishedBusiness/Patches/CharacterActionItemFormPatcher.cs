@@ -59,7 +59,7 @@ public static class CharacterActionItemFormPatcher
 
             var box = __instance.bardicInpirationBox;
 
-            if (box == null)
+            if (!box)
             {
                 return;
             }
@@ -70,7 +70,7 @@ public static class CharacterActionItemFormPatcher
 
             box.gameObject.SetActive(true);
 
-            if (dieImage.sprite != null)
+            if (dieImage.sprite)
             {
                 Gui.ReleaseAddressableAsset(dieImage.sprite);
                 dieImage.sprite = null;

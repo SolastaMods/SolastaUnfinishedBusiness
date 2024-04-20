@@ -1376,6 +1376,14 @@ internal static class GambitsBuilders
             RollOutcome rollOutcome,
             int damageAmount)
         {
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             //trigger only on a miss
             if (rollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
@@ -1397,14 +1405,6 @@ internal static class GambitsBuilders
             }
 
             if (defender.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
-            {
-                yield break;
-            }
-
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (manager == null || battle is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1448,16 +1448,16 @@ internal static class GambitsBuilders
                 0,
                 0);
 
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var tag = melee ? "GambitRiposte" : "GambitReturnFire";
             var reactionRequest = new ReactionRequestReactionAttack(tag, reactionParams)
             {
                 Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
             };
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            manager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1550,10 +1550,11 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (battle is not { IsBattleInProgress: true } || manager == null)
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1563,13 +1564,12 @@ internal static class GambitsBuilders
                 {
                     StringParameter = "Reaction/&CustomReactionGambitSwitchDescription"
                 };
-
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitSwitch", reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            manager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(actingCharacter, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1695,10 +1695,10 @@ internal static class GambitsBuilders
             GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            var gameLocationActionManager =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationActionManager == null)
+            if (!actionManager)
             {
                 yield break;
             }
@@ -1736,16 +1736,15 @@ internal static class GambitsBuilders
                     StringParameter = Gui.Format(
                         Format, guiAttacker.Name, guiDefender.Name, delta.ToString(), Gui.FormatDieTitle(dieType))
                 };
-
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitPrecise", reactionParams)
             {
                 Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
             };
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
+            yield return battle.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1812,7 +1811,7 @@ internal static class GambitsBuilders
         {
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (actionManager == null)
+            if (!actionManager)
             {
                 yield break;
             }
@@ -1843,16 +1842,15 @@ internal static class GambitsBuilders
                     StringParameter = "CustomReactionGambitParryDescription"
                         .Formatted(Category.Reaction, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType))
                 };
-
-            var previousReactionCount = actionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitParry", reactionParams)
             {
                 Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
             };
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
             actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

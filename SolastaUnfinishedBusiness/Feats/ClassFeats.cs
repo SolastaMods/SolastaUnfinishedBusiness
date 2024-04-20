@@ -436,12 +436,13 @@ internal static class ClassFeats
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
-            var gameLocationActionService =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
+            var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -475,13 +476,12 @@ internal static class ClassFeats
                 AttackMode = retaliationMode,
                 TargetCharacters = { defender }
             };
-
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("Exploiter", actionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
         }
     }
 
@@ -652,15 +652,16 @@ internal static class ClassFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower
-                || characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
             {
                 yield break;
             }
 
             var rulesetCharacter = attacker.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(Fighter);
-            var dieRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
+            var dieRoll =
+                rulesetCharacter.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _, out _);
             var healingReceived = classLevel + dieRoll;
 
             rulesetCharacter.ReceiveTemporaryHitPoints(

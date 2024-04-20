@@ -71,7 +71,7 @@ internal sealed class SpriteResourceLocator : IResourceLocator
         var id = key.ToString();
         var sprite = Sprites.GetSpriteByGuid(id);
 
-        if (sprite != null)
+        if (sprite)
         {
             if (!LocationsCache.TryGetValue(id, out var location))
             {

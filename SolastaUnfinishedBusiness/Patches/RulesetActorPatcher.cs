@@ -70,7 +70,7 @@ public static class RulesetActorPatcher
                 .Select(x => x.DamageType).ToList();
 
             var damageTypesFromProxyAttackPowers = proxies
-                .Where(x => x.attackPower != null)
+                .Where(x => x.attackPower)
                 .Select(x => x.attackPower)
                 .SelectMany(x => x.EffectDescription.EffectForms)
                 .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
@@ -102,7 +102,7 @@ public static class RulesetActorPatcher
             ref RulesetCondition newCondition)
         {
             //PATCH: allow conditions to force specific category
-            if (newCondition.conditionDefinition == null)
+            if (!newCondition.conditionDefinition)
             {
                 return;
             }
@@ -544,7 +544,7 @@ public static class RulesetActorPatcher
                 conditionAffinities.FirstOrDefault(x =>
                     x.Name == "ConditionAffinityAuraOfVitalityLifeDrained");
 
-            if (_conditionAffinity != null)
+            if (_conditionAffinity)
             {
                 conditionAffinities.Remove(_conditionAffinity);
             }
@@ -553,7 +553,7 @@ public static class RulesetActorPatcher
         [UsedImplicitly]
         public static void Postfix(List<FeatureDefinitionConditionAffinity> conditionAffinities)
         {
-            if (_conditionAffinity != null)
+            if (_conditionAffinity)
             {
                 conditionAffinities.Add(_conditionAffinity);
             }

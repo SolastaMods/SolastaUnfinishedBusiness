@@ -58,10 +58,10 @@ internal static class CustomSituationalContext
                 ValidatorsCharacter.HasTwoHandedQuarterstaff(contextParams.source),
 
             ExtraSituationalContext.IsNotConditionSource =>
-                // this is required whenever there is a SetMyAttackAdvantage (Taunted, Shout of Provocation)
-                contextParams.source.Guid != contextParams.source.AllConditions.FirstOrDefault(x =>
+                // this is required whenever there is a SetMyAttackAdvantage (Taunted, Illuminating Strike, Honed Bear)
+                contextParams.target.Guid != contextParams.source.AllConditions.FirstOrDefault(x =>
                     x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
-                // this is required whenever there is a SetAttackOnMeAdvantage (Exploit Opening, Distracted Strike)
+                // this is required whenever there is a SetAttackOnMeAdvantage (Press the Advantage, Gambit Blind)
                 contextParams.source.Guid != contextParams.target.AllConditions.FirstOrDefault(x =>
                     x.ConditionDefinition == contextParams.condition)?.SourceGuid,
 
@@ -131,10 +131,10 @@ internal static class CustomSituationalContext
             return false;
         }
 
-        var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+        var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
 
         return HasVisibleCharactersOfSideNextToCharacter(gameLocationCharacter) ||
-               gameLocationPositioningService.IsNextToWall(gameLocationCharacter.LocationPosition);
+               positioningService.IsNextToWall(gameLocationCharacter.LocationPosition);
     }
 
     private static bool HasVisibleCharactersOfSideNextToCharacter(GameLocationCharacter character)

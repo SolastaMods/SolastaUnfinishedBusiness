@@ -18,6 +18,7 @@ using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -33,8 +34,6 @@ public sealed class MartialWarlord : AbstractSubclass
 
     private const ActionDefinitions.Id PressTheAdvantageToggle =
         (ActionDefinitions.Id)ExtraActionId.PressTheAdvantageToggle;
-
-    internal static FeatureDefinitionPower PowerCoordinatedAssault;
 
     public MartialWarlord()
     {
@@ -228,13 +227,22 @@ public sealed class MartialWarlord : AbstractSubclass
 
         // Coordinated Assault
 
-        PowerCoordinatedAssault = FeatureDefinitionPowerBuilder
+        var powerCoordinatedAssault = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CoordinatedAssault")
             .SetGuiPresentation($"FeatureSet{Name}CoordinatedAssault", Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
-            .AddCustomSubFeatures(
-                ModifyPowerVisibility.Hidden,
-                new PhysicalAttackFinishedByMeCoordinatedAssault())
+            .DelegatedToAction()
+            .AddToDB();
+
+        powerCoordinatedAssault.AddCustomSubFeatures(
+            new PhysicalAttackFinishedByMeCoordinatedAssault(powerCoordinatedAssault));
+
+        _ = ActionDefinitionBuilder
+            .Create(MetamagicToggle, "CoordinatedAssaultToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CoordinatedAssaultToggle)
+            .SetActivatedPower(powerCoordinatedAssault)
             .AddToDB();
 
         var actionAffinityCoordinatedAssaultToggle = FeatureDefinitionActionAffinityBuilder
@@ -242,14 +250,14 @@ public sealed class MartialWarlord : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(CoordinatedAssaultToggle)
             .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerCoordinatedAssault)))
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerCoordinatedAssault)))
             .AddToDB();
 
         var featureSetCoordinatedAssault = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}CoordinatedAssault")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                PowerCoordinatedAssault,
+                powerCoordinatedAssault,
                 actionAffinityCoordinatedAssaultToggle)
             .AddToDB();
 
@@ -288,7 +296,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasUnavailableBonusAction),
                 new CustomBehaviorStrategicReposition(),
-                new CharacterBattleStartedListenerControlTheField(PowerCoordinatedAssault))
+                new CharacterBattleStartedListenerControlTheField(powerCoordinatedAssault))
             .AddToDB();
 
         var featureSetControlTheField = FeatureDefinitionFeatureSetBuilder
@@ -495,7 +503,8 @@ public sealed class MartialWarlord : AbstractSubclass
     // Coordinated Assault
     //
 
-    private sealed class PhysicalAttackFinishedByMeCoordinatedAssault : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeCoordinatedAssault(FeatureDefinitionPower powerCoordinatedAssault)
+        : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
@@ -508,7 +517,7 @@ public sealed class MartialWarlord : AbstractSubclass
         {
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetCharacter.GetRemainingPowerUses(PowerCoordinatedAssault) == 0)
+            if (rulesetCharacter.GetRemainingPowerUses(powerCoordinatedAssault) == 0)
             {
                 yield break;
             }
@@ -634,11 +643,10 @@ public sealed class MartialWarlord : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(PowerCoordinatedAssault, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerCoordinatedAssault, rulesetCharacter);
 
+            attacker.UsedSpecialFeatures.TryAdd(CoordinatedAssaultMarker, 0);
             rulesetCharacter.UsePower(usablePower);
-
-            rulesetCharacter.LogCharacterUsedPower(PowerCoordinatedAssault);
         }
     }
 

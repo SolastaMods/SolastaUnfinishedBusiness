@@ -504,7 +504,7 @@ public static class GameLocationBattleManagerPatcher
                         }
 
                         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-                        var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                        var count = actionService.PendingReactionRequestGroups.Count;
                         var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
                         {
                             IntParameter = 1,
@@ -514,7 +514,7 @@ public static class GameLocationBattleManagerPatcher
 
                         actionService.ReactToSpendSpellSlot(reactionParams);
 
-                        yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
+                        yield return __instance.WaitForReactions(attacker, actionService, count);
 
                         if (!reactionParams.ReactionValidated)
                         {
@@ -1034,8 +1034,8 @@ public static class GameLocationBattleManagerPatcher
             }
 
             // This also allows utilities out of battle
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var allyCharacters = gameLocationCharacterService.PartyCharacters.Select(x => x.RulesetCharacter);
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var allyCharacters = characterService.PartyCharacters.Select(x => x.RulesetCharacter);
 
             foreach (var allyCharacter in allyCharacters.Where(x => x is { IsDeadOrDyingOrUnconscious: false }))
             {

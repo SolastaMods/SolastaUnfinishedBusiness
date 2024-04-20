@@ -70,6 +70,9 @@ public sealed class PathOfTheLight : AbstractSubclass
             .AddCustomSubFeatures(OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst.Marker)
             .AddToDB();
 
+        attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated.requiredCondition =
+            conditionPathOfTheLightIlluminated;
+
         var lightSourceForm = new LightSourceForm();
 
         lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);

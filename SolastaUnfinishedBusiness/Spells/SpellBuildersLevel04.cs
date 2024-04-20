@@ -262,6 +262,56 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Faithful Hound
+
+    internal static SpellDefinition BuildFaithfulHound()
+    {
+        const string NAME = "FaithfulHound";
+
+        var sprite = Sprites.GetSprite(NAME, Resources.FaithfulHound, 128);
+
+        var proxyFaithfulHound = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyArcaneSword, $"Proxy{NAME}")
+            .SetGuiPresentation(Category.Proxy, sprite)
+            .SetPortrait(sprite)
+            .SetActionId(ExtraActionId.ProxyHoundWeapon)
+            .SetAttackMethod(ProxyAttackMethod.CasterSpellAbility, DamageTypePiercing, DieType.D8, 4)
+            .SetAdditionalFeatures(FeatureDefinitionSenses.SenseDarkvision, FeatureDefinitionSenses.SenseTruesight16)
+            .SetCanMove(false, false)
+            .AddToDB();
+
+        proxyFaithfulHound.attackParticle = new AssetReference();
+        proxyFaithfulHound.prefabReference = MonsterDefinitions.FeyWolf.MonsterPresentation.malePrefabReference;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, sprite)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 8)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxyFaithfulHound)
+                            .Build())
+                    .SetParticleEffectParameters(DispelMagic)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Blessing of Rime
 
     internal static SpellDefinition BuildBlessingOfRime()
@@ -344,10 +394,11 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Aura of Vitality
+    #region Aura of Life
 
-    internal static SpellDefinition BuildAuraOfVitality()
+    internal static SpellDefinition BuildAuraOfLife()
     {
+        // kept this name for backward compatibility reasons
         const string NAME = "AuraOfVitality";
 
         var conditionAffinityLifeDrained = FeatureDefinitionConditionAffinityBuilder

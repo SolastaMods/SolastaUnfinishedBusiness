@@ -32,7 +32,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
         {
             var power = (ReactionParams.RulesetEffect as RulesetEffectPower)?.PowerDefinition;
 
-            if (power == null)
+            if (!power)
             {
                 return -1;
             }
@@ -122,17 +122,17 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
         var spell = ReactionParams.SpellRepertoire.KnownSpells[option];
         var power = PowerBundle.GetPower(spell);
 
-        var implementationManagerService =
+        var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var rulesetCharacter = actingCharacter.RulesetCharacter;
         var usablePower = PowerProvider.Get(power, rulesetCharacter);
-        var powerEffect = implementationManagerService
+        var powerEffect = implementationManager
             .MyInstantiateEffectPower(rulesetCharacter, usablePower, false)
             .AddAsActivePowerToSource();
 
         ReactionParams.RulesetEffect = powerEffect;
 
-        if (power == null)
+        if (!power)
         {
             return;
         }

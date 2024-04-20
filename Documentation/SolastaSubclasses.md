@@ -562,7 +562,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Living Tempest
 
-As an bonus action, you can give yourself a flying speed equal to your walking speed.
+As a bonus action, you can give yourself a flying speed equal to your walking speed.
 
 
 ### Level 20
@@ -817,7 +817,7 @@ The Mischief domain is followed by those who pursue joy, pleasure, and wealth th
 
 * Borrowed Luck
 
-When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.
 
 * Mischief Domain Spells
 
@@ -851,7 +851,7 @@ When you hit a creature with a melee or ranged weapon attack, you can Channel Di
 
 * Elusive Target
 
-Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.
 
 
 ### Level 8
@@ -956,7 +956,7 @@ Mark a creature you see so it receives additional necrotic damage equal to your 
 
 * Keeper of Oblivion
 
-You steal the life-force from your foes as they step to the gates of oblivion, to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you, allies within 30 ft of you regain hit points from a pool equals to your Cleric level. Allies with lowest health are healed first until the pool is fully consumed. Once you use it, you can't do so again until the start of your next turn.
+You steal the life-force from your foes as they step to the gates of oblivion, to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you, allies within 30 ft of you regain hit points from a pool equals to your Cleric level. Allies with the lowest health are healed first until the pool is fully consumed. Once you use it, you can't do so again until the start of your next turn.
 
 
 ### Level 20
@@ -1376,14 +1376,14 @@ You can use a bonus action to give all allies within 3 cells of you (including y
 
 ### Level 7
 
-* Coordinated Defense​​​​​​​
+* Coordinated Defense
 
 When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
 
 
 ### Level 10
 
-* Invigorating Shout​​​​​​​
+* Invigorating Shout
 
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 
@@ -2291,7 +2291,7 @@ At level 14, as a bonus action, you can teleport up to 6 cells to any unoccupied
 
 * Rift Magic Mastery
 
-Starting at 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you can now regain any slot level upon rolling a 18, 19 or 20.
+Starting at 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you can now regain any slot level upon rolling an 18, 19 or 20.
 
 
 

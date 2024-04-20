@@ -6,7 +6,7 @@ public delegate bool
 internal static class ValidateRepertoireForAutoprepared
 {
     internal static readonly RepertoireValidForAutoPreparedFeature AnyClassOrSubclass = (repertoire, _) =>
-        repertoire.SpellCastingClass != null || repertoire.SpellCastingSubclass != null;
+        repertoire.SpellCastingClass || repertoire.SpellCastingSubclass;
 
     internal static RepertoireValidForAutoPreparedFeature HasSpellCastingFeature(string featureName)
     {

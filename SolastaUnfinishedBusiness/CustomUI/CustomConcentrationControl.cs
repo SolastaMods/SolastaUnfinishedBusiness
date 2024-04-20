@@ -17,7 +17,7 @@ internal class CustomConcentrationControl : MonoBehaviour
         var name = $"CustomConcentration({provider.Name})";
         var child = parent.Find(name);
 
-        if (child != null)
+        if (child)
         {
             control = child.GetComponent<CustomConcentrationControl>();
         }
@@ -38,7 +38,7 @@ internal class CustomConcentrationControl : MonoBehaviour
     {
         var image = transform.Find("ConcentrationImage").GetComponent<Image>();
 
-        if (image != null)
+        if (image)
         {
             image.sprite = null;
             image.SetupSprite(provider.Icon);
@@ -53,7 +53,7 @@ internal class CustomConcentrationControl : MonoBehaviour
 
         var tooltip = GetComponent<GuiTooltip>();
 
-        if (tooltip != null)
+        if (tooltip)
         {
             tooltip.Content = provider.Tooltip;
         }

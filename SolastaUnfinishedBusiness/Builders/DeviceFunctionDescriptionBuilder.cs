@@ -57,9 +57,9 @@ internal class DeviceFunctionDescriptionBuilder
         // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
         switch (_description.Type)
         {
-            case FunctionType.Power when _description.FeatureDefinitionPower == null:
+            case FunctionType.Power when !_description.FeatureDefinitionPower:
                 throw new ArgumentException("DeviceFunctionDescriptionBuilder empty FeatureDefinitionPower!");
-            case FunctionType.Spell when _description.SpellDefinition == null:
+            case FunctionType.Spell when !_description.SpellDefinition:
                 throw new ArgumentException("DeviceFunctionDescriptionBuilder empty SpellDefinition!");
         }
     }

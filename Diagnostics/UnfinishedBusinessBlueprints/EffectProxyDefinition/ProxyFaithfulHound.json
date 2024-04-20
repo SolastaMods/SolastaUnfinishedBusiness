@@ -1,33 +1,36 @@
 {
   "$type": "EffectProxyDefinition, Assembly-CSharp",
   "canMove": false,
-  "canRotate": false,
+  "canRotate": true,
   "canMoveOnCharacters": false,
-  "canAttack": false,
+  "canAttack": true,
   "canTriggerPower": false,
   "autoTerminateOnTriggerPower": false,
   "incrementalDamageDice": 0,
-  "actionId": "NoAction",
+  "actionId": 9056,
   "freeActionId": "NoAction",
   "attackMethod": "CasterSpellAbility",
   "firstAttackIsFree": false,
   "constrainedToSpellArea": false,
   "damageDie": "D8",
-  "damageDieNum": 1,
-  "damageType": "DamageRadiant",
+  "damageDieNum": 4,
+  "damageType": "DamagePiercing",
   "addAbilityToDamage": false,
   "attackPower": null,
   "impactsPlacement": false,
-  "additionalFeatures": [],
+  "additionalFeatures": [
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6"
+  ],
   "attackParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "attackImpactParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "0b56bd038a356ba42874cd0e10e15e26",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -64,29 +67,23 @@
   "hasPresentation": true,
   "prefabReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "58aff54afb62c3a43be06958596b2bf2",
+    "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
-  "isEmptyPresentation": true,
+  "isEmptyPresentation": false,
   "modelScale": 1.0,
-  "showWorldLocationFeedbacks": false,
-  "hasPortrait": false,
+  "showWorldLocationFeedbacks": true,
+  "hasPortrait": true,
   "portraitSpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "9ccae0cf-fedf-5b4b-a2fa-770939e6b8e9",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "startEvent": {
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": {
-      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
-      "objectName": "Play_Vfx_CONJ_StinkingCloud_Cell_Start",
-      "id": 12029256,
-      "guid": "6F4174B3-ED5A-4DB1-A567-C9CCD7046283",
-      "name": "6F4174B3-ED5A-4DB1-A567-C9CCD7046283"
-    },
+    "WwiseObjectReference": null,
     "idInternal": 0,
     "valueGuidInternal": {
       "$type": "System.Byte[], mscorlib",
@@ -106,7 +103,20 @@
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
-      "WwiseObjectReference": null,
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Damage",
+          "id": 1103537035,
+          "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
+          "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
+        },
+        "objectName": "Longsword",
+        "id": 3955957070,
+        "guid": "62A5773C-C085-45FF-81BD-20147B55AD74",
+        "name": "62A5773C-C085-45FF-81BD-20147B55AD74"
+      },
       "groupIdInternal": 0,
       "groupGuidInternal": {
         "$type": "System.Byte[], mscorlib",
@@ -122,13 +132,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerWayOfTheDragonElementalBreathGreenTitle",
-    "description": "Feature/&PowerWayOfTheDragonElementalBreathGreenDescription",
+    "title": "Proxy/&ProxyFaithfulHoundTitle",
+    "description": "Proxy/&ProxyFaithfulHoundDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e09812b1baeec448be4d3187861a517",
-      "m_SubObjectName": "StinkingCloud",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "9ccae0cf-fedf-5b4b-a2fa-770939e6b8e9",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -143,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1b305d09-3001-59d9-a97f-32ba86034933",
+  "guid": "54fa139b-edd2-55ed-aaa6-6e95ddf41256",
   "contentPack": 9999,
-  "name": "EffectGreenElementalBreath"
+  "name": "ProxyFaithfulHound"
 }

@@ -13,6 +13,9 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionPerceptionAffinity PerceptionAffinityConditionBlinded { get; } =
             GetDefinition<FeatureDefinitionPerceptionAffinity>("PerceptionAffinityConditionBlinded");
+
+        internal static FeatureDefinitionPerceptionAffinity PerceptionAffinityConditionInvisible { get; } =
+            GetDefinition<FeatureDefinitionPerceptionAffinity>("PerceptionAffinityConditionInvisible");
     }
 
     internal static class ActionDefinitions
@@ -27,6 +30,16 @@ internal static partial class DatabaseHelper
             GetDefinition<ActionDefinition>("GrantBardicInspiration");
 
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
+
+        internal static ActionDefinition ProxyFlamingSphere { get; } =
+            GetDefinition<ActionDefinition>("ProxyFlamingSphere");
+
+        internal static ActionDefinition ProxySpiritualWeapon { get; } =
+            GetDefinition<ActionDefinition>("ProxySpiritualWeapon");
+
+        internal static ActionDefinition ProxySpiritualWeaponFree { get; } =
+            GetDefinition<ActionDefinition>("ProxySpiritualWeaponFree");
+
         internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
         internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
         internal static ActionDefinition RecklessAttack { get; } = GetDefinition<ActionDefinition>("RecklessAttack");
@@ -1211,6 +1224,12 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCombatAffinity CombatAffinityHeavilyObscuredSelf { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityHeavilyObscuredSelf");
 
+        internal static FeatureDefinitionCombatAffinity CombatAffinityInvisible { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityInvisible");
+
+        internal static FeatureDefinitionCombatAffinity CombatAffinityInvisibleStalker { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityInvisibleStalker");
+
         internal static FeatureDefinitionCombatAffinity CombatAffinityPackTactics { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPackTactics");
 
@@ -1633,6 +1652,12 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerPatronTimekeeperAccelerate { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperAccelerate");
+
+        internal static FeatureDefinitionPower PowerMartialSpellbladeArcaneEscape { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMartialSpellbladeArcaneEscape");
+
         internal static FeatureDefinitionPower PowerBarbarianRageStart { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBarbarianRageStart");
 
@@ -1641,6 +1666,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerBardGiveBardicInspiration { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBardGiveBardicInspiration");
+
+        internal static FeatureDefinitionPower PowerBardHeroismAtRoadsEnd { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHeroismAtRoadsEnd");
+
+        internal static FeatureDefinitionPower PowerBardHopeSingSongOfHope { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBardHopeSingSongOfHope");
 
         internal static FeatureDefinitionPower PowerBerserkerIntimidatingPresence { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBerserkerIntimidatingPresence");
@@ -2139,6 +2170,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionProficiency ProficiencyWizardWeapon { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyWizardWeapon");
+    }
+
+    internal static class FeatureDefinitionDieRollModifiers
+    {
+        internal static FeatureDefinitionDieRollModifier DieRollModifierHalfingLucky { get; } =
+            GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierHalfingLucky");
     }
 
     internal static class FeatureDefinitionRegenerations

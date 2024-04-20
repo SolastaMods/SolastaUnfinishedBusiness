@@ -16,7 +16,7 @@ public static class AiLocationDefinitionsPatcher
     {
         [UsedImplicitly]
         public static void Postfix(
-            bool __result,
+            ref bool __result,
             AiLocationCharacter aiCharacter,
             IMagicEffect magicEffect,
             GameLocationCharacter optionalTarget)
@@ -27,6 +27,7 @@ public static class AiLocationDefinitionsPatcher
                 !LightingAndObscurementContext.IsMagicEffectValidIfHeavilyObscuredOrInNaturalDarkness(
                     locationCharacter, magicEffect, optionalTarget))
             {
+                __result = false;
             }
         }
     }

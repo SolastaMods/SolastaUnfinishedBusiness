@@ -40,7 +40,7 @@ internal static class DmProRendererContext
         {
             TemplateVegetationMaskArea = prefab.GetComponentInChildren<VegetationMaskArea>();
 
-            if (TemplateVegetationMaskArea != null)
+            if (TemplateVegetationMaskArea)
             {
                 break;
             }
@@ -51,7 +51,7 @@ internal static class DmProRendererContext
     {
         var masterTerrain = worldLocation.gameObject.GetComponentInChildren<Terrain>();
 
-        if (masterTerrain == null)
+        if (!masterTerrain)
         {
             return;
         }
@@ -115,7 +115,7 @@ internal static class DmProRendererContext
         // updates the biome to cover the entire location
         var biomeMaskArea = worldLocation.gameObject.GetComponentInChildren<BiomeMaskArea>();
 
-        if (biomeMaskArea == null)
+        if (!biomeMaskArea)
         {
             return;
         }
@@ -210,7 +210,7 @@ internal static class DmProRendererContext
 
     internal static void AddVegetationMaskArea(Transform roomTransform, UserRoom userRoom)
     {
-        if (TemplateVegetationMaskArea == null ||
+        if (!TemplateVegetationMaskArea ||
             DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name))
         {
             return;
@@ -283,7 +283,7 @@ internal static class DmProRendererContext
         // ReSharper disable once StringLiteralTypo
         var postfix = perspective ? "_Pers" : "_Top";
 
-        if (environmentDefinition != null &&
+        if (environmentDefinition &&
             prefabByEnvironmentDescription.Environment == environmentDefinition.Name)
         {
             str1 = "Gui/Bitmaps/Props-" + environmentName + "/";

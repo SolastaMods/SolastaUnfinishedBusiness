@@ -150,12 +150,10 @@ public sealed class PathOfTheReaver : AbstractSubclass
         RulesetAttackMode attackMode,
         FeatureDefinitionPower featureDefinitionPower)
     {
-        var gameLocationActionService =
-            ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-        var gameLocationBattleService =
-            ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-        if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+        if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
+            {
+                IsBattleInProgress: true
+            } battleManager)
         {
             yield break;
         }
@@ -177,7 +175,8 @@ public sealed class PathOfTheReaver : AbstractSubclass
         var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
         var totalHealing = 2 * classLevel;
 
-        var implementationManagerService =
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
         var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
@@ -187,17 +186,16 @@ public sealed class PathOfTheReaver : AbstractSubclass
             StringParameter2 = "UseBloodbathDescription".Formatted(
                 Category.Reaction, totalHealing.ToString()),
             ActionModifiers = { new ActionModifier() },
-            RulesetEffect = implementationManagerService
+            RulesetEffect = implementationManager
                 .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
             UsablePower = usablePower,
             TargetCharacters = { attacker }
         };
+        var count = actionService.PendingReactionRequestGroups.Count;
 
-        var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+        actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
 
-        gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", attacker);
-
-        yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+        yield return battleManager.WaitForReactions(attacker, actionService, count);
 
         if (!reactionParams.ReactionValidated)
         {

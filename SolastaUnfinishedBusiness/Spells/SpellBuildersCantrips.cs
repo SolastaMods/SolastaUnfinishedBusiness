@@ -673,7 +673,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetIgnoreCover()
                     .SetEffectAdvancement( // this is needed for tooltip
-                        EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1, incrementMultiplier: 1)
+                        EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(
                             conditionBoomingBlade, ConditionForm.ConditionOperation.Add, true),
@@ -837,7 +837,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
                     .SetIgnoreCover()
                     .SetEffectAdvancement(
-                        EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1, incrementMultiplier: 1)
+                        EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .ConditionForm(conditionResonatingStrike, ConditionForm.ConditionOperation.Add, true))
@@ -890,12 +890,8 @@ internal static partial class SpellBuilders
                     return false;
                 }
 
-                if (attackMode.Ranged || !attackMode.Reach)
-                {
-                    return false;
-                }
-
-                return __instance.SelectionService.SelectedCharacters[0].IsWithinRange(target, attackMode.reachRange);
+                return !attackMode.Ranged && __instance.SelectionService.SelectedCharacters[0]
+                    .IsWithinRange(target, attackMode.reachRange);
             }
 
             var firstTarget = __instance.SelectionService.SelectedTargets[0];
@@ -977,13 +973,13 @@ internal static partial class SpellBuilders
             }
 
             var usablePower = PowerProvider.Get(powerResonatingStrike, rulesetCharacter);
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { _secondTarget }

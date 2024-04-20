@@ -44,7 +44,7 @@ The next weapon or unarmed attack that hits a creature before your turn ends wil
 
 # 12. - Parry
 
-When you are about to be hit by a melee attack, you can use your reaction and spend a superiority die to reduce the damage of the incoming hit by one roll of superiority die + double your proficiency bonus.
+When you are about to be hit by a melee attack, you can use your reaction and spend a superiority die to reduce the damage to the incoming hit by one roll of superiority die + double your proficiency bonus.
 
 # 13. - Precision Attack
 
@@ -72,7 +72,7 @@ When a creature misses their attack against you and is within reach of your equi
 
 # 19. - Sweeping Attack
 
-You can launch a powerful attack as a part of your main action attack that can damage multiple enemies at once. Expend a superiority die and target two creatures that are within 5ft of each other and within reach of your melee weapon or unarmed strike and make an attack roll for each. If the first target is hit, it takes normal weapon damage, and if the second target is hit, it takes your superiority die + Strength or Dexterity modifier, whichever is higher as damage of the same type as your weapon.
+You can launch a powerful attack as a part of your main action attack that can damage multiple enemies at once. Expend a superiority die and target two creatures that are within 5ft of each other and within reach of your melee weapon or unarmed strike and make an attack roll for each. If the first target is hit, it takes normal weapon damage, and if the second target is hit, it takes your superiority die + Strength or Dexterity modifier, whichever is higher as damage to the same type as your weapon.
 
 # 20. - Trip Attack
 

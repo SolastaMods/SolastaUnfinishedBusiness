@@ -68,10 +68,10 @@ internal static class CustomReactionsContext
     }
 
     private static IEnumerator WaitForReactions([CanBeNull] IGameLocationActionService actionService,
-        int previousReactionCount)
+        int count)
     {
         while (actionService?.PendingReactionRequestGroups != null &&
-               previousReactionCount < actionService.PendingReactionRequestGroups.Count)
+               count < actionService.PendingReactionRequestGroups.Count)
         {
             yield return null;
         }

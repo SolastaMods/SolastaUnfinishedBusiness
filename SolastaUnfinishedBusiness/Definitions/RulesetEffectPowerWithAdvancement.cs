@@ -108,7 +108,7 @@ internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
             return true;
         }
 
-        if (action.activePower.PowerDefinition.SurrogateToSpell != null)
+        if (action.activePower.PowerDefinition.SurrogateToSpell)
         {
             return true;
         }

@@ -10,5 +10,5 @@ Feature/&PowerBolgrifInvisibilityDescription=As a bonus action, you can magicall
 Feature/&PowerBolgrifInvisibilityTitle=Vanish
 Feature/&ProficiencyBolgrifLanguagesDescription=Common, Elvish and Giant.
 Feature/&ProficiencyBolgrifLanguagesTitle=Language
-Race/&RaceBolgrifDescription=Filborgs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+Race/&RaceBolgrifDescription=Filborgs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, filborgs demonstrate formidable skills with weapons and nature magic.
 Race/&RaceBolgrifTitle=Firbolg

@@ -14,7 +14,6 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -351,7 +350,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}{EldritchCannon}HitPoints")
             .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPoints)
+            .SetAddConditionAmount(AttributeDefinitions.HitPoints)
             .AddToDB();
 
         var summoningAffinityEldritchCannon = FeatureDefinitionSummoningAffinityBuilder
@@ -371,8 +370,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .Create($"Condition{Name}{EldritchCannon}HitPoints")
                     .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, InventorClass.ClassName)
                     .SetFeatures(hpBonus, hpBonus, hpBonus, hpBonus, hpBonus)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, InventorClass.ClassName)
                     .AddToDB())
             .AddToDB();
 
@@ -439,6 +438,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetCasterEffectParameters(PowerMartialSpellbladeArcaneEscape)
                     .Build())
             .AddCustomSubFeatures(new CustomBehaviorRefundCannon())
             .AddToDB();
@@ -676,6 +676,20 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
+        var conditionFlamethrowerTiny15 = ConditionDefinitionBuilder
+            .Create(conditionFlamethrowerTiny, $"Condition{Name}{Flamethrower}Tiny15")
+            .SetParentCondition(conditionFlamethrowerTiny)
+            .AddFeatures(powerFortifiedPositionTiny)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
+        var conditionForceBallistaTiny15 = ConditionDefinitionBuilder
+            .Create(conditionForceBallistaTiny, $"Condition{Name}{ForceBallista}Tiny15")
+            .SetParentCondition(conditionForceBallistaTiny)
+            .AddFeatures(powerFortifiedPositionTiny)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
         var conditionProtectorTiny15 = ConditionDefinitionBuilder
             .Create(conditionProtectorTiny, $"Condition{Name}{Protector}Tiny15")
             .SetParentCondition(conditionProtectorTiny)
@@ -701,9 +715,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
             BuildProtectorPower(powerFortifiedPositionPool, conditionProtector, 15,
                 powerProtector, actionAffinityProtector, powerFortifiedPosition);
         var powerTinyFlamethrower15 =
-            BuildTinyFlamethrowerPower(powerFortifiedPositionPool, conditionFlamethrowerTiny, 15);
+            BuildTinyFlamethrowerPower(powerFortifiedPositionPool, conditionFlamethrowerTiny15, 15);
         var powerTinyForceBallista15 =
-            BuildTinyForceBallistaPower(powerFortifiedPositionPool, conditionForceBallistaTiny, 15);
+            BuildTinyForceBallistaPower(powerFortifiedPositionPool, conditionForceBallistaTiny15, 15);
         var powerTinyProtector15 =
             BuildTinyProtectorPower(powerFortifiedPositionPool, conditionProtectorTiny15, 15);
 
@@ -1047,28 +1061,21 @@ public sealed class InnovationArtillerist : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var gameLocationTargetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
-
-            if (gameLocationTargetingService == null || gameLocationCharacterService == null)
-            {
-                yield break;
-            }
-
+            var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var selectedTarget = action.ActionParams.TargetCharacters[0];
             var rulesetTarget = selectedTarget.RulesetCharacter;
-            var targets = gameLocationCharacterService.AllValidEntities
+            var targets = characterService.AllValidEntities
                 .Where(x =>
                     x != selectedTarget &&
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x.IsWithinRange(selectedTarget, 4))
                 .ToList();
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerEldritchDetonation, rulesetTarget);
-            var effectPower = implementationManagerService
+            var effectPower = implementationManager
                 .MyInstantiateEffectPower(rulesetTarget, usablePower, false);
 
             var actionParams = new CharacterActionParams(selectedTarget, Id.PowerNoCost)
@@ -1081,6 +1088,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+
+            yield break;
         }
     }
 

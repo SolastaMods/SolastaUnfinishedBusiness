@@ -1,5 +1,3 @@
-Condition/&ConditionRangerHellWalkerDammingStrikeDescription=Recibes 1d6 de daño por fuego en cada ronda.
-Condition/&ConditionRangerHellWalkerDammingStrikeTitle=Golpe condenatorio
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Recibes 1d6 de daño necrótico al final de cada uno de tus turnos, estás asustado y los ataques de fuego del marcador evitan tu resistencia.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Marcado por los Malditos
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Cuando golpeas por primera vez a una criatura con un ataque en tu turno, puedes obligarla a tener éxito en una tirada de salvación de Constitución contra la CD de tu hechizo o marcarla. Mientras una criatura está marcada de esta manera, sufre 1d6 de daño por fuego al comienzo de cada uno de sus turnos durante 1 minuto. Al final de cada uno de sus turnos, la criatura puede repetir esta tirada de salvación, finalizando los efectos si tiene éxito.

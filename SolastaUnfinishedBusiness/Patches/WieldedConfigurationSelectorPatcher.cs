@@ -58,7 +58,7 @@ public static class WieldedConfigurationSelectorPatcher
             RulesetCharacterHero hero,
             RulesetWieldedConfiguration configuration)
         {
-            if (warning == null
+            if (!warning
                 || warning.gameObject.activeSelf
                 || !SrdAndHouseRulesContext.IsHandCrossbowUseInvalid(slot.equipedItem, hero,
                     configuration.MainHandSlot.EquipedItem, configuration.OffHandSlot.EquipedItem))

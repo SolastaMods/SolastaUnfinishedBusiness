@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -63,6 +64,7 @@ internal static class OtherFeats
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
+        var weaponMasterGroup = BuildWeaponMaster(feats);
 
         // building this way to keep backward compatibility
         var featMonkShieldExpert = BuildFeatFromFightingStyle(MonkShieldExpert.ShieldExpertName);
@@ -123,7 +125,8 @@ internal static class OtherFeats
             featHealer,
             featInspiringLeader,
             FeatMageSlayer,
-            featSentinel);
+            featSentinel,
+            weaponMasterGroup);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
             featAstralArms,
@@ -264,7 +267,6 @@ internal static class OtherFeats
                             .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
                             .SetBonusMode(AddBonusMode.AbilityBonus)
                             .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetParticleEffectParameters(MagicWeapon)
                     .Build())
             .AddToDB();
@@ -459,6 +461,67 @@ internal static class OtherFeats
                     .AddToDB())
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Weapon Master
+
+    private static FeatDefinition BuildWeaponMaster(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatWeaponMaster";
+
+        var simpleOrMartialWeapons = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
+            .Where(x =>
+                x != WeaponTypeDefinitions.UnarmedStrikeType &&
+                x != CustomWeaponsContext.ThunderGauntletType &&
+                x != CustomWeaponsContext.LightningLauncherType);
+
+        foreach (var weaponTypeDefinition in simpleOrMartialWeapons)
+        {
+            var weaponTypeName = weaponTypeDefinition.Name;
+            var featureMonkWeaponSpecialization = FeatureDefinitionProficiencyBuilder
+                .Create($"Proficiency{Name}{weaponTypeName}")
+                .SetGuiPresentationNoContent(true)
+                .SetProficiencies(ProficiencyType.Weapon, weaponTypeName)
+                .AddToDB();
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocation{Name}{weaponTypeName}")
+                .SetGuiPresentation(
+                    weaponTypeDefinition.GuiPresentation.Title,
+                    weaponTypeDefinition.GuiPresentation.Description,
+                    CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
+                .SetPoolType(InvocationPoolTypeCustom.Pools.WeaponMasterChoice)
+                .SetGrantedFeature(featureMonkWeaponSpecialization)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
+                .AddToDB();
+        }
+
+        var invocationPool = CustomInvocationPoolDefinitionBuilder
+            .Create($"InvocationPool{Name}")
+            .SetGuiPresentationNoContent(true)
+            .Setup(InvocationPoolTypeCustom.Pools.WeaponMasterChoice, 4)
+            .AddToDB();
+
+        var weaponMasterStr = FeatDefinitionBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, invocationPool)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        var weaponMasterDex = FeatDefinitionBuilder
+            .Create($"{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, invocationPool)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(weaponMasterStr, weaponMasterDex);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupWeaponMaster", Name, weaponMasterStr, weaponMasterDex);
     }
 
     #endregion
@@ -996,10 +1059,7 @@ internal static class OtherFeats
             // ReSharper disable once ParameterTypeCanBeEnumerable.Local
             List<EffectForm> actualEffectForms)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (battleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1022,7 +1082,8 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var implementationManagerService =
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var damageType = effectForm.DamageForm.DamageType;
@@ -1035,17 +1096,16 @@ internal static class OtherFeats
                     StringParameter2 = "UseReactiveResistanceDescription".Formatted(
                         Category.Reaction, attacker.Name, damageTitle),
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManagerService
+                    RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", defender);
-
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1181,10 +1241,17 @@ internal static class OtherFeats
 
     private const string FeatMageSlayerName = "FeatMageSlayer";
 
+    private static readonly FeatureDefinitionPower PowerMageSlayerSaving = FeatureDefinitionPowerBuilder
+        .Create($"Power{FeatMageSlayerName}Saving")
+        .SetGuiPresentation(FeatMageSlayerName, Category.Feat, hidden: true)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .AddToDB();
+
     internal static readonly FeatDefinition FeatMageSlayer = FeatDefinitionBuilder
         .Create(FeatMageSlayerName)
         .SetGuiPresentation(FeatMageSlayerName, Category.Feat)
         .AddFeatures(
+            PowerMageSlayerSaving,
             FeatureDefinitionBuilder
                 .Create($"Feature{FeatMageSlayerName}")
                 .SetGuiPresentationNoContent(true)
@@ -1279,35 +1346,37 @@ internal static class OtherFeats
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var gameLocationActionManager =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
+            var rulesetDefender = defender.RulesetCharacter;
             var effectDescription = action.ActionParams.AttackMode?.EffectDescription ??
                                     action.ActionParams.RulesetEffect?.EffectDescription;
 
-            if (gameLocationActionManager == null ||
+            if (!actionManager ||
                 defender != helper ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
+                rulesetDefender.GetRemainingPowerUses(PowerMageSlayerSaving) == 0 ||
                 effectDescription?.savingThrowAbility is not
                     (AttributeDefinitions.Intelligence or AttributeDefinitions.Wisdom or AttributeDefinitions.Charisma))
             {
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            var usablePower = PowerProvider.Get(PowerMageSlayerSaving, rulesetDefender);
+            var reactionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
                 StringParameter =
-                    "Reaction/&CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name)
+                    "CustomReactionMageSlayerDescription".Formatted(Category.Reaction, attacker.Name),
+                UsablePower = usablePower
             };
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
-
             var reactionRequest = new ReactionRequestCustom("MageSlayer", reactionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1317,18 +1386,22 @@ internal static class OtherFeats
             action.RolledSaveThrow = true;
             action.saveOutcomeDelta = 0;
             action.saveOutcome = RollOutcome.Success;
+
+            rulesetDefender.UsePower(usablePower);
+            rulesetDefender.LogCharacterUsedPower(PowerMageSlayerSaving);
         }
 
         internal static IEnumerator HandleEnemyCastSpellWithin5Ft(
             GameLocationCharacter caster,
             GameLocationCharacter defender)
         {
-            var gameLocationActionService =
+            var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
+            var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1348,13 +1421,12 @@ internal static class OtherFeats
                 AttackMode = attackMode,
                 TargetCharacters = { caster }
             };
-
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("MageSlayer", actionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(caster, gameLocationActionService, count);
+            yield return battleManager.WaitForReactions(caster, actionManager, count);
         }
     }
 
@@ -1598,14 +1670,14 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPoisonousSkin, rulesetMe);
             var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetMe, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { target }

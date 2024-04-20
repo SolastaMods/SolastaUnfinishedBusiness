@@ -3,8 +3,10 @@
   "actionType": "Main",
   "forbiddenActions": [],
   "authorizedActions": [],
-  "restrictedActions": [],
-  "maxAttacksNumber": -1,
+  "restrictedActions": [
+    "AttackMain"
+  ],
+  "maxAttacksNumber": 1,
   "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

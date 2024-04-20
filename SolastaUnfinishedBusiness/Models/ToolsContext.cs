@@ -200,12 +200,10 @@ internal static class ToolsContext
             var tags = oldHero.Tags;
             var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
             var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
-            var gameLocationCharacterService =
+            var characterManager =
                 ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
-            var worldLocationEntityFactoryService =
-                ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
 
-            if (gameLocationCharacterService != null)
+            if (characterManager)
             {
                 var gameLocationCharacter = GameLocationCharacter.GetFromActor(oldHero);
 
@@ -240,14 +238,17 @@ internal static class ToolsContext
 
                 gameLocationCharacter.SetRuleset(newHero);
 
+                var worldLocationEntityFactoryService =
+                    ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
+
                 if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter,
                         out var worldLocationCharacter))
                 {
                     worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
                 }
 
-                gameLocationCharacterService.dirtyParty = true;
-                gameLocationCharacterService.RefreshAllCharacters();
+                characterManager.dirtyParty = true;
+                characterManager.RefreshAllCharacters();
             }
 
             Gui.GuiService.ShowMessage(
@@ -291,7 +292,7 @@ internal static class ToolsContext
                                          && item.UsableDeviceDescription.UsableDeviceTags.Contains("Scroll")
                                          && item.UsableDeviceDescription.DeviceFunctions.Any(function =>
                                              function.SpellDefinition == spellDefinition)))
-                             .Where(scrollDefinition => scrollDefinition != null))
+                             .Where(scrollDefinition => scrollDefinition))
                 {
                     var rulesetItem = new RulesetItem(scrollDefinition);
 

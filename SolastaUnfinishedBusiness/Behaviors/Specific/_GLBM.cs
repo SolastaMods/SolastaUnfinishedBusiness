@@ -102,7 +102,7 @@ internal static class GLBM
          * Support for wild-shaped characters
          */
 
-        if (featureDefinition == null)
+        if (!featureDefinition)
         {
             return;
         }
@@ -144,7 +144,7 @@ internal static class GLBM
                  * [CE] EDIT END
                  * ######################################
                  */
-                if (classDefinition != null)
+                if (classDefinition)
                 {
                     var classLevel = hero.ClassesAndLevels[classDefinition];
                     diceNumber = provider.GetDiceOfRank(classLevel);
@@ -253,7 +253,7 @@ internal static class GLBM
                 // Find the character class which triggered this
                 var classDefinition = hero!.FindClassHoldingFeature(featureDefinition);
 
-                if (classDefinition != null)
+                if (classDefinition)
                 {
                     var classLevel = hero.ClassesAndLevels[classDefinition];
                     bonus += provider.GetDiceOfRank(classLevel);
@@ -573,7 +573,7 @@ internal static class GLBM
                     foreach (var definitionAncestry in FeatureDefinitionAncestry.FeaturesToBrowse
                                  .Select(definition => definition as FeatureDefinitionAncestry)
                                  .Where(definitionAncestry =>
-                                     definitionAncestry != null &&
+                                     definitionAncestry &&
                                      definitionAncestry.Type == provider.AncestryTypeForDamageType &&
                                      !string.IsNullOrEmpty(definitionAncestry.DamageType)))
                     {
@@ -627,7 +627,7 @@ internal static class GLBM
                 {
                     // This additional damage will override the saving throw for the whole attack
                     newEffectForm.SavingThrowAffinity = provider.DamageSaveAffinity;
-                    // var rulesetImplementationService =
+                    // var implementationService =
                     //     ServiceRepository.GetService<IRulesetImplementationService>();
                     // ReSharper disable once InconsistentNaming
                     var saveDC = ComputeSavingThrowDC(attacker, provider);
@@ -687,7 +687,7 @@ internal static class GLBM
                 {
                     // This additional damage will override the saving throw for the whole attack
                     newEffectForm.SavingThrowAffinity = conditionOperation.SaveAffinity;
-                    // var rulesetImplementationService =
+                    // var implementationService =
                     //     ServiceRepository.GetService<IRulesetImplementationService>();
                     // ReSharper disable once InconsistentNaming
                     var saveDC = ComputeSavingThrowDC(attacker, provider);
@@ -892,7 +892,7 @@ internal static class GLBM
                 }
             }
 
-            if (additionalDamage != null
+            if (additionalDamage
                 && additionalDamage.OtherSimilarAdditionalDamages is { Count: > 0 }
                 && attacker.UsedSpecialFeatures.Count > 0)
             {
@@ -1105,7 +1105,7 @@ internal static class GLBM
                             break;
                         }
 
-                        if (provider.RequiredTargetCondition == null)
+                        if (!provider.RequiredTargetCondition)
                         {
                             Trace.LogError(
                                 "Provider trigger condition is TargetHasCondition, but no condition given");
@@ -1127,7 +1127,7 @@ internal static class GLBM
                             break;
                         }
 
-                        if (provider.RequiredTargetCondition == null)
+                        if (!provider.RequiredTargetCondition)
                         {
                             Trace.LogError(
                                 "Provider trigger condition is TargetDoesNotHaveCondition, but no condition given");
@@ -1230,7 +1230,7 @@ internal static class GLBM
 
                         if (attacker.LocationPosition.y > defender.LocationPosition.y)
                         {
-                            if (itemDefinition != null && itemDefinition.IsWeapon)
+                            if (itemDefinition && itemDefinition.IsWeapon)
                             {
                                 var weaponTypeDefinition =
                                     DatabaseHelper.GetDefinition<WeaponTypeDefinition>(itemDefinition
@@ -1271,7 +1271,7 @@ internal static class GLBM
                     case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage
                         when (firstTarget || !provider.FirstTargetOnly) &&
                              rulesetEffect is RulesetEffectPower power &&
-                             power.PowerDefinition.SurrogateToSpell != null &&
+                             power.PowerDefinition.SurrogateToSpell &&
                              power.PowerDefinition.SurrogateToSpell.SchoolOfMagic ==
                              RuleDefinitions.SchoolEvocation:
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry
@@ -1288,7 +1288,7 @@ internal static class GLBM
                              rulesetEffect is RulesetEffectSpell spell:
                     {
                         // This check is for Warlock / invocation / agonizing blast
-                        if (provider.RequiredSpecificSpell == null || provider.RequiredSpecificSpell ==
+                        if (!provider.RequiredSpecificSpell || provider.RequiredSpecificSpell ==
                             spell.SpellDefinition)
                         {
                             validTrigger = true;
@@ -1344,12 +1344,12 @@ internal static class GLBM
 
             //Commented-out original code. Actual check moved up, to make sure Reaction popups (like SpendSpellSlot) won't be shown if context is not valid.
             // // Check required properties for physical attacks if needed
-            // IRulesetImplementationService rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            // IRulesetImplementationService implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             //
             // bool validProperty = true;
             // if (attackMode != null && validTrigger && provider.RequiredProperty != RuleDefinitions.RestrictedContextRequiredProperty.None)
             // {
-            //     validProperty = rulesetImplementationService.IsValidContextForRestrictedContextProvider(provider, attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode, rulesetEffect);
+            //     validProperty = implementationService.IsValidContextForRestrictedContextProvider(provider, attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode, rulesetEffect);
             // }
 
             /*

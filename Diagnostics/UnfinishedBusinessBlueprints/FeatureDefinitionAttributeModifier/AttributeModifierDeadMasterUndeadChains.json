@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "HitPoints",
   "modifierOperation": "AddConditionAmount",
-  "modifierValue": 0,
+  "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
   "minimum1": false,

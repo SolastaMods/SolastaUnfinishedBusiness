@@ -228,14 +228,14 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            var implementationManagerService =
+            var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerDebilitatingStrike, rulesetAttacker);
             // must be spend power otherwise it'll trigger after cunning strike
             var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower)
             {
-                RulesetEffect = implementationManagerService
+                RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower
             };
@@ -307,11 +307,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionManager == null ||
-                !helper.IsOppositeSide(defender.Side) ||
+            if (!helper.IsOppositeSide(defender.Side) ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 helper.IsMyTurn() ||
@@ -347,17 +343,18 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 yield break;
             }
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var reactionParams = new CharacterActionParams(
                 helper,
                 ActionDefinitions.Id.AttackOpportunity,
                 helper.RulesetCharacter.AttackModes[0],
                 defender,
                 actionModifier) { StringParameter2 = "SeizeTheChance" };
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactForOpportunityAttack(reactionParams);
+            actionService.ReactForOpportunityAttack(reactionParams);
 
-            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 }

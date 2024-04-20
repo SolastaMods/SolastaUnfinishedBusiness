@@ -1,5 +1,3 @@
-Condition/&ConditionRangerHellWalkerDammingStrikeDescription=Vous subissez 1d6 dégâts de feu à chaque round.
-Condition/&ConditionRangerHellWalkerDammingStrikeTitle=Frappe accablante
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Vous subissez 1d6 dégâts nécrotiques à la fin de chacun de vos tours, vous êtes effrayé et les attaques de feu du marqueur contournent votre résistance.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Marqué par les Damnés
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Lorsque vous touchez pour la première fois une créature avec une attaque à votre tour, vous pouvez la forcer à réussir un jet de sauvegarde de Constitution contre le DD de votre sort ou la faire marquer. Tant qu'une créature est marquée de cette manière, elle subit 1d6 dégâts de feu au début de chacun de ses tours pendant 1 minute. À la fin de chacun de ses tours, la créature peut répéter ce jet de sauvegarde, mettant fin aux effets en cas de réussite.

@@ -12,7 +12,8 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatureFeatMageSlayer:6da839a2-0308-5e81-a702-ac7ecd068dd3"
+    "Definition:FeatureFeatMageSlayer:6da839a2-0308-5e81-a702-ac7ecd068dd3",
+    "Definition:PowerFeatMageSlayerSaving:41511e64-3106-5c83-8fe3-a0aca351e2e7"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

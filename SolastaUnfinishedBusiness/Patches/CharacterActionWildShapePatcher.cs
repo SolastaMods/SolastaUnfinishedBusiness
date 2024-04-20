@@ -26,12 +26,6 @@ public class CharacterActionWildShapePatcher
 
             //PATCH: changes Wildshape action to use power as NoCost so it doesn't consume main action twice and break action switching
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            if (actionService == null)
-            {
-                yield break;
-            }
-
             var newParams = __instance.ActionParams.Clone();
 
             newParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.PowerNoCost];

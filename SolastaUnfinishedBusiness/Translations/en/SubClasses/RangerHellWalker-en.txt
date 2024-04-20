@@ -1,5 +1,3 @@
-Condition/&ConditionRangerHellWalkerDammingStrikeDescription=You take 1d6 fire damage every round.
-Condition/&ConditionRangerHellWalkerDammingStrikeTitle=Damning Strike
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=You take 1d6 necrotic damage at the end of each of your turns, you are frightened, and fire attacks from the marker bypass your resistance.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Marked by the Dammed
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=When you first hit a creature with an attack on your turn, you can force it to succeed on a Constitution saving throw against your spell DC or have it marked. While a creature is marked this way, it takes 1d6 fire damage at the start of each of its turns for 1 minute. At the end of each of its turns, the creature can repeat this saving throw, ending the effects on a success.
