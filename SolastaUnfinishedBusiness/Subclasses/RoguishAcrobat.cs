@@ -70,7 +70,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .Create($"MovementAffinity{Name}SwiftWind")
             .SetGuiPresentationNoContent(true)
             .SetClimbing(true, true)
-            .SetEnhancedJump(2)
+            .SetAdditionalJumpCells(2)
             .AddCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();
 
@@ -119,7 +119,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetAdditionalFallThreshold(4)
             .SetClimbing(canMoveOnWalls: true)
-            .SetEnhancedJump(3)
+            .SetAdditionalJumpCells(3)
             .SetImmunities(difficultTerrainImmunity: true)
             .AddCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();

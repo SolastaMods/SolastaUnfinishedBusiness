@@ -556,7 +556,7 @@ internal static class OtherFeats
         var feature = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetEnhancedJump(2)
+            .SetAdditionalJumpCells(2)
             .SetClimbing(true)
             .AddToDB();
 
