@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -248,7 +249,8 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         {
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (action.ActionType == ActionType.Reaction ||
+            if ((attackMode is { ActionType: ActionType.Reaction } &&
+                 !attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag)) ||
                 rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetCharacter.HasConditionOfType(ConditionWarDance) ||
                 !ValidatorsWeapon.IsMelee(attackMode))

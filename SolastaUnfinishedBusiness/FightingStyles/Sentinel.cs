@@ -52,12 +52,8 @@ internal sealed class Sentinel : AbstractFightingStyle
                 yield break;
             }
 
-            if (attackMode is not { ActionType: ActionDefinitions.ActionType.Reaction })
-            {
-                yield break;
-            }
-
-            if (attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
+            if (attackMode is not { ActionType: ActionDefinitions.ActionType.Reaction } ||
+                attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
             {
                 yield break;
             }
