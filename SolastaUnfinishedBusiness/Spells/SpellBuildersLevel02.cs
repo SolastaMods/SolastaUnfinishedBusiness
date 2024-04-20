@@ -434,6 +434,7 @@ internal static partial class SpellBuilders
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -446,13 +447,14 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeNecrotic, 2, DieType.D6)
                             .Build())
-                    .SetParticleEffectParameters(VampiricTouch)
+                    .SetImpactEffectParameters(Disintegrate)
+                    .SetEffectEffectParameters(Disintegrate)
                     .Build())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ColorBurst, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.WitherAndBloom, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetSpellLevel(2)
             .SetCastingTime(ActivationTime.Action)
@@ -465,6 +467,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetCasterEffectParameters(VampiricTouch)
                     .Build())
             .AddToDB();
 
@@ -584,6 +587,7 @@ internal static partial class SpellBuilders
                     break;
                 }
 
+                EffectHelpers.StartVisualEffect(actingCharacter, target, CureWounds, EffectHelpers.EffectType.Effect);
                 rulesetTarget.RollHitDie();
             }
 
