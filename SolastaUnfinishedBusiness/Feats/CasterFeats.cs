@@ -21,6 +21,18 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class CasterFeats
 {
+    internal static readonly Dictionary<string, SpellDefinition[]> MagicTouchedData = new()
+    {
+        { "AegisTouched", [ShieldOfFaith, ProtectionFromEvilGood, ProtectionFromPoison] },
+        { "CelestialTouched", [HealingWord, CureWounds, LesserRestoration] },
+        { "FlameTouched", [BurningHands, HellishRebuke, ScorchingRay] },
+        { "IridescentTouched", [ColorSpray, FaerieFire, SpellsContext.ColorBurst] },
+        { "PeregrinationTouched", [Longstrider, ExpeditiousRetreat, SpiderClimb] },
+        { "RetinueTouched", [Bless, Heroism, EnhanceAbility] },
+        { "ShadowTouched", [Invisibility, FalseLife, InflictWounds] },
+        { "VerdantTouched", [Barkskin, Entangle, Goodberry] }
+    };
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var groups = new List<FeatDefinition>();
@@ -113,21 +125,13 @@ internal static class CasterFeats
 
         #endregion
 
-        #region Magic Touched
+        #region Touched Magic
 
-        var magicTouchedData = new Dictionary<string, SpellDefinition[]>
-        {
-            { "AegisTouched", [ShieldOfFaith, ProtectionFromEvilGood, ProtectionFromPoison] },
-            { "CelestialTouched", [HealingWord, CureWounds, LesserRestoration] },
-            { "FlameTouched", [BurningHands, HellishRebuke, ScorchingRay] },
-            { "IridescentTouched", [ColorSpray, FaerieFire, SpellsContext.ColorBurst] },
-            { "PeregrinationTouched", [Longstrider, ExpeditiousRetreat, SpiderClimb] },
-            { "RetinueTouched", [Bless, Heroism, EnhanceAbility] },
-            { "ShadowTouched", [Invisibility, FalseLife, InflictWounds] },
-            { "VerdantTouched", [Barkskin, Entangle, Goodberry] }
-        };
+        const string TOUCHED_MAGIC = "TouchedMagic";
 
-        foreach (var kvp in magicTouchedData)
+        var featGroups = new List<FeatDefinition>();
+
+        foreach (var kvp in MagicTouchedData)
         {
             var tag = kvp.Key;
 
@@ -147,26 +151,27 @@ internal static class CasterFeats
                     .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri)
                     .AddFeatures(MakeSpellFeatureAndInvocations(spells, tag, AttributeDefinitions.Intelligence))
                     .SetGuiPresentation(Category.Feat)
-                    .SetFeatFamily(tag)
+                    .SetFeatFamily(TOUCHED_MAGIC)
                     .AddToDB(),
                 FeatDefinitionBuilder
                     .Create($"Feat{tag}Wis")
                     .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike)
                     .AddFeatures(MakeSpellFeatureAndInvocations(spells, tag, AttributeDefinitions.Wisdom))
                     .SetGuiPresentation(Category.Feat)
-                    .SetFeatFamily(tag)
+                    .SetFeatFamily(TOUCHED_MAGIC)
                     .AddToDB(),
                 FeatDefinitionBuilder
                     .Create($"Feat{tag}Cha")
                     .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta)
                     .AddFeatures(MakeSpellFeatureAndInvocations(spells, tag, AttributeDefinitions.Charisma))
                     .SetGuiPresentation(Category.Feat)
-                    .SetFeatFamily(tag)
+                    .SetFeatFamily(TOUCHED_MAGIC)
                     .AddToDB());
 
-            groups.Add(GroupFeats.MakeGroup($"FeatGroup{tag}", tag, groupFeats));
-            feats.AddRange(groupFeats);
+            featGroups.Add(GroupFeats.MakeGroup($"FeatGroup{tag}", TOUCHED_MAGIC, groupFeats));
         }
+
+        groups.Add(GroupFeats.MakeGroup("FeatGroupTouchedMagic", TOUCHED_MAGIC, featGroups));
 
         #endregion
 

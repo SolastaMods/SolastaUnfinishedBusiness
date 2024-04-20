@@ -1229,6 +1229,7 @@ FeatGroupSquatNimbleness	FeatDefinitionWithPrerequisites	FeatDefinition	cb268495
 FeatGroupSupportCombat	FeatDefinition	FeatDefinition	1db5b688-e646-5e50-bdb0-1187118afb67
 FeatGroupTelekinetic	FeatDefinition	FeatDefinition	f0f267c0-c1e7-57f6-8151-e16e800c37a9
 FeatGroupTools	FeatDefinition	FeatDefinition	533f04c1-ef50-5a40-b34e-a9f1c0a59db2
+FeatGroupTouchedMagic	FeatDefinition	FeatDefinition	05638ca7-0a7c-5827-aed2-33771390c40a
 FeatGroupToxicologist	FeatDefinition	FeatDefinition	2dc87af9-11e7-5ce7-a6d3-6a83c84d6627
 FeatGroupTwoHandedCombat	FeatDefinition	FeatDefinition	00b1dcb6-8c27-5c86-aa90-c233a56732bf
 FeatGroupTwoWeaponCombat	FeatDefinition	FeatDefinition	62597d02-7727-525e-ac88-4d150234369c
