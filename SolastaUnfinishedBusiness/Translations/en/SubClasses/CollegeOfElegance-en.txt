@@ -1,5 +1,6 @@
 Action/&AmazingDisplayToggleDescription=Activate/deactivate Amazing Display
 Action/&AmazingDisplayToggleTitle=Amazing Display
+Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Amazed
 Feature/&DieRollModifierCollegeOfEleganceGraceDescription=When you make a Charisma (Performance) or Dexterity (Acrobatics) check, you can treat a d20 roll of 9 or lower as a 10.
 Feature/&DieRollModifierCollegeOfEleganceGraceTitle=Grace
 Feature/&FeatureCollegeOfEleganceEvasiveFootworkDescription=Whenever an attack is about to hit you, and you are wearing no armor and not wielding a shield, you can use your reaction to add your Bardic Inspiration die to your Armor Class for that attack, potentially causing it to miss. 
@@ -23,4 +24,3 @@ Reaction/&CustomReactionEvasiveFootworkReactTitle=Defend
 Reaction/&CustomReactionEvasiveFootworkTitle=Evasive Footwork
 Subclass/&CollegeOfEleganceDescription=The College of Elegance is the home of bards who mastered the art of bodily motion. They see exquisite beauty in dancing and expressing oneself through mesmerizing gestures, wearing flashy outfits and oftentimes looking to be the center of attention. In combat, these bards weave elegant steps seamlessly into battle maneuvers, pairing them with a weapon of choice and creating an unforgettable spectacle for friends and foes alike. 
 Subclass/&CollegeOfEleganceTitle=College of Elegance
-Condition/&ConditionCollegeOfEleganceAmazingDisplayTitle=Amazed
