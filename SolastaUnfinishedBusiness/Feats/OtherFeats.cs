@@ -60,6 +60,7 @@ internal static class OtherFeats
         var featVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var featWarCaster = BuildWarcaster();
 
+        var athleteGroup = BuildAthlete(feats);
         var chefGroup = BuildChef(feats);
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
@@ -97,6 +98,7 @@ internal static class OtherFeats
             featWarCaster);
 
         GroupFeats.FeatGroupBodyResilience.AddFeats(
+            athleteGroup,
             featTough,
             featFrostAdaptation);
 
@@ -538,6 +540,44 @@ internal static class OtherFeats
 
         internal string Name { get; }
         internal bool ForceFixedList { get; }
+    }
+
+    #endregion
+
+    #region Athlete
+
+    internal static FeatDefinition FeatAthleteStr { get; private set; }
+    internal static FeatDefinition FeatAthleteDex { get; private set; }
+
+    private static FeatDefinition BuildAthlete(List<FeatDefinition> feats)
+    {
+        const string Name = "Athlete";
+
+        var feature = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetEnhancedJump(2)
+            .SetClimbing(true)
+            .AddToDB();
+
+        FeatAthleteStr = FeatDefinitionBuilder
+            .Create($"Feat{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, feature)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        FeatAthleteDex = FeatDefinitionBuilder
+            .Create($"Feat{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, feature)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(FeatAthleteStr, FeatAthleteDex);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupAthlete", Name, FeatAthleteStr, FeatAthleteDex);
     }
 
     #endregion
