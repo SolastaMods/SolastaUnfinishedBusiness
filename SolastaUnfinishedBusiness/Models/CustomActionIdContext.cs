@@ -27,6 +27,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.CompellingStrikeToggle,
         (Id)ExtraActionId.CoordinatedAssaultToggle,
         (Id)ExtraActionId.CunningStrikeToggle,
+        (Id)ExtraActionId.DestructiveWrathToggle,
         (Id)ExtraActionId.DragonHideToggle,
         (Id)ExtraActionId.DyingLightToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
@@ -39,6 +40,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.OrcishFuryToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
+        (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,
         (Id)ExtraActionId.SupremeWillToggle
     ];
@@ -273,6 +275,13 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
+            .Create(MetamagicToggle, "DestructiveWrathToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.DestructiveWrathToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
             .Create(MetamagicToggle, "DragonHideToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
@@ -326,6 +335,13 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.PaladinSmiteToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "ThunderousStrikeToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.ThunderousStrikeToggle)
             .AddToDB();
 
         ActionDefinitionBuilder

@@ -62,6 +62,8 @@ internal enum ExtraActionId
     ProxyPetalStorm,
     ProxyPactWeapon,
     ProxyPactWeaponFree,
+    DestructiveWrathToggle,
+    ThunderousStrikeToggle,
     PrioritizeAction = 10000
 }
 
