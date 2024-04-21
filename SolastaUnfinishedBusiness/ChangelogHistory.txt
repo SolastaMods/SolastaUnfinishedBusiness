@@ -1,3 +1,17 @@
+1.5.97.6:
+
+- added Athlete feat
+- added Nature Domain subclass
+- added Primordial Ward and Wither and Bloom spells
+- fixed banishment behavior to only allow Banishment and Banishing Smite spells to kill extra planar
+- fixed crafting recipes ingredient list
+- fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
+- fixed Orcish Aggression feat family tag
+- fixed Roguish Acrobat swift as wind/fluid motions features jump distance
+- fixed Step Back behavior to interrupt on any ranged attack
+- fixed Witch Bolt spell interaction with auto spell powers
+- removed College of War Dancer offering from mod UI [sorry Nd, way OP]
+
 1.5.97.5:
 
 - added Aura of Vitality, Mordenkainen's Faithful Hound, and Witch Bolt spells

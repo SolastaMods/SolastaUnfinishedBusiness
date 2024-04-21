@@ -335,7 +335,7 @@
     "description": "Feature/&PowerDomainNatureCharmAnimalsAndPlantsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "b56f515d-cc97-5682-961f-e704c8cbfa53",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

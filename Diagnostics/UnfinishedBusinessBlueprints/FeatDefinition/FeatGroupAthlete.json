@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupAthleteTitle",
-    "description": "You have undergone extensive physical training to gain the following benefits:\n• Increase your Strength or Dexterity score by 1, to a maximum of 20.\n• When you are prone, standing up doesn't cost you movement.\n• Climbing doesn't cost you extra movement.\n• You gain skill or proficiency in Athletics.",
+    "description": "You have undergone extensive physical training to gain the following benefits:\n• Increase your Strength or Dexterity score by 1, to a maximum of 20.\n• When you are prone, standing up doesn't cost you movement.\n• Climbing doesn't cost you extra movement.\n• You gain proficiency with Athletics skill or expertise if you are already proficient.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

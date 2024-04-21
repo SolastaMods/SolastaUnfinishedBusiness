@@ -29,7 +29,7 @@ You have undergone extensive physical training to gain the following benefits:
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
 • When you are prone, standing up doesn't cost you movement.
 • Climbing doesn't cost you extra movement.
-• You gain skill or proficiency in Athletics.
+• You gain proficiency with Athletics skill or expertise if you are already proficient.
 
 # 7. - Awaken the Beast
 
