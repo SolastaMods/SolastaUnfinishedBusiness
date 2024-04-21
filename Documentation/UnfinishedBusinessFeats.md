@@ -27,9 +27,9 @@ When you make an unarmed strike on your turn, your reach for it is 10 ft. Other 
 
 You have undergone extensive physical training to gain the following benefits:
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
-• When you are prone, standing up uses only 5 feet of your movement.
+• When you are prone, standing up doesn't cost you movement.
 • Climbing doesn't cost you extra movement.
-• You can jump an additional 10 feet.
+• You gain skill or proficiency in Athletics.
 
 # 7. - Awaken the Beast
 

@@ -553,24 +553,29 @@ internal static class OtherFeats
     {
         const string Name = "Athlete";
 
-        var feature = FeatureDefinitionMovementAffinityBuilder
+        var movementAffinity = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetAdditionalJumpCells(2)
             .SetClimbing(true)
             .AddToDB();
 
+        var proficiency = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Athletics)
+            .AddToDB();
+        
         FeatAthleteStr = FeatDefinitionBuilder
             .Create($"Feat{Name}Str")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar, feature)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, movementAffinity, proficiency)
             .SetFeatFamily(Name)
             .AddToDB();
 
         FeatAthleteDex = FeatDefinitionBuilder
             .Create($"Feat{Name}Dex")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, feature)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, movementAffinity, proficiency)
             .SetFeatFamily(Name)
             .AddToDB();
 
