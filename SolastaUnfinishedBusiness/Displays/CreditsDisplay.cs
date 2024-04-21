@@ -58,11 +58,11 @@ internal static class CreditsDisplay
 
         ("Haxermn", "spells, Domain Defiler, Domain Forge, Oath of Ancients, Oath of Hatred, Way of Dragon"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Grey Dwarf, Kobold, Sorcerous Divine Soul"),
-        ("Nd", "College of Wardancer, Roguish Opportunist"),
         ("tivie", "Circle of the Moon, Path of the Totem Warrior"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
         ("Kloranger", "feats, spells, Wizard Graviturgist"),
         ("magicskysword", "chinese translations, asian languages support, Oath of Demon Hunter"),
+        ("Nd", "Roguish Opportunist"),
         ("DreadMaker", "Circle of the Forest Guardian"),
         ("RedOrca", "Path of the Light"),
         ("HIEROT", "Patron Eldritch Surge"),

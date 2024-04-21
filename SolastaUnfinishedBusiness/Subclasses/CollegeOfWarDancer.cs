@@ -19,7 +19,7 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 [UsedImplicitly]
-public sealed class CollegeOfWarDancer : AbstractSubclass
+public sealed class CollegeOfWarDancer // : AbstractSubclass
 {
     private const string Name = "CollegeOfWarDancer";
 
@@ -119,7 +119,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             .AddCustomSubFeatures(new FocusedWarDance())
             .AddToDB();
 
-        Subclass = CharacterSubclassDefinitionBuilder
+        _ = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CollegeOfWarDancer, 256))
             .AddFeaturesAtLevel(3,
@@ -129,6 +129,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             .AddToDB();
     }
 
+#if false
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Bard;
 
     internal override CharacterSubclassDefinition Subclass { get; }
@@ -137,7 +138,8 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 
     internal override DeityDefinition DeityDefinition => null;
-
+#endif
+    
     private static int GetMomentumStacks(RulesetActor character)
     {
         return character?.ConditionsByCategory

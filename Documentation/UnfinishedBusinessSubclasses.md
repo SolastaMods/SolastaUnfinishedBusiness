@@ -884,46 +884,6 @@ You can use your arcane powers to shield yourself as a reaction. This gives you 
 
 
 
-## 7. College of War Dancer
-
-College of War Dancer bards are master the art of fighting who considers the battlefield is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
-
-
-### Level 3
-
-* Armor and Weapons
-
-You can wear Light Armor, Medium Armor and Shield and also gain proficiency with martial weapons.
-
-* Dance Of War
-
-You gain Bardic Inspiration and for the next minute add your Charisma modifier to attack rolls. You are immune to difficult terrain, your speed is increase by 15ft, and you can switch your weapon freely.
-Each successful attack grants Momentum - a buff that decreases attack rolls, but grants bonus to damage depending on weapon weight:
-•Light: attack: -2 per Momentum, damage: 1d6 per Momentum
-•Heavy: attack: -4 per Momentum, damage: 2d10 per Momentum
-•Other: attack: -3 per Momentum, damage: 1d8 + 1d8 per Momentum
-This extra damage is not multiplied on critical hits. Momentum is lost on your turn end. When you take damage you roll concentration check and on failure Dance Of War and all Momentum is lost, as well as all extra attacks from Improved War Dance.
-
-* War Casting
-
-Advantage on concentration checks, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
-
-
-### Level 6
-
-* Improved War Dance
-
-While Dance Of War is active you gain extra main hand attack after all main actions are spent. Each hit with that extra attack grants another extra attack, up to half your proficiency bonus (rounded down) extra attacks in total. These extra attacks can only be melee.
-
-
-### Level 14
-
-* Focused War Dance
-
-Starting at 14th level, you can use your Charisma attribute on concentration saving throws during a war dance.
-
-
-
 # Cleric
 
 ## 1. Defiler
@@ -1132,7 +1092,7 @@ When you or a creature within 30 feet of you takes acid, cold, fire, lightning, 
 
 * Divine Strike
 
-You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 cold, fire, or lightning damage (your choice) to the target. When you reach 14th level, the extra damage increases to 2d8.
+You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra random 1d8 cold, fire, or lightning damage to the target. When you reach 14th level, the extra damage increases to 2d8.
 
 
 ### Level 10
