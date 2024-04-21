@@ -373,7 +373,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.SteelWhirlwind, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.SteelWhirlwind, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.Action)
@@ -461,6 +461,8 @@ internal static partial class SpellBuilders
             .Create(ConditionBanished, $"Condition{NAME}Enemy")
             .SetSpecialDuration(DurationType.Minute, 1)
             .AddToDB();
+
+        conditionBanishingSmiteEnemy.permanentlyRemovedIfExtraPlanar = true;
 
         var additionalDamageBanishingSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
@@ -674,7 +676,7 @@ internal static partial class SpellBuilders
             .SetFeatures()
             .AddToDB();
 
-        var sprite = Sprites.GetSprite(Name, Resources.Telekinesis, 128, 128);
+        var sprite = Sprites.GetSprite(Name, Resources.Telekinesis, 128);
 
         var powerTelekinesis = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")

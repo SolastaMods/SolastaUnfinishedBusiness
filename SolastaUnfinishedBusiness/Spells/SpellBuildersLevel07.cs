@@ -17,7 +17,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ReverseGravity, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ReverseGravity, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(7)
             .SetCastingTime(ActivationTime.Action)

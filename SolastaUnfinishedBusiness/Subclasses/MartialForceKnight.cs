@@ -430,7 +430,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         const string SpellName = "Telekinesis";
 
-        var sprite = Sprites.GetSprite(SpellName, Resources.Telekinesis, 128, 128);
+        var sprite = Sprites.GetSprite(SpellName, Resources.Telekinesis, 128);
 
         var powerTelekinesis = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SpellTelekineticGrasp")

@@ -382,7 +382,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CloudOfDaggers, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CloudOfDaggers, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(2)
             .SetCastingTime(ActivationTime.Action)

@@ -331,7 +331,7 @@ internal static class ItemCraftingMerchantContext
             "CELivewoodClub",
             Club,
             FocusType.Druidic,
-            Sprites.GetSprite("LivewoodClub", Resources.LivewoodClub, 128, 128));
+            Sprites.GetSprite("LivewoodClub", Resources.LivewoodClub, 128));
 
         internal static readonly ItemDefinition LivewoodStaff = CreateAndAddToDB(
             "CELivewoodStaff",

@@ -30,7 +30,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AirBlast, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AirBlast, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
@@ -73,7 +73,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BladeWard, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BladeWard, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
@@ -114,7 +114,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BurstOfRadiance, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BurstOfRadiance, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
@@ -155,7 +155,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.EnduringSting, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.EnduringSting, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
@@ -230,7 +230,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MindSpike, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MindSpike, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
@@ -309,7 +309,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SwordStorm, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SwordStorm, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
@@ -530,7 +530,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create("SunlightBlade")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SunlightBlade", Resources.SunlightBlade, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SunlightBlade", Resources.SunlightBlade, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
@@ -571,7 +571,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AcidClaws, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AcidClaws, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
@@ -821,7 +821,7 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create("ResonatingStrike")
             .SetGuiPresentation(Category.Spell,
-                Sprites.GetSprite("ResonatingStrike", Resources.BurningBlade, 128, 128))
+                Sprites.GetSprite("ResonatingStrike", Resources.BurningBlade, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)

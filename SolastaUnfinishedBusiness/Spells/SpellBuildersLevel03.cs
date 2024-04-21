@@ -101,7 +101,7 @@ internal static partial class SpellBuilders
     {
         const string NAME = "WinterBreath";
 
-        var spriteReference = Sprites.GetSprite(NAME, Resources.WinterBreath, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.WinterBreath, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -269,7 +269,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.AdderFangs, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.AdderFangs, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -741,7 +741,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.ThunderStep, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.ThunderStep, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -885,7 +885,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.FlameArrows, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.FlameArrows, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.BonusAction)
@@ -997,7 +997,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.LightningArrow, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.LightningArrow, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.BonusAction)
@@ -1216,7 +1216,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CorruptingBolt, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CorruptingBolt, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -1338,7 +1338,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.VitalityTransfer, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.VitalityTransfer, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -1421,7 +1421,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.HungerOfTheVoid, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.HungerOfTheVoid, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)

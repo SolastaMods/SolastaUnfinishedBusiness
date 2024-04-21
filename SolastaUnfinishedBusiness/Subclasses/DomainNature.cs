@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -91,7 +92,8 @@ public sealed class DomainNature : AbstractSubclass
 
         var powerCharmAnimalsAndPlants = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}CharmAnimalsAndPlants")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("CharmAnimalsAndPlants", Resources.PowerCharmAnimalsAndPlants, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -163,6 +165,8 @@ public sealed class DomainNature : AbstractSubclass
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDampenElements))
+                    .SetCasterEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
+                    .SetEffectEffectParameters(PowerPaladinNeutralizePoison)
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();

@@ -346,7 +346,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D10))
                     .SetParticleEffectParameters(ShadowDagger)
                     .SetCasterEffectParameters(PowerDomainLawWordOfLaw)
                     .Build())
@@ -361,7 +361,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D10))
                     .SetParticleEffectParameters(ShadowDagger)
                     .SetCasterEffectParameters(PowerDomainLawWordOfLaw)
                     .Build())
@@ -722,7 +722,9 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class CustomBehaviorPrimordialWard(SpellDefinition spellPrimordialWard)
+    private sealed class CustomBehaviorPrimordialWard(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellPrimordialWard)
         : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(

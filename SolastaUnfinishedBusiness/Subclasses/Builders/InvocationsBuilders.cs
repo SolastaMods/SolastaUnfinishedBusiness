@@ -639,7 +639,7 @@ internal static class InvocationsBuilders
     {
         const string Name = "InvocationPerniciousCloak";
 
-        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerPerniciousCloak, 128, 128);
+        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerPerniciousCloak, 128);
 
         var abilityCheckAffinityPerniciousCloak = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}")
@@ -1472,7 +1472,7 @@ internal static class InvocationsBuilders
     {
         const string Name = "InvocationTombOfFrost";
 
-        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerTombOfFrost, 128, 128);
+        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerTombOfFrost, 128);
 
         var conditionTombOfFrost = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Name}")
