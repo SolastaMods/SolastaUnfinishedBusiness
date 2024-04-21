@@ -1084,6 +1084,72 @@ Your blessed affinity with fire and metal becomes more powerful. While wearing a
 
 
 
+## 3. Nature
+
+Natures worship patrons of death, corruption, and blight, seeking power and corruption for their own ends: to please their gods, or for more selfish reasons.
+
+
+### Level 1
+
+* Acolyte of Nature
+
+
+• You learn one cantrip of your choice from the druid spell list. This cantrip counts as a cleric cantrip for you, but it doesn't count against the number of cleric cantrips you know.
+• You gain proficiency in one of the following skills of your choice: Animal Handling, Nature, or Survival.
+• You gain proficiency with heavy armor.
+
+* Expanded Spells
+
+
+	I	Animal Friendship, Entangle
+
+	II	Barkskin, Spike Growth
+
+	III	Conjure Animal, Wind Wall
+
+	IV	Dominate Beast, Freedom of Movement
+
+	V	Insect Plague, Contagion
+
+
+
+
+### Level 2
+
+* Channel Divinity: Charm Animals and Plants
+
+As an action, you present your holy symbol and invoke the name of your deity. Each beast or plant creature that can see you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is charmed by you for 1 minute or until it takes damage. While it is charmed by you, it is friendly to you and other creatures you designate.
+
+
+### Level 6
+
+* Dampen Elements
+
+When you or a creature within 30 feet of you takes acid, cold, fire, lightning, or thunder damage, you can use your reaction to grant resistance to the creature against that instance of the damage.
+
+
+### Level 8
+
+* Divine Strike
+
+You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 cold, fire, or lightning damage (your choice) to the target. When you reach 14th level, the extra damage increases to 2d8.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Master of Nature
+
+You gain the ability to command animals and plant creatures. While creatures are charmed by your Charm Animals and Plants feature, you can take a bonus action on your turn to verbally command what each of those creatures will do on its next turn.
+
+
+
 # Druid
 
 ## 1. Circle of the Ancient Forest

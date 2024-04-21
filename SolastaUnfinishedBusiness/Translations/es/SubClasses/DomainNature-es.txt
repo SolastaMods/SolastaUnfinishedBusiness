@@ -1,0 +1,12 @@
+Feature/&FeatureSetDomainNatureAcolyteOfNatureDescription=\n• Aprendes un truco de tu elección de la lista de hechizos del druida. Este truco cuenta como un truco de clérigo para ti, pero no cuenta contra el número de trucos de clérigo que conoces.\n• Obtienes competencia en una de las siguientes habilidades de tu elección: Manejo de animales, Naturaleza o Supervivencia. \n• Obtienes competencia con armaduras pesadas.
+Feature/&FeatureSetDomainNatureAcolyteOfNatureTitle=Acólito de la naturaleza
+Feature/&FeatureSetDomainNatureDivineStrikeDescription=Obtienes la capacidad de infundir energía divina en los ataques de tus armas. Una vez en cada uno de tus turnos, cuando golpeas a una criatura con un ataque con arma, puedes hacer que el ataque cause 1d8 daños adicionales por frío, fuego o rayo (tu elección) al objetivo. Cuando alcanzas el nivel 14, el daño extra aumenta a 2d8.
+Feature/&FeatureSetDomainNatureDivineStrikeTitle=Golpe divino
+Feature/&PowerDomainNatureCharmAnimalsAndPlantsDescription=Como acción, presentas tu símbolo sagrado e invocas el nombre de tu deidad. Cada bestia o criatura vegetal que pueda verte a 30 pies de ti debe realizar una tirada de salvación de Sabiduría. Si la criatura falla su tirada de salvación, quedará encantada durante 1 minuto o hasta que reciba daño. Si bien está encantado contigo, es amigable contigo y con otras criaturas que designes.
+Feature/&PowerDomainNatureCharmAnimalsAndPlantsTitle=Encantar animales y plantas
+Feature/&PowerDomainNatureDampenElementsDescription=Cuando tú o una criatura a 30 pies de ti sufre daño por ácido, frío, fuego, relámpago o trueno, puedes usar tu reacción para otorgar resistencia a la criatura contra esa instancia del daño.
+Feature/&PowerDomainNatureDampenElementsTitle=Elementos humedecidos
+Feature/&PowerDomainNatureMasterOfNatureDescription=Obtienes la capacidad de comandar animales y criaturas vegetales. Mientras las criaturas están encantadas con tu función Encantar animales y plantas, puedes realizar una acción adicional en tu turno para ordenar verbalmente lo que hará cada una de esas criaturas en su próximo turno.
+Feature/&PowerDomainNatureMasterOfNatureTitle=Maestro de la naturaleza
+Subclass/&DomainNatureDescription=Las naturalezas adoran a los patrones de la muerte, la corrupción y la plaga, buscando poder y corrupción para sus propios fines: para complacer a sus dioses o por razones más egoístas.
+Subclass/&DomainNatureTitle=Naturaleza

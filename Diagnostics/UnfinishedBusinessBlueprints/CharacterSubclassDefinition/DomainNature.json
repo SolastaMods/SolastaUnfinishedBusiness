@@ -1,0 +1,69 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainNatureAcolyteOfNature:259c2b17-dedf-578a-aabf-f5c7725c5d6c",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainNature:20e017f1-1816-5659-bf28-dfd17a2280b5",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainNatureCharmAnimalsAndPlants:47473304-ba12-5a8a-8b65-601990219723",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainNatureDampenElements:6c364545-291c-513c-9934-2fa59641b9e4",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainNatureDivineStrike:690ac3da-c6e0-545a-a589-5ec12a518e8d",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerClericDivineInterventionWizard:0b20466699780a74e801804f86af806b",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainNatureMasterOfNature:978a9f60-e083-5832-b735-0e846eb6d78d",
+      "level": 17
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&DomainNatureTitle",
+    "description": "Subclass/&DomainNatureDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "50321fef-0612-5dac-8646-d22deb7aa851",
+  "contentPack": 9999,
+  "name": "DomainNature"
+}
