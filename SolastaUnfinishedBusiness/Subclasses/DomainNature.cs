@@ -260,14 +260,8 @@ public sealed class DomainNature : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(ConditionDefinitions.ConditionCharmed,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(ConditionDefinitions.ConditionMindDominatedByCaster,
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .SetConditionForm(ConditionDefinitions.ConditionMindControlledByCaster,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
