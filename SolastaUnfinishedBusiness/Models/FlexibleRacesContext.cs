@@ -117,6 +117,7 @@ internal static class FlexibleRacesContext
         { "RaceWildling", ["FeatureSetWildlingAbilityScoreIncrease"] },
         { "RaceBattleborn", ["FeatureSetBattlebornAbilityScoreIncrease"] },
         { "RaceOni", ["FeatureSetOniAbilityScoreIncrease"] },
+        { "RaceImpBadland", ["FeatureSetImpBadlandAbilityScoreIncrease"] },
         { "RaceImpInfernal", ["FeatureSetImpInfernalAbilityScoreIncrease"] },
         { "RaceImpForest", ["FeatureSetImpForestAbilityScoreIncrease"] },
         { "RaceIronbornDwarf", ["AttributeModifierIronbornDwarfStrengthAbilityScoreIncrease"] },
