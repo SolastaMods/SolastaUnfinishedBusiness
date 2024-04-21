@@ -14,12 +14,10 @@ internal static class ThrowingWeaponData
         {
             BaseItems =
                 [(ItemDefinitions.Javelin, ItemDefinitions.JavelinPlus2), (ItemDefinitions.Dart, null)],
-            PossiblePrimedItemsToReplace = [ItemDefinitions.Primed_Dagger],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Acuteness", ItemDefinitions.Enchanted_Dagger_of_Acuteness,
                     RecipeDefinitions.Recipe_Enchantment_DaggerOfAcuteness),
-                // Same as +2
 
                 new ItemCollection.MagicItemDataHolder("Sharpness", ItemDefinitions.Enchanted_Dagger_of_Sharpness,
                     RecipeDefinitions.Recipe_Enchantment_DaggerOfSharpness),
@@ -36,6 +34,5 @@ internal static class ThrowingWeaponData
                 new ItemCollection.MagicItemDataHolder("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
                     RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn)
             ]
-            // NumProduced = 3
         };
 }

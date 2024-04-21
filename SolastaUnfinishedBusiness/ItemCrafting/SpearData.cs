@@ -13,8 +13,6 @@ internal static class SpearData
         _items ??= new ItemCollection
         {
             BaseItems = [(ItemDefinitions.Spear, ItemDefinitions.SpearPlus2)],
-            PossiblePrimedItemsToReplace =
-                [ItemDefinitions.Primed_Rapier, ItemDefinitions.Primed_Shortsword],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("BlackViper", ItemDefinitions.Enchanted_Rapier_Blackadder,

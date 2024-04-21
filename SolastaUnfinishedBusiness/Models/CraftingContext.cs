@@ -243,7 +243,6 @@ internal static class CraftingContext
         internal List<(ItemDefinition item, ItemDefinition presentation)> BaseItems;
         internal List<Object> CustomSubFeatures;
         internal List<MagicItemDataHolder> MagicToCopy;
-        internal List<ItemDefinition> PossiblePrimedItemsToReplace;
 
         internal readonly struct MagicItemDataHolder
         {

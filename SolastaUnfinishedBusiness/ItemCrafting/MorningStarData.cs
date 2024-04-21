@@ -14,7 +14,6 @@ internal static class MorningStarData
         {
             BaseItems =
                 [(ItemDefinitions.Morningstar, ItemDefinitions.Morningstar)],
-            PossiblePrimedItemsToReplace = [ItemDefinitions.Primed_Morningstar],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Acuteness", ItemDefinitions.Enchanted_Mace_Of_Acuteness,

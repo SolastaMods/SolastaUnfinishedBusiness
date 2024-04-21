@@ -72,8 +72,7 @@ internal static class ItemRecipeGenerationHelper
                 }
 
                 ingredients.AddRange(itemData.Recipe.Ingredients
-                    .Where(ingredient =>
-                        !itemCollection.PossiblePrimedItemsToReplace.Contains(ingredient.ItemDefinition))
+                    .Where(ingredient => !ingredient.ItemDefinition.IsArmor && !ingredient.ItemDefinition.IsWeapon)
                     .Select(x => x.ItemDefinition));
 
                 var craftingManual = RecipeHelper.BuildRecipeManual(newItem, itemData.Recipe.CraftingHours,

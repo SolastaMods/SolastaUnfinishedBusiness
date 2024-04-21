@@ -33,16 +33,6 @@ internal static class ArmorAndShieldData
                 (ItemDefinitions.MonkArmor, null),
                 (ItemDefinitions.ClothesWizard, null)
             ],
-            PossiblePrimedItemsToReplace =
-            [
-                ItemDefinitions.Primed_HalfPlate,
-                ItemDefinitions.Primed_Leather_Armor,
-                ItemDefinitions.Primed_LeatherDruid,
-                ItemDefinitions.Primed_ScaleMail,
-                ItemDefinitions.Primed_Breastplate,
-                ItemDefinitions.Primed_ChainMail,
-                ItemDefinitions.Primed_ChainShirt
-            ],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Sturdiness", ItemDefinitions.Enchanted_HalfPlateOfSturdiness,

@@ -14,7 +14,6 @@ internal static class LongbowData
         {
             BaseItems =
                 [(ItemDefinitions.Longbow, ItemDefinitions.LongbowPlus2)],
-            PossiblePrimedItemsToReplace = [ItemDefinitions.Primed_Longbow],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Medusa", ItemDefinitions.Enchanted_Shortbow_Medusa,

@@ -14,14 +14,6 @@ internal static class QuarterstaffData
         {
             BaseItems =
                 [(ItemDefinitions.Quarterstaff, ItemDefinitions.QuarterstaffPlus2)],
-            PossiblePrimedItemsToReplace =
-            [
-                ItemDefinitions.Primed_Mace,
-                ItemDefinitions.Primed_Longsword,
-                ItemDefinitions.Primed_Greatsword,
-                ItemDefinitions.Primed_Shortsword,
-                ItemDefinitions.Primed_Dagger
-            ],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Acuteness", ItemDefinitions.Enchanted_Mace_Of_Acuteness,

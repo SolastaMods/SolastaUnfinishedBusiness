@@ -14,7 +14,6 @@ internal static class LongswordData
         {
             BaseItems =
                 [(ItemDefinitions.Longsword, ItemDefinitions.LongswordPlus2)],
-            PossiblePrimedItemsToReplace = [ItemDefinitions.Primed_Longsword],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Lightbringer",

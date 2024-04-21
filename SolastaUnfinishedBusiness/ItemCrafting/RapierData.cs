@@ -14,14 +14,6 @@ internal static class RapierData
         {
             BaseItems =
                 [(ItemDefinitions.Rapier, ItemDefinitions.RapierPlus2)],
-            PossiblePrimedItemsToReplace =
-            [
-                ItemDefinitions.Primed_Longsword,
-                ItemDefinitions.Primed_Greatsword,
-                ItemDefinitions.Primed_Shortsword,
-                ItemDefinitions.Primed_Dagger,
-                ItemDefinitions.Primed_Morningstar
-            ],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Stormblade", ItemDefinitions.Enchanted_Longsword_Stormblade,
