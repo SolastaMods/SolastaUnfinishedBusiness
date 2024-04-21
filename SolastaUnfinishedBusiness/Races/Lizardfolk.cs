@@ -27,18 +27,11 @@ internal static class RaceLizardfolkBuilder
     private const string Name = "Lizardfolk";
     private const string TagHungryJaws = "TagHungryJaws";
 
-    private static readonly WeaponDescription HungryJawsWeaponDescription =
-        new(ItemDefinitions.UnarmedStrikeBase.WeaponDescription);
-
     internal static CharacterRaceDefinition RaceLizardfolk { get; } = BuildLizardfolk();
 
     [NotNull]
     private static CharacterRaceDefinition BuildLizardfolk()
     {
-        // custom effects on hit
-        HungryJawsWeaponDescription.WeaponTypeDefinition.meleeImpactParticleReference =
-            SpellDefinitions.InflictWounds.EffectDescription.EffectParticleParameters.effectParticleReference;
-
         var attributeModifierLizardfolkNaturalArmor = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}NaturalArmor")
             .SetGuiPresentation(Category.Feature)
@@ -158,7 +151,7 @@ internal static class RaceLizardfolkBuilder
             var attackMode = rulesetCharacter.TryRefreshAttackMode(
                 ActionType.NoCost,
                 CustomWeaponsContext.UnarmedStrikeClaws,
-                HungryJawsWeaponDescription,
+                CustomWeaponsContext.UnarmedStrikeClaws.WeaponDescription,
                 ValidatorsCharacter.IsFreeOffhandVanilla(rulesetCharacter),
                 true,
                 EquipmentDefinitions.SlotTypeOffHand,
@@ -265,6 +258,8 @@ internal static class RaceLizardfolkBuilder
                 bonus, DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, attacker.RulesetCharacter.Guid);
             EffectHelpers.StartVisualEffect(
                 attacker, attacker, SpellDefinitions.CureWounds, EffectHelpers.EffectType.Effect);
+            EffectHelpers.StartVisualEffect(
+                defender, defender, SpellDefinitions.InflictWounds, EffectHelpers.EffectType.Effect);
         }
     }
 }
