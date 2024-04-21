@@ -61,7 +61,11 @@ internal static class FeatsContext
                      .ToList())
         {
             FeatGroups.Remove(featGroup);
-            LoadFeat(featGroup);
+
+            if (!CasterFeats.MagicTouchedData.ContainsKey(featGroup.Name.Replace("FeatGroup", string.Empty)))
+            {
+                LoadFeat(featGroup);
+            }
         }
 
         // sorting
@@ -100,7 +104,7 @@ internal static class FeatsContext
     private static void LoadFeat([NotNull] FeatDefinition featDefinition)
     {
         Feats.Add(featDefinition);
-        UpdateFeatsVisibility(featDefinition);
+        UpdateFeatsVisibility(featDefinition, !Main.Settings.FeatEnabled.Contains(featDefinition.Name));
     }
 
     private static void LoadFeatGroup([NotNull] FeatDefinition featDefinition)
@@ -109,15 +113,13 @@ internal static class FeatsContext
         UpdateFeatGroupsVisibility(featDefinition);
     }
 
-    private static void UpdateFeatsVisibility([NotNull] BaseDefinition featDefinition)
+    private static void UpdateFeatsVisibility([NotNull] BaseDefinition featDefinition, bool hidden)
     {
-        var hidden = !Main.Settings.FeatEnabled.Contains(featDefinition.Name);
-
         featDefinition.GuiPresentation.hidden = hidden;
 
         var groupedFeat = featDefinition.GetFirstSubFeatureOfType<GroupedFeat>();
 
-        groupedFeat?.GetSubFeats(true, true).ForEach(x => x.GuiPresentation.hidden = hidden);
+        groupedFeat?.GetSubFeats(true, true).ForEach(x => UpdateFeatsVisibility(x, hidden));
     }
 
     private static void UpdateFeatGroupsVisibility([NotNull] BaseDefinition featDefinition)
@@ -143,7 +145,7 @@ internal static class FeatsContext
             Main.Settings.FeatEnabled.Remove(name);
         }
 
-        UpdateFeatsVisibility(featDefinition);
+        UpdateFeatsVisibility(featDefinition, !Main.Settings.FeatEnabled.Contains(featDefinition.Name));
         GuiWrapperContext.RecacheFeats();
     }
 

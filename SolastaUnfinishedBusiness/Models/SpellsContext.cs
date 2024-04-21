@@ -284,6 +284,7 @@ internal static class SpellsContext
         RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(Web, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
+        RegisterSpell(BuildWitherAndBloom(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
 
         // 3rd level
         RegisterSpell(BuildAuraOfVitality(), 0, SpellListCleric, SpellListPaladin);

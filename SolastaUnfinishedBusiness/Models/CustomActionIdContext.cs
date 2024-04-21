@@ -79,11 +79,6 @@ public static class CustomActionIdContext
             .SetActionId(ExtraActionId.ProxyHoundWeapon)
             .SetActionType(ActionType.NoCost)
             .AddToDB();
-
-        ActionDefinitionBuilder
-            .Create(ProxySpiritualWeaponFree, "ActionProxyFaithfulHoundFree")
-            .SetActionId(ExtraActionId.ProxyHoundWeaponFree)
-            .AddToDB();
     }
 
     private static void BuildCustomInvocationActions()
@@ -483,6 +478,14 @@ public static class CustomActionIdContext
             case (Id)ExtraActionId.CrystalDefenseOff:
             {
                 result = character.HasConditionOfType(RaceWyrmkinBuilder.ConditionCrystalDefenseName)
+                    ? ActionStatus.Available
+                    : ActionStatus.Unavailable;
+                return;
+            }
+            case (Id)ExtraActionId.ProxyHoundWeapon:
+            {
+                result = character.ControlledEffectProxies.Any(x =>
+                    x.EffectProxyDefinition.Name == "ProxyFaithfulHound" && x.ExecutedAttacks == 0)
                     ? ActionStatus.Available
                     : ActionStatus.Unavailable;
                 return;

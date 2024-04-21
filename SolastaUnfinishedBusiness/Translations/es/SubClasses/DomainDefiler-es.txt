@@ -16,7 +16,5 @@ Feature/&PowerDomainDefilerDefileLifeDescription=Desata una ola de energía necr
 Feature/&PowerDomainDefilerDefileLifeTitle=Profanar la vida
 Feature/&PowerDomainDefilerDyingLightDescription=Siempre que inflijas daño necrótico, puedes infligir el máximo daño en lugar de rodar. Puede utilizar esta función una vez por descanso prolongado.
 Feature/&PowerDomainDefilerDyingLightTitle=Luz moribunda
-Feedback/&AdditionalDamageDivineStrikeFormat=¡Golpe Divino!
-Feedback/&AdditionalDamageDivineStrikeLine={0} realiza un ataque de golpe divino a {1} (+{2})
 Subclass/&DomainDefilerDescription=Los profanadores adoran a los patrones de la muerte, la corrupción y la plaga, buscando el poder y la corrupción para sus propios fines: para complacer a sus dioses o por razones más egoístas.
 Subclass/&DomainDefilerTitle=Profanador

@@ -35,7 +35,6 @@ public static class ActionDefinitionsPatcher
             if (actionId == (ActionDefinitions.Id)ExtraActionId.ProxyHoundWeapon ||
                 actionId == (ActionDefinitions.Id)ExtraActionId.ProxyPactWeapon ||
                 actionId == (ActionDefinitions.Id)ExtraActionId.ProxyPetalStorm ||
-                (actionId == (ActionDefinitions.Id)ExtraActionId.ProxyHoundWeaponFree && includeFree) ||
                 (actionId == (ActionDefinitions.Id)ExtraActionId.ProxyPactWeaponFree && includeFree))
             {
                 __result = true;
@@ -51,9 +50,7 @@ public static class ActionDefinitionsPatcher
         [UsedImplicitly]
         public static void Postfix(ref bool __result, ActionDefinitions.Id actionId)
         {
-            if (actionId
-                is (ActionDefinitions.Id)ExtraActionId.ProxyHoundWeaponFree
-                or (ActionDefinitions.Id)ExtraActionId.ProxyPactWeaponFree)
+            if (actionId is (ActionDefinitions.Id)ExtraActionId.ProxyPactWeaponFree)
             {
                 __result = true;
             }

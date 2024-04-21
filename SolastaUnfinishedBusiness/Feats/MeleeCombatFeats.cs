@@ -979,8 +979,8 @@ internal static class MeleeCombatFeats
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            if ((action.ActionId == ActionDefinitions.Id.SwiftRetaliation ||
-                 action.ActionType == ActionDefinitions.ActionType.Reaction) &&
+            if (attackMode is { ActionType: ActionDefinitions.ActionType.Reaction } &&
+                !attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag) &&
                 ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)(attackMode, null, null))
             {
                 attackModifier.attackAdvantageTrends.Add(

@@ -8,9 +8,9 @@
   "autoTerminateOnTriggerPower": false,
   "incrementalDamageDice": 0,
   "actionId": 9056,
-  "freeActionId": 9057,
+  "freeActionId": "NoAction",
   "attackMethod": "CasterSpellAbility",
-  "firstAttackIsFree": true,
+  "firstAttackIsFree": false,
   "constrainedToSpellArea": false,
   "damageDie": "D8",
   "damageDieNum": 4,
@@ -18,7 +18,10 @@
   "addAbilityToDamage": false,
   "attackPower": null,
   "impactsPlacement": false,
-  "additionalFeatures": [],
+  "additionalFeatures": [
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6"
+  ],
   "attackParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

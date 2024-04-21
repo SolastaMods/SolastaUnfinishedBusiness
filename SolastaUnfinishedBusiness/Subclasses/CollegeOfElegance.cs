@@ -143,7 +143,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
         var conditionAmazingDisplay = ConditionDefinitionBuilder
             .Create($"Condition{Name}AmazingDisplay")
-            .SetGuiPresentation(AmazingDisplayName, Category.Feature, ConditionDefinitions.ConditionDazzled)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDazzled)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder

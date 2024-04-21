@@ -341,7 +341,8 @@ public sealed class MartialTactician : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction &&
+            if ((attackMode is not { ActionType: ActionDefinitions.ActionType.Reaction } ||
+                 attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag)) &&
                 !attackMode.attackTags.Contains(TacticalAwareness))
             {
                 yield break;

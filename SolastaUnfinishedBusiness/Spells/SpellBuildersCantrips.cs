@@ -890,12 +890,8 @@ internal static partial class SpellBuilders
                     return false;
                 }
 
-                if (attackMode.Ranged || !attackMode.Reach)
-                {
-                    return false;
-                }
-
-                return __instance.SelectionService.SelectedCharacters[0].IsWithinRange(target, attackMode.reachRange);
+                return !attackMode.Ranged && __instance.SelectionService.SelectedCharacters[0]
+                    .IsWithinRange(target, attackMode.reachRange);
             }
 
             var firstTarget = __instance.SelectionService.SelectedTargets[0];

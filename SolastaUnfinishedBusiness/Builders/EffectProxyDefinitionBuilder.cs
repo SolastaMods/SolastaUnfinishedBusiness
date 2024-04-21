@@ -32,6 +32,7 @@ internal class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefin
     {
         Definition.actionId = (ActionDefinitions.Id)actionId;
         Definition.freeActionId = (ActionDefinitions.Id)freeActionId;
+        Definition.firstAttackIsFree = freeActionId != (ExtraActionId)ActionDefinitions.Id.NoAction;
         return this;
     }
 

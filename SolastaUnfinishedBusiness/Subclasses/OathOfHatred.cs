@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -231,7 +232,8 @@ public sealed class OathOfHatred : AbstractSubclass
                 yield break;
             }
 
-            if (attackMode?.actionType != ActionDefinitions.ActionType.Reaction)
+            if (attackMode is not { ActionType: ActionDefinitions.ActionType.Reaction } ||
+                attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
             {
                 yield break;
             }

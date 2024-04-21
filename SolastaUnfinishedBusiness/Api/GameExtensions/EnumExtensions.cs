@@ -59,7 +59,6 @@ internal enum ExtraActionId
     DragonHideToggle,
     AmazingDisplayToggle,
     ProxyHoundWeapon,
-    ProxyHoundWeaponFree,
     ProxyPetalStorm,
     ProxyPactWeapon,
     ProxyPactWeaponFree,
