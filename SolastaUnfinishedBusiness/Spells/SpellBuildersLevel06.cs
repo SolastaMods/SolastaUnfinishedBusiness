@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -585,27 +586,28 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
-                .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                        .SetDamageForm(DamageTypeCold, 10, DieType.D6)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(conditionFlashFreeze, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
-                .SetCasterEffectParameters(SleetStorm)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeCold, 10, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionFlashFreeze, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
+                    .SetCasterEffectParameters(SleetStorm)
+                    .Build())
             .AddToDB();
 
         spell.AddCustomSubFeatures(new FilterTargetingCharacterFlashFreeze(spell));
@@ -647,6 +649,157 @@ internal static partial class SpellBuilders
             }
 
             return isValid;
+        }
+    }
+
+    #endregion
+
+    #region Primordial Ward
+
+    private static readonly string[] PrimordialWardDamageTypes =
+    [
+        DamageTypeAcid,
+        DamageTypeCold,
+        DamageTypeFire,
+        DamageTypeLightning,
+        DamageTypeThunder
+    ];
+
+    internal static SpellDefinition BuildPrimordialWard()
+    {
+        const string NAME = "PrimordialWard";
+
+        var db = DatabaseRepository.GetDatabase<FeatureDefinitionDamageAffinity>();
+
+        foreach (var damageType in PrimordialWardDamageTypes)
+        {
+            var shortDamageType = damageType.Replace("Damage", string.Empty);
+
+            var conditionImmunity = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{damageType}")
+                .SetGuiPresentation(NAME, Category.Spell, ConditionFiendishResilienceAcid)
+                .SetFeatures(db.GetElement($"DamageAffinity{shortDamageType}Immunity"))
+                .AddToDB();
+
+            conditionImmunity.GuiPresentation.description = Gui.NoLocalization;
+        }
+
+        var conditionResistance = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionFiendishResilienceAcid)
+            .SetFeatures(
+                FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance)
+            .AddToDB();
+
+        conditionResistance.GuiPresentation.description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PrimordialWard, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionResistance))
+                    .Build())
+            .AddToDB();
+
+        conditionResistance.AddCustomSubFeatures(new CustomBehaviorPrimordialWard(spell));
+
+        return spell;
+    }
+
+    private sealed class CustomBehaviorPrimordialWard(SpellDefinition spellPrimordialWard)
+        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            Handler(defender.RulesetCharacter, actualEffectForms);
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            Handler(defender.RulesetCharacter, actualEffectForms);
+
+            yield break;
+        }
+
+        // ReSharper disable once ParameterTypeCanBeEnumerable.Local
+        private void Handler(RulesetCharacter rulesetDefender, List<EffectForm> actualEffectForms)
+        {
+            var damageTypes = PrimordialWardDamageTypes.Intersect(
+                actualEffectForms
+                    .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                    .Select(x => x.DamageForm.DamageType));
+
+            var terminate = false;
+
+            foreach (var damageType in damageTypes)
+            {
+                var conditionName = $"ConditionPrimordialWard{damageType}";
+
+                rulesetDefender.InflictCondition(
+                    conditionName,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetDefender.guid,
+                    rulesetDefender.CurrentFaction.Name,
+                    1,
+                    conditionName,
+                    0,
+                    0,
+                    0);
+
+                terminate = true;
+            }
+
+            if (!terminate)
+            {
+                return;
+            }
+
+            var rulesetSpell =
+                rulesetDefender.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellPrimordialWard);
+
+            if (rulesetSpell != null)
+            {
+                rulesetDefender.TerminateSpell(rulesetSpell);
+            }
         }
     }
 

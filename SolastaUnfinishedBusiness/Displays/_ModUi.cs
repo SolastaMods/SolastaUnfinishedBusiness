@@ -179,6 +179,7 @@ internal static class ModUi
         "PatronSoulBlade",
         "PowerWordHeal",
         "PowerWordKill",
+        "PrimordialWard",
         "PsychicLance",
         "PsychicWhip",
         "PulseWave",
