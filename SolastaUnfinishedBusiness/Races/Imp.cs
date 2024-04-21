@@ -94,6 +94,7 @@ internal static class RaceImpBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
                     .SetDurationData(DurationType.Round)
+                    .SetNoSavingThrow()
                     .ExcludeCaster()
                     .Build())
             .SetSharedPool(ActivationTime.BonusAction, powerImpBadlandAssistPool)
@@ -114,6 +115,8 @@ internal static class RaceImpBuilder
         ConditionDefinitionBuilder
             .Create(ConditionImpSpiteMarkerName)
             .AddCustomSubFeatures(new ImpSpiteAttackFinishedByMe())
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
         var movementAffinityImpPassage = FeatureDefinitionMovementAffinityBuilder
@@ -150,6 +153,7 @@ internal static class RaceImpBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique, 2)
                     .SetDurationData(DurationType.Round)
+                    .SetNoSavingThrow()
                     .ExcludeCaster()
                     .Build())
             .SetSharedPool(ActivationTime.BonusAction, powerImpBadlandAssistPool)
@@ -169,6 +173,7 @@ internal static class RaceImpBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
                     .SetDurationData(DurationType.Round)
+                    .SetNoSavingThrow()
                     .ExcludeCaster()
                     .Build())
             .SetSharedPool(ActivationTime.BonusAction, powerImpBadlandAssistPool)
@@ -188,6 +193,7 @@ internal static class RaceImpBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
                     .SetDurationData(DurationType.Round)
+                    .SetNoSavingThrow()
                     .ExcludeCaster()
                     .Build())
             .SetSharedPool(ActivationTime.BonusAction, powerImpBadlandAssistPool)
@@ -337,7 +343,7 @@ internal static class RaceImpBuilder
                 ConditionImpPassageName, 
                 DurationType.Round, 
                 0, 
-                TurnOccurenceType.StartOfTurn, 
+                TurnOccurenceType.EndOfTurn, 
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid, 
                 rulesetCharacter.CurrentFaction.name, 
@@ -415,6 +421,12 @@ internal static class RaceImpBuilder
 
             if (target.Side == Side.Ally)
             {
+                if (target.RulesetCharacter.HasConditionOfType(ConditionImpAssistedAllyName)
+                    || target.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName))
+                {
+                    __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetAlreadyAssisted");
+                    return false;
+                }
                 return true;
             }
             // only allow enemy within reach
@@ -457,7 +469,7 @@ internal static class RaceImpBuilder
                 {
                     target.RulesetCharacter.ReceiveTemporaryHitPoints(
                         healingReceived, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn, actingRulesetCharacter.guid);
-                    EffectHelpers.StartVisualEffect(target, actingCharacter, SpellDefinitions.CureWounds, EffectHelpers.EffectType.Effect);
+                    EffectHelpers.StartVisualEffect(target, target, SpellDefinitions.CureWounds, EffectHelpers.EffectType.Effect);
                 }
             }
             if (targetCharacters.Count < 1)
@@ -492,41 +504,29 @@ internal static class RaceImpBuilder
                 , DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, AttributeDefinitions.TagEffect,
                 attacker.RulesetCharacter.guid, attacker.RulesetCharacter.CurrentFaction.name, 1,
                 ConditionDefinitions.ConditionMocked.Name, 0, 0, 0);
+            EffectHelpers.StartVisualEffect(defender, defender, SpellDefinitions.ViciousMockery, EffectHelpers.EffectType.Effect);
         }
     }
 
-    private class DrawInspirationAlterOutcome(FeatureDefinitionPower powerImpBadlandDrawInspiration) : 
+    private class DrawInspirationAlterOutcome(FeatureDefinitionPower powerImpBadlandDrawInspiration) :
         ITryAlterOutcomeAttack,
         ITryAlterOutcomeSavingThrow
     {
         private readonly int inspirationValue = 3;
 
-        public IEnumerator OnTryAlterOutcomeAttack(GameLocationBattleManager battleManager, 
-            CharacterAction action, 
-            GameLocationCharacter attacker, 
-            GameLocationCharacter defender, 
+        public IEnumerator OnTryAlterOutcomeAttack(GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier)
         {
-            if (attacker != helper) { 
-                yield break;
-            }
-
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
-            if (action.AttackSuccessDelta < -inspirationValue)
-            {
-                yield break;
-            }
-
-            if (action.ActionParams.AttackMode == null) { yield break; }
-
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.GetRemainingPowerUses(powerImpBadlandDrawInspiration) <= 0)
+            if (attacker != helper
+                || action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure)
+                || action.AttackSuccessDelta < -inspirationValue
+                || rulesetAttacker.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0) 
             {
                 yield break;
             }
@@ -553,49 +553,34 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            action.AttackRoll += inspirationValue;
             action.AttackSuccessDelta += inspirationValue;
             actionModifier.AttackRollModifier += inspirationValue;
-            if (actionModifier.AttacktoHitTrends != null)
-            {
-                TrendInfo item = new TrendInfo(
-                    inspirationValue, 
-                    FeatureSourceType.Power, 
-                    powerImpBadlandDrawInspiration.Name, 
-                    powerImpBadlandDrawInspiration);
-                actionModifier.AttacktoHitTrends.Add(item);
-            }
+            actionModifier.AttacktoHitTrends?.Add(new TrendInfo(
+                    inspirationValue,
+                    FeatureSourceType.Power,
+                    powerImpBadlandDrawInspiration.Name,
+                    powerImpBadlandDrawInspiration));
             action.AttackRollOutcome = RollOutcome.Success;
         }
 
-        public IEnumerator OnTryAlterOutcomeSavingThrow(GameLocationBattleManager battleManager, 
-            CharacterAction action, 
-            GameLocationCharacter attacker, 
-            GameLocationCharacter defender, 
-            GameLocationCharacter helper, 
-            ActionModifier actionModifier, 
+        public IEnumerator OnTryAlterOutcomeSavingThrow(GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
             bool hasHitVisual, [UsedImplicitly] bool hasBorrowedLuck)
         {
-            if (defender != helper)
-            {
-                yield break;
-            }
-
-            if (action.SaveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0)
+            if (defender != helper
+                || !action.RolledSaveThrow
+                || action.SaveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure)
+                || rulesetDefender.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0
+                || action.SaveOutcomeDelta < -inspirationValue)
             {
                 yield break;
             }
 
-            if (action.SaveOutcomeDelta < -inspirationValue) { 
-                yield break;
-            }
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
@@ -611,7 +596,6 @@ internal static class RaceImpBuilder
             var count = actionService.PendingReactionRequestGroups.Count;
 
             actionService.ReactToSpendPower(actionParams);
-
             yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!actionParams.ReactionValidated)
