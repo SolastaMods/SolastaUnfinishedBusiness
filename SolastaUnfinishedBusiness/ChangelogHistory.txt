@@ -7,6 +7,7 @@
 - fixed crafting recipes ingredient list
 - fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
 - fixed Orcish Aggression feat family tag
+- fixed Potent Spell Casting feat interaction with Produce Flame cantrip
 - fixed Roguish Acrobat swift as wind/fluid motions features jump distance
 - fixed Step Back behavior to interrupt on any ranged attack
 - fixed Witch Bolt spell interaction with auto spell powers

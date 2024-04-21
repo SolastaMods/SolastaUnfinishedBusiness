@@ -877,22 +877,22 @@ internal static class ClassFeats
 
         var potentSpellcasterGroup = GroupFeats.MakeGroupWithPreRequisite(
             "FeatGroupPotentSpellcaster", "PotentSpellcaster", ValidatorsFeat.IsLevel4,
-            potentSpellcasterFeats.ToArray());
+            [.. potentSpellcasterFeats]);
 
         feats.AddRange(potentSpellcasterFeats);
 
         return potentSpellcasterGroup;
     }
 
-    private sealed class ModifyEffectDescriptionFeatPotentSpellcaster : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionFeatPotentSpellcaster 
+        : IModifyEffectDescription, IModifyWeaponAttackMode
     {
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition is SpellDefinition { SpellLevel: 0 }
-                   && effectDescription.HasDamageForm();
+            return definition is SpellDefinition { SpellLevel: 0 };
         }
 
         public EffectDescription GetEffectDescription(
@@ -903,13 +903,27 @@ internal static class ClassFeats
         {
             // this might not be correct if same spell is learned from different classes
             // if we follow other patches we should ideally identify all repertoires that can cast spell
-            // and use the one with highest attribute. will revisit if this ever becomes a thing
+            // and use the one with the highest attribute. will revisit if this ever becomes a thing
+            if (definition is not SpellDefinition spell)
+            {
+                return effectDescription;
+            }
+
             var spellRepertoire =
-                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(definition as SpellDefinition));
+                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(spell));
 
             if (spellRepertoire == null)
             {
-                return effectDescription;
+                if (SpellsContext.SpellsChildMaster.TryGetValue(spell, out var parentSpell))
+                {
+                    spellRepertoire =
+                        character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(parentSpell));
+                }
+
+                if (spellRepertoire == null)
+                {
+                    return effectDescription;
+                }
             }
 
             var damage = effectDescription.FindFirstDamageForm();
@@ -927,6 +941,36 @@ internal static class ClassFeats
                 "Feat/&FeatPotentSpellcasterTitle", null));
 
             return effectDescription;
+        }
+
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (attackMode.SourceDefinition != CustomWeaponsContext.ProducedFlameDart)
+            {
+                return;
+            }
+
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            var spellRepertoire =
+                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(ProduceFlame));
+
+            if (spellRepertoire == null)
+            {
+                return;
+            }
+
+            var attribute = spellRepertoire.SpellCastingAbility;
+            var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(attribute));
+
+            damage.BonusDamage += bonus;
+            damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
+                "Feat/&FeatPotentSpellcasterTitle", null));
         }
     }
 
