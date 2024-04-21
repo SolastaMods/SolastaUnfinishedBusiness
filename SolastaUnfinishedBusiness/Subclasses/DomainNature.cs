@@ -16,10 +16,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using Category = SolastaUnfinishedBusiness.Builders.Category;
-using CharacterSubclassDefinitionBuilder = SolastaUnfinishedBusiness.Builders.CharacterSubclassDefinitionBuilder;
-using EffectDescriptionBuilder = SolastaUnfinishedBusiness.Builders.EffectDescriptionBuilder;
-using EffectFormBuilder = SolastaUnfinishedBusiness.Builders.EffectFormBuilder;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 

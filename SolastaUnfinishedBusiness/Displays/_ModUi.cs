@@ -56,6 +56,8 @@ internal static class ModUi
         "CollegeOfValiance",
         "CrusadersMantle",
         "DivineWrath",
+        "DomainNature",
+        "DomainTempest",
         "DomainSmith",
         "EarthTremor",
         "ElementalWeapon",
