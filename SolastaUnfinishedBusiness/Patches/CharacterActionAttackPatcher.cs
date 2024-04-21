@@ -681,7 +681,8 @@ public static class CharacterActionAttackPatcher
             actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
                 ConditionInterruption.Attacks);
 
-            if (actingCharacter.RulesetCharacter.IsWieldingBow())
+            //PATCH: original was IsWieldingBow. Only affects STEP BACK action
+            if (actingCharacter.RulesetCharacter.IsWieldingRangedWeapon())
             {
                 actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
                     ConditionInterruption.AttacksWithBow);
