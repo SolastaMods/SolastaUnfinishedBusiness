@@ -1096,6 +1096,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierDwarfHillAbilityScoreIncrease { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDwarfHillAbilityScoreIncrease");
 
+        internal static FeatureDefinitionAttributeModifier AttributeModifierDwarfAbilityScoreIncrease { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDwarfAbilityScoreIncrease");
+
         internal static FeatureDefinitionAttributeModifier
             AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3 { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>(
@@ -1103,6 +1106,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierElfAbilityScoreIncrease { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierElfAbilityScoreIncrease");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierElfHighAbilityScoreIncrease { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierElfHighAbilityScoreIncrease");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterExtraAttack { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterExtraAttack");

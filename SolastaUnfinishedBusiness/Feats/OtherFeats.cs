@@ -564,7 +564,7 @@ internal static class OtherFeats
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Athletics)
             .AddToDB();
-        
+
         FeatAthleteStr = FeatDefinitionBuilder
             .Create($"Feat{Name}Str")
             .SetGuiPresentation(Category.Feat)

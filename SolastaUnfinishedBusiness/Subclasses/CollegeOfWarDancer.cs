@@ -139,7 +139,7 @@ public sealed class CollegeOfWarDancer // : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => null;
 #endif
-    
+
     private static int GetMomentumStacks(RulesetActor character)
     {
         return character?.ConditionsByCategory

@@ -345,17 +345,19 @@ public static class CursorLocationSelectTargetPatcher
             var canProceedOverride = true;
             if (__instance.actionParams is { RulesetEffect: RulesetEffectPower rulesetEffectPower })
             {
-                var modifier = rulesetEffectPower.PowerDefinition.GetFirstSubFeatureOfType<IFilterTargetingCharacter>();
+                var filterTargetingCharacter = rulesetEffectPower.PowerDefinition.GetFirstSubFeatureOfType<IFilterTargetingCharacter>();
 
-                if (modifier != null)
+                if (filterTargetingCharacter != null)
                 {
-                    enforceFullSelection = modifier.EnforceFullSelection;
+                    enforceFullSelection = filterTargetingCharacter.EnforceFullSelection;
                 }
-                
-                var modifier2 = rulesetEffectPower.PowerDefinition.GetFirstSubFeatureOfType<IFilterTargetingCharacterProceed>();
 
-                if (modifier2 != null) {
-                    canProceedOverride = modifier2.CanProceed(__instance);
+                var filterTargetingCharacterProceed = rulesetEffectPower.PowerDefinition
+                    .GetFirstSubFeatureOfType<IFilterTargetingCharacterProceed>();
+
+                if (filterTargetingCharacterProceed != null)
+                {
+                    canProceedOverride = filterTargetingCharacterProceed.CanProceed(__instance);
                 }
             }
 
@@ -367,7 +369,7 @@ public static class CursorLocationSelectTargetPatcher
             else
             {
                 canProceed = (__instance.maxTargets < 0 ||
-                             (__instance.maxTargets > 1 && __instance.remainingTargets < __instance.maxTargets))
+                              (__instance.maxTargets > 1 && __instance.remainingTargets < __instance.maxTargets))
                              && canProceedOverride;
             }
             // END PATCH

@@ -884,7 +884,7 @@ internal static class ClassFeats
         return potentSpellcasterGroup;
     }
 
-    private sealed class ModifyEffectDescriptionFeatPotentSpellcaster 
+    private sealed class ModifyEffectDescriptionFeatPotentSpellcaster
         : IModifyEffectDescription, IModifyWeaponAttackMode
     {
         public bool IsValid(
