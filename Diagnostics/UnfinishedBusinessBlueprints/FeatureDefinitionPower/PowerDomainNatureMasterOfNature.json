@@ -353,7 +353,7 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerDomainNatureCharmAnimalsAndPlants:2b68f771-1abc-5979-b363-897314c8cd3b",
+  "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -362,7 +362,7 @@
     "description": "Feature/&PowerDomainNatureMasterOfNatureDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "2bb6e8e2-ca92-5526-a077-e6728b64d307",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

@@ -832,7 +832,6 @@
                     <string>CollegeOfLife</string>
                     <string>CollegeOfThespian</string>
                     <string>CollegeOfValiance</string>
-                    <string>CollegeOfWarDancer</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -843,6 +842,7 @@
             <value>
                 <ArrayOfString>
                     <string>DomainDefiler</string>
+                    <string>DomainNature</string>
                     <string>DomainSmith</string>
                 </ArrayOfString>
             </value>
@@ -1003,19 +1003,18 @@
     </KlassListSubclassEnabled>
     <FeatSliderPosition>4</FeatSliderPosition>
     <FeatEnabled>
-        <string>FeatGroupAegisTouched</string>
         <string>FeatAlert</string>
         <string>FeatAlwaysReady</string>
         <string>FeatGroupApothecary</string>
         <string>FeatArcaneArcherAdept</string>
         <string>FeatAstralArms</string>
+        <string>FeatGroupAthlete</string>
         <string>FeatGroupAwakenTheBeastWithin</string>
         <string>FeatBladeMastery</string>
         <string>FeatGroupBlessedSoul</string>
         <string>FeatBountifulLuck</string>
         <string>FeatBowMastery</string>
         <string>FeatCallForCharge</string>
-        <string>FeatGroupCelestialTouched</string>
         <string>FeatCharger</string>
         <string>FeatGroupChef</string>
         <string>FeatGroupCloseQuarters</string>
@@ -1043,7 +1042,6 @@
         <string>FeatFencer</string>
         <string>FeatGroupFeyTeleport</string>
         <string>FeatGroupFightingStyle</string>
-        <string>FeatGroupFlameTouched</string>
         <string>FeatGroupFlamesOfPhlegethos</string>
         <string>FeatFrostAdaptation</string>
         <string>FeatGiftOfTheChromaticDragon</string>
@@ -1057,7 +1055,6 @@
         <string>FeatInfernalConstitution</string>
         <string>FeatInfusionsAdept</string>
         <string>FeatInspiringLeader</string>
-        <string>FeatGroupIridescentTouched</string>
         <string>FeatLongswordFinesse</string>
         <string>FeatMageSlayer</string>
         <string>FeatGroupMagicInitiate</string>
@@ -1072,7 +1069,6 @@
         <string>FeatGroupOldTactics</string>
         <string>FeatGroupOrcishAggression</string>
         <string>FeatGroupOrcishFury</string>
-        <string>FeatGroupPeregrinationTouched</string>
         <string>FeatPickPocket</string>
         <string>FeatGroupPiercer</string>
         <string>FeatPoisoner</string>
@@ -1083,13 +1079,11 @@
         <string>FeatGroupPrecisionFocused</string>
         <string>FeatGroupPrimalRage</string>
         <string>FeatRecklessAttack</string>
-        <string>FeatGroupRetinueTouched</string>
         <string>FeatGroupRevenantGreatSword</string>
         <string>FeatSavageAttack</string>
         <string>FeatCraftyScriber</string>
         <string>FeatGroupSecondChance</string>
         <string>FeatSentinel</string>
-        <string>FeatGroupShadowTouched</string>
         <string>FeatDeadeye</string>
         <string>FeatShieldTechniques</string>
         <string>FeatGroupSlasher</string>
@@ -1100,10 +1094,10 @@
         <string>FeatGroupSquatNimbleness</string>
         <string>FeatSuperiorCritical</string>
         <string>FeatGroupTelekinetic</string>
+        <string>FeatGroupTouchedMagic</string>
         <string>FeatTough</string>
         <string>FeatGroupToxicologist</string>
         <string>FeatGroupDefenseExpert</string>
-        <string>FeatGroupVerdantTouched</string>
         <string>FeatEldritchVersatilityAdept</string>
         <string>FeatWarCaster</string>
         <string>FeatGroupWeaponMaster</string>
@@ -1351,6 +1345,7 @@
                     <string>NoxiousSpray</string>
                     <string>PetalStorm</string>
                     <string>ProtectThreshold</string>
+                    <string>WitherAndBloom</string>
                     <string>AdderFangs</string>
                     <string>ElementalWeapon</string>
                     <string>FlameArrows</string>
@@ -1359,6 +1354,7 @@
                     <string>ForestGuardian</string>
                     <string>MantleOfThorns</string>
                     <string>FlashFreeze</string>
+                    <string>PrimordialWard</string>
                     <string>ReverseGravity</string>
                     <string>Foresight</string>
                     <string>Shapechange</string>
@@ -1469,6 +1465,7 @@
                     <string>ShadowBlade</string>
                     <string>PsychicWhip</string>
                     <string>SpellWeb</string>
+                    <string>WitherAndBloom</string>
                     <string>AdderFangs</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
@@ -1573,6 +1570,7 @@
                     <string>ShadowBlade</string>
                     <string>PsychicWhip</string>
                     <string>SpellWeb</string>
+                    <string>WitherAndBloom</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
                     <string>VitalityTransfer</string>

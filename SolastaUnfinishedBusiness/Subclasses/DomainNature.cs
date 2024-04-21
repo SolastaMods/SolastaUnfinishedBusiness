@@ -243,7 +243,8 @@ public sealed class DomainNature : AbstractSubclass
 
         var powerMasterOfNature = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}MasterOfNature")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("MasterOfNature", Resources.InventorQuickWit, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -270,7 +271,6 @@ public sealed class DomainNature : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetOverriddenPower(powerCharmAnimalsAndPlants)
             .AddToDB();
 
         // MAIN
