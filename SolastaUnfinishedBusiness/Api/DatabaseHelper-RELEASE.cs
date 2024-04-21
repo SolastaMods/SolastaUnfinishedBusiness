@@ -275,6 +275,9 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition TraditionFreedom { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionFreedom");
 
+        internal static CharacterSubclassDefinition TraditionGreenmage { get; } =
+            GetDefinition<CharacterSubclassDefinition>("TraditionGreenmage");
+
         internal static CharacterSubclassDefinition TraditionShockArcanist { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionShockArcanist");
 

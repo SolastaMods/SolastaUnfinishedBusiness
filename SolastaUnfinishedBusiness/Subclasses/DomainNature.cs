@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -56,7 +57,7 @@ public sealed class DomainNature : AbstractSubclass
             .Create($"PointPool{NAME}Cantrip")
             .SetGuiPresentationNoContent(true)
             .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, SpellListDefinitions.SpellListDruid,
-                "Domain")
+                "DomainNature")
             .AddToDB();
 
         var pointPoolSkills = FeatureDefinitionPointPoolBuilder
@@ -97,7 +98,7 @@ public sealed class DomainNature : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetRestrictedCreatureFamilies("Beast", "Plants")
+                    .SetRestrictedCreatureFamilies("Beast", "Plant")
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,
@@ -163,6 +164,7 @@ public sealed class DomainNature : AbstractSubclass
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDampenElements))
                     .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         //
@@ -271,7 +273,7 @@ public sealed class DomainNature : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Subclass) //, CharacterSubclassDefinitions.TraditionGreenmage)
+            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.TraditionGreenmage)
             .AddFeaturesAtLevel(1, autoPreparedSpellsDomainNature, featureSetAcolyteOfNature)
             .AddFeaturesAtLevel(2, featureSetCharmAnimalsAndPlants)
             .AddFeaturesAtLevel(6, powerDampenElements)
@@ -418,7 +420,8 @@ public sealed class DomainNature : AbstractSubclass
 
             var actionParams = new CharacterActionParams(glc, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
             {
-                StringParameter = "CustomReactionDampenElements".Formatted(Category.Reaction)
+                StringParameter = "CustomReactionDampenElementsDescription"
+                    .Formatted(Category.Reaction, rulesetDefender.Name)
             };
             var reactionRequest = new ReactionRequestCustom("DampenElements", actionParams);
             var count = actionManager.PendingReactionRequestGroups.Count;

@@ -8,7 +8,7 @@
   "ritualOnly": false,
   "minSpellLevel": 0,
   "maxSpellLevel": 0,
-  "extraSpellsTag": "Domain",
+  "extraSpellsTag": "DomainNature",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

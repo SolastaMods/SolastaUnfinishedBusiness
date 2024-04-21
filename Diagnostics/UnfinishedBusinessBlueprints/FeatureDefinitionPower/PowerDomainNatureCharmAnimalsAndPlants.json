@@ -55,7 +55,7 @@
     "velocityType": "AwayFromSourceOriginalPosition",
     "restrictedCreatureFamilies": [
       "Beast",
-      "Plants"
+      "Plant"
     ],
     "immuneCreatureFamilies": [],
     "restrictedCharacterSizes": [],
