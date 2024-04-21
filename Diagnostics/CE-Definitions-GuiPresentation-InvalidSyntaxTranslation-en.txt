@@ -780,7 +780,7 @@ FeatGroupAthlete	Description='You have undergone extensive physical training to 
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
 • When you are prone, standing up doesn't cost you movement.
 • Climbing doesn't cost you extra movement.
-• You gain skill or proficiency in Athletics.'.
+• You gain proficiency with Athletics skill or expertise if you are already proficient.'.
 FeatGroupAwakenTheBeastWithin	Description='Increase any ability score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
 FeatGroupBlessedSoul	Description='Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.'.
 FeatGroupBodyResilience	Description='Athlete, Badlands Marauder, Blessing of the Elements, Creed of the Gods, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hauler, Robust, Tough'.

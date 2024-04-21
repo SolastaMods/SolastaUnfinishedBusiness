@@ -1,6 +1,14 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -16,6 +24,15 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class DomainNature : AbstractSubclass
 {
+    private static readonly string[] DampenElementsDamageTypes =
+    [
+        DamageTypeAcid,
+        DamageTypeCold,
+        DamageTypeFire,
+        DamageTypeLightning,
+        DamageTypeThunder
+    ];
+
     public DomainNature()
     {
         const string NAME = "DomainNature";
@@ -108,11 +125,30 @@ public sealed class DomainNature : AbstractSubclass
         // LEVEL 6 - Dampen Elements
         //
 
+        var db = DatabaseRepository.GetDatabase<FeatureDefinitionDamageAffinity>();
+
+        foreach (var damageType in DampenElementsDamageTypes)
+        {
+            var shortDamageType = damageType.Replace("Damage", string.Empty);
+
+            var conditionResistance = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{damageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(db.GetElement($"DamageAffinity{shortDamageType}Resistance"))
+                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                .AddToDB();
+
+            conditionResistance.GuiPresentation.description = Gui.NoLocalization;
+        }
+
         var conditionDampenElements = ConditionDefinitionBuilder
             .Create($"Condition{NAME}DampenElements")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
+
+        conditionDampenElements.AddCustomSubFeatures(new CustomBehaviorDampenElements(conditionDampenElements));
 
         var powerDampenElements = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DampenElements")
@@ -144,6 +180,13 @@ public sealed class DomainNature : AbstractSubclass
             .SetAttackModeOnly()
             .AddToDB();
 
+        var conditionDivineStrikeCold = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}DivineStrikeCold")
+            .SetGuiPresentationNoContent(true)
+            .SetFeatures(additionalDamageDivineStrikeCold)
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .AddToDB();
+
         var additionalDamageDivineStrikeFire = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}DivineStrikeFire")
             .SetGuiPresentationNoContent(true)
@@ -153,6 +196,13 @@ public sealed class DomainNature : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
+            .AddToDB();
+
+        var conditionDivineStrikeFire = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}DivineStrikeFire")
+            .SetGuiPresentationNoContent(true)
+            .SetFeatures(additionalDamageDivineStrikeFire)
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
 
         var additionalDamageDivineStrikeLightning = FeatureDefinitionAdditionalDamageBuilder
@@ -166,14 +216,22 @@ public sealed class DomainNature : AbstractSubclass
             .SetAttackModeOnly()
             .AddToDB();
 
-        var featureSetDivineStrike = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{NAME}DivineStrike")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                additionalDamageDivineStrikeCold,
-                additionalDamageDivineStrikeFire,
-                additionalDamageDivineStrikeLightning)
+        var conditionDivineStrikeLightning = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}DivineStrikeLightning")
+            .SetGuiPresentationNoContent(true)
+            .SetFeatures(additionalDamageDivineStrikeLightning)
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
+
+        var featureDivineStrike = FeatureDefinitionBuilder
+            .Create($"Feature{NAME}DivineStrike")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureDivineStrike.AddCustomSubFeatures(
+            new PhysicalAttackBeforeHitConfirmedOnEnemyDivineStrike(
+                featureDivineStrike,
+                conditionDivineStrikeCold, conditionDivineStrikeFire, conditionDivineStrikeLightning));
 
         // LEVEL 17 - Master of Nature
 
@@ -217,7 +275,7 @@ public sealed class DomainNature : AbstractSubclass
             .AddFeaturesAtLevel(1, autoPreparedSpellsDomainNature, featureSetAcolyteOfNature)
             .AddFeaturesAtLevel(2, featureSetCharmAnimalsAndPlants)
             .AddFeaturesAtLevel(6, powerDampenElements)
-            .AddFeaturesAtLevel(8, featureSetDivineStrike)
+            .AddFeaturesAtLevel(8, featureDivineStrike)
             .AddFeaturesAtLevel(10, PowerClericDivineInterventionWizard)
             .AddFeaturesAtLevel(17, powerMasterOfNature)
             .AddToDB();
@@ -231,4 +289,165 @@ public sealed class DomainNature : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice { get; }
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
+
+    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyDivineStrike(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDivineStrike,
+        params ConditionDefinition[] conditions) : IPhysicalAttackBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!attacker.OncePerTurnIsValid(featureDivineStrike.Name))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var roll = RollDie(DieType.D3, AdvantageType.None, out _, out _);
+
+            rulesetAttacker.ShowDieRoll(DieType.D3, roll, title: featureDivineStrike.GuiPresentation.Title);
+
+            var condition = conditions[roll - 1];
+
+            attacker.UsedSpecialFeatures.TryAdd(featureDivineStrike.Name, 0);
+            rulesetAttacker.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                condition.Name,
+                0,
+                0,
+                0);
+        }
+    }
+
+    private sealed class CustomBehaviorDampenElements(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDampenElements)
+        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return Handler(battleManager, attacker, defender.RulesetCharacter, actualEffectForms);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return Handler(battleManager, attacker, defender.RulesetCharacter, actualEffectForms);
+        }
+
+        // ReSharper disable once ParameterTypeCanBeEnumerable.Local
+        private IEnumerator Handler(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            // ReSharper disable once SuggestBaseTypeForParameter
+            RulesetCharacter rulesetDefender,
+            List<EffectForm> actualEffectForms)
+        {
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (!actionManager)
+            {
+                yield break;
+            }
+
+            var damageTypes = DampenElementsDamageTypes.Intersect(
+                    actualEffectForms
+                        .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                        .Select(x => x.DamageForm.DamageType))
+                .ToList();
+
+            if (damageTypes.Count == 0)
+            {
+                yield break;
+            }
+
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionDampenElements.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+
+            if (rulesetCaster == null)
+            {
+                yield break;
+            }
+
+            var glc = GameLocationCharacter.GetFromActor(rulesetCaster);
+
+            if (!glc.CanReact())
+            {
+                yield break;
+            }
+
+            var actionParams = new CharacterActionParams(glc, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            {
+                StringParameter = "CustomReactionDampenElements".Formatted(Category.Reaction)
+            };
+            var reactionRequest = new ReactionRequestCustom("DampenElements", actionParams);
+            var count = actionManager.PendingReactionRequestGroups.Count;
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            foreach (var conditionName in damageTypes.Select(damageType => $"ConditionDomainNature{damageType}"))
+            {
+                rulesetDefender.InflictCondition(
+                    conditionName,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetDefender.guid,
+                    rulesetDefender.CurrentFaction.Name,
+                    1,
+                    conditionName,
+                    0,
+                    0,
+                    0);
+            }
+        }
+    }
 }

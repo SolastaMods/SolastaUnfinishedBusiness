@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDomainNatureDivineStrike:690ac3da-c6e0-545a-a589-5ec12a518e8d",
+      "featureDefinition": "Definition:FeatureDomainNatureDivineStrike:7138e48f-2d03-55ec-b480-cdf5d501c3a2",
       "level": 8
     },
     {
