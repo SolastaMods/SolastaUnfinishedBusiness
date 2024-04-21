@@ -561,18 +561,18 @@ internal static partial class SpellBuilders
                 0,
                 0);
 
-            while (effectLevel-- > 0 &&
+            while (--effectLevel > 0 &&
                    rulesetTarget.RemainingHitDiceCount() > 0 &&
                    rulesetTarget.MissingHitPoints > 0)
             {
-                var missingHitPoints = rulesetTarget.MissingHitPoints;
                 var maxHitPoints = rulesetTarget.TryGetAttributeValue(AttributeDefinitions.HitPoints);
+                var remainingHitPoints = maxHitPoints - rulesetTarget.MissingHitPoints;
                 var reactionParams =
                     new CharacterActionParams(target, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                     {
                         StringParameter = Gui.Format(
                             "Reaction/&CustomReactionWitherAndBloomDescription",
-                            missingHitPoints.ToString(), maxHitPoints.ToString(), actingCharacter.Name,
+                            remainingHitPoints.ToString(), maxHitPoints.ToString(), actingCharacter.Name,
                             modifier.ToString())
                     };
                 var reactionRequest = new ReactionRequestCustom("WitherAndBloom", reactionParams);
