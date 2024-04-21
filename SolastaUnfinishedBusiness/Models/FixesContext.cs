@@ -391,6 +391,17 @@ internal static class FixesContext
 
     private static void FixMinorMagicEffectsIssues()
     {
+        // fix Banishment
+        var conditionBanishedByBanishment = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionBanished, "ConditionBanishedByBanishment")
+            .SetParentCondition(ConditionDefinitions.ConditionBanished)
+            .SetFeatures()
+            .AddToDB();
+
+        Banishment.EffectDescription.EffectForms[0] = EffectFormBuilder.ConditionForm(conditionBanishedByBanishment);
+        conditionBanishedByBanishment.permanentlyRemovedIfExtraPlanar = true;
+        ConditionDefinitions.ConditionBanished.permanentlyRemovedIfExtraPlanar = false;
+
         // fix touch powers with range parameter greater than zero
         foreach (var power in DatabaseRepository.GetDatabase<SpellDefinition>()
                      .Where(x => x.EffectDescription.RangeType == RangeType.Touch))
