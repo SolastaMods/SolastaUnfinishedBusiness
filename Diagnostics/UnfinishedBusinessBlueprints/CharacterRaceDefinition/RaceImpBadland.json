@@ -10,30 +10,46 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "featureDefinition": "Definition:FeatureSetImpBadlandAbilityScoreIncrease:5b6e03fe-fb72-51dd-b35b-55b999b2dde9",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetLanguageCommonPlusOne:1126ecfe-540b-5e61-a9b9-923a1c0da0e8",
+      "featureDefinition": "Definition:PowerImpBadlandAssist:46911e56-dbce-5f13-8200-e461a1c82719",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "featureDefinition": "Definition:PowerImpBadlandDrawInspiration:90b0a249-8224-5117-acd9-3bed22b2b0e5",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "featureDefinition": "Definition:FeatureSetElfFeyAncestry:c123d2bc2667e7641a5b5bc9fdd94512",
       "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerImpBadlandAssistPool:78c8f136-ddd3-57b5-81ea-fa8713cb2eec",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerImpBadlandHospitality:d8850af9-5a1f-51c3-a6ce-4f4a280ff10d",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerImpBadlandPassage:fdb07348-acaf-564b-aef0-3dde4cf45474",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerImpBadlandSpite:1f9f4f55-d5f7-5369-83b4-ac0397d2dbcd",
+      "level": 3
     }
   ],
-  "subRaces": [
-    "Definition:RaceImpInfernal:ad5a534a-740c-51e7-9707-23894f993e69",
-    "Definition:RaceImpForest:2c3563b3-e485-5ba2-ad44-926b7393104e",
-    "Definition:RaceImpBadland:f71b7c07-c459-5fae-83c1-6f90e2a76c9d"
-  ],
+  "subRaces": [],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [],
   "languageAutolearnPreference": [
@@ -273,7 +289,7 @@
     "preferedSkinColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 1,
-      "maxValue": 15
+      "maxValue": 5
     },
     "preferedHairColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
@@ -291,13 +307,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&RaceImpTitle",
-    "description": "Race/&RaceImpDescription",
+    "title": "Race/&RaceImpBadlandTitle",
+    "description": "Race/&RaceImpBadlandDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3062ae828f76e3c4988135b29ea6ecd9",
-      "m_SubObjectName": "Tiefling",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "6df0a926-f1f7-5cb5-a506-dd0d33c2cb63",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -312,7 +328,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4e6bb033-562b-5912-adec-297ef27b9b6e",
+  "guid": "f71b7c07-c459-5fae-83c1-6f90e2a76c9d",
   "contentPack": 9999,
-  "name": "RaceImp"
+  "name": "RaceImpBadland"
 }

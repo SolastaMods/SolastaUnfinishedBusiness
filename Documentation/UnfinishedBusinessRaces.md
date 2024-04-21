@@ -49,7 +49,55 @@ You may choose one of Aasimar's Angelic Forms.
 
 
 
-# 2. - Cave Wyrmkin
+# 2. - Badland Imp
+
+Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
+
+
+## Level 1
+
+* Ability Score Increase
+
+Constitution +2, Intelligence +1
+
+* Assist
+
+As a bonus action, you may assist an ally in attacking an enemy within 5 feet of you. The ally will have an advantage on the first attack roll they make to the enemy. You can use this trait equal to your proficiency bonus, and regain expended uses after long rest.
+
+* Draw Inspiration
+
+Whenever you fail an attack roll or a saving throw, you can add +3 to the roll. You can use this trait equal to your proficiency bonus, and regain expended uses after long rest.
+
+* Fey Ancestry
+
+Saving throw advantage against Charm
+ Immunity to magical sleep
+
+* Fey Gift
+
+Starting at 3rd level, you may choose one of the following effects whenever you use Assist: 
+- Hospitality: You and your ally will gain temporary HP. 
+- Passage: For one round, you and your ally increase movement speed by 10 feet. 
+- Spite: When your ally hits an assisted target, the target will have disadvantage on the first attack roll it makes within 1 minute.
+
+
+## Level 3
+
+* Assist - Hospitality
+
+As a bonus action, assist an ally in attacking an enemy within 5 feet of you in one round. You and your ally will gain 1d6 + proficiency bonus of temporary HP until long rest. You can use this trait equal to your proficiency bonus, and regain expended uses after long rest.
+
+* Assist - Passage
+
+As a bonus action, assist an ally in attacking an enemy within 5 feet of you in one round. You and your ally will gain 10 feet movement speed for 1 round. You can use this trait equal to your proficiency bonus, and regain expended uses after long rest.
+
+* Assist - Spite
+
+As a bonus action, assist an ally in attacking an enemy within 5 feet of you in one round. If your ally hits the target, it will be mocked for 1 minute and gain disadvantage on its first attack roll. You can use this trait equal to your proficiency bonus, and regain expended uses after long rest.
+
+
+
+# 3. - Cave Wyrmkin
 
 Cave Wyrmkins are wyrms that have adapted living in vast underground network of caves. They are born with strong sense of direction in order to navigate skillfully, and use their powerful claws to dig tunnels.
 
@@ -78,7 +126,7 @@ You can use your claws to make unarmed strike. Attacking with them deals 1d6 + y
 
 
 
-# 3. - Crystal Wyrmkin
+# 4. - Crystal Wyrmkin
 
 Wyrmkins are larger cousins of Dragonborns descended from another race of dragons. Unlike Dragonborns, they can see in the dark.
 
@@ -103,7 +151,7 @@ You are proficient with one of the following skills of your choice: Animal Handl
 
 
 
-# 4. - Dark Elf
+# 5. - Dark Elf
 
 Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 
@@ -140,7 +188,7 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 
 
 
-# 5. - Dark Kobold
+# 6. - Dark Kobold
 
 Dark Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -165,7 +213,7 @@ A creature with Pack Tactics has advantage on an attack roll against a creature 
 
 
 
-# 6. - Devil's Tongue
+# 7. - Devil's Tongue
 
 Tieflings with a lineage connected to Malcanthet or other Succubi inherit a fragment of their magical ability to charm and manipulate others.
 
@@ -182,7 +230,7 @@ You know the Vicious Mockery cantrip. At 3rd level you learn Charm Person and at
 
 
 
-# 7. - Draconic Kobold
+# 8. - Draconic Kobold
 
 Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -203,7 +251,7 @@ You know one cantrip of your choice from the Sorcerer spell list. Charisma is yo
 
 
 
-# 8. - Fairy
+# 9. - Fairy
 
 The Feywild is home to many fantastic peoples, including fairies. Fairies are a wee folk, but not nearly as much so as their pixie and sprite friends. The first fairies spoke Elvish, Goblin, or Sylvan, and encounters with human visitors prompted many of them to learn Common as well.
 
@@ -236,7 +284,7 @@ You know the Word of Radiance cantrip. At 3rd level you learn Faerie Fire and at
 
 
 
-# 9. - Feral
+# 10. - Feral
 
 These tieflings display features and abilities which make them much more characteristically demonic such as a forked tail and large bat-like wings. Because of this, many feral tieflings are forced to hide to avoid scrutiny or being hunted while others embrace this fiendish nature.
 
@@ -257,7 +305,7 @@ You know the Produce Flame cantrip. At 3rd level you learn Burning Hands. It can
 
 
 
-# 10. - Firbolg
+# 11. - Firbolg
 
 Filborgs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, filborgs demonstrate formidable skills with weapons and nature magic.
 
@@ -294,7 +342,7 @@ You know one cantrip of your choice from the Druid spell list. Wisdom is your sp
 
 
 
-# 11. - Forest Imp
+# 12. - Forest Imp
 
 Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
 
@@ -320,7 +368,7 @@ You use your bonus action to Disengage or Hide.
 
 
 
-# 12. - Goliath
+# 13. - Goliath
 
 Goliaths share ancestry with the giants that live in the northern regions of Solasta.
 
@@ -361,7 +409,7 @@ When you are attacked, you can use your reaction to roll a d12. Add your Constit
 
 
 
-# 13. - Gray Dwarf
+# 14. - Gray Dwarf
 
 The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 
@@ -404,7 +452,7 @@ You can magically turn invisible for up to 1 minute. This invisibility breaks if
 
 
 
-# 14. - Half-Dark Elf
+# 15. - Half-Dark Elf
 
 Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 
@@ -421,7 +469,7 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 
 
 
-# 15. - Half-Elf
+# 16. - Half-Elf
 
 Offspring of the human refugees from Tirmar and the Solastan elves, half-elves have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
 
@@ -447,7 +495,7 @@ Common, Elvish, and one language of your choice
 
 
 
-# 16. - Half-High Elf
+# 17. - Half-High Elf
 
 Half-High elves are trained to use magic very early.
 
@@ -464,7 +512,7 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 
 
 
-# 17. - Half-Sylvan Elf
+# 18. - Half-Sylvan Elf
 
 Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 
@@ -477,7 +525,7 @@ Half-Sylvan elves are trained to survive in the wilds and are particularly apt t
 
 
 
-# 18. - High Wyrmkin
+# 19. - High Wyrmkin
 
 High Wyrmkins descended from a race of wyrms that have psionic abilities. Instead of dragon's breath, they can use their psionic powers to deal damage.
 
@@ -502,7 +550,7 @@ When a creature hits you with an attack, you can use your reaction to attack the
 
 
 
-# 19. - Imp
+# 20. - Imp
 
 Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
 
@@ -523,7 +571,7 @@ Common and one language of your choice.
 
 
 
-# 20. - Infernal Imp
+# 21. - Infernal Imp
 
 Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
 
@@ -544,7 +592,7 @@ You know the Vicious Mockery cantrip. When you reach level 3, you can cast Invis
 
 
 
-# 21. - Ironborn Dwarf
+# 22. - Ironborn Dwarf
 
 Strong and hardy, the Ironborn Dwarves live among, but often apart from, their cousins the Snow Dwarves. Clannish and aloof, they nevertheless can be counted on to stand shoulder to brawny shoulder with any in the Snow Alliance.
 
@@ -565,7 +613,7 @@ Common, Dwarvish
 
 
 
-# 22. - Kobold
+# 23. - Kobold
 
 Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -586,7 +634,7 @@ Common, Draconic.
 
 
 
-# 23. - Lizardfolk
+# 24. - Lizardfolk
 
 The saurian lizardfolk are thought by some sages to be distant cousins of dragonborn and kobolds. Despite their resemblance to those other scaled folk, however, lizardfolk are their own people and have lived on the worlds of the Material Plane since the worlds' creation. Gifted by the gods with remarkable physical defenses and a mystical connection to the natural world, lizardfolk can survive with just their wits in situations that would be deadly for other folk. Because of that fact, many lizardfolk myths state that their people were placed by the gods in the Material Plane to guard its natural wonders.
 
@@ -627,7 +675,7 @@ You are proficient with one of the following skills of your choice: Animal Handl
 
 
 
-# 24. - Mephistopheles
+# 25. - Mephistopheles
 
 Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
 
@@ -644,7 +692,7 @@ You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th 
 
 
 
-# 25. - Obsidian Dwarf
+# 26. - Obsidian Dwarf
 
 In ages past, a group of dwarves was enslaved by fire giants as miners and craftsmen. The chaotic magic of the cataclysm imbued many of these dwarves some of the strength and resistance of their oppressors. The dwarves rebelled, won their freedom, and retreated to the Badlands. Calling themselves the Obsidian Dwarves, they have grown and prospered.
 
@@ -665,7 +713,7 @@ Common, Dwarvish, and Giant
 
 
 
-# 26. - Oni
+# 27. - Oni
 
 Oni are Demon-like creatures from far eastern island kingdom of Himoto. They came to Solasta through activated major gates.
 
@@ -702,7 +750,7 @@ At 3rd level, you can cast Thunderous Smite once per long rest. Wisdom is your s
 
 
 
-# 27. - Tiefling
+# 28. - Tiefling
 
 One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
 
@@ -727,7 +775,7 @@ You have resistance to fire damage.
 
 
 
-# 28. - Warforged
+# 29. - Warforged
 
 The battleborn are results of arcane experiments, blending flesh, alchemy and magic to create perfect battlefield soldiers. Created to serve as weapons, they must now find a purpose beyond war. A battleborn can be a loyal ally, a cold-hearted killing machine, or a wandering soul-searching for purpose and meaning.
 
@@ -760,7 +808,7 @@ You gain one skill proficiency and one tool proficiency of your choice.
 
 
 
-# 29. - Wendigo
+# 30. - Wendigo
 
 Wendigos arrived in Solasta through the rift during the Cataclysm. Stealthy despite their size, Wendigos would lunge at unsuspecting victims with their long arms.
 
@@ -805,7 +853,7 @@ On the first round of combat, if you hit a creature with an attack roll, and it'
 
 
 
-# 30. - Wildling
+# 31. - Wildling
 
 Wildlings are offsprings of humans and tieflings that mostly inherited the tiefling parent's feral characteristics. Different in looks and nature, wildlings have spent most of their lives in forests or other less inhabited regions of Solasta as self-sufficient hunters and travelers.
 
@@ -846,7 +894,7 @@ You have proficiency in Perception and Stealth skills.
 
 
 
-# 31. - Wyrmkin
+# 32. - Wyrmkin
 
 Wyrmkins are larger cousins of Dragonborns descended from another race of dragons. Unlike Dragonborns, they can see in the dark.
 
@@ -867,7 +915,7 @@ Common, Draconic.
 
 
 
-# 32. - Zariel
+# 33. - Zariel
 
 Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 

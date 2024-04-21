@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AttributeModifierDwarfAbilityScoreIncrease:a8185578e248d504584061f2ef4b8cd3",
+    "Definition:AttributeModifierElfHighAbilityScoreIncrease:73c548582398b1f4cba312925b63348b"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetImpBadlandAbilityScoreIncreaseTitle",
+    "description": "Feature/&FeatureSetImpBadlandAbilityScoreIncreaseDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5b6e03fe-fb72-51dd-b35b-55b999b2dde9",
+  "contentPack": 9999,
+  "name": "FeatureSetImpBadlandAbilityScoreIncrease"
+}
