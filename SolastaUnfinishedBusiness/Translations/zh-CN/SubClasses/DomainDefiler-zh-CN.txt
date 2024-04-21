@@ -16,7 +16,5 @@ Feature/&PowerDomainDefilerDefileLifeDescription=在你周围释放一股黯蚀�
 Feature/&PowerDomainDefilerDefileLifeTitle=玷污生命
 Feature/&PowerDomainDefilerDyingLightDescription=每当你造成黯蚀伤害时，你都可以造成最大伤害而无需掷骰。每次长时间休息可以使用此特性一次。
 Feature/&PowerDomainDefilerDyingLightTitle=垂死光芒
-Feedback/&AdditionalDamageDivineStrikeFormat=神圣打击！
-Feedback/&AdditionalDamageDivineStrikeLine={0} 对 {1} (+{2}) 进行神圣打击攻击
 Subclass/&DomainDefilerDescription=亵渎者崇拜死亡、腐化与枯萎之神，为自己的目的寻求权力和腐化：取悦他们的神明，或者出于更自私的原因。
 Subclass/&DomainDefilerTitle=亵渎者

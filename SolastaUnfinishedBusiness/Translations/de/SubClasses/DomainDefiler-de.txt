@@ -16,7 +16,5 @@ Feature/&PowerDomainDefilerDefileLifeDescription=Entfessle eine Welle nekrotisch
 Feature/&PowerDomainDefilerDefileLifeTitle=Das Leben verunreinigen
 Feature/&PowerDomainDefilerDyingLightDescription=Immer wenn du nekrotischen Schaden verursachst, kannst du maximalen Schaden verursachen, anstatt zu würfeln. Sie können diese Funktion einmal pro langer Pause nutzen.
 Feature/&PowerDomainDefilerDyingLightTitle=Sterbendes Licht
-Feedback/&AdditionalDamageDivineStrikeFormat=Göttlicher Schlag!
-Feedback/&AdditionalDamageDivineStrikeLine={0} führt einen göttlichen Schlagangriff auf {1} (+{2}) durch.
 Subclass/&DomainDefilerDescription=Schänder verehren Gönner des Todes, der Verderbnis und der Verderbnis und streben nach Macht und Verderbnis für ihre eigenen Zwecke: um ihren Göttern zu gefallen oder aus selbstsüchtigeren Gründen.
 Subclass/&DomainDefilerTitle=Schänder

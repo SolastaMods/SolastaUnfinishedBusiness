@@ -16,7 +16,5 @@ Feature/&PowerDomainDefilerDefileLifeDescription=Scatena un'ondata di energia ne
 Feature/&PowerDomainDefilerDefileLifeTitle=Contamina la vita
 Feature/&PowerDomainDefilerDyingLightDescription=Ogni volta che infliggi danno necrotico, puoi infliggere il massimo danno invece di tirare. Puoi usare questa capacità una volta per ogni riposo lungo.
 Feature/&PowerDomainDefilerDyingLightTitle=Luce morente
-Feedback/&AdditionalDamageDivineStrikeFormat=Colpo Divino!
-Feedback/&AdditionalDamageDivineStrikeLine={0} esegue un attacco di colpo divino su {1} (+{2})
 Subclass/&DomainDefilerDescription=I profanatori adorano i patroni della morte, della corruzione e della rovina, cercando potere e corruzione per i propri fini: per compiacere i loro dei o per ragioni più egoistiche.
 Subclass/&DomainDefilerTitle=Contaminatore

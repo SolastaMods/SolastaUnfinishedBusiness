@@ -16,7 +16,5 @@ Feature/&PowerDomainDefilerDefileLifeDescription=주변에 괴사 에너지의 �
 Feature/&PowerDomainDefilerDefileLifeTitle=더러운 삶
 Feature/&PowerDomainDefilerDyingLightDescription=괴사 피해를 입힐 때마다 구르는 대신 최대 피해를 입힐 수 있습니다. 이 기능은 장기간 휴식할 때마다 한 번씩 사용할 수 있습니다.
 Feature/&PowerDomainDefilerDyingLightTitle=죽어가는 빛
-Feedback/&AdditionalDamageDivineStrikeFormat=디바인 스트라이크!
-Feedback/&AdditionalDamageDivineStrikeLine={0}이(가) {1}(+{2})에 신성한 공격을 수행합니다.
 Subclass/&DomainDefilerDescription=더럽히는 자들은 죽음, 부패, 역병의 후원자를 숭배하며 자신의 목적, 즉 신을 기쁘게 하거나 더 이기적인 이유로 권력과 부패를 추구합니다.
 Subclass/&DomainDefilerTitle=파멸자
