@@ -16,7 +16,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using Category = SolastaUnfinishedBusiness.Builders.Category;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -116,11 +115,59 @@ public sealed class DomainTempest : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
+            .SetImpactParticleReference(Shatter.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
-
 
         // LEVEL 17 - Stormborn
 
+        var powerStormbornSprout = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}StormbornSprout")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerStormbornSprout", Resources.PowerAngelicFormSprout, 256, 128))
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 8)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFlyingAdaptive,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var powerStormbornDismiss = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}StormbornDismiss")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerStormbornDismiss", Resources.PowerAngelicFormDismiss, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFlyingAdaptive,
+                                ConditionForm.ConditionOperation.Remove)
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlyingAdaptive)))
+            .AddToDB();
+
+        var featureSetStormborn = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}Stormborn")
+            .SetGuiPresentation($"Power{NAME}StormbornSprout", Category.Feature)
+            .AddFeatureSet(powerStormbornSprout, powerStormbornDismiss)
+            .AddToDB();
 
         // MAIN
 
@@ -132,7 +179,7 @@ public sealed class DomainTempest : AbstractSubclass
             .AddFeaturesAtLevel(6, actionAffinityThunderousStrike)
             .AddFeaturesAtLevel(8, additionalDamageDivineStrike)
             .AddFeaturesAtLevel(10, PowerClericDivineInterventionPaladin)
-            .AddFeaturesAtLevel(17)
+            .AddFeaturesAtLevel(17, featureSetStormborn)
             .AddToDB();
     }
 
