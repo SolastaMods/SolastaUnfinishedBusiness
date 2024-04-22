@@ -297,6 +297,16 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="Dawn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/Dawn.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="AuraOfLife" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/AuraOfLife.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="AuraOfPerseverance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AuraOfPerseverance.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
