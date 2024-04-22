@@ -344,7 +344,8 @@ public static class CursorLocationSelectTargetPatcher
             var enforceFullSelection = false;
             if (__instance.actionParams is { RulesetEffect: RulesetEffectPower rulesetEffectPower })
             {
-                var filterTargetingCharacter = rulesetEffectPower.PowerDefinition.GetFirstSubFeatureOfType<IFilterTargetingCharacter>();
+                var filterTargetingCharacter =
+                    rulesetEffectPower.PowerDefinition.GetFirstSubFeatureOfType<IFilterTargetingCharacter>();
 
                 if (filterTargetingCharacter != null)
                 {
@@ -360,7 +361,7 @@ public static class CursorLocationSelectTargetPatcher
             else
             {
                 canProceed = __instance.maxTargets < 0 ||
-                              (__instance.maxTargets > 1 && __instance.remainingTargets < __instance.maxTargets);
+                             (__instance.maxTargets > 1 && __instance.remainingTargets < __instance.maxTargets);
             }
             // END PATCH
 

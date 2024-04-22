@@ -180,6 +180,7 @@ public sealed class DomainNature : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
+            .SetImpactParticleReference(ConeOfCold.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         var conditionDivineStrikeCold = ConditionDefinitionBuilder
@@ -198,6 +199,7 @@ public sealed class DomainNature : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
+            .SetImpactParticleReference(FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         var conditionDivineStrikeFire = ConditionDefinitionBuilder
@@ -216,6 +218,8 @@ public sealed class DomainNature : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
+            .SetImpactParticleReference(
+                LightningBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         var conditionDivineStrikeLightning = ConditionDefinitionBuilder
