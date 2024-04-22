@@ -66,29 +66,29 @@ Create a brilliant flash of shimmering light, damaging all enemies around you.
 
 Unleash a wave of crippling pain at a creature within range. The target must make a Constitution saving throw or take 1d8 necrotic damage, and preventing them from dashing or disengaging.
 
-# 17. - *Armor of Agathys* © (V,S) level 1 Abjuration
+# 17. - *Absorb Elements* © (S) level 1 Abjuration
+
+The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage to the triggering type, and the spell ends. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.
+
+# 18. - *Armor of Agathys* © (V,S) level 1 Abjuration
 
 A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 cold damage per spell level.
 
-# 18. - *Arms of Hadar* © (V,S) level 1 Evocation
+# 19. - *Arms of Hadar* © (V,S) level 1 Evocation
 
 You invoke the power of malevolent forces. Tendrils of dark energy erupt from you and batter all creatures within 10 feet of you. Each creature in that area must make a Strength saving throw. On a failed save, a target takes 2d6 necrotic damage and can't take reactions until the start of your next turn. On a successful save, the creature takes half damage, but suffers no other effect. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.
 
-# 19. - Caustic Zap (V,S) level 1 Evocation
+# 20. - Caustic Zap (V,S) level 1 Evocation
 
 You send a jolt of green energy toward the target momentarily disorientating them as the spell burn some of their armor. The spell targets one enemy with a spell attack and deals 1d4 acid and 1d6 lightning damage and applies the dazzled condition.
 
-# 20. - *Chromatic Orb* © (M,V,S) level 1 Evocation
+# 21. - *Chromatic Orb* © (M,V,S) level 1 Evocation
 
 You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage to the type you chose.
 
-# 21. - *Earth Tremor* © (V,S) level 1 Evocation
+# 22. - *Earth Tremor* © (V,S) level 1 Evocation
 
 You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
-
-# 22. - Elemental Infusion (S) level 1 Abjuration
-
-The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage to the triggering type, and the spell ends. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.
 
 # 23. - *Ensnaring Strike* © (V) level 1 Conjuration [Concentration]
 
@@ -98,7 +98,7 @@ The next time you hit a creature with a weapon attack before this spell ends, a 
 
 You gain the service of a familiar. The familiar can use the help action, and you can cast any touch or melee hit spell through the familiar.
 
-# 25. - Gift of Alacrity (V,S) level 1 Divination
+# 25. - *Gift of Alacrity* © (V,S) level 1 Divination
 
 You touch a willing creature. For the duration, the target can add 1d8 to its initiative rolls.
 
@@ -312,7 +312,7 @@ Your next hit deals additional 5d10 force damage with your weapon. Additionally,
 
 Divine energy radiates from you, distorting and diffusing magical energy within 30 feet of you. Until the spell ends, the sphere moves with you, centered on you. For the duration, each friendly creature in the area, including you, has advantage on saving throws against spells and other magical effects. Additionally, when an affected creature succeeds on a saving throw made against a spell or magical effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throws.
 
-# 76. - Dawn (V,S) level 5 Evocation [Concentration]
+# 76. - *Dawn* © (V,S) level 5 Evocation [Concentration]
 
 The light of dawn shines down on a location you specify within range. Until the spell ends, a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight. When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10 radiant damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw whenever it ends its turn in the cylinder.
 

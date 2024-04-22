@@ -18,7 +18,9 @@
   "addAbilityToDamage": false,
   "attackPower": null,
   "impactsPlacement": false,
-  "additionalFeatures": [],
+  "additionalFeatures": [
+    "Definition:MoveModeMove12:38fa5268f6de6dd4a936bc94ca2efff5"
+  ],
   "attackParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

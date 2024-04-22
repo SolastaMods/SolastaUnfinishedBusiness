@@ -1600,6 +1600,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionMoveMode MoveModeMove8 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove8");
+
+        internal static FeatureDefinitionMoveMode MoveModeMove12 { get; } =
+            GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove12");
     }
 
     internal static class FeatureDefinitionPointPools

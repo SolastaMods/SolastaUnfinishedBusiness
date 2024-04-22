@@ -348,6 +348,7 @@ internal static partial class SpellBuilders
             .Create(EffectProxyDefinitions.ProxyDaylight, $"Proxy{NAME}")
             .SetOrUpdateGuiPresentation(NAME, Category.Spell)
             .SetCanMove()
+            .SetAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove12)
             .AddToDB();
 
         effectProxy.GuiPresentation.description = Gui.NoLocalization;
