@@ -20,9 +20,10 @@ internal static class CreditsDisplay
         ("Zappastuff",
             "gameplay, infrastructure, maintenance, mod UI, quality of life, rules, " +
             "backgrounds, feats, fighting styles, maneuvers, invocations, metamagic, spells, " +
-            "Fairy, Half-elf, Tiefling, " +
+            "Fairy, Half-elf, Shadar-Kai, Tiefling, " +
             "Circle of the Ancient Forest, Circle of the Eternal Grove, Circle of the Stars, " +
             "College of Elegance, College of Eloquence, College of Life, College of Swords, College of Thespian, College of Valor, " +
+            "Domain Nature, Domain Tempest, " +
             "Innovation Artillerist, Innovation Vitriolist, Innovation Vivisectionist, " +
             "Martial Arcane Archer, Martial Banneret, Martial Guardian, Martial Psi Warrior, Martial Warlord, Martial Weapon Master, " +
             "Oath of Altruism, Oath of Dread, Oath of Thunder, " +

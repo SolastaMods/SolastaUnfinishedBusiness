@@ -1,7 +1,7 @@
 1.5.97.6:
 
 - added Athlete feat
-- added Imp Badland subrace
+- added Imp Badland and Shadar-Kai subraces
 - added Nature Domain and Tempest Domain subclasses
 - added Primordial Ward spell and Wither and Bloom spells
 - fixed banishment behavior to only allow Banishment and Banishing Smite spells to kill extra planar
@@ -10,9 +10,9 @@
 - fixed Orcish Aggression feat family tag
 - fixed Potent Spell Casting feat interaction with Produce Flame cantrip
 - fixed Roguish Acrobat swift as wind/fluid motions features jump distance
-- fixed Step Back behavior to interrupt on any ranged attack
+- fixed Step Back action behavior to interrupt on any ranged attack
 - fixed Witch Bolt spell interaction with auto spell powers
-- removed College of War Dancer offering from mod UI [sorry Nd, way OP]
+- removed College of War Dancer offering from mod UI
 
 1.5.97.5:
 

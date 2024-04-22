@@ -1,0 +1,4 @@
+Feature/&PowerShadarKaiTeleportDescription=作为奖励动作，你可以神奇地传送 30 英尺到你能看到的未占用空间。你可以使用该特质的次数等于你的熟练加值，并且当你完成长时间休息后，你会重新获得所有消耗的使用次数。从第 3 级开始，当你使用此特性传送时，你还会获得对所有伤害的抵抗力。阻力会持续到你的下一个回合开始。在那段时间里，你显得幽灵般、半透明。
+Feature/&PowerShadarKaiTeleportTitle=乌鸦女王的祝福
+Race/&RaceShadarKaiDescription=沙达尔凯是暗影地狱的精灵，最初是被乌鸦女王吸引到那个可怕的国度的。几个世纪以来，他们中的一些人继续为她服务，而另一些人则冒险进入主物质位面，塑造自己的命运。
+Race/&RaceShadarKaiTitle=沙达尔凯

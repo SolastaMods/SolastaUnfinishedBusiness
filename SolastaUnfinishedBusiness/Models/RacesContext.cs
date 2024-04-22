@@ -47,6 +47,7 @@ internal static class RacesContext
         LoadSubrace(SubraceGrayDwarfBuilder.SubraceGrayDwarf);
         LoadSubrace(SubraceIronbornDwarfBuilder.SubraceIronbornDwarf);
         LoadSubrace(SubraceObsidianDwarfBuilder.SubraceObsidianDwarf);
+        LoadSubrace(SubraceShadarKaiBuilder.SubraceShadarKai);
 
         // sorting
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();

@@ -1,0 +1,293 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "ChaoticGood",
+  "dualSex": true,
+  "minimalAge": 0,
+  "maximalAge": 0,
+  "baseHeight": 63,
+  "baseWeight": 90,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolShadarKaiAbilityScore:2f8b6c66-eb11-5943-b0d2-83b9a3d0e8e5",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerShadarKaiTeleport:5848abd3-892f-5510-a8c8-e89bf59a3769",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyElfWeaponTraining:d834d84ae89d67846af1a9262e0f62ff",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetElfHighLanguages:752c07b8faab19c43af3b28543d9f15d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 2,
+      "personalityFlag": "GpSpellcaster"
+    }
+  ],
+  "languageAutolearnPreference": [],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 3.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Elf",
+    "armorAssetPrefix": "Elf",
+    "helmetAssetPrefix": "Elf",
+    "faceShapeAssetPrefix": "Elf",
+    "hairShapeAssetPrefix": "Elf",
+    "beardShapeAssetPrefix": "Elf",
+    "hornsTailAssetPrefix": "",
+    "maleNameOptions": [
+      "Race/&ElfMaleName1Title",
+      "Race/&ElfMaleName2Title",
+      "Race/&ElfMaleName3Title",
+      "Race/&ElfMaleName4Title",
+      "Race/&ElfMaleName5Title",
+      "Race/&ElfMaleName6Title",
+      "Race/&ElfMaleName7Title",
+      "Race/&ElfMaleName8Title",
+      "Race/&ElfMaleName9Title",
+      "Race/&ElfMaleName10Title",
+      "Race/&ElfMaleName11Title",
+      "Race/&ElfMaleName12Title",
+      "Race/&ElfMaleName13Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&ElfFemaleName1Title",
+      "Race/&ElfFemaleName2Title",
+      "Race/&ElfFemaleName3Title",
+      "Race/&ElfFemaleName4Title",
+      "Race/&ElfFemaleName5Title",
+      "Race/&ElfFemaleName6Title",
+      "Race/&ElfFemaleName7Title",
+      "Race/&ElfFemaleName8Title",
+      "Race/&ElfFemaleName9Title",
+      "Race/&ElfFemaleName10Title",
+      "Race/&ElfFemaleName11Title",
+      "Race/&ElfFemaleName12Title",
+      "Race/&ElfFemaleName13Title",
+      "Race/&ElfFemaleName14Title"
+    ],
+    "hasSurName": true,
+    "surNameTitle": "Race/&ElfSurNameTitle",
+    "surNameOptions": [],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars",
+      "Musculature"
+    ],
+    "needBeard": false,
+    "defaultMusculature": 0,
+    "originOptions": [
+      "Origin_NonHuman"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Daliat_Sunbird",
+      "FaceShape_NPC_Ilastar_Keenmind_Airgetine",
+      "FaceShape_NPC_Iolair_Faisech",
+      "FaceShape_NPC_Llygath_Steelmind",
+      "FaceShape_NPC_Mardracht",
+      "FaceShape_NPC_Medwal_Strongfire",
+      "FaceShape_NPC_Nobleman",
+      "FaceShape_NPC_Orenetis",
+      "FaceShape_NPC_Serafiel_Anfarel",
+      "FaceShape_NPC_Lysantir",
+      "FaceShape_NPC_Esfalad_Graymas",
+      "FaceShape_NPC_Telerien_Purevoice",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I",
+      "FaceShape_NPC_Dyssalim",
+      "FaceShape_NPC_Estorgath",
+      "FaceShape_NPC_Graybear",
+      "FaceShape_NPC_RhuadSwiftHand"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Ceiwad_Silverflower",
+      "FaceShape_NPC_Adrasteia_Epimeles_Aspis",
+      "FaceShape_NPC_Idriel_Fair_Brow",
+      "FaceShape_NPC_Joriel_Fox_Eye",
+      "FaceShape_NPC_Kiaradth_BrightSpark",
+      "FaceShape_NPC_Kythaela_Wildspring",
+      "FaceShape_NPC_Lizzaria_of_Grimhold",
+      "FaceShape_NPC_Ellaria_Anfarel",
+      "FaceShape_NPC_Finaliel_SharpMind",
+      "FaceShape_NPC_Malariel_Brogarad",
+      "FaceShape_NPC_Samko_Flint",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I",
+      "FaceShape_NPC_LeralynGhost"
+    ],
+    "dontSortFaceShapes": false,
+    "maxRandomFaceShapeIndex": 0,
+    "maleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_E",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_P",
+      "HairShape_O",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_X",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_AA",
+      "HairShape_None"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_G",
+      "HairShape_None"
+    ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
+    "maleBeardShapeOptions": [],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
+    "hasGenderRelatedBodyDecoration": false,
+    "hasSpecificBodyDecorationForFaceshape": false,
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM2",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 48,
+      "maxValue": 53
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 48,
+      "maxValue": 53
+    },
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 1.0,
+    "raceAnimationTag": "Elf"
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&RaceShadarKaiTitle",
+    "description": "Race/&RaceShadarKaiDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6ec699c2-fe53-5911-af88-e9094e2fa725",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "7b81d2ee-c966-52bf-b23b-7ef38bc32af4",
+  "contentPack": 9999,
+  "name": "RaceShadarKai"
+}

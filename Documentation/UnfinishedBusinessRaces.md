@@ -178,10 +178,6 @@ You have Disadvantage on Wisdom (Perception) checks in bright light and suffers 
 
 6◎
 
-* Superior Darkvision
-
-Within the specified range, a creature with superior Darkvision can see perfectly in all lighting conditions.
-
 * Dark Elf Magic
 
 You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5th level, Darkness. Both can be used once per long rest.
@@ -750,7 +746,36 @@ At 3rd level, you can cast Thunderous Smite once per long rest. Wisdom is your s
 
 
 
-# 28. - Tiefling
+# 28. - Shadar-Kai
+
+Shadar-kai are the elves of the Shadowfell, originally drawn to that dread realm by the Raven Queen. Over the centuries, some of them have continued to serve her, while others have ventured into the Material Plane to forge their own destinies.
+
+
+## Level 1
+
+* Ability Score Increase
+
+Increase one ability score
+
+* Blessing of the Raven Queen
+
+As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Starting at 3rd level, you also gain resistance to all damage when you teleport using this trait. The resistance lasts until the start of your next turn. During that time, you appear ghostly and translucent.
+
+* Elf Weapon Training
+
+Proficient with Longsword,Shortsword,Shortbow,Longbow.
+
+* Languages
+
+Common, Elvish, and one language of your choice
+
+* Move
+
+6◎
+
+
+
+# 29. - Tiefling
 
 One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
 
@@ -775,7 +800,7 @@ You have resistance to fire damage.
 
 
 
-# 29. - Warforged
+# 30. - Warforged
 
 The battleborn are results of arcane experiments, blending flesh, alchemy and magic to create perfect battlefield soldiers. Created to serve as weapons, they must now find a purpose beyond war. A battleborn can be a loyal ally, a cold-hearted killing machine, or a wandering soul-searching for purpose and meaning.
 
@@ -808,7 +833,7 @@ You gain one skill proficiency and one tool proficiency of your choice.
 
 
 
-# 30. - Wendigo
+# 31. - Wendigo
 
 Wendigos arrived in Solasta through the rift during the Cataclysm. Stealthy despite their size, Wendigos would lunge at unsuspecting victims with their long arms.
 
@@ -853,7 +878,7 @@ On the first round of combat, if you hit a creature with an attack roll, and it'
 
 
 
-# 31. - Wildling
+# 32. - Wildling
 
 Wildlings are offsprings of humans and tieflings that mostly inherited the tiefling parent's feral characteristics. Different in looks and nature, wildlings have spent most of their lives in forests or other less inhabited regions of Solasta as self-sufficient hunters and travelers.
 
@@ -894,7 +919,7 @@ You have proficiency in Perception and Stealth skills.
 
 
 
-# 32. - Wyrmkin
+# 33. - Wyrmkin
 
 Wyrmkins are larger cousins of Dragonborns descended from another race of dragons. Unlike Dragonborns, they can see in the dark.
 
@@ -915,7 +940,7 @@ Common, Draconic.
 
 
 
-# 33. - Zariel
+# 34. - Zariel
 
 Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 
