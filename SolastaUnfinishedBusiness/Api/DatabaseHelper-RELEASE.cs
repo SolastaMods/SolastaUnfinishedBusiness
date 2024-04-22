@@ -737,6 +737,9 @@ internal static partial class DatabaseHelper
         internal static EffectProxyDefinition ProxyArcaneSword { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyArcaneSword");
 
+        internal static EffectProxyDefinition ProxyDaylight { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyDaylight");
+
         internal static EffectProxyDefinition ProxyEntangle { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyEntangle");
 

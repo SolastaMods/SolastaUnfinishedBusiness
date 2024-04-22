@@ -338,6 +338,56 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Dawn
+
+    internal static SpellDefinition BuildDawn()
+    {
+        const string NAME = "Dawn";
+
+        var effectProxy = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyDaylight, $"Proxy{NAME}")
+            .SetOrUpdateGuiPresentation(NAME, Category.Spell)
+            .SetCanMove()
+            .AddToDB();
+
+        effectProxy.GuiPresentation.description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Immolation, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Daylight)
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 6, 8)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeRadiant, 4, DieType.D10)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        spell.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = effectProxy.Name;
+
+        return spell;
+    }
+
+    #endregion
+
     #region Steel Whirlwind
 
     internal static SpellDefinition BuildSteelWhirlwind()

@@ -1001,6 +1001,7 @@ ConditionScornfulPrayer	ConditionDefinition	ConditionDefinition	c537a98e-c3e4-55
 ConditionSearingSmite	ConditionDefinition	ConditionDefinition	dc927e03-08a7-5033-98d8-3adee1d952fd
 ConditionSenseNormalVision24	ConditionDefinition	ConditionDefinition	1845364e-e920-535d-8dc8-c3513a2c151c
 ConditionSenseNormalVision48	ConditionDefinition	ConditionDefinition	ac0b7208-ee2b-5ada-8661-ff1ddeecdce9
+ConditionShadarKaiTeleport	ConditionDefinition	ConditionDefinition	0c2aaa03-c876-5caf-8277-54b7332b071d
 ConditionShadowBlade	ConditionDefinition	ConditionDefinition	7f7a5735-9143-5616-a6d5-659c5da3026d
 ConditionSkinOfRetribution	ConditionDefinition	ConditionDefinition	756ee728-5506-5f03-b552-b94004839697
 ConditionSorcerousSorrAkkathBloodOfSorrAkkath	ConditionDefinition	ConditionDefinition	dc2b991d-480d-56a3-8811-9dddcf7d32e5
@@ -1090,6 +1091,7 @@ DecisionBreakFreeConditionGrappledRestrainedSpellWeb	TA.AI.DecisionDefinition	TA
 DecisionBreakFreeConditionNoxiousSpray	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	2f033fcf-d478-5581-94d9-27a3ad4496ad
 DecisionBreakFreeConditionRestrainedByEntangle	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	2a416669-5ec8-53c1-b07b-8fe6f29da4d2
 DecisionBreakFreeConditionVileBrew	TA.AI.DecisionDefinition	TA.AI.DecisionDefinition	4b3278e8-334a-58d6-8c75-2f48e28b4e54
+ProxyDawn	EffectProxyDefinition	EffectProxyDefinition	5c460453-060a-51c2-9099-a6a40908dba9
 ProxyEarthTremor	EffectProxyDefinition	EffectProxyDefinition	fdec4a73-e825-5a14-9f0e-1faca83c21d3
 ProxyElementalBreathGreen	EffectProxyDefinition	EffectProxyDefinition	d97ae7c7-c0e5-51d3-8e0b-6a517d0d6ef4
 ProxyFaithfulHound	EffectProxyDefinition	EffectProxyDefinition	54fa139b-edd2-55ed-aaa6-6e95ddf41256
@@ -11427,6 +11429,7 @@ CreateDeadRisenSkeleton_Marksman	SpellDefinition	SpellDefinition	9ecad24a-5902-5
 CreateDeadRisenWight	SpellDefinition	SpellDefinition	59a6741c-52cc-5859-9f99-d96b02217b72
 CreateDeadRisenWightLord	SpellDefinition	SpellDefinition	1e533ed6-cae9-5e1d-9cd9-4a70c62f9d69
 CrusadersMantle	SpellDefinition	SpellDefinition	d2077997-23c2-5d34-84b3-794a89ef953e
+Dawn	SpellDefinition	SpellDefinition	1cc6ddda-bf5c-5961-9675-18e262a1f43d
 DetectMagicCantrip	SpellDefinition	SpellDefinition	6ccf60b4-cfd7-5180-9a92-beb9454bfdfd
 DispelMagicSpell	SpellDefinition	SpellDefinition	c084fb4d-4762-5f1d-9e44-814a6af63b9f
 DivineWrath	SpellDefinition	SpellDefinition	754381b9-32f7-575a-b831-aa815f9dd566

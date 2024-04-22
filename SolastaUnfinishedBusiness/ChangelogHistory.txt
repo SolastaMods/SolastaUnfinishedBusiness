@@ -3,7 +3,7 @@
 - added Athlete feat
 - added Imp Badland and Shadar-Kai subraces
 - added Nature Domain and Tempest Domain subclasses
-- added Primordial Ward spell and Wither and Bloom spells
+- added Dawn, Primordial Ward, and Wither and Bloom spells
 - fixed banishment behavior to only allow Banishment and Banishing Smite spells to kill extra planar
 - fixed crafting recipes ingredient list
 - fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
