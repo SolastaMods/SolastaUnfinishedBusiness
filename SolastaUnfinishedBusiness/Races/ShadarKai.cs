@@ -1,15 +1,16 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -23,12 +24,36 @@ internal static class SubraceShadarKaiBuilder
         var shadarKaiSpriteReference = Sprites.GetSprite("ShadarKai", Resources.Darkelf, 1024, 512);
 
         var pointPoolAbilityScore = FeatureDefinitionPointPoolBuilder
-            .Create($"PointPoolShadarKaiAbilityScore")
+            .Create("PointPoolShadarKaiAbilityScore")
             .SetGuiPresentation("Feature/&AbilityScoreIncreaseTitle", "Feature/&AttributeIncreaseAny1Description")
             .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 1)
             .AddToDB();
 
         var shadarKaiRacePresentation = Elf.RacePresentation.DeepCopy();
+
+        var conditionTeleport = ConditionDefinitionBuilder
+            .Create("ConditionShadarKaiTeleport")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddFeatures(
+                DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityPsychicResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
+            .AddSpecialInterruptions(ConditionInterruption.Damaged)
+            .AddToDB();
+
+        var effectFormTeleport =
+            EffectFormBuilder.ConditionForm(conditionTeleport, ConditionForm.ConditionOperation.Add, true, true);
 
         var powerTeleport = FeatureDefinitionPowerBuilder
             .Create("PowerShadarKaiTeleport")
@@ -37,6 +62,7 @@ internal static class SubraceShadarKaiBuilder
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -46,7 +72,9 @@ internal static class SubraceShadarKaiBuilder
                     .UseQuickAnimations()
                     .Build())
             .AddToDB();
-        
+
+        powerTeleport.AddCustomSubFeatures(new MagicEffectFinishedByMeTeleport(powerTeleport, effectFormTeleport));
+
         shadarKaiRacePresentation.femaleNameOptions = ElfHigh.RacePresentation.FemaleNameOptions;
         shadarKaiRacePresentation.maleNameOptions = ElfHigh.RacePresentation.MaleNameOptions;
         shadarKaiRacePresentation.surNameOptions = []; // names are added from names.txt resources
@@ -69,5 +97,30 @@ internal static class SubraceShadarKaiBuilder
         Elf.SubRaces.Add(raceShadarKai);
 
         return raceShadarKai;
+    }
+
+    private sealed class MagicEffectFinishedByMeTeleport(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerTeleport,
+        EffectForm effectFormTeleport) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerTeleport;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel) >= 3)
+            {
+                effectDescription.EffectForms.Add(effectFormTeleport);
+            }
+
+            return effectDescription;
+        }
     }
 }
