@@ -14,4 +14,4 @@ Reaction/&CustomReactionDampenElementsReactTitle=抑制元素
 Reaction/&CustomReactionDampenElementsTitle=抑制元素
 Subclass/&DomainNatureDescription=自然之神正如自然界本身一样变化多端；从宛如迷一般居于密林之中的神到与关联为特定泉水和树林的友善神。崇拜自然界本身的德鲁伊也会服务于其中一个神，并用德鲁伊的秘密语言练习其神秘仪式，以及背诵那些早被遗忘的祷文。许多这些神同样拥有相应的牧师，而这些勇士会帮助特定的自然神出任更需要积极冒险的任务。这些牧师可能会前去狩猎破坏林地的邪恶怪物，去护佑忠实信徒们的收获，或是去诅咒那些渎神者的庄稼使其枯萎。
 Subclass/&DomainNatureTitle=自然领域
-Tag/&DomainNatureCantripSpecialTagTitle=领域自然戏法
+Tag/&DomainNatureCantripSpecialTagTitle=自然领域戏法
