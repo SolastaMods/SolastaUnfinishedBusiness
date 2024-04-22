@@ -602,13 +602,27 @@ public static class CharacterActionMagicEffectPatcher
 
             if (needToRollDie)
             {
-                //PATCH: supports `IMagicalAttackInitiatedOnMe`
+                //PATCH: supports `IMagicalAttackInitiatedOnMe`, `IMagicEffectAttackInitiatedByMe`
                 foreach (var magicEffectInitiatedOnMe in target.RulesetActor
                              .GetSubFeaturesByType<IMagicEffectAttackInitiatedOnMe>())
                 {
                     yield return magicEffectInitiatedOnMe.OnMagicEffectAttackInitiatedOnMe(
                         __instance,
                         activeEffect,
+                        target,
+                        attackModifier,
+                        actualEffectForms,
+                        firstTarget,
+                        checkMagicalAttackDamage);
+                }
+
+                foreach (var magicEffectInitiatedByMe in actingCharacter.RulesetActor
+                             .GetSubFeaturesByType<IMagicEffectAttackInitiatedByMe>())
+                {
+                    yield return magicEffectInitiatedByMe.OnMagicEffectAttackInitiatedByMe(
+                        __instance,
+                        activeEffect,
+                        actingCharacter,
                         target,
                         attackModifier,
                         actualEffectForms,

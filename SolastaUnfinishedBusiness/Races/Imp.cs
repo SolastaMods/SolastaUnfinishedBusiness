@@ -171,7 +171,7 @@ internal static class RaceImpBuilder
 
         ConditionDefinitionBuilder
             .Create(ConditionImpSpiteMarkerName)
-            .AddCustomSubFeatures(new ImpSpiteAttackFinishedByMe())
+            .AddCustomSubFeatures(new ImpSpiteAttackOnHit())
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
@@ -282,8 +282,10 @@ internal static class RaceImpBuilder
         return raceImpBadland;
     }
 
-    private class ImpAssistedAllyAttackInitiatedByMe(ConditionDefinition condition) : IPhysicalAttackInitiatedByMe, 
-        IModifyAttackActionModifier, IMagicEffectBeforeHitConfirmedOnEnemy
+    private class ImpAssistedAllyAttackInitiatedByMe(ConditionDefinition condition) : 
+        IPhysicalAttackInitiatedByMe,
+        IMagicEffectAttackInitiatedByMe, 
+        IModifyAttackActionModifier
     {
         public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
@@ -343,14 +345,15 @@ internal static class RaceImpBuilder
             yield return HandleAssist(attacker, defender);
         }
 
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(GameLocationBattleManager battleManager, 
-            GameLocationCharacter attacker, 
-            GameLocationCharacter defender, 
-            ActionModifier actionModifier, 
-            RulesetEffect rulesetEffect, 
-            List<EffectForm> actualEffectForms, 
-            bool firstTarget, 
-            bool criticalHit)
+        public IEnumerator OnMagicEffectAttackInitiatedByMe(
+            CharacterActionMagicEffect action, 
+            RulesetEffect activeEffect,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool checkMagicalAttackDamage)
         {
             yield return HandleAssist(attacker, defender);
         }
@@ -377,8 +380,8 @@ internal static class RaceImpBuilder
                 ally.RulesetCharacter.InflictCondition(
                     ConditionImpAssistedAllyName,
                     DurationType.Round,
-                    1,
-                    (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
                     AttributeDefinitions.TagEffect,
                     rulesetCharacter.guid,
                     rulesetCharacter.CurrentFaction.name,
@@ -552,7 +555,7 @@ internal static class RaceImpBuilder
         }
     }
 
-    private class ImpSpiteAttackFinishedByMe : IAttackBeforeHitPossibleOnMeOrAlly
+    private class ImpSpiteAttackOnHit : IAttackBeforeHitPossibleOnMeOrAlly
     {
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager, 
             [UsedImplicitly] GameLocationCharacter attacker, 
