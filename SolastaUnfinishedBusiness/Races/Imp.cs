@@ -439,7 +439,7 @@ internal static class RaceImpBuilder
     }
 
     private class PowerImpAssistTargetFilter(FeatureDefinitionPower powerImpBadlandAssist, bool requireEnemy) :
-        IFilterTargetingCharacter, IFilterTargetingCharacterProceed
+        IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => requireEnemy;
 
@@ -452,20 +452,22 @@ internal static class RaceImpBuilder
             }
 
             var selectedTargets = __instance.SelectionService.SelectedTargets;
-            if (selectedTargets.Count > 0)
+
+            // select Ally first
+            if (selectedTargets.Count == 0)
             {
-                var selectedTarget = selectedTargets[0];
-
-                if (selectedTarget.Side != Side.Enemy && target.Side != Side.Enemy)
+                if (target.Side != Side.Ally)
                 {
-                    __instance.actionModifier.FailureFlags.Add("Tooltip/&AlreadySelectedAnAlly");
-
+                    __instance.actionModifier.FailureFlags.Add("Tooltip/&SelectAnAlly");
                     return false;
                 }
+            }
 
-                if (selectedTarget.Side == Side.Enemy && target.Side == Side.Enemy)
+            if (selectedTargets.Count > 0)
+            {
+                if (target.Side != Side.Enemy)
                 {
-                    __instance.actionModifier.FailureFlags.Add("Tooltip/&AlreadySelectedAnEnemy");
+                    __instance.actionModifier.FailureFlags.Add("Tooltip/&AlreadySelectedAnAlly");
 
                     return false;
                 }
@@ -497,20 +499,6 @@ internal static class RaceImpBuilder
             }
 
             return true;
-        }
-
-        public bool CanProceed(CursorLocationSelectTarget __instance)
-        {
-            // Require ally target
-            foreach (var item in __instance.GameLocationSelectionService.SelectedTargets)
-            {
-                if (item.Side == Side.Ally)
-                {
-                    return true;
-                }
-            }
-
-            return false;
         }
     }
 
@@ -545,15 +533,12 @@ internal static class RaceImpBuilder
                         EffectHelpers.EffectType.Effect);
                 }
             }
-
-            if (targetCharacters.Count < 1)
-            {
-            }
         }
     }
 
     private class ImpSpiteAttackFinishedByMe : IPhysicalAttackFinishedByMe
     {
+
         public IEnumerator OnPhysicalAttackFinishedByMe(GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
