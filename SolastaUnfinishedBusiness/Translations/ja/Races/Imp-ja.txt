@@ -45,5 +45,6 @@ Race/&RaceImpTitle=Imp
 Reaction/&SpendPowerDrawInspirationDescription=攻撃ロールまたはセーヴィング スローをミスしそうになっています。パワーを消費してアタックロールまたはセーヴィングスローに3を追加します。
 Reaction/&SpendPowerDrawInspirationReactTitle=過ごす
 Reaction/&SpendPowerDrawInspirationTitle=インスピレーションを引き出す
+Tooltip/&SelectAnAlly=味方を選択してください。
 Tooltip/&TargetAlreadyAssisted=ターゲットはすでに支援されています。
 Tooltip/&TargetOutOfRange=ターゲットが範囲外です。

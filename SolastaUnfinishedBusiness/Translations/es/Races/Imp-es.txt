@@ -45,5 +45,6 @@ Race/&RaceImpTitle=Imp
 Reaction/&SpendPowerDrawInspirationDescription=Estás a punto de fallar una tirada de ataque o una tirada de salvación. Gasta poder para sumar 3 a la tirada de ataque o tirada de salvación.
 Reaction/&SpendPowerDrawInspirationReactTitle=Gastar
 Reaction/&SpendPowerDrawInspirationTitle=Inspiración para pintar
+Tooltip/&SelectAnAlly=Por favor selecciona un aliado.
 Tooltip/&TargetAlreadyAssisted=El objetivo ya está asistido.
 Tooltip/&TargetOutOfRange=El objetivo está fuera de alcance.

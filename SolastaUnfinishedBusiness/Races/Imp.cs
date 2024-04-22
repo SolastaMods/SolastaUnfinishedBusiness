@@ -538,7 +538,6 @@ internal static class RaceImpBuilder
 
     private class ImpSpiteAttackFinishedByMe : IPhysicalAttackFinishedByMe
     {
-
         public IEnumerator OnPhysicalAttackFinishedByMe(GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -572,7 +571,7 @@ internal static class RaceImpBuilder
                 0,
                 0,
                 0);
-            
+
             EffectHelpers.StartVisualEffect(
                 defender, defender, SpellDefinitions.ViciousMockery, EffectHelpers.EffectType.Effect);
         }

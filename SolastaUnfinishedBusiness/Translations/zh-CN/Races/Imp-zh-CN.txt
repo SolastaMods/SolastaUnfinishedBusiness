@@ -45,5 +45,6 @@ Race/&RaceImpTitle=小魔鬼
 Reaction/&SpendPowerDrawInspirationDescription=你即将错过一次攻击检​​定或一次豁免检定。花费力量使攻击检定或豁免检定增加 3 点。
 Reaction/&SpendPowerDrawInspirationReactTitle=花费
 Reaction/&SpendPowerDrawInspirationTitle=汲取灵感
+Tooltip/&SelectAnAlly=请选择一个盟友。
 Tooltip/&TargetAlreadyAssisted=目标已经得到协助。
 Tooltip/&TargetOutOfRange=目标超出范围。

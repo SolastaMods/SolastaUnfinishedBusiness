@@ -45,5 +45,6 @@ Race/&RaceImpTitle=Бес
 Reaction/&SpendPowerDrawInspirationDescription=Вы промахиваетесь атакой или проваливаете спасбросок. Используйте способность, чтобы добавить +3 к броску атаки или спасброску.
 Reaction/&SpendPowerDrawInspirationReactTitle=Использовать
 Reaction/&SpendPowerDrawInspirationTitle=Вдохновение
+Tooltip/&SelectAnAlly=Пожалуйста, выберите союзника.
 Tooltip/&TargetAlreadyAssisted=С этой целью уже помогают.
 Tooltip/&TargetOutOfRange=Цель находится за пределами досягаемости.
