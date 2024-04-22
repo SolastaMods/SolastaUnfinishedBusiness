@@ -1168,6 +1168,13 @@ You gain the ability to infuse your weapon strikes with divine energy. Once on e
 You attempt to request the help of your deity, with a success chance of 1% per cleric level.
 
 
+### Level 17
+
+* Stormborn
+
+You can use your main action to give yourself a flying speed equal to your walking speed.
+
+
 
 # Druid
 

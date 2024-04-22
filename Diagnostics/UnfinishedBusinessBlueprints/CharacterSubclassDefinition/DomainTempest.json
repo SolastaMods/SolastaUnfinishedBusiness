@@ -30,6 +30,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerClericDivineInterventionPaladin:4f9a2e4ff332b204aae612753dada617",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainTempestStormborn:efa2d88f-e805-56e3-924c-e9cae68385e8",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],
