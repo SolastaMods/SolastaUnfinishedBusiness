@@ -45,5 +45,6 @@ Race/&RaceImpTitle=Imp
 Reaction/&SpendPowerDrawInspirationDescription=Stai per fallire un tiro per colpire o un tiro salvezza. Spendi potere per aggiungere 3 al tiro per colpire o al tiro salvezza.
 Reaction/&SpendPowerDrawInspirationReactTitle=Trascorrere
 Reaction/&SpendPowerDrawInspirationTitle=Trai ispirazione
+Tooltip/&SelectAnAlly=Seleziona un alleato.
 Tooltip/&TargetAlreadyAssisted=Il bersaglio è già assistito.
 Tooltip/&TargetOutOfRange=Il bersaglio è fuori portata.

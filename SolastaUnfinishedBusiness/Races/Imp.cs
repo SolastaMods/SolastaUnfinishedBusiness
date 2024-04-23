@@ -567,6 +567,8 @@ internal static class RaceImpBuilder
             int attackRoll)
         {
             if (defender != helper)
+            if (action.attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (action.attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }

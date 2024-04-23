@@ -45,5 +45,6 @@ Race/&RaceImpTitle=Imp
 Reaction/&SpendPowerDrawInspirationDescription=Você está prestes a perder uma jogada de ataque ou um teste de resistência. Gaste poder para adicionar 3 à jogada de ataque ou teste de resistência.
 Reaction/&SpendPowerDrawInspirationReactTitle=Gastar
 Reaction/&SpendPowerDrawInspirationTitle=Desenhe Inspiração
+Tooltip/&SelectAnAlly=Selecione um aliado.
 Tooltip/&TargetAlreadyAssisted=O alvo já está atendido.
 Tooltip/&TargetOutOfRange=O alvo está fora do alcance.

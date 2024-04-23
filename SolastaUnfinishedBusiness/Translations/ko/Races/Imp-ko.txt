@@ -45,5 +45,6 @@ Race/&RaceImpTitle=Imp
 Reaction/&SpendPowerDrawInspirationDescription=곧 공격 굴림이나 내성 굴림을 놓치게 됩니다. 공격 굴림이나 내성 굴림에 3을 추가하려면 전력을 소비하세요.
 Reaction/&SpendPowerDrawInspirationReactTitle=경비
 Reaction/&SpendPowerDrawInspirationTitle=영감을 그리다
+Tooltip/&SelectAnAlly=동맹을 선택해주세요.
 Tooltip/&TargetAlreadyAssisted=대상은 이미 지원되었습니다.
 Tooltip/&TargetOutOfRange=대상이 범위를 벗어났습니다.

@@ -45,5 +45,6 @@ Race/&RaceImpTitle=Imp
 Reaction/&SpendPowerDrawInspirationDescription=Vous êtes sur le point de rater un jet d'attaque ou un jet de sauvegarde. Dépensez de la puissance pour ajouter 3 au jet d'attaque ou au jet de sauvegarde.
 Reaction/&SpendPowerDrawInspirationReactTitle=Dépenser
 Reaction/&SpendPowerDrawInspirationTitle=Dessiner l'inspiration
+Tooltip/&SelectAnAlly=Veuillez sélectionner un allié.
 Tooltip/&TargetAlreadyAssisted=La cible est déjà assistée.
 Tooltip/&TargetOutOfRange=La cible est hors de portée.

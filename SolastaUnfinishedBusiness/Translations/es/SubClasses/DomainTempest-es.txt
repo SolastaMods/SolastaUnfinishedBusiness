@@ -1,0 +1,14 @@
+Feature/&ActionAffinityThunderousStrikeToggleDescription=Cuando infliges daño de rayo a una criatura grande o más pequeña, también puedes alejarla hasta 10 pies de ti.
+Feature/&ActionAffinityThunderousStrikeToggleTitle=Golpe atronador
+Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=Obtienes la capacidad de infundir energía divina en tus ataques con armas. Una vez en cada uno de tus turnos, cuando golpeas a una criatura con un ataque con arma, puedes hacer que el ataque cause 1d8 daños de trueno adicionales al objetivo. Cuando alcanzas el nivel 14, el daño extra aumenta a 2d8.
+Feature/&AdditionalDamageDomainTempestDivineStrikeTitle=Golpe divino
+Feature/&FeatureSetDomainTempestWrathOfTheStormDescription=\n• Obtienes competencia con armaduras pesadas.\n• Obtienes competencia con armas marciales.\n• Puedes reprender atronadoramente a los atacantes. Cuando una criatura a 5 pies de ti que puedas ver te golpea con un ataque, puedes usar tu reacción para hacer que la criatura realice una tirada de salvación de Destreza. La criatura sufre 2d8 daños por relámpagos o truenos (a tu elección) si falla una tirada de salvación, y la mitad de daño si tiene éxito. Puedes usar esta función un número de veces igual a tu modificador de Sabiduría (un mínimo de una vez). Recuperas todos los usos gastados cuando terminas un descanso prolongado.
+Feature/&FeatureSetDomainTempestWrathOfTheStormTitle=La ira de la tormenta
+Feature/&PowerDomainTempestDestructiveWrathDescription=Puedes usar tu Channel Divinity para ejercer el poder de la tormenta con una ferocidad desenfrenada. Cuando lanzas daño por relámpago o trueno, puedes usar tu Canal Divinidad para causar el máximo daño, en lugar de tirar.
+Feature/&PowerDomainTempestDestructiveWrathTitle=Ira destructiva
+Feature/&PowerDomainTempestStormbornDismissDescription=Descarta tu forma angelical.
+Feature/&PowerDomainTempestStormbornDismissTitle=Descartar Stormborn
+Feature/&PowerDomainTempestStormbornSproutDescription=Puedes usar tu acción principal para conseguir una velocidad de vuelo igual a tu velocidad al caminar.
+Feature/&PowerDomainTempestStormbornSproutTitle=Nacido de la tormenta
+Subclass/&DomainTempestDescription=Los dioses cuyas carteras incluyen el dominio Tempest gobiernan las tormentas, el mar y el cielo. Incluyen dioses del relámpago y el trueno, dioses de los terremotos, algunos dioses del fuego y ciertos dioses de la violencia, la fuerza física y el coraje. En algunos panteones, un dios de este dominio gobierna sobre otras deidades y es conocido por la rápida justicia impartida por los rayos. En los panteones de los marineros, los dioses de este dominio son deidades del océano y patrones de los marineros. Los dioses de la tempestad envían a sus clérigos para inspirar miedo en la gente común, ya sea para mantenerlos en el camino de la rectitud o para animarlos a ofrecer sacrificios de propiciación para protegerse de la ira divina.
+Subclass/&DomainTempestTitle=Tempestad

@@ -45,5 +45,6 @@ Race/&RaceImpTitle=Imp
 Reaction/&SpendPowerDrawInspirationDescription=Du bist dabei, einen Angriffswurf oder einen Rettungswurf zu verpassen. Gib Kraft aus, um 3 zum Angriffswurf oder Rettungswurf hinzuzufügen.
 Reaction/&SpendPowerDrawInspirationReactTitle=Ausgeben
 Reaction/&SpendPowerDrawInspirationTitle=Inspiration aus etwas ziehen
+Tooltip/&SelectAnAlly=Bitte wählen Sie einen Verbündeten aus.
 Tooltip/&TargetAlreadyAssisted=Das Ziel wird bereits unterstützt.
 Tooltip/&TargetOutOfRange=Das Ziel ist außerhalb der Reichweite.

@@ -16,10 +16,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using Category = SolastaUnfinishedBusiness.Builders.Category;
-using CharacterSubclassDefinitionBuilder = SolastaUnfinishedBusiness.Builders.CharacterSubclassDefinitionBuilder;
-using EffectDescriptionBuilder = SolastaUnfinishedBusiness.Builders.EffectDescriptionBuilder;
-using EffectFormBuilder = SolastaUnfinishedBusiness.Builders.EffectFormBuilder;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -184,6 +180,7 @@ public sealed class DomainNature : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
+            .SetImpactParticleReference(ConeOfCold.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         var conditionDivineStrikeCold = ConditionDefinitionBuilder
@@ -202,6 +199,7 @@ public sealed class DomainNature : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
+            .SetImpactParticleReference(FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         var conditionDivineStrikeFire = ConditionDefinitionBuilder
@@ -220,6 +218,8 @@ public sealed class DomainNature : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
+            .SetImpactParticleReference(
+                LightningBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         var conditionDivineStrikeLightning = ConditionDefinitionBuilder
@@ -260,14 +260,8 @@ public sealed class DomainNature : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(ConditionDefinitions.ConditionCharmed,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(ConditionDefinitions.ConditionMindDominatedByCaster,
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .SetConditionForm(ConditionDefinitions.ConditionMindControlledByCaster,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())

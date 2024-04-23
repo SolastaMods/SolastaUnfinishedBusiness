@@ -1,0 +1,4 @@
+Feature/&PowerShadarKaiTeleportDescription=用一个附赠动作，你可以魔法地传送 30 尺到你能看到的未占用空间。你可以使用该特质的次数等于你的熟练加值，并且当你完成长休后，你会重新获得所有消耗的次数。从第 3 级开始，当你使用此特质传送时，你还会获得对所有伤害的抗性。该抗性会持续到你的下一个回合开始。在此期间，你的身体呈现出如幽魂般的半透明。
+Feature/&PowerShadarKaiTeleportTitle=鸦后的祝福
+Race/&RaceShadarKaiDescription=影灵是堕影冥界的精灵，从前被鸦后带来了这个阴森可怖的世界。几个世纪以来，他们中的一些仍然继续侍奉于她，而另一些则冒险进入了物质位面来造就属于自己的命运。
+Race/&RaceShadarKaiTitle=影灵

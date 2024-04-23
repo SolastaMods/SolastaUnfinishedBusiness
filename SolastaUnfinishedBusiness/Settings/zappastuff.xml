@@ -844,6 +844,7 @@
                     <string>DomainDefiler</string>
                     <string>DomainNature</string>
                     <string>DomainSmith</string>
+                    <string>DomainTempest</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -1323,6 +1324,7 @@
                     <string>SpiritShroud</string>
                     <string>AuraOfVitality</string>
                     <string>AuraOfPerseverance</string>
+                    <string>Dawn</string>
                     <string>MassHeal</string>
                     <string>PowerWordHeal</string>
                 </ArrayOfString>
@@ -1582,6 +1584,7 @@
                     <string>GravitySinkhole</string>
                     <string>FaithfulHound</string>
                     <string>PsychicLance</string>
+                    <string>Dawn</string>
                     <string>FarStep</string>
                     <string>Incineration</string>
                     <string>SonicBoom</string>

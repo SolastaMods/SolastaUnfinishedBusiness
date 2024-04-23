@@ -45,6 +45,6 @@ Race/&RaceImpTitle=Imp
 Reaction/&SpendPowerDrawInspirationDescription=You are about to miss an attack roll or a saving throw. Spend power to add 3 to attack roll or saving throw.
 Reaction/&SpendPowerDrawInspirationReactTitle=Spend
 Reaction/&SpendPowerDrawInspirationTitle=Draw Inspiration
-Tooltip/&TargetAlreadyAssisted=Target is already assisted.
 Tooltip/&SelectAnAlly=Please select an ally.
+Tooltip/&TargetAlreadyAssisted=Target is already assisted.
 Tooltip/&TargetOutOfRange=Target is out of range.

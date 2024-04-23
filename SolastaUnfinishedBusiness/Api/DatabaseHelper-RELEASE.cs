@@ -737,6 +737,9 @@ internal static partial class DatabaseHelper
         internal static EffectProxyDefinition ProxyArcaneSword { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyArcaneSword");
 
+        internal static EffectProxyDefinition ProxyDaylight { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyDaylight");
+
         internal static EffectProxyDefinition ProxyEntangle { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyEntangle");
 
@@ -1597,6 +1600,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionMoveMode MoveModeMove8 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove8");
+
+        internal static FeatureDefinitionMoveMode MoveModeMove12 { get; } =
+            GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove12");
     }
 
     internal static class FeatureDefinitionPointPools
@@ -2042,6 +2048,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionProficiencys
     {
+        internal static FeatureDefinitionProficiency ProficiencyElfWeaponTraining { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyElfWeaponTraining");
+
         internal static FeatureDefinitionProficiency ProficiencyHumanStaticLanguages { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyHumanStaticLanguages");
 
