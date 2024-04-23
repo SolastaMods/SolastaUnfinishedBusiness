@@ -1,6 +1,10 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [],
+  "featureSet": [
+    "Definition:PowerDomainTempestWrathOfTheStorm:f4922bf1-6b83-57d2-9d52-8c481e152799",
+    "Definition:PowerDomainTempestWrathOfTheStormLightning:a3c35bd7-f5e0-56bb-bfeb-0319c29e04d0",
+    "Definition:PowerDomainTempestWrathOfTheStormThunder:c75a63dc-4e2a-5c3e-bd6e-bb33edce11a7"
+  ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",

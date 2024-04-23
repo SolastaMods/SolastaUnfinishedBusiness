@@ -1090,6 +1090,13 @@ As an action, you present your holy symbol and invoke the name of your deity. Ea
 When you or a creature within 30 feet of you takes acid, cold, fire, lightning, or thunder damage, you can use your reaction to grant resistance to the creature against that instance of the damage.
 
 
+### Level 8
+
+* Divine Strike
+
+You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra random 1d8 cold damage to the target. When you reach 14th level, the extra damage increases to 2d8.
+
+
 ### Level 10
 
 * Divine Intervention
@@ -1133,7 +1140,7 @@ You gain proficiency with heavy armor and martial weapons.
 
 * Wrath of The Storm
 
-• You can thunderously rebuke attackers. When a creature within 5 feet of you that you can see hits you with an attack, you can use your reaction to cause the creature to make a Dexterity saving throw. The creature takes 2d8 lightning or thunder damage (your choice) on a failed saving throw, and half as much damage on a successful one. You can use this feature a number of times equal to your Wisdom modifier (a minimum of once). You regain all expended uses when you finish a long rest.
+You can thunderously rebuke attackers. When a creature within 5 feet of you that you can see hits you with an attack, you can use your reaction to cause the creature to make a Dexterity saving throw. The creature takes 2d8 lightning or thunder damage (your choice) on a failed saving throw, and half as much damage on a successful one. You can use this feature a number of times equal to your Wisdom modifier (a minimum of once). You regain all expended uses when you finish a long rest.
 
 
 ### Level 2
@@ -1154,7 +1161,7 @@ When you deal lightning damage to a Large or smaller creature, you can also push
 
 * Divine Strike
 
-You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 thunder damage to the target. When you reach 14th level, the extra damage increases to 2d8.
+You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 lightning damage to the target. When you reach 14th level, the extra damage increases to 2d8.
 
 
 ### Level 10

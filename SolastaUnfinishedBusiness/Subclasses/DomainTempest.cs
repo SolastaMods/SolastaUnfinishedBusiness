@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -63,10 +64,69 @@ public sealed class DomainTempest : AbstractSubclass
             .AddFeatureSet(proficiencyHeavyArmor, proficiencyMartialWeapons)
             .AddToDB();
 
+        var powerWrathOfTheStorm = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}WrathOfTheStorm")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .Build())
+            .AddToDB();
+
+        powerWrathOfTheStorm.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden, new CustomBehaviorWrathOfTheStorm(powerWrathOfTheStorm));
+
+        var powerWrathOfTheStormLightning = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{NAME}WrathOfTheStormLightning")
+            .SetGuiPresentation($"FeatureSet{NAME}WrathOfTheStorm", Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerWrathOfTheStorm)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeLightning, 2, DieType.D8)
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        var powerWrathOfTheStormThunder = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{NAME}WrathOfTheStormThunder")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerWrathOfTheStorm)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeThunder, 2, DieType.D8)
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
         var featureSetWrathOfTheStorm = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{NAME}WrathOfTheStorm")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet()
+            .AddFeatureSet(powerWrathOfTheStorm, powerWrathOfTheStormLightning, powerWrathOfTheStormThunder)
             .AddToDB();
 
         //
@@ -75,8 +135,7 @@ public sealed class DomainTempest : AbstractSubclass
 
         var powerDestructiveWrath = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DestructiveWrath")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("DestructiveWrath", Resources.PowerCharmAnimalsAndPlants, 256, 128), hidden: true)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ChannelDivinity)
             .DelegatedToAction()
             .AddToDB();
@@ -84,13 +143,13 @@ public sealed class DomainTempest : AbstractSubclass
         powerDestructiveWrath.AddCustomSubFeatures(new CustomBehaviorDestructiveWrath(powerDestructiveWrath));
 
         _ = ActionDefinitionBuilder
-                .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "DestructiveWrathToggle")
-                .SetOrUpdateGuiPresentation(Category.Action)
-                .RequiresAuthorization()
-                .SetActionId(ExtraActionId.DestructiveWrathToggle)
-                .SetActivatedPower(powerDestructiveWrath)
-                .AddToDB();
-        
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "DestructiveWrathToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.DestructiveWrathToggle)
+            .SetActivatedPower(powerDestructiveWrath)
+            .AddToDB();
+
         var actionAffinityDestructiveWrathToggle = FeatureDefinitionActionAffinityBuilder
             .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
                 "ActionAffinityDestructiveWrathToggle")
@@ -213,17 +272,84 @@ public sealed class DomainTempest : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Einar;
 
+    private sealed class CustomBehaviorWrathOfTheStorm(FeatureDefinitionPower powerWrathOfTheStorm)
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(battleManager, attacker, defender);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(battleManager, attacker, defender);
+        }
+
+        private IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (!actionManager)
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerWrathOfTheStorm, rulesetDefender);
+
+            if (!defender.CanReact() ||
+                !defender.IsWithinRange(attacker, 1) ||
+                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                StringParameter = "WrathOfTheStormDescription"
+                    .Formatted(Category.Reaction, attacker.Name, defender.Name),
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                UsablePower = usablePower
+            };
+
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+        }
+    }
+
     private sealed class CustomBehaviorDestructiveWrath(FeatureDefinitionPower powerDestructiveWrath)
-        : IForceMaxDamageTypeDependent, IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, IActionFinishedByMe
+        : IForceMaxDamageTypeDependent, IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         private bool _isValid;
-
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
-        {
-            _isValid = false;
-
-            yield break;
-        }
 
         public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
         {
@@ -257,7 +383,7 @@ public sealed class DomainTempest : AbstractSubclass
             rulesetAttacker.UsePower(usablePower);
             rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
         }
-        
+
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -310,7 +436,6 @@ public sealed class DomainTempest : AbstractSubclass
             if (actualEffectForms
                     .Any(x => x.FormType == EffectForm.EffectFormType.Damage &&
                               x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder) &&
-                defender.RulesetCharacter.SizeDefinition.Name is "Tiny" or "Small" or "Medium" or "Large" &&
                 attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.ThunderousStrikeToggle))
             {
                 actualEffectForms.Add(PushForm);
@@ -334,12 +459,7 @@ public sealed class DomainTempest : AbstractSubclass
             if (actualEffectForms
                     .Any(x => x.FormType == EffectForm.EffectFormType.Damage &&
                               x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder) &&
-                defender.RulesetCharacter.SizeDefinition.Name is "Tiny" or "Small" or "Medium" or "Large" &&
                 attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.ThunderousStrikeToggle))
-            {
-                actualEffectForms.Add(PushForm);
-            }
-
             {
                 actualEffectForms.Add(PushForm);
             }
