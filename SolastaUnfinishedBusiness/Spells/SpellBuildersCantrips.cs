@@ -806,7 +806,7 @@ internal static partial class SpellBuilders
             .SetAdvancement(
                 ExtraAdditionalDamageAdvancement.CharacterLevel,
                 DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
-            .SetImpactParticleReference(BurningHands_B)
+            .SetImpactParticleReference(FireBolt)
             .SetAttackModeOnly()
             .AddToDB();
 

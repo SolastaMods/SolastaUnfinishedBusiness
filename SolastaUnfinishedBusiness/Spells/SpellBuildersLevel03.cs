@@ -877,8 +877,7 @@ internal static partial class SpellBuilders
                     .SetAttackModeOnly()
                     .SetDamageDice(DieType.D6, 1)
                     .SetSpecificDamageType(DamageTypeFire)
-                    .SetImpactParticleReference(
-                        FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
+                    .SetImpactParticleReference(FireBolt)
                     .AddToDB())
             .AddCustomSubFeatures(new CustomBehaviorFlameArrows())
             .AddToDB();

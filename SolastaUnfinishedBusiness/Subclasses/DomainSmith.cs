@@ -270,6 +270,7 @@ public sealed class DomainSmith : AbstractSubclass
             .SetSpecificDamageType(DamageTypeFire)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
+            .SetImpactParticleReference(FireBolt)
             .AddToDB();
 
         // LEVEL 17

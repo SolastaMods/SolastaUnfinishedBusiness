@@ -158,8 +158,7 @@ public sealed class OathOfThunder : AbstractSubclass
             .SetDamageDice(DieType.D4, 1)
             .SetSpecificDamageType(DamageTypeThunder)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 7)
-            .SetImpactParticleReference(
-                ShockingGrasp.EffectDescription.effectParticleParameters.effectParticleReference)
+            .SetImpactParticleReference(Shatter)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddToDB();
 

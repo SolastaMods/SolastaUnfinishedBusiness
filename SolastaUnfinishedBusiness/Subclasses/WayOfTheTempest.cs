@@ -54,8 +54,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.FlurryOfBlows)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
             .SetSpecificDamageType(DamageTypeLightning)
-            .SetImpactParticleReference(
-                ShockingGrasp.EffectDescription.EffectParticleParameters.effectParticleReference)
+            .SetImpactParticleReference(LightningBolt)
             .AddToDB();
 
         var featureSetGatheringStorm = FeatureDefinitionFeatureSetBuilder

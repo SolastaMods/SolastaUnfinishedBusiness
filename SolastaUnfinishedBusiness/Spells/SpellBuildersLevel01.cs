@@ -407,7 +407,7 @@ internal static partial class SpellBuilders
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn
                 })
-            .SetImpactParticleReference(FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
+            .SetImpactParticleReference(FireBolt)
             .AddToDB();
 
         var conditionSearingSmite = ConditionDefinitionBuilder

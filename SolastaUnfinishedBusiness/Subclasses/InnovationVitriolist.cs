@@ -242,6 +242,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                         (effect != null && effect.EffectDescription.EffectForms.Any(x =>
                             x.FormType == EffectForm.EffectFormType.Damage &&
                             x.DamageForm.DamageType == DamageTypeAcid)))))
+            .SetImpactParticleReference(AcidSplash)
             .AddToDB();
 
         var featureSetVitriolicInfusion = FeatureDefinitionFeatureSetBuilder

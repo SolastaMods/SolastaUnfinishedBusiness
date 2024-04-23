@@ -480,7 +480,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetNotificationTag(NOTIFICATION_TAG + DamageTypeFire)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(DamageTypeFire)
-            .SetImpactParticleReference(Fireball)
+            .SetImpactParticleReference(FireBolt)
             .SetDamageDice(DieType.D6, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Unarmed)
             .AddToDB();
