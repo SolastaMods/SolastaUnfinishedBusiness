@@ -181,7 +181,7 @@ public sealed class DomainNature : AbstractSubclass
 
         var additionalDamageDivineStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}DivineStrike")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("DivineStrike")
             .SetDamageDice(DieType.D8, 1)
             .SetSpecificDamageType(DamageTypeCold)

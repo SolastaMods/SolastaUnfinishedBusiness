@@ -379,6 +379,7 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeRadiant, 4, DieType.D10)
                             .Build())
+                    .SetParticleEffectParameters(Sunbeam)
                     .Build())
             .AddToDB();
 

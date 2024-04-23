@@ -1,8 +1,10 @@
-﻿namespace SolastaUnfinishedBusiness.Interfaces;
+﻿using JetBrains.Annotations;
+
+namespace SolastaUnfinishedBusiness.Interfaces;
 
 public interface ISelectPositionAfterCharacter
 {
     public int PositionRange { get; }
 
-    public bool EnforcePositionSelection(CursorLocationSelectPosition cursorLocationSelectPosition);
+    public bool EnforcePositionSelection([UsedImplicitly] CursorLocationSelectPosition cursorLocationSelectPosition);
 }

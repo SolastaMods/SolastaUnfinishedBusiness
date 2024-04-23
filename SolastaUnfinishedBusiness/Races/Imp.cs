@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -24,11 +25,11 @@ internal static class RaceImpBuilder
     private const string Name = "Imp";
     private const ActionDefinitions.Id ImpishWrathToggle = (ActionDefinitions.Id)ExtraActionId.ImpishWrathToggle;
 
-    internal const string ConditionImpAssistedAllyName = "ConditionImpAssistedAlly";
-    internal const string ConditionImpAssistedEnemyName = "ConditionImpAssistedEnemy";
-    internal const string ConditionImpPassageName = "ConditionImpPassage";
-    internal const string ConditionImpSpiteName = "ConditionImpSpite";
-    internal const string ConditionImpSpiteMarkerName = "ConditionImpSpiteMarker";
+    private const string ConditionImpAssistedAllyName = "ConditionImpAssistedAlly";
+    private const string ConditionImpAssistedEnemyName = "ConditionImpAssistedEnemy";
+    private const string ConditionImpPassageName = "ConditionImpPassage";
+    private const string ConditionImpSpiteName = "ConditionImpSpite";
+    private const string ConditionImpSpiteMarkerName = "ConditionImpSpiteMarker";
 
     internal static CharacterRaceDefinition RaceImp { get; } = BuildImp();
 
@@ -115,6 +116,7 @@ internal static class RaceImpBuilder
     private static CharacterRaceDefinition BuildImpBadland(CharacterRaceDefinition raceImp)
     {
         const string NAME = "ImpBadland";
+
         var spriteReference = Sprites.GetSprite(NAME, Resources.ImpBadland, 1024, 512);
 
         var featureSetImpBadlandAbilityScoreIncrease = FeatureDefinitionFeatureSetBuilder
@@ -162,6 +164,7 @@ internal static class RaceImpBuilder
             .SetConditionType(ConditionType.Beneficial)
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
             .AddToDB();
+
         conditionAssistedAlly.AddCustomSubFeatures(new ImpAssistedAllyAttackInitiatedByMe(conditionAssistedAlly));
 
         var conditionSpite = ConditionDefinitionBuilder.Create(ConditionImpSpiteName)
@@ -196,9 +199,7 @@ internal static class RaceImpBuilder
         var powerImpAssistMagicEffect = new PowerImpAssistMagicEffectFinishedByMe(ConditionImpAssistedEnemyName);
 
         powerImpBadlandAssist.AddCustomSubFeatures(
-            new PowerImpAssistTargetFilter(powerImpBadlandAssist, true),
-            powerImpAssistMagicEffect
-        );
+            new PowerImpAssistTargetFilter(powerImpBadlandAssist, true), powerImpAssistMagicEffect);
 
         var powerImpBadlandHospitality = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}Hospitality")
@@ -219,8 +220,7 @@ internal static class RaceImpBuilder
 
         powerImpBadlandHospitality.AddCustomSubFeatures(
             new PowerImpAssistTargetFilter(powerImpBadlandHospitality, false),
-            new PowerImpHospitalityMagic(powerImpAssistMagicEffect)
-        );
+            new PowerImpHospitalityMagic(powerImpAssistMagicEffect));
 
         var powerImpBadlandPassage = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}Passage")
@@ -240,8 +240,7 @@ internal static class RaceImpBuilder
 
         powerImpBadlandPassage.AddCustomSubFeatures(
             new PowerImpAssistTargetFilter(powerImpBadlandPassage, false),
-            new PowerImpPassageMagic(powerImpAssistMagicEffect)
-        );
+            new PowerImpPassageMagic(powerImpAssistMagicEffect));
 
         var powerImpBadlandSpite = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}Spite")
@@ -257,10 +256,10 @@ internal static class RaceImpBuilder
                     .Build())
             .SetSharedPool(ActivationTime.BonusAction, powerImpBadlandAssistPool)
             .AddToDB();
+
         powerImpBadlandSpite.AddCustomSubFeatures(
             new PowerImpAssistTargetFilter(powerImpBadlandSpite, true),
-            new PowerImpAssistMagicEffectFinishedByMe(conditionSpite.name)
-        );
+            new PowerImpAssistMagicEffectFinishedByMe(conditionSpite.name));
 
         var raceImpBadland = CharacterRaceDefinitionBuilder
             .Create(raceImp, $"Race{NAME}")
@@ -282,11 +281,24 @@ internal static class RaceImpBuilder
         return raceImpBadland;
     }
 
-    private class ImpAssistedAllyAttackInitiatedByMe(ConditionDefinition condition) : 
-        IPhysicalAttackInitiatedByMe,
-        IMagicEffectAttackInitiatedByMe, 
-        IModifyAttackActionModifier
+    private class ImpAssistedAllyAttackInitiatedByMe(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition)
+        : IPhysicalAttackInitiatedByMe, IMagicEffectAttackInitiatedByMe, IModifyAttackActionModifier
     {
+        public IEnumerator OnMagicEffectAttackInitiatedByMe(
+            CharacterActionMagicEffect action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool checkMagicalAttackDamage)
+        {
+            yield return HandleAssist(attacker, defender);
+        }
+
         public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -294,44 +306,11 @@ internal static class RaceImpBuilder
             string effectName,
             ref ActionModifier attackModifier)
         {
-            if (defender.HasConditionOfType(ConditionImpAssistedEnemyName)
-                || defender.HasConditionOfType(ConditionImpSpiteName))
+            if (defender.HasConditionOfType(ConditionImpAssistedEnemyName) ||
+                defender.HasConditionOfType(ConditionImpSpiteName))
             {
                 attackModifier.attackAdvantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.Condition, condition.name, condition));
-            }
-        }
-
-        private IEnumerator HandleAssist(GameLocationCharacter attacker, GameLocationCharacter defender)
-        {
-            // Only remove assisted condition if attacking assisted enemy
-            if (defender.RulesetCharacter.HasConditionOfType(ConditionImpAssistedEnemyName)
-                || defender.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName))
-            {
-                var isSpite = defender.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName);
-                defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpAssistedEnemyName);
-                defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpSpiteName);
-
-                if (isSpite)
-                {
-                    defender.RulesetCharacter.InflictCondition(
-                    ConditionImpSpiteMarkerName,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    attacker.RulesetCharacter.guid,
-                    attacker.RulesetCharacter.CurrentFaction.name,
-                    1,
-                    ConditionImpSpiteMarkerName,
-                    0,
-                    0,
-                    0);
-                }
-            }
-            else
-            {
-                yield break;
             }
         }
 
@@ -345,17 +324,42 @@ internal static class RaceImpBuilder
             yield return HandleAssist(attacker, defender);
         }
 
-        public IEnumerator OnMagicEffectAttackInitiatedByMe(
-            CharacterActionMagicEffect action, 
-            RulesetEffect activeEffect,
+        private static IEnumerator HandleAssist(
+            // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool checkMagicalAttackDamage)
+            // ReSharper disable once SuggestBaseTypeForParameter
+            GameLocationCharacter defender)
         {
-            yield return HandleAssist(attacker, defender);
+            // Only remove assisted condition if attacking assisted enemy
+            if (defender.RulesetCharacter.HasConditionOfType(ConditionImpAssistedEnemyName) ||
+                defender.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName))
+            {
+                var isSpite = defender.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName);
+
+                defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpAssistedEnemyName);
+                defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpSpiteName);
+
+                if (isSpite)
+                {
+                    defender.RulesetCharacter.InflictCondition(
+                        ConditionImpSpiteMarkerName,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        attacker.RulesetCharacter.guid,
+                        attacker.RulesetCharacter.CurrentFaction.name,
+                        1,
+                        ConditionImpSpiteMarkerName,
+                        0,
+                        0,
+                        0);
+                }
+            }
+            else
+            {
+                yield break;
+            }
         }
     }
 
@@ -367,44 +371,44 @@ internal static class RaceImpBuilder
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var targetCharacters = action.ActionParams.TargetCharacters;
 
-            if (targetCharacters.Count == 0)
+            switch (targetCharacters.Count)
             {
-                yield break;
-            }
+                case 0:
+                    yield break;
+                case 2:
+                {
+                    var ally = targetCharacters[0];
+                    var enemy = targetCharacters[1];
 
-            if (targetCharacters.Count == 2)
-            {
-                var ally = targetCharacters[0];
-                var enemy = targetCharacters[1];
+                    ally.RulesetCharacter.InflictCondition(
+                        ConditionImpAssistedAllyName,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetCharacter.guid,
+                        rulesetCharacter.CurrentFaction.name,
+                        1,
+                        ConditionImpAssistedAllyName,
+                        0,
+                        0,
+                        0);
 
-                ally.RulesetCharacter.InflictCondition(
-                    ConditionImpAssistedAllyName,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.name,
-                    1,
-                    ConditionImpAssistedAllyName,
-                    0,
-                    0,
-                    0);
-                
-                enemy.RulesetCharacter.InflictCondition(
-                    enemyCondition,
-                    DurationType.Round,
-                    1,
-                    (TurnOccurenceType) ExtraTurnOccurenceType.StartOfSourceTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.name,
-                    1,
-                    enemyCondition,
-                    0,
-                    0,
-                    0);
-                
+                    enemy.RulesetCharacter.InflictCondition(
+                        enemyCondition,
+                        DurationType.Round,
+                        1,
+                        (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetCharacter.guid,
+                        rulesetCharacter.CurrentFaction.name,
+                        1,
+                        enemyCondition,
+                        0,
+                        0,
+                        0);
+                    break;
+                }
             }
         }
     }
@@ -433,13 +437,8 @@ internal static class RaceImpBuilder
                 0,
                 0);
 
-            foreach (var target in targetCharacters)
+            foreach (var target in targetCharacters.Where(target => target.Side is Side.Ally))
             {
-                if (target.Side is not Side.Ally)
-                {
-                    continue;
-                }
-
                 target.RulesetCharacter.InflictCondition(
                     ConditionImpPassageName,
                     DurationType.Round,
@@ -457,8 +456,10 @@ internal static class RaceImpBuilder
         }
     }
 
-    private class PowerImpAssistTargetFilter(FeatureDefinitionPower powerImpBadlandAssist, bool requireEnemy) :
-        IFilterTargetingCharacter
+    private class PowerImpAssistTargetFilter(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerImpBadlandAssist,
+        bool requireEnemy) : IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => requireEnemy;
 
@@ -472,36 +473,28 @@ internal static class RaceImpBuilder
 
             var selectedTargets = __instance.SelectionService.SelectedTargets;
 
-            // select Ally first
-            if (selectedTargets.Count == 0)
+            switch (selectedTargets.Count)
             {
-                if (target.Side != Side.Ally)
-                {
+                // select Ally first
+                case 0 when target.Side != Side.Ally:
                     __instance.actionModifier.FailureFlags.Add("Tooltip/&SelectAnAlly");
                     return false;
-                }
-            }
-
-            if (selectedTargets.Count > 0)
-            {
-                if (target.Side != Side.Enemy)
-                {
+                case > 0 when target.Side != Side.Enemy:
                     __instance.actionModifier.FailureFlags.Add("Tooltip/&AlreadySelectedAnAlly");
 
                     return false;
-                }
             }
 
             if (target.Side == Side.Ally)
             {
-                if (target.RulesetCharacter.HasConditionOfType(ConditionImpAssistedAllyName)
-                    || target.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName))
+                if (!target.RulesetCharacter.HasConditionOfType(ConditionImpAssistedAllyName) &&
+                    !target.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName))
                 {
-                    __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetAlreadyAssisted");
-                    return false;
+                    return true;
                 }
 
-                return true;
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetAlreadyAssisted");
+                return false;
             }
 
             // only allow enemy within reach
@@ -511,13 +504,14 @@ internal static class RaceImpBuilder
                 return false;
             }
 
-            if (target.RulesetCharacter.HasConditionOfType(ConditionImpAssistedEnemyName))
+            if (!target.RulesetCharacter.HasConditionOfType(ConditionImpAssistedEnemyName))
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetAlreadyAssisted");
-                return false;
+                return true;
             }
 
-            return true;
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetAlreadyAssisted");
+
+            return false;
         }
     }
 
@@ -533,37 +527,35 @@ internal static class RaceImpBuilder
 
             var dieRoll =
                 actingRulesetCharacter.RollDie(DieType.D6, RollContext.None, false, AdvantageType.None, out _, out _);
-            var healingReceived = actingRulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) +
-                                  dieRoll;
+            var healingReceived =
+                actingRulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) + dieRoll;
 
             actingRulesetCharacter.ReceiveTemporaryHitPoints(
                 healingReceived, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
                 actingRulesetCharacter.guid);
             EffectHelpers.StartVisualEffect(actingCharacter, actingCharacter, SpellDefinitions.CureWounds,
                 EffectHelpers.EffectType.Effect);
-            foreach (var target in targetCharacters)
+
+            foreach (var target in targetCharacters.Where(target => target.Side == Side.Ally))
             {
-                if (target.Side == Side.Ally)
-                {
-                    target.RulesetCharacter.ReceiveTemporaryHitPoints(
-                        healingReceived, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
-                        actingRulesetCharacter.guid);
-                    EffectHelpers.StartVisualEffect(target, target, SpellDefinitions.CureWounds,
-                        EffectHelpers.EffectType.Effect);
-                }
+                target.RulesetCharacter.ReceiveTemporaryHitPoints(
+                    healingReceived, DurationType.UntilLongRest, 0, TurnOccurenceType.StartOfTurn,
+                    actingRulesetCharacter.guid);
+                EffectHelpers.StartVisualEffect(target, target, SpellDefinitions.CureWounds,
+                    EffectHelpers.EffectType.Effect);
             }
         }
     }
 
     private class ImpSpiteAttackOnHit : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager, 
-            [UsedImplicitly] GameLocationCharacter attacker, 
-            GameLocationCharacter defender, 
-            GameLocationCharacter helper, 
-            ActionModifier actionModifier, 
-            RulesetAttackMode attackMode, 
-            RulesetEffect rulesetEffect, 
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
+            [UsedImplicitly] GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect,
             int attackRoll)
         {
             if (defender != helper)
@@ -599,7 +591,7 @@ internal static class RaceImpBuilder
         ITryAlterOutcomeAttack,
         ITryAlterOutcomeSavingThrow
     {
-        private readonly int inspirationValue = 3;
+        private const int InspirationValue = 3;
 
         public IEnumerator OnTryAlterOutcomeAttack(GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -610,10 +602,10 @@ internal static class RaceImpBuilder
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (attacker != helper
-                || action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure)
-                || action.AttackSuccessDelta < -inspirationValue
-                || rulesetAttacker.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0)
+            if (attacker != helper ||
+                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                action.AttackSuccessDelta < -InspirationValue ||
+                rulesetAttacker.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0)
             {
                 yield break;
             }
@@ -631,6 +623,7 @@ internal static class RaceImpBuilder
                 UsablePower = usablePower
             };
             var count = actionService.PendingReactionRequestGroups.Count;
+
             actionService.ReactToSpendPower(actionParams);
 
             yield return battleManager.WaitForReactions(attacker, actionService, count);
@@ -640,10 +633,10 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            action.AttackSuccessDelta += inspirationValue;
-            actionModifier.AttackRollModifier += inspirationValue;
+            action.AttackSuccessDelta += InspirationValue;
+            actionModifier.AttackRollModifier += InspirationValue;
             actionModifier.AttacktoHitTrends?.Add(new TrendInfo(
-                inspirationValue,
+                InspirationValue,
                 FeatureSourceType.Power,
                 powerImpBadlandDrawInspiration.Name,
                 powerImpBadlandDrawInspiration));
@@ -659,11 +652,11 @@ internal static class RaceImpBuilder
             bool hasHitVisual, [UsedImplicitly] bool hasBorrowedLuck)
         {
             var rulesetDefender = defender.RulesetCharacter;
-            if (defender != helper
-                || !action.RolledSaveThrow
-                || action.SaveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure)
-                || rulesetDefender.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0
-                || action.SaveOutcomeDelta < -inspirationValue)
+            if (defender != helper ||
+                !action.RolledSaveThrow ||
+                action.SaveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                rulesetDefender.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0 ||
+                action.SaveOutcomeDelta < -InspirationValue)
             {
                 yield break;
             }
