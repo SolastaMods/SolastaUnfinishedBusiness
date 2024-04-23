@@ -708,7 +708,35 @@ internal static class LightingAndObscurementContext
 
     internal static void LateLoad()
     {
+        ConditionInvisibleBase.AddCustomSubFeatures(new ModifyAbilityCheckConditionInvisibleBase());
         SwitchOfficialObscurementRules();
+    }
+
+    private sealed class ModifyAbilityCheckConditionInvisibleBase : IModifyAbilityCheck
+    {
+        public void MinRoll(
+            RulesetCharacter character,
+            int baseBonus,
+            string abilityScoreName,
+            string proficiencyName,
+            List<RuleDefinitions.TrendInfo> advantageTrends,
+            List<RuleDefinitions.TrendInfo> modifierTrends,
+            ref int rollModifier,
+            ref int minRoll)
+        {
+            if (!Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget ||
+                Gui.Battle != null ||
+                abilityScoreName != AttributeDefinitions.Dexterity ||
+                proficiencyName != SkillDefinitions.Stealth)
+            {
+                return;
+            }
+
+            rollModifier += 10;
+            modifierTrends.Add(
+                new RuleDefinitions.TrendInfo(10, RuleDefinitions.FeatureSourceType.Condition,
+                    ConditionInvisible.Name, ConditionInvisible));
+        }
     }
 
     internal static void SwitchOfficialObscurementRules()
