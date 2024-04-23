@@ -108,6 +108,7 @@ internal static class FlexibleRacesContext
             ]
         },
         { "RaceDarkelf", ["AttributeModifierDarkelfCharismaAbilityScoreIncrease"] },
+        { "RaceShadarKai", ["PointPoolShadarKaiAbilityScoreIncrease"] },
         { "RaceHalfElfVariant", ["FeatureSetHalfElfAbilityScoreIncrease"] },
         { "RaceGrayDwarf", ["AttributeModifierGrayDwarfStrengthAbilityScoreIncrease"] },
         { "RaceDarkKobold", ["AttributeModifierElfAbilityScoreIncrease"] },

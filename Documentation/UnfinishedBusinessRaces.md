@@ -773,6 +773,10 @@ Common, Elvish, and one language of your choice
 
 6◎
 
+* Necrotic Resistance
+
+You have resistance to necrotic damage.
+
 
 
 # 29. - Tiefling

@@ -10,7 +10,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PointPoolShadarKaiAbilityScore:2f8b6c66-eb11-5943-b0d2-83b9a3d0e8e5",
+      "featureDefinition": "Definition:PointPoolShadarKaiAbilityScoreIncrease:b0213bb2-a549-59c0-b7de-a42b9b6bcde5",
       "level": 1
     },
     {
@@ -31,6 +31,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityShadarKai:1f55bb51-5763-5998-a973-b3429619d92c",
       "level": 1
     }
   ],

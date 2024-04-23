@@ -21,10 +21,10 @@ internal static class SubraceShadarKaiBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildShadarKai()
     {
-        var shadarKaiSpriteReference = Sprites.GetSprite("ShadarKai", Resources.Darkelf, 1024, 512);
+        var shadarKaiSpriteReference = Sprites.GetSprite("ShadarKai", Resources.ShadarKai, 1024, 512);
 
         var pointPoolAbilityScore = FeatureDefinitionPointPoolBuilder
-            .Create("PointPoolShadarKaiAbilityScore")
+            .Create("PointPoolShadarKaiAbilityScoreIncrease")
             .SetGuiPresentation("Feature/&AbilityScoreIncreaseTitle", "Feature/&AttributeIncreaseAny1Description")
             .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 1)
             .AddToDB();
@@ -33,8 +33,8 @@ internal static class SubraceShadarKaiBuilder
 
         var conditionTeleport = ConditionDefinitionBuilder
             .Create("ConditionShadarKaiTeleport")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentation("PowerShadarKaiTeleport", Category.Feature, ConditionDefinitions.ConditionHopeless)
+            .SetPossessive()
             .AddFeatures(
                 DamageAffinityAcidResistance,
                 DamageAffinityBludgeoningResistance,
@@ -49,8 +49,9 @@ internal static class SubraceShadarKaiBuilder
                 DamageAffinityRadiantResistance,
                 DamageAffinitySlashingResistance,
                 DamageAffinityThunderResistance)
-            .AddSpecialInterruptions(ConditionInterruption.Damaged)
             .AddToDB();
+
+        conditionTeleport.GuiPresentation.description = Gui.NoLocalization;
 
         var effectFormTeleport =
             EffectFormBuilder.ConditionForm(conditionTeleport, ConditionForm.ConditionOperation.Add, true, true);
@@ -70,10 +71,18 @@ internal static class SubraceShadarKaiBuilder
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                             .Build())
                     .UseQuickAnimations()
+                    .SetParticleEffectParameters(SpellDefinitions.DimensionDoor)
                     .Build())
             .AddToDB();
 
         powerTeleport.AddCustomSubFeatures(new MagicEffectFinishedByMeTeleport(powerTeleport, effectFormTeleport));
+
+        var necroticResistance = FeatureDefinitionDamageAffinityBuilder
+            .Create("DamageAffinityShadarKai")
+            .SetGuiPresentation(Category.Feature)
+            .SetDamageType(DamageTypeNecrotic)
+            .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .AddToDB();
 
         shadarKaiRacePresentation.femaleNameOptions = ElfHigh.RacePresentation.FemaleNameOptions;
         shadarKaiRacePresentation.maleNameOptions = ElfHigh.RacePresentation.MaleNameOptions;
@@ -90,7 +99,8 @@ internal static class SubraceShadarKaiBuilder
                 FeatureDefinitionFeatureSets.FeatureSetElfHighLanguages,
                 FeatureDefinitionProficiencys.ProficiencyElfWeaponTraining,
                 pointPoolAbilityScore,
-                powerTeleport)
+                powerTeleport,
+                necroticResistance)
             .AddToDB();
 
         raceShadarKai.subRaces.Clear();
