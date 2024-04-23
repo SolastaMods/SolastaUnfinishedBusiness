@@ -397,6 +397,11 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerMasterOfNature" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerMasterOfNature.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="PowerShadowDance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerShadowDance.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -550,6 +555,11 @@
   </data>
   <data name="Fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Map/Fire.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="ShadarKai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Races/ShadarKai.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
