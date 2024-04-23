@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainTempestBonusProficiency:1e92976d-a4b8-5273-8f0f-90c5f3587812",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsDomainTempest:428a5651-66b7-5b30-b5fe-1b69183f345b",
       "level": 1
     },
@@ -46,8 +51,8 @@
     "description": "Subclass/&DomainTempestDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "05db759cf66168b4495b148ea71ec6c5",
-      "m_SubObjectName": "Wizard_Sylvan_Mage",
+      "m_AssetGUID": "7b10e54d6037d314e93fd7e7f81c4798",
+      "m_SubObjectName": "Spellblade",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

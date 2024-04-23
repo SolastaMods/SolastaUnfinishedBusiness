@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -26,16 +27,18 @@ public sealed class DomainTempest : AbstractSubclass
     {
         const string NAME = "DomainTempest";
 
+        var divinePowerPrefix = Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": ";
+
         var autoPreparedSpellsDomainNature = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{NAME}")
             .SetGuiPresentation("ExpandedSpells", Category.Feature)
             .SetAutoTag("Domain")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(1, FogCloud, Thunderwave),
-                BuildSpellGroup(3, Shatter),
+                BuildSpellGroup(3, Shatter, SpellsContext.BindingIce),
                 BuildSpellGroup(5, CallLightning, SleetStorm),
-                BuildSpellGroup(7, IceStorm),
-                BuildSpellGroup(9, InsectPlague))
+                BuildSpellGroup(7, IceStorm, SpellsContext.BlessingOfRime),
+                BuildSpellGroup(9, InsectPlague, SpellsContext.DivineWrath))
             .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
             .AddToDB();
 
@@ -53,17 +56,21 @@ public sealed class DomainTempest : AbstractSubclass
             .SetProficiencies(ProficiencyType.Weapon, EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
-        var featureSetAcolyteOfNature = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{NAME}WrathOfTheStorm")
+        var featureSetBonusProficiency = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}BonusProficiency")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(proficiencyHeavyArmor, proficiencyMartialWeapons)
+            .AddToDB();
+
+        var featureSetWrathOfTheStorm = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}WrathOfTheStorm")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet()
             .AddToDB();
 
         //
         // Level 2 - Destructive Wrath
         //
-
-        var divinePowerPrefix = Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": ";
 
         var powerDestructiveWrath = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DestructiveWrath")
@@ -115,7 +122,7 @@ public sealed class DomainTempest : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
-            .SetImpactParticleReference(Shatter.EffectDescription.EffectParticleParameters.impactParticleReference)
+            .SetImpactParticleReference(Shatter)
             .AddToDB();
 
         // LEVEL 17 - Stormborn
@@ -124,7 +131,7 @@ public sealed class DomainTempest : AbstractSubclass
             .Create($"Power{NAME}StormbornSprout")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerStormbornSprout", Resources.PowerAngelicFormSprout, 256, 128))
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -173,8 +180,11 @@ public sealed class DomainTempest : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.TraditionGreenmage)
-            .AddFeaturesAtLevel(1, autoPreparedSpellsDomainNature, featureSetAcolyteOfNature)
+            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.MartialSpellblade)
+            .AddFeaturesAtLevel(1,
+                autoPreparedSpellsDomainNature,
+                featureSetBonusProficiency,
+                featureSetWrathOfTheStorm)
             .AddFeaturesAtLevel(2, featureSetDestructiveWrath)
             .AddFeaturesAtLevel(6, actionAffinityThunderousStrike)
             .AddFeaturesAtLevel(8, additionalDamageDivineStrike)
@@ -190,7 +200,7 @@ public sealed class DomainTempest : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override FeatureDefinitionSubclassChoice SubclassChoice { get; }
 
-    internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
+    internal override DeityDefinition DeityDefinition => DeityDefinitions.Einar;
 
     private sealed class CustomBehaviorDestructiveWrath(FeatureDefinitionPower powerDestructiveWrath)
         : IForceMaxDamageTypeDependent, IMagicEffectBeforeHitConfirmedOnEnemy, IActionFinishedByMe

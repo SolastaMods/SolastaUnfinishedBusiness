@@ -1,6 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [],
+  "featureSet": [
+    "Definition:ProficiencyDomainTempestHeavyArmor:6abfab75-bc69-56d4-af65-13f8aaa7440e",
+    "Definition:ProficiencyDomainTempestMartialWeapons:8cbb115b-7b9a-5c2c-b57b-558e313dfa24"
+  ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",
@@ -11,8 +14,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetDomainTempestWrathOfTheStormTitle",
-    "description": "Feature/&FeatureSetDomainTempestWrathOfTheStormDescription",
+    "title": "Feature/&FeatureSetDomainTempestBonusProficiencyTitle",
+    "description": "Feature/&FeatureSetDomainTempestBonusProficiencyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8facc09d-1f7d-5a1b-af53-a4206c92c9f3",
+  "guid": "1e92976d-a4b8-5273-8f0f-90c5f3587812",
   "contentPack": 9999,
-  "name": "FeatureSetDomainTempestWrathOfTheStorm"
+  "name": "FeatureSetDomainTempestBonusProficiency"
 }

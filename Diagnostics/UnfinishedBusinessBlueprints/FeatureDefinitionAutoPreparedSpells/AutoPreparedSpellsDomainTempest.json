@@ -14,7 +14,8 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 3,
       "spellsList": [
-        "Definition:Shatter:acb96b651384a47428da7c0c32ab359e"
+        "Definition:Shatter:acb96b651384a47428da7c0c32ab359e",
+        "Definition:BindingIce:3da5bb90-e40c-5a0e-bead-a7441de13d55"
       ]
     },
     {
@@ -29,14 +30,16 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 7,
       "spellsList": [
-        "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d"
+        "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d",
+        "Definition:BlessingOfRime:47891998-e0f2-562a-9fd8-0b1d2190acf0"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 9,
       "spellsList": [
-        "Definition:InsectPlague:f74938dd8dd25294b97663330c8e293e"
+        "Definition:InsectPlague:f74938dd8dd25294b97663330c8e293e",
+        "Definition:DivineWrath:754381b9-32f7-575a-b831-aa815f9dd566"
       ]
     }
   ],
