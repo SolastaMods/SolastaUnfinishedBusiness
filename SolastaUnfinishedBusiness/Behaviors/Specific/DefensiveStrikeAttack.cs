@@ -89,8 +89,6 @@ internal static class DefensiveStrikeAttack
         //Calculate bonus
         var charisma = unitCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma);
         var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
-
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
         if (!actionManager)
@@ -104,7 +102,7 @@ internal static class DefensiveStrikeAttack
                 .Formatted(Category.Reaction, defender.Name, attacker.Name, bonus)
         };
 
-        var count = actionService.PendingReactionRequestGroups.Count;
+        var count = actionManager.PendingReactionRequestGroups.Count;
 
         var reactionRequest = new ReactionRequestCustom(OathOfAltruism.DefensiveStrike, actionParams)
         {
@@ -113,7 +111,7 @@ internal static class DefensiveStrikeAttack
 
         actionManager.AddInterruptRequest(reactionRequest);
 
-        yield return battleManager.WaitForReactions(attacker, actionService, count);
+        yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
         if (!actionParams.ReactionValidated)
         {

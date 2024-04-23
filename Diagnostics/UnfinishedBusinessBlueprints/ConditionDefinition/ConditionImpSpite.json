@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -132,8 +132,8 @@
     "description": "Condition/&ConditionImpSpiteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
-      "m_SubObjectName": "ConditionPositive",
+      "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",
+      "m_SubObjectName": "ConditionNegative",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
