@@ -1,6 +1,6 @@
 Feature/&ActionAffinityThunderousStrikeToggleDescription=Lorsque vous infligez des dégâts de foudre à une créature de taille G ou inférieure, vous pouvez également la pousser jusqu'à 3 mètres de vous.
 Feature/&ActionAffinityThunderousStrikeToggleTitle=Frappe tonitruante
-Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=Vous gagnez la capacité d’imprégner vos frappes d’armes d’énergie divine. Une fois à chacun de vos tours, lorsque vous touchez une créature avec une attaque avec une arme, vous pouvez faire en sorte que l'attaque inflige 1d8 dégâts de tonnerre supplémentaires à la cible. Lorsque vous atteignez le niveau 14, les dégâts supplémentaires passent à 2d8.
+Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=Vous gagnez la capacité d’imprégner vos frappes d’armes d’énergie divine. Une fois à chacun de vos tours, lorsque vous touchez une créature avec une attaque avec une arme, vous pouvez faire en sorte que l'attaque inflige 1d8 dégâts de foudre supplémentaires à la cible. Lorsque vous atteignez le niveau 14, les dégâts supplémentaires passent à 2d8.
 Feature/&AdditionalDamageDomainTempestDivineStrikeTitle=Frappe divine
 Feature/&FeatureSetDomainTempestBonusProficiencyDescription=Vous gagnez en maîtrise des armures lourdes et des armes martiales.
 Feature/&FeatureSetDomainTempestBonusProficiencyTitle=Compétences bonus

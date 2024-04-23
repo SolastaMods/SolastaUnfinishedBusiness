@@ -275,13 +275,6 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(MetamagicToggle, "DestructiveWrathToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.DestructiveWrathToggle)
-            .AddToDB();
-
-        ActionDefinitionBuilder
             .Create(MetamagicToggle, "DragonHideToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()

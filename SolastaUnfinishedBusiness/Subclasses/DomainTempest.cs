@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -75,12 +76,21 @@ public sealed class DomainTempest : AbstractSubclass
         var powerDestructiveWrath = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DestructiveWrath")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("DestructiveWrath", Resources.PowerCharmAnimalsAndPlants, 256, 128))
+                Sprites.GetSprite("DestructiveWrath", Resources.PowerCharmAnimalsAndPlants, 256, 128), hidden: true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ChannelDivinity)
+            .DelegatedToAction()
             .AddToDB();
 
         powerDestructiveWrath.AddCustomSubFeatures(new CustomBehaviorDestructiveWrath(powerDestructiveWrath));
 
+        _ = ActionDefinitionBuilder
+                .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "DestructiveWrathToggle")
+                .SetOrUpdateGuiPresentation(Category.Action)
+                .RequiresAuthorization()
+                .SetActionId(ExtraActionId.DestructiveWrathToggle)
+                .SetActivatedPower(powerDestructiveWrath)
+                .AddToDB();
+        
         var actionAffinityDestructiveWrathToggle = FeatureDefinitionActionAffinityBuilder
             .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
                 "ActionAffinityDestructiveWrathToggle")
@@ -95,7 +105,7 @@ public sealed class DomainTempest : AbstractSubclass
             .SetGuiPresentation(
                 divinePowerPrefix + powerDestructiveWrath.FormatTitle(),
                 powerDestructiveWrath.FormatDescription())
-            .AddFeatureSet(actionAffinityDestructiveWrathToggle)
+            .AddFeatureSet(actionAffinityDestructiveWrathToggle, powerDestructiveWrath)
             .AddToDB();
 
         //
@@ -118,11 +128,11 @@ public sealed class DomainTempest : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("DivineStrike")
             .SetDamageDice(DieType.D8, 1)
-            .SetSpecificDamageType(DamageTypeThunder)
+            .SetSpecificDamageType(DamageTypeLightning)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
-            .SetImpactParticleReference(Shatter)
+            .SetImpactParticleReference(LightningBolt)
             .AddToDB();
 
         // LEVEL 17 - Stormborn
@@ -144,6 +154,7 @@ public sealed class DomainTempest : AbstractSubclass
                                 ConditionDefinitions.ConditionFlyingAdaptive,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsThunder)
                     .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
@@ -203,7 +214,7 @@ public sealed class DomainTempest : AbstractSubclass
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Einar;
 
     private sealed class CustomBehaviorDestructiveWrath(FeatureDefinitionPower powerDestructiveWrath)
-        : IForceMaxDamageTypeDependent, IMagicEffectBeforeHitConfirmedOnEnemy, IActionFinishedByMe
+        : IForceMaxDamageTypeDependent, IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, IActionFinishedByMe
     {
         private bool _isValid;
 
@@ -216,7 +227,7 @@ public sealed class DomainTempest : AbstractSubclass
 
         public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
         {
-            return damageForm.DamageType is DamageTypeLightning or DamageTypeThunder && _isValid;
+            return _isValid;
         }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
@@ -225,6 +236,36 @@ public sealed class DomainTempest : AbstractSubclass
             GameLocationCharacter defender,
             ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
+
+            _isValid = actualEffectForms.Any(x =>
+                           x.FormType == EffectForm.EffectFormType.Damage &&
+                           x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder) &&
+                       rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                       rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
+
+            if (!_isValid)
+            {
+                yield break;
+            }
+
+            rulesetAttacker.UsePower(usablePower);
+            rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
+        }
+        
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
             bool criticalHit)

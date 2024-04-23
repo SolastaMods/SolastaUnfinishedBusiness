@@ -1,6 +1,6 @@
 Feature/&ActionAffinityThunderousStrikeToggleDescription=When you deal lightning damage to a Large or smaller creature, you can also push it up to 10 feet away from you.
 Feature/&ActionAffinityThunderousStrikeToggleTitle=Thunderous Strike
-Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 thunder damage to the target. When you reach 14th level, the extra damage increases to 2d8.
+Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 lightning damage to the target. When you reach 14th level, the extra damage increases to 2d8.
 Feature/&AdditionalDamageDomainTempestDivineStrikeTitle=Divine Strike
 Feature/&FeatureSetDomainTempestBonusProficiencyDescription=You gain proficiency with heavy armor and martial weapons.
 Feature/&FeatureSetDomainTempestBonusProficiencyTitle=Bonus Proficiencies

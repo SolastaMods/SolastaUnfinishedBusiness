@@ -1,6 +1,6 @@
 Feature/&ActionAffinityThunderousStrikeToggleDescription=当你对大型或小型生物造成闪电伤害时，你还可以将其推离你 10 尺。
 Feature/&ActionAffinityThunderousStrikeToggleTitle=雷霆打击
-Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=你获得了为你的武器攻击注入神圣能量的能力。在你的每个回合中，当你用武器攻击击中一个生物时，你可以使该攻击对目标造成额外的 1d8 雷鸣伤害。当你达到 14 级时，额外伤害提升至 2d8。
+Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=你获得了为你的武器攻击注入神圣能量的能力。在你的每个回合中，当你用武器攻击击中生物时，你可以使该攻击对目标造成额外的 1d8 闪电伤害。当你达到 14 级时，额外伤害增加到 2d8。
 Feature/&AdditionalDamageDomainTempestDivineStrikeTitle=神圣打击
 Feature/&FeatureSetDomainTempestBonusProficiencyDescription=你可以熟练使用重甲和军用武器。
 Feature/&FeatureSetDomainTempestBonusProficiencyTitle=奖励熟练度
