@@ -485,6 +485,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionHitByDirtyFighting { get; } =
             GetDefinition<ConditionDefinition>("ConditionHitByDirtyFighting");
 
+        internal static ConditionDefinition ConditionHopeless { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHopeless");
+
         internal static ConditionDefinition ConditionIncapacitated { get; } =
             GetDefinition<ConditionDefinition>("ConditionIncapacitated");
 
@@ -728,6 +731,7 @@ internal static partial class DatabaseHelper
 
     internal static class DeityDefinitions
     {
+        internal static DeityDefinition Einar { get; } = GetDefinition<DeityDefinition>("Einar");
         internal static DeityDefinition Maraike { get; } = GetDefinition<DeityDefinition>("Maraike");
         internal static DeityDefinition Pakri { get; } = GetDefinition<DeityDefinition>("Pakri");
     }

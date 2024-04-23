@@ -31,11 +31,14 @@ internal static class SpellsContext
     internal static readonly SpellDefinition AirBlast = BuildAirBlast();
     internal static readonly SpellDefinition AuraOfLife = BuildAuraOfLife();
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
+    internal static readonly SpellDefinition BindingIce = BuildBindingIce();
+    internal static readonly SpellDefinition BlessingOfRime = BuildBlessingOfRime();
     internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
     internal static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
     internal static readonly SpellDefinition CorruptingBolt = BuildCorruptingBolt();
     internal static readonly SpellDefinition CausticZap = BuildCausticZap();
     internal static readonly SpellDefinition ColorBurst = BuildColorBurst();
+    internal static readonly SpellDefinition DivineWrath = BuildDivineWrath();
     internal static readonly SpellDefinition ElementalWeapon = BuildElementalWeapon();
     internal static readonly SpellDefinition EarthTremor = BuildEarthTremor();
     internal static readonly SpellDefinition EnduringSting = BuildEnduringSting();
@@ -272,7 +275,7 @@ internal static class SpellsContext
         RegisterSpell(WrathfulSmite, 0, SpellListPaladin);
 
         // 2nd level
-        RegisterSpell(BuildBindingIce(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BindingIce, 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildCloudOfDaggers(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         DatabaseHelper.SpellDefinitions.ConjureGoblinoids.contentPack = CeContentPackContext.CeContentPack;
@@ -306,7 +309,7 @@ internal static class SpellsContext
         // 4th level
         RegisterSpell(BuildAuraOfPerseverance(), 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(AuraOfLife, 0, SpellListCleric, SpellListPaladin);
-        RegisterSpell(BuildBlessingOfRime(), 0, SpellListBard, SpellListDruid, SpellListRanger);
+        RegisterSpell(BlessingOfRime, 0, SpellListBard, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildFaithfulHound(), 0, SpellListWizard, spellListInventorClass);
@@ -320,7 +323,7 @@ internal static class SpellsContext
         RegisterSpell(BanishingSmite, 0, SpellListPaladin);
         RegisterSpell(BuildCircleOfMagicalNegation(), 0, SpellListPaladin);
         RegisterSpell(BuildDawn(), 0, SpellListCleric, SpellListWizard);
-        RegisterSpell(BuildDivineWrath(), 0, SpellListPaladin);
+        RegisterSpell(DivineWrath, 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildIncineration(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMantleOfThorns(), 0, SpellListDruid);
