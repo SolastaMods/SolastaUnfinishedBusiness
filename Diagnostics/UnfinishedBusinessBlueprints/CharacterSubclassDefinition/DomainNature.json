@@ -8,6 +8,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainNatureBonusProficiency:5231ed44-7501-53b9-87cc-274b545a7b15",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsDomainNature:20e017f1-1816-5659-bf28-dfd17a2280b5",
       "level": 1
     },
@@ -23,7 +28,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureDomainNatureDivineStrike:7138e48f-2d03-55ec-b480-cdf5d501c3a2",
+      "featureDefinition": "Definition:AdditionalDamageDomainNatureDivineStrike:db964b6b-7b71-5134-b68c-68503c294bee",
       "level": 8
     },
     {
@@ -33,7 +38,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainNatureMasterOfNature:978a9f60-e083-5832-b735-0e846eb6d78d",
+      "featureDefinition": "Definition:FeatureSetDomainNatureMasterOfNature:00bb2bae-2f33-5351-b3df-e071fd77d075",
       "level": 17
     }
   ],

@@ -35,6 +35,8 @@ public sealed class DomainNature : AbstractSubclass
     {
         const string NAME = "DomainNature";
 
+        var divinePowerPrefix = Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": ";
+
         var autoPreparedSpellsDomainNature = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{NAME}")
             .SetGuiPresentation("ExpandedSpells", Category.Feature)
@@ -44,7 +46,7 @@ public sealed class DomainNature : AbstractSubclass
                 BuildSpellGroup(3, Barkskin, SpikeGrowth),
                 BuildSpellGroup(5, ConjureAnimals, WindWall),
                 BuildSpellGroup(7, DominateBeast, FreedomOfMovement),
-                BuildSpellGroup(9, InsectPlague, Contagion))
+                BuildSpellGroup(9, InsectPlague, CloudKill))
             .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
             .AddToDB();
 
@@ -74,17 +76,21 @@ public sealed class DomainNature : AbstractSubclass
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
             .AddToDB();
 
+        var featureSetBonusProficiency = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}BonusProficiency")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(proficiencyHeavyArmor)
+            .AddToDB();
+
         var featureSetAcolyteOfNature = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{NAME}AcolyteOfNature")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(pointPoolCantrip, pointPoolSkills, proficiencyHeavyArmor)
+            .AddFeatureSet(pointPoolCantrip, pointPoolSkills)
             .AddToDB();
 
         //
         // Level 2 - Charm Animals and Plants
         //
-
-        var divinePowerPrefix = Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": ";
 
         var powerCharmAnimalsAndPlants = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}CharmAnimalsAndPlants")
@@ -109,6 +115,8 @@ public sealed class DomainNature : AbstractSubclass
                             .SetConditionForm(ConditionDefinitions.ConditionCharmed,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
+                    .SetEffectEffectParameters(AnimalFriendship)
                     .Build())
             .AddToDB();
 
@@ -171,8 +179,8 @@ public sealed class DomainNature : AbstractSubclass
         // LEVEL 08 - Divine Strike
         //
 
-        var additionalDamageDivineStrikeCold = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}DivineStrikeCold")
+        var additionalDamageDivineStrike = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}DivineStrike")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("DivineStrike")
             .SetDamageDice(DieType.D8, 1)
@@ -180,78 +188,22 @@ public sealed class DomainNature : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
-            .SetImpactParticleReference(ConeOfCold.EffectDescription.EffectParticleParameters.impactParticleReference)
+            .SetImpactParticleReference(ConeOfCold)
             .AddToDB();
-
-        var conditionDivineStrikeCold = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}DivineStrikeCold")
-            .SetGuiPresentationNoContent(true)
-            .SetFeatures(additionalDamageDivineStrikeCold)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
-            .AddToDB();
-
-        var additionalDamageDivineStrikeFire = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}DivineStrikeFire")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("DivineStrike")
-            .SetDamageDice(DieType.D8, 1)
-            .SetSpecificDamageType(DamageTypeFire)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
-            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .SetAttackModeOnly()
-            .SetImpactParticleReference(FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
-            .AddToDB();
-
-        var conditionDivineStrikeFire = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}DivineStrikeFire")
-            .SetGuiPresentationNoContent(true)
-            .SetFeatures(additionalDamageDivineStrikeFire)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
-            .AddToDB();
-
-        var additionalDamageDivineStrikeLightning = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}DivineStrikeLightning")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("DivineStrike")
-            .SetDamageDice(DieType.D8, 1)
-            .SetSpecificDamageType(DamageTypeLightning)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
-            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .SetAttackModeOnly()
-            .SetImpactParticleReference(
-                LightningBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
-            .AddToDB();
-
-        var conditionDivineStrikeLightning = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}DivineStrikeLightning")
-            .SetGuiPresentationNoContent(true)
-            .SetFeatures(additionalDamageDivineStrikeLightning)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
-            .AddToDB();
-
-        var featureDivineStrike = FeatureDefinitionBuilder
-            .Create($"Feature{NAME}DivineStrike")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        featureDivineStrike.AddCustomSubFeatures(
-            new PhysicalAttackBeforeHitConfirmedOnEnemyDivineStrike(
-                featureDivineStrike,
-                conditionDivineStrikeCold, conditionDivineStrikeFire, conditionDivineStrikeLightning));
 
         // LEVEL 17 - Master of Nature
 
         var powerMasterOfNature = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}MasterOfNature")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("MasterOfNature", Resources.InventorQuickWit, 256, 128))
+                Sprites.GetSprite("MasterOfNature", Resources.PowerCharmAnimalsAndPlants, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetRestrictedCreatureFamilies("Beast", "Plants")
+                    .SetRestrictedCreatureFamilies("Beast", "Plant")
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,
@@ -264,7 +216,17 @@ public sealed class DomainNature : AbstractSubclass
                             .SetConditionForm(ConditionDefinitions.ConditionMindControlledByCaster,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
+                    .SetEffectEffectParameters(PowerPaladinNeutralizePoison)
                     .Build())
+            .AddToDB();
+
+        var featureSetMasterOfNature = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}MasterOfNature")
+            .SetGuiPresentation(
+                divinePowerPrefix + powerMasterOfNature.FormatTitle(),
+                powerMasterOfNature.FormatDescription())
+            .AddFeatureSet(powerMasterOfNature)
             .AddToDB();
 
         // MAIN
@@ -272,12 +234,13 @@ public sealed class DomainNature : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.TraditionGreenmage)
-            .AddFeaturesAtLevel(1, autoPreparedSpellsDomainNature, featureSetAcolyteOfNature)
+            .AddFeaturesAtLevel(1,
+                autoPreparedSpellsDomainNature, featureSetAcolyteOfNature, featureSetBonusProficiency)
             .AddFeaturesAtLevel(2, featureSetCharmAnimalsAndPlants)
             .AddFeaturesAtLevel(6, powerDampenElements)
-            .AddFeaturesAtLevel(8, featureDivineStrike)
+            .AddFeaturesAtLevel(8, additionalDamageDivineStrike)
             .AddFeaturesAtLevel(10, PowerClericDivineInterventionWizard)
-            .AddFeaturesAtLevel(17, powerMasterOfNature)
+            .AddFeaturesAtLevel(17, featureSetMasterOfNature)
             .AddToDB();
     }
 
@@ -289,52 +252,6 @@ public sealed class DomainNature : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice { get; }
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
-
-    private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyDivineStrike(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDivineStrike,
-        params ConditionDefinition[] conditions) : IPhysicalAttackBeforeHitConfirmedOnEnemy
-    {
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (!attacker.OncePerTurnIsValid(featureDivineStrike.Name))
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var roll = RollDie(DieType.D3, AdvantageType.None, out _, out _);
-
-            rulesetAttacker.ShowDieRoll(DieType.D3, roll, title: featureDivineStrike.GuiPresentation.Title);
-
-            var condition = conditions[roll - 1];
-
-            attacker.UsedSpecialFeatures.TryAdd(featureDivineStrike.Name, 0);
-            rulesetAttacker.InflictCondition(
-                condition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                condition.Name,
-                0,
-                0,
-                0);
-        }
-    }
 
     private sealed class CustomBehaviorDampenElements(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
@@ -351,7 +268,7 @@ public sealed class DomainNature : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return Handler(battleManager, attacker, defender.RulesetCharacter, actualEffectForms);
+            yield return Handler(battleManager, attacker, defender, actualEffectForms);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
@@ -366,7 +283,7 @@ public sealed class DomainNature : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return Handler(battleManager, attacker, defender.RulesetCharacter, actualEffectForms);
+            yield return Handler(battleManager, attacker, defender, actualEffectForms);
         }
 
         // ReSharper disable once ParameterTypeCanBeEnumerable.Local
@@ -374,7 +291,7 @@ public sealed class DomainNature : AbstractSubclass
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             // ReSharper disable once SuggestBaseTypeForParameter
-            RulesetCharacter rulesetDefender,
+            GameLocationCharacter defender,
             List<EffectForm> actualEffectForms)
         {
             var actionManager =
@@ -395,6 +312,8 @@ public sealed class DomainNature : AbstractSubclass
             {
                 yield break;
             }
+
+            var rulesetDefender = defender.RulesetCharacter;
 
             if (!rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionDampenElements.Name, out var activeCondition))
@@ -433,6 +352,8 @@ public sealed class DomainNature : AbstractSubclass
                 yield break;
             }
 
+            EffectHelpers.StartVisualEffect(glc, defender, PowerPaladinNeutralizePoison,
+                EffectHelpers.EffectType.Effect);
             foreach (var conditionName in damageTypes.Select(damageType => $"ConditionDomainNature{damageType}"))
             {
                 rulesetDefender.InflictCondition(

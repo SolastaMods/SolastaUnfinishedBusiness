@@ -20,7 +20,7 @@
   "damageDieType": "D8",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
-  "specificDamageType": "DamageFire",
+  "specificDamageType": "DamageCold",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "ClassLevel",
   "diceByRankTable": [
@@ -139,7 +139,7 @@
   "lightSourceForm": null,
   "impactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "e446eddf529bfc94c9b972fc384b9986",
+    "m_AssetGUID": "38c44805a1a3e4c4aaf0cd27dbe5f3f6",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -175,7 +175,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6f112bdd-425c-5b02-a13c-48816059f97c",
+  "guid": "db964b6b-7b71-5134-b68c-68503c294bee",
   "contentPack": 9999,
-  "name": "AdditionalDamageDomainNatureDivineStrikeFire"
+  "name": "AdditionalDamageDomainNatureDivineStrike"
 }

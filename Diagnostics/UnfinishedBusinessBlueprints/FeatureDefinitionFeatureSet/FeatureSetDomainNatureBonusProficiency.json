@@ -1,10 +1,20 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ProficiencyDomainNatureHeavyArmor:763c3faa-6a62-521b-8135-7cd40b47ce7e"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureDomainNatureDivineStrikeTitle",
-    "description": "Feature/&FeatureDomainNatureDivineStrikeDescription",
+    "title": "Feature/&FeatureSetDomainNatureBonusProficiencyTitle",
+    "description": "Feature/&FeatureSetDomainNatureBonusProficiencyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7138e48f-2d03-55ec-b480-cdf5d501c3a2",
+  "guid": "5231ed44-7501-53b9-87cc-274b545a7b15",
   "contentPack": 9999,
-  "name": "FeatureDomainNatureDivineStrike"
+  "name": "FeatureSetDomainNatureBonusProficiency"
 }
