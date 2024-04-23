@@ -713,21 +713,21 @@ internal static class Level20Context
 
     private sealed class ModifyAbilityCheckBarbarianIndomitableMight : IModifyAbilityCheck
     {
-        public int MinRoll(
-            [CanBeNull] RulesetCharacter character,
+        public void MinRoll(
+            RulesetCharacter character,
             int baseBonus,
-            int rollModifier,
             string abilityScoreName,
             string proficiencyName,
             List<TrendInfo> advantageTrends,
-            List<TrendInfo> modifierTrends)
+            List<TrendInfo> modifierTrends,
+            ref int rollModifier,
+            ref int minRoll)
         {
-            if (character == null || abilityScoreName != AttributeDefinitions.Strength)
+            if (character != null &&
+                abilityScoreName == AttributeDefinitions.Strength)
             {
-                return 1;
+                minRoll = Math.Max(minRoll, character.TryGetAttributeValue(AttributeDefinitions.Strength));
             }
-
-            return character.TryGetAttributeValue(AttributeDefinitions.Strength);
         }
     }
 

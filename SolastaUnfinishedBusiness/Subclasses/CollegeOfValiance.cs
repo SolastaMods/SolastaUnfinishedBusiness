@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -142,23 +143,22 @@ public sealed class CollegeOfValiance : AbstractSubclass
 
     private sealed class ModifyAbilityCheckCaptivatingPresence : IModifyAbilityCheck
     {
-        public int MinRoll(
-            [CanBeNull] RulesetCharacter character,
+        public void MinRoll(
+            RulesetCharacter character,
             int baseBonus,
-            int rollModifier,
             string abilityScoreName,
             string proficiencyName,
             List<TrendInfo> advantageTrends,
-            List<TrendInfo> modifierTrends)
+            List<TrendInfo> modifierTrends,
+            ref int rollModifier,
+            ref int minRoll)
         {
-            if (character == null ||
-                abilityScoreName != AttributeDefinitions.Charisma ||
-                (proficiencyName != SkillDefinitions.Performance && proficiencyName != SkillDefinitions.Persuasion))
+            if (character != null &&
+                abilityScoreName == AttributeDefinitions.Charisma &&
+                proficiencyName is SkillDefinitions.Performance or SkillDefinitions.Persuasion)
             {
-                return 1;
+                minRoll = Math.Max(minRoll, 10);
             }
-
-            return 10;
         }
     }
 

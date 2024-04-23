@@ -1009,23 +1009,14 @@ public static class RulesetCharacterPatcher
             string proficiencyName,
             List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int rollModifier,
+            ref int rollModifier,
             ref int minRoll)
         {
-            var features = __instance.GetSubFeaturesByType<IModifyAbilityCheck>();
-
-            if (features.Count <= 0)
+            foreach (var modifyAbilityCheck in __instance.GetSubFeaturesByType<IModifyAbilityCheck>())
             {
-                return;
-            }
-
-            var newMinRoll = features
-                .Max(x => x.MinRoll(__instance, baseBonus, rollModifier, abilityScoreName, proficiencyName,
-                    advantageTrends, modifierTrends));
-
-            if (minRoll < newMinRoll)
-            {
-                minRoll = newMinRoll;
+                modifyAbilityCheck.MinRoll(
+                    __instance, baseBonus, abilityScoreName, proficiencyName,
+                    advantageTrends, modifierTrends, ref rollModifier, ref minRoll);
             }
         }
     }
@@ -1055,25 +1046,20 @@ public static class RulesetCharacterPatcher
             List<TrendInfo> advantageTrends,
             List<TrendInfo> modifierTrends)
         {
-            var features = rulesetCharacter.GetSubFeaturesByType<IModifyAbilityCheck>();
-            var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType,
+            var minRoll = 0;
+
+            foreach (var modifyAbilityCheck in rulesetCharacter.GetSubFeaturesByType<IModifyAbilityCheck>())
+            {
+                modifyAbilityCheck.MinRoll(
+                    rulesetCharacter, baseBonus, abilityScoreName, proficiencyName,
+                    advantageTrends, modifierTrends, ref rollModifier, ref minRoll);
+            }
+
+            var roll = rulesetCharacter.RollDie(
+                dieType, rollContext, isProficient, advantageType,
                 out firstRoll, out secondRoll, enumerateFeatures, canRerollDice, skill);
 
-            if (features.Count <= 0)
-            {
-                return result;
-            }
-
-            var newMinRoll = features
-                .Max(x => x.MinRoll(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName,
-                    advantageTrends, modifierTrends));
-
-            if (result < newMinRoll)
-            {
-                result = newMinRoll;
-            }
-
-            return result;
+            return Math.Max(minRoll, roll);
         }
 
         //
