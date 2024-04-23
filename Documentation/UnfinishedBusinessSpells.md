@@ -358,7 +358,7 @@ You have resistance to acid, cold, fire, lightning, and thunder damage for 1 min
 
 # 87. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
 
-You raise both hands as you evoke six transparent blades around you as a bonus action. When you cast this spell, and as a bonus action on each subsequent turn, you can throw one of these blades at a creature within 60 feet from you. Make a ranged spell attack. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage to each blade increases by 1d8 for each slot level above 6th.
+You raise both hands as you evoke six transparent blades around you as a bonus action. When you cast this spell, and as a bonus action on each subsequent turn, you can throw one of these blades at a creature within 60 feet from you. Make a ranged spell attack. On a hit, the target takes 4d10 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage to each blade increases by 1d10 for each slot level above 6th.
 
 # 88. - *Tasha's Otherworldly Guise* © (M,V,S) level 6 Transmutation [Concentration]
 

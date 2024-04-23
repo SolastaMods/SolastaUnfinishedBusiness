@@ -1053,10 +1053,12 @@ Gods of nature are as varied as the natural world itself; from inscrutable gods 
 
 * Acolyte of Nature
 
-
 • You learn one cantrip of your choice from the druid spell list. This cantrip counts as a cleric cantrip for you, but it doesn't count against the number of cleric cantrips you know.
 • You gain proficiency in one of the following skills of your choice: Animal Handling, Nature, or Survival.
-• You gain proficiency with heavy armor.
+
+* Bonus Proficiencies
+
+You gain proficiency with heavy armor.
 
 * Expanded Spells
 
@@ -1069,7 +1071,7 @@ Gods of nature are as varied as the natural world itself; from inscrutable gods 
 
 	IV	Dominate Beast, Freedom of Movement
 
-	V	Insect Plague, Contagion
+	V	Insect Plague, Cloudkill
 
 
 
@@ -1088,13 +1090,6 @@ As an action, you present your holy symbol and invoke the name of your deity. Ea
 When you or a creature within 30 feet of you takes acid, cold, fire, lightning, or thunder damage, you can use your reaction to grant resistance to the creature against that instance of the damage.
 
 
-### Level 8
-
-* Divine Strike
-
-You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra random 1d8 cold, fire, or lightning damage to the target. When you reach 14th level, the extra damage increases to 2d8.
-
-
 ### Level 10
 
 * Divine Intervention
@@ -1104,7 +1099,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 ### Level 17
 
-* Master of Nature
+* Channel Divinity: Master of Nature
 
 As an action, you present your holy symbol and invoke the name of your deity. Each beast or plant creature that can see you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is mind controlled by you for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
 
@@ -1117,26 +1112,27 @@ Gods whose portfolios include the Tempest domain govern storms, sea, and, sky. T
 
 ### Level 1
 
+* Bonus Proficiencies
+
+You gain proficiency with heavy armor and martial weapons.
+
 * Expanded Spells
 
 
 	I	Fog Cloud, Thunderwave
 
-	II	Shatter
+	II	Shatter, Rime's Binding Ice
 
 	III	Call Lightning, Sleet Storm
 
-	IV	Ice Storm
+	IV	Ice Storm, Blessing of Rime
 
-	V	Insect Plague
+	V	Insect Plague, Destructive Wave
 
 
 
 * Wrath of The Storm
 
-
-• You gain proficiency with heavy armor.
-• You gain proficiency with martial weapons.
 • You can thunderously rebuke attackers. When a creature within 5 feet of you that you can see hits you with an attack, you can use your reaction to cause the creature to make a Dexterity saving throw. The creature takes 2d8 lightning or thunder damage (your choice) on a failed saving throw, and half as much damage on a successful one. You can use this feature a number of times equal to your Wisdom modifier (a minimum of once). You regain all expended uses when you finish a long rest.
 
 
