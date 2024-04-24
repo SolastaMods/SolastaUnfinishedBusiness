@@ -347,8 +347,9 @@ internal static partial class SpellBuilders
         var effectProxy = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyDaylight, $"Proxy{NAME}")
             .SetOrUpdateGuiPresentation(NAME, Category.Spell)
+            .SetActionId((ExtraActionId)ActionDefinitions.Id.ProxyMoonBeam)
             .SetCanMove()
-            .SetAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove12)
+            .SetAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove12, FeatureDefinitionMoveModes.MoveModeFly12)
             .AddToDB();
 
         effectProxy.GuiPresentation.description = Gui.NoLocalization;
@@ -368,7 +369,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create(Daylight)
                     .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 6, 8)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 3, 4)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetRecurrentEffect(
@@ -379,7 +380,7 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeRadiant, 4, DieType.D10)
                             .Build())
-                    .SetParticleEffectParameters(Sunbeam)
+                    .SetImpactEffectParameters(Sunburst)
                     .Build())
             .AddToDB();
 
@@ -586,7 +587,6 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            //TODO: ideally we need to banish extra planar creatures forever (kill them?)
             rulesetDefender.InflictCondition(
                 conditionDefinition.Name,
                 DurationType.Minute,
