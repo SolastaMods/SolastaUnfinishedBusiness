@@ -5,8 +5,8 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -66,7 +66,7 @@ public sealed class DomainTempest : AbstractSubclass
 
         var powerWrathOfTheStorm = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}WrathOfTheStorm")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation($"FeatureSet{NAME}WrathOfTheStorm", Category.Feature)
             .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -83,7 +83,7 @@ public sealed class DomainTempest : AbstractSubclass
 
         var powerWrathOfTheStormLightning = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}WrathOfTheStormLightning")
-            .SetGuiPresentation($"FeatureSet{NAME}WrathOfTheStorm", Category.Feature)
+            .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerWrathOfTheStorm)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -122,6 +122,9 @@ public sealed class DomainTempest : AbstractSubclass
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(
+            powerWrathOfTheStorm, false, powerWrathOfTheStormLightning, powerWrathOfTheStormThunder);
 
         var featureSetWrathOfTheStorm = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{NAME}WrathOfTheStorm")
@@ -272,6 +275,46 @@ public sealed class DomainTempest : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Einar;
 
+    private static string GetAdditionalDamageType(
+        // ReSharper disable once SuggestBaseTypeForParameter
+        GameLocationCharacter attacker,
+        DamageForm additionalDamageForm,
+        // ReSharper disable once SuggestBaseTypeForParameter
+        FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage)
+
+    {
+        if (additionalDamageForm.DiceNumber <= 0 && additionalDamageForm.BonusDamage <= 0)
+        {
+            return string.Empty;
+        }
+
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (featureDefinitionAdditionalDamage.AdditionalDamageType)
+        {
+            case AdditionalDamageType.Specific:
+                return featureDefinitionAdditionalDamage.SpecificDamageType;
+
+            case AdditionalDamageType.AncestryDamageType:
+                attacker.RulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionAncestry>(
+                    FeatureDefinitionAncestry.FeaturesToBrowse);
+
+                foreach (var definitionAncestry in FeatureDefinitionAncestry.FeaturesToBrowse
+                             .Select(definition => definition as FeatureDefinitionAncestry)
+                             .Where(definitionAncestry =>
+                                 definitionAncestry &&
+                                 definitionAncestry.Type ==
+                                 featureDefinitionAdditionalDamage.AncestryTypeForDamageType &&
+                                 !string.IsNullOrEmpty(definitionAncestry.DamageType)))
+                {
+                    return definitionAncestry.DamageType;
+                }
+
+                break;
+        }
+
+        return string.Empty;
+    }
+
     private sealed class CustomBehaviorWrathOfTheStorm(FeatureDefinitionPower powerWrathOfTheStorm)
         : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
@@ -328,13 +371,14 @@ public sealed class DomainTempest : AbstractSubclass
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
-                StringParameter = "WrathOfTheStormDescription"
-                    .Formatted(Category.Reaction, attacker.Name, defender.Name),
+                ActionModifiers = { new ActionModifier() },
+                StringParameter = "WrathOfTheStorm",
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                UsablePower = usablePower
+                UsablePower = usablePower,
+                TargetCharacters = { attacker }
             };
 
             var count = actionManager.PendingReactionRequestGroups.Count;
@@ -347,9 +391,26 @@ public sealed class DomainTempest : AbstractSubclass
     }
 
     private sealed class CustomBehaviorDestructiveWrath(FeatureDefinitionPower powerDestructiveWrath)
-        : IForceMaxDamageTypeDependent, IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
+        : IForceMaxDamageTypeDependent, IModifyAdditionalDamage, IActionFinishedByMe,
+            IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         private bool _isValid;
+
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (!_isValid || action is not (CharacterActionAttack or CharacterActionMagicEffect))
+            {
+                yield break;
+            }
+
+            _isValid = false;
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
+
+            rulesetAttacker.UsePower(usablePower);
+            rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
+        }
 
         public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
         {
@@ -366,22 +427,22 @@ public sealed class DomainTempest : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
+            Validate(attacker.RulesetCharacter, actualEffectForms);
 
-            _isValid = actualEffectForms.Any(x =>
-                           x.FormType == EffectForm.EffectFormType.Damage &&
-                           x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder) &&
-                       rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
-                       rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
+            yield break;
+        }
 
-            if (!_isValid)
-            {
-                yield break;
-            }
+        public void ModifyAdditionalDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            List<EffectForm> actualEffectForms,
+            ref DamageForm additionalDamageForm)
+        {
+            var damageType = GetAdditionalDamageType(attacker, additionalDamageForm, featureDefinitionAdditionalDamage);
 
-            rulesetAttacker.UsePower(usablePower);
-            rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
+            _isValid = damageType is DamageTypeLightning or DamageTypeThunder;
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -396,27 +457,29 @@ public sealed class DomainTempest : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
+            Validate(attacker.RulesetCharacter, actualEffectForms);
+
+            yield break;
+        }
+
+        private void Validate(
+            RulesetCharacter rulesetAttacker,
+            // ReSharper disable once ParameterTypeCanBeEnumerable.Local
+            List<EffectForm> actualEffectForms)
+        {
             var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
 
-            _isValid = actualEffectForms.Any(x =>
-                           x.FormType == EffectForm.EffectFormType.Damage &&
-                           x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder) &&
-                       rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
-                       rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
-
-            if (!_isValid)
-            {
-                yield break;
-            }
-
-            rulesetAttacker.UsePower(usablePower);
-            rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
+            _isValid =
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
+                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                actualEffectForms.Any(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage &&
+                    x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder);
         }
     }
 
     private sealed class CustomBehaviorThunderousStrike
-        : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, IModifyAdditionalDamage
     {
         private static readonly EffectForm PushForm = EffectFormBuilder
             .Create()
@@ -433,15 +496,25 @@ public sealed class DomainTempest : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (actualEffectForms
-                    .Any(x => x.FormType == EffectForm.EffectFormType.Damage &&
-                              x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder) &&
-                attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.ThunderousStrikeToggle))
+            MaybeAddPushForm(attacker, actualEffectForms);
+
+            yield break;
+        }
+
+        public void ModifyAdditionalDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            List<EffectForm> actualEffectForms,
+            ref DamageForm additionalDamageForm)
+        {
+            var damageType = GetAdditionalDamageType(attacker, additionalDamageForm, featureDefinitionAdditionalDamage);
+
+            if (damageType is DamageTypeLightning or DamageTypeThunder)
             {
                 actualEffectForms.Add(PushForm);
             }
-
-            yield break;
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -456,6 +529,17 @@ public sealed class DomainTempest : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
+            MaybeAddPushForm(attacker, actualEffectForms);
+
+            yield break;
+        }
+
+        private static void MaybeAddPushForm(
+            // ReSharper disable once SuggestBaseTypeForParameter
+            GameLocationCharacter attacker,
+            // ReSharper disable once SuggestBaseTypeForParameter
+            List<EffectForm> actualEffectForms)
+        {
             if (actualEffectForms
                     .Any(x => x.FormType == EffectForm.EffectFormType.Damage &&
                               x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder) &&
@@ -463,8 +547,6 @@ public sealed class DomainTempest : AbstractSubclass
             {
                 actualEffectForms.Add(PushForm);
             }
-
-            yield break;
         }
     }
 }
