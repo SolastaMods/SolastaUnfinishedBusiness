@@ -7,7 +7,7 @@
   "canTriggerPower": false,
   "autoTerminateOnTriggerPower": false,
   "incrementalDamageDice": 0,
-  "actionId": "NoAction",
+  "actionId": "ProxyMoonBeam",
   "freeActionId": "NoAction",
   "attackMethod": "CasterSpellAbility",
   "firstAttackIsFree": false,
@@ -19,7 +19,8 @@
   "attackPower": null,
   "impactsPlacement": false,
   "additionalFeatures": [
-    "Definition:MoveModeMove12:38fa5268f6de6dd4a936bc94ca2efff5"
+    "Definition:MoveModeMove12:38fa5268f6de6dd4a936bc94ca2efff5",
+    "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44"
   ],
   "attackParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
