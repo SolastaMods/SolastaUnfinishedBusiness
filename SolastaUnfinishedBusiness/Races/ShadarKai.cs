@@ -33,7 +33,8 @@ internal static class SubraceShadarKaiBuilder
 
         var conditionTeleport = ConditionDefinitionBuilder
             .Create("ConditionShadarKaiTeleport")
-            .SetGuiPresentation("PowerShadarKaiTeleport", Category.Feature, ConditionDefinitions.ConditionHopeless)
+            .SetGuiPresentation("PowerShadarKaiTeleport", Category.Feature,
+                ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
             .AddFeatures(
                 DamageAffinityAcidResistance,
@@ -49,6 +50,7 @@ internal static class SubraceShadarKaiBuilder
                 DamageAffinityRadiantResistance,
                 DamageAffinitySlashingResistance,
                 DamageAffinityThunderResistance)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionHopeless.conditionParticleReference)
             .AddToDB();
 
         conditionTeleport.GuiPresentation.description = Gui.NoLocalization;

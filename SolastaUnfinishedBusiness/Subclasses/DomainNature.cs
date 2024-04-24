@@ -116,7 +116,6 @@ public sealed class DomainNature : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetCasterEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
-                    .SetEffectEffectParameters(AnimalFriendship)
                     .Build())
             .AddToDB();
 
@@ -210,6 +209,8 @@ public sealed class DomainNature : AbstractSubclass
                         true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitions.ConditionCharmed, ConditionForm.ConditionOperation.Remove),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
@@ -217,7 +218,6 @@ public sealed class DomainNature : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetCasterEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
-                    .SetEffectEffectParameters(PowerPaladinNeutralizePoison)
                     .Build())
             .AddToDB();
 
