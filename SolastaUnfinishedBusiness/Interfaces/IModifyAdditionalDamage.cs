@@ -1,14 +1,16 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
-public interface IModifyAdditionalDamageForm
+public interface IModifyAdditionalDamage
 {
     [UsedImplicitly]
-    public DamageForm AdditionalDamageForm(
+    public void ModifyAdditionalDamage(
         [UsedImplicitly] GameLocationCharacter attacker,
         [UsedImplicitly] GameLocationCharacter defender,
         RulesetAttackMode attackMode,
         FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-        DamageForm damageForm);
+        List<EffectForm> actualEffectForms,
+        ref DamageForm damageForm);
 }

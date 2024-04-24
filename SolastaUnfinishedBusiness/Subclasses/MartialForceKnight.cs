@@ -66,10 +66,11 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetImpactParticleReference(
                 SpellDefinitions.ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference)
-            .AddCustomSubFeatures(
-                new ModifyAdditionalDamageFormPoweredStrike(),
-                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .AddToDB();
+
+        additionalDamageForcePoweredStrike.AddCustomSubFeatures(
+            new ModifyAdditionalDamagePoweredStrike(additionalDamageForcePoweredStrike),
+            ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
 
         var conditionForcePoweredStrike = ConditionDefinitionBuilder
             .Create($"Condition{Name}ForcePoweredStrike")
@@ -724,23 +725,29 @@ public sealed class MartialForceKnight : AbstractSubclass
         }
     }
 
-    private sealed class ModifyAdditionalDamageFormPoweredStrike : IModifyAdditionalDamageForm
+    private sealed class ModifyAdditionalDamagePoweredStrike(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
     {
-        public DamageForm AdditionalDamageForm(
+        public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            DamageForm damageForm)
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
         {
+            if (featureDefinitionAdditionalDamage != additionalDamage)
+            {
+                return;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
             var dieType = GetForcePoweredStrikeSize(rulesetAttacker);
             var intMod = GetIntModifier(rulesetAttacker);
 
             damageForm.BonusDamage = intMod;
             damageForm.DieType = dieType;
-
-            return damageForm;
         }
     }
 

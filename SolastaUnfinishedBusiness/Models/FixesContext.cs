@@ -579,7 +579,8 @@ internal static class FixesContext
 
     private static void FixAdditionalDamageRogueSneakAttack()
     {
-        AdditionalDamageRogueSneakAttack.AddCustomSubFeatures(new ModifyAdditionalDamageFormRogueSneakAttack());
+        AdditionalDamageRogueSneakAttack.AddCustomSubFeatures(
+            new ModifyAdditionalDamageRogueSneakAttack(AdditionalDamageRogueSneakAttack));
     }
 
     private static void FixCriticalThresholdModifiers()
@@ -702,24 +703,32 @@ internal static class FixesContext
     // CONSOLIDATED SNEAK ATTACK DAMAGE FORM MODIFIER
     //
 
-    private sealed class ModifyAdditionalDamageFormRogueSneakAttack : IModifyAdditionalDamageForm
+    private sealed class ModifyAdditionalDamageRogueSneakAttack(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
     {
-        public DamageForm AdditionalDamageForm(
+        public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            DamageForm damageForm)
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
         {
+            if (featureDefinitionAdditionalDamage != additionalDamage)
+            {
+                return;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter.GetOriginalHero();
 
             if (rulesetAttacker == null)
             {
-                return damageForm;
+                return;
             }
 
             // handle close quarters feat
-            ClassFeats.HandleCloseQuarters(attacker, rulesetAttacker, defender, damageForm);
+            ClassFeats.HandleCloseQuarters(attacker, rulesetAttacker, defender, ref damageForm);
 
             // handle rogue cunning strike feature
             if (rulesetAttacker.TryGetConditionOfCategoryAndType(
@@ -805,8 +814,6 @@ internal static class FixesContext
 
                 damageForm.DamageType = DamageTypeNecrotic;
             }
-
-            return damageForm;
         }
     }
 }

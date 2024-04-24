@@ -315,27 +315,31 @@ internal static class ClassFeats
         .SetValidators(HasSneakAttack)
         .AddToDB();
 
-    internal sealed class ModifyAdditionalDamageFormCloseQuarters : IModifyAdditionalDamageForm
+    internal sealed class ModifyAdditionalDamageCloseQuarters(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
     {
-        internal static readonly ModifyAdditionalDamageFormCloseQuarters Marker = new();
-
-        public DamageForm AdditionalDamageForm(
+        public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            DamageForm damageForm)
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
         {
+            if (featureDefinitionAdditionalDamage != additionalDamage)
+            {
+                return;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter.GetOriginalHero();
 
             if (rulesetAttacker == null)
             {
-                return damageForm;
+                return;
             }
 
-            HandleCloseQuarters(attacker, rulesetAttacker, defender, damageForm);
-
-            return damageForm;
+            HandleCloseQuarters(attacker, rulesetAttacker, defender, ref damageForm);
         }
     }
 
@@ -343,7 +347,7 @@ internal static class ClassFeats
         GameLocationCharacter attacker,
         RulesetCharacterHero rulesetAttacker,
         GameLocationCharacter defender,
-        DamageForm damageForm)
+        ref DamageForm damageForm)
     {
         if (!attacker.IsWithinRange(defender, 1) ||
             (!rulesetAttacker.TrainedFeats.Contains(CloseQuartersDex) &&
