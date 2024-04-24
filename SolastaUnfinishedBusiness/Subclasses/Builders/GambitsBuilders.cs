@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -72,10 +73,11 @@ internal static class GambitsBuilders
                     conditionName = MartialTactician.MarkDamagedByGambit
                 })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
-            .AddCustomSubFeatures(
-                ModifyAdditionalDamageFormGambitDieSize.Marker,
-                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .AddToDB();
+
+        gambitDieDamage.AddCustomSubFeatures(
+            new ModifyAdditionalDamageGambitDieSize(gambitDieDamage),
+            ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
 
         var gambitDieDamageMelee = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageGambitDieMelee")
@@ -90,10 +92,11 @@ internal static class GambitsBuilders
                     conditionName = MartialTactician.MarkDamagedByGambit
                 })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
-            .AddCustomSubFeatures(
-                ModifyAdditionalDamageFormGambitDieSize.Marker,
-                ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack)
             .AddToDB();
+
+        gambitDieDamageMelee.AddCustomSubFeatures(
+            new ModifyAdditionalDamageGambitDieSize(gambitDieDamageMelee),
+            ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack);
 
         var conditionGambitDieDamage = ConditionDefinitionBuilder
             .Create("ConditionGambitDieDamage")
@@ -971,17 +974,23 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class ModifyAdditionalDamageFormGambitDieSize : IModifyAdditionalDamageForm
+    private sealed class ModifyAdditionalDamageGambitDieSize(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
     {
-        public static readonly ModifyAdditionalDamageFormGambitDieSize Marker = new();
-
-        public DamageForm AdditionalDamageForm(
+        public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            DamageForm damageForm)
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
         {
+            if (featureDefinitionAdditionalDamage != additionalDamage)
+            {
+                return;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
@@ -989,19 +998,17 @@ internal static class GambitsBuilders
             {
                 damageForm.DieType = GetGambitDieSize(attacker.RulesetCharacter);
 
-                return damageForm;
+                return;
             }
 
             var rulesetSource = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
 
             if (rulesetSource == null)
             {
-                return damageForm;
+                return;
             }
 
             damageForm.dieType = GetGambitDieSize(rulesetSource);
-
-            return damageForm;
         }
     }
 
