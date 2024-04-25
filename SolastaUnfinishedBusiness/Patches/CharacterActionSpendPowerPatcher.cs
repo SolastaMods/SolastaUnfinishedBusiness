@@ -105,11 +105,11 @@ public static class CharacterActionSpendPowerPatcher
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
+                    var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
+
                     if (__instance.RolledSaveThrow)
                     {
                         // Legendary Resistance or Indomitable?
-                        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-
                         if (__instance.SaveOutcome == RuleDefinitions.RollOutcome.Failure)
                         {
                             yield return battleManager.HandleFailedSavingThrow(
@@ -145,6 +145,39 @@ public static class CharacterActionSpendPowerPatcher
                         1,
                         null);
                     applyFormsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
+
+                    // BEGIN PATCH
+
+                    //PATCH: support for `IMagicEffectBeforeHitConfirmedOnEnemy`
+                    // should also happen outside battles
+                    if (actingCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                    {
+                        foreach (var magicalAttackBeforeHitConfirmedOnMe in actingCharacter.RulesetCharacter
+                                     .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnEnemy>())
+                        {
+                            yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicEffectBeforeHitConfirmedOnEnemy(
+                                battleManager as GameLocationBattleManager, actingCharacter, target, actionModifier,
+                                rulesetEffect, effectDescription.EffectForms,
+                                i == 0, false);
+                        }
+                    }
+
+                    //PATCH: support for `IMagicEffectBeforeHitConfirmedOnMe`
+                    // should also happen outside battles
+                    if (target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                    {
+                        foreach (var magicalAttackBeforeHitConfirmedOnMe in target.RulesetCharacter
+                                     .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnMe>())
+                        {
+                            yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicEffectBeforeHitConfirmedOnMe(
+                                battleManager as GameLocationBattleManager, actingCharacter, target, actionModifier,
+                                rulesetEffect, effectDescription.EffectForms,
+                                i == 0, false);
+                        }
+                    }
+
+                    // END PATCH
+
                     implementationService.ApplyEffectForms(
                         effectDescription.EffectForms,
                         applyFormsParams,
@@ -195,6 +228,7 @@ public static class CharacterActionSpendPowerPatcher
             }
 
             __instance.PersistantEffectAction();
+
 
             yield return null;
         }
