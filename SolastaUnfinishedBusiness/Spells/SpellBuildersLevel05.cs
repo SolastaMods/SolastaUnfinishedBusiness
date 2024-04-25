@@ -346,13 +346,11 @@ internal static partial class SpellBuilders
 
         var effectProxy = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyDaylight, $"Proxy{NAME}")
-            .SetOrUpdateGuiPresentation(NAME, Category.Spell)
-            .SetActionId((ExtraActionId)ActionDefinitions.Id.ProxyMoonBeam)
+            .SetOrUpdateGuiPresentation(Category.Proxy)
+            .SetActionId(ExtraActionId.ProxyDawn)
             .SetCanMove()
             .SetAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove12, FeatureDefinitionMoveModes.MoveModeFly12)
             .AddToDB();
-
-        effectProxy.GuiPresentation.description = Gui.NoLocalization;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -369,11 +367,10 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create(Daylight)
                     .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 3, 4)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 6, 8)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetRecurrentEffect(
-                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -384,6 +381,8 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        spell.EffectDescription.effectParticleParameters.activeEffectImpactParticleReference =
+            Sunburst.EffectDescription.EffectParticleParameters.impactParticleReference;
         spell.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = effectProxy.Name;
 
         return spell;
