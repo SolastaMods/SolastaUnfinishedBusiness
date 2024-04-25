@@ -98,6 +98,7 @@ public sealed class DomainTempest : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeLightning, 2, DieType.D8)
                             .Build())
+                    .SetImpactEffectParameters(LightningBolt)
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
@@ -119,6 +120,7 @@ public sealed class DomainTempest : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeThunder, 2, DieType.D8)
                             .Build())
+                    .SetImpactEffectParameters(Shatter)
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
@@ -414,7 +416,7 @@ public sealed class DomainTempest : AbstractSubclass
 
         public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
         {
-            return _isValid;
+            return _isValid && damageForm.DamageType is DamageTypeLightning or DamageTypeThunder;
         }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
@@ -441,8 +443,12 @@ public sealed class DomainTempest : AbstractSubclass
             ref DamageForm additionalDamageForm)
         {
             var damageType = GetAdditionalDamageType(attacker, additionalDamageForm, featureDefinitionAdditionalDamage);
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
 
-            _isValid = damageType is DamageTypeLightning or DamageTypeThunder;
+            _isValid = rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
+                       rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                       damageType is DamageTypeLightning or DamageTypeThunder;
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -511,7 +517,8 @@ public sealed class DomainTempest : AbstractSubclass
         {
             var damageType = GetAdditionalDamageType(attacker, additionalDamageForm, featureDefinitionAdditionalDamage);
 
-            if (damageType is DamageTypeLightning or DamageTypeThunder)
+            if (damageType is DamageTypeLightning or DamageTypeThunder &&
+                attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.ThunderousStrikeToggle))
             {
                 actualEffectForms.Add(PushForm);
             }
