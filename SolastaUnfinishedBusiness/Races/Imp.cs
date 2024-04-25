@@ -766,57 +766,51 @@ internal static class RaceImpBuilder
     }
 
     private class CustomBehaviorImpishWrath(FeatureDefinitionPower powerImpForestImpishWrath)
-        : IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
-            CharacterActionMagicEffect action,
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            List<GameLocationCharacter> targets)
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            var rulesetEffect = action.actionParams.RulesetEffect;
-
             if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
 
-            if ((action.RolledSaveThrow &&
-                 action.SaveOutcome == RollOutcome.Failure) ||
-                (action.AttackRoll != 0 &&
-                 action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                //TODO: REFACTOR
-
-                // yield return HandleImpishWrath(attacker,
-                //     defender,
-                //     rulesetEffect.SourceTags,
-                //     rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
-            }
+            yield return HandleImpishWrath(attacker,
+                defender,
+                rulesetEffect.SourceTags,
+                rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
         }
 
-        public IEnumerator OnPhysicalAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
             if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
 
-            if (action.AttackRoll != 0 &&
-                action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-            {
-                yield return HandleImpishWrath(
-                    attacker,
-                    defender,
-                    attackMode.AttackTags,
-                    attackMode.EffectDescription.FindFirstDamageForm()?.damageType);
-            }
+            yield return HandleImpishWrath(
+                attacker,
+                defender,
+                attackMode.AttackTags,
+                attackMode.EffectDescription.FindFirstDamageForm()?.damageType);
         }
 
         private IEnumerator HandleImpishWrath(
