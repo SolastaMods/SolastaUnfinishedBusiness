@@ -370,7 +370,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
             rulesetDefender.LogCharacterUsedFeature(featureCorruptedBlood);
             EffectHelpers.StartVisualEffect(attacker, defender, PowerSorcererChildRiftOffering);
-            InflictDamage(attacker, defender, totalDamage, defenderAttackTags);
+            InflictDamage(defender, attacker, totalDamage, defenderAttackTags);
 
             if (rulesetAttacker.IsDeadOrDying)
             {
