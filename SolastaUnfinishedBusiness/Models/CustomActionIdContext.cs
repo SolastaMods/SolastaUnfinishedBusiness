@@ -81,6 +81,12 @@ public static class CustomActionIdContext
             .SetActionId(ExtraActionId.ProxyHoundWeapon)
             .SetActionType(ActionType.NoCost)
             .AddToDB();
+        
+        ActionDefinitionBuilder
+            .Create(ProxyFlamingSphere, "ActionProxyDawn")
+            .SetActionId(ExtraActionId.ProxyDawn)
+            .SetActionType(ActionType.Bonus)
+            .AddToDB();
     }
 
     private static void BuildCustomInvocationActions()

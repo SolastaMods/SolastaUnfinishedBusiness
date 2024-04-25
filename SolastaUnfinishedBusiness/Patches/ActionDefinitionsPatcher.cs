@@ -35,6 +35,7 @@ public static class ActionDefinitionsPatcher
             if (actionId == (ActionDefinitions.Id)ExtraActionId.ProxyHoundWeapon ||
                 actionId == (ActionDefinitions.Id)ExtraActionId.ProxyPactWeapon ||
                 actionId == (ActionDefinitions.Id)ExtraActionId.ProxyPetalStorm ||
+                actionId == (ActionDefinitions.Id)ExtraActionId.ProxyDawn ||
                 (actionId == (ActionDefinitions.Id)ExtraActionId.ProxyPactWeaponFree && includeFree))
             {
                 __result = true;
