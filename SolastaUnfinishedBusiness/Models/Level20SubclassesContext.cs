@@ -1417,10 +1417,14 @@ internal static class Level20SubclassesContext
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             _attacker = null;
-            defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
+
+            foreach (var defender in targets)
+            {
+                defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
+            }
 
             yield break;
         }

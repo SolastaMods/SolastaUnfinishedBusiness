@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -126,7 +127,8 @@ public sealed class PathOfTheRavager : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            // ReSharper disable once InconsistentNaming
+            List<GameLocationCharacter> _targets)
         {
             if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
                 {
@@ -162,7 +164,7 @@ public sealed class PathOfTheRavager : AbstractSubclass
 
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var targets = battleManager.Battle
-                .GetContenders(attacker, attacker, true, withinRange: 6);
+                .GetContenders(attacker, null, true, withinRange: 6);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),

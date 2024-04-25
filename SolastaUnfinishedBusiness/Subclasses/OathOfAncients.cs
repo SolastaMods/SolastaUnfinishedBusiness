@@ -316,7 +316,7 @@ public sealed class OathOfAncients : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (action.ActionType != ActionDefinitions.ActionType.Main ||
                 action is not CharacterActionCastSpell)

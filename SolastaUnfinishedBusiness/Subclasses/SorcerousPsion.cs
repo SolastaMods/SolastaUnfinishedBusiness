@@ -296,8 +296,6 @@ public sealed class SorcerousPsion : AbstractSubclass
                     _hasDamageChanged = _hasDamageChanged || effectForm.DamageForm.DamageType != DamageTypePsychic;
                     effectForm.DamageForm.DamageType = DamageTypePsychic;
                 }
-
-                _hasDamageChanged = true;
             }
 
             if (!firstTarget)
@@ -320,7 +318,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (action is not CharacterActionCastSpell)
             {
@@ -419,7 +417,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
             {

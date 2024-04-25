@@ -771,7 +771,7 @@ internal static class RaceImpBuilder
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             var rulesetEffect = action.actionParams.RulesetEffect;
 
@@ -785,10 +785,12 @@ internal static class RaceImpBuilder
                 (action.AttackRoll != 0 &&
                  action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
-                yield return HandleImpishWrath(attacker,
-                    defender,
-                    rulesetEffect.SourceTags,
-                    rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
+                //TODO: REFACTOR
+
+                // yield return HandleImpishWrath(attacker,
+                //     defender,
+                //     rulesetEffect.SourceTags,
+                //     rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -623,7 +624,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (action.ActionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
             {
@@ -775,7 +776,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetEffect = action.ActionParams.RulesetEffect;

@@ -406,8 +406,8 @@ internal static class ClassFeats
         public IEnumerator OnMagicEffectFinishedByMeOrAllyAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
+            GameLocationCharacter helper,
+            List<GameLocationCharacter> targets)
         {
             var effectDescription = action.actionParams.RulesetEffect.EffectDescription;
 
@@ -418,7 +418,7 @@ internal static class ClassFeats
 
             var attackRollOutcome = action.AttackRollOutcome;
 
-            yield return HandleReaction(attackRollOutcome, attacker, defender, helper);
+            yield return HandleReaction(attackRollOutcome, attacker, helper, targets);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMeOrAlly(
@@ -431,14 +431,15 @@ internal static class ClassFeats
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            yield return HandleReaction(rollOutcome, attacker, defender, helper);
+            yield return HandleReaction(rollOutcome, attacker, helper, [defender]);
         }
 
         private static IEnumerator HandleReaction(
             RollOutcome attackRollOutcome,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
+            GameLocationCharacter helper,
+            // ReSharper disable once ParameterTypeCanBeEnumerable.Local
+            List<GameLocationCharacter> targets)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -458,34 +459,41 @@ internal static class ClassFeats
 
             if (attacker == helper ||
                 helper.IsMyTurn() ||
-                !helper.CanReact() ||
-                !helper.CanPerceiveTarget(defender))
+                !helper.CanReact())
             {
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = helper.GetFirstMeleeModeThatCanAttack(defender);
-
-            if (retaliationMode == null)
+            foreach (var defender in targets.Where(helper.CanPerceiveTarget))
             {
-                yield break;
+                var (retaliationMode, retaliationModifier) = helper.GetFirstMeleeModeThatCanAttack(defender);
+
+                if (retaliationMode == null)
+                {
+                    continue;
+                }
+
+                retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+
+                var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.AttackOpportunity)
+                {
+                    StringParameter = attacker.Name,
+                    ActionModifiers = { retaliationModifier },
+                    AttackMode = retaliationMode,
+                    TargetCharacters = { defender }
+                };
+                var reactionRequest = new ReactionRequestReactionAttack("Exploiter", actionParams);
+                var count = actionManager.PendingReactionRequestGroups.Count;
+
+                actionManager.AddInterruptRequest(reactionRequest);
+
+                yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+                if (actionParams.ReactionValidated)
+                {
+                    yield break;
+                }
             }
-
-            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
-
-            var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.AttackOpportunity)
-            {
-                StringParameter = attacker.Name,
-                ActionModifiers = { retaliationModifier },
-                AttackMode = retaliationMode,
-                TargetCharacters = { defender }
-            };
-            var reactionRequest = new ReactionRequestReactionAttack("Exploiter", actionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
         }
     }
 
@@ -654,7 +662,7 @@ internal static class ClassFeats
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)

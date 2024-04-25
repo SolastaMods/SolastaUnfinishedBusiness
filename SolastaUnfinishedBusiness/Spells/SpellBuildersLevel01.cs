@@ -959,7 +959,7 @@ internal static partial class SpellBuilders
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (action.ActionParams.activeEffect.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit
                 && action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)

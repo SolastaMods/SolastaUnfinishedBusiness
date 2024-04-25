@@ -286,7 +286,7 @@ public class PatronEldritchSurge : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             var actionParams = action.ActionParams;
             var rulesetCharacter = attacker.RulesetCharacter;
