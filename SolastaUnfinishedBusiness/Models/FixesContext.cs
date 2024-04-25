@@ -391,6 +391,9 @@ internal static class FixesContext
 
     private static void FixMinorMagicEffectsIssues()
     {
+        // fix Vampiric Touch
+        VampiricTouch.EffectDescription.rangeParameter = 1;
+
         // fix Banishment
         var conditionBanishedByBanishment = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionBanished, "ConditionBanishedByBanishment")
