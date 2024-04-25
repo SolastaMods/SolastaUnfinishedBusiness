@@ -1,4 +1,4 @@
-Feature/&ActionAffinityThunderousStrikeToggleDescription=크거나 작은 생물에게 번개 피해를 가하면 해당 생물을 자신으로부터 최대 10피트까지 밀어낼 수도 있습니다.
+Feature/&ActionAffinityThunderousStrikeToggleDescription=크거나 작은 생물에게 번개나 천둥 피해를 가하면 해당 생물을 자신으로부터 최대 10피트까지 밀어낼 수도 있습니다.
 Feature/&ActionAffinityThunderousStrikeToggleTitle=천둥같은 일격
 Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=당신은 무기 공격에 신성한 에너지를 주입하는 능력을 얻습니다. 매 턴마다 한 번씩 무기 공격으로 생물을 공격할 때, 공격으로 인해 대상에게 추가로 1d8의 번개 피해를 입힐 수 있습니다. 14레벨에 도달하면 추가 피해가 2d8로 증가합니다.
 Feature/&AdditionalDamageDomainTempestDivineStrikeTitle=신성한 일격

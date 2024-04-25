@@ -1,4 +1,4 @@
-Feature/&ActionAffinityThunderousStrikeToggleDescription=大型または小型のクリーチャーに雷ダメージを与えると、それを最大 10 フィート離れたところに押し出すこともできます。
+Feature/&ActionAffinityThunderousStrikeToggleDescription=大型または小型のクリーチャーに雷や雷のダメージを与えると、それを最大 10 フィート離れた場所に押し出すこともできます。
 Feature/&ActionAffinityThunderousStrikeToggleTitle=サンダース・ストライク
 Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=あなたは武器攻撃に神聖なエネルギーを注入する能力を獲得します。各ターンに 1 回、武器攻撃でクリーチャーを攻撃すると、その攻撃でターゲットに 1d8 の追加の雷ダメージを与えることができます。 14 レベルに到達すると、追加ダメージは 2d8 に増加します。
 Feature/&AdditionalDamageDomainTempestDivineStrikeTitle=ディバインストライク

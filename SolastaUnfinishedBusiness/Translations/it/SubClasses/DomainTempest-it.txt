@@ -1,4 +1,4 @@
-Feature/&ActionAffinityThunderousStrikeToggleDescription=Quando infliggi danni da fulmine a una creatura Grande o più piccola, puoi anche spingerla fino a 3 metri lontano da te.
+Feature/&ActionAffinityThunderousStrikeToggleDescription=Quando infliggi danni da fulmine o tuono a una creatura grande o più piccola, puoi anche spingerla fino a 3 metri lontano da te.
 Feature/&ActionAffinityThunderousStrikeToggleTitle=Colpo tonante
 Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=Ottieni la capacità di infondere i colpi della tua arma con energia divina. Una volta in ciascuno dei tuoi turni in cui colpisci una creatura con un attacco con un'arma, puoi fare in modo che l'attacco infligga 1d8 danni da fulmine aggiuntivi al bersaglio. Quando raggiungi il 14° livello, il danno extra aumenta a 2d8.
 Feature/&AdditionalDamageDomainTempestDivineStrikeTitle=Colpo Divino
