@@ -400,7 +400,8 @@ public sealed class DomainTempest : AbstractSubclass
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (!_isValid || action is not (CharacterActionAttack or CharacterActionMagicEffect))
+            if (!_isValid ||
+                action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower))
             {
                 yield break;
             }
