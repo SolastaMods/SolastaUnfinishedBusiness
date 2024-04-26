@@ -1,4 +1,4 @@
-Feature/&ActionAffinityThunderousStrikeToggleDescription=Во время своего хода, Когда вы наносите урон молнией или громом большому или меньшему существу, вы также можете оттолкнуть его на расстояние до 10 футов от себя.
+Feature/&ActionAffinityThunderousStrikeToggleDescription=Когда в свой ход вы наносите урон электричеством или звуком существу с размером Большое или меньше, вы также можете оттолкнуть его на 10 футов от себя.
 Feature/&ActionAffinityThunderousStrikeToggleTitle=Удар грома
 Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=Вы получаете способность наполнять удары своего оружия божественной энергией. Один раз в каждый свой ход, когда вы попадаете по существу атакой оружием, вы можете причинить цели дополнительный урон электричеством 1d8. Когда вы достигаете 14-го уровня, дополнительный урон возрастает до 2d8.
 Feature/&AdditionalDamageDomainTempestDivineStrikeTitle=Божественный удар
