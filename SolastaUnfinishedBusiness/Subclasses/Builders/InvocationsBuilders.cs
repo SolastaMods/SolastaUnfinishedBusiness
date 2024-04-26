@@ -99,7 +99,7 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, FogCloud, hidden: true)
-            .SetGrantedSpell(FogCloud, true, true)
+            .SetGrantedSpell(FogCloud)
             .AddToDB();
     }
 
@@ -147,8 +147,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation,
-                spell)
+            .SetGuiPresentation(Category.Invocation, spell)
             .SetRequirements(5)
             .SetGrantedSpell(spell, false, true)
             .AddToDB();

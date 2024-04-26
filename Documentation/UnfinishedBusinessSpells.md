@@ -206,7 +206,7 @@ You invoke both death and life upon a 10-foot-radius sphere centered on an ally.
 
 # 50. - Adder's Fangs (V,S) level 3 Conjuration
 
-You create the visage of a massive green snake that appears for an instant before bearing down on your foe. Choose a creature within range. The target must make a constitution saving throw, taking 4d10 poison damage on a failure, or half as much damage on a successful one. A creature that fails its saving throw is also poisoned, and its speed is halved while poisoned by this spell. At the end of each of its turns, a target may make a constitution saving throw, ending the poison on a success. Otherwise, the poison lasts for 1 minute. When you cast this spell using a spell slot of 4th level or higher, you may target an additional creature within range for each slot level above 3rd.
+You create the visage of a massive green snake that appears for an instant before bearing down on your foe. Choose a creature  you can see within range. The target must make a constitution saving throw, taking 4d10 poison damage on a failure, or half as much damage on a successful one. A creature that fails its saving throw is also poisoned, and its speed is halved while poisoned by this spell. At the end of each of its turns, a target may make a constitution saving throw, ending the poison on a success. Otherwise, the poison lasts for 1 minute. When you cast this spell using a spell slot of 4th level or higher, you may target an additional creature within range for each slot level above 3rd.
 
 # 51. - *Aura of Vitality* © (V) level 3 Evocation [Concentration]
 

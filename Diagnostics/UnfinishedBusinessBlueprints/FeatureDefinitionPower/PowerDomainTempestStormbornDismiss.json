@@ -332,7 +332,7 @@
     "description": "Feature/&PowerDomainTempestStormbornDismissDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "670e791b-0455-51d3-9d2a-b294b520fb3b",
+      "m_AssetGUID": "97186513-7a3a-59dd-8eee-b382a1c2afeb",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

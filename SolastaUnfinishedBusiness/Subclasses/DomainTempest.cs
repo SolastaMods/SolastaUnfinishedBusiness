@@ -203,10 +203,11 @@ public sealed class DomainTempest : AbstractSubclass
 
         // LEVEL 17 - Stormborn
 
+        var sprite = Sprites.GetSprite("PowerStormborn", Resources.PowerStormborn, 256, 128);
+        
         var powerStormbornSprout = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}StormbornSprout")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerStormbornSprout", Resources.PowerAngelicFormSprout, 256, 128))
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -228,8 +229,7 @@ public sealed class DomainTempest : AbstractSubclass
 
         var powerStormbornDismiss = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}StormbornDismiss")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerStormbornDismiss", Resources.PowerAngelicFormDismiss, 256, 128))
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
