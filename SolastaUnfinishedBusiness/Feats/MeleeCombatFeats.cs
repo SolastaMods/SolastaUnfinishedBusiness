@@ -475,7 +475,7 @@ internal static class MeleeCombatFeats
 
             if ((!ValidatorsWeapon.IsMelee(attackMode) &&
                  !ValidatorsWeapon.IsUnarmed(attackMode)) ||
-                !attacker.OncePerTurnIsValid(powerPool.Name) ||
+                !attacker.OnceInMyTurnIsValid(powerPool.Name) ||
                 attackDirectionX != attacker.UsedSpecialFeatures[DirX] ||
                 attackDirectionY != attacker.UsedSpecialFeatures[DirY] ||
                 attackDirectionZ != attacker.UsedSpecialFeatures[DirZ] ||
@@ -1272,7 +1272,7 @@ internal static class MeleeCombatFeats
                 actualEffectForms.Add(criticalEffectForm);
             }
 
-            if (!attacker.OncePerTurnIsValid(SpecialFeatureName) ||
+            if (!attacker.OnceInMyTurnIsValid(SpecialFeatureName) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle))
             {
                 yield break;

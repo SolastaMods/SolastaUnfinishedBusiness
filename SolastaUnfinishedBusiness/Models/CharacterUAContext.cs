@@ -336,7 +336,7 @@ internal static partial class CharacterContext
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!attacker.OncePerTurnIsValid(BrutalStrike) ||
+            if (!attacker.OnceInMyTurnIsValid(BrutalStrike) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BrutalStrikeToggle) ||
                 !rulesetAttacker.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagCombat, ConditionDefinitions.ConditionReckless.Name))
