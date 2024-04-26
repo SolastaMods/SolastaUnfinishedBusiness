@@ -1,4 +1,4 @@
-Feature/&ActionAffinityThunderousStrikeToggleDescription=Quando você causa dano elétrico ou trovejante a uma criatura grande ou menor, você também pode empurrá-la até 3 metros de distância de você.
+Feature/&ActionAffinityThunderousStrikeToggleDescription=Durante o seu turno, quando você causa dano elétrico ou trovejante a uma criatura grande ou menor, você também pode empurrá-la até 3 metros de distância de você.
 Feature/&ActionAffinityThunderousStrikeToggleTitle=Golpe Trovejante
 Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=Você ganha a habilidade de infundir energia divina em seus ataques de arma. Uma vez em cada um de seus turnos, quando você atingir uma criatura com um ataque com arma, você pode fazer com que o ataque cause 1d8 de dano elétrico extra ao alvo. Quando você atinge o 14º nível, o dano extra aumenta para 2d8.
 Feature/&AdditionalDamageDomainTempestDivineStrikeTitle=Golpe Divino

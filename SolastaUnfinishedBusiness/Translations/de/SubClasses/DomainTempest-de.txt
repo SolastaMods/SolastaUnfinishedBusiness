@@ -1,4 +1,4 @@
-Feature/&ActionAffinityThunderousStrikeToggleDescription=Wenn du einer großen oder kleineren Kreatur Blitz- oder Donnerschaden zufügst, kannst du sie auch bis zu 3 m von dir wegschieben.
+Feature/&ActionAffinityThunderousStrikeToggleDescription=Wenn du während deines Zuges einer großen oder kleineren Kreatur Blitz- oder Donnerschaden zufügst, kannst du sie auch bis zu 10 Fuß von dir wegschieben.
 Feature/&ActionAffinityThunderousStrikeToggleTitle=Donnernder Schlag
 Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=Du erhältst die Fähigkeit, deinen Waffenschlägen göttliche Energie zu verleihen. Einmal in jedem deiner Züge, wenn du eine Kreatur mit einem Waffenangriff triffst, kannst du bewirken, dass der Angriff dem Ziel zusätzlich 1W8 Blitzschaden zufügt. Wenn Sie die 14. Stufe erreichen, erhöht sich der zusätzliche Schaden auf 2W8.
 Feature/&AdditionalDamageDomainTempestDivineStrikeTitle=Göttlicher Schlag
