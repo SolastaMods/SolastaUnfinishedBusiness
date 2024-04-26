@@ -20,8 +20,8 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Cylinder",
     "itemSelectionType": "None",
-    "targetParameter": 3,
-    "targetParameter2": 4,
+    "targetParameter": 6,
+    "targetParameter2": 8,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
@@ -34,7 +34,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnActivation, OnTurnEnd, OnEnter",
+    "recurrentEffect": "OnActivation, OnTurnEnd",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -273,7 +273,7 @@
       },
       "activeEffectImpactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "21148dab395feda4c8b207a2f2c2b221",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

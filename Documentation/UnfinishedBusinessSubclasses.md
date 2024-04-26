@@ -1154,7 +1154,7 @@ You can use your Channel Divinity to wield the power of the storm with unchecked
 
 * Thunderous Strike
 
-When you deal lightning damage to a Large or smaller creature, you can also push it up to 10 feet away from you.
+During your turn, when you deal lightning or thunder damage to a large or smaller creature, you can also push it up to 10 feet away from you.
 
 
 ### Level 8
