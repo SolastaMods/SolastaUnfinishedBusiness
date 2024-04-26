@@ -1510,9 +1510,10 @@ internal static class RaceFeats
                 yield break;
             }
 
+            _shouldTrigger = false;
+
             var rulesetTarget = target.RulesetCharacter;
 
-            _shouldTrigger = false;
             rulesetTarget.KnockOutPrevented -= KnockOutPreventedHandler;
 
             if (!_knockOutPrevented)
