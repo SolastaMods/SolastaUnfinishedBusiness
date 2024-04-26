@@ -224,17 +224,16 @@ internal static partial class SpellBuilders
                         EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Wisdom,
                         12)
-                    .AddEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
-                    .AddEffectForms(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(PowerFunctionWandFearCone)
                     .SetCasterEffectParameters(Darkness)

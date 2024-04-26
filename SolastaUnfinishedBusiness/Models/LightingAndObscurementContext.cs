@@ -170,7 +170,7 @@ internal static class LightingAndObscurementContext
         }
 
         // conditions with parent inherit their features which makes true sight quite hard to manage
-        // the combat affinity won't have true sight as nullified sense so we check it here and revert
+        // the combat affinity won't have true sight as nullified sense, so we check it here and revert
         void HandleTrueSightSpecialCase()
         {
             if (IsBlindNotFromDarkness(attackerActor) ||
@@ -814,7 +814,7 @@ internal static class LightingAndObscurementContext
             InsectPlague.EffectDescription.EffectForms.Add(FormLightlyObscured);
             InsectPlague.EffectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.None;
 
-            // vanilla has this set as disadvantage so we flip it with nullified requirements
+            // vanilla has this set as disadvantage, so we flip it with nullified requirements
             CombatAffinityHeavilyObscured.attackOnMeAdvantage = RuleDefinitions.AdvantageType.Advantage;
             CombatAffinityHeavilyObscured.nullifiedBySenses = [];
             CombatAffinityHeavilyObscured.nullifiedBySelfSenses = [Type.Blindsight, Type.Tremorsense];
@@ -875,7 +875,7 @@ internal static class LightingAndObscurementContext
             InsectPlague.EffectDescription.EffectForms.Remove(FormLightlyObscured);
             InsectPlague.effectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
 
-            // vanilla has this set as disadvantage so we flip it with nullified requirements
+            // vanilla has this set as disadvantage, so we flip it with nullified requirements
             CombatAffinityHeavilyObscured.attackOnMeAdvantage = RuleDefinitions.AdvantageType.Disadvantage;
             CombatAffinityHeavilyObscured.nullifiedBySenses = [Type.Truesight, Type.Blindsight];
             CombatAffinityHeavilyObscured.nullifiedBySelfSenses = [];

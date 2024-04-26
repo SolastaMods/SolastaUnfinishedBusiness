@@ -3,8 +3,8 @@
 - added Athlete feat
 - added Dawn, Primordial Ward, and Wither and Bloom spells
 - added Imp Badland and Elf Shadar-Kai subraces
-- added Nature and Tempest domains
-- fixed banishment behavior to only allow Banishment and Banishing Smite spells to kill extra planar
+- added Nature and Tempest cleric domains
+- fixed banishment kill extra planar behavior to only allow Banishment and Banishing Smite spells [VANILLA]
 - fixed College of Thespian improved terrific performance damage trigger
 - fixed crafting recipes ingredient list
 - fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
@@ -12,7 +12,7 @@
 - fixed Path of the Reaver corrupted blood self damage
 - fixed Potent Spell Casting feat interaction with Produce Flame cantrip
 - fixed Roguish Acrobat swift as wind/fluid motions features jump distance
-- fixed Step Back action behavior to interrupt on any ranged attack
+- fixed Step Back action behavior to interrupt on any ranged attack [VANILLA]
 - fixed Witch Bolt spell interaction with auto spell powers
 - removed College of War Dancer offering from mod UI
 
