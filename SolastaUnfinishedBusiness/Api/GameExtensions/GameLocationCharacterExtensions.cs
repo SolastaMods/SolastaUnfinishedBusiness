@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -12,6 +13,25 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {
+    internal static GameLocationCharacter GetEffectControllerOrSelf(this GameLocationCharacter character)
+    {
+        if (character.RulesetCharacter is not RulesetCharacterEffectProxy effectProxy)
+        {
+            return character;
+        }
+
+        var controllerCharacter = EffectHelpers.GetCharacterByGuid(effectProxy.ControllerGuid);
+
+        if (controllerCharacter == null)
+        {
+            return character;
+        }
+
+        var locationController = GameLocationCharacter.GetFromActor(controllerCharacter);
+
+        return locationController ?? character;
+    }
+
     public static bool IsMyTurn(this GameLocationCharacter character)
     {
         return Gui.Battle != null && Gui.Battle.ActiveContenderIgnoringLegendary == character;

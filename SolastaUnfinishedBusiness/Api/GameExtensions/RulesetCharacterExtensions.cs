@@ -29,6 +29,18 @@ internal static class RulesetCharacterExtensions
     }
 #endif
 
+    internal static RulesetCharacter GetEffectControllerOrSelf(this RulesetCharacter rulesetCharacter)
+    {
+        if (rulesetCharacter is not RulesetCharacterEffectProxy effectProxy)
+        {
+            return rulesetCharacter;
+        }
+
+        var controllerCharacter = EffectHelpers.GetCharacterByGuid(effectProxy.ControllerGuid);
+
+        return controllerCharacter ?? rulesetCharacter;
+    }
+
     internal static int GetSubclassLevel(
         this RulesetCharacter character, CharacterClassDefinition klass, string subclass)
     {

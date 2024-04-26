@@ -423,15 +423,19 @@ public sealed class DomainTempest : AbstractSubclass
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (!_isValid ||
-                action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower))
+            if (!_isValid)
             {
                 yield break;
             }
 
             _isValid = false;
 
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            if (action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter.GetEffectControllerOrSelf();
             var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
 
             rulesetAttacker.UsePower(usablePower);

@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
@@ -148,17 +149,20 @@ public static class CharacterActionSpendPowerPatcher
 
                     // BEGIN PATCH
 
+                    var effectForms = effectDescription.EffectForms.DeepCopy();
+
                     //PATCH: support for `IMagicEffectBeforeHitConfirmedOnEnemy`
                     // should also happen outside battles
                     if (actingCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                     {
-                        foreach (var magicalAttackBeforeHitConfirmedOnMe in actingCharacter.RulesetCharacter
+                        var controller = actingCharacter.GetEffectControllerOrSelf();
+
+                        foreach (var magicalAttackBeforeHitConfirmedOnMe in controller.RulesetCharacter
                                      .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnEnemy>())
                         {
                             yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicEffectBeforeHitConfirmedOnEnemy(
-                                battleManager as GameLocationBattleManager, actingCharacter, target, actionModifier,
-                                rulesetEffect, effectDescription.EffectForms,
-                                i == 0, false);
+                                battleManager as GameLocationBattleManager, controller, target, actionModifier,
+                                rulesetEffect, effectForms, i == 0, false);
                         }
                     }
 
@@ -171,15 +175,14 @@ public static class CharacterActionSpendPowerPatcher
                         {
                             yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicEffectBeforeHitConfirmedOnMe(
                                 battleManager as GameLocationBattleManager, actingCharacter, target, actionModifier,
-                                rulesetEffect, effectDescription.EffectForms,
-                                i == 0, false);
+                                rulesetEffect, effectForms, i == 0, false);
                         }
                     }
 
                     // END PATCH
 
                     implementationService.ApplyEffectForms(
-                        effectDescription.EffectForms,
+                        effectForms,
                         applyFormsParams,
                         null,
                         effectApplication: effectDescription.EffectApplication,

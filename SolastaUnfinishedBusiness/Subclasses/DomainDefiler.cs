@@ -208,6 +208,46 @@ public sealed class DomainDefiler : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
 
+    private static string GetAdditionalDamageType(
+        // ReSharper disable once SuggestBaseTypeForParameter
+        GameLocationCharacter attacker,
+        DamageForm additionalDamageForm,
+        // ReSharper disable once SuggestBaseTypeForParameter
+        FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage)
+
+    {
+        if (additionalDamageForm.DiceNumber <= 0 && additionalDamageForm.BonusDamage <= 0)
+        {
+            return string.Empty;
+        }
+
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (featureDefinitionAdditionalDamage.AdditionalDamageType)
+        {
+            case AdditionalDamageType.Specific:
+                return featureDefinitionAdditionalDamage.SpecificDamageType;
+
+            case AdditionalDamageType.AncestryDamageType:
+                attacker.RulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionAncestry>(
+                    FeatureDefinitionAncestry.FeaturesToBrowse);
+
+                foreach (var definitionAncestry in FeatureDefinitionAncestry.FeaturesToBrowse
+                             .Select(definition => definition as FeatureDefinitionAncestry)
+                             .Where(definitionAncestry =>
+                                 definitionAncestry &&
+                                 definitionAncestry.Type ==
+                                 featureDefinitionAdditionalDamage.AncestryTypeForDamageType &&
+                                 !string.IsNullOrEmpty(definitionAncestry.DamageType)))
+                {
+                    return definitionAncestry.DamageType;
+                }
+
+                break;
+        }
+
+        return string.Empty;
+    }
+
     //
     // Insidious Death Magic
     //
@@ -350,23 +390,36 @@ public sealed class DomainDefiler : AbstractSubclass
     // Dying Light
     //
 
-    private sealed class CustomBehaviorDyingLight(FeatureDefinitionPower powerDyingLight) :
-        IForceMaxDamageTypeDependent,
-        IMagicEffectBeforeHitConfirmedOnEnemy,
-        IActionFinishedByMe
+    private sealed class CustomBehaviorDyingLight(FeatureDefinitionPower powerDyingLight)
+        : IForceMaxDamageTypeDependent, IModifyAdditionalDamage, IActionFinishedByMe,
+            IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         private bool _isValid;
 
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
+            if (!_isValid)
+            {
+                yield break;
+            }
+
             _isValid = false;
 
-            yield break;
+            if (action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter.GetEffectControllerOrSelf();
+            var usablePower = PowerProvider.Get(powerDyingLight, rulesetAttacker);
+
+            rulesetAttacker.UsePower(usablePower);
+            rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
 
         public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
         {
-            return damageForm.DamageType == DamageTypeNecrotic && _isValid;
+            return _isValid && damageForm.DamageType is DamageTypeNecrotic;
         }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
@@ -379,21 +432,58 @@ public sealed class DomainDefiler : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
+            Validate(attacker.RulesetCharacter, actualEffectForms);
+
+            yield break;
+        }
+
+        public void ModifyAdditionalDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            List<EffectForm> actualEffectForms,
+            ref DamageForm additionalDamageForm)
+        {
+            var damageType = GetAdditionalDamageType(attacker, additionalDamageForm, featureDefinitionAdditionalDamage);
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDyingLight, rulesetAttacker);
 
-            _isValid = actualEffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Damage &&
-                                                  x.DamageForm.DamageType == DamageTypeNecrotic) &&
-                       rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DyingLightToggle) &&
-                       rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
+            _isValid = rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
+                       rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                       damageType is DamageTypeNecrotic;
+        }
 
-            if (!_isValid)
-            {
-                yield break;
-            }
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            Validate(attacker.RulesetCharacter, actualEffectForms);
 
-            rulesetAttacker.UsePower(usablePower);
-            rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
+            yield break;
+        }
+
+        private void Validate(
+            RulesetCharacter rulesetAttacker,
+            // ReSharper disable once ParameterTypeCanBeEnumerable.Local
+            List<EffectForm> actualEffectForms)
+        {
+            var usablePower = PowerProvider.Get(powerDyingLight, rulesetAttacker);
+
+            _isValid =
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
+                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                actualEffectForms.Any(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage &&
+                    x.DamageForm.DamageType is DamageTypeNecrotic);
         }
     }
 }

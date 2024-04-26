@@ -739,12 +739,14 @@ public static class GameLocationBattleManagerPatcher
             // should also happen outside battles
             if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                foreach (var magicalAttackBeforeHitConfirmedOnEnemy in attacker.RulesetCharacter
+                var controller = attacker.GetEffectControllerOrSelf();
+
+                foreach (var magicalAttackBeforeHitConfirmedOnEnemy in controller.RulesetCharacter
                              .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnEnemy>())
                 {
                     yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
-                        __instance, attacker, defender, magicModifier, rulesetEffect, actualEffectForms,
-                        firstTarget, criticalHit);
+                        __instance, controller, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget,
+                        criticalHit);
                 }
 
                 if (rulesetEffect is { SourceDefinition: SpellDefinition spellDefinition })
@@ -778,8 +780,8 @@ public static class GameLocationBattleManagerPatcher
                         spellDefinition.GetFirstSubFeatureOfType<IMagicEffectBeforeHitConfirmedOnEnemy>();
 
                     yield return magicalAttackBeforeHitConfirmedOnEnemy?.OnMagicEffectBeforeHitConfirmedOnEnemy(
-                        __instance, attacker, defender, magicModifier, rulesetEffect, actualEffectForms,
-                        firstTarget, criticalHit);
+                        __instance, controller, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget,
+                        criticalHit);
                 }
             }
 
