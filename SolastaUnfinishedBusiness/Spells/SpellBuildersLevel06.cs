@@ -654,37 +654,13 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Primordial Ward
-
-    private static readonly string[] PrimordialWardDamageTypes =
-    [
-        DamageTypeAcid,
-        DamageTypeCold,
-        DamageTypeFire,
-        DamageTypeLightning,
-        DamageTypeThunder
-    ];
+    #region Fizban Platinum Shield
 
     internal static SpellDefinition BuildPrimordialWard()
     {
-        const string NAME = "PrimordialWard";
+        const string NAME = "FizbanPlatinumShield";
 
-        var db = DatabaseRepository.GetDatabase<FeatureDefinitionDamageAffinity>();
-
-        foreach (var damageType in PrimordialWardDamageTypes)
-        {
-            var shortDamageType = damageType.Replace("Damage", string.Empty);
-
-            var conditionImmunity = ConditionDefinitionBuilder
-                .Create($"Condition{NAME}{damageType}")
-                .SetGuiPresentation(NAME, Category.Spell, ConditionFiendishResilienceAcid)
-                .SetFeatures(db.GetElement($"DamageAffinity{shortDamageType}Immunity"))
-                .AddToDB();
-
-            conditionImmunity.GuiPresentation.description = Gui.NoLocalization;
-        }
-
-        var conditionResistance = ConditionDefinitionBuilder
+        var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionFiendishResilienceAcid)
             .SetFeatures(
@@ -692,18 +668,27 @@ internal static partial class SpellBuilders
                 FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityThunderResistance)
+                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation(NAME, Category.Spell)
+                    .SetPermanentCover(CoverType.Half)
+                    .AddToDB())
             .AddToDB();
 
-        conditionResistance.GuiPresentation.description = Gui.NoLocalization;
-
+        condition.GuiPresentation.description = Gui.NoLocalization;
+        condition.AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnMeFizbanPlatinumShield(condition));
+        
+        var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+        
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PrimordialWard, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(6)
             .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, false)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
@@ -712,21 +697,28 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionResistance))
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(condition),
+                        EffectFormBuilder
+                            .Create()
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 6, 6,
+                                lightSourceForm.lightSourceForm.color,
+                                lightSourceForm.lightSourceForm.graphicsPrefabReference, true)
+                            .Build())
                     .Build())
             .AddToDB();
-
-        conditionResistance.AddCustomSubFeatures(new CustomBehaviorPrimordialWard(spell));
 
         return spell;
     }
 
-    private sealed class CustomBehaviorPrimordialWard(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellPrimordialWard)
-        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe
+    private sealed class MagicEffectBeforeHitConfirmedOnMeFizbanPlatinumShield(
+        ConditionDefinition conditionFizbanPlatinumShield)
+        : IMagicEffectBeforeHitConfirmedOnMe, IRollSavingThrowFinished
     {
+        private RollOutcome _saveOutcome;
+
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -737,71 +729,36 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            Handler(defender.RulesetCharacter, actualEffectForms);
+            if (_saveOutcome != RollOutcome.Success ||
+                rulesetEffect.EffectDescription.SavingThrowDifficultyAbility != AttributeDefinitions.Dexterity)
+            {
+                yield break;
+            }
 
-            yield break;
+            actualEffectForms.RemoveAll(x =>
+                x.HasSavingThrow
+                && x.FormType == EffectForm.EffectFormType.Damage
+                && x.SavingThrowAffinity == EffectSavingThrowType.HalfDamage);
+
+            defender.RulesetCharacter.LogCharacterAffectedByCondition(conditionFizbanPlatinumShield);
         }
 
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+        public void OnSavingThrowFinished(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            int saveBonus,
+            string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            List<EffectForm> effectForms)
         {
-            Handler(defender.RulesetCharacter, actualEffectForms);
-
-            yield break;
-        }
-
-        // ReSharper disable once ParameterTypeCanBeEnumerable.Local
-        private void Handler(RulesetCharacter rulesetDefender, List<EffectForm> actualEffectForms)
-        {
-            var damageTypes = PrimordialWardDamageTypes.Intersect(
-                actualEffectForms
-                    .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
-                    .Select(x => x.DamageForm.DamageType));
-
-            var terminate = false;
-
-            foreach (var damageType in damageTypes)
-            {
-                var conditionName = $"ConditionPrimordialWard{damageType}";
-
-                rulesetDefender.InflictCondition(
-                    conditionName,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetDefender.guid,
-                    rulesetDefender.CurrentFaction.Name,
-                    1,
-                    conditionName,
-                    0,
-                    0,
-                    0);
-
-                terminate = true;
-            }
-
-            if (!terminate)
-            {
-                return;
-            }
-
-            var rulesetSpell =
-                rulesetDefender.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellPrimordialWard);
-
-            if (rulesetSpell != null)
-            {
-                rulesetDefender.TerminateSpell(rulesetSpell);
-            }
+            _saveOutcome = outcome;
         }
     }
 
