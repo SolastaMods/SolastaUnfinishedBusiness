@@ -204,7 +204,7 @@ public sealed class DomainTempest : AbstractSubclass
         // LEVEL 17 - Stormborn
 
         var sprite = Sprites.GetSprite("PowerStormborn", Resources.PowerStormborn, 256, 128);
-        
+
         var powerStormbornSprout = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}StormbornSprout")
             .SetGuiPresentation(Category.Feature, sprite)
@@ -212,7 +212,7 @@ public sealed class DomainTempest : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Hour, 8)
+                    .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder

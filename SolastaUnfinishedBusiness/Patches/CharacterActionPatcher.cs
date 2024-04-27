@@ -175,7 +175,9 @@ public static class CharacterActionPatcher
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 //PATCH: support for `IActionFinishedByMe`
-                foreach (var actionFinished in rulesetCharacter.GetSubFeaturesByType<IActionFinishedByMe>())
+                foreach (var actionFinished in rulesetCharacter
+                             .GetEffectControllerOrSelf()
+                             .GetSubFeaturesByType<IActionFinishedByMe>())
                 {
                     yield return actionFinished.OnActionFinishedByMe(__instance);
                 }
