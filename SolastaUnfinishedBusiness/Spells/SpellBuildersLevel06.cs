@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -673,12 +672,12 @@ internal static partial class SpellBuilders
                     .Create($"CombatAffinity{NAME}")
                     .SetGuiPresentation(NAME, Category.Spell)
                     .SetPermanentCover(CoverType.Half)
-                    .AddToDB())
+                    .AddToDB(),
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion)
             .AddToDB();
 
         condition.GuiPresentation.description = Gui.NoLocalization;
-        condition.AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnMeFizbanPlatinumShield(condition));
-        
+
         var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
         
         var spell = SpellDefinitionBuilder
@@ -711,55 +710,6 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
-    }
-
-    private sealed class MagicEffectBeforeHitConfirmedOnMeFizbanPlatinumShield(
-        ConditionDefinition conditionFizbanPlatinumShield)
-        : IMagicEffectBeforeHitConfirmedOnMe, IRollSavingThrowFinished
-    {
-        private RollOutcome _saveOutcome;
-
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (_saveOutcome != RollOutcome.Success ||
-                rulesetEffect.EffectDescription.SavingThrowDifficultyAbility != AttributeDefinitions.Dexterity)
-            {
-                yield break;
-            }
-
-            actualEffectForms.RemoveAll(x =>
-                x.HasSavingThrow
-                && x.FormType == EffectForm.EffectFormType.Damage
-                && x.SavingThrowAffinity == EffectSavingThrowType.HalfDamage);
-
-            defender.RulesetCharacter.LogCharacterAffectedByCondition(conditionFizbanPlatinumShield);
-        }
-
-        public void OnSavingThrowFinished(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
-            int saveBonus,
-            string abilityScoreName,
-            BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
-            List<TrendInfo> advantageTrends,
-            int rollModifier,
-            int saveDC,
-            bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta,
-            List<EffectForm> effectForms)
-        {
-            _saveOutcome = outcome;
-        }
     }
 
     #endregion
