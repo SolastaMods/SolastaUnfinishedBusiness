@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -169,6 +170,35 @@ public static class GameLocationCharacterPatcher
         {
             //PATCH: acts as a callback for the character's combat turn ended event
             CharacterBattleListenersPatch.OnCharacterTurnEnded(__instance);
+        }
+    }
+
+    //PATCH: supports `OfficialObscurementRulesInvisibleCreaturesCanBeTarget`
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.ComputeAbilityCheckActionModifier))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeAbilityCheckActionModifier_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(
+            GameLocationCharacter __instance,
+            string abilityScoreName,
+            string proficiencyName,
+            ActionModifier actionModifier)
+        {
+            if (!Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget ||
+                (Gui.Battle != null && Gui.Battle.InitiativeRollFinished) ||
+                abilityScoreName != AttributeDefinitions.Dexterity ||
+                proficiencyName != SkillDefinitions.Stealth ||
+                !__instance.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionInvisible))
+            {
+                return;
+            }
+
+            actionModifier.AbilityCheckModifier += 10;
+            actionModifier.AbilityCheckModifierTrends.Add(
+                new TrendInfo(10, FeatureSourceType.Condition,
+                ConditionInvisible, DatabaseHelper.ConditionDefinitions.ConditionInvisibleBase));
         }
     }
 

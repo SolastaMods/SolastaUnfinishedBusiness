@@ -38,7 +38,7 @@ internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
 
         var isMainAvailable = glc.GetActionTypeStatus(ACTION_TYPE) == ActionDefinitions.ActionStatus.Available;
 
-        if (!isMainAvailable && !glc.HasAttackedSinceLastTurn)
+        if (!isMainAvailable && !glc.UsedSpecialFeatures.ContainsKey("AttackedWithMain"))
         {
             return false;
         }

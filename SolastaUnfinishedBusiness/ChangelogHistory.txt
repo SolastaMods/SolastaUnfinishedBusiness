@@ -5,6 +5,7 @@
 - added Fire Shield spell to Sorcerer spell list [VANILLA]
 - added Imp Badland and Elf Shadar-Kai subraces
 - added Nature and Tempest cleric domains
+- fixed 'Invisible Creatures Can Be Target behavior' to grant +10 to off battle stealth checks
 - fixed banishment kill extra planar behavior to only allow Banishment and Banishing Smite spells [VANILLA]
 - fixed College of Swords masterful whirl to trigger regardless of bardic dice remaining
 - fixed College of Thespian improved terrific performance damage trigger
@@ -15,6 +16,7 @@
 - fixed Potent Spell Casting feat interaction with Produce Flame cantrip
 - fixed Roguish Acrobat swift as wind/fluid motions features jump distance
 - fixed Step Back action behavior to interrupt on any ranged attack [VANILLA]
+- fixed Way of the Dragon elemental breath validation on main attack usages
 - fixed Witch Bolt spell interaction with auto spell powers
 - rebalanced all 13 grant spell type invocations and standardized descriptions
 - removed College of War Dancer offering from mod UI [couldn't find a good balance to avoid OP]
