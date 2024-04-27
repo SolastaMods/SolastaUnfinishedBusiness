@@ -625,7 +625,7 @@ internal static class InvocationsBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, DispelEvilAndGood)
             .SetRequirements(9)
-            .SetGrantedSpell(DispelEvilAndGood)
+            .SetGrantedSpell(DispelEvilAndGood, false, true)
             .AddToDB();
     }
 
