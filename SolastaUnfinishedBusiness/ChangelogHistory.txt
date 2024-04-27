@@ -15,6 +15,7 @@
 - fixed Path of the Reaver corrupted blood self damage
 - fixed Potent Spell Casting feat interaction with Produce Flame cantrip
 - fixed Roguish Acrobat swift as wind/fluid motions features jump distance
+- fixed Sorcerous Psion mind sculpt damage conversion and integration with effect powers
 - fixed Step Back action behavior to interrupt on any ranged attack [VANILLA]
 - fixed Way of the Dragon elemental breath validation on main attack usages
 - fixed Witch Bolt spell interaction with auto spell powers

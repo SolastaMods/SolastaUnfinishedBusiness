@@ -285,10 +285,8 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
-                rulesetEffectSpell.EffectDescription.HasDamageForm() &&
-                rulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MindSculptToggle) &&
-                rulesetCharacter.RemainingSorceryPoints > 0)
+            if (rulesetCharacter.RemainingSorceryPoints > 0 &&
+                rulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MindSculptToggle))
             {
                 foreach (var effectForm in actualEffectForms
                              .Where(x => x.FormType == EffectForm.EffectFormType.Damage))
@@ -320,11 +318,6 @@ public sealed class SorcerousPsion : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action is not CharacterActionCastSpell)
-            {
-                yield break;
-            }
-
             if (!_hasDamageChanged)
             {
                 yield break;

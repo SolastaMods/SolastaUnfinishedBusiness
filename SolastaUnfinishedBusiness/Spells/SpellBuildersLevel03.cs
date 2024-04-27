@@ -714,7 +714,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.All, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 2)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
