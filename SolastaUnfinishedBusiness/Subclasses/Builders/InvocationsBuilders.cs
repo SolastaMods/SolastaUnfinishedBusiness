@@ -107,11 +107,16 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationVerdantArmor";
 
+        var spellVerdantArmor = SpellDefinitionBuilder
+            .Create(Barkskin, "VerdantArmor")
+            .SetRequiresConcentration(false)
+            .AddToDB();
+
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, Barkskin)
             .SetRequirements(5)
-            .SetGrantedSpell(Barkskin, false, true)
+            .SetGrantedSpell(spellVerdantArmor)
             .AddToDB();
     }
 
@@ -134,7 +139,7 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, InsectPlague)
-            .SetGrantedSpell(InsectPlague, true, true)
+            .SetGrantedSpell(InsectPlague, false, true)
             .SetRequirements(9, pact: FeatureSetPactChain)
             .AddToDB();
     }
@@ -582,8 +587,8 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, ShieldOfFaith)
-            .SetRequirements(9)
-            .SetGrantedSpell(ShieldOfFaith, false, true)
+            .SetRequirements(5)
+            .SetGrantedSpell(ShieldOfFaith)
             .AddToDB();
     }
 
@@ -591,15 +596,11 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationGiftOfTheHunter";
 
-        var spellGiftOfTheHunter = SpellDefinitionBuilder
-            .Create(PassWithoutTrace, "GiftOfTheHunter")
-            .AddToDB();
-
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, spellGiftOfTheHunter)
+            .SetGuiPresentation(Category.Invocation, PassWithoutTrace)
             .SetRequirements(5)
-            .SetGrantedSpell(spellGiftOfTheHunter, true, true)
+            .SetGrantedSpell(PassWithoutTrace, false, true)
             .AddToDB();
     }
 
@@ -611,8 +612,8 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, DetectEvilAndGood)
-            .SetRequirements(9)
-            .SetGrantedSpell(DetectEvilAndGood, false, true)
+            .SetRequirements(5)
+            .SetGrantedSpell(DetectEvilAndGood)
             .AddToDB();
     }
 
@@ -620,15 +621,11 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationBreakerAndBanisher";
 
-        var spellBreakerAndBanisher = SpellDefinitionBuilder
-            .Create(DispelEvilAndGood, "BreakerAndBanisher")
-            .AddToDB();
-
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, spellBreakerAndBanisher)
+            .SetGuiPresentation(Category.Invocation, DispelEvilAndGood)
             .SetRequirements(9)
-            .SetGrantedSpell(spellBreakerAndBanisher, true, true)
+            .SetGrantedSpell(DispelEvilAndGood)
             .AddToDB();
     }
 

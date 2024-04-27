@@ -16,6 +16,7 @@
 - fixed Step Back action behavior to interrupt on any ranged attack [VANILLA]
 - fixed Witch Bolt spell interaction with auto spell powers
 - removed College of War Dancer offering from mod UI
+- rebalanced all grant spell type invocations and standardized descriptions
 
 1.5.97.5:
 
