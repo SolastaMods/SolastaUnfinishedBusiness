@@ -4,23 +4,23 @@
   "subspellsList": [],
   "compactSubspellsTooltip": false,
   "implemented": true,
-  "schoolOfMagic": "SchoolAbjuration",
+  "schoolOfMagic": "SchoolTransmutation",
   "spellLevel": 2,
   "ritual": false,
   "uniqueInstance": false,
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
-  "requiresConcentration": true,
+  "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 6,
+    "rangeType": "Touch",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
     "itemSelectionType": "Equiped",
-    "targetParameter": 6,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -48,7 +48,7 @@
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Charisma",
+    "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
@@ -87,11 +87,11 @@
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
+        "saveOccurence": "StartOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionBlessed",
-          "conditionDefinition": "Definition:ConditionPassWithoutTrace:a388ed2698ecbe640ac9f29ede4a007b",
+          "conditionDefinitionName": "ConditionBarkskin",
+          "conditionDefinition": "Definition:ConditionBarkskin:bc47ad39bf39bd74eb6f0945720f7c9c",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -106,7 +106,7 @@
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 1,
+      "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
@@ -122,18 +122,18 @@
     "speedParameter": 10.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
-    "offsetImpactTimePerTarget": 0.1,
+    "offsetImpactTimePerTarget": 0.0,
     "effectParticleParameters": {
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6a8b8119774067740a6895a72319a60d",
+        "m_AssetGUID": "9155f42cb29c1ac40ad538f1f350363f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "a3886235ddc90f54bbfb12fd49ff968f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -261,7 +261,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3c8bb1e60b02bb14e8dec4bcf254754e",
+        "m_AssetGUID": "d6664a0d1f9bfe04d9d4147b49cca25e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -273,7 +273,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "68c1a6c0489c0cc4fba4b91a3c88eafb",
+        "m_AssetGUID": "75fbb63fd2332024c85649c36b6a12c3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -292,7 +292,7 @@
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 0,
+      "cooldownForCaster": 3,
       "cooldownForBattle": 0,
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
@@ -303,7 +303,7 @@
   },
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",
-    "learnPriority": "Low",
+    "learnPriority": "Medium",
     "preparePriority": "Medium"
   },
   "concentrationAction": "None",
@@ -315,16 +315,16 @@
   "specificMaterialComponentConsumed": true,
   "terminateOnItemUnequip": false,
   "displayConditionDuration": false,
-  "vocalSpellSemeType": "Buff",
+  "vocalSpellSemeType": "Defense",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&PassWithoutTraceTitle",
-    "description": "Spell/&PassWithoutTraceDescription",
+    "title": "Spell/&BarkskinTitle",
+    "description": "Spell/&BarkskinDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "687eef905bf70114fa9f5c18bae3f048",
-      "m_SubObjectName": "PassWithoutTrace",
+      "m_AssetGUID": "d3ce862aafb649c4683bce554e9e3a8f",
+      "m_SubObjectName": "Barkskin",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -335,12 +335,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 1,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "27583e9b-9f86-5822-93eb-ad03499c60e3",
+  "guid": "8bb62a17-181f-5f2b-be83-922854ddc2a7",
   "contentPack": 9999,
-  "name": "GiftOfTheHunter"
+  "name": "VerdantArmor"
 }

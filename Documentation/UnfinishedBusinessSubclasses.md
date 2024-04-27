@@ -1175,7 +1175,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Stormborn
 
-You can use your main action to give yourself a flying speed equal to your walking speed.
+You can use your bonus action to gain flying speed equal to your walking speed for one hour.
 
 
 

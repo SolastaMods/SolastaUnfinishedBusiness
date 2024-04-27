@@ -4,9 +4,9 @@
   "requiredLevel": 5,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:Barkskin:fcb74f4deaec07b40814328a9d5aa5f6",
+  "grantedSpell": "Definition:VerdantArmor:8bb62a17-181f-5f2b-be83-922854ddc2a7",
   "consumesSpellSlot": false,
-  "longRestRecharge": true,
+  "longRestRecharge": false,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

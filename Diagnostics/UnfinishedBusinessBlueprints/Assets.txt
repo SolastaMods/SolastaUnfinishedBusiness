@@ -11412,7 +11412,6 @@ BlindingSmite	SpellDefinition	SpellDefinition	4840cef2-e39f-58f6-8a1d-0968f87008
 BoomingBlade	SpellDefinition	SpellDefinition	8a6f90f1-6d31-5701-8498-2c3527f7d33b
 BoomingStep	SpellDefinition	SpellDefinition	274208ba-a59a-58a6-aecb-ed2d94cc0fb3
 BrainBulwark	SpellDefinition	SpellDefinition	e40588cd-4b6d-5be0-b31e-5a7c7b148869
-BreakerAndBanisher	SpellDefinition	SpellDefinition	471a96f8-d46e-5317-9be7-cc6f520ee0c9
 BurstOfRadiance	SpellDefinition	SpellDefinition	1e699378-f73c-564a-a7d8-b5b90931ae27
 CausticZap	SpellDefinition	SpellDefinition	029019d2-e72a-5b45-806f-c42e1953d7ab
 ChromaticOrb	SpellDefinition	SpellDefinition	ff742f4d-17e1-5006-95f7-ac07400a99f7
@@ -11461,7 +11460,6 @@ FlashFreeze	SpellDefinition	SpellDefinition	c7bca121-71cb-5243-ad33-de4f547dd73b
 Foresight	SpellDefinition	SpellDefinition	7e0b6dac-dd42-59de-8216-2a15d6b05693
 ForestGuardian	SpellDefinition	SpellDefinition	e84a5167-a3d0-5e96-b978-60039654e3bb
 GiftOfAlacrity	SpellDefinition	SpellDefinition	cfc1affd-8762-5031-b552-4a48251d784c
-GiftOfTheHunter	SpellDefinition	SpellDefinition	27583e9b-9f86-5822-93eb-ad03499c60e3
 GravitySinkhole	SpellDefinition	SpellDefinition	42bea70d-ddc5-5295-8c18-c6b6b9c3abf6
 HeroicInfusion	SpellDefinition	SpellDefinition	cf5c6a2f-ae52-59d6-a88d-31bb5d00c17d
 HungerOfTheVoid	SpellDefinition	SpellDefinition	fa794ede-4149-54ed-914d-f25cd55fb5b4
@@ -11757,6 +11755,7 @@ TimeStop	SpellDefinition	SpellDefinition	718bca89-89fb-5398-9e08-b350d9d66ab4
 TollTheDead	SpellDefinition	SpellDefinition	7a5e1cf4-e437-506a-8f2d-1cd94a0fb9f5
 TreeForestGuardian	SpellDefinition	SpellDefinition	65488447-c038-5e17-aaa5-39ad2d94f3bd
 TrickstersEscape	SpellDefinition	SpellDefinition	dce51973-8d26-51a3-8bb9-c8fa8c216715
+VerdantArmor	SpellDefinition	SpellDefinition	8bb62a17-181f-5f2b-be83-922854ddc2a7
 VileBrew	SpellDefinition	SpellDefinition	0adac905-0212-5605-815b-098b7f4fc7da
 VitalityTransfer	SpellDefinition	SpellDefinition	9a33ccc5-6d91-5fae-900d-70a2061801d9
 VoidGrasp	SpellDefinition	SpellDefinition	fd4c6edd-bf39-5602-bf5a-3f1c175f86df

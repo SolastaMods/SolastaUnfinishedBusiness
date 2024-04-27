@@ -20,7 +20,7 @@ As a bonus action, you cause a cursed target to take fire damage equal to your C
 
 # 6. - Call of the Beast
 
-You can cast Conjure Animals once without using a warlock spell slot. You can't do so again until you finish a long rest.
+You can cast Conjure Animals once, without using a spell slot. You can't do so again until you finish a long rest.
 
 # 7. - Chilling Blast
 
@@ -40,11 +40,11 @@ You can change the damage type of the eldritch blast to acid damage instead of f
 
 # 11. - Devoted Mind
 
-You can cast Shield of Faith once without using a warlock spell slot. You can't do so again until you finish a long rest.
+You can cast Shield of Faith at will, without expending a spell slot.
 
 # 12. - Discerning Gaze
 
-You can cast Detect Evil and Good once without using a warlock spell slot. You can't do so again until you finish a long rest.
+You can cast Detect Evil and Good at will, without expending a spell slot.
 
 # 13. - *Eldritch Mind* ©
 
@@ -52,7 +52,7 @@ You have advantage on Constitution saving throws that you make to maintain your 
 
 # 14. - *Eldritch Smite* ©
 
-Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot, and you knock the target prone if it is Huge or smaller.
+Once per turn when you hit a creature with your pact weapon, you can expend a spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot, and you knock the target prone if it is Huge or smaller.
 
 # 15. - Fiery Blast
 
@@ -64,7 +64,7 @@ You can change the damage type of the eldritch blast to lightning damage instead
 
 # 17. - Gift of the Dispeller
 
-You can cast Dispel Evil and Good once using a warlock spell slot. You can't do so again until you finish a long rest.
+You can cast Dispel Evil and Good at will, without using a spell slot.
 
 # 18. - *Gift of the Ever-Living Ones* ©
 
@@ -72,7 +72,7 @@ Regains the maximum number of hit points possible from any healing.
 
 # 19. - Gift of the Hunter
 
-You can cast Pass Without Trace once using a warlock spell slot. You can't do so again until you finish a long rest.
+You can cast Pass Without Trace once, without expending a spell slot. You can't do so again until you finish a long rest.
 
 # 20. - *Gift of the Protectors* ©
 
@@ -96,7 +96,7 @@ As a bonus action, you cause a psychic disturbance around the target cursed by y
 
 # 25. - *Mire the Mind* ©
 
-You can cast Slow once using a warlock spell slot. You can't do so again until you finish a long rest.
+You can cast Slow once, without expending a spell slot. You can't do so again until you finish a long rest.
 
 # 26. - Necrotic Blast
 
@@ -124,7 +124,7 @@ You can cast Invisibility at will, without expending a spell slot.
 
 # 32. - Spark of Kinesis
 
-You can cast Haste once without using a warlock spell slot. You can't do so again until you finish a long rest.
+You can cast Haste once, without expending a spell slot. You can't do so again until you finish a long rest.
 
 # 33. - *Superior Pact Weapon* ©
 
@@ -132,7 +132,7 @@ Your weapon gains a +1 bonus to its attack and damage rolls.
 
 # 34. - Tenacious Plague
 
-You can cast Insect Plague once using a warlock spell slot. You can't do so again until you finish a long rest.
+You can cast Insect Plague once, without expending a spell slot. You can't do so again until you finish a long rest.
 
 # 35. - Thunder Blast
 
@@ -144,7 +144,7 @@ As a reaction when you take damage, you can entomb yourself in ice, which melts 
 
 # 37. - *Trickster's Escape* ©
 
-You can cast Freedom of Movement once without using a warlock spell slot. You can't do so again until you finish a long rest.
+You can cast Freedom of Movement once, without expending a spell slot. You can't do so again until you finish a long rest.
 
 # 38. - *Ultimate Pact Weapon* ©
 
@@ -152,10 +152,10 @@ Your weapon gains a +1 bonus to its attack and damage rolls.
 
 # 39. - *Undying Servitude* ©
 
-You can cast Raise Skeletal Enforcer once without using a warlock spell slot. You can't do so again until you finish a long rest.
+You can cast Raise Skeletal Enforcer once, without expending a spell slot. You can't do so again until you finish a long rest.
 
 # 40. - Verdant Armor
 
-You can cast Barkskin once without using a warlock spell slot. You can't do so again until you finish a long rest.
+You can cast Barkskin at will, without expending a spell slot, and without requiring concentration.
 
 

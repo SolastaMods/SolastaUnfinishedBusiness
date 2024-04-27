@@ -1,12 +1,12 @@
 {
   "$type": "InvocationDefinition, Assembly-CSharp",
   "requiredKnownSpell": null,
-  "requiredLevel": 9,
+  "requiredLevel": 5,
   "requiredPact": null,
   "grantedFeature": null,
   "grantedSpell": "Definition:ShieldOfFaith:eb2cf2e67b1a4fb458de58dcee2bd309",
   "consumesSpellSlot": false,
-  "longRestRecharge": true,
+  "longRestRecharge": false,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
