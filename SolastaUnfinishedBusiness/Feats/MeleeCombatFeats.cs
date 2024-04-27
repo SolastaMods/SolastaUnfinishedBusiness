@@ -591,7 +591,7 @@ internal static class MeleeCombatFeats
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDefensiveDuelist))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerKnightLeadership)
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerKnightLeadership)
                     .Build())
             .AddToDB();
 

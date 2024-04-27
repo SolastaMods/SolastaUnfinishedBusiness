@@ -789,6 +789,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
             if (defender != helper ||
                 !defender.CanReact() ||
+                !ValidatorsWeapon.IsMelee(attackMode) ||
                 rulesetDefender.GetRemainingPowerUses(powerReactiveHide) == 0)
             {
                 yield break;
