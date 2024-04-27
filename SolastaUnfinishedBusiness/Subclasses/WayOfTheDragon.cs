@@ -325,6 +325,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 DamageAffinityRadiantResistance,
                 DamageAffinitySlashingResistance,
                 DamageAffinityThunderResistance)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerReactiveHide = FeatureDefinitionPowerBuilder
