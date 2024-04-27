@@ -6,6 +6,7 @@
 - added Imp Badland and Elf Shadar-Kai subraces
 - added Nature and Tempest cleric domains
 - fixed banishment kill extra planar behavior to only allow Banishment and Banishing Smite spells [VANILLA]
+- fixed College of Swords masterful whirl to trigger regardless of bardic dice remaining
 - fixed College of Thespian improved terrific performance damage trigger
 - fixed crafting recipes ingredient list
 - fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
