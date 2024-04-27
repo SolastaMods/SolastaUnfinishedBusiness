@@ -494,7 +494,8 @@ internal static class FixesContext
         RayOfEnfeeblement.EffectDescription.recurrentEffect =
             RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart;
 
-        //BUGFIX: Sorcerers should have Insect Plague at level 5
+        //BUGFIX: Sorcerers should have Fire Shield at 4 and Insect Plague at level 5
+        SpellListSorcerer.SpellsByLevel.FirstOrDefault(x => x.Level == 4)!.Spells.Add(FireShield);
         SpellListSorcerer.SpellsByLevel.FirstOrDefault(x => x.Level == 5)!.Spells.Add(InsectPlague);
 
         //BUGFIX: Shows Concentration tag in UI
