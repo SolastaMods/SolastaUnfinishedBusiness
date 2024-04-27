@@ -14,11 +14,11 @@
   "requiresConcentration": true,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -90,11 +90,50 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPrimordialWard",
-          "conditionDefinition": "Definition:ConditionPrimordialWard:bae03cd4-1b10-5351-960d-4522e7524425",
+          "conditionDefinitionName": "ConditionFizbanPlatinumShield",
+          "conditionDefinition": "Definition:ConditionFizbanPlatinumShield:56f98d10-40eb-5935-bfaa-7256b6718e15",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "LightSource",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "lightSourceForm": {
+          "$type": "LightSourceForm, Assembly-CSharp",
+          "lightSourceType": "Basic",
+          "brightRange": 6,
+          "dimAdditionalRange": 6,
+          "color": {
+            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+            "r": 1.0,
+            "g": 0.9778601,
+            "b": 0.78039217,
+            "a": 1.0
+          },
+          "graphicsPrefabReference": {
+            "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+            "m_AssetGUID": "3e4cdebecc6e0db469720619529e3dc2",
+            "m_SubObjectName": "",
+            "m_SubObjectType": ""
+          },
+          "applyToSelf": true,
           "forceOnSelf": false
         },
         "hasFilterId": false,
@@ -309,21 +348,21 @@
   "concentrationAction": "None",
   "verboseComponent": true,
   "somaticComponent": true,
-  "materialComponentType": "None",
+  "materialComponentType": "Specific",
   "specificMaterialComponentTag": "Diamond",
-  "specificMaterialComponentCostGp": 100,
-  "specificMaterialComponentConsumed": true,
+  "specificMaterialComponentCostGp": 500,
+  "specificMaterialComponentConsumed": false,
   "terminateOnItemUnequip": false,
   "displayConditionDuration": false,
   "vocalSpellSemeType": "Buff",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&PrimordialWardTitle",
-    "description": "Spell/&PrimordialWardDescription",
+    "title": "Spell/&FizbanPlatinumShieldTitle",
+    "description": "Spell/&FizbanPlatinumShieldDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "673b02af-f297-5ced-823a-079c1fe5827e",
+      "m_AssetGUID": "0f66f696-87ce-5251-8b9a-1924481bf01b",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -340,7 +379,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "84cd168b-a2c5-5c5a-8b9c-49a26f1fea8d",
+  "guid": "88cce58b-f58c-57d1-80ed-7a6317d2c6de",
   "contentPack": 9999,
-  "name": "PrimordialWard"
+  "name": "FizbanPlatinumShield"
 }

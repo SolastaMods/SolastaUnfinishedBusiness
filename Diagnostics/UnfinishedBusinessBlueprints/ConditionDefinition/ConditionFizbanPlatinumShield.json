@@ -4,7 +4,12 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429"
+    "Definition:CombatAffinityFizbanPlatinumShield:7bb4e2e6-ffb4-53c3-bd1f-0dcc643e7762",
+    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
+    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
+    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -130,7 +135,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&PrimordialWardTitle",
+    "title": "Spell/&FizbanPlatinumShieldTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -151,7 +156,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "afaff34a-b2b5-5c16-9cad-596fcd20c10c",
+  "guid": "56f98d10-40eb-5935-bfaa-7256b6718e15",
   "contentPack": 9999,
-  "name": "ConditionPrimordialWardDamageFire"
+  "name": "ConditionFizbanPlatinumShield"
 }

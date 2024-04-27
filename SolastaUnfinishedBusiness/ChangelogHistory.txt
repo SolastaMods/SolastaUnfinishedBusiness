@@ -16,8 +16,8 @@
 - fixed Roguish Acrobat swift as wind/fluid motions features jump distance
 - fixed Step Back action behavior to interrupt on any ranged attack [VANILLA]
 - fixed Witch Bolt spell interaction with auto spell powers
-- removed College of War Dancer offering from mod UI
-- rebalanced all grant spell type invocations and standardized descriptions
+- rebalanced all 13 grant spell type invocations and standardized descriptions
+- removed College of War Dancer offering from mod UI [couldn't find a good balance to avoid OP]
 
 1.5.97.5:
 

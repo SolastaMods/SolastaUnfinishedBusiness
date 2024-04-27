@@ -20,7 +20,7 @@ As a bonus action, you cause a cursed target to take fire damage equal to your C
 
 # 6. - Call of the Beast
 
-You can cast Conjure Animals once, without using a spell slot. You can't do so again until you finish a long rest.
+You can cast Conjure Animals once, without expending a spell slot. You can't do so again until you finish a long rest.
 
 # 7. - Chilling Blast
 
@@ -64,7 +64,7 @@ You can change the damage type of the eldritch blast to lightning damage instead
 
 # 17. - Gift of the Dispeller
 
-You can cast Dispel Evil and Good at will, without using a spell slot.
+You can cast Dispel Evil and Good at will, without expending a spell slot.
 
 # 18. - *Gift of the Ever-Living Ones* ©
 

@@ -344,17 +344,20 @@ You flourish the weapon used in the casting and then vanish to strike like the w
 
 You can try to move a Huge or smaller creature. Make an ability check with your spellcasting ability contested by the creature's Strength check. If you win the contest, you move the creature up to 30 feet in any direction, but not beyond the range of this spell. Until the end of your next turn, the creature is restrained in your telekinetic grip. On subsequent rounds, you can use your action to attempt to maintain your telekinetic grip on the creature by repeating the contest, or target a new creature, ending the restrained effect on the previously affected creature.
 
-# 84. - Flash Freeze (V,S) level 6 Evocation
+# 84. - *Fizban's Platinum Shield* © (M,V,S) level 6 Abjuration [Concentration]
+
+You create a field of silvery light that surrounds a creature of your choice within range. The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits:
+• The creature has half cover.
+• The creature has resistance to acid, cold, fire, lightning, and poison damage.
+• If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw.
+
+# 85. - Flash Freeze (V,S) level 6 Evocation
 
 You attempt to encase a creature you can see within range in a prison of solid ice. The target must make a Dexterity saving throw. On a failed save, the target takes 10d6 cold damage and becomes restrained in layers of thick ice. On a successful save, the target takes half as much damage and is not restrained. The spell can only be used on creatures up to large size. To break out, the restrained target can make a Strength check as an action against your spell save DC. On success, the target escapes and is no longer restrained. When you cast this spell using a spell slot of 7th level or higher, the cold damage increases by 2d6 for each slot level above 6th.
 
-# 85. - Poison Wave (M,V,S) level 6 Evocation
+# 86. - Poison Wave (M,V,S) level 6 Evocation
 
 A poisonous wave erupts from you, engulfing those close by. Each creature within the spell's radius must make a Constitution saving throw, taking 6d10 poison damage on a failure, or half as much damage on a successful one. A creature who fails their saving throw is also poisoned for 1 minute, and can repeat the saving throw at the end of each of its turn. When you cast this spell using a slot of 7th level or higher, the damage increases by 1d10 for each slot level above 6th.
-
-# 86. - *Primordial Ward* © (V,S) level 6 Abjuration [Concentration]
-
-You have resistance to acid, cold, fire, lightning, and thunder damage for 1 minute. When you take damage to one of those types, you can use your reaction to gain immunity to that type of damage, including against the triggering damage types. If you do so, the resistances end, and you have the immunity until the end of your next turn, at which time the spell ends.
 
 # 87. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
 
