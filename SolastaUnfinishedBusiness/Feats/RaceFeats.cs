@@ -1512,6 +1512,11 @@ internal static class RaceFeats
 
             _shouldTrigger = false;
 
+            if (Gui.Battle != null && !Gui.Battle.InitiativeRollFinished)
+            {
+                yield break;
+            }
+            
             var rulesetTarget = target.RulesetCharacter;
 
             rulesetTarget.KnockOutPrevented -= KnockOutPreventedHandler;

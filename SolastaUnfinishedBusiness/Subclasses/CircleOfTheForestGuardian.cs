@@ -209,16 +209,20 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             var actingCharacter = action.ActingCharacter;
             var rulesetAttacker = actingCharacter.RulesetCharacter;
 
-            if (_shouldTrigger &&
+            if (!_shouldTrigger)
+            {
+                yield break;
+            }
+
+            _shouldTrigger = false;
+
+            if (Gui.Battle != null &&
+                Gui.Battle.InitiativeRollFinished &&
                 rulesetAttacker is { IsDeadOrDyingOrUnconscious: false } &&
                 target.IsWithinRange(actingCharacter, 1))
             {
                 InflictDamage(actingCharacter, target);
             }
-
-            _shouldTrigger = false;
-
-            yield break;
         }
 
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(

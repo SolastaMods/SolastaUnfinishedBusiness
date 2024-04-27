@@ -341,7 +341,7 @@ public sealed class DomainTempest : AbstractSubclass
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+                battleManager is not { IsBattleInProgress: true, Battle.InitiativeRollFinished: true })
             {
                 yield break;
             }

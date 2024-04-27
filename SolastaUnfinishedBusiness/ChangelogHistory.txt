@@ -5,12 +5,12 @@
 - added Fire Shield spell to Sorcerer spell list [VANILLA]
 - added Imp Badland and Elf Shadar-Kai subraces
 - added Nature and Tempest cleric domains
-- fixed 'Invisible Creatures Can Be Target behavior' to grant +10 to off battle stealth checks
 - fixed banishment kill extra planar behavior to only allow Banishment and Banishing Smite spells [VANILLA]
 - fixed College of Swords masterful whirl to trigger regardless of bardic dice remaining
 - fixed College of Thespian improved terrific performance damage trigger
 - fixed crafting recipes ingredient list
 - fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
+- fixed Invisible creatures can be targeted behavior to grant +10 on off battle stealth checks
 - fixed Orcish Aggression feat family tag
 - fixed Path of the Reaver corrupted blood self damage
 - fixed Potent Spell Casting feat interaction with Produce Flame cantrip
