@@ -44,7 +44,7 @@ public sealed class DomainSmith : AbstractSubclass
 
         var bonusProficiencyArmorDomainForge = FeatureDefinitionProficiencyBuilder
             .Create($"BonusProficiency{NAME}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
             .AddToDB();
 
@@ -52,7 +52,7 @@ public sealed class DomainSmith : AbstractSubclass
 
         var bonusProficiencyArtisanToolTypeDomainForge = FeatureDefinitionProficiencyBuilder
             .Create($"BonusProficiency{NAME}ArtisanToolType")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Tool, ToolDefinitions.ArtisanToolType)
             .AddToDB();
 
