@@ -567,10 +567,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 dieRollModifierDragonConcentration)
             .AddToDB();
 
-        // there is indeed a typo on tag
-        // ReSharper disable once StringLiteralTypo
-        conditionDragon10.ConditionTags.SetRange("Verticality");
-
         var conditionDragon14 = ConditionDefinitionBuilder
             .Create(conditionDragon10, $"Condition{Name}Dragon14")
             .SetParentCondition(ConditionDefinitions.ConditionFlying)
