@@ -85,6 +85,16 @@ internal static class RaceFeats
 
     private static FeatDefinitionWithPrerequisites BuildDragonWings()
     {
+        var condition = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, "ConditionDragonWings")
+            .SetOrUpdateGuiPresentation("FeatDragonWings", Category.Feat)
+            .SetPossessive()
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
+            .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly12)
+            .AddToDB();
+
+        condition.GuiPresentation.description = Gui.NoLocalization;
+
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatDragonWings")
             .SetGuiPresentation(Category.Feat)
@@ -94,19 +104,14 @@ internal static class RaceFeats
                     .SetGuiPresentation("FeatDragonWings", Category.Feat,
                         Sprites.GetSprite("PowerCallForCharge", Resources.PowerCallForCharge, 256, 128))
                     .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-                    .AddCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.DoesNotHaveHeavyArmor))
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
-                            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                             .SetDurationData(DurationType.Minute, 1)
-                            .SetEffectForms(
-                                EffectFormBuilder
-                                    .Create()
-                                    .SetConditionForm(
-                                        ConditionDefinitions.ConditionFlying12, ConditionForm.ConditionOperation.Add)
-                                    .Build())
+                            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                            .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
                             .Build())
+                    .AddCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.DoesNotHaveHeavyArmor))
                     .AddToDB())
             .SetValidators(ValidatorsFeat.IsDragonborn)
             .AddToDB();
