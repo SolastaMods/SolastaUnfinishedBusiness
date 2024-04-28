@@ -288,9 +288,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 .SetFeatures(moveModeFly, moveModeMove, FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging)
                 .AddToDB();
 
-            // there is indeed a typo on tag
-            // ReSharper disable once StringLiteralTypo
-            conditionPsionicPropulsion.ConditionTags.Add("Verticality");
+            conditionPsionicPropulsion.ConditionTags.Clear();
         }
 
         var powerPsionicPropulsionOncePerShort = FeatureDefinitionPowerBuilder
