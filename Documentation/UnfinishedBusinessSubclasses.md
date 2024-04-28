@@ -77,7 +77,7 @@ Learn and have always prepared:
 
 	IV	Ice Storm, Wall of Fire
 
-	V	Cone of Cold, Wall of Force
+	V	Cone of Cold, Sonic Boom
 
 
 
@@ -555,7 +555,7 @@ Starting at 6th level, while you are raging, whenever you roll a Dexterity savin
 
 * Wrath and Fury
 
-Starting at 10th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc). Whenever you use your Reckless Attack feature, you gain temporary hit points equal to half your barbarian level (rounded up).
+Starting at 10th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc.). Whenever you use your Reckless Attack feature, you gain temporary hit points equal to half your barbarian level (rounded up).
 
 
 ### Level 14
@@ -1047,11 +1047,6 @@ Gods of nature are as varied as the natural world itself; from inscrutable gods 
 
 ### Level 1
 
-* Acolyte of Nature
-
-• You learn one cantrip of your choice from the druid spell list. This cantrip counts as a cleric cantrip for you, but it doesn't count against the number of cleric cantrips you know.
-• You gain proficiency in one of the following skills of your choice: Animal Handling, Nature, or Survival.
-
 * Bonus Proficiencies
 
 You gain proficiency with heavy armor.
@@ -1070,6 +1065,11 @@ You gain proficiency with heavy armor.
 	V	Insect Plague, Cloudkill
 
 
+
+* Nature's Acolyte
+
+• You learn one cantrip of your choice from the druid spell list. This cantrip counts as a cleric cantrip for you, but it doesn't count against the number of cleric cantrips you know.
+• You gain proficiency in one of the following skills of your choice: Animal Handling, Nature, or Survival.
 
 
 ### Level 2
@@ -1212,7 +1212,7 @@ You have a pool of healing power that replenishes when you take a long rest. Wit
 
 * Herbal Brewing
 
-You can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects:
+You can create herbal brews, each of which lasts until the next long rest. You create a total of brews equals to your proficiency bonus. For each brew, choose one of the following effects:
 Fortifying Brew: grants resistance to different damage types for 1 hour.
 Quickening Brew: provides 2d4 hit points.
 Toxifying Brew: acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit.

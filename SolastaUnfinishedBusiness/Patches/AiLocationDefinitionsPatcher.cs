@@ -36,8 +36,8 @@ public static class AiLocationDefinitionsPatcher
             }
         }
     }
-    
-    //BUGFIX: fix vanilla to consider darkness condition as a parent
+
+    //PATCH: supports light and obscurement rules
     [HarmonyPatch(typeof(AiLocationDefinitions), nameof(AiLocationDefinitions.ComputeAoERawScore))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -58,13 +58,11 @@ public static class AiLocationDefinitionsPatcher
 
         private static ConditionDefinition MyConditionDefinition(ConditionForm conditionForm)
         {
-            if (conditionForm.ConditionDefinition.Name == RuleDefinitions.ConditionDarkness ||
-                conditionForm.ConditionDefinition.parentCondition.Name == RuleDefinitions.ConditionDarkness)
-            {
-                return DatabaseHelper.ConditionDefinitions.ConditionDarkness;
-            }
-            
-            return conditionForm.ConditionDefinition;
+            return conditionForm.ConditionDefinition.Name
+                is RuleDefinitions.ConditionDarkness
+                or "ConditionBlindedByDarkness"
+                ? DatabaseHelper.ConditionDefinitions.ConditionDarkness
+                : conditionForm.ConditionDefinition;
         }
     }
 }
