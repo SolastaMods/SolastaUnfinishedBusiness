@@ -1083,8 +1083,8 @@ internal static class InvocationsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
-                || rulesetEffectPower.PowerDefinition != powerVexingHex)
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != powerVexingHex)
             {
                 return true;
             }
@@ -1206,8 +1206,8 @@ internal static class InvocationsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
-                || rulesetEffectPower.PowerDefinition != powerVexingHex)
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != powerVexingHex)
             {
                 return true;
             }
@@ -1277,8 +1277,8 @@ internal static class InvocationsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
-                || rulesetEffectPower.PowerDefinition != powerVexingHex)
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != powerVexingHex)
             {
                 return true;
             }

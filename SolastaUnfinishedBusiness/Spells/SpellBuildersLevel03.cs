@@ -388,7 +388,7 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell
+            if (__instance.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell
                 || rulesetEffectSpell.SpellDefinition != spellAuraOfVitality)
             {
                 return true;

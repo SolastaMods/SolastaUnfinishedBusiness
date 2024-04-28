@@ -79,7 +79,7 @@ public static class CharacterActionPatcher
                 switch (__instance.ActionId)
                 {
                     case ActionDefinitions.Id.PowerMain when
-                        __instance.ActionParams.RulesetEffect is RulesetEffectPower effectPower &&
+                        __instance.ActionParams.activeEffect is RulesetEffectPower effectPower &&
                         effectPower.PowerDefinition.ActivationTime != ActivationTime.Action:
                     {
                         var actionType = effectPower.ActionType;
@@ -98,7 +98,7 @@ public static class CharacterActionPatcher
                         break;
                     }
                     case ActionDefinitions.Id.CastMain when
-                        __instance.ActionParams.RulesetEffect is RulesetEffectSpell effectSpell &&
+                        __instance.ActionParams.activeEffect is RulesetEffectSpell effectSpell &&
                         effectSpell.SpellDefinition.ActivationTime != ActivationTime.Action:
                     {
                         var actionType = effectSpell.ActionType;

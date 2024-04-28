@@ -874,10 +874,15 @@ internal static partial class SpellBuilders
         // STEP 0: enforce proper second target selection
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell
-                || rulesetEffectSpell.SpellDefinition != spellResonatingStrike)
+            if (__instance.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
+                rulesetEffectSpell.SpellDefinition != spellResonatingStrike)
             {
                 return true;
+            }
+
+            if (__instance.SelectionService?.SelectedTargets == null)
+            {
+                return false;
             }
 
             if (__instance.SelectionService.SelectedTargets.Count == 0)

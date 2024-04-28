@@ -302,6 +302,8 @@ internal static class RaceMalakhBuilder
                 IgnoreCriticalDoubleDice = true
             };
 
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var enemy in Gui.Battle.GetContenders(locationCharacter, withinRange: 3))
             {
@@ -313,9 +315,6 @@ internal static class RaceMalakhBuilder
                 };
 
                 EffectHelpers.StartVisualEffect(locationCharacter, enemy, SpellDefinitions.BrandingSmite);
-
-                var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
                 implementationService.ApplyEffectForms(
                     [new EffectForm { damageForm = damageForm }],
                     applyFormsParams,

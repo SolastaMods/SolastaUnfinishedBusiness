@@ -344,7 +344,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
                 rulesetEffectPower.PowerDefinition != powerEssenceTheft)
             {
                 return true;

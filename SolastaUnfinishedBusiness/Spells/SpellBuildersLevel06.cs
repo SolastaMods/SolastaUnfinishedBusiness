@@ -690,18 +690,23 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell
-                || rulesetEffectSpell.SpellDefinition != spellFlashFreeze)
+            if (__instance.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
+                rulesetEffectSpell.SpellDefinition != spellFlashFreeze)
             {
                 return true;
             }
 
-            var rulesetTarget = target.RulesetCharacter;
+            var rulesetTarget = target.RulesetActor;
 
-            var isValid = rulesetTarget.SizeDefinition != CharacterSizeDefinitions.DragonSize
-                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.Gargantuan
-                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.Huge
-                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize;
+            if (rulesetTarget is not RulesetCharacter rulesetCharacter)
+            {
+                return false;
+            }
+
+            var isValid = rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.DragonSize
+                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.Gargantuan
+                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.Huge
+                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize;
 
             if (!isValid)
             {

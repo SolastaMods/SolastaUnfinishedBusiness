@@ -61,7 +61,7 @@ public static class CursorLocationSelectTargetPatcher
             //PATCH: supports Find Familiar specific case for any caster as spell can be granted to other classes
             if (Gui.Battle != null &&
                 actingCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                __instance.actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
+                __instance.ActionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell &&
                 rulesetEffectSpell.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit)
             {
                 var familiar = Gui.Battle.AllContenders
@@ -455,7 +455,7 @@ public static class CursorLocationSelectTargetPatcher
                     else
                     {
                         // BEGIN PATCH
-                        var modifier = __instance.ActionParams.RulesetEffect switch
+                        var modifier = __instance.ActionParams.activeEffect switch
                         {
                             RulesetEffectPower rulesetEffectPower => rulesetEffectPower.PowerDefinition
                                 .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>(),
@@ -488,7 +488,7 @@ public static class CursorLocationSelectTargetPatcher
                         {
                             var flag3 = true;
 
-                            if (__instance.ActionParams.RulesetEffect is RulesetEffectPower rulesetEffect)
+                            if (__instance.ActionParams.activeEffect is RulesetEffectPower rulesetEffect)
                             {
                                 if (rulesetEffect.PowerDefinition.RechargeRate == RechargeRate.HealingPool &&
                                     rulesetEffect.PowerDefinition.CostPerUse <= 0)

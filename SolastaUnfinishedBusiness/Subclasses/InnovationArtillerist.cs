@@ -973,7 +973,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
     {
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action.ActionParams.RulesetEffect is RulesetEffectPower rulesetEffectPower)
+            if (action.ActionParams.activeEffect is RulesetEffectPower rulesetEffectPower)
             {
                 rulesetEffectPower.usablePower.saveDC = GetDC(action.ActingCharacter.RulesetCharacter);
             }

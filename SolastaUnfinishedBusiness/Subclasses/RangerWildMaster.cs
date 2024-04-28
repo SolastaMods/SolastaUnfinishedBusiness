@@ -382,7 +382,7 @@ public sealed class RangerWildMaster : AbstractSubclass
 
     private sealed class FilterTargetingCharacterAdvancedTraining : IFilterTargetingCharacter
     {
-        public bool EnforceFullSelection => true;
+        public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {

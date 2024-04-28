@@ -865,7 +865,7 @@ internal static class RaceFeats
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (action.ActionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
+            if (action.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower)
             {
                 yield break;
             }
@@ -1305,11 +1305,11 @@ internal static class RaceFeats
             actingCharacter.UsedSpecialFeatures.Remove(UsedTacticalMoves);
         }
 
-        public bool EnforceFullSelection => true;
+        public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
                 rulesetEffectPower.PowerDefinition != powerOrcishAggression)
             {
                 return true;

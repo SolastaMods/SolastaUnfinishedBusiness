@@ -524,7 +524,7 @@ internal static partial class SpellBuilders
 
             if (Gui.Battle == null ||
                 baseDefinition != spellWitherAndBloom ||
-                action.ActionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
+                action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell)
             {
                 yield break;
             }
@@ -618,7 +618,7 @@ internal static partial class SpellBuilders
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (baseDefinition != powerWitherAndBloom ||
-                action.ActionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
+                action.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower)
             {
                 yield break;
             }

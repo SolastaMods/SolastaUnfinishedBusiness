@@ -465,10 +465,15 @@ internal static class RaceImpBuilder
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
                 rulesetEffectPower.PowerDefinition != powerImpBadlandAssist)
             {
                 return true;
+            }
+
+            if (__instance.SelectionService?.SelectedTargets == null)
+            {
+                return false;
             }
 
             var selectedTargets = __instance.SelectionService.SelectedTargets;
