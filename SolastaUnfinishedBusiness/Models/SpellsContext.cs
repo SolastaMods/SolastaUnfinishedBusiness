@@ -342,6 +342,7 @@ internal static class SpellsContext
         RegisterSpell(BuildRingOfBlades(), 0, SpellListWizard);
 
         // 7th level
+        RegisterSpell(BuildDraconicTransformation(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
 
         // 8th level

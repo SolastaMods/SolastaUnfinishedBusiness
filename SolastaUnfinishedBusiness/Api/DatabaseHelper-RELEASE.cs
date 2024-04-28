@@ -434,9 +434,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionFlying { get; } =
             GetDefinition<ConditionDefinition>("ConditionFlying");
 
-        internal static ConditionDefinition ConditionFlying12 { get; } =
-            GetDefinition<ConditionDefinition>("ConditionFlying12");
-
         internal static ConditionDefinition ConditionFlyingAdaptive { get; } =
             GetDefinition<ConditionDefinition>("ConditionFlyingAdaptive");
 
@@ -2260,16 +2257,19 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityPatronHiveWeakeningPheromones { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityPatronHiveWeakeningPheromones");
-        
+
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityRogueEvasion { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityRogueEvasion");
-        
+
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityShelteringBreeze { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityShelteringBreeze");
     }
 
     internal static class FeatureDefinitionSenses
     {
+        internal static FeatureDefinitionSense SenseBlindSight6 { get; } =
+            GetDefinition<FeatureDefinitionSense>("SenseBlindSight6");
+
         internal static FeatureDefinitionSense SenseBlindSight16 { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseBlindSight16");
 

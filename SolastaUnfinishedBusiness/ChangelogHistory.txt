@@ -1,7 +1,7 @@
 1.5.97.6:
 
 - added Athlete feat
-- added Dawn, Fizban's Platinum Shield, Maddening Darkness, and Wither and Bloom spells
+- added Dawn, Draconic Transformation, Fizban's Platinum Shield, Maddening Darkness, and Wither and Bloom spells
 - added Imp Badland and Elf Shadar-Kai subraces
 - added Nature and Tempest cleric domains
 - fixed Artillerist spell list to use sonic boom instead of wall of force
