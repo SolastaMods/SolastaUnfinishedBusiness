@@ -87,7 +87,7 @@ internal static class RaceFeats
     {
         var condition = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, "ConditionDragonWings")
-            .SetOrUpdateGuiPresentation("FeatDragonWings", Category.Feat)
+            .SetGuiPresentation("FeatDragonWings", Category.Feat, ConditionDefinitions.ConditionFlying)
             .SetPossessive()
             .SetParentCondition(ConditionDefinitions.ConditionFlying)
             .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly12)
