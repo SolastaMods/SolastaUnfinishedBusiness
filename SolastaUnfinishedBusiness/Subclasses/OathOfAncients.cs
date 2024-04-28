@@ -148,7 +148,6 @@ public sealed class OathOfAncients : AbstractSubclass
                 DamageAffinityRadiantResistance,
                 DamageAffinitySlashingResistance,
                 DamageAffinityThunderResistance)
-            .AddSpecialInterruptions(ConditionInterruption.Damaged)
             .AddToDB();
 
         var featureAuraWarding = FeatureDefinitionBuilder

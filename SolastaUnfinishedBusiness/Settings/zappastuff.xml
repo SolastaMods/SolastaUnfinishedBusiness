@@ -298,28 +298,23 @@
         <string>BeaconOfHope</string>
         <string>Bless</string>
         <string>BlessingOfRime</string>
-        <string>CommandApproach</string>
-        <string>CommandDrop</string>
-        <string>CommandFlee</string>
-        <string>CommandGrovel</string>
-        <string>CommandHalt</string>
+        <string>BoomingBlade</string>
         <string>DispelMagic</string>
         <string>FeatherFall</string>
         <string>Knock</string>
         <string>Levitate</string>
         <string>MassCureWounds</string>
         <string>PassWithoutTrace</string>
-        <string>RayOfEnfeeblement</string>
-        <string>ResonatingStrike</string>
-        <string>Sanctuary</string>
-        <string>ShieldOfFaith</string>
-        <string>Sparkle</string>
-        <string>TrueStrike</string>
+        <string>PowerBarbarianBrutalStrike</string>
         <string>PowerBardHopeWordsOfHope6</string>
         <string>PowerBardTraditionManacalonsPerfection</string>
         <string>PowerCelestialSearingVengeance</string>
+        <string>PowerCollegeOfAudacityDefensiveWhirl</string>
+        <string>PowerCollegeOfAudacityMobileWhirl</string>
         <string>PowerCollegeOfValianceHeroicInspiration</string>
         <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
+        <string>PowerFeatChefCookMeal</string>
+        <string>PowerFeatOrcishAggression</string>
         <string>PowerInnovationWeaponArcaneJolt</string>
         <string>PowerOathOfJugementPurgeCorruption</string>
         <string>PowerOathOfJugementRetribution</string>
@@ -329,9 +324,21 @@
         <string>PowerRangerLightBearerBlessedWarrior</string>
         <string>PowerRiftWalkerRiftStrike</string>
         <string>PowerSorcerousPsionMindOverMatter</string>
+        <string>PowerTraditionOpenHandQuiveringPalmTrigger</string>
         <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
         <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
-        <string>PowerFeatChefCookMeal</string>
+        <string>RayOfEnfeeblement</string>
+        <string>ResonatingStrike</string>
+        <string>Sanctuary</string>
+        <string>ShieldOfFaith</string>
+        <string>Sparkle</string>
+        <string>SunlightBlade</string>
+        <string>TrueStrike</string>
+        <string>CommandApproach</string>
+        <string>CommandDrop</string>
+        <string>CommandFlee</string>
+        <string>CommandGrovel</string>
+        <string>CommandHalt</string>
         <string>AnimateDead</string>
         <string>ArcaneSword</string>
         <string>ConjureAnimalsFourBeasts</string>
@@ -669,12 +676,12 @@
         <string>RaceOligath</string>
         <string>RaceImp</string>
         <string>RaceKobold</string>
+        <string>RaceLizardfolk</string>
         <string>RaceOni</string>
         <string>RaceBattleborn</string>
         <string>RaceWendigo</string>
         <string>RaceWildling</string>
         <string>RaceWyrmkin</string>
-        <string>RaceLizardfolk</string>
     </RaceEnabled>
     <SubraceSliderPosition>4</SubraceSliderPosition>
     <SubraceEnabled>
@@ -688,6 +695,7 @@
         <string>RaceIronbornDwarf</string>
         <string>RaceTieflingMephistopheles</string>
         <string>RaceObsidianDwarf</string>
+        <string>RaceShadarKai</string>
         <string>RaceTieflingZariel</string>
     </SubraceEnabled>
     <BackgroundSliderPosition>4</BackgroundSliderPosition>
@@ -1293,6 +1301,7 @@
                     <string>MinorLifesteal</string>
                     <string>ThunderStrike</string>
                     <string>EarthTremor</string>
+                    <string>Mule</string>
                     <string>CloudOfDaggers</string>
                     <string>MirrorImage</string>
                     <string>BlessingOfRime</string>
@@ -1340,8 +1349,8 @@
                     <string>AirBlast</string>
                     <string>ThornyVines</string>
                     <string>ThunderStrike</string>
-                    <string>EarthTremor</string>
                     <string>ElementalInfusion</string>
+                    <string>EarthTremor</string>
                     <string>IceBlade</string>
                     <string>ConjureGoblinoids</string>
                     <string>NoxiousSpray</string>
@@ -1356,7 +1365,7 @@
                     <string>ForestGuardian</string>
                     <string>MantleOfThorns</string>
                     <string>FlashFreeze</string>
-                    <string>PrimordialWard</string>
+                    <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
                     <string>Foresight</string>
                     <string>Shapechange</string>
@@ -1452,11 +1461,12 @@
                     <string>SunlightBlade</string>
                     <string>SwordStorm</string>
                     <string>ThunderStrike</string>
+                    <string>ElementalInfusion</string>
                     <string>CausticZap</string>
                     <string>ChromaticOrb</string>
                     <string>EarthTremor</string>
-                    <string>ElementalInfusion</string>
                     <string>IceBlade</string>
+                    <string>Mule</string>
                     <string>VileBrew</string>
                     <string>WitchBolt</string>
                     <string>CloudOfDaggers</string>
@@ -1479,8 +1489,10 @@
                     <string>Incineration</string>
                     <string>SonicBoom</string>
                     <string>Telekinesis</string>
+                    <string>FizbanPlatinumShield</string>
                     <string>FlashFreeze</string>
                     <string>MysticalCloak</string>
+                    <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
                     <string>MeteorSwarmSingleTarget</string>
                     <string>PowerWordKill</string>
@@ -1505,6 +1517,7 @@
                     <string>TollTheDead</string>
                     <string>SkinOfRetribution</string>
                     <string>VoidGrasp</string>
+                    <string>Mule</string>
                     <string>WitchBolt</string>
                     <string>CloudOfDaggers</string>
                     <string>MirrorImage</string>
@@ -1520,6 +1533,7 @@
                     <string>FarStep</string>
                     <string>FlashFreeze</string>
                     <string>MysticalCloak</string>
+                    <string>MaddeningDarkness</string>
                     <string>Foresight</string>
                     <string>PowerWordKill</string>
                     <string>Weird</string>
@@ -1552,10 +1566,10 @@
                     <string>SwordStorm</string>
                     <string>ThunderStrike</string>
                     <string>TollTheDead</string>
+                    <string>ElementalInfusion</string>
                     <string>CausticZap</string>
                     <string>ChromaticOrb</string>
                     <string>EarthTremor</string>
-                    <string>ElementalInfusion</string>
                     <string>FindFamiliar</string>
                     <string>GiftOfAlacrity</string>
                     <string>IceBlade</string>
@@ -1590,11 +1604,14 @@
                     <string>SonicBoom</string>
                     <string>SteelWhirlwind</string>
                     <string>Telekinesis</string>
+                    <string>FizbanPlatinumShield</string>
                     <string>PoisonWave</string>
                     <string>RingOfBlades</string>
                     <string>MysticalCloak</string>
                     <string>HeroicInfusion</string>
+                    <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
+                    <string>MaddeningDarkness</string>
                     <string>MindBlank</string>
                     <string>Foresight</string>
                     <string>MeteorSwarmSingleTarget</string>
