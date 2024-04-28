@@ -1141,10 +1141,11 @@ internal static class RaceFeats
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        power.AddCustomSubFeatures(new MagicEffectFinishedByMeAnyFlamesOfPhlegethos(power));
+        power.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new MagicEffectFinishedByMeAnyFlamesOfPhlegethos(power));
 
         var dieRollModifierFire = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}Fire")
@@ -1193,7 +1194,7 @@ internal static class RaceFeats
             }
 
             if (!action.ActionParams.activeEffect.EffectDescription.EffectForms.Any(x =>
-                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeFire))
+                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType is DamageTypeFire))
             {
                 yield break;
             }

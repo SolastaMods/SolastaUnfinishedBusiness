@@ -307,7 +307,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             foreach (var effectForm in actualEffectForms
                          .Where(x =>
                              x.FormType == EffectForm.EffectFormType.Damage
-                             && x.DamageForm.DamageType == DamageTypePsychic))
+                             && x.DamageForm.DamageType is DamageTypePsychic))
             {
                 effectForm.DamageForm.BonusDamage += charismaModifier;
             }

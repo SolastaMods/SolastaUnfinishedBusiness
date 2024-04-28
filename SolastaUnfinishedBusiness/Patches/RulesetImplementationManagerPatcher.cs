@@ -253,7 +253,7 @@ public static class RulesetImplementationManagerPatcher
             //TODO: make this a proper interface in case we need to support other use cases
             if (hero != null &&
                 hero.TrainedFeats.Any(x => x.Name is "FeatPiercerDex" or "FeatPiercerStr") &&
-                damageForm.damageType == DamageTypePiercing)
+                damageForm.damageType is DamageTypePiercing)
             {
                 canRerollDice = true;
             }

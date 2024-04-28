@@ -238,10 +238,10 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     (OperationType.Set,
                         (mode != null && mode.EffectDescription.EffectForms.Any(x =>
                             x.FormType == EffectForm.EffectFormType.Damage &&
-                            x.DamageForm.DamageType == DamageTypeAcid)) ||
+                            x.DamageForm.DamageType is DamageTypeAcid)) ||
                         (effect != null && effect.EffectDescription.EffectForms.Any(x =>
                             x.FormType == EffectForm.EffectFormType.Damage &&
-                            x.DamageForm.DamageType == DamageTypeAcid)))))
+                            x.DamageForm.DamageType is DamageTypeAcid)))))
             .SetImpactParticleReference(AcidSplash)
             .AddToDB();
 

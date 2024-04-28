@@ -293,7 +293,7 @@ public sealed class DomainDefiler : AbstractSubclass
             GameLocationCharacter defender)
         {
             if (!actualEffectForms.Any(x =>
-                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeNecrotic))
+                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType is DamageTypeNecrotic))
             {
                 yield break;
             }
