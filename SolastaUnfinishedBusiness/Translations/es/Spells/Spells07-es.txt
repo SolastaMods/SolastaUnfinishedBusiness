@@ -1,4 +1,8 @@
 Condition/&ConditionReverseGravityDescription=Atrapado por gravedad inversa.
 Condition/&ConditionReverseGravityTitle=Gravedad inversa
+Feature/&PowerDraconicTransformationDescription=Como acción adicional, puedes exhalar energía brillante en un cono de 60 pies. Cada criatura en esa área debe realizar una tirada de salvación de Destreza, recibiendo 6d8 de daño de fuerza si falla, o la mitad de daño si tiene éxito.
+Feature/&PowerDraconicTransformationTitle=Transformación dracónica
+Spell/&DraconicTransformationDescription=Con un rugido, recurres a la magia de los dragones para transformarte y adquirir rasgos dracónicos. Obtienes los siguientes beneficios hasta que finaliza el hechizo:\n• Tienes vista ciega con un alcance de 30 pies.\n• Cuando lanzas este hechizo, y como acción adicional en los turnos posteriores mientras dure, puedes exhalar un brillo brillante. energía en un cono de 60 pies. Cada criatura en esa área debe hacer una tirada de salvación de Destreza, recibiendo 6d8 de daño de fuerza si falla la salvación, o la mitad del daño si tiene éxito.\n• Alas incorpóreas brotan de tu espalda, lo que te da una velocidad de vuelo de 60 pies. .
+Spell/&DraconicTransformationTitle=Transformación dracónica
 Spell/&ReverseGravityDescription=Este hechizo invierte la gravedad en un cilindro de 50 pies de radio y 100 pies de alto centrado en un punto dentro del alcance.
 Spell/&ReverseGravityTitle=Gravedad inversa

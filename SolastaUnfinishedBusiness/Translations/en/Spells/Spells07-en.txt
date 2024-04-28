@@ -1,4 +1,8 @@
 Condition/&ConditionReverseGravityDescription=Caught by reverse gravity.
 Condition/&ConditionReverseGravityTitle=Reverse Gravity
+Feature/&PowerDraconicTransformationDescription=As a bonus action, you can exhale shimmering energy in a 60-foot cone. Each creature in that area must make a Dexterity saving throw, taking 6d8 force damage on a failed save, or half as much damage on a successful one.
+Feature/&PowerDraconicTransformationTitle=Draconic Transformation
+Spell/&DraconicTransformationDescription=With a roar, you draw on the magic of dragons to transform yourself, taking on draconic features. You gain the following benefits until the spell ends:\n• You have blindsight with a range of 30 feet.\n• When you cast this spell, and as a bonus action on subsequent turns for the duration, you can exhale shimmering energy in a 60-foot cone. Each creature in that area must make a Dexterity saving throw, taking 6d8 force damage on a failed save, or half as much damage on a successful one.\n• Incorporeal wings sprout from your back, giving you a flying speed of 60 feet.
+Spell/&DraconicTransformationTitle=Draconic Transformation
 Spell/&ReverseGravityDescription=This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 Spell/&ReverseGravityTitle=Reverse Gravity
