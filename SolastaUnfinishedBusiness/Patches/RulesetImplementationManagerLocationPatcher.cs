@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Validators;
@@ -164,6 +168,37 @@ public static class RulesetImplementationManagerLocationPatcher
         }
     }
 
+    //BUGFIX: fix vanilla to consider darkness condition as a parent
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), nameof(RulesetImplementationManagerLocation.ApplyCounterForm))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ApplyCounterForm_Patch
+    {
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var conditionDefinitionMethod = typeof(ConditionForm).GetMethod("get_ConditionDefinition");
+            var myConditionDefinitionMethod =
+                new Func<ConditionForm, ConditionDefinition>(MyConditionDefinition).Method;
+
+            return instructions.ReplaceCalls(conditionDefinitionMethod, "RulesetImplementationManagerLocation.ApplyCounterForm",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, myConditionDefinitionMethod));
+        }
+
+        private static ConditionDefinition MyConditionDefinition(ConditionForm conditionForm)
+        {
+            if (conditionForm.ConditionDefinition.Name == RuleDefinitions.ConditionDarkness ||
+                conditionForm.ConditionDefinition.parentCondition.Name == RuleDefinitions.ConditionDarkness)
+            {
+                return DatabaseHelper.ConditionDefinitions.ConditionDarkness;
+            }
+            
+            return conditionForm.ConditionDefinition;
+        }
+    }
+    
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation),
         nameof(RulesetImplementationManagerLocation.ApplyShapeChangeForm))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
