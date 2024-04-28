@@ -1,0 +1,4 @@
+BonusProficiencyDomainSmith	Title='Feature/&BonusProficiencyDomainSmithTitle'.
+BonusProficiencyDomainSmith	Description='Feature/&BonusProficiencyDomainSmithDescription'.
+BonusProficiencyDomainSmithArtisanToolType	Title='Feature/&BonusProficiencyDomainSmithArtisanToolTypeTitle'.
+BonusProficiencyDomainSmithArtisanToolType	Description='Feature/&BonusProficiencyDomainSmithArtisanToolTypeDescription'.

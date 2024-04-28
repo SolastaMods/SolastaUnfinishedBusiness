@@ -56,6 +56,12 @@ public sealed class DomainSmith : AbstractSubclass
             .SetProficiencies(ProficiencyType.Tool, ToolDefinitions.ArtisanToolType)
             .AddToDB();
 
+        var featureSetBonusProficiency = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}BonusProficiency")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(bonusProficiencyArmorDomainForge, bonusProficiencyArtisanToolTypeDomainForge)
+            .AddToDB();
+        
         // Reinforce Armor - 1, 6, 11, 16
 
         var spriteReference = MageArmor.guiPresentation.SpriteReference;
@@ -335,8 +341,7 @@ public sealed class DomainSmith : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Resources.DomainSmith, 256))
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsDomainSmith,
-                bonusProficiencyArmorDomainForge,
-                bonusProficiencyArtisanToolTypeDomainForge,
+                featureSetBonusProficiency,
                 powerReinforceArmor1)
             .AddFeaturesAtLevel(2,
                 featureSetAdamantBenediction)
