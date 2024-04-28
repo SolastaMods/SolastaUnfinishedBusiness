@@ -531,7 +531,7 @@ public sealed class DomainTempest : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            MaybeAddPushForm(attacker, actualEffectForms);
+            MaybeAddPushForm(attacker, defender.RulesetCharacter, actualEffectForms);
 
             yield break;
         }
@@ -545,9 +545,14 @@ public sealed class DomainTempest : AbstractSubclass
             ref DamageForm additionalDamageForm)
         {
             var damageType = GetAdditionalDamageType(attacker, additionalDamageForm, featureDefinitionAdditionalDamage);
+            var rulesetDefender = defender.RulesetCharacter;
 
             if (attacker.IsMyTurn() &&
                 damageType is DamageTypeLightning or DamageTypeThunder &&
+                rulesetDefender.SizeDefinition != CharacterSizeDefinitions.DragonSize &&
+                rulesetDefender.SizeDefinition != CharacterSizeDefinitions.Gargantuan &&
+                rulesetDefender.SizeDefinition != CharacterSizeDefinitions.Huge &&
+                rulesetDefender.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize &&
                 attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.ThunderousStrikeToggle))
             {
                 actualEffectForms.Add(PushForm);
@@ -566,7 +571,7 @@ public sealed class DomainTempest : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            MaybeAddPushForm(attacker, actualEffectForms);
+            MaybeAddPushForm(attacker, defender.RulesetCharacter, actualEffectForms);
 
             yield break;
         }
@@ -574,6 +579,7 @@ public sealed class DomainTempest : AbstractSubclass
         private static void MaybeAddPushForm(
             // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter attacker,
+            RulesetCharacter rulesetDefender,
             // ReSharper disable once SuggestBaseTypeForParameter
             List<EffectForm> actualEffectForms)
         {
@@ -581,6 +587,10 @@ public sealed class DomainTempest : AbstractSubclass
                 actualEffectForms
                     .Any(x => x.FormType == EffectForm.EffectFormType.Damage &&
                               x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder) &&
+                rulesetDefender.SizeDefinition != CharacterSizeDefinitions.DragonSize &&
+                rulesetDefender.SizeDefinition != CharacterSizeDefinitions.Gargantuan &&
+                rulesetDefender.SizeDefinition != CharacterSizeDefinitions.Huge &&
+                rulesetDefender.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize &&
                 attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.ThunderousStrikeToggle))
             {
                 actualEffectForms.Add(PushForm);
