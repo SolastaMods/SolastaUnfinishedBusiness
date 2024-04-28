@@ -35,7 +35,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var conditionLowerPlane = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}LowerPlane")
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{NAME}LowerPlane")
             .SetGuiPresentation($"{NAME}LowerPlane", Category.Spell,
                 ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
@@ -52,10 +52,6 @@ internal static partial class SpellBuilders
                 new AddTagToWeaponWeaponAttack(
                     TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
             .AddToDB();
-
-        // there is indeed a typo on tag
-        // ReSharper disable once StringLiteralTypo
-        conditionLowerPlane.ConditionTags.Add("Verticality");
 
         var lowerPlane = SpellDefinitionBuilder
             .Create($"{NAME}LowerPlane")
@@ -75,19 +71,12 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionLowerPlane))
-                    .SetParticleEffectParameters(MageArmor)
+                    .SetCasterEffectParameters(MageArmor)
                     .Build())
             .AddToDB();
 
-        lowerPlane.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionStartParticleReference;
-        lowerPlane.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionParticleReference;
-        lowerPlane.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionEndParticleReference;
-
         var conditionHigherPlane = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}HigherPlane")
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{NAME}HigherPlane")
             .SetGuiPresentation($"{NAME}HigherPlane", Category.Spell,
                 ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
@@ -103,10 +92,6 @@ internal static partial class SpellBuilders
                 CanUseAttribute.SpellCastingAbility,
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
             .AddToDB();
-
-        // there is indeed a typo on tag
-        // ReSharper disable once StringLiteralTypo
-        conditionHigherPlane.ConditionTags.Add("Verticality");
 
         var higherPlane = SpellDefinitionBuilder
             .Create($"{NAME}HigherPlane")
@@ -126,16 +111,9 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHigherPlane))
-                    .SetParticleEffectParameters(MageArmor)
+                    .SetCasterEffectParameters(MageArmor)
                     .Build())
             .AddToDB();
-
-        higherPlane.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionStartParticleReference;
-        higherPlane.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionParticleReference;
-        higherPlane.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionEndParticleReference;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
