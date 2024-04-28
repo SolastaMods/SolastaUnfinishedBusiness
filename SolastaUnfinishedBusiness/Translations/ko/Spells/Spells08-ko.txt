@@ -1,6 +1,5 @@
 Condition/&ConditionMindBlankDescription=정신 피해와 매혹 상태에 면역입니다.
 Condition/&ConditionMindBlankTitle=마음의 공백
-Spell/&MaddeningDarknessDescription=마법의 어둠은 주문이 끝날 때까지 반경 60피트의 구체를 채우기 위해 범위 내에서 선택한 지점에서 퍼집니다. 비명소리, 횡설수설, 미친 웃음 소리가 구체 내에서 들립니다. 생물이 구체에서 차례를 시작할 때마다 지혜 내성 굴림을 해야 하며, 내성 굴림에 실패하면 8d8의 정신적 피해를 입거나, 성공하면 절반의 피해를 입습니다.
 Spell/&MaddeningDarknessTitle=미치게 만드는 어둠
 Spell/&MindBlankDescription=주문이 끝날 때까지 당신이 접촉한 하나의 의지가 있는 생물은 정신 피해, 감정을 감지하거나 생각을 읽는 모든 효과, 점술 주문 및 매혹 상태에 면역입니다.
 Spell/&MindBlankTitle=마음의 공백

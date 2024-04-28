@@ -1,6 +1,5 @@
 Condition/&ConditionMindBlankDescription=免疫心灵伤害和魅惑状态。
 Condition/&ConditionMindBlankTitle=心灵屏障
-Spell/&MaddeningDarknessDescription=魔法黑暗从范围内你指定的一点延伸至半径 60 尺的球形范围，直到法术结束。球体中可以听到尖叫声，低语声，以及疯狂的大笑声。每当一个生物在球体中开始其回合时，它必须进行一次感知豁免检定，豁免失败会受到 8d8 心灵伤害，豁免成功则只承受一半。
 Spell/&MaddeningDarknessTitle=疯狂之暗
 Spell/&MindBlankDescription=在法术结束之前，你接触的一个自愿生物免疫心灵伤害、任何能感知其情绪或阅读其思想的效果、预言法术和魅惑状态。
 Spell/&MindBlankTitle=心灵屏障

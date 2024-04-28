@@ -1,6 +1,5 @@
 Condition/&ConditionMindBlankDescription=Immune ai danni psichici e alla condizione affascinato.
 Condition/&ConditionMindBlankTitle=Mente vuota
-Spell/&MaddeningDarknessDescription=L'oscurità magica si diffonde da un punto scelto dall'incantatore entro la gittata per riempire una sfera del raggio di 18 metri fino al termine dell'incantesimo. All'interno della sfera si possono sentire grida, borbottii e risate folli. Ogni volta che una creatura inizia il suo turno nella sfera, deve effettuare un tiro salvezza su Saggezza, subendo 8d8 danni psichici se fallisce il tiro salvezza, o la metà di questi danni se lo riesce.
 Spell/&MaddeningDarknessTitle=Oscurità esasperante
 Spell/&MindBlankDescription=Fino al termine dell'incantesimo, una creatura consenziente toccata dall'incantatore è immune ai danni psichici, a qualsiasi effetto in grado di percepirne le emozioni o leggerne i pensieri, agli incantesimi di divinazione e alla condizione affascinato.
 Spell/&MindBlankTitle=Mente vuota

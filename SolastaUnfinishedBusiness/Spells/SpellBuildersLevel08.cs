@@ -60,7 +60,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create(Darkness, NAME)
-            .SetOrUpdateGuiPresentation(Category.Spell)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MaddeningDarkness, 128))
             .SetSpellLevel(8)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -68,14 +68,13 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 12)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypePsychic, 8, DieType.D8)
+                            .SetDamageForm(DamageTypePsychic, 6, DieType.D8)
                             .Build())
-                    .SetParticleEffectParameters(DispelMagic)
                     .Build())
             .AddToDB();
     }
