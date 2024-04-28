@@ -78,8 +78,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionFlying12",
-          "conditionDefinition": "Definition:ConditionFlying12:33fb0e0fb4c74604e8fe76b8d3370510",
+          "conditionDefinitionName": "ConditionCollegeOfLifeFly",
+          "conditionDefinition": "Definition:ConditionCollegeOfLifeFly:2b3fe597-4816-591d-bff0-c42ccc3cb1c3",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

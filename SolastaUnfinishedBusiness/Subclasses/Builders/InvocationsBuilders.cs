@@ -847,9 +847,12 @@ internal static class InvocationsBuilders
             .AddToDB();
 
         var conditionAbilityPseudo = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionFlying12, "ConditionAbilityPseudo")
+            .Create(ConditionDefinitions.ConditionFlying, "ConditionAbilityPseudo")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainPseudodragon)
-            .AddFeatures(
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
+            .SetFeatures(
+                FeatureDefinitionMoveModes.MoveModeFly12,
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create(AdditionalDamagePoison_GhoulsCaress, "AdditionalDamagePseudoDragon")
                     .SetSavingThrowData(
@@ -857,8 +860,9 @@ internal static class InvocationsBuilders
                     .SetDamageDice(DieType.D8, 1)
                     .SetNotificationTag("Poison")
                     .AddToDB())
-            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
+
+        conditionAbilityPseudo.ConditionTags.Clear();
 
         var conditionAbilityQuasit = ConditionDefinitionBuilder
             .Create("ConditionAbilityQuasit")

@@ -34,7 +34,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnTurnStart",
+    "recurrentEffect": "OnActivation, OnTurnStart",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -225,7 +225,7 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 8,
+          "diceNumber": 6,
           "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
@@ -269,13 +269,13 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a6ca7038401125c4096926082f9acb33",
+        "m_AssetGUID": "81dc5e854a40ec74fb48b370b138e9a6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6a8b8119774067740a6895a72319a60d",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -293,7 +293,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "21e21b4d608aa6b4ea89119fc05c9e56",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -329,13 +329,13 @@
       },
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "7d2783c8e25102444952ec2477f25af3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectCellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "758f023886ab7f24caaa7dbe1a1320fa",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -465,9 +465,9 @@
     "description": "Spell/&MaddeningDarknessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "deca396a70b17b7429b1ae44224cacab",
-      "m_SubObjectName": "Darkness",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "04acc061-b66a-5f2a-add1-8ea56e8a9fbb",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

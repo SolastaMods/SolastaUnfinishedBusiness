@@ -377,7 +377,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     {
         var conditionHonedAnimalAspectsEagle = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}HonedAnimalAspectsEagle")
-            .SetOrUpdateGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying)
             .SetPossessive()
             // don't use vanilla RageStop with permanent conditions
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)

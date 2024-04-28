@@ -60,6 +60,7 @@ internal static class ModUi
         "DomainNature",
         "DomainTempest",
         "DomainSmith",
+        "DraconicTransformation",
         "EarthTremor",
         "ElementalInfusion",
         "ElementalWeapon",
