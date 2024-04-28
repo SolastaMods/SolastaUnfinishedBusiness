@@ -51,4 +51,34 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+
+    #region Maddening Darkness
+
+    internal static SpellDefinition BuildMaddeningDarkness()
+    {
+        const string NAME = "MaddeningDarkness";
+
+        return SpellDefinitionBuilder
+            .Create(Darkness, NAME)
+            .SetOrUpdateGuiPresentation(Category.Spell)
+            .SetSpellLevel(8)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Darkness)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 12)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 8, DieType.D8)
+                            .Build())
+                    .SetParticleEffectParameters(DispelMagic)
+                    .Build())
+            .AddToDB();
+    }
+
+    #endregion
 }

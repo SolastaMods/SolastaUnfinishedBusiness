@@ -381,39 +381,43 @@ Immediately after the spell ends, you must succeed on a DC 15 Constitution savin
 
 This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 
-# 91. - *Mind Blank* © (V,S) level 8 Transmutation
+# 91. - *Maddening Darkness* © (V) level 8 Evocation [Concentration]
+
+Magical darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the spell ends. Shrieks, gibbering, and mad laughter can be heard within the sphere. Whenever a creature starts its turn in the sphere, it must make a Wisdom saving throw, taking 8d8 psychic damage on a failed save, or half as much damage on a successful one.
+
+# 92. - *Mind Blank* © (V,S) level 8 Transmutation
 
 Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 
-# 92. - *Foresight* © (V,S) level 9 Transmutation
+# 93. - *Foresight* © (V,S) level 9 Transmutation
 
 You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 
-# 93. - *Mass Heal* © (V,S) level 9 Transmutation
+# 94. - *Mass Heal* © (V,S) level 9 Transmutation
 
 A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 
-# 94. - *Meteor Swarm* © (V,S) level 9 Transmutation
+# 95. - *Meteor Swarm* © (V,S) level 9 Transmutation
 
 Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 
-# 95. - *Power Word Heal* © (V,S) level 9 Enchantment
+# 96. - *Power Word Heal* © (V,S) level 9 Enchantment
 
 A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
 
-# 96. - *Power Word Kill* © (V,S) level 9 Transmutation
+# 97. - *Power Word Kill* © (V,S) level 9 Transmutation
 
 You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
 
-# 97. - *Shapechange* © (M,V,S) level 9 Transmutation [Concentration]
+# 98. - *Shapechange* © (M,V,S) level 9 Transmutation [Concentration]
 
 You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
 
-# 98. - *Time Stop* © (V) level 9 Transmutation
+# 99. - *Time Stop* © (V) level 9 Transmutation
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 
-# 99. - *Weird* © (V,S) level 9 Illusion [Concentration]
+# 100. - *Weird* © (V,S) level 9 Illusion [Concentration]
 
 Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 

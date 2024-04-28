@@ -1,4 +1,6 @@
 Condition/&ConditionMindBlankDescription=精神的なダメージと魅了された状態に対する免疫。
 Condition/&ConditionMindBlankTitle=マインドブランク
+Spell/&MaddeningDarknessDescription=魔法の闇は、範囲内で選択した点から広がり、呪文が終了するまで半径 60 フィートの球体を埋め尽くします。球内では金切り声、意味不明な叫び声、狂った笑い声が聞こえます。クリーチャーが球体でターンを開始するたびに、それは知恵セーヴィング・スローを行わなければならず、セーヴに失敗した場合は8d8の精神的ダメージを受けるか、成功した場合はその半分のダメージを受ける。
+Spell/&MaddeningDarknessTitle=狂気の闇
 Spell/&MindBlankDescription=呪文が終了するまで、あなたが触れた意志のあるクリーチャー1体は、精神的ダメージ、感情を感知したり思考を読み取る効果、占い呪文、魅了された状態の影響を受けません。
 Spell/&MindBlankTitle=マインドブランク

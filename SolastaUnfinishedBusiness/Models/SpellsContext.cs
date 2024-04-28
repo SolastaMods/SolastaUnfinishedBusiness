@@ -44,6 +44,8 @@ internal static class SpellsContext
     internal static readonly SpellDefinition EnduringSting = BuildEnduringSting();
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
+    internal static readonly SpellDefinition MaddeningDarkness = BuildMaddeningDarkness();
+
     internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition PetalStorm = BuildPetalStorm();
     internal static readonly SpellDefinition PsychicWhip = BuildPsychicWhip();
@@ -344,6 +346,7 @@ internal static class SpellsContext
 
         // 8th level
         RegisterSpell(BuildMindBlank(), 0, SpellListBard, SpellListWizard);
+        RegisterSpell(MaddeningDarkness, 0, SpellListWarlock, SpellListWizard);
 
         // 9th level
         RegisterSpell(BuildForesight(), 0, SpellListBard, SpellListDruid, SpellListWarlock, SpellListWizard);

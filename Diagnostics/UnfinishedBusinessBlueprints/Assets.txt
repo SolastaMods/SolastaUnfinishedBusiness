@@ -11472,6 +11472,7 @@ Incineration	SpellDefinition	SpellDefinition	9736f77e-4d1b-5fa9-ba08-e0937463546
 IrresistiblePerformance	SpellDefinition	SpellDefinition	a1da847d-a053-5ba7-92a1-11a5f2260d2a
 LevitateSpell	SpellDefinition	SpellDefinition	91d64839-2a19-5655-a8f5-e14cd8e8033c
 LightningArrow	SpellDefinition	SpellDefinition	67f4d8f5-2b76-530c-969d-887c67ecbbc3
+MaddeningDarkness	SpellDefinition	SpellDefinition	307ab880-6bb4-514a-bc43-cd1bbb6df87d
 MagnifyGravity	SpellDefinition	SpellDefinition	79f50c24-d249-5283-b784-10d3ffa9b444
 MantleOfThorns	SpellDefinition	SpellDefinition	e104287c-c35e-5355-b4ab-527a4a46860e
 MassHeal	SpellDefinition	SpellDefinition	0a9e59ba-4e57-52a5-ab05-27ae3c96e34f

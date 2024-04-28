@@ -784,6 +784,8 @@ internal static class LightingAndObscurementContext
             DevilsSight.GuiPresentation.description = "Invocation/&DevilsSightExtendedDescription";
 
             Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionBlindedByDarkness;
+            SpellsContext.MaddeningDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+                ConditionBlindedByDarkness;
 
             // >> ConditionHeavilyObscured
             // FogCloud
@@ -847,6 +849,8 @@ internal static class LightingAndObscurementContext
             DevilsSight.GuiPresentation.description = "Invocation/&DevilsSightDescription";
 
             Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionDarkness;
+            SpellsContext.MaddeningDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+                ConditionDarkness;
 
             // >> ConditionHeavilyObscured
             // FogCloud

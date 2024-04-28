@@ -166,6 +166,7 @@ internal static class ModUi
         "InvocationUndyingServitude",
         "InvocationVexingHex",
         "LightningArrow",
+        "MaddeningDarkness",
         "MagnifyGravity",
         "MartialArcaneArcher",
         "MartialForceKnight",

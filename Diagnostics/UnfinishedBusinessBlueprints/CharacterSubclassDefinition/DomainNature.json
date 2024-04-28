@@ -3,17 +3,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDomainNatureAcolyteOfNature:259c2b17-dedf-578a-aabf-f5c7725c5d6c",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetDomainNatureBonusProficiency:5231ed44-7501-53b9-87cc-274b545a7b15",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsDomainNature:20e017f1-1816-5659-bf28-dfd17a2280b5",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainNatureAcolyteOfNature:259c2b17-dedf-578a-aabf-f5c7725c5d6c",
       "level": 1
     },
     {
