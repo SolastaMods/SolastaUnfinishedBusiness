@@ -315,6 +315,7 @@ UI/&CustomFeatureSelectionTooltipTypeSorcererDraconicChoice=Ascendenza draconica
 UI/&CustomFeatureSelectionTooltipTypeWeaponSpecialization=Addestramento alle armi
 UI/&ForcePreferredCantripDescription=Se questa opzione è attiva, solo il trucchetto preferito può attivarsi. Se il trucchetto preferito non è selezionato, verrà attivato il primo trucchetto valido, indipendentemente da questa opzione.
 UI/&ForcePreferredCantripTitle=Trucchetto preferito dalla Forza
+UI/&HasHalfCover=La creatura ha metà copertura.
 UI/&InventoryFilterAnyTags=Eventuali tag
 UI/&InventoryFilterBy=By
 UI/&InventoryFilterCategory=Categoria

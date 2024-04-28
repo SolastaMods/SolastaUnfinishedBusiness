@@ -315,6 +315,7 @@ UI/&CustomFeatureSelectionTooltipTypeSorcererDraconicChoice=Драконье н�
 UI/&CustomFeatureSelectionTooltipTypeWeaponSpecialization=Тренировка обращению с оружием
 UI/&ForcePreferredCantripDescription=Если эта опция включена, сработает только предпочтительный заговор. Если предпочтительный заговор не выбран, то сработает первый подходящий, вне зависимости от настройки.
 UI/&ForcePreferredCantripTitle=Принудительный предпочтительный заговор
+UI/&HasHalfCover=Существо имеет полуукрытие.
 UI/&InventoryFilterAnyTags=Все метки
 UI/&InventoryFilterBy=По
 UI/&InventoryFilterCategory=Категория

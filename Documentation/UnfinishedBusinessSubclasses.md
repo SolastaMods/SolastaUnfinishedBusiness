@@ -960,6 +960,10 @@ Holy smiths who channel their faith through steel and forges. Reinforcing allied
 
 ### Level 1
 
+* Bonus Proficiencies
+
+Gain proficiency in smith tools and heavy armor.
+
 * Expanded Spells
 
 
@@ -975,17 +979,9 @@ Holy smiths who channel their faith through steel and forges. Reinforcing allied
 
 
 
-* Heavy Armor Proficient
-
-Gain proficiency in heavy armor.
-
 * Reinforce Armor
 
 Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +1 AC.
-
-* Smithing Tools Proficient
-
-Gain proficiency in smith tools.
 
 
 ### Level 2

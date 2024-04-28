@@ -315,6 +315,7 @@ UI/&CustomFeatureSelectionTooltipTypeSorcererDraconicChoice=魔術的な竜の�
 UI/&CustomFeatureSelectionTooltipTypeWeaponSpecialization=武器の訓練
 UI/&ForcePreferredCantripDescription=この切り替えがオンの場合、優先キャントリップのみがトリガーできます。優先キャントリップが選択されていない場合は、この切り替えに関係なく、最初の有効なキャントリップがトリガーされます。
 UI/&ForcePreferredCantripTitle=優先キャントリップを強制する
+UI/&HasHalfCover=クリーチャーは半分カバーされています。
 UI/&InventoryFilterAnyTags=任意のタグ
 UI/&InventoryFilterBy=By
 UI/&InventoryFilterCategory=カテゴリー

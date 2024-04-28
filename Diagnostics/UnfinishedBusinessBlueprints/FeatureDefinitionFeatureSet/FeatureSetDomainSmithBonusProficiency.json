@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:BonusProficiencyDomainSmithArtisanToolType:bcbe633c-cc94-5b67-98ec-357cfa9ef64a",
-    "Definition:BonusProficiencyDomainSmith:0caba6ab-34fb-536b-8676-191a32c68455"
+    "Definition:BonusProficiencyDomainSmith:0caba6ab-34fb-536b-8676-191a32c68455",
+    "Definition:BonusProficiencyDomainSmithArtisanToolType:bcbe633c-cc94-5b67-98ec-357cfa9ef64a"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

@@ -315,6 +315,7 @@ UI/&CustomFeatureSelectionTooltipTypeSorcererDraconicChoice=Ancêtre Draconique 
 UI/&CustomFeatureSelectionTooltipTypeWeaponSpecialization=Spécialisation d'arme
 UI/&ForcePreferredCantripDescription=Si cette option est activée, seul le Sort mineur préféré peut être déclenché. Si le Sort mineur préféré n'est pas sélectionné, le premier Sort mineur valide se déclenchera, sans considération de cette option.
 UI/&ForcePreferredCantripTitle=Forcer le Sort mineur préféré
+UI/&HasHalfCover=La créature est à moitié couverte.
 UI/&InventoryFilterAnyTags=Tous les filtres
 UI/&InventoryFilterBy=Par
 UI/&InventoryFilterCategory=Catégorie

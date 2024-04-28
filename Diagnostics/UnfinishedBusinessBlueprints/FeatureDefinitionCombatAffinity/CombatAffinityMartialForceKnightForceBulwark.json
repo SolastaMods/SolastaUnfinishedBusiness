@@ -36,7 +36,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&PowerMartialForceKnightForceBulwarkTitle",
-    "description": "Feature/&PowerMartialForceKnightForceBulwarkDescription",
+    "description": "UI/&HasHalfCover",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

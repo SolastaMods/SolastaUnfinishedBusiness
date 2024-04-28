@@ -36,7 +36,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Spell/&FizbanPlatinumShieldTitle",
-    "description": "Spell/&FizbanPlatinumShieldDescription",
+    "description": "UI/&HasHalfCover",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

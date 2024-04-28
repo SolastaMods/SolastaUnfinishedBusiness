@@ -315,6 +315,7 @@ UI/&CustomFeatureSelectionTooltipTypeSorcererDraconicChoice=Sorcerous Draconic A
 UI/&CustomFeatureSelectionTooltipTypeWeaponSpecialization=Weapon Training
 UI/&ForcePreferredCantripDescription=If this toggled is ON, only the preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle=Force Preferred Cantrip
+UI/&HasHalfCover=The creature has half cover.
 UI/&InventoryFilterAnyTags=Any Tags
 UI/&InventoryFilterBy=By
 UI/&InventoryFilterCategory=Category

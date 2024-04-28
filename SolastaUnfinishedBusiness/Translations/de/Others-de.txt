@@ -315,6 +315,7 @@ UI/&CustomFeatureSelectionTooltipTypeSorcererDraconicChoice=Zauberhafte drakonis
 UI/&CustomFeatureSelectionTooltipTypeWeaponSpecialization=Waffentraining
 UI/&ForcePreferredCantripDescription=Wenn diese Option aktiviert ist, kann nur der bevorzugte Cantrip ausgelöst werden. Wenn der bevorzugte Cantrip nicht ausgewählt ist, wird unabhängig von diesem Schalter der erste gültige Cantrip ausgelöst.
 UI/&ForcePreferredCantripTitle=Bevorzugten Cantrip erzwingen
+UI/&HasHalfCover=Die Kreatur hat halbe Deckung.
 UI/&InventoryFilterAnyTags=Alle Tags
 UI/&InventoryFilterBy=By
 UI/&InventoryFilterCategory=Kategorie

@@ -315,6 +315,7 @@ UI/&CustomFeatureSelectionTooltipTypeSorcererDraconicChoice=마법의 용족 조
 UI/&CustomFeatureSelectionTooltipTypeWeaponSpecialization=무기 훈련
 UI/&ForcePreferredCantripDescription=이것이 ON으로 전환되면 기본 캔트립만 트리거될 수 있습니다. 기본 캔트립을 선택하지 않은 경우 이 토글에 관계없이 첫 번째 유효한 캔트립이 트리거됩니다.
 UI/&ForcePreferredCantripTitle=강제 선호 캔트립
+UI/&HasHalfCover=그 생물은 절반의 엄폐물을 가지고 있습니다.
 UI/&InventoryFilterAnyTags=모든 태그
 UI/&InventoryFilterBy=By
 UI/&InventoryFilterCategory=범주

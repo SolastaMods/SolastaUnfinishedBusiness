@@ -362,7 +362,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{Name}ForceBulwark")
-                    .SetGuiPresentation($"Power{Name}ForceBulwark", Category.Feature)
+                    .SetGuiPresentation($"Power{Name}ForceBulwark", Category.Feature, "UI/&HasHalfCover")
                     .SetPermanentCover(CoverType.Half)
                     .AddToDB())
             .AddToDB();

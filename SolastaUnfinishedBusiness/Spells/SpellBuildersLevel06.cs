@@ -215,18 +215,19 @@ internal static partial class SpellBuilders
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionFiendishResilienceAcid)
+            .SetPossessive()
             .SetFeatures(
                 FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion,
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell)
+                    .SetGuiPresentation(NAME, Category.Spell, "UI/&HasHalfCover")
                     .SetPermanentCover(CoverType.Half)
-                    .AddToDB(),
-                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion)
+                    .AddToDB())
             .AddToDB();
 
         condition.GuiPresentation.description = Gui.NoLocalization;

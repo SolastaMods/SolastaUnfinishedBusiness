@@ -315,6 +315,7 @@ UI/&CustomFeatureSelectionTooltipTypeSorcererDraconicChoice=Ancestral Dracônico
 UI/&CustomFeatureSelectionTooltipTypeWeaponSpecialization=Treinamento com armas
 UI/&ForcePreferredCantripDescription=Se esta opção estiver ativada, somente o truque preferido poderá ser acionado. Se o truque preferido não estiver selecionado, o primeiro truque válido será acionado, independentemente desta alternância.
 UI/&ForcePreferredCantripTitle=Forçar Cantrip Preferido
+UI/&HasHalfCover=A criatura tem meia cobertura.
 UI/&InventoryFilterAnyTags=Quaisquer tags
 UI/&InventoryFilterBy=By
 UI/&InventoryFilterCategory=Categoria
