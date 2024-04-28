@@ -9,7 +9,8 @@
     "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
     "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
     "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
-    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75"
+    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
+    "Definition:SavingThrowAffinityRogueEvasion:5850df08bedec91459b38baa0cd3ff6f"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

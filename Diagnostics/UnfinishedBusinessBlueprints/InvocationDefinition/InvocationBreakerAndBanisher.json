@@ -6,7 +6,7 @@
   "grantedFeature": null,
   "grantedSpell": "Definition:DispelEvilAndGood:e901e74132f97ac458cc80e09da39c88",
   "consumesSpellSlot": false,
-  "longRestRecharge": false,
+  "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

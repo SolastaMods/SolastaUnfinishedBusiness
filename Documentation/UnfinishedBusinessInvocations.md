@@ -64,7 +64,7 @@ You can change the damage type of the eldritch blast to lightning damage instead
 
 # 17. - Gift of the Dispeller
 
-You can cast Dispel Evil and Good at will, without expending a spell slot.
+You can cast Dispel Evil and Good once, without expending a spell slot. You can't do so again until you finish a long rest.
 
 # 18. - *Gift of the Ever-Living Ones* ©
 

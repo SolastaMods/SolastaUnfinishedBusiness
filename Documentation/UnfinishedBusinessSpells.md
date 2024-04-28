@@ -349,7 +349,7 @@ You can try to move a Huge or smaller creature. Make an ability check with your 
 You create a field of silvery light that surrounds a creature of your choice within range. The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits:
 • The creature has half cover.
 • The creature has resistance to acid, cold, fire, lightning, and poison damage.
-• If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw.
+• If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.
 
 # 85. - Flash Freeze (V,S) level 6 Evocation
 
