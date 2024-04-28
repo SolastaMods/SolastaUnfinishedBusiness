@@ -154,18 +154,8 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "casterSelfParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      },
-      "casterQuickSpellParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      },
+      "casterSelfParticleReference": null,
+      "casterQuickSpellParticleReference": null,
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
