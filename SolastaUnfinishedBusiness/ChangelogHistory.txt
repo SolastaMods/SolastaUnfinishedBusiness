@@ -2,15 +2,13 @@
 
 - added Athlete feat
 - added Dawn, Fizban's Platinum Shield, Maddening Darkness, and Wither and Bloom spells
-- added Fire Shield spell to Sorcerer spell list [VANILLA]
 - added Imp Badland and Elf Shadar-Kai subraces
 - added Nature and Tempest cleric domains
-- fixed banishment kill extra planar behavior to only allow Banishment and Banishing Smite spells [VANILLA]
+- fixed Artillerist spell list to use sonic boom instead of wall of force
 - fixed College of Swords masterful whirl to trigger regardless of bardic dice remaining
 - fixed College of Thespian improved terrific performance damage trigger
 - fixed crafting recipes ingredients list
 - fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
-- fixed invisible creatures can be targeted behavior to grant +10 on off battle stealth checks
 - fixed Orcish Aggression feat family tag
 - fixed Path of the Reaver corrupted blood self damage
 - fixed Potent Spell Casting feat interaction with Produce Flame cantrip
@@ -19,6 +17,9 @@
 - fixed Step Back action behavior to interrupt on any ranged attack [VANILLA]
 - fixed Way of the Dragon elemental breath validation on main attack usages
 - fixed Witch Bolt spell interaction with auto spell powers
+- improved banishment kill extra planar behavior to only allow Banishment and Banishing Smite spells [VANILLA]
+- improved invisible creatures can be targeted behavior to grant +10 on off battle stealth checks
+- improved Sorcerer spell list with Fire Shield spell [VANILLA]
 - rebalanced all 13 grant spell type invocations and standardized descriptions
 - removed College of War Dancer offering from mod UI [couldn't find a good balance to avoid OP]
 

@@ -208,7 +208,7 @@ internal static partial class SpellBuilders
 
     #region Fizban Platinum Shield
 
-    internal static SpellDefinition BuildPrimordialWard()
+    internal static SpellDefinition BuildFizbanPlatinumShield()
     {
         const string NAME = "FizbanPlatinumShield";
 
