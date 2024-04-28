@@ -1516,7 +1516,7 @@ internal static class RaceFeats
             {
                 yield break;
             }
-            
+
             var rulesetTarget = target.RulesetCharacter;
 
             rulesetTarget.KnockOutPrevented -= KnockOutPreventedHandler;

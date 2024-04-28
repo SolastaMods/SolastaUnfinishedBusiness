@@ -2260,7 +2260,10 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityPatronHiveWeakeningPheromones { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityPatronHiveWeakeningPheromones");
-
+        
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityRogueEvasion { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityRogueEvasion");
+        
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityShelteringBreeze { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityShelteringBreeze");
     }

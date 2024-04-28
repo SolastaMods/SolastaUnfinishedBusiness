@@ -206,6 +206,67 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Fizban Platinum Shield
+
+    internal static SpellDefinition BuildPrimordialWard()
+    {
+        const string NAME = "FizbanPlatinumShield";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionFiendishResilienceAcid)
+            .SetFeatures(
+                FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation(NAME, Category.Spell)
+                    .SetPermanentCover(CoverType.Half)
+                    .AddToDB(),
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion)
+            .AddToDB();
+
+        condition.GuiPresentation.description = Gui.NoLocalization;
+
+        var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PrimordialWard, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, false)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(condition),
+                        EffectFormBuilder
+                            .Create()
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 6, 6,
+                                lightSourceForm.lightSourceForm.color,
+                                lightSourceForm.lightSourceForm.graphicsPrefabReference, true)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Heroic Infusion
 
     internal static SpellDefinition BuildHeroicInfusion()
@@ -649,67 +710,6 @@ internal static partial class SpellBuilders
 
             return isValid;
         }
-    }
-
-    #endregion
-
-    #region Fizban Platinum Shield
-
-    internal static SpellDefinition BuildPrimordialWard()
-    {
-        const string NAME = "FizbanPlatinumShield";
-
-        var condition = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionFiendishResilienceAcid)
-            .SetFeatures(
-                FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell)
-                    .SetPermanentCover(CoverType.Half)
-                    .AddToDB(),
-                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion)
-            .AddToDB();
-
-        condition.GuiPresentation.description = Gui.NoLocalization;
-
-        var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
-        
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PrimordialWard, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
-            .SetSpellLevel(6)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, false)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetRequiresConcentration(true)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(condition),
-                        EffectFormBuilder
-                            .Create()
-                            .SetLightSourceForm(
-                                LightSourceType.Basic, 6, 6,
-                                lightSourceForm.lightSourceForm.color,
-                                lightSourceForm.lightSourceForm.graphicsPrefabReference, true)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        return spell;
     }
 
     #endregion
