@@ -1,8 +1,8 @@
 Condition/&ConditionReverseGravityDescription=被反转重力捕获。
 Condition/&ConditionReverseGravityTitle=反转重力
-Feature/&PowerDraconicTransformationDescription=作为奖励动作，你可以在 60 英尺的圆锥体中呼出闪烁的能量。该区域中的每个生物都必须进行一次敏捷豁免，豁免失败会受到 6d8 力力伤害，成功则受到一半伤害。
-Feature/&PowerDraconicTransformationTitle=龙之变身
-Spell/&DraconicTransformationDescription=随着一声咆哮，你利用龙的魔法来改变自己，呈现出龙的特征。在法术结束之前，你将获得以下好处：\n• 你的盲视范围为 30 英尺。\n• 当你施放此法术时，并且作为持续时间内后续回合的奖励动作，你可以呼出微光60 英尺圆锥体中的能量。该区域中的每个生物都必须进行一次敏捷豁免检定，豁免失败则受到 6d8 力力伤害，成功则受到一半伤害。\n• 虚体翅膀从你的背后长出，使你的飞行速度达到 60 英尺。
-Spell/&DraconicTransformationTitle=龙变
+Feature/&PowerDraconicTransformationDescription=作为附赠动作，你可以在 60 尺锥形内呼出一道闪着光的能量。该区域中的每个生物都必须进行一次敏捷豁免，豁免失败会受到 6d8 力场伤害，成功则受到一半伤害。
+Feature/&PowerDraconicTransformationTitle=龙类变形
+Spell/&DraconicTransformationDescription=随着一声咆哮，你利用龙的魔法来改变自己，呈现出龙的特征。在法术结束之前，你将获得以下好处：\n• 你的盲视范围为 30 尺。\n• 当你施放此法术时，并且作为持续时间内后续回合的附赠动作，你可以在 60 尺锥形内呼出一道闪着光的能量。该区域中的每个生物都必须进行一次敏捷豁免，豁免失败会受到 6d8 力场伤害，成功则受到一半伤害。\n• 无形之翼从你的背后长出，使你获得 60 尺飞行速度。
+Spell/&DraconicTransformationTitle=龙类变形
 Spell/&ReverseGravityDescription=该法术以施法距离内一点为中心，创造一个半径 50 尺、高 100 尺柱状的重力反转区域。
 Spell/&ReverseGravityTitle=反转重力
