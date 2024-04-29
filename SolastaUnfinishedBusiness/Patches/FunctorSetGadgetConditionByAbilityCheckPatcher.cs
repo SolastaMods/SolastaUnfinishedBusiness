@@ -221,11 +221,11 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                 }
                 
                 //PATCH: support for `ITryAlterOutcomeAttributeCheck`
-                foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttributeCheck.Handler(
-                             battleManager, null, actingCharacter, actionModifier))
-                {
-                    yield return tryAlterOutcomeSavingThrow;
-                }
+                // foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttributeCheck.Handler(
+                //              battleManager, null, actingCharacter, actionModifier))
+                // {
+                //     yield return tryAlterOutcomeSavingThrow;
+                // }
                 
                 //END PATCH
             }

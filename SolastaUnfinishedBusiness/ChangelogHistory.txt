@@ -20,7 +20,7 @@
 - fixed Witch Bolt spell interaction with auto spell powers
 - hided College of War Dancer from mod UI [no RESPEC required but suggested as to be removed soon]
 - improved banishment kill extra planar behavior to only allow Banishment and Banishing Smite spells [VANILLA]
-- improved Bardic Inspiration to also be offered on off combat attribute checks [VANILLA]
+- improved Bardic Inspiration to also be offered on off combat attribute checks and saving throws [VANILLA]
 - improved invisible creatures can be targeted behavior to grant +10 on off battle stealth checks
 - improved invocations that grant spells with balanced usage and standardized descriptions
 - improved Sorcerer spell list with Fire Shield spell [VANILLA]
