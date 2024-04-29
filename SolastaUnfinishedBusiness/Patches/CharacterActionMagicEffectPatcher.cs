@@ -666,18 +666,6 @@ public static class CharacterActionMagicEffectPatcher
                     // END PATCH
                 }
 
-                // BEGIN PATCH
-
-                //PATCH: support for `ITryAlterOutcomeAttack`
-                foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack
-                             .Handler(battleManager,
-                                 __instance, actingCharacter, target, attackModifier))
-                {
-                    yield return tryAlterOutcomeAttack;
-                }
-
-                // END PATCH
-
                 __instance.isResultingActionSpendPowerWithMotionForm = false;
 
                 // Is this a success?
@@ -838,18 +826,6 @@ public static class CharacterActionMagicEffectPatcher
                             !needToRollDie,
                             hasBorrowedLuck);
                     }
-
-                    // BEGIN PATCH
-
-                    //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                    foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                 battleManager,
-                                 __instance, actingCharacter, target, attackModifier, hasBorrowedLuck))
-                    {
-                        yield return tryAlterOutcomeSavingThrow;
-                    }
-
-                    // END PATCH
                 }
             }
 

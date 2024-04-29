@@ -212,6 +212,92 @@ public static class GameLocationBattleManagerPatcher
     }
 #endif
 
+    [HarmonyPatch(typeof(GameLocationBattleManager),
+        nameof(GameLocationBattleManager.HandleBardicInspirationForAttack))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleBardicInspirationForAttack_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            //PATCH: support for `ITryAlterOutcomeAttack`
+            foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttack.Handler(
+                         __instance, action, attacker, target, attackModifier))
+            {
+                yield return tryAlterOutcomeSavingThrow;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleFailedAbilityCheck))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleFailedAbilityCheck_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter checker,
+            ActionModifier abilityCheckModifier)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            //PATCH: support for `ITryAlterOutcomeAttributeCheck`
+            foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttributeCheck.Handler(
+                         __instance, action, checker, abilityCheckModifier))
+            {
+                yield return tryAlterOutcomeSavingThrow;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleFailedSavingThrow))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleFailedSavingThrow_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier saveModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            //PATCH: support for `ITryAlterOutcomeSavingThrow`
+            foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
+                         __instance, action, attacker, defender, saveModifier, hasHitVisual, hasBorrowedLuck))
+            {
+                yield return tryAlterOutcomeSavingThrow;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterMoveStart))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

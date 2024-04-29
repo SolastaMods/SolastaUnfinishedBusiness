@@ -9,6 +9,7 @@
 - fixed College of Thespian improved terrific performance damage to trigger from 14th
 - fixed crafting recipes ingredients list to avoid double primed weapons requirement
 - fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
+- fixed Oath of Ancients aura of resistance condition to stay around after first damage
 - fixed Orcish Aggression feat family tag to avoid double offering
 - fixed Path of the Reaver corrupted blood to avoid self damage
 - fixed Potent Spell Casting feat interaction with Produce Flame cantrip

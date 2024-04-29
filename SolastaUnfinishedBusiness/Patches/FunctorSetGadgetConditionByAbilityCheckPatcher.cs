@@ -3,6 +3,7 @@ using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -154,7 +155,7 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
 
             if (outcome == RuleDefinitions.RollOutcome.Neutral)
             {
-                functorParameters.ActingCharacters[0].RollAbilityCheck(
+                actingCharacter.RollAbilityCheck(
                     functorParameters.AbilityCheck.AbilityScoreName,
                     functorParameters.AbilityCheck.ProficiencyName,
                     checkDC,
@@ -168,62 +169,64 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                     !functorParameters.AbilityCheck.Silent);
 
                 //BEGIN PATCH
+                var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
+                    as GameLocationBattleManager;
+
                 if (outcome == RuleDefinitions.RollOutcome.Failure)
                 {
-                    var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
-                        as GameLocationBattleManager;
-
                     battleManager!.GetBestParametersForBardicDieRoll(
-                        functorParameters.ActingCharacters[0],
+                        actingCharacter,
                         out var bestDie,
                         out _,
                         out var sourceCondition,
                         out var forceMaxRoll,
                         out var advantage);
 
-                    if (bestDie <= RuleDefinitions.DieType.D1 ||
-                        functorParameters.ActingCharacters[0].RulesetCharacter == null)
+                    if (bestDie > RuleDefinitions.DieType.D1 &&
+                        actingCharacter.RulesetCharacter != null)
                     {
-                        yield break;
-                    }
-
-                    // Is the die enough to overcome the failure?
-                    if (RuleDefinitions.DiceMaxValue[(int)bestDie] < Mathf.Abs(successDelta))
-                    {
-                        yield break;
-                    }
-
-                    var reactionParams =
-                        new CharacterActionParams(functorParameters.ActingCharacters[0],
-                            ActionDefinitions.Id.UseBardicInspiration)
+                        // Is the die enough to overcome the failure?
+                        if (RuleDefinitions.DiceMaxValue[(int)bestDie] >= Mathf.Abs(successDelta))
                         {
-                            IntParameter = (int)bestDie,
-                            IntParameter2 = (int)RuleDefinitions.BardicInspirationUsageType.AbilityCheck
-                        };
+                            var reactionParams =
+                                new CharacterActionParams(actingCharacter,
+                                    ActionDefinitions.Id.UseBardicInspiration)
+                                {
+                                    IntParameter = (int)bestDie,
+                                    IntParameter2 = (int)RuleDefinitions.BardicInspirationUsageType.AbilityCheck
+                                };
 
-                    var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-                    var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
 
-                    actionService.ReactToUseBardicInspiration(reactionParams);
+                            actionService.ReactToUseBardicInspiration(reactionParams);
 
-                    yield return battleManager.WaitForReactions(functorParameters.ActingCharacters[0], actionService,
-                        previousReactionCount);
+                            yield return battleManager.WaitForReactions(actingCharacter, actionService,
+                                previousReactionCount);
 
-                    if (!reactionParams.ReactionValidated)
-                    {
-                        yield break;
-                    }
+                            if (reactionParams.ReactionValidated)
+                            {
+                                // Now we have a shot at succeeding on the ability check
+                                var roll = actingCharacter.RulesetCharacter.RollBardicInspirationDie(
+                                    sourceCondition, successDelta, forceMaxRoll, advantage);
 
-                    // Now we have a shot at succeeding on the ability check
-                    var roll = functorParameters.ActingCharacters[0].RulesetCharacter.RollBardicInspirationDie(
-                        sourceCondition, successDelta, forceMaxRoll, advantage);
-
-                    if (roll >= Mathf.Abs(successDelta))
-                    {
-                        // The roll is now a success!
-                        outcome = RuleDefinitions.RollOutcome.Success;
+                                if (roll >= Mathf.Abs(successDelta))
+                                {
+                                    // The roll is now a success!
+                                    outcome = RuleDefinitions.RollOutcome.Success;
+                                }
+                            }
+                        }
                     }
                 }
+                
+                //PATCH: support for `ITryAlterOutcomeAttributeCheck`
+                foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttributeCheck.Handler(
+                             battleManager, null, actingCharacter, actionModifier))
+                {
+                    yield return tryAlterOutcomeSavingThrow;
+                }
+                
                 //END PATCH
             }
 

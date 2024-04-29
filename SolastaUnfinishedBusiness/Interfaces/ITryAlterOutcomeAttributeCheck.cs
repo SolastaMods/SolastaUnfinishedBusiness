@@ -1,33 +1,25 @@
 ﻿using System.Collections;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
-public interface ITryAlterOutcomeSavingThrow
+public interface ITryAlterOutcomeAttributeCheck
 {
-    IEnumerator OnTryAlterOutcomeSavingThrow(
+    IEnumerator OnTryAlterAttributeCheck(
         GameLocationBattleManager battleManager,
         CharacterAction action,
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        GameLocationCharacter helper,
-        ActionModifier actionModifier,
-        bool hasHitVisual,
-        [UsedImplicitly] bool hasBorrowedLuck);
+        GameLocationCharacter checker,
+        ActionModifier abilityCheckModifier);
 }
 
-internal static class TryAlterOutcomeSavingThrow
+internal static class TryAlterOutcomeAttributeCheck
 {
     internal static IEnumerable Handler(
         GameLocationBattleManager battleManager,
         CharacterAction action,
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier actionModifier,
-        bool hasHitVisual,
-        bool hasBorrowedLuck)
+        GameLocationCharacter checker,
+        ActionModifier abilityCheckModifier)
     {
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var contenders =
@@ -39,10 +31,9 @@ internal static class TryAlterOutcomeSavingThrow
                      .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
         {
             foreach (var feature in unit.RulesetCharacter
-                         .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
+                         .GetSubFeaturesByType<ITryAlterOutcomeAttributeCheck>())
             {
-                yield return feature.OnTryAlterOutcomeSavingThrow(
-                    battleManager, action, attacker, defender, unit, actionModifier, hasHitVisual, hasBorrowedLuck);
+                yield return feature.OnTryAlterAttributeCheck(battleManager, action, checker, abilityCheckModifier);
             }
         }
     }

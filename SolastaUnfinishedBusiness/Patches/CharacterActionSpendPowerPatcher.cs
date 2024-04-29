@@ -116,18 +116,6 @@ public static class CharacterActionSpendPowerPatcher
                             yield return battleManager.HandleFailedSavingThrow(
                                 __instance, actingCharacter, target, actionModifier, false, hasBorrowedLuck);
                         }
-
-                        // BEGIN PATCH
-
-                        //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                        foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                     battleManager as GameLocationBattleManager,
-                                     __instance, actingCharacter, target, actionModifier, hasBorrowedLuck))
-                        {
-                            yield return tryAlterOutcomeSavingThrow;
-                        }
-
-                        // END PATCH
                     }
 
                     // Apply the forms of the power

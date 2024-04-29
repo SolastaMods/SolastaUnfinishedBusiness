@@ -5,7 +5,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
-using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 using static RuleDefinitions;
 using Coroutine = TA.Coroutine;
@@ -264,17 +263,6 @@ public static class CharacterActionAttackPatcher
                 // END PATCH
             }
 
-            // BEGIN PATCH
-
-            //PATCH: support for `ITryAlterOutcomeAttack`
-            foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack
-                         .Handler(battleManager, __instance, actingCharacter, target, attackModifier))
-            {
-                yield return tryAlterOutcomeAttack;
-            }
-
-            // END PATCH
-
             if (rangeAttack)
             {
                 var isMonkReturnMissile = attackMode.ReturnProjectileOnly;
@@ -502,18 +490,6 @@ public static class CharacterActionAttackPatcher
                             yield return battleManager.HandleFailedSavingThrow(
                                 __instance, actingCharacter, target, attackModifier, false, hasBorrowedLuck);
                         }
-
-                        // BEGIN PATCH
-
-                        //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                        foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                     battleManager, __instance, actingCharacter, target, attackModifier,
-                                     hasBorrowedLuck))
-                        {
-                            yield return tryAlterOutcomeSavingThrow;
-                        }
-
-                        // END PATCH
                     }
 
                     // Check for resulting actions, if any of them is a CharacterSpendPower w/ a Motion effect form, don't wait for hit animation
