@@ -1,6 +1,6 @@
 Condition/&ConditionMindBlankDescription=Immune to psychic damage and the charmed condition.
 Condition/&ConditionMindBlankTitle=Mind Blank
-Spell/&MaddeningDarknessDescription=Magical darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the spell ends. Shrieks, gibbering, and mad laughter can be heard within the sphere. On activation, and whenever a creature starts its turn in the sphere, it must make a Wisdom saving throw, taking 6d8 psychic damage on a failed save, or half as much damage on a successful one.
+Spell/&MaddeningDarknessDescription=Magical darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the spell ends. Shrieks, gibbering, and mad laughter can be heard within the sphere. On activation, and whenever a creature ends its turn in the sphere, it must make a Wisdom saving throw, taking 6d8 psychic damage on a failed save, or half as much damage on a successful one.
 Spell/&MaddeningDarknessTitle=Maddening Darkness
 Spell/&MindBlankDescription=Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 Spell/&MindBlankTitle=Mind Blank
