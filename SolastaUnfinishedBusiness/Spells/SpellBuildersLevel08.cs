@@ -68,7 +68,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 12)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()

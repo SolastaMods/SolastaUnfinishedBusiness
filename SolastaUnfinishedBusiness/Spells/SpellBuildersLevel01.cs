@@ -812,10 +812,13 @@ internal static partial class SpellBuilders
             // need to loop over target characters to support twinned metamagic scenarios
             foreach (var target in actionCastSpell.ActionParams.TargetCharacters)
             {
-                foreach (var enemy in Gui.Battle
-                             .GetContenders(target, isOppositeSide: false, excludeSelf: false, withinRange: 1))
+                foreach (var contender in Gui.Battle.AllContenders
+                             .Where(x =>
+                                 x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                                 x.IsWithinRange(target, 1))
+                             .ToList())
                 {
-                    var rulesetEnemy = enemy.RulesetCharacter;
+                    var rulesetEnemy = contender.RulesetCharacter;
                     var casterSaveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
                     var modifierTrend = rulesetEnemy.actionModifier.savingThrowModifierTrends;
                     var advantageTrends = rulesetEnemy.actionModifier.savingThrowAdvantageTrends;
@@ -847,7 +850,7 @@ internal static partial class SpellBuilders
                     {
                         sourceCharacter = rulesetCaster,
                         targetCharacter = rulesetEnemy,
-                        position = enemy.LocationPosition
+                        position = contender.LocationPosition
                     };
 
                     EffectHelpers.StartVisualEffect(caster, target, ConeOfCold);
@@ -1336,7 +1339,8 @@ internal static partial class SpellBuilders
         }
 
         foreach (var rulesetCharacter in Gui.Battle.AllContenders
-                     .Select(gameLocationCharacter => gameLocationCharacter.RulesetCharacter))
+                     .Select(gameLocationCharacter => gameLocationCharacter.RulesetCharacter)
+                     .ToList())
         {
             if (rulesetCharacter.TemporaryHitPoints == 0 &&
                 rulesetCharacter.TryGetConditionOfCategoryAndType(
