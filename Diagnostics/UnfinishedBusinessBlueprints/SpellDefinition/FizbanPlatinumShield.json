@@ -8,7 +8,7 @@
   "spellLevel": 6,
   "ritual": false,
   "uniqueInstance": false,
-  "castingTime": "Action",
+  "castingTime": "BonusAction",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
   "requiresConcentration": true,
@@ -133,7 +133,7 @@
             "m_SubObjectName": "",
             "m_SubObjectType": ""
           },
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,
@@ -166,7 +166,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "d079f9fa254147048b360b7c5520e787",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

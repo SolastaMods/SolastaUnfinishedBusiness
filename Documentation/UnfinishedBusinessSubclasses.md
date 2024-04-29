@@ -1150,14 +1150,14 @@ You can use your Channel Divinity to wield the power of the storm with unchecked
 
 * Thunderous Strike
 
-During your turn, when you deal lightning or thunder damage to a large or smaller creature, you can also push it up to 10 feet away from you.
+During your turn, when you deal thunder damage to a large or smaller creature, you can also push it up to 10 feet away from you.
 
 
 ### Level 8
 
 * Divine Strike
 
-You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 lightning damage to the target. When you reach 14th level, the extra damage increases to 2d8.
+You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 thunder damage to the target. When you reach 14th level, the extra damage increases to 2d8.
 
 
 ### Level 10
@@ -1428,7 +1428,7 @@ As a bonus action, you can expend a use of your Wild Shape feature to take on a 
 * Cosmic Omen
 
 You learn to use your star map to divine the will of the cosmos. Whenever you finish a long rest, you can use a no cost power and until you finish your next long rest, you gain access to a special reaction based on whether you rolled an even or an odd number on the die:
-• Weal: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and add the number rolled to the total.
+• Weal: Whenever a creature you can see within 30 feet of you is about to make an attack roll, an attribute check, or a saving throw, you can use your reaction to roll a d6 and add the number rolled to the total.
 • Woe: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and subtract the number rolled from the total.
 
 

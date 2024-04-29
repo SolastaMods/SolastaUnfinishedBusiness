@@ -386,7 +386,7 @@ This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered
 
 # 91. - *Maddening Darkness* © (V) level 8 Evocation [Concentration]
 
-Magical darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the spell ends. Shrieks, gibbering, and mad laughter can be heard within the sphere. On activation, and whenever a creature starts its turn in the sphere, it must make a Wisdom saving throw, taking 6d8 psychic damage on a failed save, or half as much damage on a successful one.
+Magical darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the spell ends. Shrieks, gibbering, and mad laughter can be heard within the sphere. On activation, and whenever a creature ends its turn in the sphere, it must make a Wisdom saving throw, taking 6d8 psychic damage on a failed save, or half as much damage on a successful one.
 
 # 92. - *Mind Blank* © (V,S) level 8 Transmutation
 

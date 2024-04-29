@@ -20,7 +20,7 @@
   "damageDieType": "D8",
   "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
-  "specificDamageType": "DamageLightning",
+  "specificDamageType": "DamageThunder",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "ClassLevel",
   "diceByRankTable": [
@@ -139,7 +139,7 @@
   "lightSourceForm": null,
   "impactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "7ee946178940d56438b69281484e7a39",
+    "m_AssetGUID": "3e25fca5d3585174f9b7e20aca6ef3d9",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
