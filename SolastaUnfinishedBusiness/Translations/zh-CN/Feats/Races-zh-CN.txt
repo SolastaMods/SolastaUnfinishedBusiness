@@ -64,12 +64,17 @@ Feature/&PowerFeatOrcishAggressionTitle=兽人侵袭
 Feedback/&AdditionalDamageOrcishFuryFormat=兽人之怒
 Feedback/&AdditionalDamageOrcishFuryLine=兽人之怒造成额外 +{2} 伤害！
 Feedback/&BountifulLuckAttackToHitRoll={0} 使用 {1} 投掷了 {2} 掷骰并取代了攻击掷骰
+Feedback/&BountifulLuckCheckToHitRoll={0} 使用 {1} 滚动了 {2} 并替换了检查滚动
 Feedback/&BountifulLuckSavingToHitRoll={0} 使用 {1} 投掷了 {2} 并取代了豁免骰子
 Feedback/&DwarvenFortitudeHitDieRolled={0}投掷了{2}并治愈了{3} = {4}。
 Reaction/&CustomReactionBountifulLuckAttackDescription={0}错过了{1}。 {2} 可以作出反应投掷 d20 并取代攻击骰。
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=掷骰子 d20 来代替攻击掷骰。
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=好运连连
 Reaction/&CustomReactionBountifulLuckAttackTitle=好运连连
+Reaction/&CustomReactionBountifulLuckCheckDescription={0} 对 {1} 的保存检定失败。 {2} 可以做出反应，投掷 d20 并更换检查卷。
+Reaction/&CustomReactionBountifulLuckCheckReactDescription=滚动 d20 以更换检查辊。
+Reaction/&CustomReactionBountifulLuckCheckReactTitle=好运连连
+Reaction/&CustomReactionBountifulLuckCheckTitle=好运连连
 Reaction/&CustomReactionBountifulLuckSavingDescription={0} 对 {1} 的豁免检定失败。 {2} 可以做出反应来掷骰子 d20 并取代豁免掷骰。
 Reaction/&CustomReactionBountifulLuckSavingReactDescription=投掷 d20 来取代豁免检定。
 Reaction/&CustomReactionBountifulLuckSavingReactTitle=好运连连

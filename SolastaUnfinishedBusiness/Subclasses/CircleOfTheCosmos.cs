@@ -979,14 +979,14 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            action.RolledSaveThrow = true;
-            action.saveOutcomeDelta += dieRoll;
+            action.AbilityCheckRoll = dieRoll;
+            action.AbilityCheckSuccessDelta += dieRoll;
 
             (ConsoleStyleDuplet.ParameterType, string) extra;
 
-            if (action.saveOutcomeDelta >= 0)
+            if (action.AbilityCheckSuccessDelta >= 0)
             {
-                action.saveOutcome = RollOutcome.Success;
+                action.AbilityCheckRollOutcome = RollOutcome.Success;
                 extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
             }
             else
@@ -1214,14 +1214,14 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             var dieRoll = -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            action.RolledSaveThrow = true;
-            action.saveOutcomeDelta += dieRoll;
+            action.AbilityCheckRoll = dieRoll;
+            action.AbilityCheckSuccessDelta += dieRoll;
 
             (ConsoleStyleDuplet.ParameterType, string) extra;
 
-            if (action.saveOutcomeDelta < 0)
+            if (action.AbilityCheckSuccessDelta < 0)
             {
-                action.saveOutcome = RollOutcome.Failure;
+                action.AbilityCheckRollOutcome = RollOutcome.Failure;
                 extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
             }
             else

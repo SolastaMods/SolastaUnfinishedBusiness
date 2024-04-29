@@ -64,12 +64,17 @@ Feature/&PowerFeatOrcishAggressionTitle=오크의 공격성
 Feedback/&AdditionalDamageOrcishFuryFormat=오크의 분노
 Feedback/&AdditionalDamageOrcishFuryLine=Orcish Fury는 추가 +{2} 피해를 입힙니다!
 Feedback/&BountifulLuckAttackToHitRoll={0}는 {1}을 사용하여 {2}를 굴리고 공격 굴림을 교체했습니다.
+Feedback/&BountifulLuckCheckToHitRoll={0}는 {1}을(를) 사용하여 {2}를 굴리고 수표 롤을 교체했습니다.
 Feedback/&BountifulLuckSavingToHitRoll={0}은(는) {1}을(를) 사용하여 {2}을 굴리고 저장 굴림을 교체했습니다.
 Feedback/&DwarvenFortitudeHitDieRolled={0}이(가) {2}를 굴리고 {3} = {4}을(를) 치료했습니다.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0}님이 {1}님을 놓쳤습니다. {2}는 d20을 굴리고 공격 굴림을 대체하는 데 반응할 수 있습니다.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=공격 굴림을 대체하려면 d20을 굴립니다.
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=풍성한 행운
 Reaction/&CustomReactionBountifulLuckAttackTitle=풍성한 행운
+Reaction/&CustomReactionBountifulLuckCheckDescription={0}이(가) {1}에 대한 저장 롤에 실패했습니다. {2}는 d20을 굴리고 수표 굴림을 교체하는 데 반응할 수 있습니다.
+Reaction/&CustomReactionBountifulLuckCheckReactDescription=체크 롤을 교체하려면 d20을 굴립니다.
+Reaction/&CustomReactionBountifulLuckCheckReactTitle=풍성한 행운
+Reaction/&CustomReactionBountifulLuckCheckTitle=풍성한 행운
 Reaction/&CustomReactionBountifulLuckSavingDescription={0}이(가) {1}에 대한 저장 롤에 실패했습니다. {2}는 d20을 굴리고 저장 굴림을 교체하는 데 반응할 수 있습니다.
 Reaction/&CustomReactionBountifulLuckSavingReactDescription=저장 롤을 교체하려면 d20을 굴립니다.
 Reaction/&CustomReactionBountifulLuckSavingReactTitle=풍성한 행운

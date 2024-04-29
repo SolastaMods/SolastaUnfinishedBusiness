@@ -612,7 +612,8 @@ internal static class RaceFeats
 
     private sealed class CustomBehaviorBountifulLuck(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionBountifulLuck) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
+        ConditionDefinition conditionBountifulLuck) 
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
     {
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
@@ -745,6 +746,92 @@ internal static class RaceFeats
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
 
+            action.AbilityCheckRoll = dieRoll;
+            action.AbilityCheckSuccessDelta += dieRoll - 1;
+
+            (ConsoleStyleDuplet.ParameterType, string) extra;
+
+            if (action.AbilityCheckSuccessDelta >= 0)
+            {
+                action.AbilityCheckRollOutcome = RollOutcome.Success;
+                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
+            }
+            else
+            {
+                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
+            }
+
+            rulesetHelper.InflictCondition(
+                conditionBountifulLuck.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetHelper.guid,
+                rulesetHelper.CurrentFaction.Name,
+                1,
+                conditionBountifulLuck.Name,
+                0,
+                0,
+                0);
+
+            rulesetHelper.LogCharacterActivatesAbility(
+                "Feat/&FeatBountifulLuckTitle",
+                "Feedback/&BountifulLuckSavingToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                    extra
+                ]);
+        }
+
+        public IEnumerator OnTryAlterAttributeCheck(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier abilityCheckModifier)
+        {
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (!actionManager ||
+                action.AbilityCheckRoll == 0 ||
+                action.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                defender == helper ||
+                defender.IsOppositeSide(helper.Side) ||
+                !helper.CanReact() ||
+                !helper.IsWithinRange(defender, 6) ||
+                !helper.CanPerceiveTarget(defender))
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "CustomReactionBountifulLuckCheckDescription".Formatted(
+                        Category.Reaction, defender.Name, helper.Name)
+                };
+            var count = actionManager.PendingReactionRequestGroups.Count;
+
+            var reactionRequest = new ReactionRequestCustom("BountifulLuckCheck", reactionParams)
+            {
+                Resource = ReactionResourceChannelDivinity.Instance
+            };
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(defender, actionManager, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var rulesetHelper = helper.RulesetCharacter;
+            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+
             action.RolledSaveThrow = true;
             action.saveOutcomeDelta += dieRoll - 1;
 
@@ -776,7 +863,7 @@ internal static class RaceFeats
 
             rulesetHelper.LogCharacterActivatesAbility(
                 "Feat/&FeatBountifulLuckTitle",
-                "Feedback/&BountifulLuckSavingToHitRoll",
+                "Feedback/&BountifulLuckCheckToHitRoll",
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
