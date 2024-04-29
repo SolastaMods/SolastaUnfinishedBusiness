@@ -1,6 +1,6 @@
-Feature/&ActionAffinityThunderousStrikeToggleDescription=Durante tu turno, cuando infliges daño de rayo o trueno a una criatura grande o más pequeña, también puedes empujarla hasta 10 pies de distancia de ti.
+Feature/&ActionAffinityThunderousStrikeToggleDescription=Durante tu turno, cuando infliges daño de trueno a una criatura grande o más pequeña, también puedes empujarla hasta 10 pies de distancia de ti.
 Feature/&ActionAffinityThunderousStrikeToggleTitle=Golpe atronador
-Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=Obtienes la capacidad de infundir energía divina en tus ataques con armas. Una vez en cada uno de tus turnos, cuando golpeas a una criatura con un ataque con arma, puedes hacer que el ataque cause 1d8 daños de rayo adicionales al objetivo. Cuando alcanzas el nivel 14, el daño extra aumenta a 2d8.
+Feature/&AdditionalDamageDomainTempestDivineStrikeDescription=Obtienes la capacidad de infundir energía divina en tus ataques con armas. Una vez en cada uno de tus turnos, cuando golpeas a una criatura con un ataque con arma, puedes hacer que el ataque cause 1d8 daños de trueno adicionales al objetivo. Cuando alcanzas el nivel 14, el daño extra aumenta a 2d8.
 Feature/&AdditionalDamageDomainTempestDivineStrikeTitle=Golpe divino
 Feature/&FeatureSetDomainTempestBonusProficiencyDescription=Obtienes competencia con armaduras pesadas y armas marciales.
 Feature/&FeatureSetDomainTempestBonusProficiencyTitle=Competencias adicionales
