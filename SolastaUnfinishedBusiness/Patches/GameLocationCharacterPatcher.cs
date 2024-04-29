@@ -195,9 +195,9 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
-            actionModifier.AbilityCheckModifier += 10;
+            actionModifier.AbilityCheckModifier += 15;
             actionModifier.AbilityCheckModifierTrends.Add(
-                new TrendInfo(10, FeatureSourceType.Condition,
+                new TrendInfo(15, FeatureSourceType.Condition,
                     ConditionInvisible, DatabaseHelper.ConditionDefinitions.ConditionInvisibleBase));
         }
     }

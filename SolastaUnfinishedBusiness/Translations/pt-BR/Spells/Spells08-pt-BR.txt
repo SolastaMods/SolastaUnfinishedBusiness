@@ -1,6 +1,6 @@
 Condition/&ConditionMindBlankDescription=Imune a danos psíquicos e à condição encantado.
 Condition/&ConditionMindBlankTitle=Mente em branco
-Spell/&MaddeningDarknessDescription=A escuridão mágica se espalha a partir de um ponto que você escolher dentro do alcance para preencher uma esfera de 18 metros de raio até o fim da magia. Gritos, balbucios e risadas loucas podem ser ouvidos dentro da esfera. Na ativação, e sempre que uma criatura inicia seu turno na esfera, ela deve realizar um teste de resistência de Sabedoria, sofrendo 6d8 de dano psíquico se falhar na resistência, ou metade desse dano se obtiver sucesso.
+Spell/&MaddeningDarknessDescription=A escuridão mágica se espalha a partir de um ponto que você escolher dentro do alcance para preencher uma esfera de 18 metros de raio até o fim da magia. Gritos, balbucios e risadas loucas podem ser ouvidos dentro da esfera. Na ativação, e sempre que uma criatura terminar seu turno na esfera, ela deve realizar um teste de resistência de Sabedoria, sofrendo 6d8 de dano psíquico se falhar na resistência, ou metade desse dano se obtiver sucesso.
 Spell/&MaddeningDarknessTitle=Escuridão Enlouquecedora
 Spell/&MindBlankDescription=Até a magia terminar, uma criatura voluntária que você tocar é imune a dano psíquico, qualquer efeito que possa sentir suas emoções ou ler seus pensamentos, magias de adivinhação e a condição enfeitiçado.
 Spell/&MindBlankTitle=Mente em branco

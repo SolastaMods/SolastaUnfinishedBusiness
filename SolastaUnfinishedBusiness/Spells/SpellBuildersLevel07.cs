@@ -121,9 +121,9 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, sprite)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(7)
-            .SetCastingTime(ActivationTime.Action)
+            .SetCastingTime(ActivationTime.BonusAction)
             .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, true)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, false)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
@@ -146,7 +146,9 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeForce, 6, DieType.D8)
                             .Build())
-                    .SetParticleEffectParameters(EldritchBlast)
+                    .SetCasterEffectParameters(GravitySlam)
+                    .SetEffectEffectParameters(ConeOfCold)
+                    .SetImpactEffectParameters(EldritchBlast)
                     .Build())
             .AddToDB();
     }

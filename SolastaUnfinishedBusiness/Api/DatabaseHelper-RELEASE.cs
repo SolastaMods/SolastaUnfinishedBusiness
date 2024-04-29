@@ -3661,6 +3661,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition PoisonSpray { get; } = GetDefinition<SpellDefinition>("PoisonSpray");
         internal static SpellDefinition PowerWordStun { get; } = GetDefinition<SpellDefinition>("PowerWordStun");
         internal static SpellDefinition PrayerOfHealing { get; } = GetDefinition<SpellDefinition>("PrayerOfHealing");
+        internal static SpellDefinition PrismaticSpray { get; } = GetDefinition<SpellDefinition>("PrismaticSpray");
         internal static SpellDefinition ProduceFlame { get; } = GetDefinition<SpellDefinition>("ProduceFlame");
         internal static SpellDefinition ProduceFlameHurl { get; } = GetDefinition<SpellDefinition>("ProduceFlameHurl");
 

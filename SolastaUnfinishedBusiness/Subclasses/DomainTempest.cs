@@ -195,11 +195,11 @@ public sealed class DomainTempest : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("DivineStrike")
             .SetDamageDice(DieType.D8, 1)
-            .SetSpecificDamageType(DamageTypeLightning)
+            .SetSpecificDamageType(DamageTypeThunder)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
-            .SetImpactParticleReference(LightningBolt)
+            .SetImpactParticleReference(Shatter)
             .AddToDB();
 
         // LEVEL 17 - Stormborn
@@ -393,7 +393,9 @@ public sealed class DomainTempest : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            _isValid = true;
+            _isValid = attacker.IsWithinRange(defender, 1) &&
+                       defender.CanPerceiveTarget(attacker) &&
+                       rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit;
 
             yield break;
         }
@@ -410,7 +412,9 @@ public sealed class DomainTempest : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            _isValid = true;
+            _isValid = attacker.IsWithinRange(defender, 1) &&
+                       defender.CanPerceiveTarget(attacker) &&
+                       attackMode.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit;
 
             yield break;
         }
@@ -548,7 +552,7 @@ public sealed class DomainTempest : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (attacker.IsMyTurn() &&
-                damageType is DamageTypeLightning or DamageTypeThunder &&
+                damageType is DamageTypeThunder &&
                 rulesetDefender.SizeDefinition != CharacterSizeDefinitions.DragonSize &&
                 rulesetDefender.SizeDefinition != CharacterSizeDefinitions.Gargantuan &&
                 rulesetDefender.SizeDefinition != CharacterSizeDefinitions.Huge &&
@@ -585,8 +589,9 @@ public sealed class DomainTempest : AbstractSubclass
         {
             if (attacker.IsMyTurn() &&
                 actualEffectForms
-                    .Any(x => x.FormType == EffectForm.EffectFormType.Damage &&
-                              x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder) &&
+                    .Any(x =>
+                        x.FormType == EffectForm.EffectFormType.Damage &&
+                        x.DamageForm.DamageType is DamageTypeThunder) &&
                 rulesetDefender.SizeDefinition != CharacterSizeDefinitions.DragonSize &&
                 rulesetDefender.SizeDefinition != CharacterSizeDefinitions.Gargantuan &&
                 rulesetDefender.SizeDefinition != CharacterSizeDefinitions.Huge &&

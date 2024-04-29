@@ -192,7 +192,7 @@ internal static partial class SpellBuilders
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionFiendishResilienceAcid)
+            .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
             .SetFeatures(
                 FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
@@ -206,6 +206,7 @@ internal static partial class SpellBuilders
                     .SetGuiPresentation(NAME, Category.Spell, "UI/&HasHalfCover")
                     .SetPermanentCover(CoverType.Half)
                     .AddToDB())
+            .SetConditionParticleReference(ConditionWardedByWardingBond.conditionParticleReference)
             .AddToDB();
 
         condition.GuiPresentation.description = Gui.NoLocalization;
@@ -217,7 +218,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PrimordialWard, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(6)
-            .SetCastingTime(ActivationTime.Action)
+            .SetCastingTime(ActivationTime.BonusAction)
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, false)
             .SetVerboseComponent(true)
@@ -236,8 +237,9 @@ internal static partial class SpellBuilders
                             .SetLightSourceForm(
                                 LightSourceType.Basic, 6, 6,
                                 lightSourceForm.lightSourceForm.color,
-                                lightSourceForm.lightSourceForm.graphicsPrefabReference, true)
+                                lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
+                    .SetCasterEffectParameters(PrismaticSpray)
                     .Build())
             .AddToDB();
 
