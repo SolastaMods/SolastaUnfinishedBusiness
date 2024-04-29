@@ -9,7 +9,8 @@ public interface ITryAlterOutcomeAttributeCheck
     IEnumerator OnTryAlterAttributeCheck(
         GameLocationBattleManager battleManager,
         CharacterAction action,
-        GameLocationCharacter checker,
+        GameLocationCharacter defender,
+        GameLocationCharacter helper,
         ActionModifier abilityCheckModifier);
 }
 
@@ -18,7 +19,7 @@ internal static class TryAlterOutcomeAttributeCheck
     internal static IEnumerable Handler(
         GameLocationBattleManager battleManager,
         CharacterAction action,
-        GameLocationCharacter checker,
+        GameLocationCharacter defender,
         ActionModifier abilityCheckModifier)
     {
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
@@ -33,7 +34,8 @@ internal static class TryAlterOutcomeAttributeCheck
             foreach (var feature in unit.RulesetCharacter
                          .GetSubFeaturesByType<ITryAlterOutcomeAttributeCheck>())
             {
-                yield return feature.OnTryAlterAttributeCheck(battleManager, action, checker, abilityCheckModifier);
+                yield return feature
+                    .OnTryAlterAttributeCheck(battleManager, action, defender, unit, abilityCheckModifier);
             }
         }
     }
