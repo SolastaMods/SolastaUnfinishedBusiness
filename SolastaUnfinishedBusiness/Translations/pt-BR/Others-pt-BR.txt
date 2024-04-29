@@ -161,6 +161,7 @@ Feature/&PowerVanishSummonDescription=Você pode fazer sua invocação desaparec
 Feature/&PowerVanishSummonTitle=Desaparecer
 Feature/&ToolGainChoicesPluralDescription=Escolha {0} destas ferramentas: {1}
 Feature/&ToolGainChoicesSingleDescription=Escolha uma destas ferramentas: {1}
+Feature/&VisionBlindsightDescription=Você tem visão cega.
 Feedback/&AdditionalDamageBrutalStrikeFormat=Golpe Brutal
 Feedback/&AdditionalDamageBrutalStrikeLine=Golpe Brutal causa +{2} de dano extra!
 Feedback/&AdditionalDamageSunderingBlowFormat=Golpe Separador

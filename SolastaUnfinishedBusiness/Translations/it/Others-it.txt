@@ -161,6 +161,7 @@ Feature/&PowerVanishSummonDescription=Puoi far svanire la tua evocazione.
 Feature/&PowerVanishSummonTitle=Svanire
 Feature/&ToolGainChoicesPluralDescription=Scegli {0} di questi strumenti: {1}
 Feature/&ToolGainChoicesSingleDescription=Scegli uno di questi strumenti: {1}
+Feature/&VisionBlindsightDescription=Hai la vista cieca.
 Feedback/&AdditionalDamageBrutalStrikeFormat=Colpo Brutale
 Feedback/&AdditionalDamageBrutalStrikeLine=Brutal Strike infligge +{2} danni extra!
 Feedback/&AdditionalDamageSunderingBlowFormat=Colpo di separazione

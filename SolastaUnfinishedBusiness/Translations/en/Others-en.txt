@@ -329,3 +329,4 @@ UI/&RecipeFilterAmmunition=Ammunition
 UI/&RecipeFilterArmor=Armor
 UI/&RecipeFilterUsableDevices=Usable Devices
 UI/&RecipeFilterWeapons=Weapons
+Feature/&VisionBlindsightDescription=You have blindsight.

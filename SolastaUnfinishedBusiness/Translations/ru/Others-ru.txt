@@ -161,6 +161,7 @@ Feature/&PowerVanishSummonDescription=Вы можете заставить пр�
 Feature/&PowerVanishSummonTitle=Исчезновение
 Feature/&ToolGainChoicesPluralDescription=Выберите {0} из этих инструментов: {1}
 Feature/&ToolGainChoicesSingleDescription=Выберите один из этих инструментов: {1}
+Feature/&VisionBlindsightDescription=У тебя слепое зрение.
 Feedback/&AdditionalDamageBrutalStrikeFormat=Жестокий удар
 Feedback/&AdditionalDamageBrutalStrikeLine=Жестокий удар наносит дополнительно +{2} урона!
 Feedback/&AdditionalDamageSunderingBlowFormat=Раскалывающий удар

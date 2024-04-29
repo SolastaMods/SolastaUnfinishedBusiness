@@ -161,6 +161,7 @@ Feature/&PowerVanishSummonDescription=Vous pouvez faire disparaître votre invoc
 Feature/&PowerVanishSummonTitle=Disparaître
 Feature/&ToolGainChoicesPluralDescription=Choisissez {0} de ces outils : {1}
 Feature/&ToolGainChoicesSingleDescription=Choisissez l'un de ces outils : {1}
+Feature/&VisionBlindsightDescription=Vous avez la vue aveugle.
 Feedback/&AdditionalDamageBrutalStrikeFormat=Frappe brutale
 Feedback/&AdditionalDamageBrutalStrikeLine=Brutal Strike inflige +{2} dégâts supplémentaires !
 Feedback/&AdditionalDamageSunderingBlowFormat=Coup déchirant
