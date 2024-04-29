@@ -460,8 +460,7 @@ internal static class Level20Context
                         RangeType.Self,
                         1,
                         TargetType.Self)
-                    .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription
-                        .EffectParticleParameters)
+                    .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();

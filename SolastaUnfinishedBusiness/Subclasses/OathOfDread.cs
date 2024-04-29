@@ -126,7 +126,7 @@ public sealed class OathOfDread : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(PowerFighterActionSurge.EffectDescription.effectParticleParameters)
+                    .SetParticleEffectParameters(PowerFighterActionSurge)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

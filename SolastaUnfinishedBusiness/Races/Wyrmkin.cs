@@ -179,7 +179,7 @@ internal static class RaceWyrmkinBuilder
                 true,
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Intelligence)
-            .SetParticleEffectParameters(ColorSpray.EffectDescription.effectParticleParameters)
+            .SetParticleEffectParameters(ColorSpray)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()

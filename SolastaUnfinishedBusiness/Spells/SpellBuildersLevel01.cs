@@ -552,7 +552,7 @@ internal static partial class SpellBuilders
                         AttributeDefinitions.Constitution,
                         true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
+                    .SetParticleEffectParameters(Shatter)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()

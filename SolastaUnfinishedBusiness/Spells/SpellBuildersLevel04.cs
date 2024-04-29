@@ -207,7 +207,7 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeForce, 5, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
-                    .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
+                    .SetParticleEffectParameters(Shatter)
                     .Build())
             .AddCustomSubFeatures(ForcePushOrDragFromEffectPoint.Marker)
             .AddToDB();

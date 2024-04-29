@@ -103,7 +103,7 @@ public sealed class OathOfAncients : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetParticleEffectParameters(PowerWindShelteringBreeze.EffectDescription.effectParticleParameters)
+                    .SetParticleEffectParameters(PowerWindShelteringBreeze)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetDurationData(DurationType.Round, 5)

@@ -206,7 +206,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create(Sparkle.EffectDescription)
                     .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere, 6)
-                    .SetParticleEffectParameters(SacredFlame_B.EffectDescription.EffectParticleParameters)
+                    .SetParticleEffectParameters(SacredFlame_B)
                     .Build())
             .AddToDB();
 
@@ -1021,7 +1021,7 @@ internal static partial class SpellBuilders
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(CircleOfDeath.EffectDescription.EffectParticleParameters)
+                    .SetParticleEffectParameters(CircleOfDeath)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

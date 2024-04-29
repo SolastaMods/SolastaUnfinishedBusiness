@@ -67,7 +67,7 @@ internal static partial class SpellBuilders
                         AttributeDefinitions.Constitution,
                         true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
+                    .SetParticleEffectParameters(ConeOfCold)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
