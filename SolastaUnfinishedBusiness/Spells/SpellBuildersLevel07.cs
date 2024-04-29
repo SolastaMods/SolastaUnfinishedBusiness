@@ -69,9 +69,18 @@ internal static partial class SpellBuilders
     {
         const string NAME = "DraconicTransformation";
 
+        var sprite = Sprites.GetSprite(NAME, Resources.DraconicTransformation, 128);
+
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -87,9 +96,12 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeForce, 6, DieType.D8)
                             .Build())
+                    .SetParticleEffectParameters(EldritchBlast)
                     .Build())
             .AddToDB();
-        
+
+        power.disableIfConditionIsOwned = conditionMark;
+
         var condition = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionFlying)
@@ -106,7 +118,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.DraconicTransformation, 128))
+            .SetGuiPresentation(Category.Spell, sprite)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(7)
             .SetCastingTime(ActivationTime.Action)
@@ -126,12 +138,15 @@ internal static partial class SpellBuilders
                         false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionMark, ConditionForm.ConditionOperation.Add, true,
+                            true),
                         EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeForce, 6, DieType.D8)
                             .Build())
+                    .SetParticleEffectParameters(EldritchBlast)
                     .Build())
             .AddToDB();
     }
