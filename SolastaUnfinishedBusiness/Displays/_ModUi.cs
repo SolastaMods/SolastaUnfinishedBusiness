@@ -113,6 +113,7 @@ internal static class ModUi
         "FeatHeavyArmorMaster",
         "FeatInfernalConstitution",
         "FeatInspiringLeader",
+        "FeatLucky",
         "FeatMageSlayer",
         "FeatMediumArmorMaster",
         "FeatMetamagicAdept",
