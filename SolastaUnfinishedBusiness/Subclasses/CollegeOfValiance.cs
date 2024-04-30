@@ -155,7 +155,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
         {
             if (character != null &&
                 abilityScoreName == AttributeDefinitions.Charisma &&
-                proficiencyName is SkillDefinitions.Performance or SkillDefinitions.Persuasion)
+                proficiencyName is SkillDefinitions.Deception or SkillDefinitions.Persuasion)
             {
                 minRoll = Math.Max(minRoll, 10);
             }
