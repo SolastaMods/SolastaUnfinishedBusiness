@@ -87,6 +87,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Включить дополнительн
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Добавить новые предметы в Создатель Подземелий</i>
 ModUi/&EnableAlternateHuman=Включить альтернативное происхождение <color=#D89555>Человека</color> <i><color=#F0DAA0>[+1 черта / +2 очка характеристик / +1 навык]</color></i>
 ModUi/&EnableAlternateVotingSystem=Включить альтернативную систему голосования <i><color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя]</color></i>
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Включите <color=#D89555>Бардическое вдохновение</color>, <color=#D89555>Богатую удачу</color>, <color=#D89555>Круг звезд</color> и <color=#D89555>Вспышку Genius</color>, чтобы также запускать проверки внебоевых атрибутов.
 ModUi/&EnableBarbarianBrutalStrike=Включить <b>Жестокий удар</b> и <b>Улучшенный жестокий удар</b> <color=#D89555>Варварам</color> на уровнях 9, 13 и 17
 ModUi/&EnableBarbarianFightingStyle=Включить <color=#D89555>Варварам</color> выбор <b>Боевого стиля</b> на уровне 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Включить для <color=#D89555>Варваров</color> завершение эффектов <b>Безрассудной атаки</b> в начале следующего хода
