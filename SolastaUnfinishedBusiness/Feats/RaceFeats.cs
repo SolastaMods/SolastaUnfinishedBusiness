@@ -793,10 +793,8 @@ internal static class RaceFeats
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            var savingRoll = action.SaveOutcomeDelta - saveModifier.savingThrowModifier + action.GetSaveDC() - 1;
-
             if (!actionManager ||
-                savingRoll != 1 ||
+                !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 defender == helper ||
                 defender.IsOppositeSide(helper.Side) ||
@@ -831,9 +829,9 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-            
-            //TODO: fix below as need to find a way to identify original saving roll
-            action.saveOutcomeDelta += dieRoll;
+            var savingRoll = action.SaveOutcomeDelta - saveModifier.savingThrowModifier + action.GetSaveDC() - 1;
+
+            action.saveOutcomeDelta += dieRoll - savingRoll;
             action.RolledSaveThrow = true;
             
             (ConsoleStyleDuplet.ParameterType, string) extra;
