@@ -588,7 +588,6 @@ internal static class OtherFeats
                                     DamageAffinitySlashingResistance,
                                     DamageAffinityThunderResistance)
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-                                .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
                                 .AddToDB()))
                     .AddToDB())
             .AddFeatures(
@@ -630,7 +629,7 @@ internal static class OtherFeats
             }
 
             advantageTrends.Add(
-                new TrendInfo(2, FeatureSourceType.Condition, conditionResistance.Name, conditionResistance));
+                new TrendInfo(1, FeatureSourceType.Condition, conditionResistance.Name, conditionResistance));
 
             defender.InflictCondition(
                 conditionResistance.Name,

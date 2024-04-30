@@ -1177,7 +1177,7 @@ internal static partial class CharacterContext
         {
             var classLevel = defender.GetClassLevel(Fighter);
 
-            advantageTrends.Add(
+            modifierTrends.Add(
                 new TrendInfo(classLevel, FeatureSourceType.CharacterFeature,
                     FeatureDefinitionAttributeModifiers.AttributeModifierFighterIndomitable.Name,
                     FeatureDefinitionAttributeModifiers.AttributeModifierFighterIndomitable));

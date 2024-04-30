@@ -215,7 +215,7 @@ internal static class ArmorFeats
         {
             if (abilityScoreName == AttributeDefinitions.Dexterity && defender.IsWearingShield())
             {
-                advantageTrends.Add(
+                modifierTrends.Add(
                     new TrendInfo(2, FeatureSourceType.Power, powerShieldTechniques.Name, powerShieldTechniques));
             }
         }
