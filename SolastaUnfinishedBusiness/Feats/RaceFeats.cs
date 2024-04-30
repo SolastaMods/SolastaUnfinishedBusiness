@@ -740,7 +740,7 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-            
+
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
 
@@ -833,7 +833,7 @@ internal static class RaceFeats
 
             action.saveOutcomeDelta += dieRoll - savingRoll;
             action.RolledSaveThrow = true;
-            
+
             (ConsoleStyleDuplet.ParameterType, string) extra;
 
             if (action.saveOutcomeDelta >= 0)

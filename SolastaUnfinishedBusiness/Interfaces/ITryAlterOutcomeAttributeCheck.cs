@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
 public interface ITryAlterOutcomeAttributeCheck
 {
+    [UsedImplicitly]
     IEnumerator OnTryAlterAttributeCheck(
         GameLocationBattleManager battleManager,
         AbilityCheckData abilityCheckData,

@@ -32,7 +32,7 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
         Definition.AffinityGroups.Sort(Sorting.Compare);
         return this;
     }
-    
+
     internal FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
         CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
         DieType dieType = DieType.D1,

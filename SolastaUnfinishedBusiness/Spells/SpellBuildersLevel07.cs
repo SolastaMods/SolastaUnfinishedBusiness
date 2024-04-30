@@ -96,7 +96,9 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeForce, 6, DieType.D8)
                             .Build())
-                    .SetParticleEffectParameters(EldritchBlast)
+                    .SetParticleEffectParameters(ConeOfCold)
+                    .SetCasterEffectParameters(GravitySlam)
+                    .SetImpactEffectParameters(EldritchBlast)
                     .Build())
             .AddToDB();
 
@@ -146,8 +148,8 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeForce, 6, DieType.D8)
                             .Build())
+                    .SetParticleEffectParameters(ConeOfCold)
                     .SetCasterEffectParameters(GravitySlam)
-                    .SetEffectEffectParameters(ConeOfCold)
                     .SetImpactEffectParameters(EldritchBlast)
                     .Build())
             .AddToDB();

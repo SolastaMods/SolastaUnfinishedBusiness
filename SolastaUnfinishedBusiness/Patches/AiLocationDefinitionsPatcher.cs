@@ -57,7 +57,6 @@ public static class AiLocationDefinitionsPatcher
 
         private static ConditionDefinition MyConditionDefinition(ConditionForm conditionForm)
         {
-
             return conditionForm.ConditionDefinition.Name
                 is RuleDefinitions.ConditionDarkness
                 or "ConditionBlindedByDarkness"
