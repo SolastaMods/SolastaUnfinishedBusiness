@@ -15,6 +15,28 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
         CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
         DieType dieType = DieType.D1,
         int diceNumber = 0,
+        params (string abilityScoreName, string proficiencyName, AbilityCheckContext abilityCheckContext)[]
+            abilityProficiencyPairs)
+    {
+        Definition.AffinityGroups.SetRange(
+            abilityProficiencyPairs
+                .Select(tuple => new AbilityCheckAffinityGroup
+                {
+                    abilityScoreName = tuple.abilityScoreName,
+                    proficiencyName = (tuple.proficiencyName ?? string.Empty).Trim(),
+                    affinity = affinityType,
+                    abilityCheckModifierDiceNumber = diceNumber,
+                    abilityCheckModifierDieType = dieType,
+                    abilityCheckContext = tuple.abilityCheckContext
+                }));
+        Definition.AffinityGroups.Sort(Sorting.Compare);
+        return this;
+    }
+    
+    internal FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
+        CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
+        DieType dieType = DieType.D1,
+        int diceNumber = 0,
         params (string abilityScoreName, string proficiencyName)[] abilityProficiencyPairs)
     {
         Definition.AffinityGroups.SetRange(
