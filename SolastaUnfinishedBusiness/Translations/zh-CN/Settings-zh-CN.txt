@@ -87,7 +87,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和�
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+向地城编辑器添加新物品</i>
 ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属性选择/+1技能]</color></i>
 ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用英雄魅力调整值来确定选择权重]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=启用<color=#D89555>吟游灵感</color>、<color=#D89555>好运</color>、<color=#D89555>星环</color>和<color=#D89555>闪光Genius</color>还可以触发战斗属性检查
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=启用<color=#D89555>诗人激励</color>、<color=#D89555>好运连连</color>、<color=#D89555>星辰结社</color>和<color=#D89555>灵光一闪</color>还可以触发战斗属性检定
 ModUi/&EnableBarbarianBrutalStrike=在<color=#D89555>野蛮人</color> 9、13 和 17 级启用<b>凶蛮打击</b>和<b>精通凶蛮打击</b>
 ModUi/&EnableBarbarianFightingStyle=在<color=#D89555>野蛮人</color> 2 级启用<b>战斗风格</b>
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>野蛮人</color><b>鲁莽攻击</b>增益和减益以在下一回合开始时完成
