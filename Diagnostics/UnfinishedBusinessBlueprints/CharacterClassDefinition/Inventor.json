@@ -286,12 +286,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
+      "featureDefinition": "Definition:FeatureSetInventorFlashOfGenius:8a0ce368-d70f-5228-9faa-1780c6f71435",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetInventorFlashOfGenius:8a0ce368-d70f-5228-9faa-1780c6f71435",
+      "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
       "level": 7
     },
     {

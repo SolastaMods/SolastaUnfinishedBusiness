@@ -4,7 +4,19 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SavingThrowAffinityFeatShieldTechniques:759c1be5-e776-54d7-a870-3046f31b137c"
+    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
+    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
+    "Definition:DamageAffinityForceDamageResistance:4255cfeca2edc0643bc2b1897930a815",
+    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
+    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
+    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
+    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
+    "Definition:DamageAffinityPsychicResistance:6bcf228fbe370f34fa7cf0d8420998eb",
+    "Definition:DamageAffinityRadiantResistance:8ea0757b1c53c0446a9d83a4f0c3ca4d",
+    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
+    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -18,7 +30,7 @@
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    "SavingThrow"
+    9000
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -131,9 +143,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feat/&FeatShieldTechniquesTitle",
-    "description": "Feat/&FeatShieldTechniquesDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -153,7 +165,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "146c7460-3d6a-5863-ada2-ce4ea41ff378",
+  "guid": "b139a98e-a94e-5453-9979-e5f7753dc26c",
   "contentPack": 9999,
-  "name": "ConditionFeatShieldTechniquesSavingThrow"
+  "name": "ConditionFeatDungeonDelverResistance"
 }

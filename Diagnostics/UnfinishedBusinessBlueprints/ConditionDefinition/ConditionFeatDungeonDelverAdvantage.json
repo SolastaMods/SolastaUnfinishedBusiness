@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SavingThrowAffinityIndomitableSaving:455bfc34-69a3-5950-8f31-a60446e7b653"
+    "Definition:SavingThrowAffinityFeatDungeonDelver:cf7cb719-5624-57d2-bbb6-04e2743422ba"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -153,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c1c58112-b69a-5489-a333-39a60458e33b",
+  "guid": "53928498-4932-52c3-81e9-b233e2da2fb8",
   "contentPack": 9999,
-  "name": "ConditionIndomitableSavingSavingThrow"
+  "name": "ConditionFeatDungeonDelverAdvantage"
 }

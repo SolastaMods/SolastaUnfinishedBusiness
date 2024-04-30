@@ -81,7 +81,7 @@ Select 2 new infusions to learn.
 
 ## Level 7
 
-* Quick Wit
+* Flash of Genius
 
 When ally in 30ft fails saving throw by less than your Intelligence modifier, you can use your reaction to improvise help that would give that roll a bonus equal to your Intelligence modifier. You can use this ability Intelligence modifier times per long rest.
 

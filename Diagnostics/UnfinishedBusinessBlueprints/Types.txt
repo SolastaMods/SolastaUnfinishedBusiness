@@ -48,6 +48,7 @@ FeatureDefinitionSavingThrowAffinity
 FeatureDefinitionSense
 FeatureDefinitionSubclassChoice
 FeatureDefinitionSummoningAffinity
+FeatureDefinitionTerrainTypeAffinity
 FightingStyleDefinition
 InvocationDefinition
 InvocationDefinitionCustom

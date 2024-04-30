@@ -6,9 +6,9 @@
     {
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Charisma",
-      "affinity": "None",
-      "savingThrowModifierType": "SourceAbility",
-      "savingThrowModifierDiceNumber": 1,
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
       "restrictedSchools": [],
@@ -19,9 +19,9 @@
     {
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Constitution",
-      "affinity": "None",
-      "savingThrowModifierType": "SourceAbility",
-      "savingThrowModifierDiceNumber": 1,
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
       "restrictedSchools": [],
@@ -32,9 +32,9 @@
     {
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Dexterity",
-      "affinity": "None",
-      "savingThrowModifierType": "SourceAbility",
-      "savingThrowModifierDiceNumber": 1,
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
       "restrictedSchools": [],
@@ -45,9 +45,9 @@
     {
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Intelligence",
-      "affinity": "None",
-      "savingThrowModifierType": "SourceAbility",
-      "savingThrowModifierDiceNumber": 1,
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
       "restrictedSchools": [],
@@ -58,9 +58,9 @@
     {
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Strength",
-      "affinity": "None",
-      "savingThrowModifierType": "SourceAbility",
-      "savingThrowModifierDiceNumber": 1,
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
       "restrictedSchools": [],
@@ -71,9 +71,9 @@
     {
       "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
-      "affinity": "None",
-      "savingThrowModifierType": "SourceAbility",
-      "savingThrowModifierDiceNumber": 1,
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
       "restrictedSchools": [],
@@ -90,7 +90,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&IndomitableResistanceTitle",
+    "title": "Feat/&FeatDungeonDelverTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -111,7 +111,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "455bfc34-69a3-5950-8f31-a60446e7b653",
+  "guid": "cf7cb719-5624-57d2-bbb6-04e2743422ba",
   "contentPack": 9999,
-  "name": "SavingThrowAffinityIndomitableSaving"
+  "name": "SavingThrowAffinityFeatDungeonDelver"
 }
