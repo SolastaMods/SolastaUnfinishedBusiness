@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 
@@ -21,9 +23,14 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
     {
         [UsedImplicitly]
         public static bool Prefix(
-            out IEnumerator __result,
+            ref IEnumerator __result,
             FunctorParametersDescription functorParameters)
         {
+            if (!Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat)
+            {
+                return true;
+            }
+
             __result = Execute(functorParameters);
 
             return false;
@@ -118,16 +125,16 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                 }
             }
 
-            var outcome = RuleDefinitions.RollOutcome.Neutral;
+            var rollOutcome = RuleDefinitions.RollOutcome.Neutral;
 
             if (isPerceptionCheck && service is { AutoDetectTraps: true })
             {
-                outcome = RuleDefinitions.RollOutcome.Success;
+                rollOutcome = RuleDefinitions.RollOutcome.Success;
             }
 
             if (((passive ? 0 : !functorParameters.AbilityCheck.IgnorePassive ? 1 : 0) & (isPerceptionCheck ? 1 : 0)) !=
                 0 &&
-                outcome == RuleDefinitions.RollOutcome.Neutral)
+                rollOutcome == RuleDefinitions.RollOutcome.Neutral)
             {
                 var num = 10 + actingCharacter.RulesetCharacter.ComputeBaseAbilityCheckBonus(
                     functorParameters.AbilityCheck.AbilityScoreName, null,
@@ -149,13 +156,13 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
 
                 if (num >= checkDC)
                 {
-                    outcome = RuleDefinitions.RollOutcome.Success;
+                    rollOutcome = RuleDefinitions.RollOutcome.Success;
                 }
             }
 
-            if (outcome == RuleDefinitions.RollOutcome.Neutral)
+            if (rollOutcome == RuleDefinitions.RollOutcome.Neutral)
             {
-                actingCharacter.RollAbilityCheck(
+                var abilityCheckRoll = actingCharacter.RollAbilityCheck(
                     functorParameters.AbilityCheck.AbilityScoreName,
                     functorParameters.AbilityCheck.ProficiencyName,
                     checkDC,
@@ -163,7 +170,7 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                     actionModifier,
                     passive,
                     minRoll,
-                    out outcome,
+                    out rollOutcome,
                     out var successDelta,
                     !functorParameters.AbilityCheck.Silent,
                     !functorParameters.AbilityCheck.Silent);
@@ -172,7 +179,7 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                 var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
                     as GameLocationBattleManager;
 
-                if (outcome == RuleDefinitions.RollOutcome.Failure)
+                if (rollOutcome == RuleDefinitions.RollOutcome.Failure)
                 {
                     battleManager!.GetBestParametersForBardicDieRoll(
                         actingCharacter,
@@ -213,20 +220,42 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                                 if (roll >= Mathf.Abs(successDelta))
                                 {
                                     // The roll is now a success!
-                                    outcome = RuleDefinitions.RollOutcome.Success;
+                                    rollOutcome = RuleDefinitions.RollOutcome.Success;
                                 }
                             }
                         }
                     }
                 }
-                
+
                 //PATCH: support for `ITryAlterOutcomeAttributeCheck`
-                // foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttributeCheck.Handler(
-                //              battleManager, null, actingCharacter, actionModifier))
-                // {
-                //     yield return tryAlterOutcomeSavingThrow;
-                // }
-                
+                var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                var contenders =
+                    (Gui.Battle?.AllContenders ??
+                     locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                    .ToList();
+
+                foreach (var unit in contenders
+                             .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
+                {
+                    foreach (var feature in unit.RulesetCharacter
+                                 .GetSubFeaturesByType<ITryAlterOutcomeAttributeCheck>())
+                    {
+                        var abilityCheckData = new AbilityCheckData
+                        {
+                            AbilityCheckRoll = abilityCheckRoll,
+                            AbilityCheckRollOutcome = rollOutcome,
+                            AbilityCheckSuccessDelta = successDelta
+                        };
+
+                        yield return feature
+                            .OnTryAlterAttributeCheck(battleManager, abilityCheckData, actingCharacter, unit,
+                                actionModifier);
+
+                        abilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+                        rollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+                        successDelta = abilityCheckData.AbilityCheckSuccessDelta;
+                    }
+                }
                 //END PATCH
             }
 
@@ -234,7 +263,7 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                 ? functorParameters.TargetGadget
                 : functorParameters.SourceGadget;
 
-            if (outcome is RuleDefinitions.RollOutcome.Success or RuleDefinitions.RollOutcome.CriticalSuccess)
+            if (rollOutcome is RuleDefinitions.RollOutcome.Success or RuleDefinitions.RollOutcome.CriticalSuccess)
             {
                 var conditionIndex = Array.IndexOf(
                     worldGadget.ConditionChoices(), functorParameters.TargetConditionState.name);

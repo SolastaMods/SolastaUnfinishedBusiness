@@ -891,7 +891,8 @@ internal static class InventorClass
     }
 }
 
-internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower power) : ITryAlterOutcomeSavingThrow
+internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower power) 
+    : ITryAlterOutcomeSavingThrow, ITryAlterOutcomeAttributeCheck
 {
     public IEnumerator OnTryAlterOutcomeSavingThrow(
         GameLocationBattleManager battleManager,
@@ -988,5 +989,87 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         return $"SpendPowerInventorFlashOfGeniusReactDescription{text}"
             .Formatted(Category.Reaction, defender.Name, attacker.Name, action.FormatTitle());
+    }
+
+    public IEnumerator OnTryAlterAttributeCheck(
+        GameLocationBattleManager battleManager,
+        AbilityCheckData abilityCheckData,
+        GameLocationCharacter defender,
+        GameLocationCharacter helper, 
+        ActionModifier abilityCheckModifier)
+    {
+        var rulesetDefender = defender.RulesetCharacter;
+
+        if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+            !rulesetDefender.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect,
+                "ConditionInventorFlashOfGeniusAura",
+                out var activeCondition) ||
+            activeCondition.SourceGuid != helper.Guid)
+        {
+            yield break;
+        }
+
+        var rulesetHelper = helper.RulesetCharacter;
+        var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+        var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
+
+        if (abilityCheckData.AbilityCheckRoll == 0 ||
+            abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+            !helper.CanReact() ||
+            !helper.CanPerceiveTarget(defender) ||
+            rulesetHelper.GetRemainingPowerUses(power) == 0 ||
+            abilityCheckData.AbilityCheckSuccessDelta + bonus < 0)
+        {
+            yield break;
+        }
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        var usablePower = PowerProvider.Get(power, rulesetHelper);
+        var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
+        {
+            StringParameter = "InventorFlashOfGeniusCheck",
+            StringParameter2 = "SpendPowerInventorFlashOfGeniusCheckDescription".Formatted(
+                Category.Reaction, defender.Name, helper.Name),
+            RulesetEffect = implementationManager
+                .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+            UsablePower = usablePower
+        };
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        actionService.ReactToSpendPower(reactionParams);
+
+        yield return battleManager.WaitForReactions(defender, actionService, count);
+
+        if (!reactionParams.ReactionValidated)
+        {
+            yield break;
+        }
+
+        rulesetHelper.UsePower(usablePower);
+
+        abilityCheckData.AbilityCheckRoll += bonus;
+        abilityCheckData.AbilityCheckSuccessDelta += bonus;
+
+        if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
+        {
+            abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
+        }
+
+        var extra = abilityCheckData.AbilityCheckSuccessDelta >= 0
+            ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
+            : (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
+
+        helper.RulesetCharacter.LogCharacterUsedPower(
+            power,
+            "Feedback/&FlashOfGeniusCheckToHitRoll",
+            extra:
+            [
+                (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
+                extra
+            ]);
     }
 }

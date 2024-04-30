@@ -933,16 +933,16 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
         public IEnumerator OnTryAlterAttributeCheck(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
+            AbilityCheckData abilityCheckData,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier abilityCheckModifier)
         {
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (action.AbilityCheckRoll == 0 ||
-                action.AbilityCheckRollOutcome != RollOutcome.Failure ||
-                action.AbilityCheckSuccessDelta + MaxDieTypeValue < 0 ||
+            if (abilityCheckData.AbilityCheckRoll == 0 ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                abilityCheckData.AbilityCheckSuccessDelta + MaxDieTypeValue < 0 ||
                 rulesetHelper.GetRemainingPowerUses(powerWeal) == 0 ||
                 !helper.CanReact() ||
                 defender.IsOppositeSide(helper.Side) ||
@@ -979,14 +979,14 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            action.AbilityCheckRoll = dieRoll;
-            action.AbilityCheckSuccessDelta += dieRoll;
+            abilityCheckData.AbilityCheckRoll = dieRoll;
+            abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
 
             (ConsoleStyleDuplet.ParameterType, string) extra;
 
-            if (action.AbilityCheckSuccessDelta >= 0)
+            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
             {
-                action.AbilityCheckRollOutcome = RollOutcome.Success;
+                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
                 extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
             }
             else
@@ -1168,16 +1168,16 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
         public IEnumerator OnTryAlterAttributeCheck(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
+            AbilityCheckData abilityCheckData,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier abilityCheckModifier)
         {
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (action.AbilityCheckRoll == 0 ||
-                action.AbilityCheckRollOutcome != RollOutcome.Success ||
-                action.AbilityCheckSuccessDelta - MaxDieTypeValue >= 0 ||
+            if (abilityCheckData.AbilityCheckRoll == 0 ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Success ||
+                abilityCheckData.AbilityCheckSuccessDelta - MaxDieTypeValue >= 0 ||
                 rulesetHelper.GetRemainingPowerUses(powerWoe) == 0 ||
                 !helper.CanReact() ||
                 !defender.IsOppositeSide(helper.Side) ||
@@ -1214,14 +1214,14 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             var dieRoll = -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            action.AbilityCheckRoll = dieRoll;
-            action.AbilityCheckSuccessDelta += dieRoll;
+            abilityCheckData.AbilityCheckRoll = dieRoll;
+            abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
 
             (ConsoleStyleDuplet.ParameterType, string) extra;
 
-            if (action.AbilityCheckSuccessDelta < 0)
+            if (abilityCheckData.AbilityCheckSuccessDelta < 0)
             {
-                action.AbilityCheckRollOutcome = RollOutcome.Failure;
+                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Failure;
                 extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
             }
             else

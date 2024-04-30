@@ -153,6 +153,12 @@ internal static class GameUiDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAttributeCheckHelpersToWorkOffCombat"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat = toggle;
+        }
+
         toggle = Main.Settings.EnableHeroWithBestProficiencyToRollChoice;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHeroWithBestProficiencyToRollChoice"), ref toggle, UI.AutoWidth()))
         {

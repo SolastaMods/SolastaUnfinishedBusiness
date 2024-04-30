@@ -373,9 +373,10 @@ public class Settings : UnityModManager.ModSettings
 
     // Campaigns and Locations
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
+    public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
+    public bool EnableAttributeCheckHelpersToWorkOffCombat { get; set; }
     public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
-    public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool EnableAlternateVotingSystem { get; set; }
     public bool EnableSumD20OnAlternateVotingSystem { get; set; }

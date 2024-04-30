@@ -8,10 +8,17 @@ public interface ITryAlterOutcomeAttributeCheck
 {
     IEnumerator OnTryAlterAttributeCheck(
         GameLocationBattleManager battleManager,
-        CharacterAction action,
+        AbilityCheckData abilityCheckData,
         GameLocationCharacter defender,
         GameLocationCharacter helper,
         ActionModifier abilityCheckModifier);
+}
+
+public sealed class AbilityCheckData
+{
+    public int AbilityCheckRoll { get; set; }
+    public RuleDefinitions.RollOutcome AbilityCheckRollOutcome { get; set; }
+    public int AbilityCheckSuccessDelta { get; set; }
 }
 
 internal static class TryAlterOutcomeAttributeCheck
@@ -34,8 +41,19 @@ internal static class TryAlterOutcomeAttributeCheck
             foreach (var feature in unit.RulesetCharacter
                          .GetSubFeaturesByType<ITryAlterOutcomeAttributeCheck>())
             {
+                var abilityCheckData = new AbilityCheckData
+                {
+                    AbilityCheckRoll = action.AbilityCheckRoll,
+                    AbilityCheckRollOutcome = action.AbilityCheckRollOutcome,
+                    AbilityCheckSuccessDelta = action.AbilityCheckSuccessDelta
+                };
+
                 yield return feature
-                    .OnTryAlterAttributeCheck(battleManager, action, defender, unit, abilityCheckModifier);
+                    .OnTryAlterAttributeCheck(battleManager, abilityCheckData, defender, unit, abilityCheckModifier);
+
+                action.AbilityCheckRoll = abilityCheckData.AbilityCheckRoll;
+                action.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckRollOutcome;
+                action.AbilityCheckSuccessDelta = abilityCheckData.AbilityCheckSuccessDelta;
             }
         }
     }

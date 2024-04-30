@@ -663,8 +663,8 @@ internal static class RaceFeats
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
 
+            action.AttackSuccessDelta += dieRoll - action.AttackRoll;
             action.AttackRoll = dieRoll;
-            action.AttackSuccessDelta += dieRoll - 1;
 
             if (action.AttackSuccessDelta >= 0)
             {
@@ -696,7 +696,7 @@ internal static class RaceFeats
 
         public IEnumerator OnTryAlterAttributeCheck(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
+            AbilityCheckData abilityCheckData,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier abilityCheckModifier)
@@ -705,8 +705,8 @@ internal static class RaceFeats
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (!actionManager ||
-                action.AbilityCheckRoll == 0 ||
-                action.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                abilityCheckData.AbilityCheckRoll == 0 ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
                 defender == helper ||
                 defender.IsOppositeSide(helper.Side) ||
                 !helper.CanReact() ||
@@ -740,15 +740,15 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-
-            action.AbilityCheckRoll = dieRoll;
-            action.AbilityCheckSuccessDelta += dieRoll - 1;
+            
+            abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
+            abilityCheckData.AbilityCheckRoll = dieRoll;
 
             (ConsoleStyleDuplet.ParameterType, string) extra;
 
-            if (action.AbilityCheckSuccessDelta >= 0)
+            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
             {
-                action.AbilityCheckRollOutcome = RollOutcome.Success;
+                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
                 extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
             }
             else
@@ -831,10 +831,11 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-
+            
+            //TODO: fix below as need to find a way to identify original saving roll
+            action.saveOutcomeDelta += dieRoll;
             action.RolledSaveThrow = true;
-            action.saveOutcomeDelta += dieRoll - 1;
-
+            
             (ConsoleStyleDuplet.ParameterType, string) extra;
 
             if (action.saveOutcomeDelta >= 0)
