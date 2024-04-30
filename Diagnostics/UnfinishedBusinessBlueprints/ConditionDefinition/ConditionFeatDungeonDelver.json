@@ -143,8 +143,8 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feat/&FeatDungeonDelverTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -165,7 +165,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b139a98e-a94e-5453-9979-e5f7753dc26c",
+  "guid": "a2a29893-ca95-528a-8b3b-71e2e442cf65",
   "contentPack": 9999,
-  "name": "ConditionFeatDungeonDelverResistance"
+  "name": "ConditionFeatDungeonDelver"
 }
