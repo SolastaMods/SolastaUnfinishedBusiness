@@ -17,7 +17,7 @@ public static class AiLocationDefinitionsPatcher
     [HarmonyPatch(typeof(AiLocationDefinitions), nameof(AiLocationDefinitions.IsValidMagicEffect))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class CanCastMagic_Patch
+    public static class IsValidMagicEffect_Patch
     {
         [UsedImplicitly]
         public static void Postfix(
@@ -52,17 +52,34 @@ public static class AiLocationDefinitionsPatcher
                 new Func<ConditionForm, ConditionDefinition>(MyConditionDefinition).Method;
 
             return instructions.ReplaceCalls(conditionDefinitionMethod, "AiLocationDefinitions.ComputeRawScore",
-                new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, myConditionDefinitionMethod));
         }
 
         private static ConditionDefinition MyConditionDefinition(ConditionForm conditionForm)
         {
+
             return conditionForm.ConditionDefinition.Name
                 is RuleDefinitions.ConditionDarkness
                 or "ConditionBlindedByDarkness"
                 ? DatabaseHelper.ConditionDefinitions.ConditionDarkness
                 : conditionForm.ConditionDefinition;
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(
+            ref bool __result,
+            AiLocationCharacter aiCharacter,
+            IMagicEffect magicEffect,
+            GameLocationCharacter optionalTarget)
+        {
+            var locationCharacter = aiCharacter.GameLocationCharacter;
+
+            if (__result &&
+                !LightingAndObscurementContext.IsMagicEffectValidIfHeavilyObscuredOrInNaturalDarkness(
+                    locationCharacter, magicEffect, optionalTarget))
+            {
+                __result = false;
+            }
         }
     }
 }
