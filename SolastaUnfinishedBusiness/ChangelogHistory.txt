@@ -2,7 +2,7 @@
 
 - added Athlete feat
 - added Dawn, Draconic Transformation, Fizban's Platinum Shield, Maddening Darkness, and Wither and Bloom spells
-- added Imp Badland and Elf Shadar-Kai subraces
+- added Imp Badland [by Otearaisu] and Elf Shadar-Kai subraces
 - added Interface / Game UI / Campaigns setting to allow features that change attribute checks to work off combat
 - added Nature and Tempest cleric domains
 - fixed Artillerist spell list to use sonic boom instead of unimplemented wall of force
