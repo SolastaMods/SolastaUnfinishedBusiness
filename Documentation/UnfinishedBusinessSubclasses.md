@@ -695,13 +695,13 @@ Bards of the College of Eloquence use music and unwavering determination to embo
 
 ### Level 3
 
-* Captivating Presence
-
-You leave a lasting impression on people around you. When you make a Persuasion or Performance check, you can treat a d20 roll of 9 or lower as a 10.
-
 * Disheartening Performance
 
 Your valiance in battle demoralizes your enemies. As a bonus action, you can expend one use of your Bardic Inspiration and choose one hostile creature you can see within 60 feet of you. Roll the Bardic Inspiration die. The creature must subtract the number rolled from the first saving throw it succeeds on before the end of your next turn.
+
+* Silver Tongue
+
+You leave a lasting impression on people around you. When you make a Deception or Performance check, you can treat a d20 roll of 9 or lower as a 10.
 
 
 ### Level 6
