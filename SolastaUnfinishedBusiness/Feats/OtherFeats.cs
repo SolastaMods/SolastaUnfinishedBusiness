@@ -24,6 +24,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -42,6 +43,7 @@ internal static class OtherFeats
     {
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featAstralArms = BuildAstralArms();
+        var featDungeonDelver = BuildDungeonDelver();
         var featEldritchAdept = BuildEldritchAdept();
         var featFightingInitiate = BuildFightingInitiate();
         var featFrostAdaptation = BuildFrostAdaptation();
@@ -76,6 +78,7 @@ internal static class OtherFeats
             FeatAlert,
             featArcaneArcherAdept,
             featAstralArms,
+            featDungeonDelver,
             featEldritchAdept,
             featFrostAdaptation,
             featGiftOfTheChromaticDragon,
@@ -99,6 +102,7 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupBodyResilience.AddFeats(
             athleteGroup,
+            featDungeonDelver,
             featTough,
             featFrostAdaptation);
 
@@ -223,7 +227,7 @@ internal static class OtherFeats
                     .SetModifier(AttributeModifierOperation.Additive,
                         AttributeDefinitions.Constitution, 1)
                     .AddToDB(),
-                FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance)
+                DamageAffinityColdResistance)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
@@ -540,6 +544,139 @@ internal static class OtherFeats
 
         internal string Name { get; }
         internal bool ForceFixedList { get; }
+    }
+
+    #endregion
+
+    #region Dungeon Delver
+
+    private static FeatDefinition BuildDungeonDelver()
+    {
+        const string Name = "FeatDungeonDelver";
+
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create($"AbilityCheckAffinity{Name}")
+                    .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                    .BuildAndSetAffinityGroups(
+                        CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                        (AttributeDefinitions.Wisdom, SkillDefinitions.Perception,
+                            AbilityCheckContext.GadgetInteraction),
+                        (AttributeDefinitions.Intelligence, SkillDefinitions.Investigation,
+                            AbilityCheckContext.GadgetInteraction))
+                    .AddCustomSubFeatures(
+                        new CustomBehaviorDungeonDelver(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{Name}Resistance")
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetFeatures(
+                                    DamageAffinityAcidResistance,
+                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityColdResistance,
+                                    DamageAffinityFireResistance,
+                                    DamageAffinityForceDamageResistance,
+                                    DamageAffinityLightningResistance,
+                                    DamageAffinityNecroticResistance,
+                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPoisonResistance,
+                                    DamageAffinityPsychicResistance,
+                                    DamageAffinityRadiantResistance,
+                                    DamageAffinitySlashingResistance,
+                                    DamageAffinityThunderResistance)
+                                .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+                                .AddToDB(),
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{Name}Advantage")
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetFeatures(
+                                    FeatureDefinitionSavingThrowAffinityBuilder
+                                        .Create($"SavingThrowAffinity{Name}")
+                                        .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                                        .SetAffinities(
+                                            CharacterSavingThrowAffinity.Advantage, false,
+                                            AttributeDefinitions.Strength,
+                                            AttributeDefinitions.Dexterity,
+                                            AttributeDefinitions.Constitution,
+                                            AttributeDefinitions.Intelligence,
+                                            AttributeDefinitions.Wisdom,
+                                            AttributeDefinitions.Charisma)
+                                        .AddToDB())
+                                .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+                                .AddToDB()))
+                    .AddToDB())
+            .AddFeatures(
+                DatabaseRepository
+                    .GetDatabase<TerrainTypeDefinition>()
+                    .Select(terrainType =>
+                        FeatureDefinitionTerrainTypeAffinityBuilder
+                            .Create($"TerrainTypeAffinity{Name}{terrainType.Name}")
+                            .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                            .IgnoreTravelPacePerceptionMalus(terrainType.Name)
+                            .AddToDB())
+                    .Cast<FeatureDefinition>()
+                    .ToArray())
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorDungeonDelver(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionResistance,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionAdvantage) : IRollSavingThrowInitiated
+    {
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            if (caster is RulesetCharacterHero or RulesetCharacterMonster)
+            {
+                return;
+            }
+
+            defender.InflictCondition(
+                conditionAdvantage.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                defender.guid,
+                defender.CurrentFaction.Name,
+                1,
+                conditionAdvantage.Name,
+                0,
+                0,
+                0);
+
+            defender.InflictCondition(
+                conditionResistance.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                defender.guid,
+                defender.CurrentFaction.Name,
+                1,
+                conditionResistance.Name,
+                0,
+                0,
+                0);
+        }
     }
 
     #endregion
