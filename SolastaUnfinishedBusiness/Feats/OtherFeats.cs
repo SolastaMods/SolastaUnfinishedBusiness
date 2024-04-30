@@ -570,8 +570,8 @@ internal static class OtherFeats
                     .AddCustomSubFeatures(
                         new CustomBehaviorDungeonDelver(
                             ConditionDefinitionBuilder
-                                .Create($"Condition{Name}Resistance")
-                                .SetGuiPresentationNoContent(true)
+                                .Create($"Condition{Name}")
+                                .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetFeatures(
                                     DamageAffinityAcidResistance,
@@ -588,24 +588,6 @@ internal static class OtherFeats
                                     DamageAffinitySlashingResistance,
                                     DamageAffinityThunderResistance)
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-                                .AddToDB(),
-                            ConditionDefinitionBuilder
-                                .Create($"Condition{Name}Advantage")
-                                .SetGuiPresentationNoContent(true)
-                                .SetSilent(Silent.WhenAddedOrRemoved)
-                                .SetFeatures(
-                                    FeatureDefinitionSavingThrowAffinityBuilder
-                                        .Create($"SavingThrowAffinity{Name}")
-                                        .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
-                                        .SetAffinities(
-                                            CharacterSavingThrowAffinity.Advantage, false,
-                                            AttributeDefinitions.Strength,
-                                            AttributeDefinitions.Dexterity,
-                                            AttributeDefinitions.Constitution,
-                                            AttributeDefinitions.Intelligence,
-                                            AttributeDefinitions.Wisdom,
-                                            AttributeDefinitions.Charisma)
-                                        .AddToDB())
                                 .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
                                 .AddToDB()))
                     .AddToDB())
@@ -625,9 +607,7 @@ internal static class OtherFeats
 
     private sealed class CustomBehaviorDungeonDelver(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionResistance,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionAdvantage) : IRollSavingThrowInitiated
+        ConditionDefinition conditionResistance) : IRollSavingThrowInitiated
     {
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
@@ -649,19 +629,8 @@ internal static class OtherFeats
                 return;
             }
 
-            defender.InflictCondition(
-                conditionAdvantage.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                defender.guid,
-                defender.CurrentFaction.Name,
-                1,
-                conditionAdvantage.Name,
-                0,
-                0,
-                0);
+            advantageTrends.Add(
+                new TrendInfo(2, FeatureSourceType.Condition, conditionResistance.Name, conditionResistance));
 
             defender.InflictCondition(
                 conditionResistance.Name,
