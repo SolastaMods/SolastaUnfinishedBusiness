@@ -431,32 +431,31 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
 
-            //PATCH: support for action switching interaction with metamagic quickened spell
-            if (Main.Settings.EnableActionSwitching
-                && actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell1
-                && rulesetEffectSpell1.MetamagicOption == MetamagicQuickenedSpell)
+            //PATCH: support for action switching
+            if (Main.Settings.EnableActionSwitching &&
+                actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell)
             {
-                // another hack to ensure we don't get offered more than we should on action switching
-                // for whatever reason we get the spell casting state loaded before we get to this point
-                // causing all spells to be offered after a quickened instead of only cantrips
-                __instance.UsedBonusSpell = true;
-            }
+                if (rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
+                {
+                    // ensure we block double dip on bonus spells if metamagic is present
+                    __instance.UsedBonusSpell = true;
+                }
 
-            //PATCH: ensure if a bonus spell is cast, no more main spells are allowed
-            if (Main.Settings.EnableActionSwitching
-                && actionParams.ActionDefinition.ActionType == ActionDefinitions.ActionType.Bonus
-                && actionParams.activeEffect is RulesetEffectSpell)
-            {
-                __instance.UsedMainSpell = true;
-            }
-
-            //PATCH: ensure if a main spell is cast, no more bonus spells are allowed
-            if (Main.Settings.EnableActionSwitching
-                && actionParams.ActionDefinition.ActionType == ActionDefinitions.ActionType.Main
-                && actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell2
-                && rulesetEffectSpell2.SpellDefinition.SpellLevel > 0)
-            {
-                __instance.UsedBonusSpell = true;
+                // ensure we update some action switching related flags here as they get overwritten later
+                // under some scenarios involving cantrips that attack and war caster
+                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                switch (actionParams.ActionDefinition.ActionType)
+                {
+                    case ActionDefinitions.ActionType.Main when rulesetEffectSpell.SpellDefinition.SpellLevel == 0:
+                        __instance.UsedMainCantrip = true;
+                        break;
+                    case ActionDefinitions.ActionType.Main:
+                        __instance.UsedBonusSpell = true;
+                        break;
+                    case ActionDefinitions.ActionType.Bonus:
+                        __instance.UsedMainSpell = true;
+                        break;
+                }
             }
 
             //PATCH: support for action switching

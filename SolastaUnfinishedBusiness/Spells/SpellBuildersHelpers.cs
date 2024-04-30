@@ -124,12 +124,6 @@ internal static partial class SpellBuilders
             //mark this attack for proper integration with War Magic
             attackMode.AttackTags.TryAdd(PhysicalAttackFromCantrip);
 
-            //PATCH: ensure we flag cantrip used if action switch enabled
-            if (Main.Settings.EnableActionSwitching)
-            {
-                caster.UsedMainCantrip = true;
-            }
-
             var twinned =
                 actionMagicEffect is CharacterActionCastSpell castSpell &&
                 castSpell.ActiveSpell.MetamagicOption == MetamagicTwinnedSpell;
