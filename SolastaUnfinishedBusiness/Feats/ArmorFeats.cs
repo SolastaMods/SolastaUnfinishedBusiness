@@ -117,20 +117,6 @@ internal static class ArmorFeats
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasShield, ValidatorsCharacter.HasAttacked))
             .AddToDB();
 
-        var conditionShieldTechniquesSavingThrow = ConditionDefinitionBuilder
-            .Create($"Condition{Name}SavingThrow")
-            .SetGuiPresentation(Name, Category.Feat)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create($"SavingThrowAffinity{Name}")
-                    .SetGuiPresentation(Name, Category.Feat)
-                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.SourceAbility, DieType.D1, 1, false,
-                        AttributeDefinitions.Dexterity)
-                    .AddToDB())
-            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
-            .AddToDB();
-
         var powerShieldTechniques = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Feat)
@@ -139,7 +125,7 @@ internal static class ArmorFeats
 
         powerShieldTechniques.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new CustomBehaviorShieldTechniques(powerShieldTechniques, conditionShieldTechniquesSavingThrow));
+            new CustomBehaviorShieldTechniques(powerShieldTechniques));
 
         return FeatDefinitionBuilder
             .Create(Name)
@@ -149,10 +135,7 @@ internal static class ArmorFeats
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorShieldTechniques(
-        FeatureDefinitionPower powerShieldTechniques,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionShieldTechniquesSavingThrow)
+    private sealed class CustomBehaviorShieldTechniques(FeatureDefinitionPower powerShieldTechniques)
         : IRollSavingThrowInitiated, IMagicEffectBeforeHitConfirmedOnMe
     {
         // halve any damage taken
@@ -218,31 +201,23 @@ internal static class ArmorFeats
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
+            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int saveDC,
-            bool hasHitVisual,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (abilityScoreName != AttributeDefinitions.Dexterity || !defender.IsWearingShield())
+            if (abilityScoreName == AttributeDefinitions.Dexterity && defender.IsWearingShield())
             {
-                return;
+                advantageTrends.Add(
+                    new TrendInfo(2, FeatureSourceType.Power, powerShieldTechniques.Name, powerShieldTechniques));
             }
-
-            defender.InflictCondition(
-                conditionShieldTechniquesSavingThrow.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagStatus,
-                caster.Guid,
-                caster.CurrentFaction.Name,
-                1,
-                conditionShieldTechniquesSavingThrow.Name,
-                0,
-                2,
-                0);
         }
     }
 }

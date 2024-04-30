@@ -19,7 +19,7 @@
 - fixed Step Back action behavior to interrupt on any ranged attack [VANILLA]
 - fixed Way of the Dragon elemental breath validation on main attack usages
 - fixed Witch Bolt spell interaction with auto spell powers
-- hided College of War Dancer from mod UI [no RESPEC required but suggested as to be removed soon]
+- hided College of War Dancer from mod UI [no RESPEC required]
 - improved banishment kill extra planar behavior to only allow Banishment and Banishing Smite spells [VANILLA]
 - improved Bardic Inspiration to work on off combat attribute checks [VANILLA]
 - improved Bountiful Luck, Circle of Stars, and Flash of Genius to also trigger on attribute checks

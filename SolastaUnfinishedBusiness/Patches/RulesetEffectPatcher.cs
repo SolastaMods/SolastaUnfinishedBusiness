@@ -102,11 +102,16 @@ public static class RulesetEffectPatcher
                 rollSavingThrowInitiated.OnSavingThrowInitiated(
                     caster,
                     __instance,
+                    ref saveBonus,
                     ref abilityScoreName,
                     sourceDefinition,
+                    modifierTrends,
                     advantageTrends,
-                    saveDC,
-                    hasHitVisual,
+                    ref rollModifier,
+                    ref saveDC,
+                    ref hasHitVisual,
+                    outcome,
+                    outcomeDelta,
                     effectForms);
             }
 

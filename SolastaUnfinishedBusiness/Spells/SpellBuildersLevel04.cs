@@ -377,11 +377,16 @@ internal static partial class SpellBuilders
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
+            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int saveDC,
-            bool hasHitVisual,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
             List<EffectForm> effectForms)
         {
             if (abilityScoreName == AttributeDefinitions.Constitution)
@@ -417,7 +422,7 @@ internal static partial class SpellBuilders
                 DamageAffinityNecroticResistance)
             .AddCustomSubFeatures(
                 new CharacterBeforeTurnStartListenerAuraOfVitality(),
-                // need to keep this condition when hero is downed so it can stand up on it's next turn
+                // need to keep this condition when hero is downed, so it can stand up on it's next turn
                 new ForceConditionCategory(AttributeDefinitions.TagCombat))
             .AddToDB();
 
@@ -518,11 +523,16 @@ internal static partial class SpellBuilders
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
+            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int saveDC,
-            bool hasHitVisual,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
             List<EffectForm> effectForms)
         {
             if (effectForms.Any(x =>
@@ -718,11 +728,16 @@ internal static partial class SpellBuilders
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
+            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int saveDC,
-            bool hasHitVisual,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
             List<EffectForm> effectForms)
         {
             if (abilityScoreName == AttributeDefinitions.Constitution)

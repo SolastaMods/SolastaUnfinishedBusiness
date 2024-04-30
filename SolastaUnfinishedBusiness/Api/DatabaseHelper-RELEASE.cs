@@ -428,9 +428,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionFeatTakeAim { get; } =
             GetDefinition<ConditionDefinition>("ConditionFeatTakeAim");
 
-        internal static ConditionDefinition ConditionFiendishResilienceAcid { get; } =
-            GetDefinition<ConditionDefinition>("ConditionFiendishResilienceAcid");
-
         internal static ConditionDefinition ConditionFlying { get; } =
             GetDefinition<ConditionDefinition>("ConditionFlying");
 
@@ -1116,6 +1113,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterExtraAttack { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterExtraAttack");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitable { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterIndomitable");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitableAdd1 { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterIndomitableAdd1");
