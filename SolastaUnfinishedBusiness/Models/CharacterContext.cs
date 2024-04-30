@@ -780,7 +780,8 @@ internal static partial class CharacterContext
         //
 
         var dbFeatureDefinitionTerrainTypeAffinity =
-            DatabaseRepository.GetDatabase<FeatureDefinitionTerrainTypeAffinity>();
+            DatabaseRepository.GetDatabase<FeatureDefinitionTerrainTypeAffinity>()
+                .Where(x => x.ContentPack != CeContentPackContext.CeContentPack);
 
         var terrainAffinitySprites = new Dictionary<string, byte[]>
         {

@@ -61,7 +61,7 @@ public sealed class DomainSmith : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(bonusProficiencyArmorDomainForge, bonusProficiencyArtisanToolTypeDomainForge)
             .AddToDB();
-        
+
         // Reinforce Armor - 1, 6, 11, 16
 
         var spriteReference = MageArmor.guiPresentation.SpriteReference;
