@@ -11,12 +11,14 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:FeatureFeatLucky:e5d026fb-0721-5900-bf2c-0866fca57677"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupSupportCombatTitle",
-    "description": "Call for Charge, Chef, Gift of the Chromatic Dragon, Hardy, Healer, Improved Critical, Inspiring Leader, Lucky, Mage Slayer, Mender, Poisoner, Precision Focused, Sentinel, Superior Critical, Weapon Master",
+    "title": "Feat/&FeatLuckyTitle",
+    "description": "Feat/&FeatLuckyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1db5b688-e646-5e50-bdb0-1187118afb67",
+  "guid": "86ea875c-4fdc-59e9-b400-7801f8d68e59",
   "contentPack": 9999,
-  "name": "FeatGroupSupportCombat"
+  "name": "FeatLucky"
 }

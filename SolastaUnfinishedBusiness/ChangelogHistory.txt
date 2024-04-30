@@ -1,6 +1,6 @@
 1.5.97.6:
 
-- added Athlete, and Dungeon Delver feats
+- added Athlete, Dungeon Delver, and Lucky feats
 - added Dawn, Draconic Transformation, Fizban's Platinum Shield, Maddening Darkness, and Wither and Bloom spells
 - added Imp Badland [by Otearaisu] and Elf Shadar-Kai subraces
 - added Interface / Game UI / Campaigns setting to allow features that change attribute checks to work off combat
