@@ -248,28 +248,23 @@
         <string>BeaconOfHope</string>
         <string>Bless</string>
         <string>BlessingOfRime</string>
-        <string>CommandApproach</string>
-        <string>CommandDrop</string>
-        <string>CommandFlee</string>
-        <string>CommandGrovel</string>
-        <string>CommandHalt</string>
+        <string>BoomingBlade</string>
         <string>DispelMagic</string>
         <string>FeatherFall</string>
         <string>Knock</string>
         <string>Levitate</string>
         <string>MassCureWounds</string>
         <string>PassWithoutTrace</string>
-        <string>RayOfEnfeeblement</string>
-        <string>ResonatingStrike</string>
-        <string>Sanctuary</string>
-        <string>ShieldOfFaith</string>
-        <string>Sparkle</string>
-        <string>TrueStrike</string>
+        <string>PowerBarbarianBrutalStrike</string>
         <string>PowerBardHopeWordsOfHope6</string>
         <string>PowerBardTraditionManacalonsPerfection</string>
         <string>PowerCelestialSearingVengeance</string>
+        <string>PowerCollegeOfAudacityDefensiveWhirl</string>
+        <string>PowerCollegeOfAudacityMobileWhirl</string>
         <string>PowerCollegeOfValianceHeroicInspiration</string>
         <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
+        <string>PowerFeatChefCookMeal</string>
+        <string>PowerFeatOrcishAggression</string>
         <string>PowerInnovationWeaponArcaneJolt</string>
         <string>PowerOathOfJugementPurgeCorruption</string>
         <string>PowerOathOfJugementRetribution</string>
@@ -279,9 +274,16 @@
         <string>PowerRangerLightBearerBlessedWarrior</string>
         <string>PowerRiftWalkerRiftStrike</string>
         <string>PowerSorcerousPsionMindOverMatter</string>
+        <string>PowerTraditionOpenHandQuiveringPalmTrigger</string>
         <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
         <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
-        <string>PowerFeatChefCookMeal</string>
+        <string>RayOfEnfeeblement</string>
+        <string>ResonatingStrike</string>
+        <string>Sanctuary</string>
+        <string>ShieldOfFaith</string>
+        <string>Sparkle</string>
+        <string>SunlightBlade</string>
+        <string>TrueStrike</string>
     </EffectsThatTargetDistantIndividualsAndDontRequireSight>
     <DisableUnofficialTranslations>false</DisableUnofficialTranslations>
     <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
@@ -838,9 +840,10 @@
         </item>
     </SpellListSpellEnabled>
     <EnableAdditionalIconsOnLevelMap>false</EnableAdditionalIconsOnLevelMap>
+    <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
+    <EnableAttributeCheckHelpersToWorkOffCombat>false</EnableAttributeCheckHelpersToWorkOffCombat>
     <EnableHeroWithBestProficiencyToRollChoice>false</EnableHeroWithBestProficiencyToRollChoice>
     <EnableLogDialoguesToConsole>false</EnableLogDialoguesToConsole>
-    <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <MarkInvisibleTeleportersOnLevelMap>false</MarkInvisibleTeleportersOnLevelMap>
     <EnableAlternateVotingSystem>false</EnableAlternateVotingSystem>
     <EnableSumD20OnAlternateVotingSystem>false</EnableSumD20OnAlternateVotingSystem>

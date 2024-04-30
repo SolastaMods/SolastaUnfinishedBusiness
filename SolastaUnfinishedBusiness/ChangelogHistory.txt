@@ -23,7 +23,7 @@
 - improved banishment kill extra planar behavior to only allow Banishment and Banishing Smite spells [VANILLA]
 - improved Bardic Inspiration to work on off combat attribute checks [VANILLA]
 - improved Bountiful Luck, Circle of Stars, and Flash of Genius to also trigger on attribute checks
-- improved invisible creatures can be targeted behavior to grant +15 on off battle stealth checks
+- improved invisible creatures can be targeted behavior to grant +100 on off battle stealth checks
 - improved invocations that grant spells with balanced usage and standardized descriptions
 - improved Sorcerer spell list with Fire Shield spell [VANILLA]
 
