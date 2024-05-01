@@ -892,7 +892,7 @@ internal static class InventorClass
 }
 
 internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower power)
-    : ITryAlterOutcomeSavingThrow, ITryAlterOutcomeAttributeCheck
+    : ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
 {
     public IEnumerator OnTryAlterAttributeCheck(
         GameLocationBattleManager battleManager,

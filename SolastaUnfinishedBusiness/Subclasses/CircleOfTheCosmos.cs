@@ -979,7 +979,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            abilityCheckData.AbilityCheckRoll = dieRoll;
+            abilityCheckData.AbilityCheckRoll += dieRoll;
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
 
             (ConsoleStyleDuplet.ParameterType, string) extra;
@@ -1019,11 +1019,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 action.SaveOutcomeDelta + MaxDieTypeValue < 0 ||
-                rulesetHelper.GetRemainingPowerUses(powerWeal) == 0 ||
                 !helper.CanReact() ||
-                defender.IsOppositeSide(helper.Side) ||
+                helper.IsOppositeSide(defender.Side) ||
                 !helper.IsWithinRange(defender, 6) ||
-                !helper.CanPerceiveTarget(defender))
+                !helper.CanPerceiveTarget(defender) ||
+                rulesetHelper.GetRemainingPowerUses(powerWeal) == 0)
             {
                 yield break;
             }
@@ -1056,11 +1056,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
             action.RolledSaveThrow = true;
-            action.saveOutcomeDelta += dieRoll;
+            action.SaveOutcomeDelta += dieRoll;
 
             (ConsoleStyleDuplet.ParameterType, string) extra;
 
-            if (action.saveOutcomeDelta >= 0)
+            if (action.SaveOutcomeDelta >= 0)
             {
                 action.saveOutcome = RollOutcome.Success;
                 extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
@@ -1105,11 +1105,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             if (action.AttackRollOutcome != RollOutcome.Success ||
                 action.AttackSuccessDelta - MaxDieTypeValue >= 0 ||
-                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0 ||
                 !helper.CanReact() ||
-                !attacker.IsOppositeSide(helper.Side) ||
+                !helper.IsOppositeSide(attacker.Side) ||
                 !helper.IsWithinRange(attacker, 6) ||
-                !helper.CanPerceiveTarget(attacker))
+                !helper.CanPerceiveTarget(attacker) ||
+                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0)
             {
                 yield break;
             }
@@ -1178,11 +1178,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             if (abilityCheckData.AbilityCheckRoll == 0 ||
                 abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Success ||
                 abilityCheckData.AbilityCheckSuccessDelta - MaxDieTypeValue >= 0 ||
-                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0 ||
                 !helper.CanReact() ||
-                !defender.IsOppositeSide(helper.Side) ||
+                !helper.IsOppositeSide(defender.Side) ||
                 !helper.IsWithinRange(defender, 6) ||
-                !helper.CanPerceiveTarget(defender))
+                !helper.CanPerceiveTarget(defender) ||
+                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0)
             {
                 yield break;
             }
@@ -1214,7 +1214,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             var dieRoll = -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            abilityCheckData.AbilityCheckRoll = dieRoll;
+            abilityCheckData.AbilityCheckRoll += dieRoll;
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
 
             (ConsoleStyleDuplet.ParameterType, string) extra;
@@ -1254,11 +1254,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Success ||
                 action.SaveOutcomeDelta - MaxDieTypeValue >= 0 ||
-                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0 ||
                 !helper.CanReact() ||
-                !defender.IsOppositeSide(helper.Side) ||
+                !helper.IsOppositeSide(defender.Side) ||
                 !helper.IsWithinRange(defender, 6) ||
-                !helper.CanPerceiveTarget(defender))
+                !helper.CanPerceiveTarget(defender) ||
+                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0)
             {
                 yield break;
             }
@@ -1291,11 +1291,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var dieRoll = -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
             action.RolledSaveThrow = true;
-            action.saveOutcomeDelta += dieRoll;
+            action.SaveOutcomeDelta += dieRoll;
 
             (ConsoleStyleDuplet.ParameterType, string) extra;
 
-            if (action.saveOutcomeDelta < 0)
+            if (action.SaveOutcomeDelta < 0)
             {
                 action.saveOutcome = RollOutcome.Failure;
                 extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");

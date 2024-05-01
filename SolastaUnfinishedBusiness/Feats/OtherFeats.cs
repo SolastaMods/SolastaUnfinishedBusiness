@@ -1479,8 +1479,10 @@ internal static class OtherFeats
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            if (stringParameter == "LuckyEnemyAttack" &&
-                dieRoll >= action.AttackRoll)
+            if ((stringParameter == "LuckyEnemyAttack" &&
+                 dieRoll >= action.AttackRoll) ||
+                (stringParameter == "LuckyAttack" &&
+                 dieRoll < action.AttackRoll))
             {
                 yield break;
             }
@@ -1547,6 +1549,11 @@ internal static class OtherFeats
             }
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            if (dieRoll < abilityCheckData.AbilityCheckRoll)
+            {
+                yield break;
+            }
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
@@ -1624,6 +1631,11 @@ internal static class OtherFeats
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
             var savingRoll = action.SaveOutcomeDelta - saveModifier.savingThrowModifier + action.GetSaveDC() - 1;
+
+            if (dieRoll < savingRoll)
+            {
+                yield break;
+            }
 
             action.saveOutcomeDelta += dieRoll - savingRoll;
             action.RolledSaveThrow = true;
