@@ -1555,12 +1555,25 @@ internal static class Level20SubclassesContext
             _dieType = dieType;
         }
 
-        public void AfterRoll(RollContext rollContext, RulesetCharacter rulesetCharacter, ref int result)
+        public void AfterRoll(
+            DieType dieType,
+            AdvantageType advantageType,
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref int firstRoll,
+            ref int secondRoll,
+            ref int result)
         {
-            if (rollContext == RollContext.HealValueRoll)
+            if (rollContext != RollContext.HealValueRoll)
             {
-                result = DiceMaxValue[(int)_dieType];
+                return;
             }
+
+            var max = DiceMaxValue[(int)_dieType];
+
+            firstRoll = max;
+            secondRoll = max;
+            result = max;
         }
     }
 

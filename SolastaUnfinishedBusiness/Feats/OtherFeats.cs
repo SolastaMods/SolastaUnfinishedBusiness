@@ -1401,6 +1401,7 @@ internal static class OtherFeats
             .Create($"Feature{Name}")
             .SetGuiPresentation(Name, Category.Feat, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
+            .SetShowCasting(false)
             .AddToDB();
 
         power.AddCustomSubFeatures(new CustomBehaviorLucky(power));
@@ -1430,8 +1431,7 @@ internal static class OtherFeats
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerLucky, rulesetHelper);
 
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
-                !helper.CanReact() ||
+            if (!helper.CanReact() ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
@@ -1439,11 +1439,13 @@ internal static class OtherFeats
 
             string stringParameter;
 
-            if (helper == attacker)
+            if (helper == attacker &&
+                action.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 stringParameter = "LuckyAttack";
             }
-            else if (helper.IsOppositeSide(attacker.Side))
+            else if (helper == defender &&
+                     action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 stringParameter = "LuckyEnemyAttack";
             }
@@ -1478,14 +1480,6 @@ internal static class OtherFeats
             }
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-
-            if ((stringParameter == "LuckyEnemyAttack" &&
-                 dieRoll >= action.AttackRoll) ||
-                (stringParameter == "LuckyAttack" &&
-                 dieRoll < action.AttackRoll))
-            {
-                yield break;
-            }
 
             action.AttackSuccessDelta += dieRoll - action.AttackRoll;
             action.AttackRoll = dieRoll;
@@ -1549,11 +1543,6 @@ internal static class OtherFeats
             }
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-
-            if (dieRoll < abilityCheckData.AbilityCheckRoll)
-            {
-                yield break;
-            }
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
@@ -1631,11 +1620,6 @@ internal static class OtherFeats
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
             var savingRoll = action.SaveOutcomeDelta - saveModifier.savingThrowModifier + action.GetSaveDC() - 1;
-
-            if (dieRoll < savingRoll)
-            {
-                yield break;
-            }
 
             action.saveOutcomeDelta += dieRoll - savingRoll;
             action.RolledSaveThrow = true;

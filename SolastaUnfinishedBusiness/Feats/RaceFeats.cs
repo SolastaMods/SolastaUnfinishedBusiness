@@ -662,11 +662,6 @@ internal static class RaceFeats
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            if (dieRoll < action.AttackRoll)
-            {
-                yield break;
-            }
-
             action.AttackSuccessDelta += dieRoll - action.AttackRoll;
             action.AttackRoll = dieRoll;
 
@@ -744,11 +739,6 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-
-            if (dieRoll < abilityCheckData.AbilityCheckRoll)
-            {
-                yield break;
-            }
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
@@ -839,11 +829,6 @@ internal static class RaceFeats
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
             var savingRoll = action.SaveOutcomeDelta - saveModifier.savingThrowModifier + action.GetSaveDC() - 1;
-
-            if (dieRoll < savingRoll)
-            {
-                yield break;
-            }
 
             action.saveOutcomeDelta += dieRoll - savingRoll;
             action.RolledSaveThrow = true;

@@ -187,7 +187,7 @@ public static class GameLocationCharacterPatcher
             ActionModifier actionModifier)
         {
             if (!Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget ||
-                (Gui.Battle != null && Gui.Battle.InitiativeRollFinished) ||
+                Gui.Battle != null ||
                 abilityScoreName != AttributeDefinitions.Dexterity ||
                 proficiencyName != SkillDefinitions.Stealth ||
                 !__instance.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionInvisible))

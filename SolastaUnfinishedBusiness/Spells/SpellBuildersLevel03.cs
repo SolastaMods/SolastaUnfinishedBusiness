@@ -163,7 +163,7 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell,
-                Sprites.GetSprite("CrusadersMantle", Resources.CrusadersMantle, 128))
+                Sprites.GetSprite(NAME, Resources.CrusadersMantle, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -178,7 +178,7 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetParticleEffectParameters(DivineFavor)
+                    //.SetParticleEffectParameters(DivineFavor)
                     .SetRecurrentEffect(RecurrentEffect.OnActivation |
                                         RecurrentEffect.OnTurnStart |
                                         RecurrentEffect.OnEnter)
@@ -418,7 +418,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("ElementalWeapon", Resources.ElementalWeapon, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ElementalWeapon, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
