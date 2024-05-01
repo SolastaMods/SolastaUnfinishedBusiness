@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -750,6 +751,115 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Chaos Bolt
+
+    private static readonly (string, IMagicEffect)[] ChaosBoltDamagesAndEffects =
+    [
+        (DamageTypeAcid, AcidSplash), (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt),
+        (DamageTypeForce, EldritchBlast), (DamageTypeLightning, LightningBolt), (DamageTypePoison, PoisonSpray),
+        (DamageTypeNecrotic, VampiricTouch), (DamageTypeThunder, Shatter)
+    ];
+
+    internal static SpellDefinition BuildChaosBolt()
+    {
+        const string NAME = "ChaosBolt";
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Pool")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
+                    .Build())
+            .AddToDB();
+
+        var powers = new List<FeatureDefinitionPower>();
+
+        foreach (var (damageType, magicEffect) in ChaosBoltDamagesAndEffects)
+        {
+            var effectDescription = EffectDescriptionBuilder.Create(magicEffect.EffectDescription).Build();
+
+            if (damageType == DamageTypePoison)
+            {
+                effectDescription.EffectParticleParameters.impactParticleReference =
+                    effectDescription.EffectParticleParameters.effectParticleReference;
+
+                effectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
+            }
+
+            var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+            var description = Gui.Format($"Power/&Power{NAME}Description", title);
+            var power = FeatureDefinitionPowerSharedPoolBuilder
+                .Create(NAME + damageType)
+                .SetGuiPresentation(title, description)
+                .SetSharedPool(ActivationTime.NoCost, powerPool)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                        .SetEffectForms(
+                            EffectFormBuilder.DamageForm(damageType, 2, DieType.D8),
+                            EffectFormBuilder.DamageForm(damageType, 1, DieType.D6))
+                        .SetParticleEffectParameters(effectDescription.EffectParticleParameters)
+                        .Build())
+                .AddToDB();
+
+            powers.Add(power);
+        }
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.CausticZap, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .AddCustomSubFeatures(new CustomBehaviorChaosBolt(powerPool, [.. powers]))
+            .AddToDB();
+
+        return spell;
+    }
+
+    [UsedImplicitly]
+    private sealed class CustomBehaviorChaosBolt(
+        FeatureDefinitionPower powerPool,
+        params FeatureDefinitionPower[] powers) : IMagicEffectBeforeHitConfirmedOnEnemy, IModifyDiceRoll
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield break;
+        }
+
+        public void BeforeRoll(
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref DieType dieType,
+            ref AdvantageType advantageType)
+        {
+            // empty
+        }
+
+        public void AfterRoll(RollContext rollContext, RulesetCharacter rulesetCharacter, ref int result)
+        {
+            // empty
+        }
     }
 
     #endregion

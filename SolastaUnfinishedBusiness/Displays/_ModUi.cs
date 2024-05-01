@@ -49,6 +49,7 @@ internal static class ModUi
         "CircleOfMagicalNegation",
         "CircleOfTheCosmos",
         "CircleOfTheNight",
+        "ChaosBolt",
         "CloudOfDaggers",
         "CollegeOfAudacity",
         "CollegeOfGuts",
