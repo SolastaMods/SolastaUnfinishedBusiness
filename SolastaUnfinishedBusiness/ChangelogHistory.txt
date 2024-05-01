@@ -9,6 +9,7 @@
 - fixed Artillerist spell list to use sonic boom instead of unimplemented wall of force
 - fixed College of Swords masterful whirl to trigger regardless of remaining bardic dice
 - fixed College of Thespian improved terrific performance damage to trigger from 14th
+- fixed custom campaigns encounters to properly copy the challenge rate over [VANILLA]
 - fixed crafting recipes ingredients list to avoid double primed weapons requirement
 - fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
 - fixed Oath of Ancients aura of resistance condition to stay around after first damage
@@ -28,6 +29,11 @@
 - improved invisible creatures can be targeted behavior to grant +100 on off battle stealth checks
 - improved invocations that grant spells with balanced usage and standardized descriptions
 - improved Sorcerer spell list with Fire Shield spell [VANILLA]
+
+known issues:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Artillerist Fortified Position medium cannon doesn't grant buff to self
 
 1.5.97.5:
 
@@ -55,11 +61,6 @@
 - fixed Patron Celestial healing light power missing from action bar
 - fixed Patron Mountain eternal guardian power not reducing damage from 6th level onwards
 
-known issues:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Artillerist Fortified Position medium cannon doesn't grant buff to self
-
 1.5.97.4:
 
 - added Burning Hex and Chilling Hex invocations
@@ -77,12 +78,6 @@ known issues:
 - fixed Vitriolist refund mixtures [reaction pop up instead of lowest avail slot] 
 - fixed Wildmaster bear companion additional HPs [class level instead of char level]
 - fixed Wildmaster eagle and wolf companions not allowed in combat
-
-known issues:
-
-- Artillerist Force Ballista tiny cannon doesn't force DIS within 5 ft.
-- Artillerist Fortified Position medium cannon doesn't grant buff to self.
-- Orcish Aggression offers cells you cannot click on selection grid.
 
 1.5.97.3:
 
