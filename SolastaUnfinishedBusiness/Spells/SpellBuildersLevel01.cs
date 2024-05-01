@@ -761,7 +761,7 @@ internal static partial class SpellBuilders
     [
         (DamageTypeAcid, AcidSplash), (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt),
         (DamageTypeForce, EldritchBlast), (DamageTypeLightning, LightningBolt), (DamageTypePoison, PoisonSpray),
-        (DamageTypeNecrotic, VampiricTouch), (DamageTypeThunder, Shatter)
+        (DamageTypePsychic, Fear), (DamageTypeThunder, Shatter)
     ];
 
     internal static SpellDefinition BuildChaosBolt()
@@ -779,12 +779,16 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        var conditionSelf = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Self")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
         var conditionMark = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Mark")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.UntilAnyRest)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powers = new List<FeatureDefinitionPower>();
@@ -810,6 +814,7 @@ internal static partial class SpellBuilders
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
+                        .SetDurationData(DurationType.Round)
                         .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
                         .SetEffectForms(
                             EffectFormBuilder.DamageForm(damageType, 2, DieType.D8),
@@ -845,10 +850,9 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
 
-        var customBehavior =
-            new MagicEffectFinishedByMeChaosBolt(powerPool, conditionLeap, conditionMark, [.. powers]);
 
-        powerLeap.AddCustomSubFeatures(customBehavior);
+        var customBehavior =
+            new CustomBehaviorChaosBolt(powerPool, conditionLeap, conditionMark, conditionSelf, [.. powers]);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -868,8 +872,11 @@ internal static partial class SpellBuilders
                     .UseQuickAnimations()
                     .SetCasterEffectParameters(new AssetReference())
                     .Build())
-            .AddCustomSubFeatures(customBehavior)
             .AddToDB();
+
+        conditionSelf.AddCustomSubFeatures(customBehavior);
+        powerLeap.AddCustomSubFeatures(customBehavior);
+        spell.AddCustomSubFeatures(customBehavior);
 
         return spell;
     }
@@ -902,14 +909,19 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class MagicEffectFinishedByMeChaosBolt(
+    private sealed class CustomBehaviorChaosBolt(
         FeatureDefinitionPower powerPool,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionLeap,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionMark,
-        params FeatureDefinitionPower[] powers) : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionSelf,
+        params FeatureDefinitionPower[] powers) : IMagicEffectFinishedByMe, IFilterTargetingCharacter, IModifyDiceRoll
     {
+        private int _isValid;
+        private readonly int[] _rolls = new int[2];
+
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -921,10 +933,14 @@ internal static partial class SpellBuilders
         public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            _isValid = 0;
+
             if (action.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }
+
+            _isValid = 1;
 
             const DieType DIE_TYPE = DieType.D8;
 
@@ -943,22 +959,70 @@ internal static partial class SpellBuilders
                 rulesetAttacker.RemoveCondition(activeCondition);
             }
 
+            rulesetAttacker.InflictCondition(
+                conditionSelf.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionSelf.Name,
+                0,
+                0,
+                0);
+
             // loop over to support Sorcerer metamagic
             foreach (var defender in action.ActionParams.TargetCharacters)
             {
-                var firstRoll = RollDie(DIE_TYPE, AdvantageType.None, out _, out _);
-                var secondRoll = RollDie(DIE_TYPE, AdvantageType.None, out _, out _);
+                _rolls[0] = RollDie(DIE_TYPE, AdvantageType.None, out _, out _);
+                _rolls[1] = RollDie(DIE_TYPE, AdvantageType.None, out _, out _);
 
-                if (firstRoll == secondRoll)
+                if (_rolls[0] == _rolls[1])
                 {
-                    HandleDirectAttack(attacker, defender, powers[firstRoll - 1]);
+                    HandleDirectAttack(attacker, defender, powers[_rolls[0] - 1]);
                 }
                 else
                 {
                     yield return HandleReactionAttack(
-                        attacker, defender, firstRoll, secondRoll);
+                        attacker, defender, _rolls[0], _rolls[1]);
                 }
             }
+        }
+
+        public void BeforeRoll(RollContext rollContext, RulesetCharacter rulesetCharacter, ref DieType dieType,
+            ref AdvantageType advantageType)
+        {
+            // empty
+        }
+
+        public void AfterRoll(
+            DieType dieType,
+            AdvantageType advantageType,
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref int firstRoll,
+            ref int secondRoll,
+            ref int result)
+        {
+            if (_isValid == 0 ||
+                dieType != DieType.D8 ||
+                rollContext != RollContext.MagicDamageValueRoll)
+            {
+                return;
+            }
+
+            var roll = _rolls[_isValid - 1];
+
+            if (++_isValid == 3)
+            {
+                _isValid = 0;
+            }
+
+            firstRoll = roll;
+            secondRoll = roll;
+            result = roll;
         }
 
         private void HandleDirectAttack(

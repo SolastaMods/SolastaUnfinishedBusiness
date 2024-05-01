@@ -14,7 +14,11 @@ public interface IModifyDiceRoll
 
     [UsedImplicitly]
     public void AfterRoll(
+        DieType dieType,
+        AdvantageType advantageType,
         RollContext rollContext,
         RulesetCharacter rulesetCharacter,
+        ref int firstRoll,
+        ref int secondRoll,
         ref int result);
 }

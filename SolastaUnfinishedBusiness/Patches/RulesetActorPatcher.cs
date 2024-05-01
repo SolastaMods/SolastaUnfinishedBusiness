@@ -739,8 +739,12 @@ public static class RulesetActorPatcher
                 foreach (var changeDiceRoll in changeDiceRollList)
                 {
                     changeDiceRoll.AfterRoll(
+                        dieType,
+                        advantageType,
                         rollContext,
                         actor as RulesetCharacter,
+                        ref firstRoll,
+                        ref secondRoll,
                         ref result);
                 }
             }
