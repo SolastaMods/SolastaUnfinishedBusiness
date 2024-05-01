@@ -40,8 +40,8 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayFactionRelationsToggle { get; set; }
     public bool DisplayItemsToggle { get; set; }
     public bool DisplayMerchantsToggle { get; set; }
-    public SerializableDictionary<string, bool> DisplayKlassToggle { get; set; } = new();
-    public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
+    public SerializableDictionary<string, bool> DisplayKlassToggle { get; set; } = [];
+    public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = [];
 
     //
     // SETTINGS HIDDEN ON UI
@@ -340,8 +340,8 @@ public class Settings : UnityModManager.ModSettings
     public List<string> SubraceEnabled { get; } = [];
     public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> BackgroundEnabled { get; } = [];
-    public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = new();
-    public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = new();
+    public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = [];
+    public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = [];
 
     //
     // Characters - Feats, Groups, Fighting Styles, Invocations and Metamagic
@@ -364,8 +364,8 @@ public class Settings : UnityModManager.ModSettings
 
     public bool AllowDisplayingOfficialSpells { get; set; }
     public bool AllowDisplayingNonSuggestedSpells { get; set; }
-    public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = new();
-    public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = new();
+    public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = [];
+    public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = [];
 
     //
     // Interface - Game UI
