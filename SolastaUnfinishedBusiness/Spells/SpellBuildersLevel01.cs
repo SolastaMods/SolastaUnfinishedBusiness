@@ -794,9 +794,9 @@ internal static partial class SpellBuilders
             }
 
             var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
-            var description = Gui.Format($"Power/&Power{NAME}Description", title);
+            var description = Gui.Format($"Feature/&Power{NAME}Description", title);
             var power = FeatureDefinitionPowerSharedPoolBuilder
-                .Create(NAME + damageType)
+                .Create($"Power{NAME}{damageType}")
                 .SetGuiPresentation(title, description)
                 .SetSharedPool(ActivationTime.NoCost, powerPool)
                 .SetEffectDescription(
@@ -815,7 +815,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.CausticZap, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ChaosBolt, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
@@ -823,7 +823,8 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .AddCustomSubFeatures(new CustomBehaviorChaosBolt(powerPool, [.. powers]))
+            .AddCustomSubFeatures(new CustomBehaviorChaosBolt(powerPool, [.. powers]),
+                new AddUsablePowersFromCondition())
             .AddToDB();
 
         return spell;
@@ -832,7 +833,8 @@ internal static partial class SpellBuilders
     [UsedImplicitly]
     private sealed class CustomBehaviorChaosBolt(
         FeatureDefinitionPower powerPool,
-        params FeatureDefinitionPower[] powers) : IMagicEffectBeforeHitConfirmedOnEnemy, IModifyDiceRoll
+        params FeatureDefinitionPower[] powers)
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe, IModifyDiceRoll
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -847,6 +849,40 @@ internal static partial class SpellBuilders
             yield break;
         }
 
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterActionMagicEffect action,
+            BaseDefinition baseDefinition)
+        {
+            if (action is not CharacterActionCastSpell actionCastSpell)
+            {
+                yield break;
+            }
+
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            const DieType DIE_TYPE = DieType.D8;
+
+            var firstRoll = RollDie(DIE_TYPE, AdvantageType.None, out _, out _);
+            var secondRoll = RollDie(DIE_TYPE, AdvantageType.None, out _, out _);
+
+            attacker.UsedSpecialFeatures.TryAdd("ChaosBolt", actionCastSpell.ActiveSpell.EffectLevel);
+            rulesetAttacker.ShowDieRoll(DIE_TYPE, firstRoll, title: powerPool.GuiPresentation.Title);
+            rulesetAttacker.ShowDieRoll(DIE_TYPE, secondRoll, title: powerPool.GuiPresentation.Title);
+
+            var defender = action.ActionParams.TargetCharacters[0];
+
+            if (firstRoll == secondRoll)
+            {
+                HandleDirectAttack(attacker, defender, powers[firstRoll - 1]);
+            }
+            else
+            {
+                yield return HandleReactionAttack(
+                    attacker, defender, firstRoll, secondRoll);
+            }
+        }
+
         public void BeforeRoll(
             RollContext rollContext,
             RulesetCharacter rulesetCharacter,
@@ -859,6 +895,86 @@ internal static partial class SpellBuilders
         public void AfterRoll(RollContext rollContext, RulesetCharacter rulesetCharacter, ref int result)
         {
             // empty
+        }
+
+        private static void HandleDirectAttack(
+            // ReSharper disable once SuggestBaseTypeForParameter
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            FeatureDefinitionPower power)
+        {
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+
+        private IEnumerator HandleReactionAttack(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            int firstRoll,
+            int secondRoll)
+        {
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!actionManager ||
+                battleManager is not { IsBattleInProgress: true, Battle.InitiativeRollFinished: true })
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePowerPool = PowerProvider.Get(powerPool, rulesetAttacker);
+            var usablePowerFirstRoll = PowerProvider.Get(powers[firstRoll - 1], rulesetAttacker);
+            var usablePowerSecondRoll = PowerProvider.Get(powers[secondRoll - 1], rulesetAttacker);
+
+            rulesetAttacker.UsablePowers.Add(usablePowerPool);
+            rulesetAttacker.UsablePowers.Add(usablePowerFirstRoll);
+            rulesetAttacker.UsablePowers.Add(usablePowerSecondRoll);
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { new ActionModifier() },
+                StringParameter = "ChaosBolt",
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest =
+                new ReactionRequestSpendBundlePower(actionParams)
+                {
+                    Resource = ReactionResourceWrathOfTheStorm.Instance
+                };
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            rulesetAttacker.UsablePowers.Remove(usablePowerPool);
+            rulesetAttacker.UsablePowers.Remove(usablePowerFirstRoll);
+            rulesetAttacker.UsablePowers.Remove(usablePowerSecondRoll);
         }
     }
 
