@@ -278,22 +278,10 @@ public sealed class OathOfHatred : AbstractSubclass
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager)
-            {
-                yield break;
-            }
-
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            if (attacker != helper ||
-                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !attacker.OncePerTurnIsValid(power.Name) ||
-                !attacker.CanPerceiveTarget(defender))
+            if (!actionManager ||
+                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                helper != attacker ||
+                !helper.OncePerTurnIsValid(power.Name))
             {
                 yield break;
             }
@@ -325,7 +313,6 @@ public sealed class OathOfHatred : AbstractSubclass
             action.AttackRollOutcome = RollOutcome.Success;
             action.AttackSuccessDelta = 0;
             action.AttackRoll += delta;
-            attackModifier.ignoreAdvantage = false;
             attackModifier.AttackRollModifier += delta;
             attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }

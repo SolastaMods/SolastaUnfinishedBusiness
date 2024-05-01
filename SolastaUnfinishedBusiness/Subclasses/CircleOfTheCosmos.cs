@@ -913,7 +913,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 });
 
             action.AttackSuccessDelta += dieRoll;
-            attackModifier.attackRollModifier += dieRoll;
+            attackModifier.AttackRollModifier += dieRoll;
 
             if (action.AttackSuccessDelta >= 0)
             {
@@ -1148,7 +1148,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 });
 
             action.AttackSuccessDelta += dieRoll;
-            attackModifier.attackRollModifier += dieRoll;
+            attackModifier.AttackRollModifier += dieRoll;
 
             if (action.AttackSuccessDelta < 0)
             {

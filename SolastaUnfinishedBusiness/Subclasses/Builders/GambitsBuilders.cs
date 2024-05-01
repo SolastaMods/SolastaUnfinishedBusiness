@@ -1705,27 +1705,17 @@ internal static class GambitsBuilders
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager)
+            var rulesetHelper = attacker.RulesetCharacter;
+
+            if (!actionManager ||
+                action.AttackRollOutcome != RollOutcome.Failure ||
+                helper != attacker ||
+                !rulesetHelper.CanUsePower(pool))
             {
                 yield break;
             }
 
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            if (attacker != helper ||
-                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetCharacter.CanUsePower(pool) ||
-                !attacker.CanPerceiveTarget(defender))
-            {
-                yield break;
-            }
-
-            var dieType = GetGambitDieSize(rulesetCharacter);
+            var dieType = GetGambitDieSize(rulesetHelper);
             var max = DiceMaxValue[(int)dieType];
             var delta = Math.Abs(action.AttackSuccessDelta);
 
@@ -1758,35 +1748,32 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            rulesetCharacter.UpdateUsageForPower(pool, 1);
+            rulesetHelper.UpdateUsageForPower(pool, 1);
 
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-            var hitTrends = attackModifier.AttacktoHitTrends;
 
-            hitTrends?.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
+            attackModifier.AttacktoHitTrends.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
             {
                 dieType = dieType, dieFlag = TrendInfoDieFlag.None
             });
 
             action.AttackSuccessDelta += dieRoll;
-            attackModifier.attackRollModifier += dieRoll;
+            attackModifier.AttackRollModifier += dieRoll;
 
-            var success = action.AttackSuccessDelta >= 0;
-
-            if (success)
+            if (action.AttackSuccessDelta >= 0)
             {
                 action.AttackRollOutcome = RollOutcome.Success;
             }
 
-            rulesetCharacter.ShowDieRoll(
+            rulesetHelper.ShowDieRoll(
                 dieType,
                 dieRoll,
                 title: feature.GuiPresentation.Title,
-                outcome: success ? RollOutcome.Success : RollOutcome.Failure,
+                outcome: action.AttackRollOutcome,
                 displayOutcome: true
             );
 
-            rulesetCharacter.LogCharacterUsedFeature(
+            rulesetHelper.LogCharacterUsedFeature(
                 feature,
                 Line,
                 extra:

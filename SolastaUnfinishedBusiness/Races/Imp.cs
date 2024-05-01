@@ -605,12 +605,12 @@ internal static class RaceImpBuilder
             GameLocationCharacter helper,
             ActionModifier actionModifier)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetHelper = attacker.RulesetCharacter;
 
-            if (attacker != helper ||
-                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 action.AttackSuccessDelta < -InspirationValue ||
-                rulesetAttacker.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0)
+                helper != attacker ||
+                rulesetHelper.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0)
             {
                 yield break;
             }
@@ -619,12 +619,12 @@ internal static class RaceImpBuilder
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetHelper);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "DrawInspiration",
                 RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                 UsablePower = usablePower
             };
             var count = actionService.PendingReactionRequestGroups.Count;
@@ -639,13 +639,11 @@ internal static class RaceImpBuilder
             }
 
             action.AttackSuccessDelta += InspirationValue;
-            actionModifier.AttackRollModifier += InspirationValue;
-            actionModifier.AttacktoHitTrends?.Add(new TrendInfo(
-                InspirationValue,
-                FeatureSourceType.Power,
-                powerImpBadlandDrawInspiration.Name,
-                powerImpBadlandDrawInspiration));
             action.AttackRollOutcome = RollOutcome.Success;
+            actionModifier.AttackRollModifier += InspirationValue;
+            actionModifier.AttacktoHitTrends.Add(new TrendInfo(
+                InspirationValue, FeatureSourceType.Power,
+                powerImpBadlandDrawInspiration.Name, powerImpBadlandDrawInspiration));
         }
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(GameLocationBattleManager battleManager,
@@ -657,6 +655,7 @@ internal static class RaceImpBuilder
             bool hasHitVisual, [UsedImplicitly] bool hasBorrowedLuck)
         {
             var rulesetDefender = defender.RulesetCharacter;
+
             if (defender != helper ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||

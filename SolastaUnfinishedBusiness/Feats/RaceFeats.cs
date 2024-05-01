@@ -627,10 +627,9 @@ internal static class RaceFeats
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (!actionManager ||
-                action.AttackRoll != 1 ||
                 action.AttackRollOutcome != RollOutcome.CriticalFailure ||
-                attacker == helper ||
-                attacker.IsOppositeSide(helper.Side) ||
+                helper == attacker ||
+                helper.IsOppositeSide(attacker.Side) ||
                 !helper.CanReact() ||
                 !helper.IsWithinRange(attacker, 6) ||
                 !helper.CanPerceiveTarget(attacker))
@@ -668,7 +667,7 @@ internal static class RaceFeats
 
             if (action.AttackSuccessDelta >= 0)
             {
-                action.AttackRollOutcome = RollOutcome.Success;
+                action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
             }
 
             rulesetHelper.InflictCondition(

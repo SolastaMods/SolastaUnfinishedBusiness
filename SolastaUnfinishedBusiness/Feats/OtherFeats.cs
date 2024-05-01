@@ -1430,11 +1430,24 @@ internal static class OtherFeats
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerLucky, rulesetHelper);
 
-            if (action.AttackRoll == 0 ||
-                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
-                helper != attacker ||
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 !helper.CanReact() ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            string stringParameter;
+
+            if (helper == attacker)
+            {
+                stringParameter = "LuckyAttack";
+            }
+            else if (helper.IsOppositeSide(attacker.Side))
+            {
+                stringParameter = "LuckyEnemyAttack";
+            }
+            else
             {
                 yield break;
             }
@@ -1442,11 +1455,11 @@ internal static class OtherFeats
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-            
+
             var reactionParams =
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
                 {
-                    StringParameter = "LuckyAttack",
+                    StringParameter = stringParameter,
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
@@ -1466,12 +1479,18 @@ internal static class OtherFeats
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
 
+            if (stringParameter == "LuckyEnemyAttack" &&
+                dieRoll >= action.AttackRoll)
+            {
+                yield break;
+            }
+
             action.AttackSuccessDelta += dieRoll - action.AttackRoll;
             action.AttackRoll = dieRoll;
 
             if (action.AttackSuccessDelta >= 0)
             {
-                action.AttackRollOutcome = RollOutcome.Success;
+                action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
             }
 
             rulesetHelper.LogCharacterActivatesAbility(
@@ -1505,7 +1524,7 @@ internal static class OtherFeats
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-            
+
             var reactionParams =
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
                 {
@@ -1579,7 +1598,7 @@ internal static class OtherFeats
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-            
+
             var reactionParams =
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
                 {

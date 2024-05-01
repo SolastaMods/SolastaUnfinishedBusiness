@@ -853,12 +853,10 @@ internal static class Level20Context
                 yield break;
             }
 
-            var rulesetCharacter = attacker.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (attacker != helper ||
-                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetCharacter.GetRemainingPowerUses(power) == 0 ||
-                !attacker.CanPerceiveTarget(defender))
+            if (helper != attacker ||
+                rulesetAttacker.GetRemainingPowerUses(power) == 0)
             {
                 yield break;
             }
@@ -867,12 +865,12 @@ internal static class Level20Context
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "RogueStrokeOfLuck",
                 RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower
             };
             var count = actionService.PendingReactionRequestGroups.Count;
@@ -886,14 +884,13 @@ internal static class Level20Context
                 yield break;
             }
 
-            rulesetCharacter.UsePower(usablePower);
+            rulesetAttacker.UsePower(usablePower);
 
             var delta = -action.AttackSuccessDelta;
 
             action.AttackRollOutcome = RollOutcome.Success;
-            action.AttackSuccessDelta = 0;
+            action.AttackSuccessDelta += delta;
             action.AttackRoll += delta;
-            attackModifier.ignoreAdvantage = false;
             attackModifier.AttackRollModifier += delta;
             attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }
