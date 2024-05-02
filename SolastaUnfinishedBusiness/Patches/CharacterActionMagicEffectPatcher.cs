@@ -602,7 +602,7 @@ public static class CharacterActionMagicEffectPatcher
 
             if (needToRollDie)
             {
-                //PATCH: supports `IMagicalAttackInitiatedOnMe`, `IMagicEffectAttackInitiatedByMe`
+                //PATCH: supports `IMagicalAttackInitiatedOnMe`
                 foreach (var magicEffectInitiatedOnMe in target.RulesetActor
                              .GetSubFeaturesByType<IMagicEffectAttackInitiatedOnMe>())
                 {
@@ -616,6 +616,7 @@ public static class CharacterActionMagicEffectPatcher
                         checkMagicalAttackDamage);
                 }
 
+                //PATCH: supports `IMagicEffectAttackInitiatedByMe`
                 foreach (var magicEffectInitiatedByMe in actingCharacter.RulesetActor
                              .GetSubFeaturesByType<IMagicEffectAttackInitiatedByMe>())
                 {
@@ -630,6 +631,22 @@ public static class CharacterActionMagicEffectPatcher
                         checkMagicalAttackDamage);
                 }
 
+                if (activeEffect is { SourceDefinition: SpellDefinition spellDefinition })
+                {
+                    var magicEffectInitiatedByMe =
+                        spellDefinition.GetFirstSubFeatureOfType<IMagicEffectAttackInitiatedByMe>();
+
+                    yield return magicEffectInitiatedByMe?.OnMagicEffectAttackInitiatedByMe(
+                        __instance,
+                        activeEffect,
+                        actingCharacter,
+                        target,
+                        attackModifier,
+                        actualEffectForms,
+                        firstTarget,
+                        checkMagicalAttackDamage);
+                }
+                
                 // END PATCH
 
                 // Roll dice + handle target reaction
