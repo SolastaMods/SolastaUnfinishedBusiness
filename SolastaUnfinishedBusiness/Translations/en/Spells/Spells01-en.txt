@@ -113,3 +113,4 @@ Spell/&WrathfulSmiteDescription=Your next hit deals additional 1d6 psychic damag
 Spell/&WrathfulSmiteTitle=Wrathful Smite
 Tooltip/&MustBeWitchBolt=Must be marked by Witch Bolt
 Tooltip/&MustNotHaveChaosBoltMark=Must not have been targeted by Chaos Bolt this turn.
+Tooltip/&TagDamagePureTitle=Chaotic Damage
