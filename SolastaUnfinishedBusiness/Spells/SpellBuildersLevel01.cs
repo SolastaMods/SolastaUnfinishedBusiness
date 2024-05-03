@@ -1087,13 +1087,6 @@ internal static partial class SpellBuilders
                 rulesetAttacker.UsablePowers.Remove(usablePowerFirst);
                 rulesetAttacker.UsablePowers.Remove(usablePowerSecond);
 
-                var subPowers = powerPool.GetBundle()?.SubPowers;
-
-                if (subPowers == null)
-                {
-                    yield break;
-                }
-
                 string damageType;
                 IMagicEffect effect;
 
@@ -1116,7 +1109,7 @@ internal static partial class SpellBuilders
                 }
                 else
                 {
-                    (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(reactionRequest.SelectedSubOption - 1);
+                    (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(reactionRequest.SelectedSubOption);
                 }
 
                 foreach (var effectForm in actualEffectForms

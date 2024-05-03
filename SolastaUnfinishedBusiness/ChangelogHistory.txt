@@ -1,5 +1,6 @@
 1.5.97.6:
 
+- added additional custom portraits [by Artyoan]
 - added Athlete, Dungeon Delver, and Lucky feats
 - added Chaos Bolt, Dawn, Draconic Transformation, Maddening Darkness, Platinum Shield, and Wither and Bloom spells
 - added Imp Badland [by Otearaisu] and Elf Shadar-Kai subraces
