@@ -12,6 +12,8 @@
 - fixed College of Thespian improved terrific performance damage to trigger from 14th
 - fixed custom campaigns encounters to properly copy the challenge rate over [VANILLA]
 - fixed crafting recipes ingredients list to avoid double primed weapons requirement
+- fixed Crusader's Mantle spell to avoid soft lock during combat
+- fixed extended distance calculation algorithm to avoid crash during load under certain scenarios
 - fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
 - fixed Oath of Ancients aura of resistance condition to stay around after first damage
 - fixed Orcish Aggression feat family tag to avoid double offering

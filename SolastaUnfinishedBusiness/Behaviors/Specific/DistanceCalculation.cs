@@ -22,6 +22,12 @@ internal static class DistanceCalculation
         GameLocationCharacter character1,
         GameLocationCharacter character2)
     {
+        // some users face issue loading game and getting an exception using extended distance calculation
+        if (ServiceRepository.GetService<IGameSerializationService>().Loading)
+        {
+            return GetDistanceFromPositions(character1.LocationPosition, character2.LocationPosition);
+        }
+
         var character1ClosestCube = GetCharacterClosestCubeToPosition(character1, GetPositionCenter(character2));
         var character2ClosestCube = GetCharacterClosestCubeToPosition(character2, character1ClosestCube);
 
