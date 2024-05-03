@@ -204,8 +204,16 @@ public static class RulesetActorPatcher
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             RollInfo rollInfo)
         {
+            // supports Shield Techniques feat
+            if (formsParams.targetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionFeatShieldTechniquesMark"))
+            {
+                rolledDamage /= 2;
+            }
+
             //PATCH: support for FeatureDefinitionReduceDamage
             var reduction = FeatureDefinitionReduceDamage.DamageReduction(formsParams, rolledDamage, damageType);
+
             rolledDamage -= reduction;
             rollInfo.modifier -= reduction;
         }

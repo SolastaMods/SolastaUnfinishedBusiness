@@ -109,6 +109,13 @@ internal static class ArmorFeats
     {
         const string Name = "FeatShieldTechniques";
 
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Mark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .AddToDB();
+
         var actionAffinityShieldTechniques = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}")
             .SetGuiPresentationNoContent(true)
@@ -126,7 +133,7 @@ internal static class ArmorFeats
 
         powerShieldTechniques.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new CustomBehaviorShieldTechniques(powerShieldTechniques));
+            new CustomBehaviorShieldTechniques(powerShieldTechniques, conditionMark));
 
         return FeatDefinitionBuilder
             .Create(Name)
@@ -136,8 +143,10 @@ internal static class ArmorFeats
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorShieldTechniques(FeatureDefinitionPower powerShieldTechniques)
-        : IRollSavingThrowInitiated, IMagicEffectBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorShieldTechniques(
+        FeatureDefinitionPower powerShieldTechniques,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionMark) : IRollSavingThrowInitiated, IMagicEffectBeforeHitConfirmedOnMe
     {
         // halve any damage taken
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
@@ -191,6 +200,22 @@ internal static class ArmorFeats
 
             actionModifier.DefenderDamageMultiplier *= 0.5f;
             rulesetDefender.DamageHalved(rulesetDefender, powerShieldTechniques);
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetDefender.InflictCondition(
+                conditionMark.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionMark.Name,
+                0,
+                0,
+                0);
         }
 
         // add +2 on DEX savings
