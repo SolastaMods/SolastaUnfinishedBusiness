@@ -5,6 +5,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
+using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 using static RuleDefinitions;
 using Coroutine = TA.Coroutine;
@@ -263,6 +264,13 @@ public static class CharacterActionAttackPatcher
                 // END PATCH
             }
 
+            //PATCH: support for `ITryAlterOutcomeAttack`
+            foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttack.Handler(
+                         battleManager, __instance, actingCharacter, target, attackModifier))
+            {
+                yield return tryAlterOutcomeSavingThrow;
+            }
+            
             if (rangeAttack)
             {
                 var isMonkReturnMissile = attackMode.ReturnProjectileOnly;
@@ -489,6 +497,13 @@ public static class CharacterActionAttackPatcher
                         {
                             yield return battleManager.HandleFailedSavingThrow(
                                 __instance, actingCharacter, target, attackModifier, false, hasBorrowedLuck);
+                        }
+                        
+                        //PATCH: support for `ITryAlterOutcomeSavingThrow`
+                        foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
+                                     battleManager, __instance, actingCharacter, target, attackModifier, false, hasBorrowedLuck))
+                        {
+                            yield return tryAlterOutcomeSavingThrow;
                         }
                     }
 

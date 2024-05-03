@@ -804,6 +804,7 @@ internal static partial class SpellBuilders
             .Create($"Power{NAME}Leap")
             .SetGuiPresentation(NAME, Category.Spell, sprite)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
