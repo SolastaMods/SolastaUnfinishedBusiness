@@ -52,6 +52,7 @@ Feedback/&AdditionalDamageThunderousSmiteFormat=¡Golpe atronador!
 Feedback/&AdditionalDamageThunderousSmiteLine={0} inflige más daño a {1} mediante un golpe atronador (+{2})
 Feedback/&AdditionalDamageWrathfulSmiteFormat=¡Golpe iracundo!
 Feedback/&AdditionalDamageWrathfulSmiteLine={0} inflige más daño a {1} mediante un golpe furioso (+{2})
+Feedback/&ChaosBoltGainLeap={0} puede apuntar a un enemigo adicional con {1} poder de salto
 Feedback/&ChaosBoltRolledDifferentDice={0} lanzó un {2} y un {3} en {1} dados de daño 1D8.
 Feedback/&ChaosBoltRolledEqualDice={0} sacó un {2} en ambos {1} dados de daño 1D8.
 Feedback/&FeatureGiftOfAlacrityLine={0} activa {1} y agrega un {2} adicional a la iniciativa

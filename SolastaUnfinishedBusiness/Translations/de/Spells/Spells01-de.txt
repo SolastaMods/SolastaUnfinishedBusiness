@@ -52,6 +52,7 @@ Feedback/&AdditionalDamageThunderousSmiteFormat=Donnernder Schlag!
 Feedback/&AdditionalDamageThunderousSmiteLine={0} fügt {1} mehr Schaden durch einen donnernden Schlag zu (+{2})
 Feedback/&AdditionalDamageWrathfulSmiteFormat=Zorniger Schlag!
 Feedback/&AdditionalDamageWrathfulSmiteLine={0} fügt {1} durch einen wütenden Schlag mehr Schaden zu (+{2})
+Feedback/&ChaosBoltGainLeap={0} kann einen zusätzlichen Feind mit {1} Sprungkraft anvisieren
 Feedback/&ChaosBoltRolledDifferentDice={0} hat eine {2} und eine {3} mit {1} D8 Schadenswürfeln gewürfelt.
 Feedback/&ChaosBoltRolledEqualDice={0} hat eine {2} auf beiden {1} D8-Schadenswürfeln gewürfelt.
 Feedback/&FeatureGiftOfAlacrityLine={0} löst {1} aus und fügt der Initiative ein zusätzliches {2} hinzu

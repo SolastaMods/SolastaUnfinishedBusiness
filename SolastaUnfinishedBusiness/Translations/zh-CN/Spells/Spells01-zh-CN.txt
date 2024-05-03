@@ -52,6 +52,7 @@ Feedback/&AdditionalDamageThunderousSmiteFormat=雷鸣斩！
 Feedback/&AdditionalDamageThunderousSmiteLine={0} 通过雷鸣斩对 {1} 造成更多伤害 (+{2})
 Feedback/&AdditionalDamageWrathfulSmiteFormat=激愤斩！
 Feedback/&AdditionalDamageWrathfulSmiteLine={0} 通过激愤斩对 {1} 造成更多伤害 (+{2})
+Feedback/&ChaosBoltGainLeap={0} 可以以 {1} 跳跃力瞄准额外的敌人
 Feedback/&ChaosBoltRolledDifferentDice={0} 在 {1} 个 D8 伤害骰子上投出了 {2} 和 {3}。
 Feedback/&ChaosBoltRolledEqualDice={0} 在两个 {1} 个 D8 伤害骰子上投出了 {2}。
 Feedback/&FeatureGiftOfAlacrityLine={0} 触发 {1} 并为先攻增加额外的 {2}

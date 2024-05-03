@@ -52,6 +52,7 @@ Feedback/&AdditionalDamageThunderousSmiteFormat=サンダラスマイト！
 Feedback/&AdditionalDamageThunderousSmiteLine={0} は雷鳴の打撃により {1} にさらに多くのダメージを与えます (+{2})
 Feedback/&AdditionalDamageWrathfulSmiteFormat=怒りのスマイト！
 Feedback/&AdditionalDamageWrathfulSmiteLine={0} は猛烈な打撃で {1} にさらに多くのダメージを与えます (+{2})
+Feedback/&ChaosBoltGainLeap={0}は、{1}のリープパワーで追加の敵をターゲットにできます
 Feedback/&ChaosBoltRolledDifferentDice={0} は {1} 個の D8 ダメージ ダイスで {2} と {3} を出しました。
 Feedback/&ChaosBoltRolledEqualDice={0} は両方の {1} D8 ダメージ ダイスで {2} をロールしました。
 Feedback/&FeatureGiftOfAlacrityLine={0} は {1} をトリガーし、追加の {2} をイニシアチブに追加します

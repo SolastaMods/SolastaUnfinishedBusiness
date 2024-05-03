@@ -854,25 +854,48 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        var filterTargetBehavior = new FilterTargetingCharacterChaosBolt(conditionMark);
+        var damageDeterminationBehavior =
+            new CustomBehaviorChaosBolt(spell, powerLeap, conditionLeap, conditionMark, powerPool, [.. powers]);
+        var initAndFinishBehavior =
+            new MagicEffectInitiatedAndFinishedByMeChaosBolt(conditionLeap, damageDeterminationBehavior);
+        var filterTargetBehavior =
+            new FilterTargetingCharacterChaosBolt(conditionMark);
 
         spell.AddCustomSubFeatures(
-            new MagicEffectInitiatedByMeChaosBolt(conditionLeap),
+            initAndFinishBehavior,
             filterTargetBehavior);
         powerLeap.AddCustomSubFeatures(
+            initAndFinishBehavior,
             filterTargetBehavior);
         conditionLeap.AddCustomSubFeatures(
-            new CustomBehaviorChaosBolt(spell, powerLeap, conditionLeap, conditionMark, powerPool, [.. powers]));
+            damageDeterminationBehavior);
 
         return spell;
     }
 
-    private sealed class MagicEffectInitiatedByMeChaosBolt(
+    private sealed class MagicEffectInitiatedAndFinishedByMeChaosBolt(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionLeap) : IMagicEffectInitiatedByMe
+        ConditionDefinition conditionLeap,
+        CustomBehaviorChaosBolt damageDeterminationBehavior) : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (!damageDeterminationBehavior.HasLeap())
+            {
+                yield break;
+            }
+
+            action.ActingCharacter.RulesetCharacter.LogCharacterActivatesAbility(
+                "Spell/&ChaosBoltTitle",
+                "Feedback/&ChaosBoltGainLeap");
+        }
+
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            var attacker = action.ActingCharacter;
+
+            damageDeterminationBehavior.Reset(attacker);
+
             if (action is not CharacterActionCastSpell actionCastSpell)
             {
                 yield break;
@@ -927,7 +950,7 @@ internal static partial class SpellBuilders
         ConditionDefinition conditionMark,
         FeatureDefinitionPower powerPool,
         params FeatureDefinitionPower[] powers)
-        : IMagicEffectBeforeHitConfirmedOnEnemy, IModifyEffectDescription, IModifyDiceRoll, IMagicEffectFinishedByMe
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IModifyEffectDescription, IModifyDiceRoll
     {
         private readonly List<int> _rolls = [];
         private int _rollIndex;
@@ -972,9 +995,7 @@ internal static partial class SpellBuilders
             var firstRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
             var secondRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
 
-            attacker.UsedSpecialFeatures.TryAdd("ChaosBoltLeap", 0);
             _rolls.AddRange(firstRoll, secondRoll);
-            EffectHelpers.StartVisualEffect(attacker, defender, GuidingBolt);
 
             if (firstRoll == secondRoll)
             {
@@ -998,6 +1019,7 @@ internal static partial class SpellBuilders
                     effectForm.DamageForm.DamageType = damageType;
                 }
 
+                EffectHelpers.StartVisualEffect(attacker, defender, GuidingBolt);
                 EffectHelpers.StartVisualEffect(attacker, defender, effect);
             }
             else
@@ -1070,17 +1092,9 @@ internal static partial class SpellBuilders
                     effectForm.DamageForm.DamageType = damageType;
                 }
 
+                EffectHelpers.StartVisualEffect(attacker, defender, GuidingBolt);
                 EffectHelpers.StartVisualEffect(attacker, defender, effect);
             }
-        }
-
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            _rollIndex = 0;
-            _usedDamageDice = 0;
-            _rolls.Clear();
-
-            yield break;
         }
 
         public void BeforeRoll(
@@ -1101,7 +1115,9 @@ internal static partial class SpellBuilders
             ref int secondRoll,
             ref int result)
         {
-            if (rollContext == RollContext.AttackRoll)
+            if (rollContext == RollContext.AttackRoll ||
+                (dieType == DieType.D6 &&
+                 rollContext == RollContext.MagicDamageValueRoll))
             {
                 _usedDamageDice = 0;
 
@@ -1111,7 +1127,7 @@ internal static partial class SpellBuilders
             if (dieType != DieType.D8 ||
                 rollContext != RollContext.MagicDamageValueRoll ||
                 _rollIndex >= _rolls.Count ||
-                _usedDamageDice > 2)
+                _usedDamageDice >= 2)
             {
                 return;
             }
@@ -1143,6 +1159,28 @@ internal static partial class SpellBuilders
             }
 
             return effectDescription;
+        }
+
+        public void Reset(GameLocationCharacter attacker)
+        {
+            attacker.UsedSpecialFeatures.TryAdd("ChaosBoltLeap", 0);
+            attacker.UsedSpecialFeatures["ChaosBoltLeap"] = 0;
+            _rollIndex = 0;
+            _usedDamageDice = 0;
+            _rolls.Clear();
+        }
+
+        public bool HasLeap()
+        {
+            for (var i = 0; i < _rolls.Count; i += 2)
+            {
+                if (i + 1 < _rolls.Count && _rolls[i] == _rolls[i + 1])
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 

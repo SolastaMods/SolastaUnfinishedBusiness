@@ -52,6 +52,7 @@ Feedback/&AdditionalDamageThunderousSmiteFormat=Châtiment tonitruant !
 Feedback/&AdditionalDamageThunderousSmiteLine={0} inflige plus de dégâts à {1} par un coup de tonnerre (+{2})
 Feedback/&AdditionalDamageWrathfulSmiteFormat=Châtiment courroucé !
 Feedback/&AdditionalDamageWrathfulSmiteLine={0} inflige plus de dégâts à {1} par un châtiment courroucé (+{2})
+Feedback/&ChaosBoltGainLeap={0} peut cibler un ennemi supplémentaire avec {1} puissance de saut
 Feedback/&ChaosBoltRolledDifferentDice={0} a lancé un {2} et un {3} sur {1} D8 dés de dégâts.
 Feedback/&ChaosBoltRolledEqualDice={0} a lancé un {2} sur les deux {1} dés de dégâts D8.
 Feedback/&FeatureGiftOfAlacrityLine={0} déclenche {1} et ajoute un {2} supplémentaire à l'initiative

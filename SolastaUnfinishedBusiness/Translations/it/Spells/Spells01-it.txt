@@ -52,6 +52,7 @@ Feedback/&AdditionalDamageThunderousSmiteFormat=Punizione fragorosa!
 Feedback/&AdditionalDamageThunderousSmiteLine={0} infligge più danni a {1} attraverso una punizione fragorosa (+{2})
 Feedback/&AdditionalDamageWrathfulSmiteFormat=Punizione adirata!
 Feedback/&AdditionalDamageWrathfulSmiteLine={0} infligge più danni a {1} tramite una punizione furiosa (+{2})
+Feedback/&ChaosBoltGainLeap={0} può prendere di mira un nemico aggiuntivo con una potenza di salto pari a {1}
 Feedback/&ChaosBoltRolledDifferentDice={0} ha tirato un {2} e un {3} su {1} dadi di danno D8.
 Feedback/&ChaosBoltRolledEqualDice={0} ha tirato un {2} su entrambi i {1} dadi di danno D8.
 Feedback/&FeatureGiftOfAlacrityLine={0} attiva {1} e aggiunge un ulteriore {2} all'iniziativa

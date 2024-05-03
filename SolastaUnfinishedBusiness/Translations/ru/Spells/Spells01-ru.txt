@@ -52,6 +52,7 @@ Feedback/&AdditionalDamageThunderousSmiteFormat=Громовая кара!
 Feedback/&AdditionalDamageThunderousSmiteLine={0} наносит больше урона {1} с помощью Громовой кары (+{2})
 Feedback/&AdditionalDamageWrathfulSmiteFormat=Гневная кара!
 Feedback/&AdditionalDamageWrathfulSmiteLine={0} наносит больше урона {1} с помощью Гневной кары (+{2})
+Feedback/&ChaosBoltGainLeap={0} может атаковать дополнительного врага с силой прыжка {1}.
 Feedback/&ChaosBoltRolledDifferentDice={0} выбросил {2} и {3} на {1} костях урона D8.
 Feedback/&ChaosBoltRolledEqualDice={0} выбросил {2} на обоих {1} костях урона D8.
 Feedback/&FeatureGiftOfAlacrityLine={0} вызывает срабатывание {1} и добавляет {2} к инициативе
