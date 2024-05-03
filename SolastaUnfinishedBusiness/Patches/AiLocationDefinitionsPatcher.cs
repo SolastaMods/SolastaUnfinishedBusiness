@@ -52,7 +52,7 @@ public static class AiLocationDefinitionsPatcher
                 new Func<ConditionForm, ConditionDefinition>(MyConditionDefinition).Method;
 
             return instructions.ReplaceCalls(conditionDefinitionMethod, "AiLocationDefinitions.ComputeRawScore",
-                new CodeInstruction(OpCodes.Callvirt, myConditionDefinitionMethod));
+                new CodeInstruction(OpCodes.Call, myConditionDefinitionMethod));
         }
 
         private static ConditionDefinition MyConditionDefinition(ConditionForm conditionForm)
