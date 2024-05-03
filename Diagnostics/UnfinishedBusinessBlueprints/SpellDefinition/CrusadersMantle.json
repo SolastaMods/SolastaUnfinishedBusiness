@@ -127,7 +127,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "35827af9d640e9444bc22fb37cf7e00a",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -261,33 +261,33 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "1402d48634bcbfb4a81493d7e7322378",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "159a1d099e983f344b817e370183c46c",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b9f539cb87ce9ff4ebc4b29db119e88d",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "forceApplyZoneParticle": false,
-      "applyEmissionColorOnWeapons": true,
+      "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 3.51390576,
-        "g": 2.722817,
-        "b": 1.26942146,
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
         "a": 0.0
       },
-      "emissionColorFadeInDuration": 1.0,
-      "emissionColorFadeOutDuration": 1.0
+      "emissionColorFadeInDuration": 0.0,
+      "emissionColorFadeOutDuration": 0.0
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",

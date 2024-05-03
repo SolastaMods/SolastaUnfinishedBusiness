@@ -8,7 +8,7 @@
     "Definition:SpellPowerChaosBoltDamageForce:de6de108-5afa-5243-b98d-01a4cf07fd9a",
     "Definition:SpellPowerChaosBoltDamageLightning:15182ff4-ffbf-51f3-a4f0-50df129486a9",
     "Definition:SpellPowerChaosBoltDamagePoison:7c1cb1db-497c-57ed-aa34-e7dbaac5de5a",
-    "Definition:SpellPowerChaosBoltDamageNecrotic:bd8007db-59c1-56b2-91b0-d9c41cda809a",
+    "Definition:SpellPowerChaosBoltDamagePsychic:af738554-30ce-5070-b4e0-8e793a09186b",
     "Definition:SpellPowerChaosBoltDamageThunder:918798e1-35ff-56aa-b9af-b7759ad3147b"
   ],
   "compactSubspellsTooltip": false,
@@ -174,7 +174,7 @@
   "vocalSpellSemeType": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Spell/&ChaosBoltTitle",
     "description": "Spell/&ChaosBoltDescription",
     "spriteReference": {

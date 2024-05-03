@@ -113,3 +113,4 @@ Spell/&WrathfulSmiteDescription=你的下一次攻击造成额外的 1d6 心灵�
 Spell/&WrathfulSmiteTitle=激愤斩
 Tooltip/&MustBeWitchBolt=必须被巫术箭标记
 Tooltip/&MustNotHaveChaosBoltMark=本回合一定不会成为混乱箭的目标。
+Tooltip/&TagDamagePureTitle=混乱伤害

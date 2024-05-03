@@ -113,3 +113,4 @@ Spell/&WrathfulSmiteDescription=В следующий раз, когда вы п
 Spell/&WrathfulSmiteTitle=Гневная кара
 Tooltip/&MustBeWitchBolt=Должен быть отмечен Ведьминым снарядом
 Tooltip/&MustNotHaveChaosBoltMark=Не может быть целью Снаряда хаоса в этом ходу.
+Tooltip/&TagDamagePureTitle=Хаотический урон
