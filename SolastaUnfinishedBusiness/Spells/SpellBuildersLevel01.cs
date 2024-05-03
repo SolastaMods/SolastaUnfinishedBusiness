@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -770,12 +769,33 @@ internal static partial class SpellBuilders
     {
         const string NAME = "ChaosBolt";
 
-
         var sprite = Sprites.GetSprite(NAME, Resources.ChaosBolt, 128);
 
-        //TODO: REMOVE!!!
-        _ = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Self")
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Pool")
+            .SetGuiPresentation(NAME, Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .AddToDB();
+
+        var powers = new List<FeatureDefinitionPower>();
+
+        foreach (var (damageType, _) in ChaosBoltDamagesAndEffects)
+        {
+            var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+            var description = Gui.Format($"Feature/&Power{NAME}Description", title);
+            var power = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{NAME}{damageType}")
+                .SetGuiPresentation(title, description)
+                .SetSharedPool(ActivationTime.NoCost, powerPool)
+                .AddToDB();
+
+            powers.Add(power);
+        }
+
+        PowerBundle.RegisterPowerBundle(powerPool, false, powers);
+
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
@@ -787,11 +807,11 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
-                    .SetCasterEffectParameters(PrismaticSpray)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
                         EffectFormBuilder.DamageForm("DamagePure", 1, DieType.D6))
+                    .SetCasterEffectParameters(PrismaticSpray)
                     .Build())
             .AddCustomSubFeatures(new ValidatorsValidatePowerUse(c =>
             {
@@ -806,55 +826,11 @@ internal static partial class SpellBuilders
         var conditionLeap = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Leap")
             .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
-            .SetSilent(Silent.WhenAdded)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetFeatures(powerLeap)
             .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
-
-        var conditionMark = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Mark")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        var powerPool = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}Pool")
-            .SetGuiPresentation(NAME, Category.Spell)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
-                    .Build())
-            .AddToDB();
-
-        var powers = new List<FeatureDefinitionPower>();
-
-        foreach (var (damageType, magicEffect) in ChaosBoltDamagesAndEffects)
-        {
-            var effectDescription = EffectDescriptionBuilder.Create(magicEffect.EffectDescription).Build();
-
-            if (damageType == DamageTypePoison)
-            {
-                effectDescription.EffectParticleParameters.impactParticleReference =
-                    effectDescription.EffectParticleParameters.effectParticleReference;
-
-                effectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
-            }
-
-            var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
-            var description = Gui.Format($"Feature/&Power{NAME}Description", title);
-            var power = FeatureDefinitionPowerSharedPoolBuilder
-                .Create($"Power{NAME}{damageType}")
-                .SetGuiPresentation(title, description)
-                .SetSharedPool(ActivationTime.NoCost, powerPool)
-                .AddToDB();
-
-            powers.Add(power);
-        }
-
-        PowerBundle.RegisterPowerBundle(powerPool, false, powers);
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -870,7 +846,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
                         EffectFormBuilder.DamageForm("DamagePure", 1, DieType.D6))
@@ -878,30 +854,52 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        var customBehavior = 
-            new CustomBehaviorChaosBolt(powerLeap, conditionLeap, conditionMark, powerPool, [.. powers]);
+        var filterTargetBehavior = new FilterTargetingCharacterChaosBolt(conditionMark);
 
-        powerLeap.AddCustomSubFeatures(customBehavior);
-        spell.AddCustomSubFeatures(customBehavior);
+        spell.AddCustomSubFeatures(
+            new MagicEffectInitiatedByMeChaosBolt(conditionLeap),
+            filterTargetBehavior);
+        powerLeap.AddCustomSubFeatures(
+            filterTargetBehavior);
+        conditionLeap.AddCustomSubFeatures(
+            new CustomBehaviorChaosBolt(spell, powerLeap, conditionLeap, conditionMark, powerPool, [.. powers]));
 
         return spell;
     }
 
-    private sealed class CustomBehaviorChaosBolt(
+    private sealed class MagicEffectInitiatedByMeChaosBolt(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerLeap,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionLeap,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionMark,
-        FeatureDefinitionPower powerPool,
-        params FeatureDefinitionPower[] powers)
-        : IFilterTargetingCharacter, 
-            IMagicEffectAttackInitiatedByMe, IModifyEffectDescription, IModifyDiceRoll, IMagicEffectFinishedByMe
+        ConditionDefinition conditionLeap) : IMagicEffectInitiatedByMe
     {
-        private readonly List<int> _rolls = [];
-        private int _rollIndex;
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action is not CharacterActionCastSpell actionCastSpell)
+            {
+                yield break;
+            }
 
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                conditionLeap.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionLeap.Name,
+                actionCastSpell.ActiveSpell.EffectLevel,
+                0,
+                0);
+        }
+    }
+
+    private sealed class FilterTargetingCharacterChaosBolt(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionMark) : IFilterTargetingCharacter
+    {
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -916,69 +914,72 @@ internal static partial class SpellBuilders
 
             return isValid;
         }
+    }
 
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerLeap;
-        }
+    private sealed class CustomBehaviorChaosBolt(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spell,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerLeap,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionLeap,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionMark,
+        FeatureDefinitionPower powerPool,
+        params FeatureDefinitionPower[] powers)
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IModifyEffectDescription, IModifyDiceRoll, IMagicEffectFinishedByMe
+    {
+        private readonly List<int> _rolls = [];
+        private int _rollIndex;
+        private int _usedDamageDice;
 
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            if (character.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionLeap.Name, out var activeCondition))
-            {
-                effectDescription.EffectForms[1].DamageForm.DiceNumber = activeCondition.Amount;
-            }
-
-            return effectDescription;
-        }
-        
-        public IEnumerator OnMagicEffectAttackInitiatedByMe(
-            CharacterActionMagicEffect action,
-            RulesetEffect activeEffect,
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
-            bool checkMagicalAttackDamage)
+            bool criticalHit)
         {
-            const DieType DIE_TYPE = DieType.D8;
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (action is CharacterActionCastSpell actionCastSpell)
+            switch (rulesetEffect)
             {
-                rulesetAttacker.InflictCondition(
-                    conditionLeap.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionLeap.Name,
-                    actionCastSpell.ActiveSpell.EffectLevel,
-                    0,
-                    0);
+                case RulesetEffectSpell rulesetEffectSpell when
+                    rulesetEffectSpell.SpellDefinition != spell:
+                case RulesetEffectPower rulesetEffectPower when
+                    rulesetEffectPower.PowerDefinition != powerLeap:
+                    yield break;
             }
 
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.InflictCondition(
+                conditionMark.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionMark.Name,
+                0,
+                0,
+                0);
+
+            var firstRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
+            var secondRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
+
             attacker.UsedSpecialFeatures.TryAdd("ChaosBoltLeap", 0);
-
-            var firstRoll = RollDie(DIE_TYPE, AdvantageType.None, out _, out _);
-            var secondRoll = RollDie(DIE_TYPE, AdvantageType.None, out _, out _);
-
-            _rolls.SetRange(firstRoll, secondRoll);
-            _rollIndex = 0;
+            _rolls.AddRange(firstRoll, secondRoll);
+            EffectHelpers.StartVisualEffect(attacker, defender, GuidingBolt);
 
             if (firstRoll == secondRoll)
             {
                 attacker.UsedSpecialFeatures["ChaosBoltLeap"] += 1;
+
                 rulesetAttacker.LogCharacterActivatesAbility(
                     "Spell/&ChaosBoltTitle",
                     "Feedback/&ChaosBoltRolledEqualDice",
@@ -987,13 +988,17 @@ internal static partial class SpellBuilders
                         (ConsoleStyleDuplet.ParameterType.Positive, firstRoll.ToString())
                     ]);
 
+                var (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(firstRoll - 1);
+
                 foreach (var effectForm in actualEffectForms
                              .Where(x =>
                                  x.FormType == EffectForm.EffectFormType.Damage &&
                                  x.DamageForm.DamageType == "DamagePure"))
                 {
-                    effectForm.DamageForm.DamageType = ChaosBoltDamagesAndEffects.ElementAt(firstRoll - 1).Item1;
+                    effectForm.DamageForm.DamageType = damageType;
                 }
+
+                EffectHelpers.StartVisualEffect(attacker, defender, effect);
             }
             else
             {
@@ -1006,35 +1011,75 @@ internal static partial class SpellBuilders
                         (ConsoleStyleDuplet.ParameterType.Positive, secondRoll.ToString())
                     ]);
 
-                yield return HandleReactionAttack(attacker, defender, firstRoll, secondRoll, actualEffectForms);
+                var actionManager =
+                    ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+                if (!actionManager)
+                {
+                    yield break;
+                }
+
+                var usablePowerPool = PowerProvider.Get(powerPool, rulesetAttacker);
+                var usablePowerFirst = PowerProvider.Get(powers[firstRoll - 1], rulesetAttacker);
+                var usablePowerSecond = PowerProvider.Get(powers[secondRoll - 1], rulesetAttacker);
+
+                rulesetAttacker.UsablePowers.Add(usablePowerPool);
+                rulesetAttacker.UsablePowers.Add(usablePowerFirst);
+                rulesetAttacker.UsablePowers.Add(usablePowerSecond);
+
+                var implementationManager =
+                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+                var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
+                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+                {
+                    ActionModifiers = { new ActionModifier() },
+                    StringParameter = "ChaosBolt",
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
+                };
+
+                var count = actionManager.PendingReactionRequestGroups.Count;
+                var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+                actionManager.AddInterruptRequest(reactionRequest);
+
+                yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+                rulesetAttacker.UsablePowers.Remove(usablePowerPool);
+                rulesetAttacker.UsablePowers.Remove(usablePowerFirst);
+                rulesetAttacker.UsablePowers.Remove(usablePowerSecond);
+
+                var subPowers = powerPool.GetBundle()?.SubPowers;
+
+                if (subPowers == null)
+                {
+                    yield break;
+                }
+
+                var option = reactionRequest.SelectedSubOption < 0 ? firstRoll : reactionRequest.SelectedSubOption;
+                var (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(option);
+
+                foreach (var effectForm in actualEffectForms
+                             .Where(x =>
+                                 x.FormType == EffectForm.EffectFormType.Damage &&
+                                 x.DamageForm.DamageType == "DamagePure"))
+                {
+                    effectForm.DamageForm.DamageType = damageType;
+                }
+
+                EffectHelpers.StartVisualEffect(attacker, defender, effect);
             }
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            _rolls.Clear();
             _rollIndex = 0;
-            var attacker = action.ActingCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
+            _usedDamageDice = 0;
+            _rolls.Clear();
 
-            foreach (var rulesetDefender in action.ActionParams.TargetCharacters
-                         .Select(x => x.RulesetCharacter))
-            {
-                rulesetDefender.InflictCondition(
-                    conditionMark.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionMark.Name,
-                    0,
-                    0,
-                    0);
-            }
-            
             yield break;
         }
 
@@ -1056,12 +1101,22 @@ internal static partial class SpellBuilders
             ref int secondRoll,
             ref int result)
         {
-            if (_rollIndex >= _rolls.Count ||
-                dieType != DieType.D8 ||
-                rollContext != RollContext.MagicDamageValueRoll)
+            if (rollContext == RollContext.AttackRoll)
+            {
+                _usedDamageDice = 0;
+
+                return;
+            }
+
+            if (dieType != DieType.D8 ||
+                rollContext != RollContext.MagicDamageValueRoll ||
+                _rollIndex >= _rolls.Count ||
+                _usedDamageDice > 2)
             {
                 return;
             }
+
+            _usedDamageDice++;
 
             var roll = _rolls[_rollIndex++];
 
@@ -1070,76 +1125,24 @@ internal static partial class SpellBuilders
             result = roll;
         }
 
-        private IEnumerator HandleReactionAttack(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            int firstRoll,
-            int secondRoll,
-            // ReSharper disable once ParameterTypeCanBeEnumerable.Local
-            List<EffectForm> actualEffectForms)
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            return definition == spell || definition == powerLeap;
+        }
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionLeap.Name, out var activeCondition))
             {
-                yield break;
+                effectDescription.EffectForms[1].DamageForm.DiceNumber = activeCondition.Amount;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePowerPool = PowerProvider.Get(powerPool, rulesetAttacker);
-            var usablePowerFirst = PowerProvider.Get(powers[firstRoll - 1], rulesetAttacker);
-            var usablePowerSecond = PowerProvider.Get(powers[secondRoll - 1], rulesetAttacker);
-
-            rulesetAttacker.UsablePowers.Add(usablePowerPool);
-            rulesetAttacker.UsablePowers.Add(usablePowerFirst);
-            rulesetAttacker.UsablePowers.Add(usablePowerSecond);
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                StringParameter = "ChaosBolt",
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            rulesetAttacker.UsablePowers.Remove(usablePowerPool);
-            rulesetAttacker.UsablePowers.Remove(usablePowerFirst);
-            rulesetAttacker.UsablePowers.Remove(usablePowerSecond);
-
-            var option = Math.Max(reactionRequest.SelectedSubOption, 1);
-            var subPowers = powerPool.GetBundle()?.SubPowers;
-
-            if (subPowers == null)
-            {
-                yield break;
-            }
-
-            var damageType = subPowers[option].Name.Replace("PowerChaosBolt", string.Empty);
-
-            foreach (var effectForm in actualEffectForms
-                         .Where(x =>
-                             x.FormType == EffectForm.EffectFormType.Damage &&
-                             x.DamageForm.DamageType == "DamagePure"))
-            {
-                effectForm.DamageForm.DamageType = damageType;
-            }
+            return effectDescription;
         }
     }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>1</DisplayModMessage>
+    <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -1066,6 +1066,7 @@
         <string>FeatInfusionsAdept</string>
         <string>FeatInspiringLeader</string>
         <string>FeatLongswordFinesse</string>
+        <string>FeatLucky</string>
         <string>FeatMageSlayer</string>
         <string>FeatGroupMagicInitiate</string>
         <string>FeatTacticianAdept</string>
@@ -1464,6 +1465,7 @@
                     <string>ThunderStrike</string>
                     <string>ElementalInfusion</string>
                     <string>CausticZap</string>
+                    <string>ChaosBolt</string>
                     <string>ChromaticOrb</string>
                     <string>EarthTremor</string>
                     <string>IceBlade</string>
@@ -1870,7 +1872,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>
