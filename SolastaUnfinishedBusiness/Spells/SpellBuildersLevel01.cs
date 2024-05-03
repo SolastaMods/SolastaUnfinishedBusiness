@@ -1529,11 +1529,6 @@ internal static partial class SpellBuilders
             GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             if (!defender.CanReact())
             {
                 yield break;

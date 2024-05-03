@@ -239,11 +239,6 @@ public class PatronMountain : AbstractSubclass
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var rulesetHelper = helper.RulesetCharacter;
             var levels = rulesetHelper.GetClassLevel(CharacterClassDefinitions.Warlock);
             var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;

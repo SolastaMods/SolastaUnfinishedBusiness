@@ -781,11 +781,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             if (defender != helper ||

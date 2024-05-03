@@ -54,11 +54,6 @@ internal static class GuardianAura
         RulesetEffect rulesetEffect,
         int damageAmount)
     {
-        if (battleManager is not { IsBattleInProgress: true })
-        {
-            yield break;
-        }
-
         if (!(unit.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraUser>() ?? false)
             || !(defender.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraCondition>() ?? false))
         {

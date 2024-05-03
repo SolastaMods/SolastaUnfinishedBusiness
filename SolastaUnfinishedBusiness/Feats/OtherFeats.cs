@@ -1213,11 +1213,6 @@ internal static class OtherFeats
             // ReSharper disable once ParameterTypeCanBeEnumerable.Local
             List<EffectForm> actualEffectForms)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var effectForm = actualEffectForms
                 .FirstOrDefault(x =>
                     x.FormType == EffectForm.EffectFormType.Damage &&
@@ -1835,8 +1830,7 @@ internal static class OtherFeats
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager || !battleManager)
             {
                 yield break;
             }

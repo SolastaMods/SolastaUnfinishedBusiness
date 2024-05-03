@@ -621,7 +621,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 reactions.Add(reactionParams);
             }
 
-            if (reactions.Count == 0 || battleManager is not { IsBattleInProgress: true })
+            if (reactions.Count == 0)
             {
                 yield break;
             }

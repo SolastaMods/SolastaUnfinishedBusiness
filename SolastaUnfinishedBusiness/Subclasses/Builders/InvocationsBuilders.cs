@@ -1557,11 +1557,6 @@ internal static class InvocationsBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             if (!defender.CanReact())
             {
                 yield break;
