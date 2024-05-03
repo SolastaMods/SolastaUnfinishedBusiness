@@ -53,6 +53,7 @@ Feedback/&AdditionalDamageThunderousSmiteLine={0} deals more damage to {1} throu
 Feedback/&AdditionalDamageWrathfulSmiteFormat=Wrathful Smite!
 Feedback/&AdditionalDamageWrathfulSmiteLine={0} deals more damage to {1} through a furious smite (+{2})
 Feedback/&ChaosBoltGainLeap={0} can target an additional enemy with {1} leap power
+Feedback/&ChaosBoltRandomChoice={0} let {1} randomly manifest as {2}
 Feedback/&ChaosBoltRolledDifferentDice={0} rolled a {2} and a {3} on {1} D8 damage dice.
 Feedback/&ChaosBoltRolledEqualDice={0} rolled a {2} on both {1} D8 damage dice.
 Feedback/&FeatureGiftOfAlacrityLine={0} triggers {1} and adds {2} to initiative

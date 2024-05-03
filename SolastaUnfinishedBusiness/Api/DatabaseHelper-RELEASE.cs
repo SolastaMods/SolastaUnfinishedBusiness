@@ -3052,6 +3052,9 @@ internal static partial class DatabaseHelper
 
     internal static class MetamagicOptionDefinitions
     {
+        internal static MetamagicOptionDefinition MetamagicEmpoweredSpell { get; } =
+            GetDefinition<MetamagicOptionDefinition>("MetamagicEmpoweredSpell");
+
         internal static MetamagicOptionDefinition MetamagicQuickenedSpell { get; } =
             GetDefinition<MetamagicOptionDefinition>("MetamagicQuickenedSpell");
 

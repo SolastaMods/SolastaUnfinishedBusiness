@@ -53,6 +53,7 @@ Feedback/&AdditionalDamageThunderousSmiteLine={0}은(+{2}) 엄청난 일격을 �
 Feedback/&AdditionalDamageWrathfulSmiteFormat=분노한 강타!
 Feedback/&AdditionalDamageWrathfulSmiteLine={0}은(+{2}) 격렬한 일격을 통해 {1}에 더 많은 피해를 입힙니다.
 Feedback/&ChaosBoltGainLeap={0}은(는) {1} 도약력으로 추가 적을 목표로 삼을 수 있습니다.
+Feedback/&ChaosBoltRandomChoice={0} {1}이(가) 무작위로 {2}로 나타나도록 합니다.
 Feedback/&ChaosBoltRolledDifferentDice={0}은(는) {1} D8 피해 주사위에 {2}와 {3}을 굴렸습니다.
 Feedback/&ChaosBoltRolledEqualDice={0}는 두 {1} D8 피해 주사위 모두에서 {2}를 굴렸습니다.
 Feedback/&FeatureGiftOfAlacrityLine={0}는 {1}을 트리거하고 이니셔티브에 추가 {2}를 추가합니다.

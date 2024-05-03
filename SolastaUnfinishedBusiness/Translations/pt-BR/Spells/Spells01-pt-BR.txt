@@ -53,6 +53,7 @@ Feedback/&AdditionalDamageThunderousSmiteLine={0} causa mais dano a {1} através
 Feedback/&AdditionalDamageWrathfulSmiteFormat=Golpe Colérico!
 Feedback/&AdditionalDamageWrathfulSmiteLine={0} causa mais dano a {1} através de um golpe furioso (+{2})
 Feedback/&ChaosBoltGainLeap={0} pode mirar em um inimigo adicional com {1} poder de salto
+Feedback/&ChaosBoltRandomChoice={0} deixe {1} se manifestar aleatoriamente como {2}
 Feedback/&ChaosBoltRolledDifferentDice={0} rolou um {2} e um {3} em {1} dados de dano D8.
 Feedback/&ChaosBoltRolledEqualDice={0} rolou {2} em ambos os {1} dados de dano D8.
 Feedback/&FeatureGiftOfAlacrityLine={0} aciona {1} e adiciona {2} adicional à iniciativa

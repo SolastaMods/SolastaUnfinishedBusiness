@@ -886,8 +886,7 @@ internal static partial class SpellBuilders
             }
 
             action.ActingCharacter.RulesetCharacter.LogCharacterActivatesAbility(
-                "Spell/&ChaosBoltTitle",
-                "Feedback/&ChaosBoltGainLeap");
+                "Spell/&ChaosBoltTitle", "Feedback/&ChaosBoltGainLeap");
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -992,8 +991,22 @@ internal static partial class SpellBuilders
                 0,
                 0);
 
+            var hasEmpowered = rulesetEffect.MetamagicOption == MetamagicOptionDefinitions.MetamagicEmpoweredSpell;
             var firstRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
             var secondRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
+
+            if (hasEmpowered)
+            {
+                while (firstRoll <= 2)
+                {
+                    firstRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
+                }
+
+                while (secondRoll <= 2)
+                {
+                    secondRoll = RollDie(DieType.D8, AdvantageType.None, out _, out _);
+                }
+            }
 
             _rolls.AddRange(firstRoll, secondRoll);
 
@@ -1019,7 +1032,7 @@ internal static partial class SpellBuilders
                     effectForm.DamageForm.DamageType = damageType;
                 }
 
-                EffectHelpers.StartVisualEffect(attacker, defender, GuidingBolt);
+                EffectHelpers.StartVisualEffect(attacker, defender, GuidingBolt, EffectHelpers.EffectType.Effect);
                 EffectHelpers.StartVisualEffect(attacker, defender, effect);
             }
             else
@@ -1081,8 +1094,30 @@ internal static partial class SpellBuilders
                     yield break;
                 }
 
-                var option = reactionRequest.SelectedSubOption < 0 ? firstRoll : reactionRequest.SelectedSubOption;
-                var (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(option);
+                string damageType;
+                IMagicEffect effect;
+
+                if (!reactionRequest.Validated)
+                {
+                    var choiceRoll = RollDie(DieType.D2, AdvantageType.None, out _, out _);
+
+                    var option = choiceRoll == 1 ? firstRoll : secondRoll;
+
+                    (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(option - 1);
+
+                    var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+
+                    rulesetAttacker.LogCharacterActivatesAbility(
+                        "Spell/&ChaosBoltTitle", "Feedback/&ChaosBoltRandomChoice",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.Base, damageTitle)
+                        ]);
+                }
+                else
+                {
+                    (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(reactionRequest.SelectedSubOption - 1);
+                }
 
                 foreach (var effectForm in actualEffectForms
                              .Where(x =>
@@ -1092,7 +1127,7 @@ internal static partial class SpellBuilders
                     effectForm.DamageForm.DamageType = damageType;
                 }
 
-                EffectHelpers.StartVisualEffect(attacker, defender, GuidingBolt);
+                EffectHelpers.StartVisualEffect(attacker, defender, GuidingBolt, EffectHelpers.EffectType.Effect);
                 EffectHelpers.StartVisualEffect(attacker, defender, effect);
             }
         }
