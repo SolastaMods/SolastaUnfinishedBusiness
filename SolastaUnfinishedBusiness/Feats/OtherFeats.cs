@@ -1459,7 +1459,7 @@ internal static class OtherFeats
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = stringParameter,
                     ActionModifiers = { new ActionModifier() },
@@ -1522,7 +1522,7 @@ internal static class OtherFeats
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "LuckyCheck",
                     ActionModifiers = { new ActionModifier() },
@@ -1596,7 +1596,7 @@ internal static class OtherFeats
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "LuckySaving",
                     StringParameter2 = "UseLuckySavingDescription".Formatted(
