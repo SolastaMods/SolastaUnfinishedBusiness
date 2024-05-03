@@ -185,7 +185,7 @@ public static class RulesetImplementationManagerLocationPatcher
 
             return instructions.ReplaceCalls(conditionDefinitionMethod,
                 "RulesetImplementationManagerLocation.ApplyCounterForm",
-                new CodeInstruction(OpCodes.Call, myConditionDefinitionMethod));
+                new CodeInstruction(OpCodes.Callvirt, myConditionDefinitionMethod));
         }
 
         private static ConditionDefinition MyConditionDefinition(ConditionForm conditionForm)

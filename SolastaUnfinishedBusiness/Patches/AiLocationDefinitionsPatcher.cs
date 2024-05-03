@@ -52,7 +52,7 @@ public static class AiLocationDefinitionsPatcher
                 new Func<ConditionForm, ConditionDefinition>(MyConditionDefinition).Method;
 
             return instructions.ReplaceCalls(conditionDefinitionMethod, "AiLocationDefinitions.ComputeRawScore",
-                new CodeInstruction(OpCodes.Call, myConditionDefinitionMethod));
+                new CodeInstruction(OpCodes.Callvirt, myConditionDefinitionMethod));
         }
 
         private static ConditionDefinition MyConditionDefinition(ConditionForm conditionForm)
@@ -62,23 +62,6 @@ public static class AiLocationDefinitionsPatcher
                 or "ConditionBlindedByDarkness"
                 ? DatabaseHelper.ConditionDefinitions.ConditionDarkness
                 : conditionForm.ConditionDefinition;
-        }
-
-        [UsedImplicitly]
-        public static void Postfix(
-            ref bool __result,
-            AiLocationCharacter aiCharacter,
-            IMagicEffect magicEffect,
-            GameLocationCharacter optionalTarget)
-        {
-            var locationCharacter = aiCharacter.GameLocationCharacter;
-
-            if (__result &&
-                !LightingAndObscurementContext.IsMagicEffectValidIfHeavilyObscuredOrInNaturalDarkness(
-                    locationCharacter, magicEffect, optionalTarget))
-            {
-                __result = false;
-            }
         }
     }
 }
