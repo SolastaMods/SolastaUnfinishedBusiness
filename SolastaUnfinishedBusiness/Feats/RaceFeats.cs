@@ -613,8 +613,30 @@ internal static class RaceFeats
     private sealed class CustomBehaviorBountifulLuck(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionBountifulLuck)
-        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow, IRollSavingThrowFinished
     {
+        private int _modifier;
+        private int _saveDC;
+
+        public void OnSavingThrowFinished(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            int saveBonus,
+            string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            _saveDC = saveDC;
+            _modifier = saveBonus + rollModifier;
+        }
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -828,7 +850,10 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-            var savingRoll = action.SaveOutcomeDelta - saveModifier.savingThrowModifier + action.GetSaveDC() - 1;
+            var savingRoll = action.SaveOutcomeDelta - _modifier + _saveDC;
+
+            action.saveOutcomeDelta += dieRoll - savingRoll;
+            action.RolledSaveThrow = true;
 
             action.saveOutcomeDelta += dieRoll - savingRoll;
             action.RolledSaveThrow = true;
