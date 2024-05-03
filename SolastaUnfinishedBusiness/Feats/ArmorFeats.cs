@@ -150,11 +150,6 @@ internal static class ArmorFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             if (!defender.CanReact() || !rulesetDefender.IsWearingShield())
@@ -194,7 +189,7 @@ internal static class ArmorFeats
                 yield break;
             }
 
-            actionModifier.AttackerDamageMultiplier *= 0.5f;
+            actionModifier.DefenderDamageMultiplier *= 0.5f;
             rulesetDefender.DamageHalved(rulesetDefender, powerShieldTechniques);
         }
 

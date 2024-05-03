@@ -359,7 +359,7 @@
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
-  "attackHitComputation": "AbilityScore",
+  "attackHitComputation": 9000,
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
