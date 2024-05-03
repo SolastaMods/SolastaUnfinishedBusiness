@@ -34,7 +34,7 @@ public static class UserEncounterPatcher
             instance.Type = EncounterDefinitions.Type.Battle;
             instance.GuiPresentation.Title = __instance.DisplayTitle;
             instance.GuiPresentation.Description = __instance.Description;
-            
+
             //BEGIN PATCH
             instance.ChallengeRating = __instance.ChallengeRating;
             //END PATCH
@@ -54,7 +54,7 @@ public static class UserEncounterPatcher
                     MonsterDefinition =
                         DatabaseRepository.GetDatabase<MonsterDefinition>()
                             .GetElement(monsterOccurence.Monster),
-                    EncounterPlacementDecision = 
+                    EncounterPlacementDecision =
                         DatabaseRepository.GetDatabase<DecisionPackageDefinition>()
                             .GetElement(monsterOccurence.PlacementDecision)
                 });

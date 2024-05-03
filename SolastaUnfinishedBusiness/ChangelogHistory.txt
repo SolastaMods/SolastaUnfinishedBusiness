@@ -17,11 +17,12 @@
 - fixed Path of the Reaver corrupted blood to avoid self damage
 - fixed Potent Spell Casting feat interaction with Produce Flame cantrip
 - fixed Roguish Acrobat swift as wind, and fluid motions features jump distance
+- fixed Shield Master to reduce taken damage by half
 - fixed Sorcerous Psion mind sculpt damage conversion and integration with effect powers
 - fixed Step Back action behavior to interrupt on any ranged attack [VANILLA]
 - fixed Way of the Dragon elemental breath validation on main attack usages
 - fixed Witch Bolt spell interaction with auto spell powers
-- hided College of War Dancer from mod UI [no RESPEC required]
+- hided College of War Dancer from mod UI [NO RESPEC required]
 - improved banishment kill extra planar behavior to only allow Banishment and Banishing Smite spells [VANILLA]
 - improved Bardic Inspiration attribute checks to work off combat [VANILLA]
 - improved Bountiful Luck, Circle of Stars, and Flash of Genius to also trigger on attribute checks

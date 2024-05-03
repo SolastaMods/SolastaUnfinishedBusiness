@@ -646,7 +646,7 @@ public static class CharacterActionMagicEffectPatcher
                         firstTarget,
                         checkMagicalAttackDamage);
                 }
-                
+
                 // END PATCH
 
                 // Roll dice + handle target reaction
