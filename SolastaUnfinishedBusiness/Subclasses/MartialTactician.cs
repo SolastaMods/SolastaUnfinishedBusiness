@@ -300,7 +300,7 @@ public sealed class MartialTactician : AbstractSubclass
 
             var character = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
 
-            if (character == null)
+            if (character == null || character.GetClassLevel(CharacterClassDefinitions.Fighter) < 10)
             {
                 return;
             }
