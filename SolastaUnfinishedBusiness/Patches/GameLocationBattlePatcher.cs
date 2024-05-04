@@ -4,7 +4,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -12,6 +14,53 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationBattlePatcher
 {
+    [HarmonyPatch(typeof(GameLocationBattle), nameof(GameLocationBattle.StartContenders))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class StartContenders_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix()
+        {
+            if (!Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget)
+            {
+                return;
+            }
+
+            DatabaseHelper.ConditionDefinitions.ConditionInvisibleBase.Features.SetRange(
+                DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityInvisible);
+
+            var service =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
+            service!.UpdatePerception();
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattle), nameof(GameLocationBattle.SignalEndToContenders))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SignalEndToContenders_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix()
+        {
+            if (!Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget)
+            {
+                return;
+            }
+
+            DatabaseHelper.ConditionDefinitions.ConditionInvisibleBase.Features.SetRange(
+                DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityInvisible,
+                DatabaseHelper.FeatureDefinitionPerceptionAffinitys.PerceptionAffinityConditionInvisible);
+
+            var service =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
+            service!.UpdatePerception();
+        }
+    }
+
     //PATCH: EnableEnemiesControlledByPlayer
     [HarmonyPatch(typeof(GameLocationBattle), nameof(GameLocationBattle.GetMyContenders))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
