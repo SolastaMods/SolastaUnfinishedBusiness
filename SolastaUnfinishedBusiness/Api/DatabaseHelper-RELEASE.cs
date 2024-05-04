@@ -3097,6 +3097,8 @@ internal static partial class DatabaseHelper
 
     internal static class MonsterDefinitions
     {
+        internal static MonsterDefinition DLC3_ElvenClans_Leralyn { get; } = GetDefinition<MonsterDefinition>("DLC3_ElvenClans_Leralyn");
+        
         internal static MonsterDefinition Air_Elemental { get; } = GetDefinition<MonsterDefinition>("Air_Elemental");
 
         internal static MonsterDefinition AlphaWolf { get; } = GetDefinition<MonsterDefinition>("AlphaWolf");

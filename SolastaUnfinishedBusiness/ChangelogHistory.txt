@@ -13,6 +13,7 @@
 - fixed crafting recipes ingredients list to avoid double primed weapons requirement
 - fixed Crusader's Mantle spell to avoid soft lock during combat
 - fixed custom campaigns encounters to properly copy the challenge rate over [VANILLA]
+- fixed custom campaigns Elven Clan's Leralyn NPC to have darkvision 120 ft [VANILLA]
 - fixed dungeon maker removing custom items from loot packs during boot time [VANILLA] 
 - fixed extended distance calculation algorithm to avoid crash during load under certain scenarios
 - fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
