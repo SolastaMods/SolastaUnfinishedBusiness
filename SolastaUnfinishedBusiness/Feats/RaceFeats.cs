@@ -684,6 +684,20 @@ internal static class RaceFeats
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
 
+            if (dieRoll <= action.AttackRoll)
+            {
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feat/&FeatBountifulLuckyTitle",
+                    "Feedback/&IsNotLuckyLower",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Positive, action.AttackRoll.ToString())
+                    ]);
+
+                yield break;
+            }
+
             action.AttackSuccessDelta += dieRoll - action.AttackRoll;
             action.AttackRoll = dieRoll;
 
@@ -761,6 +775,20 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            if (dieRoll <= abilityCheckData.AbilityCheckRoll)
+            {
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feat/&FeatBountifulLuckyTitle",
+                    "Feedback/&IsNotLuckyLower",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Positive, abilityCheckData.AbilityCheckRoll.ToString())
+                    ]);
+
+                yield break;
+            }
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
@@ -851,6 +879,20 @@ internal static class RaceFeats
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
             var savingRoll = action.SaveOutcomeDelta - _modifier + _saveDC;
+
+            if (dieRoll <= savingRoll)
+            {
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feat/&FeatBountifulLuckyTitle",
+                    "Feedback/&IsNotLuckyLower",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Positive, savingRoll.ToString())
+                    ]);
+
+                yield break;
+            }
 
             action.saveOutcomeDelta += dieRoll - savingRoll;
             action.RolledSaveThrow = true;

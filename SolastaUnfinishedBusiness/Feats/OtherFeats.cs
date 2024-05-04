@@ -1633,8 +1633,7 @@ internal static class OtherFeats
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerLucky, rulesetHelper);
 
-            if (!helper.CanReact() ||
-                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            if (rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -1661,7 +1660,7 @@ internal static class OtherFeats
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
                 {
                     StringParameter = stringParameter,
                     ActionModifiers = { new ActionModifier() },
@@ -1682,6 +1681,32 @@ internal static class OtherFeats
             }
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            switch (stringParameter)
+            {
+                case "LuckyAttack" when dieRoll <= action.AttackRoll:
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        "Feat/&FeatLuckyTitle",
+                        "Feedback/&IsNotLuckyLower",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                            (ConsoleStyleDuplet.ParameterType.Positive, action.AttackRoll.ToString())
+                        ]);
+
+                    yield break;
+                case "LuckyEnemyAttack" when dieRoll >= action.AttackRoll:
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        "Feat/&FeatLuckyTitle",
+                        "Feedback/&IsNotLuckyHigher",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                            (ConsoleStyleDuplet.ParameterType.Negative, action.AttackRoll.ToString())
+                        ]);
+
+                    yield break;
+            }
 
             action.AttackSuccessDelta += dieRoll - action.AttackRoll;
             action.AttackRoll = dieRoll;
@@ -1713,7 +1738,6 @@ internal static class OtherFeats
             if (abilityCheckData.AbilityCheckRoll == 0 ||
                 abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
                 helper != defender ||
-                !helper.CanReact() ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
@@ -1724,7 +1748,7 @@ internal static class OtherFeats
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
                 {
                     StringParameter = "LuckyCheck",
                     ActionModifiers = { new ActionModifier() },
@@ -1745,6 +1769,20 @@ internal static class OtherFeats
             }
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            if (dieRoll <= abilityCheckData.AbilityCheckRoll)
+            {
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feat/&FeatLuckyTitle",
+                    "Feedback/&IsNotLuckyLower",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Positive, abilityCheckData.AbilityCheckRoll.ToString())
+                    ]);
+
+                yield break;
+            }
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
@@ -1787,7 +1825,6 @@ internal static class OtherFeats
             if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 helper != defender ||
-                !helper.CanReact() ||
                 rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
@@ -1798,7 +1835,7 @@ internal static class OtherFeats
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
                 {
                     StringParameter = "LuckySaving",
                     StringParameter2 = "UseLuckySavingDescription".Formatted(
@@ -1822,6 +1859,20 @@ internal static class OtherFeats
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
             var savingRoll = action.SaveOutcomeDelta - _modifier + _saveDC;
+
+            if (dieRoll <= savingRoll)
+            {
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feat/&FeatLuckyTitle",
+                    "Feedback/&IsNotLuckyLower",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Positive, savingRoll.ToString())
+                    ]);
+
+                yield break;
+            }
 
             action.saveOutcomeDelta += dieRoll - savingRoll;
             action.RolledSaveThrow = true;
