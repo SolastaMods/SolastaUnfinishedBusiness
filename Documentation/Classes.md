@@ -1,4 +1,173 @@
-# 1. - Barbarian
+# 1. - Artificer [UB]
+
+Artificers are tinkerers, alchemists, and more. They bridge the space between magic and technology.
+
+
+## Level 1
+
+* Artificer Armor Proficiencies
+
+Light Armor,Medium Armor,Shield
+
+* Artificer Skill Proficiencies
+
+Choose 2 of these skills: Arcana,History,Investigation,Medicine,Nature,Perception,Sleight of Hand
+
+* Artificer Tool Proficiencies
+
+Proficient with these tools: Smith's tools,Thieves' Tools
+
+* Artificer Tool Proficiency Choice
+
+Choose one of these tools: Disguise Kit,Manacalon Rosary,Herbalism Kit,Poisoner's Kit,Scroll Kit
+
+* Artificer Weapon Proficiency
+
+Simple Weapons
+
+* Magical Tinkering
+
+You know how to invest a spark of magic into mundane objects. Learn these cantrips: Dazzle,Light,Shine,Sparkle
+
+* Saving Throw Proficiencies
+
+Constitution,Intelligence
+
+* Artificer Spellcasting
+
+Can cast spells from the Artificer Spells list. You can use item that bears your infusion or any universal focus as a focus for your spells. You can cast a spell as a ritual if the spell has the ritual tag, and you have it prepared.
+
+
+## Level 2
+
+* Infusions
+
+You've gained the ability to imbue mundane items with certain magical infusions, turning those objects into magic items. Learn 4 infusion of your choice. Whenever you gain a level in this class, you can replace one of the Artificer infusions you learned with a new one.
+After each long rest you can infuse 2 items. If you try to exceed your maximum amount of infused object, the oldest infusion ends and then new infusion applies. The infusion also vanishes if you replace your knowledge of the infusion.
+
+
+## Level 3
+
+* Field Of Study
+
+Select Field Of Study to focus on.
+
+* Know Your Tools
+
+Choose one of these tools: Disguise Kit,Manacalon Rosary,Herbalism Kit,Poisoner's Kit,Scroll Kit
+
+
+## Level 4
+
+* Ability Score Choice
+
+Choose between increasing your ability scores or gaining a bonus feat.
+
+
+## Level 6
+
+* Artificer Tool Expertise
+
+You gain proficiency with all crafting tools, or expertise if you were already proficient with that tool.
+
+* Infusion Limit Increase
+
+You can have 1 more item infused at a time.
+
+* Learn Infusion
+
+Select 2 new infusions to learn.
+
+
+## Level 7
+
+* Flash of Genius
+
+When ally in 30ft fails saving throw by less than your Intelligence modifier, you can use your reaction to improvise help that would give that roll a bonus equal to your Intelligence modifier. You can use this ability Intelligence modifier times per long rest.
+
+
+## Level 8
+
+* Ability Score Choice
+
+Choose between increasing your ability scores or gaining a bonus feat.
+
+
+## Level 10
+
+* Infusion Limit Increase
+
+You can have 1 more item infused at a time.
+
+* Learn Infusion
+
+Select 2 new infusions to learn.
+
+* Magic Item Adept
+
+You have achieved a profound understanding of how to use and make magic items:
+• Your attunement limit raises by 1
+• You craft items in quarter of the normal time.
+
+
+## Level 11
+
+* Spell-Storing Wand
+
+Create a wand that can cast one of the 1st or 2nd level Artificer spells. Wand uses your Artificer spell attack modifier and save DC. Wand will disappear when all charges are spent or if you create new wand.
+
+
+## Level 12
+
+* Ability Score Choice
+
+Choose between increasing your ability scores or gaining a bonus feat.
+
+
+## Level 14
+
+* Infusion Limit Increase
+
+You can have 1 more item infused at a time.
+
+* Learn Infusion
+
+Select 2 new infusions to learn.
+
+* Magic Item Savant
+
+Your skill with magic items deepens more:
+• Your attunement limit raises by 1
+• You ignore class requirements on attuning to a magic item.
+
+
+## Level 16
+
+* Ability Score Choice
+
+Choose between increasing your ability scores or gaining a bonus feat.
+
+
+## Level 18
+
+* Infusion Limit Increase
+
+You can have 1 more item infused at a time.
+
+* Learn Infusion
+
+Select 2 new infusions to learn.
+
+
+## Level 19
+
+* Ability Score Choice
+
+Choose between increasing your ability scores or gaining a bonus feat.
+
+
+
+# 2. - Barbarian [SOL]
 
 Barbarians are fierce warriors from the edge of civilization. Their battle rage makes them dangerous combatants.
 
@@ -179,7 +348,7 @@ Starting at 20th level, you embody the power of the wilds. Your Strength and Con
 
 
 
-# 2. - Bard
+# 3. - Bard [SOL]
 
 While they are capable fighters, the true power of bards lies in their words and music. They can inspire those who hear them, raise their spirits, and affect their minds in other ways. They are well-versed in lore and magic, as well.
 
@@ -334,7 +503,7 @@ When you roll initiative and have no uses of Bardic Inspiration left, you regain
 
 
 
-# 3. - Cleric
+# 4. - Cleric [SOL]
 
 Clerics are the servants of their chosen deity. In exchange for their faith and service they are granted miraculous powers, as long as they constrain themselves to following their god's creed and perform their religion's rituals.
 
@@ -472,7 +641,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 
-# 4. - Druid
+# 5. - Druid [SOL]
 
 Druids are part of an ancient order dedicated to nature. Their powers and spells are attuned to animals, plants and the elemental forces.
 
@@ -570,7 +739,7 @@ You can use your Wildshape an unlimited number of times. Additionally, you can i
 
 
 
-# 5. - Fighter
+# 6. - Fighter [SOL]
 
 Fighters are trained in the arts of combat. They are adept with most weapons, but often choose to specialize. All fighters can use armor, shields, and ranged weapons.
 
@@ -716,7 +885,7 @@ You can attack twice, rather than once, when you use the attack or shove actions
 
 
 
-# 6. - Monk
+# 7. - Monk [SOL]
 
 Despite their name, not all monks live a contemplative, religious life. However, all have devoted themselves to training their minds and bodies to near perfection, enabling them to perform feats that leave others speechless with awe.
 
@@ -904,7 +1073,7 @@ When you start battle and have no Ki points remaining, you regain 4 Ki points.
 
 
 
-# 7. - Paladin
+# 8. - Paladin [SOL]
 
 Paladins are elite warriors who have sworn unbreakable holy oaths to fight evil. In addition to their weapons and armor, they wield divine powers and clerical spells.
 
@@ -1056,7 +1225,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 
-# 8. - Ranger
+# 9. - Ranger [SOL]
 
 Wanderers of Solasta's wilderness, rangers are trained survivalists, fierce in battle, and stealthy hunters. Excellent trackers and archers, they also have some spellcasting ability.
 
@@ -1204,7 +1373,7 @@ You become an unparalleled hunter of your enemies. All your attacks deal additio
 
 
 
-# 9. - Rogue
+# 10. - Rogue [SOL]
 
 Rogues are versatile first and foremost. They use their natural talents to master various skills and find their own way to thrive. Generally resourceful, they are known for their cunning and their ability to launch deadly sneak attacks.
 
@@ -1357,7 +1526,7 @@ You have an uncanny knack for succeeding when you need to. If your attack misses
 
 
 
-# 10. - Sorcerer
+# 11. - Sorcerer [SOL]
 
 Sorcerers have an innate ability to channel arcane magic, usually through a supernatural origin. Sorcerers are also able to alter the fabric of magic using sorcery points.
 
@@ -1464,7 +1633,7 @@ Regain 4 sorcery points during a short rest.
 
 
 
-# 11. - Warlock
+# 12. - Warlock [SOL]
 
 Where wizards draw their magical power from study and sorcerers from magical bloodlines, warlocks gain power through a pact with a powerful patron: a fiend, perhaps, or some other powerful entity. The nature of a warlock's powers varies depending on the nature of the patron and the details of the pact.
 
@@ -1617,7 +1786,7 @@ You can draw on your inner reserve of mystical power while entreating your patro
 
 
 
-# 12. - Wizard
+# 13. - Wizard [SOL]
 
 Wizards spend their lives studying magic, learning more and more powerful and wondrous spells. Despite their weakness in physical combat, their magical abilities make them dangerous foes.
 

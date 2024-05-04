@@ -1,6 +1,6 @@
 # Artificer
 
-## 1. Armorer
+## 1. Armorer [UB]
 
 Armorers focus their studies on magical armors and how to use them effectively.
 
@@ -58,7 +58,7 @@ You improve your armor modes:
 
 
 
-## 2. Artillerist
+## 2. Artillerist [UB]
 
 An Artillerist specializes in using magic to hurl energy, projectiles, and explosions on a battlefield. This destructive power is valued by armies in the wars on many different worlds.
 
@@ -115,7 +115,7 @@ Starting at 15th level, you're a master at forming well-defended emplacements us
 
 
 
-## 3. Battle Smith
+## 3. Battle Smith [UB]
 
 Battle Smiths focus their studies on magical weapons and how to use them effectively.
 
@@ -173,7 +173,7 @@ Your Arcane Jolt and steel defender become more powerful:
 
 
 
-## 4. Grenadier
+## 4. Grenadier [UB]
 
 Grenadiers study unstable substances and their use in creating explosions of various types.
 
@@ -243,7 +243,7 @@ You can spend 3 additional charges when creating a bomb to make it more potent. 
 
 
 
-## 5. Vitriolist
+## 5. Vitriolist [UB]
 
 All Artificers use various forms of acids and other magical means to break down ingredients, creature parts or even objects into their base components for their experiments, Some Artificers became focused on the deconstruction process, especially when using acid in this function and have experimented with how it could be used in a far greater capacity when it comes to offensive and defensive capabilities.
 
@@ -299,7 +299,7 @@ You have mastered your Vitriolic Mixtures. Whenever a creature is affected by an
 
 
 
-## 6. Vivisectionist
+## 6. Vivisectionist [UB]
 
 A vivisectionist studies bodies to better understand their function. Unlike a surgeon, a vivisectionist's goals are not always related to healing, but rather to experimentation and knowledge with body parts.
 
@@ -367,7 +367,79 @@ You can take a bonus action to heal an ally within 5 feet for an amount equal to
 
 # Barbarian
 
-## 1. Path of the Elements
+## 1. Path of the Berserker [SOL]
+
+The Path of the Berserker is a path of untrammeled fury, slick with blood. As you enter the berserker's rage, you thrill in the chaos of battle, heedless of your own health or well-being.
+
+
+### Level 3
+
+* Frenzy
+
+You can go into a frenzy when you rage. If you do so, for the duration of your rage you can make a single melee weapon attack as a bonus action on each of your turns after this one. When your rage ends, you suffer one level of exhaustion unless you make a successful DC 10 CON saving throw. The DC increases by 5 each time until you complete a short or long rest.
+
+
+### Level 6
+
+* Mindless Rage
+
+You can't be charmed or frightened while raging.
+
+
+### Level 10
+
+* Intimidating Presence
+
+Frighten a creature until the end of your next turn if it fails a WIS check opposed by your CHA.
+
+
+### Level 14
+
+* Retaliation
+
+Whenever an opponent attacks you from a nearby cell, you are granted an immediate melee attack against that opponent.
+
+
+
+## 2. Path of the Claw [SOL]
+
+It is an open secret that Barbarians of the Path of the Claw are the descendants of an old clan that mingled with dragons. Whenever they enter a rage, their ancestry comes rushing out and takes over their senses, allowing them to perform incredible feats of power.
+
+
+### Level 3
+
+* Dragon Ancestry
+
+You choose one type of dragon as your ancestor. The damage type associated with your choice is used by the features you gain later.
+
+* Dragon Scales
+
+While raging, you gain a +1 bonus to AC and resistance to the damage type of your draconic ancestor.
+
+
+### Level 6
+
+* Draconic Wrath
+
+You can use a bonus action to breathe a 3-cell cone of elemental damage equal to half your level (rounded up) in d8. Every creature in the area must make a dexterity saving throw equal to 8 + your proficiency bonus + your constitution modifier, taking only half damage on a success.
+
+
+### Level 10
+
+* Dragon's Blessing
+
+While raging, your melee weapon attacks deal an additional 1d8 elemental damage.
+
+
+### Level 14
+
+* Frightful Strike
+
+While raging, the first creature you hit with a melee attack each turn must make a Wisdom saving throw (DC 8 + proficiency bonus + STR modifier) or become frightened until the end of their turn.
+
+
+
+## 3. Path of the Elements [UB]
 
 Barbarians who follow the Path of the Elements learned to harness the destructive powers of nature, transforming their rage into a mantle of primal magic that swirls around them. When in a fury, a barbarian of this path taps into nature to create devastating elemental calamities.
 
@@ -414,7 +486,7 @@ Starting at 10th level, you gain additional powers depending on the elemental ca
 
 
 
-## 2. Path of the Light
+## 4. Path of the Light [UB]
 
 Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 
@@ -456,7 +528,41 @@ On the turn that you enter your rage, you can choose to illuminate up to three e
 
 
 
-## 3. Path of the Ravager
+## 5. Path of the Magebane [SOL]
+
+Followers of this path have developed a profound hatred for magic and magic-users. For them, physical prowess is the only decent way. They despise and distrust magic and magic-users.
+
+
+### Level 3
+
+* War Cry
+
+While raging, a Magebane who takes damage from spells or other magical attacks can use their reaction to unleash a powerful warcry, dealing psychic damage, equal to 1d6 + CON modifier, to all enemies within 6 cells.
+
+
+### Level 6
+
+* Enemy Of Magic
+
+While raging, Magebanes roll an additional weapon damage die when making a successful melee attack against a creature capable of spellcasting.
+
+
+### Level 10
+
+* Reject Magic
+
+Advantage on saving throws against spells
+
+
+### Level 14
+
+* Spell Crusher
+
+When raging, you can dispel a magical effect on a creature or object as a bonus action, as if you were casting Dispel Magic with Constitution as the spellcasting ability. You can use this feature a number of times equal to your proficiency bonus per long rest.
+
+
+
+## 6. Path of the Ravager [UB]
 
 The Path of the Ravager is a path of untrammeled fury, slick with blood. As you enter the ravager's rage, you thrill in the chaos of battle, heedless of your own health or well-being.
 
@@ -490,7 +596,7 @@ Whenever you start raging as a free action, and while you are raging on subseque
 
 
 
-## 4. Path of the Reaver
+## 7. Path of the Reaver [UB]
 
 All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
 
@@ -528,7 +634,7 @@ Starting at 14th level, your blood becomes permanently corrupted, damaging creat
 
 
 
-## 5. Path of the Savagery
+## 8. Path of the Savagery [UB]
 
 Barbarians who walk the Path of the Savage are forces of nature, fighting less like men, and more like wild beasts. They strike with explosive speed and power, leveraging twin blades akin to a wild animal fighting with claws and fangs.
 
@@ -566,7 +672,41 @@ Starting at 14th level, while you are raging, whenever you hit a creature with a
 
 
 
-## 6. Path of the Totem Warrior
+## 9. Path of the Stone [SOL]
+
+Barbarians following this path draw their strength from their connection to stone. They are known for their doggedness. They never give up in the face of adversity and thrive in hostile environments.
+
+
+### Level 3
+
+* Stone Resilience
+
+While raging, you gain temporary HP equal to twice your proficiency bonus at the end of your turn.
+
+
+### Level 6
+
+* Strength from Within
+
+Your Constitution Saving Throw is used for any Saving Throw, if it's higher than the one normally used.
+
+
+### Level 10
+
+* Rock Solid
+
+While raging, you gain +1 to AC per hostile opponent that you can see within one cell of you, up to a maximum of +4.
+
+
+### Level 14
+
+* Last Stand
+
+You gain a bonus to your melee weapon damage roll equal to your proficiency.
+
+
+
+## 10. Path of the Totem Warrior [UB]
 
 Barbarians who follow the Path of the Totem Warrior accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 
@@ -604,7 +744,7 @@ Starting at 14th level, choose an animal to hone your spiritual connection to, g
 
 
 
-## 7. Path of the Yeoman
+## 11. Path of the Yeoman [UB]
 
 Barbarians following the Path of the Yeoman ignore melee weapons to master the longbow. No less strong than barbarians that follow other paths, their arrows fell the mightiest of foes and their single-minded focus increases their already formidable defenses to incredible heights.
 
@@ -651,7 +791,7 @@ Increase the damage dice of longbows from d8 to d12. While raging and not wearin
 
 # Bard
 
-## 1. College of Elegance
+## 1. College of Elegance [UB]
 
 The College of Elegance is the home of bards who mastered the art of bodily motion. They see exquisite beauty in dancing and expressing oneself through mesmerizing gestures, wearing flashy outfits and oftentimes looking to be the center of attention. In combat, these bards weave elegant steps seamlessly into battle maneuvers, pairing them with a weapon of choice and creating an unforgettable spectacle for friends and foes alike. 
 
@@ -688,7 +828,7 @@ Whenever you take the Attack action, you can perform an impressive set of moves 
 
 
 
-## 2. College of Eloquence
+## 2. College of Eloquence [UB]
 
 Bards of the College of Eloquence use music and unwavering determination to embolden the hearts of their allies, while demoralizing their enemies. Drawing inspiration from the stories of heroes of old, great deeds and extraordinary events, these bards courageously fight to preserve their ideals, leaving a long-lasting impression on those around them.
 
@@ -723,7 +863,78 @@ You can use your bonus action to activate Heroic Inspiration. Heroic Inspiration
 
 
 
-## 3. College of Life
+## 3. College of Heroism [SOL]
+
+Some bards inflame their audience, or a crowd, using words, music, or song! Bards of the College of Heroism sing the song of battle and dance the dance of death, inspiring crowds with their deeds.
+
+
+### Level 3
+
+* Bolster Morale
+
+When an ally uses one of your Bardic Inspiration dice, they roll twice and pick the best number.
+
+* Heroic Tale
+
+You can use an action to bolster an ally you can see within 6 cells for 1 minute, who gains immunity against frightened/fear effects and advantage on all saving throws. You can't use this feature again until you finish a short or long rest.
+
+
+### Level 6
+
+* Thundering Voice
+
+Whenever you grant a Bardic Inspiration to an ally, the closest enemy within 12 cells must make a successful WIS saving throw or take thunder damage equal to 1d8 + your CHA modifier and have disadvantage on their next attack roll (half damage on save).
+
+
+### Level 14
+
+* At Road's End
+
+When an ally you can see within 12 cells is reduced to 0 hit points, you can use your reaction to instantly heal them for 4d12 + CHA mod HP. You can use this feature once per short or long rest.
+
+
+
+## 4. College of Hope [SOL]
+
+The bards of the College of Hope are bringers of comfort and dispellers of fear. Their songs raise the spirits of those who hear them, healing bodies as well as soothing fears.
+
+
+### Level 3
+
+* Healing Ballad
+
+Song of Rest heals additional hit points equal to your charisma modifier. At the end of a short rest, it also grants allies temporary hit points equal to one Bardic Inspiration die plus your charisma modifier.
+
+* Wandering Healer
+
+
+	II	Prayer of Healing
+
+	III	Mass Healing Word, Revivify
+
+
+
+
+### Level 6
+
+* Words of Hope
+
+When giving a Bardic Inspiration die to an ally, they also roll a Song of Rest die to heal up to half their maximum health.
+
+
+### Level 14
+
+* Song of Hope
+
+Sing a song of hope to allies within 6 cells, granting them resistance to all damage, and advantage on all their saving throws until the start of your next turn.
+
+* Start a Song of Hope
+
+Starting on your next turn, as an action, you will be able to sing a song of hope to help allies within 6 cells, granting them resistance to all damage, and advantage on all their saving throws until the start of your next turn. If you take damage, you must make a CON saving throw (DC equal to half the damage with a minimum of 10) or Song of Hope will end.
+
+
+
+## 5. College of Life [UB]
 
 Masters of manipulating both matter and life energy.
 
@@ -764,7 +975,38 @@ You have immunity to necrotic damage, and your hit point maximum can't be reduce
 
 
 
-## 4. College of Swords
+## 6. College of Lore [SOL]
+
+The College of Lore has gathered knowledge from all over the world, from ancient ballads, peasant folktales, scholarly tomes, and more. They pursue truth and beauty with unending devotion.
+
+
+### Level 3
+
+* Bonus Proficiencies
+
+When you join the College of Lore at the 3rd level, you gain proficiency with three skills of your choice.
+
+* Cutting Words
+
+As a bonus action, you can spend one use of Bardic Inspiration and target a creature that you can see within 12 cells. Roll a Bardic Inspiration die. Until the start of your next turn, the target creature decreases all its ability checks, and attack and damage rolls by the value of the Bardic Inspiration die.
+
+
+### Level 6
+
+* Additional Magical Secrets
+
+Choose two spells from any class and include them in your spell list.
+
+
+### Level 14
+
+* Peerless Skill
+
+You can now cast Bardic Inspiration on yourself.
+
+
+
+## 7. College of Swords [UB]
 
 Bards of the College of Swords entertain through daring feats of weapon prowess. They perform stunts such as sword swallowing, knife throwing and juggling, and mock combats. Though they use their weapons to entertain, they are also highly trained and skilled warriors in their own right.
 
@@ -806,7 +1048,7 @@ Whenever you use an Audacious Whirl option, you can roll a D6 and use it instead
 
 
 
-## 5. College of Thespian
+## 8. College of Thespian [UB]
 
 College of Thespian bards see no distinction between art and war. They see it as their duty to keep the legend of the great battle of the Cataclysm alive through their performance, either on stage, or on the battlefield.
 
@@ -849,7 +1091,38 @@ Any creature that fails its saving throw against your Terrific Performance also 
 
 
 
-## 6. College of Valor
+## 9. College of Traditions [SOL]
+
+The College of Traditions is descended from an order of song-wizards who served the Manacalon empire. While their allegiance has changed, their fascination with magic has not - and neither has their skill.
+
+
+### Level 3
+
+* Ancient Tradition
+
+Cast Mage Armor on yourself at will: your AC becomes 13 + DEX modifier if you are unarmored.
+
+* Aura of Preeminence
+
+When you make an Intimidation or Insight check, you can treat a roll of 9 or lower as a 10.
+
+
+### Level 6
+
+* Verbal Onslaught
+
+As a reaction, after a creature you can see within 12 cells damages you, you can expend one of your Bardic Inspiration. On a failed intelligence saving throw, they take psychic damage equal to 2x your bardic inspiration die + charisma modifier and be stunned until the end of their next turn. The damage is halved on a successful saving throw.
+
+
+### Level 14
+
+* Manacalon Perfection
+
+Once per short rest, as a bonus action, grant yourself and an ally the benefits of a bardic inspiration die without spending one of its uses. It will always roll its maximum value.
+
+
+
+## 10. College of Valor [UB]
 
 Bards of the College of Valor gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
 
@@ -886,7 +1159,84 @@ You can use your arcane powers to shield yourself as a reaction. This gives you 
 
 # Cleric
 
-## 1. Defiler
+## 1. Battle [SOL]
+
+The Battle domain grants powerful combat spells. Its clerics can deal damage as well as providing front-line healing.
+
+
+### Level 1
+
+* Battle Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Magic Missile, Shield of Faith
+
+	II	Acid Arrow, Flaming Sphere
+
+	III	Fireball, Haste
+
+	IV	Stoneskin, Phantasmal Killer
+
+	V	Hold Monster, Insect Plague
+
+* Battle Magic
+
+Can cast spells with a somatic component without a free hand, provided a weapon or shield is being wielded.
+
+* Bonus Proficiency
+
+Martial Weapons
+
+* Divine Fortitude
+
+As an action, gain 3 temporary HP per cleric level. Recovered after a long rest.
+
+
+### Level 2
+
+* Decisive Strike
+
+On a successful attack, Channel Divinity to add 1d6 to your damage and stun your target (save negates). Increases by 1d6 every 3 levels above level 2.
+
+
+### Level 6
+
+* Herald of Battle
+
+Allies in adjacent cells gain +1 on attack rolls, damage, AC, and saving throws.
+
+
+### Level 8
+
+* Scholar of Battle
+
+You can attack twice, rather than once, when you use the attack or shove actions.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Paragon of Battle
+
+You gain resistance to bludgeoning, piercing, and slashing damage. In addition, the range of Herald of Battle is increased to 15 feet.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 2. Defiler [UB]
 
 Defilers worship patrons of death, corruption, and blight, seeking power and corruption for their own ends: to please their gods, or for more selfish reasons.
 
@@ -953,7 +1303,226 @@ You learn Circle of Death and Finger of Death spells, and it is added to the lis
 
 
 
-## 2. Forge
+## 3. Elemental (Fire) [SOL]
+
+The Elemental domain allows a cleric to become one with the elements. The fire sub-domain makes you less vulnerable to fire damage and grants you fire-based attacks.
+
+
+### Level 1
+
+* Bonus Cantrip (Fire)
+
+Fire Bolt
+
+* Elemental Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Thunderwave, Fog Cloud
+
+	II	Levitate, Misty Step
+
+	III	Lightning Bolt, Fly
+
+	IV	Ice Storm, Wall of Fire
+
+	V	Cone of Cold, Conjure Elemental
+
+* Primal Harmony (Fire)
+
+Resistance to Fire: damage is halved
+
+
+### Level 2
+
+* Channel Divinity: Fire Burst
+
+Channel Divinity to cause 3d8 fire damage to a target within 12 cells. A successful Dexterity save halves the damage.
+
+
+### Level 6
+
+* Scholar of the Elements
+
+Use your reaction to become immune to your domain element so it heals you instead of wounding you.
+
+
+### Level 8
+
+* Call Upon Fire
+
+The target suffers fire damage and must succeed a STR save or be pushed. Can be used a number of times equal to your WIS bonus until a long rest.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Summon Inferno
+
+As an action, you can summon 2 fire elemental. Once you use this ability, you can't use it again until you finish a long rest.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 4. Elemental (Ice) [SOL]
+
+The Elemental domain allows a cleric to become one with the elements. The ice sub-domain makes you less vulnerable to cold damage and grants you ice-based attacks.
+
+
+### Level 1
+
+* Bonus Cantrip (Cold)
+
+Ray of Frost
+
+* Elemental Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Thunderwave, Fog Cloud
+
+	II	Levitate, Misty Step
+
+	III	Lightning Bolt, Fly
+
+	IV	Ice Storm, Wall of Fire
+
+	V	Cone of Cold, Conjure Elemental
+
+* Primal Harmony (Cold)
+
+Resistance to Cold: damage is halved
+
+
+### Level 2
+
+* Channel Divinity: Ice Lance
+
+Use Channel Divinity on a target within 12 cells. The target must make a Dexterity saving throw or be pushed away by 2 cells and suffer 2d8 cold damage.
+
+
+### Level 6
+
+* Scholar of the Elements
+
+Use your reaction to become immune to your domain element so it heals you instead of wounding you.
+
+
+### Level 8
+
+* Call Upon Cold
+
+The target suffers cold damage and must succeed with a STR save or become restrained until the end of its next turn. Can be used a number of times equal to your WIS bonus until a long rest.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Summon Blizzard
+
+As an action, you can summon 2 ice elemental. Once you use this ability, you can't use it again until you finish a long rest.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 5. Elemental (Lightning) [SOL]
+
+The Elemental domain allows a cleric to become one with the elements. The lightning sub-domain makes you less vulnerable to lightning damage and grants you lightning-based attacks.
+
+
+### Level 1
+
+* Bonus Cantrip (Lightning)
+
+Shocking Grasp
+
+* Elemental Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Thunderwave, Fog Cloud
+
+	II	Levitate, Misty Step
+
+	III	Lightning Bolt, Fly
+
+	IV	Ice Storm, Wall of Fire
+
+	V	Cone of Cold, Conjure Elemental
+
+* Primal Harmony (Lightning)
+
+Resistance to Lightning: damage is halved
+
+
+### Level 2
+
+* Channel Divinity: Lightning Blade
+
+Channel Divinity to cause 1d8 lightning damage to a target within 12 cells. On a failed Dexterity save, the target is also stunned until the end of its next turn.
+
+
+### Level 6
+
+* Scholar of the Elements
+
+Use your reaction to become immune to your domain element so it heals you instead of wounding you.
+
+
+### Level 8
+
+* Call Upon Thunder
+
+Creatures in the area of effect must make a successful CON save or suffer thunder damage equal to 2D8 + your WIS bonus and become restrained until the end of their next turn. Can be used a number of times equal to your WIS bonus between long rests.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Living Tempest
+
+As a bonus action, you can give yourself a flying speed equal to your walking speed.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 6. Forge [UB]
 
 Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
 
@@ -1040,7 +1609,317 @@ Your blessed affinity with fire and metal becomes more powerful. While wearing a
 
 
 
-## 3. Nature
+## 7. Insight [SOL]
+
+The Insight domain focuses on learning, memory, and deduction. Those who embrace this domain are renowned for their knowledge and wisdom.
+
+
+### Level 1
+
+* Divine Intuition
+
+Advantage on ability checks using Arcana, History, and Nature
+
+* Insight Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Detect Evil and Good, Identify
+
+	II	Find Traps, See Invisibility
+
+	III	Slow, Remove Curse
+
+	IV	Identify Creatures, Phantasmal Killer
+
+	V	Dispel Evil and Good, Dominate Person
+
+* Inspired Diplomat
+
+You always know the odds when choosing between dialog choices that include an Ability Check (Persuasion, Deception, or Intimidation).
+
+
+### Level 2
+
+* Channel Divinity: Foreknowledge
+
+Channel Divinity to see the immediate future and dodge your enemy's attacks better. For 1 minute, the first attack (except shove) made against you after your turn suffers disadvantage.
+
+
+### Level 6
+
+* Divine Eye
+
+Advantage to detect traps, hidden doors, and objects
+
+
+### Level 8
+
+* Divine Lore
+
+You know all languages, written and spoken. In addition, you can identify a magical item once per long rest.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Avatar of Knowledge
+
+
+• You gain proficiency with Intelligence based saving throws.
+• You can now channel your Foreknowledge divinity to you and all allies within 15 ft.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 8. Law [SOL]
+
+The Law domain focuses on protecting the innocent and punishing the guilty, granting powers and spells to control and tame the unlawful.
+
+
+### Level 1
+
+* Commanding Presence
+
+Proficient with Intimidation.
+ Advantage on Intimidation checks
+
+* Law Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Heroism, Shield
+
+	II	Branding Smite, Hold Person
+
+	III	Counterspell, Lightning Bolt
+
+	IV	Banishment, Guardian of Faith
+
+	V	Hold Monster, Dispel Evil and Good
+
+* Unyielding Enforcer
+
+Advantage on rolls to resist being shoved or moved by magical means
+
+
+### Level 2
+
+* Channel Divinity: Force of Law
+
+Channel Divinity when casting an attack spell to impose disadvantage on your target's saving throw.
+
+* Channel Divinity: Holy Retribution
+
+When a melee attack damages you, you can use your reaction to Channel Divinity and strike back using a melee weapon, adding (2d6 + cleric level) psychic damage.
+
+
+### Level 6
+
+* Word of the Law
+
+Break the spellcasting concentration of an enemy
+
+
+### Level 8
+
+* Anathema
+
+On a failed WIS saving throw, restrains a creature and inflicts force damage each turn equal to your WIS modifier. The creature can make a WIS saving throw at the end of their turn. Can be used once per short rest. 
+  At level 14 or above, can be used twice per short rest and the damage is increased by an additional +2d6.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 14
+
+* Anathema
+
+On a failed WIS saving throw, restrains a creature and inflicts force damage each turn equal to your WIS modifier. The creature can make a WIS saving throw at the end of their turn. Can be used once per short rest. 
+  At level 14 or above, can be used twice per short rest and the damage is increased by an additional +2d6.
+
+
+### Level 17
+
+* Final Word
+
+Whenever you break the spellcasting concentration of an enemy, that enemy becomes silenced until the end of your next turn.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 9. Life [SOL]
+
+The Life domain focuses on the vibrant positive energy - one of the fundamental forces of the universe - that sustains all life, and grants unrivaled healing abilities.
+
+
+### Level 1
+
+* Bonus Proficiency
+
+Proficient with Heavy Armor.
+
+* Disciple of Life
+
+When casting a healing spell, the target regains additional HP equal to (2 x spell level).
+
+* Life Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Bless, Cure Wounds
+
+	II	Lesser Restoration, Spiritual Weapon
+
+	III	Revivify, Mass Healing Word
+
+	IV	Death Ward, Guardian of Faith
+
+	V	Mass Cure Wounds, Raise Dead
+
+
+### Level 2
+
+* Channel Divinity: Preserve Life
+
+Restore hit points (5 x cleric level) to one or more allies within 6 cells, up to half their hit point maximum.
+
+
+### Level 6
+
+* Blessed Healer
+
+When you cast a spell of 1st level or higher that restores hit points to a creature other than yourself, you regain hit points equal to (2 + spell level).
+
+
+### Level 8
+
+* Divine Strike
+
+Once per turn, when you hit a creature with a weapon attack, you can deal an extra 1d8 radiant damage to the target. When you reach level 14, the extra damage increases to 2d8.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Supreme Healing
+
+When you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 10. Mischief [SOL]
+
+The Mischief domain is followed by those who pursue joy, pleasure, and wealth through trickery, luck, and manipulation.
+
+
+### Level 1
+
+* Borrowed Luck
+
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
+
+* Mischief Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Charm Person, Expeditious Retreat
+
+	II	Blur, Invisibility
+
+	III	Hypnotic Pattern, Slow
+
+	IV	Confusion, Greater Invisibility
+
+	V	Dominate Person, Hold Monster
+
+* Trickster
+
+Proficiency with Stealth and Deception
+
+
+### Level 2
+
+* Channel Divinity: Strike of Chaos
+
+When you hit a creature with a melee or ranged weapon attack, you can Channel Divinity to add 1d6 points of psychic damage, and impose a random condition if the target fails a wisdom saving throw. The condition can be: advantage on attack rolls, disadvantage on attack rolls, blinded, restrained, paralyzed, or none.
+ The additional damage is increased by 1d6 for every 3 levels above level 2 (level 5: 2d6, level 8: 3d6, etc.)
+ The target must make a wisdom saving throw against your spell save DC at the end of each of its turns. On a successful save, this effect ends; otherwise, it remains for a maximum duration of 1 minute.
+
+
+### Level 6
+
+* Elusive Target
+
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
+
+
+### Level 8
+
+* Divine Strike
+
+Once, on each of your turns when you hit a creature with a weapon attack, you can deal an extra 1d8 psychic damage to the target. When you reach level 14, the extra damage increases to 2d8.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Fortune Favors The Bold
+
+Whenever you use your Channel Divinity: Strike of Chaos feature, you randomly gain one of the following effects for 1 minute: nothing, disadvantage on next attack roll, advantage on the next attack roll, temporary hit points equal to cleric level, +4d8 psychic damage on the next attack roll that hits, effects of Mirror Image spell.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 11. Nature [UB]
 
 Gods of nature are as varied as the natural world itself; from inscrutable gods of the deep forests to friendly deities associated with particular springs and groves. Druids revere nature as a whole and might serve one of these deities, practicing mysterious rites and reciting all-but-forgotten prayers in their own secret tongue. But many of these gods have clerics as well, champions who take a more active role in advancing the interests of a particular nature god. These clerics might hunt the evil monstrosities that despoil the woodlands, bless the harvest of the faithful, or wither the crops of those who anger their gods.
 
@@ -1108,7 +1987,168 @@ As an action, you present your holy symbol and invoke the name of your deity. Ea
 
 
 
-## 4. Tempest
+## 12. Oblivion [SOL]
+
+The Oblivion domain shows the darker aspect of Maraike, that of the goddess of death. Clerics who choose this domain consider life and death as part of the same, greater cycle, and can use necromantic spells as well as any other.
+
+
+### Level 1
+
+* Bonus Cantrip
+
+Chill Touch
+
+* Gate Keeper
+
+As long as you are conscious, you and your fellow party members within 6 cells have advantage on death saving throws.
+
+* Oblivion Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Sleep, Inflict Wounds
+
+	II	Blindness, Ray of Enfeeblement
+
+	III	Vampiric Touch, Fear
+
+	IV	Black Tentacles, Confusion
+
+	V	Contagion, Cloudkill
+
+
+### Level 2
+
+* Channel Divinity: Herald of Pain
+
+Channel Divinity to cause pain to enemies within 6 cells. Enemies failing a Wisdom save receive 1d8 necrotic damage and are poisoned.
+
+* Peaceful Rest
+
+While camping, reduces the chances of being attacked and prevents from being surprised.
+
+
+### Level 6
+
+* Strike of Oblivion
+
++1d6 necrotic damage on your first attack of your turn.
+
+
+### Level 8
+
+* Mark of Fate
+
+Mark a creature you see so it receives additional necrotic damage equal to your WIS bonus from each attack. Can be retargeted upon the creature's death. You need to take a short rest or long rest to recover this power. Starting at level 14, you can use it twice before taking a rest.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 14
+
+* Mark of Fate
+
+Mark a creature you see so it receives additional necrotic damage equal to your WIS bonus from each attack. Can be retargeted upon the creature's death. You need to take a short rest or long rest to recover this power. Starting at level 14, you can use it twice before taking a rest.
+
+
+### Level 17
+
+* Keeper of Oblivion
+
+You steal the life-force from your foes as they step to the gates of oblivion, to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you, allies within 30 ft of you regain hit points from a pool equals to your Cleric level. Allies with the lowest health are healed first until the pool is fully consumed. Once you use it, you can't do so again until the start of your next turn.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 13. Sun [SOL]
+
+The Sun domain encompasses the powers of cleansing light and warmth of the sun itself. Clerics who embrace this domain are beacons of light in a world of darkness.
+
+
+### Level 1
+
+* Bonus Cantrip
+
+Light
+
+* Holy Radiance
+
+When you cast Sacred Flame, your target has disadvantage on the saving throw.
+
+* Sun Domain Spells
+
+In your list and always prepared: 
+ 
+	I	Burning Hands, Faerie Fire
+
+	II	Scorching Ray, Darkvision
+
+	III	Daylight, Hypnotic Pattern
+
+	IV	Fire Shield, Wall of Fire
+
+	V	Flame Strike, Greater Restoration
+
+
+### Level 2
+
+* Channel Divinity: Herald of the Sun
+
+Channel Divinity to engulf a visible enemy within 6 cells with radiant light, causing 1d8 radiant damage + 2 per cleric level (half damage on a successful Constitution saving throw) and cause the blinded condition for 1 minute (negated if saving throw was successful).
+
+
+### Level 6
+
+* Channel Divinity: Indomitable Light
+
+Channel divinity to summon a sphere of sunlight, which affects light sensitive creatures and negates areas of darkness.
+
+* Soothing Hand
+
+Heal an ally and remove one detrimental condition.
+
+
+### Level 8
+
+* Divine Strike
+
+Once per turn, when you hit a creature with a weapon attack, you can deal an extra 1d8 radiant damage to the target. When you reach level 14, the extra damage increases to 2d8.
+
+
+### Level 10
+
+* Divine Intervention
+
+You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Rising Dawn
+
+You have resistance to fire and radiant damage, and you bypass fire and radiant damage resistances with your attacks and spells.
+
+
+### Level 20
+
+* Improved Divine Intervention
+
+You attempt to request the help of your deity, with a 100% chance of success.
+
+
+
+## 14. Tempest [UB]
 
 Gods whose portfolios include the Tempest domain govern storms, sea, and, sky. They include gods of lightning and thunder, gods of earthquakes, some fire gods, and certain gods of violence, physical strength, and courage. In some pantheons, a god of this domain rules over other deities and is known for swift justice delivered by thunderbolts. In the pantheons of seafaring people, gods of this domain are ocean deities and the patrons of sailors. Tempest gods send their clerics to inspire fear in the common folk, either to keep those folk on the path of righteousness or to encourage them to offer sacrifices of propitiation to ward off divine wrath.
 
@@ -1177,7 +2217,54 @@ You can use your bonus action to gain flying speed equal to your walking speed f
 
 # Druid
 
-## 1. Circle of the Ancient Forest
+## 1. Circle of Balance [SOL]
+
+Some say that druids from the Circle of Balance are gentle healers, while others tell of merciless executioners. The truth is, both are right: nature giveth, and nature taketh away.
+
+
+### Level 2
+
+* Circle of Balance Spells
+
+In your list and always prepared: 
+ 
+	II	Prayer of Healing, Calm Emotions
+
+	III	Mass Healing Word, Revivify
+
+	IV	Banishment, Blight
+
+	V	Mass Cure Wounds, Cloudkill
+
+* Gift of Life
+
+Whenever you use a level 1 or higher spell to restore hit points to a creature, they also regain an additional number of hit points equal to your level at the start of their next turn.
+
+
+### Level 6
+
+* Survival of the Wisest
+
+Your spells are more effective against creatures you already faced. You gain a bonus equal to half your knowledge level (rounded up) to your spell DC and spell attack modifier against them.
+
+
+### Level 10
+
+* Cold Embrace
+
+Whenever you damage an opponent with a spell, they are unable to heal any HP until the start of your next turn.
+
+
+### Level 14
+
+* Balance of Power
+
+When you reach level 14, you can use your bonus action to grant all allies within 12 cells advantage on attack rolls until the start of your next turn. You and your allies who are under the effect of Balance of Power can be attacked with advantage by all enemies until the start of your next turn.
+  You can use Balance of Power a number of times equal to your proficiency bonus per long rest.
+
+
+
+## 2. Circle of the Ancient Forest [UB]
 
 You have forged a relationship with a powerful nature entity: Ancient Dryads, Arch-druids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 
@@ -1245,7 +2332,7 @@ Cast Wall of Thorns a number of times a day equal to your proficiency bonus.
 
 
 
-## 2. Circle of the Eternal Grove
+## 3. Circle of the Eternal Grove [UB]
 
 The Circle of the Eternal Grove strives to protect and preserve as many living beings as it can. These druids understand the significance of every life form in the natural cycle, be it large or small, and that every one of them is worth saving.
 
@@ -1298,7 +2385,7 @@ Starting at 14th level, all healing spells you cast count as being cast at one s
 
 
 
-## 3. Circle of the Forest Guardian
+## 4. Circle of the Forest Guardian [UB]
 
 Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 
@@ -1355,7 +2442,105 @@ When you activate Bark Ward, and on subsequent start of each of your turns while
 
 
 
-## 4. Circle of the Moon
+## 5. Circle of the Kindred Spirit [SOL]
+
+At the beginning of time, there was harmony between animals and sentient beings. Some of them even forged an unbreakable bond, melding two minds and souls in two bodies so that the two bodies shared their bond. This ancient bond has been preserved in the Circle of the Kindred Spirits, an order of druids preserving this sacred bond.
+
+
+### Level 2
+
+* Spirit Bond
+
+Your kindred spirit has the following features:
+ Proficiency bonuses: druid's proficiency bonuses
+ Attack roll: druid's melee spell attack
+ Saving Throws = druids' saving throws
+ INT is always 8
+ Advantage to attack on enemies engaged with the druid or the druid's allies
+ If the kindred spirit dies, the druid sustains 3D6 psychic damage and is stunned for the remainder of the turn, unless unconscious.
+ After a short rest, the kindred spirit regains the same HP as the druid does from spending hit dice.
+
+* Spirit Call
+
+Use an action to call your kindred spirit to a spot within 6 cells. If the spirit dies, you must complete a long rest before you can call it again.
+
+* Spirit Choice
+
+Choose a spirit to bond to. Grants a bonus to the bonded druid.
+
+
+### Level 6
+
+* Magical Spirit
+
+The attacks of the kindred spirit are considered magical.
+ Furthermore, each time you heal yourself, the healing trickles down to your kindred spirit, letting it regain a number of HP equal to your spellcasting ability bonus.
+
+
+### Level 10
+
+* Shared Pain
+
+As a reaction, the damage inflicted to the druid or the kindred spirit can be shared equally among both.
+
+
+### Level 14
+
+* Spirit Rage
+
+When you reach level 14, you can use Spirit Rage on your kindred spirit as a bonus action. It becomes stronger for 1 minute and gains the following bonuses:
+  - AC and damage bonus equal to you proficiency;
+  - 2nd attack.
+  You can use Spirit Rage a number of times equal to your proficiency bonus per long rest.
+
+
+
+## 6. Circle of the Land [SOL]
+
+The Circle of the Land is made up of mystics and sages who safeguard the ancient knowledge of the Old Faith. As a member of this circle, your magic is influenced by the land where you were initiated into the circle's mysterious rites.
+
+
+### Level 2
+
+* Bonus Cantrip
+
+Learn a druid cantrip of your choice.
+
+* Natural Recovery
+
+Once per day when you complete a short rest, you can recover a number of expended spell slots (max 5th level) up to half of your druid level, rounded up.
+
+
+### Level 3
+
+* Circle Spells
+
+Select a terrain type that grants a range of spells that are always treated as prepared. Forest,Grassland,Mountain,Swamp,Desert,Coast orArctic
+
+
+### Level 6
+
+* Land's Stride
+
+Moving through difficult terrain does not cost extra movement and you are immune to magical plants that impedede movement, such as the Entangle or Spike Growth spells.
+
+
+### Level 10
+
+* Nature's Ward
+
+You are immune to charm or fear effects caused by elementals or feys, as well as to poison and disease.
+
+
+### Level 14
+
+* Nature's Sanctuary
+
+When you reach level 14, whenever you deal damage to an enemy with a spell of level 1 or higher, they must make a STR saving throw or become restrained until the start of your next turn. After being affected once, they become immune to this effect.
+
+
+
+## 7. Circle of the Moon [UB]
 
 Druids of the Circle of the Moon are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
 
@@ -1405,7 +2590,7 @@ Your Combat Healing now heals you for 4d8 hit points.
 
 
 
-## 5. Circle of the Stars
+## 8. Circle of the Stars [UB]
 
 The Circle of the Stars allows druids to draw on the power of starlight. These druids have tracked heavenly patterns since time immemorial, discovering secrets hidden amid the constellations. By revealing and understanding these secrets, the Circle of the Stars seeks to harness the powers of the stars.
 
@@ -1447,9 +2632,43 @@ While in your Starry Form, you become partially incorporeal, giving you resistan
 
 
 
+## 9. Circle of Winds [SOL]
+
+Druids from this circle draw their strength from the winds. As the Cataclysm raged, the connection druids felt to nature frayed. But not so for the Circle of the Winds. They felt the mana currents carried by the winds and through them a connection to nature. Through this, they were able to protect nature from the worst of the cataclysm-born depredations.
+
+
+### Level 2
+
+* Carried by the Wind
+
+Casting a spell of level 1 or higher makes you automatically take the Disengage action for free and gain +2 movement speed until the end of your turn.
+
+
+### Level 6
+
+* Sheltering Breeze
+
+You can use a bonus action to let Sheltering Breeze blow upon all allies within 6 cells of you. All affected creatures (including yourself) have advantage to all saving throws until the start of your next turn. For each long rest, you can use this feature a number of times equal to your WIS bonus.
+
+
+### Level 10
+
+* Guiding Winds
+
+Whenever you hit an enemy with an attack roll, the next attack roll against them before the end of your next turn has advantage.
+
+
+### Level 14
+
+* Unfettered
+
+Upon reaching level 14, you are constantly under the effect of Freedom of Movement and you gain +1 cell movement and a +3 bonus on initiative.
+
+
+
 # Fighter
 
-## 1. Arcane Archer
+## 1. Arcane Archer [UB]
 
 An Arcane Archer studies a unique elven method of archery that weaves magic into attacks to produce supernatural effects. Arcane Marksmen are some of their most elite warriors among the elves. They stand watch over the fringes of elven domains, keeping a keen eye out for trespassers and using magic-infused arrows to defeat monsters and invaders before they can reach elven settlements. Over the centuries, the methods of these elf archers have been learned by members of other races who can also balance arcane aptitude with archery.
 
@@ -1518,7 +2737,7 @@ You gain one additional usage of your Arcane Shot technique.
 
 
 
-## 2. Banneret
+## 2. Banneret [UB]
 
 A knight who inspires greatness in others by committing brave deeds in battle. A Banneret is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
@@ -1559,7 +2778,7 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-## 3. Battle Master
+## 3. Battle Master [UB]
 
 For battle masters, a battle is a test of wit as much as a test of might. They employ various martial techniques passed down by triumphant military leaders, aiming to outmaneuver and outmatch the opposing side using whatever tactic necessary to be victorious.
 
@@ -1651,7 +2870,93 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
-## 4. Eldritch Knight
+## 4. Champion [SOL]
+
+Champions focus on the raw physical power, honed to deadly perfection. Those who model themselves on this archetype combine rigorous training with physical excellence to deal devastating blows.
+
+
+### Level 3
+
+* Improved Critical
+
+Your weapon attacks score a critical hit on a roll of 19 or 20.
+
+
+### Level 7
+
+* Remarkable Athlete
+
+Add half of your proficiency bonus (round up) to any Strength, Dexterity, or Constitution check you make that doesn't already use your proficiency bonus. In addition, both your jumping distance and climbing abilities increase, too.
+
+
+### Level 10
+
+* Additional Fighting Style
+
+Choose a new fighting style option.
+
+
+### Level 15
+
+* Superior Critical
+
+Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
+
+
+### Level 18
+
+* Survivor
+
+You attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don't gain this benefit if you have 0 hit points.
+
+
+
+## 5. Commander [SOL]
+
+Commanders lead their troops to victory through discipline and rigorous training. They can bolster their allies both offensively and defensively, and aren't shy to take matters into their own hands.
+
+
+### Level 3
+
+* Bonus Proficiencies
+
+You gain proficiency in the Intimidation and Insight skills.
+
+* Rousing Shout
+
+You can use a bonus action to give all allies within 3 cells of you (including yourself) advantage on their next attack until the start of your next turn. You can use this power a number of times equal to you Proficiency bonus, then you need to take a Short Rest to recover it.
+
+
+### Level 7
+
+* Coordinated Defense​​​​​​​
+
+When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
+
+
+### Level 10
+
+* Invigorating Shout​​​​​​​
+
+Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
+
+
+### Level 15
+
+* Lead by Example
+
+Once per turn after you strike an enemy, you leave a mark on them until the start of your next turn. Any time an ally (including yourself) makes a successful attack against the marked enemy, they take 1d4 additional damage (of the same damage type as the original damage taken).
+
+
+### Level 18
+
+* Peerless Commander
+
+Starting at 18th level, any ally affected by Rousing Shout also gains advantage on their next saving throw and 10 additional feet of movement until the start of your next turn.
+
+
+
+## 6. Eldritch Knight [UB]
 
 Eldritch Knights are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 
@@ -1700,7 +3005,7 @@ You can use your action to target up to 4 friendly creatures. Each affected crea
 
 
 
-## 5. Guardian
+## 7. Guardian [UB]
 
 Guardians are stalwart warriors who use taunts and impregnable defenses to become a living wall between their allies and certain doom. Whether a guardian is a valiant knight, a stubborn sellsword, or a battle-hardened general, there is no one better to have at your side when the situation is at its most dire.
 
@@ -1748,7 +3053,52 @@ You gain resistance to all non-magical bludgeoning, piercing and slashing damage
 
 
 
-## 6. Psi Warrior
+## 8. Mountaineer [SOL]
+
+Mountaineers are trained to fight in difficult terrain and confined spaces. They are capable skirmishers and know how to take advantage of small spaces, given the right equipment.
+
+
+### Level 3
+
+* Shield Swipe
+
+Advantage on shove attempts when using a shield.
+
+* Tunnel Fighter
+
+While using a shield, gain +2 AC when you have a wall on one of your four sides (no diagonals).
+
+
+### Level 7
+
+* Close Quarters
+
+As a bonus action, you can force a switch of positions with an enemy within melee range by performing a STR vs STR or DEX challenge, just like for shoving. You are not open to opportunity attacks by doing so. If successful, you have advantage to attack this creature until the end of your turn.
+
+
+### Level 10
+
+* Shield Push
+
+Provided you wield a shield, you can shove an opponent as a bonus action.
+
+
+### Level 15
+
+* Pack Striker
+
+Starting at level 15, when you are using a shield, you have advantage on melee attack rolls against your target if another enemy of the target is within one cell of it, and if that enemy isn't incapacitated.
+
+
+### Level 18
+
+* Position of Strength
+
+Starting at 18th level, your Tunnel Fighter feature also provides its benefits when within 5 feet of any ally (no diagonals). You have a permanent aura that grants +1 AC to you and all allies within 5 ft.
+
+
+
+## 9. Psi Warrior [UB]
 
 Psi Warriors are disciplined warriors who utilize a wide range of psychokinetic abilities to gain the upper hand in battle. They can easily adapt to any situation, augment their might with psi-infused attacks or aid allies with mentally created barriers and telekinetic movement.
 
@@ -1796,7 +3146,52 @@ You can expend 1 Force Point to cast the Telekinesis spell, requiring no compone
 
 
 
-## 7. Warlord
+## 10. Spellblade [SOL]
+
+Spellblades are as skilled with arcane magic as with their weapons. This versatility is a weapon in itself, often surprising enemies who tend to think an armored fighter cannot cast spells.
+
+
+### Level 3
+
+* Magic Weapon
+
+Your weapon attacks count as magical against creatures that are resistant or immune to non-magical attacks.
+
+* Spellcasting
+
+Cast wizard spells and cantrips of the conjuration, evocation, transmutation, and enchantment schools.
+
+
+### Level 7
+
+* Into the Fray
+
+You can use any melee weapon you are proficient with as a spellcasting focus for your wizard spells, and can perform their somatic components with the weapon instead of your hand. Additionally, being next to a hostile creature doesn't impose disadvantage on your ranged spell attack rolls.
+
+
+### Level 10
+
+* Spell Tyrant
+
+Target a creature and move it one cell in any direction if it fails a STR save.
+
+
+### Level 15
+
+* Arcane Escape
+
+Whenever you cast a spell, you gain the benefit of the Dodge action until the start of your next turn.
+
+
+### Level 18
+
+* Cantrip Attack
+
+You can replace one of your attacks with a cantrip.
+
+
+
+## 11. Warlord [UB]
 
 Whether they are loved, respected or feared, warlords are primarily known for one thing – leading soldiers like no one else. A warlord stands side by side with their allies and can shift the tide of any battle, no matter if it requires a sword or a sharp tongue. The sheer presence of these accomplished leaders is enough for a soldier to confidently follow their orders and be the best version of themselves.
 
@@ -1844,7 +3239,7 @@ You regain one usage of your Coordinated Assault whenever you roll initiative, a
 
 
 
-## 8. Weapon Master
+## 12. Weapon Master [UB]
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 
@@ -1899,7 +3294,7 @@ Your Focused Strikes also grants you advantage on all damage rolls while attacki
 
 # Monk
 
-## 1. Way of Discordance
+## 1. Way of Discordance [UB]
 
 While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
 
@@ -1941,7 +3336,7 @@ Starting at 17th level, when a creature you can see within 30 feet of you is aff
 
 
 
-## 2. Way of Dragon
+## 2. Way of Dragon [UB]
 
 Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 
@@ -1983,7 +3378,79 @@ You can use your bonus action to sprout a pair of wings, gaining flying speed eq
 
 
 
-## 3. Way of Shadow
+## 3. Way of Freedom [SOL]
+
+This style of fighting was developed by Manacalon slaves, who were forbidden weapons by their masters. Emphasizing speed and balance, the Way of Freedom lets its followers evade blows and dart inside enemy defenses.
+
+
+### Level 3
+
+* Flurry of Blows - Improved I
+
+Starting at the 3rd level, whenever you use Flurry of Blows you gain advantage on your next attack, and you gain the benefit of the Dash action until the end of your turn.
+
+
+### Level 6
+
+* Swirling Dance
+
+Starting at the 6th level, when a creature misses you with a melee attack roll, you can use your reaction to make an immediate attack against that creature.
+
+
+### Level 11
+
+* Flurry of Blows - Improved II
+
+Starting at the 11th level, when you use Flurry of Blows, you can make up to one additional attack with it (up to a total of 3 flurry of blows attacks).
+
+
+### Level 17
+
+* Fluid Strikes
+
+You can attack three times, instead of twice, whenever you take the Attack action on your turn.
+
+
+
+## 4. Way of Light [SOL]
+
+The Way of Light was developed by former worshippers of Einar, who devoted their faith to the luminous aspect of the deity in his fight against darkness. After generations, the religious face of their creed disappeared leave space for the discipline of self-perfection in the purity of light.
+
+
+### Level 3
+
+* Luminous Ki
+
+Starting at the 3rd level, you learn the Light & Shine cantrips (wisdom for spellcasting).
+  Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, they automatically start emitting bright light until the end of your next turn.
+
+
+### Level 6
+
+* Radiant Strikes
+
+Starting at the 6th level, any time you strike a target affected by Shine or Luminous Ki, you deal an additional 1d4 radiant damage.
+
+
+### Level 11
+
+* Blinding Flash
+
+Starting at the 11th level, as a bonus action, you can spend 2 Ki points to generate a blinding burst of light. All creatures within 3 cells of you must roll a CON saving throw or take 3d6 radiant damage, and become blinded until the end of your next turn (half damage on success).
+
+
+### Level 17
+
+* Purity of Light
+
+Starting at 17th level, you gain the following benefits:
+• All your monk weapon attacks and unarmed attacks now apply Luminous Ki.
+• Your Radiant Strikes now deal 1d6 radiant damage.
+• When you hit a creature affected by Luminous Ki, you restore 4 hit points and all conscious allies within 20 feet of you restore half that amount.
+
+
+
+## 5. Way of Shadow [UB]
 
 Practitioners of the Way of Shadow follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 
@@ -2021,7 +3488,43 @@ When a creature is about to hit you with an attack, you can spend 3 ki and use y
 
 
 
-## 4. Way of Tempest
+## 6. Way of Survival [SOL]
+
+In the aftermath of the Cataclysm, isolated communities developed physical and mental techniques that allowed them to push the limits of their strength and endurance to the utmost. Surviving while their neighbors perished, the followers of the Way of Survival are as tough as the harsh times that forged them.
+
+
+### Level 3
+
+* Defensive Stance
+
+Starting at the 3rd level, you gain a +2 bonus to AC while you are not wearing armor and are not incapacitated. When you use Patient Defense, you gain advantage to your attack rolls until the start of your next turn.
+
+
+### Level 6
+
+* Unbreakable Body
+
+Starting at the 6th level, whenever you take damage from any source, you heal a number of hit point equal to your proficiency bonus at the start of your next turn. Whenever you use Patient Defense, you also gain resistance to all damage types until the start of your next turn.
+
+
+### Level 11
+
+* Unmoving Strength
+
+Starting at the 11th level, you now add your CON modifier to the damage rolls of your unarmed strikes and monk weapons.
+
+
+### Level 17
+
+* Physical Perfection
+
+Starting at 17th level, you gain the following benefits:
+• While you have less than half your maximum hit points, healing of your Unbreakable Body feature is doubled.
+• When you are reduced to 0 hit points, you can pay 1 Ki to restore 1 hit point.
+
+
+
+## 7. Way of Tempest [UB]
 
 Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists effortlessly maneuver the battlefield, rushing from one enemy to the next and raining countless blows upon them.
 
@@ -2055,7 +3558,44 @@ Starting at 17th level, whenever you hit a creature with a monk weapon or unarme
 
 
 
-## 5. Way of Weal and Woe
+## 8. Way of the Open Hand [SOL]
+
+The monks of the Way of the Open Hand devote themselves to the arts of combat. Dangerous with or without weapons, they throw or trip their opponents, using the mystical force of Ki to protect and heal themselves.
+
+
+### Level 3
+
+* Open Hand Technique
+
+Starting when you choose this tradition at the 3rd level, you can manipulate your enemy's Ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:
+  * It must succeed on a dexterity saving throw or be knocked prone.
+  * It must make a strength saving throw. If it fails, you can push it up to 3 cells away from you.
+  * It can't take reactions until the end of your next turn.
+
+
+### Level 6
+
+* Wholeness of Body
+
+At the 6th level, you gain the ability to heal yourself. As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again.
+
+
+### Level 11
+
+* Tranquility
+
+At level 11, when you are about to be hit by an attack or single target spell, you can spend one Ki point to gain the benefits of the spell Shield.
+
+
+### Level 17
+
+* Quivering Palm
+
+Starting at 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 Ki points to start these imperceptible vibrations, which last for 24 hours. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 1 hit point and becomes stunned until the start of their next turn. If it succeeds, it takes 10d10 necrotic damage.
+
+
+
+## 9. Way of Weal and Woe [UB]
 
 Monks of the Way of Weal and Woe focus on both prosperity and adversity to engage their enemies in battle.
 
@@ -2093,7 +3633,7 @@ After you make an attack roll with a monk weapon or an unarmed attack, and criti
 
 
 
-## 6. Way of Zen Archery
+## 10. Way of Zen Archery [UB]
 
 A weapon is an extension of oneself, and a plain rendition of the one that wields it. Monks of the Way of Zen Archery know this well. The beauty and precision of martial arts has given these monks the tools to master their weapon of choice – the bow. They wield it with peerless skill and display their mastery of archery with each pull of the string.
 
@@ -2133,7 +3673,7 @@ You can use your action and spend 3 ki to fire a barrage of arrows. You make one
 
 # Paladin
 
-## 1. Oath of Altruism
+## 1. Oath of Altruism [UB]
 
 Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
 
@@ -2195,7 +3735,7 @@ You passively grant the following benefits:
 
 
 
-## 2. Oath of Ancients
+## 2. Oath of Ancients [UB]
 
 An Oath from a more primitive time which one dedicates themselves to utilizing nature for good.
 
@@ -2257,7 +3797,7 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-## 3. Oath of Demon Hunter
+## 3. Oath of Demon Hunter [UB]
 
 Paladins of the Oath of Demon Hunter are dedicated to eradicating the evil creatures that lurk in the darkness, and maintaining peace in the world.
 
@@ -2317,7 +3857,64 @@ Starting at 20th level, you slay evil and purify demons. You gain the following 
 
 
 
-## 4. Oath of Dread
+## 4. Oath of Devotion [SOL]
+
+Paladins who swear the Oath of Devotion uphold the loftiest ideals of justice, virtue, and order. They act with honor in pursuit of the greater good, hold themselves to the highest standards of conduct, and some, for better or worse, hold the rest of the world to the same standards.
+
+
+### Level 3
+
+* Channel Divinity: Sacred Weapon
+
+Channel Divinity to bless one weapon. For 1 minute, add your Charisma modifier to hit with that weapon (minimum +1). The weapon also emits bright light over 4 cells and dim light over 4 more cells, and its attacks count as magical.
+
+* Channel Divinity: Turn the Unholy
+
+Channel Divinity to force fiends and undead within 6 cells who can see you to flee unless they make a successful Wisdom saving throw.
+
+* Oath of Devotion Spells
+
+In your list and always prepared: 
+ 
+	I	Shield, Protect vs Evil & Good
+
+	II	Lesser Restoration, Aid
+
+	III	Dispel Magic, Revivify
+
+	IV	Guardian of Faith, Freedom of Movement
+
+
+### Level 7
+
+* Aura of Devotion
+
+Friendly creatures in the aura cannot be charmed while you are conscious.
+
+
+### Level 15
+
+* Purity of Spirit
+
+Starting at level 15, you are always under the effects of a protection from evil and good spell.
+
+
+### Level 18
+
+* Improved Aura of Devotion
+
+Your Aura of Devotion range increased to 30 ft.
+
+
+### Level 20
+
+* Holy Nimbus
+
+Starting at 20th level, as an action, you can emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that. Whenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage. In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead. Once you use this feature, you can't use it again until you finish a long rest.
+
+
+
+## 5. Oath of Dread [UB]
 
 Paladins who swear the Oath of Dread are zealous warriors who channel their divine powers to either terrorize foes into submission, or make them scatter.
 
@@ -2381,7 +3978,7 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-## 5. Oath of Hatred
+## 6. Oath of Hatred [UB]
 
 An Oath of Hatred paladin has dedicated himself to the punishment of evildoers by channeling hate.
 
@@ -2442,7 +4039,129 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-## 6. Oath of Thunder
+## 7. Oath of Judgement [SOL]
+
+Paladins who swear the Oath of Judgement believe that no sin should be overlooked, no matter how small - although the punishment must also fit the crime. They are relentless in their pursuit of justice, and those who decide to stand in their way had better be prepared!
+
+
+### Level 3
+
+* Channel Divinity: Purge Corruption
+
+As a bonus action, you can use Channel Divinity to remove a negative condition (blinded, deafened, paralyzed, poisoned) from an ally up to 6 cells away.
+
+* Channel Divinity: Weight of Justice
+
+As a bonus action, you can use Channel Divinity to pour your determination into your weapon. The next time you hit a creature with a melee weapon attack, they must make a charisma saving throw or they will be restrained for up to 1 minute. The target can make a charisma saving throw at the end of each of their turns to end the effect.
+
+* Oath of Judgement Spells
+
+In your list and always prepared: 
+ 
+	I	Guiding Bolt, Protect vs Evil & Good
+
+	II	Enhance Ability, Hold Person
+
+	III	Hypnotic Pattern, Haste
+
+	IV	Banishment, Blight
+
+
+### Level 7
+
+* Aura of Righteousness
+
+You constantly emanate a 2-cell-wide aura while not incapacitated. Allies (including yourself) within an aura add damage equal to your proficiency bonus.
+
+
+### Level 15
+
+* Retribution
+
+Starting at level 15, whenever an enemy within 6 cells deals damage to you, you can use your reaction to chastise them. They must make a Wisdom saving throw against you spellcasting ability, taking 2d8 + CHA mod psychic damage, or half on a success.
+
+
+### Level 18
+
+* Improved Aura of Rightenousness
+
+Your Aura of Rightenousness range increased to 30 ft.
+
+
+### Level 20
+
+* Final Judgement
+
+Starting at 20th level, as an action, you gain the following benefits for one minute:
+• You have resistance to bludgeoning, piercing, and slashing damage from non magical weapons.
+• When you take the Attack action on your turn, you can make one additional attack as part of that action.
+• Your critical threshold reduces by 1.
+You can use this feature once per long rest.
+
+
+
+## 8. Oath of the Motherland [SOL]
+
+Paladins who swear the Oath of the Motherland dedicate their lives to restoring the pre-Cataclysm world, undoing the land's decay, and bringing life back, despite its violent and volcanic nature. They reject the term "Badlands" in favor of "Motherland."
+
+
+### Level 3
+
+* Channel Divinity: Fiery Presence
+
+Channel Divinity to blind opponents within 12 cells who fail a Dexterity save. Creatures with darkvision or better sight in darkness have disadvantage. Blindness lasts 1d4 turns.
+
+* Channel Divinity: Fiery Wrath
+
+Channel Divinity to target one creature within 12 cells, dealing (2d6 + paladin level) fire damage and setting the target on fire. It can make a DC 10 Dexterity check to put out the fire, or sustain 1d6 more fire damage per turn for one minute.
+
+* Oath of the Motherland Spells
+
+In your list and always prepared: 
+ 
+	I	Bane, Burning Hands
+
+	II	Branding Smite, Scorching Ray
+
+	III	Fireball, Dispel Magic
+
+	IV	Wall of Fire, Fire Shield
+
+
+### Level 7
+
+* Volcanic Aura
+
+Friendly creatures in the aura gain fire resistance and +1 to AC.
+
+
+### Level 15
+
+* Heart of Lava
+
+Starting at level 15, you are immune to fire and your skin covers with stone scales when you are in danger, reducing slashing/bludgeoning/piercing damage that you take by 5.
+
+
+### Level 18
+
+* Improved Volcanic Aura
+
+Your Volcanic Aura range increased to 30 ft.
+
+
+### Level 20
+
+* Flames of Motherland
+
+Starting at 20th level, as an action, you gain the following benefits for one minute:
+• Upon activation, all enemy creatures within 30 feet of you receive 8d6 fire damage.
+• All your weapon attacks deal an additional 2d6 fire damage.
+• Any creature within 5 feet of you that hits you with a melee weapon attack receives 10 fire damage.
+You can use this feature once per long rest.
+
+
+
+## 9. Oath of Thunder [UB]
 
 Paladins of the Thunder were born to end the everlasting war across the planes. Even those, travelling far from home, are still eager to fulfil their duty, striking their enemies with the fury of thunder and power of the ancient gods.
 
@@ -2502,9 +4221,74 @@ You gain a flying speed of 12 cells, and are immune to Thunder and Lightning dam
 
 
 
+## 10. Oath of Tirmar [SOL]
+
+Paladins who swear the Oath of Tirmar belong to an old order descended from the Tirmarian Inquisition. Obsessed with their arch-enemies, the legendary Sorr-Akkath, they conduct their rituals in the old language of Tirmar, and hold grudges from the time of the Cataclysm a thousand years ago.
+
+
+### Level 3
+
+* Bonus Language
+
+When you take the oath of Tirmar, you acquire the Tirmarian language.
+
+* Channel Divinity: Golden Speech
+
+Channel Divinity to gain advantage on Persuasion and Intimidation checks for one hour.
+
+* Channel Divinity: Scourge of the Hidden
+
+Channel Divinity to deal 1d6 additional radiant damage on attacks which hit opponents with either natural shapeshifting or Darkvision (2d6 if both). The effect lasts for 1 minutes.
+
+* Oath of Tirmar Spells
+
+In your list and always prepared: 
+ 
+	I	Sleep, Shield
+
+	II	Hold Person, Blindness
+
+	III	Daylight, Slow
+
+	IV	Dreadful Omen, Phantasmal Killer
+
+
+### Level 7
+
+* Aura of Truth
+
+Friendly creatures in the aura gain superior darkvision and +2 perception.
+
+
+### Level 15
+
+* Sorak's Bane
+
+Starting at level 15, when you use a melee attack to strike an opponent who has either natural darkvision or natural shapeshifting, you can use your bonus action to deal an additional melee attack, adding your Charisma bonus to the damage dealt.
+
+
+### Level 18
+
+* Improved Aura of Truth
+
+Your Aura of Truth range increased to 30 ft.
+
+
+### Level 20
+
+* Inquisitor's Zeal
+
+Starting at 20th level, as a bonus action, you gain the following benefits for one minute:
+• You have true sight with a range of 120 feet.
+• You have advantage with attacks against enemies who have darkvision.
+• You and all allies have advantage on all Wisdom saving throws.
+You can use this feature once per long rest.
+
+
+
 # Ranger
 
-## 1. Arcanist
+## 1. Arcanist [UB]
 
 The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 
@@ -2558,7 +4342,7 @@ Starting at 7th level, you can cause an eruption of arcane energy at a range of 
 
 
 
-## 2. Gloom Stalker
+## 2. Gloom Stalker [UB]
 
 Gloom stalkers are at home in the darkest places: deep under the earth, in gloomy alleyways, in primeval forests, and wherever else the light dims. Most folk enter such places with trepidation, but a gloom stalker ventures boldly into the darkness, seeking to ambush threats before they can reach the broader world. Such rangers are often found in the Underdark, but they will go any place where evil lurks in the shadows.
 
@@ -2612,7 +4396,7 @@ Whenever a creature is about to hit you with an attack, you can use your reactio
 
 
 
-## 3. Hellwalker
+## 3. Hellwalker [UB]
 
 You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
 
@@ -2668,7 +4452,41 @@ Your hellish magic has granted you limited command over the dammed creatures tha
 
 
 
-## 4. Lightbearer
+## 4. Hunter [SOL]
+
+Emulating the Hunter archetype means accepting your place as a bulwark between civilization and the terrors of the wilderness. As you walk the Hunter's path, you learn specialized techniques for fighting the threats you face.
+
+
+### Level 3
+
+* Hunter's Prey
+
+Choose one of the following hunting specialties: Colossus Slayer,Giant Killer orHorde Breaker
+
+
+### Level 7
+
+* Defensive Tactics
+
+Choose one of the following options: Escape the Horde,Multiattack Defense orSteel Will
+
+
+### Level 11
+
+* Multiattack
+
+Select one of the multiattack options: Volley or Whirlwind Attack
+
+
+### Level 15
+
+* Superior Hunter's Defense
+
+Select one of the options: Stand Against the Tide, Evasion, or Uncanny Dodge.
+
+
+
+## 5. Lightbearer [UB]
 
 The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
 
@@ -2720,7 +4538,91 @@ You can use your holy light to temporarily blind assailants. When a creature wit
 
 
 
-## 5. Sky Warrior
+## 6. Marksman [SOL]
+
+Marksmen are experts with a bow, inheriting techniques developed by the elite high elven troops of the Manacalon Empire. They are among the deadliest ranged combatants on Solasta.
+
+
+### Level 3
+
+* Additional Proficiencies
+
+Herbalism kit or poisoner's kit.
+
+* Reaction Shot
+
+When a visible opponent 2 cells or more from you attacks you with a ranged weapon or a spell, you can use your reaction to take a shot after the triggering attack.
+
+
+### Level 7
+
+* Recycler
+
+You can craft arrows every time you take a short or long rest.
+
+* Step Back
+
+When you are within melee range of an enemy creature, you can use your bonus action to move one cell without provoking opportunity attacks, and gain advantage on your next attack with a ranged weapon this turn.
+
+
+### Level 11
+
+* Fast Aim
+
+If you are using a ranged weapon against an enemy, your bonus action can be used to make an additional ranged attack on the same target
+
+
+### Level 15
+
+* Extra Attack (2)
+
+At level 15, you can attack three times whenever you take the Attack action on your turn.
+
+
+
+## 7. Shadow Tamer [SOL]
+
+Shadow Tamers are used to wandering the desolate lands beyond the Marches. They know the lore and languages of darkness and the hazards and customs of those dreadful caves inhabited by monsters.
+
+
+### Level 3
+
+* Dark Slayer
+
+When attacking a creature with superior darkvision with a weapon, you add your proficiency bonus to your damage.
+
+* Tunnel Wisdom
+
+When in dim light or darkness, you gain advantage on Dexterity saving throws.
+
+
+### Level 7
+
+* Know the Darkness
+
+While in dim or no light, you have advantage on stealth, perception investigation checks, and gain tremorsense.
+
+* Rope Grapple
+
+Target a creature and attempt to pull it if it fails a STR contest.
+
+
+### Level 11
+
+* Swift Retaliation
+
+Whenever an opponent attacks your from a nearby cell, you are granted an immediate melee attack against that opponent.
+
+
+### Level 15
+
+* At Home in the Dark
+
+At level 15, you have proficiency with all saving throws while in dim light or darkness. If you are already proficient, you gain +1 on your rolls with the given proficiency.
+
+
+
+## 8. Sky Warrior [UB]
 
 Sky Warriors have been touched by the lingering power of barren windswept landscapes inhabited by nothing but mirages and ghosts. They combine elegant maneuvers of blade and shield with illusion magic to thrive in combat.
 
@@ -2778,7 +4680,7 @@ While wearing a shield, gain a flying speed equal to your walking speed.
 
 
 
-## 6. Survivalist
+## 9. Survivalist [UB]
 
 Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 
@@ -2832,7 +4734,45 @@ You are immune to being blinded, deafened, frightened, or poisoned, and any crit
 
 
 
-## 7. Wildmaster
+## 10. Swift Blade [SOL]
+
+Swift blades are fast, silent, and deadly. They are able to take down targets in a matter of seconds, and then rush out of combat and disappear into the wilderness without a trace.
+
+
+### Level 3
+
+* Blade Dance
+
+When you are wielding a melee weapon in each hand, you gain a +2 bonus to AC.
+
+* Quick Step
+
+Your speed increases by 2 cells. Additionally, when you use the Dash action, opportunity attacks against you are made with disadvantage.
+
+
+### Level 7
+
+* Battle Focus
+
+As a free action, you can enter a heightened state of battle focus. All your melee weapon attacks deal an additional 2d8 weapon damage of the weapon's damage type until the start of your next turn. You need to take a Long Rest to recover all uses of this power.
+
+
+### Level 11
+
+* Extra Attack
+
+You can attack twice, rather than once, when you use the attack or shove actions.
+
+
+### Level 15
+
+* Uncatchable
+
+At level 15, you become extremely hard to pin down. Whenever you take any damage, you can use your reaction to become invisible until you attack, cast a spell, or at the end of your next turn (whichever comes first). You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+
+
+
+## 11. Wildmaster [UB]
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 
@@ -2868,7 +4808,7 @@ Once per turn as a free action, you can instruct your companion to fixate on a t
 
 # Rogue
 
-## 1. Acrobat
+## 1. Acrobat [UB]
 
 The Acrobat Rogue is a natural performer. Where there is terrain and obstacles, the Acrobat sees a means to a very specific end: Performance!
 
@@ -2921,7 +4861,7 @@ If an attack roll would have successfully hit you, you may use your reaction to 
 
 
 
-## 2. Arcane Scoundrel
+## 2. Arcane Scoundrel [UB]
 
 With quickness of feet and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
 
@@ -2974,7 +4914,7 @@ Starting at 17th level, you can steal essence from one creature and use it to ha
 
 
 
-## 3. Blade Caller
+## 3. Blade Caller [UB]
 
 Blade Callers are descendants of legendary assassins, or so the urban stories go. Swift and precise, these combatants utilize deadly blade arts to exploit their opponent's weak spots, striking them down with peerless finesse when the opportune moment presents itself.
 
@@ -3012,7 +4952,49 @@ Starting at 17th, level, whenever you reduce a creature to 0 hit points, you reg
 
 
 
-## 4. Duelist
+## 4. Darkweaver [SOL]
+
+Darkweavers are trained by a secret society that extends throughout the kingdoms. They have developed techniques to improve their mobility in all three dimensions, and mastered the art of poison crafting.
+
+
+### Level 3
+
+* Bonus Proficiency
+
+Proficient with the poisoner's kit.
+
+* Predator
+
+When hitting an enemy on lower ground with a ranged weapon, add your proficiency bonus to the damage.
+
+* Spider on Wall
+
+Climbing no longer costs you extra movement, and difficult climb surfaces are considered normal for you.
+
+
+### Level 9
+
+* Poisonous
+
+When you hit with a melee weapon and deal at least 1 point of damage, your target must make a CON save DC 13 or they will be poisoned for one hour and take an additional 2d6 damage.
+
+
+### Level 13
+
+* Shadowy
+
+When you are in dim light or darkness outside of the enemy's line of sight, you can use your bonus action to become hidden and invisible until the end of your turn.
+
+
+### Level 17
+
+* Dark Assault
+
+Starting at 17th level, when you start your turn in dim light or darkness, you gain an extra attack with your Attack action and additional 15 feet of movement during the turn.
+
+
+
+## 5. Duelist [UB]
 
 Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, and dangerous to isolated enemies.
 
@@ -3050,7 +5032,51 @@ Starting at 17th level, immediately after you use your Sneak Attack, you make an
 
 
 
-## 5. Opportunist
+## 6. Hoodlum [SOL]
+
+When heads need crackin' and people need beatin', hoodlums are those you turn to. These brutes may not be professional soldiers, but honor doesn't win you fights - violence does.
+
+
+### Level 3
+
+* Heavy Beating
+
+You can now use Sneak Attack when using non-finesse melee weapons.
+
+* Mean Mug
+
+You gain proficiency in the Intimidation skill if you don't already have it, or expertise if you do.
+
+* The Right Tools
+
+You gain proficiency with martial weapons, medium armor, and shields.
+
+
+### Level 9
+
+* Menacing
+
+When you hit an enemy with a sneak attack, they have disadvantage on attacks made against you until the start of your next turn.
+
+
+### Level 13
+
+* Dirty Fighting
+
+You can use a bonus action to catch a target within 1 cell of you off guard. They must make a CON saving throw (DC 8 + proficiency bonus + STR modifier) or become blinded and incapacitated until the end of your next turn. Once hit by Dirty Fighting, the same target cannot be affected again.
+
+
+### Level 17
+
+* Brutal Assault
+
+Starting at 17th level, you gain the following benefits:
+• Whenever the target of your Dirty Fighting fails the saving throw, you can immediately make one weapon attack against that creature as a part of the same bonus action.
+• Whenever you hit a creature that is prone, stunned, blinded, frightened, incapacitated, poisoned, paralyzed or restrained, you deal extra damage equal to your proficiency bonus.
+
+
+
+## 7. Opportunist [UB]
 
 Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 
@@ -3088,7 +5114,7 @@ Starting at 17th level, attacks against creatures affected by Debilitating Strik
 
 
 
-## 6. Raven
+## 8. Raven [UB]
 
 Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
 
@@ -3126,7 +5152,48 @@ Once during your turn, when you reduce a creature to 0 hit points, you gain an e
 
 
 
-## 7. Slayer
+## 9. Shadowcaster [SOL]
+
+Shadowcasters are trained in arcane magic as well as in roguish abilities. They are tricksters who use magic to make their moves even more unpredictable and unstoppable. Some believe they don't really exist.
+
+
+### Level 3
+
+* Shadow Dodge
+
+As a bonus action, teleport to a cell you can see within 5 cells. Recharges after a rest.
+
+* Spellcasting
+
+Cast wizard spells and cantrips from the divination, illusion, necromancy, and abjuration schools.
+
+
+### Level 9
+
+* Shadow Retribution
+
+If you are targeted by a damaging spell, whether it damages you or not, you can cast a cantrip in reaction on the caster.
+
+
+### Level 13
+
+* Shadow Casting
+
+You can use your Sneak Attack when you damage enemies with spells which require an attack roll as if you were using a finesse or a ranged weapon. All the other rules for Sneak Attack still apply to you.
+
+
+### Level 17
+
+* Shadow Form
+
+Starting at 17th level, you can use your bonus action to magically transform yourself into a shadowy form for one minute. While in this form, you gain the following benefits:
+• You have resistance to all damage types except radiant.
+• You are immune to difficult terrains.
+• You don't provoke opportunity attacks.
+
+
+
+## 10. Slayer [UB]
 
 Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 
@@ -3160,7 +5227,45 @@ Starting at 17th level, you become a master of instant death. When you attack an
 
 
 
-## 8. Umbral Stalker
+## 11. Thief [SOL]
+
+Thieves have honed their skills in the larcenous arts. In addition to improving their agility and stealth, they learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items they normally couldn't employ.
+
+
+### Level 3
+
+* Fast Hands
+
+Cunning Action allows you to take the Use an Object action.
+
+* Second-Story Work
+
+Climbing no longer costs you extra movement, difficult climb surfaces are considered normal for you, and you can jump longer distances.
+
+
+### Level 9
+
+* Supreme Sneak
+
+You have advantage on DEX (Stealth) ability checks.
+
+
+### Level 13
+
+* Use Magic Device
+
+By level 13, you have learned enough about the workings of magic that you can improvise the use of items even when they are not intended for you. You ignore all class, ancestry, and level requirements on the use of magic items.
+
+
+### Level 17
+
+* Thief's Reflexes
+
+Starting at 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are surprised.
+
+
+
+## 12. Umbral Stalker [UB]
 
 Rumors say there are things far darker than any shadow prowling the darkest corners of Solasta. Stories forewarning about entities wielding supernatural powers to manipulate darkness, ambushing the unfortunate and disappearing seemingly at will. Whether the stories are true or not, many look twice over their shoulders when traversing a dark alley in the dead of night.
 
@@ -3200,7 +5305,62 @@ You can use your bonus action to empower yourself with a swirling nimbus of shad
 
 # Sorcerer
 
-## 1. Divine Soul
+## 1. Child of the Rift [SOL]
+
+Another effect of the Rift and its cataclysmic closing was that some people around it were affected in their blood, gaining an innate ability to cast spells, but in an instinctive way. The very nature of the Rift also changed them deeply, as they are not only flesh and blood, but also mana, light, and shadow.
+
+
+### Level 1
+
+* Child of the Rift Origin Spells
+
+In your list and always prepared: 
+ 
+	I	Guiding Bolt
+
+	II	Aid
+
+	III	Daylight
+
+	IV	Banishment
+
+	V	Greater Restoration
+
+* Rift Magic
+
+Immediately after you cast a sorcerer spell of level 1 to 5, roll 1d20. If you roll a 20, your spell slot is not spent
+
+
+### Level 2
+
+* Rift Deflection
+
+You can use your Bonus Action to spend 1 sorcery point to become harder to hit and achieve better saving throws, until the start of your next turn
+
+
+### Level 6
+
+* Offering to the Rift
+
+You can use your Bonus Action to sacrifice 5 Hit Points, in order to regain immediately one sorcery point. The sacrificed Hit Points are recovered after a Long Rest.
+
+
+### Level 14
+
+* Rift Walk
+
+At level 14, as a bonus action, you can teleport up to 6 cells to any unoccupied space you can see. Any enemy within 1 cell of your landing position takes force damage equal to your CHA modifier (minimum 1). You can use Riftwalk a number of times equal to your proficiency bonus per long rest.
+
+
+### Level 18
+
+* Rift Magic Mastery
+
+Starting at 18th level, whenever you roll a d20 to regain a spell slot from your Rift Magic feature, you can now regain any slot level upon rolling an 18, 19 or 20.
+
+
+
+## 2. Divine Soul [UB]
 
 Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand.
 
@@ -3246,7 +5406,67 @@ As a Bonus Action, you can restore 70 hit points to yourself and remove blindnes
 
 
 
-## 2. Field Manipulator
+## 3. Draconic Bloodline [SOL]
+
+Your innate magic comes from draconic magic that was mingled with your blood or that of your ancestors. Most often, sorcerers with this origin trace their descent back to a mighty sorcerer of ancient times who made a bargain with a dragon or who might even have claimed a dragon parent.
+
+
+### Level 1
+
+* Draconic Bloodline Origin Spells
+
+In your list and always prepared: 
+ 
+	I	Shield
+
+	II	Misty Step
+
+	III	Counterspell
+
+	IV	Greater Invisibility
+
+	V	Hold Monster
+
+* Draconic Knowledge
+
+You speak draconic
+
+* Draconic Resilience
+
+You gain one additional hit point per level and your armor class is 13 + dexterity bonus when you are not wearing armor
+
+* Dragon Ancestor Choice
+
+Select the type of dragon (and associated damage type) of your ancestor
+
+
+### Level 6
+
+* Draconic Resistance
+
+You gain resistance to the damage type of your ancestor for an hour, at the cost of one sorcery point.
+
+* Elemental Affinity
+
+When dealing spell damage that matches your draconic ancestry, you add your charisma modifier to the total (on the first target).
+
+
+### Level 14
+
+* Dragon Wings
+
+At level 14, you obtain the ability to sprout a pair of Dragon Wings from your back, gaining a flying speed equal to your current speed. You can create these wings as a bonus action on your turn. They last until you dismiss them as a bonus action on your turn.
+
+
+### Level 18
+
+* Draconic Presence
+
+Starting at 18th level, you can channel the dread presence of your dragon ancestor, causing those around you to become awestruck or frightened. As an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear to a distance of 60 feet. Each hostile creature in that area must succeed on a Wisdom saving throw or be charmed or frightened. Each creature can repeat the saving throw at the end of each of its turns.
+
+
+
+## 4. Field Manipulator [UB]
 
 Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
 
@@ -3297,7 +5517,7 @@ Beginning at 18th level, you can use your bonus action to teleport to a place of
 
 
 
-## 3. Forceblade
+## 5. Forceblade [UB]
 
 Forceblades combine martial prowess with inborn magical talents to outmatch their enemies.
 
@@ -3363,7 +5583,116 @@ Your armor class increases by 2, and you gain proficiency in Dexterity saving th
 
 
 
-## 4. Psion
+## 6. Haunted Soul [SOL]
+
+Haunted souls are sorcerers whose innate abilities draw malevolent spirits to them. Those who survive the ordeal learn to form a symbiotic relationship with them, harnessing their power in exchange for having their soul being slowly drained away.
+
+
+### Level 1
+
+* Haunted Soul Origin Spells
+
+In your list and always prepared: 
+ 
+	I	Inflict Wounds
+
+	II	Ray of Enfeeblement
+
+	III	Fear
+
+	IV	Phantasmal Killer
+
+	V	Mind Twist
+
+* Spirit Visage
+
+You can use a bonus action to attempt to scare an enemy that you can see within 6 cells of you. The target must make a Wisdom saving throw or they will have disadvantage on Ability Checks and Attack rolls until the start of your next turn.
+
+
+### Level 6
+
+* Recharge Vengeful Spirits
+
+Spend 4 sorcery points to recharge your Vengeful Spirits power.
+
+* Vengeful Spirits
+
+You can use a bonus action to call forth the spirits inside you for up to 1 minute. You can target a 3x3-cell area that you can see within 18 cells. Any opponent that enters the area for the first time on a turn or start its turn there must make a charisma saving throw or take 2d6 + your charisma modifier in necrotic damage (half damage on a successful save). Each turn, you can use your bonus action to move that area by 6 cells. Once you use Vengeful Spirits, you can't use it again until you finish a long rest, unless you spend 4 sorcery points to use it again.
+
+
+### Level 14
+
+* Soul Drain
+
+At level 14, once per turn when you kill one or more creatures with a spell of level 1 or higher, you regain 1 sorcery point. Soul Drain does not work on creatures of CR 1/2 or lower.
+
+
+### Level 18
+
+* Possession
+
+Starting at 18th level, you can use your action to possess bodies of your enemies with malevolent spirits. Target a 4x4 area within 120 feet of you. Each enemy creature in that area is forced to roll Charisma saving throw against your spell DC. On a failed saving throw, each enemy creature receives 6d10 necrotic damage and is dominated until the end of your next turn. After the dominated condition expires, they receive one level of exhaustion. You can use this feature once per long rest.
+
+
+
+## 7. Mana Painter [SOL]
+
+Born out of the mana starvation that followed the cataclysm, certain dwellers of Solasta learned to drain magic from all that surrounded them, locations, objects and even people. They learned to channel scarce mana to cast spells, create potions or scrolls. Whereas their enemies call them mana stealers, they are truly artists of magic.
+
+
+### Level 1
+
+* Mana Absorption
+
+Your Charisma modifier is used (if higher) instead of other ability modifiers on your saving throws against spells and other magic effects.
+
+* Mana Painter Origin Spells
+
+In your list and always prepared: 
+ 
+	I	Entangle
+
+	II	Barkskin
+
+	III	Sleet Storm
+
+	IV	Fire Shield
+
+	V	Conjure Elemental
+
+
+### Level 2
+
+* Mana Drain
+
+Make a melee spell attack. On a successful hit, the target creature takes 1D10+your charisma modifier Force Damage, and you regain 1 Sorcery Point. You need to take a Short Rest to recover this power.
+
+
+### Level 6
+
+* Mana Tap
+
+When you finish a Short Rest, you can regain a number of Sorcery points equal to half your Sorcerer levels (rounded up). You must complete a long rest to use this ability again.
+
+
+### Level 14
+
+* Mana Balance
+
+At level 14, whenever you use a sorcery point, you regain 5 HP per sorcery point you spend.
+
+
+### Level 18
+
+* Mana Overflow
+
+Starting at 18th level, you gain the following benefits:
+• Whenever you succeed on a saving throw against a spell or other magic effects, you regain 1 sorcery point.
+• Your Mana Drain does 4d10 + your Charisma modifier damage and restores 2 sorcery points instead.
+
+
+
+## 8. Psion [UB]
 
 Psions are exceptional individuals that possess innate ability to manipulate psionic energy by sheer force of will. Through extensive practices of mental discipline, a psion can learn to tap into their power and bend reality with a thought.
 
@@ -3416,7 +5745,7 @@ Whenever you cast a concentration spell, you can pay a number of sorcery points 
 
 
 
-## 5. Sorr-Akkath
+## 9. Sorr-Akkath [UB]
 
 Your innate spellcasting ability comes from Sorr-Akkath magic that was mingled with your blood, or that of your ancestors. As possible origins of these sorcerers, perhaps you have undergone an experiment that involved using blood of a Sorak, an ancestor made a bargain with a Sorak, or you are simply an offspring of a Sorak parent.
 
@@ -3477,7 +5806,7 @@ Starting at 18th level, your gain the ability to corrupt creatures on touch and 
 
 # Warlock
 
-## 1. The Celestial
+## 1. The Celestial [UB]
 
 Your patron is a powerful being of the Upper Planes. You have bound yourself to an ancient empyrean, solar, ki-rin, unicorn, or other entity that resides in the planes of everlasting bliss. Your pact with that being allows you to experience the barest touch of the holy light that illuminates the multiverse.
 
@@ -3530,7 +5859,7 @@ The radiant energy you channel allows you to resist death. When you have to make
 
 
 
-## 2. The Eldritch Surge
+## 2. The Eldritch Surge [UB]
 
 You made a pact with a mysterious entity that may be a consciousness that emerged from the intricacy of the Weave, believing that pure arcane power can create any phenomenon. And you are to prove it.
 
@@ -3588,7 +5917,7 @@ You learn one Versatility.
 
 
 
-## 3. The Elementalist
+## 3. The Elementalist [UB]
 
 You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 
@@ -3639,7 +5968,57 @@ Your control of elemental energies has increased to the point than you now have 
 
 
 
-## 4. The Hexblade
+## 4. The Fiend [SOL]
+
+A fiend is a dangerous patron whose power comes at a cost. A denizen of the lower planes of existence, your patron's aims are evil, and although you may strive against those aims, your patron still desires the corruption or destruction of all things, ultimately including you.
+
+
+### Level 1
+
+* Dark One's Blessing
+
+Starting at 1st level, when you reduce a hostile creature to 0 hit points, you gain temporary hit points equal to your Charisma modifier + your warlock level (minimum of 1).
+
+* Expanded Spells
+
+
+	I	Burning Hands, Bane
+
+	II	Blindness, Scorching Ray
+
+	III	Fireball, Stinking Cloud
+
+	IV	Fire Shield, Wall of Fire
+
+	V	Flame Strike, Contagion
+
+
+
+
+### Level 6
+
+* Dark One's Own Luck
+
+You can use an action to bring forth a fiendish stroke of luck. For the next minute, you roll an additional 1d10 on all your ability checks and saving throws. Once you use this feature, you can't use it again until you finish a long rest.
+
+
+### Level 10
+
+* Fiendish Resilience
+
+Starting at the 10th level, you can choose one damage type when you finish a short or long rest. You gain resistance to that damage type until you choose a different one with this feature. Damage from magical weapons or silver weapons ignores this resistance.
+
+
+### Level 14
+
+* Hurl Through Hell
+
+When you hit a creature with an attack, you can banish it to the lower planes until the end of your next turn. The creature suffers 10d10 psychic damage upon returning from this horrific experience.
+  You can use Hurl Through Hell once per long rest.
+
+
+
+## 5. The Hexblade [UB]
 
 You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 
@@ -3699,7 +6078,56 @@ You can use Soul Hex twice per short rest now, and you can use a bonus action to
 
 
 
-## 5. The Moonlit
+## 6. The Hive [SOL]
+
+The insects known as redeemers were developed by the Manacalon Empire as living weapons controlled by hive intelligence. With the fall of the Empire, that intelligence became self-willed and powerful - and curious about others. The Hive studies its warlocks as well as empowering them.
+
+
+### Level 1
+
+* Expanded Spells
+
+
+	I	Detect Poison and Disease, Inflict Wounds
+
+	II	Acid Arrow, Calm Emotions
+
+	III	Lightning Bolt, Stinking Cloud
+
+	IV	Giant Insect, Stoneskin
+
+	V	Cloudkill, Insect Plague
+
+
+
+* Weakening Pheromones
+
+Starting at 1st level, each turn, the first creature you damage with a spell will have disadvantage on their next saving throw. This condition expires on its own after 1 min.
+
+
+### Level 6
+
+* Magic Counter
+
+Starting at the 6th level, you can cast Counterspell once per short rest as a feature. This does not use one of your spellcasting slots, and you add your proficiency bonus when countering level-4 and higher spells.
+
+
+### Level 10
+
+* Reactive Carapace
+
+Starting at the 10th level, whenever you take damage from a spell or magic effect, you can use your reaction to immediately gain a number of temporary hit points equal to 1d8 + CHA modifier. These temporary hit points last until the start of your next turn.
+
+
+### Level 14
+
+* Antimagic Chitin
+
+Starting at level 14, you have advantage on saving throws against spells and magic effects.
+
+
+
+## 7. The Moonlit [UB]
 
 Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 
@@ -3750,7 +6178,7 @@ Whenever a creature damages you, you can use your reaction to become invisible u
 
 
 
-## 6. The Mountain
+## 8. The Mountain [UB]
 
 You have made a pact with an ancient primal entity that dwells atop the highest mountains of Solasta. Such entities yearn for a simpler epoch when mortals left them to their long slumber above the clouds, raising no cities and delving no mines. Their warlocks disdain the tools of civilization, calling upon the mountain's strength to shield their companions and strike down their foes.
 
@@ -3807,7 +6235,7 @@ Gain immunity to cold damage. The first time you hit an enemy with an attack on 
 
 
 
-## 7. The Riftwalker
+## 9. The Riftwalker [UB]
 
 Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 
@@ -3868,9 +6296,111 @@ As a main action, your control of rift portals has increased to the point that y
 
 
 
+## 10. The Timekeeper [SOL]
+
+Time is eternal, just a long flow. And yet, it longs for more than this endless flow; it longs to feel the meaning of a single moment. The Timekeepers fulfill this longing and can even sometimes manipulate the flow, a boon granted to agents of Time.
+
+
+### Level 1
+
+* Curse of Time
+
+Starting at the 1st level, whenever you damage an opponent with a spell, they become afflicted with the Curse of Time.
+  Enemies under the Curse of Time take half your proficiency bonus (rounded up) force damage at the start of their turn for the next minute.
+
+* Expanded Spells
+
+
+	I	Longstrider, Magic Missile
+
+	II	Blur, Calm Emotions
+
+	III	Haste, Slow
+
+	IV	Greater Invisibility, Phantasmal Killer
+
+	V	Raise Dead, Dominate Person
+
+
+
+
+### Level 6
+
+* Time Shift
+
+Starting at level 6, after you take any damage, you can use your reaction to rewind a few seconds, negating the damage taken but still taking any additional effects. You are considered banished until the start of your next turn.
+  After you use this feature, you can't use it again until you complete a long rest.
+
+
+### Level 10
+
+* Accelerate
+
+Starting at the 10th level, on your turn, you can use a bonus action to briefly accelerate an ally within 6 cells. They gain the effect of Haste until the start of your next turn; however, they do not suffer from lethargy when Accelerate ends.
+  You can use this feature a number of times equal to your proficiency bonus per long rest.
+
+
+### Level 14
+
+* Time Warp
+
+Starting at the 14th level, on your turn, you can take one additional action on top of your regular action and a possible bonus action.
+  Once you use this feature, you must finish a long rest before you can use it again.
+
+
+
+## 11. The Tree [SOL]
+
+The Tree stands at the heart of the Forest of Colthannin. To the sylvan elves - and more recently, to others - it is the soul of the forest. Its roots probe the depths, its branches touch the sky - and its warlocks travel the world between, informing and enacting its labyrinthine plans.
+
+
+### Level 1
+
+* Expanded Spells
+
+
+	I	Entangle, Fog Cloud
+
+	II	Barkskin, Spike Growth
+
+	III	Bestow Curse, Conjure Animal
+
+	IV	Confusion, Phantasmal Killer
+
+	V	Contagion, Dominate Person
+
+
+
+* Piercing Branch
+
+Starting at the 1st level, small piercing branches sprout from your skin. Whenever an enemy hits you with a melee attack, they take 1d6 piercing damage.
+
+
+### Level 6
+
+* Blessing of the Tree
+
+Starting at the 6th level, both your blood and your skin start changing color ever so slightly. You can't be poisoned, and you gain resistance against poison and necrotic damage.
+
+
+### Level 10
+
+* Explosive Growth
+
+Starting at the 10th level, once per short rest, you can erupt and cause 1d4 per level of piercing damage, push away, and restrain all creatures surrounding you on a failed dexterity save.
+
+
+### Level 14
+
+* One with the Tree
+
+You gain a +2 AC bonus, and you are always considered under the effect of half-cover against ranged attacks. Your Piercing Branch now deals an additional 1d6 poison damage whenever it triggers.
+
+
+
 # Wizard
 
-## 1. Arcane Fighter
+## 1. Arcane Fighter [UB]
 
 Arcane Fighters channel magic into their weapons in order to perform devastating attacks. Their adversaries are often surprised at the ferocity and relentlessness from these spell casters.
 
@@ -3916,7 +6446,7 @@ Once per turn, your weapon attacks deal an extra 1d8 damage.
 
 
 
-## 2. Bladesinger
+## 2. Bladesinger [UB]
 
 Bladesingers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 
@@ -3963,7 +6493,45 @@ You add a +5 to the damage to your weapon attacks while your blade dance is acti
 
 
 
-## 3. Deadmaster
+## 3. Court Mage [SOL]
+
+Court mages are the magical equivalent of elite bodyguards. Highly prized during the Manacalon era when society was ruled by magic, this tradition has slowly resurfaced in more recent years.
+
+
+### Level 2
+
+* Always Prepared
+
+You gain proficiency with shields and gain the Protection Fighting Style, which allows you to use your reaction to impose disadvantage on an attack roll made against an ally next to you, provided you are wielding a shield.
+
+* Spell Shield
+
+You can use an action to create a powerful shield around yourself and an ally you can see within 6 cells of you. This spell shield grants both of you temporary hit points equal to 4 times your level for up to 1 hour. You can use this power twice, and then need to take a Long Rest to recover it.
+
+
+### Level 6
+
+* Counterspell Mastery
+
+You gain advantage on your spellcasting checks when casting counterspell against level 4 or higher spells. Additionally, enemies have disadvantage on their spellcasting checks when casting counterspell against any of your spells.
+
+
+### Level 10
+
+* Improved Spell Shield
+
+Creatures under the effect of spell shield now also gain advantage on all saving throws against spells and magic effects. While the spell shield has 0 HP, it can't absorb damage but its magic remains.
+
+
+### Level 14
+
+* Expanded Spell Shield
+
+At level 14, you can create a spell shield around an extra ally. You can now cast spell shield around you and allies you can see within 12 cells of you.
+
+
+
+## 4. Deadmaster [UB]
 
 Deadmasters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
 
@@ -4022,7 +6590,7 @@ You can use your action a number of times a day equal to your proficiency bonus,
 
 
 
-## 4. Graviturgist
+## 5. Graviturgist [UB]
 
 Understanding and mastering the forces that draw bodies of matter together or drive them apart, the students of the Graviturgy arcane tradition learn to further bend and manipulate the violent energy of gravity to their benefit, and the terrible detriment of their enemies.
 
@@ -4060,7 +6628,145 @@ Starting at 14th level, you can magically emit a powerful field of gravitational
 
 
 
-## 5. Spellmaster
+## 6. Greenmage [SOL]
+
+Greenmages are the heirs to the ancient traditions of the sylvan elves. They are wardens of the forest, specialized in nature magic and also reliable bowmen, trained to survive without spells if need be - as they had to in the wake of the Cataclysm.
+
+
+### Level 2
+
+* Green Magic
+
+Spells from the Green Magic list are considered wizard spells for you: 
+	I	Animal Friendship, Detect Poison and Disease, Entangle, Faerie Fire, Goodberry, Hunter's Mark, Longstrider
+
+	II	Barkskin, Pass Without Trace, Lesser Restoration, Find Traps, Protection from Poison
+
+	III	Call Lightning, Conjure Animal, Create Food, Daylight, Wind Wall
+
+	IV	Dominate Beast, Freedom of Movement, Giant Insect, Identify Creatures
+
+	V	Contagion, Insect Plague
+
+	VI	Conjure Fey, Heroes Feast, Wall of Thorns
+
+	VII	Fire Storm, Regenerate, Resurrection
+
+	VIII	Earthquake
+
+* Smithing
+
+You are trained to craft basic ammunition with smith's tools: arrows and bolts.
+
+* Warden of the Forest
+
+Proficiency: Light armor
+ 
+ Proficiency: Shortbow
+ Fighting Style: Archery
+
+ Natural Explorer: You benefit from the same advantages as Rangers when in a forest environment.
+
+
+### Level 6
+
+* Entangling Shot
+
+Your arrow can transform into a vine on impact. The target must make a Strength saving throw or be restrained until the end of your next turn. You can use this feature a number of times equal to your Intelligence modifier (minimum 1). All uses recharge at the end of a long rest.
+
+
+### Level 10
+
+* Leaf Scales
+
+When an attacker that you can see damages you with a ranged attack or spell, you can use your reaction to halve the attack's damage against you. Leaf Scales' damage reduction does not stack with damage being halved from a successful saving throw.
+
+
+### Level 14
+
+* Weakening Entangling Shot
+
+At level 14, when hit by Entangling Shot, the target has disadvantage on all saving throws until the end of your next turn.
+
+
+
+## 7. Loremaster [SOL]
+
+Loremasters are obsessed with the lost knowledge of pre-Cataclysm times. They know the old Empire had superior magic and they long to learn more about the lost spells and rituals. Their magic is focused on gathering all possible knowledge.
+
+
+### Level 2
+
+* Keen Mind
+
+Advantage on Arcana, History, and Investigation ability checks
+ Advantage to copy scrolls to your spellbook
+ Scroll and potion crafting costs and times are halved
+
+
+### Level 6
+
+* Spell Academic
+
+You learn one additional spell each time you gain a level.
+
+
+### Level 10
+
+* Arcane Lore
+
+You can add your Proficiency Bonus to the number of spells you can memorize. You also learn two additional cantrips from the Wizard's list.
+
+
+### Level 14
+
+* Arcane Professor
+
+At level 14, you gain one extra level 1, level 2, level 3, and level 4 spell slots. Additionally, you learn 4 cantrips from any classes. The chosen cantrips count as wizard spells for you.
+
+
+
+## 8. Shock Arcanist [SOL]
+
+Shock Arcanists were the battle mages of the Manacalon Empire. Their teachings have survived the Cataclysm to become a renowned and feared magical tradition, taught in every major magic school.
+
+
+### Level 2
+
+* Arcane Warfare
+
+When casting spells from the War list, they count as being cast at one slot level higher than the one you actually use: Burning Hands,Magic Missile,Thunderwave,Acid Arrow,Scorching Ray,Flaming Sphere,Fireball,Lightning Bolt,Ice Storm,Cone of Cold,Mind Twist,Disintegrate,Chain Lightning,Freezing Sphere,Incendiary Cloud.
+
+
+### Level 6
+
+* Arcane Fury
+
+Add your proficiency bonus and INT bonus to your evocation spell damage for 1 minute. Recharges after a long rest.
+
+
+### Level 10
+
+* Arcane Shock
+
+Starting at the 10th level, you can use your Bonus Action to trigger Arcane Shock and make a CON saving throw DC 14 first, taking 2D6 psychic damage on a failure. Until the end of your turn, you are restrained, but the spells you cast will have all at least average dice roll value.
+  You can use this power a number of times equal to your proficiency bonus, then you must take a long rest to recharge its uses.
+
+* Wizard Weapon Proficiencies
+
+Constitution
+
+
+### Level 14
+
+* Greater Arcane Shock
+
+Starting at level 14, you can use your Bonus Action to trigger Greater Arcane Shock and make a CON saving throw DC 16 first, taking 7D6 psychic damage on a failure, or half of the damage on a success. Until the end of your turn, the spells you cast will have all the maximum possible damage dice roll values.
+  You can use this feature once per long rest.
+
+
+
+## 9. Spellmaster [UB]
 
 Spellmasters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 
