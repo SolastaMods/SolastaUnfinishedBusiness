@@ -677,22 +677,21 @@ internal static class OtherFeats
         : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, IModifyAdditionalDamage,
             IModifyDiceRoll, IActionFinishedByMe
     {
-        private bool isValid;
-        private int rolledDamage;
+        private bool _isValid;
+        private int _rolledDamage;
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (rolledDamage <= 0)
+            if (_rolledDamage <= 0)
             {
                 yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var healAmount = rolledDamage +
+            var healAmount = _rolledDamage +
                              rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
-            rulesetCharacter.ReceiveHealing(healAmount, true, rulesetCharacter.Guid,
-                HealingCap.HalfMaximumHitPoints);
+            rulesetCharacter.ReceiveHealing(healAmount, true, rulesetCharacter.Guid);
         }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
@@ -705,8 +704,8 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            rolledDamage = 0;
-            isValid = false;
+            _rolledDamage = 0;
+            _isValid = false;
 
             if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
@@ -726,11 +725,11 @@ internal static class OtherFeats
         {
             if (featureDefinitionAdditionalDamage != additionalDamageBalefulScion)
             {
-                isValid = false;
+                _isValid = false;
                 return;
             }
 
-            isValid = true;
+            _isValid = true;
 
             damageForm.BonusDamage =
                 attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
@@ -754,15 +753,15 @@ internal static class OtherFeats
             ref int secondRoll,
             ref int result)
         {
-            if (!isValid ||
+            if (!_isValid ||
                 dieType != DieType.D6 ||
                 rollContext is not (RollContext.AttackDamageValueRoll or RollContext.MagicDamageValueRoll))
             {
                 return;
             }
 
-            isValid = false;
-            rolledDamage = result;
+            _isValid = false;
+            _rolledDamage = result;
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -777,8 +776,8 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            rolledDamage = 0;
-            isValid = false;
+            _rolledDamage = 0;
+            _isValid = false;
 
             if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {

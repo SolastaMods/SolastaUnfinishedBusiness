@@ -106,7 +106,8 @@ public static class CharacterActionSpendPowerPatcher
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
-                    var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+                    var battleManager =
+                        ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
                     if (__instance.RolledSaveThrow)
                     {
@@ -116,10 +117,11 @@ public static class CharacterActionSpendPowerPatcher
                             yield return battleManager.HandleFailedSavingThrow(
                                 __instance, actingCharacter, target, actionModifier, false, hasBorrowedLuck);
                         }
-                        
+
                         //PATCH: support for `ITryAlterOutcomeSavingThrow`
                         foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                     battleManager, __instance, actingCharacter, target, actionModifier, false, hasBorrowedLuck))
+                                     battleManager, __instance, actingCharacter, target, actionModifier, false,
+                                     hasBorrowedLuck))
                         {
                             yield return tryAlterOutcomeSavingThrow;
                         }

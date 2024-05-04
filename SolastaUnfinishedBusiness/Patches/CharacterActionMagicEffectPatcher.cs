@@ -850,10 +850,11 @@ public static class CharacterActionMagicEffectPatcher
                             !needToRollDie,
                             hasBorrowedLuck);
                     }
-                    
+
                     //PATCH: support for `ITryAlterOutcomeSavingThrow`
                     foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                 battleManager, __instance, actingCharacter, target, attackModifier, false, hasBorrowedLuck))
+                                 battleManager, __instance, actingCharacter, target, attackModifier, false,
+                                 hasBorrowedLuck))
                     {
                         yield return tryAlterOutcomeSavingThrow;
                     }

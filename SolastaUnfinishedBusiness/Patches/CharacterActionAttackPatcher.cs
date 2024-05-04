@@ -270,7 +270,7 @@ public static class CharacterActionAttackPatcher
             {
                 yield return tryAlterOutcomeSavingThrow;
             }
-            
+
             if (rangeAttack)
             {
                 var isMonkReturnMissile = attackMode.ReturnProjectileOnly;
@@ -498,10 +498,11 @@ public static class CharacterActionAttackPatcher
                             yield return battleManager.HandleFailedSavingThrow(
                                 __instance, actingCharacter, target, attackModifier, false, hasBorrowedLuck);
                         }
-                        
+
                         //PATCH: support for `ITryAlterOutcomeSavingThrow`
                         foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                     battleManager, __instance, actingCharacter, target, attackModifier, false, hasBorrowedLuck))
+                                     battleManager, __instance, actingCharacter, target, attackModifier, false,
+                                     hasBorrowedLuck))
                         {
                             yield return tryAlterOutcomeSavingThrow;
                         }

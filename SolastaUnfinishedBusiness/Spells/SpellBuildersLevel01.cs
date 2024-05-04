@@ -808,7 +808,10 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(GuidingBolt)
+                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
                         EffectFormBuilder.DamageForm("DamagePure", 1, DieType.D6))
@@ -846,7 +849,9 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(GuidingBolt)
+                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),

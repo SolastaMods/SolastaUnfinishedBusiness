@@ -26,7 +26,7 @@ internal static class DmProEditorContext
         UnleashGadgetsOnAllEnvironments();
         UnleashPropsOnAllEnvironments();
         UnleashRoomsOnAllEnvironments();
-        
+
         //BUGFIX: This NPC cannot fight without sense
         DatabaseHelper.MonsterDefinitions.DLC3_ElvenClans_Leralyn.Features.Add(
             DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24);
