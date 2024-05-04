@@ -730,7 +730,7 @@ internal static class OtherFeats
 
             var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
 
-            rulesetAttacker.UsePower(usablePower);
+            usablePower.Consume();
         }
     }
 
