@@ -13,7 +13,7 @@
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
+    "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
@@ -25,14 +25,14 @@
     "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
-    "poolFilterDiceNumber": 5,
-    "poolFilterDieType": "D8",
+    "poolFilterDiceNumber": 0,
+    "poolFilterDieType": "D1",
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Enemy",
     "durationType": "Instantaneous",
-    "durationParameter": 1,
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -149,8 +149,8 @@
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
     },
-    "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedType": "CellsPerSeconds",
+    "speedParameter": 9.5,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -182,7 +182,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "7b96b2b7e8ecf9540ba744502258f7a9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -206,7 +206,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "f05a4fe080e5f3545985a0b300e41fba",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -298,13 +298,13 @@
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "dedd3494a228a62489ac6413570ece47",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "5b1de83ca1b2e024c9ccd81e23520bd3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -323,10 +323,10 @@
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 0,
+      "cooldownForCaster": 2,
       "cooldownForBattle": 0,
       "sortingScoreMultiplier": 1.0,
-      "dynamicCooldown": false
+      "dynamicCooldown": true
     },
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false,
