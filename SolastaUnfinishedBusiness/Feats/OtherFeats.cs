@@ -677,6 +677,7 @@ internal static class OtherFeats
         : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, IModifyAdditionalDamage,
             IModifyDiceRoll, IActionFinishedByMe
     {
+        private bool _isCritical;
         private bool _isValid;
         private int _rolledDamage;
 
@@ -688,7 +689,7 @@ internal static class OtherFeats
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var healAmount = _rolledDamage +
+            var healAmount = (_rolledDamage * (_isCritical ? 2 : 1)) +
                              rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             rulesetCharacter.ReceiveHealing(healAmount, true, rulesetCharacter.Guid);
@@ -705,6 +706,7 @@ internal static class OtherFeats
             bool criticalHit)
         {
             _rolledDamage = 0;
+            _isCritical = criticalHit;
             _isValid = false;
 
             if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
@@ -777,6 +779,7 @@ internal static class OtherFeats
             bool criticalHit)
         {
             _rolledDamage = 0;
+            _isCritical = criticalHit;
             _isValid = false;
 
             if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
