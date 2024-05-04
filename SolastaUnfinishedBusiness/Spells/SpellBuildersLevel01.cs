@@ -807,7 +807,7 @@ internal static partial class SpellBuilders
             .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(GuidingBolt)
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
@@ -845,7 +845,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(GuidingBolt)
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
                     .SetEffectForms(
@@ -1033,7 +1033,6 @@ internal static partial class SpellBuilders
                     effectForm.DamageForm.DamageType = damageType;
                 }
 
-                EffectHelpers.StartVisualEffect(attacker, defender, GuidingBolt, EffectHelpers.EffectType.Effect);
                 EffectHelpers.StartVisualEffect(attacker, defender, effect);
             }
             else
@@ -1121,7 +1120,6 @@ internal static partial class SpellBuilders
                     effectForm.DamageForm.DamageType = damageType;
                 }
 
-                EffectHelpers.StartVisualEffect(attacker, defender, GuidingBolt, EffectHelpers.EffectType.Effect);
                 EffectHelpers.StartVisualEffect(attacker, defender, effect);
             }
         }
