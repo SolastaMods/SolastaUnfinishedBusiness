@@ -23,6 +23,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.AmazingDisplayToggle,
         (Id)ExtraActionId.ArcaneArcherToggle,
         (Id)ExtraActionId.AudaciousWhirlToggle,
+        (Id)ExtraActionId.BalefulScionToggle,
         (Id)ExtraActionId.BrutalStrikeToggle,
         (Id)ExtraActionId.CompellingStrikeToggle,
         (Id)ExtraActionId.CoordinatedAssaultToggle,

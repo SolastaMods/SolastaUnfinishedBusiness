@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -64,6 +65,7 @@ internal static class OtherFeats
         var featWarCaster = BuildWarcaster();
 
         var athleteGroup = BuildAthlete(feats);
+        var balefulScionGroup = BuildBalefulScion(feats);
         var chefGroup = BuildChef(feats);
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
@@ -117,12 +119,14 @@ internal static class OtherFeats
             featMonkShieldExpert);
 
         GroupFeats.FeatGroupMeleeCombat.AddFeats(
+            balefulScionGroup,
             featPolearmExpert);
 
         GroupFeats.FeatGroupTwoHandedCombat.AddFeats(
             featPolearmExpert);
 
         GroupFeats.FeatGroupSpellCombat.AddFeats(
+            balefulScionGroup,
             elementalAdeptGroup,
             elementalMasterGroup,
             featWarCaster,
@@ -548,6 +552,186 @@ internal static class OtherFeats
 
         internal string Name { get; }
         internal bool ForceFixedList { get; }
+    }
+
+    #endregion
+
+    #region Baleful Scion
+
+    private static FeatDefinition BuildBalefulScion(List<FeatDefinition> feats)
+    {
+        const string NAME = "FeatBalefulScion";
+
+        var powerBalefulScion = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .DelegatedToAction()
+            .AddToDB();
+
+        var additionalDamageBalefulScion = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("BalefulScion")
+            .SetDamageDice(DieType.D6, 1)
+            .SetSpecificDamageType(DamageTypeNecrotic)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetImpactParticleReference(VampiricTouch)
+            .AddCustomSubFeatures(
+                new ValidateContextInsteadOfRestrictedProperty(
+                    (_, _, character, _, _, _, _) =>
+                        (OperationType.Set,
+                            character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) &&
+                            character.GetRemainingPowerUses(powerBalefulScion) > 0)))
+            .AddToDB();
+
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "BalefulScionToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.BalefulScionToggle)
+            .SetActivatedPower(powerBalefulScion)
+            .AddToDB();
+
+        var actionAffinityBalefulScion = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityBalefulScionToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle)
+            .AddCustomSubFeatures(
+                new CustomBehaviorBalefulScion(powerBalefulScion),
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerBalefulScion)))
+            .AddToDB();
+
+        var featStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Einar,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        var featDex = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Misaye,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        var featCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Arun,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        var featInt = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Int")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Pakri,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        var featWis = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Wis")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Maraike,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        var featCha = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Cha")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Solasta,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        feats.AddRange(featStr, featDex, featCon, featInt, featWis, featCha);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupBalefulScion", NAME, ValidatorsFeat.IsLevel4,
+            featStr, featDex, featCon, featInt, featWis, featCha);
+    }
+
+    private class CustomBehaviorBalefulScion(FeatureDefinitionPower powerBalefulScion)
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
+            {
+                yield break;
+            }
+
+            yield return HandleBalefulScion(attacker, defender);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
+            {
+                yield break;
+            }
+
+            yield return HandleBalefulScion(attacker, defender);
+        }
+
+        private IEnumerator HandleBalefulScion(
+            // ReSharper disable once SuggestBaseTypeForParameter
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!attacker.IsWithinRange(defender, 12) ||
+                !attacker.OncePerTurnIsValid("AdditionalDamageFeatBalefulScion") ||
+                rulesetDefender is not { IsDeadOrUnconscious: false } ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) ||
+                rulesetAttacker.GetRemainingPowerUses(powerBalefulScion) == 0)
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
+
+            usablePower.Consume();
+        }
     }
 
     #endregion

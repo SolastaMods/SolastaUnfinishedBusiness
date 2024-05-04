@@ -65,6 +65,7 @@ internal enum ExtraActionId
     DestructiveWrathToggle,
     ThunderousStrikeToggle,
     ProxyDawn,
+    BalefulScionToggle,
     PrioritizeAction = 10000
 }
 

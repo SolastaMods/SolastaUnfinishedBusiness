@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,15 +8,20 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatBalefulScion",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityBalefulScionToggle:4ce964a3-ea9f-5085-a741-efd362098a5d",
+    "Definition:AdditionalDamageFeatBalefulScion:3d0e1aa3-2e86-59ea-a2fa-866313231851",
+    "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0",
+    "Definition:PowerFeatBalefulScion:0a12985a-a6ea-5aa3-b6b8-56f848838149"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfDexterityTitle",
-    "description": "Ambidextrous, Athlete [Dex], Awaken the Beast [Dex], Baleful Scion [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy, Weapon Master [Dex]",
+    "title": "Feat/&FeatBalefulScionConTitle",
+    "description": "Feat/&FeatBalefulScionConDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "beb9378e-da32-503f-8faf-5d4e08b14a05",
+  "guid": "690bd37e-708a-5ab7-9643-fc565c5d6a88",
   "contentPack": 9999,
-  "name": "FeatGroupHalfDexterity"
+  "name": "FeatBalefulScionCon"
 }
