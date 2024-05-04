@@ -1318,8 +1318,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         feat.AddCustomSubFeatures(
-            new PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(conditionDevastatingStrikes, weaponTypes),
-            new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
+            new PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(conditionDevastatingStrikes, weaponTypes));
 
         return feat;
     }
