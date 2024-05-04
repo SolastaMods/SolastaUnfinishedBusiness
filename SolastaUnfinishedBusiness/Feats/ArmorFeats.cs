@@ -239,7 +239,7 @@ internal static class ArmorFeats
                 return;
             }
 
-            saveBonus += 2;
+            rollModifier += 2;
             modifierTrends.Add(
                 new TrendInfo(2, FeatureSourceType.Power, powerShieldTechniques.Name, powerShieldTechniques));
         }
