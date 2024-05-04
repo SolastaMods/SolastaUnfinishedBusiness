@@ -576,7 +576,7 @@ internal static class OtherFeats
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeNecrotic)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetImpactParticleReference(VampiricTouch)
+            .SetImpactParticleReference(PowerWightLordRetaliate)
             .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, character, _, _, _, _) =>
@@ -599,7 +599,7 @@ internal static class OtherFeats
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle)
             .AddCustomSubFeatures(
-                new CustomBehaviorBalefulScion(powerBalefulScion),
+                new CustomBehaviorBalefulScion(powerBalefulScion, additionalDamageBalefulScion),
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerBalefulScion)))
             .AddToDB();
 
@@ -670,9 +670,31 @@ internal static class OtherFeats
             featStr, featDex, featCon, featInt, featWis, featCha);
     }
 
-    private class CustomBehaviorBalefulScion(FeatureDefinitionPower powerBalefulScion)
-        : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
+    private class CustomBehaviorBalefulScion(
+        FeatureDefinitionPower powerBalefulScion,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamageBalefulScion)
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, IModifyAdditionalDamage,
+            IModifyDiceRoll, IActionFinishedByMe
     {
+        private bool isValid;
+        private int rolledDamage;
+
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (rolledDamage <= 0)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var healAmount = rolledDamage +
+                             rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            rulesetCharacter.ReceiveHealing(healAmount, true, rulesetCharacter.Guid,
+                HealingCap.HalfMaximumHitPoints);
+        }
+
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -683,12 +705,64 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
+            rolledDamage = 0;
+            isValid = false;
+
             if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
 
             yield return HandleBalefulScion(attacker, defender);
+        }
+
+        public void ModifyAdditionalDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
+        {
+            if (featureDefinitionAdditionalDamage != additionalDamageBalefulScion)
+            {
+                isValid = false;
+                return;
+            }
+
+            isValid = true;
+
+            damageForm.BonusDamage =
+                attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+        }
+
+        public void BeforeRoll(
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref DieType dieType,
+            ref AdvantageType advantageType)
+        {
+            // empty
+        }
+
+        public void AfterRoll(
+            DieType dieType,
+            AdvantageType advantageType,
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref int firstRoll,
+            ref int secondRoll,
+            ref int result)
+        {
+            if (!isValid ||
+                dieType != DieType.D6 ||
+                rollContext is not (RollContext.AttackDamageValueRoll or RollContext.MagicDamageValueRoll))
+            {
+                return;
+            }
+
+            isValid = false;
+            rolledDamage = result;
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -703,6 +777,9 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
+            rolledDamage = 0;
+            isValid = false;
+
             if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
