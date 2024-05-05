@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Tool",
+  "proficiencyType": "Expertise",
   "proficiencies": [
     "HerbalismKitType"
   ],
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9418eab1-c4ca-51d3-8566-ed00ecb2afe2",
+  "guid": "15abe948-9315-52c5-b8ce-6ef889734cbd",
   "contentPack": 9999,
-  "name": "ProficiencyCraftyHerbalismKit"
+  "name": "ProficiencyCraftyHerbalismKitExpertise"
 }

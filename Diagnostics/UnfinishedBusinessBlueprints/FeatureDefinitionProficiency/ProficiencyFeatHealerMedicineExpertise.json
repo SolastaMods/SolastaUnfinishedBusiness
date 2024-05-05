@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Tool",
+  "proficiencyType": "Expertise",
   "proficiencies": [
-    "HerbalismKitType"
+    "Medecine"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9418eab1-c4ca-51d3-8566-ed00ecb2afe2",
+  "guid": "5723788c-08b4-533f-83ec-087f9319843a",
   "contentPack": 9999,
-  "name": "ProficiencyCraftyHerbalismKit"
+  "name": "ProficiencyFeatHealerMedicineExpertise"
 }

@@ -132,7 +132,7 @@ internal static class CraftyFeats
         var featApothecaryCha = FeatDefinitionBuilder
             .Create("FeatApothecaryCha")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Solasta, proficiencyCraftyHerbalismKit, proficiencyCraftyMedicine)
+            .SetFeatures(AttributeModifierCreed_Of_Solasta)
             .AddCustomSubFeatures(
                 new ToolOrExpertise(ToolTypeDefinitions.HerbalismKitType, proficiencyCraftyHerbalismKit,
                     proficiencyCraftyHerbalismKitExpertise),
@@ -199,7 +199,7 @@ internal static class CraftyFeats
             .Create("FeatCraftyScriber")
             .SetGuiPresentation(Category.Feat)
             .SetMustCastSpellsPrerequisite()
-            .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyScrollKit, proficiencyCraftyArcana)
+            .SetFeatures(AttributeModifierCreed_Of_Pakri)
             .AddCustomSubFeatures(
                 new ToolOrExpertise(ToolTypeDefinitions.ScrollKitType, proficiencyCraftyScrollKit,
                     proficiencyCraftyScrollKitExpertise),

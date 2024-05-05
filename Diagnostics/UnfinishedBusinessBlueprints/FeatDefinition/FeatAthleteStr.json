@@ -13,8 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
-    "Definition:MovementAffinityAthlete:91ac75d7-4763-54d6-98f5-7554fc304f01",
-    "Definition:ProficiencyAthlete:241be27a-e339-5e2b-952c-ec4dd090b461"
+    "Definition:MovementAffinityAthlete:91ac75d7-4763-54d6-98f5-7554fc304f01"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

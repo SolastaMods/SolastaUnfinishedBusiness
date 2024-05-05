@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Tool",
+  "proficiencyType": "Expertise",
   "proficiencies": [
-    "HerbalismKitType"
+    "Athletics"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9418eab1-c4ca-51d3-8566-ed00ecb2afe2",
+  "guid": "ca7b11ce-5a52-51c0-93a2-dc05d01d48f4",
   "contentPack": 9999,
-  "name": "ProficiencyCraftyHerbalismKit"
+  "name": "ProficiencyAthleteExpertise"
 }

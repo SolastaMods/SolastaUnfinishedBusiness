@@ -597,7 +597,7 @@ internal static class OtherFeats
         const string NAME = "FeatMenacing";
 
         var proficiencySkill = FeatureDefinitionProficiencyBuilder
-            .Create($"Proficiency{NAME}Skill")
+            .Create($"Proficiency{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Intimidation)
             .AddToDB();

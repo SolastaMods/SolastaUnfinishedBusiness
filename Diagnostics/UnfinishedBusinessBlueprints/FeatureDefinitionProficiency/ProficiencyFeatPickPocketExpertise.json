@@ -1,15 +1,15 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Tool",
+  "proficiencyType": "Expertise",
   "proficiencies": [
-    "HerbalismKitType"
+    "SleightOfHand"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feat/&FeatPickPocketTitle",
+    "description": "Feat/&FeatPickPocketDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9418eab1-c4ca-51d3-8566-ed00ecb2afe2",
+  "guid": "e9c713f9-aa65-516e-8acb-93758a247396",
   "contentPack": 9999,
-  "name": "ProficiencyCraftyHerbalismKit"
+  "name": "ProficiencyFeatPickPocketExpertise"
 }
