@@ -190,7 +190,14 @@ internal static partial class SpellBuilders
     {
         const string NAME = "FizbanPlatinumShield";
 
-        var condition = ConditionDefinitionBuilder
+        var conditionSelf = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Self")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
+        var conditionMark = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
@@ -210,7 +217,7 @@ internal static partial class SpellBuilders
                 WardingBond.EffectDescription.EffectParticleParameters.conditionParticleReference)
             .AddToDB();
 
-        condition.GuiPresentation.description = Gui.NoLocalization;
+        conditionMark.GuiPresentation.description = Gui.NoLocalization;
 
         var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
@@ -232,19 +239,114 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(condition),
+                        EffectFormBuilder.ConditionForm(conditionMark),
                         EffectFormBuilder
                             .Create()
                             .SetLightSourceForm(
                                 LightSourceType.Basic, 6, 6,
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
-                            .Build())
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(
+                            conditionSelf,
+                            ConditionForm.ConditionOperation.Add, true))
                     .SetCasterEffectParameters(PrismaticSpray)
                     .Build())
             .AddToDB();
 
+        var behavior = new MagicEffectFinishedByMeFizbanPlatinumShield(spell, conditionMark);
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, spell)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(spell)
+                    .SetEffectForms()
+                    .Build())
+            .AddCustomSubFeatures(behavior, new FilterTargetingCharacter(conditionMark))
+            .AddToDB();
+
+        conditionSelf.Features.Add(power);
+        spell.AddCustomSubFeatures(behavior);
+
         return spell;
+    }
+
+    private sealed class FilterTargetingCharacter(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionMark) : IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            var isValid = !target.RulesetActor.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionMark.Name);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveFizbanPlatinumShield");
+            }
+
+            return isValid;
+        }
+    }
+
+    private sealed class MagicEffectFinishedByMeFizbanPlatinumShield(
+        SpellDefinition spell,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IMagicEffectFinishedByMe
+    {
+        private int _remainingRounds;
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var rulesetSpell = rulesetCharacter.ConcentratedSpell;
+
+            if (rulesetSpell == null ||
+                rulesetSpell.SpellDefinition != spell)
+            {
+                yield break;
+            }
+
+            switch (action)
+            {
+                case CharacterActionUsePower:
+                {
+                    _remainingRounds = rulesetSpell.RemainingRounds;
+
+                    var spellRepertoire = rulesetSpell.SpellRepertoire;
+                    var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                    var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
+                        .InstantiateEffectSpell(rulesetCharacter, spellRepertoire, spell, 6, false);
+
+                    var actionParams = action.ActionParams.Clone();
+
+                    actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
+                    actionParams.RulesetEffect = effectSpell;
+
+                    rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
+                    actionService.ExecuteAction(actionParams, null, true);
+                    break;
+                }
+                case CharacterActionCastSpell when _remainingRounds > 0:
+                    rulesetSpell.RemainingRounds = _remainingRounds;
+
+                    if (action.ActionParams.TargetCharacters[0].RulesetCharacter.TryGetConditionOfCategoryAndType(
+                            AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
+                    {
+                        activeCondition.RemainingRounds = _remainingRounds;
+                    }
+
+                    _remainingRounds = 0;
+                    break;
+            }
+        }
     }
 
     #endregion
