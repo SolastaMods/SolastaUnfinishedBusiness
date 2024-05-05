@@ -575,7 +575,8 @@ internal static class OtherFeats
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlack)
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite(NAME, Resources.PowerInspiringLeader, 128))
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -585,8 +586,7 @@ internal static class OtherFeats
             .AddToDB();
 
         power.AddCustomSubFeatures(
-            new MagicEffectFinishedByMeMenacing(condition),
-            ValidatorsValidatePowerUse.HasMainAttackAvailable);
+            new MagicEffectFinishedByMeMenacing(condition), ValidatorsValidatePowerUse.HasMainAttackAvailable);
 
         var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create(NAME)
@@ -667,21 +667,20 @@ internal static class OtherFeats
             var abilityCheckBonusActor = actor.RulesetCharacter.ComputeBaseAbilityCheckBonus(
                 AttributeDefinitions.Charisma,
                 actionModifierActor.AbilityCheckModifierTrends, SkillDefinitions.Intimidation);
+
             var abilityCheckBonusOpponent = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus(
                 AttributeDefinitions.Wisdom,
                 actionModifierOpponent.AbilityCheckModifierTrends, SkillDefinitions.Insight);
 
-            actor.ComputeAbilityCheckActionModifier(AttributeDefinitions.Charisma, SkillDefinitions.Intimidation,
-                actionModifierActor);
-            opponent.ComputeAbilityCheckActionModifier(AttributeDefinitions.Wisdom, SkillDefinitions.Insight,
-                actionModifierOpponent, 1);
+            actor.ComputeAbilityCheckActionModifier(
+                AttributeDefinitions.Charisma, SkillDefinitions.Intimidation, actionModifierActor);
 
-            actor.RulesetCharacter.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(
-                actor.RulesetCharacter.FeaturesToBrowse, actor.RulesetCharacter.FeaturesOrigin);
+            opponent.ComputeAbilityCheckActionModifier(
+                AttributeDefinitions.Wisdom, SkillDefinitions.Insight, actionModifierOpponent);
 
-            foreach (var key in actor.RulesetCharacter.FeaturesToBrowse)
+            foreach (var key in actor.RulesetCharacter.GetFeaturesByType<IActionPerformanceProvider>())
             {
-                foreach (var executionModifier in (key as IActionPerformanceProvider)!.ActionExecutionModifiers)
+                foreach (var executionModifier in key.ActionExecutionModifiers)
                 {
                     if (executionModifier.actionId != ActionDefinitions.Id.PowerNoCost ||
                         !actor.RulesetCharacter.IsMatchingEquipementCondition(executionModifier.equipmentContext) ||
@@ -691,10 +690,10 @@ internal static class OtherFeats
                     }
 
                     var num = executionModifier.advantageType == AdvantageType.Advantage ? 1 : -1;
-                    var featureOrigin = actor.RulesetCharacter.FeaturesOrigin[key];
+                    var featureOrigin = actor.RulesetCharacter.FeaturesOrigin[(key as FeatureDefinition)!];
 
-                    actionModifierActor.AbilityCheckAdvantageTrends.Add(new TrendInfo(num, featureOrigin.sourceType,
-                        featureOrigin.sourceName, featureOrigin.source));
+                    actionModifierActor.AbilityCheckAdvantageTrends.Add(
+                        new TrendInfo(num, featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
                 }
             }
 
@@ -707,7 +706,7 @@ internal static class OtherFeats
                 actionModifierActor.AbilityCheckModifierTrends,
                 abilityCheckBonusOpponent,
                 actionModifierOpponent.AbilityCheckModifier,
-                AttributeDefinitions.Strength,
+                AttributeDefinitions.Wisdom,
                 SkillDefinitions.Insight,
                 actionModifierOpponent.AbilityCheckAdvantageTrends,
                 actionModifierOpponent.AbilityCheckModifierTrends,
