@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,12 +11,15 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
+    "Definition:PowerFeatMenacing:2e3ca902-484d-53b9-9daf-97f99a6efc50"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupSkillsTitle",
-    "description": "Apothecary, Arcane Appraiser, Healer, Initiate Enchanter, Manipulator, Menacing, Pickpocket, Scriber, Squat Nimbleness, Toxicologist",
+    "title": "Feat/&FeatMenacingTitle",
+    "description": "Feat/&FeatMenacingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3a0ce468-e42e-5dcb-b43d-ec6205618dd0",
+  "guid": "5a87a730-7598-5f80-8f4b-13499a99099d",
   "contentPack": 9999,
-  "name": "FeatGroupSkills"
+  "name": "FeatMenacing"
 }

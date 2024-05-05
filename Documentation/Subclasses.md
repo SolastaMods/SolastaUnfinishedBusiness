@@ -3107,7 +3107,7 @@ Psi Warriors are disciplined warriors who utilize a wide range of psychokinetic 
 
 * Psionic Initiate
 
-You gain a number of Force Points that can be used to fuel various psychokinetic abilities. You start with 3 Force Points and gain 1 additional point every 3 levels thereafter. Your Force Points recharge on short or long rest. 
+You gain a number of Force Points that can be used to fuel various psychokinetic abilities. You start with 3 Force Points and gain 1 additional point every 3 levels thereafter. Your Force Points recharge on short or long rest.
 • Force-Powered Strike. Once on each of your turns when you hit a creature with a weapon attack, you can expend 1 Force Point to deal additional force damage equal to 1d6 + Intelligence modifier. The damage increases to 1d8 at 5th, 1d10 at 11th and 1d12 at 17th level.
 • Kinetic Barrier. When you or another allied creature that you can see within 30 feet of you is about to be hit by an attack, you can expend 1 Force Point and use your reaction to form a protective shield of pure force around it, granting it extra AC equal to your Intelligence modifier (minimum +1) against that attack and all subsequent attacks until the end of the attacking creature's turn.
 • Force Drive. You can expend 1 Force Point as a free action to launch weapons using your psychokinetic powers. Until the end of your turn, your equipped melee weapons gain 30 feet of additional range. You can use this feature once per short rest without expending a Force Point.
@@ -3204,7 +3204,7 @@ You gain a bonus to initiative rolls equal to your Wisdom modifier (minimum +1).
 
 * Press the Advantage
 
-As you strike, you call out sharp commands to your allies, spurring them to action and allowing them to take advantage of the opening. Once during your turn when you hit a creature with a melee weapon attack, you can immediately initiate one of the following maneuvers: 
+As you strike, you call out sharp commands to your allies, spurring them to action and allowing them to take advantage of the opening. Once during your turn when you hit a creature with a melee weapon attack, you can immediately initiate one of the following maneuvers:
 • Exploit Opening - The next attack roll made by an attacker other than yourself against this creature is made with advantage. The attack must be made before the start of your next turn.
 • Predict Attack - The creature has disadvantage on the next attack roll it makes before the start of your next turn.
 • Covering Strike - All allies other than yourself don't provoke opportunity attacks from this creature. This effect lasts until the start of your next turn.

@@ -118,6 +118,7 @@ internal static class ModUi
         "FeatLucky",
         "FeatMageSlayer",
         "FeatMediumArmorMaster",
+        "FeatMenacing",
         "FeatMetamagicAdept",
         "FeatMobile",
         "FeatPoisoner",

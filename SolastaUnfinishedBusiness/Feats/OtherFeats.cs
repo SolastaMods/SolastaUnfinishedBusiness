@@ -55,6 +55,7 @@ internal static class OtherFeats
         var featLucky = BuildFeatLucky();
         var featMagicInitiate = BuildMagicInitiate();
         var featMartialAdept = BuildTacticianAdept();
+        var featMenacing = BuildMenacing();
         var featMetamagicAdept = BuildMetamagicAdept();
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
@@ -92,6 +93,7 @@ internal static class OtherFeats
             FeatMageSlayer,
             featMagicInitiate,
             featMartialAdept,
+            featMenacing,
             featMetamagicAdept,
             featMonkShieldExpert,
             featMobile,
@@ -139,6 +141,7 @@ internal static class OtherFeats
             featInspiringLeader,
             featLucky,
             FeatMageSlayer,
+            featMenacing,
             featSentinel,
             weaponMasterGroup);
 
@@ -148,6 +151,7 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupSkills.AddFeats(
             featHealer,
+            featMenacing,
             featPickPocket);
 
         GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
@@ -552,6 +556,166 @@ internal static class OtherFeats
 
         internal string Name { get; }
         internal bool ForceFixedList { get; }
+    }
+
+    #endregion
+
+    #region Menacing
+
+    private static FeatDefinitionWithPrerequisites BuildMenacing()
+    {
+        const string NAME = "FeatMenacing";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(
+            new MagicEffectFinishedByMeMenacing(condition),
+            ValidatorsValidatePowerUse.HasMainAttackAvailable);
+
+        var feat = FeatDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Solasta, power)
+            .AddToDB();
+
+        return feat;
+    }
+
+    private sealed class MagicEffectFinishedByMeMenacing(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionMark) : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            var isValid = !target.RulesetActor.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionMark.Name);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveChaosBoltMark");
+            }
+
+            return isValid;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var attacker = action.ActingCharacter;
+            var defender = action.ActionParams.TargetCharacters[0];
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            attacker.BurnOneMainAttack();
+
+            if (!ResolveContest(attacker, defender))
+            {
+                rulesetDefender.InflictCondition(
+                    conditionMark.Name,
+                    DurationType.UntilAnyRest,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionMark.Name,
+                    0,
+                    0,
+                    0);
+
+                yield break;
+            }
+
+            rulesetDefender.InflictCondition(
+                ConditionFrightened,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionFrightened,
+                0,
+                0,
+                0);
+        }
+
+        private static bool ResolveContest(GameLocationCharacter actor, GameLocationCharacter opponent)
+        {
+            var actionModifierActor = new ActionModifier();
+            var actionModifierOpponent = new ActionModifier();
+
+            var abilityCheckBonusActor = actor.RulesetCharacter.ComputeBaseAbilityCheckBonus(
+                AttributeDefinitions.Charisma,
+                actionModifierActor.AbilityCheckModifierTrends, SkillDefinitions.Intimidation);
+            var abilityCheckBonusOpponent = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus(
+                AttributeDefinitions.Wisdom,
+                actionModifierOpponent.AbilityCheckModifierTrends, SkillDefinitions.Insight);
+
+            actor.ComputeAbilityCheckActionModifier(AttributeDefinitions.Charisma, SkillDefinitions.Intimidation,
+                actionModifierActor);
+            opponent.ComputeAbilityCheckActionModifier(AttributeDefinitions.Wisdom, SkillDefinitions.Insight,
+                actionModifierOpponent, 1);
+
+            actor.RulesetCharacter.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(
+                actor.RulesetCharacter.FeaturesToBrowse, actor.RulesetCharacter.FeaturesOrigin);
+
+            foreach (var key in actor.RulesetCharacter.FeaturesToBrowse)
+            {
+                foreach (var executionModifier in (key as IActionPerformanceProvider)!.ActionExecutionModifiers)
+                {
+                    if (executionModifier.actionId != ActionDefinitions.Id.PowerNoCost ||
+                        !actor.RulesetCharacter.IsMatchingEquipementCondition(executionModifier.equipmentContext) ||
+                        executionModifier.advantageType == AdvantageType.None)
+                    {
+                        continue;
+                    }
+
+                    var num = executionModifier.advantageType == AdvantageType.Advantage ? 1 : -1;
+                    var featureOrigin = actor.RulesetCharacter.FeaturesOrigin[key];
+
+                    actionModifierActor.AbilityCheckAdvantageTrends.Add(new TrendInfo(num, featureOrigin.sourceType,
+                        featureOrigin.sourceName, featureOrigin.source));
+                }
+            }
+
+            actor.RulesetCharacter.ResolveContestCheck(
+                abilityCheckBonusActor,
+                actionModifierActor.AbilityCheckModifier,
+                AttributeDefinitions.Charisma,
+                SkillDefinitions.Intimidation,
+                actionModifierActor.AbilityCheckAdvantageTrends,
+                actionModifierActor.AbilityCheckModifierTrends,
+                abilityCheckBonusOpponent,
+                actionModifierOpponent.AbilityCheckModifier,
+                AttributeDefinitions.Strength,
+                SkillDefinitions.Insight,
+                actionModifierOpponent.AbilityCheckAdvantageTrends,
+                actionModifierOpponent.AbilityCheckModifierTrends,
+                opponent.RulesetCharacter,
+                out var outcome);
+
+            return outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+        }
     }
 
     #endregion
