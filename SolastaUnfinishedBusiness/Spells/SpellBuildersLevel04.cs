@@ -644,10 +644,9 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(conditionHindered, ConditionForm.ConditionOperation.Add)
                             .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionTree, ConditionForm.ConditionOperation.Add, true, true)
-                            .Build(),
+                        EffectFormBuilder.ConditionForm(
+                                conditionTree,
+                                ConditionForm.ConditionOperation.Add, true),
                         EffectFormBuilder
                             .Create()
                             .SetTempHpForm(10, DieType.D1, 0, true)
