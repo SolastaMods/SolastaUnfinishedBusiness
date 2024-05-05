@@ -89,12 +89,13 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                     .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionSilhouetteStep, ConditionForm.ConditionOperation.Add,
-                            true, true),
                         EffectFormBuilder
                             .Create()
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
-                            .Build())
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(
+                            conditionSilhouetteStep,
+                            ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishDarkweaverShadowy)
                     .Build())
             .AddCustomSubFeatures(
