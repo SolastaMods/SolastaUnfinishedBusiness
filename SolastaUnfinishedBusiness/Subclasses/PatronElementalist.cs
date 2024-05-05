@@ -235,15 +235,7 @@ public sealed class PatronElementalist : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionElementalistNormal,
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionElementalistNormal))
                     .Build())
             .SetUniqueInstance()
             .AddToDB();
@@ -267,12 +259,7 @@ public sealed class PatronElementalist : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionElementalistEnhanced,
-                                ConditionForm.ConditionOperation.Add, true, true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionElementalistEnhanced))
                     .Build())
             .SetUniqueInstance()
             .AddToDB();

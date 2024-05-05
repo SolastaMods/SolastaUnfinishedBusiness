@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionElementalistEnhancedIce:0e28a693-9988-5613-85b0-168ef23759ec",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
