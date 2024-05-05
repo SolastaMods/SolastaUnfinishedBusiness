@@ -2377,7 +2377,8 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionWitchBolt),
                         EffectFormBuilder.ConditionForm(
-                            conditionWitchBoltSelf, ConditionForm.ConditionOperation.Add, true, true))
+                            conditionWitchBoltSelf,
+                            ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(LightningBolt)
                     .Build())
             .AddToDB();
