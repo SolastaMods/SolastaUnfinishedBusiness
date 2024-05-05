@@ -110,7 +110,12 @@ public static class CharacterActionAttackPatcher
                     attackMode, target, target.LocationPosition, attackModifier);
             }
 
-            attackParams.opportunityAttack = __instance.ActionId == ActionDefinitions.Id.AttackOpportunity;
+            //BEGIN PATCH
+            attackParams.attackMode.ActionType = __instance.ActionType;
+            //attackParams.opportunityAttack = __instance.ActionId == ActionDefinitions.Id.AttackOpportunity;
+            attackParams.opportunityAttack = __instance.ActionType == ActionDefinitions.ActionType.Reaction &&
+                                             __instance.ActionDefinition.classNameOverride == "Attack";
+            //END PATCH
             attackParams.readiedAttack = __instance.ActionId == ActionDefinitions.Id.AttackReadied;
 
             var canAttack = battleManager.CanAttack(attackParams);
@@ -128,7 +133,13 @@ public static class CharacterActionAttackPatcher
             // Determine the attack success
             __instance.AttackRollOutcome = RollOutcome.Failure;
 
-            var opportunity = __instance.ActionId == ActionDefinitions.Id.AttackOpportunity;
+            //BEGIN PATCH
+            //fix vanilla to consider all actions that are an opportunity attack
+            //var opportunity = __instance.ActionId == ActionDefinitions.Id.AttackOpportunity;
+            var opportunity = __instance.ActionType == ActionDefinitions.ActionType.Reaction &&
+                              __instance.ActionDefinition.classNameOverride == "Attack";
+            //END PATCH
+
             var rangeAttack = attackModifier.Proximity == AttackProximity.Range;
 
             // This is only a test attack for now, as a Shield spell could fail the attack after all, raising the armor class
@@ -357,7 +368,6 @@ public static class CharacterActionAttackPatcher
                 var projectileFlightDuration =
                     distanceToTarget / GameConfiguration.CharacterAnimation.ProjectileSpeedCellsPerSecond;
 
-                //TODO: Mask thrown weapon here !
                 yield return battleManager.HandleRangeAttackVFX(
                     actingCharacter, target, attackMode, sourcePoint, impactPoint, projectileFlightDuration);
             }
