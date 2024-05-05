@@ -1,7 +1,7 @@
 1.5.97.6:
 
 - added additional custom portraits [by Artyoan]
-- added Athlete, Baleful Scion, Dungeon Delver, and Lucky feats
+- added Athlete, Baleful Scion, Dungeon Delver, Lucky, and Menacing feats
 - added Chaos Bolt, Dawn, Draconic Transformation, Maddening Darkness, Platinum Shield, and Wither and Bloom spells
 - added Imp Badland [by Otearaisu] and Elf Shadar-Kai subraces
 - added Nature and Tempest cleric domains
@@ -23,7 +23,7 @@
 - fixed Path of the Reaver corrupted blood to avoid self damage
 - fixed Potent Spell Casting feat interaction with Produce Flame cantrip
 - fixed Roguish Acrobat swift as wind, and fluid motions features jump distance
-- fixed Shield Master to reduce taken damage by half
+- fixed Shield Master to correctly interact with damage resistance and successful savings on damage reduction
 - fixed Sorcerous Psion mind sculpt damage conversion and integration with effect powers
 - fixed Step Back action behavior to interrupt on any ranged attack [VANILLA]
 - fixed Way of the Dragon elemental breath validation on main attack usages

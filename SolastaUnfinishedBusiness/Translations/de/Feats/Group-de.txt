@@ -138,5 +138,5 @@ Feat/&FeatGroupUnarmoredCombatDescription={0}
 Feat/&FeatGroupUnarmoredCombatTitle=Kampf: Ungepanzert
 Feat/&FeatGroupVerdantTouchedDescription=Erhöhe eines deiner Geistesattribute um 1, bis zu einem Maximum von 20.\nDu erhältst die Fähigkeit, die Zauber „Rindenhaut“, „Verwickeln“ und „Gute Beere“ einmal pro langer Pause zu wirken, und du kannst diese Zauber mit deinen Zauberslots wirken.
 Feat/&FeatGroupVerdantTouchedTitle=Grün berührt
-Feat/&FeatGroupWeaponMasterDescription=Sie haben ausgiebig mit einer Vielzahl von Waffen geübt und dabei die folgenden Vorteile erlangt:\n• Erhöhen Sie Ihren Stärke- oder Geschicklichkeitswert um 1 auf maximal 20. \n• Sie erwerben Kenntnisse im Umgang mit vier Waffen Ihrer Wahl. Bei jeder davon muss es sich um eine einfache Waffe oder eine Kampfwaffe handeln.
+Feat/&FeatGroupWeaponMasterDescription=Sie haben ausgiebig mit einer Vielzahl von Waffen geübt und dabei die folgenden Vorteile erlangt:\n• Erhöhen Sie Ihren Stärke- oder Geschicklichkeitswert um 1 auf maximal 20.\n• Sie erwerben Kenntnisse im Umgang mit vier Waffen Ihrer Wahl. Bei jeder davon muss es sich um eine einfache Waffe oder eine Kampfwaffe handeln.
 Feat/&FeatGroupWeaponMasterTitle=Waffenmeister

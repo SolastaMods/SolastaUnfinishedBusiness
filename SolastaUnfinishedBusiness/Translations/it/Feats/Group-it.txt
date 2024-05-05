@@ -138,5 +138,5 @@ Feat/&FeatGroupUnarmoredCombatDescription={0}
 Feat/&FeatGroupUnarmoredCombatTitle=Combattimento: senza armatura
 Feat/&FeatGroupVerdantTouchedDescription=Aumenta uno dei tuoi attributi mentali di 1, fino a un massimo di 20.\nOttieni la capacità di lanciare gli incantesimi pellecorteccia, intralciare e bacca buona una volta per riposo lungo e puoi lanciare questi incantesimi con i tuoi slot incantesimo.
 Feat/&FeatGroupVerdantTouchedTitle=Toccato verdeggiante
-Feat/&FeatGroupWeaponMasterDescription=Ti sei esercitato a lungo con una varietà di armi, ottenendo i seguenti vantaggi:\n• Aumenta il tuo punteggio di Forza o Destrezza di 1, fino a un massimo di 20. \n• Ottieni competenza con quattro armi a tua scelta. Ognuna deve essere un'arma semplice o da guerra.
+Feat/&FeatGroupWeaponMasterDescription=Ti sei esercitato a lungo con una varietà di armi, ottenendo i seguenti vantaggi:\n• Aumenta il tuo punteggio di Forza o Destrezza di 1, fino a un massimo di 20.\n• Ottieni competenza con quattro armi a tua scelta. Ognuna deve essere un'arma semplice o da guerra.
 Feat/&FeatGroupWeaponMasterTitle=Maestro d'armi
