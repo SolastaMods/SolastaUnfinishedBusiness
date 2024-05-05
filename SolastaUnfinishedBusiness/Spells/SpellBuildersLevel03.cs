@@ -367,8 +367,9 @@ internal static partial class SpellBuilders
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionAuraOfLife),
-                        EffectFormBuilder.ConditionForm(conditionAuraOfLifeSelf, ConditionForm.ConditionOperation.Add,
-                            true, true))
+                        EffectFormBuilder.ConditionForm(
+                            conditionAuraOfLifeSelf,
+                            ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(DivineWord)
                     .Build())
             .AddToDB();
@@ -1433,14 +1434,14 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
-                    .SetEffectAdvancement(
-                        EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionHungerOfTheVoid),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, true),
-                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, true))
+                        Darkness.EffectDescription.EffectForms[2],
+                        Darkness.EffectDescription.EffectForms[3],
+                        Darkness.EffectDescription.EffectForms[4])
                     .SetParticleEffectParameters(Darkness)
                     .Build())
             .AddToDB();
