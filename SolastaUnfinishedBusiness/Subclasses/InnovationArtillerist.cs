@@ -845,10 +845,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Create()
                             .SetSummonCreatureForm(1, monster.Name)
                             .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionDefinition, ConditionForm.ConditionOperation.Add, true, true)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(
+                            conditionDefinition,
+                            ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(ConjureGoblinoids)
                     .Build())
             .SetUniqueInstance()
@@ -953,7 +952,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionDefinition, ConditionForm.ConditionOperation.Add, true, true)
+                            .SetConditionForm(
+                                conditionDefinition,
+                                ConditionForm.ConditionOperation.Add, true)
                             .Build())
                     .SetParticleEffectParameters(ConjureGoblinoids)
                     .Build())
