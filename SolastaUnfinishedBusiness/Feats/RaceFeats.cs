@@ -294,54 +294,6 @@ internal static class RaceFeats
 
     #endregion
 
-    #region Squat Nimbleness
-
-    private static FeatDefinition BuildSquatNimbleness(List<FeatDefinition> feats)
-    {
-        const string SquatNimbleness = "SquatNimbleness";
-
-        var featSquatNimblenessDex = FeatDefinitionWithPrerequisitesBuilder
-            .Create("FeatSquatNimblenessDex")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Misaye,
-                FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
-                FeatureDefinitionProficiencyBuilder
-                    .Create("ProficiencyFeatSquatNimblenessAcrobatics")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Acrobatics)
-                    .AddToDB())
-            .SetValidators(ValidatorsFeat.IsSmallRace)
-            .SetFeatFamily(SquatNimbleness)
-            .AddToDB();
-
-        var featSquatNimblenessStr = FeatDefinitionWithPrerequisitesBuilder
-            .Create("FeatSquatNimblenessStr")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Einar,
-                FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
-                FeatureDefinitionProficiencyBuilder
-                    .Create("ProficiencyFeatSquatNimblenessAthletics")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Athletics)
-                    .AddToDB())
-            .SetValidators(ValidatorsFeat.IsSmallRace)
-            .SetFeatFamily(SquatNimbleness)
-            .AddToDB();
-
-        feats.AddRange(featSquatNimblenessStr, featSquatNimblenessDex);
-
-        return GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupSquatNimbleness",
-            SquatNimbleness,
-            ValidatorsFeat.IsSmallRace,
-            featSquatNimblenessDex,
-            featSquatNimblenessStr);
-    }
-
-    #endregion
-
     #region Dark-Elf Magic
 
     private static FeatDefinitionWithPrerequisites BuildDarkElfMagic()
@@ -384,7 +336,7 @@ internal static class RaceFeats
             .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
             .SetReplacedSpells(1, 0)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .AddCustomSubFeatures(new OtherFeats.SpellTag("DarkElfMagic"))
+            .AddCustomSubFeatures(new FeatHelpers.SpellTag("DarkElfMagic"))
             .SetSpellList(spellListCantrip)
             .AddToDB();
 
@@ -429,7 +381,7 @@ internal static class RaceFeats
             .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
             .SetReplacedSpells(1, 0)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .AddCustomSubFeatures(new OtherFeats.SpellTag("WoodElfMagic", true))
+            .AddCustomSubFeatures(new FeatHelpers.SpellTag("WoodElfMagic", true))
             .SetSpellList(spellListCantrip)
             .AddToDB();
 
@@ -447,6 +399,90 @@ internal static class RaceFeats
             .AddToDB();
 
         return feat;
+    }
+
+    #endregion
+
+    #region Squat Nimbleness
+
+    private static FeatDefinition BuildSquatNimbleness(List<FeatDefinition> feats)
+    {
+        const string SquatNimbleness = "SquatNimbleness";
+
+        var acrobaticsSkill = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyFeatSquatNimblenessAcrobatics")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Acrobatics)
+            .AddToDB();
+
+        var acrobaticsExpertise = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyFeatSquatNimblenessAcrobatics")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Acrobatics)
+            .AddToDB();
+
+        var featSquatNimblenessDex = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatSquatNimblenessDex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye)
+            .AddCustomSubFeatures(new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Acrobatics,
+                acrobaticsSkill, acrobaticsExpertise))
+            .SetValidators(ValidatorsFeat.IsSmallRace)
+            .SetFeatFamily(SquatNimbleness)
+            .AddToDB();
+
+        var athleticsSkill = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyFeatSquatNimblenessAcrobatics")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Athletics)
+            .AddToDB();
+
+        var athleticsExpertise = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyFeatSquatNimblenessAcrobatics")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Athletics)
+            .AddToDB();
+
+        var featSquatNimblenessStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatSquatNimblenessStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar)
+            .AddCustomSubFeatures(new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Athletics,
+                athleticsSkill, athleticsExpertise))
+            .SetValidators(ValidatorsFeat.IsSmallRace)
+            .SetFeatFamily(SquatNimbleness)
+            .AddToDB();
+
+        feats.AddRange(featSquatNimblenessStr, featSquatNimblenessDex);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupSquatNimbleness",
+            SquatNimbleness,
+            ValidatorsFeat.IsSmallRace,
+            featSquatNimblenessDex,
+            featSquatNimblenessStr);
+    }
+
+    private sealed class SkillOrExpertise(
+        SkillDefinition skillDefinition,
+        FeatureDefinitionProficiency skill,
+        FeatureDefinitionProficiency expertise) : ICustomLevelUpLogic
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            var buildingData = hero.GetHeroBuildingData();
+
+            hero.ActiveFeatures[tag].TryAdd(
+                hero.TrainedSkills.Contains(skillDefinition) ||
+                buildingData.LevelupTrainedSkills.Any(x => x.Value.Contains(skillDefinition))
+                    ? expertise
+                    : skill);
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
+        }
     }
 
     #endregion

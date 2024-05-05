@@ -4,7 +4,6 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -110,10 +109,10 @@ internal static class CraftyFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Pakri)
             .AddCustomSubFeatures(
-                new ToolOrExpertise(ToolTypeDefinitions.HerbalismKitType, proficiencyCraftyHerbalismKit,
-                    proficiencyCraftyHerbalismKitExpertise),
-                new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Arcana, proficiencyCraftyArcana,
-                    proficiencyCraftyArcanaExpertise))
+                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.HerbalismKitType,
+                    proficiencyCraftyHerbalismKit, proficiencyCraftyHerbalismKitExpertise),
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Arcana,
+                    proficiencyCraftyArcana, proficiencyCraftyArcanaExpertise))
             .SetFeatFamily("Apothecary")
             .AddToDB();
 
@@ -122,10 +121,10 @@ internal static class CraftyFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Maraike)
             .AddCustomSubFeatures(
-                new ToolOrExpertise(ToolTypeDefinitions.HerbalismKitType, proficiencyCraftyHerbalismKit,
-                    proficiencyCraftyHerbalismKitExpertise),
-                new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Medecine, proficiencyCraftyMedicine,
-                    proficiencyCraftyMedicineExpertise))
+                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.HerbalismKitType,
+                    proficiencyCraftyHerbalismKit, proficiencyCraftyHerbalismKitExpertise),
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Medecine,
+                    proficiencyCraftyMedicine, proficiencyCraftyMedicineExpertise))
             .SetFeatFamily("Apothecary")
             .AddToDB();
 
@@ -134,10 +133,10 @@ internal static class CraftyFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Solasta)
             .AddCustomSubFeatures(
-                new ToolOrExpertise(ToolTypeDefinitions.HerbalismKitType, proficiencyCraftyHerbalismKit,
-                    proficiencyCraftyHerbalismKitExpertise),
-                new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Medecine, proficiencyCraftyMedicine,
-                    proficiencyCraftyMedicineExpertise))
+                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.HerbalismKitType,
+                    proficiencyCraftyHerbalismKit, proficiencyCraftyHerbalismKitExpertise),
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Medecine,
+                    proficiencyCraftyMedicine, proficiencyCraftyMedicineExpertise))
             .SetFeatFamily("Apothecary")
             .AddToDB();
 
@@ -155,10 +154,10 @@ internal static class CraftyFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Pakri)
             .AddCustomSubFeatures(
-                new ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType, proficiencyCraftyPoisonersKit,
-                    proficiencyCraftyPoisonersKitExpertise),
-                new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Nature, proficiencyCraftyNature,
-                    proficiencyCraftyNatureExpertise))
+                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType,
+                    proficiencyCraftyPoisonersKit, proficiencyCraftyPoisonersKitExpertise),
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Nature,
+                    proficiencyCraftyNature, proficiencyCraftyNatureExpertise))
             .SetFeatFamily("Toxicologist")
             .AddToDB();
 
@@ -167,10 +166,10 @@ internal static class CraftyFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Maraike)
             .AddCustomSubFeatures(
-                new ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType, proficiencyCraftyPoisonersKit,
-                    proficiencyCraftyPoisonersKitExpertise),
-                new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Medecine, proficiencyCraftyMedicine,
-                    proficiencyCraftyMedicineExpertise))
+                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType,
+                    proficiencyCraftyPoisonersKit, proficiencyCraftyPoisonersKitExpertise),
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Medecine,
+                    proficiencyCraftyMedicine, proficiencyCraftyMedicineExpertise))
             .SetFeatFamily("Toxicologist")
             .AddToDB();
 
@@ -179,10 +178,10 @@ internal static class CraftyFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Solasta)
             .AddCustomSubFeatures(
-                new ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType, proficiencyCraftyPoisonersKit,
-                    proficiencyCraftyPoisonersKitExpertise),
-                new SkillOrExpertise(DatabaseHelper.SkillDefinitions.AnimalHandling, proficiencyCraftyAnimalHandling,
-                    proficiencyCraftyAnimalHandlingExpertise))
+                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType,
+                    proficiencyCraftyPoisonersKit, proficiencyCraftyPoisonersKitExpertise),
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.AnimalHandling,
+                    proficiencyCraftyAnimalHandling, proficiencyCraftyAnimalHandlingExpertise))
             .SetFeatFamily("Toxicologist")
             .AddToDB();
 
@@ -201,10 +200,10 @@ internal static class CraftyFeats
             .SetMustCastSpellsPrerequisite()
             .SetFeatures(AttributeModifierCreed_Of_Pakri)
             .AddCustomSubFeatures(
-                new ToolOrExpertise(ToolTypeDefinitions.ScrollKitType, proficiencyCraftyScrollKit,
-                    proficiencyCraftyScrollKitExpertise),
-                new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Arcana, proficiencyCraftyArcana,
-                    proficiencyCraftyArcanaExpertise))
+                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.ScrollKitType,
+                    proficiencyCraftyScrollKit, proficiencyCraftyScrollKitExpertise),
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Arcana,
+                    proficiencyCraftyArcana, proficiencyCraftyArcanaExpertise))
             .AddToDB();
 
         //
@@ -232,41 +231,5 @@ internal static class CraftyFeats
             FeatDefinitions.MasterAlchemist,
             FeatDefinitions.InitiateEnchanter,
             FeatDefinitions.MasterEnchanter);
-    }
-
-    private sealed class SkillOrExpertise(
-        SkillDefinition skillDefinition,
-        FeatureDefinitionProficiency skill,
-        FeatureDefinitionProficiency expertise) : ICustomLevelUpLogic
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            hero.ActiveFeatures[tag].TryAdd(hero.TrainedSkills.Contains(skillDefinition)
-                ? expertise
-                : skill);
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // empty
-        }
-    }
-
-    private sealed class ToolOrExpertise(
-        ToolTypeDefinition toolTypeDefinition,
-        FeatureDefinitionProficiency tool,
-        FeatureDefinitionProficiency expertise) : ICustomLevelUpLogic
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            hero.ActiveFeatures[tag].TryAdd(hero.TrainedToolTypes.Contains(toolTypeDefinition)
-                ? expertise
-                : tool);
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // empty
-        }
     }
 }

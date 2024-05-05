@@ -530,7 +530,7 @@ internal static class LevelUpContext
                      .SelectMany(x => x.Features)
                      .OfType<FeatureDefinitionCastSpell>())
         {
-            var spellTag = featureDefinitionCastSpell.GetFirstSubFeatureOfType<OtherFeats.SpellTag>();
+            var spellTag = featureDefinitionCastSpell.GetFirstSubFeatureOfType<FeatHelpers.SpellTag>();
 
             if (spellTag == null)
             {

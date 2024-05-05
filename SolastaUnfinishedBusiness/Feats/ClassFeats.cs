@@ -270,28 +270,10 @@ internal static class ClassFeats
                         new ValidateDeviceFunctionUse((_, device, _) =>
                             device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")),
                         new ModifyDamageResistancePoisoner(),
-                        new ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType, tool, expertise))
+                        new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType, tool, expertise))
                     .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
                     .AddToDB())
             .AddToDB();
-    }
-
-    private sealed class ToolOrExpertise(
-        ToolTypeDefinition toolTypeDefinition,
-        FeatureDefinitionProficiency tool,
-        FeatureDefinitionProficiency expertise) : ICustomLevelUpLogic
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            hero.ActiveFeatures[tag].TryAdd(hero.TrainedToolTypes.Contains(toolTypeDefinition)
-                ? expertise
-                : tool);
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // empty
-        }
     }
 
     private sealed class ModifyDamageResistancePoisoner : IModifyDamageAffinity

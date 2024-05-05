@@ -3472,6 +3472,7 @@ internal static partial class DatabaseHelper
 
     internal static class SkillDefinitions
     {
+        internal static SkillDefinition Acrobatics { get; } = GetDefinition<SkillDefinition>("Acrobatics");
         internal static SkillDefinition AnimalHandling { get; } = GetDefinition<SkillDefinition>("AnimalHandling");
         internal static SkillDefinition Arcana { get; } = GetDefinition<SkillDefinition>("Arcana");
         internal static SkillDefinition Athletics { get; } = GetDefinition<SkillDefinition>("Athletics");

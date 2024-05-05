@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -344,7 +343,7 @@ internal static class OtherFeats
                         .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                         .SetReplacedSpells(1, 0)
                         .SetUniqueLevelSlots(false)
-                        .AddCustomSubFeatures(new SpellTag(FeatMagicInitiateTag))
+                        .AddCustomSubFeatures(new FeatHelpers.SpellTag(FeatMagicInitiateTag))
                         .AddToDB(),
                     FeatureDefinitionPointPoolBuilder
                         .Create($"PointPool{NAME}{className}Cantrip")
@@ -450,7 +449,7 @@ internal static class OtherFeats
             .Create(FeatDefinitions.Lockbreaker, "FeatPickPocket")
             .SetFeatures(abilityCheckAffinityFeatPickPocket)
             .AddCustomSubFeatures(
-                new SkillOrExpertise(
+                new FeatHelpers.SkillOrExpertise(
                     DatabaseHelper.SkillDefinitions.SleightOfHand,
                     proficiencyFeatPickPocket, proficiencyFeatPickPocketExpertise))
             .SetGuiPresentation(Category.Feat)
@@ -556,40 +555,6 @@ internal static class OtherFeats
 
     #endregion
 
-    #region Helpers
-    
-    private sealed class SkillOrExpertise(
-        SkillDefinition skillDefinition,
-        FeatureDefinitionProficiency skill,
-        FeatureDefinitionProficiency expertise) : ICustomLevelUpLogic
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            hero.ActiveFeatures[tag].TryAdd(hero.TrainedSkills.Contains(skillDefinition)
-                ? expertise
-                : skill);
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // empty
-        }
-    }
-    
-    internal sealed class SpellTag
-    {
-        internal SpellTag(string spellTag, bool forceFixedList = false)
-        {
-            Name = spellTag;
-            ForceFixedList = forceFixedList;
-        }
-
-        internal string Name { get; }
-        internal bool ForceFixedList { get; }
-    }
-
-    #endregion
-
     #region Menacing
 
     private static FeatDefinitionWithPrerequisites BuildMenacing()
@@ -617,20 +582,22 @@ internal static class OtherFeats
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetGuiPresentation(Category.Feature, Sprites.GetSprite(NAME, Resources.PowerInspiringLeader, 128))
-            .SetShowCasting(false)
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite(NAME, Resources.PowerMenacing, 128))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetRestrictedCreatureFamilies("Humanoid")
+                    .SetCasterEffectParameters(PowerBerserkerIntimidatingPresence)
                     .Build())
             .AddToDB();
 
         power.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.HasMainAttackAvailable,
             new CustomBehaviorMenacing(condition),
-            new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Intimidation, proficiencySkill, proficiencyExpertise));
+            new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Intimidation,
+                proficiencySkill, proficiencyExpertise));
 
         var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create(NAME)
@@ -882,21 +849,21 @@ internal static class OtherFeats
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionAdditionalDamage additionalDamageBalefulScion)
         : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, IModifyAdditionalDamage,
-            IModifyDiceRoll, IActionFinishedByMe
+            IActionFinishedByMe
     {
         private bool _isCritical;
         private bool _isValid;
-        private int _rolledDamage;
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (_rolledDamage <= 0)
+            if (!_isValid)
             {
                 yield break;
             }
 
+            var roll = RollDie(DieType.D6, AdvantageType.None, out _, out _);
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var healAmount = (_rolledDamage * (_isCritical ? 2 : 1)) +
+            var healAmount = (roll * (_isCritical ? 2 : 1)) +
                              rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             rulesetCharacter.ReceiveHealing(healAmount, true, rulesetCharacter.Guid);
@@ -912,7 +879,6 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            _rolledDamage = 0;
             _isCritical = criticalHit;
             _isValid = false;
 
@@ -934,43 +900,11 @@ internal static class OtherFeats
         {
             if (featureDefinitionAdditionalDamage != additionalDamageBalefulScion)
             {
-                _isValid = false;
                 return;
             }
-
-            _isValid = true;
 
             damageForm.BonusDamage =
                 attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-        }
-
-        public void BeforeRoll(
-            RollContext rollContext,
-            RulesetCharacter rulesetCharacter,
-            ref DieType dieType,
-            ref AdvantageType advantageType)
-        {
-            // empty
-        }
-
-        public void AfterRoll(
-            DieType dieType,
-            AdvantageType advantageType,
-            RollContext rollContext,
-            RulesetCharacter rulesetCharacter,
-            ref int firstRoll,
-            ref int secondRoll,
-            ref int result)
-        {
-            if (!_isValid ||
-                dieType != DieType.D6 ||
-                rollContext is not (RollContext.AttackDamageValueRoll or RollContext.MagicDamageValueRoll))
-            {
-                return;
-            }
-
-            _isValid = false;
-            _rolledDamage = result;
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -985,7 +919,6 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            _rolledDamage = 0;
             _isCritical = criticalHit;
             _isValid = false;
 
@@ -1013,6 +946,8 @@ internal static class OtherFeats
             {
                 yield break;
             }
+
+            _isValid = true;
 
             var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
 
@@ -1150,7 +1085,8 @@ internal static class OtherFeats
             .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Athletics)
             .AddToDB();
 
-        var customBehavior = new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Athletics, skill, expertise);
+        var customBehavior = new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Athletics,
+            skill, expertise);
 
         FeatAthleteStr = FeatDefinitionBuilder
             .Create($"Feat{Name}Str")
@@ -1844,9 +1780,9 @@ internal static class OtherFeats
                 powerFeatHealerStabilize,
                 proficiencyFeatHealerMedicine)
             .AddCustomSubFeatures(
-                new SkillOrExpertise(
+                new FeatHelpers.SkillOrExpertise(
                     DatabaseHelper.SkillDefinitions.Medecine,
-                proficiencyFeatHealerMedicine, proficiencyFeatHealerMedicineExpertise))
+                    proficiencyFeatHealerMedicine, proficiencyFeatHealerMedicineExpertise))
             .AddToDB();
     }
 
@@ -2733,7 +2669,7 @@ internal static class OtherFeats
                         .SetKnownSpells(0, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                         .SetReplacedSpells(1, 0)
                         .SetUniqueLevelSlots(false)
-                        .AddCustomSubFeatures(new SpellTag(FeatSpellSniperTag))
+                        .AddCustomSubFeatures(new FeatHelpers.SpellTag(FeatSpellSniperTag))
                         .SetSpellList(spellList)
                         .AddToDB(),
                     FeatureDefinitionPointPoolBuilder
