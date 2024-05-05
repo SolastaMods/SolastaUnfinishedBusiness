@@ -816,6 +816,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
                         EffectFormBuilder.DamageForm("DamagePure", 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
+                    .SetImpactEffectParameters(new AssetReference())
                     .Build())
             .AddCustomSubFeatures(new ValidatorsValidatePowerUse(c =>
             {
@@ -857,6 +858,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
                         EffectFormBuilder.DamageForm("DamagePure", 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
+                    .SetImpactEffectParameters(new AssetReference())
                     .Build())
             .AddToDB();
 
@@ -886,6 +888,13 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            var attacker = action.ActingCharacter;
+
+            foreach (var (defender, effect) in damageDeterminationBehavior.MagicEffect)
+            {
+                EffectHelpers.StartVisualEffect(attacker, defender, effect);
+            }
+
             if (!damageDeterminationBehavior.HasLeap())
             {
                 yield break;
@@ -960,6 +969,7 @@ internal static partial class SpellBuilders
         private readonly List<int> _rolls = [];
         private int _rollIndex;
         private int _usedDamageDice;
+        internal List<(GameLocationCharacter, IMagicEffect)> MagicEffect { get; } = [];
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -1030,6 +1040,8 @@ internal static partial class SpellBuilders
 
                 var (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(firstRoll - 1);
 
+                MagicEffect.Add((defender, effect));
+
                 foreach (var effectForm in actualEffectForms
                              .Where(x =>
                                  x.FormType == EffectForm.EffectFormType.Damage &&
@@ -1037,8 +1049,6 @@ internal static partial class SpellBuilders
                 {
                     effectForm.DamageForm.DamageType = damageType;
                 }
-
-                EffectHelpers.StartVisualEffect(attacker, defender, effect);
             }
             else
             {
@@ -1117,6 +1127,8 @@ internal static partial class SpellBuilders
                     (damageType, effect) = ChaosBoltDamagesAndEffects.ElementAt(reactionRequest.SelectedSubOption);
                 }
 
+                MagicEffect.Add((defender, effect));
+
                 foreach (var effectForm in actualEffectForms
                              .Where(x =>
                                  x.FormType == EffectForm.EffectFormType.Damage &&
@@ -1124,8 +1136,6 @@ internal static partial class SpellBuilders
                 {
                     effectForm.DamageForm.DamageType = damageType;
                 }
-
-                EffectHelpers.StartVisualEffect(attacker, defender, effect);
             }
         }
 
@@ -1200,6 +1210,7 @@ internal static partial class SpellBuilders
             _rollIndex = 0;
             _usedDamageDice = 0;
             _rolls.Clear();
+            MagicEffect.Clear();
         }
 
         public bool HasLeap()
