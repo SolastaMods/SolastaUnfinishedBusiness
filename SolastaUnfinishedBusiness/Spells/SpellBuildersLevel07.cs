@@ -140,9 +140,12 @@ internal static partial class SpellBuilders
                         false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionMark, ConditionForm.ConditionOperation.Add, true,
-                            true),
-                        EffectFormBuilder.ConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true),
+                        EffectFormBuilder.ConditionForm(
+                            conditionMark,
+                            ConditionForm.ConditionOperation.Add, true),
+                        EffectFormBuilder.ConditionForm(
+                            condition,
+                            ConditionForm.ConditionOperation.Add, true),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
