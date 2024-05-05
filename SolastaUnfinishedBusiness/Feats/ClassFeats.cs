@@ -247,6 +247,18 @@ internal static class ClassFeats
                 ToolTypeDefinitions.PoisonersKitType)
             .AddToDB();
 
+        var tool = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Tool, PoisonersKitType)
+            .AddToDB();
+
+        var expertise = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}Expertise")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, PoisonersKitType)
+            .AddToDB();
+
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
@@ -254,17 +266,32 @@ internal static class ClassFeats
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .AddCustomSubFeatures(new ValidateDeviceFunctionUse((_, device, _) =>
+                    .AddCustomSubFeatures(
+                        new ValidateDeviceFunctionUse((_, device, _) =>
                             device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")),
-                        new ModifyDamageResistancePoisoner())
+                        new ModifyDamageResistancePoisoner(),
+                        new ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType, tool, expertise))
                     .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
-                    .AddToDB(),
-                FeatureDefinitionProficiencyBuilder
-                    .Create($"Proficiency{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.ToolOrExpertise, PoisonersKitType)
                     .AddToDB())
             .AddToDB();
+    }
+
+    private sealed class ToolOrExpertise(
+        ToolTypeDefinition toolTypeDefinition,
+        FeatureDefinitionProficiency tool,
+        FeatureDefinitionProficiency expertise) : ICustomLevelUpLogic
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            hero.ActiveFeatures[tag].TryAdd(hero.TrainedToolTypes.Contains(toolTypeDefinition)
+                ? expertise
+                : tool);
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
+        }
     }
 
     private sealed class ModifyDamageResistancePoisoner : IModifyDamageAffinity

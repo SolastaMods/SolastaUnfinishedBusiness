@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -435,12 +436,23 @@ internal static class OtherFeats
             .Create(FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
                 "ProficiencyFeatPickPocket")
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.SleightOfHand)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.SleightOfHand)
+            .AddToDB();
+
+        var proficiencyFeatPickPocketExpertise = FeatureDefinitionProficiencyBuilder
+            .Create(FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
+                "ProficiencyFeatPickPocketExpertise")
+            .SetGuiPresentation("FeatPickPocket", Category.Feat)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.SleightOfHand)
             .AddToDB();
 
         return FeatDefinitionBuilder
             .Create(FeatDefinitions.Lockbreaker, "FeatPickPocket")
-            .SetFeatures(abilityCheckAffinityFeatPickPocket, proficiencyFeatPickPocket)
+            .SetFeatures(abilityCheckAffinityFeatPickPocket)
+            .AddCustomSubFeatures(
+                new SkillOrExpertise(
+                    DatabaseHelper.SkillDefinitions.SleightOfHand,
+                    proficiencyFeatPickPocket, proficiencyFeatPickPocketExpertise))
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
@@ -545,7 +557,25 @@ internal static class OtherFeats
     #endregion
 
     #region Helpers
+    
+    private sealed class SkillOrExpertise(
+        SkillDefinition skillDefinition,
+        FeatureDefinitionProficiency skill,
+        FeatureDefinitionProficiency expertise) : ICustomLevelUpLogic
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            hero.ActiveFeatures[tag].TryAdd(hero.TrainedSkills.Contains(skillDefinition)
+                ? expertise
+                : skill);
+        }
 
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
+        }
+    }
+    
     internal sealed class SpellTag
     {
         internal SpellTag(string spellTag, bool forceFixedList = false)
@@ -565,6 +595,18 @@ internal static class OtherFeats
     private static FeatDefinitionWithPrerequisites BuildMenacing()
     {
         const string NAME = "FeatMenacing";
+
+        var proficiencySkill = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{NAME}Skill")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Intimidation)
+            .AddToDB();
+
+        var proficiencyExpertise = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{NAME}Expertise")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Intimidation)
+            .AddToDB();
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Mark")
@@ -586,7 +628,9 @@ internal static class OtherFeats
             .AddToDB();
 
         power.AddCustomSubFeatures(
-            new MagicEffectFinishedByMeMenacing(condition), ValidatorsValidatePowerUse.HasMainAttackAvailable);
+            ValidatorsValidatePowerUse.HasMainAttackAvailable,
+            new CustomBehaviorMenacing(condition),
+            new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Intimidation, proficiencySkill, proficiencyExpertise));
 
         var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create(NAME)
@@ -597,7 +641,7 @@ internal static class OtherFeats
         return feat;
     }
 
-    private sealed class MagicEffectFinishedByMeMenacing(
+    private sealed class CustomBehaviorMenacing(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionMark) : IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
@@ -1094,23 +1138,33 @@ internal static class OtherFeats
             .SetClimbing(true)
             .AddToDB();
 
-        var proficiency = FeatureDefinitionProficiencyBuilder
+        var skill = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Athletics)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Athletics)
             .AddToDB();
+
+        var expertise = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}Expertise")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Athletics)
+            .AddToDB();
+
+        var customBehavior = new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Athletics, skill, expertise);
 
         FeatAthleteStr = FeatDefinitionBuilder
             .Create($"Feat{Name}Str")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar, movementAffinity, proficiency)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, movementAffinity)
+            .AddCustomSubFeatures(customBehavior)
             .SetFeatFamily(Name)
             .AddToDB();
 
         FeatAthleteDex = FeatDefinitionBuilder
             .Create($"Feat{Name}Dex")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, movementAffinity, proficiency)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, movementAffinity)
+            .AddCustomSubFeatures(customBehavior)
             .SetFeatFamily(Name)
             .AddToDB();
 
@@ -1772,7 +1826,13 @@ internal static class OtherFeats
         var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatHealerMedicine")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Medecine)
+            .AddToDB();
+
+        var proficiencyFeatHealerMedicineExpertise = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyFeatHealerMedicineExpertise")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Medecine)
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -1783,6 +1843,10 @@ internal static class OtherFeats
                 powerFeatHealerResuscitate,
                 powerFeatHealerStabilize,
                 proficiencyFeatHealerMedicine)
+            .AddCustomSubFeatures(
+                new SkillOrExpertise(
+                    DatabaseHelper.SkillDefinitions.Medecine,
+                proficiencyFeatHealerMedicine, proficiencyFeatHealerMedicineExpertise))
             .AddToDB();
     }
 

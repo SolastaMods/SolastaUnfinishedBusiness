@@ -423,7 +423,8 @@ internal static class InventorClass
             .Create("ProficiencyInventorToolExpertise")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.ToolOrExpertise,
-                ToolTypeDefinitions.ArtisanToolSmithToolsType.Name,
+                // don't use ToolDefinitions.ArtisanToolType as that constant has an incorrect name
+                "ArtisanToolSmithToolsType",
                 ToolTypeDefinitions.EnchantingToolType.Name,
                 ToolTypeDefinitions.HerbalismKitType.Name,
                 ToolTypeDefinitions.PoisonersKitType.Name,
