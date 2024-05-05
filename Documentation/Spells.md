@@ -1035,6 +1035,7 @@ You create a field of silvery light that surrounds a creature of your choice wit
 • The creature has half cover.
 • The creature has resistance to acid, cold, fire, lightning, and poison damage.
 • If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.
+As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field.
 
 # 254. - Flash Freeze (V,S) level 6 Evocation [UB]
 
