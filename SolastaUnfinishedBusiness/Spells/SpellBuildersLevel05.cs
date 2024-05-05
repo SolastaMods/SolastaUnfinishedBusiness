@@ -59,7 +59,7 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true)
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true)
                             .Build())
                     .SetParticleEffectParameters(MistyStep)
                     .UseQuickAnimations()
