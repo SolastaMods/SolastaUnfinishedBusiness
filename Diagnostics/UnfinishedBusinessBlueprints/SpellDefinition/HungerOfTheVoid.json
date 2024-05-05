@@ -171,34 +171,6 @@
         },
         "hasFilterId": false,
         "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Counter",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 0,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
-        "counterForm": {
-          "$type": "CounterForm, Assembly-CSharp",
-          "type": "ExtinguishLight",
-          "automaticSpellLevel": 2,
-          "checkBaseDC": 10,
-          "addSpellCastingAbility": false,
-          "addProficiencyBonus": false,
-          "addAbilityBonus": false,
-          "abilityToAdd": ""
-        },
-        "hasFilterId": false,
-        "filterId": 0
       }
     ],
     "specialFormsDescription": "",

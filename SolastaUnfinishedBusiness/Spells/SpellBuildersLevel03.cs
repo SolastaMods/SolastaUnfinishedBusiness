@@ -1440,8 +1440,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(conditionHungerOfTheVoid),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, true),
                         Darkness.EffectDescription.EffectForms[2],
-                        Darkness.EffectDescription.EffectForms[3],
-                        Darkness.EffectDescription.EffectForms[4])
+                        Darkness.EffectDescription.EffectForms[3])
                     .SetParticleEffectParameters(Darkness)
                     .Build())
             .AddToDB();

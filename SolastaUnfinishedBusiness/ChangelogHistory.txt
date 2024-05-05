@@ -8,6 +8,7 @@
 - added setting under Interface / Game UI to allow features that change attribute checks to work off combat
 - fixed action switch interaction with haste and attack cantrips
 - fixed Artillerist spell list to use sonic boom instead of unimplemented wall of force
+- fixed attacks of opportunity determination not considering other actions like Reaction Shot, etc. [VANILLA]
 - fixed College of Swords masterful whirl to trigger regardless of remaining bardic dice
 - fixed College of Thespian improved terrific performance damage to trigger from 14th
 - fixed crafting recipes ingredients list to avoid double primed weapons requirement
@@ -33,6 +34,7 @@
 - improved Bardic Inspiration attribute checks to work off combat [VANILLA]
 - improved Bountiful Luck, Circle of Stars, and Flash of Genius to also trigger on attribute checks
 - improved College of Eloquence captivating presence into tabletop silver tongue
+- improved Hunger of Hadar to also extinguish light in the area and impair vision
 - improved invisible creatures can be targeted behavior to behave as vanilla in off battle scenarios
 - improved invocations that grant spells with balanced usage and standardized descriptions
 - improved Sorcerer spell list with Fire Shield spell [VANILLA]
