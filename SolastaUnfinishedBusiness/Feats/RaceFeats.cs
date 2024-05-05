@@ -416,7 +416,7 @@ internal static class RaceFeats
             .AddToDB();
 
         var acrobaticsExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatSquatNimblenessAcrobatics")
+            .Create("ProficiencyFeatSquatNimblenessAcrobaticsExpertise")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Acrobatics)
             .AddToDB();
@@ -432,13 +432,13 @@ internal static class RaceFeats
             .AddToDB();
 
         var athleticsSkill = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatSquatNimblenessAcrobatics")
+            .Create("ProficiencyFeatSquatNimblenessAthletics")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Athletics)
             .AddToDB();
 
         var athleticsExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatSquatNimblenessAcrobatics")
+            .Create("ProficiencyFeatSquatNimblenessAthleticsExpertise")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Athletics)
             .AddToDB();
