@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Skill",
+  "proficiencyType": "Expertise",
   "proficiencies": [
-    "Acrobatics"
+    "Athletics"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bc612781-dacc-53dd-b622-a98ea5294bb8",
+  "guid": "3c1fd40f-22e9-550c-a148-8b610a9041c8",
   "contentPack": 9999,
-  "name": "ProficiencyFeatSquatNimblenessAcrobatics"
+  "name": "ProficiencyFeatSquatNimblenessAthleticsExpertise"
 }

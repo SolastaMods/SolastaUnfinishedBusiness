@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Skill",
+  "proficiencyType": "Expertise",
   "proficiencies": [
     "Acrobatics"
   ],
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bc612781-dacc-53dd-b622-a98ea5294bb8",
+  "guid": "08493131-1922-599e-9db6-7f8b025cd1ab",
   "contentPack": 9999,
-  "name": "ProficiencyFeatSquatNimblenessAcrobatics"
+  "name": "ProficiencyFeatSquatNimblenessAcrobaticsExpertise"
 }

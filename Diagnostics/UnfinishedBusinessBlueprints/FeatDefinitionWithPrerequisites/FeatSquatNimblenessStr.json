@@ -12,9 +12,7 @@
   "familyTag": "SquatNimbleness",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
-    "Definition:MovementAffinitySixLeaguesBoots:9467129f177c0c7409bd9de7d5a02837",
-    "Definition:ProficiencyFeatSquatNimblenessAthletics:f09658d1-a649-544e-9467-8ba8e37474a0"
+    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
