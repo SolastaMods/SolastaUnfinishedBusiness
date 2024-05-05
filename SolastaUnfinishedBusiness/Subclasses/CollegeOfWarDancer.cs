@@ -256,7 +256,7 @@ public sealed class CollegeOfWarDancer // : AbstractSubclass
         {
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if ((attackMode is { ActionType: ActionType.Reaction } &&
+            if ((action.ActionType is ActionType.Reaction &&
                  !attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag)) ||
                 rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetCharacter.HasConditionOfType(ConditionWarDance) ||

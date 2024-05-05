@@ -977,7 +977,7 @@ internal static class MeleeCombatFeats
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            if (attackMode is { ActionType: ActionDefinitions.ActionType.Reaction } &&
+            if (action.ActionType is ActionDefinitions.ActionType.Reaction &&
                 !attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag) &&
                 ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)(attackMode, null, null))
             {
