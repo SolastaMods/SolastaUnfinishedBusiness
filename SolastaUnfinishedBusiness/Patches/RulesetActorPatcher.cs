@@ -936,7 +936,7 @@ public static class RulesetActorPatcher
             List<FeatureDefinition> featuresToBrowse,
             Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
         {
-            __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse,
+            __instance.EnumerateFeaturesToBrowse<ISavingThrowAffinityProvider>(featuresToBrowse,
                 featuresOrigin);
             featuresToBrowse.RemoveAll(x =>
                 !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));

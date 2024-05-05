@@ -30,7 +30,7 @@ public static class SavingThrowColumnPatcher
             List<FeatureDefinition> featuresToBrowse,
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
         {
-            __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse,
+            __instance.EnumerateFeaturesToBrowse<ISavingThrowAffinityProvider>(featuresToBrowse,
                 featuresOrigin);
             featuresToBrowse.RemoveAll(x =>
                 !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
