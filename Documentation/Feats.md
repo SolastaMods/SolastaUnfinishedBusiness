@@ -56,7 +56,7 @@ You gain resistance to poison damage, have advantage on rolls against being pois
 
 You can channel cosmic forces of evil to gain these benefits:
 • Increase any ability score by 1, to a maximum of 20.
-• Once per turn, when you damage a creature you can see within 60 feet of yourself, you can also deal necrotic damage to it. The necrotic damage equals 1d6 + your proficiency bonus, and you regain a number of hit points equal to this necrotic damage dealt. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+• Once per turn, when you damage a creature you can see within 60 feet of yourself, you can also deal necrotic damage to it. The necrotic damage equals 1d6 + your proficiency bonus, and you regain a number of hit points equal to 1D6 + your proficiency bonus. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
 
 # 13. - *Blade Mastery* © [UB]
 
@@ -466,9 +466,9 @@ The first time each turn that you deal damage with an unarmed attack or weapon, 
 
 # 95. - *Menacing* © [UB]
 
-• Increase your Charisma score by 1, to a maximum of 20.
-• You gain proficiency or expertise in the Intimidation skill.
-• When you take the Attack action on your turn, you can replace one attack with an attempt to demoralize one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma (Intimidation) check contested by the target's Wisdom (Insight) check. If your check succeeds, the target is frightened until the end of your next turn. If your check fails, the target can't be frightened by you in this way for 1 hour.
+Increase your Charisma by 1, to a maximum of 20.
+• You gain proficiency with Intimidation skill or expertise if you are already proficient.
+• You can replace one main attack with an attempt to demoralize one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma (Intimidation) check contested by the target's Wisdom (Insight) check. If your check succeeds, the target is frightened until the end of your next turn. If your check fails, the target can't be frightened by you in this way for 1 hour.
 
 # 96. - Mender [SOL]
 
