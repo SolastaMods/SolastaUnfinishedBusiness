@@ -708,7 +708,7 @@ Make an ally faster and more agile, and grant them an additional action for a li
 
 # 173. - *Hunger of Hadar* © (V,S) level 3 Transmutation [Concentration] [UB]
 
-You open a gateway to the dark between the stars, a region infested with unknown horrors. A 20-foot-radius sphere of blackness and bitter cold appears, centered on a point with range and lasting for the duration. The area is difficult terrain and creatures within the area are blinded. Any creature that starts its turn in the area takes 2d6 cold damage. Any creature that ends its turn in the area must succeed on a Dexterity saving throw or take 2d6 acid damage as milky, otherworldly tentacles rub against it. When you cast this spell using a spell slot of 4th level or higher, the extra damage increases by 1d6 for every 2 slots level above 3rd.
+You open a gateway to the dark between the stars, a region infested with unknown horrors. A 20-foot-radius sphere of blackness and bitter cold appears, centered on a point with range and lasting for the duration. The area extinguishes light, and creatures within it are blinded. Any creature that starts its turn in the area takes 2d6 cold damage. Any creature that ends its turn in the area must succeed on a Dexterity saving throw or take 2d6 acid damage as milky, otherworldly tentacles rub against it.
 
 # 174. - Hypnotic Pattern (S) level 3 Illusion [Concentration] [SOL]
 

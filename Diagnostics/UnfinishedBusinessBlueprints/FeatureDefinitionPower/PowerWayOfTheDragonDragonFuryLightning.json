@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionWayOfTheDragonDragonFuryLightning:38948f18-d5aa-5050-abf5-a11585ce6bef",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

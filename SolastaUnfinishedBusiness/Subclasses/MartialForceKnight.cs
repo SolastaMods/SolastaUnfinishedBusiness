@@ -387,7 +387,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionForceBulwark),
                         EffectFormBuilder.ConditionForm(conditionForceBulwarkSelf,
-                            ConditionForm.ConditionOperation.Add, true, true))
+                            ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionCourtMageSpellShield)
                     .Build())
             .AddToDB();
@@ -408,7 +408,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionForceBulwark),
                         EffectFormBuilder.ConditionForm(conditionForceBulwarkSelf,
-                            ConditionForm.ConditionOperation.Add, true, true))
+                            ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionCourtMageSpellShield)
                     .Build())
             .AddToDB();

@@ -382,15 +382,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(AcidSplash)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionDragonFuryAcid,
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDragonFuryAcid))
                     .Build())
             .AddToDB();
 
@@ -423,15 +415,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     .SetDurationData(DurationType.Round)
                     .SetParticleEffectParameters(LightningBolt)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionDragonFuryLightning,
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDragonFuryLightning))
                     .Build())
             .AddToDB();
 
@@ -463,15 +447,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(PoisonSpray)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionDragonFuryPoison,
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDragonFuryPoison))
                     .Build())
             .AddToDB();
 
@@ -504,15 +480,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(Fireball)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionDragonFuryFire,
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDragonFuryFire))
                     .Build())
             .AddToDB();
 
@@ -545,15 +513,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(ConeOfCold)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionDragonFuryCold,
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDragonFuryCold))
                     .Build())
             .AddToDB();
 

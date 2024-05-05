@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionWayOfTheDragonDragonFuryFire:a6a104f3-3aa5-53f1-8f24-0d34c8ec6470",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
