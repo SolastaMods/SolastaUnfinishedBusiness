@@ -40,6 +40,12 @@ internal static class CraftyFeats
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Nature)
             .AddToDB();
 
+        var proficiencyCraftyReligion = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyCraftyReligion")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Religion)
+            .AddToDB();
+
         var proficiencyCraftyHerbalismKit = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyHerbalismKit")
             .SetGuiPresentationNoContent(true)
@@ -80,6 +86,12 @@ internal static class CraftyFeats
             .Create("ProficiencyCraftyNatureExpertise")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Nature)
+            .AddToDB();
+
+        var proficiencyCraftyReligionExpertise = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyCraftyReligionExpertise")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Religion)
             .AddToDB();
 
         var proficiencyCraftyHerbalismKitExpertise = FeatureDefinitionProficiencyBuilder
@@ -207,10 +219,58 @@ internal static class CraftyFeats
             .AddToDB();
 
         //
+        // Arcanist
+        //
+
+        var featArcanist = FeatDefinitionBuilder
+            .Create("FeatArcanist")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Pakri,
+                FeatureDefinitionPowerBuilder
+                    .Create("PowerFeatArcanist")
+                    .SetGuiPresentation(SpellDefinitions.DetectMagic.GuiPresentation)
+                    .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create(SpellDefinitions.DetectMagic)
+                            .Build())
+                    .AddToDB())
+            .AddCustomSubFeatures(
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Arcana,
+                    proficiencyCraftyArcana, proficiencyCraftyArcanaExpertise))
+            .AddToDB();
+
+        //
+        // Theologian
+        //
+
+        var featTheologian = FeatDefinitionBuilder
+            .Create("FeatTheologian")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Pakri,
+                FeatureDefinitionPowerBuilder
+                    .Create("PowerFeatTheologian")
+                    .SetGuiPresentation(SpellDefinitions.DetectEvilAndGood.GuiPresentation)
+                    .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create(SpellDefinitions.DetectEvilAndGood)
+                            .Build())
+                    .AddToDB())
+            .AddCustomSubFeatures(
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Religion,
+                    proficiencyCraftyReligion, proficiencyCraftyReligionExpertise))
+            .AddToDB();
+
+        //
         // MAIN
         //
 
         feats.AddRange(
+            featArcanist,
+            featTheologian,
             featApothecaryInt,
             featApothecaryWis,
             featApothecaryCha,
@@ -220,6 +280,8 @@ internal static class CraftyFeats
             featCraftyScriber);
 
         GroupFeats.FeatGroupSkills.AddFeats(
+            featArcanist,
+            featTheologian,
             featGroupApothecary,
             featGroupToxicologist,
             featCraftyScriber);

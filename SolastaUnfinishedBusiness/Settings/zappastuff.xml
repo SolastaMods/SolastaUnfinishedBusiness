@@ -1016,6 +1016,7 @@
         <string>FeatAlwaysReady</string>
         <string>FeatGroupApothecary</string>
         <string>FeatArcaneArcherAdept</string>
+        <string>FeatArcanist</string>
         <string>FeatAstralArms</string>
         <string>FeatGroupAthlete</string>
         <string>FeatGroupAwakenTheBeastWithin</string>
@@ -1107,6 +1108,7 @@
         <string>FeatGroupSquatNimbleness</string>
         <string>FeatSuperiorCritical</string>
         <string>FeatGroupTelekinetic</string>
+        <string>FeatTheologian</string>
         <string>FeatGroupTouchedMagic</string>
         <string>FeatTough</string>
         <string>FeatGroupToxicologist</string>

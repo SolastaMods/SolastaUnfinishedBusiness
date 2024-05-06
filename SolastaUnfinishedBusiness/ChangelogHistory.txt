@@ -1,5 +1,6 @@
 1.5.97.7:
 
+- added Arcanist and Theologian feats
 - fixed documentation links in mod UI
 
 1.5.97.6:

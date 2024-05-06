@@ -11,12 +11,15 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
+    "Definition:PowerFeatTheologian:1285becd-b2b5-5885-8f8f-b4d33fcea587"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupSkillsTitle",
-    "description": "Apothecary, Arcane Appraiser, Arcanist, Healer, Initiate Enchanter, Manipulator, Menacing, Pickpocket, Scriber, Squat Nimbleness, Theologian, Toxicologist",
+    "title": "Feat/&FeatTheologianTitle",
+    "description": "Feat/&FeatTheologianDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3a0ce468-e42e-5dcb-b43d-ec6205618dd0",
+  "guid": "ca778a48-9cff-5b99-9a89-2f21758d705b",
   "contentPack": 9999,
-  "name": "FeatGroupSkills"
+  "name": "FeatTheologian"
 }
