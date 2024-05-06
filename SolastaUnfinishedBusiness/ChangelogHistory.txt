@@ -1,7 +1,9 @@
 1.5.97.7:
 
 - added Acrobat, Arcanist and Theologian feats
-- fixed Blade Mastery feat no considering daggers on AC bonus
+- fixed Baleful Scion feat healing validator
+- fixed Blade Mastery feat not considering daggers on AC bonus
+- fixed Menacing feat crash on use
 - fixed documentation links in mod UI
 
 1.5.97.6:

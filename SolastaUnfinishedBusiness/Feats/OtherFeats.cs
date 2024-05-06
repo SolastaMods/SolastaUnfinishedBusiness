@@ -634,6 +634,11 @@ internal static class OtherFeats
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            if (action.ActionParams.TargetCharacters.Count == 0)
+            {
+                yield break;
+            }
+
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -865,6 +870,8 @@ internal static class OtherFeats
             {
                 yield break;
             }
+
+            _isValid = false;
 
             var roll = RollDie(DieType.D6, AdvantageType.None, out _, out _);
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
