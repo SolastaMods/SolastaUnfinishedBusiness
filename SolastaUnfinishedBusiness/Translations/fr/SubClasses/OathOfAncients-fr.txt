@@ -1,6 +1,6 @@
 Condition/&ConditionOathOfAncientsAuraWardingDescription=Gain de résistance aux dégâts des sorts.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Gardé
-Condition/&ConditionOathOfAncientsElderChampionDescription=• Au début de chacun de vos tours, vous regagnez 10 points de vie.\n• Chaque fois que vous lancez un sort de paladin dont le temps d'incantation est d'une action, vous pouvez effectuer deux attaques avec une arme dans le cadre de la même action.{ 99}• Les créatures ennemies à moins de 3 mètres de vous ont un désavantage aux jets de sauvegarde contre vos sorts de paladin et les options Canaliser la divinité.
+Condition/&ConditionOathOfAncientsElderChampionDescription=• Au début de chacun de vos tours, vous regagnez 10 points de vie.\n• Chaque fois que vous lancez un sort de paladin dont le temps d'incantation est d'une action, vous pouvez effectuer deux attaques avec une arme dans le cadre de la même action.\n• Les créatures ennemies à moins de 3 mètres de vous ont un désavantage aux jets de sauvegarde contre vos sorts de paladin et les options Canaliser la divinité.
 Condition/&ConditionOathOfAncientsElderChampionTitle=Champion aîné
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=Lorsque vous êtes réduit à 0 points de vie mais que vous n'êtes pas tué sur le coup, vous tombez à 1 point de vie à la place. Vous ne pouvez plus bénéficier de cette fonctionnalité tant que vous n'avez pas terminé un repos long.
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelTitle=Sentinelle immortelle

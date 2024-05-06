@@ -1,6 +1,6 @@
 Condition/&ConditionOathOfAncientsAuraWardingDescription=주문 피해에 대한 저항력을 얻습니다.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=보호받는
-Condition/&ConditionOathOfAncientsElderChampionDescription=• 매 턴 시작 시 체력 10을 회복합니다.\n• 시전 시간이 1회인 성기사 주문을 시전할 때마다 동일한 행동의 일부로 두 번의 무기 공격을 할 수 있습니다.{ 99}• 당신으로부터 10피트 내의 적 생물은 당신의 성기사 주문과 채널 신성 옵션에 대한 내성 굴림에 불이익을 받습니다.
+Condition/&ConditionOathOfAncientsElderChampionDescription=• 매 턴 시작 시 체력 10을 회복합니다.\n• 시전 시간이 1회인 성기사 주문을 시전할 때마다 동일한 행동의 일부로 두 번의 무기 공격을 할 수 있습니다.\n• 당신으로부터 10피트 내의 적 생물은 당신의 성기사 주문과 채널 신성 옵션에 대한 내성 굴림에 불이익을 받습니다.
 Condition/&ConditionOathOfAncientsElderChampionTitle=장로 챔피언
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=체력이 0으로 감소했지만 완전히 죽지 않은 경우 대신 체력이 1로 떨어집니다. 긴 휴식을 마칠 때까지 이 기능의 혜택을 다시 누릴 수 없습니다.
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelTitle=불멸의 파수꾼

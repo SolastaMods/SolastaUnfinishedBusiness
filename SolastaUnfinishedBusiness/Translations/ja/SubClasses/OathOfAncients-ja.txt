@@ -1,6 +1,6 @@
 Condition/&ConditionOathOfAncientsAuraWardingDescription=呪文ダメージに対する耐性を獲得します。
 Condition/&ConditionOathOfAncientsAuraWardingTitle=ウォーデッド
-Condition/&ConditionOathOfAncientsElderChampionDescription=• 各ターンの開始時に、あなたは 10 ヒット ポイントを回復します。\n• 詠唱時間 1 アクションのパラディン呪文を唱えるたびに、同じアクションの一部として 2 回の武器攻撃を行うことができます。{ 99}• あなたから 10 フィート以内の敵クリーチャーは、あなたのパラディン呪文やチャンネル神性オプションに対するセーヴィング スローで不利になります。
+Condition/&ConditionOathOfAncientsElderChampionDescription=• 各ターンの開始時に、あなたは 10 ヒット ポイントを回復します。\n• 詠唱時間 1 アクションのパラディン呪文を唱えるたびに、同じアクションの一部として 2 回の武器攻撃を行うことができます。\n• あなたから 10 フィート以内の敵クリーチャーは、あなたのパラディン呪文やチャンネル神性オプションに対するセーヴィング スローで不利になります。
 Condition/&ConditionOathOfAncientsElderChampionTitle=エルダーチャンピオン
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=ヒット ポイントが 0 に減少しても完全に殺されなかった場合、代わりにヒット ポイントが 1 に低下します。長い休憩が終了するまで、この機能を再度利用することはできません。
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelTitle=不死の番兵

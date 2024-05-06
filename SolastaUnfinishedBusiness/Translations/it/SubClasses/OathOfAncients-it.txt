@@ -1,6 +1,6 @@
 Condition/&ConditionOathOfAncientsAuraWardingDescription=Ottieni resistenza ai danni magici.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Protetto
-Condition/&ConditionOathOfAncientsElderChampionDescription=• All'inizio di ogni tuo turno, recuperi 10 punti ferita.\n• Ogni volta che lanci un incantesimo da paladino che ha un tempo di lancio di 1 azione, puoi effettuare due attacchi con l'arma come parte della stessa azione.{ 99}• Le creature nemiche entro 3 metri da te hanno svantaggio ai tiri salvezza contro i tuoi incantesimi da paladino e le opzioni di Incanalare Divinità.
+Condition/&ConditionOathOfAncientsElderChampionDescription=• All'inizio di ogni tuo turno, recuperi 10 punti ferita.\n• Ogni volta che lanci un incantesimo da paladino che ha un tempo di lancio di 1 azione, puoi effettuare due attacchi con l'arma come parte della stessa azione.\n• Le creature nemiche entro 3 metri da te hanno svantaggio ai tiri salvezza contro i tuoi incantesimi da paladino e le opzioni di Incanalare Divinità.
 Condition/&ConditionOathOfAncientsElderChampionTitle=Campione anziano
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=Quando vieni ridotto a 0 punti ferita ma non vieni ucciso sul colpo, scendi invece a 1 punto ferita. Non potrai beneficiare nuovamente di questa funzionalità finché non avrai terminato un riposo lungo.
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelTitle=Sentinella immortale
