@@ -137,6 +137,28 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeAndApplyHitDieRoll))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeAndApplyHitDieRoll_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(
+            RulesetCharacterHero __instance,
+            ref DieType die,
+            ref int modifier,
+            ref AdvantageType advantageType,
+            ref bool healKindred,
+            ref bool isBonus)
+        {
+            foreach (var modifyDiceRollHitDice in __instance.GetSubFeaturesByType<IModifyDiceRollHitDice>())
+            {
+                modifyDiceRollHitDice.BeforeRoll(
+                    __instance, ref die, ref modifier, ref advantageType, ref healKindred, ref isBonus);
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.FindClassHoldingFeature))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

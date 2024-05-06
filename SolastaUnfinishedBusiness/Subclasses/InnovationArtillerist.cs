@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -342,7 +343,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .AddPreparedSpellGroup(5, ScorchingRay, Shatter)
             .AddPreparedSpellGroup(9, Fireball, WindWall)
             .AddPreparedSpellGroup(13, IceStorm, WallOfFire)
-            .AddPreparedSpellGroup(17, ConeOfCold, WallOfForce)
+            .AddPreparedSpellGroup(17, ConeOfCold, SpellsContext.SonicBoom)
             .AddToDB();
 
         // Summoning Affinities
@@ -649,7 +650,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
         var combatAffinityFortifiedPosition = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}{FortifiedPosition}")
-            .SetGuiPresentation(powerEldritchCannonPool.Name, Category.Feature, Gui.NoLocalization)
+            .SetGuiPresentation(powerEldritchCannonPool.Name, Category.Feature, "UI/&HasHalfCover")
             .SetPermanentCover(CoverType.Half)
             .AddToDB();
 
@@ -844,10 +845,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Create()
                             .SetSummonCreatureForm(1, monster.Name)
                             .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionDefinition, ConditionForm.ConditionOperation.Add, true, true)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(
+                            conditionDefinition,
+                            ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(ConjureGoblinoids)
                     .Build())
             .SetUniqueInstance()
@@ -952,7 +952,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionDefinition, ConditionForm.ConditionOperation.Add, true, true)
+                            .SetConditionForm(
+                                conditionDefinition,
+                                ConditionForm.ConditionOperation.Add, true)
                             .Build())
                     .SetParticleEffectParameters(ConjureGoblinoids)
                     .Build())
@@ -973,7 +975,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
     {
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action.ActionParams.RulesetEffect is RulesetEffectPower rulesetEffectPower)
+            if (action.ActionParams.activeEffect is RulesetEffectPower rulesetEffectPower)
             {
                 rulesetEffectPower.usablePower.saveDC = GetDC(action.ActingCharacter.RulesetCharacter);
             }

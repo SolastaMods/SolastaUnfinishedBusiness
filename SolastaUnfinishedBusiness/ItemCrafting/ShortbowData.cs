@@ -14,7 +14,6 @@ internal static class ShortbowData
         {
             BaseItems =
                 [(ItemDefinitions.Shortbow, ItemDefinitions.ShortbowPlus2)],
-            PossiblePrimedItemsToReplace = [ItemDefinitions.Primed_Shortbow],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Lightbringer", ItemDefinitions.Enchanted_Longbow_Lightbringer,

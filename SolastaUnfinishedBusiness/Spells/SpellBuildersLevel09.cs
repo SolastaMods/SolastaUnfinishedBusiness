@@ -22,7 +22,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Foresight, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Foresight, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Minute1)
@@ -101,7 +101,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MeteorSwarm, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MeteorSwarm, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
@@ -145,7 +145,7 @@ internal static partial class SpellBuilders
     {
         return SpellDefinitionBuilder
             .Create("PowerWordHeal")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordHeal", Resources.PowerWordHeal, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordHeal", Resources.PowerWordHeal, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
@@ -193,7 +193,7 @@ internal static partial class SpellBuilders
     {
         return SpellDefinitionBuilder
             .Create("PowerWordKill")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordKill", Resources.PowerWordKill, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordKill", Resources.PowerWordKill, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
@@ -223,7 +223,7 @@ internal static partial class SpellBuilders
     {
         return SpellDefinitionBuilder
             .Create("Shapechange")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Shapechange", Resources.ShapeChange, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Shapechange", Resources.ShapeChange, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
@@ -301,7 +301,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.TimeStop, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.TimeStop, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
@@ -330,7 +330,7 @@ internal static partial class SpellBuilders
     {
         return SpellDefinitionBuilder
             .Create("Weird")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Weird", Resources.Weird, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Weird", Resources.Weird, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolIllusion)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)

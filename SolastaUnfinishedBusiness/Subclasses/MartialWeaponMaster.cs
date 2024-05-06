@@ -473,8 +473,12 @@ public sealed class MartialWeaponMaster : AbstractSubclass
         }
 
         public void AfterRoll(
+            DieType dieType,
+            AdvantageType advantageType,
             RollContext rollContext,
             RulesetCharacter rulesetCharacter,
+            ref int firstRoll,
+            ref int secondRoll,
             ref int result)
         {
             if (IsValid(rollContext, rulesetCharacter))

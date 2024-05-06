@@ -44,10 +44,11 @@ public sealed class RoguishDuelist : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionDaringDuel)
-            .AddCustomSubFeatures(
-                ModifyAdditionalDamageClassLevelRogue.Instance,
-                ClassFeats.ModifyAdditionalDamageFormCloseQuarters.Marker)
             .AddToDB();
+
+        additionalDamageDaringDuel.AddCustomSubFeatures(
+            ModifyAdditionalDamageClassLevelRogue.Instance,
+            new ClassFeats.ModifyAdditionalDamageCloseQuarters(additionalDamageDaringDuel));
 
         // Sure Footed
 

@@ -125,8 +125,12 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
         }
 
         public void AfterRoll(
+            DieType dieType,
+            AdvantageType advantageType,
             RollContext rollContext,
             RulesetCharacter rulesetCharacter,
+            ref int firstRoll,
+            ref int secondRoll,
             ref int result)
         {
             if (rollContext != RollContext.AttackRoll)
@@ -147,6 +151,8 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                 (ConsoleStyleDuplet.ParameterType.SuccessfulRoll, result.ToString()),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, 1.ToString()));
 
+            firstRoll = 1;
+            secondRoll = 1;
             result = 1;
         }
 

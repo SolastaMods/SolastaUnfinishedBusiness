@@ -16,7 +16,5 @@ Feature/&PowerDomainDefilerDefileLifeDescription=Unleash a wave of necrotic ener
 Feature/&PowerDomainDefilerDefileLifeTitle=Defile Life
 Feature/&PowerDomainDefilerDyingLightDescription=Whenever you deal necrotic damage, you can deal maximum damage instead of rolling. You can use this feature once per long rest.
 Feature/&PowerDomainDefilerDyingLightTitle=Dying Light
-Feedback/&AdditionalDamageDivineStrikeFormat=Divine Strike!
-Feedback/&AdditionalDamageDivineStrikeLine={0} performs a divine strike attack on {1} (+{2})
 Subclass/&DomainDefilerDescription=Defilers worship patrons of death, corruption, and blight, seeking power and corruption for their own ends: to please their gods, or for more selfish reasons.
 Subclass/&DomainDefilerTitle=Defiler

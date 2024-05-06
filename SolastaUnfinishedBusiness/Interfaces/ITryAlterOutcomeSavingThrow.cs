@@ -26,6 +26,7 @@ internal static class TryAlterOutcomeSavingThrow
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier actionModifier,
+        bool hasHitVisual,
         bool hasBorrowedLuck)
     {
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
@@ -41,7 +42,7 @@ internal static class TryAlterOutcomeSavingThrow
                          .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
             {
                 yield return feature.OnTryAlterOutcomeSavingThrow(
-                    battleManager, action, attacker, defender, unit, actionModifier, false, hasBorrowedLuck);
+                    battleManager, action, attacker, defender, unit, actionModifier, hasHitVisual, hasBorrowedLuck);
             }
         }
     }

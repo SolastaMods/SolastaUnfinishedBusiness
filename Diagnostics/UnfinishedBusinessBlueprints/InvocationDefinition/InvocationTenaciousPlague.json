@@ -5,7 +5,7 @@
   "requiredPact": "Definition:FeatureSetPactChain:101749129eb42a74583471b1f8dc44b7",
   "grantedFeature": null,
   "grantedSpell": "Definition:InsectPlague:f74938dd8dd25294b97663330c8e293e",
-  "consumesSpellSlot": true,
+  "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {

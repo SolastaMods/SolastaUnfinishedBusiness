@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Validators;
@@ -161,6 +165,36 @@ public static class RulesetImplementationManagerLocationPatcher
             //PATCH: support for `ReplaceMetamagicOption`
             return ReplaceMetamagicOption.PatchMetamagicGetter(instructions,
                 "RulesetImplementationManagerLocation.IsAnyMetamagicOptionAvailable");
+        }
+    }
+
+    //PATCH: supports light and obscurement rules
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation),
+        nameof(RulesetImplementationManagerLocation.ApplyCounterForm))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ApplyCounterForm_Patch
+    {
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var conditionDefinitionMethod = typeof(ConditionForm).GetMethod("get_ConditionDefinition");
+            var myConditionDefinitionMethod =
+                new Func<ConditionForm, ConditionDefinition>(MyConditionDefinition).Method;
+
+            return instructions.ReplaceCalls(conditionDefinitionMethod,
+                "RulesetImplementationManagerLocation.ApplyCounterForm",
+                new CodeInstruction(OpCodes.Call, myConditionDefinitionMethod));
+        }
+
+        private static ConditionDefinition MyConditionDefinition(ConditionForm conditionForm)
+        {
+            return conditionForm.ConditionDefinition.Name
+                is RuleDefinitions.ConditionDarkness
+                or "ConditionBlindedByDarkness"
+                ? DatabaseHelper.ConditionDefinitions.ConditionDarkness
+                : conditionForm.ConditionDefinition;
         }
     }
 

@@ -342,21 +342,11 @@ public sealed class RangerGloomStalker : AbstractSubclass
         {
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager)
-            {
-                yield break;
-            }
-
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (defender != helper ||
-                !defender.CanReact() ||
-                !defender.CanPerceiveTarget(attacker))
+            if (!actionManager ||
+                action.AttackRollOutcome != RollOutcome.Success ||
+                helper != defender ||
+                !helper.CanReact() ||
+                !helper.CanPerceiveTarget(attacker))
             {
                 yield break;
             }
@@ -383,12 +373,6 @@ public sealed class RangerGloomStalker : AbstractSubclass
             var rollCaption = outcome == RollOutcome.CriticalSuccess
                 ? "Feedback/&RollAttackCriticalSuccessTitle"
                 : "Feedback/&RollAttackSuccessTitle";
-            var advantageTrends =
-                new List<TrendInfo>
-                {
-                    new(-1, FeatureSourceType.CharacterFeature, featureShadowyDodge.Name, featureShadowyDodge)
-                };
-
             var rulesetAttacker = attacker.RulesetCharacter;
             var attackMode = action.actionParams.attackMode;
             var activeEffect = action.ActionParams.activeEffect;
@@ -396,6 +380,11 @@ public sealed class RangerGloomStalker : AbstractSubclass
             int roll;
             int toHitBonus;
             int successDelta;
+
+            attackModifier.AttackAdvantageTrends.SetRange(new List<TrendInfo>
+            {
+                new(-1, FeatureSourceType.CharacterFeature, featureShadowyDodge.Name, featureShadowyDodge)
+            });
 
             if (attackMode != null)
             {
@@ -406,7 +395,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
                     attackMode.SourceDefinition,
                     attackMode.ToHitBonusTrends,
                     false,
-                    advantageTrends,
+                    attackModifier.AttackAdvantageTrends,
                     attackMode.ranged,
                     false,
                     attackModifier.AttackRollModifier,
@@ -423,7 +412,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
                     defender.RulesetCharacter,
                     activeEffect.GetEffectSource(),
                     attackModifier.AttacktoHitTrends,
-                    advantageTrends,
+                    attackModifier.AttackAdvantageTrends,
                     false,
                     attackModifier.AttackRollModifier,
                     out outcome,
@@ -437,6 +426,8 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 yield break;
             }
 
+            var rulesetDefender = defender.RulesetCharacter;
+
             rulesetDefender.LogCharacterUsedFeature(
                 featureShadowyDodge,
                 "Feedback/&TriggerRerollLine",
@@ -445,7 +436,6 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 (ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
                     Gui.Format(rollCaption, $"{attackRoll + toHitBonus}")));
 
-            attackModifier.AttackAdvantageTrends.SetRange(advantageTrends);
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;

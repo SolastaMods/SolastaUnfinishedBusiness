@@ -1,0 +1,51 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AbilityCheckAffinityFeatDungeonDelver:6fa8c28e-35b1-52b9-8e12-c32f1041ca9e",
+    "Definition:TerrainTypeAffinityFeatDungeonDelverArctic:3949e2a0-240b-5fc6-bbbd-876c7389a74e",
+    "Definition:TerrainTypeAffinityFeatDungeonDelverCoast:85fd881b-3a48-52a7-a505-e541de6cc412",
+    "Definition:TerrainTypeAffinityFeatDungeonDelverDesert:7a737170-22a5-5a50-b021-f54b06e309e7",
+    "Definition:TerrainTypeAffinityFeatDungeonDelverForest:73548889-56ae-564f-b273-400e97c7b2b7",
+    "Definition:TerrainTypeAffinityFeatDungeonDelverGrassland:eb55b30a-ba2d-5fb8-a717-2cd76935c00b",
+    "Definition:TerrainTypeAffinityFeatDungeonDelverMountain:db490e8f-33f7-5342-9184-662355cc2b61",
+    "Definition:TerrainTypeAffinityFeatDungeonDelverSwamp:e3fa9fc8-c2b3-5db6-8f0c-5e0ec0177da5"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatDungeonDelverTitle",
+    "description": "Feat/&FeatDungeonDelverDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "39f908ce-e12a-567b-a6dc-8354c6a1ce51",
+  "contentPack": 9999,
+  "name": "FeatDungeonDelver"
+}

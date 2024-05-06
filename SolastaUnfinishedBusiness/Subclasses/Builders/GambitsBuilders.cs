@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -72,10 +73,11 @@ internal static class GambitsBuilders
                     conditionName = MartialTactician.MarkDamagedByGambit
                 })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
-            .AddCustomSubFeatures(
-                ModifyAdditionalDamageFormGambitDieSize.Marker,
-                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .AddToDB();
+
+        gambitDieDamage.AddCustomSubFeatures(
+            new ModifyAdditionalDamageGambitDieSize(gambitDieDamage),
+            ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
 
         var gambitDieDamageMelee = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageGambitDieMelee")
@@ -90,10 +92,11 @@ internal static class GambitsBuilders
                     conditionName = MartialTactician.MarkDamagedByGambit
                 })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
-            .AddCustomSubFeatures(
-                ModifyAdditionalDamageFormGambitDieSize.Marker,
-                ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack)
             .AddToDB();
+
+        gambitDieDamageMelee.AddCustomSubFeatures(
+            new ModifyAdditionalDamageGambitDieSize(gambitDieDamageMelee),
+            ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack);
 
         var conditionGambitDieDamage = ConditionDefinitionBuilder
             .Create("ConditionGambitDieDamage")
@@ -971,17 +974,23 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class ModifyAdditionalDamageFormGambitDieSize : IModifyAdditionalDamageForm
+    private sealed class ModifyAdditionalDamageGambitDieSize(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
     {
-        public static readonly ModifyAdditionalDamageFormGambitDieSize Marker = new();
-
-        public DamageForm AdditionalDamageForm(
+        public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            DamageForm damageForm)
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
         {
+            if (featureDefinitionAdditionalDamage != additionalDamage)
+            {
+                return;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
@@ -989,19 +998,17 @@ internal static class GambitsBuilders
             {
                 damageForm.DieType = GetGambitDieSize(attacker.RulesetCharacter);
 
-                return damageForm;
+                return;
             }
 
             var rulesetSource = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
 
             if (rulesetSource == null)
             {
-                return damageForm;
+                return;
             }
 
             damageForm.dieType = GetGambitDieSize(rulesetSource);
-
-            return damageForm;
         }
     }
 
@@ -1149,7 +1156,7 @@ internal static class GambitsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
                 rulesetEffectPower.PowerDefinition != powerSelectEnemy)
             {
                 return true;
@@ -1378,8 +1385,7 @@ internal static class GambitsBuilders
         {
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager)
             {
                 yield break;
             }
@@ -1485,7 +1491,7 @@ internal static class GambitsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
                 rulesetEffectPower.PowerDefinition != powerSwitchActivate)
             {
                 return true;
@@ -1553,8 +1559,7 @@ internal static class GambitsBuilders
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager || !battleManager)
             {
                 yield break;
             }
@@ -1698,27 +1703,17 @@ internal static class GambitsBuilders
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager)
+            var rulesetHelper = attacker.RulesetCharacter;
+
+            if (!actionManager ||
+                action.AttackRollOutcome != RollOutcome.Failure ||
+                helper != attacker ||
+                !rulesetHelper.CanUsePower(pool))
             {
                 yield break;
             }
 
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            if (attacker != helper ||
-                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetCharacter.CanUsePower(pool) ||
-                !attacker.CanPerceiveTarget(defender))
-            {
-                yield break;
-            }
-
-            var dieType = GetGambitDieSize(rulesetCharacter);
+            var dieType = GetGambitDieSize(rulesetHelper);
             var max = DiceMaxValue[(int)dieType];
             var delta = Math.Abs(action.AttackSuccessDelta);
 
@@ -1751,35 +1746,32 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            rulesetCharacter.UpdateUsageForPower(pool, 1);
+            rulesetHelper.UpdateUsageForPower(pool, 1);
 
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-            var hitTrends = attackModifier.AttacktoHitTrends;
 
-            hitTrends?.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
+            attackModifier.AttacktoHitTrends.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
             {
                 dieType = dieType, dieFlag = TrendInfoDieFlag.None
             });
 
             action.AttackSuccessDelta += dieRoll;
-            attackModifier.attackRollModifier += dieRoll;
+            attackModifier.AttackRollModifier += dieRoll;
 
-            var success = action.AttackSuccessDelta >= 0;
-
-            if (success)
+            if (action.AttackSuccessDelta >= 0)
             {
                 action.AttackRollOutcome = RollOutcome.Success;
             }
 
-            rulesetCharacter.ShowDieRoll(
+            rulesetHelper.ShowDieRoll(
                 dieType,
                 dieRoll,
                 title: feature.GuiPresentation.Title,
-                outcome: success ? RollOutcome.Success : RollOutcome.Failure,
+                outcome: action.AttackRollOutcome,
                 displayOutcome: true
             );
 
-            rulesetCharacter.LogCharacterUsedFeature(
+            rulesetHelper.LogCharacterUsedFeature(
                 feature,
                 Line,
                 extra:
@@ -1890,7 +1882,7 @@ internal static class GambitsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
                 rulesetEffectPower.PowerDefinition != powerCoordinatedAttack)
             {
                 return true;
@@ -2030,7 +2022,7 @@ internal static class GambitsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
                 rulesetEffectPower.PowerDefinition != powerOverwhelmingAttack)
             {
                 return true;

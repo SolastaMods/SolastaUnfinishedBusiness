@@ -113,7 +113,7 @@
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
-          "forceOnSelf": true
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

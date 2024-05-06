@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -280,7 +281,8 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
             // grant advantage if first round or attacker is performing an opportunity attack
             if (Gui.Battle.CurrentRound > 1 &&
-                attackMode.actionType != ActionDefinitions.ActionType.Reaction)
+                (attackMode is not { ActionType: ActionDefinitions.ActionType.Reaction } ||
+                 attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag)))
             {
                 return;
             }

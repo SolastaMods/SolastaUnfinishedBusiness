@@ -166,11 +166,6 @@ internal static class RaceOligathBuilder
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             // don't use CanReact() to allow stone endurance when prone

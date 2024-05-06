@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
@@ -10,6 +11,6 @@ public interface IMagicEffectFinishedByMeOrAllyAny
     public IEnumerator OnMagicEffectFinishedByMeOrAllyAny(
         CharacterActionMagicEffect action,
         GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        GameLocationCharacter helper);
+        GameLocationCharacter helper,
+        List<GameLocationCharacter> targets);
 }

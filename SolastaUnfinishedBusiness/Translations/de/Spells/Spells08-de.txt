@@ -1,4 +1,6 @@
 Condition/&ConditionMindBlankDescription=Immun gegen psychischen Schaden und den Zustand „Verzaubert“.
 Condition/&ConditionMindBlankTitle=Geist leer
+Spell/&MaddeningDarknessDescription=Magische Dunkelheit breitet sich von einem von Ihnen gewählten Punkt in Reichweite aus und füllt eine Kugel mit einem Radius von 60 Fuß, bis der Zauber endet. In der Kugel sind Schreie, Geplapper und wahnsinniges Gelächter zu hören. Bei der Aktivierung und immer dann, wenn eine Kreatur ihren Zug in der Sphäre beendet, muss sie einen Weisheitsrettungswurf machen und dabei 6W8 psychischen Schaden bei einem fehlgeschlagenen Rettungswurf oder halb so viel Schaden bei einem erfolgreichen Rettungswurf erleiden.
+Spell/&MaddeningDarknessTitle=Wahnsinnige Dunkelheit
 Spell/&MindBlankDescription=Bis zum Ende des Zaubers ist eine willige Kreatur, die du berührst, immun gegen psychischen Schaden, jeden Effekt, der ihre Gefühle wahrnimmt oder ihre Gedanken liest, Wahrsagungszauber und den Zustand „Verzaubert“.
 Spell/&MindBlankTitle=Geist leer

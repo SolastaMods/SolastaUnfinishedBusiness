@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
@@ -105,28 +106,25 @@ public static class CharacterActionSpendPowerPatcher
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
+                    var battleManager =
+                        ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
                     if (__instance.RolledSaveThrow)
                     {
                         // Legendary Resistance or Indomitable?
-                        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-
                         if (__instance.SaveOutcome == RuleDefinitions.RollOutcome.Failure)
                         {
                             yield return battleManager.HandleFailedSavingThrow(
                                 __instance, actingCharacter, target, actionModifier, false, hasBorrowedLuck);
                         }
 
-                        // BEGIN PATCH
-
                         //PATCH: support for `ITryAlterOutcomeSavingThrow`
                         foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
-                                     battleManager as GameLocationBattleManager,
-                                     __instance, actingCharacter, target, actionModifier, hasBorrowedLuck))
+                                     battleManager, __instance, actingCharacter, target, actionModifier, false,
+                                     hasBorrowedLuck))
                         {
                             yield return tryAlterOutcomeSavingThrow;
                         }
-
-                        // END PATCH
                     }
 
                     // Apply the forms of the power
@@ -145,8 +143,43 @@ public static class CharacterActionSpendPowerPatcher
                         1,
                         null);
                     applyFormsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
+
+                    // BEGIN PATCH
+
+                    var effectForms = effectDescription.EffectForms.DeepCopy();
+
+                    //PATCH: support for `IMagicEffectBeforeHitConfirmedOnEnemy`
+                    // should also happen outside battles
+                    if (actingCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                    {
+                        var controller = actingCharacter.GetEffectControllerOrSelf();
+
+                        foreach (var magicalAttackBeforeHitConfirmedOnMe in controller.RulesetCharacter
+                                     .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnEnemy>())
+                        {
+                            yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicEffectBeforeHitConfirmedOnEnemy(
+                                battleManager, controller, target, actionModifier,
+                                rulesetEffect, effectForms, i == 0, false);
+                        }
+                    }
+
+                    //PATCH: support for `IMagicEffectBeforeHitConfirmedOnMe`
+                    // should also happen outside battles
+                    if (target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                    {
+                        foreach (var magicalAttackBeforeHitConfirmedOnMe in target.RulesetCharacter
+                                     .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnMe>())
+                        {
+                            yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicEffectBeforeHitConfirmedOnMe(
+                                battleManager, actingCharacter, target, actionModifier,
+                                rulesetEffect, effectForms, i == 0, false);
+                        }
+                    }
+
+                    // END PATCH
+
                     implementationService.ApplyEffectForms(
-                        effectDescription.EffectForms,
+                        effectForms,
                         applyFormsParams,
                         null,
                         effectApplication: effectDescription.EffectApplication,
@@ -195,6 +228,7 @@ public static class CharacterActionSpendPowerPatcher
             }
 
             __instance.PersistantEffectAction();
+
 
             yield return null;
         }

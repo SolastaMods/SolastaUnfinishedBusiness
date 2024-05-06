@@ -207,7 +207,7 @@ internal static class RaceMalakhBuilder
     {
         var conditionAngelicFlight = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}AngelicFlight")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying)
             .AddFeatures(additionalDamageMalakhAngelicForm)
             .AddToDB();
 
@@ -235,7 +235,6 @@ internal static class RaceMalakhBuilder
             .Create($"Condition{Name}AngelicRadiance")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
             .SetConditionType(ConditionType.Beneficial)
-            .CopyParticleReferences(ConditionDefinitions.ConditionFlyingAdaptive)
             .AddFeatures(additionalDamageMalakhAngelicForm)
             .AddCustomSubFeatures(new CharacterTurnEndListenerAngelicRadiance())
             .AddToDB();
@@ -302,6 +301,8 @@ internal static class RaceMalakhBuilder
                 IgnoreCriticalDoubleDice = true
             };
 
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var enemy in Gui.Battle.GetContenders(locationCharacter, withinRange: 3))
             {
@@ -313,9 +314,6 @@ internal static class RaceMalakhBuilder
                 };
 
                 EffectHelpers.StartVisualEffect(locationCharacter, enemy, SpellDefinitions.BrandingSmite);
-
-                var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
                 implementationService.ApplyEffectForms(
                     [new EffectForm { damageForm = damageForm }],
                     applyFormsParams,

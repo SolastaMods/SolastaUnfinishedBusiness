@@ -18,13 +18,6 @@ internal static class BashingWeaponsData
                 (ItemDefinitions.Maul, ItemDefinitions.MaulPlus2),
                 (ItemDefinitions.Warhammer, ItemDefinitions.WarhammerPlus2)
             ],
-            PossiblePrimedItemsToReplace =
-            [
-                ItemDefinitions.Primed_Morningstar,
-                ItemDefinitions.Primed_Mace,
-                ItemDefinitions.Primed_Greatsword,
-                ItemDefinitions.Primed_Battleaxe
-            ],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Acuteness", ItemDefinitions.Enchanted_Mace_Of_Acuteness,

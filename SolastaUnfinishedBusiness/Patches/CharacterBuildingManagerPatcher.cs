@@ -429,7 +429,7 @@ public static class CharacterBuildingManagerPatcher
             foreach (var featureDefinitionCastSpell in heroBuildingData.levelupTrainedFeats.SelectMany(x =>
                          x.Value.SelectMany(y => y.Features).OfType<FeatureDefinitionCastSpell>()))
             {
-                var spellTag = featureDefinitionCastSpell.GetFirstSubFeatureOfType<OtherFeats.SpellTag>();
+                var spellTag = featureDefinitionCastSpell.GetFirstSubFeatureOfType<FeatHelpers.SpellTag>();
 
                 if (spellTag == null || !tag.EndsWith(spellTag.Name))
                 {
@@ -563,7 +563,7 @@ public static class CharacterBuildingManagerPatcher
 
             // we filter out any repertoire that was granted from feats
             foreach (var spellRepertoire in hero.SpellRepertoires
-                         .Where(x => !x.SpellCastingFeature.HasSubFeatureOfType<OtherFeats.SpellTag>()))
+                         .Where(x => !x.SpellCastingFeature.HasSubFeatureOfType<FeatHelpers.SpellTag>()))
             {
                 var poolName = string.Empty;
                 var maxPoints = 0;

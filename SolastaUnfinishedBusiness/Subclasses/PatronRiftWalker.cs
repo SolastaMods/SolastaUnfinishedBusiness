@@ -51,10 +51,10 @@ public class PatronRiftWalker : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(Banishment)
+                    .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetNoSavingThrow()
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBanished))
                     .Build())
             .AddCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
             .AddToDB();
@@ -90,9 +90,10 @@ public class PatronRiftWalker : AbstractSubclass
             .SetReactionContext(ReactionTriggerContext.HitByMelee)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(Banishment)
+                    .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetNoSavingThrow()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBanished))
                     .Build())
             .AddCustomSubFeatures(
                 ForcePowerUseInSpendPowerAction.Marker,

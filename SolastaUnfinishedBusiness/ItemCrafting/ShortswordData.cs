@@ -14,7 +14,6 @@ internal static class ShortswordData
         {
             BaseItems =
                 [(ItemDefinitions.Shortsword, ItemDefinitions.Shortsword)],
-            PossiblePrimedItemsToReplace = [ItemDefinitions.Primed_Shortsword],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Stormblade", ItemDefinitions.Enchanted_Longsword_Stormblade,

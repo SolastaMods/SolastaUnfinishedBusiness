@@ -10,10 +10,15 @@ public interface IRollSavingThrowInitiated
     public void OnSavingThrowInitiated(
         RulesetCharacter caster,
         RulesetCharacter defender,
+        ref int saveBonus,
         ref string abilityScoreName,
         BaseDefinition sourceDefinition,
+        List<TrendInfo> modifierTrends,
         List<TrendInfo> advantageTrends,
-        int saveDC,
-        bool hasHitVisual,
+        ref int rollModifier,
+        ref int saveDC,
+        ref bool hasHitVisual,
+        RollOutcome outcome,
+        int outcomeDelta,
         List<EffectForm> effectForms);
 }

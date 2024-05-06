@@ -64,12 +64,17 @@ Feature/&PowerFeatOrcishAggressionTitle=Agressão Orc
 Feedback/&AdditionalDamageOrcishFuryFormat=Fúria Orc
 Feedback/&AdditionalDamageOrcishFuryLine=Fúria Orc causa +{2} de dano extra!
 Feedback/&BountifulLuckAttackToHitRoll={0} usou {1} para rolar um {2} e substituir a jogada de ataque
+Feedback/&BountifulLuckCheckToHitRoll={0} usou {1} para lançar um {2} e substituir a jogada de verificação
 Feedback/&BountifulLuckSavingToHitRoll={0} usou {1} para lançar um {2} e substituir a jogada salvadora
 Feedback/&DwarvenFortitudeHitDieRolled={0} rolou um {2} e curou {3} = {4}.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} perderam {1}. {2} pode reagir para rolar um d20 e substituir a jogada de ataque.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Role um d20 para substituir a jogada de ataque.
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=Sorte abundante
 Reaction/&CustomReactionBountifulLuckAttackTitle=Sorte abundante
+Reaction/&CustomReactionBountifulLuckCheckDescription={0} falhou na verificação. {1} pode reagir para lançar um d20 e substituir a jogada de verificação.
+Reaction/&CustomReactionBountifulLuckCheckReactDescription=Role um d20 para substituir o teste.
+Reaction/&CustomReactionBountifulLuckCheckReactTitle=Sorte abundante
+Reaction/&CustomReactionBountifulLuckCheckTitle=Sorte abundante
 Reaction/&CustomReactionBountifulLuckSavingDescription={0} falhou na rolagem de salvamento contra {1}. {2} pode reagir para lançar um d20 e substituir a jogada de salvamento.
 Reaction/&CustomReactionBountifulLuckSavingReactDescription=Role um d20 para substituir o teste de salvamento.
 Reaction/&CustomReactionBountifulLuckSavingReactTitle=Sorte abundante

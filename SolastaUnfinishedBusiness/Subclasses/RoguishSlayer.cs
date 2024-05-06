@@ -265,8 +265,7 @@ public sealed class RoguishSlayer : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (battleManager is not { IsBattleInProgress: true } ||
-                rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetDefender.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionSurprised))
             {
                 yield break;

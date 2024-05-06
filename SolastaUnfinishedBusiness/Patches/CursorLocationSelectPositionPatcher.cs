@@ -29,7 +29,7 @@ public static class CursorLocationSelectPositionPatcher
                         EffectIncrementMethod: EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalSummonsPerIncrement: > 0
                     } ||
-                cursorLocationSelectPosition.ActionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
+                cursorLocationSelectPosition.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell)
             {
                 return result;
             }
@@ -235,7 +235,7 @@ public static class CursorLocationSelectPositionPatcher
                 }
 
                 feedbackCommandService.ChangeAllyTurnContext(
-                    __instance.ActionParams.RulesetEffect is RulesetEffectSpell or RulesetEffectPower
+                    __instance.ActionParams.activeEffect is RulesetEffectSpell or RulesetEffectPower
                         ? BattleDefinitions.AllyTurnContext.PlaningMagicEffect
                         : BattleDefinitions.AllyTurnContext.ChoosingPosition);
             }
@@ -291,7 +291,7 @@ public static class CursorLocationSelectPositionPatcher
                              (__instance.maxPositions > 1 && __instance.remainingPositions < __instance.maxPositions);
 
             // BEGIN PATCH
-            var modifier = __instance.ActionParams.RulesetEffect switch
+            var modifier = __instance.ActionParams.activeEffect switch
             {
                 RulesetEffectPower rulesetEffectPower => rulesetEffectPower.PowerDefinition
                     .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>(),

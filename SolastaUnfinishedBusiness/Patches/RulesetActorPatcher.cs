@@ -204,8 +204,16 @@ public static class RulesetActorPatcher
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,
             RollInfo rollInfo)
         {
+            // supports Shield Techniques feat
+            if (formsParams.targetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionFeatShieldTechniquesMark"))
+            {
+                rolledDamage /= 2;
+            }
+
             //PATCH: support for FeatureDefinitionReduceDamage
             var reduction = FeatureDefinitionReduceDamage.DamageReduction(formsParams, rolledDamage, damageType);
+
             rolledDamage -= reduction;
             rollInfo.modifier -= reduction;
         }
@@ -353,17 +361,12 @@ public static class RulesetActorPatcher
         [UsedImplicitly]
         public static void Prefix(RulesetActor __instance, DamageForm damageForm, ref bool maximumDamage)
         {
-            var modifiers = __instance.GetSubFeaturesByType<IForceMaxDamageTypeDependent>();
-
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var modifier in modifiers)
+            if (__instance is RulesetCharacter rulesetCharacter)
             {
-                if (!modifier.IsValid(__instance, damageForm))
-                {
-                    continue;
-                }
-
-                maximumDamage = true;
+                maximumDamage = rulesetCharacter
+                    .GetEffectControllerOrSelf()
+                    .GetSubFeaturesByType<IForceMaxDamageTypeDependent>()
+                    .Any(x => x.IsValid(__instance, damageForm));
             }
 
             CurrentDamageForm = damageForm;
@@ -744,8 +747,12 @@ public static class RulesetActorPatcher
                 foreach (var changeDiceRoll in changeDiceRollList)
                 {
                     changeDiceRoll.AfterRoll(
+                        dieType,
+                        advantageType,
                         rollContext,
                         actor as RulesetCharacter,
+                        ref firstRoll,
+                        ref secondRoll,
                         ref result);
                 }
             }
@@ -929,7 +936,7 @@ public static class RulesetActorPatcher
             List<FeatureDefinition> featuresToBrowse,
             Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
         {
-            __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse,
+            __instance.EnumerateFeaturesToBrowse<ISavingThrowAffinityProvider>(featuresToBrowse,
                 featuresOrigin);
             featuresToBrowse.RemoveAll(x =>
                 !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));

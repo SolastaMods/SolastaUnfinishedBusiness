@@ -44,7 +44,7 @@ public sealed class DomainSmith : AbstractSubclass
 
         var bonusProficiencyArmorDomainForge = FeatureDefinitionProficiencyBuilder
             .Create($"BonusProficiency{NAME}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
             .AddToDB();
 
@@ -52,8 +52,14 @@ public sealed class DomainSmith : AbstractSubclass
 
         var bonusProficiencyArtisanToolTypeDomainForge = FeatureDefinitionProficiencyBuilder
             .Create($"BonusProficiency{NAME}ArtisanToolType")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Tool, ToolDefinitions.ArtisanToolType)
+            .AddToDB();
+
+        var featureSetBonusProficiency = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}BonusProficiency")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(bonusProficiencyArmorDomainForge, bonusProficiencyArtisanToolTypeDomainForge)
             .AddToDB();
 
         // Reinforce Armor - 1, 6, 11, 16
@@ -270,6 +276,7 @@ public sealed class DomainSmith : AbstractSubclass
             .SetSpecificDamageType(DamageTypeFire)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
+            .SetImpactParticleReference(FireBolt)
             .AddToDB();
 
         // LEVEL 17
@@ -334,8 +341,7 @@ public sealed class DomainSmith : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Resources.DomainSmith, 256))
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsDomainSmith,
-                bonusProficiencyArmorDomainForge,
-                bonusProficiencyArtisanToolTypeDomainForge,
+                featureSetBonusProficiency,
                 powerReinforceArmor1)
             .AddFeaturesAtLevel(2,
                 featureSetAdamantBenediction)

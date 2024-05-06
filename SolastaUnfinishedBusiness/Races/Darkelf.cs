@@ -88,7 +88,6 @@ internal static class SubraceDarkelfBuilder
             .SetRacePresentation(darkelfRacePresentation)
             .SetFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove6,
-                FeatureDefinitionSenses.SenseSuperiorDarkvision,
                 FeatureDefinitionFeatureSets.FeatureSetElfHighLanguages,
                 attributeModifierDarkelfCharismaAbilityScoreIncrease,
                 proficiencyDarkelfWeaponTraining,

@@ -23,10 +23,12 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.AmazingDisplayToggle,
         (Id)ExtraActionId.ArcaneArcherToggle,
         (Id)ExtraActionId.AudaciousWhirlToggle,
+        (Id)ExtraActionId.BalefulScionToggle,
         (Id)ExtraActionId.BrutalStrikeToggle,
         (Id)ExtraActionId.CompellingStrikeToggle,
         (Id)ExtraActionId.CoordinatedAssaultToggle,
         (Id)ExtraActionId.CunningStrikeToggle,
+        (Id)ExtraActionId.DestructiveWrathToggle,
         (Id)ExtraActionId.DragonHideToggle,
         (Id)ExtraActionId.DyingLightToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
@@ -39,6 +41,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.OrcishFuryToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
+        (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,
         (Id)ExtraActionId.SupremeWillToggle
     ];
@@ -78,6 +81,12 @@ public static class CustomActionIdContext
             .Create(ProxySpiritualWeapon, "ActionProxyFaithfulHound")
             .SetActionId(ExtraActionId.ProxyHoundWeapon)
             .SetActionType(ActionType.NoCost)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(ProxyFlamingSphere, "ActionProxyDawn")
+            .SetActionId(ExtraActionId.ProxyDawn)
+            .SetActionType(ActionType.Bonus)
             .AddToDB();
     }
 
@@ -326,6 +335,13 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.PaladinSmiteToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "ThunderousStrikeToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.ThunderousStrikeToggle)
             .AddToDB();
 
         ActionDefinitionBuilder

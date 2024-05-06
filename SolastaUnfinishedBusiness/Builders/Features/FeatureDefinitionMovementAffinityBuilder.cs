@@ -56,9 +56,8 @@ internal class FeatureDefinitionMovementAffinityBuilder
         return this;
     }
 
-    internal FeatureDefinitionMovementAffinityBuilder SetEnhancedJump(int additionalJumpCells)
+    internal FeatureDefinitionMovementAffinityBuilder SetAdditionalJumpCells(int additionalJumpCells)
     {
-        Definition.enhancedJump = true;
         Definition.additionalJumpCells = additionalJumpCells;
         return this;
     }

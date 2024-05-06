@@ -238,18 +238,12 @@ public sealed class RoguishRavenScion : AbstractSubclass
             GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
             var attackMode = action.actionParams.attackMode;
-            var rulesetCharacter = attacker.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (attacker != helper ||
-                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetCharacter.GetRemainingPowerUses(powerDeadlyFocus) == 0 ||
-                !attacker.CanPerceiveTarget(defender) ||
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                attacker != helper ||
+                rulesetAttacker.GetRemainingPowerUses(powerDeadlyFocus) == 0 ||
                 attackMode is not { ranged: true })
             {
                 yield break;
@@ -259,13 +253,13 @@ public sealed class RoguishRavenScion : AbstractSubclass
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerDeadlyFocus, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerDeadlyFocus, rulesetAttacker);
             // could have used PowerNoCost but looking for a better log message below
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "RavenScionDeadlyFocus",
                 RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower
             };
             var count = actionService.PendingReactionRequestGroups.Count;
@@ -279,14 +273,14 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 yield break;
             }
 
-            rulesetCharacter.UsePower(usablePower);
+            rulesetAttacker.UsePower(usablePower);
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRollOutcome == RollOutcome.CriticalFailure
                 ? "Feedback/&RollAttackCriticalFailureTitle"
                 : "Feedback/&RollAttackFailureTitle";
 
-            rulesetCharacter.LogCharacterUsedPower(
+            rulesetAttacker.LogCharacterUsedPower(
                 powerDeadlyFocus,
                 $"Feedback/&Trigger{Name}RerollLine",
                 false,
@@ -300,7 +294,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 };
 
             // testMode true avoids the roll to display on combat log as the original one will get there with altered results
-            var roll = rulesetCharacter.RollAttack(
+            var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
                 defender.RulesetCharacter,
                 attackMode.sourceDefinition,

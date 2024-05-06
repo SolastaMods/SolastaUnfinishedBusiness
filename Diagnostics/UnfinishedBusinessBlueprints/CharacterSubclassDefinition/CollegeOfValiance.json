@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureCollegeOfValianceCaptivatingPresence:7a0346fa-529d-5770-81fe-ac044d310f4e",
+      "featureDefinition": "Definition:PowerCollegeOfValianceDishearteningPerformance:1f54f672-43cd-52b3-8e3e-c9077a7f8eb4",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerCollegeOfValianceDishearteningPerformance:1f54f672-43cd-52b3-8e3e-c9077a7f8eb4",
+      "featureDefinition": "Definition:FeatureCollegeOfValianceCaptivatingPresence:7a0346fa-529d-5770-81fe-ac044d310f4e",
       "level": 3
     },
     {

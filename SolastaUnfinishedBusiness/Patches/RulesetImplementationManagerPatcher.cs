@@ -28,7 +28,7 @@ public static class RulesetImplementationManagerPatcher
         List<FeatureDefinition> featuresToBrowse,
         Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
     {
-        __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse, featuresOrigin);
+        __instance.EnumerateFeaturesToBrowse<ISavingThrowAffinityProvider>(featuresToBrowse, featuresOrigin);
         featuresToBrowse.RemoveAll(x =>
             !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
     }
@@ -253,7 +253,7 @@ public static class RulesetImplementationManagerPatcher
             //TODO: make this a proper interface in case we need to support other use cases
             if (hero != null &&
                 hero.TrainedFeats.Any(x => x.Name is "FeatPiercerDex" or "FeatPiercerStr") &&
-                damageForm.damageType == DamageTypePiercing)
+                damageForm.damageType is DamageTypePiercing)
             {
                 canRerollDice = true;
             }
@@ -797,40 +797,6 @@ public static class RulesetImplementationManagerPatcher
         }
 
         [UsedImplicitly]
-        public static void Prefix(
-            RulesetCharacter caster,
-            RulesetActor target,
-            ActionModifier actionModifier,
-            bool hasHitVisual,
-            bool hasSavingThrow,
-            ref string savingThrowAbility,
-            int saveDC,
-            List<EffectForm> effectForms,
-            BaseDefinition sourceDefinition)
-        {
-            var hasForcedSaving = effectForms.Any(effectForm => effectForm.OverrideSavingThrowInfo != null);
-
-            if (!hasForcedSaving && !hasSavingThrow)
-            {
-                return;
-            }
-
-            //PATCH: supports `OnSavingThrowInitiated` interface
-            foreach (var rollSavingThrowInitiated in target.GetSubFeaturesByType<IRollSavingThrowInitiated>())
-            {
-                rollSavingThrowInitiated.OnSavingThrowInitiated(
-                    caster,
-                    target as RulesetCharacter,
-                    ref savingThrowAbility,
-                    sourceDefinition,
-                    actionModifier.SavingThrowAdvantageTrends,
-                    saveDC,
-                    hasHitVisual,
-                    effectForms);
-            }
-        }
-
-        [UsedImplicitly]
         public static void RollSavingThrow(
             RulesetCharacter __instance,
             int saveBonus,
@@ -846,6 +812,34 @@ public static class RulesetImplementationManagerPatcher
             RulesetCharacter caster,
             List<EffectForm> effectForms)
         {
+            //PATCH: supports Oath of Ancients / Oath of Dread Path of The Savagery
+            OnRollSavingThrowOath(caster, __instance, sourceDefinition,
+                OathOfAncients.ConditionElderChampionName,
+                OathOfAncients.ConditionElderChampionEnemy);
+            OnRollSavingThrowOath(caster, __instance, sourceDefinition,
+                OathOfDread.ConditionAspectOfDreadName,
+                OathOfDread.ConditionAspectOfDreadEnemy);
+            PathOfTheSavagery.OnRollSavingThrowFuriousDefense(__instance, ref abilityScoreName);
+
+            //PATCH: supports `OnSavingThrowInitiated` interface
+            foreach (var rollSavingThrowInitiated in __instance.GetSubFeaturesByType<IRollSavingThrowInitiated>())
+            {
+                rollSavingThrowInitiated.OnSavingThrowInitiated(
+                    caster,
+                    __instance,
+                    ref saveBonus,
+                    ref abilityScoreName,
+                    sourceDefinition,
+                    modifierTrends,
+                    advantageTrends,
+                    ref rollModifier,
+                    ref saveDC,
+                    ref hasHitVisual,
+                    outcome,
+                    outcomeDelta,
+                    effectForms);
+            }
+
             __instance.RollSavingThrow(
                 saveBonus, abilityScoreName, sourceDefinition, modifierTrends, advantageTrends,
                 rollModifier, saveDC, hasHitVisual, out outcome, out outcomeDelta);
@@ -874,22 +868,8 @@ public static class RulesetImplementationManagerPatcher
         public static bool Prefix(
             RulesetCharacter caster,
             RulesetActor target,
-            //ActionModifier actionModifier,
-            ref string savingThrowAbility,
-            //List<EffectForm> effectForms,
             BaseDefinition sourceDefinition)
         {
-            //PATCH: supports Oath of Ancients / Oath of Dread Path of The Savagery
-            OnRollSavingThrowOath(caster, target, sourceDefinition, OathOfAncients.ConditionElderChampionName,
-                OathOfAncients.ConditionElderChampionEnemy);
-            OnRollSavingThrowOath(caster, target, sourceDefinition, OathOfDread.ConditionAspectOfDreadName,
-                OathOfDread.ConditionAspectOfDreadEnemy);
-
-            if (target is RulesetCharacter rulesetCharacter)
-            {
-                PathOfTheSavagery.OnRollSavingThrowFuriousDefense(rulesetCharacter, ref savingThrowAbility);
-            }
-
             //PATCH: illusionary spells against creatures with True Sight should automatically save
             if (!Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange ||
                 sourceDefinition is not

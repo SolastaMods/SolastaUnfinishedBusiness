@@ -66,10 +66,11 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetImpactParticleReference(
                 SpellDefinitions.ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference)
-            .AddCustomSubFeatures(
-                new ModifyAdditionalDamageFormPoweredStrike(),
-                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .AddToDB();
+
+        additionalDamageForcePoweredStrike.AddCustomSubFeatures(
+            new ModifyAdditionalDamagePoweredStrike(additionalDamageForcePoweredStrike),
+            ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
 
         var conditionForcePoweredStrike = ConditionDefinitionBuilder
             .Create($"Condition{Name}ForcePoweredStrike")
@@ -287,9 +288,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 .SetFeatures(moveModeFly, moveModeMove, FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging)
                 .AddToDB();
 
-            // there is indeed a typo on tag
-            // ReSharper disable once StringLiteralTypo
-            conditionPsionicPropulsion.ConditionTags.Add("Verticality");
+            conditionPsionicPropulsion.ConditionTags.Clear();
         }
 
         var powerPsionicPropulsionOncePerShort = FeatureDefinitionPowerBuilder
@@ -361,7 +360,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{Name}ForceBulwark")
-                    .SetGuiPresentation($"Power{Name}ForceBulwark", Category.Feature)
+                    .SetGuiPresentation($"Power{Name}ForceBulwark", Category.Feature, "UI/&HasHalfCover")
                     .SetPermanentCover(CoverType.Half)
                     .AddToDB())
             .AddToDB();
@@ -388,7 +387,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionForceBulwark),
                         EffectFormBuilder.ConditionForm(conditionForceBulwarkSelf,
-                            ConditionForm.ConditionOperation.Add, true, true))
+                            ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionCourtMageSpellShield)
                     .Build())
             .AddToDB();
@@ -409,7 +408,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionForceBulwark),
                         EffectFormBuilder.ConditionForm(conditionForceBulwarkSelf,
-                            ConditionForm.ConditionOperation.Add, true, true))
+                            ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionCourtMageSpellShield)
                     .Build())
             .AddToDB();
@@ -430,7 +429,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         const string SpellName = "Telekinesis";
 
-        var sprite = Sprites.GetSprite(SpellName, Resources.Telekinesis, 128, 128);
+        var sprite = Sprites.GetSprite(SpellName, Resources.Telekinesis, 128);
 
         var powerTelekinesis = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SpellTelekineticGrasp")
@@ -724,23 +723,29 @@ public sealed class MartialForceKnight : AbstractSubclass
         }
     }
 
-    private sealed class ModifyAdditionalDamageFormPoweredStrike : IModifyAdditionalDamageForm
+    private sealed class ModifyAdditionalDamagePoweredStrike(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
     {
-        public DamageForm AdditionalDamageForm(
+        public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            DamageForm damageForm)
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
         {
+            if (featureDefinitionAdditionalDamage != additionalDamage)
+            {
+                return;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
             var dieType = GetForcePoweredStrikeSize(rulesetAttacker);
             var intMod = GetIntModifier(rulesetAttacker);
 
             damageForm.BonusDamage = intMod;
             damageForm.DieType = dieType;
-
-            return damageForm;
         }
     }
 
@@ -918,11 +923,16 @@ public sealed class MartialForceKnight : AbstractSubclass
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
+            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int saveDC,
-            bool hasHitVisual,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
             List<EffectForm> effectForms)
         {
             var intelligence = defender.TryGetAttributeValue(AttributeDefinitions.Intelligence);

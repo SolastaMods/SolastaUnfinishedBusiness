@@ -1,0 +1,6 @@
+Feature/&DamageAffinityShadarKaiDescription=壊死性ダメージに対する耐性を持っています。
+Feature/&DamageAffinityShadarKaiTitle=壊死耐性
+Feature/&PowerShadarKaiTeleportDescription=ボーナス アクションとして、目に見える空いている空間に最大 30 フィートの魔法のようにテレポートできます。この特性は熟練度ボーナスに等しい回数だけ使用でき、長い休憩が終了すると消費した使用量はすべて回復します。 3 レベル以降、この特性を使用してテレポートすると、すべてのダメージに対する耐性も得られます。抵抗は次のターンの開始まで持続します。その間、あなたは幽霊のように半透明に見えます。
+Feature/&PowerShadarKaiTeleportTitle=レイヴン女王の祝福
+Race/&RaceShadarKaiDescription=シャダルカイはシャドウフェルのエルフであり、元々はレイヴンの女王によってその恐ろしい領域に引き寄せられました。何世紀にもわたって、彼女たちの中には彼女に仕え続けた者もいれば、自らの運命を切り開くために物質界に足を踏み入れた者もいる。
+Race/&RaceShadarKaiTitle=シャダルカイ

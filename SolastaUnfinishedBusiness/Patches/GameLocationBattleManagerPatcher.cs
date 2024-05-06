@@ -212,6 +212,33 @@ public static class GameLocationBattleManagerPatcher
     }
 #endif
 
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleFailedAbilityCheck))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleFailedAbilityCheck_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter checker,
+            ActionModifier abilityCheckModifier)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            //PATCH: support for `ITryAlterOutcomeAttributeCheck`
+            foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttributeCheck.Handler(
+                         __instance, action, checker, abilityCheckModifier))
+            {
+                yield return tryAlterOutcomeSavingThrow;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterMoveStart))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -739,12 +766,14 @@ public static class GameLocationBattleManagerPatcher
             // should also happen outside battles
             if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                foreach (var magicalAttackBeforeHitConfirmedOnEnemy in attacker.RulesetCharacter
+                var controller = attacker.GetEffectControllerOrSelf();
+
+                foreach (var magicalAttackBeforeHitConfirmedOnEnemy in controller.RulesetCharacter
                              .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnEnemy>())
                 {
                     yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
-                        __instance, attacker, defender, magicModifier, rulesetEffect, actualEffectForms,
-                        firstTarget, criticalHit);
+                        __instance, controller, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget,
+                        criticalHit);
                 }
 
                 if (rulesetEffect is { SourceDefinition: SpellDefinition spellDefinition })
@@ -778,8 +807,8 @@ public static class GameLocationBattleManagerPatcher
                         spellDefinition.GetFirstSubFeatureOfType<IMagicEffectBeforeHitConfirmedOnEnemy>();
 
                     yield return magicalAttackBeforeHitConfirmedOnEnemy?.OnMagicEffectBeforeHitConfirmedOnEnemy(
-                        __instance, attacker, defender, magicModifier, rulesetEffect, actualEffectForms,
-                        firstTarget, criticalHit);
+                        __instance, controller, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget,
+                        criticalHit);
                 }
             }
 

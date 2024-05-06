@@ -20,9 +20,10 @@ internal static class CreditsDisplay
         ("Zappastuff",
             "gameplay, infrastructure, maintenance, mod UI, quality of life, rules, " +
             "backgrounds, feats, fighting styles, maneuvers, invocations, metamagic, spells, " +
-            "Fairy, Half-elf, Tiefling, " +
+            "Fairy, Half-elf, Shadar-Kai, Tiefling, " +
             "Circle of the Ancient Forest, Circle of the Eternal Grove, Circle of the Stars, " +
             "College of Elegance, College of Eloquence, College of Life, College of Swords, College of Thespian, College of Valor, " +
+            "Domain Nature, Domain Tempest, " +
             "Innovation Artillerist, Innovation Vitriolist, Innovation Vivisectionist, " +
             "Martial Arcane Archer, Martial Banneret, Martial Guardian, Martial Psi Warrior, Martial Warlord, Martial Weapon Master, " +
             "Oath of Altruism, Oath of Dread, Oath of Thunder, " +
@@ -33,7 +34,7 @@ internal static class CreditsDisplay
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, " +
             "Way of Discordance, Way of Shadow, Way of Tempest, Way of Weal and Woe, Way of Zen Archery, " +
             "Wizard Bladesinger, Wizard Deadmaster, " +
-            "Level 20, Lighting and Obscurement, Multiclass"),
+            "Lighting and Obscurement, Level 20, Multiclass"),
 
         ("HiddenHax",
             "quality assurance, SFX, sprites, homebrew design [" +
@@ -57,17 +58,16 @@ internal static class CreditsDisplay
             "feats, fighting styles, items & crafting, Martial Eldritch Knight, Wizard Arcane Fighter, Wizard Spellmaster"),
 
         ("Haxermn", "spells, Domain Defiler, Domain Forge, Oath of Ancients, Oath of Hatred, Way of Dragon"),
+        ("Otearaisu", "Aasimar, Goliath, Imp, Lizardfolk, Oni, Warforged, Wendigo, Wildling, Wyrmkin"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Grey Dwarf, Kobold, Sorcerous Divine Soul"),
-        ("Nd", "College of Wardancer, Roguish Opportunist"),
         ("tivie", "Circle of the Moon, Path of the Totem Warrior"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
         ("Kloranger", "feats, spells, Wizard Graviturgist"),
         ("magicskysword", "chinese translations, asian languages support, Oath of Demon Hunter"),
+        ("Nd", "Roguish Opportunist"),
         ("DreadMaker", "Circle of the Forest Guardian"),
         ("RedOrca", "Path of the Light"),
         ("HIEROT", "Patron Eldritch Surge"),
-
-        ("Otearaisu", "Aasimar, Battleborn, Goliath, Lizardfolk, Oni, Wendigo, Wildling, Wyrmkin"),
         ("Remunos", "Ironborn Dwarf, Obsidian Dwarf"),
         ("Holic75", "Firbolg"),
         ("Bazou", "fighting styles, rules, spells"),
@@ -85,7 +85,6 @@ internal static class CreditsDisplay
         ("Vess", "homebrew design [Innovation Vitriolist]"),
 
         ("Narria", "modKit, Party Editor"),
-
         ("Artyoan", "pre-gen heroes portraits, sample portraits"),
         ("Thaladar", "sample portraits"),
 

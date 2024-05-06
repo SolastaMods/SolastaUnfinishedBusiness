@@ -64,12 +64,17 @@ Feature/&PowerFeatOrcishAggressionTitle=Orkische Aggression
 Feedback/&AdditionalDamageOrcishFuryFormat=Orkischer Zorn
 Feedback/&AdditionalDamageOrcishFuryLine=Orcish Fury verursacht zusätzlichen +{2} Schaden!
 Feedback/&BountifulLuckAttackToHitRoll={0} nutzte {1}, um eine {2} zu würfeln und den Angriffswurf zu ersetzen
+Feedback/&BountifulLuckCheckToHitRoll={0} nutzte {1}, um eine {2} zu würfeln und den Kontrollwurf zu ersetzen
 Feedback/&BountifulLuckSavingToHitRoll={0} nutzte {1}, um eine {2} zu würfeln und den Rettungswurf zu ersetzen
 Feedback/&DwarvenFortitudeHitDieRolled={0} hat eine {2} gewürfelt und {3} = {4} geheilt.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} haben {1} verpasst. {2} kann reagieren, indem er einen W20 würfelt und den Angriffswurf ersetzt.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Wirf einen W20, um den Angriffswurf zu ersetzen.
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=Reichliches Glück
 Reaction/&CustomReactionBountifulLuckAttackTitle=Reichliches Glück
+Reaction/&CustomReactionBountifulLuckCheckDescription={0} hat einen Kontrollwurf nicht bestanden. {1} kann reagieren, indem er einen W20 würfelt und den Kontrollwurf ersetzt.
+Reaction/&CustomReactionBountifulLuckCheckReactDescription=Wirf einen W20, um den Kontrollwurf zu ersetzen.
+Reaction/&CustomReactionBountifulLuckCheckReactTitle=Reichliches Glück
+Reaction/&CustomReactionBountifulLuckCheckTitle=Reichliches Glück
 Reaction/&CustomReactionBountifulLuckSavingDescription={0} hat den Rettungswurf gegen {1} nicht bestanden. {2} kann reagieren, indem er einen W20 würfelt und den Rettungswurf ersetzt.
 Reaction/&CustomReactionBountifulLuckSavingReactDescription=Wirf einen W20, um den Rettungswurf zu ersetzen.
 Reaction/&CustomReactionBountifulLuckSavingReactTitle=Reichliches Glück

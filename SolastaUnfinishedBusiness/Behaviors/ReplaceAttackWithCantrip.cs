@@ -67,7 +67,7 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        if (actionParams.RulesetEffect is not RulesetEffectSpell spellEffect ||
+        if (actionParams.activeEffect is not RulesetEffectSpell spellEffect ||
             spellEffect.spellDefinition.spellLevel > 0)
         {
             return;

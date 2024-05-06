@@ -126,7 +126,6 @@ internal static class ToolsDisplay
                 UI.Width(100f)))
         {
             Main.Settings.MultiplyTheExperienceGainedBy = intValue;
-            ToolsContext.SwitchEncounterPercentageChance();
         }
 
         UI.Label();
@@ -164,6 +163,7 @@ internal static class ToolsDisplay
             Main.Settings.FasterTimeModifier = floatValue;
         }
 
+#if false
         UI.Label();
 
         intValue = Main.Settings.EncounterPercentageChance;
@@ -172,6 +172,7 @@ internal static class ToolsDisplay
         {
             Main.Settings.EncounterPercentageChance = intValue;
         }
+#endif
 
         if (!Gui.GameCampaign)
         {

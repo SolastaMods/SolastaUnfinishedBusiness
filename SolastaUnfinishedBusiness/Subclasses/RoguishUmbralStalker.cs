@@ -50,10 +50,11 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBrightAndWithin5Ft)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddCustomSubFeatures(
-                ModifyAdditionalDamageClassLevelRogue.Instance,
-                ClassFeats.ModifyAdditionalDamageFormCloseQuarters.Marker)
             .AddToDB();
+
+        additionalDamageDeadlyShadows.AddCustomSubFeatures(
+            ModifyAdditionalDamageClassLevelRogue.Instance,
+            new ClassFeats.ModifyAdditionalDamageCloseQuarters(additionalDamageDeadlyShadows));
 
         var featureSetDeadlyShadows = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}DeadlyShadows")
@@ -77,8 +78,10 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetSpecificDamageType(DamageTypeNecrotic)
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetImpactParticleReference(Power_HornOfBlasting)
-            .AddCustomSubFeatures(ClassFeats.ModifyAdditionalDamageFormCloseQuarters.Marker)
             .AddToDB();
+
+        additionalDamageGloomBlade.AddCustomSubFeatures(
+            new ClassFeats.ModifyAdditionalDamageCloseQuarters(additionalDamageGloomBlade));
 
         var conditionGloomBlade = ConditionDefinitionBuilder
             .Create($"Condition{Name}GloomBlade")
@@ -125,7 +128,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                     .Create(powerShadowStride)
                     .AddEffectForms(EffectFormBuilder.ConditionForm(
                         ConditionDefinitions.ConditionDisengaging,
-                        ConditionForm.ConditionOperation.Add, true, true))
+                        ConditionForm.ConditionOperation.Add, true))
                     .Build())
             .AddToDB();
 

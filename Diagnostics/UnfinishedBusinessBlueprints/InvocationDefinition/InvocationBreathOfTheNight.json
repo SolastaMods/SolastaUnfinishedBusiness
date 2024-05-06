@@ -5,8 +5,8 @@
   "requiredPact": null,
   "grantedFeature": null,
   "grantedSpell": "Definition:FogCloud:c0914cf3ec2124242b9f64d267e94c17",
-  "consumesSpellSlot": true,
-  "longRestRecharge": true,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

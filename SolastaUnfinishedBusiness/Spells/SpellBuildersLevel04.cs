@@ -207,7 +207,7 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeForce, 5, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
-                    .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
+                    .SetParticleEffectParameters(Shatter)
                     .Build())
             .AddCustomSubFeatures(ForcePushOrDragFromEffectPoint.Marker)
             .AddToDB();
@@ -377,11 +377,16 @@ internal static partial class SpellBuilders
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
+            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int saveDC,
-            bool hasHitVisual,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
             List<EffectForm> effectForms)
         {
             if (abilityScoreName == AttributeDefinitions.Constitution)
@@ -417,13 +422,13 @@ internal static partial class SpellBuilders
                 DamageAffinityNecroticResistance)
             .AddCustomSubFeatures(
                 new CharacterBeforeTurnStartListenerAuraOfVitality(),
-                // need to keep this condition when hero is downed so it can stand up on it's next turn
+                // need to keep this condition when hero is downed, so it can stand up on it's next turn
                 new ForceConditionCategory(AttributeDefinitions.TagCombat))
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AuraOfVitality, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AuraOfLife, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(4)
             .SetCastingTime(ActivationTime.Action)
@@ -518,11 +523,16 @@ internal static partial class SpellBuilders
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
+            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int saveDC,
-            bool hasHitVisual,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
             List<EffectForm> effectForms)
         {
             if (effectForms.Any(x =>
@@ -634,10 +644,9 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(conditionHindered, ConditionForm.ConditionOperation.Add)
                             .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionTree, ConditionForm.ConditionOperation.Add, true, true)
-                            .Build(),
+                        EffectFormBuilder.ConditionForm(
+                                conditionTree,
+                                ConditionForm.ConditionOperation.Add, true),
                         EffectFormBuilder
                             .Create()
                             .SetTempHpForm(10, DieType.D1, 0, true)
@@ -718,11 +727,16 @@ internal static partial class SpellBuilders
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
+            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int saveDC,
-            bool hasHitVisual,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
             List<EffectForm> effectForms)
         {
             if (abilityScoreName == AttributeDefinitions.Constitution)

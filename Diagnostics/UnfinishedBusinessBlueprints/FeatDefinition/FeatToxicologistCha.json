@@ -12,9 +12,7 @@
   "familyTag": "Toxicologist",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
-    "Definition:ProficiencyCraftyAnimalHandling:5c15f948-095c-5261-9555-4b10c0449d94",
-    "Definition:ProficiencyCraftyPoisonersKit:a6c63404-64c1-5af8-b9cf-3f6dd08709fb"
+    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

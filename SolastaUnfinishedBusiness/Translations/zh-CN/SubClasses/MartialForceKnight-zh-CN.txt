@@ -8,13 +8,13 @@ Feature/&FeatureMartialForceKnightForceOfWillDescription=你的灵能赋予你�
 Feature/&FeatureMartialForceKnightForceOfWillTitle=意志力
 Feature/&FeatureSetMartialForceKnightPsionicAdeptDescription=你现在可以对被原力打击击中的生物施加一次力量豁免检定（DC = 8 + 熟练加值 + 智力调整值）。如果该生物失败了，你可以将其击退 15 尺或将其击倒。
 Feature/&FeatureSetMartialForceKnightPsionicAdeptTitle=灵能专家
-Feature/&FeatureSetMartialForceKnightPsionicInitiateDescription=你获得了许多原力点，可以用来增强各种心灵能力。你从 3 个原力点开始，此后每 3 级获得 1 个额外点。你的原力点会在短期或长期休息时恢复。 \n• 原力打击。在你的每个回合中，当你用武器攻击击中一个生物时，你可以消耗 1 点原力点来造成额外的力场伤害，伤害值等于 1d6 + 智力调整值。伤害在第 5 级时增加到 1d8，在第 11 级增加到 1d10，在第 17 级增加到 1d12。\n• 动能护壁。当你或你周围 30 尺内可以看到的其他友方生物即将受到攻击时，你可以消耗 1 点原力点并利用你的反应在其周围形成看不见的力场制护盾，为其提供额外的 AC 直到攻击生物的回合结束为止，针对该攻击和所有后续攻击的智力调整值（至少+1）。\n• 原力驱动。你可以通过一个自由动作消耗 1 点原力点来使用你的心灵力量发射武器。直到你的回合结束，你装备的近战武器获得 30 尺的额外射程。你可以在每次短休时使用此特性一次，而无需消耗原力点。
+Feature/&FeatureSetMartialForceKnightPsionicInitiateDescription=你获得了许多原力点，可以用来增强各种心灵能力。你从 3 个原力点开始，此后每 3 级获得 1 个额外点。你的原力点会在短休或长休时恢复。\n• 原力打击。在你的每个回合中，当你用武器攻击击中一个生物时，你可以消耗 1 点原力点来造成额外的力场伤害，伤害值等于 1d6 + 智力调整值。伤害在第 5 级时提升到 1d8，在第 11 级提升到 1d10，在第 17 级提升到 1d12。\n• 动能护壁。当你或你周围 30 尺内可以看到的其他友方生物即将受到攻击时，你可以消耗 1 点原力点并利用你的反应在其周围形成看不见的力场制护盾，为其提供额外的护甲等级直到攻击生物的回合结束为止，针对该攻击和所有后续攻击的智力调整值（至少+1）。\n• 原力驱动。你可以通过一个自由动作消耗 1 点原力点来使用你的心灵力量发射武器。直到你的回合结束，你装备的近战武器获得 30 尺的额外射程。你可以在每次短休时使用此特性一次，而无需消耗原力点。
 Feature/&FeatureSetMartialForceKnightPsionicInitiateTitle=灵能学徒
 Feature/&PowerMartialForceKnightForceBulwarkDescription=你可以用心灵之力保护自己和他人。作为一个附赠动作，你可以花费 1 点原力点并选择你可以在 30 尺内看到的生物，其中可以包括你，最多数量等于你的智力调整值的生物（最少一个生物）。每个选定的生物都会受到半身掩护的保护，持续 1 分钟或直到你失能。你可以在每次长休时使用此特性一次，而无需消耗原力点。
 Feature/&PowerMartialForceKnightForceBulwarkTitle=壁垒之力
 Feature/&PowerMartialForceKnightForceDriveDescription=你可以通过一个自由动作消耗 1 点原力点来使用你的念力发射武器。直到你的回合结束，你装备的近战武器获得 30 尺的额外射程。你可以在每次短休时使用此特性一次，而无需消耗原力点。
 Feature/&PowerMartialForceKnightForceDriveTitle=原力驱动
-Feature/&PowerMartialForceKnightKineticBarrierDescription=当你或你周围 30 尺内可以看到的其他友方生物即将受到攻击时，你可以消耗 1 点原力点并利用你的反应在其周围形成看不见的力场制护盾，为其提供额外的 AC 对抗该攻击和所有后续攻击的智力调整值（至少+1），可能会导致攻击失败，直到攻击生物的回合结束。
+Feature/&PowerMartialForceKnightKineticBarrierDescription=当你或你周围 30 尺内可以看到的其他友方生物即将受到攻击时，你可以消耗 1 点原力点并利用你的反应在其周围形成看不见的力场制护盾，为其提供额外的护甲等级对抗该攻击和所有后续攻击的智力调整值（至少+1），可能会导致攻击失败，直到攻击生物的回合结束。
 Feature/&PowerMartialForceKnightKineticBarrierTitle=动能护壁
 Feature/&PowerMartialForceKnightPsionicAdeptProneDescription=你可以对被原力打击击中的生物施加一次力量豁免检定（DC = 8 + 熟练加值 + 智力调整值）。如果该生物失败了，你可以将其击倒。
 Feature/&PowerMartialForceKnightPsionicAdeptProneTitle=倒地

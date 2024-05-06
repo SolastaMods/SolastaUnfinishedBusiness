@@ -14,7 +14,6 @@ internal static class MaceData
         {
             BaseItems =
                 [(ItemDefinitions.Mace, ItemDefinitions.MacePlus2)],
-            PossiblePrimedItemsToReplace = [ItemDefinitions.Primed_Mace],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Stormblade", ItemDefinitions.Enchanted_Longsword_Stormblade,

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -24,6 +25,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -42,6 +44,7 @@ internal static class OtherFeats
     {
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featAstralArms = BuildAstralArms();
+        var featDungeonDelver = BuildDungeonDelver();
         var featEldritchAdept = BuildEldritchAdept();
         var featFightingInitiate = BuildFightingInitiate();
         var featFrostAdaptation = BuildFrostAdaptation();
@@ -49,8 +52,10 @@ internal static class OtherFeats
         var featHealer = BuildHealer();
         var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
+        var featLucky = BuildFeatLucky();
         var featMagicInitiate = BuildMagicInitiate();
         var featMartialAdept = BuildTacticianAdept();
+        var featMenacing = BuildMenacing();
         var featMetamagicAdept = BuildMetamagicAdept();
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
@@ -60,6 +65,8 @@ internal static class OtherFeats
         var featVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var featWarCaster = BuildWarcaster();
 
+        var athleteGroup = BuildAthlete(feats);
+        var balefulScionGroup = BuildBalefulScion(feats);
         var chefGroup = BuildChef(feats);
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
@@ -75,15 +82,18 @@ internal static class OtherFeats
             FeatAlert,
             featArcaneArcherAdept,
             featAstralArms,
+            featDungeonDelver,
             featEldritchAdept,
             featFrostAdaptation,
             featGiftOfTheChromaticDragon,
             featHealer,
             featInfusionAdept,
             featInspiringLeader,
+            featLucky,
             FeatMageSlayer,
             featMagicInitiate,
             featMartialAdept,
+            featMenacing,
             featMetamagicAdept,
             featMonkShieldExpert,
             featMobile,
@@ -97,6 +107,9 @@ internal static class OtherFeats
             featWarCaster);
 
         GroupFeats.FeatGroupBodyResilience.AddFeats(
+            athleteGroup,
+            featDungeonDelver,
+            featLucky,
             featTough,
             featFrostAdaptation);
 
@@ -108,12 +121,14 @@ internal static class OtherFeats
             featMonkShieldExpert);
 
         GroupFeats.FeatGroupMeleeCombat.AddFeats(
+            balefulScionGroup,
             featPolearmExpert);
 
         GroupFeats.FeatGroupTwoHandedCombat.AddFeats(
             featPolearmExpert);
 
         GroupFeats.FeatGroupSpellCombat.AddFeats(
+            balefulScionGroup,
             elementalAdeptGroup,
             elementalMasterGroup,
             featWarCaster,
@@ -124,7 +139,9 @@ internal static class OtherFeats
             chefGroup,
             featHealer,
             featInspiringLeader,
+            featLucky,
             FeatMageSlayer,
+            featMenacing,
             featSentinel,
             weaponMasterGroup);
 
@@ -134,6 +151,7 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupSkills.AddFeats(
             featHealer,
+            featMenacing,
             featPickPocket);
 
         GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
@@ -221,7 +239,7 @@ internal static class OtherFeats
                     .SetModifier(AttributeModifierOperation.Additive,
                         AttributeDefinitions.Constitution, 1)
                     .AddToDB(),
-                FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance)
+                DamageAffinityColdResistance)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
@@ -325,7 +343,7 @@ internal static class OtherFeats
                         .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                         .SetReplacedSpells(1, 0)
                         .SetUniqueLevelSlots(false)
-                        .AddCustomSubFeatures(new SpellTag(FeatMagicInitiateTag))
+                        .AddCustomSubFeatures(new FeatHelpers.SpellTag(FeatMagicInitiateTag))
                         .AddToDB(),
                     FeatureDefinitionPointPoolBuilder
                         .Create($"PointPool{NAME}{className}Cantrip")
@@ -417,12 +435,23 @@ internal static class OtherFeats
             .Create(FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
                 "ProficiencyFeatPickPocket")
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.SleightOfHand)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.SleightOfHand)
+            .AddToDB();
+
+        var proficiencyFeatPickPocketExpertise = FeatureDefinitionProficiencyBuilder
+            .Create(FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
+                "ProficiencyFeatPickPocketExpertise")
+            .SetGuiPresentation("FeatPickPocket", Category.Feat)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.SleightOfHand)
             .AddToDB();
 
         return FeatDefinitionBuilder
             .Create(FeatDefinitions.Lockbreaker, "FeatPickPocket")
-            .SetFeatures(abilityCheckAffinityFeatPickPocket, proficiencyFeatPickPocket)
+            .SetFeatures(abilityCheckAffinityFeatPickPocket)
+            .AddCustomSubFeatures(
+                new FeatHelpers.SkillOrExpertise(
+                    DatabaseHelper.SkillDefinitions.SleightOfHand,
+                    proficiencyFeatPickPocket, proficiencyFeatPickPocketExpertise))
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
@@ -526,18 +555,559 @@ internal static class OtherFeats
 
     #endregion
 
-    #region Helpers
+    #region Menacing
 
-    internal sealed class SpellTag
+    private static FeatDefinitionWithPrerequisites BuildMenacing()
     {
-        internal SpellTag(string spellTag, bool forceFixedList = false)
+        const string NAME = "FeatMenacing";
+
+        var proficiencySkill = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Intimidation)
+            .AddToDB();
+
+        var proficiencyExpertise = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{NAME}Expertise")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Intimidation)
+            .AddToDB();
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite(NAME, Resources.PowerMenacing, 128))
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetRestrictedCreatureFamilies("Humanoid")
+                    .SetCasterEffectParameters(PowerBerserkerIntimidatingPresence)
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.HasMainAttackAvailable,
+            new CustomBehaviorMenacing(condition),
+            new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Intimidation,
+                proficiencySkill, proficiencyExpertise));
+
+        var feat = FeatDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Solasta, power)
+            .AddToDB();
+
+        return feat;
+    }
+
+    private sealed class CustomBehaviorMenacing(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionMark) : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            Name = spellTag;
-            ForceFixedList = forceFixedList;
+            var isValid = !target.RulesetActor.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionMark.Name);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveChaosBoltMark");
+            }
+
+            return isValid;
         }
 
-        internal string Name { get; }
-        internal bool ForceFixedList { get; }
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var attacker = action.ActingCharacter;
+            var defender = action.ActionParams.TargetCharacters[0];
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            attacker.BurnOneMainAttack();
+
+            if (!ResolveContest(attacker, defender))
+            {
+                rulesetDefender.InflictCondition(
+                    conditionMark.Name,
+                    DurationType.UntilAnyRest,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionMark.Name,
+                    0,
+                    0,
+                    0);
+
+                yield break;
+            }
+
+            rulesetDefender.InflictCondition(
+                ConditionFrightened,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionFrightened,
+                0,
+                0,
+                0);
+        }
+
+        private static bool ResolveContest(GameLocationCharacter actor, GameLocationCharacter opponent)
+        {
+            var actionModifierActor = new ActionModifier();
+            var actionModifierOpponent = new ActionModifier();
+
+            var abilityCheckBonusActor = actor.RulesetCharacter.ComputeBaseAbilityCheckBonus(
+                AttributeDefinitions.Charisma,
+                actionModifierActor.AbilityCheckModifierTrends, SkillDefinitions.Intimidation);
+
+            var abilityCheckBonusOpponent = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus(
+                AttributeDefinitions.Wisdom,
+                actionModifierOpponent.AbilityCheckModifierTrends, SkillDefinitions.Insight);
+
+            actor.ComputeAbilityCheckActionModifier(
+                AttributeDefinitions.Charisma, SkillDefinitions.Intimidation, actionModifierActor);
+
+            opponent.ComputeAbilityCheckActionModifier(
+                AttributeDefinitions.Wisdom, SkillDefinitions.Insight, actionModifierOpponent);
+
+            foreach (var key in actor.RulesetCharacter.GetFeaturesByType<IActionPerformanceProvider>())
+            {
+                foreach (var executionModifier in key.ActionExecutionModifiers)
+                {
+                    if (executionModifier.actionId != ActionDefinitions.Id.PowerNoCost ||
+                        !actor.RulesetCharacter.IsMatchingEquipementCondition(executionModifier.equipmentContext) ||
+                        executionModifier.advantageType == AdvantageType.None)
+                    {
+                        continue;
+                    }
+
+                    var num = executionModifier.advantageType == AdvantageType.Advantage ? 1 : -1;
+                    var featureOrigin = actor.RulesetCharacter.FeaturesOrigin[(key as FeatureDefinition)!];
+
+                    actionModifierActor.AbilityCheckAdvantageTrends.Add(
+                        new TrendInfo(num, featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
+                }
+            }
+
+            actor.RulesetCharacter.ResolveContestCheck(
+                abilityCheckBonusActor,
+                actionModifierActor.AbilityCheckModifier,
+                AttributeDefinitions.Charisma,
+                SkillDefinitions.Intimidation,
+                actionModifierActor.AbilityCheckAdvantageTrends,
+                actionModifierActor.AbilityCheckModifierTrends,
+                abilityCheckBonusOpponent,
+                actionModifierOpponent.AbilityCheckModifier,
+                AttributeDefinitions.Wisdom,
+                SkillDefinitions.Insight,
+                actionModifierOpponent.AbilityCheckAdvantageTrends,
+                actionModifierOpponent.AbilityCheckModifierTrends,
+                opponent.RulesetCharacter,
+                out var outcome);
+
+            return outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+        }
+    }
+
+    #endregion
+
+    #region Baleful Scion
+
+    private static FeatDefinition BuildBalefulScion(List<FeatDefinition> feats)
+    {
+        const string NAME = "FeatBalefulScion";
+
+        var powerBalefulScion = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .DelegatedToAction()
+            .AddToDB();
+
+        var additionalDamageBalefulScion = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("BalefulScion")
+            .SetDamageDice(DieType.D6, 1)
+            .SetSpecificDamageType(DamageTypeNecrotic)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetImpactParticleReference(PowerWightLordRetaliate)
+            .AddCustomSubFeatures(
+                new ValidateContextInsteadOfRestrictedProperty(
+                    (_, _, character, _, _, _, _) =>
+                        (OperationType.Set,
+                            character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) &&
+                            character.GetRemainingPowerUses(powerBalefulScion) > 0)))
+            .AddToDB();
+
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "BalefulScionToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.BalefulScionToggle)
+            .SetActivatedPower(powerBalefulScion)
+            .AddToDB();
+
+        var actionAffinityBalefulScion = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityBalefulScionToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle)
+            .AddCustomSubFeatures(
+                new CustomBehaviorBalefulScion(powerBalefulScion, additionalDamageBalefulScion),
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerBalefulScion)))
+            .AddToDB();
+
+        var featStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Einar,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        var featDex = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Misaye,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        var featCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Arun,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        var featInt = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Int")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Pakri,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        var featWis = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Wis")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Maraike,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        var featCha = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}Cha")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Solasta,
+                actionAffinityBalefulScion, additionalDamageBalefulScion, powerBalefulScion)
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .SetFeatFamily(NAME)
+            .AddToDB();
+
+        feats.AddRange(featStr, featDex, featCon, featInt, featWis, featCha);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupBalefulScion", NAME, ValidatorsFeat.IsLevel4,
+            featStr, featDex, featCon, featInt, featWis, featCha);
+    }
+
+    private class CustomBehaviorBalefulScion(
+        FeatureDefinitionPower powerBalefulScion,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamageBalefulScion)
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, IModifyAdditionalDamage,
+            IActionFinishedByMe
+    {
+        private bool _isCritical;
+        private bool _isValid;
+
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (!_isValid)
+            {
+                yield break;
+            }
+
+            var roll = RollDie(DieType.D6, AdvantageType.None, out _, out _);
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var healAmount = (roll * (_isCritical ? 2 : 1)) +
+                             rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            rulesetCharacter.ReceiveHealing(healAmount, true, rulesetCharacter.Guid);
+        }
+
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            _isCritical = criticalHit;
+            _isValid = false;
+
+            if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
+            {
+                yield break;
+            }
+
+            yield return HandleBalefulScion(attacker, defender);
+        }
+
+        public void ModifyAdditionalDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
+        {
+            if (featureDefinitionAdditionalDamage != additionalDamageBalefulScion)
+            {
+                return;
+            }
+
+            damageForm.BonusDamage =
+                attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            _isCritical = criticalHit;
+            _isValid = false;
+
+            if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
+            {
+                yield break;
+            }
+
+            yield return HandleBalefulScion(attacker, defender);
+        }
+
+        private IEnumerator HandleBalefulScion(
+            // ReSharper disable once SuggestBaseTypeForParameter
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!attacker.IsWithinRange(defender, 12) ||
+                !attacker.OncePerTurnIsValid("AdditionalDamageFeatBalefulScion") ||
+                rulesetDefender is not { IsDeadOrUnconscious: false } ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) ||
+                rulesetAttacker.GetRemainingPowerUses(powerBalefulScion) == 0)
+            {
+                yield break;
+            }
+
+            _isValid = true;
+
+            var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
+
+            usablePower.Consume();
+        }
+    }
+
+    #endregion
+
+    #region Dungeon Delver
+
+    private static FeatDefinition BuildDungeonDelver()
+    {
+        const string Name = "FeatDungeonDelver";
+
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create($"AbilityCheckAffinity{Name}")
+                    .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                    .BuildAndSetAffinityGroups(
+                        CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                        (AttributeDefinitions.Wisdom, SkillDefinitions.Perception,
+                            AbilityCheckContext.GadgetInteraction),
+                        (AttributeDefinitions.Intelligence, SkillDefinitions.Investigation,
+                            AbilityCheckContext.GadgetInteraction))
+                    .AddCustomSubFeatures(
+                        new CustomBehaviorDungeonDelver(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{Name}")
+                                .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetFeatures(
+                                    DamageAffinityAcidResistance,
+                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityColdResistance,
+                                    DamageAffinityFireResistance,
+                                    DamageAffinityForceDamageResistance,
+                                    DamageAffinityLightningResistance,
+                                    DamageAffinityNecroticResistance,
+                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPoisonResistance,
+                                    DamageAffinityPsychicResistance,
+                                    DamageAffinityRadiantResistance,
+                                    DamageAffinitySlashingResistance,
+                                    DamageAffinityThunderResistance)
+                                .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+                                .AddToDB()))
+                    .AddToDB())
+            .AddFeatures(
+                DatabaseRepository
+                    .GetDatabase<TerrainTypeDefinition>()
+                    .Select(terrainType =>
+                        FeatureDefinitionTerrainTypeAffinityBuilder
+                            .Create($"TerrainTypeAffinity{Name}{terrainType.Name}")
+                            .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                            .IgnoreTravelPacePerceptionMalus(terrainType.Name)
+                            .AddToDB())
+                    .Cast<FeatureDefinition>()
+                    .ToArray())
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorDungeonDelver(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionResistance) : IRollSavingThrowInitiated
+    {
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            if (caster is RulesetCharacterHero or RulesetCharacterMonster)
+            {
+                return;
+            }
+
+            advantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Condition, conditionResistance.Name, conditionResistance));
+
+            defender.InflictCondition(
+                conditionResistance.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                defender.guid,
+                defender.CurrentFaction.Name,
+                1,
+                conditionResistance.Name,
+                0,
+                0,
+                0);
+        }
+    }
+
+    #endregion
+
+    #region Athlete
+
+    internal static FeatDefinition FeatAthleteStr { get; private set; }
+    internal static FeatDefinition FeatAthleteDex { get; private set; }
+
+    private static FeatDefinition BuildAthlete(List<FeatDefinition> feats)
+    {
+        const string Name = "Athlete";
+
+        var movementAffinity = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetClimbing(true)
+            .AddToDB();
+
+        var skill = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Athletics)
+            .AddToDB();
+
+        var expertise = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}Expertise")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Athletics)
+            .AddToDB();
+
+        var customBehavior = new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Athletics,
+            skill, expertise);
+
+        FeatAthleteStr = FeatDefinitionBuilder
+            .Create($"Feat{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, movementAffinity)
+            .AddCustomSubFeatures(customBehavior)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        FeatAthleteDex = FeatDefinitionBuilder
+            .Create($"Feat{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, movementAffinity)
+            .AddCustomSubFeatures(customBehavior)
+            .SetFeatFamily(Name)
+            .AddToDB();
+
+        feats.AddRange(FeatAthleteStr, FeatAthleteDex);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupAthlete", Name, FeatAthleteStr, FeatAthleteDex);
     }
 
     #endregion
@@ -1059,11 +1629,6 @@ internal static class OtherFeats
             // ReSharper disable once ParameterTypeCanBeEnumerable.Local
             List<EffectForm> actualEffectForms)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var effectForm = actualEffectForms
                 .FirstOrDefault(x =>
                     x.FormType == EffectForm.EffectFormType.Damage &&
@@ -1197,7 +1762,13 @@ internal static class OtherFeats
         var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatHealerMedicine")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Medecine)
+            .AddToDB();
+
+        var proficiencyFeatHealerMedicineExpertise = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyFeatHealerMedicineExpertise")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Medecine)
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -1208,6 +1779,10 @@ internal static class OtherFeats
                 powerFeatHealerResuscitate,
                 powerFeatHealerStabilize,
                 proficiencyFeatHealerMedicine)
+            .AddCustomSubFeatures(
+                new FeatHelpers.SkillOrExpertise(
+                    DatabaseHelper.SkillDefinitions.Medecine,
+                    proficiencyFeatHealerMedicine, proficiencyFeatHealerMedicineExpertise))
             .AddToDB();
     }
 
@@ -1232,6 +1807,338 @@ internal static class OtherFeats
             effectDescription.EffectForms[0].HealingForm.bonusHealing = characterLevel + medicineBonus;
 
             return effectDescription;
+        }
+    }
+
+    #endregion
+
+    #region Lucky
+
+    private static FeatDefinition BuildFeatLucky()
+    {
+        const string Name = "FeatLucky";
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Feature{Name}")
+            .SetGuiPresentation(Name, Category.Feat, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
+            .SetShowCasting(false)
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new CustomBehaviorLucky(power));
+
+        var feat = FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(power)
+            .AddToDB();
+
+        return feat;
+    }
+
+    private sealed class CustomBehaviorLucky(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerLucky)
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow, IRollSavingThrowFinished
+    {
+        private int _modifier;
+
+        private int _saveDC;
+
+        public void OnSavingThrowFinished(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            int saveBonus,
+            string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            _saveDC = saveDC;
+            _modifier = saveBonus + rollModifier;
+        }
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier attackModifier)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerLucky, rulesetHelper);
+
+            if (rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            string stringParameter;
+
+            if (helper == attacker &&
+                action.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                stringParameter = "LuckyAttack";
+            }
+            else if (helper == defender &&
+                     action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                stringParameter = "LuckyEnemyAttack";
+            }
+            else
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var reactionParams =
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+                {
+                    StringParameter = stringParameter,
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { helper }
+                };
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToUsePower(reactionParams, "UsePower", helper);
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            switch (stringParameter)
+            {
+                case "LuckyAttack" when dieRoll <= action.AttackRoll:
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        "Feat/&FeatLuckyTitle",
+                        "Feedback/&IsNotLuckyLower",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                            (ConsoleStyleDuplet.ParameterType.Positive, action.AttackRoll.ToString())
+                        ]);
+
+                    yield break;
+                case "LuckyEnemyAttack" when dieRoll >= action.AttackRoll:
+                    rulesetHelper.LogCharacterActivatesAbility(
+                        "Feat/&FeatLuckyTitle",
+                        "Feedback/&IsNotLuckyHigher",
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                            (ConsoleStyleDuplet.ParameterType.Negative, action.AttackRoll.ToString())
+                        ]);
+
+                    yield break;
+            }
+
+            action.AttackSuccessDelta += dieRoll - action.AttackRoll;
+            action.AttackRoll = dieRoll;
+
+            if (action.AttackSuccessDelta >= 0)
+            {
+                action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
+            }
+
+            rulesetHelper.LogCharacterActivatesAbility(
+                "Feat/&FeatLuckyTitle",
+                "Feedback/&LuckyAttackToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                ]);
+        }
+
+        public IEnumerator OnTryAlterAttributeCheck(
+            GameLocationBattleManager battleManager,
+            AbilityCheckData abilityCheckData,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier abilityCheckModifier)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerLucky, rulesetHelper);
+
+            if (abilityCheckData.AbilityCheckRoll == 0 ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                helper != defender ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var reactionParams =
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+                {
+                    StringParameter = "LuckyCheck",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { helper }
+                };
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToUsePower(reactionParams, "UsePower", helper);
+
+            yield return battleManager.WaitForReactions(defender, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            if (dieRoll <= abilityCheckData.AbilityCheckRoll)
+            {
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feat/&FeatLuckyTitle",
+                    "Feedback/&IsNotLuckyLower",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Positive, abilityCheckData.AbilityCheckRoll.ToString())
+                    ]);
+
+                yield break;
+            }
+
+            abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
+            abilityCheckData.AbilityCheckRoll = dieRoll;
+
+            (ConsoleStyleDuplet.ParameterType, string) extra;
+
+            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
+            {
+                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
+                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
+            }
+            else
+            {
+                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
+            }
+
+            rulesetHelper.LogCharacterActivatesAbility(
+                "Feat/&FeatLuckyTitle",
+                "Feedback/&LuckyCheckToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                    extra
+                ]);
+        }
+
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier saveModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerLucky, rulesetHelper);
+
+            if (!action.RolledSaveThrow ||
+                action.SaveOutcome != RollOutcome.Failure ||
+                helper != defender ||
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var reactionParams =
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+                {
+                    StringParameter = "LuckySaving",
+                    StringParameter2 = "UseLuckySavingDescription".Formatted(
+                        Category.Reaction, defender.Name, attacker.Name, helper.Name),
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { attacker }
+                };
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToUsePower(reactionParams, "UsePower", attacker);
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+            var savingRoll = action.SaveOutcomeDelta - _modifier + _saveDC;
+
+            if (dieRoll <= savingRoll)
+            {
+                rulesetHelper.LogCharacterActivatesAbility(
+                    "Feat/&FeatLuckyTitle",
+                    "Feedback/&IsNotLuckyLower",
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Positive, savingRoll.ToString())
+                    ]);
+
+                yield break;
+            }
+
+            action.saveOutcomeDelta += dieRoll - savingRoll;
+            action.RolledSaveThrow = true;
+
+            (ConsoleStyleDuplet.ParameterType, string) extra;
+
+            if (action.saveOutcomeDelta >= 0)
+            {
+                action.saveOutcome = RollOutcome.Success;
+                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
+            }
+            else
+            {
+                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
+            }
+
+            rulesetHelper.LogCharacterActivatesAbility(
+                "Feat/&FeatLuckyTitle",
+                "Feedback/&LuckySavingToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                    extra
+                ]);
         }
     }
 
@@ -1400,8 +2307,7 @@ internal static class OtherFeats
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager || !battleManager)
             {
                 yield break;
             }
@@ -1763,7 +2669,7 @@ internal static class OtherFeats
                         .SetKnownSpells(0, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                         .SetReplacedSpells(1, 0)
                         .SetUniqueLevelSlots(false)
-                        .AddCustomSubFeatures(new SpellTag(FeatSpellSniperTag))
+                        .AddCustomSubFeatures(new FeatHelpers.SpellTag(FeatSpellSniperTag))
                         .SetSpellList(spellList)
                         .AddToDB(),
                     FeatureDefinitionPointPoolBuilder

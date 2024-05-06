@@ -1,0 +1,75 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Domain",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 1,
+      "spellsList": [
+        "Definition:AnimalFriendship:5f03823791376fd48b1868183b041cb3",
+        "Definition:Entangle:0224dcb79ea69f34eb9a51546fc78d0d"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 3,
+      "spellsList": [
+        "Definition:Barkskin:fcb74f4deaec07b40814328a9d5aa5f6",
+        "Definition:SpikeGrowth:489c8aa040535444da10a267213ee7dc"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 5,
+      "spellsList": [
+        "Definition:ConjureAnimals:f0e0d1125df2d554eb10d3dde3a2050d",
+        "Definition:WindWall:c76d03525ff3cff4b81e13884aa155f9"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 7,
+      "spellsList": [
+        "Definition:DominateBeast:c3d07b9ef913f2d4ab8682c01ce7a3e1",
+        "Definition:FreedomOfMovement:7c93b80e19d0f3e47843e96bd06d026c"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:InsectPlague:f74938dd8dd25294b97663330c8e293e",
+        "Definition:CloudKill:264bc71496ff9db4682be867a130a0a4"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ExpandedSpellsTitle",
+    "description": "Feature/&ExpandedSpellsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "20e017f1-1816-5659-bf28-dfd17a2280b5",
+  "contentPack": 9999,
+  "name": "AutoPreparedSpellsDomainNature"
+}

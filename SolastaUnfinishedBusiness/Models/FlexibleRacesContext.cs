@@ -108,6 +108,7 @@ internal static class FlexibleRacesContext
             ]
         },
         { "RaceDarkelf", ["AttributeModifierDarkelfCharismaAbilityScoreIncrease"] },
+        { "RaceShadarKai", ["PointPoolShadarKaiAbilityScoreIncrease"] },
         { "RaceHalfElfVariant", ["FeatureSetHalfElfAbilityScoreIncrease"] },
         { "RaceGrayDwarf", ["AttributeModifierGrayDwarfStrengthAbilityScoreIncrease"] },
         { "RaceDarkKobold", ["AttributeModifierElfAbilityScoreIncrease"] },
@@ -117,6 +118,7 @@ internal static class FlexibleRacesContext
         { "RaceWildling", ["FeatureSetWildlingAbilityScoreIncrease"] },
         { "RaceBattleborn", ["FeatureSetBattlebornAbilityScoreIncrease"] },
         { "RaceOni", ["FeatureSetOniAbilityScoreIncrease"] },
+        { "RaceImpBadland", ["FeatureSetImpBadlandAbilityScoreIncrease"] },
         { "RaceImpInfernal", ["FeatureSetImpInfernalAbilityScoreIncrease"] },
         { "RaceImpForest", ["FeatureSetImpForestAbilityScoreIncrease"] },
         { "RaceIronbornDwarf", ["AttributeModifierIronbornDwarfStrengthAbilityScoreIncrease"] },

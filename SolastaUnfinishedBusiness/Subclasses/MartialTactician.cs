@@ -300,7 +300,7 @@ public sealed class MartialTactician : AbstractSubclass
 
             var character = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
 
-            if (character == null)
+            if (character == null || character.GetClassLevel(CharacterClassDefinitions.Fighter) < 10)
             {
                 return;
             }
@@ -341,7 +341,8 @@ public sealed class MartialTactician : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction &&
+            if ((action.ActionType is not ActionDefinitions.ActionType.Reaction ||
+                 attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag)) &&
                 !attackMode.attackTags.Contains(TacticalAwareness))
             {
                 yield break;

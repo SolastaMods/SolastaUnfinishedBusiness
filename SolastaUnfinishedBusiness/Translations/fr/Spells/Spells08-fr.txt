@@ -1,4 +1,6 @@
 Condition/&ConditionMindBlankDescription=Immunisé contre les dégâts psychiques et l'état charmé.
 Condition/&ConditionMindBlankTitle=Vide d'esprit
+Spell/&MaddeningDarknessDescription=L'obscurité magique se propage à partir d'un point que vous choisissez à portée pour remplir une sphère de 60 pieds de rayon jusqu'à la fin du sort. Des cris, des bavardages et des rires fous peuvent être entendus dans la sphère. Lors de l'activation, et chaque fois qu'une créature termine son tour dans la sphère, elle doit effectuer un jet de sauvegarde de Sagesse, subissant 6d8 dégâts psychiques en cas d'échec, ou la moitié de ces dégâts en cas de réussite.
+Spell/&MaddeningDarknessTitle=Ténèbres exaspérantes
 Spell/&MindBlankDescription=Jusqu'à la fin du sort, une créature consentante que vous touchez est immunisée contre les dégâts psychiques, tout effet qui détecterait ses émotions ou lirait ses pensées, les sorts de divination et l'état charmé.
 Spell/&MindBlankTitle=Vide d'esprit

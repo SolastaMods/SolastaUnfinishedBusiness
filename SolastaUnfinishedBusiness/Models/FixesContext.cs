@@ -391,6 +391,20 @@ internal static class FixesContext
 
     private static void FixMinorMagicEffectsIssues()
     {
+        // fix Vampiric Touch
+        VampiricTouch.EffectDescription.rangeParameter = 1;
+
+        // fix Banishment
+        var conditionBanishedByBanishment = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionBanished, "ConditionBanishedByBanishment")
+            .SetParentCondition(ConditionDefinitions.ConditionBanished)
+            .SetFeatures()
+            .AddToDB();
+
+        Banishment.EffectDescription.EffectForms[0] = EffectFormBuilder.ConditionForm(conditionBanishedByBanishment);
+        conditionBanishedByBanishment.permanentlyRemovedIfExtraPlanar = true;
+        ConditionDefinitions.ConditionBanished.permanentlyRemovedIfExtraPlanar = false;
+
         // fix touch powers with range parameter greater than zero
         foreach (var power in DatabaseRepository.GetDatabase<SpellDefinition>()
                      .Where(x => x.EffectDescription.RangeType == RangeType.Touch))
@@ -480,7 +494,8 @@ internal static class FixesContext
         RayOfEnfeeblement.EffectDescription.recurrentEffect =
             RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart;
 
-        //BUGFIX: Sorcerers should have Insect Plague at level 5
+        //BUGFIX: Sorcerers should have Fire Shield at 4 and Insect Plague at level 5
+        SpellListSorcerer.SpellsByLevel.FirstOrDefault(x => x.Level == 4)!.Spells.Add(FireShield);
         SpellListSorcerer.SpellsByLevel.FirstOrDefault(x => x.Level == 5)!.Spells.Add(InsectPlague);
 
         //BUGFIX: Shows Concentration tag in UI
@@ -568,7 +583,8 @@ internal static class FixesContext
 
     private static void FixAdditionalDamageRogueSneakAttack()
     {
-        AdditionalDamageRogueSneakAttack.AddCustomSubFeatures(new ModifyAdditionalDamageFormRogueSneakAttack());
+        AdditionalDamageRogueSneakAttack.AddCustomSubFeatures(
+            new ModifyAdditionalDamageRogueSneakAttack(AdditionalDamageRogueSneakAttack));
     }
 
     private static void FixCriticalThresholdModifiers()
@@ -691,24 +707,32 @@ internal static class FixesContext
     // CONSOLIDATED SNEAK ATTACK DAMAGE FORM MODIFIER
     //
 
-    private sealed class ModifyAdditionalDamageFormRogueSneakAttack : IModifyAdditionalDamageForm
+    private sealed class ModifyAdditionalDamageRogueSneakAttack(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
     {
-        public DamageForm AdditionalDamageForm(
+        public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            DamageForm damageForm)
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
         {
+            if (featureDefinitionAdditionalDamage != additionalDamage)
+            {
+                return;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter.GetOriginalHero();
 
             if (rulesetAttacker == null)
             {
-                return damageForm;
+                return;
             }
 
             // handle close quarters feat
-            ClassFeats.HandleCloseQuarters(attacker, rulesetAttacker, defender, damageForm);
+            ClassFeats.HandleCloseQuarters(attacker, rulesetAttacker, defender, ref damageForm);
 
             // handle rogue cunning strike feature
             if (rulesetAttacker.TryGetConditionOfCategoryAndType(
@@ -794,8 +818,6 @@ internal static class FixesContext
 
                 damageForm.DamageType = DamageTypeNecrotic;
             }
-
-            return damageForm;
         }
     }
 }

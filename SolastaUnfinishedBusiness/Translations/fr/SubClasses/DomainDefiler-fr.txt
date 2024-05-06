@@ -16,7 +16,5 @@ Feature/&PowerDomainDefilerDefileLifeDescription=Libérez une vague d'énergie n
 Feature/&PowerDomainDefilerDefileLifeTitle=Souiller la vie
 Feature/&PowerDomainDefilerDyingLightDescription=Chaque fois que vous infligez des dégâts nécrotiques, vous pouvez infliger un maximum de dégâts au lieu de lancer. Vous pouvez utiliser cette fonctionnalité une fois par repos long.
 Feature/&PowerDomainDefilerDyingLightTitle=Lumière mourante
-Feedback/&AdditionalDamageDivineStrikeFormat=Frappe divine !
-Feedback/&AdditionalDamageDivineStrikeLine={0} effectue une attaque divine sur {1} (+{2})
 Subclass/&DomainDefilerDescription=Les profanateurs vénèrent les patrons de la mort, de la corruption et du fléau, recherchant le pouvoir et la corruption à leurs propres fins : pour plaire à leurs dieux ou pour des raisons plus égoïstes.
 Subclass/&DomainDefilerTitle=Profanateur

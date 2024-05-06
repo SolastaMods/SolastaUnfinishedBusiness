@@ -1,0 +1,6 @@
+Feature/&DamageAffinityShadarKaiDescription=You have resistance to necrotic damage.
+Feature/&DamageAffinityShadarKaiTitle=Necrotic Resistance
+Feature/&PowerShadarKaiTeleportDescription=As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Starting at 3rd level, you also gain resistance to all damage when you teleport using this trait. The resistance lasts until the start of your next turn. During that time, you appear ghostly and translucent.
+Feature/&PowerShadarKaiTeleportTitle=Blessing of the Raven Queen
+Race/&RaceShadarKaiDescription=Shadar-kai are the elves of the Shadowfell, originally drawn to that dread realm by the Raven Queen. Over the centuries, some of them have continued to serve her, while others have ventured into the Material Plane to forge their own destinies.
+Race/&RaceShadarKaiTitle=Shadar-Kai

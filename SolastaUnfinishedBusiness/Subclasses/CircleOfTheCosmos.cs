@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -566,10 +567,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 dieRollModifierDragonConcentration)
             .AddToDB();
 
-        // there is indeed a typo on tag
-        // ReSharper disable once StringLiteralTypo
-        conditionDragon10.ConditionTags.SetRange("Verticality");
-
         var conditionDragon14 = ConditionDefinitionBuilder
             .Create(conditionDragon10, $"Condition{Name}Dragon14")
             .SetParentCondition(ConditionDefinitions.ConditionFlying)
@@ -623,9 +620,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
-            if (action.ActionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
+            if (action.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower)
             {
                 yield break;
             }
@@ -775,7 +772,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetEffect = action.ActionParams.RulesetEffect;
@@ -855,7 +852,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
     private sealed class TryAlterOutcomeSavingThrowWeal(
         FeatureDefinitionPower powerPool,
-        FeatureDefinitionPower powerWeal) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
+        FeatureDefinitionPower powerWeal)
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
     {
         private const DieType DieType = RuleDefinitions.DieType.D6;
         private static readonly int MaxDieTypeValue = DiceMaxValue[(int)DieType];
@@ -915,7 +913,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 });
 
             action.AttackSuccessDelta += dieRoll;
-            attackModifier.attackRollModifier += dieRoll;
+            attackModifier.AttackRollModifier += dieRoll;
 
             if (action.AttackSuccessDelta >= 0)
             {
@@ -930,6 +928,79 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                ]);
+        }
+
+        public IEnumerator OnTryAlterAttributeCheck(
+            GameLocationBattleManager battleManager,
+            AbilityCheckData abilityCheckData,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier abilityCheckModifier)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+
+            if (abilityCheckData.AbilityCheckRoll == 0 ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                abilityCheckData.AbilityCheckSuccessDelta + MaxDieTypeValue < 0 ||
+                rulesetHelper.GetRemainingPowerUses(powerWeal) == 0 ||
+                !helper.CanReact() ||
+                defender.IsOppositeSide(helper.Side) ||
+                !helper.IsWithinRange(defender, 6) ||
+                !helper.CanPerceiveTarget(defender))
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPool, rulesetHelper);
+            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "WealCosmosOmenCheck",
+                StringParameter2 = "SpendPowerWealCosmosOmenCheckDescription".Formatted(
+                    Category.Reaction, defender.Name, helper.Name),
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                UsablePower = usablePower
+            };
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(defender, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            abilityCheckData.AbilityCheckRoll += dieRoll;
+            abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
+
+            (ConsoleStyleDuplet.ParameterType, string) extra;
+
+            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
+            {
+                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
+                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
+            }
+            else
+            {
+                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
+            }
+
+            helper.RulesetCharacter.LogCharacterUsedPower(
+                powerWeal,
+                "Feedback/&CosmosOmenCheckToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                    extra
                 ]);
         }
 
@@ -948,11 +1019,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 action.SaveOutcomeDelta + MaxDieTypeValue < 0 ||
-                rulesetHelper.GetRemainingPowerUses(powerWeal) == 0 ||
                 !helper.CanReact() ||
-                defender.IsOppositeSide(helper.Side) ||
+                helper.IsOppositeSide(defender.Side) ||
                 !helper.IsWithinRange(defender, 6) ||
-                !helper.CanPerceiveTarget(defender))
+                !helper.CanPerceiveTarget(defender) ||
+                rulesetHelper.GetRemainingPowerUses(powerWeal) == 0)
             {
                 yield break;
             }
@@ -985,11 +1056,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var dieRoll = rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
             action.RolledSaveThrow = true;
-            action.saveOutcomeDelta += dieRoll;
+            action.SaveOutcomeDelta += dieRoll;
 
             (ConsoleStyleDuplet.ParameterType, string) extra;
 
-            if (action.saveOutcomeDelta >= 0)
+            if (action.SaveOutcomeDelta >= 0)
             {
                 action.saveOutcome = RollOutcome.Success;
                 extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
@@ -1016,7 +1087,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
     private sealed class TryAlterOutcomeSavingThrowWoe(
         FeatureDefinitionPower powerPool,
-        FeatureDefinitionPower powerWoe) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
+        FeatureDefinitionPower powerWoe)
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
     {
         private const DieType DieType = RuleDefinitions.DieType.D6;
         private static readonly int MaxDieTypeValue = DiceMaxValue[(int)DieType];
@@ -1033,11 +1105,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             if (action.AttackRollOutcome != RollOutcome.Success ||
                 action.AttackSuccessDelta - MaxDieTypeValue >= 0 ||
-                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0 ||
                 !helper.CanReact() ||
-                !attacker.IsOppositeSide(helper.Side) ||
+                !helper.IsOppositeSide(attacker.Side) ||
                 !helper.IsWithinRange(attacker, 6) ||
-                !helper.CanPerceiveTarget(attacker))
+                !helper.CanPerceiveTarget(attacker) ||
+                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0)
             {
                 yield break;
             }
@@ -1076,7 +1148,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 });
 
             action.AttackSuccessDelta += dieRoll;
-            attackModifier.attackRollModifier += dieRoll;
+            attackModifier.AttackRollModifier += dieRoll;
 
             if (action.AttackSuccessDelta < 0)
             {
@@ -1091,6 +1163,79 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                ]);
+        }
+
+        public IEnumerator OnTryAlterAttributeCheck(
+            GameLocationBattleManager battleManager,
+            AbilityCheckData abilityCheckData,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier abilityCheckModifier)
+        {
+            var rulesetHelper = helper.RulesetCharacter;
+
+            if (abilityCheckData.AbilityCheckRoll == 0 ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Success ||
+                abilityCheckData.AbilityCheckSuccessDelta - MaxDieTypeValue >= 0 ||
+                !helper.CanReact() ||
+                !helper.IsOppositeSide(defender.Side) ||
+                !helper.IsWithinRange(defender, 6) ||
+                !helper.CanPerceiveTarget(defender) ||
+                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0)
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPool, rulesetHelper);
+            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "WoeCosmosOmenCheck",
+                StringParameter2 = "SpendPowerWoeCosmosOmenCheckDescription".Formatted(
+                    Category.Reaction, defender.Name, helper.Name),
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                UsablePower = usablePower
+            };
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(defender, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var dieRoll = -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            abilityCheckData.AbilityCheckRoll += dieRoll;
+            abilityCheckData.AbilityCheckSuccessDelta += dieRoll;
+
+            (ConsoleStyleDuplet.ParameterType, string) extra;
+
+            if (abilityCheckData.AbilityCheckSuccessDelta < 0)
+            {
+                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Failure;
+                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
+            }
+            else
+            {
+                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
+            }
+
+            helper.RulesetCharacter.LogCharacterUsedPower(
+                powerWoe,
+                "Feedback/&CosmosOmenCheckToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                    extra
                 ]);
         }
 
@@ -1109,11 +1254,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Success ||
                 action.SaveOutcomeDelta - MaxDieTypeValue >= 0 ||
-                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0 ||
                 !helper.CanReact() ||
-                !defender.IsOppositeSide(helper.Side) ||
+                !helper.IsOppositeSide(defender.Side) ||
                 !helper.IsWithinRange(defender, 6) ||
-                !helper.CanPerceiveTarget(defender))
+                !helper.CanPerceiveTarget(defender) ||
+                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0)
             {
                 yield break;
             }
@@ -1146,11 +1291,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var dieRoll = -rulesetHelper.RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
 
             action.RolledSaveThrow = true;
-            action.saveOutcomeDelta += dieRoll;
+            action.SaveOutcomeDelta += dieRoll;
 
             (ConsoleStyleDuplet.ParameterType, string) extra;
 
-            if (action.saveOutcomeDelta < 0)
+            if (action.SaveOutcomeDelta < 0)
             {
                 action.saveOutcome = RollOutcome.Failure;
                 extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");

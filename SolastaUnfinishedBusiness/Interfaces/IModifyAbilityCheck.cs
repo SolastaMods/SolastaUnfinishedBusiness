@@ -10,12 +10,13 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 public interface IModifyAbilityCheck
 {
     [UsedImplicitly]
-    public int MinRoll(
+    public void MinRoll(
         RulesetCharacter character,
         int baseBonus,
-        int rollModifier,
         string abilityScoreName,
         string proficiencyName,
         List<TrendInfo> advantageTrends,
-        List<TrendInfo> modifierTrends);
+        List<TrendInfo> modifierTrends,
+        ref int rollModifier,
+        ref int minRoll);
 }

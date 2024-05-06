@@ -103,7 +103,7 @@ public sealed class OathOfAncients : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetParticleEffectParameters(PowerWindShelteringBreeze.EffectDescription.effectParticleParameters)
+                    .SetParticleEffectParameters(PowerWindShelteringBreeze)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetDurationData(DurationType.Round, 5)
@@ -148,7 +148,6 @@ public sealed class OathOfAncients : AbstractSubclass
                 DamageAffinityRadiantResistance,
                 DamageAffinitySlashingResistance,
                 DamageAffinityThunderResistance)
-            .AddSpecialInterruptions(ConditionInterruption.Damaged)
             .AddToDB();
 
         var featureAuraWarding = FeatureDefinitionBuilder
@@ -316,7 +315,7 @@ public sealed class OathOfAncients : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (action.ActionType != ActionDefinitions.ActionType.Main ||
                 action is not CharacterActionCastSpell)

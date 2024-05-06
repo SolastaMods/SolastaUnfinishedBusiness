@@ -1,4 +1,8 @@
 Condition/&ConditionReverseGravityDescription=逆重力に捕らえられる。
 Condition/&ConditionReverseGravityTitle=リバースグラビティ
+Feature/&PowerDraconicTransformationDescription=ボーナス アクションとして、60 フィートのコーンできらめくエネルギーを吐き出すことができます。そのエリアにいる各クリーチャーは器用さセーヴィング・スローを行わなければならず、セーヴに失敗した場合は6d8の強制ダメージを受けるか、成功した場合はその半分のダメージを受ける。
+Feature/&PowerDraconicTransformationTitle=竜の変身
+Spell/&DraconicTransformationDescription=咆哮とともにドラゴンの魔法を利用して変身し、ドラゴンの特徴を身に着けます。呪文が終了するまで、次の利点が得られます。\n• 30 フィートの範囲で盲目になります。\n• この呪文を唱えると、継続中のその後のターンのボーナス アクションとして、きらめきを吐き出すことができます。 60フィートの円錐内のエネルギー。そのエリアにいる各クリーチャーは器用さセーヴィング・スローを行わなければならず、セーブに失敗すると6d8のフォース・ダメージを受けるか、成功すると半分のダメージを受ける。\n・背中からは非物質的な翼が生え、60フィートの飛行速度が得られる。 。
+Spell/&DraconicTransformationTitle=竜の変身
 Spell/&ReverseGravityDescription=この呪文は、範囲内の点を中心とした半径 50 フィート、高さ 100 フィートの円柱内で重力を逆転させます。
 Spell/&ReverseGravityTitle=リバースグラビティ

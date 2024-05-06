@@ -99,7 +99,7 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, FogCloud, hidden: true)
-            .SetGrantedSpell(FogCloud, true, true)
+            .SetGrantedSpell(FogCloud)
             .AddToDB();
     }
 
@@ -107,11 +107,16 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationVerdantArmor";
 
+        var spellVerdantArmor = SpellDefinitionBuilder
+            .Create(Barkskin, "VerdantArmor")
+            .SetRequiresConcentration(false)
+            .AddToDB();
+
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, Barkskin)
             .SetRequirements(5)
-            .SetGrantedSpell(Barkskin, false, true)
+            .SetGrantedSpell(spellVerdantArmor)
             .AddToDB();
     }
 
@@ -134,7 +139,7 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, InsectPlague)
-            .SetGrantedSpell(InsectPlague, true, true)
+            .SetGrantedSpell(InsectPlague, false, true)
             .SetRequirements(9, pact: FeatureSetPactChain)
             .AddToDB();
     }
@@ -147,8 +152,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation,
-                spell)
+            .SetGuiPresentation(Category.Invocation, spell)
             .SetRequirements(5)
             .SetGrantedSpell(spell, false, true)
             .AddToDB();
@@ -583,8 +587,8 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, ShieldOfFaith)
-            .SetRequirements(9)
-            .SetGrantedSpell(ShieldOfFaith, false, true)
+            .SetRequirements(5)
+            .SetGrantedSpell(ShieldOfFaith)
             .AddToDB();
     }
 
@@ -592,15 +596,11 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationGiftOfTheHunter";
 
-        var spellGiftOfTheHunter = SpellDefinitionBuilder
-            .Create(PassWithoutTrace, "GiftOfTheHunter")
-            .AddToDB();
-
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, spellGiftOfTheHunter)
+            .SetGuiPresentation(Category.Invocation, PassWithoutTrace)
             .SetRequirements(5)
-            .SetGrantedSpell(spellGiftOfTheHunter, true, true)
+            .SetGrantedSpell(PassWithoutTrace, false, true)
             .AddToDB();
     }
 
@@ -612,8 +612,8 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, DetectEvilAndGood)
-            .SetRequirements(9)
-            .SetGrantedSpell(DetectEvilAndGood, false, true)
+            .SetRequirements(5)
+            .SetGrantedSpell(DetectEvilAndGood)
             .AddToDB();
     }
 
@@ -621,15 +621,11 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationBreakerAndBanisher";
 
-        var spellBreakerAndBanisher = SpellDefinitionBuilder
-            .Create(DispelEvilAndGood, "BreakerAndBanisher")
-            .AddToDB();
-
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, spellBreakerAndBanisher)
+            .SetGuiPresentation(Category.Invocation, DispelEvilAndGood)
             .SetRequirements(9)
-            .SetGrantedSpell(spellBreakerAndBanisher, true, true)
+            .SetGrantedSpell(DispelEvilAndGood, false, true)
             .AddToDB();
     }
 
@@ -639,7 +635,7 @@ internal static class InvocationsBuilders
     {
         const string Name = "InvocationPerniciousCloak";
 
-        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerPerniciousCloak, 128, 128);
+        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerPerniciousCloak, 128);
 
         var abilityCheckAffinityPerniciousCloak = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}")
@@ -851,9 +847,12 @@ internal static class InvocationsBuilders
             .AddToDB();
 
         var conditionAbilityPseudo = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionFlying12, "ConditionAbilityPseudo")
+            .Create(ConditionDefinitions.ConditionFlying, "ConditionAbilityPseudo")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainPseudodragon)
-            .AddFeatures(
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
+            .SetFeatures(
+                FeatureDefinitionMoveModes.MoveModeFly12,
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create(AdditionalDamagePoison_GhoulsCaress, "AdditionalDamagePseudoDragon")
                     .SetSavingThrowData(
@@ -861,8 +860,9 @@ internal static class InvocationsBuilders
                     .SetDamageDice(DieType.D8, 1)
                     .SetNotificationTag("Poison")
                     .AddToDB())
-            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
+
+        conditionAbilityPseudo.ConditionTags.Clear();
 
         var conditionAbilityQuasit = ConditionDefinitionBuilder
             .Create("ConditionAbilityQuasit")
@@ -1087,8 +1087,8 @@ internal static class InvocationsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
-                || rulesetEffectPower.PowerDefinition != powerVexingHex)
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != powerVexingHex)
             {
                 return true;
             }
@@ -1210,8 +1210,8 @@ internal static class InvocationsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
-                || rulesetEffectPower.PowerDefinition != powerVexingHex)
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != powerVexingHex)
             {
                 return true;
             }
@@ -1281,8 +1281,8 @@ internal static class InvocationsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
-                || rulesetEffectPower.PowerDefinition != powerVexingHex)
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != powerVexingHex)
             {
                 return true;
             }
@@ -1472,7 +1472,7 @@ internal static class InvocationsBuilders
     {
         const string Name = "InvocationTombOfFrost";
 
-        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerTombOfFrost, 128, 128);
+        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerTombOfFrost, 128);
 
         var conditionTombOfFrost = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Name}")
@@ -1557,11 +1557,6 @@ internal static class InvocationsBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             if (!defender.CanReact())
             {
                 yield break;

@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionElementalistNormalAir:54cd8d29-c7a9-52a2-aefd-347b62fd5da9",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

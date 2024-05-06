@@ -18,6 +18,11 @@ internal static class DocumentationContext
             Directory.CreateDirectory($"{Main.ModFolder}/Documentation");
         }
 
+        if (!Directory.Exists($"{Main.ModFolder}/Documentation/Monsters"))
+        {
+            Directory.CreateDirectory($"{Main.ModFolder}/Documentation/Monsters");
+        }
+
         foreach (var characterFamilyDefinition in DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
                      .Where(x => x.Name != "Giant_Rugan" && x.Name != "Ooze"))
         {
@@ -30,54 +35,58 @@ internal static class DocumentationContext
                 x => x.CharacterFamily == characterFamilyDefinition.Name && x.DefaultFaction == "HostileMonsters");
         }
 
-        DumpClasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
-        DumpClasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
-        DumpSubclasses("UnfinishedBusiness", GetModdedSubclasses());
-        DumpSubclasses("Solasta", GetVanillaSubclasses());
-        DumpRaces("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
-        DumpRaces("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
-        DumpOthers<FeatDefinition>("UnfinishedBusinessFeats", x => FeatsContext.Feats.Contains(x));
-        DumpOthers<FeatDefinition>("SolastaFeats", x => x.ContentPack != CeContentPackContext.CeContentPack);
-        DumpOthers<FightingStyleDefinition>("UnfinishedBusinessFightingStyles",
-            x => FightingStyleContext.FightingStyles.Contains(x));
-        DumpOthers<FightingStyleDefinition>("SolastaFightingStyles",
-            x => x.ContentPack != CeContentPackContext.CeContentPack);
-        DumpOthers<InvocationDefinition>("UnfinishedBusinessInvocations",
-            x => InvocationsContext.Invocations.Contains(x));
-        DumpOthers<InvocationDefinition>("SolastaInvocations",
-            x => x.ContentPack != CeContentPackContext.CeContentPack);
-        DumpOthers<SpellDefinition>("UnfinishedBusinessSpells",
-            x => x.ContentPack == CeContentPackContext.CeContentPack && SpellsContext.Spells.Contains(x));
-        DumpOthers<SpellDefinition>("SolastaSpells",
-            x => x.ContentPack != CeContentPackContext.CeContentPack &&
-                 !SpellsContext.SpellsChildMaster.ContainsKey(x) && x.implemented);
-        DumpOthers<ItemDefinition>("UnfinishedBusinessItems",
-            x => x.ContentPack == CeContentPackContext.CeContentPack &&
-                 (x.IsArmor || x.IsWeapon));
-        DumpOthers<ItemDefinition>("SolastaItems",
-            x => x.ContentPack != CeContentPackContext.CeContentPack &&
-                 (x.IsArmor || x.IsWeapon));
-        DumpOthers<MetamagicOptionDefinition>("UnfinishedBusinessMetamagic",
-            x => MetamagicContext.Metamagic.Contains(x));
-        DumpOthers<MetamagicOptionDefinition>("SolastaMetamagic",
-            x => x.ContentPack != CeContentPackContext.CeContentPack);
-        DumpOthers<InvocationDefinition>("UnfinishedBusinessGambits",
-            x => x is InvocationDefinitionCustom y &&
-                 y.PoolType == InvocationPoolTypeCustom.Pools.Gambit);
-        DumpOthers<InvocationDefinition>("UnfinishedBusinessArcaneShots",
-            x => x is InvocationDefinitionCustom y &&
-                 y.PoolType == InvocationPoolTypeCustom.Pools.ArcaneShotChoice);
-        DumpOthers<InvocationDefinition>("UnfinishedBusinessInfusions",
-            x => x is InvocationDefinitionCustom y &&
-                 y.PoolType == InvocationPoolTypeCustom.Pools.Infusion);
-        DumpOthers<InvocationDefinition>("UnfinishedBusinessVersatilities",
-            x => x is InvocationDefinitionCustom y &&
-                 y.PoolType == InvocationPoolTypeCustom.Pools.EldritchVersatilityPool);
+        DumpRaces(string.Empty, _ => true);
+        DumpClasses(string.Empty, _ => true);
+        DumpSubclasses(string.Empty, GetModdedSubclasses().Union(GetVanillaSubclasses()));
+
+        DumpOthers<FeatDefinition>("Feats",
+            x => FeatsContext.Feats.Contains(x) ||
+                 x.ContentPack != CeContentPackContext.CeContentPack);
+        DumpOthers<FightingStyleDefinition>("FightingStyles",
+            x =>
+                FightingStyleContext.FightingStyles.Contains(x) ||
+                x.ContentPack != CeContentPackContext.CeContentPack);
+        DumpOthers<InvocationDefinition>("Invocations",
+            x =>
+                InvocationsContext.Invocations.Contains(x) ||
+                x.ContentPack != CeContentPackContext.CeContentPack);
+        DumpOthers<SpellDefinition>("Spells",
+            x =>
+                (x.ContentPack == CeContentPackContext.CeContentPack &&
+                 SpellsContext.Spells.Contains(x)) ||
+                (x.ContentPack != CeContentPackContext.CeContentPack &&
+                 !SpellsContext.SpellsChildMaster.ContainsKey(x) && x.implemented));
+        DumpOthers<ItemDefinition>("Items", x => x.IsArmor || x.IsWeapon);
+        DumpOthers<MetamagicOptionDefinition>("Metamagic",
+            x =>
+                MetamagicContext.Metamagic.Contains(x) ||
+                x.ContentPack != CeContentPackContext.CeContentPack);
+        DumpOthers<InvocationDefinition>("Maneuvers",
+            x =>
+                x is InvocationDefinitionCustom y &&
+                y.PoolType == InvocationPoolTypeCustom.Pools.Gambit);
+        DumpOthers<InvocationDefinition>("ArcaneShots",
+            x =>
+                x is InvocationDefinitionCustom y &&
+                y.PoolType == InvocationPoolTypeCustom.Pools.ArcaneShotChoice);
+        DumpOthers<InvocationDefinition>("Infusions",
+            x =>
+                x is InvocationDefinitionCustom y &&
+                y.PoolType == InvocationPoolTypeCustom.Pools.Infusion);
+        DumpOthers<InvocationDefinition>("Versatilities",
+            x =>
+                x is InvocationDefinitionCustom y &&
+                y.PoolType == InvocationPoolTypeCustom.Pools.EldritchVersatilityPool);
 
 #if false
         DumpSpellsCsv();
         DumpPowersCsv();
 #endif
+    }
+
+    private static string GetTag(BaseDefinition definition)
+    {
+        return definition.ContentPack == CeContentPackContext.CeContentPack ? "[UB]" : "[SOL]";
     }
 
     private static string LazyManStripXml(string input)
@@ -102,7 +111,7 @@ internal static class DocumentationContext
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.AppendLine($"# {counter++}. - {klass.FormatTitle()}");
+            outString.AppendLine($"# {counter++}. - {klass.FormatTitle()} {GetTag(klass)}");
             outString.AppendLine();
             outString.AppendLine(LazyManStripXml(klass.FormatDescription()));
             outString.AppendLine();
@@ -193,7 +202,8 @@ internal static class DocumentationContext
 
         CharacterClassDefinition klass = null;
 
-        foreach (var (characterClassDefinition, subclass) in collection)
+        foreach (var (characterClassDefinition, subclass) in collection
+                     .OrderBy(x => x.Item1.FormatTitle() + x.Item2.FormatTitle()))
         {
             if (klass != characterClassDefinition)
             {
@@ -211,7 +221,7 @@ internal static class DocumentationContext
                 title = $"*{title}* \u00a9"; // copyright symbol
             }
 
-            outString.AppendLine($"## {counter++}. {title}");
+            outString.AppendLine($"## {counter++}. {title} {GetTag(subclass)}");
             outString.AppendLine();
             outString.AppendLine(LazyManStripXml(subclass.FormatDescription()));
             outString.AppendLine();
@@ -263,7 +273,7 @@ internal static class DocumentationContext
                 title = $"*{title}* \u00a9";
             }
 
-            outString.AppendLine($"# {counter++}. - {title}");
+            outString.AppendLine($"# {counter++}. - {title} {GetTag(race)}");
             outString.AppendLine();
             outString.AppendLine(LazyManStripXml(race.FormatDescription()));
             outString.AppendLine();
@@ -350,7 +360,7 @@ internal static class DocumentationContext
                 }
             }
 
-            outString.AppendLine($"# {counter++}. - {title}");
+            outString.AppendLine($"# {counter++}. - {title} {GetTag(featureDefinition)}");
             outString.AppendLine();
             outString.AppendLine(description);
             outString.AppendLine();
@@ -372,7 +382,7 @@ internal static class DocumentationContext
             outString.Append(GetMonsterBlock(monsterDefinition, ref counter));
         }
 
-        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}.md");
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/Monsters/{groupName}.md");
         sw.WriteLine(outString.ToString());
     }
 

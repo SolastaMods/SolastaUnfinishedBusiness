@@ -84,12 +84,20 @@ internal class EffectDescriptionBuilder
 
     internal EffectDescriptionBuilder SetCasterEffectParameters(IMagicEffect reference)
     {
-        return SetCasterEffectParameters(reference.EffectDescription.EffectParticleParameters.casterParticleReference);
+        return SetCasterEffectParameters(
+            reference.EffectDescription.EffectParticleParameters.casterParticleReference,
+            reference.EffectDescription.EffectParticleParameters.casterSelfParticleReference,
+            reference.EffectDescription.EffectParticleParameters.casterQuickSpellParticleReference);
     }
 
-    internal EffectDescriptionBuilder SetCasterEffectParameters(AssetReference assetReference)
+    internal EffectDescriptionBuilder SetCasterEffectParameters(
+        AssetReference casterParticleReference,
+        AssetReference casterSelfParticleReference = null,
+        AssetReference casterQuickSpellParticleReference = null)
     {
-        _effect.effectParticleParameters.casterParticleReference = assetReference;
+        _effect.effectParticleParameters.casterParticleReference = casterParticleReference;
+        _effect.effectParticleParameters.casterSelfParticleReference = casterSelfParticleReference;
+        _effect.effectParticleParameters.casterQuickSpellParticleReference = casterQuickSpellParticleReference;
         return this;
     }
 

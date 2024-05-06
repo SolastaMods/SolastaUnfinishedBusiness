@@ -16,7 +16,5 @@ Feature/&PowerDomainDefilerDefileLifeDescription=あなたの周りに壊死エ�
 Feature/&PowerDomainDefilerDefileLifeTitle=人生を汚す
 Feature/&PowerDomainDefilerDyingLightDescription=壊死ダメージを与えるたびに、ローリングではなく最大のダメージを与えることができます。この機能は長い休憩ごとに 1 回使用できます。
 Feature/&PowerDomainDefilerDyingLightTitle=ダイイングライト
-Feedback/&AdditionalDamageDivineStrikeFormat=ディバインストライク！
-Feedback/&AdditionalDamageDivineStrikeLine={0} が {1} に神聖攻撃を実行します (+{2})
 Subclass/&DomainDefilerDescription=汚す者は死、腐敗、疫病の後援者を崇拝し、自分たちの目的のために、つまり神を喜ばせるため、あるいはより利己的な理由のために権力と腐敗を追求します。
 Subclass/&DomainDefilerTitle=ディファイラー

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -364,7 +365,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             var rulesetEffect = action.ActionParams.RulesetEffect;
 

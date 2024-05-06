@@ -64,12 +64,17 @@ Feature/&PowerFeatOrcishAggressionTitle=Aggressione degli Orchi
 Feedback/&AdditionalDamageOrcishFuryFormat=Furia degli Orchi
 Feedback/&AdditionalDamageOrcishFuryLine=La Furia degli Orchi infligge +{2} danni extra!
 Feedback/&BountifulLuckAttackToHitRoll={0} ha utilizzato {1} per lanciare un {2} e sostituire il tiro per colpire
+Feedback/&BountifulLuckCheckToHitRoll={0} ha utilizzato {1} per lanciare un {2} e sostituire il tiro di controllo
 Feedback/&BountifulLuckSavingToHitRoll={0} ha utilizzato {1} per lanciare un {2} e sostituire il tiro salvezza
 Feedback/&DwarvenFortitudeHitDieRolled={0} ha tirato un {2} e ha curato {3} = {4}.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} hanno mancato {1}. {2} può reagire lanciando un d20 e sostituire il tiro di attacco.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Tira un d20 per sostituire il tiro di attacco.
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=Fortuna abbondante
 Reaction/&CustomReactionBountifulLuckAttackTitle=Fortuna abbondante
+Reaction/&CustomReactionBountifulLuckCheckDescription={0} non ha superato il tiro di controllo. {1} può reagire lanciando un d20 e sostituire il tiro di controllo.
+Reaction/&CustomReactionBountifulLuckCheckReactDescription=Tira un d20 per sostituire il tiro di controllo.
+Reaction/&CustomReactionBountifulLuckCheckReactTitle=Fortuna abbondante
+Reaction/&CustomReactionBountifulLuckCheckTitle=Fortuna abbondante
 Reaction/&CustomReactionBountifulLuckSavingDescription={0} ha fallito il tiro salvezza contro {1}. {2} può reagire lanciando un d20 e sostituire il tiro salvezza.
 Reaction/&CustomReactionBountifulLuckSavingReactDescription=Tira un d20 per sostituire il tiro salvezza.
 Reaction/&CustomReactionBountifulLuckSavingReactTitle=Fortuna abbondante

@@ -296,7 +296,8 @@ public sealed class PathOfTheReaver : AbstractSubclass
             EffectHelpers.StartVisualEffect(attacker, defender, VampiricTouch, EffectHelpers.EffectType.Effect);
             InflictDamage(attacker, defender, totalDamageOrHealing, attackMode.AttackTags);
 
-            if (rulesetDefender.IsDeadOrDying)
+            if (rulesetDefender.IsDeadOrDying &&
+                rulesetDefender.GetClassLevel(CharacterClassDefinitions.Barbarian) >= 10)
             {
                 yield return HandleEnemyDeath(attacker, attackMode, powerBloodBath);
             }
@@ -370,7 +371,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
             rulesetDefender.LogCharacterUsedFeature(featureCorruptedBlood);
             EffectHelpers.StartVisualEffect(attacker, defender, PowerSorcererChildRiftOffering);
-            InflictDamage(attacker, defender, totalDamage, defenderAttackTags);
+            InflictDamage(defender, attacker, totalDamage, defenderAttackTags);
 
             if (rulesetAttacker.IsDeadOrDying)
             {

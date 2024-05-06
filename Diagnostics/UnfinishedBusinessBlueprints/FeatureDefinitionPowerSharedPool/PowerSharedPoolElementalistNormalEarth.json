@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionElementalistNormalEarth:4e972090-81dd-57ff-a390-ba91825e8c46",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

@@ -168,8 +168,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             ReactionResourceBardicInspiration.Instance,
             new RestrictReactionAttackMode((_, attacker, _, _, _) =>
                 attacker.OnceInMyTurnIsValid(WhirlMarker) &&
-                (attacker.RulesetCharacter.IsToggleEnabled(AudaciousWhirlToggle) ||
-                 attacker.RulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))));
+                attacker.RulesetCharacter.IsToggleEnabled(AudaciousWhirlToggle)));
 
         PowerBundle.RegisterPowerBundle(
             powerAudaciousWhirl,
@@ -193,6 +192,29 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
         // Masterful Whirl
 
+        var powerMasterfulWhirl = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}MasterfulWhirl")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.OnAttackHitMelee)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .Build())
+            .AddToDB();
+
+        powerMasterfulWhirl.AddCustomSubFeatures(
+            new CustomBehaviorWhirl(
+                conditionAudaciousWhirlExtraMovement,
+                conditionDefensiveWhirl,
+                powerDefensiveWhirl,
+                powerSlashingWhirl,
+                powerMobileWhirl),
+            new RestrictReactionAttackMode((_, attacker, _, _, _) =>
+                attacker.OnceInMyTurnIsValid(WhirlMarker) &&
+                attacker.RulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle)));
+
         var actionAffinityMasterfulWhirlToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityMasterfulWhirlToggle")
             .SetGuiPresentationNoContent(true)
@@ -202,7 +224,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
         var featureSetMasterfulWhirl = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}MasterfulWhirl")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(actionAffinityMasterfulWhirlToggle)
+            .AddFeatureSet(actionAffinityMasterfulWhirlToggle, powerMasterfulWhirl)
             .AddToDB();
 
         // MAIN

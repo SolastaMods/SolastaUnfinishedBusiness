@@ -299,7 +299,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if ((action is not CharacterActionCastSpell characterActionCastSpell ||
                  characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
@@ -317,7 +317,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerArcaneBackslash, rulesetAttacker);
-            var targets = action.ActionParams.TargetCharacters.ToList();
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
@@ -345,7 +344,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
                 rulesetEffectPower.PowerDefinition != powerEssenceTheft)
             {
                 return true;

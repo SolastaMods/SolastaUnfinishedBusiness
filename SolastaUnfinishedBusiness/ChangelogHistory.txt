@@ -1,3 +1,50 @@
+1.5.97.6:
+
+- added additional custom portraits [by Artyoan]
+- added Athlete, Baleful Scion, Dungeon Delver, Lucky, and Menacing feats
+- added Chaos Bolt, Dawn, Draconic Transformation, Maddening Darkness, Platinum Shield, and Wither and Bloom spells
+- added Imp Badland [by Otearaisu] and Elf Shadar-Kai subraces
+- added Nature and Tempest cleric domains
+- added setting under Interface / Game UI to allow features that change attribute checks to work off combat
+- fixed action switch interaction with haste and attack cantrips
+- fixed Artillerist spell list to use sonic boom instead of unimplemented wall of force
+- fixed attacks of opportunity determination not considering other actions like Reaction Shot, etc. [VANILLA]
+- fixed College of Swords masterful whirl to trigger regardless of remaining bardic dice
+- fixed College of Thespian improved terrific performance damage to trigger from 14th
+- fixed crafting recipes ingredients list to avoid double primed weapons requirement
+- fixed Crusader's Mantle spell to avoid soft lock during combat
+- fixed custom campaigns encounters to properly copy the challenge rate over [VANILLA]
+- fixed custom campaigns Elven Clan's Leralyn NPC to have darkvision 120 ft [VANILLA]
+- fixed Devastating Strikes to avoid adding a +1 to attack rolls
+- fixed dungeon maker removing custom items from loot packs during boot time [VANILLA] 
+- fixed extended distance calculation algorithm to avoid crash during load under certain scenarios
+- fixed Holy Nimbus, Flames of Motherland, Inquisitor Zeal, and Awe or Fear presence sphere range
+- fixed Oath of Ancients aura of resistance condition to stay around after first damage
+- fixed Orcish Aggression feat family tag to avoid double offering
+- fixed Path of the Reaver corrupted blood to avoid self damage
+- fixed Potent Spell Casting feat interaction with Produce Flame cantrip
+- fixed Roguish Acrobat swift as wind, and fluid motions features jump distance
+- fixed Shield Master to correctly interact with damage resistance and successful savings on damage reduction
+- fixed skill/tool or expertise granted from feats to properly grant expertise if already skilled
+- fixed Sorcerous Psion mind sculpt damage conversion and integration with effect powers
+- fixed Step Back action behavior to interrupt on any ranged attack [VANILLA]
+- fixed Way of the Dragon elemental breath validation on main attack usages
+- fixed Witch Bolt spell interaction with auto spell powers
+- hided College of War Dancer from mod UI [NO RESPEC required]
+- improved banishment kill extra planar behavior to only allow Banishment and Banishing Smite spells [VANILLA]
+- improved Bardic Inspiration attribute checks to work off combat [VANILLA]
+- improved Bountiful Luck, Circle of Stars, and Flash of Genius to also trigger on attribute checks
+- improved College of Eloquence captivating presence into tabletop silver tongue
+- improved Hunger of Hadar to also extinguish light in the area and impair vision
+- improved invisible creatures can be targeted behavior to behave as vanilla in off battle scenarios
+- improved invocations that grant spells with balanced usage and standardized descriptions
+- improved Sorcerer spell list with Fire Shield spell [VANILLA]
+
+known issues:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Artillerist Fortified Position medium cannon doesn't grant buff to self
+
 1.5.97.5:
 
 - added Aura of Vitality, Mordenkainen's Faithful Hound, and Witch Bolt spells
@@ -24,11 +71,6 @@
 - fixed Patron Celestial healing light power missing from action bar
 - fixed Patron Mountain eternal guardian power not reducing damage from 6th level onwards
 
-known issues:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Artillerist Fortified Position medium cannon doesn't grant buff to self
-
 1.5.97.4:
 
 - added Burning Hex and Chilling Hex invocations
@@ -46,12 +88,6 @@ known issues:
 - fixed Vitriolist refund mixtures [reaction pop up instead of lowest avail slot] 
 - fixed Wildmaster bear companion additional HPs [class level instead of char level]
 - fixed Wildmaster eagle and wolf companions not allowed in combat
-
-known issues:
-
-- Artillerist Force Ballista tiny cannon doesn't force DIS within 5 ft.
-- Artillerist Fortified Position medium cannon doesn't grant buff to self.
-- Orcish Aggression offers cells you cannot click on selection grid.
 
 1.5.97.3:
 

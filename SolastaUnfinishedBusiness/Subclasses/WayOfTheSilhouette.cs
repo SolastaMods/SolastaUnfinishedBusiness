@@ -59,8 +59,10 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddCustomSubFeatures(new ModifyAdditionalDamageFormStrikeTheVitals())
             .AddToDB();
+
+        additionalDamageStrikeTheVitals.AddCustomSubFeatures(
+            new ModifyAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitals));
 
         // LEVEL 06
 
@@ -87,12 +89,13 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                     .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionSilhouetteStep, ConditionForm.ConditionOperation.Add,
-                            true, true),
                         EffectFormBuilder
                             .Create()
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
-                            .Build())
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(
+                            conditionSilhouetteStep,
+                            ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishDarkweaverShadowy)
                     .Build())
             .AddCustomSubFeatures(
@@ -182,15 +185,23 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     // Strike the Vitals
     //
 
-    private sealed class ModifyAdditionalDamageFormStrikeTheVitals : IModifyAdditionalDamageForm
+    private sealed class ModifyAdditionalDamageStrikeTheVitals(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
     {
-        public DamageForm AdditionalDamageForm(
+        public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            DamageForm damageForm)
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
         {
+            if (featureDefinitionAdditionalDamage != additionalDamage)
+            {
+                return;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
             var dieType = rulesetAttacker.GetMonkDieType();
             var levels = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
@@ -203,8 +214,6 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             damageForm.dieType = dieType;
             damageForm.diceNumber = diceNumber;
-
-            return damageForm;
         }
     }
 
@@ -303,11 +312,6 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             // ReSharper disable once SuggestBaseTypeForParameter
             List<EffectForm> actualEffectForms)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             if (!defender.CanReact())
             {
                 yield break;

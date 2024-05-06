@@ -64,12 +64,17 @@ Feature/&PowerFeatOrcishAggressionTitle=Agresión orca
 Feedback/&AdditionalDamageOrcishFuryFormat=Furia orca
 Feedback/&AdditionalDamageOrcishFuryLine=¡La furia orca causa +{2} de daño adicional!
 Feedback/&BountifulLuckAttackToHitRoll={0} usó {1} para sacar un {2} y reemplazar la tirada de ataque
+Feedback/&BountifulLuckCheckToHitRoll={0} usó {1} para lanzar un {2} y reemplazar la tirada de verificación
 Feedback/&BountifulLuckSavingToHitRoll={0} usó {1} para lanzar un {2} y reemplazar la tirada de ahorro
 Feedback/&DwarvenFortitudeHitDieRolled={0} sacó un {2} y curó a {3} = {4}.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} se ha perdido {1}. {2} puede reaccionar para tirar un d20 y reemplazar la tirada de ataque.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Tira un d20 para reemplazar la tirada de ataque.
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=Suerte abundante
 Reaction/&CustomReactionBountifulLuckAttackTitle=Suerte abundante
+Reaction/&CustomReactionBountifulLuckCheckDescription={0} falló una tirada de verificación. {1} puede reaccionar para tirar un d20 y reemplazar la tirada de control.
+Reaction/&CustomReactionBountifulLuckCheckReactDescription=Tira un d20 para reemplazar la tirada de control.
+Reaction/&CustomReactionBountifulLuckCheckReactTitle=Suerte abundante
+Reaction/&CustomReactionBountifulLuckCheckTitle=Suerte abundante
 Reaction/&CustomReactionBountifulLuckSavingDescription={0} falló la tirada de guardado contra {1}. {2} puede reaccionar para tirar un d20 y reemplazar la tirada de salvación.
 Reaction/&CustomReactionBountifulLuckSavingReactDescription=Tira un d20 para reemplazar la tirada de salvación.
 Reaction/&CustomReactionBountifulLuckSavingReactTitle=Suerte abundante

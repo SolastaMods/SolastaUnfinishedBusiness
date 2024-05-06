@@ -59,7 +59,7 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true)
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true)
                             .Build())
                     .SetParticleEffectParameters(MistyStep)
                     .UseQuickAnimations()
@@ -338,6 +338,58 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Dawn
+
+    internal static SpellDefinition BuildDawn()
+    {
+        const string NAME = "Dawn";
+
+        var effectProxy = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyDaylight, $"Proxy{NAME}")
+            .SetOrUpdateGuiPresentation(Category.Proxy)
+            .SetActionId(ExtraActionId.ProxyDawn)
+            .SetCanMove()
+            .SetAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove12, FeatureDefinitionMoveModes.MoveModeFly12)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Dawn, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Daylight)
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 6, 8)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeRadiant, 4, DieType.D10)
+                            .Build())
+                    .SetImpactEffectParameters(Sunburst)
+                    .Build())
+            .AddToDB();
+
+        spell.EffectDescription.effectParticleParameters.activeEffectImpactParticleReference =
+            Sunburst.EffectDescription.EffectParticleParameters.impactParticleReference;
+        spell.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = effectProxy.Name;
+
+        return spell;
+    }
+
+    #endregion
+
     #region Steel Whirlwind
 
     internal static SpellDefinition BuildSteelWhirlwind()
@@ -373,7 +425,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.SteelWhirlwind, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.SteelWhirlwind, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.Action)
@@ -462,6 +514,8 @@ internal static partial class SpellBuilders
             .SetSpecialDuration(DurationType.Minute, 1)
             .AddToDB();
 
+        conditionBanishingSmiteEnemy.permanentlyRemovedIfExtraPlanar = true;
+
         var additionalDamageBanishingSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
@@ -532,7 +586,6 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            //TODO: ideally we need to banish extra planar creatures forever (kill them?)
             rulesetDefender.InflictCondition(
                 conditionDefinition.Name,
                 DurationType.Minute,
@@ -674,7 +727,7 @@ internal static partial class SpellBuilders
             .SetFeatures()
             .AddToDB();
 
-        var sprite = Sprites.GetSprite(Name, Resources.Telekinesis, 128, 128);
+        var sprite = Sprites.GetSprite(Name, Resources.Telekinesis, 128);
 
         var powerTelekinesis = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")

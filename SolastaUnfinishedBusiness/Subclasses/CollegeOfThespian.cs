@@ -166,7 +166,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
 
         powerTerrificPerformance.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new OnReducedToZeroHpByMeTerrificPerformance(powerTerrificPerformance, powerTerrificPerformance));
+            new OnReducedToZeroHpByMeTerrificPerformance(powerTerrificPerformance, powerImprovedTerrificPerformance));
 
         // MAIN
 

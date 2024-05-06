@@ -1,0 +1,6 @@
+Feature/&DamageAffinityShadarKaiDescription=Tienes resistencia al daño necrótico.
+Feature/&DamageAffinityShadarKaiTitle=Resistencia necrótica
+Feature/&PowerShadarKaiTeleportDescription=Como acción adicional, puedes teletransportarte mágicamente hasta 30 pies a un espacio desocupado que puedas ver. Puedes usar este rasgo una cantidad de veces igual a tu bonificación de competencia y recuperas todos los usos gastados cuando terminas un descanso prolongado. A partir del nivel 3, también obtienes resistencia a todo daño cuando te teletransportas usando este rasgo. La resistencia dura hasta el comienzo de tu siguiente turno. Durante ese tiempo, pareces fantasmal y translúcido.
+Feature/&PowerShadarKaiTeleportTitle=Bendición de la Reina Cuervo
+Race/&RaceShadarKaiDescription=Shadar-kai son los elfos de Shadowfell, originalmente atraídos a ese temible reino por la Reina Cuervo. A lo largo de los siglos, algunos de ellos han seguido sirviéndola, mientras que otros se han aventurado en el Plano Material para forjar sus propios destinos.
+Race/&RaceShadarKaiTitle=Shadar Kai

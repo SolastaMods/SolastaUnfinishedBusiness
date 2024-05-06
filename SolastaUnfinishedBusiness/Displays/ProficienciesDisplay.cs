@@ -14,21 +14,8 @@ internal static class ProficienciesDisplay
 
         OtherHeaders();
 
-        var displayToggle = Main.Settings.DisplayFeatsToggle;
-        var sliderPos = Main.Settings.FeatSliderPosition;
-        var isFeatTabletop = ModUi.DisplayDefinitions(
-            Gui.Localize("ModUi/&Feats"),
-            FeatsContext.SwitchFeat,
-            FeatsContext.Feats,
-            Main.Settings.FeatEnabled,
-            ref displayToggle,
-            ref sliderPos,
-            headerRendering: FeatsHeader);
-        Main.Settings.DisplayFeatsToggle = displayToggle;
-        Main.Settings.FeatSliderPosition = sliderPos;
-
-        displayToggle = Main.Settings.DisplayFeatGroupsToggle;
-        sliderPos = Main.Settings.FeatGroupSliderPosition;
+        var displayToggle = Main.Settings.DisplayFeatGroupsToggle;
+        var sliderPos = Main.Settings.FeatGroupSliderPosition;
         ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&FeatGroups"),
             FeatsContext.SwitchFeatGroup,
@@ -44,6 +31,19 @@ internal static class ProficienciesDisplay
             displaySelectTabletop: false);
         Main.Settings.DisplayFeatGroupsToggle = displayToggle;
         Main.Settings.FeatGroupSliderPosition = sliderPos;
+
+        displayToggle = Main.Settings.DisplayFeatsToggle;
+        sliderPos = Main.Settings.FeatSliderPosition;
+        var isFeatTabletop = ModUi.DisplayDefinitions(
+            Gui.Localize("ModUi/&Feats"),
+            FeatsContext.SwitchFeat,
+            FeatsContext.Feats,
+            Main.Settings.FeatEnabled,
+            ref displayToggle,
+            ref sliderPos,
+            headerRendering: FeatsHeader);
+        Main.Settings.DisplayFeatsToggle = displayToggle;
+        Main.Settings.FeatSliderPosition = sliderPos;
 
         displayToggle = Main.Settings.DisplayFightingStylesToggle;
         sliderPos = Main.Settings.FightingStyleSliderPosition;

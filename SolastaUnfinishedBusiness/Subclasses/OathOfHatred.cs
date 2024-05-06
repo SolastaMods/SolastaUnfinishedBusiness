@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -231,7 +232,8 @@ public sealed class OathOfHatred : AbstractSubclass
                 yield break;
             }
 
-            if (attackMode?.actionType != ActionDefinitions.ActionType.Reaction)
+            if (action.ActionType is not ActionDefinitions.ActionType.Reaction ||
+                attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
             {
                 yield break;
             }
@@ -276,22 +278,10 @@ public sealed class OathOfHatred : AbstractSubclass
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager)
-            {
-                yield break;
-            }
-
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            if (attacker != helper ||
-                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !attacker.OncePerTurnIsValid(power.Name) ||
-                !attacker.CanPerceiveTarget(defender))
+            if (!actionManager ||
+                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                helper != attacker ||
+                !helper.OncePerTurnIsValid(power.Name))
             {
                 yield break;
             }
@@ -323,7 +313,6 @@ public sealed class OathOfHatred : AbstractSubclass
             action.AttackRollOutcome = RollOutcome.Success;
             action.AttackSuccessDelta = 0;
             action.AttackRoll += delta;
-            attackModifier.ignoreAdvantage = false;
             attackModifier.AttackRollModifier += delta;
             attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }

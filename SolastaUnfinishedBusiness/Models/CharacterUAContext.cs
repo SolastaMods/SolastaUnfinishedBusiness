@@ -328,15 +328,14 @@ internal static partial class CharacterContext
         {
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager)
             {
                 yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!attacker.OncePerTurnIsValid(BrutalStrike) ||
+            if (!attacker.OnceInMyTurnIsValid(BrutalStrike) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BrutalStrikeToggle) ||
                 !rulesetAttacker.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagCombat, ConditionDefinitions.ConditionReckless.Name))
@@ -1276,8 +1275,7 @@ internal static partial class CharacterContext
 
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager)
             {
                 yield break;
             }

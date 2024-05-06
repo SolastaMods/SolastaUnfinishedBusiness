@@ -1,4 +1,8 @@
 Condition/&ConditionReverseGravityDescription=역 중력에 의해 잡혔습니다.
 Condition/&ConditionReverseGravityTitle=역 중력
+Feature/&PowerDraconicTransformationDescription=보너스 액션으로 60피트 원뿔 모양으로 반짝이는 에너지를 내뿜을 수 있습니다. 해당 지역에 있는 각 생물은 민첩 내성 굴림을 해야 하며, 내성 굴림에 실패하면 6d8의 강제 피해를 입거나, 성공하면 절반의 피해를 입습니다.
+Feature/&PowerDraconicTransformationTitle=용의 변신
+Spell/&DraconicTransformationDescription=포효하면서 당신은 용의 마법을 끌어와 용의 특징을 취하면서 자신을 변화시킵니다. 주문이 끝날 때까지 다음과 같은 이점을 얻습니다.\n• 30피트 범위의 실명 시야를 갖습니다.\n• 이 주문을 시전하고 해당 기간 동안 다음 턴에 보너스 행동으로 반짝이는 숨을 내쉴 수 있습니다. 60피트 콘의 에너지. 해당 영역에 있는 각 생물은 민첩 내성 굴림을 해야 하며, 내성 굴림에 실패하면 6d8의 힘 피해를 입거나, 성공하면 절반의 피해를 입습니다.\n• 등에서 무형의 날개가 돋아 60피트의 비행 속도를 제공합니다. .
+Spell/&DraconicTransformationTitle=용의 변신
 Spell/&ReverseGravityDescription=이 주문은 범위 내의 한 지점을 중심으로 반경 50피트, 높이 100피트의 원통형으로 중력을 역전시킵니다.
 Spell/&ReverseGravityTitle=역 중력

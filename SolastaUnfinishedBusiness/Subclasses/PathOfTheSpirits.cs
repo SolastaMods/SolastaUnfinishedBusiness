@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -376,7 +377,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     {
         var conditionHonedAnimalAspectsEagle = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}HonedAnimalAspectsEagle")
-            .SetOrUpdateGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying)
             .SetPossessive()
             // don't use vanilla RageStop with permanent conditions
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
@@ -438,7 +439,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
                 {

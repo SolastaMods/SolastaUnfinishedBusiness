@@ -744,22 +744,11 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager)
-            {
-                yield break;
-            }
-
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
             var attackMode = action.actionParams.attackMode;
-            var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (attacker != helper ||
-                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !attacker.CanPerceiveTarget(defender) ||
+            if (!actionManager ||
+                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                helper != attacker ||
                 !IsBow(attackMode, null, null))
             {
                 yield break;
@@ -787,14 +776,16 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 ? "Feedback/&RollAttackCriticalFailureTitle"
                 : "Feedback/&RollAttackFailureTitle";
 
-            rulesetCharacter.LogCharacterUsedFeature(featureDefinition,
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.LogCharacterUsedFeature(featureDefinition,
                 "Feedback/&TriggerRerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
 
             // testMode true avoids the roll to display on combat log as the original one will get there with altered results
-            var roll = rulesetCharacter.RollAttack(
+            var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
                 defender.RulesetCharacter,
                 attackMode.sourceDefinition,

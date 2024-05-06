@@ -16,7 +16,6 @@ internal static class HalberdData
             BaseItems =
                 [(CustomWeaponsContext.Halberd, CustomWeaponsContext.HalberdPlus2)],
             CustomSubFeatures = [new CustomScale(z: 3.5f)],
-            PossiblePrimedItemsToReplace = [CustomWeaponsContext.HalberdPrimed],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Acuteness", ItemDefinitions.Enchanted_Mace_Of_Acuteness,

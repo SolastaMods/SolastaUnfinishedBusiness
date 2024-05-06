@@ -47,27 +47,8 @@ internal static partial class CharacterContext
         .Create("ConditionIndomitableSaving")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
+        .AddCustomSubFeatures(new RollSavingThrowInitiatedIndomitableSaving())
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
-        .AddCustomSubFeatures(new RollSavingThrowInitiatedIndomitableSaving(
-            ConditionDefinitionBuilder
-                .Create("ConditionIndomitableSavingSavingThrow")
-                .SetGuiPresentationNoContent(true)
-                .SetSilent(Silent.WhenAddedOrRemoved)
-                .SetFeatures(
-                    FeatureDefinitionSavingThrowAffinityBuilder
-                        .Create("SavingThrowAffinityIndomitableSaving")
-                        .SetGuiPresentation("Feature/&IndomitableResistanceTitle", Gui.NoLocalization)
-                        .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.SourceAbility, DieType.D1, 1,
-                            false,
-                            AttributeDefinitions.Strength,
-                            AttributeDefinitions.Dexterity,
-                            AttributeDefinitions.Constitution,
-                            AttributeDefinitions.Intelligence,
-                            AttributeDefinitions.Wisdom,
-                            AttributeDefinitions.Charisma)
-                        .AddToDB())
-                .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
-                .AddToDB()))
         .AddToDB();
 
     private static readonly FeatureDefinitionAttributeModifier AttributeModifierMonkAbundantKi =
@@ -799,7 +780,8 @@ internal static partial class CharacterContext
         //
 
         var dbFeatureDefinitionTerrainTypeAffinity =
-            DatabaseRepository.GetDatabase<FeatureDefinitionTerrainTypeAffinity>();
+            DatabaseRepository.GetDatabase<FeatureDefinitionTerrainTypeAffinity>()
+                .Where(x => x.ContentPack != CeContentPackContext.CeContentPack);
 
         var terrainAffinitySprites = new Dictionary<string, byte[]>
         {
@@ -1176,35 +1158,30 @@ internal static partial class CharacterContext
         }
     }
 
-    private sealed class RollSavingThrowInitiatedIndomitableSaving(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionIndomitableSaving) : IRollSavingThrowInitiated
+    private sealed class RollSavingThrowInitiatedIndomitableSaving : IRollSavingThrowInitiated
     {
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
+            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int saveDC,
-            bool hasHitVisual,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
             List<EffectForm> effectForms)
         {
             var classLevel = defender.GetClassLevel(Fighter);
 
-            defender.InflictCondition(
-                conditionIndomitableSaving.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagStatus,
-                caster.Guid,
-                caster.CurrentFaction.Name,
-                1,
-                conditionIndomitableSaving.Name,
-                0,
-                classLevel,
-                0);
+            rollModifier += classLevel;
+            modifierTrends.Add(
+                new TrendInfo(classLevel, FeatureSourceType.CharacterFeature,
+                    FeatureDefinitionAttributeModifiers.AttributeModifierFighterIndomitable.Name,
+                    FeatureDefinitionAttributeModifiers.AttributeModifierFighterIndomitable));
         }
     }
 }

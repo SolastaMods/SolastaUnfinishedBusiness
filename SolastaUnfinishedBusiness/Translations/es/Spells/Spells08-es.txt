@@ -1,4 +1,6 @@
 Condition/&ConditionMindBlankDescription=Inmune al daño psíquico y a la condición de encantado.
 Condition/&ConditionMindBlankTitle=Mente en blanco
+Spell/&MaddeningDarknessDescription=La oscuridad mágica se extiende desde un punto que elijas dentro del alcance para llenar una esfera de 60 pies de radio hasta que finalice el hechizo. Dentro de la esfera se pueden escuchar gritos, balbuceos y risas locas. Al activarse, y cada vez que una criatura termina su turno en la esfera, debe realizar una tirada de salvación de Sabiduría, recibiendo 6d8 de daño psíquico si falla, o la mitad de daño si tiene éxito.
+Spell/&MaddeningDarknessTitle=Oscuridad enloquecedora
 Spell/&MindBlankDescription=Hasta que finalice el hechizo, una criatura voluntaria que tocas es inmune al daño psíquico, a cualquier efecto que pueda sentir sus emociones o leer sus pensamientos, hechizos de adivinación y la condición de hechizo.
 Spell/&MindBlankTitle=Mente en blanco

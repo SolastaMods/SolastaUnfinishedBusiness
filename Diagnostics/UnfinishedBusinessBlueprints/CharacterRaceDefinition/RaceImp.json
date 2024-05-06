@@ -31,7 +31,8 @@
   ],
   "subRaces": [
     "Definition:RaceImpInfernal:ad5a534a-740c-51e7-9707-23894f993e69",
-    "Definition:RaceImpForest:2c3563b3-e485-5ba2-ad44-926b7393104e"
+    "Definition:RaceImpForest:2c3563b3-e485-5ba2-ad44-926b7393104e",
+    "Definition:RaceImpBadland:f71b7c07-c459-5fae-83c1-6f90e2a76c9d"
   ],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [],

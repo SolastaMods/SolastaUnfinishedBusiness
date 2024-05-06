@@ -64,12 +64,17 @@ Feature/&PowerFeatOrcishAggressionTitle=Орочья агрессия
 Feedback/&AdditionalDamageOrcishFuryFormat=Орочье буйство
 Feedback/&AdditionalDamageOrcishFuryLine=Орочье буйство наносит дополнительно +{2} урона!
 Feedback/&BountifulLuckAttackToHitRoll={0} использовал {1}, чтобы выкинуть {2} и заменить бросок атаки
+Feedback/&BountifulLuckCheckToHitRoll={0} использовал {1}, чтобы выкинуть {2} и заменить бросок проверки
 Feedback/&BountifulLuckSavingToHitRoll={0} использовал {1}, чтобы выкинуть {2} и заменить спасбросок
 Feedback/&DwarvenFortitudeHitDieRolled={0} выкинул {2} и восстановил {3} = {4}.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} промахнулся по {1}. {2} может использовать реакцию для броска d20 и замены броска атаки.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Бросьте d20, чтобы заменить бросок атаки.
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=Бездонная удача
 Reaction/&CustomReactionBountifulLuckAttackTitle=Бездонная удача
+Reaction/&CustomReactionBountifulLuckCheckDescription={0} проваливает проверку. {1} может использовать реакцию для броска d20 и замены проверки.
+Reaction/&CustomReactionBountifulLuckCheckReactDescription=Бросьте d20, чтобы заменить проверку.
+Reaction/&CustomReactionBountifulLuckCheckReactTitle=Бездонная удача
+Reaction/&CustomReactionBountifulLuckCheckTitle=Бездонная удача
 Reaction/&CustomReactionBountifulLuckSavingDescription={0} проваливает спасбросок против {1}. {2} может использовать реакцию для броска d20 и замены спасброска.
 Reaction/&CustomReactionBountifulLuckSavingReactDescription=Бросьте d20, чтобы заменить спасбросок.
 Reaction/&CustomReactionBountifulLuckSavingReactTitle=Бездонная удача

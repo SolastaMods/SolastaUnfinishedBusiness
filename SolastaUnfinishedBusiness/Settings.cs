@@ -40,8 +40,8 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayFactionRelationsToggle { get; set; }
     public bool DisplayItemsToggle { get; set; }
     public bool DisplayMerchantsToggle { get; set; }
-    public SerializableDictionary<string, bool> DisplayKlassToggle { get; set; } = new();
-    public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
+    public SerializableDictionary<string, bool> DisplayKlassToggle { get; set; } = [];
+    public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = [];
 
     //
     // SETTINGS HIDDEN ON UI
@@ -104,28 +104,23 @@ public class Settings : UnityModManager.ModSettings
         "BeaconOfHope",
         "Bless",
         "BlessingOfRime",
-        "CommandApproach",
-        "CommandDrop",
-        "CommandFlee",
-        "CommandGrovel",
-        "CommandHalt",
+        "BoomingBlade",
         "DispelMagic",
         "FeatherFall",
         "Knock",
         "Levitate",
         "MassCureWounds",
         "PassWithoutTrace",
-        "RayOfEnfeeblement",
-        "ResonatingStrike",
-        "Sanctuary",
-        "ShieldOfFaith",
-        "Sparkle",
-        "TrueStrike",
+        "PowerBarbarianBrutalStrike",
         "PowerBardHopeWordsOfHope6",
         "PowerBardTraditionManacalonsPerfection",
         "PowerCelestialSearingVengeance",
+        "PowerCollegeOfAudacityDefensiveWhirl",
+        "PowerCollegeOfAudacityMobileWhirl",
         "PowerCollegeOfValianceHeroicInspiration",
         "PowerDomainElementalHeraldOfTheElementsThunder",
+        "PowerFeatChefCookMeal",
+        "PowerFeatOrcishAggression",
         "PowerInnovationWeaponArcaneJolt",
         "PowerOathOfJugementPurgeCorruption",
         "PowerOathOfJugementRetribution",
@@ -135,9 +130,17 @@ public class Settings : UnityModManager.ModSettings
         "PowerRangerLightBearerBlessedWarrior",
         "PowerRiftWalkerRiftStrike",
         "PowerSorcerousPsionMindOverMatter",
+        "PowerSorcerousPsionMindOverMatter",
+        "PowerTraditionOpenHandQuiveringPalmTrigger",
         "PowerWayOfTheDistantHandZenArrowTechnique",
         "PowerWayOfTheDistantHandZenArrowUpgradedTechnique",
-        "PowerFeatChefCookMeal"
+        "RayOfEnfeeblement",
+        "ResonatingStrike",
+        "Sanctuary",
+        "ShieldOfFaith",
+        "Sparkle",
+        "SunlightBlade",
+        "TrueStrike"
     ];
 
     //
@@ -337,8 +340,8 @@ public class Settings : UnityModManager.ModSettings
     public List<string> SubraceEnabled { get; } = [];
     public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> BackgroundEnabled { get; } = [];
-    public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = new();
-    public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = new();
+    public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = [];
+    public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = [];
 
     //
     // Characters - Feats, Groups, Fighting Styles, Invocations and Metamagic
@@ -361,8 +364,8 @@ public class Settings : UnityModManager.ModSettings
 
     public bool AllowDisplayingOfficialSpells { get; set; }
     public bool AllowDisplayingNonSuggestedSpells { get; set; }
-    public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = new();
-    public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = new();
+    public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = [];
+    public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = [];
 
     //
     // Interface - Game UI
@@ -370,9 +373,10 @@ public class Settings : UnityModManager.ModSettings
 
     // Campaigns and Locations
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
+    public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
+    public bool EnableAttributeCheckHelpersToWorkOffCombat { get; set; }
     public bool EnableHeroWithBestProficiencyToRollChoice { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
-    public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool EnableAlternateVotingSystem { get; set; }
     public bool EnableSumD20OnAlternateVotingSystem { get; set; }

@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionWayOfTheDragonDragonFuryPoison:d7d786fd-a7fe-54da-8891-c5a3d66fc02a",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

@@ -35,7 +35,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var conditionLowerPlane = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}LowerPlane")
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{NAME}LowerPlane")
             .SetGuiPresentation($"{NAME}LowerPlane", Category.Spell,
                 ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
@@ -52,10 +52,6 @@ internal static partial class SpellBuilders
                 new AddTagToWeaponWeaponAttack(
                     TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
             .AddToDB();
-
-        // there is indeed a typo on tag
-        // ReSharper disable once StringLiteralTypo
-        conditionLowerPlane.ConditionTags.Add("Verticality");
 
         var lowerPlane = SpellDefinitionBuilder
             .Create($"{NAME}LowerPlane")
@@ -75,19 +71,12 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionLowerPlane))
-                    .SetParticleEffectParameters(MageArmor)
+                    .SetCasterEffectParameters(MageArmor)
                     .Build())
             .AddToDB();
 
-        lowerPlane.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionStartParticleReference;
-        lowerPlane.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionParticleReference;
-        lowerPlane.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionEndParticleReference;
-
         var conditionHigherPlane = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}HigherPlane")
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{NAME}HigherPlane")
             .SetGuiPresentation($"{NAME}HigherPlane", Category.Spell,
                 ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
@@ -103,10 +92,6 @@ internal static partial class SpellBuilders
                 CanUseAttribute.SpellCastingAbility,
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
             .AddToDB();
-
-        // there is indeed a typo on tag
-        // ReSharper disable once StringLiteralTypo
-        conditionHigherPlane.ConditionTags.Add("Verticality");
 
         var higherPlane = SpellDefinitionBuilder
             .Create($"{NAME}HigherPlane")
@@ -126,16 +111,9 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHigherPlane))
-                    .SetParticleEffectParameters(MageArmor)
+                    .SetCasterEffectParameters(MageArmor)
                     .Build())
             .AddToDB();
-
-        higherPlane.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionStartParticleReference;
-        higherPlane.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionParticleReference;
-        higherPlane.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            ConditionDefinitions.ConditionFlyingAdaptive.conditionEndParticleReference;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -202,6 +180,173 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Fizban Platinum Shield
+
+    internal static SpellDefinition BuildFizbanPlatinumShield()
+    {
+        const string NAME = "FizbanPlatinumShield";
+
+        var conditionSelf = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Self")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionMagicallyArmored)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionDamageAffinitys.DamageAffinityAcidResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion,
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation(NAME, Category.Spell, "UI/&HasHalfCover")
+                    .SetPermanentCover(CoverType.Half)
+                    .AddToDB())
+            .SetConditionParticleReference(
+                WardingBond.EffectDescription.EffectParticleParameters.conditionParticleReference)
+            .AddToDB();
+
+        conditionMark.GuiPresentation.description = Gui.NoLocalization;
+
+        var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PrimordialWard, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, false)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionMark),
+                        EffectFormBuilder
+                            .Create()
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 6, 6,
+                                lightSourceForm.lightSourceForm.color,
+                                lightSourceForm.lightSourceForm.graphicsPrefabReference)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(
+                            conditionSelf,
+                            ConditionForm.ConditionOperation.Add, true))
+                    .SetCasterEffectParameters(PrismaticSpray)
+                    .Build())
+            .AddToDB();
+
+        var behavior = new MagicEffectFinishedByMeFizbanPlatinumShield(spell, conditionMark);
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, spell)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(spell)
+                    .SetEffectForms()
+                    .Build())
+            .AddCustomSubFeatures(behavior, new FilterTargetingCharacter(conditionMark))
+            .AddToDB();
+
+        conditionSelf.Features.Add(power);
+        spell.AddCustomSubFeatures(behavior);
+
+        return spell;
+    }
+
+    private sealed class FilterTargetingCharacter(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionMark) : IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            var isValid = !target.RulesetActor.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionMark.Name);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveFizbanPlatinumShield");
+            }
+
+            return isValid;
+        }
+    }
+
+    private sealed class MagicEffectFinishedByMeFizbanPlatinumShield(
+        SpellDefinition spell,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IMagicEffectFinishedByMe
+    {
+        private int _remainingRounds;
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var rulesetSpell = rulesetCharacter.ConcentratedSpell;
+
+            if (rulesetSpell == null ||
+                rulesetSpell.SpellDefinition != spell)
+            {
+                yield break;
+            }
+
+            switch (action)
+            {
+                case CharacterActionUsePower:
+                {
+                    _remainingRounds = rulesetSpell.RemainingRounds;
+
+                    var spellRepertoire = rulesetSpell.SpellRepertoire;
+                    var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                    var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
+                        .InstantiateEffectSpell(rulesetCharacter, spellRepertoire, spell, 6, false);
+
+                    var actionParams = action.ActionParams.Clone();
+
+                    actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
+                    actionParams.RulesetEffect = effectSpell;
+
+                    rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
+                    actionService.ExecuteAction(actionParams, null, true);
+                    break;
+                }
+                case CharacterActionCastSpell when _remainingRounds > 0:
+                    rulesetSpell.RemainingRounds = _remainingRounds;
+
+                    if (action.ActionParams.TargetCharacters[0].RulesetCharacter.TryGetConditionOfCategoryAndType(
+                            AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
+                    {
+                        activeCondition.RemainingRounds = _remainingRounds;
+                    }
+
+                    _remainingRounds = 0;
+                    break;
+            }
+        }
     }
 
     #endregion
@@ -345,7 +490,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D10))
                     .SetParticleEffectParameters(ShadowDagger)
                     .SetCasterEffectParameters(PowerDomainLawWordOfLaw)
                     .Build())
@@ -360,7 +505,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D10))
                     .SetParticleEffectParameters(ShadowDagger)
                     .SetCasterEffectParameters(PowerDomainLawWordOfLaw)
                     .Build())
@@ -585,27 +730,28 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
-                .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                        .SetDamageForm(DamageTypeCold, 10, DieType.D6)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(conditionFlashFreeze, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
-                .SetCasterEffectParameters(SleetStorm)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeCold, 10, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionFlashFreeze, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
+                    .SetCasterEffectParameters(SleetStorm)
+                    .Build())
             .AddToDB();
 
         spell.AddCustomSubFeatures(new FilterTargetingCharacterFlashFreeze(spell));
@@ -628,18 +774,23 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell
-                || rulesetEffectSpell.SpellDefinition != spellFlashFreeze)
+            if (__instance.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
+                rulesetEffectSpell.SpellDefinition != spellFlashFreeze)
             {
                 return true;
             }
 
-            var rulesetTarget = target.RulesetCharacter;
+            var rulesetTarget = target.RulesetActor;
 
-            var isValid = rulesetTarget.SizeDefinition != CharacterSizeDefinitions.DragonSize
-                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.Gargantuan
-                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.Huge
-                          && rulesetTarget.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize;
+            if (rulesetTarget is not RulesetCharacter rulesetCharacter)
+            {
+                return false;
+            }
+
+            var isValid = rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.DragonSize
+                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.Gargantuan
+                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.Huge
+                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize;
 
             if (!isValid)
             {

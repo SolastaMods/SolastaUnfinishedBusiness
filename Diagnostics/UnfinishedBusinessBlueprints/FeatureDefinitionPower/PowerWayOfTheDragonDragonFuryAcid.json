@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionWayOfTheDragonDragonFuryAcid:09adffe8-528a-5db7-aebf-a97e80601a09",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

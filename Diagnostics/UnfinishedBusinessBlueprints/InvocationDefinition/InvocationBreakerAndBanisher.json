@@ -4,8 +4,8 @@
   "requiredLevel": 9,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:BreakerAndBanisher:471a96f8-d46e-5317-9be7-cc6f520ee0c9",
-  "consumesSpellSlot": true,
+  "grantedSpell": "Definition:DispelEvilAndGood:e901e74132f97ac458cc80e09da39c88",
+  "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {

@@ -1,0 +1,6 @@
+Feature/&DamageAffinityShadarKaiDescription=Vous avez une résistance aux dommages nécrotiques.
+Feature/&DamageAffinityShadarKaiTitle=Résistance nécrotique
+Feature/&PowerShadarKaiTeleportDescription=Par une action bonus, vous pouvez vous téléporter comme par magie jusqu'à 9 mètres dans un espace inoccupé que vous pouvez voir. Vous pouvez utiliser ce trait un nombre de fois égal à votre bonus de maîtrise, et vous récupérez toutes les utilisations dépensées lorsque vous terminez un repos long. À partir du niveau 3, vous gagnez également une résistance à tous les dégâts lorsque vous vous téléportez en utilisant cette aptitude. La résistance dure jusqu'au début de votre prochain tour. Pendant ce temps, vous apparaissez fantomatique et translucide.
+Feature/&PowerShadarKaiTeleportTitle=Bénédiction de la Reine Corbeau
+Race/&RaceShadarKaiDescription=Shadar-kai sont les elfes de Shadowfell, initialement attirés vers ce royaume redoutable par la Reine Corbeau. Au fil des siècles, certains d’entre eux ont continué à la servir, tandis que d’autres se sont aventurés dans le plan Matériel pour forger leur propre destinée.
+Race/&RaceShadarKaiTitle=Shadar-Kai

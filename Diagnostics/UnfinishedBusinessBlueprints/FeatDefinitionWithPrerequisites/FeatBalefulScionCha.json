@@ -1,0 +1,47 @@
+{
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatBalefulScion",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:ActionAffinityBalefulScionToggle:4ce964a3-ea9f-5085-a741-efd362098a5d",
+    "Definition:AdditionalDamageFeatBalefulScion:3d0e1aa3-2e86-59ea-a2fa-866313231851",
+    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
+    "Definition:PowerFeatBalefulScion:0a12985a-a6ea-5aa3-b6b8-56f848838149"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatBalefulScionChaTitle",
+    "description": "Feat/&FeatBalefulScionChaDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "30c19997-3766-58f5-920a-9574bfb4de33",
+  "contentPack": 9999,
+  "name": "FeatBalefulScionCha"
+}

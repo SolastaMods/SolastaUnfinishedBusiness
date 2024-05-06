@@ -1,7 +1,7 @@
 Feature/&AttributeModifierBattlebornBonusACTitle=비전 탄력성
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=체력 +2, 다른 1개의 점수가 1점 증가합니다.
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=능력치 증가
-Feature/&FeatureSetBattlebornArcaneResilienceDescription=당신은 다음과 같은 이점으로 대표되는 놀라운 강인함을 갖도록 창조되었습니다.\n• 방어구 클래스에 +1 보너스를 얻습니다.\n• 중독에 대한 내성 굴림에 이점이 있고 독 피해에 대한 저항력이 있습니다. \n• 당신은 질병에 면역입니다.\n• 당신은 잠을 잘 필요가 없으며 마법도 당신을 잠들게 할 수 없습니다.
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=당신은 다음과 같은 이점으로 대표되는 놀라운 강인함을 갖도록 창조되었습니다.\n• 방어구 클래스에 +1 보너스를 얻습니다.\n• 중독에 대한 내성 굴림에 이점이 있고 독 피해에 대한 저항력이 있습니다.\n• 당신은 질병에 면역입니다.\n• 당신은 잠을 잘 필요가 없으며 마법도 당신을 잠들게 할 수 없습니다.
 Feature/&FeatureSetBattlebornArcaneResilienceTitle=비전 탄력성
 Feature/&FeatureSetBattlebornSpecializedInfusionDescription=당신은 원하는 기술 숙련도 1개와 도구 숙련도 1개를 얻습니다.
 Feature/&FeatureSetBattlebornSpecializedInfusionTitle=전문 주입

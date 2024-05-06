@@ -456,8 +456,7 @@ internal static class MeleeCombatFeats
         {
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager)
             {
                 yield break;
             }
@@ -475,7 +474,7 @@ internal static class MeleeCombatFeats
 
             if ((!ValidatorsWeapon.IsMelee(attackMode) &&
                  !ValidatorsWeapon.IsUnarmed(attackMode)) ||
-                !attacker.OncePerTurnIsValid(powerPool.Name) ||
+                !attacker.OnceInMyTurnIsValid(powerPool.Name) ||
                 attackDirectionX != attacker.UsedSpecialFeatures[DirX] ||
                 attackDirectionY != attacker.UsedSpecialFeatures[DirY] ||
                 attackDirectionZ != attacker.UsedSpecialFeatures[DirZ] ||
@@ -591,7 +590,7 @@ internal static class MeleeCombatFeats
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDefensiveDuelist))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerKnightLeadership)
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerKnightLeadership)
                     .Build())
             .AddToDB();
 
@@ -798,8 +797,7 @@ internal static class MeleeCombatFeats
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager || !battleManager)
             {
                 yield break;
             }
@@ -979,8 +977,8 @@ internal static class MeleeCombatFeats
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            if ((action.ActionId == ActionDefinitions.Id.SwiftRetaliation ||
-                 action.ActionType == ActionDefinitions.ActionType.Reaction) &&
+            if (action.ActionType is ActionDefinitions.ActionType.Reaction &&
+                !attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag) &&
                 ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)(attackMode, null, null))
             {
                 attackModifier.attackAdvantageTrends.Add(
@@ -1272,7 +1270,7 @@ internal static class MeleeCombatFeats
                 actualEffectForms.Add(criticalEffectForm);
             }
 
-            if (!attacker.OncePerTurnIsValid(SpecialFeatureName) ||
+            if (!attacker.OnceInMyTurnIsValid(SpecialFeatureName) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle))
             {
                 yield break;
@@ -1320,8 +1318,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         feat.AddCustomSubFeatures(
-            new PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(conditionDevastatingStrikes, weaponTypes),
-            new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
+            new PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(conditionDevastatingStrikes, weaponTypes));
 
         return feat;
     }

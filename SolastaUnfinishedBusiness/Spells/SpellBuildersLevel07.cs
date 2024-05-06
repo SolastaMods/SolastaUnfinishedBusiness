@@ -1,4 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -17,15 +19,15 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ReverseGravity, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ReverseGravity, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(7)
             .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Healing)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -56,7 +58,103 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
                     .Build())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Draconic Transformation
+
+    internal static SpellDefinition BuildDraconicTransformation()
+    {
+        const string NAME = "DraconicTransformation";
+
+        var sprite = Sprites.GetSprite(NAME, Resources.DraconicTransformation, 128);
+
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(Category.Feature, sprite)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 12)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeForce, 6, DieType.D8)
+                            .Build())
+                    .SetParticleEffectParameters(ConeOfCold)
+                    .SetCasterEffectParameters(GravitySlam)
+                    .SetImpactEffectParameters(EldritchBlast)
+                    .Build())
+            .AddToDB();
+
+        power.disableIfConditionIsOwned = conditionMark;
+
+        var condition = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionDefinitions.ConditionFlying)
+            .SetPossessive()
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
+            .SetFeatures(
+                power,
+                FeatureDefinitionMoveModes.MoveModeFly12,
+                FeatureDefinitionSenses.SenseBlindSight6)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
+        condition.GuiPresentation.description = Gui.NoLocalization;
+
+        return SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, sprite)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(7)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, false)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 12)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            conditionMark,
+                            ConditionForm.ConditionOperation.Add, true),
+                        EffectFormBuilder.ConditionForm(
+                            condition,
+                            ConditionForm.ConditionOperation.Add, true),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeForce, 6, DieType.D8)
+                            .Build())
+                    .SetParticleEffectParameters(ConeOfCold)
+                    .SetCasterEffectParameters(GravitySlam)
+                    .SetImpactEffectParameters(EldritchBlast)
+                    .Build())
             .AddToDB();
     }
 

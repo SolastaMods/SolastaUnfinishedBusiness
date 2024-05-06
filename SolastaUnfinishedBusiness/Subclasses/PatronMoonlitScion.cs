@@ -604,11 +604,6 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             if (!defender.CanReact() ||

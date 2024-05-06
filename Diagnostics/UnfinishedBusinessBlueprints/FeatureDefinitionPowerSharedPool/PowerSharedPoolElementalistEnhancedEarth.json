@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionElementalistEnhancedEarth:a4a968b4-15f1-589f-bdaf-5b5937c20592",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

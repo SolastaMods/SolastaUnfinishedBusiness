@@ -16,7 +16,5 @@ Feature/&PowerDomainDefilerDefileLifeDescription=Вы высвобождаете
 Feature/&PowerDomainDefilerDefileLifeTitle=Осквернение жизни
 Feature/&PowerDomainDefilerDyingLightDescription=Когда вы наносите некротический урон, вы можете нанести максимальный урон вместо совершения броска. Вы можете использовать это умение один раз до продолжительного отдыха.
 Feature/&PowerDomainDefilerDyingLightTitle=Угасающий свет
-Feedback/&AdditionalDamageDivineStrikeFormat=Божественный удар!
-Feedback/&AdditionalDamageDivineStrikeLine={0} совершает божественный удар по {1} (+{2})
 Subclass/&DomainDefilerDescription=Осквернители поклоняются покровителям смерти, порчи и разложения, стремясь к власти и пороку ради собственных целей: чтобы угодить своим богам или по более эгоистичным причинам.
 Subclass/&DomainDefilerTitle=Осквернитель

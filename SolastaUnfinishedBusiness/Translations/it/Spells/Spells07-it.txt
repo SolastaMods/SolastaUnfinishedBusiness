@@ -1,4 +1,8 @@
 Condition/&ConditionReverseGravityDescription=Catturato dalla gravità inversa.
 Condition/&ConditionReverseGravityTitle=Gravità inversa
+Feature/&PowerDraconicTransformationDescription=Come azione bonus, puoi esalare energia scintillante in un cono di 18 metri. Ogni creatura in quell'area deve effettuare un tiro salvezza su Destrezza, subendo 6d8 danni da forza se fallisce il tiro salvezza, o la metà di questi danni se lo riesce.
+Feature/&PowerDraconicTransformationTitle=Trasformazione Draconica
+Spell/&DraconicTransformationDescription=Con un ruggito, attingi alla magia dei draghi per trasformarti, assumendo sembianze draconica. Ottieni i seguenti benefici fino al termine dell'incantesimo:\n• Hai vista cieca con un raggio di 9 metri.\n• Quando lanci questo incantesimo e come azione bonus nei turni successivi per la sua durata, puoi esalare una luce scintillante energia in un cono di 60 piedi. Ogni creatura in quell'area deve effettuare un tiro salvezza su Destrezza, subendo 6d8 danni da forza se fallisce il tiro salvezza, o la metà di questi danni se lo supera.\n• Ali incorporee spuntano dalla tua schiena, dandoti una velocità di volo di 60 piedi .
+Spell/&DraconicTransformationTitle=Trasformazione Draconica
 Spell/&ReverseGravityDescription=Questo incantesimo inverte la gravità in un cilindro del raggio di 15 metri e alto 30 metri centrato su un punto entro la gittata.
 Spell/&ReverseGravityTitle=Gravità inversa

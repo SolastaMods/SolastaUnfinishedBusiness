@@ -14,7 +14,7 @@
   "expertClimber": false,
   "canMoveOnWalls": true,
   "canFlyWithWalkSpeed": false,
-  "enhancedJump": true,
+  "enhancedJump": false,
   "additionalJumpCells": 3,
   "immuneDifficultTerrain": true,
   "disableVault": false,

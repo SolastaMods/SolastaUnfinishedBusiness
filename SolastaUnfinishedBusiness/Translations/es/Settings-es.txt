@@ -87,6 +87,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Habilite íconos adicionales para campame
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Agregar nuevos elementos a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilitar el humano alternativo <i><color=#F0DAA0>[+1 hazaña / +2 opciones de atributos / +1 habilidad]</color></i>
 ModUi/&EnableAlternateVotingSystem=Habilitar el sistema de votación alternativo <i><color=#F0DAA0>[use el modificador de carisma del héroe para determinar el peso de la elección]</color></i>
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Habilitar <color=#D89555>Inspiración bárdica</color>, <color=#D89555>Suerte abundante</color>, <color=#D89555>Círculo de estrellas</color>, <color=#D89555>Destello de genio </color> y <color=#D89555>Lucky</color> para activar también comprobaciones de atributos fuera del combate.
 ModUi/&EnableBarbarianBrutalStrike=Habilita <color=#D89555>Bárbaro</color> <b>Golpe brutal</b> y <b>Mejora de golpe brutal</b> en los niveles de clase 9, 13 y 17.
 ModUi/&EnableBarbarianFightingStyle=Activa la opción <color=#D89555>Bárbaro</color> <b>Estilo de lucha</b> en el nivel 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilite la ventaja y desventaja del <color=#D89555>Bárbaro</color> <b>Ataque imprudente</b> para finalizar al comienzo del siguiente turno.

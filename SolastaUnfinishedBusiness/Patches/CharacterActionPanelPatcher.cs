@@ -394,7 +394,7 @@ public static class CharacterActionPanelPatcher
         [UsedImplicitly]
         public static bool Prefix(CharacterActionPanel __instance)
         {
-            var hasShapeChangeForm = HasShapeChangeForm(__instance.actionParams.RulesetEffect as RulesetEffectSpell);
+            var hasShapeChangeForm = HasShapeChangeForm(__instance.actionParams.activeEffect as RulesetEffectSpell);
 
             if (!hasShapeChangeForm)
             {

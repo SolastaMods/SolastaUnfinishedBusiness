@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionAncientForestRooted:bceeaabc-7634-5bb7-aea1-abfe2fe86f9a",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

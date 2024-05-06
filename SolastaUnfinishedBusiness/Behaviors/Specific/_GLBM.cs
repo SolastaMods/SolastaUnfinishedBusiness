@@ -535,13 +535,11 @@ internal static class GLBM
 
         if (provider is FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage)
         {
-            var modifier = featureDefinitionAdditionalDamage.GetFirstSubFeatureOfType<IModifyAdditionalDamageForm>();
-
-            if (modifier != null)
+            foreach (var modifyAdditionalDamageForm in hero.GetSubFeaturesByType<IModifyAdditionalDamage>())
             {
-                additionalDamageForm = modifier
-                    .AdditionalDamageForm(
-                        attacker, defender, attackMode, featureDefinitionAdditionalDamage, additionalDamageForm);
+                modifyAdditionalDamageForm.ModifyAdditionalDamage(
+                    attacker, defender, attackMode, featureDefinitionAdditionalDamage, actualEffectForms,
+                    ref additionalDamageForm);
             }
         }
 

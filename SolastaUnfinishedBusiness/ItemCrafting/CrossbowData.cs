@@ -17,8 +17,6 @@ internal static class CrossbowData
                 (ItemDefinitions.LightCrossbow, ItemDefinitions.LightCrossbowPlus2),
                 (ItemDefinitions.HeavyCrossbow, ItemDefinitions.HeavyCrossbowPlus2)
             ],
-            PossiblePrimedItemsToReplace =
-                [ItemDefinitions.Primed_Longbow, ItemDefinitions.Primed_Shortbow],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Accuracy", ItemDefinitions.Enchanted_Longbow_Of_Accurary,

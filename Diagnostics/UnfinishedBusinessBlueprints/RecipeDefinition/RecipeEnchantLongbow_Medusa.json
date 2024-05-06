@@ -15,11 +15,6 @@
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:Primed Shortbow:f1cfe01f030799e43b4c096dc16635d8"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
       "itemDefinition": "Definition:Ingredient_Enchant_Medusa_Coral:938f014028419994d8f33964bcb6d9fa"
     }
   ],

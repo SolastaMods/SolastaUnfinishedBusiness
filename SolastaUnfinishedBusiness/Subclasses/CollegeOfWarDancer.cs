@@ -1,9 +1,11 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -18,7 +20,7 @@ using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 [UsedImplicitly]
-public sealed class CollegeOfWarDancer : AbstractSubclass
+public sealed class CollegeOfWarDancer // : AbstractSubclass
 {
     private const string Name = "CollegeOfWarDancer";
 
@@ -50,24 +52,25 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             new WarDanceExtraAttacks())
         .AddToDB();
 
+    private static readonly FeatureDefinitionAdditionalDamage AdditionalDamageWarDanceMomentum =
+        FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageWarDanceMomentum")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("Momentum")
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetDamageDice(DieType.D6, 2)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+            .SetAttackModeOnly()
+            .SetIgnoreCriticalDoubleDice(true)
+            .AddToDB();
+
     private static readonly ConditionDefinition WarDanceMomentum = ConditionDefinitionBuilder
         .Create("ConditionWarDanceMomentum")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
         .AllowMultipleInstances()
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetPossessive()
-        .SetFeatures(
-            FeatureDefinitionAdditionalDamageBuilder
-                .Create("AdditionalDamageWarDanceMomentum")
-                .SetGuiPresentationNoContent(true)
-                .SetNotificationTag("Momentum")
-                .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-                .SetDamageDice(DieType.D6, 2)
-                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-                .SetAttackModeOnly()
-                .SetIgnoreCriticalDoubleDice(true)
-                .AddCustomSubFeatures(new ModifyAdditionalDamageFormMomentum())
-                .AddToDB())
+        .SetFeatures(AdditionalDamageWarDanceMomentum)
         .AddToDB();
 
     private static readonly ConditionDefinition WarDanceExtraAttack = ConditionDefinitionBuilder
@@ -94,6 +97,9 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
 
     public CollegeOfWarDancer()
     {
+        AdditionalDamageWarDanceMomentum.AddCustomSubFeatures(
+            new ModifyAdditionalDamageMomentum(AdditionalDamageWarDanceMomentum));
+
         var powerWarDance = FeatureDefinitionPowerBuilder
             .Create("PowerWarDancerWarDance")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
@@ -118,7 +124,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             .AddCustomSubFeatures(new FocusedWarDance())
             .AddToDB();
 
-        Subclass = CharacterSubclassDefinitionBuilder
+        _ = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CollegeOfWarDancer, 256))
             .AddFeaturesAtLevel(3,
@@ -128,6 +134,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             .AddToDB();
     }
 
+#if false
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Bard;
 
     internal override CharacterSubclassDefinition Subclass { get; }
@@ -136,6 +143,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 
     internal override DeityDefinition DeityDefinition => null;
+#endif
 
     private static int GetMomentumStacks(RulesetActor character)
     {
@@ -248,7 +256,8 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         {
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (action.ActionType == ActionType.Reaction ||
+            if ((action.ActionType is ActionType.Reaction &&
+                 !attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag)) ||
                 rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetCharacter.HasConditionOfType(ConditionWarDance) ||
                 !ValidatorsWeapon.IsMelee(attackMode))
@@ -308,21 +317,27 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    private sealed class ModifyAdditionalDamageFormMomentum : IModifyAdditionalDamageForm
+    private sealed class ModifyAdditionalDamageMomentum(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
     {
-        public DamageForm AdditionalDamageForm(
+        public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            DamageForm damageForm)
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
         {
+            if (featureDefinitionAdditionalDamage != additionalDamage)
+            {
+                return;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
 
             damageForm.DieType = GetMomentumDice(rulesetAttacker);
             damageForm.DiceNumber = GetMomentumDiceNumber(rulesetAttacker);
-
-            return damageForm;
         }
 
         private static DieType GetMomentumDice(RulesetCharacter character)

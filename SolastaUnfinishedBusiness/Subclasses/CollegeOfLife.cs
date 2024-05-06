@@ -27,7 +27,6 @@ public sealed class CollegeOfLife : AbstractSubclass
         MagicAffinityCollegeOfLifeHeightened = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}Heightened")
             .SetGuiPresentation(Category.Feature)
-            // spells are set on later load
             .SetWarList(2)
             .AddToDB();
 
@@ -61,11 +60,7 @@ public sealed class CollegeOfLife : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionCollegeOfLifeDarkvision, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCollegeOfLifeDarkvision))
                     .Build())
             .AddToDB();
 
@@ -91,11 +86,7 @@ public sealed class CollegeOfLife : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionCollegeOfLifePoison, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCollegeOfLifePoison))
                     .Build())
             .AddToDB();
 
@@ -114,12 +105,14 @@ public sealed class CollegeOfLife : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionCollegeOfLifeConstitution, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCollegeOfLifeConstitution))
                     .Build())
+            .AddToDB();
+
+        var conditionFly = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionFlying, $"Condition{Name}Fly")
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
+            .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly12)
             .AddToDB();
 
         var powerSharedPoolCollegeOfLifeFly = FeatureDefinitionPowerSharedPoolBuilder
@@ -131,11 +124,7 @@ public sealed class CollegeOfLife : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.UntilAnyRest)
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(ConditionFlying12, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFly))
                     .Build())
             .AddToDB();
 

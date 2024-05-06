@@ -460,8 +460,7 @@ internal static class Level20Context
                         RangeType.Self,
                         1,
                         TargetType.Self)
-                    .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription
-                        .EffectParticleParameters)
+                    .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
@@ -685,7 +684,7 @@ internal static class Level20Context
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (action is not CharacterActionUsePower actionUsePower)
             {
@@ -713,21 +712,21 @@ internal static class Level20Context
 
     private sealed class ModifyAbilityCheckBarbarianIndomitableMight : IModifyAbilityCheck
     {
-        public int MinRoll(
-            [CanBeNull] RulesetCharacter character,
+        public void MinRoll(
+            RulesetCharacter character,
             int baseBonus,
-            int rollModifier,
             string abilityScoreName,
             string proficiencyName,
             List<TrendInfo> advantageTrends,
-            List<TrendInfo> modifierTrends)
+            List<TrendInfo> modifierTrends,
+            ref int rollModifier,
+            ref int minRoll)
         {
-            if (character == null || abilityScoreName != AttributeDefinitions.Strength)
+            if (character != null &&
+                abilityScoreName == AttributeDefinitions.Strength)
             {
-                return 1;
+                minRoll = Math.Max(minRoll, character.TryGetAttributeValue(AttributeDefinitions.Strength));
             }
-
-            return character.TryGetAttributeValue(AttributeDefinitions.Strength);
         }
     }
 
@@ -854,12 +853,10 @@ internal static class Level20Context
                 yield break;
             }
 
-            var rulesetCharacter = attacker.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (attacker != helper ||
-                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetCharacter.GetRemainingPowerUses(power) == 0 ||
-                !attacker.CanPerceiveTarget(defender))
+            if (helper != attacker ||
+                rulesetAttacker.GetRemainingPowerUses(power) == 0)
             {
                 yield break;
             }
@@ -868,12 +865,12 @@ internal static class Level20Context
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "RogueStrokeOfLuck",
                 RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower
             };
             var count = actionService.PendingReactionRequestGroups.Count;
@@ -887,14 +884,13 @@ internal static class Level20Context
                 yield break;
             }
 
-            rulesetCharacter.UsePower(usablePower);
+            rulesetAttacker.UsePower(usablePower);
 
             var delta = -action.AttackSuccessDelta;
 
             action.AttackRollOutcome = RollOutcome.Success;
-            action.AttackSuccessDelta = 0;
+            action.AttackSuccessDelta += delta;
             action.AttackRoll += delta;
-            attackModifier.ignoreAdvantage = false;
             attackModifier.AttackRollModifier += delta;
             attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }

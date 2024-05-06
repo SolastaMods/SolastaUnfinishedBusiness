@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "ToolOrExpertise",
+  "proficiencyType": "Tool",
   "proficiencies": [
     "ScrollKitType"
   ],

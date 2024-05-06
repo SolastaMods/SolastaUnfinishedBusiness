@@ -1,4 +1,8 @@
 Condition/&ConditionReverseGravityDescription=Gefangen durch die umgekehrte Schwerkraft.
 Condition/&ConditionReverseGravityTitle=Umgekehrte Schwerkraft
+Feature/&PowerDraconicTransformationDescription=Als Bonusaktion können Sie in einem 60-Fuß-Kegel schimmernde Energie ausatmen. Jede Kreatur in diesem Bereich muss einen Geschicklichkeitsrettungswurf machen und dabei 6W8 Kraftschaden bei einem fehlgeschlagenen Rettungswurf oder halb so viel Schaden bei einem erfolgreichen Rettungswurf erleiden.
+Feature/&PowerDraconicTransformationTitle=Drakonische Transformation
+Spell/&DraconicTransformationDescription=Mit einem Brüllen nutzen Sie die Magie der Drachen, um sich zu verwandeln und drakonische Züge anzunehmen. Bis zum Ende des Zaubers erhältst du die folgenden Vorteile:\n• Du hast Blindsicht mit einer Reichweite von 30 Fuß.\n• Wenn du diesen Zauber wirkst, kannst du als Bonusaktion in den folgenden Runden für die Dauer Schimmern ausatmen Energie in einem 60-Fuß-Kegel. Jede Kreatur in diesem Bereich muss einen Geschicklichkeitsrettungswurf ausführen und erleidet dabei 6W8 Kraftschaden bei einem fehlgeschlagenen Rettungswurf oder die Hälfte des Schadens bei einem erfolgreichen Rettungswurf.\n• Körperlose Flügel sprießen aus deinem Rücken und geben dir eine Fluggeschwindigkeit von 60 Fuß .
+Spell/&DraconicTransformationTitle=Drakonische Transformation
 Spell/&ReverseGravityDescription=Dieser Zauber kehrt die Schwerkraft in einem 100 Fuß hohen Zylinder mit einem Radius von 50 Fuß um, der auf einem Punkt in Reichweite zentriert ist.
 Spell/&ReverseGravityTitle=Umgekehrte Schwerkraft

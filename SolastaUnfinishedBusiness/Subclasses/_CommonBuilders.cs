@@ -102,7 +102,7 @@ internal static class CommonBuilders
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new MagicEffectBeforeHitConfirmedOnEnemyCasterFightingWarMagic(
+            new CustomBehaviorCasterFightingWarMagic(
                 ConditionDefinitionBuilder
                     .Create("ConditionCasterFightingWarMagic")
                     .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
@@ -163,7 +163,7 @@ internal static class CommonBuilders
 
     private sealed class AttackReplaceWithCantrip : IAttackReplaceWithCantrip;
 
-    private sealed class MagicEffectBeforeHitConfirmedOnEnemyCasterFightingWarMagic(
+    private sealed class CustomBehaviorCasterFightingWarMagic(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition)
         : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy

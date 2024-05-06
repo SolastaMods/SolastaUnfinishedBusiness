@@ -12,8 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AbilityCheckAffinityFeatPickPocket:30c18aff-792b-5d16-9579-80acfb7fcd89",
-    "Definition:ProficiencyFeatPickPocket:3b9d1757-103e-57a0-bd7b-b9174e57400f"
+    "Definition:AbilityCheckAffinityFeatPickPocket:30c18aff-792b-5d16-9579-80acfb7fcd89"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

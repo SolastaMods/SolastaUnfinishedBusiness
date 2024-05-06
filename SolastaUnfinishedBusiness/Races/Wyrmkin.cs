@@ -179,7 +179,7 @@ internal static class RaceWyrmkinBuilder
                 true,
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Intelligence)
-            .SetParticleEffectParameters(ColorSpray.EffectDescription.effectParticleParameters)
+            .SetParticleEffectParameters(ColorSpray)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -330,8 +330,7 @@ internal static class RaceWyrmkinBuilder
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager)
             {
                 yield break;
             }

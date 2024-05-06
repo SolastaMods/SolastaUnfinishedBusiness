@@ -54,8 +54,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.FlurryOfBlows)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
             .SetSpecificDamageType(DamageTypeLightning)
-            .SetImpactParticleReference(
-                ShockingGrasp.EffectDescription.EffectParticleParameters.effectParticleReference)
+            .SetImpactParticleReference(LightningBolt)
             .AddToDB();
 
         var featureSetGatheringStorm = FeatureDefinitionFeatureSetBuilder
@@ -256,7 +255,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != PowerMonkFlurryOfBlows)

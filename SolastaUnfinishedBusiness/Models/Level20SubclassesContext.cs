@@ -826,7 +826,7 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart |
                                         RecurrentEffect.OnEnter)
                     .ExcludeCaster()
@@ -961,7 +961,7 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeFire, 8, DieType.D6),
@@ -1028,7 +1028,7 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 7)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
                     .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionOathOfTirmarInquisitorZeal),
@@ -1198,7 +1198,7 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .Build())
@@ -1213,7 +1213,7 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -1237,7 +1237,7 @@ internal static class Level20SubclassesContext
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 13)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -1417,10 +1417,14 @@ internal static class Level20SubclassesContext
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             _attacker = null;
-            defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
+
+            foreach (var defender in targets)
+            {
+                defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
+            }
 
             yield break;
         }
@@ -1551,12 +1555,25 @@ internal static class Level20SubclassesContext
             _dieType = dieType;
         }
 
-        public void AfterRoll(RollContext rollContext, RulesetCharacter rulesetCharacter, ref int result)
+        public void AfterRoll(
+            DieType dieType,
+            AdvantageType advantageType,
+            RollContext rollContext,
+            RulesetCharacter rulesetCharacter,
+            ref int firstRoll,
+            ref int secondRoll,
+            ref int result)
         {
-            if (rollContext == RollContext.HealValueRoll)
+            if (rollContext != RollContext.HealValueRoll)
             {
-                result = DiceMaxValue[(int)_dieType];
+                return;
             }
+
+            var max = DiceMaxValue[(int)_dieType];
+
+            firstRoll = max;
+            secondRoll = max;
+            result = max;
         }
     }
 
@@ -1644,11 +1661,16 @@ internal static class Level20SubclassesContext
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
+            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int saveDC,
-            bool hasHitVisual,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
             List<EffectForm> effectForms)
         {
             if (abilityScoreName == AttributeDefinitions.Wisdom
@@ -1982,8 +2004,8 @@ internal static class Level20SubclassesContext
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
-                || rulesetEffectPower.PowerDefinition != featureDefinitionPower)
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != featureDefinitionPower)
             {
                 return true;
             }

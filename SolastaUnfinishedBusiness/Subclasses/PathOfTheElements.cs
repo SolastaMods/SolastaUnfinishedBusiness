@@ -605,8 +605,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager)
             {
                 yield break;
             }

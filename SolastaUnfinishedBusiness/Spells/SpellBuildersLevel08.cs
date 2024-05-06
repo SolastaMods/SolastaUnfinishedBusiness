@@ -20,7 +20,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MindBlank, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MindBlank, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(8)
             .SetCastingTime(ActivationTime.Action)
@@ -46,6 +46,35 @@ internal static partial class SpellBuilders
                                     DamageAffinityPsychicImmunity)
                                 .AddToDB()))
                     .SetParticleEffectParameters(DispelMagic)
+                    .Build())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Maddening Darkness
+
+    internal static SpellDefinition BuildMaddeningDarkness()
+    {
+        const string NAME = "MaddeningDarkness";
+
+        return SpellDefinitionBuilder
+            .Create(Darkness, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MaddeningDarkness, 128))
+            .SetSpellLevel(8)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Darkness)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 12)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 6, DieType.D8)
+                            .Build())
                     .Build())
             .AddToDB();
     }

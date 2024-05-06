@@ -64,12 +64,17 @@ Feature/&PowerFeatOrcishAggressionTitle=Agression orque
 Feedback/&AdditionalDamageOrcishFuryFormat=Fureur orque
 Feedback/&AdditionalDamageOrcishFuryLine=Orcish Fury inflige +{2} dégâts supplémentaires !
 Feedback/&BountifulLuckAttackToHitRoll={0} a utilisé {1} pour lancer un {2} et remplacer le jet d'attaque
+Feedback/&BountifulLuckCheckToHitRoll={0} a utilisé {1} pour lancer un {2} et remplacer le jet de contrôle
 Feedback/&BountifulLuckSavingToHitRoll={0} a utilisé {1} pour lancer un {2} et remplacer le jet de sauvegarde
 Feedback/&DwarvenFortitudeHitDieRolled={0} a lancé un {2} et a soigné {3} = {4}.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} ont manqué {1}. {2} peut réagir pour lancer un d20 et remplacer le jet d'attaque.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Lancez un d20 pour remplacer le jet d'attaque.
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=Chance abondante
 Reaction/&CustomReactionBountifulLuckAttackTitle=Chance abondante
+Reaction/&CustomReactionBountifulLuckCheckDescription={0} a échoué à un jet de contrôle. {1} peut réagir en lançant un d20 et remplacer le jet de contrôle.
+Reaction/&CustomReactionBountifulLuckCheckReactDescription=Lancez un d20 pour remplacer le jet de contrôle.
+Reaction/&CustomReactionBountifulLuckCheckReactTitle=Chance abondante
+Reaction/&CustomReactionBountifulLuckCheckTitle=Chance abondante
 Reaction/&CustomReactionBountifulLuckSavingDescription={0} échec du jet de sauvegarde contre {1}. {2} peut réagir en lançant un d20 et remplacer le jet de sauvegarde.
 Reaction/&CustomReactionBountifulLuckSavingReactDescription=Lancez un d20 pour remplacer le jet de sauvegarde.
 Reaction/&CustomReactionBountifulLuckSavingReactTitle=Chance abondante

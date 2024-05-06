@@ -16,7 +16,6 @@ internal static class HandCrossbowData
             BaseItems =
                 [(CustomWeaponsContext.HandXbow, CustomWeaponsContext.HandXbowPlus2)],
             CustomSubFeatures = [new CustomScale(0.5f)],
-            PossiblePrimedItemsToReplace = [CustomWeaponsContext.HandXbowPrimed],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Accuracy", ItemDefinitions.Enchanted_Longbow_Of_Accurary,

@@ -548,7 +548,7 @@ internal static class PowerBundle
     // This method fixes that
     internal static void SpendBundledPowerIfNeeded([NotNull] CharacterActionSpendPower action)
     {
-        if (action.ActionParams.RulesetEffect is not RulesetEffectPower { OriginItem: null } activePower)
+        if (action.ActionParams.activeEffect is not RulesetEffectPower { OriginItem: null } activePower)
         {
             return;
         }

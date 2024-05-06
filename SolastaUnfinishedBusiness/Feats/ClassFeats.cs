@@ -247,6 +247,18 @@ internal static class ClassFeats
                 ToolTypeDefinitions.PoisonersKitType)
             .AddToDB();
 
+        var tool = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Tool, PoisonersKitType)
+            .AddToDB();
+
+        var expertise = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}Expertise")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, PoisonersKitType)
+            .AddToDB();
+
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
@@ -254,15 +266,12 @@ internal static class ClassFeats
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .AddCustomSubFeatures(new ValidateDeviceFunctionUse((_, device, _) =>
+                    .AddCustomSubFeatures(
+                        new ValidateDeviceFunctionUse((_, device, _) =>
                             device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")),
-                        new ModifyDamageResistancePoisoner())
+                        new ModifyDamageResistancePoisoner(),
+                        new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType, tool, expertise))
                     .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
-                    .AddToDB(),
-                FeatureDefinitionProficiencyBuilder
-                    .Create($"Proficiency{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.ToolOrExpertise, PoisonersKitType)
                     .AddToDB())
             .AddToDB();
     }
@@ -315,27 +324,31 @@ internal static class ClassFeats
         .SetValidators(HasSneakAttack)
         .AddToDB();
 
-    internal sealed class ModifyAdditionalDamageFormCloseQuarters : IModifyAdditionalDamageForm
+    internal sealed class ModifyAdditionalDamageCloseQuarters(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
     {
-        internal static readonly ModifyAdditionalDamageFormCloseQuarters Marker = new();
-
-        public DamageForm AdditionalDamageForm(
+        public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            DamageForm damageForm)
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
         {
+            if (featureDefinitionAdditionalDamage != additionalDamage)
+            {
+                return;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter.GetOriginalHero();
 
             if (rulesetAttacker == null)
             {
-                return damageForm;
+                return;
             }
 
-            HandleCloseQuarters(attacker, rulesetAttacker, defender, damageForm);
-
-            return damageForm;
+            HandleCloseQuarters(attacker, rulesetAttacker, defender, ref damageForm);
         }
     }
 
@@ -343,7 +356,7 @@ internal static class ClassFeats
         GameLocationCharacter attacker,
         RulesetCharacterHero rulesetAttacker,
         GameLocationCharacter defender,
-        DamageForm damageForm)
+        ref DamageForm damageForm)
     {
         if (!attacker.IsWithinRange(defender, 1) ||
             (!rulesetAttacker.TrainedFeats.Contains(CloseQuartersDex) &&
@@ -402,8 +415,8 @@ internal static class ClassFeats
         public IEnumerator OnMagicEffectFinishedByMeOrAllyAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
+            GameLocationCharacter helper,
+            List<GameLocationCharacter> targets)
         {
             var effectDescription = action.actionParams.RulesetEffect.EffectDescription;
 
@@ -414,7 +427,7 @@ internal static class ClassFeats
 
             var attackRollOutcome = action.AttackRollOutcome;
 
-            yield return HandleReaction(attackRollOutcome, attacker, defender, helper);
+            yield return HandleReaction(attackRollOutcome, attacker, helper, targets);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMeOrAlly(
@@ -427,22 +440,22 @@ internal static class ClassFeats
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            yield return HandleReaction(rollOutcome, attacker, defender, helper);
+            yield return HandleReaction(rollOutcome, attacker, helper, [defender]);
         }
 
         private static IEnumerator HandleReaction(
             RollOutcome attackRollOutcome,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
+            GameLocationCharacter helper,
+            // ReSharper disable once ParameterTypeCanBeEnumerable.Local
+            List<GameLocationCharacter> targets)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager || !battleManager)
             {
                 yield break;
             }
@@ -454,34 +467,41 @@ internal static class ClassFeats
 
             if (attacker == helper ||
                 helper.IsMyTurn() ||
-                !helper.CanReact() ||
-                !helper.CanPerceiveTarget(defender))
+                !helper.CanReact())
             {
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = helper.GetFirstMeleeModeThatCanAttack(defender);
-
-            if (retaliationMode == null)
+            foreach (var defender in targets.Where(helper.CanPerceiveTarget))
             {
-                yield break;
+                var (retaliationMode, retaliationModifier) = helper.GetFirstMeleeModeThatCanAttack(defender);
+
+                if (retaliationMode == null)
+                {
+                    continue;
+                }
+
+                retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+
+                var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.AttackOpportunity)
+                {
+                    StringParameter = attacker.Name,
+                    ActionModifiers = { retaliationModifier },
+                    AttackMode = retaliationMode,
+                    TargetCharacters = { defender }
+                };
+                var reactionRequest = new ReactionRequestReactionAttack("Exploiter", actionParams);
+                var count = actionManager.PendingReactionRequestGroups.Count;
+
+                actionManager.AddInterruptRequest(reactionRequest);
+
+                yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+                if (actionParams.ReactionValidated)
+                {
+                    yield break;
+                }
             }
-
-            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
-
-            var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.AttackOpportunity)
-            {
-                StringParameter = attacker.Name,
-                ActionModifiers = { retaliationModifier },
-                AttackMode = retaliationMode,
-                TargetCharacters = { defender }
-            };
-            var reactionRequest = new ReactionRequestReactionAttack("Exploiter", actionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
         }
     }
 
@@ -650,7 +670,7 @@ internal static class ClassFeats
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
@@ -877,22 +897,22 @@ internal static class ClassFeats
 
         var potentSpellcasterGroup = GroupFeats.MakeGroupWithPreRequisite(
             "FeatGroupPotentSpellcaster", "PotentSpellcaster", ValidatorsFeat.IsLevel4,
-            potentSpellcasterFeats.ToArray());
+            [.. potentSpellcasterFeats]);
 
         feats.AddRange(potentSpellcasterFeats);
 
         return potentSpellcasterGroup;
     }
 
-    private sealed class ModifyEffectDescriptionFeatPotentSpellcaster : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionFeatPotentSpellcaster
+        : IModifyEffectDescription, IModifyWeaponAttackMode
     {
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition is SpellDefinition { SpellLevel: 0 }
-                   && effectDescription.HasDamageForm();
+            return definition is SpellDefinition { SpellLevel: 0 };
         }
 
         public EffectDescription GetEffectDescription(
@@ -903,13 +923,27 @@ internal static class ClassFeats
         {
             // this might not be correct if same spell is learned from different classes
             // if we follow other patches we should ideally identify all repertoires that can cast spell
-            // and use the one with highest attribute. will revisit if this ever becomes a thing
+            // and use the one with the highest attribute. will revisit if this ever becomes a thing
+            if (definition is not SpellDefinition spell)
+            {
+                return effectDescription;
+            }
+
             var spellRepertoire =
-                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(definition as SpellDefinition));
+                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(spell));
 
             if (spellRepertoire == null)
             {
-                return effectDescription;
+                if (SpellsContext.SpellsChildMaster.TryGetValue(spell, out var parentSpell))
+                {
+                    spellRepertoire =
+                        character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(parentSpell));
+                }
+
+                if (spellRepertoire == null)
+                {
+                    return effectDescription;
+                }
             }
 
             var damage = effectDescription.FindFirstDamageForm();
@@ -927,6 +961,36 @@ internal static class ClassFeats
                 "Feat/&FeatPotentSpellcasterTitle", null));
 
             return effectDescription;
+        }
+
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (attackMode.SourceDefinition != CustomWeaponsContext.ProducedFlameDart)
+            {
+                return;
+            }
+
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            var spellRepertoire =
+                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(ProduceFlame));
+
+            if (spellRepertoire == null)
+            {
+                return;
+            }
+
+            var attribute = spellRepertoire.SpellCastingAbility;
+            var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(attribute));
+
+            damage.BonusDamage += bonus;
+            damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
+                "Feat/&FeatPotentSpellcasterTitle", null));
         }
     }
 

@@ -776,9 +776,17 @@ FeatGroupAgilityCombat	Description='Alert, Cunning Escape, Eager for Battle, For
 FeatGroupApothecary	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and medicine, or expertise if already proficient.'.
 FeatGroupArmor	Description='Armor Master, Discretion of the Coedymwarth, Heavy Armor Master, Medium Armor Master, Might of the Iron Legion, Moderately Armored, Sturdiness of the Tundra'.
+FeatGroupAthlete	Description='You have undergone extensive physical training to gain the following benefits:
+• Increase your Strength or Dexterity score by 1, to a maximum of 20.
+• When you are prone, standing up doesn't cost you movement.
+• Climbing doesn't cost you extra movement.
+• You gain proficiency with Athletics skill or expertise if you are already proficient.'.
 FeatGroupAwakenTheBeastWithin	Description='Increase any ability score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatGroupBalefulScion	Description='You can channel cosmic forces of evil to gain these benefits:
+• Increase any ability score by 1, to a maximum of 20.
+• Once per turn, when you damage a creature you can see within 60 feet of yourself, you can also deal necrotic damage to it. The necrotic damage equals 1d6 + your proficiency bonus, and you regain a number of hit points equal to 1D6 + your proficiency bonus. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.'.
 FeatGroupBlessedSoul	Description='Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.'.
-FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Creed of the Gods, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hauler, Robust, Tough'.
+FeatGroupBodyResilience	Description='Athlete, Badlands Marauder, Blessing of the Elements, Creed of the Gods, Dungeon Delver, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hauler, Lucky, Robust, Tough'.
 FeatGroupCelestialTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupChef	Description='Increase your Wisdom or Constitution by 1, to a maximum of 20.
@@ -822,19 +830,19 @@ FeatGroupGrudgeBearer	Description='You have a deep hatred for a particular kind 
 • During the first round of any combat against your chosen foes, your attack rolls against any of them have advantage.
 • When any of your chosen foes makes an opportunity attack against you, it makes the attack roll with disadvantage.'.
 FeatGroupHalfAttributes	Description='Half Charisma, Half Constitution, Half Dexterity, Half Intelligence, Half Strength, Half Wisdom'.
-FeatGroupHalfCharisma	Description='Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Dragon Fear [Cha], Dragon Hide [Cha], Elven Accuracy [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Flames of Phlegethos [Cha], Iridescent Touched [Cha], Peregrination Touched [Cha], Retinue Touched [Cha], Second Chance [Cha], Shadow Touched [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]'.
-FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Chef [Con], Creed of Arun, Crusher [Con], Dragon Fear [Con], Dragon Hide [Con], Dwarven Fortitude, Enduring Body, Focused Sleeper, Frost Adaptation, Grudge Bearer [Con], Hard to Kill, Hardy [Con], Infernal Constitution, Orcish Aggression [Con], Orcish Fury [Con], Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra'.
-FeatGroupHalfDexterity	Description='Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy, Weapon Master [Dex]'.
-FeatGroupHalfIntelligence	Description='Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Flames of Phlegethos [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]'.
-FeatGroupHalfStrength	Description='Awaken the Beast [Str], Creed of Einar, Crusher [Str], Dragon Fear [Str], Dragon Hide [Str], Grudge Bearer [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Aggression [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str], Weapon Master [Str]'.
-FeatGroupHalfWisdom	Description='Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Chef [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Grudge Bearer [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision'.
+FeatGroupHalfCharisma	Description='Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Baleful Scion [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Dragon Fear [Cha], Dragon Hide [Cha], Elven Accuracy [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Flames of Phlegethos [Cha], Iridescent Touched [Cha], Menacing, Peregrination Touched [Cha], Retinue Touched [Cha], Second Chance [Cha], Shadow Touched [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]'.
+FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Baleful Scion [Con], Chef [Con], Creed of Arun, Crusher [Con], Dragon Fear [Con], Dragon Hide [Con], Dwarven Fortitude, Enduring Body, Focused Sleeper, Frost Adaptation, Grudge Bearer [Con], Hard to Kill, Hardy [Con], Infernal Constitution, Orcish Aggression [Con], Orcish Fury [Con], Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra'.
+FeatGroupHalfDexterity	Description='Ambidextrous, Athlete [Dex], Awaken the Beast [Dex], Baleful Scion [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Uncanny Accuracy, Weapon Master [Dex]'.
+FeatGroupHalfIntelligence	Description='Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Awaken the Beast [Int], Baleful Scion [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Flames of Phlegethos [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Telekinetic [Int], Toxicologist [Int], Verdant Touched [Int]'.
+FeatGroupHalfStrength	Description='Athlete [Str], Awaken the Beast [Str], Baleful Scion [Str], Creed of Einar, Crusher [Str], Dragon Fear [Str], Dragon Hide [Str], Grudge Bearer [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Aggression [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str], Weapon Master [Str]'.
+FeatGroupHalfWisdom	Description='Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Baleful Scion [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Chef [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Grudge Bearer [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision'.
 FeatGroupHardy	Description='Increase your Strength or Constitution by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.'.
 FeatGroupIridescentTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupMagicInitiate	Description='Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatGroupMediumArmor	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.'.
-FeatGroupMeleeCombat	Description='Always Ready, Blade Mastery, Charger, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Polearm Master, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack'.
+FeatGroupMeleeCombat	Description='Always Ready, Baleful Scion, Blade Mastery, Charger, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Polearm Master, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack'.
 FeatGroupOldTactics	Description='Increase your Strength or Dexterity by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.'.
 FeatGroupOrcishAggression	Description='Your aggression burns tirelessly. You gain the following benefits:
 • Increase your Strength or Constitution by 1, up to a maximum of 20.
@@ -847,7 +855,7 @@ FeatGroupPeregrinationTouched	Description='Increase one of your mental attribute
 You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupPiercer	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1, and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.'.
-FeatGroupPlaneMagic	Description='Aegis Touched, Celestial Touched, Fey Teleportation, Flame Touched, Iridescent Touched, Peregrination Touched, Retinue Touched, Shadow Touched, Telekinetic, Verdant Touched'.
+FeatGroupPlaneMagic	Description='Fey Teleportation, Telekinetic, Touched Magic'.
 FeatGroupPotentSpellcaster	Description='You can add your spellcaster attribute modifier to the damage you deal with any cantrip in your repertoire.'.
 FeatGroupPrecisionFocused	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.'.
@@ -863,16 +871,18 @@ FeatGroupRevenantGreatSword	Description='You are descended from a master of the 
 FeatGroupSecondChance	Description='Increase your Dexterity, Constitution, or Charisma by 1, to a maximum of 20. When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.'.
 FeatGroupShadowTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest, and you can cast these spells with your spell slots.'.
-FeatGroupSkills	Description='Apothecary, Arcane Appraiser, Healer, Initiate Enchanter, Manipulator, Pickpocket, Scriber, Squat Nimbleness, Toxicologist'.
+FeatGroupSkills	Description='Apothecary, Arcane Appraiser, Healer, Initiate Enchanter, Manipulator, Menacing, Pickpocket, Scriber, Squat Nimbleness, Toxicologist'.
 FeatGroupSlasher	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.'.
-FeatGroupSpellCombat	Description='Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster'.
+FeatGroupSpellCombat	Description='Baleful Scion, Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster'.
 FeatGroupSpellSniper	Description='You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatGroupSquatNimbleness	Description='You are uncommonly nimble for your race. Increase your Strength or Dexterity by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.'.
-FeatGroupSupportCombat	Description='Call for Charge, Chef, Gift of the Chromatic Dragon, Hardy, Healer, Improved Critical, Inspiring Leader, Mage Slayer, Mender, Poisoner, Precision Focused, Sentinel, Superior Critical, Weapon Master'.
+FeatGroupSupportCombat	Description='Call for Charge, Chef, Gift of the Chromatic Dragon, Hardy, Healer, Improved Critical, Inspiring Leader, Lucky, Mage Slayer, Menacing, Mender, Poisoner, Precision Focused, Sentinel, Superior Critical, Weapon Master'.
 FeatGroupTelekinetic	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.'.
 FeatGroupTools	Description='Initiate Alchemist, Initiate Enchanter, Lock Breaker, Master Alchemist, Master Enchanter, Poisoner, Scriber, Toxicologist'.
+FeatGroupTouchedMagic	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+You can pick a set from Aegis Touched, Celestial Touched, Flame Touched, Iridescent Touched, Peregrination Touched, Retinue Touched, Shadow Touched, Verdant Touched. Each set grants 3 spells. You can cast these spells once per long rest, and you can also cast these spells with your spell slots.'.
 FeatGroupToxicologist	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.'.
 FeatGroupTwoHandedCombat	Description='Follow Up Strike, Forestalling Strength, Mighty Blow, Polearm Master, Revenant Blade'.
@@ -881,7 +891,7 @@ FeatGroupUnarmoredCombat	Description='Astral Reach, Crusher, Elemental Touch, Po
 FeatGroupVerdantTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupWeaponMaster	Description='You have practiced extensively with a variety of weapons, gaining the following benefits:
-• Increase your Strength or Dexterity score by 1, to a maximum of 20. 
+• Increase your Strength or Dexterity score by 1, to a maximum of 20.
 • You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.'.
 FeatMagicInitiateBard	Title='Magic Initiate [Bard]'.
 FeatMagicInitiateBard	Description='You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
@@ -919,8 +929,14 @@ FeatSpellSniperWizard	Title='Spell Sniper [Wizard]'.
 FeatSpellSniperWizard	Description='You learn one cantrip of your choice from the Wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatureSetDomainDefilerDefileLife	Title='Channel Divinity: Defile Life'.
 FeatureSetDomainDefilerDefileLife	Description='Unleash a wave of necrotic energy around you. Each non-undead hostile creature in a 30-foot radius must make a Constitution saving throw. Affected creatures take 2d10 + cleric level necrotic damage on a failed saving throw, or half that amount on a successful one.'.
+FeatureSetDomainNatureCharmAnimalsAndPlants	Title='Channel Divinity: Charm Animals and Plants'.
+FeatureSetDomainNatureCharmAnimalsAndPlants	Description='As an action, you present your holy symbol and invoke the name of your deity. Each beast or plant creature that can see you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is charmed by you for 1 minute or until it takes damage.'.
+FeatureSetDomainNatureMasterOfNature	Title='Channel Divinity: Master of Nature'.
+FeatureSetDomainNatureMasterOfNature	Description='As an action, you present your holy symbol and invoke the name of your deity. Each beast or plant creature that can see you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is mind controlled by you for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.'.
 FeatureSetDomainSmithDefileLife	Title='Channel Divinity: Adamant Benediction'.
 FeatureSetDomainSmithDefileLife	Description='Using an action, bolster the armor of allies in a 30ft radius. Their armor gains the Strength of adamantine armor, gaining immunity to critical for 1 minute.'.
+FeatureSetDomainTempestDestructiveWrath	Title='Channel Divinity: Destructive Wrath'.
+FeatureSetDomainTempestDestructiveWrath	Description='You can use your Channel Divinity to wield the power of the storm with unchecked ferocity. When you roll lightning or thunder damage, you can use your Channel Divinity to deal maximum damage, instead of rolling.'.
 FeatureSetPathOfTheElementsElementalBurst	Description='Starting at 10th level, you gain additional powers depending on the elemental calamity chosen at 3rd level.
 • <b>Storm</b>: While you are raging, you can target a 3x3 area within 60 feet and use your bonus action to call a bolt of lightning. On a failed Dexterity saving throw, each enemy creature within that area receives 3d10 lightning damage and becomes unable to use reactions for 1 round (save for half damage, save to prevent reaction loss). You can use this feature once per short rest. The damage increases to 4d10 at 13th level, and 5d10 at 17th level.
 • <b>Blizzard</b>: While you are raging, you can target a 3x3 area within 60 feet and use your bonus action to send a gust of freezing wind. On a failed Strength saving throw, each enemy creature within that area receives 3d8 cold damage and becomes prone (save for half damage, save to prevent becoming prone). You can use this feature once per short rest. The damage increases to 4d8 at 13th level, and 5d8 at 17th level.
@@ -964,6 +980,22 @@ PointPool4BonusFeats	Title='4 Bonus Feats'.
 PointPool4BonusFeats	Description='Select 4 additional feats for your character.'.
 PointPool5BonusFeats	Title='5 Bonus Feats'.
 PointPool5BonusFeats	Description='Select 5 additional feats for your character.'.
+PowerChaosBoltDamageAcid	Title='Acid Damage'.
+PowerChaosBoltDamageAcid	Description='Use Acid Damage damage.'.
+PowerChaosBoltDamageCold	Title='Cold Damage'.
+PowerChaosBoltDamageCold	Description='Use Cold Damage damage.'.
+PowerChaosBoltDamageFire	Title='Fire Damage'.
+PowerChaosBoltDamageFire	Description='Use Fire Damage damage.'.
+PowerChaosBoltDamageForce	Title='Force Damage'.
+PowerChaosBoltDamageForce	Description='Use Force Damage damage.'.
+PowerChaosBoltDamageLightning	Title='Lightning Damage'.
+PowerChaosBoltDamageLightning	Description='Use Lightning Damage damage.'.
+PowerChaosBoltDamagePoison	Title='Poison Damage'.
+PowerChaosBoltDamagePoison	Description='Use Poison Damage damage.'.
+PowerChaosBoltDamagePsychic	Title='Psychic Damage'.
+PowerChaosBoltDamagePsychic	Description='Use Psychic Damage damage.'.
+PowerChaosBoltDamageThunder	Title='Thunder Damage'.
+PowerChaosBoltDamageThunder	Description='Use Thunder Damage damage.'.
 PowerCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
 PowerCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
 This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen.'.
@@ -1065,6 +1097,8 @@ PowerCreateSpellStoringWandOfCalmEmotions	Title='Calm Emotions'.
 PowerCreateSpellStoringWandOfCalmEmotions	Description='Create a wand that can cast <b>Calm Emotions (II)</b> spell using your Artificer spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfCausticZap	Title='Caustic Zap'.
 PowerCreateSpellStoringWandOfCausticZap	Description='Create a wand that can cast <b>Caustic Zap (I)</b> spell using your Artificer spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfChaosBolt	Title='Chaos Bolt'.
+PowerCreateSpellStoringWandOfChaosBolt	Description='Create a wand that can cast <b>Chaos Bolt (I)</b> spell using your Artificer spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfCharmPerson	Title='Charm Person'.
 PowerCreateSpellStoringWandOfCharmPerson	Description='Create a wand that can cast <b>Charm Person (I)</b> spell using your Artificer spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfChromaticOrb	Title='Chromatic Orb'.
@@ -1193,6 +1227,8 @@ PowerCreateSpellStoringWandOfVoidGrasp	Title='Arms of Hadar'.
 PowerCreateSpellStoringWandOfVoidGrasp	Description='Create a wand that can cast <b>Arms of Hadar (I)</b> spell using your Artificer spell attack modifier and save DC.'.
 PowerCreateSpellStoringWandOfWitchBolt	Title='Witch Bolt'.
 PowerCreateSpellStoringWandOfWitchBolt	Description='Create a wand that can cast <b>Witch Bolt (I)</b> spell using your Artificer spell attack modifier and save DC.'.
+PowerCreateSpellStoringWandOfWitherAndBloom	Title='Wither and Bloom'.
+PowerCreateSpellStoringWandOfWitherAndBloom	Description='Create a wand that can cast <b>Wither and Bloom (II)</b> spell using your Artificer spell attack modifier and save DC.'.
 PowerDomainSmithReinforceArmor1	Description='Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +1 AC.'.
 PowerDomainSmithReinforceArmor11	Description='Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +3 AC.'.
 PowerDomainSmithReinforceArmor16	Description='Once per short rest, you may reinforce a non-magical piece of armor or shield. The reinforced object gains an additional +4 AC.'.
@@ -1312,6 +1348,22 @@ PowerWayOfTheDiscordanceBurstOfDisharmony8	Description='Spend 8 Ki Point to deal
 PowerWayOfTheDiscordanceBurstOfDisharmony9	Title='Burst of Disharmony [9 Ki]'.
 PowerWayOfTheDiscordanceBurstOfDisharmony9	Description='Spend 9 Ki Point to deal 10d6 necrotic damage.'.
 SavingThrowAffinityWayOfTheDiscordanceTurmoil	Title='Turmoil'.
+SpellPowerChaosBoltDamageAcid	Title='Acid Damage'.
+SpellPowerChaosBoltDamageAcid	Description='Use Acid Damage damage.'.
+SpellPowerChaosBoltDamageCold	Title='Cold Damage'.
+SpellPowerChaosBoltDamageCold	Description='Use Cold Damage damage.'.
+SpellPowerChaosBoltDamageFire	Title='Fire Damage'.
+SpellPowerChaosBoltDamageFire	Description='Use Fire Damage damage.'.
+SpellPowerChaosBoltDamageForce	Title='Force Damage'.
+SpellPowerChaosBoltDamageForce	Description='Use Force Damage damage.'.
+SpellPowerChaosBoltDamageLightning	Title='Lightning Damage'.
+SpellPowerChaosBoltDamageLightning	Description='Use Lightning Damage damage.'.
+SpellPowerChaosBoltDamagePoison	Title='Poison Damage'.
+SpellPowerChaosBoltDamagePoison	Description='Use Poison Damage damage.'.
+SpellPowerChaosBoltDamagePsychic	Title='Psychic Damage'.
+SpellPowerChaosBoltDamagePsychic	Description='Use Psychic Damage damage.'.
+SpellPowerChaosBoltDamageThunder	Title='Thunder Damage'.
+SpellPowerChaosBoltDamageThunder	Description='Use Thunder Damage damage.'.
 SpellPowerCreateSpellStoringWandOfAid	Title='Aid'.
 SpellPowerCreateSpellStoringWandOfAid	Description='Create a wand that can cast <b>Aid (II)</b> spell using your Artificer spell attack modifier and save DC.'.
 SpellPowerCreateSpellStoringWandOfBlur	Title='Blur'.
@@ -1488,6 +1540,8 @@ SpellStoringWandOfCalmEmotions	Title='Wand of Calm Emotions'.
 SpellStoringWandOfCalmEmotions	Description='This wand allows casting the <b>Calm Emotions</b> spell using spell casting stats of the Artificer who created it.'.
 SpellStoringWandOfCausticZap	Title='Wand of Caustic Zap'.
 SpellStoringWandOfCausticZap	Description='This wand allows casting the <b>Caustic Zap</b> spell using spell casting stats of the Artificer who created it.'.
+SpellStoringWandOfChaosBolt	Title='Wand of Chaos Bolt'.
+SpellStoringWandOfChaosBolt	Description='This wand allows casting the <b>Chaos Bolt</b> spell using spell casting stats of the Artificer who created it.'.
 SpellStoringWandOfCharmPerson	Title='Wand of Charm Person'.
 SpellStoringWandOfCharmPerson	Description='This wand allows casting the <b>Charm Person</b> spell using spell casting stats of the Artificer who created it.'.
 SpellStoringWandOfChromaticOrb	Title='Wand of Chromatic Orb'.
@@ -1616,3 +1670,5 @@ SpellStoringWandOfVoidGrasp	Title='Wand of Arms of Hadar'.
 SpellStoringWandOfVoidGrasp	Description='This wand allows casting the <b>Arms of Hadar</b> spell using spell casting stats of the Artificer who created it.'.
 SpellStoringWandOfWitchBolt	Title='Wand of Witch Bolt'.
 SpellStoringWandOfWitchBolt	Description='This wand allows casting the <b>Witch Bolt</b> spell using spell casting stats of the Artificer who created it.'.
+SpellStoringWandOfWitherAndBloom	Title='Wand of Wither and Bloom'.
+SpellStoringWandOfWitherAndBloom	Description='This wand allows casting the <b>Wither and Bloom</b> spell using spell casting stats of the Artificer who created it.'.

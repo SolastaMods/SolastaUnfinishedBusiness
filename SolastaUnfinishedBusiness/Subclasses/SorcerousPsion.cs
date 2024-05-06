@@ -285,10 +285,8 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
-                rulesetEffectSpell.EffectDescription.HasDamageForm() &&
-                rulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MindSculptToggle) &&
-                rulesetCharacter.RemainingSorceryPoints > 0)
+            if (rulesetCharacter.RemainingSorceryPoints > 0 &&
+                rulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MindSculptToggle))
             {
                 foreach (var effectForm in actualEffectForms
                              .Where(x => x.FormType == EffectForm.EffectFormType.Damage))
@@ -296,8 +294,6 @@ public sealed class SorcerousPsion : AbstractSubclass
                     _hasDamageChanged = _hasDamageChanged || effectForm.DamageForm.DamageType != DamageTypePsychic;
                     effectForm.DamageForm.DamageType = DamageTypePsychic;
                 }
-
-                _hasDamageChanged = true;
             }
 
             if (!firstTarget)
@@ -311,7 +307,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             foreach (var effectForm in actualEffectForms
                          .Where(x =>
                              x.FormType == EffectForm.EffectFormType.Damage
-                             && x.DamageForm.DamageType == DamageTypePsychic))
+                             && x.DamageForm.DamageType is DamageTypePsychic))
             {
                 effectForm.DamageForm.BonusDamage += charismaModifier;
             }
@@ -320,13 +316,8 @@ public sealed class SorcerousPsion : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
-            if (action is not CharacterActionCastSpell)
-            {
-                yield break;
-            }
-
             if (!_hasDamageChanged)
             {
                 yield break;
@@ -419,7 +410,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            List<GameLocationCharacter> targets)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
             {

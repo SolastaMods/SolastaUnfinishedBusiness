@@ -126,7 +126,7 @@ public sealed class OathOfDread : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(PowerFighterActionSurge.EffectDescription.effectParticleParameters)
+                    .SetParticleEffectParameters(PowerFighterActionSurge)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -394,8 +394,7 @@ public sealed class OathOfDread : AbstractSubclass
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager ||
-                battleManager is not { IsBattleInProgress: true })
+            if (!actionManager)
             {
                 yield break;
             }

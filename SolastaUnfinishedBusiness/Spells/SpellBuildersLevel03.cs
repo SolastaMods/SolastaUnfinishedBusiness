@@ -101,7 +101,7 @@ internal static partial class SpellBuilders
     {
         const string NAME = "WinterBreath";
 
-        var spriteReference = Sprites.GetSprite(NAME, Resources.WinterBreath, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.WinterBreath, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -163,7 +163,7 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell,
-                Sprites.GetSprite("CrusadersMantle", Resources.CrusadersMantle, 128))
+                Sprites.GetSprite(NAME, Resources.CrusadersMantle, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -178,7 +178,7 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetParticleEffectParameters(DivineFavor)
+                    //.SetParticleEffectParameters(DivineFavor)
                     .SetRecurrentEffect(RecurrentEffect.OnActivation |
                                         RecurrentEffect.OnTurnStart |
                                         RecurrentEffect.OnEnter)
@@ -224,17 +224,16 @@ internal static partial class SpellBuilders
                         EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Wisdom,
                         12)
-                    .AddEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
-                    .AddEffectForms(
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(PowerFunctionWandFearCone)
                     .SetCasterEffectParameters(Darkness)
@@ -269,7 +268,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.AdderFangs, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.AdderFangs, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -368,8 +367,9 @@ internal static partial class SpellBuilders
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionAuraOfLife),
-                        EffectFormBuilder.ConditionForm(conditionAuraOfLifeSelf, ConditionForm.ConditionOperation.Add,
-                            true, true))
+                        EffectFormBuilder.ConditionForm(
+                            conditionAuraOfLifeSelf,
+                            ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(DivineWord)
                     .Build())
             .AddToDB();
@@ -389,7 +389,7 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell
+            if (__instance.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell
                 || rulesetEffectSpell.SpellDefinition != spellAuraOfVitality)
             {
                 return true;
@@ -419,7 +419,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("ElementalWeapon", Resources.ElementalWeapon, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ElementalWeapon, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -715,7 +715,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.All, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 2)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -741,7 +741,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.ThunderStep, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.ThunderStep, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -877,15 +877,14 @@ internal static partial class SpellBuilders
                     .SetAttackModeOnly()
                     .SetDamageDice(DieType.D6, 1)
                     .SetSpecificDamageType(DamageTypeFire)
-                    .SetImpactParticleReference(
-                        FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
+                    .SetImpactParticleReference(FireBolt)
                     .AddToDB())
             .AddCustomSubFeatures(new CustomBehaviorFlameArrows())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.FlameArrows, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.FlameArrows, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.BonusAction)
@@ -997,7 +996,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.LightningArrow, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.LightningArrow, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.BonusAction)
@@ -1216,7 +1215,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CorruptingBolt, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CorruptingBolt, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -1338,7 +1337,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.VitalityTransfer, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.VitalityTransfer, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -1421,7 +1420,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.HungerOfTheVoid, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.HungerOfTheVoid, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -1435,14 +1434,13 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
-                    .SetEffectAdvancement(
-                        EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionHungerOfTheVoid),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, true),
-                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, true))
+                        Darkness.EffectDescription.EffectForms[2],
+                        Darkness.EffectDescription.EffectForms[3])
                     .SetParticleEffectParameters(Darkness)
                     .Build())
             .AddToDB();

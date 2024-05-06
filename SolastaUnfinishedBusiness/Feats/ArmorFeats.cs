@@ -109,6 +109,13 @@ internal static class ArmorFeats
     {
         const string Name = "FeatShieldTechniques";
 
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Mark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .AddToDB();
+
         var actionAffinityShieldTechniques = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}")
             .SetGuiPresentationNoContent(true)
@@ -117,29 +124,16 @@ internal static class ArmorFeats
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasShield, ValidatorsCharacter.HasAttacked))
             .AddToDB();
 
-        var conditionShieldTechniquesSavingThrow = ConditionDefinitionBuilder
-            .Create($"Condition{Name}SavingThrow")
-            .SetGuiPresentation(Name, Category.Feat)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create($"SavingThrowAffinity{Name}")
-                    .SetGuiPresentation(Name, Category.Feat)
-                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.SourceAbility, DieType.D1, 1, false,
-                        AttributeDefinitions.Dexterity)
-                    .AddToDB())
-            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
-            .AddToDB();
-
         var powerShieldTechniques = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Feat)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .AddToDB();
 
         powerShieldTechniques.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new CustomBehaviorShieldTechniques(powerShieldTechniques, conditionShieldTechniquesSavingThrow));
+            new CustomBehaviorShieldTechniques(powerShieldTechniques, conditionMark));
 
         return FeatDefinitionBuilder
             .Create(Name)
@@ -152,8 +146,7 @@ internal static class ArmorFeats
     private sealed class CustomBehaviorShieldTechniques(
         FeatureDefinitionPower powerShieldTechniques,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionShieldTechniquesSavingThrow)
-        : IRollSavingThrowInitiated, IMagicEffectBeforeHitConfirmedOnMe
+        ConditionDefinition conditionMark) : IRollSavingThrowInitiated, IMagicEffectBeforeHitConfirmedOnMe
     {
         // halve any damage taken
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
@@ -166,11 +159,6 @@ internal static class ArmorFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             if (!defender.CanReact() || !rulesetDefender.IsWearingShield())
@@ -212,17 +200,38 @@ internal static class ArmorFeats
 
             actionModifier.DefenderDamageMultiplier *= 0.5f;
             rulesetDefender.DamageHalved(rulesetDefender, powerShieldTechniques);
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetDefender.InflictCondition(
+                conditionMark.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionMark.Name,
+                0,
+                0,
+                0);
         }
 
         // add +2 on DEX savings
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
+            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            int saveDC,
-            bool hasHitVisual,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
             List<EffectForm> effectForms)
         {
             if (abilityScoreName != AttributeDefinitions.Dexterity || !defender.IsWearingShield())
@@ -230,19 +239,9 @@ internal static class ArmorFeats
                 return;
             }
 
-            defender.InflictCondition(
-                conditionShieldTechniquesSavingThrow.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagStatus,
-                caster.Guid,
-                caster.CurrentFaction.Name,
-                1,
-                conditionShieldTechniquesSavingThrow.Name,
-                0,
-                2,
-                0);
+            rollModifier += 2;
+            modifierTrends.Add(
+                new TrendInfo(2, FeatureSourceType.Power, powerShieldTechniques.Name, powerShieldTechniques));
         }
     }
 }

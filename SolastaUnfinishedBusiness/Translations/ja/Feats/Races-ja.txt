@@ -64,12 +64,17 @@ Feature/&PowerFeatOrcishAggressionTitle=オークの攻撃性
 Feedback/&AdditionalDamageOrcishFuryFormat=オークの怒り
 Feedback/&AdditionalDamageOrcishFuryLine=オークの怒りは追加の +{2} ダメージを与える！
 Feedback/&BountifulLuckAttackToHitRoll={0} は {1} を使用して {2} をロールし、攻撃ロールを置き換えました
+Feedback/&BountifulLuckCheckToHitRoll={0} は {1} を使用して {2} をロールし、チェックロールを交換しました
 Feedback/&BountifulLuckSavingToHitRoll={0} は {1} を使用して {2} をロールし、セービング ロールを置き換えました
 Feedback/&DwarvenFortitudeHitDieRolled={0} は {2} を出して、{3} = {4} を回復しました。
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} は {1} を欠席しました。 {2} は d20 のロールに反応して攻撃ロールを置き換えることができます。
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=D20をロールして攻撃ロールを置き換えます。
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=豊かな幸運
 Reaction/&CustomReactionBountifulLuckAttackTitle=豊かな幸運
+Reaction/&CustomReactionBountifulLuckCheckDescription={0} はチェックロールに失敗しました。 {1} は d20 をロールしてチェックロールを置き換えることができます。
+Reaction/&CustomReactionBountifulLuckCheckReactDescription=D20 をロールしてチェックロールを交換します。
+Reaction/&CustomReactionBountifulLuckCheckReactTitle=豊かな幸運
+Reaction/&CustomReactionBountifulLuckCheckTitle=豊かな幸運
 Reaction/&CustomReactionBountifulLuckSavingDescription={0} は {1} に対するセーブロールに失敗しました。 {2} は d20 のロールに反応してセービングロールを置き換えることができます。
 Reaction/&CustomReactionBountifulLuckSavingReactDescription=D20 をロールしてセービング ロールを交換します。
 Reaction/&CustomReactionBountifulLuckSavingReactTitle=豊かな幸運

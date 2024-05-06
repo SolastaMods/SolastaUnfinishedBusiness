@@ -14,7 +14,6 @@ internal static class HandaxeData
         {
             BaseItems =
                 [(ItemDefinitions.Handaxe, ItemDefinitions.HandaxePlus2)],
-            PossiblePrimedItemsToReplace = [ItemDefinitions.Primed_Dagger],
             MagicToCopy =
             [
                 new ItemCollection.MagicItemDataHolder("Acuteness", ItemDefinitions.Enchanted_Dagger_of_Acuteness,

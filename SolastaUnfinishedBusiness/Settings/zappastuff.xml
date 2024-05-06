@@ -298,28 +298,23 @@
         <string>BeaconOfHope</string>
         <string>Bless</string>
         <string>BlessingOfRime</string>
-        <string>CommandApproach</string>
-        <string>CommandDrop</string>
-        <string>CommandFlee</string>
-        <string>CommandGrovel</string>
-        <string>CommandHalt</string>
+        <string>BoomingBlade</string>
         <string>DispelMagic</string>
         <string>FeatherFall</string>
         <string>Knock</string>
         <string>Levitate</string>
         <string>MassCureWounds</string>
         <string>PassWithoutTrace</string>
-        <string>RayOfEnfeeblement</string>
-        <string>ResonatingStrike</string>
-        <string>Sanctuary</string>
-        <string>ShieldOfFaith</string>
-        <string>Sparkle</string>
-        <string>TrueStrike</string>
+        <string>PowerBarbarianBrutalStrike</string>
         <string>PowerBardHopeWordsOfHope6</string>
         <string>PowerBardTraditionManacalonsPerfection</string>
         <string>PowerCelestialSearingVengeance</string>
+        <string>PowerCollegeOfAudacityDefensiveWhirl</string>
+        <string>PowerCollegeOfAudacityMobileWhirl</string>
         <string>PowerCollegeOfValianceHeroicInspiration</string>
         <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
+        <string>PowerFeatChefCookMeal</string>
+        <string>PowerFeatOrcishAggression</string>
         <string>PowerInnovationWeaponArcaneJolt</string>
         <string>PowerOathOfJugementPurgeCorruption</string>
         <string>PowerOathOfJugementRetribution</string>
@@ -329,9 +324,21 @@
         <string>PowerRangerLightBearerBlessedWarrior</string>
         <string>PowerRiftWalkerRiftStrike</string>
         <string>PowerSorcerousPsionMindOverMatter</string>
+        <string>PowerTraditionOpenHandQuiveringPalmTrigger</string>
         <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
         <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
-        <string>PowerFeatChefCookMeal</string>
+        <string>RayOfEnfeeblement</string>
+        <string>ResonatingStrike</string>
+        <string>Sanctuary</string>
+        <string>ShieldOfFaith</string>
+        <string>Sparkle</string>
+        <string>SunlightBlade</string>
+        <string>TrueStrike</string>
+        <string>CommandApproach</string>
+        <string>CommandDrop</string>
+        <string>CommandFlee</string>
+        <string>CommandGrovel</string>
+        <string>CommandHalt</string>
         <string>AnimateDead</string>
         <string>ArcaneSword</string>
         <string>ConjureAnimalsFourBeasts</string>
@@ -669,12 +676,12 @@
         <string>RaceOligath</string>
         <string>RaceImp</string>
         <string>RaceKobold</string>
+        <string>RaceLizardfolk</string>
         <string>RaceOni</string>
         <string>RaceBattleborn</string>
         <string>RaceWendigo</string>
         <string>RaceWildling</string>
         <string>RaceWyrmkin</string>
-        <string>RaceLizardfolk</string>
     </RaceEnabled>
     <SubraceSliderPosition>4</SubraceSliderPosition>
     <SubraceEnabled>
@@ -688,6 +695,7 @@
         <string>RaceIronbornDwarf</string>
         <string>RaceTieflingMephistopheles</string>
         <string>RaceObsidianDwarf</string>
+        <string>RaceShadarKai</string>
         <string>RaceTieflingZariel</string>
     </SubraceEnabled>
     <BackgroundSliderPosition>4</BackgroundSliderPosition>
@@ -832,7 +840,6 @@
                     <string>CollegeOfLife</string>
                     <string>CollegeOfThespian</string>
                     <string>CollegeOfValiance</string>
-                    <string>CollegeOfWarDancer</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -843,7 +850,9 @@
             <value>
                 <ArrayOfString>
                     <string>DomainDefiler</string>
+                    <string>DomainNature</string>
                     <string>DomainSmith</string>
+                    <string>DomainTempest</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -1003,19 +1012,19 @@
     </KlassListSubclassEnabled>
     <FeatSliderPosition>4</FeatSliderPosition>
     <FeatEnabled>
-        <string>FeatGroupAegisTouched</string>
         <string>FeatAlert</string>
         <string>FeatAlwaysReady</string>
         <string>FeatGroupApothecary</string>
         <string>FeatArcaneArcherAdept</string>
         <string>FeatAstralArms</string>
+        <string>FeatGroupAthlete</string>
         <string>FeatGroupAwakenTheBeastWithin</string>
+        <string>FeatGroupBalefulScion</string>
         <string>FeatBladeMastery</string>
         <string>FeatGroupBlessedSoul</string>
         <string>FeatBountifulLuck</string>
         <string>FeatBowMastery</string>
         <string>FeatCallForCharge</string>
-        <string>FeatGroupCelestialTouched</string>
         <string>FeatCharger</string>
         <string>FeatGroupChef</string>
         <string>FeatGroupCloseQuarters</string>
@@ -1031,6 +1040,7 @@
         <string>FeatDragonWings</string>
         <string>FeatDualFlurry</string>
         <string>FeatDualWeaponDefense</string>
+        <string>FeatDungeonDelver</string>
         <string>FeatDwarvenFortitude</string>
         <string>FeatEldritchAdept</string>
         <string>FeatGroupElementalAdept</string>
@@ -1043,7 +1053,6 @@
         <string>FeatFencer</string>
         <string>FeatGroupFeyTeleport</string>
         <string>FeatGroupFightingStyle</string>
-        <string>FeatGroupFlameTouched</string>
         <string>FeatGroupFlamesOfPhlegethos</string>
         <string>FeatFrostAdaptation</string>
         <string>FeatGiftOfTheChromaticDragon</string>
@@ -1057,12 +1066,13 @@
         <string>FeatInfernalConstitution</string>
         <string>FeatInfusionsAdept</string>
         <string>FeatInspiringLeader</string>
-        <string>FeatGroupIridescentTouched</string>
         <string>FeatLongswordFinesse</string>
+        <string>FeatLucky</string>
         <string>FeatMageSlayer</string>
         <string>FeatGroupMagicInitiate</string>
         <string>FeatTacticianAdept</string>
         <string>FeatMediumArmorMaster</string>
+        <string>FeatMenacing</string>
         <string>FeatMetamagicAdept</string>
         <string>FeatMobile</string>
         <string>FeatGroupMediumArmor</string>
@@ -1072,7 +1082,6 @@
         <string>FeatGroupOldTactics</string>
         <string>FeatGroupOrcishAggression</string>
         <string>FeatGroupOrcishFury</string>
-        <string>FeatGroupPeregrinationTouched</string>
         <string>FeatPickPocket</string>
         <string>FeatGroupPiercer</string>
         <string>FeatPoisoner</string>
@@ -1083,13 +1092,11 @@
         <string>FeatGroupPrecisionFocused</string>
         <string>FeatGroupPrimalRage</string>
         <string>FeatRecklessAttack</string>
-        <string>FeatGroupRetinueTouched</string>
         <string>FeatGroupRevenantGreatSword</string>
         <string>FeatSavageAttack</string>
         <string>FeatCraftyScriber</string>
         <string>FeatGroupSecondChance</string>
         <string>FeatSentinel</string>
-        <string>FeatGroupShadowTouched</string>
         <string>FeatDeadeye</string>
         <string>FeatShieldTechniques</string>
         <string>FeatGroupSlasher</string>
@@ -1100,10 +1107,10 @@
         <string>FeatGroupSquatNimbleness</string>
         <string>FeatSuperiorCritical</string>
         <string>FeatGroupTelekinetic</string>
+        <string>FeatGroupTouchedMagic</string>
         <string>FeatTough</string>
         <string>FeatGroupToxicologist</string>
         <string>FeatGroupDefenseExpert</string>
-        <string>FeatGroupVerdantTouched</string>
         <string>FeatEldritchVersatilityAdept</string>
         <string>FeatWarCaster</string>
         <string>FeatGroupWeaponMaster</string>
@@ -1298,6 +1305,7 @@
                     <string>MinorLifesteal</string>
                     <string>ThunderStrike</string>
                     <string>EarthTremor</string>
+                    <string>Mule</string>
                     <string>CloudOfDaggers</string>
                     <string>MirrorImage</string>
                     <string>BlessingOfRime</string>
@@ -1329,6 +1337,7 @@
                     <string>SpiritShroud</string>
                     <string>AuraOfVitality</string>
                     <string>AuraOfPerseverance</string>
+                    <string>Dawn</string>
                     <string>MassHeal</string>
                     <string>PowerWordHeal</string>
                 </ArrayOfString>
@@ -1344,13 +1353,14 @@
                     <string>AirBlast</string>
                     <string>ThornyVines</string>
                     <string>ThunderStrike</string>
-                    <string>EarthTremor</string>
                     <string>ElementalInfusion</string>
+                    <string>EarthTremor</string>
                     <string>IceBlade</string>
                     <string>ConjureGoblinoids</string>
                     <string>NoxiousSpray</string>
                     <string>PetalStorm</string>
                     <string>ProtectThreshold</string>
+                    <string>WitherAndBloom</string>
                     <string>AdderFangs</string>
                     <string>ElementalWeapon</string>
                     <string>FlameArrows</string>
@@ -1359,6 +1369,7 @@
                     <string>ForestGuardian</string>
                     <string>MantleOfThorns</string>
                     <string>FlashFreeze</string>
+                    <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
                     <string>Foresight</string>
                     <string>Shapechange</string>
@@ -1454,11 +1465,13 @@
                     <string>SunlightBlade</string>
                     <string>SwordStorm</string>
                     <string>ThunderStrike</string>
+                    <string>ElementalInfusion</string>
                     <string>CausticZap</string>
+                    <string>ChaosBolt</string>
                     <string>ChromaticOrb</string>
                     <string>EarthTremor</string>
-                    <string>ElementalInfusion</string>
                     <string>IceBlade</string>
+                    <string>Mule</string>
                     <string>VileBrew</string>
                     <string>WitchBolt</string>
                     <string>CloudOfDaggers</string>
@@ -1469,6 +1482,7 @@
                     <string>ShadowBlade</string>
                     <string>PsychicWhip</string>
                     <string>SpellWeb</string>
+                    <string>WitherAndBloom</string>
                     <string>AdderFangs</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
@@ -1480,8 +1494,10 @@
                     <string>Incineration</string>
                     <string>SonicBoom</string>
                     <string>Telekinesis</string>
+                    <string>FizbanPlatinumShield</string>
                     <string>FlashFreeze</string>
                     <string>MysticalCloak</string>
+                    <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
                     <string>MeteorSwarmSingleTarget</string>
                     <string>PowerWordKill</string>
@@ -1506,6 +1522,7 @@
                     <string>TollTheDead</string>
                     <string>SkinOfRetribution</string>
                     <string>VoidGrasp</string>
+                    <string>Mule</string>
                     <string>WitchBolt</string>
                     <string>CloudOfDaggers</string>
                     <string>MirrorImage</string>
@@ -1521,6 +1538,7 @@
                     <string>FarStep</string>
                     <string>FlashFreeze</string>
                     <string>MysticalCloak</string>
+                    <string>MaddeningDarkness</string>
                     <string>Foresight</string>
                     <string>PowerWordKill</string>
                     <string>Weird</string>
@@ -1553,10 +1571,10 @@
                     <string>SwordStorm</string>
                     <string>ThunderStrike</string>
                     <string>TollTheDead</string>
+                    <string>ElementalInfusion</string>
                     <string>CausticZap</string>
                     <string>ChromaticOrb</string>
                     <string>EarthTremor</string>
-                    <string>ElementalInfusion</string>
                     <string>FindFamiliar</string>
                     <string>GiftOfAlacrity</string>
                     <string>IceBlade</string>
@@ -1573,6 +1591,7 @@
                     <string>ShadowBlade</string>
                     <string>PsychicWhip</string>
                     <string>SpellWeb</string>
+                    <string>WitherAndBloom</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
                     <string>VitalityTransfer</string>
@@ -1584,16 +1603,20 @@
                     <string>GravitySinkhole</string>
                     <string>FaithfulHound</string>
                     <string>PsychicLance</string>
+                    <string>Dawn</string>
                     <string>FarStep</string>
                     <string>Incineration</string>
                     <string>SonicBoom</string>
                     <string>SteelWhirlwind</string>
                     <string>Telekinesis</string>
+                    <string>FizbanPlatinumShield</string>
                     <string>PoisonWave</string>
                     <string>RingOfBlades</string>
                     <string>MysticalCloak</string>
                     <string>HeroicInfusion</string>
+                    <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
+                    <string>MaddeningDarkness</string>
                     <string>MindBlank</string>
                     <string>Foresight</string>
                     <string>MeteorSwarmSingleTarget</string>
@@ -1606,9 +1629,10 @@
         </item>
     </SpellListSpellEnabled>
     <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
+    <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
+    <EnableAttributeCheckHelpersToWorkOffCombat>true</EnableAttributeCheckHelpersToWorkOffCombat>
     <EnableHeroWithBestProficiencyToRollChoice>true</EnableHeroWithBestProficiencyToRollChoice>
     <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
-    <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
     <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
     <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>
     <EnableSumD20OnAlternateVotingSystem>true</EnableSumD20OnAlternateVotingSystem>
