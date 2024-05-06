@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -173,35 +172,6 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    //PATCH: supports `OfficialObscurementRulesInvisibleCreaturesCanBeTarget`
-    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.ComputeAbilityCheckActionModifier))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class ComputeAbilityCheckActionModifier_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(
-            GameLocationCharacter __instance,
-            string abilityScoreName,
-            string proficiencyName,
-            ActionModifier actionModifier)
-        {
-            if (!Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget ||
-                Gui.Battle != null ||
-                abilityScoreName != AttributeDefinitions.Dexterity ||
-                proficiencyName != SkillDefinitions.Stealth ||
-                !__instance.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionInvisible))
-            {
-                return;
-            }
-
-            actionModifier.AbilityCheckModifier += 100;
-            actionModifier.AbilityCheckModifierTrends.Add(
-                new TrendInfo(100, FeatureSourceType.Condition,
-                    ConditionInvisible, DatabaseHelper.ConditionDefinitions.ConditionInvisibleBase));
-        }
-    }
-
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.StartBattle))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -310,7 +280,6 @@ public static class GameLocationCharacterPatcher
                 ActionDefinitions.ActionStatus actionTypeStatus,
                 // RulesetAttackMode optionalAttackMode,
                 bool ignoreMovePoints)
-            // bool allowUsingDelegatedPowersAsPowers)
         {
             //PATCH: support for `IReplaceAttackWithCantrip` - allows `CastMain` action if character used attack
             ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);
