@@ -69,6 +69,7 @@ internal static class ModUi
         "EnsnaringStrike",
         "FaithfulHound",
         "FarStep",
+        "FeatAcrobat",
         "FeatAlert",
         "FeatArcanist",
         "FeatBladeMastery",

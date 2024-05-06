@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupSkillsTitle",
-    "description": "Apothecary, Arcane Appraiser, Arcanist, Healer, Initiate Enchanter, Manipulator, Menacing, Pickpocket, Scriber, Squat Nimbleness, Theologian, Toxicologist",
+    "description": "Acrobat, Apothecary, Arcane Appraiser, Arcanist, Athlete, Healer, Initiate Enchanter, Manipulator, Menacing, Pickpocket, Scriber, Squat Nimbleness, Theologian, Toxicologist",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
