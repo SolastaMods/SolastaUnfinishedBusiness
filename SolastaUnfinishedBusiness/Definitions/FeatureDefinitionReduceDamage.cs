@@ -23,6 +23,11 @@ internal sealed class FeatureDefinitionReduceDamage : FeatureDefinition
         var defender = formsParams.targetCharacter;
         var reduction = 0;
 
+        if (defender is not { Side: RuleDefinitions.Side.Ally })
+        {
+            return reduction;
+        }
+
         foreach (var feature in defender.GetFeaturesByType<FeatureDefinitionReduceDamage>())
         {
             if (feature.DamageTypes != null

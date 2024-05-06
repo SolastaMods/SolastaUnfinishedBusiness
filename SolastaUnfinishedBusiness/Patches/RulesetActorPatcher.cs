@@ -205,7 +205,8 @@ public static class RulesetActorPatcher
             RollInfo rollInfo)
         {
             // supports Shield Techniques feat
-            if (formsParams.targetCharacter.HasConditionOfCategoryAndType(
+            if (formsParams.targetCharacter is { Side: Side.Ally } &&
+                formsParams.targetCharacter.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, "ConditionFeatShieldTechniquesMark"))
             {
                 rolledDamage /= 2;
