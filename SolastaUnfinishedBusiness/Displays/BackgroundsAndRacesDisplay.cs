@@ -131,14 +131,8 @@ internal static class BackgroundsAndRacesDisplay
 
     private static void RacesHeader()
     {
-        using (UI.HorizontalScope())
-        {
-            UI.ActionButton("UB Races docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("UnfinishedBusinessRaces.md"), UI.Width(200f));
-            20.Space();
-            UI.ActionButton("Solasta Races docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("SolastaRaces.md"), UI.Width(200f));
-        }
+        UI.ActionButton("Races docs".Bold().Khaki(),
+            () => UpdateContext.OpenDocumentation("Races.md"), UI.Width(200f));
 
         UI.Label();
     }

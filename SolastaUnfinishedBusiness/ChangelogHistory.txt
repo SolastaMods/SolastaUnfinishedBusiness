@@ -1,3 +1,7 @@
+1.5.97.7:
+
+- fixed documentation links in mod UI
+
 1.5.97.6:
 
 - added additional custom portraits [by Artyoan]
