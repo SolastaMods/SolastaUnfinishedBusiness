@@ -1019,6 +1019,7 @@
         <string>FeatAstralArms</string>
         <string>FeatGroupAthlete</string>
         <string>FeatGroupAwakenTheBeastWithin</string>
+        <string>FeatGroupBalefulScion</string>
         <string>FeatBladeMastery</string>
         <string>FeatGroupBlessedSoul</string>
         <string>FeatBountifulLuck</string>
@@ -1071,6 +1072,7 @@
         <string>FeatGroupMagicInitiate</string>
         <string>FeatTacticianAdept</string>
         <string>FeatMediumArmorMaster</string>
+        <string>FeatMenacing</string>
         <string>FeatMetamagicAdept</string>
         <string>FeatMobile</string>
         <string>FeatGroupMediumArmor</string>

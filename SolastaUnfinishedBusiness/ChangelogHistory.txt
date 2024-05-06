@@ -25,6 +25,7 @@
 - fixed Potent Spell Casting feat interaction with Produce Flame cantrip
 - fixed Roguish Acrobat swift as wind, and fluid motions features jump distance
 - fixed Shield Master to correctly interact with damage resistance and successful savings on damage reduction
+- fixed skill/tool or expertise granted from feats to properly grant expertise if already skilled
 - fixed Sorcerous Psion mind sculpt damage conversion and integration with effect powers
 - fixed Step Back action behavior to interrupt on any ranged attack [VANILLA]
 - fixed Way of the Dragon elemental breath validation on main attack usages
