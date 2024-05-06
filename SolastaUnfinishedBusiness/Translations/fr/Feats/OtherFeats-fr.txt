@@ -164,4 +164,4 @@ Reaction/&WarcasterAttackTitle=Attaque
 Tag/&InitiateCantripSpecialTagTitle=Lancer des sorties mineures
 Tag/&InitiateSpellSpecialTagTitle=Initier des sorts
 Tag/&SniperCantripSpecialTagTitle=Sorts mineurs de tireur d'élite
-Tooltip/&MustNotHaveChaosBoltMark=Ne doit pas avoir de marque menaçante
+Tooltip/&MustNotHaveMenacingMark=Ne doit pas avoir de marque menaçante

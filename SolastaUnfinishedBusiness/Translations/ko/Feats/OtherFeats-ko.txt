@@ -164,4 +164,4 @@ Reaction/&WarcasterAttackTitle=공격
 Tag/&InitiateCantripSpecialTagTitle=캔트립 시작
 Tag/&InitiateSpellSpecialTagTitle=주문 시작
 Tag/&SniperCantripSpecialTagTitle=스나이퍼 캔트립
-Tooltip/&MustNotHaveChaosBoltMark=위협적인 마크가 없어야 합니다.
+Tooltip/&MustNotHaveMenacingMark=위협적인 마크가 없어야 합니다.

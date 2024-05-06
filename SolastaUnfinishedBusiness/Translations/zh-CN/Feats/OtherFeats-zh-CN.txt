@@ -164,4 +164,4 @@ Reaction/&WarcasterAttackTitle=攻击
 Tag/&InitiateCantripSpecialTagTitle=魔法学徒
 Tag/&InitiateSpellSpecialTagTitle=魔法学徒
 Tag/&SniperCantripSpecialTagTitle=法术狙手
-Tooltip/&MustNotHaveChaosBoltMark=不得有威胁标记
+Tooltip/&MustNotHaveMenacingMark=不得有威胁标记

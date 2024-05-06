@@ -164,4 +164,4 @@ Reaction/&WarcasterAttackTitle=Attacco
 Tag/&InitiateCantripSpecialTagTitle=Avvia i trucchetti
 Tag/&InitiateSpellSpecialTagTitle=Avviare incantesimi
 Tag/&SniperCantripSpecialTagTitle=Trucchetti da cecchino
-Tooltip/&MustNotHaveChaosBoltMark=Non deve avere marchio minaccioso
+Tooltip/&MustNotHaveMenacingMark=Non deve avere marchio minaccioso

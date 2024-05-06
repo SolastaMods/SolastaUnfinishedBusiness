@@ -621,7 +621,7 @@ internal static class OtherFeats
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveChaosBoltMark");
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveMenacingMark");
             }
 
             return isValid;

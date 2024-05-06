@@ -164,4 +164,4 @@ Reaction/&WarcasterAttackTitle=攻撃
 Tag/&InitiateCantripSpecialTagTitle=キャントリップを開始する
 Tag/&InitiateSpellSpecialTagTitle=呪文を開始する
 Tag/&SniperCantripSpecialTagTitle=スナイパーキャントリップ
-Tooltip/&MustNotHaveChaosBoltMark=威嚇マークがあってはなりません
+Tooltip/&MustNotHaveMenacingMark=威嚇マークがあってはなりません
