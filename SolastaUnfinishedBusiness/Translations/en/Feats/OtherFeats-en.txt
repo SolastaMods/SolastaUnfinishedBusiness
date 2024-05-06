@@ -168,4 +168,5 @@ Reaction/&WarcasterAttackTitle=Attack
 Tag/&InitiateCantripSpecialTagTitle=Initiate Cantrips
 Tag/&InitiateSpellSpecialTagTitle=Initiate Spells
 Tag/&SniperCantripSpecialTagTitle=Sniper Cantrips
+Tooltip/&MustBeHumanoid=Must be humanoid
 Tooltip/&MustNotHaveMenacingMark=Must not have Menacing mark

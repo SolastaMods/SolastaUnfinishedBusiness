@@ -593,7 +593,6 @@ internal static class OtherFeats
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetRestrictedCreatureFamilies("Humanoid")
                     .SetCasterEffectParameters(PowerBerserkerIntimidatingPresence)
                     .Build())
             .AddToDB();
@@ -627,18 +626,24 @@ internal static class OtherFeats
             if (!isValid)
             {
                 __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveMenacingMark");
+
+                return false;
             }
 
-            return isValid;
+            isValid = target.RulesetCharacter is { CharacterFamily: "Humanoid" };
+
+            if (isValid)
+            {
+                return true;
+            }
+
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeHumanoid");
+
+            return false;
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action.ActionParams.TargetCharacters.Count == 0)
-            {
-                yield break;
-            }
-
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
             var rulesetAttacker = attacker.RulesetCharacter;

@@ -168,4 +168,5 @@ Reaction/&WarcasterAttackTitle=Атака
 Tag/&InitiateCantripSpecialTagTitle=Заговоры посвящённого
 Tag/&InitiateSpellSpecialTagTitle=Заклинания посвящённого
 Tag/&SniperCantripSpecialTagTitle=Заговоры меткого заклинателя
+Tooltip/&MustBeHumanoid=Должно быть гуманоид
 Tooltip/&MustNotHaveMenacingMark=Не должно быть знака угрозы

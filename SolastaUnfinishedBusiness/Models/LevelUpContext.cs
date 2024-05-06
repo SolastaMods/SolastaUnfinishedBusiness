@@ -775,6 +775,11 @@ internal static class LevelUpContext
         {
             foreach (var feat in kvp.Value)
             {
+                foreach (var customCode in feat.GetAllSubFeaturesOfType<ICustomLevelUpLogic>())
+                {
+                    customCode.ApplyFeature(hero, kvp.Key);
+                }
+
                 RecursiveGrantCustomFeatures(hero, kvp.Key, feat.Features);
             }
         }
