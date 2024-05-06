@@ -200,7 +200,6 @@ internal static class GroupFeats
             .ToArray();
         var title = string.Join(", ", titles);
 
-        Main.Info(groupDefinition.Name);
         groupDefinition.guiPresentation.description = Gui.Format(groupDefinition.guiPresentation.description, title);
     }
 
