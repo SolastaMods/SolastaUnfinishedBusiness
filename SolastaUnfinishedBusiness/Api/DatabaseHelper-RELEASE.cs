@@ -3097,8 +3097,9 @@ internal static partial class DatabaseHelper
 
     internal static class MonsterDefinitions
     {
-        internal static MonsterDefinition DLC3_ElvenClans_Leralyn { get; } = GetDefinition<MonsterDefinition>("DLC3_ElvenClans_Leralyn");
-        
+        internal static MonsterDefinition DLC3_ElvenClans_Leralyn { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_Leralyn");
+
         internal static MonsterDefinition Air_Elemental { get; } = GetDefinition<MonsterDefinition>("Air_Elemental");
 
         internal static MonsterDefinition AlphaWolf { get; } = GetDefinition<MonsterDefinition>("AlphaWolf");
@@ -3479,7 +3480,9 @@ internal static partial class DatabaseHelper
         internal static SkillDefinition Intimidation { get; } = GetDefinition<SkillDefinition>("Intimidation");
         internal static SkillDefinition Medecine { get; } = GetDefinition<SkillDefinition>("Medecine");
         internal static SkillDefinition Nature { get; } = GetDefinition<SkillDefinition>("Nature");
+        internal static SkillDefinition Religion { get; } = GetDefinition<SkillDefinition>("Religion");
         internal static SkillDefinition SleightOfHand { get; } = GetDefinition<SkillDefinition>("SleightOfHand");
+        internal static SkillDefinition Survival { get; } = GetDefinition<SkillDefinition>("Survival");
     }
 
     internal static class SlotTypeDefinitions

@@ -10,7 +10,7 @@ TutorialStep/&ConfigWeaponsTitle=装備のショートカット
 TutorialStep/&ConfigWeaponsXBoxDescription=ショートカットを使用して機器を切り替えることができます。\nこれらのショートカットにアクセスするには、<spriteindex={12}> を押してください。デフォルトでは 3 つの武器設定ショートカットがあります。\n最後のショートカットはライト ショートカットです。トーチまたはその他の光源を含む 3 番目の構成を使用します。\n呪文リストにライト キャントリップがある場合は、4 番目のショートカットですぐにそれをキャストできます。
 TutorialStep/&Crafting01Description=ソラスタでは様々なアイテムをクラフトすることができます。そのためには、適切な機器、材料、スキル、時間が必要です。魔法のアイテムの場合、場合によっては呪文を知る必要があります。\n\nパーティーがキャンプを設営してもまだ寝ていないとき、旅行中に作成が実行されます。\n\nキャラクターは自由時間の一部を費やすことができます。現在の製作タスクに取り組むことになります。
 TutorialStep/&Crafting01Title=クラフト
-TutorialStep/&Crafting02Description=作成に必要なツールは次のとおりです:\n\n- ポーション: 薬草学キット\n- 巻物: 巻物キット\n- 毒: 毒殺者のキット\n- 魔法の武器と防具: マナカロン ロザリオ\n{ 99} これらのツールを使用するには、これらのツールに習熟する必要があります。
+TutorialStep/&Crafting02Description=作成に必要なツールは次のとおりです:\n\n- ポーション: 薬草学キット\n- 巻物: 巻物キット\n- 毒: 毒殺者のキット\n- 魔法の武器と防具: マナカロン ロザリオ\n\n これらのツールを使用するには、これらのツールに習熟する必要があります。
 TutorialStep/&Crafting02Title=クラフト装備
 TutorialStep/&Crafting03Description=特定の作成ツールに習熟している場合でも、レシピの難易度を連続的にチェックするには特定のスキルが必要です。\nポーションを作成するには、薬だけで十分な場合もありますが、アルカナは非常に便利です。\n毒を作る、薬、自然が便利です。\n巻物や魔法のアイテムを作るには、アルカナが必須です。
 TutorialStep/&Crafting03Title=クラフトスキル
@@ -64,7 +64,7 @@ TutorialStep/&OutgameCharacterCreationProficienciesDescription=この段階で�
 TutorialStep/&OutgameCharacterCreationProficienciesTitle=熟練度
 TutorialStep/&OutgameCharacterCreationSpells2Description=一部のクラスと祖先はキャントリップにアクセスできます。キャラクターは、提供されたリストから割り当てられたキャントリップを選択する必要があります。\n\nキャントリップは、メインの呪文とは対照的に、呪文スロットを消費せずに無限に唱えることができる単純な呪文です。
 TutorialStep/&OutgameCharacterCreationSpells2Title=キャントリップ
-TutorialStep/&OutgameCharacterCreationSpells3Description=それぞれがクラスの特徴に合わせた呪文のリストを提供します。たとえば、聖職者は治癒の呪文を持ち、ウィザードは元素の力を利用できます。\n\nそこからすべての呪文にアクセスできるクラスもありますが、ウィザードのような他のクラスは呪文の書に呪文を収集する必要があります。\n{ 99} そして最後に、一部のクラスでは長い休息を経て呪文を選択して準備する必要がありますが、残りの呪文スロットがあれば既知の呪文を自由に使用できるクラスもあります。
+TutorialStep/&OutgameCharacterCreationSpells3Description=それぞれがクラスの特徴に合わせた呪文のリストを提供します。たとえば、聖職者は治癒の呪文を持ち、ウィザードは元素の力を利用できます。\n\nそこからすべての呪文にアクセスできるクラスもありますが、ウィザードのような他のクラスは呪文の書に呪文を収集する必要があります。\n\n そして最後に、一部のクラスでは長い休息を経て呪文を選択して準備する必要がありますが、残りの呪文スロットがあれば既知の呪文を自由に使用できるクラスもあります。
 TutorialStep/&OutgameCharacterCreationSpells3Title=主な魔法
 TutorialStep/&OutgameCharacterCreationSpellsDescription=すぐに魔法の呪文にアクセスできるクラスもあれば、より高いレベルに到達するか、サブクラスを選択する必要があるクラスもあります。\n\nこの画面では、キャラクターがどの呪文を唱えることができるかを選択できます。
 TutorialStep/&OutgameCharacterCreationSpellsTitle=呪文と魔法
@@ -85,7 +85,7 @@ TutorialStep/&RestingTitle=休憩中
 TutorialStep/&SelectionDescription=3D ビューでキャラクターをクリックして選択するか、四角形をドラッグして複数を選択します。\nポートレートをダブルクリックして、特定の 1 人のキャラクターをロックします。\nポートレートをクリックするか、ポートレートリストの下部にある「すべて」ボタンを選択します。
 TutorialStep/&SelectionTitle=キャラクター選択
 TutorialStep/&Tuto01_CameraXbox_Description=<spriteindex={23}>を使用してカメラビューを回転し、視点を変更します。\n\n<spriteindex={4}>を使用してカメラを移動し、<spriteindex={22}>を使用しますキャラクターに焦点を当てながら、そのキャラクターを拡大します。
-TutorialStep/&Tuto01_Camera_Description=右クリックしてドラッグすると、カメラ ビューを回転して視点を変更できます。\n\n画面右下のコンパスのボタンを使用するか、Q または E を押して回転することもできます。\n{ 99} WASD または矢印キーを使用してカメラを動かし、キャラクターに焦点を合わせた状態で W キーを押し続けると、キャラクターが拡大されます。
+TutorialStep/&Tuto01_Camera_Description=右クリックしてドラッグすると、カメラ ビューを回転して視点を変更できます。\n\n画面右下のコンパスのボタンを使用するか、Q または E を押して回転することもできます。\n\n WASD または矢印キーを使用してカメラを動かし、キャラクターに焦点を合わせた状態で W キーを押し続けると、キャラクターが拡大されます。
 TutorialStep/&Tuto01_Camera_Title=カメラコントロール
 TutorialStep/&Tuto01_Climbing_and_jumping2_Description=上: 筋力が 15 未満で、運動能力に習熟していないキャラクターは、胸に届くほど遠くまでジャンプすることができません。\n\n\n\n以下: 強さ 15 ～ 20 の戦闘機は 3 つのマスを飛び越えることができます。筋力 11 ～ 14 に加えて陸上競技の熟練度を持つキャラクターも同様です。
 TutorialStep/&Tuto01_Climbing_and_jumping2_Title=ジャンプ距離
@@ -147,7 +147,7 @@ TutorialStep/&Tuto04_Attack_Shove2Xbox_Description=敵を押し倒したり、�
 TutorialStep/&Tuto04_Attack_Shove2_Description=敵を押し倒そうとします。 「突き飛ばす」を選択し、利用可能なオプションから選択します。\n\n敵を後ろ向きに穴に押し込むと、敵は落ちます。敵を押し倒すと、敵は伏せになり、移動ポイントを消費して立ち上がるまで脆弱なままになります。
 TutorialStep/&Tuto04_Attack_Shove2_Title=突き飛ばす
 TutorialStep/&Tuto04_Attack_ShoveXbox_Description=デフォルトの武器を使用して敵を攻撃するには、敵にカーソルを置き、<spriteindex={0}> を押します。\n\n武器構成を切り替えて、別の武器（たとえば遠距離武器）を使用できます。 <sprite Index={12}> を押します。\n\nキャラクターによっては、呪文などの特殊な能力も使用できます。
-TutorialStep/&Tuto04_Attack_Shove_Description=デフォルトの武器を使用して敵を攻撃するには、敵の上にマウスを置いて左クリックします。\n\nまた、攻撃呪文を唱えたり、武器構成を切り替えて別の武器、たとえば遠距離武器を使用したりすることもできます。\n{ 99} キャラクターによっては、特殊な能力も利用できます。
+TutorialStep/&Tuto04_Attack_Shove_Description=デフォルトの武器を使用して敵を攻撃するには、敵の上にマウスを置いて左クリックします。\n\nまた、攻撃呪文を唱えたり、武器構成を切り替えて別の武器、たとえば遠距離武器を使用したりすることもできます。\n\n キャラクターによっては、特殊な能力も利用できます。
 TutorialStep/&Tuto04_Attack_Shove_Title=攻撃
 TutorialStep/&Tuto04_Dashing_Description=黄色のエリア内のポイントに移動すると、メイン アクションはダッシュに使用されます。\nダッシュは、そのターンの最大移動量が 2 倍になります。\n\nただし、アクションを使用して攻撃したり、呪文を唱えたりすることはできません。\n\n通常どおりに移動してから、さらにダッシュするか、アクションを他のことに使用するかを決定できることを覚えておいてください。
 TutorialStep/&Tuto04_Dashing_Title=ダッシュ
@@ -171,7 +171,7 @@ TutorialStep/&Tuto_CampaignMap4_Title=旅行のルーチン
 TutorialStep/&Tuto_CampaignMap5_Description=場合によっては、通常の日常生活が中断され、ヒーローが休んでいるはずの時間に旅行しなければならないことがあります。これにより疲労が増し、極度の疲労につながる可能性があります。\n\n冒険者は、一時的に無理をしてから通常の日常生活に戻り、疲労を軽減するためにキャンプ活動を制限してより多くの休息を取る方法を知っています。
 TutorialStep/&Tuto_CampaignMap5_Title=旅行の疲れ
 TutorialStep/&Tuto_CampaignMap6XBox_Description=<sprite Index={2}> を押すことで、いつでも手動で旅行を中断できます。\n\n次に、<sprite Index={3}> を押してキャラクターのインベントリにアクセスし、新しいクラフト アクティビティを開始できる場合があります。装備を変更するか、必要なものを確認してください。\n\n<sprite Index={0}> を押して移動を再開します。
-TutorialStep/&Tuto_CampaignMap6_Description=[中断] ボタンを押すことで、いつでも旅行を手動で中断できます。\n\nその後、キャラクターの肖像画をクリックしてインベントリを開き、新しい製作活動を開始したり、装備を変更したり、好きなものをチェックしたりできます。{ 99}\n[再開] ボタンをクリックするだけで旅行を再開できます。
+TutorialStep/&Tuto_CampaignMap6_Description=[中断] ボタンを押すことで、いつでも旅行を手動で中断できます。\n\nその後、キャラクターの肖像画をクリックしてインベントリを開き、新しい製作活動を開始したり、装備を変更したり、好きなものをチェックしたりできます。\n\n[再開] ボタンをクリックするだけで旅行を再開できます。
 TutorialStep/&Tuto_CampaignMap6_Title=旅行の中断
 TutorialStep/&Tuto_CampaignMap7XBox_Description=夜襲の後は、安全に眠りに戻り、長い休息を終えることができます。\nこれを行うには、カーソルをキャンプファイヤーに移動し、<spriteindex={0}> を押します。\nすべてのキャラクターが受け取ります。通常どおりの長い休息の利点。\n\n平和な休息を持つオブリビオン領域の聖職者は、将来驚かないだろう。今回はルールの説明を目的としました。
 TutorialStep/&Tuto_CampaignMap7_Description=夜襲の後は、安全に眠りに戻り、長い休息を完了することができます。\nそれには、キャンプファイヤーをクリックするだけです。\nすべてのキャラクターは、通常どおり長い休息の恩恵を受けます。\n平和な休息を持つオブリビオン領域の聖職者は、将来驚くことはないだろう。今回はルールの説明を目的としました。
@@ -195,7 +195,7 @@ TutorialStep/&Tuto_LevelUpGeneric_Description=次のレベルの目標経験値�
 TutorialStep/&Tuto_LevelUpGeneric_Title=レベルアップ
 TutorialStep/&Tuto_LevelUp_Description=ヒーローたちはレベルアップする準備ができています!\n\nそのためには、長い休憩を取る必要があります。\n\n墓守の樽に戻り、バーテンダーのカレルと話してください。宿泊できるように部屋をリクエストしてください。
 TutorialStep/&Tuto_LevelUp_Title=レベルアップ！
-TutorialStep/&Tuto_LocationMap2Xbox_Description=<sprite Index={17}> を押して位置地図を開きます。\n\n出口を見つけてそこまでの明確な道が確保できたら、世界地図に直接ファストトラベルすることもできます。\n{ 99} ファスト トラベル ポイントにカーソルを置き、<spriteindex={0}> を使用して選択します。 <spriteindex={28}>を押し続けると高速移動が開始され、<spriteindex={1}>を押すとキャンセルされます。
+TutorialStep/&Tuto_LocationMap2Xbox_Description=<sprite Index={17}> を押して位置地図を開きます。\n\n出口を見つけてそこまでの明確な道が確保できたら、世界地図に直接ファストトラベルすることもできます。\n\n ファスト トラベル ポイントにカーソルを置き、<spriteindex={0}> を使用して選択します。 <spriteindex={28}>を押し続けると高速移動が開始され、<spriteindex={1}>を押すとキャンセルされます。
 TutorialStep/&Tuto_LocationMap2_Description=地図ボタンを押して位置地図を開きます。\n\n出口を見つけてそこまでの明確な道が確保できたら、世界地図に直接ファストトラベルすることもできます。\n\nファストトラベルボタンを押して「はい」を選択します。
 TutorialStep/&Tuto_LocationMap2_Title=高速出口の場所
 TutorialStep/&Tuto_LocationMapGeneric2_Description=マップには、鍵のかかったドア、開いていない宝箱、検出したが発動または解除されていない罠も表示されます。\n\n発見したが戦っていない敵も表示されるため、攻撃するか回避するかを決定できます。\n場所を探索すると、地図は自動的に更新されます。
@@ -267,5 +267,5 @@ TutorialStep/&Tuto_WarlockSpells01_Description=ウォーロックは、固有の
 TutorialStep/&Tuto_WarlockSpells01_Title=ウォーロックの呪文
 TutorialStep/&Tuto_WarlockSpells02_Description=ウォーロックが 9 レベルに達すると、呪文スロットは 5 レベルのままになります。\n11 レベルで、ウォーロックはミスティック アルカナムを獲得し、1 日に 1 回唱えることができる 6 レベルの呪文を選択できるようになります。\n13 レベルでは、7 レベルのミスティック アルカナムがロック解除されます。
 TutorialStep/&Tuto_WarlockSpells02_Title=ミスティックアルカナム
-TutorialStep/&UsingCameraDescription=右クリックしてドラッグすると、カメラ ビューを回転して視点を変更できます。\n\n画面右下のコンパスのボタンを使用するか、Q または E を押して回転することもできます。\n{ 99} WASD または矢印キーを使用してカメラを動かし、キャラクターに焦点を合わせた状態で W キーを押し続けると、キャラクターが拡大されます。
+TutorialStep/&UsingCameraDescription=右クリックしてドラッグすると、カメラ ビューを回転して視点を変更できます。\n\n画面右下のコンパスのボタンを使用するか、Q または E を押して回転することもできます。\n\n WASD または矢印キーを使用してカメラを動かし、キャラクターに焦点を合わせた状態で W キーを押し続けると、キャラクターが拡大されます。
 TutorialStep/&UsingCameraTitle=カメラの使用

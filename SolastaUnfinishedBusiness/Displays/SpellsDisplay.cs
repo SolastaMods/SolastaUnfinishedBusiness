@@ -15,14 +15,8 @@ internal static class SpellsDisplay
     {
         UI.Label();
 
-        using (UI.HorizontalScope())
-        {
-            UI.ActionButton("UB Spells docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("UnfinishedBusinessSpells.md"), UI.Width(200f));
-            20.Space();
-            UI.ActionButton("Solasta Spells docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("SolastaSpells.md"), UI.Width(200f));
-        }
+        UI.ActionButton("Spells docs".Bold().Khaki(),
+            () => UpdateContext.OpenDocumentation("Spells.md"), UI.Width(200f));
 
         UI.Label();
 

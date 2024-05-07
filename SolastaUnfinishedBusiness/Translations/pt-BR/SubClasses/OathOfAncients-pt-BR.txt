@@ -1,6 +1,6 @@
 Condition/&ConditionOathOfAncientsAuraWardingDescription=Ganhe resistência a dano mágico.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Protegido
-Condition/&ConditionOathOfAncientsElderChampionDescription=• No início de cada um de seus turnos, você recupera 10 pontos de vida.\n• Sempre que você lança um feitiço de paladino que tem tempo de lançamento de 1 ação, você pode realizar dois ataques com arma como parte da mesma ação.{ 99}• Criaturas inimigas a até 3 metros de você têm desvantagem em testes de resistência contra suas magias de paladino e opções de Canalizar Divindade.
+Condition/&ConditionOathOfAncientsElderChampionDescription=• No início de cada um de seus turnos, você recupera 10 pontos de vida.\n• Sempre que você lança um feitiço de paladino que tem tempo de lançamento de 1 ação, você pode realizar dois ataques com arma como parte da mesma ação.\n• Criaturas inimigas a até 3 metros de você têm desvantagem em testes de resistência contra suas magias de paladino e opções de Canalizar Divindade.
 Condition/&ConditionOathOfAncientsElderChampionTitle=Campeão Ancião
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=Quando você é reduzido a 0 pontos de vida, mas não é morto imediatamente, você cai para 1 ponto de vida. Você não pode se beneficiar desta característica novamente até terminar um descanso longo.
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelTitle=Sentinela Imortal

@@ -953,8 +953,6 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             yield break;
         }
 
-        rulesetHelper.UsePower(usablePower);
-
         abilityCheckData.AbilityCheckRoll += bonus;
         abilityCheckData.AbilityCheckSuccessDelta += bonus;
 

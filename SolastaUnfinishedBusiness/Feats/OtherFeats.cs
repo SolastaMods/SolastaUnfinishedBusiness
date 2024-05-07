@@ -42,6 +42,7 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        var featAcrobat = BuildAcrobat();
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featAstralArms = BuildAstralArms();
         var featDungeonDelver = BuildDungeonDelver();
@@ -79,6 +80,7 @@ internal static class OtherFeats
         var featSentinel = BuildFeatFromFightingStyle(Sentinel.SentinelName);
 
         feats.AddRange(
+            featAcrobat,
             FeatAlert,
             featArcaneArcherAdept,
             featAstralArms,
@@ -114,6 +116,7 @@ internal static class OtherFeats
             featFrostAdaptation);
 
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
+            featAcrobat,
             FeatAlert,
             featMobile);
 
@@ -150,6 +153,8 @@ internal static class OtherFeats
             featPoisonousSkin);
 
         GroupFeats.FeatGroupSkills.AddFeats(
+            athleteGroup,
+            featAcrobat,
             featHealer,
             featMenacing,
             featPickPocket);
@@ -588,7 +593,6 @@ internal static class OtherFeats
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetRestrictedCreatureFamilies("Humanoid")
                     .SetCasterEffectParameters(PowerBerserkerIntimidatingPresence)
                     .Build())
             .AddToDB();
@@ -621,10 +625,21 @@ internal static class OtherFeats
 
             if (!isValid)
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveChaosBoltMark");
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHaveMenacingMark");
+
+                return false;
             }
 
-            return isValid;
+            isValid = target.RulesetCharacter is { CharacterFamily: "Humanoid" };
+
+            if (isValid)
+            {
+                return true;
+            }
+
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeHumanoid");
+
+            return false;
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -861,6 +876,8 @@ internal static class OtherFeats
                 yield break;
             }
 
+            _isValid = false;
+
             var roll = RollDie(DieType.D6, AdvantageType.None, out _, out _);
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var healAmount = (roll * (_isCritical ? 2 : 1)) +
@@ -1053,6 +1070,111 @@ internal static class OtherFeats
                 0,
                 0,
                 0);
+        }
+    }
+
+    #endregion
+
+    #region Athlete
+
+    private static FeatDefinition BuildAcrobat()
+    {
+        const string Name = "FeatAcrobat";
+
+        var movementAffinity = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetImmunities(difficultTerrainImmunity: true)
+            .AddToDB();
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Name, Category.Feat, ConditionDefinitions.ConditionPassWithoutTrace)
+            .SetFeatures(movementAffinity)
+            .AddToDB();
+
+        condition.GuiPresentation.Description = Gui.NoLocalization;
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite(Name, Resources.PowerEleganceDisengage, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeAcrobat(condition))
+            .AddToDB();
+
+        var skill = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Acrobatics)
+            .AddToDB();
+
+        var expertise = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}Expertise")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Acrobatics)
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, power)
+            .AddCustomSubFeatures(
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Acrobatics,
+                    skill, expertise))
+            .AddToDB();
+    }
+
+    private sealed class MagicEffectFinishedByMeAcrobat(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionAcrobat) : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var actionModifier = new ActionModifier();
+
+            rulesetCharacter.ComputeBaseAbilityCheckBonus(
+                AttributeDefinitions.Dexterity, actionModifier.AbilityCheckModifierTrends, SkillDefinitions.Acrobatics);
+
+            actingCharacter.ComputeAbilityCheckActionModifier(
+                AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics, actionModifier);
+
+            actingCharacter.RollAbilityCheck(
+                AttributeDefinitions.Dexterity, SkillDefinitions.Acrobatics, 15,
+                AdvantageType.None, actionModifier, false, -1, out var outcome, out _, true);
+
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+                yield return battleService.HandleFailedAbilityCheck(action, actingCharacter, actionModifier);
+            }
+
+            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                rulesetCharacter.InflictCondition(
+                    conditionAcrobat.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    conditionAcrobat.Name,
+                    0,
+                    0,
+                    0);
+            }
         }
     }
 
