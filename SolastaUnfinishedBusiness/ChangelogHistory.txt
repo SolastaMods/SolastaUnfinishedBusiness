@@ -1,3 +1,8 @@
+1.5.97.8:
+
+- fixed Barbarian rage STR saving advantage [VANILLA]
+- fixed mod boot up for Korean users
+
 1.5.97.7:
 
 - added Acrobat, Arcanist and Theologian feats

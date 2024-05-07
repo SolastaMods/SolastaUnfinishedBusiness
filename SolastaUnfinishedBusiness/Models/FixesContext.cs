@@ -57,6 +57,7 @@ internal static class FixesContext
         FixMummyDreadfulGlareSavingAttribute();
         FixPowerDragonbornBreathWeaponDiceProgression();
         FixRecklessAttackForReachWeaponsAndPathOfTheYeoman();
+        FixSavingThrowAffinityConditionRaging();
         FixSavingThrowAffinityManaPainterAbsorption();
         FixSmitesAndStrikesDiceProgression();
         FixStunningStrikeForAnyMonkWeapon();
@@ -199,6 +200,12 @@ internal static class FixesContext
         }
     }
 
+    private static void FixSavingThrowAffinityConditionRaging()
+    {
+        FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionRaging.AffinityGroups[0].savingThrowContext =
+            (SavingThrowContext)10;
+    }
+    
     private static void FixSavingThrowAffinityManaPainterAbsorption()
     {
         FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityManaPainterAbsorption.AffinityGroups.Clear();
