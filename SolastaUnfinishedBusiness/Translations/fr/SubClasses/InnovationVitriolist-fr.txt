@@ -1,6 +1,4 @@
-Condition/&ConditionInnovationVitriolistArsenalDescription=Ne peut pas prendre de réactions.
-Condition/&ConditionInnovationVitriolistArsenalTitle=Choqué
-Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 à CA.
+Condition/&Condition/&Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 à CA.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Corrodé
 Condition/&ConditionInnovationVitriolistMiserableDescription=Dégâts récurrents.
 Condition/&ConditionInnovationVitriolistMiserableTitle=Misérable

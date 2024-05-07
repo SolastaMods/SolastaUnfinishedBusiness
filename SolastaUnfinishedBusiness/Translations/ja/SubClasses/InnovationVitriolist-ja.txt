@@ -1,6 +1,4 @@
-Condition/&ConditionInnovationVitriolistArsenalDescription=リアクションが取れない。
-Condition/&ConditionInnovationVitriolistArsenalTitle=ショックを受けた
-Condition/&ConditionInnovationVitriolistCorrodedDescription=ACに-2。
+Condition/&Condition/&Condition/&ConditionInnovationVitriolistCorrodedDescription=ACに-2。
 Condition/&ConditionInnovationVitriolistCorrodedTitle=腐食した
 Condition/&ConditionInnovationVitriolistMiserableDescription=繰り返されるダメージ。
 Condition/&ConditionInnovationVitriolistMiserableTitle=惨めな

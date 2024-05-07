@@ -1,6 +1,4 @@
-Condition/&ConditionInnovationVitriolistArsenalDescription=Kann keine Reaktionen annehmen.
-Condition/&ConditionInnovationVitriolistArsenalTitle=Schockiert
-Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 bis AC.
+Condition/&Condition/&Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 bis AC.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Korrodiert
 Condition/&ConditionInnovationVitriolistMiserableDescription=Wiederkehrender Schaden.
 Condition/&ConditionInnovationVitriolistMiserableTitle=Miserabel

@@ -1,6 +1,4 @@
-Condition/&ConditionInnovationVitriolistArsenalDescription=반응을 취할 수 없습니다.
-Condition/&ConditionInnovationVitriolistArsenalTitle=충격을 받음
-Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 ~ AC.
+Condition/&Condition/&Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 ~ AC.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=부식됨
 Condition/&ConditionInnovationVitriolistMiserableDescription=반복되는 손상.
 Condition/&ConditionInnovationVitriolistMiserableTitle=비참한

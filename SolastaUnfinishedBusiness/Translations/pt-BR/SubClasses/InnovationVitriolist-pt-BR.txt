@@ -1,6 +1,4 @@
-Condition/&ConditionInnovationVitriolistArsenalDescription=Não é possível reagir.
-Condition/&ConditionInnovationVitriolistArsenalTitle=Chocado
-Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 para CA.
+Condition/&Condition/&Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 para CA.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Corroído
 Condition/&ConditionInnovationVitriolistMiserableDescription=Danos recorrentes.
 Condition/&ConditionInnovationVitriolistMiserableTitle=Miserável

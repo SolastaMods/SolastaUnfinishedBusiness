@@ -1,6 +1,4 @@
-Condition/&ConditionInnovationVitriolistArsenalDescription=No puedo aceptar reacciones.
-Condition/&ConditionInnovationVitriolistArsenalTitle=Conmocionado
-Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 a aire acondicionado.
+Condition/&Condition/&Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 a aire acondicionado.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Corroído
 Condition/&ConditionInnovationVitriolistMiserableDescription=Daño recurrente.
 Condition/&ConditionInnovationVitriolistMiserableTitle=Miserable

@@ -1,6 +1,4 @@
-Condition/&ConditionInnovationVitriolistArsenalDescription=Non è possibile effettuare reazioni.
-Condition/&ConditionInnovationVitriolistArsenalTitle=Scioccato
-Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 all'AC.
+Condition/&Condition/&Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 all'AC.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Corroso
 Condition/&ConditionInnovationVitriolistMiserableDescription=Danni ricorrenti.
 Condition/&ConditionInnovationVitriolistMiserableTitle=Miserabile
