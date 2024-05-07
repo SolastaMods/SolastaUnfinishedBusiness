@@ -1012,6 +1012,7 @@
     </KlassListSubclassEnabled>
     <FeatSliderPosition>4</FeatSliderPosition>
     <FeatEnabled>
+        <string>FeatAcrobat</string>
         <string>FeatAlert</string>
         <string>FeatAlwaysReady</string>
         <string>FeatGroupApothecary</string>

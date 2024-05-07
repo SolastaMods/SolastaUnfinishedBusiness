@@ -3,8 +3,9 @@
 - added Acrobat, Arcanist and Theologian feats
 - fixed Baleful Scion feat to reset healing after triggered
 - fixed Blade Mastery feat not considering daggers on AC bonus
-- fixed documentation links in mod UI to new consolidated files
+- fixed links in mod UI to new consolidated documentation
 - fixed Menacing feat to avoid crash when targeting non humanoids
+- fixed mod boot up for all non English users [blame Google]
 - fixed skill/tool or expertise granted from feats
 
 1.5.97.6:
