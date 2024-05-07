@@ -149,7 +149,7 @@ ModUi/&EnableVttCamera=启用 <color=#1E81B0>CTRL-SHIFT-(V)</color> 切换 VTT �
 ModUi/&EnablesAsiAndFeat=启用属性值提升和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>
 ModUi/&Encounters=遭遇
-ModUi/&EnemiesAlwaysRollInitiative=<i>+敌人总是投出主动权而不是强制值<color=#F0DAA0>[即：索拉克刺客]</color></i>
+ModUi/&EnemiesAlwaysRollInitiative=<i>+敌人总是掷先攻而不是强制值<color=#F0DAA0>[即：索拉克刺客]</color></i>
 ModUi/&ExpandAll=展开全部
 ModUi/&FactionHelp=<color=#C04040E0>加载官方战役游戏以修改派系关系...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>派系：</color>
@@ -179,13 +179,13 @@ ModUi/&GeneralMenu=通用
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=为<color=#D89555>吟游诗人</color>和<color=#D89555>游荡者</color>授予弯刀<b>武器专精</b>
 ModUi/&GridSelectedColor=更改移动<b><color=$$$$$$>网格颜色</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器视觉效果
-ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%的步长显示怪物的生命值，而不是准确生命值
+ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%的步骤显示怪物的生命值，而不是准确生命值
 ModUi/&HighContrastTargetingAoeColor=更改 AoE 生物<b><color=$$$$$$>突出显示选择颜色</color></b>
 ModUi/&HighContrastTargetingSingleColor=更改单个生物<b><color=$$$$$$>突出显示选择颜色</color></b>
 ModUi/&House=<color=#F0DAA0>房规：</color>
 ModUi/&IdentifyAfterRest=通过短休或长休增加识别魔法物品的能力
 ModUi/&IgnoreHandXbowFreeHandRequirements=不需要空闲的手来使用手弩
-ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻术法术对范围内 <color=#D89555>真实视觉</color> 的目标自动失败
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻术法术对范围内<color=#D89555>真实视觉</color>的目标自动失败
 ModUi/&ImproveLevelUpFeaturesSelection=改进升级特性选择<b><i><color=#C04040E0>[需要重启]</color></i></b>\n<i><color=#F0DAA0>[影响<color=#D89555>游侠</color>宿敌和偏好地形，<color=#D89555>德鲁伊</color>血缘野兽，<color=#D89555>野蛮人</color>元素道途和龙族子职选择]</color></i>
 ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseMaxAttunedItems=在第 10 级将最大同调物品增加到 4 个，在第 18 级增加到 5 个
@@ -217,7 +217,7 @@ ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 取消对目盲、隐形�
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ 将<color=#D89555>重度遮蔽</color>区域更改为射弹阻挡器<color=#F0DAA0>[<color=#D89555>死云术</color>、<color=#D89555>云雾术</color>、<color=#D89555>焚云术</color>、<color=#D89555>花瓣风暴</color>、<color=#D89555>雪雨暴</color>、<color=#D89555>臭云术</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 隐形生物被重度遮蔽，可以成为目标，针对该生物的攻击检定具有劣势，而该生物的攻击检定具有优势</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ 将<color=#D89555>魔法遮蔽</color>区域更改为射弹阻挡器<color=#F0DAA0>[<color=#D89555>黑暗术</color>法术效果的任何来源]</color></i>
-ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 在适当的时候向怪物和 NPC 添加 <color=#D89555>黑暗视觉</color>、<color=#D89555>盲视</color> 和 <color=#D89555>真实视觉</color>\n <color=#F0DAA0>[设置集合<b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 在适当的时候向怪物和NPC添加<color=#D89555>黑暗视觉</color>、<color=#D89555>盲视</color>和<color=#D89555>真实视觉</color>\n <color=#F0DAA0>[设置集合<b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+只显示魔法列表中最强大的生物</i>
 ModUi/&OutlineGridWidthModifier=<color=white>将轮廓网格宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>将轮廓网格动画速度乘以</color> <color=#C04040E0>[%]</color>
@@ -272,7 +272,7 @@ ModUi/&StealthBreaksWhenAttackMisses=当武器或法术攻击未命中时启用�
 ModUi/&StealthBreaksWhenCastingMaterial=施放材料成分法术时启用隐匿损失<i><color=#F0DAA0>[任何目标为全部或敌人的非攻击法术]</color></i>
 ModUi/&StealthBreaksWhenCastingSomatic=施放姿势成分法术时启用隐匿损失<i><color=#F0DAA0>[任何目标为全部或敌人的非攻击法术]</color></i>
 ModUi/&StealthBreaksWhenCastingVerbose=施放言语成分法术时启用隐匿损失<i><color=#F0DAA0>[任何目标为全部或敌人的非攻击法术]</color></i>
-ModUi/&StealthDoesNotBreakWithSubtle=如果 <color=#D89555>精妙超魔</color> 并且没有材料成分，则启用隐匿不会破坏
+ModUi/&StealthDoesNotBreakWithSubtle=如果<color=#D89555>精妙超魔</color>并且没有材料成分，则启用隐匿不会破坏
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=格罗姆的商店出售所有非魔法服装<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=格罗姆的商店出售所有非魔法乐器<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=在雨果的商店将<color=#D89555>奥术法杖</color>、<color=#D89555>德鲁伊项链</color>、<color=#D89555>法杖</color>和<color=#D89555>短棒</color>设置为法器项目
