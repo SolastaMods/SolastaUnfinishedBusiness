@@ -682,7 +682,7 @@ internal static class InvocationsBuilders
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionPerniciousCloak),
                         EffectFormBuilder.ConditionForm(conditionPerniciousCloakSelf,
-                            ConditionForm.ConditionOperation.Add, true))
+                            ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(PowerDomainOblivionMarkOfFate)
                     .SetEffectEffectParameters(new AssetReference())
                     .Build())

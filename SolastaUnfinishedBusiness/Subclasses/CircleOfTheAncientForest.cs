@@ -288,17 +288,9 @@ public sealed class CircleOfTheAncientForest : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionAncientForestHerbalBrew,
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
                     .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionAncientForestHerbalBrew))
                     .Build())
             .SetUniqueInstance()
             .AddToDB();

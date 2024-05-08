@@ -645,8 +645,8 @@ internal static partial class SpellBuilders
                             .SetConditionForm(conditionHindered, ConditionForm.ConditionOperation.Add)
                             .Build(),
                         EffectFormBuilder.ConditionForm(
-                                conditionTree,
-                                ConditionForm.ConditionOperation.Add, true),
+                            conditionTree,
+                            ConditionForm.ConditionOperation.Add, true, true),
                         EffectFormBuilder
                             .Create()
                             .SetTempHpForm(10, DieType.D1, 0, true)

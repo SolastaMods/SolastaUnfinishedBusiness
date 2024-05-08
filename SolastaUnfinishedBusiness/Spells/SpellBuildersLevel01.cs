@@ -316,9 +316,7 @@ internal static partial class SpellBuilders
                                     .SetAdditionalCarryingCapacity(20)
                                     .AddToDB())
                             .AddToDB(),
-                        ConditionForm.ConditionOperation.Add,
-                        false,
-                        false,
+                        ConditionForm.ConditionOperation.Add, false, false,
                         ConditionJump.AdditionalCondition)
                     .Build())
             .Build();

@@ -197,7 +197,9 @@ internal static class RaceMalakhBuilder
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder.Create()
-                            .SetConditionForm(conditionAngelicVisage, ConditionForm.ConditionOperation.Add, true, true)
+                            .SetConditionForm(
+                                conditionAngelicVisage,
+                                ConditionForm.ConditionOperation.Add, true)
                             .Build())
                     .Build())
             .AddToDB();
@@ -221,10 +223,7 @@ internal static class RaceMalakhBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder.Create()
-                            .SetConditionForm(conditionAngelicFlight, ConditionForm.ConditionOperation.Add, true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionAngelicFlight))
                     .Build())
             .AddToDB();
     }

@@ -827,13 +827,14 @@ internal static class Level20SubclassesContext
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart |
-                                        RecurrentEffect.OnEnter)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                     .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeRadiant, 0, DieType.D1, 10),
-                        EffectFormBuilder.ConditionForm(conditionOathOfDevotionHolyNimbus,
-                            ConditionForm.ConditionOperation.Add, true),
+                        EffectFormBuilder.ConditionForm(
+                            conditionOathOfDevotionHolyNimbus,
+                            ConditionForm.ConditionOperation.Add, true, true),
                         EffectFormBuilder
                             .Create()
                             .SetLightSourceForm(
@@ -965,7 +966,8 @@ internal static class Level20SubclassesContext
                     .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeFire, 8, DieType.D6),
-                        EffectFormBuilder.ConditionForm(conditionOathOfMotherlandFlamesOfMotherland,
+                        EffectFormBuilder.ConditionForm(
+                            conditionOathOfMotherlandFlamesOfMotherland,
                             ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(Fireball)
                     .Build())
@@ -1032,8 +1034,9 @@ internal static class Level20SubclassesContext
                     .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionOathOfTirmarInquisitorZeal),
-                        EffectFormBuilder.ConditionForm(conditionOathOfTirmarInquisitorSelfZeal,
-                            ConditionForm.ConditionOperation.Add, true))
+                        EffectFormBuilder.ConditionForm(
+                            conditionOathOfTirmarInquisitorSelfZeal,
+                            ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(TrueSeeing)
                     .Build())
             .AddToDB();

@@ -860,18 +860,13 @@ internal static class InventorClass
                     .SetDurationData(DurationType.Permanent)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create("ConditionInventorFlashOfGeniusAura")
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetSilent(Silent.WhenAddedOrRemoved)
-                                    .AddCustomSubFeatures(new TryAlterOutcomeSavingThrowFlashOfGenius(bonusPower))
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create("ConditionInventorFlashOfGeniusAura")
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .AddCustomSubFeatures(new TryAlterOutcomeSavingThrowFlashOfGenius(bonusPower))
+                            .AddToDB()))
                     .Build())
             .AddToDB();
 

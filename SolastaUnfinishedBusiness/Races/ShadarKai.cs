@@ -56,7 +56,7 @@ internal static class SubraceShadarKaiBuilder
         conditionTeleport.GuiPresentation.description = Gui.NoLocalization;
 
         var effectFormTeleport =
-            EffectFormBuilder.ConditionForm(conditionTeleport, ConditionForm.ConditionOperation.Add, true);
+            EffectFormBuilder.ConditionForm(conditionTeleport, ConditionForm.ConditionOperation.Add, true, true);
 
         var powerTeleport = FeatureDefinitionPowerBuilder
             .Create("PowerShadarKaiTeleport")

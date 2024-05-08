@@ -847,7 +847,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(
                             conditionDefinition,
-                            ConditionForm.ConditionOperation.Add, true))
+                            ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(ConjureGoblinoids)
                     .Build())
             .SetUniqueInstance()
@@ -949,13 +949,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionDefinition,
-                                ConditionForm.ConditionOperation.Add, true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDefinition))
                     .SetParticleEffectParameters(ConjureGoblinoids)
                     .Build())
             .SetUniqueInstance()

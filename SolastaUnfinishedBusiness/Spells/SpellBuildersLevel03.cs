@@ -690,7 +690,8 @@ internal static partial class SpellBuilders
                                         .AddConditionOperation(
                                             ConditionOperationDescription.ConditionOperation.Add, noHeal)
                                         .AddToDB())
-                                .AddToDB(), ConditionForm.ConditionOperation.Add, true, true),
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add, true, true),
                         EffectFormBuilder
                             .Create()
                             .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
@@ -760,7 +761,9 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                             .Build(),
-                        EffectFormBuilder.ConditionForm(conditionExplode, ConditionForm.ConditionOperation.Add, true))
+                        EffectFormBuilder.ConditionForm(
+                            conditionExplode,
+                            ConditionForm.ConditionOperation.Add, true, true))
                     .InviteOptionalAlly()
                     .ExcludeCaster()
                     .SetParticleEffectParameters(Thunderwave)

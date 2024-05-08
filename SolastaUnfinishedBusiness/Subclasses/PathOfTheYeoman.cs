@@ -123,11 +123,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionCourtMageSpellShield)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionBulwark, ConditionForm.ConditionOperation.Add, true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBulwark))
                     .Build())
             .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
             .AddToDB();
