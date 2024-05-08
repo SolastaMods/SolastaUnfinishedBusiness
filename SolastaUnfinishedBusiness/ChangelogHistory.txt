@@ -1,5 +1,6 @@
 1.5.97.8:
 
+- added Stealthy feat
 - fixed Barbarian rage STR saving advantage [VANILLA]
 - fixed mod boot up for Korean users
 - fixed multi-classed Druid/Paladin to offer divine smite slots under wildshape 

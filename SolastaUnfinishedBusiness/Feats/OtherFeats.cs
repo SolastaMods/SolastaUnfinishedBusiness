@@ -19,6 +19,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -62,7 +63,6 @@ internal static class OtherFeats
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
-        var featStealthy = BuildStealthy();
         var featTough = BuildTough();
         var featVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var featWarCaster = BuildWarcaster();
@@ -105,7 +105,7 @@ internal static class OtherFeats
             featPoisonousSkin,
             featPolearmExpert,
             featSentinel,
-            featStealthy,
+            FeatStealthy,
             featTough,
             featVersatilityAdept,
             featWarCaster);
@@ -160,7 +160,7 @@ internal static class OtherFeats
             featHealer,
             featMenacing,
             featPickPocket,
-            featStealthy);
+            FeatStealthy);
 
         GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
             featArcaneArcherAdept,
@@ -565,29 +565,54 @@ internal static class OtherFeats
 
     #region Stealthy
 
-    private static FeatDefinition BuildStealthy()
+    private const string FeatStealthyName = "FeatStealthy";
+
+    private static readonly FeatDefinition FeatStealthy = FeatDefinitionBuilder
+        .Create(FeatStealthyName)
+        .SetGuiPresentation(Category.Feat)
+        .SetFeatures(AttributeModifierCreed_Of_Misaye)
+        .AddCustomSubFeatures(
+            new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Stealth,
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{FeatStealthyName}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Stealth)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{FeatStealthyName}Expertise")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Stealth)
+                    .AddToDB()))
+        .AddToDB();
+
+    internal static readonly Dictionary<GameLocationCharacter, HashSet<int3>> FeatStealthPositionsCache = [];
+
+    internal static void NotifyFeatStealth(CharacterActionMoveStepBase action)
     {
-        const string Name = "FeatStealthy";
+        if (Gui.Battle == null)
+        {
+            return;
+        }
 
-        var skill = FeatureDefinitionProficiencyBuilder
-            .Create($"Proficiency{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Stealth)
-            .AddToDB();
+        var actingCharacter = action.ActingCharacter;
+        var rulesetCharacter = actingCharacter.RulesetCharacter;
+        var rulesetHero = rulesetCharacter.GetOriginalHero();
 
-        var expertise = FeatureDefinitionProficiencyBuilder
-            .Create($"Proficiency{Name}Expertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Stealth)
-            .AddToDB();
+        if (rulesetHero == null ||
+            !rulesetHero.TrainedFeats.Contains(FeatStealthy))
+        {
+            return;
+        }
 
-        return FeatDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye)
-            .AddCustomSubFeatures(
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Stealth, skill, expertise))
-            .AddToDB();
+        FeatStealthPositionsCache.TryAdd(actingCharacter, []);
+        FeatStealthPositionsCache[actingCharacter] = [];
+
+        for (var i = 0; i < action.MovePath.Count - 1; i++)
+        {
+            var position = action.MovePath[i].position;
+
+            FeatStealthPositionsCache[actingCharacter].Add(position);
+        }
     }
 
     #endregion

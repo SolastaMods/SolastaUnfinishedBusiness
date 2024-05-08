@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
@@ -151,6 +152,10 @@ public static class CharacterActionPatcher
 
                 case CharacterActionAttack characterActionAttack:
                     Global.CurrentAttackAction.Push(characterActionAttack);
+                    break;
+
+                case CharacterActionMoveStepBase characterActionMoveStepBase:
+                    OtherFeats.NotifyFeatStealth(characterActionMoveStepBase);
                     break;
             }
         }
