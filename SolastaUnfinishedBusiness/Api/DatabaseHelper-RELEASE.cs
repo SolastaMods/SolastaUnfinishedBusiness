@@ -1569,9 +1569,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMovementAffinity MovementAffinityNoSpecialMoves { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityNoSpecialMoves");
 
-        internal static FeatureDefinitionMovementAffinity MovementAffinitySixLeaguesBoots { get; } =
-            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinitySixLeaguesBoots");
-
         internal static FeatureDefinitionMovementAffinity MovementAffinitySpiderClimb { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinitySpiderClimb");
     }
