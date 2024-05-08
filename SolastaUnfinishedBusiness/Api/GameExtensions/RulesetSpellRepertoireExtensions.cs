@@ -6,7 +6,7 @@ public static class RulesetSpellRepertoireExtensions
 {
     public static RulesetCharacterHero GetCasterHero(this RulesetSpellRepertoire repertoire)
     {
-        return EffectHelpers.GetCharacterByGuid(repertoire?.CharacterInventory?.BearerGuid ?? 0) as RulesetCharacterHero
+        return EffectHelpers.GetCharacterByGuid(repertoire?.CharacterInventory?.BearerGuid ?? 0).GetOriginalHero()
                ?? Global.InspectedHero;
     }
 
