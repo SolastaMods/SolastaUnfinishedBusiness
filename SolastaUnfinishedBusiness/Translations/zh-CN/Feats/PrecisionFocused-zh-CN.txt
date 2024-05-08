@@ -1,6 +1,6 @@
-Feat/&FeatArcanePrecisionDescription=将你的智力 +1，上限为 20。\n你可以使用附赠动作来选择武器。它的攻击算作魔法攻击，你使用你的智力进行攻击和伤害掷骰，持续 1 分钟。每次长休可以使用熟练加值次数。
+Feat/&FeatArcanePrecisionDescription=你的智力 +1，上限为 20。\n你可以使用附赠动作来选择武器。它的攻击算作魔法攻击，你使用你的智力进行攻击和伤害掷骰，持续 1 分钟。每次长休可以使用熟练加值次数。
 Feat/&FeatArcanePrecisionTitle=奥术精准
-Feat/&FeatCharismaticPrecisionDescription=将你的魅力 +1，上限为 20。\n你可以使用附赠动作来选择武器。它的攻击算作魔法攻击，你使用你的魅力进行攻击和伤害掷骰，持续 1 分钟。每次长休可以使用熟练加值次数。
+Feat/&FeatCharismaticPrecisionDescription=你的魅力 +1，上限为 20。\n你可以使用附赠动作来选择武器。它的攻击算作魔法攻击，你使用你的魅力进行攻击和伤害掷骰，持续 1 分钟。每次长休可以使用熟练加值次数。
 Feat/&FeatCharismaticPrecisionTitle=魅力精准
-Feat/&FeatWisePrecisionDescription=将你的感知 +1，上限为 20。\n你可以使用附赠动作来选择武器。它的攻击算作魔法攻击，你使用你的感知进行攻击和伤害掷骰，持续 1 分钟。每次长休可以使用熟练加值次数。
+Feat/&FeatWisePrecisionDescription=你的感知 +1，上限为 20。\n你可以使用附赠动作来选择武器。它的攻击算作魔法攻击，你使用你的感知进行攻击和伤害掷骰，持续 1 分钟。每次长休可以使用熟练加值次数。
 Feat/&FeatWisePrecisionTitle=感知精准
