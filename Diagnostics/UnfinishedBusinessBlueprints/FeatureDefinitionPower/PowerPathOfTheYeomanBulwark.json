@@ -82,7 +82,7 @@
           "conditionDefinition": "Definition:ConditionPathOfTheYeomanBulwark:7d1fcaf0-8b05-5638-9ffb-61bcfc285eb6",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,

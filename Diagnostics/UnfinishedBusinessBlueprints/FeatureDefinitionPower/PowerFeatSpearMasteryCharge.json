@@ -3,7 +3,7 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
-    "rangeParameter": 1,
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
@@ -82,7 +82,7 @@
           "conditionDefinition": "Definition:ConditionFeatSpearMasteryCharge:f3424256-5dec-593f-a598-957a2966c91e",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,

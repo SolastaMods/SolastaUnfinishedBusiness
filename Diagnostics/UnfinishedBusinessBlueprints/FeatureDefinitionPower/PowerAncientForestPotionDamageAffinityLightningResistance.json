@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionAncientForestHerbalBrewDamageAffinityLightningResistance:5740dad5-0f9f-5b81-80c7-41b24cee7262",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionAncientForestHerbalBrewDamageAffinityAcidResistance:d940e075-8242-5244-b8b0-414552b8c125",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

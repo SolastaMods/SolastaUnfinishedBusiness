@@ -680,7 +680,7 @@ You are uncommonly nimble for your race. Increase your Strength or Dexterity by 
 You know how best to hide. You gain the following benefits:
 • Increase your Dexterity by 1, to a maximum of 20.
 • You gain proficiency with Stealthy skill or expertise if you are already proficient.
-• If you are hidden, you can move up to 10 feet in the open without revealing yourself if you end the move in a position where you're not clearly visible.
+• If you are hidden, you can move in the open without revealing yourself if you end the move in a position where you're not clearly visible.
 
 # 139. - Sturdiness of the Tundra [SOL]
 

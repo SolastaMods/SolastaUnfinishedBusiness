@@ -82,7 +82,7 @@
           "conditionDefinition": "Definition:ConditionInnovationArtilleristFlamethrowerTiny15:9af499c4-b6e9-5ac6-b68c-3cdf55c13585",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,

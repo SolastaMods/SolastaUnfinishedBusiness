@@ -82,7 +82,7 @@
           "conditionDefinition": "Definition:ConditionMalakhAngelicFlight:94211922-11c5-58ee-b5c5-42a3382f1b4a",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,
