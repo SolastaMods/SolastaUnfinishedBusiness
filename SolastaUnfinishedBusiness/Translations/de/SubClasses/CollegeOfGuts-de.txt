@@ -1,4 +1,4 @@
-Feature/&PowerCollegeOfGutsArcaneDeflectionDescription=Als Reaktion können Sie Ihre arkanen Kräfte nutzen, um sich selbst zu schützen. Dadurch erhältst du bis zu deinem nächsten Zug +3 auf deine Rüstungsklasse.
+Feature/&PowerCollegeOfGutsArcaneDeflectionDescription=Als Reaktion kannst du deine arkanen Kräfte nutzen, um dich abzuschirmen. Dies gibt dir bis zu deinem nächsten Zug +3 auf deine Rüstungsklasse.
 Feature/&PowerCollegeOfGutsArcaneDeflectionTitle=Darmablenkung
 Subclass/&CollegeOfGutsDescription=Barden des College of Valor versammeln sich in Methallen oder um große Freudenfeuer, um die Taten der Mächtigen der Vergangenheit und Gegenwart zu besingen. Sie bereisen das Land, um große Ereignisse aus erster Hand mitzuerleben und sicherzustellen, dass die Erinnerung an diese Ereignisse nicht aus der Welt verschwindet. Mit ihren Liedern inspirieren sie andere dazu, die gleichen Erfolge zu erreichen wie die Helden von einst.
 Subclass/&CollegeOfGutsTitle=College of Valor

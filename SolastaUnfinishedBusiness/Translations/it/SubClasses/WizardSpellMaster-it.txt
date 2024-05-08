@@ -1,8 +1,8 @@
-Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepara incantesimi aggiuntivi con modificatore di Intelligenza in modo da avere sempre ciò di cui hai bisogno.
+Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepara incantesimi aggiuntivi con modificatore di Intelligenza, così avrai sempre ciò di cui hai bisogno.
 Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Extra preparato
 Feature/&MagicAffinitySpellMasterKnowledgeDescription=Scrivi un incantesimo aggiuntivo ad ogni aumento di livello.
 Feature/&MagicAffinitySpellMasterKnowledgeTitle=Ampiezza della conoscenza
-Feature/&MagicAffinitySpellMasterPreparedDescription=Prepara incantesimi aggiuntivi bonus di competenza in modo da avere sempre ciò di cui hai bisogno.
+Feature/&MagicAffinitySpellMasterPreparedDescription=Prepara incantesimi aggiuntivi bonus di competenza, così avrai sempre ciò di cui hai bisogno.
 Feature/&MagicAffinitySpellMasterPreparedTitle=Essere preparato
 Feature/&MagicAffinitySpellMasterRecoveryDescription=Una volta per riposo lungo, puoi recuperare slot incantesimo (oltre a Recupero Arcano).
 Feature/&MagicAffinitySpellMasterRecoveryTitle=Profondità arcana

@@ -1,10 +1,10 @@
 Feat/&FeatApothecaryChaDescription=Erhöhen Sie Ihr Charisma um 1 auf maximal 20.\nSie erwerben Kenntnisse im Umgang mit Kräuterheilmitteln und Medikamenten oder Fachwissen, wenn Sie bereits über Kenntnisse verfügen.
 Feat/&FeatApothecaryChaTitle=Apotheker [Cha]
-Feat/&FeatApothecaryIntDescription=Erhöhen Sie Ihre Intelligenz um 1 auf maximal 20.\nSie erwerben Kenntnisse im Umgang mit Kräuterheilmitteln und Medikamenten oder Fachwissen, wenn Sie bereits über Kenntnisse verfügen.
+Feat/&FeatApothecaryIntDescription=Erhöhen Sie Ihre Intelligenz um 1 bis zu einem Maximum von 20.\nSie erlangen Kenntnisse im Umgang mit Kräuterkunde und Medizin oder Fachwissen, wenn Sie bereits über Kenntnisse verfügen.
 Feat/&FeatApothecaryIntTitle=Apotheker [Int]
-Feat/&FeatApothecaryWisDescription=Erhöhen Sie Ihre Weisheit um 1 auf maximal 20.\nSie erlangen Kenntnisse im Kräuterkunde-Set und Arcana oder in der Medizin, wenn Sie bereits über Kenntnisse verfügen.
+Feat/&FeatApothecaryWisDescription=Erhöhen Sie Ihre Weisheit um 1 auf maximal 20.\nSie erwerben Kenntnisse im Kräuterkunde-Set und Arcana oder Fachwissen, wenn Sie bereits über Kenntnisse verfügen.
 Feat/&FeatApothecaryWisTitle=Apotheker [Wis]
-Feat/&FeatArcanistDescription=Du studierst die arkanen Künste und erhältst die folgenden Vorteile:\n• Erhöhe deine Intelligenz um 1, bis zu einem Maximum von 20.\n• Du erlangst Kenntnisse in Arcana-Fertigkeiten oder -Expertise, wenn du bereits über Kenntnisse verfügst.\n• Du Lerne den Zauber „Magie entdecken“. Du kannst „Magie entdecken“ einmal wirken, ohne einen Zauberslot zu verbrauchen, und erhältst die Fähigkeit dazu zurück, wenn du eine lange Pause beendet hast.
+Feat/&FeatArcanistDescription=Du lernst die arkanen Künste und erhältst folgende Vorteile:\n• Deine Intelligenz steigt um 1, bis zu einem Maximum von 20.\n• Du erlangst Kenntnisse in arkaner Fertigkeit oder Expertise, wenn du bereits darin ausgebildet bist.\n• Du lernst den Zauber „Magie entdecken“. Du kannst „Magie entdecken“ einmal wirken, ohne einen Zauberplatz zu verbrauchen, und du erhältst die Fähigkeit dazu zurück, wenn du eine lange Ruhepause beendest.
 Feat/&FeatArcanistTitle=Arkanist
 Feat/&FeatCraftyScriberDescription=Erhöhen Sie Ihre Intelligenz um 1 auf maximal 20.\nSie erwerben Kenntnisse im Umgang mit Schriftrollen und Arcana oder Fachwissen, wenn Sie bereits über Kenntnisse verfügen.
 Feat/&FeatCraftyScriberTitle=Schreiber

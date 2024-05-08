@@ -8,5 +8,5 @@ Feature/&PowerGrayDwarfInvisibilityDescription=Você pode ficar invisível magic
 Feature/&PowerGrayDwarfInvisibilityTitle=Invisibilidade
 Feature/&PowerGrayDwarfStoneStrengthDescription=Como uma ação bônus, você assume a Força da pedra por 1 minuto. Você tem vantagem em testes de Força e testes de resistência de Força. Você também causa 1d4 de dano extra com armas corpo a corpo baseadas em Força. Depois de usar esta habilidade, você não poderá usá-la novamente até terminar um descanso curto ou longo.
 Feature/&PowerGrayDwarfStoneStrengthTitle=Força da Pedra
-Race/&RaceGrayDwarfDescription=Os Anões Cinzentos são anões que foram transformados após apenas algumas gerações de exposição às misteriosas magias de Badlands. Eles são em grande parte noturnos e vivem principalmente em ruínas enterradas. A cor da pele tende ao cinza ou até ao preto como carvão. Ao contrário da maioria dos anões, eles não deixam crescer barba.
+Race/&RaceGrayDwarfDescription=Os Anões Cinzentos são anões que foram transformados após apenas algumas gerações de exposição às magias misteriosas das Terras Ermas. Eles são em grande parte noturnos e vivem principalmente em ruínas enterradas. A cor da pele tende ao cinza ou até ao preto como carvão. Ao contrário da maioria dos anões, eles não deixam crescer barba.
 Race/&RaceGrayDwarfTitle=Anão Cinzento

@@ -1,9 +1,9 @@
-Tutorial/&TutorialActionSwitchingDescription=Wenn mehr als eine Haupt- oder Bonusaktion verfügbar ist, können Sie auf das Aktionsstatussymbol klicken, um diese zu Ihrer aktuell aktiven Aktion zu machen. Dadurch ist es möglich, mit der Aktion „Eile“ oder „Hordenbrecher“ anzugreifen und dann mit der Standardaktion einen Zauber zu wirken. Oder jede andere Kombination, die Sie benötigen.\nWenn Sie mit der Maus über das Aktionsstatussymbol fahren, wird eine QuickInfo mit dem Namen der Funktion oder Bedingung angezeigt, die die Aktion gewährt hat.
+Tutorial/&TutorialActionSwitchingDescription=Wenn mehr als eine Haupt- oder Bonusaktion verfügbar ist, können Sie auf das Aktionsstatussymbol klicken, um diese zu Ihrer aktuell aktiven Aktion zu machen. Dadurch ist es möglich, mit der Aktion „Eile“ oder „Hordenbrecher“ anzugreifen und dann mit der Standardaktion einen Zauber zu wirken. Oder jede andere Kombination, die Sie möglicherweise benötigen.\nWenn Sie mit der Maus über das Aktionsstatussymbol fahren, wird eine QuickInfo mit dem Namen der Funktion oder Bedingung angezeigt, die die Aktion gewährt hat.
 Tutorial/&TutorialActionSwitchingTitle=Mehrere Aktionen
 UI/&Add=Add
 UI/&AdditionalActionSource=Gewährt von: {0}
 UI/&Current Party=Aktuelle Partei
-UI/&DistanceFormat=Distanz: {0}
+UI/&DistanceFormat=Entfernung: {0}
 UI/&Experimental Preview:=Experimentelle Vorschau <i><color=Yellow>[Sicherungskopie vor Verwendung speichern]</color></i>:
 UI/&Expert=Experte
 UI/&From=Aus

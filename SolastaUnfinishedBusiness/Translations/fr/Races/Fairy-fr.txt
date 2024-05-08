@@ -1,14 +1,14 @@
-Feature/&CastSpellFairyDescription=Vous connaissez le sort mineur <b>Burst of Radiance</b>. Au niveau 3, vous apprenez <b>Faerie Fire</b> et au niveau 5, <b>Color Burst</b>. Les deux peuvent être utilisés une fois par repos long.
+Feature/&CastSpellFairyDescription=Vous connaissez le cantrip <b>Mot de Radiance</b>. Au niveau 3, vous apprenez <b>Faerie Fire</b> et au niveau 5, <b>Color Burst</b>. Les deux peuvent être utilisés une fois par repos prolongé.
 Feature/&CastSpellFairyTitle=Magie des fées
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=Dextérité +2, Intelligence, Sagesse ou Charisme +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=Scores de capacité
 Feature/&FeatureSetFairyFlightDescription=Grâce à vos ailes, vous avez une vitesse de vol égale à votre vitesse de marche. Vous ne pouvez pas utiliser cette vitesse de vol si vous portez une armure moyenne ou lourde.
 Feature/&FeatureSetFairyFlightTitle=Vol
 Feature/&PowerFairyFlightDismissDescription=Annulez votre vol.
-Feature/&PowerFairyFlightDismissTitle=Ignorer le vol
+Feature/&PowerFairyFlightDismissTitle=Annuler le vol
 Feature/&PowerFairyFlightSproutDescription=Par une action, vous pouvez vous donner une vitesse de vol égale à votre vitesse de marche. Vous ne pouvez pas l'utiliser si vous portez une armure moyenne ou lourde.
 Feature/&PowerFairyFlightSproutTitle=Vol
 Feature/&ProficiencyFairyLanguagesDescription=Commun, elfique
 Feature/&ProficiencyFairyLanguagesTitle=Langues
-Race/&RaceFairyDescription=Le Feywild abrite de nombreux peuples fantastiques, y compris des fées. Les fées sont un petit peuple, mais pas autant que leurs amis lutins et sprites. Les premières fées parlaient elfique, gobelin ou sylvestre, et les rencontres avec des visiteurs humains ont incité nombre d'entre elles à apprendre le commun également.
+Race/&RaceFairyDescription=Le Feywild abrite de nombreux peuples fantastiques, notamment des fées. Les fées sont un petit peuple, mais pas autant que leurs amis lutins et sprites. Les premières fées parlaient elfique, gobelin ou sylvain, et leurs rencontres avec des visiteurs humains ont incité nombre d'entre elles à apprendre également le commun.
 Race/&RaceFairyTitle=Fée

@@ -1,7 +1,7 @@
 Condition/&ConditionBlindedByBlessedGlowTitle=Cegado pelo brilho abençoado
 Condition/&ConditionRangerLightBearerAngelicFormDescription=Você tem um deslocamento de vôo igual ao seu deslocamento de caminhada e seus ataques também contam como mágicos.
 Condition/&ConditionRangerLightBearerAngelicFormTitle=Forma Angelical
-Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Quando atingido pelo lançador com um ataque de arma, todo o dano causado pelo ataque se torna dano radiante, e você sofre 1d8 de dano radiante extra do ataque. A partir do 11º nível, o dano extra aumenta para 2d8.
+Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Quando atingido pelo lançador com um ataque de arma, todo o dano causado pelo ataque se torna dano radiante e você sofre 1d8 de dano radiante extra do ataque. A partir do 11º nível, o dano extra aumenta para 2d8.
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Marcado pelo Abençoado Guerreiro
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Você pode lançar luz como uma ação e ganhar feitiços bônus que são considerados feitiços de ranger para você e não contam no número de feitiços que você conhece:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Magia do Portador de Luz

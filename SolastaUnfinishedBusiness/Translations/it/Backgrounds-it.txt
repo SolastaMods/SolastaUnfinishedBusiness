@@ -1,6 +1,6 @@
 Background/&BackgroundDevotedDescription=Dopo anni di vagabondaggi senza scopo e di ricerche infruttuose, hai trovato la tua causa. Che si tratti di una divinità o di una religione, di una campagna politica, di un movimento filosofico o semplicemente della promozione delle ottime birre e dell'idromele del Maestro Tuckin, hai visto la luce e ti dedichi con tutto il cuore a promuovere la causa che hai scelto.
 Background/&BackgroundDevotedTitle=Devoto
-Background/&BackgroundFarmerDescription=Hai lavorato la terra e allevato il bestiame fin dalla nascita per nutrire la bocca di molti. Come agricoltore, ti svegliavi prima del sole e tornavi dal lavoro nei campi dopo il tramonto. Ti sei lasciato alle spalle una vita mondana per cercare l'avventura per il brivido, la fama o la fortuna.
+Background/&BackgroundFarmerDescription=Hai lavorato la terra e allevato il bestiame fin dalla nascita per nutrire la bocca di molti. Come contadino, ti svegliavi prima del sole e tornavi dal lavoro nei campi dopo il tramonto. Ti sei lasciato alle spalle una vita mondana per cercare l'avventura per il brivido, la fama o la fortuna.
 Background/&BackgroundFarmerTitle=Contadino
 Background/&BackgroundMilitiaDescription=Eri membro di una guardia cittadina o della milizia civile dedita alla protezione di un insediamento.
 Background/&BackgroundMilitiaTitle=Milizia

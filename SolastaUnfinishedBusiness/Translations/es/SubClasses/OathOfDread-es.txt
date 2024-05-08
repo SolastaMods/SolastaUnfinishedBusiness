@@ -26,5 +26,5 @@ Reaction/&ReactionAttackHarrowingCrusadeDescription={0} atacó a {1}. Puedes usa
 Reaction/&ReactionAttackHarrowingCrusadeReactDescription=Usa tu reacción para atacar.
 Reaction/&ReactionAttackHarrowingCrusadeReactTitle=Ataque
 Reaction/&ReactionAttackHarrowingCrusadeTitle=Cruzada desgarradora
-Subclass/&OathOfDreadDescription=Los paladines que hacen el Juramento del Pavor son guerreros celosos que canalizan sus poderes divinos para aterrorizar a los enemigos hasta someterlos o hacerlos dispersarse.
+Subclass/&OathOfDreadDescription=Los paladines que hacen el Juramento del Pavor son guerreros celosos que canalizan sus poderes divinos para aterrorizar a los enemigos y obligarlos a someterse o dispersarlos.
 Subclass/&OathOfDreadTitle=Juramento de pavor

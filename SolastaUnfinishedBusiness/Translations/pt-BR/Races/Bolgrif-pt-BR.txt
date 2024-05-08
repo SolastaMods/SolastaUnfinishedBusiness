@@ -10,5 +10,5 @@ Feature/&PowerBolgrifInvisibilityDescription=Como uma ação bônus, você pode 
 Feature/&PowerBolgrifInvisibilityTitle=Desaparecer
 Feature/&ProficiencyBolgrifLanguagesDescription=Comum, Élfico e Gigante.
 Feature/&ProficiencyBolgrifLanguagesTitle=Linguagem
-Race/&RaceBolgrifDescription=Bolgrifs são meio-gigantes que vivem nas terras altas congeladas de Solasta. Eles são astutos, cautelosos, reclusos, desconfiam da maioria dos humanóides, exceto dos elfos, e preferem viver longe da civilização em clãs unidos. Se pressionados para a batalha, os bolgrifs demonstram habilidades formidáveis com armas e magia da natureza.
+Race/&RaceBolgrifDescription=Filborgs são meio-gigantes que vivem nas terras altas congeladas de Solasta. Eles são astutos, cautelosos, reclusos, desconfiam da maioria dos humanóides, exceto dos elfos, e preferem viver longe da civilização em clãs muito unidos. Se pressionados para a batalha, os filborgs demonstram habilidades formidáveis com armas e magia da natureza.
 Race/&RaceBolgrifTitle=Firbolg

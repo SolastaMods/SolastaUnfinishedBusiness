@@ -1,6 +1,6 @@
 Condition/&ConditionOathOfAncientsAuraWardingDescription=Erhalte Resistenz gegen Zauberschaden.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Geschützt
-Condition/&ConditionOathOfAncientsElderChampionDescription=• Zu Beginn jeder deiner Runden erhältst du 10 Trefferpunkte zurück.\n• Immer wenn du einen Paladinzauber wirkst, der eine Zauberzeit von 1 Aktion hat, kannst du zwei Waffenangriffe als Teil derselben Aktion ausführen.\n• Feindliche Kreaturen im Umkreis von 10 Fuß um dich herum haben bei Rettungswürfen gegen deine Paladin-Zauber und Channel Divinity-Optionen einen Nachteil.
+Condition/&ConditionOathOfAncientsElderChampionDescription=• Zu Beginn jedes deiner Züge erhältst du 10 Trefferpunkte zurück.\n• Immer wenn du einen Paladin-Zauber mit einer Zauberzeit von 1 Aktion wirkst, kannst du als Teil derselben Aktion zwei Waffenangriffe durchführen.\n• Feindliche Kreaturen im Umkreis von 10 Fuß um dich herum haben bei Rettungswürfen gegen deine Paladin-Zauber und Channel Divinity-Optionen einen Nachteil.
 Condition/&ConditionOathOfAncientsElderChampionTitle=Älterer Champion
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=Wenn Ihre Trefferpunkte auf 0 reduziert, aber nicht vollständig getötet werden, sinken Sie stattdessen auf 1 Trefferpunkt. Sie können von dieser Funktion erst dann wieder profitieren, wenn Sie eine lange Pause beendet haben.
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelTitle=Unsterblicher Wächter
@@ -14,5 +14,5 @@ Feature/&PowerOathOfAncientsNaturesWrathDescription=Sie können Ihre Kanalgöttl
 Feature/&PowerOathOfAncientsNaturesWrathTitle=Channel Divinity: Der Zorn der Natur
 Feature/&PowerOathOfAncientsTurnFaithlessDescription=Sie können Ihre Kanalgöttlichkeit nutzen, um uralte Worte auszusprechen, deren Hören für Feen und Unholde schmerzhaft ist. Als Aktion präsentieren Sie Ihr heiliges Symbol und jeder Fee oder Unhold im Umkreis von 30 Fuß um Sie, der Sie hören kann, muss einen Weisheitsrettungswurf durchführen. Bei einem fehlgeschlagenen Rettungswurf wird die Kreatur für 1 Minute oder bis sie Schaden erleidet, umgedreht.
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: Verwandle die Ungläubigen
-Subclass/&OathOfAncientsDescription=Ein Eid aus einer primitiveren Zeit, den man sich der Nutzung der Natur zum Guten widmet.
+Subclass/&OathOfAncientsDescription=Ein Eid aus einer primitiveren Zeit, dass man sich der Nutzung der Natur zum Guten verschrieben hat.
 Subclass/&OathOfAncientsTitle=Eid der Alten

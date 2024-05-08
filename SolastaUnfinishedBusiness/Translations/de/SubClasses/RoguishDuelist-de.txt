@@ -1,4 +1,4 @@
-Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Ab der 9. Stufe können Sie, wenn eine Kreatur Sie mit einem Nahkampfangriffswurf verfehlt, Ihre Reaktion nutzen, um einen sofortigen Gelegenheitsangriff gegen diese Kreatur durchzuführen.
+Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Ab der 9. Stufe können Sie, wenn eine Kreatur Sie mit einem Nahkampfangriffswurf verfehlt, Ihre Reaktion nutzen, um einen sofortigen Gelegenheitsangriff gegen diese Kreatur auszuführen.
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Wirbelnder Tanz
 Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Du brauchst keinen Vorteil beim Angriffswurf, um deinen Schleichangriff gegen eine Kreatur einzusetzen, wenn du dich in einem Umkreis von 5 Fuß um sie befindest, keine anderen Kreaturen in einem Umkreis von 5 Fuß um dich sind und du keinen Nachteil beim Angriffswurf hast. Alle anderen Sneak Attack-Regeln gelten weiterhin.
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Gewagtes Duell

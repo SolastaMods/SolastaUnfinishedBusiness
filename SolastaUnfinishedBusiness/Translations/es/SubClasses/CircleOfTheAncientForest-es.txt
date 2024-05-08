@@ -15,7 +15,7 @@ Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle=Brebaje de protección
 Equipment/&HerbalBrewHealingTitle=Brebaje de aceleración
 Equipment/&HerbalBrewToxifyingTitle=Brebaje de toxificante
 Feature/&AttributeModifierAncientForestBarkskinDescription=La clase de armadura se establece en 16.
-Feature/&AttributeModifierAncientForestBarkskinTitle=Piel de corteza
+Feature/&AttributeModifierAncientForestBarkskinTitle=piel de corteza
 Feature/&BonusCantripAncientForestDescription=Aprenderá secretos sobre la naturaleza de cómo se conectan la magia natural y la energía vital. Aprendes Shillelagh y Chill Touch.
 Feature/&BonusCantripAncientForestTitle=Trucos de bonificación del bosque antiguo
 Feature/&FeatureSetWallOfThornsDescription=Lanza Muro de espinas un número de veces al día igual a tu bonificación de competencia.
@@ -39,5 +39,5 @@ Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTra
 Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat={0} crea {1}
 Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat={0} crea {1}
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat={0} crea {1}
-Subclass/&CircleOfTheAncientForestDescription=Has forjado una relación con una poderosa entidad de la naturaleza: Dríadas antiguas, Archidruidas, Manifestaciones de Feywild sangrando en el plano material, Dioses olvidados de una era primitiva. Puede que desee que protejas el mundo natural, que viajes a tierras lejanas que él no puede, o que tenga otro motivo que parezca inescrutable para los mortales de corta vida.
+Subclass/&CircleOfTheAncientForestDescription=Has forjado una relación con una poderosa entidad de la naturaleza: antiguas dríadas, archidruidas, manifestaciones de Feywild sangrando en el plano material, dioses olvidados de una era primitiva. Puede que desee que protejas el mundo natural, que viajes a tierras lejanas que él no puede, o que tenga otro motivo que parezca inescrutable para los mortales de corta vida.
 Subclass/&CircleOfTheAncientForestTitle=Círculo del Bosque Antiguo

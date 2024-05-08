@@ -2,12 +2,12 @@ Tutorial/&TutorialActionSwitchingDescription=Quando você tiver mais de uma aç�
 Tutorial/&TutorialActionSwitchingTitle=Múltiplas Ações
 UI/&Add=Add
 UI/&AdditionalActionSource=Concedido por: {0}
-UI/&Current Party=Grupo Atual
+UI/&Current Party=Partido Atual
 UI/&DistanceFormat=Distância: {0}
 UI/&Experimental Preview:=Visualização experimental <i><color=Yellow>[salvar backup antes de usar]</color></i>:
 UI/&Expert=Especialista
 UI/&From=De
-UI/&PartyEditor=Editor de Grupo
+UI/&PartyEditor=Editor de festa
 UI/&PartyEditorMessage=Este editor de grupo simples permite editar personagens em uma sessão de jogo carregada. Clique no seguinte para relatar problemas:
 UI/&PartyEditorUnavailable=****** Party Editor indisponível: carregue um jogo salvo ******
 UI/&Quickies=Rapidinhas

@@ -1,5 +1,5 @@
 Condition/&ConditionMartialArcaneArcherEnfeeblingArrowDescription=La criatura causa la mitad del daño en ataques basados en Fuerza y tiene desventaja en las tiradas de salvación y pruebas de habilidad de Fuerza, Destreza y Constitución.
-Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle=Debilitado
+Condition/&ConditionMartialArcaneArcherEnfeeblingArrowTitle=debilitado
 Condition/&ConditionMartialArcaneArcherInsightArrowDescription=La criatura no puede beneficiarse de la invisibilidad, los atacantes tienen ventaja. También iluminan 10 celdas de luz brillante + 10 celdas de luz tenue.
 Condition/&ConditionMartialArcaneArcherInsightArrowTitle=Destacado
 Feature/&CastSpellMartialArcaneArcherArcaneMagicDescription=Eliges aprender un truco de mago.
@@ -9,7 +9,7 @@ Feature/&FeatureMartialArcaneArcherEverReadyShotTitle=Disparo siempre listo
 Feature/&FeatureMartialArcaneArcherGuidedShotDescription=Infundes a tus flechas magia de adivinación, lo que las hace más propensas a alcanzar sus objetivos. Cuando haces una tirada de ataque con un arco corto o largo y fallas, puedes usar tu reacción para repetir la tirada de ataque contra esa criatura.
 Feature/&FeatureMartialArcaneArcherGuidedShotTitle=Tiro guiado
 Feature/&FeatureMartialArcaneArcherMagicArrowDescription=Obtienes la capacidad de infundir flechas con magia. Siempre que dispares una flecha no mágica con un arco corto o largo, puedes convertirla en mágica con el fin de superar la resistencia y la inmunidad a ataques y daños no mágicos. La magia se desvanece de la flecha inmediatamente después de que alcanza o falla su objetivo.
-Feature/&FeatureMartialArcaneArcherMagicArrowTitle=Flecha magica
+Feature/&FeatureMartialArcaneArcherMagicArrowTitle=flecha magica
 Feature/&FeatureSetMartialArcaneArcherArcaneLoreDescription=Eliges adquirir competencia en la habilidad Arcana o Naturaleza.
 Feature/&FeatureSetMartialArcaneArcherArcaneLoreTitle=Conocimiento arcano
 Feature/&FeatureSetMartialArcaneArcherArcaneShotDescription=Aprendes a desatar efectos mágicos especiales con algunos de tus disparos. Cuando obtienes esta función, aprendes dos opciones de Disparo Arcano de tu elección. Una vez por turno, cuando disparas una flecha con un arco corto o largo como parte de la acción de Ataque, puedes aplicar una de tus opciones de Disparo Arcano a esa flecha. Decides usar la opción cuando la flecha golpea a una criatura, a menos que la opción no implique una tirada de ataque. Tienes 2 usos de esta habilidad y recuperas todos los usos gastados cuando terminas un descanso corto o largo.

@@ -1,4 +1,4 @@
-Feature/&AttributeModifierRangerGloomStalkerDreadAmbusherDescription=Você pode conceder a si mesmo um bônus em suas jogadas de iniciativa igual ao seu modificador de Sabedoria. No início do seu primeiro turno de cada combate, sua velocidade de caminhada aumenta em 3 metros, que dura até o final desse turno. Se você realizar a ação de Ataque nesse turno, você poderá realizar um ataque com arma adicional. No próximo ataque que acertar, o alvo sofre 1d8 de dano extra do tipo de dano da arma.
+Feature/&AttributeModifierRangerGloomStalkerDreadAmbusherDescription=Você pode conceder a si mesmo um bônus em suas jogadas de iniciativa igual ao seu modificador de Sabedoria. No início do seu primeiro turno de cada combate, sua velocidade de caminhada aumenta em 3 metros, que dura até o final desse turno. Se você realizar a ação de Ataque nesse turno, você poderá realizar um ataque com arma adicional. No próximo ataque que acertar, o alvo sofre 1d8 de dano extra ao tipo de dano da arma.
 Feature/&AttributeModifierRangerGloomStalkerDreadAmbusherTitle=Emboscador Terrível
 Feature/&AutoPreparedSpellsRangerGloomStalkerDescription=Você ganha feitiços bônus que são considerados feitiços de Ranger para você. Eles estão sempre preparados e não contam no número de feitiços de Ranger que você conhece:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerGloomStalkerTitle=Feitiços bônus do Gloom Stalker
@@ -12,7 +12,7 @@ Feature/&FeatureSetRangerGloomStalkerIronMindDescription=Você aprimorou sua hab
 Feature/&FeatureSetRangerGloomStalkerIronMindTitle=Mente de Ferro
 Feedback/&AdditionalDamageDreadAmbusherFormat=Emboscador Terrível
 Feedback/&AdditionalDamageDreadAmbusherLine=Dread Ambusher causa +{2} de dano extra!
-Reaction/&CustomReactionShadowyDodgeDescription=Uma criatura está prestes a atacar você! Você pode usar sua reação para fazer com que ele role novamente com desvantagem.
+Reaction/&CustomReactionShadowyDodgeDescription=Uma criatura está prestes a atacar você! Você pode usar sua reação para fazer a rolagem novamente com desvantagem.
 Reaction/&CustomReactionShadowyDodgeReactDescription=Desvantagem de força.
 Reaction/&CustomReactionShadowyDodgeReactTitle=Gastar
 Reaction/&CustomReactionShadowyDodgeTitle=Esquiva Sombria
