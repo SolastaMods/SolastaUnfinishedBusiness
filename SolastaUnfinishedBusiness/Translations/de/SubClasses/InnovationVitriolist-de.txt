@@ -1,4 +1,4 @@
-Condition/&Condition/&Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 bis AC.
+Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 bis AC.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Korrodiert
 Condition/&ConditionInnovationVitriolistMiserableDescription=Wiederkehrender Schaden.
 Condition/&ConditionInnovationVitriolistMiserableTitle=Miserabel

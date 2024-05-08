@@ -1,4 +1,4 @@
-Condition/&Condition/&Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 a aire acondicionado.
+Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 a aire acondicionado.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Corroído
 Condition/&ConditionInnovationVitriolistMiserableDescription=Daño recurrente.
 Condition/&ConditionInnovationVitriolistMiserableTitle=Miserable

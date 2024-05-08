@@ -1,4 +1,4 @@
-Condition/&Condition/&Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 para CA.
+Condition/&ConditionInnovationVitriolistCorrodedDescription=-2 para CA.
 Condition/&ConditionInnovationVitriolistCorrodedTitle=Corroído
 Condition/&ConditionInnovationVitriolistMiserableDescription=Danos recorrentes.
 Condition/&ConditionInnovationVitriolistMiserableTitle=Miserável
