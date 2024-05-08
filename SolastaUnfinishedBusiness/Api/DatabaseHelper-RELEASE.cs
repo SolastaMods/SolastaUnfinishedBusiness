@@ -3482,7 +3482,7 @@ internal static partial class DatabaseHelper
         internal static SkillDefinition Nature { get; } = GetDefinition<SkillDefinition>("Nature");
         internal static SkillDefinition Religion { get; } = GetDefinition<SkillDefinition>("Religion");
         internal static SkillDefinition SleightOfHand { get; } = GetDefinition<SkillDefinition>("SleightOfHand");
-        internal static SkillDefinition Survival { get; } = GetDefinition<SkillDefinition>("Survival");
+        internal static SkillDefinition Stealth { get; } = GetDefinition<SkillDefinition>("Stealth");
     }
 
     internal static class SlotTypeDefinitions

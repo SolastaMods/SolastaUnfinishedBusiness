@@ -62,6 +62,7 @@ internal static class OtherFeats
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
+        var featStealthy = BuildStealthy();
         var featTough = BuildTough();
         var featVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var featWarCaster = BuildWarcaster();
@@ -104,6 +105,7 @@ internal static class OtherFeats
             featPoisonousSkin,
             featPolearmExpert,
             featSentinel,
+            featStealthy,
             featTough,
             featVersatilityAdept,
             featWarCaster);
@@ -157,7 +159,8 @@ internal static class OtherFeats
             featAcrobat,
             featHealer,
             featMenacing,
-            featPickPocket);
+            featPickPocket,
+            featStealthy);
 
         GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
             featArcaneArcherAdept,
@@ -556,6 +559,35 @@ internal static class OtherFeats
 
         return GroupFeats.MakeGroup(
             "FeatGroupWeaponMaster", Name, weaponMasterStr, weaponMasterDex);
+    }
+
+    #endregion
+
+    #region Stealthy
+
+    private static FeatDefinition BuildStealthy()
+    {
+        const string Name = "FeatStealthy";
+
+        var skill = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Stealth)
+            .AddToDB();
+
+        var expertise = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}Expertise")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Stealth)
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye)
+            .AddCustomSubFeatures(
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Stealth, skill, expertise))
+            .AddToDB();
     }
 
     #endregion
@@ -1075,7 +1107,7 @@ internal static class OtherFeats
 
     #endregion
 
-    #region Athlete
+    #region Acrobat
 
     private static FeatDefinition BuildAcrobat()
     {

@@ -11,12 +11,14 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupHalfDexterityTitle",
-    "description": "Acrobat, Ambidextrous, Athlete [Dex], Awaken the Beast [Dex], Baleful Scion [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Stealthy, Uncanny Accuracy, Weapon Master [Dex]",
+    "title": "Feat/&FeatStealthyTitle",
+    "description": "Feat/&FeatStealthyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "beb9378e-da32-503f-8faf-5d4e08b14a05",
+  "guid": "0a96b461-e5a1-55fe-af00-2af177702696",
   "contentPack": 9999,
-  "name": "FeatGroupHalfDexterity"
+  "name": "FeatStealthy"
 }

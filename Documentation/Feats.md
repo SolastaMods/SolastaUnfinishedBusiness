@@ -675,91 +675,98 @@ You may use a Channel Divinity usage to restore a spent spell slot, up to the ma
 
 You are uncommonly nimble for your race. Increase your Strength or Dexterity by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.
 
-# 138. - Sturdiness of the Tundra [SOL]
+# 138. - *Stealthy* © [UB]
+
+You know how best to hide. You gain the following benefits:
+• Increase your Dexterity by 1, to a maximum of 20.
+• You gain proficiency with Stealthy skill or expertise if you are already proficient.
+• If you are hidden, you can move up to 10 feet in the open without revealing yourself if you end the move in a position where you're not clearly visible.
+
+# 139. - Sturdiness of the Tundra [SOL]
 
 +1 CON to a maximum of 20 
  You gain proficiency with Medium Armor.
  You gain proficiency with Warhammers, and Light and Heavy Crossbows.
 
-# 139. - Superior Critical [UB]
+# 140. - Superior Critical [UB]
 
 Your critical threshold is lowered by 1.
 
-# 140. - Take Aim [SOL]
+# 141. - Take Aim [SOL]
 
 You can use your bonus action to take aim. Until the end of your turn, your ranged weapon attacks have no disadvantage or advantage, no matter the conditions.
 
-# 141. - *Telekinetic* © [UB]
+# 142. - *Telekinetic* © [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.
 
-# 142. - *Theologian* © [UB]
+# 143. - *Theologian* © [UB]
 
 Your extensive study of religion rewards you with the following benefits.
 • Increase your Intelligence by 1, to a maximum of 20.
 • You gain proficiency with Religious skill or expertise if you are already proficient.
 • You learn the Detect Evil and Good spell. You can cast Detect Evil and Good once without expending a spell slot, and you regain the ability to do so when you finish a long rest.
 
-# 143. - Touched Magic [UB]
+# 144. - Touched Magic [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You can pick a set from Aegis Touched, Celestial Touched, Flame Touched, Iridescent Touched, Peregrination Touched, Retinue Touched, Shadow Touched, Verdant Touched. Each set grants 3 spells. You can cast these spells once per long rest, and you can also cast these spells with your spell slots.
 
-# 144. - *Tough* © [UB]
+# 145. - *Tough* © [UB]
 
 Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 
-# 145. - Toxic Touch [SOL]
+# 146. - Toxic Touch [SOL]
 
 The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional poison damage equal to your proficiency bonus.
 
-# 146. - Toxicologist [UB]
+# 147. - Toxicologist [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
 
-# 147. - Trip Attack [SOL]
+# 148. - Trip Attack [SOL]
 
 When you hit an enemy with a melee weapon ready attack, they must also make a contested roll as if you used the shove action or be knocked prone.
 
-# 148. - Twin Blade [SOL]
+# 149. - Twin Blade [SOL]
 
 When you are about to get hit by a melee attack while dual-wielding (not sword + shield), you can use your reaction to get +3 AC until the end of the attacker's turn.
 
-# 149. - Unarmored Expert [UB]
+# 150. - Unarmored Expert [UB]
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.
 
-# 150. - Uncanny Accuracy [SOL]
+# 151. - Uncanny Accuracy [SOL]
 
 +1 DEX to a maximum of 20
  You ignore half and three-quarters cover with your ranged attacks.
 
-# 151. - Versatility Adept [UB]
+# 152. - Versatility Adept [UB]
 
 You gain Eldritch Versatility, with its pool size increased by your proficiency bonus and Versatility Switch. You learn 1 versatility.
 Eldritch Versatility: You gain an Eldritch Pool, which has a maximum of your warlock level. You gain 1 Eldritch Point whenever you hit an enemy with Eldritch Blast. After a long rest, the pool is reset.
 Versatility Switch: Each turn, you can switch among Strength, Intelligence, Wisdom or Versatile. If you choose an ability score, treat the chosen ability score as 10 + 2 * [Proficiency Bonus] when using versatilities. If you choose Versatile, your Strength, Intelligence and Wisdom gain a bonus equal to the amount of versatilities you have learnt.
 
-# 152. - *War Caster* © [UB]
+# 153. - *War Caster* © [UB]
 
 You gain advantage on checks to maintain concentration.
 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 
-# 153. - *Weapon Master* © [UB]
+# 154. - *Weapon Master* © [UB]
 
 You have practiced extensively with a variety of weapons, gaining the following benefits:
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
 • You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.
 
-# 154. - Wise Archery [UB]
+# 155. - Wise Archery [UB]
 
 Your intuition guides your hand when using a bow. Increase your Wisdom attribute by 1, to a maximum of 20. You can use your Wisdom modifier instead of your Dexterity modifer for the attack and damage rolls with these weapons.
 
-# 155. - *Wood-Elf Magic* © [UB]
+# 156. - *Wood-Elf Magic* © [UB]
 
 You learn the magic of the primeval woods, which are revered and protected by your people. You learn one Druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest.
 

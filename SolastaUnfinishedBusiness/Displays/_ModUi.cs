@@ -132,6 +132,7 @@ internal static class ModUi
         "FeatShieldTechniques",
         "FeatSkilled",
         "FeatSpearMastery",
+        "FeatStealthy",
         "FeatTacticianAdept",
         "FeatTough",
         "FeatTheologian",
