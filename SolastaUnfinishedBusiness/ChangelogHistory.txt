@@ -1,9 +1,10 @@
 1.5.97.8:
 
-- added Stealthy feat
+- added UA Stealthy feat
 - fixed Barbarian rage STR saving advantage [VANILLA]
 - fixed mod boot up for Korean users
-- fixed multi-classed Druid/Paladin to offer divine smite slots under wildshape 
+- fixed multi-classed Druid/Paladin to offer divine smite slots under wildshape
+- fixed Way of Weal and Woe triggering your Woe before level 17th
 
 1.5.97.7:
 
