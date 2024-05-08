@@ -1,7 +1,7 @@
 Attribute/&TitleLong=Versatile
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Ottieni un'azione extra e puoi utilizzare tutte le tue versatilità senza prove o consumo di punti, impostando Forza, Intelligenza o Saggezza a un minimo di 22.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Sovraccarico di esplosioni
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Ottieni <b>Esplosione Eldritch</b> come trucchetto bonus. Il numero di raggi deriva dalla tua determinazione calcolata come: [livelli dello stregone] - 2 * [livelli di altre classi]. Puoi lanciare 2 raggi quando la tua determinazione >= 3, 3 quando >= 8, 4 quando >= 13 e 5 quando >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Ottieni <b>Esplosione Eldritch</b> come trucchetto bonus. Il numero di raggi deriva dalla tua determinazione calcolata come: [livelli dello stregone] - 2 * [livelli di altre classi]. Puoi lanciare 2 raggi quando la tua determinazione>= 3, 3 quando >= 8, 4 quando >= 13 e 5 quando >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Esclusiva esplosione
 Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Ottieni un punto Eldritch aggiuntivo quando colpisci un nemico entro 9 metri. Quando uccidi un nemico, ottieni punti Eldritch aggiuntivi pari al numero di raggi per lancio di Eldritch Blast.
 Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Inseguimento esplosivo
@@ -13,7 +13,7 @@ Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Quando usi le v
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntTitle=Int
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=La tua Forza, Intelligenza o Saggezza ottengono un bonus pari alla quantità di versatilità che hai imparato.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneTitle=Versatile
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=Ad ogni turno puoi alternare tra Forza, Intelligenza, Saggezza o Versatilità. Quando si utilizzano le versatilità, considerare il punteggio di caratteristica scelto come 10 + 2 * Bonus di competenza. Se scegli Versatile, la tua Forza, Intelligenza o Saggezza ottengono un bonus pari alla quantità di versatilità che hai imparato.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=Ad ogni turno puoi alternare tra Forza, Intelligenza, Saggezza o Versatilità. Se scegli un punteggio di caratteristica, considera il punteggio di caratteristica scelto come 10 + 2 * [Bonus di competenza] quando usi le versatilità. Se scegli Versatile, la tua Forza, Intelligenza e Saggezza ottengono un bonus pari alla quantità di versatilità che hai imparato.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolTitle=Interruttore di versatilità
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Quando usi le versatilità, considera la tua Forza come 10 + 2 * Bonus di Competenza.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrTitle=Str

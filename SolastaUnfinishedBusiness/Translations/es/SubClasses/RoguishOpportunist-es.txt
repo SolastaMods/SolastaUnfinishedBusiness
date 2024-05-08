@@ -1,9 +1,9 @@
 Condition/&ConditionRoguishOpportunistDebilitatedDescription=Estás debilitado por un oportunista y realizas todas las tiradas de salvación con una penalización de -1d4.
-Condition/&ConditionRoguishOpportunistDebilitatedTitle=Debilitado
+Condition/&ConditionRoguishOpportunistDebilitatedTitle=debilitado
 Condition/&ConditionRoguishOpportunistExposedDescription=Estás debilitado por un oportunista, tiras todas las tiradas de salvación con una penalización de -1d6, tienes una velocidad de movimiento reducida en 10 pies y todas las tiradas de ataque contra ti tienen ventaja.
-Condition/&ConditionRoguishOpportunistExposedTitle=Debilitado
+Condition/&ConditionRoguishOpportunistExposedTitle=debilitado
 Condition/&ConditionRoguishOpportunistImprovedDebilitatedDescription=Estás debilitado por un oportunista, tirando todas las tiradas de salvación con una penalización de -1d6 y reduciendo tu velocidad de movimiento en 10 pies.
-Condition/&ConditionRoguishOpportunistImprovedDebilitatedTitle=Debilitado
+Condition/&ConditionRoguishOpportunistImprovedDebilitatedTitle=debilitado
 Feature/&FeatureRoguishOpportunistOpportunityDescription=Durante la primera ronda de combate, realizas todas las tiradas de ataque con ventaja. Además, siempre lanzas todos los ataques de oportunidad con ventaja.
 Feature/&FeatureRoguishOpportunistOpportunityTitle=Oportunidad
 Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=A partir del nivel 9, cuando un enemigo falla por primera vez una tirada de salvación y no es tu turno, puedes usar tu reacción para realizar un ataque de oportunidad contra él.

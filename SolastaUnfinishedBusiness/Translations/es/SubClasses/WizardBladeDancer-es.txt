@@ -1,11 +1,11 @@
 Condition/&ConditionBladeDancerBladeDanceDescription=Obtén ventaja en las pruebas acrobáticas de Destreza, en las pruebas de Constitución y obtén una bonificación a tu clase de armadura igual a tu modificador de Inteligencia.
 Condition/&ConditionBladeDancerBladeDanceTitle=Danza de espadas
 Condition/&ConditionBladeDancerDanceOfVictoryDescription=Ventajas en las pruebas acrobáticas de Destreza, en las pruebas de Constitución, obtienes una bonificación a tu clase de armadura igual a tu modificador de Inteligencia y añades un +5 al daño de tus ataques con armas.
-Condition/&ConditionBladeDancerDanceOfVictoryTitle=Danza de la victoria
+Condition/&ConditionBladeDancerDanceOfVictoryTitle=danza de la victoria
 Feature/&FeatureSetBladeDancerBladeDanceDescription=Puedes usar una acción adicional para iniciar el Blade Dance, que dura 1 minuto. Termina antes de tiempo si estás incapacitado, si usas una armadura media, una armadura pesada o un escudo, o si empuñas un arma a dos manos para realizar un ataque con un arma:\n• Obtienes una bonificación a tu clase de armadura igual a tu modificador de Inteligencia.\n• Tu velocidad al caminar aumenta en 10 pies.\n• Tienes ventaja en las pruebas de Destreza (Acrobacia).\n• Tienes ventaja en las pruebas de Constitución.\nPuedes usar esta función una vez número de veces igual a tu bonificación de competencia, y recuperas todos los usos gastados cuando terminas un descanso prolongado.
 Feature/&FeatureSetBladeDancerBladeDanceTitle=Danza de espadas
 Feature/&FeatureSetBladeDancerDanceOfVictoryDescription=Agregas un +5 al daño de tus ataques con armas mientras tu Blade Dance está activo.
-Feature/&FeatureSetBladeDancerDanceOfVictoryTitle=Danza de la victoria
+Feature/&FeatureSetBladeDancerDanceOfVictoryTitle=danza de la victoria
 Feature/&FeatureSetCasterBladeDancerFightingDescription=Puedes usar armadura ligera y también adquirir competencia con armas marciales.
 Feature/&FeatureSetCasterBladeDancerFightingTitle=Danza Lucha
 Feature/&PowerBladeDancerBladeDanceDescription=Puedes usar una acción adicional para iniciar el Blade Dance, que dura 1 minuto. Termina antes de tiempo si estás incapacitado, si usas una armadura media, una armadura pesada o un escudo, o si empuñas un arma a dos manos para realizar un ataque.

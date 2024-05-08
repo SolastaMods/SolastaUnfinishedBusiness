@@ -18,16 +18,16 @@ Feature/&PowerMartialForceKnightKineticBarrierDescription=Wenn Sie oder eine and
 Feature/&PowerMartialForceKnightKineticBarrierTitle=Kinetische Barriere
 Feature/&PowerMartialForceKnightPsionicAdeptProneDescription=Du kannst der von Force-Powered Strike getroffenen Kreatur einen Kraftrettungswurf auferlegen (SG = 8 + Fähigkeitsbonus + Intelligenzmodifikator). Wenn die Kreatur es nicht schafft, kannst du sie zu Boden werfen.
 Feature/&PowerMartialForceKnightPsionicAdeptProneTitle=Anfällig
-Feature/&PowerMartialForceKnightPsionicAdeptPushDescription=Du kannst der von Force-Powered Strike getroffenen Kreatur einen Kraftrettungswurf auferlegen (SG = 8 + Fähigkeitsbonus + Intelligenzmodifikator). Wenn die Kreatur scheitert, kannst du sie 15 Fuß zurückstoßen.
+Feature/&PowerMartialForceKnightPsionicAdeptPushDescription=Sie können der Kreatur, die von Force-Powered Strike getroffen wurde, einen Rettungswurf auferlegen (DC = 8 + Kompetenzbonus + Intelligenzmodifikator). Wenn die Kreatur diesen nicht schafft, können Sie sie 15 Fuß zurückstoßen.
 Feature/&PowerMartialForceKnightPsionicAdeptPushTitle=Drücken
 Feature/&PowerMartialForceKnightPsionicInitiateDescription=In Ihnen erwachen übernatürliche Kräfte, die es Ihnen ermöglichen, Ihre mentale Energie zu kanalisieren, um eine Vielzahl psychokinetischer Fähigkeiten freizusetzen. Durch intensiven Einsatz und Training haben Sie gelernt, diese Fähigkeiten zu kontrollieren und sie im Kampf effizient einzusetzen. Sie erhalten eine Reihe von Kraftpunkten, mit denen Sie verschiedene psychokinetische Fähigkeiten stärken können. Sie beginnen mit 3 Force-Punkten und erhalten danach alle 3 Level in dieser Klasse 1 Punkt. Ihre Kraftpunkte werden bei kurzer oder langer Pause wieder aufgeladen.
 Feature/&PowerMartialForceKnightPsionicInitiateTitle=Psionischer Eingeweihter
-Feature/&PowerMartialForceKnightPsionicPropulsionDescription=Du kannst 1 Kraftpunkt aufwenden und deine Bonusaktion nutzen, um Fluggeschwindigkeit in Höhe des Doppelten deiner Gehgeschwindigkeit zu erreichen und bis zum Ende deines Zuges keine Gelegenheitsangriffe zu provozieren. Sie können diese Funktion einmal pro kurzer Pause nutzen, ohne einen Kraftpunkt auszugeben.
+Feature/&PowerMartialForceKnightPsionicPropulsionDescription=Sie können 1 Machtpunkt ausgeben und Ihre Bonusaktion nutzen, um eine Fluggeschwindigkeit zu erreichen, die der doppelten Gehgeschwindigkeit entspricht, und bis zum Ende Ihres Zuges keine Gelegenheitsangriffe zu provozieren. Sie können diese Funktion einmal pro kurzer Pause nutzen, ohne einen Machtpunkt auszugeben.
 Feature/&PowerMartialForceKnightPsionicPropulsionTitle=Psionischer Antrieb
 Feature/&PowerMartialForceKnightTelekineticGraspDescription=Sie können 1 Kraftpunkt aufwenden, um den Telekinese-Zauber zu wirken, dafür sind keine Komponenten erforderlich, und Ihre Zauberfähigkeit für den Zauber ist Intelligenz. In jedem deiner Züge, während du dich auf den Zauber konzentrierst, einschließlich des Zuges, in dem du ihn wirkst, kannst du als Bonusaktion einen Angriff mit einer Waffe durchführen. Sie können diese Funktion einmal pro langer Pause nutzen, ohne einen Kraftpunkt auszugeben.
 Feature/&PowerMartialForceKnightTelekineticGraspTitle=Telekinetischer Griff
 Feedback/&AdditionalDamageForcePoweredStrikeFormat=Kraftangetriebener Schlag
-Feedback/&AdditionalDamageForcePoweredStrikeLine=Force Powered Strike verursacht zusätzlichen Schaden von +{2}!
+Feedback/&AdditionalDamageForcePoweredStrikeLine=Force Powered Strike verursacht zusätzlichen +{2} Schaden!
 Reaction/&ReactionSpendPowerBundlePsionicAdeptDescription=Sie können die Kreatur entweder 15 Fuß weit zurückstoßen oder sie in die Bauchlage werfen.
 Reaction/&ReactionSpendPowerBundlePsionicAdeptReactDescription=Sie können die Kreatur entweder 15 Fuß weit zurückstoßen oder sie in die Bauchlage werfen.
 Reaction/&ReactionSpendPowerBundlePsionicAdeptReactTitle=Psionischer Experte

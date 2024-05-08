@@ -1,1 +1,1 @@
-Feature/&MartialChampionSuperiorCriticalDescription=Ihre Waffenangriffe erzielen einen kritischen Treffer bei einem Ergebnis von 18, 19 oder 20.
+Feature/&MartialChampionSuperiorCriticalDescription=Ihre Waffenangriffe erzielen bei einem Ergebnis von 18, 19 oder 20 einen kritischen Treffer.

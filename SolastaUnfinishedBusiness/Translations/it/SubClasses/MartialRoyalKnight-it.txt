@@ -1,4 +1,4 @@
-Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=A partire dal 3° livello, aggiungi metà del tuo bonus di competenza a qualsiasi prova di Carisma effettuata che non utilizzi già il tuo bonus di competenza. Inoltre, diventi esperto nei tiri salvezza su Carisma.
+Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=A partire dal 3° livello, aggiungi metà del tuo bonus di competenza a qualsiasi prova di Carisma effettuata che non utilizzi già il tuo bonus di competenza. Inoltre, diventi abile nei tiri salvezza su Carisma.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Inviato reale
 Feature/&PowerRoyalKnightInspiringProtectionDescription=A partire dal 15° livello, le tue azioni ispirano gli altri a continuare a combattere. Ogni volta che uno dei tuoi alleati che puoi vedere entro 18 metri fallisce un tiro salvezza, puoi usare la tua reazione per fargli ripetere il tiro salvezza. Puoi usare questa capacità tre volte per ogni riposo lungo.
 Feature/&PowerRoyalKnightInspiringProtectionTitle=Protezione ispiratrice

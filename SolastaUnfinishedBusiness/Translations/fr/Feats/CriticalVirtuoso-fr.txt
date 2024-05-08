@@ -1,1 +1,1 @@
-Feature/&MartialChampionSuperiorCriticalDescription=Vos attaques avec une arme infligent un coup critique sur un jet de 18, 19 ou 20.
+Feature/&MartialChampionSuperiorCriticalDescription=Vos attaques avec des armes infligent un coup critique sur un résultat de 18, 19 ou 20.

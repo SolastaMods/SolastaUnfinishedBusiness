@@ -1,14 +1,14 @@
 Action/&WildlingFeralAgilityDescription=Deine Bewegungsgeschwindigkeit verdoppelt sich für eine Runde. Sobald Sie diese Eigenschaft verwenden, können Sie sie nicht erneut verwenden, bis Sie in einem Ihrer Züge 0 Fuß zurückgelegt haben.
-Action/&WildlingFeralAgilityTitle=Wilde Beweglichkeit
+Action/&WildlingFeralAgilityTitle=Wilde Agilität
 Condition/&ConditionWildlingAgileDescription=Bis zum Ende deines Zuges hast du die doppelte Bewegungsgeschwindigkeit.
 Condition/&ConditionWildlingAgileTitle=Agil
 Condition/&ConditionWildlingTiredDescription=Sie können „Wilde Beweglichkeit“ erst nutzen, wenn Sie sich in einem Ihrer Züge 0 Fuß weit bewegen.
 Condition/&ConditionWildlingTiredTitle=Müde
 Feature/&ActionAffinityWildlingFeralAgilityDescription=Ihre Reflexe und Ihre Beweglichkeit ermöglichen es Ihnen, sich rasant zu bewegen. Wenn du dich in deinem Zug im Kampf bewegst, kannst du deine Geschwindigkeit bis zum Ende des Zuges verdoppeln. Sobald Sie diese Eigenschaft verwendet haben, können Sie sie nicht erneut verwenden, bis Sie sich in einer Ihrer Runden um 0 Fuß bewegt haben.
-Feature/&ActionAffinityWildlingFeralAgilityTitle=Wilde Beweglichkeit
+Feature/&ActionAffinityWildlingFeralAgilityTitle=Wilde Agilität
 Feature/&FeatureSetWildlingAbilityScoreIncreaseDescription=Geschicklichkeit +2, Charisma +1
 Feature/&FeatureSetWildlingAbilityScoreIncreaseTitle=Erhöhung des Fähigkeitswerts
-Feature/&FeatureWildlingClawsDescription=Mit Ihren Krallen können Sie unbewaffnet zuschlagen. Ein Angriff mit ihnen verursacht 1W6 + deinen Stärkemodifikator Hiebschaden, anstelle des Wuchtschadens, der bei einem unbewaffneten Schlag normal ist.
+Feature/&FeatureWildlingClawsDescription=Sie können Ihre Klauen für unbewaffnete Schläge verwenden. Ein Angriff mit ihnen verursacht Hiebschaden in Höhe von 1W6 + Stärkemodifikator, statt des üblichen Schlagschadens, der bei einem unbewaffneten Schlag entsteht.
 Feature/&FeatureWildlingClawsTitle=Krallen
 Feature/&MovementAffinityWildlingExpertClimberDescription=Ihre Steiggeschwindigkeit entspricht Ihrer Gehgeschwindigkeit.
 Feature/&MovementAffinityWildlingExpertClimberTitle=Erfahrener Kletterer

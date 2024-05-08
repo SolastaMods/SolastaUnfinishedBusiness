@@ -20,5 +20,5 @@ Reaction/&CustomReactionHatredArdentHateDescription={0} erra {1} e pode usar Ard
 Reaction/&CustomReactionHatredArdentHateReactDescription=Em vez disso, bata.
 Reaction/&CustomReactionHatredArdentHateReactTitle=Hit
 Reaction/&CustomReactionHatredArdentHateTitle=Ódio Ardente
-Subclass/&OathOfHatredDescription=Um paladino do Juramento de Ódio se dedicou à punição de malfeitores canalizando o ódio.
+Subclass/&OathOfHatredDescription=Um paladino do Juramento de Ódio se dedicou à punição dos malfeitores canalizando o ódio.
 Subclass/&OathOfHatredTitle=Juramento de Ódio

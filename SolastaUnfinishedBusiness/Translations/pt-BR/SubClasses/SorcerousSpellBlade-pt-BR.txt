@@ -9,4 +9,4 @@ Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Treinamento Marcial
 Feedback/&AdditionalDamageWarSorcererFormat=Feiticeiro de Guerra
 Feedback/&AdditionalDamageWarSorcererLine={0} causa dano de Feiticeiro de Guerra em {1} (+{2})
 Subclass/&SorcerousSpellBladeDescription=Forceblades combinam proezas marciais com talentos mágicos inatos para superar seus inimigos.
-Subclass/&SorcerousSpellBladeTitle=Lâmina de Força
+Subclass/&SorcerousSpellBladeTitle=Lâmina de força

@@ -1,12 +1,12 @@
 Condition/&ConditionGrayDwarfStoneStrengthDescription=Vorteil bei Stärkewürfen und Rettungswürfen. +1W4 Schaden mit Nahkampf-Stärkewaffen.
 Condition/&ConditionGrayDwarfStoneStrengthTitle=Steinstärke
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=Stärke +1
-Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=Erhöhung des Fähigkeitswerts
+Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=Steigerung des Fähigkeitswerts
 Feature/&FeatureSetGrayDwarfAncestryDescription=Rettungswurfvorteil gegen Zauber, Lähmung und Illusionen
 Feature/&FeatureSetGrayDwarfAncestryTitle=Abstammung der Grauen Zwerge
-Feature/&PowerGrayDwarfInvisibilityDescription=Du kannst auf magische Weise bis zu 1 Minute lang unsichtbar werden. Diese Unsichtbarkeit wird unterbrochen, wenn Sie anstößige Maßnahmen ergreifen. Sobald Sie diese Fähigkeit nutzen, können Sie sie nicht erneut nutzen, bis Sie eine kurze oder lange Pause beendet haben.
+Feature/&PowerGrayDwarfInvisibilityDescription=Du kannst auf magische Weise bis zu 1 Minute lang unsichtbar werden. Diese Unsichtbarkeit wird unterbrochen, wenn Sie anstößige Maßnahmen ergreifen. Sobald Sie diese Fähigkeit nutzen, können Sie sie erst wieder einsetzen, wenn Sie eine kurze oder lange Pause beendet haben.
 Feature/&PowerGrayDwarfInvisibilityTitle=Unsichtbarkeit
-Feature/&PowerGrayDwarfStoneStrengthDescription=Als Bonusaktion übernehmen Sie 1 Minute lang die Stärke des Steins. Du hast einen Vorteil bei Stärkewürfen und Kraftrettungswürfen. Mit auf Stärke basierenden Nahkampfwaffen verursachen Sie zusätzlich 1W4 Schaden. Sobald Sie diese Fähigkeit nutzen, können Sie sie nicht erneut nutzen, bis Sie eine kurze oder lange Pause beendet haben.
+Feature/&PowerGrayDwarfStoneStrengthDescription=Als Bonusaktion übernehmen Sie 1 Minute lang die Stärke des Steins. Du hast einen Vorteil bei Stärkewürfen und Kraftrettungswürfen. Mit auf Stärke basierenden Nahkampfwaffen verursachen Sie zusätzlich 1W4 Schaden. Sobald Sie diese Fähigkeit nutzen, können Sie sie erst wieder einsetzen, wenn Sie eine kurze oder lange Pause beendet haben.
 Feature/&PowerGrayDwarfStoneStrengthTitle=Steinstärke
 Race/&RaceGrayDwarfDescription=Die Grauen Zwerge sind Zwerge, die sich verändert haben, nachdem sie nur wenige Generationen der mysteriösen Magie der Badlands ausgesetzt waren. Sie sind größtenteils nachtaktiv und leben meist in vergrabenen Ruinen. Ihre Hautfarbe tendiert zu Grau oder sogar Kohlschwarz. Im Gegensatz zu den meisten Zwergen wachsen ihnen keine Bärte.
 Race/&RaceGrayDwarfTitle=Grauer Zwerg

@@ -9,6 +9,6 @@ Feature/&FeaturePathOfTheSavageryUnbridledFerocityTitle=Ungezügelte Wildheit
 Feature/&FeaturePathOfTheSavageryWrathAndFuryDescription=Ab der 10. Stufe erhöhen Sie die Schadenskategorie jeder ausgerüsteten Waffe um 1, während Sie Nahkampfwaffen mit zwei Waffen führen (d4 wird zu d6, d6 wird zu d8 usw.). Immer wenn Sie Ihre Funktion „Rücksichtsloser Angriff“ verwenden, erhalten Sie vorübergehende Trefferpunkte in Höhe der Hälfte Ihrer Barbarenstufe (aufgerundet).
 Feature/&FeaturePathOfTheSavageryWrathAndFuryTitle=Zorn und Wut
 Feature/&FeatureSetPathOfTheSavageryPrimalInstinctDescription=Du kannst Wut als kostenlose Aktion anstelle einer Bonusaktion verwenden.
-Feature/&FeatureSetPathOfTheSavageryPrimalInstinctTitle=Ursprünglicher Instinkt
+Feature/&FeatureSetPathOfTheSavageryPrimalInstinctTitle=Urinstinkt
 Subclass/&PathOfTheSavageryDescription=Barbaren, die den Pfad des Wilden beschreiten, sind Naturgewalten, die weniger wie Menschen, sondern eher wie wilde Tiere kämpfen. Sie schlagen mit explosiver Geschwindigkeit und Kraft zu und nutzen dabei Doppelklingen, die einem wilden Tier ähneln, das mit Klauen und Reißzähnen kämpft.
 Subclass/&PathOfTheSavageryTitle=Pfad der Wildheit

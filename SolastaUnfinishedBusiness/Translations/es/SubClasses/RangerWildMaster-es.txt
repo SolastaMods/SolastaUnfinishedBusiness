@@ -20,5 +20,5 @@ Feature/&SummoningAffinityRangerWildMasterTrueExpertiseDescription=Tu compañero
 Feature/&SummoningAffinityRangerWildMasterTrueExpertiseTitle=Verdadera experiencia
 Feedback/&BeastCompanionBonusTitle=Bonificación de maestro salvaje
 Subclass/&RangerWildMasterDescription=El arquetipo de Wildmaster encarna una amistad entre las razas civilizadas y las bestias del mundo. Unidos en concentración, espíritu y guardabosques trabajan como uno solo para luchar contra los monstruosos enemigos que amenazan tanto a la civilización como a la naturaleza.
-Subclass/&RangerWildMasterTitle=Maestro salvaje
+Subclass/&RangerWildMasterTitle=maestro salvaje
 Tooltip/&MustBeBeastCompanion=Debe ser un compañero bestia conjurado por ti.

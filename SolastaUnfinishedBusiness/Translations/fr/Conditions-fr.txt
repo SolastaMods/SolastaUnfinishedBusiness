@@ -1,11 +1,11 @@
 Condition/&AfterRestIdentifyDescription=Identifier les objets magiques
-Condition/&AfterRestIdentifyTitle=Identification
+Condition/&AfterRestIdentifyTitle=Identifier
 Condition/&ConditionDistractedByAllyDescription=Cette créature a été distraite.
-Condition/&ConditionDistractedByAllyTitle=Distrait
-Condition/&ConditionLightSensitivityDescription=Vous avez un Désavantage aux tests de Sagesse (Perception) en pleine lumière et subissez une pénalité de -1d4 aux jets d'attaque.
+Condition/&ConditionDistractedByAllyTitle=Distraits
+Condition/&ConditionLightSensitivityDescription=Vous avez un désavantage aux tests de Sagesse (Perception) en pleine lumière et vous subissez une pénalité de -1d4 aux jets d'attaque.
 Condition/&ConditionLightSensitivityTitle=Sensibilité à la lumière
-Condition/&ConditionStopMovementDescription=Incapable de bouger. Vitesse réglée sur 0.
-Condition/&ConditionStopMovementTitle=Figé
+Condition/&ConditionStopMovementDescription=Incapable de bouger. Vitesse réglée à 0.
+Condition/&ConditionStopMovementTitle=Arrêté
 Condition/&ConditionTauntedDescription=Vous êtes désavantagé aux jets d'attaque contre des créatures autres que le provocateur.
 Condition/&ConditionTauntedTitle=Raillé
 Feature/&AbilityCheckAffinityDarknessPerceptiveDescription=Vous avez un avantage aux tests de sagesse (perception) lorsque vous êtes éteint ou dans l'obscurité magique.

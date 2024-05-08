@@ -4,5 +4,5 @@ Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Hai resistenza ai 
 Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Cullato dal fuoco
 Feature/&ProficiencyObsidianDwarfLanguagesDescription=Comune, Nanico e Gigante
 Feature/&ProficiencyObsidianDwarfLanguagesTitle=Le lingue
-Race/&RaceObsidianDwarfDescription=Nelle epoche passate, un gruppo di nani furono ridotti in schiavitù dai giganti del fuoco come minatori e artigiani. La magia caotica del cataclisma ha infuso in molti di questi nani parte della forza e della resistenza dei loro oppressori. I nani si ribellarono, conquistarono la libertà e si ritirarono nelle Badlands. Chiamandosi i Nani dell'ossidiana, sono cresciuti e prosperati.
+Race/&RaceObsidianDwarfDescription=Nelle epoche passate, un gruppo di nani fu ridotto in schiavitù dai giganti del fuoco come minatori e artigiani. La magia caotica del cataclisma ha infuso in molti di questi nani parte della forza e della resistenza dei loro oppressori. I nani si ribellarono, conquistarono la libertà e si ritirarono nelle Badlands. Chiamandosi i Nani dell'ossidiana, sono cresciuti e prosperati.
 Race/&RaceObsidianDwarfTitle=Nano di ossidiana

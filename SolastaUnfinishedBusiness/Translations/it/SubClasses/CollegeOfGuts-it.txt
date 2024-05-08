@@ -1,4 +1,4 @@
 Feature/&PowerCollegeOfGutsArcaneDeflectionDescription=Puoi usare i tuoi poteri arcani per proteggerti come reazione. Questo ti dà +3 alla tua classe armatura fino al tuo prossimo turno.
 Feature/&PowerCollegeOfGutsArcaneDeflectionTitle=Deflessione dell'intestino
 Subclass/&CollegeOfGutsDescription=I bardi del Collegio del Valore si riuniscono nelle sale dell'idromele o attorno a grandi falò per cantare le gesta dei potenti, sia passate che presenti. Viaggiano per il territorio per essere testimoni in prima persona di grandi eventi e per garantire che il ricordo di quegli eventi non scompaia dal mondo. Con le loro canzoni, ispirano gli altri a raggiungere gli stessi livelli di realizzazione degli eroi del passato.
-Subclass/&CollegeOfGutsTitle=Collegio del Valore
+Subclass/&CollegeOfGutsTitle=Collegio di Valore

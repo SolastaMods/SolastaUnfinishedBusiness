@@ -1,8 +1,8 @@
-Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepare feitiços adicionais modificadores de Inteligência para que você sempre tenha o que precisa.
+Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepare feitiços adicionais modificadores de Inteligência, para que você sempre tenha o que precisa.
 Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Extra Preparado
 Feature/&MagicAffinitySpellMasterKnowledgeDescription=Escriba um feitiço adicional a cada nível acima.
 Feature/&MagicAffinitySpellMasterKnowledgeTitle=Amplitude do Conhecimento
-Feature/&MagicAffinitySpellMasterPreparedDescription=Prepare feitiços adicionais de bônus de proficiência para que você sempre tenha o que precisa.
+Feature/&MagicAffinitySpellMasterPreparedDescription=Prepare feitiços adicionais com bônus de proficiência, para que você sempre tenha o que precisa.
 Feature/&MagicAffinitySpellMasterPreparedTitle=Esteja preparado
 Feature/&MagicAffinitySpellMasterRecoveryDescription=Uma vez por descanso longo, você pode recuperar espaços de feitiço (além da Recuperação Arcana).
 Feature/&MagicAffinitySpellMasterRecoveryTitle=Profundidade Arcana

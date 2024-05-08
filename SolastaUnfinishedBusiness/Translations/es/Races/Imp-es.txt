@@ -1,7 +1,7 @@
 Action/&ImpishWrathToggleDescription=Activar/desactivar Ira traviesa
 Action/&ImpishWrathToggleTitle=Ira traviesa
 Condition/&ConditionImpAssistedAllyDescription=Tienes ventaja en la primera tirada de ataque realizada a un objetivo asistido.
-Condition/&ConditionImpAssistedAllyTitle=Asistido
+Condition/&ConditionImpAssistedAllyTitle=asistido
 Condition/&ConditionImpAssistedEnemyDescription=El aliado asistido tiene ventaja en las tiradas de ataque contra esta unidad.
 Condition/&ConditionImpAssistedEnemyTitle=Objetivo asistido
 Condition/&ConditionImpPassageDescription=Tu velocidad de movimiento aumenta en 10 pies.
@@ -34,7 +34,7 @@ Feature/&PowerImpBadlandSpiteDescription=Como acción adicional, ayuda a un alia
 Feature/&PowerImpBadlandSpiteTitle=Asistencia - Rencor
 Feature/&PowerImpForestImpishWrathDescription=Cuando dañas a un enemigo, puedes optar por infligir daño adicional igual a tu bonificación de competencia. Puedes usar este rasgo igual a tu bonificación de competencia y recuperar los usos gastados después de un descanso prolongado.
 Feature/&PowerImpForestImpishWrathTitle=Ira traviesa
-Race/&RaceImpBadlandDescription=Los experimentos interplanares durante la era Manacalon llevaron a demonios y otras criaturas al plano material. Si bien muchas de estas criaturas finalmente fueron contenidas o desterradas, los astutos diablillos pudieron esconderse, adaptándose en secreto y prosperando en varios rincones de Badlands desde entonces. Ahora, algunos de ellos han decidido emerger y explorar el mundo que los rodea, incluso si aquellos en él no aceptan con agrado su naturaleza demoníaca.
+Race/&RaceImpBadlandDescription=Los experimentos interplanares durante la era Manacalon llevaron a que demonios y otras criaturas fueran llevadas al plano material. Si bien muchas de estas criaturas finalmente fueron contenidas o desterradas, los astutos diablillos pudieron esconderse, adaptándose en secreto y prosperando en varios rincones de Badlands desde entonces. Ahora, algunos de ellos han decidido emerger y explorar el mundo que los rodea, incluso si aquellos en él no aceptan con agrado su naturaleza demoníaca.
 Race/&RaceImpBadlandTitle=Diablillo de Badland
 Race/&RaceImpDescription=Los experimentos interplanares durante la era Manacalon llevaron a que demonios y otras criaturas fueran llevadas al plano material. Si bien muchas de estas criaturas finalmente fueron contenidas o desterradas, los astutos diablillos pudieron esconderse, adaptándose en secreto y prosperando en varios rincones de Badlands desde entonces. Ahora, algunos de ellos han decidido emerger y explorar el mundo que los rodea, incluso si aquellos en él no aceptan con agrado su naturaleza demoníaca.
 Race/&RaceImpForestDescription=Los experimentos interplanares durante la era Manacalon llevaron a que demonios y otras criaturas fueran llevadas al plano material. Si bien muchas de estas criaturas finalmente fueron contenidas o desterradas, los astutos diablillos pudieron esconderse, adaptándose en secreto y prosperando en varios rincones de Badlands desde entonces. Ahora, algunos de ellos han decidido emerger y explorar el mundo que los rodea, incluso si aquellos en él no aceptan con agrado su naturaleza demoníaca.

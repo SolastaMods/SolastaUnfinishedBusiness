@@ -1,4 +1,4 @@
-Feature/&AttributeModifierRangerGloomStalkerDreadAmbusherDescription=Puedes darte una bonificación a tus tiradas de iniciativa igual a tu modificador de Sabiduría. Al comienzo de tu primer turno de cada combate, tu velocidad al caminar aumenta en 10 pies, lo que dura hasta el final de ese turno. Si realizas la acción de Ataque en ese turno, puedes realizar un ataque con arma adicional. En el siguiente ataque que impacte, el objetivo sufre 1d8 de daño adicional del tipo de daño del arma.
+Feature/&AttributeModifierRangerGloomStalkerDreadAmbusherDescription=Puedes darte una bonificación a tus tiradas de iniciativa igual a tu modificador de Sabiduría. Al comienzo de tu primer turno de cada combate, tu velocidad al caminar aumenta en 10 pies, lo que dura hasta el final de ese turno. Si realizas la acción de Ataque en ese turno, puedes realizar un ataque con arma adicional. En el siguiente ataque que impacte, el objetivo sufre 1d8 de daño adicional al tipo de daño del arma.
 Feature/&AttributeModifierRangerGloomStalkerDreadAmbusherTitle=Emboscador aterrador
 Feature/&AutoPreparedSpellsRangerGloomStalkerDescription=Obtienes hechizos adicionales que para ti se consideran hechizos de Ranger, siempre están preparados y no cuentan para el número de hechizos de Ranger que conoces:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerGloomStalkerTitle=Hechizos de bonificación de acechador sombrío
@@ -11,7 +11,7 @@ Feature/&FeatureRangerGloomStalkerUmbralSightTitle=Vista Umbral
 Feature/&FeatureSetRangerGloomStalkerIronMindDescription=Has perfeccionado tu capacidad para resistir los poderes que alteran la mente de tu presa. Obtienes competencia en las tiradas de salvación de Inteligencia, Sabiduría o Carisma.
 Feature/&FeatureSetRangerGloomStalkerIronMindTitle=Mente de hierro
 Feedback/&AdditionalDamageDreadAmbusherFormat=Emboscador aterrador
-Feedback/&AdditionalDamageDreadAmbusherLine=¡Dread Ambusher causa +{2} de daño extra!
+Feedback/&AdditionalDamageDreadAmbusherLine=¡Dread Ambusher causa +{2} de daño adicional!
 Reaction/&CustomReactionShadowyDodgeDescription=¡Una criatura está a punto de atacarte! Puedes usar tu reacción para que vuelva a tirar con desventaja.
 Reaction/&CustomReactionShadowyDodgeReactDescription=Desventaja de fuerza.
 Reaction/&CustomReactionShadowyDodgeReactTitle=Gastar

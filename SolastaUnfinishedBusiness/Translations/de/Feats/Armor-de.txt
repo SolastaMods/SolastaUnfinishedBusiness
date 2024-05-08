@@ -1,4 +1,4 @@
-Feat/&FeatHeavyArmorMasterDescription=Mit Ihrer Rüstung können Sie Schläge abwehren, die andere töten würden. Erhöhen Sie Ihren Stärkewert um 1 auf maximal 20. Während Sie schwere Rüstung tragen, wird der durch Angriffe erlittene Schlag-, Stich- und Hiebschaden um 3 verringert.
+Feat/&FeatHeavyArmorMasterDescription=Mit Ihrer Rüstung können Sie Schläge abwehren, die andere töten würden. Erhöhe deine Stärke um 1 auf maximal 20. Während du schwere Rüstung trägst, wird der durch Angriffe erlittene Schlag-, Stich- und Hiebschaden um 3 verringert.
 Feat/&FeatHeavyArmorMasterTitle=Meister schwerer Rüstungen
 Feat/&FeatMediumArmorDexDescription=Erhöhen Sie Ihre Geschicklichkeit um 1 auf maximal 20.\nSie erlangen Kenntnisse im Umgang mit mittleren Rüstungen und Schilden.
 Feat/&FeatMediumArmorDexTitle=Mäßig gepanzert [Geschick]
@@ -8,7 +8,7 @@ Feat/&FeatMediumArmorStrDescription=Erhöhen Sie Ihre Stärke um 1 auf maximal 2
 Feat/&FeatMediumArmorStrTitle=Mäßig gepanzert [Str]
 Feat/&FeatShieldTechniquesDescription=Sie verwenden Schilde nicht nur zum Schutz, sondern auch zum Angriff. Wenn Sie einen Schild tragen, erhalten Sie die folgenden Vorteile:\n• Wenn Sie in Ihrem Zug die Angriffsaktion ausführen, können Sie eine Bonusaktion verwenden, um zu versuchen, eine Kreatur in einem Umkreis von 5 Fuß um Sie herum mit Ihrem Schild zu verdrängen.\n • Wenn Sie nicht handlungsunfähig sind, erhalten Sie einen Bonus von +2 auf alle Geschicklichkeitsrettungswürfe, die Sie durchführen.\n• Immer wenn ein schädlicher Zauber Sie zu einem Geschicklichkeitsrettungswurf zwingt, können Sie Ihre Reaktion nutzen, um den erlittenen Schaden zu halbieren.
 Feat/&FeatShieldTechniquesTitle=Schildmeister
-Reaction/&UseShieldTechniquesDescription=Nutze deine Schildtechniken, um den gesamten Einkommensschaden zu halbieren.
-Reaction/&UseShieldTechniquesReactDescription=Nutze deine Schildtechniken, um den gesamten Einkommensschaden zu halbieren.
+Reaction/&UseShieldTechniquesDescription=Nutze deine Schildtechniken, um den gesamten eingehenden Schaden zu halbieren.
+Reaction/&UseShieldTechniquesReactDescription=Nutze deine Schildtechniken, um den gesamten eingehenden Schaden zu halbieren.
 Reaction/&UseShieldTechniquesReactTitle=Schildmeister
 Reaction/&UseShieldTechniquesTitle=Schildmeister

@@ -1,11 +1,11 @@
 Feat/&FeatElvenAccuracyCharismaDescription=Hai una mira straordinaria con attacchi che si basano sulla precisione piuttosto che sulla forza bruta. Aumenta il tuo Carisma di 1, fino a un massimo di 20. Ogni volta che hai vantaggio su un tiro per colpire usando Destrezza, Intelligenza, Saggezza o Carisma, puoi rilanciare uno dei dadi una volta.
 Feat/&FeatElvenAccuracyCharismaTitle=Precisione Elfica [Car]
-Feat/&FeatElvenAccuracyDexterityDescription=Hai una mira straordinaria con attacchi che si basano sulla precisione piuttosto che sulla forza bruta. Aumenta la tua Destrezza di 1, fino a un massimo di 20. Ogni volta che hai vantaggio su un tiro per colpire usando Destrezza, Intelligenza, Saggezza o Carisma, puoi ripetere il tiro di uno dei dadi una volta.
+Feat/&FeatElvenAccuracyDexterityDescription=Hai una mira straordinaria con attacchi che si basano sulla precisione piuttosto che sulla forza bruta. Aumenta la tua Destrezza di 1, fino a un massimo di 20. Ogni volta che hai vantaggio su un tiro per colpire usando Destrezza, Intelligenza, Saggezza o Carisma, puoi rilanciare uno dei dadi una volta.
 Feat/&FeatElvenAccuracyDexterityTitle=Precisione Elfica [Des]
 Feat/&FeatElvenAccuracyIntelligenceDescription=Hai una mira straordinaria con attacchi che si basano sulla precisione piuttosto che sulla forza bruta. Aumenta la tua Intelligenza di 1, fino a un massimo di 20. Ogni volta che hai vantaggio su un tiro per colpire usando Destrezza, Intelligenza, Saggezza o Carisma, puoi rilanciare uno dei dadi una volta.
 Feat/&FeatElvenAccuracyIntelligenceTitle=Precisione Elfica [Int]
-Feat/&FeatElvenAccuracyWisdomDescription=Hai una mira straordinaria con attacchi che si basano sulla precisione piuttosto che sulla forza bruta. Aumenta la tua Saggezza di 1, fino a un massimo di 20. Ogni volta che hai vantaggio su un tiro per colpire usando Destrezza, Intelligenza, Saggezza o Carisma, puoi rilanciare uno dei dadi una volta.
+Feat/&FeatElvenAccuracyWisdomDescription=Hai una mira straordinaria con attacchi che si basano sulla precisione piuttosto che sulla forza bruta. Aumenta la tua Saggezza di 1, fino a un massimo di 20. Ogni volta che hai vantaggio su un tiro per colpire usando Destrezza, Intelligenza, Saggezza o Carisma, puoi ripetere il tiro di uno dei dadi una volta.
 Feat/&FeatElvenAccuracyWisdomTitle=Precisione Elfica [Sag]
 Feedback/&ElvenAccuracyTriggered={0} usa {1} per mantenere {2} e ripetere il tiro da {3} a {4}.
-Tooltip/&FeatElvenAccuracyBaseDescription=Ogni volta che hai vantaggio su un tiro per colpire usando Destrezza, Intelligenza, Saggezza o Carisma, puoi ripetere il tiro di uno dei dadi una volta.
+Tooltip/&FeatElvenAccuracyBaseDescription=Ogni volta che hai vantaggio su un tiro per colpire usando Destrezza, Intelligenza, Saggezza o Carisma, puoi rilanciare uno dei dadi una volta.
 Tooltip/&FeatElvenAccuracyBaseTitle=Precisione Elfica
