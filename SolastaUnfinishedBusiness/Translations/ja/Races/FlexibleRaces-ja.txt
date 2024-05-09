@@ -1,4 +1,4 @@
-Feature/&PointPoolAbilityScore3Description=選択した組み合わせで能力スコアの 3 つのブーストを使用します。
+Feature/&PointPoolAbilityScore3Description=能力値に対する 3 つのブーストを任意の組み合わせで使用します。
 Feature/&PointPoolAbilityScore3Title=能力値増加
 Feature/&PointPoolAbilityScore4Description=選択した組み合わせで能力スコアの 4 つのブーストを使用します。
 Feature/&PointPoolAbilityScore4Title=能力値増加

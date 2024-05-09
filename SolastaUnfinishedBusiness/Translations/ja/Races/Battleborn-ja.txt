@@ -1,9 +1,9 @@
 Feature/&AttributeModifierBattlebornBonusACTitle=難解な回復力
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=体質+2、他のスコア1点を1点増加。
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=能力値増加
-Feature/&FeatureSetBattlebornArcaneResilienceDescription=あなたは、次のような利点によって表される、驚くべき不屈の精神を持って創造されています:\n・アーマークラスに +1 ボーナスを獲得します。\n・毒に対してセーヴィング スローで有利であり、毒ダメージに対する耐性があります。 \n・あなたは病気にかかりません。\n・寝る必要はありませんし、魔法でも眠らせることはできません。
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=あなたは、次の利点によって表される、驚くべき不屈の精神を持って創造されています:\n・アーマークラスに +1 ボーナスを獲得します。\n・毒に対してセーヴィング スローで有利であり、毒ダメージに対する耐性があります。 \n・あなたには病気に対する免疫があります。\n・寝る必要はありませんし、魔法でも眠らせることはできません。
 Feature/&FeatureSetBattlebornArcaneResilienceTitle=難解な回復力
 Feature/&FeatureSetBattlebornSpecializedInfusionDescription=あなたは、選択したスキル熟練度とツール熟練度を 1 つずつ獲得します。
 Feature/&FeatureSetBattlebornSpecializedInfusionTitle=特殊な輸液
-Race/&RaceBattlebornDescription=バトルボーンは、肉体、錬金術、魔法をブレンドして完璧な戦場の兵士を作り出す、難解な実験の結果です。兵器として作られた彼らは、戦争を超えた目的を見つけなければなりません。バトルボーンは忠実な同盟者になることも、冷酷な殺人機械になることも、目的と意味を求めてさまよう魂になることもできます。
+Race/&RaceBattlebornDescription=バトルボーンは、肉体、錬金術、魔法をブレンドして完璧な戦場の兵士を作り出す、難解な実験の結果です。兵器として作られた彼らは、戦争を超えた目的を見つけなければなりません。バトルボーンは忠実な同盟者になることも、冷酷な殺人マシーンになることも、目的と意味を求めて魂を探求するさまよう者になることもできます。
 Race/&RaceBattlebornTitle=ウォーフォージド

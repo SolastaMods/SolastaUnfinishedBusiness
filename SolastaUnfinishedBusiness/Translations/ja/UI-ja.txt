@@ -1,15 +1,15 @@
-Tutorial/&TutorialActionSwitchingDescription=利用可能なメイン アクションまたはボーナス アクションが複数ある場合は、アクション ステータス シンボルをクリックして、それを現在アクティブなアクションにすることができます。これにより、ヘイストまたはホードブレイカーアクションを使用して攻撃し、デフォルトのアクションで呪文を唱えることができます。または、必要なその他の組み合わせ。\nアクション ステータス シンボルの上にマウスを置くと、アクションを許可した機能または条件の名前を示すツールヒントが表示されます。
+Tutorial/&TutorialActionSwitchingDescription=利用可能なメイン アクションまたはボーナス アクションが複数ある場合は、アクション ステータス シンボルをクリックして、それを現在アクティブなアクションにすることができます。これにより、ヘイストまたはホードブレイカーアクションを使用して攻撃し、デフォルトのアクションで呪文を唱えることができます。または必要な他の組み合わせ。\nアクション ステータス シンボルの上にマウスを置くと、アクションを許可した機能または条件の名前を示すツールヒントが表示されます。
 Tutorial/&TutorialActionSwitchingTitle=複数のアクション
 UI/&Add=Add
 UI/&AdditionalActionSource=付与者: {0}
-UI/&Current Party=現在のパーティー
+UI/&Current Party=現在の政党
 UI/&DistanceFormat=距離: {0}
 UI/&Experimental Preview:=実験的プレビュー <i><color=Yellow>[使用前にバックアップ保存]</color></i>:
-UI/&Expert=エキスパート
+UI/&Expert=専門家
 UI/&From=から
 UI/&PartyEditor=パーティーエディター
 UI/&PartyEditorMessage=このシンプルなパーティー エディターを使用すると、ロードされたゲーム セッションでキャラクターを編集できます。問題を報告するには、次をクリックしてください。
-UI/&PartyEditorUnavailable=****** パーティー エディターは利用できません: セーブ ゲームをロードしてください ******
+UI/&PartyEditorUnavailable=****** パーティー エディターは使用できません: セーブ ゲームをロードしてください ******
 UI/&Quickies=クイックキー
-UI/&Remove=削除
+UI/&Remove=取り除く
 UI/&Skilled=熟練した

@@ -1,4 +1,4 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Flurry of Blows 機能を使用するたびに、1 回の素手攻撃を弓攻撃に置き換えることができます。
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Flurry of Blows を使用するたびに、1 つの素手攻撃を弓攻撃に置き換えることができます。
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=矢の嵐
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=あなたの弓攻撃は、魔法以外の攻撃やダメージに対する抵抗と免疫を克服する目的で魔法としてカウントされ、弓攻撃でスタニングストライク機能を使用できるようになりました。
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=気を強化した矢
