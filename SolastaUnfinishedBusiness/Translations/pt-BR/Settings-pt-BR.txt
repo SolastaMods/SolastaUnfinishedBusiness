@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desative <color=#D89555>Superi
 ModUi/&DisableUnofficialTranslations=Desative o suporte a traduções não oficiais para acelerar o mod <i><color=#F0DAA0>[a menos que eu fale chinês, italiano, japonês, coreano ou espanhol]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibe todos os feitiços conhecidos de outras classes durante o aumento de nível</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Exibir espaços de pacto <color=#D89555>Warlock</color> na seleção de feitiço em vez do painel de personagem</i>
+ModUi/&DocsArcaneShots=DOCS: Tiros Arcanos
+ModUi/&DocsBackgrounds=DOCUMENTOS: Planos de fundo
+ModUi/&DocsFeats=DOCS: Talentos
+ModUi/&DocsFightingStyles=DOCS: Estilos de luta
+ModUi/&DocsInfusions=DOCS: Infusões
+ModUi/&DocsInvocations=DOCS: invocações
+ModUi/&DocsManeuvers=DOCS: Manobras
+ModUi/&DocsMetamagic=DOCS: Metamágica
+ModUi/&DocsRaces=DOCS: Corridas
+ModUi/&DocsSpells=DOCS: Feitiços
+ModUi/&DocsSubclasses=DOCS: Subclasses
+ModUi/&DocsSubraces=DOCS: Subraças
 ModUi/&Donate=<b><color=#D89555>Doar:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Não exiba capacetes em personagens gráficos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Não termine o turno após usar a ação pronta <i><color=#F0DAA0>[permite usar Bonus Action ou qualquer ação Principal extra de Haste ou outras fontes]</color></i>

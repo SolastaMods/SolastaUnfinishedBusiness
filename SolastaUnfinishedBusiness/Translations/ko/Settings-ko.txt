@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=플레이 가능한 모든 종
 ModUi/&DisableUnofficialTranslations=비공식 번역 지원을 비활성화하여 모드 속도 향상 <i><color=#F0DAA0>[한국어, 일본어, 중국어, 이탈리아어, 스페인어 사용자가 아닐 경우 체크]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 레벨업 중 다른 직업의 모든 알려진 주문 표시</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 캐릭터 패널 대신 주문 선택 시 <color=#D89555>워락</color> 계약 슬롯을 표시</i>
+ModUi/&DocsArcaneShots=DOCS: 신비한 사격
+ModUi/&DocsBackgrounds=문서: 배경
+ModUi/&DocsFeats=문서: 업적
+ModUi/&DocsFightingStyles=문서: 격투 스타일
+ModUi/&DocsInfusions=문서: 주입
+ModUi/&DocsInvocations=문서: 호출
+ModUi/&DocsManeuvers=문서: 기동
+ModUi/&DocsMetamagic=문서: 메타매직
+ModUi/&DocsRaces=문서: 경주
+ModUi/&DocsSpells=문서: 주문
+ModUi/&DocsSubclasses=DOCS: 서브클래스
+ModUi/&DocsSubraces=문서: 하위 경주
 ModUi/&Donate=<b><color=#D89555>후원하기:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=캐릭터 모델링에 머리 방어구 표시 안 함 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&DontEndTurnAfterReady=준비 액션을 사용한 후 턴을 종료하지 않음 <i><color=#F0DAA0>[추가 행동 또는 이동이나 다른 출처의 기타 행동을 사용할 수 있습니다]</color></i>
