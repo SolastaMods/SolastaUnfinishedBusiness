@@ -1,10 +1,11 @@
 1.5.97.8:
 
 - added UA Stealthy feat
-- fixed Barbarian rage STR saving advantage [VANILLA]
-- fixed mod boot up for Korean users
+- fixed Barbarian rage not granting advantage on STR saves [VANILLA]
+- fixed mod boot up for KO users and rebuilt DE, ES, FR, IT, JA, and PT-br translations
 - fixed multi-classed Druid/Paladin to offer divine smite slots under wildshape
-- fixed Way of Weal and Woe triggering your Woe before level 17th
+- fixed Roguish Duelist reflexive party to not bleed into other companions
+- fixed Way of Weal and Woe to not trigger "Your Woe" before level 17th
 
 1.5.97.7:
 

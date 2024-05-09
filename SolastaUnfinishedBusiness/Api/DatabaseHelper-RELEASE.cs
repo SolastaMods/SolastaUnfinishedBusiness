@@ -2903,11 +2903,13 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Primed_Greataxe { get; } = GetDefinition<ItemDefinition>("Primed Greataxe");
         internal static ItemDefinition Primed_Greatsword { get; } = GetDefinition<ItemDefinition>("Primed Greatsword");
         internal static ItemDefinition Primed_HalfPlate { get; } = GetDefinition<ItemDefinition>("Primed HalfPlate");
+        internal static ItemDefinition Primed_Handaxe { get; } = GetDefinition<ItemDefinition>("Primed_Handaxe");
 
         internal static ItemDefinition Primed_HeavyCrossbow { get; } =
             GetDefinition<ItemDefinition>("Primed_HeavyCrossbow");
 
         internal static ItemDefinition Primed_HideArmor { get; } = GetDefinition<ItemDefinition>("Primed_HideArmor");
+        internal static ItemDefinition Primed_Javelin { get; } = GetDefinition<ItemDefinition>("Primed_Javelin");
 
         internal static ItemDefinition Primed_Leather_Armor { get; } =
             GetDefinition<ItemDefinition>("Primed Leather Armor");
@@ -2928,8 +2930,13 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition Primed_Plate { get; } = GetDefinition<ItemDefinition>("Primed Plate");
         internal static ItemDefinition Primed_Rapier { get; } = GetDefinition<ItemDefinition>("Primed Rapier");
+
+        internal static ItemDefinition Primed_Quarterstaff { get; } =
+            GetDefinition<ItemDefinition>("Primed_Quarterstaff");
+
         internal static ItemDefinition Primed_ScaleMail { get; } = GetDefinition<ItemDefinition>("Primed ScaleMail");
         internal static ItemDefinition Primed_Scimitar { get; } = GetDefinition<ItemDefinition>("Primed Scimitar");
+        internal static ItemDefinition Primed_Shield { get; } = GetDefinition<ItemDefinition>("Primed Shield");
         internal static ItemDefinition Primed_Shortbow { get; } = GetDefinition<ItemDefinition>("Primed Shortbow");
         internal static ItemDefinition Primed_Shortsword { get; } = GetDefinition<ItemDefinition>("Primed Shortsword");
         internal static ItemDefinition Primed_Spear { get; } = GetDefinition<ItemDefinition>("Primed_Spear");
