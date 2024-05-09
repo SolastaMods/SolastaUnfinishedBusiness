@@ -80,6 +80,7 @@ ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas le personnag
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est en dehors ou à moins de % du bord de l'écran</color></i>
 ModUi/&DungeonMakerBasicHelp=• Ces paramètres n'exigeront pas que le joueur ait installé ce mod
 ModUi/&DungeonMakerMenu=Créateur de donjon
+ModUi/&Effects=Effets
 ModUi/&EmpressGarbAppearance=Apparence de la <color=#D89555>Tenue d'impératrice</color>
 ModUi/&EnableActionSwitching=Activer la barre de changement d'Action <i><color=#F0DAA0>[utile quand, sous Hâte, on veut utiliser l'action de hâte avant l'action principale]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage d'éléments d'histoire supplémentaires lors de l'inspection de l'Historique

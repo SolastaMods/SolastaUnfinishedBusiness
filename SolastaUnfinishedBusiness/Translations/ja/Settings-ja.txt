@@ -80,6 +80,7 @@ ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にあ
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローがオフであるか、画面端の % 以内にない場合</color></i>
 ModUi/&DungeonMakerBasicHelp=。これらの設定では、プレーヤーがこの MOD をインストールする必要はありません
 ModUi/&DungeonMakerMenu=ダンジョンメーカー
+ModUi/&Effects=効果
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后の衣装</color>の外観
 ModUi/&EnableActionSwitching=アクション切り替えバーを有効にする <i><color=#F0DAA0>[メイン アクションの前に急いでアクションを使用する場合に便利]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=バックグラウンド検査で追加のバックストーリー表示を有効にする

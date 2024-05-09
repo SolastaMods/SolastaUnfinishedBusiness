@@ -16,5 +16,5 @@ Race/&RaceOligathDescription=Goliaths haben dieselben Vorfahren wie die Riesen, 
 Race/&RaceOligathTitle=Goliath
 Reaction/&UseStoneEnduranceDescription=Reduzieren Sie den eingehenden Schaden
 Reaction/&UseStoneEnduranceReactDescription=Reduzieren Sie den eingehenden Schaden
-Reaction/&UseStoneEnduranceReactTitle=aktivieren Sie
+Reaction/&UseStoneEnduranceReactTitle=Aktivieren Sie
 Reaction/&UseStoneEnduranceTitle=Stones Ausdauer

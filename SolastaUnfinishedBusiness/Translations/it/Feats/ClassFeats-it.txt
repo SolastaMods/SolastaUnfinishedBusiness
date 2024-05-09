@@ -84,5 +84,5 @@ Reaction/&CustomReactionSecondChanceReactTitle=Trascorrere
 Reaction/&CustomReactionSecondChanceTitle=Seconda possibilità
 Reaction/&ReactionAttackExploiterDescription={1} ha attaccato {0}. Puoi usare la tua reazione per effettuare un attacco con arma da mischia per sfruttare {0}.
 Reaction/&ReactionAttackExploiterReactDescription=Usa la tua reazione per attaccare.
-Reaction/&ReactionAttackExploiterReactTitle=attacco
+Reaction/&ReactionAttackExploiterReactTitle=Attacco
 Reaction/&ReactionAttackExploiterTitle=Impresa

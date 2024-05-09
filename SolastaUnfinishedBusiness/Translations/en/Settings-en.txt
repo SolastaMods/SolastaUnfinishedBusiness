@@ -80,6 +80,7 @@ ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character i
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
 ModUi/&DungeonMakerBasicHelp=• These settings won't require the player to have this mod installed
 ModUi/&DungeonMakerMenu=Dungeon Maker
+ModUi/&Effects=Effects
 ModUi/&EmpressGarbAppearance=<color=#D89555>Empress Garb</color> appearance
 ModUi/&EnableActionSwitching=Enable action switching bar <i><color=#F0DAA0>[useful when hasted to use haste action before main action]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on background inspection

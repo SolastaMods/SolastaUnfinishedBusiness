@@ -23,4 +23,4 @@ Reaction/&UseGhostlyHowlReactDescription=Usa tu reacción para intentar asustar 
 Reaction/&UseGhostlyHowlReactTitle=Aullido fantasmal
 Reaction/&UseGhostlyHowlTitle=Aullido fantasmal
 Subclass/&RangerSkyWarriorDescription=Los Sky Warriors se han sentido conmovidos por el poder persistente de los paisajes áridos azotados por el viento, habitados únicamente por espejismos y fantasmas. Combinan elegantes maniobras de espada y escudo con magia de ilusión para prosperar en el combate.
-Subclass/&RangerSkyWarriorTitle=guerrero del cielo
+Subclass/&RangerSkyWarriorTitle=Guerrero del cielo

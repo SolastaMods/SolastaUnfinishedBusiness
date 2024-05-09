@@ -13,4 +13,4 @@ Feature/&PowerCollegeOfValianceHeroicInspirationTitle=Inspiración heroica
 Feedback/&DishearteningPerformanceUsedFailureLine={0} gasta un {2} dado de inspiración para cambiar el resultado, lanza {3} con el dado de inspiración pero no cambia el resultado, que sigue siendo éxito.
 Feedback/&DishearteningPerformanceUsedSuccessLine={0} gasta un {2} dado de inspiración para cambiar el resultado, tira {3} en el dado de inspiración y cambia el resultado a un fracaso.
 Subclass/&CollegeOfValianceDescription=Los bardos del Colegio de Elocuencia utilizan la música y una determinación inquebrantable para envalentonar los corazones de sus aliados y desmoralizar a sus enemigos. Inspirándose en las historias de héroes de antaño, grandes hazañas y acontecimientos extraordinarios, estos bardos luchan valientemente para preservar sus ideales, dejando una impresión duradera en quienes los rodean.
-Subclass/&CollegeOfValianceTitle=colegio de elocuencia
+Subclass/&CollegeOfValianceTitle=Colegio de elocuencia

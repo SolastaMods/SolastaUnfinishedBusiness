@@ -23,4 +23,4 @@ Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescr
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=Giro
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlTitle=Giro
 Subclass/&CollegeOfAudacityDescription=Los bardos del Colegio de Espadas entretienen a través de atrevidas hazañas de destreza con las armas. Realizan acrobacias como tragar espadas, lanzar cuchillos, hacer malabarismos y simulacros de combates. Aunque usan sus armas para entretener, también son guerreros altamente entrenados y hábiles por derecho propio.
-Subclass/&CollegeOfAudacityTitle=colegio de espadas
+Subclass/&CollegeOfAudacityTitle=Colegio de espadas

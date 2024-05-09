@@ -80,6 +80,7 @@ ModUi/&DontFollowCharacterInBattle=La telecamera di battaglia non segue quando i
 ModUi/&DontFollowMargin=<i><color=white>+ A meno che l'eroe non sia spento o entro il % del bordo dello schermo</color></i>
 ModUi/&DungeonMakerBasicHelp=• Queste impostazioni non richiedono che il giocatore abbia installato questa mod
 ModUi/&DungeonMakerMenu=Creatore di sotterranei
+ModUi/&Effects=Effetti
 ModUi/&EmpressGarbAppearance=Aspetto <color=#D89555>Abito da Imperatrice</color>
 ModUi/&EnableActionSwitching=Abilita la barra di cambio azione <i><color=#F0DAA0>[utile quando si ha fretta per usare l'azione veloce prima dell'azione principale]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Abilita la visualizzazione aggiuntiva del retroscena durante l'ispezione in background

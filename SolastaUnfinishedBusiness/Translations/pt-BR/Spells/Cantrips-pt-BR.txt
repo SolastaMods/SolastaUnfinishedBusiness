@@ -46,6 +46,6 @@ Spell/&ThornyVinesTitle=Chicote de Espinhos
 Spell/&ThunderStrikeDescription=Crie uma explosão de som trovejante, forçando as criaturas adjacentes a você a fazer um teste de resistência de Constituição ou sofrer 1d6 de dano trovejante.\nO dano deste feitiço aumenta em 1d6 quando você atinge o 5º nível (2d6), 11º nível (3d6) e 17º nível (4d6).
 Spell/&ThunderStrikeTitle=Trovão
 Spell/&TollTheDeadDescription=Você aponta para uma criatura que pode ver dentro do alcance, e o som de um sino doloroso preenche o ar ao redor dela por um momento. O alvo deve ser bem sucedido em um teste de resistência de Sabedoria ou sofrerá 1d8 de dano necrótico. Se o alvo estiver faltando algum de seus pontos de vida, ele sofre 1d12 de dano necrótico.
-Spell/&TollTheDeadTitle=pedágio aos mortos
+Spell/&TollTheDeadTitle=Pedágio aos mortos
 Spell/&WrackDescription=Liberte uma onda de dor paralisante em uma criatura dentro do alcance. O alvo deve fazer um teste de resistência de Constituição ou sofrerá 1d8 de dano necrótico, impedindo-o de avançar ou se soltar.
 Spell/&WrackTitle=Destruição

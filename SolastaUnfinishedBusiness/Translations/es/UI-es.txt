@@ -10,6 +10,6 @@ UI/&From=De
 UI/&PartyEditor=Editor de fiestas
 UI/&PartyEditorMessage=Este sencillo editor de fiestas te permite editar personajes en una sesión de juego cargada. Haga clic en lo siguiente para informar problemas:
 UI/&PartyEditorUnavailable=****** Party Editor no disponible: carga una partida guardada ******
-UI/&Quickies=rapiditos
+UI/&Quickies=Rapiditos
 UI/&Remove=Eliminar
 UI/&Skilled=Experto

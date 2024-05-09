@@ -1,6 +1,6 @@
 Feature/&BonusCantripElementalistMinorElementalDescription=Tu control de las energías elementales ha aumentado hasta el punto de que ahora tienes dominio sobre los elementales más débiles. Puedes lanzar conjurar elemental menor a voluntad.
 Feature/&BonusCantripElementalistMinorElementalTitle=Minions elementales
-Feature/&ElementalPatronAirPlane=avión aéreo
+Feature/&ElementalPatronAirPlane=Avión aéreo
 Feature/&ElementalPatronEarthPlane=Plano terrestre
 Feature/&ElementalPatronElementalConditionDescription=Inflige {1} daño adicional igual a tu bonificación de competencia con un primer golpe en cada ronda.
 Feature/&ElementalPatronElementalConditionTitle=Canalización {0}

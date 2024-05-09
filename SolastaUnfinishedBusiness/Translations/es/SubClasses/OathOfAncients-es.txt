@@ -1,5 +1,5 @@
 Condition/&ConditionOathOfAncientsAuraWardingDescription=Gana resistencia al daño de hechizos.
-Condition/&ConditionOathOfAncientsAuraWardingTitle=protegido
+Condition/&ConditionOathOfAncientsAuraWardingTitle=Protegido
 Condition/&ConditionOathOfAncientsElderChampionDescription=• Al comienzo de cada uno de tus turnos, recuperas 10 puntos de vida.\n• Siempre que lanzas un hechizo de paladín que tiene un tiempo de lanzamiento de 1 acción, puedes realizar dos ataques con arma como parte de la misma acción.\n• Las criaturas enemigas a 10 pies de ti tienen desventaja en los tiros de salvación contra tus hechizos de paladín y las opciones de Canalizar Divinidad.
 Condition/&ConditionOathOfAncientsElderChampionTitle=Campeón anciano
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=Cuando te reducen a 0 puntos de vida pero no te matan directamente, caes a 1 punto de vida. No podrás volver a beneficiarte de esta función hasta que finalices un descanso prolongado.

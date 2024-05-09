@@ -80,6 +80,7 @@ ModUi/&DontFollowCharacterInBattle=Боевая камера не следует
 ModUi/&DontFollowMargin=<i><color=white>+ Только если герой вне или в рамках % от границы экрана</color></i>
 ModUi/&DungeonMakerBasicHelp=• Эти настройки не потребуют от игрока установленного мода
 ModUi/&DungeonMakerMenu=Создатель Подземелий
+ModUi/&Effects=Последствия
 ModUi/&EmpressGarbAppearance=Внешний вид <color=#D89555>Кольчужной рубахи императрицы</color>
 ModUi/&EnableActionSwitching=Включить панель переключения действий <i><color=#F0DAA0>[полезно при ускорении, чтобы использовать дополнительное действие перед основным]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Включить отображение дополнительной предыстории при просмотре происхождения

@@ -42,5 +42,5 @@ Race/&RaceWyrmkinDescription=I Wyrmkin sono cugini più grandi dei Sangue di Dra
 Race/&RaceWyrmkinTitle=Wyrmkin
 Reaction/&ReactionAttackReactiveRetributionDescription={0} ti ha colpito con un attacco. Usa la tua reazione per sferrare un attacco a {0}.
 Reaction/&ReactionAttackReactiveRetributionReactDescription=Usa la tua reazione per attaccare.
-Reaction/&ReactionAttackReactiveRetributionReactTitle=attacco
+Reaction/&ReactionAttackReactiveRetributionReactTitle=Attacco
 Reaction/&ReactionAttackReactiveRetributionTitle=Reazione reattiva

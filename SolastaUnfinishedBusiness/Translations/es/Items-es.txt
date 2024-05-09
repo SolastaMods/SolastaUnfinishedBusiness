@@ -672,5 +672,5 @@ Item/&Warlock_Armor_Sturdiness_Title=Armadura de brujo de robustez
 Item/&Warlock_Armor_Survival_Description=Esta armadura encantada fue creada utilizando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
 Item/&Warlock_Armor_Survival_Title=Armadura de supervivencia de brujo
 Tooltip/&NoFreeHandToLoadAmmoDescription=¡No hay manos libres para cargar munición!
-Tooltip/&TagPolearmWeaponTitle=brazo de poste
+Tooltip/&TagPolearmWeaponTitle=Brazo de poste
 Tooltip/&TagReturningWeaponTitle=Regresando

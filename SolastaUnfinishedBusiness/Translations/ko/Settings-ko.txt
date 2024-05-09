@@ -80,6 +80,7 @@ ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있을 때 전�
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 쓰러져 있거나 화면 가장자리 % 이내인 경우</color></i>
 ModUi/&DungeonMakerBasicHelp=• 이 설정은 플레이어에게 이 모드가 설치되어 있지 않아도 됨
 ModUi/&DungeonMakerMenu=던전 메이커
+ModUi/&Effects=효과
 ModUi/&EmpressGarbAppearance=<color=#D89555>황후 의복</color> 외형
 ModUi/&EnableActionSwitching=행동 전환 막대 활성화 <i><color=#F0DAA0>[가속 주문 등으로 생긴 행동과 일반 행동 선택]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=배경 검사에서 추가 배경 이야기 표시 활성화

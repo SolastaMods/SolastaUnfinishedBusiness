@@ -27,4 +27,4 @@ Feature/&PowerMalakhHealingTouchTitle=Toque sanador
 Feedback/&AdditionalDamageAngelicFormFormat=Resplandor angelical
 Feedback/&AdditionalDamageAngelicFormLine=¡Angelic Radiance causa +{2} de daño extra!
 Race/&RaceMalakhDescription=Los aasimar son creaciones divinas formadas en forma de hombres para realizar la voluntad de sus Deidades. Cuando maduran, pueden tomar una forma angelical dependiendo de su naturaleza.
-Race/&RaceMalakhTitle=aasimar
+Race/&RaceMalakhTitle=Aasimar

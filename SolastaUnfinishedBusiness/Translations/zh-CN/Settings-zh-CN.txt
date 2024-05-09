@@ -80,6 +80,7 @@ ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗
 ModUi/&DontFollowMargin=<i><color=white>+除非英雄不在屏幕内或在屏幕边缘的%范围内</color></i>
 ModUi/&DungeonMakerBasicHelp=•这些设置不需要玩家安装这个模组
 ModUi/&DungeonMakerMenu=地城编辑器
+ModUi/&Effects=效果
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后服</color>外观
 ModUi/&EnableActionSwitching=启用动作切换栏<i><color=#F0DAA0>[在主要动作之前急于使用加速动作时有用]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=在背景检查中启用额外的背景故事显示

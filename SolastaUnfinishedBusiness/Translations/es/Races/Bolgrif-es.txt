@@ -11,4 +11,4 @@ Feature/&PowerBolgrifInvisibilityTitle=Desaparecer
 Feature/&ProficiencyBolgrifLanguagesDescription=Común, Élfico y Gigante.
 Feature/&ProficiencyBolgrifLanguagesTitle=Idioma
 Race/&RaceBolgrifDescription=Los filborgs son semigigantes que viven en las heladas tierras altas de Solasta. Son astutos, cautelosos, solitarios, desconfían de la mayoría de los humanoides excepto de los elfos y prefieren vivir lejos de la civilización en clanes muy unidos. Si se les presiona para entrar en batalla, los filborgs demuestran formidables habilidades con las armas y la magia de la naturaleza.
-Race/&RaceBolgrifTitle=firbolg
+Race/&RaceBolgrifTitle=Firbolg

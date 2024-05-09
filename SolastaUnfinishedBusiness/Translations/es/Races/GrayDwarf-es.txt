@@ -9,4 +9,4 @@ Feature/&PowerGrayDwarfInvisibilityTitle=Invisibilidad
 Feature/&PowerGrayDwarfStoneStrengthDescription=Como acción adicional, adquieres la Fuerza de la piedra durante 1 minuto. Tienes ventaja en las pruebas de Fuerza y en las tiradas de salvación de Fuerza. También infliges 1d4 de daño adicional con armas cuerpo a cuerpo basadas en la Fuerza. Una vez que uses esta habilidad, no podrás volver a usarla hasta que termines un descanso corto o largo.
 Feature/&PowerGrayDwarfStoneStrengthTitle=Fuerza de piedra
 Race/&RaceGrayDwarfDescription=Los Enanos Grises son enanos que han cambiado después de sólo unas pocas generaciones de exposición a la misteriosa magia de Badlands. Son en gran parte nocturnos y habitan principalmente en ruinas enterradas. El color de su piel tiende al gris o incluso al negro carbón. A diferencia de la mayoría de los enanos, no les crece la barba.
-Race/&RaceGrayDwarfTitle=enano gris
+Race/&RaceGrayDwarfTitle=Enano gris

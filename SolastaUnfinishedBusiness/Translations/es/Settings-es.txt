@@ -80,6 +80,7 @@ ModUi/&DontFollowCharacterInBattle=La cámara de batalla no sigue cuando el pers
 ModUi/&DontFollowMargin=<i><color=blanco>+ A menos que el héroe esté apagado o dentro del % del borde de la pantalla</color></i>
 ModUi/&DungeonMakerBasicHelp=• Estas configuraciones no requerirán que el jugador tenga este mod instalado
 ModUi/&DungeonMakerMenu=Creador de mazmorras
+ModUi/&Effects=Efectos
 ModUi/&EmpressGarbAppearance=Apariencia <color=#D89555>Atuendo de emperatriz</color>
 ModUi/&EnableActionSwitching=Habilitar la barra de cambio de acción <i><color=#F0DAA0>[útil cuando se tiene prisa por usar la acción de prisa antes de la acción principal]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Habilite la visualización de antecedentes adicionales en la inspección de antecedentes
