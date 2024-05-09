@@ -73,18 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Отключить <color=#D89
 ModUi/&DisableUnofficialTranslations=Отключить поддержку неофициальных переводов для ускорения загрузки мода <i><color=#F0DAA0>[если вы не знаете китайского, итальянского, японского, корейского или испанского языков]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Отображать все известные заклинания от других классов во время повышения уровня</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Отображать ячейки заклинаний <color=#D89555>Колдуна</color> на панели выбора заклинаний вместо панели персонажа</i>
-ModUi/&DocsArcaneShots=ДОКУМЕНТЫ: Чародейские выстрелы
-ModUi/&DocsBackgrounds=ДОКУМЕНТЫ: Предыстория
-ModUi/&DocsFeats=ДОКУМЕНТЫ: Подвиги
-ModUi/&DocsFightingStyles=ДОКС: Стили боя
+ModUi/&DocsArcaneShots=ДОКУМЕНТЫ: Магические выстрелы
+ModUi/&DocsBackgrounds=ДОКУМЕНТЫ: Предыстории
+ModUi/&DocsFeats=ДОКУМЕНТЫ: Черты
+ModUi/&DocsFightingStyles=ДОКУМЕНТЫ: Боевые стили
 ModUi/&DocsInfusions=ДОКУМЕНТЫ: Инфузии
-ModUi/&DocsInvocations=ДОКУМЕНТЫ: Вызовы
-ModUi/&DocsManeuvers=ДОКУМЕНТЫ: Маневры
+ModUi/&DocsInvocations=ДОКУМЕНТЫ: Воззвания
+ModUi/&DocsManeuvers=ДОКУМЕНТЫ: Приёмы
 ModUi/&DocsMetamagic=ДОКУМЕНТЫ: Метамагия
-ModUi/&DocsRaces=ДОКУМЕНТЫ: Гонки
+ModUi/&DocsRaces=ДОКУМЕНТЫ: Расы
 ModUi/&DocsSpells=ДОКУМЕНТЫ: Заклинания
-ModUi/&DocsSubclasses=ДОКУМЕНТЫ: Подклассы
-ModUi/&DocsSubraces=ДОКУМЕНТЫ: Подрасы
+ModUi/&DocsSubclasses=ДОКУМЕНТЫ: Архетипы
+ModUi/&DocsSubraces=ДОКУМЕНТЫ: Разновидности
 ModUi/&Donate=<b><color=#D89555>Задонатить:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Скрывать шлемы на персонажах <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Не заканчивать ход после использования действия <color=#D89555>Подготовка</color> <i><color=#F0DAA0>[позволяет использовать Бонусное действие или любые дополнительные основные действия от Ускорения или других источников]</color></i>
