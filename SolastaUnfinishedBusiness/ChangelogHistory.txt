@@ -3,6 +3,7 @@
 - added UA Stealthy feat
 - added Aganazzar's Scorcher, and Snilloc's Snowball Storm spells
 - fixed Barbarian rage not granting advantage on STR saves [VANILLA]
+- fixed Handaxe, Javelin, Quarterstaff, and Shield recipes to require primed items
 - fixed mod boot up for KO users and rebuilt DE, ES, FR, IT, JA, and PT-br translations
 - fixed multi-classed Druid/Paladin to offer divine smite slots under wildshape
 - fixed Roguish Duelist reflexive party to not bleed into other companions
