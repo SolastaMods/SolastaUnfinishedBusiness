@@ -18,9 +18,9 @@
     "rangeParameter": 18,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Sphere",
+    "targetType": "Cube",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 3,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -135,7 +135,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c6c454edded9ca54aa48456cf4617550",
+        "m_AssetGUID": "e22e4f85dac1bd046bd02889cd94f0af",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -159,7 +159,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "c0b137f1094528242b45b58e17e21d0d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -171,7 +171,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ad99a26ed29554d4e832df5a38faccd7",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -183,7 +183,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "042d53a2f2119c94592bfd95846feb97",
+        "m_AssetGUID": "51cf46189b99f0f48bfbf3b8c6e4a355",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

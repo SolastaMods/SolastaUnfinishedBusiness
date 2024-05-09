@@ -91,7 +91,7 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 3,
+          "diceNumber": 4,
           "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
@@ -135,7 +135,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "bab60d84c5b7c3a48bf653dc5199015b",
+        "m_AssetGUID": "3f2fe57129dcf2f4c98cf6dcde36805e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -171,7 +171,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "26b0cf91289b29047a890ef30134131a",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -183,7 +183,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2147cab8465fbb44abcaa3a06c39fff5",
+        "m_AssetGUID": "35b55893525a9d24881e759d49fc0318",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

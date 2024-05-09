@@ -444,7 +444,7 @@ Launch an acid arrow that deals some damage even if you miss your shot.
 
 # 108. - *Aganazzar's Scorcher* © (V,S) level 2 Evocation [UB]
 
-A line of roaring flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 3d8 fire damage on a failed save, or half as much damage on a successful one. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d6 for each slot level above 2nd.
+A line of roaring flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 4d8 fire damage on a failed save, or half as much damage on a successful one. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd.
 
 # 109. - Aid (V,S) level 2 Abjuration [SOL]
 
@@ -607,7 +607,7 @@ Creates a sphere four cells in radius, inside which sound cannot exist. Stops th
 
 # 148. - *Snilloc's Snowball Storm* © (V,S) level 2 Evocation [UB]
 
-A flurry of magic snowballs erupts from a point you choose within range. Each creature in a 5-foot-radius sphere centered on that point must make a Dexterity saving throw. A creature takes 3d6 cold damage on a failed save, or half as much damage on a successful one. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d6 for each slot level above 2nd.
+A flurry of magic snowballs erupts from a point you choose within range. Each creature in a 3x3 cube centered on that point must make a Dexterity saving throw. A creature takes 3d8 cold damage on a failed save, or half as much damage on a successful one. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd.
 
 # 149. - Spider Climb (V,S) level 2 Transmutation [Concentration] [SOL]
 

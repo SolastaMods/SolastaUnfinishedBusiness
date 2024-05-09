@@ -46,7 +46,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere)
+                    .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Cube, 3)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
@@ -56,7 +56,9 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeCold, 3, DieType.D8)
                             .Build())
-                    .SetParticleEffectParameters(PowerDragonBreath_Cold)
+                    .SetCasterEffectParameters(SleetStorm)
+                    .SetEffectEffectParameters(FreezingSphere)
+                    .SetImpactEffectParameters(RayOfFrost)
                     .Build())
             .AddToDB();
 
@@ -93,9 +95,10 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeFire, 3, DieType.D8)
+                            .SetDamageForm(DamageTypeFire, 4, DieType.D8)
                             .Build())
-                    .SetParticleEffectParameters(PowerDragonBreath_Fire)
+                    .SetCasterEffectParameters(FlameBlade)
+                    .SetImpactEffectParameters(ScorchingRay)
                     .Build())
             .AddToDB();
 
