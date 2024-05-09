@@ -33,6 +33,7 @@ internal static class ModUi
 
     internal static readonly HashSet<string> TabletopDefinitionNames =
     [
+        "AganazzarScorcher",
         "AirBlast",
         "AuraOfLife",
         "AuraOfPerseverance",
@@ -229,6 +230,7 @@ internal static class ModUi
         "Shapechange",
         "SkinOfRetribution",
         "SorcerousDivineHeart",
+        "SnillocSnowballStorm",
         "SpellWeb",
         "SpikeBarrage",
         "SpiritShroud",

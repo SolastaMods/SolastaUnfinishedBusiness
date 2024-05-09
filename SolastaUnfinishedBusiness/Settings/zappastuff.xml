@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>0</DisplayModMessage>
+    <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -1478,12 +1478,14 @@
                     <string>Mule</string>
                     <string>VileBrew</string>
                     <string>WitchBolt</string>
+                    <string>AganazzarScorcher</string>
                     <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
                     <string>MirrorImage</string>
                     <string>NoxiousSpray</string>
                     <string>BindingIce</string>
                     <string>ShadowBlade</string>
+                    <string>SnillocSnowballStorm</string>
                     <string>PsychicWhip</string>
                     <string>SpellWeb</string>
                     <string>WitherAndBloom</string>
@@ -1587,12 +1589,14 @@
                     <string>RadiantMotes</string>
                     <string>VileBrew</string>
                     <string>WitchBolt</string>
+                    <string>AganazzarScorcher</string>
                     <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
                     <string>MirrorImage</string>
                     <string>NoxiousSpray</string>
                     <string>BindingIce</string>
                     <string>ShadowBlade</string>
+                    <string>SnillocSnowballStorm</string>
                     <string>PsychicWhip</string>
                     <string>SpellWeb</string>
                     <string>WitherAndBloom</string>

@@ -1,6 +1,7 @@
 1.5.97.8:
 
 - added UA Stealthy feat
+- added Aganazzar's Scorcher, and Snilloc's Snowball Storm spells
 - fixed Barbarian rage not granting advantage on STR saves [VANILLA]
 - fixed mod boot up for KO users and rebuilt DE, ES, FR, IT, JA, and PT-br translations
 - fixed multi-classed Druid/Paladin to offer divine smite slots under wildshape
