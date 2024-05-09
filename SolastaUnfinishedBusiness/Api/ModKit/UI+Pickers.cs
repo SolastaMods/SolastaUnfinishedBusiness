@@ -73,7 +73,7 @@ internal static partial class UI
 
         if (IsNarrow)
         {
-            xCols = Math.Min(4, xCols);
+            xCols = Math.Min(5, xCols);
         }
 
         var sel = selected;

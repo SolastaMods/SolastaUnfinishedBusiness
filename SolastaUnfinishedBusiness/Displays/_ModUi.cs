@@ -524,6 +524,7 @@ internal sealed class InterfaceViewer : IMenuSelectablePage
     }
 }
 
+#if false
 [UsedImplicitly]
 internal sealed class PartyEditorViewer : IMenuSelectablePage
 {
@@ -536,6 +537,7 @@ internal sealed class PartyEditorViewer : IMenuSelectablePage
         PartyEditor.OnGUI();
     }
 }
+#endif
 
 [UsedImplicitly]
 internal sealed class EncountersViewer : IMenuSelectablePage
@@ -566,8 +568,9 @@ internal sealed class CreditsAndDiagnosticsViewer : IMenuSelectablePage
     {
         ModUi.DisplaySubMenu(ref _creditsSelectedPane, null,
             new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
-            new NamedAction("Effects", DisplayEffects),
             new NamedAction(Gui.Localize("ModUi/&Blueprints"), DisplayBlueprints),
+            new NamedAction(Gui.Localize("PartyEditor".Localized()), PartyEditor.OnGUI),
+            new NamedAction(Gui.Localize("ModUi/&Effects"), DisplayEffects),
             new NamedAction(Gui.Localize("ModUi/&Services"), DisplayGameServices));
     }
 }

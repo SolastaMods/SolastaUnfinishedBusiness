@@ -6,6 +6,7 @@
 - fixed multi-classed Druid/Paladin to offer divine smite slots under wildshape
 - fixed Roguish Duelist reflexive party to not bleed into other companions
 - fixed Way of Weal and Woe to not trigger "Your Woe" before level 17th
+- moved Party Editor under Credits & Diags
 
 1.5.97.7:
 
