@@ -6,7 +6,7 @@
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
-    <DisplayFeatsToggle>true</DisplayFeatsToggle>
+    <DisplayFeatsToggle>false</DisplayFeatsToggle>
     <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
     <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
     <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
@@ -1107,6 +1107,7 @@
         <string>FeatGroupSpellSniper</string>
         <string>FeatSpiritualFluidity</string>
         <string>FeatGroupSquatNimbleness</string>
+        <string>FeatStealthy</string>
         <string>FeatSuperiorCritical</string>
         <string>FeatGroupTelekinetic</string>
         <string>FeatTheologian</string>
