@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superio
 ModUi/&DisableUnofficialTranslations=Disable unofficial translations support to speed up mod <i><color=#F0DAA0>[unless I speak Chinese, Italian, Japanese, Korean or Spanish]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from other classes during level up</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Display <color=#D89555>Warlock</color> pact slots on spell selection instead of character panel</i>
+ModUi/&DocsArcaneShots=DOCS: Arcane Shots
+ModUi/&DocsBackgrounds=DOCS: Backgrounds
+ModUi/&DocsFeats=DOCS: Feats
+ModUi/&DocsFightingStyles=DOCS: Fighting Styles
+ModUi/&DocsInfusions=DOCS: Infusions
+ModUi/&DocsInvocations=DOCS: Invocations
+ModUi/&DocsManeuvers=DOCS: Maneuvers
+ModUi/&DocsMetamagic=DOCS: Metamagic
+ModUi/&DocsRaces=DOCS: Races
+ModUi/&DocsSpells=DOCS: Spells
+ModUi/&DocsSubclasses=DOCS: Subclasses
+ModUi/&DocsSubraces=DOCS: Subraces
 ModUi/&Donate=<b><color=#D89555>Donate:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Don't display helmets on graphic characters <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Don't end turn after using <color=#D89555>ready action</color> <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>

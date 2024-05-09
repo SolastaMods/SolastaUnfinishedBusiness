@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=禁用所有可玩种族的<co
 ModUi/&DisableUnofficialTranslations=禁用非官方翻译支持以加快启动速度并改善内存使用<i><color=#F0DAA0>[除非我使用意大利语、日语、韩语或西班牙语]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+在升级过程中显示其他职业的所有已知法术</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+在法术选择而非角色面板上显示<color=#D89555>邪术士</color>契约槽位</i>
+ModUi/&DocsArcaneShots=DOCS：奥术射击
+ModUi/&DocsBackgrounds=文档：背景
+ModUi/&DocsFeats=文件：壮举
+ModUi/&DocsFightingStyles=DOCS：战斗风格
+ModUi/&DocsInfusions=文件：输液
+ModUi/&DocsInvocations=文档：调用
+ModUi/&DocsManeuvers=文件：演习
+ModUi/&DocsMetamagic=文档：Metamagic
+ModUi/&DocsRaces=文件：比赛
+ModUi/&DocsSpells=文档：咒语
+ModUi/&DocsSubclasses=文档：子类
+ModUi/&DocsSubraces=文档：子类
 ModUi/&Donate=<b><color=#D89555>捐赠：</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=不在角色图像上显示头盔<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&DontEndTurnAfterReady=使用准备动作后不会结束回合<i><color=#F0DAA0>[允许使用附赠动作或任何来自加速或其他来源的额外主要动作]</color></i>

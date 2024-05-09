@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactiver <color=#D89555>Vis
 ModUi/&DisableUnofficialTranslations=Désactiver la prise en charge des traductions non officielles pour accélérer le mod <i><color=#F0DAA0>[sauf si je parle chinois, italien, japonais, coréen ou espagnol]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus des autres classes lors de la montée de niveau</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte de l'<color=#D89555>Occultiste</color> sur la sélection de sorts plutôt que sur l'écran de personnage</i>
+ModUi/&DocsArcaneShots=DOCS : Tirs arcaniques
+ModUi/&DocsBackgrounds=DOCS : arrière-plans
+ModUi/&DocsFeats=DOCS : exploits
+ModUi/&DocsFightingStyles=DOCS : Styles de combat
+ModUi/&DocsInfusions=DOCS : Infusions
+ModUi/&DocsInvocations=DOCS : Invocations
+ModUi/&DocsManeuvers=DOCS : Manœuvres
+ModUi/&DocsMetamagic=DOCS : Métamagie
+ModUi/&DocsRaces=DOCS : Courses
+ModUi/&DocsSpells=DOCS : Sorts
+ModUi/&DocsSubclasses=DOCS : sous-classes
+ModUi/&DocsSubraces=DOCS : sous-races
 ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Ne pas afficher les casques sur les vignettes de personnages<b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir sélectionné une action préparée <i><color=#F0DAA0>[permet d'utiliser l'action bonus ou toute action principale supplémentaire liée à Hâte ou d'autres sources]</color></i>

@@ -93,7 +93,7 @@ internal static class ProficienciesDisplay
     {
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Feats docs".Bold().Khaki(),
+            UI.ActionButton(Gui.Localize("ModUi/&DocsFeats").Bold().Khaki(),
                 () => UpdateContext.OpenDocumentation("Feats.md"), UI.Width(200f));
         }
 
@@ -102,7 +102,7 @@ internal static class ProficienciesDisplay
 
     private static void FightingStylesHeader()
     {
-        UI.ActionButton("Fighting Styles docs".Bold().Khaki(),
+        UI.ActionButton(Gui.Localize("ModUi/&DocsFightingStyles").Bold().Khaki(),
             () => UpdateContext.OpenDocumentation("FightingStyles.md"), UI.Width(200f));
 
         UI.Label();
@@ -110,7 +110,7 @@ internal static class ProficienciesDisplay
 
     private static void InvocationsHeader()
     {
-        UI.ActionButton("Invocations docs".Bold().Khaki(),
+        UI.ActionButton(Gui.Localize("ModUi/&DocsInvocations").Bold().Khaki(),
             () => UpdateContext.OpenDocumentation("Invocations.md"), UI.Width(200f));
 
         UI.Label();
@@ -118,7 +118,7 @@ internal static class ProficienciesDisplay
 
     private static void MetamagicHeader()
     {
-        UI.ActionButton("Metamagic docs".Bold().Khaki(),
+        UI.ActionButton(Gui.Localize("ModUi/&DocsMetamagic").Bold().Khaki(),
             () => UpdateContext.OpenDocumentation("Metamagic.md"), UI.Width(200f));
 
         UI.Label();
@@ -128,13 +128,13 @@ internal static class ProficienciesDisplay
     {
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Arcane Shots docs".Bold().Khaki(),
+            UI.ActionButton(Gui.Localize("ModUi/&DocsArcaneShots").Bold().Khaki(),
                 () => UpdateContext.OpenDocumentation("ArcaneShots.md"), UI.Width(200f));
             2.Space();
-            UI.ActionButton("Maneuvers docs".Bold().Khaki(),
+            UI.ActionButton(Gui.Localize("ModUi/&DocsManeuvers").Bold().Khaki(),
                 () => UpdateContext.OpenDocumentation("Maneuvers.md"), UI.Width(200f));
             2.Space();
-            UI.ActionButton("Infusions docs".Bold().Khaki(),
+            UI.ActionButton(Gui.Localize("ModUi/&DocsInfusions").Bold().Khaki(),
                 () => UpdateContext.OpenDocumentation("Infusions.md"), UI.Width(200f));
         }
 
