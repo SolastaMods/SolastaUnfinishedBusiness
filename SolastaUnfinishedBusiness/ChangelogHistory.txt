@@ -3,6 +3,7 @@
 - added UA Stealthy feat
 - added Aganazzar's Scorcher, and Snilloc's Snowball Storm spells
 - added Backgrounds documentation button to mod UI
+- fixed Baleful Scion behavior under multiplayer sessions
 - fixed Barbarian rage not granting advantage on STR saves [VANILLA]
 - fixed Devious Strike: Knock Out to be applied after all current attack damages
 - fixed Handaxe, Javelin, Quarterstaff, and Shield recipes to require primed items

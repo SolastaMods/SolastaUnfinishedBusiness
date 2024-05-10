@@ -821,14 +821,14 @@ internal static class OtherFeats
             .SetNotificationTag("BalefulScion")
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeNecrotic)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetImpactParticleReference(PowerWightLordRetaliate)
-            .AddCustomSubFeatures(
-                new ValidateContextInsteadOfRestrictedProperty(
-                    (_, _, character, _, _, _, _) =>
-                        (OperationType.Set,
-                            character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) &&
-                            character.GetRemainingPowerUses(powerBalefulScion) > 0)))
+            .AddToDB();
+
+        var conditionBalefulScion = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalDamageBalefulScion)
             .AddToDB();
 
         _ = ActionDefinitionBuilder
@@ -845,7 +845,7 @@ internal static class OtherFeats
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle)
             .AddCustomSubFeatures(
-                new CustomBehaviorBalefulScion(powerBalefulScion, additionalDamageBalefulScion),
+                new CustomBehaviorBalefulScion(powerBalefulScion, conditionBalefulScion, additionalDamageBalefulScion),
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerBalefulScion)))
             .AddToDB();
 
@@ -919,26 +919,36 @@ internal static class OtherFeats
     private class CustomBehaviorBalefulScion(
         FeatureDefinitionPower powerBalefulScion,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionBalefulScion,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionAdditionalDamage additionalDamageBalefulScion)
         : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, IModifyAdditionalDamage,
             IActionFinishedByMe
     {
+        private int _damageReceived;
         private bool _isCritical;
-        private bool _isValid;
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (!_isValid)
+            if (action is not (CharacterActionAttack or CharacterActionMagicEffect))
             {
                 yield break;
             }
 
-            _isValid = false;
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionBalefulScion.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            rulesetCharacter.RemoveCondition(activeCondition);
 
             var roll = RollDie(DieType.D6, AdvantageType.None, out _, out _);
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var healAmount = (roll * (_isCritical ? 2 : 1)) +
-                             rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var healAmount =
+                (roll * (_isCritical ? 2 : 1)) +
+                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             rulesetCharacter.ReceiveHealing(healAmount, true, rulesetCharacter.Guid);
         }
@@ -954,7 +964,6 @@ internal static class OtherFeats
             bool criticalHit)
         {
             _isCritical = criticalHit;
-            _isValid = false;
 
             if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
@@ -994,7 +1003,6 @@ internal static class OtherFeats
             bool criticalHit)
         {
             _isCritical = criticalHit;
-            _isValid = false;
 
             if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
@@ -1004,28 +1012,34 @@ internal static class OtherFeats
             yield return HandleBalefulScion(attacker, defender);
         }
 
-        private IEnumerator HandleBalefulScion(
-            // ReSharper disable once SuggestBaseTypeForParameter
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+        private IEnumerator HandleBalefulScion(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
 
             if (!attacker.IsWithinRange(defender, 12) ||
                 !attacker.OncePerTurnIsValid("AdditionalDamageFeatBalefulScion") ||
-                rulesetDefender is not { IsDeadOrUnconscious: false } ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) ||
                 rulesetAttacker.GetRemainingPowerUses(powerBalefulScion) == 0)
             {
                 yield break;
             }
 
-            _isValid = true;
-
             var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
 
             usablePower.Consume();
+            rulesetAttacker.InflictCondition(
+                conditionBalefulScion.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionBalefulScion.Name,
+                0,
+                0,
+                0);
         }
     }
 
