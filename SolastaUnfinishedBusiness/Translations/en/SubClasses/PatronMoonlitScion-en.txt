@@ -1,6 +1,6 @@
 Feature/&AttributeModifierMoonlitScionLunarRadianceEnemyDescription=–1 penalty to AC
 Feature/&AttributeModifierMoonlitScionLunarRadianceEnemyTitle=Lunar Radiance
-Feature/&FeatureMoonlitScionLunarEmbraceDescription=The damage to your Lunar Cloak increases to 2d8. In addition, whenever you conjure a cloak, you gain flying speed equal to your walking speed for the duration of the cloak.
+Feature/&FeatureMoonlitScionLunarEmbraceDescription=The damage of your Lunar Cloak increases to 2d8. In addition, whenever you conjure a cloak, you gain flying speed equal to your walking speed for the duration of the cloak.
 Feature/&FeatureMoonlitScionLunarEmbraceTitle=Lunar Embrace
 Feature/&FeatureSetMoonlitScionLunarCloakDescription=You can use your bonus action to conjure a cloak of light or darkness, gaining one of the following benefits for one minute:\nFull Moon: You shed bright light in a 15-foot radius and dim light in an additional 15-foot radius around you and gain the lunar radiance power. Make a melee spell attack. On a hit, the creature takes 1d8 radiant damage and has a –1 penalty to AC until the end of your next turn.\nNew Moon: You are obscured in non-magical darkness. If you move to a tile that is in dim or bright light, you are considered to be in non-magical darkness instead, and gain the lunar chill power. Make a melee spell attack. On a hit, the creature takes 1d8 cold damage and is hindered until the end of your next turn.
 Feature/&FeatureSetMoonlitScionLunarCloakTitle=Lunar Cloak
