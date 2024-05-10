@@ -1081,7 +1081,6 @@ internal static partial class SpellBuilders
                 var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
                 var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
                 {
-                    ActionModifiers = { new ActionModifier() },
                     StringParameter = "ChaosBolt",
                     RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),

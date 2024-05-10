@@ -925,7 +925,6 @@ internal static class OtherFeats
         : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, IModifyAdditionalDamage,
             IActionFinishedByMe
     {
-        private int _damageReceived;
         private bool _isCritical;
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
