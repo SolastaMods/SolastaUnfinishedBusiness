@@ -94,8 +94,9 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeFire, 4, DieType.D8)
+                            .SetDamageForm(DamageTypeFire, 3, DieType.D10)
                             .Build())
+                    .SetParticleEffectParameters(PowerSessrothBreath)
                     .SetCasterEffectParameters(FlameBlade)
                     .SetImpactEffectParameters(ScorchingRay)
                     .Build())
