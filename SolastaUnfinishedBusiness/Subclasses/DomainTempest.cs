@@ -381,6 +381,11 @@ public sealed class DomainTempest : AbstractSubclass
             actionManager.AddInterruptRequest(reactionRequest);
 
             yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (actionParams.ReactionValidated)
+            {
+                attacker.SpendActionType(ActionDefinitions.ActionType.Reaction);
+            }
         }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
@@ -394,6 +399,7 @@ public sealed class DomainTempest : AbstractSubclass
             bool criticalHit)
         {
             _isValid = attacker.IsWithinRange(defender, 1) &&
+                       attacker.CanReact() &&
                        defender.CanPerceiveTarget(attacker) &&
                        rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit;
 
@@ -413,6 +419,7 @@ public sealed class DomainTempest : AbstractSubclass
             bool criticalHit)
         {
             _isValid = attacker.IsWithinRange(defender, 1) &&
+                       attacker.CanReact() &&
                        defender.CanPerceiveTarget(attacker);
 
             yield break;
