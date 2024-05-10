@@ -948,10 +948,6 @@ internal static partial class CharacterContext
                     .Build())
             .AddToDB();
 
-        powerPool.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
-            new CustomBehaviorCunningStrike(powerPool));
-
         // Disarm
 
         var combatAffinityDisarmed = FeatureDefinitionCombatAffinityBuilder
@@ -1149,6 +1145,14 @@ internal static partial class CharacterContext
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool, 6)
             .SetShowCasting(false)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
+            .AddToDB();
+
+        var powerKnockOutApply = FeatureDefinitionPowerBuilder
+            .Create($"Power{Devious}KnockOutApply")
+            .SetGuiPresentation($"Power{Devious}KnockOut", Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1163,7 +1167,6 @@ internal static partial class CharacterContext
                             .SetConditionForm(conditionKnockOut, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // Obscure
@@ -1192,6 +1195,10 @@ internal static partial class CharacterContext
             .AddToDB();
 
         // MAIN
+
+        powerPool.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new CustomBehaviorCunningStrike(powerPool, powerKnockOut, powerKnockOutApply));
 
         PowerBundle.RegisterPowerBundle(powerPool, true,
             powerDisarm, powerPoison, powerTrip, powerWithdraw, powerDaze, powerKnockOut, powerObscure);
@@ -1246,7 +1253,9 @@ internal static partial class CharacterContext
     }
 
     private sealed class CustomBehaviorCunningStrike(
-        FeatureDefinitionPower powerRogueCunningStrike)
+        FeatureDefinitionPower powerRogueCunningStrike,
+        FeatureDefinitionPower powerKnockOut,
+        FeatureDefinitionPower powerKnockOutApply)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private FeatureDefinitionPower _selectedPower;
@@ -1333,6 +1342,7 @@ internal static partial class CharacterContext
                 0);
         }
 
+        // handle Knock Out exception which should apply condition after attack
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1342,13 +1352,10 @@ internal static partial class CharacterContext
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (!_selectedPower ||
-                _selectedPower.EffectDescription.RangeType != RangeType.MeleeHit)
+            if (_selectedPower != powerKnockOut)
             {
                 yield break;
             }
-
-            var power = _selectedPower;
 
             _selectedPower = null;
 
@@ -1364,7 +1371,7 @@ internal static partial class CharacterContext
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerKnockOutApply, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },

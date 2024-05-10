@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -71,10 +72,6 @@ public sealed class RoguishOpportunist : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerDebilitatingStrike.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
-            new PhysicalAttackBeforeHitConfirmedOnEnemyDebilitatingStrike(powerDebilitatingStrike));
-
         // Opportunity
 
         var featureOpportunity = FeatureDefinitionBuilder
@@ -140,6 +137,13 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetOverriddenPower(powerDebilitatingStrike)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
+
+
+        powerDebilitatingStrike.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new PhysicalAttackBeforeHitConfirmedOnEnemyDebilitatingStrike(
+                powerDebilitatingStrike, conditionDebilitated,
+                powerImprovedDebilitatingStrike, conditionImprovedDebilitated));
 
         // LEVEL 17
 
@@ -208,7 +212,10 @@ public sealed class RoguishOpportunist : AbstractSubclass
     //
 
     private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyDebilitatingStrike(
-        FeatureDefinitionPower powerDebilitatingStrike) : IPhysicalAttackBeforeHitConfirmedOnEnemy
+        FeatureDefinitionPower powerDebilitatingStrike,
+        ConditionDefinition conditionDebilitatingStrike,
+        FeatureDefinitionPower powerImprovedDebilitatingStrike,
+        ConditionDefinition conditionImprovedDebilitatingStrike) : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -228,21 +235,41 @@ public sealed class RoguishOpportunist : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+            var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;
+            var advantageTrends = rulesetDefender.actionModifier.savingThrowAdvantageTrends;
+            var attackerDexModifier = ComputeAbilityScoreModifier(rulesetAttacker.TryGetAttributeValue(Dexterity));
+            var pb = rulesetAttacker.TryGetAttributeValue(ProficiencyBonus);
+            var defenderConModifier = ComputeAbilityScoreModifier(rulesetDefender.TryGetAttributeValue(Constitution));
+            var level = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Rogue);
+            var feature = level < 13 ? powerDebilitatingStrike : powerImprovedDebilitatingStrike;
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            rulesetDefender.RollSavingThrow(0, Constitution, feature, modifierTrend,
+                advantageTrends, defenderConModifier, 8 + pb + attackerDexModifier, true,
+                out var savingOutcome,
+                out _);
 
-            var usablePower = PowerProvider.Get(powerDebilitatingStrike, rulesetAttacker);
-            // must be spend power otherwise it'll trigger after cunning strike
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower)
+            if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower
-            };
+                yield break;
+            }
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, false);
+            var condition = level < 13 ? conditionDebilitatingStrike : conditionImprovedDebilitatingStrike;
+
+            EffectHelpers.StartVisualEffect(attacker, defender, InflictWounds);
+            rulesetDefender.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
+                TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                condition.Name,
+                0,
+                0,
+                0);
         }
     }
 
