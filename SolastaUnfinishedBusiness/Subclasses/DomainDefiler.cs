@@ -414,7 +414,6 @@ public sealed class DomainDefiler : AbstractSubclass
             var usablePower = PowerProvider.Get(powerDyingLight, rulesetAttacker);
 
             rulesetAttacker.UsePower(usablePower);
-            rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
 
         public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
@@ -448,10 +447,17 @@ public sealed class DomainDefiler : AbstractSubclass
             var damageType = GetAdditionalDamageType(attacker, additionalDamageForm, featureDefinitionAdditionalDamage);
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDyingLight, rulesetAttacker);
+            var isValid = rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
+                          rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                          damageType is DamageTypeNecrotic;
 
-            _isValid = rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
-                       rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
-                       damageType is DamageTypeNecrotic;
+            if (!isValid)
+            {
+                return;
+            }
+
+            _isValid = true;
+            rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -484,6 +490,11 @@ public sealed class DomainDefiler : AbstractSubclass
                 actualEffectForms.Any(x =>
                     x.FormType == EffectForm.EffectFormType.Damage &&
                     x.DamageForm.DamageType is DamageTypeNecrotic);
+
+            if (_isValid)
+            {
+                rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
+            }
         }
     }
 }

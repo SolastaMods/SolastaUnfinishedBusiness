@@ -6,6 +6,7 @@
 - fixed Baleful Scion and Wither and Bloom behaviors under multiplayer sessions [NEED TEST]
 - fixed Barbarian rage not granting advantage on STR saves [VANILLA]
 - fixed Devious Strike: Knock Out to be applied after all current attack damages
+- fixed Domains Defiler and Tempest respective channel divinity trigger on damage type dealt
 - fixed Handaxe, Javelin, Quarterstaff, and Shield recipes to require primed items
 - fixed Militia background to grant Athletics, Deception and Intimidation
 - fixed mod boot up for KO users and rebuilt DE, ES, FR, IT, JA, and PT-br translations
