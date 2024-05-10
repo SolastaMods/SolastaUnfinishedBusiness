@@ -311,8 +311,6 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
             action.SaveOutcome = saveOutcome;
             action.SaveOutcomeDelta = saveOutcomeDelta;
-
-            rulesetOriginalHelper.LogCharacterUsedPower(powerInspiringProtection, indent: true);
         }
 
         private static string FormatReactionDescription(
