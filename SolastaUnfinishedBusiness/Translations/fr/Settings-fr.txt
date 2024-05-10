@@ -100,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter les nouveaux objets au Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Activer l'<color=#D89555>Humain</color> alternatif <i><color=#F0DAA0>[+1 Don / +2 choix de Caractéristiques / +1 Compétence]</color></i>
 ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[utiliser le modificateur de charisme du héros pour déterminer le poids de son choix]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Activez l'<color=#D89555>Inspiration bardique</color>, la <color=#D89555>Chance abondante</color>, le <color=#D89555>Cercle d'étoiles</color>, le <color=#D89555>Flash de génie </color> et <color=#D89555>Lucky</color> pour déclencher également les vérifications d'attributs hors combat
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Activez l'<color=#D89555>Inspiration bardique</color> pour déclencher également les vérifications d'attributs hors combat
 ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Barbare</color> <b>Frappe brutale</b> et <b>Amélioration de la frappe brutale</b> aux niveaux de classe 9, 13 et 17.
 ModUi/&EnableBarbarianFightingStyle=Activer pour le <color=#D89555>Barbare</color> le choix d'un <b>Style de combat</b> au niveau 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Activez le buff et le débuff <color=#D89555>Barbare</color> <b>Attaque téméraire</b> pour terminer au début du prochain tour.

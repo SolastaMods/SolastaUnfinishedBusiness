@@ -26,11 +26,6 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
             ref IEnumerator __result,
             FunctorParametersDescription functorParameters)
         {
-            if (!Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat)
-            {
-                return true;
-            }
-
             __result = Execute(functorParameters);
 
             return false;
@@ -179,7 +174,8 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                 var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
                     as GameLocationBattleManager;
 
-                if (rollOutcome == RuleDefinitions.RollOutcome.Failure)
+                if (Main.Settings.EnableAttributeCheckHelpersToWorkOffCombat &&
+                    rollOutcome == RuleDefinitions.RollOutcome.Failure)
                 {
                     battleManager!.GetBestParametersForBardicDieRoll(
                         actingCharacter,

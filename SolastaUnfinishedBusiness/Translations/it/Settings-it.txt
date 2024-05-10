@@ -100,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Aggiungi nuovi elementi a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color=#F0DAA0>[+1 talento / +2 scelte attributi / +1 abilità]</color></i>
 ModUi/&EnableAlternateVotingSystem=Abilita il sistema di voto alternativo <i><color=#F0DAA0>[usa il modificatore di carisma dell'eroe per determinare il peso della scelta]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Abilita <color=#D89555> Ispirazione bardica</color>, <color=#D89555> Fortuna abbondante</color>, <color=#D89555> Cerchio di stelle</color>, <color=#D89555> Lampo di genio </color> e <color=#D89555> Fortunato</color> ad attivarsi anche durante i controlli degli attributi fuori combattimento
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Abilita <color=#D89555> Ispirazione bardica</color> ad attivarsi anche durante i controlli degli attributi fuori combattimento
 ModUi/&EnableBarbarianBrutalStrike=Abilita <color=#D89555>Barbaro</color> <b>Colpo Brutale</b> e <b>Miglioramento Colpo Brutale</b> ai livelli di classe 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Barbaro</color> <b>Stile di combattimento</b> al livello 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Abilita il buff e il debuff <color=#D89555>Barbaro</color> <b>Attacco spericolato</b> per terminare all'inizio del turno successivo

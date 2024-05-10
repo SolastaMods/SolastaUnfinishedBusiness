@@ -100,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für 
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Neue Gegenstände zu Dungeon Maker hinzufügen</i>
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen Menschen <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
 ModUi/&EnableAlternateVotingSystem=Aktivieren Sie das alternative Abstimmungssystem <i><color=#F0DAA0>[verwenden Sie den Helden-Charisma-Modifikator, um die Auswahlgewichtung zu bestimmen]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Aktiviere <color=#D89555>bardische Inspiration</color>, <color=#D89555>reichliches Glück</color>, <color=#D89555>Sternenkreis</color>, <color=#D89555>Genieblitz </color> und <color=#D89555>Glück</color>, um auch Attributprüfungen außerhalb des Kampfes auszulösen
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Aktiviere <color=#D89555>bardische Inspiration</color> um auch Attributprüfungen außerhalb des Kampfes auszulösen
 ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Barbar</color> <b>Brutal Strike</b> und <b>Brutal Strike Improvement</b> auf den Klassenstufen 9, 13 und 17
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie die Stärkung und Schwächung von <color=#D89555>Barbar</color> <b>Rücksichtsloser Angriff</b>, damit sie zu Beginn der nächsten Runde endet

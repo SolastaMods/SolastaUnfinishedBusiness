@@ -100,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、�
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ ダンジョンメーカーに新しいアイテムを追加</i>
 ModUi/&EnableAlternateHuman=代替人間 <i><color=#F0DAA0>[+1 特技 / +2 属性選択 / +1 スキル]</color></i> を有効にする
 ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする <i><color=#F0DAA0>[選択の重みを決定するにはヒーローのカリスマ修飾子を使用]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=<color=#D89555>吟遊詩人のインスピレーション</color>、<color=#D89555>豊かな幸運</color>、<color=#D89555>星の輪</color>、<color=#D89555>天才の閃きを有効にする</color>、<color=#D89555>幸運</color>で戦闘属性チェック以外でも発動
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=<color=#D89555>吟遊詩人のインスピレーション</color>で戦闘属性チェック以外でも発動
 ModUi/&EnableBarbarianBrutalStrike=クラスレベル9、13、17で<color=#D89555>バーバリアン</color>の<b>ブルータルストライク</b>と<b>ブルータルストライクの改善</b>を有効にします
 ModUi/&EnableBarbarianFightingStyle=レベル 2 で<color=#D89555>野蛮人</color>の<b>戦闘スタイル</b>の選択が可能になります
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>野蛮人</color> の<b>無謀な攻撃</b>のバフとデバフを有効にし、次のターンの開始時に終了します
