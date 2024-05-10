@@ -62,8 +62,7 @@ internal static class PowerBundleContext
                     {
                         ActionModifiers = { new ActionModifier() },
                         RulesetEffect = implementationManager
-                            .MyInstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true)
-                            .AddAsActivePowerToSource(),
+                            .MyInstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true),
                         UsablePower = usablePower,
                         TargetCharacters = { fromActor },
                         SkipAnimationsAndVFX = true
@@ -83,8 +82,7 @@ internal static class PowerBundleContext
 
                     formsParams.FillSourceAndTarget(ruleChar, ruleChar);
                     formsParams.FillFromActiveEffect(implementationManager
-                        .MyInstantiateEffectPower(ruleChar, usablePower, false)
-                        .AddAsActivePowerToSource());
+                        .MyInstantiateEffectPower(ruleChar, usablePower, false));
                     formsParams.effectSourceType = EffectSourceType.Power;
 
                     ruleChar.UsePower(usablePower);

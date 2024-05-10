@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿#if false
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -29,3 +30,4 @@ public static class RulesetEffectPowerExtensions
         return rulesetPower;
     }
 }
+#endif
