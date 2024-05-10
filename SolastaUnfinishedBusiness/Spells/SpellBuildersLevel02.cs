@@ -56,8 +56,8 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeCold, 3, DieType.D8)
                             .Build())
+                    .SetParticleEffectParameters(FreezingSphere)
                     .SetCasterEffectParameters(SleetStorm)
-                    .SetImpactEffectParameters(RayOfFrost)
                     .Build())
             .AddToDB();
 

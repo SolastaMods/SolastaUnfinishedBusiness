@@ -3621,6 +3621,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition FreedomOfMovement { get; } =
             GetDefinition<SpellDefinition>("FreedomOfMovement");
 
+        internal static SpellDefinition FreezingSphere { get; } = GetDefinition<SpellDefinition>("FreezingSphere");
         internal static SpellDefinition GiantInsect { get; } = GetDefinition<SpellDefinition>("GiantInsect");
 
         internal static SpellDefinition GlobeOfInvulnerability { get; } =

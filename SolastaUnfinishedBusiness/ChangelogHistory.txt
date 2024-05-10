@@ -3,7 +3,8 @@
 - added Stealthy feat
 - added Aganazzar's Scorcher, and Snilloc's Snowball Storm spells
 - added Backgrounds documentation button to mod UI
-- fixed Baleful Scion and Wither and Bloom behaviors under multiplayer sessions [NEED TEST]
+- fixed all effects targeting positions also applying conditions to self [Artillerist, Far Step, etc.]
+- fixed Baleful Scion and Wither and Bloom behaviors under multiplayer sessions [NEEDS TEST]
 - fixed Barbarian rage not granting advantage on STR saves [VANILLA]
 - fixed Devious Strike: Knock Out to be applied after all current attack damages
 - fixed Domain Defiler dying light trigger validator

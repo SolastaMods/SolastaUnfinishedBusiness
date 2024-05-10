@@ -159,7 +159,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "c0b137f1094528242b45b58e17e21d0d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -171,7 +171,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "6059081838488a149ab9d59abe1c2543",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -183,7 +183,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "51cf46189b99f0f48bfbf3b8c6e4a355",
+        "m_AssetGUID": "95b39d78802fa6d49827100ab4f301bb",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
