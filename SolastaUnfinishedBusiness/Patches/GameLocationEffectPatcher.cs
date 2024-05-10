@@ -38,19 +38,19 @@ public static class GameLocationEffectPatcher
             }
             else
             {
-                Main.Info("SERIALIZATION: null rulesetEffect");
+                //Main.Info("SERIALIZATION: null rulesetEffect");
             }
 
             var guid = serializer.SerializeAttribute("RulesetEffectGuid", num);
 
             if (RulesetEntity.TryGetEntity(guid, out __instance.rulesetEffect))
             {
-                Main.Info($"SERIALIZATION: {__instance.rulesetEffect.Name}");
+                //Main.Info($"SERIALIZATION: {__instance.rulesetEffect.Name}");
                 __instance.rulesetEffect.EntityImplementation = __instance;
             }
             else
             {
-                Main.Info($"Cannot reconcile RulesetEffect {__instance.effectSourceName} of id {guid}");
+                //Main.Info($"Cannot reconcile RulesetEffect {__instance.effectSourceName} of id {guid}");
             }
 
             __instance.position = serializer.SerializeAttribute("Position", __instance.position);
