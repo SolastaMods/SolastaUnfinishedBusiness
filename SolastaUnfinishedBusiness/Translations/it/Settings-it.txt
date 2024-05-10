@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>Combattimento:</color>
 ModUi/&Crafting=<color=#F0DAA0>Creazione:</color>
 ModUi/&CraftingHelp=• Premi il pulsante per imparare le ricette all'istante sulla festa attiva\n• Gli articoli aggiunti ai negozi potrebbero richiedere che il gruppo si allontani dal luogo e ritorni
 ModUi/&Credits=Crediti
-ModUi/&CreditsAndDiagnostics=Crediti e diag
+ModUi/&CreditsAndDiagnostics=Crediti e diagnostica
 ModUi/&Critical=<color=#F0DAA0> Colpo critico:</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: impostazione predefinita del gioco, tira due volte i dadi di danno, somma il risultato e aggiungi i modificatori <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: somma il risultato massimo per i dadi di danno e sommalo al danno dell'attacco <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>

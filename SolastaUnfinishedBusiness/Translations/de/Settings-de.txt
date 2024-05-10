@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>Kampf:</color>
 ModUi/&Crafting=<color=#F0DAA0>Herstellung:</color>
 ModUi/&CraftingHelp=• Drücken Sie die Taste, um Rezepte sofort auf der aktiven Gruppe zu lernen\n• Für Artikel, die zu Geschäften hinzugefügt werden, kann es erforderlich sein, dass die Gruppe den Standort verlässt und zurückkommt
 ModUi/&Credits=Credits
-ModUi/&CreditsAndDiagnostics=Credits und Diagnosen
+ModUi/&CreditsAndDiagnostics=Credits & Diagnose
 ModUi/&Critical=<color=#F0DAA0>Kritischer Treffer:</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: Spielstandard, werfen Sie alle Schadenswürfel zweimal, addieren Sie das Ergebnis und fügen Sie Modifikatoren hinzu <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: Summiere das maximale Ergebnis für die Schadenswürfel und addiere es zum Schaden des Angriffs <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>

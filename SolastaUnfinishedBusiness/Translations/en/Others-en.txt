@@ -273,6 +273,7 @@ Screen/&SwitchConfigurationDescription=Switch your equipped items to this config
 Spell/&ConjureElementalInvisibleStalkerTitle=Conjure Elemental [Invisible Stalker]
 Stage/&IdentityMorphotypeEyeHeader=Eye Style
 ToolTip/&CheckBoxDefaultPartyTitle=Check this box to set your default party when starting new adventures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
+Tooltip/&AdvancementByCasterLevelFormat=At character levels 5, 11, and 17
 Tooltip/&ChannelDivinityPortraitPoolFormat=You have {0} out of {1} uses of Channel Divinity.\nAll uses are restored on short or long rest.
 Tooltip/&CoordinatedAssaultPortraitPoolFormat=You have {0} out of {1} uses of Coordinated Assault.\nAll uses are restored on a long rest.
 Tooltip/&CustomMapMarkerCamp=Camp

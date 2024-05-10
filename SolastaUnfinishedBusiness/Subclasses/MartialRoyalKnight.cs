@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -310,6 +311,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
             action.SaveOutcome = saveOutcome;
             action.SaveOutcomeDelta = saveOutcomeDelta;
+
+            rulesetOriginalHelper.LogCharacterUsedPower(powerInspiringProtection, indent: true);
         }
 
         private static string FormatReactionDescription(

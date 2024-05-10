@@ -1,6 +1,7 @@
 using System.Collections;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -293,6 +294,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             }
 
             rulesetAttacker.UsePower(usablePower);
+            rulesetAttacker.LogCharacterUsedPower(powerOrganDonation);
 
             var usablePowerEmergencyCure = PowerProvider.Get(powerEmergencyCure, rulesetAttacker);
 

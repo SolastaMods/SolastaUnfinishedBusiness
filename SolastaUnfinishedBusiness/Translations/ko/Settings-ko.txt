@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>전투:</color>
 ModUi/&Crafting=<color=#F0DAA0>제작:</color>
 ModUi/&CraftingHelp=• 버튼을 누르면 활성화된 파티에서 즉시 제작법을 배울 수 있습니다\n• 상점에 추가돼야 하는 아이템은 파티가 해당 위치를 떠났다가 다시 돌아와야 합니다
 ModUi/&Credits=제작자들
-ModUi/&CreditsAndDiagnostics=제작자 및 파일 분석
+ModUi/&CreditsAndDiagnostics=크레딧 및 진단
 ModUi/&Critical=<color=#F0DAA0>치명타:</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: 게임 기본값으로, 피해 주사위를 두 번 굴려 값을 더하고 수정치를 더합니다 <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: 피해 주사위의 최대값을 합산하여 피해량에 더합니다 <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>

@@ -1,20 +1,20 @@
 1.5.97.8:
 
-- added UA Stealthy feat
+- added Stealthy feat
 - added Aganazzar's Scorcher, and Snilloc's Snowball Storm spells
 - added Backgrounds documentation button to mod UI
 - fixed Baleful Scion and Wither and Bloom behaviors under multiplayer sessions [NEED TEST]
 - fixed Barbarian rage not granting advantage on STR saves [VANILLA]
 - fixed Devious Strike: Knock Out to be applied after all current attack damages
-- fixed Domains Defiler and Tempest respective channel divinity trigger on damage type dealt
+- fixed Domain Defiler dying light trigger validator
+- fixed Domain Tempest destructive wrath and wrath of the storm trigger validators
 - fixed Handaxe, Javelin, Quarterstaff, and Shield recipes to require primed items
 - fixed Militia background to grant Athletics, Deception and Intimidation
 - fixed mod boot up for KO users and rebuilt DE, ES, FR, IT, JA, and PT-br translations
 - fixed multi-classed Druid/Paladin to offer divine smite slots under wildshape
-- fixed Roguish Duelist reflexive party to not bleed into other companions
+- fixed Roguish Duelist reflexive party to not blend into other companions
 - fixed Roguish Opportunist debilitating strike not subtracting D4/D6 on savings
 - fixed Way of Weal and Woe to not trigger "Your Woe" before level 17th
-- moved Party Editor under Credits & Diags
 
 1.5.97.7:
 

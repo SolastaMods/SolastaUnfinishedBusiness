@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>Combate:</color>
 ModUi/&Crafting=<color=#F0DAA0>Fabricación:</color>
 ModUi/&CraftingHelp=• Presiona el botón para aprender recetas al instante en el grupo activo\n• Los artículos agregados a las tiendas pueden necesitar que el grupo se aleje de la ubicación y regrese
 ModUi/&Credits=Créditos
-ModUi/&CreditsAndDiagnostics=Créditos y Diagnósticos
+ModUi/&CreditsAndDiagnostics=Créditos y Diagnóstico
 ModUi/&Critical=<color=#F0DAA0>Golpe crítico:</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: predeterminado del juego, tira cualquier dado de daño dos veces, suma el resultado y agrega modificadores <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: suma el resultado máximo de los dados de daño y súmalo al daño del ataque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>

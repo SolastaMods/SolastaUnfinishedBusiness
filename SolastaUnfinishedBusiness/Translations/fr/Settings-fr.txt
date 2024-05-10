@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>Combat :</color>
 ModUi/&Crafting=<color=#F0DAA0>Artisanat :</color>
 ModUi/&CraftingHelp=• Appuyez sur le bouton pour faire apprendre les recettes instantanément au groupe actif\n• Le rafraîchissement des stocks d'articles ajoutés aux magasins peut nécessiter que le groupe quitte puis revienne à la localité
 ModUi/&Credits=Crédits
-ModUi/&CreditsAndDiagnostics=Crédits & Diagnostiques
+ModUi/&CreditsAndDiagnostics=Crédits & Diagnostics
 ModUi/&Critical=<color=#F0DAA0>Coup critique :</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color> : règle standard du jeu, lancez deux fois les dés de dégâts, ajoutez le résultat et ajoutez les modificateurs <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color> : additionnez le résultat maximum que peuvent obtennir les dés de dégâts et ajoutez-le aux dégâts de l'attaque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>

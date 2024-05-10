@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>Combat:</color>
 ModUi/&Crafting=<color=#F0DAA0>Crafting:</color>
 ModUi/&CraftingHelp=• Press the button to learn recipes instantly on the active party\n• Items added to stores might need the party to travel away from the location and come back
 ModUi/&Credits=Credits
-ModUi/&CreditsAndDiagnostics=Credits & Diags
+ModUi/&CreditsAndDiagnostics=Credits & Diagnostics
 ModUi/&Critical=<color=#F0DAA0>Critical Hit:</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: game default, roll any damage dice twice, add the result and add modifiers <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: sum the maximum result for the damage dice and add it to the attack's damage <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>

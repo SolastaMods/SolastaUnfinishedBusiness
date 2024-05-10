@@ -273,7 +273,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 yield break;
             }
 
-            usablePower.Consume();
+            rulesetAttacker.UsePower(usablePower);
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRollOutcome == RollOutcome.CriticalFailure
