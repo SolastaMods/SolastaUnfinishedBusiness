@@ -273,6 +273,7 @@ Screen/&SwitchConfigurationDescription=Basculez vos objets équipés vers cette 
 Spell/&ConjureElementalInvisibleStalkerTitle=Conjuration élémentaire [Traqueur invisible]
 Stage/&IdentityMorphotypeEyeHeader=Style des yeux
 ToolTip/&CheckBoxDefaultPartyTitle=Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures ou testez des emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré/premier sorti.
+Tooltip/&AdvancementByCasterLevelFormat=Aux niveaux de personnage 5, 11 et 17
 Tooltip/&ChannelDivinityPortraitPoolFormat=Vous avez {0} utilisations sur {1} de Channel Divinity.\nToutes les utilisations sont restaurées lors d'un repos court ou long.
 Tooltip/&CoordinatedAssaultPortraitPoolFormat=Vous avez {0} utilisations sur {1} d'Assaut coordonné.\nToutes les utilisations sont restaurées lors d'un repos long.
 Tooltip/&CustomMapMarkerCamp=Camp

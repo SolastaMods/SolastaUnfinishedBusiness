@@ -273,6 +273,7 @@ Screen/&SwitchConfigurationDescription=Cambia gli oggetti equipaggiati in questa
 Spell/&ConjureElementalInvisibleStalkerTitle=Evoca Elementale [Palcatore invisibile]
 Stage/&IdentityMorphotypeEyeHeader=Stile degli occhi
 ToolTip/&CheckBoxDefaultPartyTitle=Seleziona questa casella per impostare il gruppo predefinito quando inizi nuove avventure o provi luoghi personalizzati. Puoi selezionare fino a {0} eroi in base al principio "first-in/first-out".
+Tooltip/&AdvancementByCasterLevelFormat=Ai livelli dei personaggi 5, 11 e 17
 Tooltip/&ChannelDivinityPortraitPoolFormat=Hai {0} usi su {1} di Channel Divinity.\nTutti gli usi vengono ripristinati con il riposo breve o lungo.
 Tooltip/&CoordinatedAssaultPortraitPoolFormat=Hai {0} usi su {1} di Assalto Coordinato.\nTutti gli usi vengono ripristinati con un riposo lungo.
 Tooltip/&CustomMapMarkerCamp=Campo

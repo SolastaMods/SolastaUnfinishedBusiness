@@ -273,6 +273,7 @@ Screen/&SwitchConfigurationDescription=Cambie sus elementos equipados a esta con
 Spell/&ConjureElementalInvisibleStalkerTitle=Conjurar elemental [Acosador invisible]
 Stage/&IdentityMorphotypeEyeHeader=Estilo de ojos
 ToolTip/&CheckBoxDefaultPartyTitle=Marca esta casilla para configurar tu grupo predeterminado al iniciar nuevas aventuras o probar ubicaciones personalizadas. Puedes seleccionar hasta {0} héroes por orden de entrada y de salida.
+Tooltip/&AdvancementByCasterLevelFormat=En los niveles de personaje 5, 11 y 17
 Tooltip/&ChannelDivinityPortraitPoolFormat=Tienes {0} de los {1} usos de Channel Divinity.\nTodos los usos se restablecen con un descanso breve o prolongado.
 Tooltip/&CoordinatedAssaultPortraitPoolFormat=Tienes {0} de los {1} usos de Asalto coordinado.\nTodos los usos se restablecen con un descanso prolongado.
 Tooltip/&CustomMapMarkerCamp=Acampar

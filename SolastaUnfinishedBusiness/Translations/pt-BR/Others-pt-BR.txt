@@ -273,6 +273,7 @@ Screen/&SwitchConfigurationDescription=Mude seus itens equipados para esta confi
 Spell/&ConjureElementalInvisibleStalkerTitle=Conjurar Elemental [Perseguidor Invisível]
 Stage/&IdentityMorphotypeEyeHeader=Estilo de olho
 ToolTip/&CheckBoxDefaultPartyTitle=Marque esta caixa para definir seu grupo padrão ao iniciar novas aventuras ou testar locais personalizados. Você pode selecionar até {0} heróis por ordem de entrada/primeiro a sair
+Tooltip/&AdvancementByCasterLevelFormat=Nos níveis de personagem 5, 11 e 17
 Tooltip/&ChannelDivinityPortraitPoolFormat=Você tem {0} de {1} usos de Canalizar Divindade.\nTodos os usos são restaurados em um descanso curto ou longo.
 Tooltip/&CoordinatedAssaultPortraitPoolFormat=Você tem {0} de {1} usos de Ataque Coordenado.\nTodos os usos são restaurados após um descanso longo.
 Tooltip/&CustomMapMarkerCamp=Acampamento
