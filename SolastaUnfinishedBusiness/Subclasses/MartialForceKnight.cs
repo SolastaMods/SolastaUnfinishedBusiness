@@ -245,7 +245,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         var featureSetPsionicAdept = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}PsionicAdept")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(PowerPsionicInitiate, powerPsionicAdeptProne, powerPsionicAdeptPush)
+            .AddFeatureSet(powerPsionicAdept, powerPsionicAdeptProne, powerPsionicAdeptPush)
             .AddToDB();
 
         // Psionic Propulsion
