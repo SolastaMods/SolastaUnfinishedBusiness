@@ -1,11 +1,11 @@
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=クリティカル脅威範囲が 1 増加します。
-Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=抑制のない凶暴性
+Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=無制限の凶暴性
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=3 レベルからは、非軽量近接武器を二刀流で使用できるようになり、二次攻撃に能力ボーナスを追加できるようになります。
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthTitle=野蛮な力
 Feature/&FeaturePathOfTheSavageryFuriousDefenseDescription=6 レベル以降、激怒している間、器用さセーヴィング スローをロールするたびに、代わりに強さセーヴィング スローを使用できます。あなたが激怒し、2 つの近接武器を二刀流で使用している間、+2 AC を獲得します。
 Feature/&FeaturePathOfTheSavageryFuriousDefenseTitle=猛烈なディフェンス
-Feature/&FeaturePathOfTheSavageryUnbridledFerocityDescription=レベル 14 から、あなたが激怒している間、近接武器攻撃でクリーチャーを攻撃し、クリティカル ヒットを与えなかったときはいつでも、クリティカルの脅威範囲が 1 増加します。この効果は重複します。クリティカル攻撃を与えると、ボーナスは 0 にリセットされます。
-Feature/&FeaturePathOfTheSavageryUnbridledFerocityTitle=抑制のない凶暴性
+Feature/&FeaturePathOfTheSavageryUnbridledFerocityDescription=レベル 14 以降、激怒しているときにクリーチャーに近接武器攻撃を当て、クリティカル ヒットを与えなかった場合、クリティカルの脅威範囲が 1 増加します。この効果は重複します。クリティカル攻撃を与えると、ボーナスは 0 にリセットされます。
+Feature/&FeaturePathOfTheSavageryUnbridledFerocityTitle=無制限の凶暴性
 Feature/&FeaturePathOfTheSavageryWrathAndFuryDescription=レベル 10 から、近接武器を二刀流で使用している間、装備されている各武器のダメージ カテゴリが 1 ずつ増加します (d4 が d6 に、d6 が d8 に、など)。無謀な攻撃機能を使用するたびに、バーバリアン レベルの半分 (切り上げ) に等しい一時的なヒット ポイントを獲得します。
 Feature/&FeaturePathOfTheSavageryWrathAndFuryTitle=怒りと怒り
 Feature/&FeatureSetPathOfTheSavageryPrimalInstinctDescription=Rage はボーナス アクションの代わりにフリー アクションとして使用できます。

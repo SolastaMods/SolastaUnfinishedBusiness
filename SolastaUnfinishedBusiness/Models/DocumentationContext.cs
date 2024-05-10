@@ -35,10 +35,16 @@ internal static class DocumentationContext
                 x => x.CharacterFamily == characterFamilyDefinition.Name && x.DefaultFaction == "HostileMonsters");
         }
 
-        DumpRaces(string.Empty, _ => true);
+        var vanillaRaces = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+            .Where(x => x.ContentPack != CeContentPackContext.CeContentPack && x.SubRaces.Count != 0);
+
+        DumpRaces("Races", x => vanillaRaces.Contains(x) || RacesContext.Races.Contains(x));
+        DumpRaces("Subraces", x => !vanillaRaces.Contains(x) && !RacesContext.Races.Contains(x));
         DumpClasses(string.Empty, _ => true);
         DumpSubclasses(string.Empty, GetModdedSubclasses().Union(GetVanillaSubclasses()));
 
+        DumpOthers<CharacterBackgroundDefinition>("Backgrounds",
+            _ => true);
         DumpOthers<FeatDefinition>("Feats",
             x => FeatsContext.Feats.Contains(x) ||
                  x.ContentPack != CeContentPackContext.CeContentPack);
@@ -305,7 +311,7 @@ internal static class DocumentationContext
             outString.AppendLine();
         }
 
-        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Races.md");
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}.md");
         sw.WriteLine(outString.ToString());
     }
 

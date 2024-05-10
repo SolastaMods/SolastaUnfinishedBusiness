@@ -1,11 +1,11 @@
-Feat/&FeatElvenAccuracyCharismaDescription=力任せではなく精度に頼った攻撃で、驚異的な狙いを定めることができます。カリスマ性を 1 ずつ増やし、最大 20 まで増やします。器用さ、知性、知恵、またはカリスマ性を使用して攻撃ロールでアドバンテージを得たときはいつでも、サイコロの 1 つを 1 回振り直すことができます。
+Feat/&FeatElvenAccuracyCharismaDescription=力任せではなく精度に頼った攻撃で、驚異的な狙いを定めることができます。あなたのカリスマ性を 1 ずつ、最大 20 まで増加させます。器用さ、知性、知恵、またはカリスマ性を使用して攻撃ロールで有利なときはいつでも、サイコロの 1 つを 1 回振り直すことができます。
 Feat/&FeatElvenAccuracyCharismaTitle=エルフの命中【Cha】
 Feat/&FeatElvenAccuracyDexterityDescription=力任せではなく精度に頼った攻撃で、驚異的な狙いを定めることができます。 「器用さ」を 1 ずつ、最大 20 まで増加させます。「器用さ」、「知性」、「知恵」、または「カリスマ性」を使用して攻撃ロールで有利なときはいつでも、サイコロの 1 つを 1 回振り直すことができます。
-Feat/&FeatElvenAccuracyDexterityTitle=エルフの命中 [Dex]
+Feat/&FeatElvenAccuracyDexterityTitle=エルフの精度[Dex]
 Feat/&FeatElvenAccuracyIntelligenceDescription=力任せではなく精度に頼った攻撃で、驚異的な狙いを定めることができます。あなたの知性を 1 ずつ、最大 20 まで増加させます。器用さ、知性、知恵、またはカリスマ性を使用して攻撃ロールで有利なときはいつでも、サイコロの 1 つを 1 回振り直すことができます。
 Feat/&FeatElvenAccuracyIntelligenceTitle=エルフの命中率 [Int]
-Feat/&FeatElvenAccuracyWisdomDescription=力任せではなく精度に頼った攻撃で、驚異的な狙いを定めることができます。知恵を 1 ずつ増やし、最大 20 まで増やします。器用さ、知性、知恵、または魅力を使用して攻撃ロールで有利なときはいつでも、サイコロの 1 つを 1 回振り直すことができます。
+Feat/&FeatElvenAccuracyWisdomDescription=力任せではなく精度に頼った攻撃で、驚異的な狙いを定めることができます。知恵を 1 ずつ増やして、最大 20 まで増やします。器用さ、知性、知恵、または魅力を使用して攻撃ロールで有利なときはいつでも、サイコロの 1 つを 1 回振り直すことができます。
 Feat/&FeatElvenAccuracyWisdomTitle=エルフの命中率【Wis】
-Feedback/&ElvenAccuracyTriggered={0} は {1} を使用して {2} を保持し、{3} を {4} にリロールします。
+Feedback/&ElvenAccuracyTriggered={0} は {1} を使用して {2} を保持し、{3} を {4} に再ロールします。
 Tooltip/&FeatElvenAccuracyBaseDescription=「器用さ」、「知性」、「知恵」、または「カリスマ性」を使用して攻撃ロールで有利な場合はいつでも、サイコロの 1 つを 1 回振り直すことができます。
 Tooltip/&FeatElvenAccuracyBaseTitle=エルフの精度

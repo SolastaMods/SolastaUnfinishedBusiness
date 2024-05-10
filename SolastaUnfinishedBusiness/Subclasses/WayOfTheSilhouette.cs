@@ -95,7 +95,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(
                             conditionSilhouetteStep,
-                            ConditionForm.ConditionOperation.Add, true))
+                            ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishDarkweaverShadowy)
                     .Build())
             .AddCustomSubFeatures(

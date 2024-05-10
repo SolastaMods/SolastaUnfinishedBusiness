@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -165,9 +164,16 @@ public sealed class PathOfTheRavager : AbstractSubclass
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var targets = battleManager.Battle
                 .GetContenders(attacker, null, true, withinRange: 6);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 StringParameter = "IntimidatingPresence",
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),

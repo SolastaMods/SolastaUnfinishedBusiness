@@ -21,7 +21,7 @@ At least 5: Ignore all spell immunities of the targets.
 # 4. - Blast Empower [Str] [UB]
 
 Cost: 1 point per beam.
-You add your Strength modifier to the damage to your Eldritch Blast.
+You add your Strength modifier to yours Eldritch Blast's damage.
 
 # 5. - Eldritch Aegis [Wis] [UB]
 

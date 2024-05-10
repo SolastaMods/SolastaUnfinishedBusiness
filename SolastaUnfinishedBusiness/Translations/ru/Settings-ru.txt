@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Отключить <color=#D89
 ModUi/&DisableUnofficialTranslations=Отключить поддержку неофициальных переводов для ускорения загрузки мода <i><color=#F0DAA0>[если вы не знаете китайского, итальянского, японского, корейского или испанского языков]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Отображать все известные заклинания от других классов во время повышения уровня</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Отображать ячейки заклинаний <color=#D89555>Колдуна</color> на панели выбора заклинаний вместо панели персонажа</i>
+ModUi/&DocsArcaneShots=ДОКУМЕНТЫ: Магические выстрелы
+ModUi/&DocsBackgrounds=ДОКУМЕНТЫ: Предыстории
+ModUi/&DocsFeats=ДОКУМЕНТЫ: Черты
+ModUi/&DocsFightingStyles=ДОКУМЕНТЫ: Боевые стили
+ModUi/&DocsInfusions=ДОКУМЕНТЫ: Инфузии
+ModUi/&DocsInvocations=ДОКУМЕНТЫ: Воззвания
+ModUi/&DocsManeuvers=ДОКУМЕНТЫ: Приёмы
+ModUi/&DocsMetamagic=ДОКУМЕНТЫ: Метамагия
+ModUi/&DocsRaces=ДОКУМЕНТЫ: Расы
+ModUi/&DocsSpells=ДОКУМЕНТЫ: Заклинания
+ModUi/&DocsSubclasses=ДОКУМЕНТЫ: Архетипы
+ModUi/&DocsSubraces=ДОКУМЕНТЫ: Разновидности
 ModUi/&Donate=<b><color=#D89555>Задонатить:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Скрывать шлемы на персонажах <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Не заканчивать ход после использования действия <color=#D89555>Подготовка</color> <i><color=#F0DAA0>[позволяет использовать Бонусное действие или любые дополнительные основные действия от Ускорения или других источников]</color></i>
@@ -80,6 +92,7 @@ ModUi/&DontFollowCharacterInBattle=Боевая камера не следует
 ModUi/&DontFollowMargin=<i><color=white>+ Только если герой вне или в рамках % от границы экрана</color></i>
 ModUi/&DungeonMakerBasicHelp=• Эти настройки не потребуют от игрока установленного мода
 ModUi/&DungeonMakerMenu=Создатель Подземелий
+ModUi/&Effects=Эффекты
 ModUi/&EmpressGarbAppearance=Внешний вид <color=#D89555>Кольчужной рубахи императрицы</color>
 ModUi/&EnableActionSwitching=Включить панель переключения действий <i><color=#F0DAA0>[полезно при ускорении, чтобы использовать дополнительное действие перед основным]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Включить отображение дополнительной предыстории при просмотре происхождения
@@ -87,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Включить дополнительн
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Добавить новые предметы в Создатель Подземелий</i>
 ModUi/&EnableAlternateHuman=Включить альтернативное происхождение <color=#D89555>Человека</color> <i><color=#F0DAA0>[+1 черта / +2 очка характеристик / +1 навык]</color></i>
 ModUi/&EnableAlternateVotingSystem=Включить альтернативную систему голосования <i><color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Включить возможность использования <color=#D89555>Бардовского вдохновения</color>, <color=#D89555>Бездонной удачи</color>, <color=#D89555>Везунчика</color>, умений <color=#D89555>Круга звёзд</color> и <color=#D89555>Проблеска гениальности</color> при проверках характеристик в бою
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Включить возможность использования <color=#D89555>Бардовского вдохновения</color> при проверках характеристик в бою
 ModUi/&EnableBarbarianBrutalStrike=Включить <b>Жестокий удар</b> и <b>Улучшенный жестокий удар</b> <color=#D89555>Варварам</color> на уровнях 9, 13 и 17
 ModUi/&EnableBarbarianFightingStyle=Включить <color=#D89555>Варварам</color> выбор <b>Боевого стиля</b> на уровне 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Включить для <color=#D89555>Варваров</color> завершение эффектов <b>Безрассудной атаки</b> в начале следующего хода

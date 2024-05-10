@@ -15,8 +15,8 @@ public static class RulesetCharacterMonsterExtensions
         List<IAttackModificationProvider> attackModifiers,
         Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
     {
+        var hero = monster.GetOriginalHero();
         var slotName = EquipmentDefinitions.SlotTypeMainHand;
-        var hero = monster.OriginalFormCharacter as RulesetCharacterHero;
         var attackMode = RulesetAttackMode.AttackModesPool.Get();
 
         attackMode.Clear();

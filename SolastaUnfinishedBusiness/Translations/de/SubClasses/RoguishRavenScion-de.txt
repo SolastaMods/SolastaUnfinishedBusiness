@@ -1,6 +1,6 @@
-Condition/&ConditionRavenScionHeartSeekingShotDescription=Ihr nächster Fernkampfwaffenangriff führt zu einem garantierten kritischen Treffer, wenn er eine Kreatur trifft.
+Condition/&ConditionRavenScionHeartSeekingShotDescription=Ihr nächster Fernkampfangriff führt garantiert zu einem kritischen Treffer, wenn er eine Kreatur trifft.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Herzsuchender Schuss
-Feature/&AdditionalDamageRavenScionSniperAimDescription=Wenn du einmal pro Spielzug eine Kreatur mit einem Fernkampfwaffenangriff triffst, erleidet diese Kreatur zusätzlichen Schaden derselben Art, der deiner Schurkenstufe entspricht.
+Feature/&AdditionalDamageRavenScionSniperAimDescription=Wenn du einmal pro Spielzug eine Kreatur mit einem Fernkampfwaffenangriff triffst, erleidet diese Kreatur zusätzlichen Schaden desselben Typs, der deiner Schurkenstufe entspricht.
 Feature/&AdditionalDamageRavenScionSniperAimTitle=Ziel des Scharfschützen
 Feature/&FeatureRavenScionKillingSpreeDescription=Wenn du einmal während deines Zuges eine Kreatur auf 0 Trefferpunkte reduzierst, erhältst du einen zusätzlichen Angriff als Teil deiner Hauptaktion und setzt die Verwendung deiner Scharfschützenzielfunktion zurück.
 Feature/&FeatureRavenScionKillingSpreeTitle=Amoklauf
@@ -8,7 +8,7 @@ Feature/&FeatureSetRavenScionRangedSpecialistDescription=Sie beherrschen alle Zw
 Feature/&FeatureSetRavenScionRangedSpecialistTitle=Fernkampfspezialist
 Feature/&PowerRavenScionDeadlyFocusDescription=Wenn Sie mit einem Fernkampfwaffen-Angriffswurf verfehlen, können Sie ihn mit Vorteil noch einmal würfeln. Sie können diese Funktion einmal pro kurzer Pause nutzen.
 Feature/&PowerRavenScionDeadlyFocusTitle=Tödlicher Fokus
-Feature/&PowerRavenScionHeartSeekingShotDescription=Als kostenlose Aktion können Sie dafür sorgen, dass Ihr nächster Fernkampfwaffenangriff zu einem garantierten kritischen Treffer führt, wenn er eine Kreatur trifft. Sie können diese Funktion einmal pro kurzer Pause nutzen.
+Feature/&PowerRavenScionHeartSeekingShotDescription=Mit einer freien Aktion kannst du dafür sorgen, dass dein nächster Fernkampfangriff einen garantierten kritischen Treffer verursacht, wenn er eine Kreatur trifft. Du kannst diese Funktion einmal pro kurzer Pause nutzen.
 Feature/&PowerRavenScionHeartSeekingShotTitle=Herzsuchender Schuss
 Feedback/&AdditionalDamageSniperAimFormat=Ziel des Scharfschützen
 Feedback/&AdditionalDamageSniperAimLine=Scharfschützenziel verursacht zusätzlichen Schaden von +{2}!

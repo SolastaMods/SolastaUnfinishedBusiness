@@ -1,8 +1,8 @@
 Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseDescription=Force +1
-Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=La force des Badlands
-Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Vous avez la résistance aux dégâts de feu.
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Brawn des Badlands
+Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Vous avez une résistance aux dégâts de feu.
 Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Bercé par le feu
-Feature/&ProficiencyObsidianDwarfLanguagesDescription=Commun, Nain et Géant
+Feature/&ProficiencyObsidianDwarfLanguagesDescription=Commun, nain et géant
 Feature/&ProficiencyObsidianDwarfLanguagesTitle=Langues
-Race/&RaceObsidianDwarfDescription=Dans le passé, un groupe de nains ont été réduits en esclavage par des géants du feu en tant que mineurs et artisans. La magie chaotique du cataclysme a imprégné nombre de ces nains de la force et de la résistance de leurs oppresseurs. Les nains se sont rebellés, ont gagné leur liberté et se sont retirés dans les Badlands. Se faisant appeler les Nains d'Obsidienne, ils ont grandi et prospéré.
+Race/&RaceObsidianDwarfDescription=Autrefois, un groupe de nains était réduit en esclavage par des géants du feu en tant que mineurs et artisans. La magie chaotique du cataclysme a conféré à beaucoup de ces nains une partie de la force et de la résistance de leurs oppresseurs. Les nains se rebellèrent, gagnèrent leur liberté et se retirèrent dans les Badlands. Se faisant appeler les Nains d'Obsidienne, ils ont grandi et prospéré.
 Race/&RaceObsidianDwarfTitle=Nain d'obsidienne

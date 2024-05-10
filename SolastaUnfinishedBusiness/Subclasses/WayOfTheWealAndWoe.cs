@@ -216,7 +216,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     else
                     {
                         rulesetAttacker.LogCharacterUsedFeature(_featureWoe);
-                        InflictMartialArtDieDamage(attacker, defender, attackMode, rollOutcome);
+                        InflictMartialArtDieDamage(attacker, attacker, attackMode, rollOutcome);
                     }
 
                     // Weal (RESET)

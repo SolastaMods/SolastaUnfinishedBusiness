@@ -395,10 +395,17 @@ public sealed class RangerLightBearer : AbstractSubclass
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
             var targets = battleManager.Battle
                 .GetContenders(attacker, withinRange: 5);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
             {
                 StringParameter = "BlessedGlow",
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,

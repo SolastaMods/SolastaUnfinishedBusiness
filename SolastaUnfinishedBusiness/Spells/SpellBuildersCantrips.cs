@@ -839,8 +839,8 @@ internal static partial class SpellBuilders
                     .SetEffectAdvancement(
                         EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .ConditionForm(conditionResonatingStrike, ConditionForm.ConditionOperation.Add, true))
+                        EffectFormBuilder.ConditionForm(
+                            conditionResonatingStrike, ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(BurningHands_B)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())

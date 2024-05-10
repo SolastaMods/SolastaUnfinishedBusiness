@@ -408,10 +408,17 @@ public sealed class CollegeOfElegance : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePowerEnemy = PowerProvider.Get(powerAmazingDisplayEnemy, rulesetAttacker);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var actionParams =
                 new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
                 {
-                    ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                    ActionModifiers = actionModifiers,
                     RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetAttacker, usablePowerEnemy, false),
                     UsablePower = usablePowerEnemy,

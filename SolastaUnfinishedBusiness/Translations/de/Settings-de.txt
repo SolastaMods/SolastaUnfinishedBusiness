@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>Kampf:</color>
 ModUi/&Crafting=<color=#F0DAA0>Herstellung:</color>
 ModUi/&CraftingHelp=• Drücken Sie die Taste, um Rezepte sofort auf der aktiven Gruppe zu lernen\n• Für Artikel, die zu Geschäften hinzugefügt werden, kann es erforderlich sein, dass die Gruppe den Standort verlässt und zurückkommt
 ModUi/&Credits=Credits
-ModUi/&CreditsAndDiagnostics=Credits und Diagnosen
+ModUi/&CreditsAndDiagnostics=Credits & Diagnose
 ModUi/&Critical=<color=#F0DAA0>Kritischer Treffer:</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: Spielstandard, werfen Sie alle Schadenswürfel zweimal, addieren Sie das Ergebnis und fügen Sie Modifikatoren hinzu <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: Summiere das maximale Ergebnis für die Schadenswürfel und addiere es zum Schaden des Angriffs <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktivieren Sie <color=#D8955
 ModUi/&DisableUnofficialTranslations=Deaktivieren Sie die Unterstützung inoffizieller Übersetzungen, um den Mod zu beschleunigen <i><color=#F0DAA0>[es sei denn, ich spreche Chinesisch, Italienisch, Japanisch, Koreanisch oder Spanisch]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Zeigt beim Levelaufstieg alle bekannten Zauber anderer Klassen an</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Paktslots für <color=#D89555>Hexenmeister</color> bei der Zauberauswahl statt im Charakterfenster anzeigen</i>
+ModUi/&DocsArcaneShots=DOCS: Arkane Schüsse
+ModUi/&DocsBackgrounds=DOCS: Hintergründe
+ModUi/&DocsFeats=DOCS: Leistungen
+ModUi/&DocsFightingStyles=DOCS: Kampfstile
+ModUi/&DocsInfusions=DOCS: Infusionen
+ModUi/&DocsInvocations=DOCS: Aufrufe
+ModUi/&DocsManeuvers=DOCS: Manöver
+ModUi/&DocsMetamagic=DOCS: Metamagie
+ModUi/&DocsRaces=DOCS: Rennen
+ModUi/&DocsSpells=DOCS: Zauber
+ModUi/&DocsSubclasses=DOCS: Unterklassen
+ModUi/&DocsSubraces=DOCS: Subraces
 ModUi/&Donate=<b><color=#D89555>Spenden:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Helme nicht auf grafischen Charakteren anzeigen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht, nachdem Sie die Bereitschaftsaktion verwendet haben <i><color=#F0DAA0>[ermöglicht die Verwendung der Bonusaktion oder zusätzlicher Hauptaktionen aus Tempo oder anderen Quellen]</color></i>
@@ -80,6 +92,7 @@ ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn der Charakt
 ModUi/&DontFollowMargin=<i><color=white>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</color></i>
 ModUi/&DungeonMakerBasicHelp=• Für diese Einstellungen ist es nicht erforderlich, dass der Player diesen Mod installiert hat
 ModUi/&DungeonMakerMenu=Dungeon Maker
+ModUi/&Effects=Auswirkungen
 ModUi/&EmpressGarbAppearance=<color=#D89555>Kaiserin-Gewand</color> Aussehen
 ModUi/&EnableActionSwitching=Aktivieren Sie die Aktionswechselleiste <i><color=#F0DAA0>[nützlich, wenn Sie die Eile-Aktion vor der Hauptaktion schnell verwenden möchten]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Aktivieren Sie die zusätzliche Anzeige von Hintergrundgeschichten bei der Hintergrundinspektion
@@ -87,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für 
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Neue Gegenstände zu Dungeon Maker hinzufügen</i>
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen Menschen <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
 ModUi/&EnableAlternateVotingSystem=Aktivieren Sie das alternative Abstimmungssystem <i><color=#F0DAA0>[verwenden Sie den Helden-Charisma-Modifikator, um die Auswahlgewichtung zu bestimmen]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Aktiviere <color=#D89555>bardische Inspiration</color>, <color=#D89555>reichliches Glück</color>, <color=#D89555>Sternenkreis</color>, <color=#D89555>Genieblitz </color> und <color=#D89555>Glück</color>, um auch Attributprüfungen außerhalb des Kampfes auszulösen
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Aktiviere <color=#D89555>bardische Inspiration</color> um auch Attributprüfungen außerhalb des Kampfes auszulösen
 ModUi/&EnableBarbarianBrutalStrike=Aktiviere <color=#D89555>Barbar</color> <b>Brutal Strike</b> und <b>Brutal Strike Improvement</b> auf den Klassenstufen 9, 13 und 17
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Aktivieren Sie die Stärkung und Schwächung von <color=#D89555>Barbar</color> <b>Rücksichtsloser Angriff</b>, damit sie zu Beginn der nächsten Runde endet

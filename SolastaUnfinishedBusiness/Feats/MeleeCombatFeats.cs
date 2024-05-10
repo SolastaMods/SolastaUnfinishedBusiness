@@ -232,13 +232,8 @@ internal static class MeleeCombatFeats
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionFeatSpearMasteryCharge,
-                                ConditionForm.ConditionOperation.Add, true)
-                            .Build())
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFeatSpearMasteryCharge))
                     .UseQuickAnimations()
                     .Build())
             .AddToDB();

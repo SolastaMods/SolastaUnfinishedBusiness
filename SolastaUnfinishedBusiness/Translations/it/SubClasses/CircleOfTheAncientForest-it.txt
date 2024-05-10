@@ -13,7 +13,7 @@ Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle=Infuso di protezione da
 Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription=Ottieni resistenza ai danni radianti per 1 ora.
 Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle=Infuso di Protezione Radiante
 Equipment/&HerbalBrewHealingTitle=Infuso di Velocizzazione
-Equipment/&HerbalBrewToxifyingTitle=Infuso Tossificante
+Equipment/&HerbalBrewToxifyingTitle=Infuso Tossico
 Feature/&AttributeModifierAncientForestBarkskinDescription=La classe dell'armatura è impostata su 16.
 Feature/&AttributeModifierAncientForestBarkskinTitle=Pelle di corteccia
 Feature/&BonusCantripAncientForestDescription=Imparerai i segreti sulla natura di come la magia naturale e l'energia vitale sono collegate. Imparerai Shillelagh e Chill Touch.
@@ -30,7 +30,7 @@ Feature/&PowerAncientForestRootedDescription=I viticci arborei crescono dai tuoi
 Feature/&PowerAncientForestRootedTitle=Radicato
 Feature/&PowerPoolAncientForestHerbalBrewDescription=Puoi creare infusi alle erbe, ognuno dei quali dura fino al successivo riposo lungo. Crei un totale di birre pari al tuo bonus di competenza. Per ogni miscela, scegli uno dei seguenti effetti:\n<color=#add8e6ff>Miscela fortificante</color>: conferisce resistenza a diversi tipi di danno per 1 ora.\n<color=#add8e6ff>Miscela accelerante</color> color>: fornisce 2d4 punti ferita.\n<color=#add8e6ff>Infuso Tossificante</color>: agisce come un veleno che può essere applicato a un'arma che dura 1 minuto. Se il colpo va a segno, il bersaglio subisce 1d4 danni da veleno per ogni colpo.
 Feature/&PowerPoolAncientForestHerbalBrewTitle=Birra alle erbe
-Feature/&PowerPoolAncientForestWallOfThornsDescription=Puoi lanciare Muro di Spine un numero di volte pari al tuo modificatore di Saggezza. Si ricarica con i riposi lunghi.
+Feature/&PowerPoolAncientForestWallOfThornsDescription=Puoi lanciare Muro di Spine un numero di volte pari al tuo modificatore di Saggezza. Si ricarica durante i riposi lunghi.
 Feature/&PowerPoolAncientForestWallOfThornsTitle=Muro di spine
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat={0} crea {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat={0} crea {1}
@@ -39,5 +39,5 @@ Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTra
 Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat={0} crea {1}
 Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat={0} crea {1}
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat={0} crea {1}
-Subclass/&CircleOfTheAncientForestDescription=Hai stretto una relazione con una potente entità naturale: antiche Driadi, Archidruidi, Manifestazioni della Selva Fatata che sanguinano nel piano materiale, Dei dimenticati di un'era primordiale. Potrebbe desiderare che tu protegga il mondo naturale, viaggi in terre lontane che non può, o potrebbe avere un altro motivo che sembra imperscrutabile ai mortali di breve durata.
+Subclass/&CircleOfTheAncientForestDescription=Hai stretto una relazione con una potente entità naturale: antiche driadi, arcidruidi, manifestazioni della natura fatata che sanguinano nel piano materiale, divinità dimenticate di un'era primordiale. Potrebbe desiderare che tu protegga il mondo naturale, viaggi in terre lontane che non può, o potrebbe avere un altro motivo che sembra imperscrutabile ai mortali di breve durata.
 Subclass/&CircleOfTheAncientForestTitle=Circolo dell'Antica Foresta

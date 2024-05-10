@@ -1,8 +1,8 @@
-Condition/&ConditionReverseGravityDescription=Pris par gravité inverse.
+Condition/&ConditionReverseGravityDescription=Attrapé par gravité inverse.
 Condition/&ConditionReverseGravityTitle=Gravité inversée
 Feature/&PowerDraconicTransformationDescription=Par une action bonus, vous pouvez expirer une énergie chatoyante dans un cône de 60 pieds. Chaque créature dans cette zone doit effectuer un jet de sauvegarde de Dextérité, subissant 6d8 dégâts de force en cas d'échec, ou la moitié de ces dégâts en cas de réussite.
 Feature/&PowerDraconicTransformationTitle=Transformation draconique
 Spell/&DraconicTransformationDescription=Avec un rugissement, vous faites appel à la magie des dragons pour vous transformer, prenant des traits draconiques. Vous bénéficiez des avantages suivants jusqu'à la fin du sort :\n• Vous avez la vue aveugle avec une portée de 9 pieds.\n• Lorsque vous lancez ce sort, et par une action bonus lors des tours suivants pendant toute la durée, vous pouvez expirer des reflets chatoyants. énergie dans un cône de 60 pieds. Chaque créature dans cette zone doit effectuer un jet de sauvegarde de Dextérité, subissant 6d8 dégâts de force en cas d'échec, ou la moitié de ces dégâts en cas de réussite.\n• Des ailes incorporées poussent dans votre dos, vous donnant une vitesse de vol de 60 pieds. .
 Spell/&DraconicTransformationTitle=Transformation draconique
-Spell/&ReverseGravityDescription=Ce sort inverse la gravité dans un cylindre de 15 mètres de rayon et 30 mètres de haut centré sur un point à portée.
+Spell/&ReverseGravityDescription=Ce sort inverse la gravité dans un cylindre de 15 mètres de rayon et de 100 pieds de haut centré sur un point à portée.
 Spell/&ReverseGravityTitle=Gravité inversée

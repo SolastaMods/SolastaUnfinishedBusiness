@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionAncientForestHerbalBrewDamageAffinityRadiantResistance:a5045396-b809-5cf3-8c15-8fb82939b351",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

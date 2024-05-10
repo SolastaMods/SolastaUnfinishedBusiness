@@ -294,7 +294,6 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             }
 
             rulesetAttacker.UsePower(usablePower);
-
             rulesetAttacker.LogCharacterUsedPower(powerOrganDonation);
 
             var usablePowerEmergencyCure = PowerProvider.Get(powerEmergencyCure, rulesetAttacker);

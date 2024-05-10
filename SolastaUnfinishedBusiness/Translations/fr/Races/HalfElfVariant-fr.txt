@@ -1,6 +1,6 @@
-Race/&RaceHalfElfDarkDescription=Les elfes semi-noirs sont des descendants d'elfes qui ont été modifiés au fil du temps en vivant dans les Badlands inhospitalières. Leur héritage humain les rendait adaptables à la lumière vive.
+Race/&RaceHalfElfDarkDescription=Les elfes mi-noirs sont les descendants d'elfes qui ont été transformés au fil du temps en vivant dans les Badlands inhospitaliers. Leur héritage humain les a rendus adaptables à la lumière vive.
 Race/&RaceHalfElfDarkTitle=Elfe mi-noir
-Race/&RaceHalfElfHighDescription=Les demi-hauts-elfes sont entraînés à utiliser la magie très tôt.
-Race/&RaceHalfElfHighTitle=Demi-haut-elfe
-Race/&RaceHalfElfSylvanDescription=Les elfes semi-sylvains sont entraînés pour survivre dans la nature et sont particulièrement aptes à survivre. Comme leur héritage elfe sylvestre, ils sont entraînés à se battre avec des épées et des arcs depuis l'enfance.
-Race/&RaceHalfElfSylvanTitle=Demi-elfe sylvestre
+Race/&RaceHalfElfHighDescription=Les demi-hauts elfes sont entraînés très tôt à utiliser la magie.
+Race/&RaceHalfElfHighTitle=Demi-haut elfe
+Race/&RaceHalfElfSylvanDescription=Les elfes demi-sylvestres sont entraînés pour survivre dans la nature et sont particulièrement aptes à survivre. En tant qu'héritage des elfes sylvestres, ils sont entraînés à se battre avec des épées et des arcs depuis leur enfance.
+Race/&RaceHalfElfSylvanTitle=Elfe mi-sylvestre

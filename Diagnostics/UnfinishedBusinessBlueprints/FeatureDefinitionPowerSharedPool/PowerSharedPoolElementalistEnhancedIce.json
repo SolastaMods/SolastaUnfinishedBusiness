@@ -329,7 +329,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Channeling Ice Plane",
-    "description": "When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage to the same type to first hit each round.",
+    "description": "When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

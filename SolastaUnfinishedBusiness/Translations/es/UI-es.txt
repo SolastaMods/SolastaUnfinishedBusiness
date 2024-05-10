@@ -1,15 +1,15 @@
-Tutorial/&TutorialActionSwitchingDescription=Cuando tenga más de una acción principal o de bonificación disponible, puede hacer clic en el símbolo de estado de la acción para convertirla en su acción actualmente activa. Esto permite atacar usando la acción Haste o Horde Breaker y luego lanzar hechizos con la acción predeterminada. O cualquier otra combinación que pueda necesitar.\nAl pasar el cursor sobre el símbolo de estado de la acción, se muestra información sobre herramientas con el nombre de la característica o condición que otorgó la acción.
-Tutorial/&TutorialActionSwitchingTitle=Acciones múltiples
+Tutorial/&TutorialActionSwitchingDescription=Cuando tenga más de una acción principal o adicional disponible, puede hacer clic en el símbolo de estado de la acción para convertirla en su acción activa actualmente. Esto permite atacar usando la acción Prisa o Rompehordas y luego lanzar un hechizo con la acción predeterminada. O cualquier otra combinación que pueda necesitar.\nAl pasar el cursor sobre el símbolo de estado de la acción, se muestra información sobre herramientas con el nombre de la función o condición que permitió la acción.
+Tutorial/&TutorialActionSwitchingTitle=Múltiples acciones
 UI/&Add=Add
-UI/&AdditionalActionSource=Otorgado por: {0}
+UI/&AdditionalActionSource=Concedido por: {0}
 UI/&Current Party=Partido actual
 UI/&DistanceFormat=Distancia: {0}
 UI/&Experimental Preview:=Vista previa experimental <i><color=Yellow>[guardar copia de seguridad antes de usar]</color></i>:
 UI/&Expert=Experto
 UI/&From=De
 UI/&PartyEditor=Editor de fiestas
-UI/&PartyEditorMessage=Este sencillo editor de grupos te permite editar personajes en una sesión de juego cargada. Haga clic en lo siguiente para informar problemas:
-UI/&PartyEditorUnavailable=****** Party Editor no disponible: Cargue un juego guardado ******
+UI/&PartyEditorMessage=Este sencillo editor de fiestas te permite editar personajes en una sesión de juego cargada. Haga clic en lo siguiente para informar problemas:
+UI/&PartyEditorUnavailable=****** Party Editor no disponible: carga una partida guardada ******
 UI/&Quickies=Rapiditos
 UI/&Remove=Eliminar
 UI/&Skilled=Experto

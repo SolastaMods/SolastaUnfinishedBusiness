@@ -847,12 +847,12 @@ public static class RulesetActorPatcher
 
         private static void RefreshClassModifiers(RulesetActor actor)
         {
-            var hero = actor as RulesetCharacterHero;
-
-            if (hero == null && actor is RulesetCharacterMonster monster)
+            if (actor is not RulesetCharacter rulesetCharacter)
             {
-                hero = monster.OriginalFormCharacter as RulesetCharacterHero;
+                return;
             }
+
+            var hero = rulesetCharacter.GetOriginalHero();
 
             if (hero == null)
             {

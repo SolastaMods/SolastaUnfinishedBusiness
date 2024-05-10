@@ -381,6 +381,11 @@ public sealed class DomainTempest : AbstractSubclass
             actionManager.AddInterruptRequest(reactionRequest);
 
             yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (actionParams.ReactionValidated)
+            {
+                attacker.SpendActionType(ActionDefinitions.ActionType.Reaction);
+            }
         }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
@@ -394,6 +399,7 @@ public sealed class DomainTempest : AbstractSubclass
             bool criticalHit)
         {
             _isValid = attacker.IsWithinRange(defender, 1) &&
+                       attacker.CanReact() &&
                        defender.CanPerceiveTarget(attacker) &&
                        rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit;
 
@@ -413,8 +419,8 @@ public sealed class DomainTempest : AbstractSubclass
             bool criticalHit)
         {
             _isValid = attacker.IsWithinRange(defender, 1) &&
-                       defender.CanPerceiveTarget(attacker) &&
-                       attackMode.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit;
+                       attacker.CanReact() &&
+                       defender.CanPerceiveTarget(attacker);
 
             yield break;
         }
@@ -444,7 +450,6 @@ public sealed class DomainTempest : AbstractSubclass
             var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
 
             rulesetAttacker.UsePower(usablePower);
-            rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
         }
 
         public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
@@ -478,10 +483,17 @@ public sealed class DomainTempest : AbstractSubclass
             var damageType = GetAdditionalDamageType(attacker, additionalDamageForm, featureDefinitionAdditionalDamage);
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
+            var isValid = rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
+                          rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                          damageType is DamageTypeLightning or DamageTypeThunder;
 
-            _isValid = rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
-                       rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
-                       damageType is DamageTypeLightning or DamageTypeThunder;
+            if (!isValid)
+            {
+                return;
+            }
+
+            _isValid = true;
+            rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -514,6 +526,11 @@ public sealed class DomainTempest : AbstractSubclass
                 actualEffectForms.Any(x =>
                     x.FormType == EffectForm.EffectFormType.Damage &&
                     x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder);
+
+            if (_isValid)
+            {
+                rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
+            }
         }
     }
 
@@ -559,7 +576,7 @@ public sealed class DomainTempest : AbstractSubclass
                 rulesetDefender.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize &&
                 attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.ThunderousStrikeToggle))
             {
-                actualEffectForms.Add(PushForm);
+                actualEffectForms.TryAdd(PushForm);
             }
         }
 
@@ -598,7 +615,7 @@ public sealed class DomainTempest : AbstractSubclass
                 rulesetDefender.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize &&
                 attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.ThunderousStrikeToggle))
             {
-                actualEffectForms.Add(PushForm);
+                actualEffectForms.TryAdd(PushForm);
             }
         }
     }

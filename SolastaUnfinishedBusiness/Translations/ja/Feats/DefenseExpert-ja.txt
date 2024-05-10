@@ -1,6 +1,6 @@
-Feat/&FeatArcaneDefenseDescription=知力を 1 増加させ、最大 20 まで増やします。\n鎧や盾を着用していない場合、鎧クラスは 10 + 器用さ修正値 + 知力修正値に等しくなります。
+Feat/&FeatArcaneDefenseDescription=知力を 1 増加させ、最大 20 まで増加させます。\n鎧や盾を着用していない場合、鎧クラスは 10 + 器用さ修正値 + 知力修正値に等しくなります。
 Feat/&FeatArcaneDefenseTitle=秘術の防御
 Feat/&FeatCharismaticDefenseDescription=あなたのカリスマ性を 1 増加させ、最大 20 まで増加させます。\nあなたが鎧や盾を着ていない間、あなたの鎧クラスは 10 + 器用さ修正値 + 魅力修正値に等しくなります。
 Feat/&FeatCharismaticDefenseTitle=カリスマディフェンス
-Feat/&FeatWiseDefenseDescription=知恵を 1 増やして、最大 20 まで増やします。\n鎧や盾を着ていないときは、鎧クラスは 10 + 器用さ修正値 + 知恵修正値に等しくなります。
+Feat/&FeatWiseDefenseDescription=知恵を 1 増加させ、最大 20 まで増やします。\n鎧や盾を身に着けていない間、鎧のクラスは 10 + 器用さ修正値 + 知恵修正値に等しくなります。
 Feat/&FeatWiseDefenseTitle=賢明な防御

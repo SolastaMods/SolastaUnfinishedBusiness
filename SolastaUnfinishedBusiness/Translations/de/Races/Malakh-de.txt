@@ -1,6 +1,6 @@
 Condition/&ConditionMalakhAngelicFlightDescription=Einmal pro Spielzug verursachst du zusätzlichen Strahlungsschaden in Höhe deines Fähigkeitsbonus, wenn du einen Feind triffst. Außerdem erhältst du Fluggeschwindigkeit in Höhe deiner Bewegungsgeschwindigkeit.
 Condition/&ConditionMalakhAngelicFlightTitle=Engelsflug
-Condition/&ConditionMalakhAngelicRadianceDescription=Einmal pro Spielzug verursachst du zusätzlichen Strahlungsschaden in Höhe deines Fähigkeitsbonus, wenn du einen Feind triffst. Am Ende jedes Zuges fügst du Feinden im Umkreis von 10 Talenten 1W4 Strahlungsschaden zu.
+Condition/&ConditionMalakhAngelicRadianceDescription=Einmal pro Runde verursachst du zusätzlichen Strahlungsschaden in Höhe deines Kompetenzbonus, wenn du einen Feind triffst. Am Ende jeder Runde verursachst du 1W4 Strahlungsschaden an Feinden mit 10 Talenten um dich herum.
 Condition/&ConditionMalakhAngelicRadianceTitle=Engelhafte Ausstrahlung
 Condition/&ConditionMalakhAngelicVisageDescription=Einmal pro Spielzug verursachst du zusätzlichen Strahlungsschaden in Höhe deines Fähigkeitsbonus, wenn du einen Feind triffst.
 Condition/&ConditionMalakhAngelicVisageTitle=Engelsgesicht

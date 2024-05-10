@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -8,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -62,9 +64,7 @@ public sealed class RoguishDuelist : AbstractSubclass
         var featureSetSureFooted = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}{SureFooted}")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle,
-                attributeModifierSureFooted)
+            .AddFeatureSet(FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle, attributeModifierSureFooted)
             .AddToDB();
 
         // LEVEL 09
@@ -81,19 +81,12 @@ public sealed class RoguishDuelist : AbstractSubclass
 
         // Reflexive Parry
 
-        var conditionReflexiveParry = ConditionDefinitionBuilder
-            .Create(ConditionReflexiveParryName)
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
         var featureReflexiveParry = FeatureDefinitionBuilder
             .Create($"Feature{Name}ReflexiveParry")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureReflexiveParry.AddCustomSubFeatures(
-            new CustomBehaviorReflexiveParry(featureReflexiveParry, conditionReflexiveParry));
+        featureReflexiveParry.AddCustomSubFeatures(new CustomBehaviorReflexiveParry(featureReflexiveParry));
 
         // LEVEL 17
 
@@ -152,9 +145,7 @@ public sealed class RoguishDuelist : AbstractSubclass
     //
 
     private sealed class CustomBehaviorReflexiveParry(
-        FeatureDefinition featureReflexiveParry,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionReflexiveParry) : IAttackBeforeHitPossibleOnMeOrAlly, IPhysicalAttackFinishedOnMe
+        FeatureDefinition featureReflexiveParry) : IAttackBeforeHitPossibleOnMeOrAlly
     {
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
@@ -168,10 +159,12 @@ public sealed class RoguishDuelist : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetEffect != null ||
-                rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+            if (helper != defender ||
+                rulesetEffect != null ||
+                !ValidatorsWeapon.IsMelee(attackMode) ||
+                !defender.OncePerTurnIsValid(featureReflexiveParry.Name) ||
                 rulesetDefender.HasAnyConditionOfTypeOrSubType(
-                    conditionReflexiveParry.Name,
+                    ConditionDefinitions.ConditionDazzled.Name,
                     ConditionDefinitions.ConditionIncapacitated.Name,
                     ConditionDefinitions.ConditionShocked.Name,
                     ConditionDefinitions.ConditionSlowed.Name))
@@ -179,41 +172,10 @@ public sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
+            defender.UsedSpecialFeatures.TryAdd(featureReflexiveParry.Name, 0);
+
             actionModifier.DefenderDamageMultiplier *= 0.5f;
             rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParry);
-        }
-
-        public IEnumerator OnPhysicalAttackFinishedOnMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
-        {
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                !defender.CanAct() ||
-                !defender.CanPerceiveTarget(attacker))
-            {
-                yield break;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            rulesetDefender.InflictCondition(
-                conditionReflexiveParry.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetDefender.Guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                conditionReflexiveParry.Name,
-                0,
-                0,
-                0);
         }
     }
 

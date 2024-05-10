@@ -14,24 +14,24 @@ internal static class ArmorAndShieldData
         {
             BaseItems =
             [
-                (ItemDefinitions.Shield_Wooden, null),
-                (ItemDefinitions.Shield, ItemDefinitions.ShieldPlus2),
-                (ItemDefinitions.HideArmor, ItemDefinitions.HideArmor_plus_two),
-                (ItemDefinitions.LeatherDruid, ItemDefinitions.Enchanted_Druid_Armor_Of_The_Forest),
-                (ItemDefinitions.StuddedLeather, ItemDefinitions.StuddedLeather_plus_two),
-                (ItemDefinitions.ChainShirt, ItemDefinitions.ChainShirtPlus2),
-                (ItemDefinitions.PaddedLeather, null),
-                (ItemDefinitions.Leather, ItemDefinitions.LeatherArmorPlus2),
-                (ItemDefinitions.ScaleMail, ItemDefinitions.ScaleMailPlus2),
-                (ItemDefinitions.Breastplate, ItemDefinitions.BreastplatePlus2),
-                (ItemDefinitions.HalfPlate, ItemDefinitions.HalfPlatePlus2),
-                (ItemDefinitions.ChainMail, ItemDefinitions.ChainmailPlus2),
-                (ItemDefinitions.Plate, ItemDefinitions.PlatePlus2),
-                (ItemDefinitions.SorcererArmor, null),
                 (ItemDefinitions.BarbarianClothes, null),
-                (ItemDefinitions.Warlock_Armor, null),
+                (ItemDefinitions.ClothesWizard, null),
                 (ItemDefinitions.MonkArmor, null),
-                (ItemDefinitions.ClothesWizard, null)
+                (ItemDefinitions.PaddedLeather, null),
+                (ItemDefinitions.Shield_Wooden, null),
+                (ItemDefinitions.SorcererArmor, null),
+                (ItemDefinitions.Warlock_Armor, null),
+                (ItemDefinitions.Breastplate, ItemDefinitions.BreastplatePlus2),
+                (ItemDefinitions.ChainMail, ItemDefinitions.ChainmailPlus2),
+                (ItemDefinitions.ChainShirt, ItemDefinitions.ChainShirtPlus2),
+                (ItemDefinitions.HalfPlate, ItemDefinitions.HalfPlatePlus2),
+                (ItemDefinitions.HideArmor, ItemDefinitions.HideArmor_plus_two),
+                (ItemDefinitions.Leather, ItemDefinitions.LeatherArmorPlus2),
+                (ItemDefinitions.LeatherDruid, ItemDefinitions.Enchanted_Druid_Armor_Of_The_Forest),
+                (ItemDefinitions.Plate, ItemDefinitions.PlatePlus2),
+                (ItemDefinitions.ScaleMail, ItemDefinitions.ScaleMailPlus2),
+                (ItemDefinitions.Shield, ItemDefinitions.ShieldPlus2),
+                (ItemDefinitions.StuddedLeather, ItemDefinitions.StuddedLeather_plus_two)
             ],
             MagicToCopy =
             [

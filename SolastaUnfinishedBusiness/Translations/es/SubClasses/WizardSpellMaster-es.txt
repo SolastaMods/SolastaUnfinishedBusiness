@@ -1,8 +1,8 @@
-Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepara hechizos adicionales modificadores de Inteligencia para que siempre tengas lo que necesitas.
+Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepara hechizos adicionales modificadores de Inteligencia, para que siempre tengas lo que necesitas.
 Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Extra preparado
 Feature/&MagicAffinitySpellMasterKnowledgeDescription=Escribe un hechizo adicional en cada nivel superior.
 Feature/&MagicAffinitySpellMasterKnowledgeTitle=Amplitud de conocimiento
-Feature/&MagicAffinitySpellMasterPreparedDescription=Prepara hechizos adicionales de bonificación de competencia para que siempre tengas lo que necesitas.
+Feature/&MagicAffinitySpellMasterPreparedDescription=Prepara hechizos adicionales de bonificación de competencia, para que siempre tengas lo que necesitas.
 Feature/&MagicAffinitySpellMasterPreparedTitle=Estar preparado
 Feature/&MagicAffinitySpellMasterRecoveryDescription=Una vez por descanso prolongado, puedes recuperar espacios para hechizos (además de Recuperación Arcana).
 Feature/&MagicAffinitySpellMasterRecoveryTitle=Profundidad arcana

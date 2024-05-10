@@ -1,5 +1,5 @@
 Feature/&AttributeModifierOligathConstitutionAbilityScoreIncreaseDescription=Verfassung +1
-Feature/&AttributeModifierOligathConstitutionAbilityScoreIncreaseTitle=Attributerhöhung
+Feature/&AttributeModifierOligathConstitutionAbilityScoreIncreaseTitle=Attributserhöhung
 Feature/&AttributeModifierOligathStrengthAbilityScoreIncreaseDescription=Stärke +2
 Feature/&AttributeModifierOligathStrengthAbilityScoreIncreaseTitle=Attributerhöhung
 Feature/&DamageAffinityOligathHotBloodedDescription=Du hast Widerstand gegen Kälteschaden. Sie sind immun gegen die Auswirkungen mäßig kalter Witterung. Bei kälterem Wetter sind Sie auch gekühlt statt gefroren.

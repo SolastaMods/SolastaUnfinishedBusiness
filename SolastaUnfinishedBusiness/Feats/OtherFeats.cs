@@ -19,6 +19,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -104,6 +105,7 @@ internal static class OtherFeats
             featPoisonousSkin,
             featPolearmExpert,
             featSentinel,
+            FeatStealthy,
             featTough,
             featVersatilityAdept,
             featWarCaster);
@@ -157,7 +159,8 @@ internal static class OtherFeats
             featAcrobat,
             featHealer,
             featMenacing,
-            featPickPocket);
+            featPickPocket,
+            FeatStealthy);
 
         GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
             featArcaneArcherAdept,
@@ -560,6 +563,60 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Stealthy
+
+    private const string FeatStealthyName = "FeatStealthy";
+
+    private static readonly FeatDefinition FeatStealthy = FeatDefinitionBuilder
+        .Create(FeatStealthyName)
+        .SetGuiPresentation(Category.Feat)
+        .SetFeatures(AttributeModifierCreed_Of_Misaye)
+        .AddCustomSubFeatures(
+            new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Stealth,
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{FeatStealthyName}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Stealth)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{FeatStealthyName}Expertise")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Stealth)
+                    .AddToDB()))
+        .AddToDB();
+
+    internal static readonly Dictionary<GameLocationCharacter, HashSet<int3>> FeatStealthPositionsCache = [];
+
+    internal static void NotifyFeatStealth(CharacterActionMoveStepBase action)
+    {
+        if (Gui.Battle == null)
+        {
+            return;
+        }
+
+        var actingCharacter = action.ActingCharacter;
+        var rulesetCharacter = actingCharacter.RulesetCharacter;
+        var rulesetHero = rulesetCharacter.GetOriginalHero();
+
+        if (rulesetHero == null ||
+            !rulesetHero.TrainedFeats.Contains(FeatStealthy))
+        {
+            return;
+        }
+
+        FeatStealthPositionsCache.TryAdd(actingCharacter, []);
+        FeatStealthPositionsCache[actingCharacter] = [];
+
+        for (var i = 0; i < action.MovePath.Count - 1; i++)
+        {
+            var position = action.MovePath[i].position;
+
+            FeatStealthPositionsCache[actingCharacter].Add(position);
+        }
+    }
+
+    #endregion
+
     #region Menacing
 
     private static FeatDefinitionWithPrerequisites BuildMenacing()
@@ -764,14 +821,14 @@ internal static class OtherFeats
             .SetNotificationTag("BalefulScion")
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeNecrotic)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetImpactParticleReference(PowerWightLordRetaliate)
-            .AddCustomSubFeatures(
-                new ValidateContextInsteadOfRestrictedProperty(
-                    (_, _, character, _, _, _, _) =>
-                        (OperationType.Set,
-                            character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) &&
-                            character.GetRemainingPowerUses(powerBalefulScion) > 0)))
+            .AddToDB();
+
+        var conditionBalefulScion = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalDamageBalefulScion)
             .AddToDB();
 
         _ = ActionDefinitionBuilder
@@ -788,7 +845,7 @@ internal static class OtherFeats
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle)
             .AddCustomSubFeatures(
-                new CustomBehaviorBalefulScion(powerBalefulScion, additionalDamageBalefulScion),
+                new CustomBehaviorBalefulScion(powerBalefulScion, conditionBalefulScion, additionalDamageBalefulScion),
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerBalefulScion)))
             .AddToDB();
 
@@ -862,26 +919,35 @@ internal static class OtherFeats
     private class CustomBehaviorBalefulScion(
         FeatureDefinitionPower powerBalefulScion,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionBalefulScion,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionAdditionalDamage additionalDamageBalefulScion)
         : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy, IModifyAdditionalDamage,
             IActionFinishedByMe
     {
         private bool _isCritical;
-        private bool _isValid;
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (!_isValid)
+            if (action is not (CharacterActionAttack or CharacterActionMagicEffect))
             {
                 yield break;
             }
 
-            _isValid = false;
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionBalefulScion.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            rulesetCharacter.RemoveCondition(activeCondition);
 
             var roll = RollDie(DieType.D6, AdvantageType.None, out _, out _);
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var healAmount = (roll * (_isCritical ? 2 : 1)) +
-                             rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var healAmount =
+                (roll * (_isCritical ? 2 : 1)) +
+                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             rulesetCharacter.ReceiveHealing(healAmount, true, rulesetCharacter.Guid);
         }
@@ -897,7 +963,6 @@ internal static class OtherFeats
             bool criticalHit)
         {
             _isCritical = criticalHit;
-            _isValid = false;
 
             if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
@@ -937,7 +1002,6 @@ internal static class OtherFeats
             bool criticalHit)
         {
             _isCritical = criticalHit;
-            _isValid = false;
 
             if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
@@ -947,28 +1011,34 @@ internal static class OtherFeats
             yield return HandleBalefulScion(attacker, defender);
         }
 
-        private IEnumerator HandleBalefulScion(
-            // ReSharper disable once SuggestBaseTypeForParameter
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+        private IEnumerator HandleBalefulScion(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
 
             if (!attacker.IsWithinRange(defender, 12) ||
                 !attacker.OncePerTurnIsValid("AdditionalDamageFeatBalefulScion") ||
-                rulesetDefender is not { IsDeadOrUnconscious: false } ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) ||
                 rulesetAttacker.GetRemainingPowerUses(powerBalefulScion) == 0)
             {
                 yield break;
             }
 
-            _isValid = true;
-
             var usablePower = PowerProvider.Get(powerBalefulScion, rulesetAttacker);
 
             usablePower.Consume();
+            rulesetAttacker.InflictCondition(
+                conditionBalefulScion.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionBalefulScion.Name,
+                0,
+                0,
+                0);
         }
     }
 
@@ -1075,7 +1145,7 @@ internal static class OtherFeats
 
     #endregion
 
-    #region Athlete
+    #region Acrobat
 
     private static FeatDefinition BuildAcrobat()
     {

@@ -36,9 +36,9 @@ internal static partial class BackgroundsBuilders
                     .Create($"Proficiency{BackgroundMilitia}Skills")
                     .SetGuiPresentation(Category.Feature)
                     .SetProficiencies(ProficiencyType.Skill,
-                        Perception,
-                        Intimidation,
-                        Investigation)
+                        Athletics,
+                        Deception,
+                        Intimidation)
                     .AddToDB())
             .AddDefaultOptionalPersonality("Lawfulness")
             .AddDefaultOptionalPersonality("Authority")

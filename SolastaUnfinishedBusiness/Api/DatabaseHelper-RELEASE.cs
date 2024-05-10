@@ -1569,9 +1569,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMovementAffinity MovementAffinityNoSpecialMoves { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityNoSpecialMoves");
 
-        internal static FeatureDefinitionMovementAffinity MovementAffinitySixLeaguesBoots { get; } =
-            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinitySixLeaguesBoots");
-
         internal static FeatureDefinitionMovementAffinity MovementAffinitySpiderClimb { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinitySpiderClimb");
     }
@@ -1794,6 +1791,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDragonBreath_Acid_Spectral_DLC3 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid_Spectral_DLC3");
 
+        internal static FeatureDefinitionPower PowerDragonBreath_Cold { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Cold");
+
         internal static FeatureDefinitionPower PowerDragonBreath_Fire { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Fire");
 
@@ -1958,6 +1958,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerRoguishDarkweaverShadowy { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerRoguishDarkweaverShadowy");
+
+        internal static FeatureDefinitionPower PowerSessrothBreath { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSessrothBreath");
 
         internal static FeatureDefinitionPower PowerSorakAssassinShadowMurder { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakAssassinShadowMurder");
@@ -2906,11 +2909,13 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Primed_Greataxe { get; } = GetDefinition<ItemDefinition>("Primed Greataxe");
         internal static ItemDefinition Primed_Greatsword { get; } = GetDefinition<ItemDefinition>("Primed Greatsword");
         internal static ItemDefinition Primed_HalfPlate { get; } = GetDefinition<ItemDefinition>("Primed HalfPlate");
+        internal static ItemDefinition Primed_Handaxe { get; } = GetDefinition<ItemDefinition>("Primed_Handaxe");
 
         internal static ItemDefinition Primed_HeavyCrossbow { get; } =
             GetDefinition<ItemDefinition>("Primed_HeavyCrossbow");
 
         internal static ItemDefinition Primed_HideArmor { get; } = GetDefinition<ItemDefinition>("Primed_HideArmor");
+        internal static ItemDefinition Primed_Javelin { get; } = GetDefinition<ItemDefinition>("Primed_Javelin");
 
         internal static ItemDefinition Primed_Leather_Armor { get; } =
             GetDefinition<ItemDefinition>("Primed Leather Armor");
@@ -2931,8 +2936,13 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition Primed_Plate { get; } = GetDefinition<ItemDefinition>("Primed Plate");
         internal static ItemDefinition Primed_Rapier { get; } = GetDefinition<ItemDefinition>("Primed Rapier");
+
+        internal static ItemDefinition Primed_Quarterstaff { get; } =
+            GetDefinition<ItemDefinition>("Primed_Quarterstaff");
+
         internal static ItemDefinition Primed_ScaleMail { get; } = GetDefinition<ItemDefinition>("Primed ScaleMail");
         internal static ItemDefinition Primed_Scimitar { get; } = GetDefinition<ItemDefinition>("Primed Scimitar");
+        internal static ItemDefinition Primed_Shield { get; } = GetDefinition<ItemDefinition>("Primed Shield");
         internal static ItemDefinition Primed_Shortbow { get; } = GetDefinition<ItemDefinition>("Primed Shortbow");
         internal static ItemDefinition Primed_Shortsword { get; } = GetDefinition<ItemDefinition>("Primed Shortsword");
         internal static ItemDefinition Primed_Spear { get; } = GetDefinition<ItemDefinition>("Primed_Spear");
@@ -3482,7 +3492,7 @@ internal static partial class DatabaseHelper
         internal static SkillDefinition Nature { get; } = GetDefinition<SkillDefinition>("Nature");
         internal static SkillDefinition Religion { get; } = GetDefinition<SkillDefinition>("Religion");
         internal static SkillDefinition SleightOfHand { get; } = GetDefinition<SkillDefinition>("SleightOfHand");
-        internal static SkillDefinition Survival { get; } = GetDefinition<SkillDefinition>("Survival");
+        internal static SkillDefinition Stealth { get; } = GetDefinition<SkillDefinition>("Stealth");
     }
 
     internal static class SlotTypeDefinitions
@@ -3611,6 +3621,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition FreedomOfMovement { get; } =
             GetDefinition<SpellDefinition>("FreedomOfMovement");
 
+        internal static SpellDefinition FreezingSphere { get; } = GetDefinition<SpellDefinition>("FreezingSphere");
         internal static SpellDefinition GiantInsect { get; } = GetDefinition<SpellDefinition>("GiantInsect");
 
         internal static SpellDefinition GlobeOfInvulnerability { get; } =

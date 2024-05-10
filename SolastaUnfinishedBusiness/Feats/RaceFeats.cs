@@ -1693,17 +1693,17 @@ internal static class RaceFeats
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
             IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByEnemy
     {
+        private bool _isValid;
         private bool _knockOutPrevented;
-        private bool _shouldTrigger;
 
         public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
-            if (!_shouldTrigger)
+            if (!_isValid)
             {
                 yield break;
             }
 
-            _shouldTrigger = false;
+            _isValid = false;
 
             if (Gui.Battle != null && !Gui.Battle.InitiativeRollFinished)
             {
@@ -1759,7 +1759,7 @@ internal static class RaceFeats
             var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
-            _shouldTrigger = true;
+            _isValid = true;
             _knockOutPrevented = false;
 
             yield break;
@@ -1817,7 +1817,7 @@ internal static class RaceFeats
             var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
-            _shouldTrigger = true;
+            _isValid = true;
             _knockOutPrevented = false;
 
             yield break;

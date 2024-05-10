@@ -25,5 +25,5 @@ Feature/&PowerDivineHeartEmpoweredHealingReroll=Debido a la curación potenciada
 Feature/&PowerDivineHeartEmpoweredHealingTitle=Sanación empoderada
 Feature/&PowerDivineHeartPlanarPortalDescription=Abre un portal que puede llevarte a ti y a una criatura amiga a un destino específico.
 Feature/&PowerDivineHeartPlanarPortalTitle=Portal plano
-Subclass/&SorcerousDivineHeartDescription=Una Deidad te ha impartido tu magia innata con un propósito que puedes entender o no.
+Subclass/&SorcerousDivineHeartDescription=Una Deidad te ha impartido tu magia innata con un propósito que puedes comprender o no.
 Subclass/&SorcerousDivineHeartTitle=Alma divina

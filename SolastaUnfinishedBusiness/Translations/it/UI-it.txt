@@ -1,13 +1,13 @@
-Tutorial/&TutorialActionSwitchingDescription=Quando hai a disposizione più di un'azione principale o bonus, puoi fare clic sul simbolo dello stato dell'azione per renderla l'azione attualmente attiva. Ciò consente di attaccare usando l'azione Haste o Horde Breaker e quindi lanciare incantesimi con l'azione predefinita. O qualsiasi altra combinazione di cui potresti aver bisogno.\nPassando il mouse sopra il simbolo di stato dell'azione viene visualizzata una descrizione comando con il nome della funzione o della condizione che ha concesso l'azione.
-Tutorial/&TutorialActionSwitchingTitle=Molteplici azioni
+Tutorial/&TutorialActionSwitchingDescription=Quando hai più di un'azione principale o bonus disponibile, puoi fare clic sul simbolo di stato dell'azione per renderla l'azione attualmente attiva. Ciò consente di attaccare utilizzando l'azione Haste o Horde Breaker e quindi lanciare incantesimi con l'azione predefinita. O qualsiasi altra combinazione di cui potresti aver bisogno.\nPassando il mouse sul simbolo di stato dell'azione viene visualizzata una descrizione comando con il nome della funzione o della condizione che ha concesso l'azione.
+Tutorial/&TutorialActionSwitchingTitle=Azioni multiple
 UI/&Add=Add
 UI/&AdditionalActionSource=Concesso da: {0}
 UI/&Current Party=Partito attuale
 UI/&DistanceFormat=Distanza: {0}
-UI/&Experimental Preview:=Anteprima sperimentale <i><color=Yellow>[salvataggio di backup prima dell'uso]</color></i>:
+UI/&Experimental Preview:=Anteprima sperimentale <i><color=Yellow>[salvataggio di backup prima dell'utilizzo]</color></i>:
 UI/&Expert=Esperto
 UI/&From=Da
-UI/&PartyEditor=Redattore di partito
+UI/&PartyEditor=Redattore del partito
 UI/&PartyEditorMessage=Questo semplice editor di party ti consente di modificare i personaggi in una sessione di gioco caricata. Fare clic su quanto segue per segnalare problemi:
 UI/&PartyEditorUnavailable=****** Party Editor non disponibile: carica un salvataggio ******
 UI/&Quickies=Sveltine

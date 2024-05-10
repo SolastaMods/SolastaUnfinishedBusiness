@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -847,7 +848,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(
                             conditionDefinition,
-                            ConditionForm.ConditionOperation.Add, true))
+                            ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(ConjureGoblinoids)
                     .Build())
             .SetUniqueInstance()
@@ -949,13 +950,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionDefinition,
-                                ConditionForm.ConditionOperation.Add, true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDefinition))
                     .SetParticleEffectParameters(ConjureGoblinoids)
                     .Build())
             .SetUniqueInstance()
@@ -1079,10 +1074,16 @@ public sealed class InnovationArtillerist : AbstractSubclass
             var usablePower = PowerProvider.Get(powerEldritchDetonation, rulesetTarget);
             var effectPower = implementationManager
                 .MyInstantiateEffectPower(rulesetTarget, usablePower, false);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
 
             var actionParams = new CharacterActionParams(selectedTarget, Id.PowerNoCost)
             {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = effectPower,
                 UsablePower = usablePower,
                 targetCharacters = targets

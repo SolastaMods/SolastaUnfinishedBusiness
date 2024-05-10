@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:AdditionalDamageFeatBalefulScion:3d0e1aa3-2e86-59ea-a2fa-866313231851"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -149,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c86b25ec-cc65-5fb3-90df-7a774a90ed51",
+  "guid": "2a516397-7fef-5f56-804d-a7d94de0cfa9",
   "contentPack": 9999,
-  "name": "ConditionRoguishDuelistReflexiveParry"
+  "name": "ConditionFeatBalefulScion"
 }

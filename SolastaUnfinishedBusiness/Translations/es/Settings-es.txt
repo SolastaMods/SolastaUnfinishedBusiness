@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>Combate:</color>
 ModUi/&Crafting=<color=#F0DAA0>Fabricación:</color>
 ModUi/&CraftingHelp=• Presiona el botón para aprender recetas al instante en el grupo activo\n• Los artículos agregados a las tiendas pueden necesitar que el grupo se aleje de la ubicación y regrese
 ModUi/&Credits=Créditos
-ModUi/&CreditsAndDiagnostics=Créditos y Diagnósticos
+ModUi/&CreditsAndDiagnostics=Créditos y Diagnóstico
 ModUi/&Critical=<color=#F0DAA0>Golpe crítico:</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: predeterminado del juego, tira cualquier dado de daño dos veces, suma el resultado y agrega modificadores <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: suma el resultado máximo de los dados de daño y súmalo al daño del ataque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Sup
 ModUi/&DisableUnofficialTranslations=Desactive la compatibilidad con traducciones no oficiales para acelerar el mod <i><color=#F0DAA0>[a menos que hable chino, italiano, japonés, coreano o español]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostrar todos los hechizos conocidos de otras clases durante la subida de nivel</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostrar espacios de pacto <color=#D89555>Brujo</color> en la selección de hechizos en lugar del panel de personajes</i>
+ModUi/&DocsArcaneShots=DOCS: Disparos arcanos
+ModUi/&DocsBackgrounds=DOCUMENTOS: Antecedentes
+ModUi/&DocsFeats=DOCUMENTOS: Hazañas
+ModUi/&DocsFightingStyles=DOCS: Estilos de lucha
+ModUi/&DocsInfusions=DOCS: Infusiones
+ModUi/&DocsInvocations=DOCS: Invocaciones
+ModUi/&DocsManeuvers=DOCS: Maniobras
+ModUi/&DocsMetamagic=DOCUMENTOS: Metamágica
+ModUi/&DocsRaces=DOCUMENTOS: Carreras
+ModUi/&DocsSpells=DOCUMENTOS: Hechizos
+ModUi/&DocsSubclasses=DOCS: Subclases
+ModUi/&DocsSubraces=DOCS: Subrazas
 ModUi/&Donate=<b><color=#D89555>Donar:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=No mostrar cascos en caracteres gráficos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DontEndTurnAfterReady=No finalice el turno después de usar la acción lista <i><color=#F0DAA0>[permite usar la acción adicional o cualquier acción principal adicional de Prisa u otras fuentes]</color></i>
@@ -80,6 +92,7 @@ ModUi/&DontFollowCharacterInBattle=La cámara de batalla no sigue cuando el pers
 ModUi/&DontFollowMargin=<i><color=blanco>+ A menos que el héroe esté apagado o dentro del % del borde de la pantalla</color></i>
 ModUi/&DungeonMakerBasicHelp=• Estas configuraciones no requerirán que el jugador tenga este mod instalado
 ModUi/&DungeonMakerMenu=Creador de mazmorras
+ModUi/&Effects=Efectos
 ModUi/&EmpressGarbAppearance=Apariencia <color=#D89555>Atuendo de emperatriz</color>
 ModUi/&EnableActionSwitching=Habilitar la barra de cambio de acción <i><color=#F0DAA0>[útil cuando se tiene prisa por usar la acción de prisa antes de la acción principal]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Habilite la visualización de antecedentes adicionales en la inspección de antecedentes
@@ -87,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Habilite íconos adicionales para campame
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Agregar nuevos elementos a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilitar el humano alternativo <i><color=#F0DAA0>[+1 hazaña / +2 opciones de atributos / +1 habilidad]</color></i>
 ModUi/&EnableAlternateVotingSystem=Habilitar el sistema de votación alternativo <i><color=#F0DAA0>[use el modificador de carisma del héroe para determinar el peso de la elección]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Habilitar <color=#D89555>Inspiración bárdica</color>, <color=#D89555>Suerte abundante</color>, <color=#D89555>Círculo de estrellas</color>, <color=#D89555>Destello de genio </color> y <color=#D89555>Lucky</color> para activar también comprobaciones de atributos fuera del combate.
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Habilitar <color=#D89555>Inspiración bárdica</color> para activar también comprobaciones de atributos fuera del combate.
 ModUi/&EnableBarbarianBrutalStrike=Habilita <color=#D89555>Bárbaro</color> <b>Golpe brutal</b> y <b>Mejora de golpe brutal</b> en los niveles de clase 9, 13 y 17.
 ModUi/&EnableBarbarianFightingStyle=Activa la opción <color=#D89555>Bárbaro</color> <b>Estilo de lucha</b> en el nivel 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Habilite la ventaja y desventaja del <color=#D89555>Bárbaro</color> <b>Ataque imprudente</b> para finalizar al comienzo del siguiente turno.

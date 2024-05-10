@@ -135,7 +135,6 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
         var hero = character as RulesetCharacterHero;
-        var originalHero = character.GetOriginalHero();
         var monster = character as RulesetCharacterMonster;
 
         if (hero == null && monster == null)
@@ -143,6 +142,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             return null;
         }
 
+        var originalHero = character.GetOriginalHero();
         var mainHandItem = hero.GetMainWeapon();
         var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmed(mainHandItem.ItemDefinition, null);
         var strikeDefinition = isUnarmedWeapon

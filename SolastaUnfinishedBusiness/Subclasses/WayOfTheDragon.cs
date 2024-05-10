@@ -648,6 +648,11 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 return effectDescription;
             }
 
+            if (character.GetClassLevel(CharacterClassDefinitions.Monk) >= 17)
+            {
+                damageForm.DiceNumber = 4;
+            }
+
             damageForm.DieType = character.GetMonkDieType();
 
             return effectDescription;
@@ -703,6 +708,11 @@ public sealed class WayOfTheDragon : AbstractSubclass
             if (damageForm == null)
             {
                 return effectDescription;
+            }
+
+            if (character.GetClassLevel(CharacterClassDefinitions.Monk) >= 17)
+            {
+                damageForm.DiceNumber = 4;
             }
 
             damageForm.DieType = character.GetMonkDieType();

@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:PowerMartialForceKnightPsionicAdept:97e19190-2fed-5b55-8b65-adf3ed091ad3",
     "Definition:PowerMartialForceKnightPsionicAdeptProne:233f277f-a8c4-52c4-aa4d-a6e020fe6ed1",
-    "Definition:PowerMartialForceKnightPsionicInitiate:f8f85acb-48e6-5907-b452-d4f17ef11934",
     "Definition:PowerMartialForceKnightPsionicAdeptPush:0aa649b0-c134-5aab-bd4b-1e2d5c227f9b"
   ],
   "mode": "Union",

@@ -2,5 +2,5 @@ Condition/&ConditionDualFlurryGrantDescription=Deine Feinde geraten ins Wanken!
 Condition/&ConditionDualFlurryGrantTitle=Doppelter Wirbel
 Feat/&FeatDualFlurryDescription=Du bist ein Meister im Kampf mit gepaarten Waffen. In jeder Runde, in der Sie mit Nahkampfangriffen zweimal zuschlagen, während Sie in jeder Hand eine Waffe führen, können Sie beim Angriff mit Ihrer Bonusaktion einen zusätzlichen Nebenhandangriff ausführen.
 Feat/&FeatDualFlurryTitle=Doppelter Wirbel
-Feat/&FeatDualWeaponDefenseDescription=Du meisterst den Kampf mit zwei Waffen und erhältst die folgenden Vorteile:\n• Du erhältst einen Bonus von +1 auf die RK, wenn du in jeder Hand eine separate Nahkampfwaffe führst.\n• Du kannst den Kampf mit zwei Waffen auch dann nutzen, wenn die Einhändige Nahkampfwaffen, die Sie tragen, sind nicht leicht.
+Feat/&FeatDualWeaponDefenseDescription=Du meisterst den Kampf mit zwei Waffen und erhältst die folgenden Vorteile:\n• Du erhältst einen Bonus von +1 auf die RK, wenn du in jeder Hand eine separate Nahkampfwaffe führst.\n• Du kannst den Kampf mit zwei Waffen auch dann nutzen, wenn die Die einhändigen Nahkampfwaffen, die Sie tragen, sind nicht leicht.
 Feat/&FeatDualWeaponDefenseTitle=Doppelträger

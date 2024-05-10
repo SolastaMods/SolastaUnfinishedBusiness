@@ -1,4 +1,4 @@
-Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Sempre que você usar o recurso Flurry of Blows, você pode substituir um ataque desarmado por um ataque com arco.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Sempre que você usa sua Rajada de Golpes, você pode substituir um ataque desarmado por um ataque com arco.
 Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Rajada de Flechas
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Seus ataques com arco contam como mágicos com o propósito de superar a resistência e imunidade a ataques e danos não mágicos, e agora você pode usar seu recurso Stunning Strike com ataques com arco.
 Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Flechas com poder de Ki

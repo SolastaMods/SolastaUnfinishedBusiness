@@ -82,7 +82,7 @@
           "conditionDefinition": "Definition:ConditionInnovationArtilleristProtectorTiny:fe6a64c9-7f1d-5b99-bf8e-d006587cbb66",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,

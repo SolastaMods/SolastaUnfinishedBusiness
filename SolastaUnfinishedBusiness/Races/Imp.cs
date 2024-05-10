@@ -638,6 +638,7 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
+            rulesetHelper.UsePower(usablePower);
             action.AttackSuccessDelta += InspirationValue;
             action.AttackRollOutcome = RollOutcome.Success;
             actionModifier.AttackRollModifier += InspirationValue;

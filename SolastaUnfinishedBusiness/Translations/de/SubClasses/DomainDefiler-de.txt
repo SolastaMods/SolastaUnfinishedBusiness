@@ -1,10 +1,10 @@
 Condition/&ConditionDomainDefilerInsidiousDeathMagicDescription=Du wurdest von einem Schänder verflucht. Sie können keine Trefferpunkte mehr erhalten.
 Condition/&ConditionDomainDefilerInsidiousDeathMagicTitle=Heimtückische Todesmagie
-Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription=Verursacht einmal pro Spielzug 1W8 nekrotischen Schaden bei Waffenangriffen. Dieser Schaden erhöht sich auf der 14. Stufe auf 2W8.
+Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription=Füge einmal pro Runde 1W8 nekrotischen Schaden bei Waffenangriffen zu. Dieser Schaden erhöht sich auf der 14. Stufe auf 2W8.
 Feature/&AdditionalDamageDomainDefilerDivineStrikeTitle=Göttlicher Schlag
 Feature/&AutoPreparedSpellsDomainDefilerDyingLightDescription=Sie lernen die Zauber „Kreis des Todes“ und „Finger des Todes“ und sie werden zur Liste der bekannten Zauber hinzugefügt. Sie sind immer vorbereitet, zählen nicht zu Ihrem Limit für vorbereitete Zauber und werden für Sie als Klerikerzauber behandelt. Immer wenn du nekrotischen Schaden verursachst, kannst du maximalen Schaden verursachen, anstatt zu würfeln. Sie können diese Funktion einmal pro langer Pause nutzen.
 Feature/&AutoPreparedSpellsDomainDefilerDyingLightTitle=Sterbendes Licht
-Feature/&BonusCantripDomainDefilerDescription=Lerne Wrack-Cantrip.
+Feature/&BonusCantripDomainDefilerDescription=Erlerne den Zauberspruch „Wrack“.
 Feature/&BonusCantripDomainDefilerTitle=Cantrip-Bonus
 Feature/&DamageAffinityDomainDefilerBeaconOfCorruptionDescription=Du erhältst Widerstand gegen nekrotischen Schaden und der durch deine Zauber und Kräfte verursachte nekrotische Schaden ignoriert den Widerstand gegen nekrotischen Schaden.
 Feature/&DamageAffinityDomainDefilerBeaconOfCorruptionTitle=Leuchtfeuer der Korruption

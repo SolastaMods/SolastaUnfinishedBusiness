@@ -27,6 +27,86 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    #region Snilloc's Snowball Storm
+
+    internal static SpellDefinition BuildSnillocSnowballStorm()
+    {
+        const string NAME = "SnillocSnowballStorm";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SnillocSnowballStorm, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(2)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Cube, 3)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeCold, 3, DieType.D8)
+                            .Build())
+                    .SetParticleEffectParameters(FreezingSphere)
+                    .SetCasterEffectParameters(SleetStorm)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Aganazzar's Scorcher
+
+    internal static SpellDefinition BuildAganazzarScorcher()
+    {
+        const string NAME = "AganazzarScorcher";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AganazzarScorcher, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(2)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 6)
+                    .ExcludeCaster()
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeFire, 3, DieType.D10)
+                            .Build())
+                    .SetParticleEffectParameters(PowerSessrothBreath)
+                    .SetCasterEffectParameters(FlameBlade)
+                    .SetImpactEffectParameters(ScorchingRay)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Binding Ice
 
     internal static SpellDefinition BuildBindingIce()
@@ -447,8 +527,8 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeNecrotic, 2, DieType.D6)
                             .Build())
-                    .SetImpactEffectParameters(Disintegrate)
                     .SetEffectEffectParameters(Disintegrate)
+                    .SetImpactEffectParameters(Disintegrate)
                     .Build())
             .AddToDB();
 
@@ -505,12 +585,20 @@ internal static partial class SpellBuilders
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerWitherAndBloom,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionSpellCastingBonus) : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        ConditionDefinition conditionSpellCastingBonus) : IMagicEffectInitiatedByMe
     {
         private int _effectLevel;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            if (baseDefinition == powerWitherAndBloom &&
+                action.ActionParams.activeEffect is RulesetEffectPower rulesetEffectPower)
+            {
+                rulesetEffectPower.EffectDescription.EffectForms[0].DamageForm.diceNumber = _effectLevel;
+
+                yield break;
+            }
+
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager =
@@ -560,6 +648,8 @@ internal static partial class SpellBuilders
                 0,
                 0);
 
+            var hasHealed = false;
+
             while (--effectLevel > 0 &&
                    rulesetTarget.RemainingHitDiceCount() > 0 &&
                    rulesetTarget.MissingHitPoints > 0)
@@ -586,7 +676,7 @@ internal static partial class SpellBuilders
                     break;
                 }
 
-                EffectHelpers.StartVisualEffect(actingCharacter, target, CureWounds, EffectHelpers.EffectType.Effect);
+                hasHealed = true;
                 rulesetTarget.RollHitDie();
             }
 
@@ -601,28 +691,29 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerWitherAndBloom, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(target, withinRange: 2);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets
             };
 
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
-        }
-
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (baseDefinition != powerWitherAndBloom ||
-                action.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower)
+            if (hasHealed)
             {
-                yield break;
+                EffectHelpers.StartVisualEffect(actingCharacter, target, CureWounds, EffectHelpers.EffectType.Effect);
             }
 
-            rulesetEffectPower.EffectDescription.EffectForms[0].DamageForm.diceNumber = _effectLevel;
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, true);
         }
 
         private void HitDieRolled(

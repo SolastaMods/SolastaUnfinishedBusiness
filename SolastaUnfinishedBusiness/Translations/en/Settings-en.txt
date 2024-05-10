@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>Combat:</color>
 ModUi/&Crafting=<color=#F0DAA0>Crafting:</color>
 ModUi/&CraftingHelp=• Press the button to learn recipes instantly on the active party\n• Items added to stores might need the party to travel away from the location and come back
 ModUi/&Credits=Credits
-ModUi/&CreditsAndDiagnostics=Credits & Diags
+ModUi/&CreditsAndDiagnostics=Credits & Diagnostics
 ModUi/&Critical=<color=#F0DAA0>Critical Hit:</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: game default, roll any damage dice twice, add the result and add modifiers <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: sum the maximum result for the damage dice and add it to the attack's damage <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superio
 ModUi/&DisableUnofficialTranslations=Disable unofficial translations support to speed up mod <i><color=#F0DAA0>[unless I speak Chinese, Italian, Japanese, Korean or Spanish]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from other classes during level up</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Display <color=#D89555>Warlock</color> pact slots on spell selection instead of character panel</i>
+ModUi/&DocsArcaneShots=DOCS: Arcane Shots
+ModUi/&DocsBackgrounds=DOCS: Backgrounds
+ModUi/&DocsFeats=DOCS: Feats
+ModUi/&DocsFightingStyles=DOCS: Fighting Styles
+ModUi/&DocsInfusions=DOCS: Infusions
+ModUi/&DocsInvocations=DOCS: Invocations
+ModUi/&DocsManeuvers=DOCS: Maneuvers
+ModUi/&DocsMetamagic=DOCS: Metamagic
+ModUi/&DocsRaces=DOCS: Races
+ModUi/&DocsSpells=DOCS: Spells
+ModUi/&DocsSubclasses=DOCS: Subclasses
+ModUi/&DocsSubraces=DOCS: Subraces
 ModUi/&Donate=<b><color=#D89555>Donate:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Don't display helmets on graphic characters <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Don't end turn after using <color=#D89555>ready action</color> <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>
@@ -80,6 +92,7 @@ ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character i
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
 ModUi/&DungeonMakerBasicHelp=• These settings won't require the player to have this mod installed
 ModUi/&DungeonMakerMenu=Dungeon Maker
+ModUi/&Effects=Effects
 ModUi/&EmpressGarbAppearance=<color=#D89555>Empress Garb</color> appearance
 ModUi/&EnableActionSwitching=Enable action switching bar <i><color=#F0DAA0>[useful when hasted to use haste action before main action]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on background inspection
@@ -87,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits 
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Add new items to Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Enable the alternate <color=#D89555>Human</color> <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
 ModUi/&EnableAlternateVotingSystem=Enable alternate voting system <i><color=#F0DAA0>[choice weight = votes * hero Charisma modifier]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Enable <color=#D89555>Bardic Inspiration</color>, <color=#D89555>Bountiful Luck</color>, <color=#D89555>Circle of Stars</color>, <color=#D89555>Flash of Genius</color>, and <color=#D89555>Lucky</color> to also trigger on off combat attribute checks
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Enable <color=#D89555>Bardic Inspiration</color> to also trigger on off combat attribute checks
 ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Barbarian</color> <b>Brutal Strike</b> and <b>Brutal Strike Improvement</b> at levels 9, 13 and 17
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Barbarian</color> <b>Fighting Style</b> choice at level 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Barbarian</color> <b>Reckless Attack</b> buff and debuff to finish at start of next turn

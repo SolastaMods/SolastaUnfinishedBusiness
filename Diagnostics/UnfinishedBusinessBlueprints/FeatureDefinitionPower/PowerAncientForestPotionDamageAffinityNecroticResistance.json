@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionAncientForestHerbalBrewDamageAffinityNecroticResistance:74bcc9ad-5df9-50c3-a7e8-de0572cb2bf6",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

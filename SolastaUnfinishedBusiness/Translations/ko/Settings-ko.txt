@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>전투:</color>
 ModUi/&Crafting=<color=#F0DAA0>제작:</color>
 ModUi/&CraftingHelp=• 버튼을 누르면 활성화된 파티에서 즉시 제작법을 배울 수 있습니다\n• 상점에 추가돼야 하는 아이템은 파티가 해당 위치를 떠났다가 다시 돌아와야 합니다
 ModUi/&Credits=제작자들
-ModUi/&CreditsAndDiagnostics=제작자 및 파일 분석
+ModUi/&CreditsAndDiagnostics=크레딧 및 진단
 ModUi/&Critical=<color=#F0DAA0>치명타:</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: 게임 기본값으로, 피해 주사위를 두 번 굴려 값을 더하고 수정치를 더합니다 <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: 피해 주사위의 최대값을 합산하여 피해량에 더합니다 <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=플레이 가능한 모든 종
 ModUi/&DisableUnofficialTranslations=비공식 번역 지원을 비활성화하여 모드 속도 향상 <i><color=#F0DAA0>[한국어, 일본어, 중국어, 이탈리아어, 스페인어 사용자가 아닐 경우 체크]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 레벨업 중 다른 직업의 모든 알려진 주문 표시</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 캐릭터 패널 대신 주문 선택 시 <color=#D89555>워락</color> 계약 슬롯을 표시</i>
+ModUi/&DocsArcaneShots=DOCS: 신비한 사격
+ModUi/&DocsBackgrounds=문서: 배경
+ModUi/&DocsFeats=문서: 업적
+ModUi/&DocsFightingStyles=문서: 격투 스타일
+ModUi/&DocsInfusions=문서: 주입
+ModUi/&DocsInvocations=문서: 호출
+ModUi/&DocsManeuvers=문서: 기동
+ModUi/&DocsMetamagic=문서: 메타매직
+ModUi/&DocsRaces=문서: 경주
+ModUi/&DocsSpells=문서: 주문
+ModUi/&DocsSubclasses=DOCS: 서브클래스
+ModUi/&DocsSubraces=문서: 하위 경주
 ModUi/&Donate=<b><color=#D89555>후원하기:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=캐릭터 모델링에 머리 방어구 표시 안 함 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&DontEndTurnAfterReady=준비 액션을 사용한 후 턴을 종료하지 않음 <i><color=#F0DAA0>[추가 행동 또는 이동이나 다른 출처의 기타 행동을 사용할 수 있습니다]</color></i>
@@ -80,6 +92,7 @@ ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있을 때 전�
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 쓰러져 있거나 화면 가장자리 % 이내인 경우</color></i>
 ModUi/&DungeonMakerBasicHelp=• 이 설정은 플레이어에게 이 모드가 설치되어 있지 않아도 됨
 ModUi/&DungeonMakerMenu=던전 메이커
+ModUi/&Effects=효과
 ModUi/&EmpressGarbAppearance=<color=#D89555>황후 의복</color> 외형
 ModUi/&EnableActionSwitching=행동 전환 막대 활성화 <i><color=#F0DAA0>[가속 주문 등으로 생긴 행동과 일반 행동 선택]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=배경 검사에서 추가 배경 이야기 표시 활성화
@@ -87,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=레벨 지도에서 야영지, 출구, �
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ 던전 메이커에 새 아이템 추가</i>
 ModUi/&EnableAlternateHuman=변형 룰 <color=#D89555>인간</color> <i><color=#F0DAA0>[+1 재주 / +2 능력치 / +1 기술]</color></i> 활성화
 ModUi/&EnableAlternateVotingSystem=대체 투표 시스템 활성화 <i><color=#F0DAA0>[선택 가중치를 결정하기 위해 영웅 카리스마 수정자를 사용]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=<color=#D89555>음유시인의 영감</color>, <color=#D89555>풍성한 행운</color>, <color=#D89555>별의 원</color>, <color=#D89555>천재의 섬광 활성화 </color> 및 <color=#D89555>럭키</color>는 전투 외 속성 확인도 실행합니다.
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=<color=#D89555>음유시인의 영감</color>는 전투 외 속성 확인도 실행합니다.
 ModUi/&EnableBarbarianBrutalStrike=클래스 레벨 9, 13, 17에서 <color=#D89555>야만인</color> <b>잔혹한 일격</b> 및 <b>잔혹한 일격 개선</b>을 활성화하세요.
 ModUi/&EnableBarbarianFightingStyle=<color=#D89555>바바리안</color>의 <b>전투 특화</b> 선택지를 2레벨에 활성화
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>야만인</color> <b>무모한 공격</b> 버프 및 디버프를 활성화하여 다음 턴 시작 시 완료

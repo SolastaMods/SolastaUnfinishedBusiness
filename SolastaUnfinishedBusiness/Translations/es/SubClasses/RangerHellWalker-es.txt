@@ -16,6 +16,6 @@ Monster/&MonsterHezrouDescription=Los Hezrous eran grandes monstruosidades demon
 Monster/&MonsterHezrouTitle=Hezroú
 Monster/&MonsterMarilithDescription=De cintura para arriba, las mariliths parecían mujeres humanoides atractivas con seis brazos, pero sus mitades inferiores eran las de serpientes verdes gigantes. En cada mano portaban armas muy decoradas y se adornaban con brazaletes y joyas.
 Monster/&MonsterMarilithTitle=Marilith
-Subclass/&RangerHellWalkerDescription=Eres un Hellwalker, un explorador envuelto en la magia de los Planos Inferiores. Sólo tú mismo sabes cómo llegaste a asociarte con esta magia. Quizás tu gran ancestro era de origen demoníaco, o quizás tu linaje lleva una maldición demoníaca. Cualquiera sea la razón, la magia ahora está inextricablemente ligada a ti, tu propia presencia ligada para siempre a los seres infernales que se encuentran debajo.
+Subclass/&RangerHellWalkerDescription=Eres un Hellwalker, un explorador envuelto en la magia de los Planos Inferiores. Sólo tú mismo sabes cómo llegaste a asociarte con esta magia. Quizás tu gran ancestro era de origen demoníaco, o quizás tu linaje lleva una maldición demoníaca. Cualquiera sea la razón, la magia ahora está indisolublemente ligada a ti, tu propia presencia ligada para siempre a los seres infernales que se encuentran debajo.
 Subclass/&RangerHellWalkerTitle=Caminante del infierno
 Tooltip/&MustHaveDammingStrikeCondition=No está marcado por Damning Strike

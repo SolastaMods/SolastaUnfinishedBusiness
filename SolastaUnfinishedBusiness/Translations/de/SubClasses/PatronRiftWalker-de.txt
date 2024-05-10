@@ -1,5 +1,5 @@
-Condition/&ConditionRiftWalkerRiftCloakDescription=Du bist gegen alle Schadensarten resistent.
-Condition/&ConditionRiftWalkerRiftCloakTitle=Geschützt durch Rift Cloak
+Condition/&ConditionRiftWalkerRiftCloakDescription=Sie sind gegen alle Schadensarten resistent.
+Condition/&ConditionRiftWalkerRiftCloakTitle=Geschützt durch den Rift-Umhang
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Du kannst nicht zurückgehalten werden.
 Feature/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Rift-Freiheit
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidDescription=Wenn Ihre Trefferpunkte auf 0 reduziert, aber nicht vollständig getötet werden, sinken Ihre Trefferpunkte stattdessen auf 1 Trefferpunkt, während Sie kurz in die Leere verschwinden, um den Schaden zu verringern. Sie können diese Funktion einmal pro langer Pause nutzen.
@@ -18,5 +18,5 @@ Reaction/&SpendPowerPowerRiftWalkerRiftStrikeDescription=Verbanne den Angreifer 
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactDescription=Verbannt den Angreifer.
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactTitle=Rissschlag
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeTitle=Rissschlag
-Subclass/&PatronRiftWalkerDescription=Ihr Gönner ist eines der seltenen Wesen, die die Leere zwischen den Welten als ihr Zuhause bezeichnen. Sie schlüpfen mit Leichtigkeit zwischen den Ebenen hin und her und das Wissen, das Sie durch die Interaktion mit ihnen gewonnen haben, ermöglicht es Ihnen, die verbleibenden Rissenergien innerhalb von Solasta zu Ihrem Vorteil zu nutzen. Möglicherweise verspüren Sie manchmal eine Sehnsucht nach dem fernen Reich Ihres Gönners, den Wunsch, für den Rest Ihrer Tage zwischen den Dimensionen zu wandern, oder nach Anzeichen eines weiteren Rift-Ereignisses Ausschau zu halten, entweder um es zu verhindern oder zu fördern.
+Subclass/&PatronRiftWalkerDescription=Ihr Gönner ist eines der seltenen Wesen, die die Leere zwischen den Welten als ihr Zuhause bezeichnen. Sie schlüpfen mit Leichtigkeit zwischen den Ebenen hin und her und das Wissen, das Sie durch die Interaktion mit ihnen gewonnen haben, ermöglicht es Ihnen, die verbleibenden Rissenergien innerhalb von Solasta zu Ihrem Vorteil zu nutzen. Möglicherweise verspüren Sie manchmal eine Sehnsucht nach dem fernen Reich Ihres Gönners, den Wunsch, für den Rest Ihrer Tage zwischen den Dimensionen zu wandern, oder nach Anzeichen eines weiteren Rift-Ereignisses Ausschau zu halten, entweder um es zu verhindern oder zu ermutigen.
 Subclass/&PatronRiftWalkerTitle=Der Riftwalker

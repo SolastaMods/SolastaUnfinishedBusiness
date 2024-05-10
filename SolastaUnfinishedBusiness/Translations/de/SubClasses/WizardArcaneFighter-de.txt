@@ -5,6 +5,6 @@ Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Magisch angetriebene Angr
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Verschaffen Sie sich durch Erfahrung im Chaos des Kampfes einen Vorteil bei Konzentrationsprüfungen.
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Verbesserte Konzentration
 Feedback/&AdditionalDamageArcaneFighterFormat=Arkaner Kämpfer!
-Feedback/&AdditionalDamageArcaneFighterLine=Der Arkankämpfer verursacht zusätzlichen Schaden von +{2}!
+Feedback/&AdditionalDamageArcaneFighterLine=Arkaner Kämpfer verursacht zusätzlichen +{2} Schaden!
 Subclass/&WizardArcaneFighterDescription=Arkane Kämpfer kanalisieren Magie in ihre Waffen, um verheerende Angriffe auszuführen. Ihre Gegner sind oft überrascht über die Wildheit und Unerbittlichkeit dieser Zauberer.
 Subclass/&WizardArcaneFighterTitle=Arkaner Kämpfer

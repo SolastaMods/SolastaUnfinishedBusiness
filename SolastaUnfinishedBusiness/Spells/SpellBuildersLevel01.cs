@@ -316,9 +316,7 @@ internal static partial class SpellBuilders
                                     .SetAdditionalCarryingCapacity(20)
                                     .AddToDB())
                             .AddToDB(),
-                        ConditionForm.ConditionOperation.Add,
-                        false,
-                        false,
+                        ConditionForm.ConditionOperation.Add, false, false,
                         ConditionJump.AdditionalCondition)
                     .Build())
             .Build();
@@ -1083,7 +1081,6 @@ internal static partial class SpellBuilders
                 var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
                 var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
                 {
-                    ActionModifiers = { new ActionModifier() },
                     StringParameter = "ChaosBolt",
                     RulesetEffect = implementationManager
                         .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
@@ -2314,9 +2311,16 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,

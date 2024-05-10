@@ -1,4 +1,4 @@
-Condition/&ConditionRoguishOpportunistDebilitatedDescription=Du wirst durch einen Opportunisten geschwächt und wirfst alle Rettungswürfe mit einem Malus von -1W4.
+Condition/&ConditionRoguishOpportunistDebilitatedDescription=Sie werden durch einen Opportunisten geschwächt und würfeln alle Rettungswürfe mit einer Strafe von -1W4.
 Condition/&ConditionRoguishOpportunistDebilitatedTitle=Geschwächt
 Condition/&ConditionRoguishOpportunistExposedDescription=Du wirst durch einen Opportunisten geschwächt, der alle Rettungswürfe mit einem Malus von -1W6 ausführt, seine Bewegungsgeschwindigkeit um 10 Fuß verringert und alle Angriffswürfe gegen dich im Vorteil hat.
 Condition/&ConditionRoguishOpportunistExposedTitle=Geschwächt
@@ -19,5 +19,5 @@ Reaction/&SeizeTheChanceReactDescription=Einem Gegner ist ein Rettungswurf missl
 Reaction/&SeizeTheChanceReactTitle=Nutzen Sie die Chance
 Reaction/&SeizeTheChanceTitle=Nutzen Sie die Chance
 Reaction/&SubitemSelectSeizeTheChanceTitle=Nutzen Sie die Chance
-Subclass/&RoguishOpportunistDescription=Opportunisten sind diejenigen, die sich niemals die Chance entgehen lassen, ihre Feinde zu erledigen. Sie stechen schnell und stechen dorthin, wo es darauf ankommt. Nicht viele, die ihnen gegenüberstehen, können unbeschadet davonkommen.
+Subclass/&RoguishOpportunistDescription=Opportunisten sind diejenigen, die sich niemals die Chance entgehen lassen, ihre Feinde zu erledigen. Sie stechen schnell und stechen dorthin, wo es darauf ankommt. Nicht viele, denen sie gegenüberstehen, können unbeschadet davonkommen.
 Subclass/&RoguishOpportunistTitle=Opportunist

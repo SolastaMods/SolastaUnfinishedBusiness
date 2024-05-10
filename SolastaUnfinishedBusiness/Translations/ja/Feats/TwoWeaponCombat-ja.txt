@@ -1,6 +1,6 @@
-Condition/&ConditionDualFlurryGrantDescription=あなたの敵は動揺しています!
+Condition/&ConditionDualFlurryGrantDescription=敵は混乱しています!
 Condition/&ConditionDualFlurryGrantTitle=デュアルフラリー
 Feat/&FeatDualFlurryDescription=あなたはペアの武器を使った戦いの達人です。両手に武器を持ちながら近接攻撃を 2 回攻撃したターンでは、ボーナス アクションで攻撃するときに追加のオフハンド攻撃を行うことができます。
 Feat/&FeatDualFlurryTitle=デュアルフラリー
-Feat/&FeatDualWeaponDefenseDescription=2 つの武器を使った戦闘をマスターすると、次の利点が得られます:\n• それぞれの手に別々の近接武器を使用している間、AC に +1 ボーナスを獲得します。\n• 武器があなたが使用している片手近接武器は軽くありません。
+Feat/&FeatDualWeaponDefenseDescription=2 つの武器を使った戦闘をマスターすると、次のような利点が得られます:\n• それぞれの手に別々の近接武器を装備している間、AC に +1 ボーナスを獲得します。\n• 武器が 2 つある場合でも、2 つの武器を使用して戦闘を行うことができます。あなたが使用している片手近接武器は軽くありません。
 Feat/&FeatDualWeaponDefenseTitle=二刀流者

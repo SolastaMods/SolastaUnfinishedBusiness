@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>Combate:</color>
 ModUi/&Crafting=<color=#F0DAA0>Criação:</color>
 ModUi/&CraftingHelp=• Pressione o botão para aprender receitas instantaneamente na parte ativa\n• Os itens adicionados às lojas podem exigir que o grupo se afaste do local e volte
 ModUi/&Credits=Créditos
-ModUi/&CreditsAndDiagnostics=Credits & Diags
+ModUi/&CreditsAndDiagnostics=Créditos e diagnósticos
 ModUi/&Critical=<color=#F0DAA0>Acerto crítico:</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: padrão do jogo, role qualquer dado de dano duas vezes, some o resultado e adicione modificadores <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: soma o resultado máximo dos dados de dano e adiciona ao dano do ataque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desative <color=#D89555>Superi
 ModUi/&DisableUnofficialTranslations=Desative o suporte a traduções não oficiais para acelerar o mod <i><color=#F0DAA0>[a menos que eu fale chinês, italiano, japonês, coreano ou espanhol]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibe todos os feitiços conhecidos de outras classes durante o aumento de nível</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Exibir espaços de pacto <color=#D89555>Warlock</color> na seleção de feitiço em vez do painel de personagem</i>
+ModUi/&DocsArcaneShots=DOCS: Tiros Arcanos
+ModUi/&DocsBackgrounds=DOCUMENTOS: Planos de fundo
+ModUi/&DocsFeats=DOCS: Talentos
+ModUi/&DocsFightingStyles=DOCS: Estilos de luta
+ModUi/&DocsInfusions=DOCS: Infusões
+ModUi/&DocsInvocations=DOCS: invocações
+ModUi/&DocsManeuvers=DOCS: Manobras
+ModUi/&DocsMetamagic=DOCS: Metamágica
+ModUi/&DocsRaces=DOCS: Corridas
+ModUi/&DocsSpells=DOCS: Feitiços
+ModUi/&DocsSubclasses=DOCS: Subclasses
+ModUi/&DocsSubraces=DOCS: Subraças
 ModUi/&Donate=<b><color=#D89555>Doar:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Não exiba capacetes em personagens gráficos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Não termine o turno após usar a ação pronta <i><color=#F0DAA0>[permite usar Bonus Action ou qualquer ação Principal extra de Haste ou outras fontes]</color></i>
@@ -80,6 +92,7 @@ ModUi/&DontFollowCharacterInBattle=A câmera de batalha não segue quando o pers
 ModUi/&DontFollowMargin=<i><color=white>+ A menos que o herói esteja desligado ou dentro de % da borda da tela</color></i>
 ModUi/&DungeonMakerBasicHelp=• Essas configurações não exigirão que o jogador tenha este mod instalado
 ModUi/&DungeonMakerMenu=Criador de Masmorras
+ModUi/&Effects=Efeitos
 ModUi/&EmpressGarbAppearance=Aparência de <color=#D89555>Traje de Imperatriz</color>
 ModUi/&EnableActionSwitching=Ativar barra de alternância de ação <i><color=#F0DAA0>[útil quando estiver com pressa para usar a ação rápida antes da ação principal]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Ativar exibição adicional de histórico na inspeção de plano de fundo
@@ -87,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampame
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Adicionar novos itens ao Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilite o humano alternativo <i><color=#F0DAA0>[+1 talento / +2 opções de atributo / +1 habilidade]</color></i>
 ModUi/&EnableAlternateVotingSystem=Ativar sistema de votação alternativo <i><color=#F0DAA0>[use o modificador de Carisma do herói para determinar o peso da escolha]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Ative <color=#D89555>Inspiração Bárdica</color>, <color=#D89555>Boa Sorte</color>, <color=#D89555>Círculo de Estrelas</color>, <color=#D89555>Flash of Genius </color> e <color=#D89555>Lucky</color> para também ativar verificações de atributos fora do combate
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Ative <color=#D89555>Inspiração Bárdica</color> para também ativar verificações de atributos fora do combate
 ModUi/&EnableBarbarianBrutalStrike=Habilite <color=#D89555>Bárbaro</color> <b>Golpe Brutal</b> e <b>Melhoria de Ataque Brutal</b> nos níveis de classe 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Habilite a opção <color=#D89555>Bárbaro</color> <b>Estilo de luta</b> no nível 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Ative o buff e o debuff do <color=#D89555>Bárbaro</color> <b>Ataque Imprudente</b> para terminar no início do próximo turno

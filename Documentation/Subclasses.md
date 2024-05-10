@@ -571,7 +571,7 @@ The Path of the Ravager is a path of untrammeled fury, slick with blood. As you 
 
 * Frenzy
 
-Once during your turn, if you use your Reckless Attack while you are raging, the first Strength-based weapon attack that you hit an enemy with deals 2d6 extra damage to the same type as your weapon. This damage is increased to 3d6 at 9th level, and 4d6 at 16th level. 
+Once during your turn, if you use your Reckless Attack while you are raging, the first Strength-based weapon attack that you hit an enemy with deals 2d6 extra damage of the same type as your weapon. This damage is increased to 3d6 at 9th level, and 4d6 at 16th level. 
 
 
 ### Level 6
@@ -1069,7 +1069,7 @@ You strike down your enemies in a terrifying way that instills fear in those who
 
 * Two-Weapon Fighting Style
 
-When you engage in two-weapon fighting, you can add your ability modifier to the damage to the second attack.
+When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 
 
 ### Level 6
@@ -1853,7 +1853,7 @@ The Mischief domain is followed by those who pursue joy, pleasure, and wealth th
 
 * Borrowed Luck
 
-When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.
 
 * Mischief Domain Spells
 
@@ -1887,7 +1887,7 @@ When you hit a creature with a melee or ranged weapon attack, you can Channel Di
 
 * Elusive Target
 
-Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.
 
 
 ### Level 8
@@ -2929,14 +2929,14 @@ You can use a bonus action to give all allies within 3 cells of you (including y
 
 ### Level 7
 
-* Coordinated Defense​​​​​​​
+* Coordinated Defense
 
 When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
 
 
 ### Level 10
 
-* Invigorating Shout​​​​​​​
+* Invigorating Shout
 
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 
@@ -3353,7 +3353,7 @@ You choose one type of dragon as your ancestor. The damage type associated with 
 
 * Elemental Breath
 
-Once during your turn, you can forgo one of your main action attacks to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive three martial arts dice as damage type of your Dragon Ancestry feature (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and you can spend 2 ki instead if you are out of uses.
+Once during your turn, you can forgo one of your main action attacks to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive three martial arts dice as damage type of your Dragon Ancestry feature (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and you can spend 2 ki instead if you are out of uses. At 17th level, the damage of your breath increases to four martial arts dice. 
 
 
 ### Level 6
@@ -4324,7 +4324,7 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 
 * Arcane Pulse
 
-Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 ft. Hostile creatures within 15 ft of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage to your Arcane Pulse increases to 8d8.
+Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 ft. Hostile creatures within 15 ft of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
 
 
 ### Level 11
@@ -4338,7 +4338,7 @@ Starting at 11th level, the damage from your Arcane Detonation increases to 2d6.
 
 * Arcane Pulse
 
-Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 ft. Hostile creatures within 15 ft of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage to your Arcane Pulse increases to 8d8.
+Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 ft. Hostile creatures within 15 ft of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
 
 
 
@@ -5021,7 +5021,7 @@ Starting at 9th level, when a creature misses you with a melee attack roll, you 
 
 * Reflexive Parry
 
-Starting at 13th level, once per turn while you aren't incapacitated, shocked or slowed and get hit by a melee weapon attack, you immediately use your Uncanny Dodge feature without needing or consuming your reaction.
+Starting at 13th level, once per turn while you aren't dazzled, incapacitated, shocked or slowed and get hit by a melee weapon attack, you immediately use your Uncanny Dodge feature without needing or consuming your reaction.
 
 
 ### Level 17
@@ -5209,7 +5209,7 @@ Starting at 3rd level, you are at your deadliest when you get the drop on your e
 
 * Chain of Execution
 
-Starting at 9th level, whenever you reduce a creature to 0 hit points, or whenever a creature damaged by your sneak attack dies before the start of your next turn, increase the damage to your next sneak attack by half your total sneak dice (rounded up), until the end of your next turn.
+Starting at 9th level, whenever you reduce a creature to 0 hit points, or whenever a creature damaged by your sneak attack dies before the start of your next turn, increase the damage of your next sneak attack by half your total sneak dice (rounded up), until the end of your next turn.
 
 
 ### Level 13
@@ -5223,7 +5223,7 @@ Starting at 13th level, you can use your bonus action to become invisible for 1 
 
 * Fatal Strike
 
-Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is surprised, it must make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier). On a failed save, double the damage to your attack against the creature.
+Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is surprised, it must make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier). On a failed save, double the damage of your attack against the creature.
 
 
 
@@ -5926,7 +5926,7 @@ You've been made a pact with and been changed by primordials present in the elem
 
 * Elemental Forms
 
-You can switch between elemental forms a number of times equal to your proficiency bonus per long rest by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply your proficiency bonus as damage to the same type to first spell damage done that turn. The forms last for 1 minute.
+You can switch between elemental forms a number of times equal to your proficiency bonus per long rest by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply your proficiency bonus as damage of the same type to first spell damage done that turn. The forms last for 1 minute.
 
 * Expanded Spells
 
@@ -5957,7 +5957,7 @@ You knowledge of elementals has increased to the point that you now gain advanta
 
 * Enhanced Elemental Forms
 
-You can switch between enhanced elemental forms a number of times equal to your proficiency bonus per day by channeling elemental energy. You gain immunity to the relevant damage and apply proficiency bonus as damage to the same type to first spell damage each round. The forms last for 1 minute.
+You can switch between enhanced elemental forms a number of times equal to your proficiency bonus per day by channeling elemental energy. You gain immunity to the relevant damage and apply proficiency bonus as damage of the same type to first spell damage each round. The forms last for 1 minute.
 
 
 ### Level 14
@@ -6167,7 +6167,7 @@ You are resistant to radiant damage while Full Moon cloak is active, and you are
 
 * Lunar Embrace
 
-The damage to your Lunar Cloak increases to 2d8. In addition, whenever you conjure a cloak, you gain flying speed equal to your walking speed for the duration of the cloak.
+The damage of your Lunar Cloak increases to 2d8. In addition, whenever you conjure a cloak, you gain flying speed equal to your walking speed for the duration of the cloak.
 
 
 ### Level 14

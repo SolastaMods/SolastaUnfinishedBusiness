@@ -80,7 +80,8 @@ internal static class BackgroundsAndRacesDisplay
             BackgroundsContext.Backgrounds,
             Main.Settings.BackgroundEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            headerRendering: BackgroundsHeader);
         Main.Settings.DisplayBackgroundsToggle = displayToggle;
         Main.Settings.BackgroundSliderPosition = sliderPos;
 
@@ -106,7 +107,7 @@ internal static class BackgroundsAndRacesDisplay
             Main.Settings.SubraceEnabled,
             ref displayToggle,
             ref sliderPos,
-            headerRendering: RacesHeader);
+            headerRendering: SubracesHeader);
         Main.Settings.DisplaySubracesToggle = displayToggle;
         Main.Settings.SubraceSliderPosition = sliderPos;
 
@@ -129,10 +130,26 @@ internal static class BackgroundsAndRacesDisplay
         UI.Label();
     }
 
+    private static void BackgroundsHeader()
+    {
+        UI.ActionButton(Gui.Localize("ModUi/&DocsBackgrounds").Bold().Khaki(),
+            () => UpdateContext.OpenDocumentation("Backgrounds.md"), UI.Width(200f));
+
+        UI.Label();
+    }
+
     private static void RacesHeader()
     {
-        UI.ActionButton("Races docs".Bold().Khaki(),
+        UI.ActionButton(Gui.Localize("ModUi/&DocsRaces").Bold().Khaki(),
             () => UpdateContext.OpenDocumentation("Races.md"), UI.Width(200f));
+
+        UI.Label();
+    }
+
+    private static void SubracesHeader()
+    {
+        UI.ActionButton(Gui.Localize("ModUi/&DocsSubraces").Bold().Khaki(),
+            () => UpdateContext.OpenDocumentation("Subraces.md"), UI.Width(200f));
 
         UI.Label();
     }

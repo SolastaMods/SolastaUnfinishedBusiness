@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=プレイ可能なすべての
 ModUi/&DisableUnofficialTranslations=非公式翻訳サポートを無効にして MOD <i><color=#F0DAA0>[中国語、イタリア語、日本語、韓国語、またはスペイン語を話せない場合]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ レベルアップ中に他のクラスの既知の呪文をすべて表示</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ キャラクターパネルの代わりに呪文選択時に<color=#D89555>ウォーロック</color>の協定スロットを表示する</i>
+ModUi/&DocsArcaneShots=DOCS: アーケインショット
+ModUi/&DocsBackgrounds=DOCS: 背景
+ModUi/&DocsFeats=DOCS: 偉業
+ModUi/&DocsFightingStyles=DOCS: 戦闘スタイル
+ModUi/&DocsInfusions=DOCS: 輸液
+ModUi/&DocsInvocations=DOCS: 呼び出し
+ModUi/&DocsManeuvers=DOCS: 作戦
+ModUi/&DocsMetamagic=DOCS: メタマジック
+ModUi/&DocsRaces=DOCS: レース
+ModUi/&DocsSpells=DOCS: 呪文
+ModUi/&DocsSubclasses=DOCS: サブクラス
+ModUi/&DocsSubraces=DOCS: 亜人種
 ModUi/&Donate=<b><color=#D89555>寄付:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=グラフィック キャラクターにヘルメットを表示しない<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DontEndTurnAfterReady=準備完了アクションを使用した後にターンを終了しない<i><color=#F0DAA0>[ボーナス アクション、またはヘイストやその他のソースからの追加のメイン アクションを使用できます]</color></i>
@@ -80,6 +92,7 @@ ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にあ
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローがオフであるか、画面端の % 以内にない場合</color></i>
 ModUi/&DungeonMakerBasicHelp=。これらの設定では、プレーヤーがこの MOD をインストールする必要はありません
 ModUi/&DungeonMakerMenu=ダンジョンメーカー
+ModUi/&Effects=効果
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后の衣装</color>の外観
 ModUi/&EnableActionSwitching=アクション切り替えバーを有効にする <i><color=#F0DAA0>[メイン アクションの前に急いでアクションを使用する場合に便利]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=バックグラウンド検査で追加のバックストーリー表示を有効にする
@@ -87,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、�
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ ダンジョンメーカーに新しいアイテムを追加</i>
 ModUi/&EnableAlternateHuman=代替人間 <i><color=#F0DAA0>[+1 特技 / +2 属性選択 / +1 スキル]</color></i> を有効にする
 ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする <i><color=#F0DAA0>[選択の重みを決定するにはヒーローのカリスマ修飾子を使用]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=<color=#D89555>吟遊詩人のインスピレーション</color>、<color=#D89555>豊かな幸運</color>、<color=#D89555>星の輪</color>、<color=#D89555>天才の閃きを有効にする</color>、<color=#D89555>幸運</color>で戦闘属性チェック以外でも発動
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=<color=#D89555>吟遊詩人のインスピレーション</color>で戦闘属性チェック以外でも発動
 ModUi/&EnableBarbarianBrutalStrike=クラスレベル9、13、17で<color=#D89555>バーバリアン</color>の<b>ブルータルストライク</b>と<b>ブルータルストライクの改善</b>を有効にします
 ModUi/&EnableBarbarianFightingStyle=レベル 2 で<color=#D89555>野蛮人</color>の<b>戦闘スタイル</b>の選択が可能になります
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=<color=#D89555>野蛮人</color> の<b>無謀な攻撃</b>のバフとデバフを有効にし、次のターンの開始時に終了します

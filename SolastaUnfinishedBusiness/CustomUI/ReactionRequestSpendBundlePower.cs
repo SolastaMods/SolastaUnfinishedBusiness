@@ -128,8 +128,7 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
         var rulesetCharacter = actingCharacter.RulesetCharacter;
         var usablePower = PowerProvider.Get(power, rulesetCharacter);
         var powerEffect = implementationManager
-            .MyInstantiateEffectPower(rulesetCharacter, usablePower, false)
-            .AddAsActivePowerToSource();
+            .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
 
         ReactionParams.RulesetEffect = powerEffect;
 

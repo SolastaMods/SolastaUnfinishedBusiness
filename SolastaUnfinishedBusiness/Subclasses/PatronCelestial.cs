@@ -357,10 +357,17 @@ public class PatronCelestial : AbstractSubclass
             var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
             var targets = battleManager.Battle
                 .GetContenders(defender, withinRange: 5);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "SearingVengeance",
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,

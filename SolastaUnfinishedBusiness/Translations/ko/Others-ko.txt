@@ -273,6 +273,7 @@ Screen/&SwitchConfigurationDescription=장착된 항목을 다음 구성으로 �
 Spell/&ConjureElementalInvisibleStalkerTitle=정령 소환 [투명 추적자]
 Stage/&IdentityMorphotypeEyeHeader=아이 스타일
 ToolTip/&CheckBoxDefaultPartyTitle=새로운 모험을 시작하거나 사용자 지정 위치를 테스트할 때 기본 파티를 설정하려면 이 상자를 선택하세요. 선입선출 방식으로 최대 {0}명의 영웅을 선택할 수 있습니다.
+Tooltip/&AdvancementByCasterLevelFormat=캐릭터 레벨 5, 11, 17에서
 Tooltip/&ChannelDivinityPortraitPoolFormat=Channel Divinity를 {1}회 사용 중 {0}회 사용했습니다.\n짧거나 긴 휴식을 취하면 모든 사용이 복원됩니다.
 Tooltip/&CoordinatedAssaultPortraitPoolFormat=협력 공격을 {1}회 사용 중 {0}회 사용했습니다.\n긴 휴식을 취하면 모든 사용이 회복됩니다.
 Tooltip/&CustomMapMarkerCamp=캠프

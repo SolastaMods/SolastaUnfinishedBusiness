@@ -88,7 +88,7 @@ internal abstract class DefinitionBuilder
 }
 
 // Used to allow extension methods in other mods to set GuiPresentation 
-// Adding SetGuiPresentation as a internal method causes name clash issues.
+// Adding SetGuiPresentation as an internal method causes name clash issues.
 // Ok, could have used a different name...
 internal interface IDefinitionBuilder
 {
@@ -239,13 +239,9 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
 
             bool DBHasElementByGuid(string guid)
             {
-                var hasElementByGuidMethodInfo = dbType.GetMethod("HasElementByGuid");
-
-                if (hasElementByGuidMethodInfo == null)
-                {
-                    throw new SolastaUnfinishedBusinessException(
-                        $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
-                }
+                var hasElementByGuidMethodInfo = dbType.GetMethod("HasElementByGuid") ??
+                                                 throw new SolastaUnfinishedBusinessException(
+                                                     $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
 
                 return (bool)hasElementByGuidMethodInfo.Invoke(db, [guid]);
             }
@@ -259,7 +255,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                 return Enumerable.Repeat(t, 1).Concat(GetBaseTypes(t.BaseType));
             }
 
-            return Enumerable.Empty<Type>();
+            return [];
         }
 
         void VerifyGuiPresentation()

@@ -1,4 +1,4 @@
-Condition/&ConditionPathOfTheYeomanBulwarkDescription=Inimigos adjacentes a você não impõem desvantagem aos ataques que você faz com um arco longo, e você pode usar sua reação para realizar um ataque de oportunidade com um arco longo contra um inimigo que se mova a até 1,5 metro de você.
+Condition/&ConditionPathOfTheYeomanBulwarkDescription=Inimigos adjacentes a você não impõem desvantagem em ataques feitos com arco longo, e você pode usar sua reação para realizar um ataque de oportunidade com arco longo contra um inimigo que se mova a até 1,5 metro de você.
 Condition/&ConditionPathOfTheYeomanBulwarkTitle=Baluarte
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowDescription=Enquanto estiver furioso, sem usar armadura pesada e empunhando um arco longo, você pode empurrar como uma ação bônus.
 Feature/&ActionAffinityPathOfTheYeomanStaggeringBlowTitle=Golpe impressionante

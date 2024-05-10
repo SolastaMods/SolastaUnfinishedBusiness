@@ -1,7 +1,7 @@
 Attribute/&TitleLong=Versátil
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Obtienes una acción adicional y puedes usar todas tus versatilidades sin controles ni consumo de puntos, estableciendo Fuerza, Inteligencia o Sabiduría en 22 como mínimo.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Sobrecarga explosiva
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Obtienes <b>Explosión sobrenatural</b> como truco adicional. El número de rayos se deriva de su determinación calculada como: [Niveles de brujo] - 2 * [Niveles de otras clases]. Puedes lanzar 2 rayos cuando tu determinación >= 3, 3 cuando >= 8, 4 cuando >= 13 y 5 cuando >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Obtienes <b>Explosión sobrenatural</b> como truco adicional. El número de rayos se deriva de su determinación calculada como: [Niveles de brujo] - 2 * [Niveles de otras clases]. Puedes lanzar 2 rayos cuando tu determinación>= 3, 3 cuando >= 8, 4 cuando >= 13 y 5 cuando >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Exclusivo de explosión
 Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Gana un punto Eldritch adicional cuando golpeas a un enemigo dentro de 30 pies. Cuando matas a un enemigo, obtienes puntos sobrenaturales adicionales equivalentes a la cantidad de rayos por lanzamiento de Explosión sobrenatural.
 Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Persecución explosiva
@@ -13,7 +13,7 @@ Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Cuando utilices
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntTitle=Int
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=Tu Fuerza, Inteligencia o Sabiduría obtienen una bonificación igual a la cantidad de versatilidad que hayas aprendido.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneTitle=Versátil
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=En cada turno, puedes cambiar entre Fuerza, Inteligencia, Sabiduría o Versátil. Cuando utilices versatilidad, trata la puntuación de habilidad elegida como 10 + 2 * Bonificación de competencia. Si eliges versátil, tu Fuerza, Inteligencia o Sabiduría obtienen una bonificación igual a la cantidad de versatilidad que hayas aprendido.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=En cada turno, puedes cambiar entre Fuerza, Inteligencia, Sabiduría o Versátil. Si eliges una puntuación de habilidad, trata la puntuación de habilidad elegida como 10 + 2 * [Bono de competencia] cuando uses versatilidad. Si eliges Versátil, tu Fuerza, Inteligencia y Sabiduría obtienen una bonificación igual a la cantidad de versatilidad que hayas aprendido.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolTitle=Interruptor de versatilidad
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Cuando utilices versatilidad, trata tu Fuerza como 10 + 2 * Bonificación de competencia.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrTitle=Str

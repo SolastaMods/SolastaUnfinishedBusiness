@@ -1,6 +1,6 @@
 Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseDescription=Força +1
-Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Músculos do ermo
-Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Você tem resistência a dano de fogo.
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Força muscular do ermo
+Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Você tem resistência a danos de fogo.
 Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Embalado pelo Fogo
 Feature/&ProficiencyObsidianDwarfLanguagesDescription=Comum, Anão e Gigante
 Feature/&ProficiencyObsidianDwarfLanguagesTitle=Línguas

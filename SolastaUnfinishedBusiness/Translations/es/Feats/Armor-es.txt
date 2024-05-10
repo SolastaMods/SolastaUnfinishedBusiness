@@ -1,4 +1,4 @@
-Feat/&FeatHeavyArmorMasterDescription=Puedes usar tu armadura para desviar ataques que matarían a otros. Aumenta tu puntuación de Fuerza en 1, hasta un máximo de 20. Mientras llevas una armadura pesada, el daño contundente, perforante y cortante que recibes de los ataques se reduce en 3.
+Feat/&FeatHeavyArmorMasterDescription=Puedes usar tu armadura para desviar ataques que matarían a otros. Aumenta tu fuerza en 1, hasta un máximo de 20. Mientras llevas una armadura pesada, el daño contundente, perforante y cortante que recibes de los ataques se reduce en 3.
 Feat/&FeatHeavyArmorMasterTitle=Maestro de armadura pesada
 Feat/&FeatMediumArmorDexDescription=Aumenta tu destreza en 1, hasta un máximo de 20.\nGanas competencia con armaduras y escudos medianos.
 Feat/&FeatMediumArmorDexTitle=Moderadamente blindado [Dex]
@@ -8,7 +8,7 @@ Feat/&FeatMediumArmorStrDescription=Aumenta tu fuerza en 1, hasta un máximo de 
 Feat/&FeatMediumArmorStrTitle=Moderadamente blindado [Str]
 Feat/&FeatShieldTechniquesDescription=Usas escudos no sólo para protegerte sino también para ofender. Obtienes los siguientes beneficios mientras empuñas un escudo:\n• Si realizas la acción de Ataque en tu turno, puedes usar una acción adicional para intentar empujar a una criatura a 5 pies de ti con tu escudo.\n • Si no estás incapacitado, obtienes una bonificación de +2 a todas las tiradas de salvación de Destreza que realices.\n• Siempre que un hechizo dañino te obligue a realizar una tirada de salvación de Destreza, puedes usar tu reacción para reducir a la mitad el daño recibido.
 Feat/&FeatShieldTechniquesTitle=Maestro del escudo
-Reaction/&UseShieldTechniquesDescription=Utilice sus técnicas de escudo para reducir a la mitad todo el daño de los ingresos.
-Reaction/&UseShieldTechniquesReactDescription=Utilice sus técnicas de escudo para reducir a la mitad todo el daño de los ingresos.
+Reaction/&UseShieldTechniquesDescription=Usa tus técnicas de escudo para reducir a la mitad todo el daño recibido.
+Reaction/&UseShieldTechniquesReactDescription=Usa tus técnicas de escudo para reducir a la mitad todo el daño recibido.
 Reaction/&UseShieldTechniquesReactTitle=Maestro del escudo
 Reaction/&UseShieldTechniquesTitle=Maestro del escudo

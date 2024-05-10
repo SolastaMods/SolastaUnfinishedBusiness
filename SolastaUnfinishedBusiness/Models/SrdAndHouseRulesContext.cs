@@ -912,7 +912,7 @@ internal static class SrdAndHouseRulesContext
 
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            (target as RulesetCharacterHero)?.AutoIdentifyInventoryItems();
+            target.GetOriginalHero()?.AutoIdentifyInventoryItems();
         }
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)

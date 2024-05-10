@@ -884,10 +884,9 @@ internal static class Level20Context
                 yield break;
             }
 
-            rulesetAttacker.UsePower(usablePower);
-
             var delta = -action.AttackSuccessDelta;
 
+            rulesetAttacker.UsePower(usablePower);
             action.AttackRollOutcome = RollOutcome.Success;
             action.AttackSuccessDelta += delta;
             action.AttackRoll += delta;

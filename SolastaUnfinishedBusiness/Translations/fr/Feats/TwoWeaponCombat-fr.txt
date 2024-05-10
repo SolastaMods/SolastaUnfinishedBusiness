@@ -1,6 +1,6 @@
 Condition/&ConditionDualFlurryGrantDescription=Vos ennemis sont sous le choc !
 Condition/&ConditionDualFlurryGrantTitle=Double rafale
-Feat/&FeatDualFlurryDescription=Vous êtes un maître du combat avec des armes jumelées. À n'importe quel tour où vous touchez deux fois avec des attaques de mêlée tout en brandissant une arme dans chaque main, vous pouvez effectuer une attaque secondaire supplémentaire lorsque vous attaquez avec votre action bonus.
+Feat/&FeatDualFlurryDescription=Vous êtes un maître du combat avec des armes jumelées. À n'importe quel tour où vous frappez deux fois avec des attaques de mêlée tout en brandissant une arme dans chaque main, vous pouvez effectuer une attaque supplémentaire avec votre main secondaire lorsque vous attaquez avec votre action bonus.
 Feat/&FeatDualFlurryTitle=Double rafale
 Feat/&FeatDualWeaponDefenseDescription=Vous maîtrisez le combat à deux armes et bénéficiez des avantages suivants :\n• Vous bénéficiez d'un bonus de +1 à la CA lorsque vous utilisez une arme de mêlée distincte dans chaque main.\n• Vous pouvez utiliser le combat à deux armes même lorsque la Les armes de mêlée à une main que vous utilisez ne sont pas légères.
 Feat/&FeatDualWeaponDefenseTitle=Double porteur

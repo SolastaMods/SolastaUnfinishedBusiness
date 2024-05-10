@@ -1,4 +1,4 @@
-Condition/&ConditionMarkedByArcanistDescription=Wenn der Zauberer ihn mit einer Waffe angreift, explodiert das Mal, fügt dem Betroffenen 1W6 Kraftschaden zu und zerstört das Mal. Ab der 11. Stufe erhöht sich der Schaden Ihrer Arkanen Detonation auf 2W6.
+Condition/&ConditionMarkedByArcanistDescription=Wenn der Zauberer das Zeichen mit einer Waffe trifft, detoniert es, fügt dem Betroffenen 1W6 Kraftschaden zu und zerstört das Zeichen. Ab der 11. Stufe erhöht sich der Schaden durch Ihre arkane Detonation auf 2W6.
 Condition/&ConditionMarkedByArcanistTitle=Zeichen des Arkanisten
 Feature/&AdditionalDamageArcanistArcaneDetonationDescription=Ab der 3. Stufe verleihen Sie Ihren Waffen arkane Kraft. Kreaturen, die von Ihren Angriffen getroffen werden, werden vom Mal des Arkanisten betroffen.
 Feature/&AdditionalDamageArcanistArcaneDetonationTitle=Arkane Detonation
@@ -8,9 +8,9 @@ Feature/&AutoPreparedSpellsArcanistDescription=Du erhältst Bonuszauber, die fü
 Feature/&AutoPreparedSpellsArcanistTitle=Arkanisten-Bonuszauber
 Feature/&MagicAffinityRangerArcanistDescription=Sie beherrschen das Wirken von Zaubern im Kampf und können Zauber wirken, die eine somatische Komponente erfordern, selbst wenn Sie beide Hände eine Waffe oder einen Schild halten.
 Feature/&MagicAffinityRangerArcanistTitle=Arkanes Kampftraining
-Feature/&PowerArcanistArcanePulseDescription=Ab der 7. Stufe können Sie einen Ausbruch arkaner Energie in einer Entfernung von 9 m auslösen. Feindliche Kreaturen im Umkreis von 4,5 m um den Einschlagpunkt erleiden 4W8 Schaden und erhalten ein Zeichen des Arkanisten. Du kannst diese Fähigkeit pro langer Pause so oft nutzen, wie es deinem Weisheitsmodifikator entspricht. Auf der 15. Stufe erhöht sich der Schaden deines Arkanen Impulses auf 8W8.
+Feature/&PowerArcanistArcanePulseDescription=Ab der 7. Stufe können Sie einen Ausbruch arkaner Energie in einer Entfernung von 9 m auslösen. Feindliche Kreaturen im Umkreis von 4,5 m um den Einschlagpunkt erleiden 4W8 Schaden und erhalten ein Zeichen des Arkanisten. Du kannst diese Fähigkeit pro langer Pause so oft nutzen, wie es deinem Weisheitsmodifikator entspricht. Auf der 15. Stufe erhöht sich der Schaden Ihres Arkanen Impulses auf 8W8.
 Feature/&PowerArcanistArcanePulseTitle=Arkaner Puls
 Feedback/&AdditionalDamageArcanistMarkFormat=Zeichen des Arkanisten!
 Feedback/&AdditionalDamageArcanistMarkLine=Das Zeichen des Arkanisten explodiert und fügt dem {1} zusätzlichen Schaden von +{2} zu!
-Subclass/&RangerArcanistDescription=Der Arkanist verbindet seine Ranger-Fähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Mal des Arkanisten belasten und sie haben gelernt, einige Zaubererzauber als Teil ihres Ranger-Zauberrepertoires zu wirken.
+Subclass/&RangerArcanistDescription=Der Arkanist verbindet seine Ranger-Fähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Mal des Arkanisten belasten und sie haben gelernt, einige Zaubersprüche als Teil ihres Waldläufer-Zauberrepertoires zu wirken.
 Subclass/&RangerArcanistTitle=Arkanist

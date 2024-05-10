@@ -56,7 +56,7 @@ ModUi/&Combat=<color=#F0DAA0>Combat :</color>
 ModUi/&Crafting=<color=#F0DAA0>Artisanat :</color>
 ModUi/&CraftingHelp=• Appuyez sur le bouton pour faire apprendre les recettes instantanément au groupe actif\n• Le rafraîchissement des stocks d'articles ajoutés aux magasins peut nécessiter que le groupe quitte puis revienne à la localité
 ModUi/&Credits=Crédits
-ModUi/&CreditsAndDiagnostics=Crédits & Diagnostiques
+ModUi/&CreditsAndDiagnostics=Crédits & Diagnostics
 ModUi/&Critical=<color=#F0DAA0>Coup critique :</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color> : règle standard du jeu, lancez deux fois les dés de dégâts, ajoutez le résultat et ajoutez les modificateurs <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color> : additionnez le résultat maximum que peuvent obtennir les dés de dégâts et ajoutez-le aux dégâts de l'attaque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
@@ -73,6 +73,18 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactiver <color=#D89555>Vis
 ModUi/&DisableUnofficialTranslations=Désactiver la prise en charge des traductions non officielles pour accélérer le mod <i><color=#F0DAA0>[sauf si je parle chinois, italien, japonais, coréen ou espagnol]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus des autres classes lors de la montée de niveau</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte de l'<color=#D89555>Occultiste</color> sur la sélection de sorts plutôt que sur l'écran de personnage</i>
+ModUi/&DocsArcaneShots=DOCS : Tirs arcaniques
+ModUi/&DocsBackgrounds=DOCS : arrière-plans
+ModUi/&DocsFeats=DOCS : exploits
+ModUi/&DocsFightingStyles=DOCS : Styles de combat
+ModUi/&DocsInfusions=DOCS : Infusions
+ModUi/&DocsInvocations=DOCS : Invocations
+ModUi/&DocsManeuvers=DOCS : Manœuvres
+ModUi/&DocsMetamagic=DOCS : Métamagie
+ModUi/&DocsRaces=DOCS : Courses
+ModUi/&DocsSpells=DOCS : Sorts
+ModUi/&DocsSubclasses=DOCS : sous-classes
+ModUi/&DocsSubraces=DOCS : sous-races
 ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Ne pas afficher les casques sur les vignettes de personnages<b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir sélectionné une action préparée <i><color=#F0DAA0>[permet d'utiliser l'action bonus ou toute action principale supplémentaire liée à Hâte ou d'autres sources]</color></i>
@@ -80,6 +92,7 @@ ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas le personnag
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est en dehors ou à moins de % du bord de l'écran</color></i>
 ModUi/&DungeonMakerBasicHelp=• Ces paramètres n'exigeront pas que le joueur ait installé ce mod
 ModUi/&DungeonMakerMenu=Créateur de donjon
+ModUi/&Effects=Effets
 ModUi/&EmpressGarbAppearance=Apparence de la <color=#D89555>Tenue d'impératrice</color>
 ModUi/&EnableActionSwitching=Activer la barre de changement d'Action <i><color=#F0DAA0>[utile quand, sous Hâte, on veut utiliser l'action de hâte avant l'action principale]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage d'éléments d'histoire supplémentaires lors de l'inspection de l'Historique
@@ -87,7 +100,7 @@ ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter les nouveaux objets au Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Activer l'<color=#D89555>Humain</color> alternatif <i><color=#F0DAA0>[+1 Don / +2 choix de Caractéristiques / +1 Compétence]</color></i>
 ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[utiliser le modificateur de charisme du héros pour déterminer le poids de son choix]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Activez l'<color=#D89555>Inspiration bardique</color>, la <color=#D89555>Chance abondante</color>, le <color=#D89555>Cercle d'étoiles</color>, le <color=#D89555>Flash de génie </color> et <color=#D89555>Lucky</color> pour déclencher également les vérifications d'attributs hors combat
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Activez l'<color=#D89555>Inspiration bardique</color> pour déclencher également les vérifications d'attributs hors combat
 ModUi/&EnableBarbarianBrutalStrike=Activez <color=#D89555>Barbare</color> <b>Frappe brutale</b> et <b>Amélioration de la frappe brutale</b> aux niveaux de classe 9, 13 et 17.
 ModUi/&EnableBarbarianFightingStyle=Activer pour le <color=#D89555>Barbare</color> le choix d'un <b>Style de combat</b> au niveau 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Activez le buff et le débuff <color=#D89555>Barbare</color> <b>Attaque téméraire</b> pour terminer au début du prochain tour.

@@ -273,13 +273,13 @@ public static class GameLocationCharacterPatcher
 
         [UsedImplicitly]
         public static void Postfix(
-                GameLocationCharacter __instance,
-                ref ActionDefinitions.ActionStatus __result,
-                ActionDefinitions.Id actionId,
-                ActionDefinitions.ActionScope scope,
-                ActionDefinitions.ActionStatus actionTypeStatus,
-                // RulesetAttackMode optionalAttackMode,
-                bool ignoreMovePoints)
+            GameLocationCharacter __instance,
+            ref ActionDefinitions.ActionStatus __result,
+            ActionDefinitions.Id actionId,
+            ActionDefinitions.ActionScope scope,
+            ActionDefinitions.ActionStatus actionTypeStatus,
+            // RulesetAttackMode optionalAttackMode,
+            bool ignoreMovePoints)
         {
             //PATCH: support for `IReplaceAttackWithCantrip` - allows `CastMain` action if character used attack
             ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);

@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Races;
 using UnityEngine;
 
@@ -105,6 +106,94 @@ public static class GameLocationVisibilityManagerPatcher
             __result = false;
 
             return false;
+        }
+    }
+
+    //PATH: supports Stealthy Feat behavior
+    //vanilla code except for the BEGIN/END patch block
+    [HarmonyPatch(typeof(GameLocationVisibilityManager), nameof(GameLocationVisibilityManager.UpdatePerception))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class UpdatePerception_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationVisibilityManager __instance)
+        {
+            UpdatePerception(__instance);
+
+            return false;
+        }
+
+        private static void UpdatePerception(GameLocationVisibilityManager __instance)
+        {
+            var scopedProfiler = new ScopedProfiler(nameof(UpdatePerception), ProfilerLog.Level.Normal);
+
+            foreach (var validCharacter in __instance.gameLocationCharacterService.ValidCharacters)
+            {
+                if (validCharacter.PreviousPositionKnownToTheParty != validCharacter.PositionKnownToTheParty)
+                {
+                    if (validCharacter.PositionKnownToTheParty)
+                    {
+                        validCharacter.HasBeenPerceivedOnceByParty = true;
+                    }
+
+                    var toThePartyChanged = validCharacter.PositionKnownToThePartyChanged;
+
+                    toThePartyChanged?.Invoke(validCharacter, validCharacter.PositionKnownToTheParty);
+                }
+
+                validCharacter.PreviousPositionKnownToTheParty = validCharacter.PositionKnownToTheParty;
+                validCharacter.IsPerceivedByFoes = false;
+            }
+
+            foreach (var validCharacter in __instance.gameLocationCharacterService.ValidCharacters)
+            {
+                __instance.gameLocationCharacterService.PartyHasCharacter(validCharacter, true);
+
+                validCharacter.PerceivedFoes.Clear();
+                validCharacter.PerceivedAllies.Clear();
+
+                foreach (var key in validCharacter.LineOfSightRatio.Keys)
+                {
+                    if (validCharacter.IsOppositeSide(key.Side))
+                    {
+                        if (!__instance.IsCharacterPerceivedByCharacter(key, validCharacter))
+                        {
+                            continue;
+                        }
+
+                        //BEGIN PATCH
+                        if (OtherFeats.FeatStealthPositionsCache
+                                .TryGetValue(key, out var stealthyPositions) &&
+                            stealthyPositions.Contains(key.LocationPosition))
+                        {
+                            continue;
+                        }
+                        //END PATCH
+
+                        validCharacter.PerceivedFoes.Add(key);
+                        key.IsPerceivedByFoes = true;
+                    }
+                    else if (validCharacter != key && __instance.IsCharacterPerceivedByCharacter(key, validCharacter))
+                    {
+                        validCharacter.PerceivedAllies.Add(key);
+                    }
+                }
+            }
+
+            __instance.stealthyCharactersCache.Clear();
+
+            foreach (var stealthyCharacter in __instance.stealthyCharacters)
+            {
+                __instance.stealthyCharactersCache.Add(stealthyCharacter);
+            }
+
+            foreach (var locationCharacter in __instance.stealthyCharactersCache)
+            {
+                locationCharacter.UpdateStealthStatus();
+            }
+
+            scopedProfiler.Dispose();
         }
     }
 }

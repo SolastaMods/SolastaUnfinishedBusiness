@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 
@@ -14,7 +15,7 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
     {
         SubOptionsAvailability.Clear();
 
-        var hero = actionParams.ActingCharacter.RulesetCharacter as RulesetCharacterHero;
+        var hero = actionParams.ActingCharacter.RulesetCharacter.GetOriginalHero();
         var spellRepertoire = ReactionParams.SpellRepertoire;
         int selected;
 
