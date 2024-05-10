@@ -527,8 +527,8 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeNecrotic, 2, DieType.D6)
                             .Build())
-                    .SetImpactEffectParameters(Disintegrate)
                     .SetEffectEffectParameters(Disintegrate)
+                    .SetImpactEffectParameters(Disintegrate)
                     .Build())
             .AddToDB();
 
@@ -648,6 +648,8 @@ internal static partial class SpellBuilders
                 0,
                 0);
 
+            var hasHealed = false;
+            
             while (--effectLevel > 0 &&
                    rulesetTarget.RemainingHitDiceCount() > 0 &&
                    rulesetTarget.MissingHitPoints > 0)
@@ -674,7 +676,7 @@ internal static partial class SpellBuilders
                     break;
                 }
 
-                // EffectHelpers.StartVisualEffect(actingCharacter, target, CureWounds, EffectHelpers.EffectType.Effect);
+                hasHealed = true;
                 rulesetTarget.RollHitDie();
             }
 
@@ -704,6 +706,11 @@ internal static partial class SpellBuilders
                 UsablePower = usablePower,
                 targetCharacters = targets
             };
+
+            if (hasHealed)
+            {
+                EffectHelpers.StartVisualEffect(actingCharacter, target, CureWounds, EffectHelpers.EffectType.Effect);
+            }
 
             ServiceRepository.GetService<ICommandService>()?
                 .ExecuteAction(actionParams, null, true);

@@ -571,8 +571,8 @@ internal sealed class CreditsAndDiagnosticsViewer : IMenuSelectablePage
         ModUi.DisplaySubMenu(ref _creditsSelectedPane, null,
             new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
             new NamedAction(Gui.Localize("ModUi/&Blueprints"), DisplayBlueprints),
-            new NamedAction(Gui.Localize("PartyEditor".Localized()), PartyEditor.OnGUI),
             new NamedAction(Gui.Localize("ModUi/&Effects"), DisplayEffects),
+            new NamedAction(Gui.Localize("PartyEditor".Localized()), PartyEditor.OnGUI),
             new NamedAction(Gui.Localize("ModUi/&Services"), DisplayGameServices));
     }
 }

@@ -44,7 +44,7 @@ internal static class DocumentationContext
         DumpSubclasses(string.Empty, GetModdedSubclasses().Union(GetVanillaSubclasses()));
 
         DumpOthers<CharacterBackgroundDefinition>("Backgrounds",
-            x => true);
+            _ => true);
         DumpOthers<FeatDefinition>("Feats",
             x => FeatsContext.Feats.Contains(x) ||
                  x.ContentPack != CeContentPackContext.CeContentPack);

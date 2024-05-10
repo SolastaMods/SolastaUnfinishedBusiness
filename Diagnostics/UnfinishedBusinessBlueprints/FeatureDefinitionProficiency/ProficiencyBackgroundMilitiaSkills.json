@@ -2,9 +2,9 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "Skill",
   "proficiencies": [
-    "Intimidation",
-    "Investigation",
-    "Perception"
+    "Athletics",
+    "Deception",
+    "Intimidation"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {

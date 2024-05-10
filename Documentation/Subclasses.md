@@ -3353,7 +3353,7 @@ You choose one type of dragon as your ancestor. The damage type associated with 
 
 * Elemental Breath
 
-Once during your turn, you can forgo one of your main action attacks to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive three martial arts dice as damage type of your Dragon Ancestry feature (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and you can spend 2 ki instead if you are out of uses.
+Once during your turn, you can forgo one of your main action attacks to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive three martial arts dice as damage type of your Dragon Ancestry feature (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and you can spend 2 ki instead if you are out of uses. At 17th level, the damage to your breath increases to four martial arts dice. 
 
 
 ### Level 6
@@ -5021,7 +5021,7 @@ Starting at 9th level, when a creature misses you with a melee attack roll, you 
 
 * Reflexive Parry
 
-Starting at 13th level, once per turn while you aren't incapacitated, shocked or slowed and get hit by a melee weapon attack, you immediately use your Uncanny Dodge feature without needing or consuming your reaction.
+Starting at 13th level, once per turn while you aren't dazzled, incapacitated, shocked or slowed and get hit by a melee weapon attack, you immediately use your Uncanny Dodge feature without needing or consuming your reaction.
 
 
 ### Level 17
