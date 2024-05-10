@@ -551,8 +551,8 @@ internal static class FixesContext
         //BEHAVIOR: Makes `Stunning Strike` context check if any monk weapon instead on OnAttackMeleeHitAuto
         //Required for it to work with monk weapon specialization and/or way of distant hand
         FeatureDefinitionPowers.PowerMonkStunningStrike.activationTime = ActivationTime.NoCost;
-        FeatureDefinitionPowers.PowerMonkStunningStrike.GuiPresentation.hidden = true;
         FeatureDefinitionPowers.PowerMonkStunningStrike.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new PhysicalAttackFinishedByMeStunningStrike());
     }
 
