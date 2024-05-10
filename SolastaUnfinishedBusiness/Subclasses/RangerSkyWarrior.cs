@@ -436,9 +436,16 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerDeathFromAbove, rulesetAttacker);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,

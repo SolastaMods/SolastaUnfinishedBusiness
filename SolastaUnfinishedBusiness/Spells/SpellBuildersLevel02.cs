@@ -585,12 +585,20 @@ internal static partial class SpellBuilders
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerWitherAndBloom,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionSpellCastingBonus) : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        ConditionDefinition conditionSpellCastingBonus) : IMagicEffectInitiatedByMe
     {
         private int _effectLevel;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            if (baseDefinition == powerWitherAndBloom &&
+                action.ActionParams.activeEffect is RulesetEffectPower rulesetEffectPower)
+            {
+                rulesetEffectPower.EffectDescription.EffectForms[0].DamageForm.diceNumber = _effectLevel;
+
+                yield break;
+            }
+
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager =
@@ -666,7 +674,7 @@ internal static partial class SpellBuilders
                     break;
                 }
 
-                EffectHelpers.StartVisualEffect(actingCharacter, target, CureWounds, EffectHelpers.EffectType.Effect);
+                // EffectHelpers.StartVisualEffect(actingCharacter, target, CureWounds, EffectHelpers.EffectType.Effect);
                 rulesetTarget.RollHitDie();
             }
 
@@ -681,9 +689,16 @@ internal static partial class SpellBuilders
 
             var usablePower = PowerProvider.Get(powerWitherAndBloom, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(target, withinRange: 2);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
@@ -692,17 +707,6 @@ internal static partial class SpellBuilders
 
             ServiceRepository.GetService<ICommandService>()?
                 .ExecuteAction(actionParams, null, true);
-        }
-
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (baseDefinition != powerWitherAndBloom ||
-                action.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower)
-            {
-                yield break;
-            }
-
-            rulesetEffectPower.EffectDescription.EffectForms[0].DamageForm.diceNumber = _effectLevel;
         }
 
         private void HitDieRolled(

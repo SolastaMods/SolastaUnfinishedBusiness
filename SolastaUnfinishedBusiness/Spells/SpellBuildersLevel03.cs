@@ -793,9 +793,16 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < _targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), _targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
@@ -1171,9 +1178,16 @@ internal static partial class SpellBuilders
             var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
             var targets = battleManager.Battle
                 .GetContenders(defender, isOppositeSide: false, withinRange: 2);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,

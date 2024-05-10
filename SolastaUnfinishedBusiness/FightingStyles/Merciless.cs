@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -97,9 +96,16 @@ internal sealed class Merciless : AbstractFightingStyle
             var usablePower = PowerProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(
                 downedCreature, attacker, isOppositeSide: false, hasToPerceivePerceiver: true, withinRange: distance);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,

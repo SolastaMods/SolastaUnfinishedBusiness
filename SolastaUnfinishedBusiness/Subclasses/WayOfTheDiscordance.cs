@@ -502,9 +502,16 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var actionParamsDiscordance = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false),
                 UsablePower = usablePowerDiscordance,
@@ -532,10 +539,17 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 yield break;
             }
 
+            actionModifiers = [];
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
             var actionParamsTurmoil = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false),
                 UsablePower = usablePowerTurmoil,
