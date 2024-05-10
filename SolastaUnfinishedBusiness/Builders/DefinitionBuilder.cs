@@ -239,8 +239,9 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
 
             bool DBHasElementByGuid(string guid)
             {
-                var hasElementByGuidMethodInfo = dbType.GetMethod("HasElementByGuid") ?? throw new SolastaUnfinishedBusinessException(
-                        $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
+                var hasElementByGuidMethodInfo = dbType.GetMethod("HasElementByGuid") ??
+                                                 throw new SolastaUnfinishedBusinessException(
+                                                     $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
 
                 return (bool)hasElementByGuidMethodInfo.Invoke(db, [guid]);
             }

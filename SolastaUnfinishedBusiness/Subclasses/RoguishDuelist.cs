@@ -159,21 +159,21 @@ public sealed class RoguishDuelist : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if ( helper != defender ||
-                 rulesetEffect != null ||
-                 !ValidatorsWeapon.IsMelee(attackMode) ||
-                 !defender.OnceInMyTurnIsValid(featureReflexiveParry.Name) ||
-                 rulesetDefender.HasAnyConditionOfTypeOrSubType(
-                     ConditionDefinitions.ConditionDazzled.Name,
-                     ConditionDefinitions.ConditionIncapacitated.Name,
-                     ConditionDefinitions.ConditionShocked.Name,
-                     ConditionDefinitions.ConditionSlowed.Name))
+            if (helper != defender ||
+                rulesetEffect != null ||
+                !ValidatorsWeapon.IsMelee(attackMode) ||
+                !defender.OnceInMyTurnIsValid(featureReflexiveParry.Name) ||
+                rulesetDefender.HasAnyConditionOfTypeOrSubType(
+                    ConditionDefinitions.ConditionDazzled.Name,
+                    ConditionDefinitions.ConditionIncapacitated.Name,
+                    ConditionDefinitions.ConditionShocked.Name,
+                    ConditionDefinitions.ConditionSlowed.Name))
             {
                 yield break;
             }
 
             defender.UsedSpecialFeatures.TryAdd(featureReflexiveParry.Name, 0);
-            
+
             actionModifier.DefenderDamageMultiplier *= 0.5f;
             rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParry);
         }

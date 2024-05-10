@@ -885,7 +885,7 @@ internal static class Level20Context
             }
 
             var delta = -action.AttackSuccessDelta;
-            
+
             rulesetAttacker.UsePower(usablePower);
             action.AttackRollOutcome = RollOutcome.Success;
             action.AttackSuccessDelta += delta;

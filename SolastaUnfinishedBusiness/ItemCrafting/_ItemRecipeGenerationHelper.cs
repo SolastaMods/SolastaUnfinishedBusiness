@@ -40,7 +40,7 @@ internal static class ItemRecipeGenerationHelper
             { Rapier, Primed_Rapier },
             { ScaleMail, Primed_ScaleMail },
             { Scimitar, Primed_Scimitar },
-            { Shield, Primed_Shield},
+            { Shield, Primed_Shield },
             { Shortbow, Primed_Shortbow },
             { Shortsword, Primed_Shortsword },
             { Spear, Primed_Spear },

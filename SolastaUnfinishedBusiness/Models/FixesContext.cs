@@ -205,7 +205,7 @@ internal static class FixesContext
         FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionRaging.AffinityGroups[0].savingThrowContext =
             (SavingThrowContext)10;
     }
-    
+
     private static void FixSavingThrowAffinityManaPainterAbsorption()
     {
         FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityManaPainterAbsorption.AffinityGroups.Clear();

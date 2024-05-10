@@ -145,7 +145,7 @@ internal static class BackgroundsAndRacesDisplay
 
         UI.Label();
     }
-    
+
     private static void SubracesHeader()
     {
         UI.ActionButton(Gui.Localize("ModUi/&DocsSubraces").Bold().Khaki(),

@@ -38,7 +38,8 @@ internal static class CustomSituationalContext
 
             ExtraSituationalContext.HasBladeMasteryWeaponTypesInHands =>
                 ValidatorsCharacter.HasWeaponType(
-                    DaggerType, ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType)(contextParams.source),
+                    DaggerType, ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType)
+                (contextParams.source),
 
             ExtraSituationalContext.HasSimpleOrMartialWeaponInHands =>
                 ValidatorsCharacter.HasWeaponType(SimpleOrMartialWeapons)(contextParams.source),

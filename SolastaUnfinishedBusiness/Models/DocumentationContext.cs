@@ -37,7 +37,7 @@ internal static class DocumentationContext
 
         var vanillaRaces = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
             .Where(x => x.ContentPack != CeContentPackContext.CeContentPack && x.SubRaces.Count != 0);
-        
+
         DumpRaces("Races", x => vanillaRaces.Contains(x) || RacesContext.Races.Contains(x));
         DumpRaces("Subraces", x => !vanillaRaces.Contains(x) && !RacesContext.Races.Contains(x));
         DumpClasses(string.Empty, _ => true);

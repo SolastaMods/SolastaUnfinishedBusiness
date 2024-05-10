@@ -649,7 +649,7 @@ internal static partial class SpellBuilders
                 0);
 
             var hasHealed = false;
-            
+
             while (--effectLevel > 0 &&
                    rulesetTarget.RemainingHitDiceCount() > 0 &&
                    rulesetTarget.MissingHitPoints > 0)
