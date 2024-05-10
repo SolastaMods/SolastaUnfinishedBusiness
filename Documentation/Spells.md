@@ -172,7 +172,7 @@ Unleash a wave of crippling pain at a creature within range. The target must mak
 
 # 43. - *Absorb Elements* © (S) level 1 Abjuration [UB]
 
-The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage to the triggering type, and the spell ends. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.
+The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.
 
 # 44. - Animal Friendship (V,S) level 1 Enchantment [SOL]
 
@@ -225,7 +225,7 @@ Makes an ally of an enemy.
 
 # 54. - *Chromatic Orb* © (M,V,S) level 1 Evocation [UB]
 
-You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage to the type you chose.
+You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose.
 
 # 55. - Color Spray (V,S) level 1 Illusion [SOL]
 
@@ -444,7 +444,7 @@ Launch an acid arrow that deals some damage even if you miss your shot.
 
 # 108. - *Aganazzar's Scorcher* © (V,S) level 2 Evocation [UB]
 
-A line of roaring flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 4d8 fire damage on a failed save, or half as much damage on a successful one. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd.
+A line of roaring flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 3d10 fire damage on a failed save, or half as much damage on a successful one. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d10 for each slot level above 2nd.
 
 # 109. - Aid (V,S) level 2 Abjuration [SOL]
 
@@ -1079,7 +1079,7 @@ A poisonous wave erupts from you, engulfing those close by. Each creature within
 
 # 264. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration] [UB]
 
-You raise both hands as you evoke six transparent blades around you as a bonus action. When you cast this spell, and as a bonus action on each subsequent turn, you can throw one of these blades at a creature within 60 feet from you. Make a ranged spell attack. On a hit, the target takes 4d10 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage to each blade increases by 1d10 for each slot level above 6th.
+You raise both hands as you evoke six transparent blades around you as a bonus action. When you cast this spell, and as a bonus action on each subsequent turn, you can throw one of these blades at a creature within 60 feet from you. Make a ranged spell attack. On a hit, the target takes 4d10 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage of each blade increases by 1d10 for each slot level above 6th.
 
 # 265. - Sunbeam (V,S) level 6 Evocation [Concentration] [SOL]
 

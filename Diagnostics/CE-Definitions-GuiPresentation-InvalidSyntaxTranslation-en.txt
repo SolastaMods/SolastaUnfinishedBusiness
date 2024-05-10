@@ -809,8 +809,8 @@ FeatGroupDragonHide	Description='You manifest scales and claws reminiscent of yo
 • Increase your Strength, Constitution, or Charisma by 1, up to a maximum of 20.
 • Your scales harden. While you aren't wearing armor, your armor class is equal to 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.
 • You can grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.'.
-FeatGroupElementalAdept	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage to the chosen type. In addition, when you roll damage for a spell you cast that deals damage to that type, you can reroll any 1s.'.
-FeatGroupElementalMaster	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore immunity to damage to the chosen type. In addition, when you roll attack for a spell you cast that deals damage to that type, you can reroll any 1s.'.
+FeatGroupElementalAdept	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to the chosen damage type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.'.
+FeatGroupElementalMaster	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore immunity to the chosen damage type. In addition, when you roll attack for a spell you cast that deals damage of that type, you can reroll any 1s.'.
 FeatGroupElementalTouch	Description='The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional elemental damage equal to your proficiency bonus.'.
 FeatGroupElvenAccuracy	Description='You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity or one of your mental attributes by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.'.
 FeatGroupFadeAway	Description='You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity or Intelligence by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.'.
@@ -849,7 +849,7 @@ FeatGroupOrcishAggression	Description='Your aggression burns tirelessly. You gai
 • As a bonus action, when wielding a melee weapon in main hand, you can charge up to your speed toward an enemy of your choice and free attack the creature with your main weapon.'.
 FeatGroupOrcishFury	Description='Your fury burns tirelessly. You gain the following benefits:
 • Increase your Strength or Constitution by 1, up to a maximum of 20.
-• When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage to the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.
+• When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.
 • Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.'.
 FeatGroupPeregrinationTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest, and you can cast these spells with your spell slots.'.
@@ -1318,21 +1318,21 @@ PowerSharedPoolCelestialHealingLight5	Description='As a bonus action, you can he
 PowerSharedPoolCelestialHealingLight6	Title='Healing Light 6D6'.
 PowerSharedPoolCelestialHealingLight6	Description='As a bonus action, you can heal one creature you can see within 60 feet of you, spending 6 dice from the pool. Roll the dice you spend, add them together, and restore a number of hit points equal to the total. Your pool regains all expended dice when you finish a long rest.'.
 PowerSharedPoolElementalistEnhancedAir	Title='Channeling Air Plane'.
-PowerSharedPoolElementalistEnhancedAir	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage to the same type to first hit each round.'.
+PowerSharedPoolElementalistEnhancedAir	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.'.
 PowerSharedPoolElementalistEnhancedEarth	Title='Channeling Earth Plane'.
-PowerSharedPoolElementalistEnhancedEarth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage to the same type to first hit each round.'.
+PowerSharedPoolElementalistEnhancedEarth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.'.
 PowerSharedPoolElementalistEnhancedFire	Title='Channeling Fire Plane'.
-PowerSharedPoolElementalistEnhancedFire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage to the same type to first hit each round.'.
+PowerSharedPoolElementalistEnhancedFire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.'.
 PowerSharedPoolElementalistEnhancedIce	Title='Channeling Ice Plane'.
-PowerSharedPoolElementalistEnhancedIce	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage to the same type to first hit each round.'.
+PowerSharedPoolElementalistEnhancedIce	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.'.
 PowerSharedPoolElementalistNormalAir	Title='Air Plane'.
-PowerSharedPoolElementalistNormalAir	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply proficiency bonus as damage to the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalAir	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply proficiency bonus as damage of the same type to first hit each round.'.
 PowerSharedPoolElementalistNormalEarth	Title='Earth Plane'.
-PowerSharedPoolElementalistNormalEarth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply proficiency bonus as damage to the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalEarth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply proficiency bonus as damage of the same type to first hit each round.'.
 PowerSharedPoolElementalistNormalFire	Title='Fire Plane'.
-PowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply proficiency bonus as damage to the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply proficiency bonus as damage of the same type to first hit each round.'.
 PowerSharedPoolElementalistNormalIce	Title='Ice Plane'.
-PowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply proficiency bonus as damage to the same type to first hit each round.'.
+PowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply proficiency bonus as damage of the same type to first hit each round.'.
 PowerWayOfTheDiscordanceBurstOfDisharmony10	Title='Burst of Disharmony [10 Ki]'.
 PowerWayOfTheDiscordanceBurstOfDisharmony10	Description='Spend 10 Ki Point to deal 11d6 necrotic damage.'.
 PowerWayOfTheDiscordanceBurstOfDisharmony2	Title='Burst of Disharmony [2 Ki]'.
@@ -1485,21 +1485,21 @@ SpellPowerSharedPoolCelestialHealingLight5	Description='As a bonus action, you c
 SpellPowerSharedPoolCelestialHealingLight6	Title='Healing Light 6D6'.
 SpellPowerSharedPoolCelestialHealingLight6	Description='As a bonus action, you can heal one creature you can see within 60 feet of you, spending 6 dice from the pool. Roll the dice you spend, add them together, and restore a number of hit points equal to the total. Your pool regains all expended dice when you finish a long rest.'.
 SpellPowerSharedPoolElementalistEnhancedAir	Title='Channeling Air Plane'.
-SpellPowerSharedPoolElementalistEnhancedAir	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage to the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedAir	Description='When channeling the Air Plane, you gain Immunity to Thunder and apply proficiency bonus as damage of the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistEnhancedEarth	Title='Channeling Earth Plane'.
-SpellPowerSharedPoolElementalistEnhancedEarth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage to the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedEarth	Description='When channeling the Earth Plane, you gain Immunity to Bludgeoning and apply proficiency bonus as damage of the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistEnhancedFire	Title='Channeling Fire Plane'.
-SpellPowerSharedPoolElementalistEnhancedFire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage to the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedFire	Description='When channeling the Fire Plane, you gain Immunity to Fire and apply proficiency bonus as damage of the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistEnhancedIce	Title='Channeling Ice Plane'.
-SpellPowerSharedPoolElementalistEnhancedIce	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage to the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistEnhancedIce	Description='When channeling the Ice Plane, you gain Immunity to Cold and apply proficiency bonus as damage of the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistNormalAir	Title='Air Plane'.
-SpellPowerSharedPoolElementalistNormalAir	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply proficiency bonus as damage to the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalAir	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply proficiency bonus as damage of the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistNormalEarth	Title='Earth Plane'.
-SpellPowerSharedPoolElementalistNormalEarth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply proficiency bonus as damage to the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalEarth	Description='When channeling the Earth Plane, you gain Resistance to Bludgeoning damage and apply proficiency bonus as damage of the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistNormalFire	Title='Fire Plane'.
-SpellPowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply proficiency bonus as damage to the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply proficiency bonus as damage of the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistNormalIce	Title='Ice Plane'.
-SpellPowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply proficiency bonus as damage to the same type to first hit each round.'.
+SpellPowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply proficiency bonus as damage of the same type to first hit each round.'.
 SpellPowerWayOfTheDiscordanceBurstOfDisharmony10	Title='Burst of Disharmony [10 Ki]'.
 SpellPowerWayOfTheDiscordanceBurstOfDisharmony10	Description='Spend 10 Ki Point to deal 11d6 necrotic damage.'.
 SpellPowerWayOfTheDiscordanceBurstOfDisharmony2	Title='Burst of Disharmony [2 Ki]'.

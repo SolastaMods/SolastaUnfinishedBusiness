@@ -263,11 +263,11 @@ The first time each turn that you deal damage with an unarmed attack or weapon, 
 
 # 52. - *Elemental Adept* © [UB]
 
-When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage to the chosen type. In addition, when you roll damage for a spell you cast that deals damage to that type, you can reroll any 1s.
+When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to the chosen damage type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.
 
 # 53. - Elemental Master [UB]
 
-When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore immunity to damage to the chosen type. In addition, when you roll attack for a spell you cast that deals damage to that type, you can reroll any 1s.
+When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore immunity to the chosen damage type. In addition, when you roll attack for a spell you cast that deals damage of that type, you can reroll any 1s.
 
 # 54. - *Elven Accuracy* © [UB]
 
@@ -349,7 +349,7 @@ You are also Chilled instead of Frozen in freezing weather.
 # 70. - *Gift of the Chromatic Dragon* © [UB]
 
 You've manifested some of the power of chromatic dragons, granting you the following benefits:
-• Chromatic Infusion: As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra 1d4 damage to the chosen type when it hits. After you use this bonus action, you can't do so again until you finish a long rest.
+• Chromatic Infusion: As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra 1d4 damage of the chosen type when it hits. After you use this bonus action, you can't do so again until you finish a long rest.
 • Reactive Resistance: When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage until the end of its turn. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
 
 # 71. - *Great Weapon Master* © [UB]
@@ -537,7 +537,7 @@ Your aggression burns tirelessly. You gain the following benefits:
 
 Your fury burns tirelessly. You gain the following benefits:
 • Increase your Strength or Constitution by 1, up to a maximum of 20.
-• When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage to the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.
+• When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.
 • Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.
 
 # 110. - Pickpocket [UB]
