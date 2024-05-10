@@ -162,7 +162,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             if (helper != defender ||
                 rulesetEffect != null ||
                 !ValidatorsWeapon.IsMelee(attackMode) ||
-                !defender.OnceInMyTurnIsValid(featureReflexiveParry.Name) ||
+                !defender.OncePerTurnIsValid(featureReflexiveParry.Name) ||
                 rulesetDefender.HasAnyConditionOfTypeOrSubType(
                     ConditionDefinitions.ConditionDazzled.Name,
                     ConditionDefinitions.ConditionIncapacitated.Name,
