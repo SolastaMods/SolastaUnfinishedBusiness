@@ -235,7 +235,6 @@
 
   <ItemGroup Condition="('$(Configuration)|$(Platform)' == 'Release|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Release Install|AnyCPU')">
     <Compile Remove="Api/DatabaseHelper.cs"/>
-    <Compile Remove="FightingStyles\ZenArcher.cs"/>
   </ItemGroup>
 
   <ItemGroup Condition="('$(Configuration)|$(Platform)' == 'Debug|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU')">
