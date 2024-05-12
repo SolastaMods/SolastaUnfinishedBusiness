@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "Monster",
+  "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
   "characterFamily": "Elemental",
   "creatureTags": [

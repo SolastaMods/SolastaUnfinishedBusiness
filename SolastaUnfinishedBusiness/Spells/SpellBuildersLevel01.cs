@@ -2066,6 +2066,7 @@ internal static partial class SpellBuilders
             .SetFullyControlledWhenAllied(true)
             .SetDefaultFaction(FactionDefinitions.Party)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")

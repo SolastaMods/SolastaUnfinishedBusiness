@@ -221,6 +221,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
         var shape = MonsterDefinitionBuilder
             .Create(WildshapeBlackBear, "WildShapeDireBear")
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             // STR, DEX, CON, INT, WIS, CHA
             .SetAbilityScores(20, 10, 16, 2, 13, 7)
             .SetArmorClass(14)
@@ -239,6 +240,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
         var shape = MonsterDefinitionBuilder
             .Create(Air_Elemental, "WildShapeAirElemental")
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .SetAbilityScores(14, 20, 14, 6, 10, 6) // STR, DEX, CON, INT, WIS, CHA
             .SetArmorClass(15)
             .SetStandardHitPoints(90)
@@ -253,6 +255,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
         var shape = MonsterDefinitionBuilder
             .Create(Fire_Elemental, "WildShapeFireElemental")
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .AddToDB();
 
         return shape;
@@ -263,6 +266,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
         var shape = MonsterDefinitionBuilder
             .Create(Earth_Elemental, "WildShapeEarthElemental")
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .AddToDB();
 
         return shape;
@@ -273,6 +277,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
         var shape = MonsterDefinitionBuilder
             .Create(Ice_Elemental, "WildShapeWaterElemental")
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .AddToDB();
 
         return shape;
@@ -302,6 +307,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
         var shape = MonsterDefinitionBuilder
             .Create(CrimsonSpider, "WildShapeCrimsonSpider")
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .AddToDB();
 
         shape.AttackIterations[1].monsterAttackDefinition = attackCrimsonBite;
@@ -331,6 +337,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
         var shape = MonsterDefinitionBuilder
             .Create(MinotaurElite, "WildShapeMinotaurElite")
             .SetOrUpdateGuiPresentation(Category.Monster)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
             .SetArmorClass(16)
             .SetStandardHitPoints(126)
