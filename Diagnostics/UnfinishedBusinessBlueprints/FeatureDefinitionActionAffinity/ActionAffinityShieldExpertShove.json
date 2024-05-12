@@ -13,20 +13,7 @@
   "forbiddenActions": [],
   "authorizedActions": [],
   "restrictedActions": [],
-  "actionExecutionModifiers": [
-    {
-      "$type": "ActionDefinitions+ActionExecutionModifier, Assembly-CSharp",
-      "actionId": "Shove",
-      "advantageType": "Advantage",
-      "equipmentContext": "WieldingShield"
-    },
-    {
-      "$type": "ActionDefinitions+ActionExecutionModifier, Assembly-CSharp",
-      "actionId": "ShoveBonus",
-      "advantageType": "Advantage",
-      "equipmentContext": "WieldingShield"
-    }
-  ],
+  "actionExecutionModifiers": [],
   "specialBehaviour": "None",
   "randomBehaviorDie": "D10",
   "randomBehaviourOptions": [],

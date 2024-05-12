@@ -83,9 +83,10 @@ internal static class RangedCombatFeats
                     .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isLongOrShortbow(mode, null, character))),
-                        new CanUseAttribute(
-                            AttributeDefinitions.Strength,
-                            ValidatorsWeapon.IsOfWeaponType(LongbowType)),
+                        new AddExtraRangedAttack(
+                            ActionDefinitions.ActionType.Bonus,
+                            ValidatorsWeapon.IsOfWeaponType(LongbowType),
+                            ValidatorsCharacter.HasUsedWeaponType(LongbowType)),
                         new AddExtraRangedAttack(
                             ActionDefinitions.ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(ShortbowType),
@@ -111,9 +112,10 @@ internal static class RangedCombatFeats
                     .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isCrossbow(mode, null, character))),
-                        new CanUseAttribute(
-                            AttributeDefinitions.Strength,
-                            ValidatorsWeapon.IsOfWeaponType(HeavyCrossbowType)),
+                        new AddExtraRangedAttack(
+                            ActionDefinitions.ActionType.Bonus,
+                            ValidatorsWeapon.IsOfWeaponType(HeavyCrossbowType),
+                            ValidatorsCharacter.HasUsedWeaponType(HeavyCrossbowType)),
                         new AddExtraRangedAttack(
                             ActionDefinitions.ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(LightCrossbowType),

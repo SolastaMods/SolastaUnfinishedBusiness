@@ -383,51 +383,18 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
             offHandItem.ItemDefinition,
             ShieldStrike.ShieldWeaponDescription,
             ValidatorsCharacter.IsFreeOffhand(hero),
-            hero.CanAddAbilityBonusToOffhand(),
+            true,
             EquipmentDefinitions.SlotTypeOffHand,
             attackModifiers,
             hero.FeaturesOrigin,
-            offHandItem
-        );
+            offHandItem);
 
-        var attackModes = new List<RulesetAttackMode> { attackMode };
-        var features = new List<FeatureDefinition>();
-
-        offHandItem.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
-
-        var bonus = features
-            .OfType<FeatureDefinitionAttributeModifier>()
-            .Where(x =>
-                x.ModifiedAttribute == AttributeDefinitions.ArmorClass &&
-                x.ModifierOperation == AttributeModifierOperation.Additive)
-            .Sum(x => x.ModifierValue);
-
-        if (offHandItem.ItemDefinition.Magical || bonus > 0)
+        if (offHandItem.ItemDefinition.Magical)
         {
             attackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
         }
 
-        if (bonus == 0)
-        {
-            return attackModes;
-        }
-
-        var damage = attackMode.EffectDescription?.FindFirstDamageForm();
-        var trendInfo = new TrendInfo(bonus, FeatureSourceType.Equipment,
-            offHandItem.ItemDefinition.GuiPresentation.Title, null);
-
-        attackMode.ToHitBonus += bonus;
-        attackMode.ToHitBonusTrends.Add(trendInfo);
-
-        if (damage == null)
-        {
-            return attackModes;
-        }
-
-        damage.BonusDamage += bonus;
-        damage.DamageBonusTrends.Add(trendInfo);
-
-        return attackModes;
+        return [attackMode];
     }
 }
 

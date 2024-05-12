@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "CriticalThreshold",
-  "modifierOperation": "ForceIfBetter",
+  "modifierOperation": "ForceIfWorse",
   "modifierValue": 18,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",

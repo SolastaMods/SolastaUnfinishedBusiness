@@ -3,7 +3,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.FightingStyles;
-using SolastaUnfinishedBusiness.Validators;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -116,41 +115,14 @@ internal static class FightingStyleContext
 
     internal static void RefreshFightingStylesPatch(RulesetCharacterHero hero)
     {
-        foreach (var trainedFightingStyle in hero.trainedFightingStyles)
+        foreach (var trainedFightingStyle in hero.trainedFightingStyles
+                     .Where(x =>
+                         // activate all modded fighting styles by default
+                         x.contentPack == CeContentPackContext.CeContentPack ||
+                         // handles this in a different place [AddCustomWeaponValidatorToFightingStyleArchery()] so always allow here
+                         x.Condition == FightingStyleDefinition.TriggerCondition.RangedWeaponAttack))
         {
-            var isActive = trainedFightingStyle.contentPack == CeContentPackContext.CeContentPack;
-
-            // activate all modded fighting styles by default
-            if (isActive)
-            {
-                hero.activeFightingStyles.TryAdd(trainedFightingStyle);
-
-                continue;
-            }
-
-            // disallow Shield Expert to work with Dueling Fighting Style
-            if (trainedFightingStyle.Condition == FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon)
-            {
-                hero.activeFightingStyles.Remove(trainedFightingStyle);
-            }
-
-            isActive = trainedFightingStyle.Condition switch
-            {
-                // handles this in a different place [AddCustomWeaponValidatorToFightingStyleArchery()] so always allow here
-                FightingStyleDefinition.TriggerCondition.RangedWeaponAttack => true,
-                // disallow Shield Expert to work with Dueling Fighting Style
-                FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon =>
-                    ValidatorsCharacter.HasMeleeWeaponInMainAndNoBonusAttackInOffhand(hero),
-                // allow Shield Expert to work with Two Weapon Fighting Style
-                FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded =>
-                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(hero),
-                _ => false
-            };
-
-            if (isActive)
-            {
-                hero.activeFightingStyles.TryAdd(trainedFightingStyle);
-            }
+            hero.activeFightingStyles.TryAdd(trainedFightingStyle);
         }
     }
 }

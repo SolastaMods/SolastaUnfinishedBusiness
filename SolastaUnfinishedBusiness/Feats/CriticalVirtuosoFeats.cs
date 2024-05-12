@@ -16,15 +16,15 @@ internal static class CriticalVirtuosoFeats
             .Create("AttributeModifierFeatImprovedCritical")
             .SetGuiPresentation(DatabaseHelper.FeatureDefinitionAttributeModifiers
                 .AttributeModifierMartialChampionImprovedCritical.GuiPresentation)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfWorse,
                 AttributeDefinitions.CriticalThreshold, 19)
             .AddToDB();
 
         var superior = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierFeatSuperiorCritical")
             .SetGuiPresentation(DatabaseHelper.FeatureDefinitionAttributeModifiers
-            .AttributeModifierMartialChampionSuperiorCritical.GuiPresentation)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
+                .AttributeModifierMartialChampionSuperiorCritical.GuiPresentation)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfWorse,
                 AttributeDefinitions.CriticalThreshold, 18)
             .AddToDB();
 
