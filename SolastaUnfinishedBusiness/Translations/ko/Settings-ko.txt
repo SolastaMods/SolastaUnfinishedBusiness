@@ -30,7 +30,6 @@ ModUi/&AllowHasteCasting=가속화 주문의 효과로 얻은 행동으로 주�
 ModUi/&AllowHornsOnAllRaces=모든 종족이 뿔을 만들 수 있게 허용 <i><color=#F0DAA0>[경우에 따라 끔찍한 몰골이 만들어질 수도 있음]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=휴식 패널에서 더 많은 행동 허용 <i><color=#F0DAA0>[이전 패널에서는 휴식 행동 후 패널이 숨겨졌지만 회복 특성을 더 사용할 수 있게 합니다]</color></i>
 ModUi/&AllowStackedMaterialComponent=재료 요소 중첩 허용 <i><color=#F0DAA0>[예: 2x500gp 다이아몬드는 1000gp 다이아몬드와 동일]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>연쇄 번개</color> 주문 시전 시 대상을 선택할 수 있게 허용
 ModUi/&AllowUnmarkedSorcerers=기원 및 문신이 없는 <color=#D89555>소서러</color> 허용
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 키는 파티 시야에 있는 물체만 강조 표시합니다 <i><color=#F0DAA0>[사용자 지정 던전만 해당]</color></i>
 ModUi/&ArcaneShieldstaffOptions=모든 직업이 <color=#D89555>비전 보호 스태프</color>를 조율할 수 있도록 허용

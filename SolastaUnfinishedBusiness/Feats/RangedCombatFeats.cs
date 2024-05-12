@@ -80,8 +80,6 @@ internal static class RangedCombatFeats
                 FeatureDefinitionAttackModifierBuilder
                     .Create($"Custom{NAME}")
                     .SetGuiPresentation(NAME, Category.Feat)
-                    .SetDamageRollModifier(1)
-                    .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isLongOrShortbow(mode, null, character))),
@@ -110,8 +108,6 @@ internal static class RangedCombatFeats
                 FeatureDefinitionAttackModifierBuilder
                     .Create($"Custom{NAME}")
                     .SetGuiPresentation(NAME, Category.Feat)
-                    .SetDamageRollModifier(1)
-                    .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isCrossbow(mode, null, character))),

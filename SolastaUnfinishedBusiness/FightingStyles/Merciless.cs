@@ -17,9 +17,11 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Merciless : AbstractFightingStyle
 {
+    internal const string MercilessName = "Merciless";
+
     private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
-        .Create("PowerFightingStyleMerciless")
-        .SetGuiPresentation("Merciless", Category.FightingStyle, hidden: true)
+        .Create($"PowerFightingStyle{MercilessName}")
+        .SetGuiPresentation(MercilessName, Category.FightingStyle, hidden: true)
         .SetUsesFixed(ActivationTime.NoCost)
         .SetShowCasting(false)
         .SetEffectDescription(
@@ -44,12 +46,12 @@ internal sealed class Merciless : AbstractFightingStyle
         .AddToDB();
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
-        .Create("Merciless")
-        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Merciless", Resources.Merciless, 256))
+        .Create(MercilessName)
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(MercilessName, Resources.Merciless, 256))
         .SetFeatures(
             PowerFightingStyleMerciless,
             FeatureDefinitionBuilder
-                .Create("TargetReducedToZeroHpFightingStyleMerciless")
+                .Create($"TargetReducedToZeroHpFightingStyle{MercilessName}")
                 .SetGuiPresentationNoContent(true)
                 .AddCustomSubFeatures(new OnReducedToZeroHpByMeMerciless())
                 .AddToDB())

@@ -30,7 +30,6 @@ ModUi/&AllowHasteCasting=Autoriser le lancement de sorts avec l'action suppléme
 ModUi/&AllowHornsOnAllRaces=Autoriser les cornes sur toutes les Ascendances <i><color=#F0DAA0>[les résultats peuvent être décevant selon la race, la tête et le type de cornes]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Autoriser l'affichage de plus d'informations sur l'état réel du groupe dans la fenêtre de repos <i><color=#F0DAA0>[Est masqué sur la fenêtre d'invite après les repos, et sur la fenêtre de validation après les compétences de récupération]</color></i>
 ModUi/&AllowStackedMaterialComponent=Autoriser l'empilement des composantes matérielles dans l'inventaire <i><color=#F0DAA0>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélection des cibles lors du lancement du sort <color=#D89555>Chaîne d'éclairs</color>
 ModUi/&AllowUnmarkedSorcerers=Autoriser les <color=#D89555>Ensorceleurs</color> sans marques ni tatouages d'origine
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Autoriser <color=#D89555>Arcane Shieldstaff</color> à être harmonisé par n'importe quelle classe

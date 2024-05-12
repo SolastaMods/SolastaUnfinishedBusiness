@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Validators;
@@ -32,6 +31,7 @@ internal static class CriticalVirtuosoFeats
                 AttributeDefinitions.CriticalThreshold, -1)
             .AddToDB();
 
+        // kept for backward compatibility
         // Improved Critical
         var featImprovedCritical = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatImprovedCritical")
@@ -40,6 +40,9 @@ internal static class CriticalVirtuosoFeats
             .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
 
+        featImprovedCritical.GuiPresentation.hidden = true;
+
+        // kept for backward compatibility
         // Superior Critical
         var featSuperiorCritical = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatSuperiorCritical")
@@ -48,10 +51,13 @@ internal static class CriticalVirtuosoFeats
             .SetValidators(ValidatorsFeat.IsLevel16, ValidatorsFeat.ValidateHasFeature(improved))
             .AddToDB();
 
+        featSuperiorCritical.GuiPresentation.hidden = true;
+#if false
         feats.AddRange(featImprovedCritical, featSuperiorCritical);
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featImprovedCritical,
             featSuperiorCritical);
+#endif
     }
 }

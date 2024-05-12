@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupMeleeCombatTitle",
-    "description": "Always Ready, Baleful Scion, Blade Mastery, Charger, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Polearm Master, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack",
+    "description": "Always Ready, Baleful Scion, Blade Mastery, Charger, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Longsword Finesse, Old Tactics, Piercer, Polearm Master, Power Attack, Reckless Attack, Savage Attack, Shield Bash, Slasher, Spear Mastery, Trip Attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

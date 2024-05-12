@@ -8,20 +8,20 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FightingStyle",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ProficiencyFeatMerciless:19a654a6-15c9-57af-a93f-f14f5eed5b71"
+    "Definition:ProficiencyFeatAstralReach:4143d5b8-381a-5953-9ea6-4f331db0142c"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "FightingStyle/&MercilessTitle",
-    "description": "FightingStyle/&MercilessDescription",
+    "title": "FightingStyle/&AstralReachTitle",
+    "description": "FightingStyle/&AstralReachDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e0b4a203-382b-5ab4-acfa-af309c1a019c",
+      "m_AssetGUID": "4f6a56f5-4155-547e-b1b2-47a4c45b2bdc",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f91e4faa-6d59-5cf1-964e-9dd2943ed8e8",
+  "guid": "f54d8d34-36e9-5245-a407-b4d96d7a58f1",
   "contentPack": 9999,
-  "name": "FeatMerciless"
+  "name": "FeatAstralReach"
 }

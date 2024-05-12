@@ -799,7 +799,7 @@ FeatGroupCloseQuarters	Description='You are experienced with fighting in close q
 FeatGroupCreed	Description='Creed of Arun, Creed of Einar, Creed of Maraike, Creed of Misaye, Creed of Pakri, Creed of Solasta'.
 FeatGroupCrusher	Description='Increase your Strength or Constitution by 1, to a maximum of 20.
 When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.'.
-FeatGroupDefenseCombat	Description='Always Ready, Cloak and Dagger, Defensive Duelist, Dual Wielder, Fade Away, Monastic Shield Training, Raise Shield, Shield Master, Twin Blade, Unarmored Expert'.
+FeatGroupDefenseCombat	Description='Always Ready, Cloak and Dagger, Defensive Duelist, Dual Wielder, Fade Away, Raise Shield, Shield Bash, Shield Master, Twin Blade, Unarmored Expert'.
 FeatGroupDefenseExpert	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.'.
 FeatGroupDragonFear	Description='When angered, you radiate menace. You gain the following benefits:
@@ -817,7 +817,7 @@ FeatGroupFadeAway	Description='You have learned a magical trick for fading away 
 FeatGroupFeyTeleport	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.'.
-FeatGroupFightingStyle	Description='Archery, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Merciless, Protection, Pugilist, Rope it Up, Shield Expert, Superior Technique, Torchbearer, Two Weapon Fighting'.
+FeatGroupFightingStyle	Description='Archery, Astral Reach, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Protection, Pugilist, Superior Technique, Torchbearer, Two Weapon Fighting'.
 FeatGroupFlamesOfPhlegethos	Description='You learn to call on hellfire to serve your commands. You gain the following benefits:
 • Increase your Intelligence or Charisma by 1, to a maximum of 20.
 • When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.
@@ -842,7 +842,7 @@ You gain the ability to cast the color spray, faerie fire and color burst spells
 FeatGroupMagicInitiate	Description='Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatGroupMediumArmor	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.'.
-FeatGroupMeleeCombat	Description='Always Ready, Baleful Scion, Blade Mastery, Charger, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Polearm Master, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack'.
+FeatGroupMeleeCombat	Description='Always Ready, Baleful Scion, Blade Mastery, Charger, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Longsword Finesse, Old Tactics, Piercer, Polearm Master, Power Attack, Reckless Attack, Savage Attack, Shield Bash, Slasher, Spear Mastery, Trip Attack'.
 FeatGroupOldTactics	Description='Increase your Strength or Dexterity by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.'.
 FeatGroupOrcishAggression	Description='Your aggression burns tirelessly. You gain the following benefits:
 • Increase your Strength or Constitution by 1, up to a maximum of 20.
@@ -877,7 +877,7 @@ When you hit a creature with an attack that deals slashing damage, you can reduc
 FeatGroupSpellCombat	Description='Baleful Scion, Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster'.
 FeatGroupSpellSniper	Description='You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatGroupSquatNimbleness	Description='You are uncommonly nimble for your race. Increase your Strength or Dexterity by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.'.
-FeatGroupSupportCombat	Description='Call for Charge, Chef, Gift of the Chromatic Dragon, Hardy, Healer, Improved Critical, Inspiring Leader, Lucky, Mage Slayer, Menacing, Mender, Poisoner, Precision Focused, Sentinel, Superior Critical, Weapon Master'.
+FeatGroupSupportCombat	Description='Call for Charge, Chef, Gift of the Chromatic Dragon, Hardy, Healer, Inspiring Leader, Lucky, Mage Slayer, Menacing, Mender, Merciless, Poisoner, Precision Focused, Sentinel, Thrown Weapons Master, Weapon Master'.
 FeatGroupTelekinetic	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.'.
 FeatGroupTools	Description='Initiate Alchemist, Initiate Enchanter, Lock Breaker, Master Alchemist, Master Enchanter, Poisoner, Scriber, Toxicologist'.
@@ -887,7 +887,7 @@ FeatGroupToxicologist	Description='Increase one of your mental attributes by 1, 
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.'.
 FeatGroupTwoHandedCombat	Description='Follow Up Strike, Forestalling Strength, Mighty Blow, Polearm Master, Revenant Blade'.
 FeatGroupTwoWeaponCombat	Description='Ambidextrous, Dual Flurry, Dual Wielder, Twin Blade'.
-FeatGroupUnarmoredCombat	Description='Astral Reach, Crusher, Elemental Touch, Poisonous Skin, Unarmored Expert'.
+FeatGroupUnarmoredCombat	Description='Crusher, Elemental Touch, Poisonous Skin, Unarmored Expert'.
 FeatGroupVerdantTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest, and you can cast these spells with your spell slots.'.
 FeatGroupWeaponMaster	Description='You have practiced extensively with a variety of weapons, gaining the following benefits:

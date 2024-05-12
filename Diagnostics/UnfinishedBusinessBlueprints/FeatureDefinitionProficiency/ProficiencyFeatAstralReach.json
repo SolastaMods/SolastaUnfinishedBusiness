@@ -1,20 +1,18 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "Additive",
-  "modifierValue": -1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "FightingStyle",
+  "proficiencies": [
+    "AstralReach"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "FightingStyle/&AstralReachTitle",
+    "description": "FightingStyle/&AstralReachDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "4f6a56f5-4155-547e-b1b2-47a4c45b2bdc",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -31,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "45dd6abf-0d7c-5563-b3ec-a9d3252159ff",
+  "guid": "4143d5b8-381a-5953-9ea6-4f331db0142c",
   "contentPack": 9999,
-  "name": "AttributeModifierCripplingACDebuff"
+  "name": "ProficiencyFeatAstralReach"
 }

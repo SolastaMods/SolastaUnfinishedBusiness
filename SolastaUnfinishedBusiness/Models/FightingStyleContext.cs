@@ -9,33 +9,44 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FightingStyleContext
 {
+    internal static readonly HashSet<string> DemotedFightingStyles =
+    [
+        Merciless.MercilessName,
+        MonkShieldExpert.ShieldExpertName,
+        PolearmExpert.PolearmExpertName,
+        RopeItUp.RopeItUpName,
+        Sentinel.SentinelName,
+        ShieldExpert.ShieldExpertName
+    ];
+
     private static Dictionary<FightingStyleDefinition, List<FeatureDefinitionFightingStyleChoice>>
-        FightingStylesChoiceList { get; } = new();
+        FightingStylesChoiceList { get; } = [];
 
     internal static HashSet<FightingStyleDefinition> FightingStyles { get; private set; } = [];
 
     internal static void Load()
     {
+        // kept for backward compatibility
+        _ = new Merciless();
+        _ = new MonkShieldExpert();
+        _ = new PolearmExpert();
+        _ = new RopeItUp();
+        _ = new ShieldExpert();
+        _ = new Sentinel();
+
+        LoadStyle(new AstralReach());
         LoadStyle(new BlindFighting());
         LoadStyle(new Crippling());
         LoadStyle(new Executioner());
         LoadStyle(new HandAndAHalf());
         LoadStyle(new Interception());
         LoadStyle(new Lunger());
-        LoadStyle(new Merciless());
         LoadStyle(new Pugilist());
         LoadStyle(new RemarkableTechnique());
-        LoadStyle(new RopeItUp());
-        LoadStyle(new ShieldExpert());
         LoadStyle(new Torchbearer());
 
-        // kept for backward compatibility
-        _ = new MonkShieldExpert();
-        _ = new PolearmExpert();
-        _ = new Sentinel();
-
         // sorting
-        FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();
+        FightingStyles = [.. FightingStyles.OrderBy(x => x.FormatTitle())];
 
         // settings paring
         foreach (var name in Main.Settings.FightingStyleEnabled
