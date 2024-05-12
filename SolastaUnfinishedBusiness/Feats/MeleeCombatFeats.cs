@@ -623,8 +623,8 @@ internal static class MeleeCombatFeats
             var rulesetHelper = helper.RulesetCharacter;
 
             if (helper != defender ||
-                !defender.CanReact() ||
-                !ValidatorsWeapon.HasAnyWeaponTag(rulesetHelper.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
+                !helper.CanReact() ||
+                !ValidatorsWeapon.IsMelee(rulesetHelper.GetMainWeapon()))
             {
                 yield break;
             }
