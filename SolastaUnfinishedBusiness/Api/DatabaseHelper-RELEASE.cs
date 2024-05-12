@@ -1551,9 +1551,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionFlyingAdaptive { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionFlyingAdaptive");
 
-        internal static FeatureDefinitionMovementAffinity MovementAffinityConditionHindered { get; } =
-            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionHindered");
-
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionRestrained { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionRestrained");
 
@@ -1790,9 +1787,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerDragonBreath_Acid_Spectral_DLC3 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid_Spectral_DLC3");
-
-        internal static FeatureDefinitionPower PowerDragonBreath_Cold { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Cold");
 
         internal static FeatureDefinitionPower PowerDragonBreath_Fire { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Fire");

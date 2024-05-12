@@ -249,13 +249,13 @@ internal static class RulesetCharacterExtensions
             .Where(a => !a.AfterChargeOnly && a.ActionType == actionType)
             .ToList();
     }
-#endif
 
     internal static bool CanAddAbilityBonusToOffhand(this RulesetCharacter instance)
     {
         return instance.GetSubFeaturesByType<IAttackModificationProvider>()
             .Any(p => p.CanAddAbilityBonusToSecondary);
     }
+#endif
 
     [CanBeNull]
     internal static RulesetItem GetItemInSlot([CanBeNull] this RulesetCharacter instance, string slot)
