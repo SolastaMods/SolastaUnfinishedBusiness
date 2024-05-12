@@ -272,5 +272,13 @@
     <None Update="UnofficialTranslations\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Remove="Translations\ru\SubClasses\PathOfTheWildMagic-ru.txt"/>
+    <None Remove="Translations\pt-BR\SubClasses\PathOfTheWildMagic-pt-BR.txt"/>
+    <None Remove="Translations\ko\SubClasses\PathOfTheWildMagic-ko.txt"/>
+    <None Remove="Translations\ja\SubClasses\PathOfTheWildMagic-ja.txt"/>
+    <None Remove="Translations\it\SubClasses\PathOfTheWildMagic-it.txt"/>
+    <None Remove="Translations\fr\SubClasses\PathOfTheWildMagic-fr.txt"/>
+    <None Remove="Translations\es\SubClasses\PathOfTheWildMagic-es.txt"/>
+    <None Remove="Translations\de\SubClasses\PathOfTheWildMagic-de.txt"/>
   </ItemGroup>
 </Project>
