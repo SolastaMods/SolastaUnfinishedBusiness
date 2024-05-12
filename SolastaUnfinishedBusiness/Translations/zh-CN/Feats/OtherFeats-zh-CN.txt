@@ -30,7 +30,6 @@ Feat/&FeatChefConDescription=你的体质 +1，上限为 20。\n你可以花 1 �
 Feat/&FeatChefConTitle=大厨【体质】
 Feat/&FeatChefWisDescription=你的感知 +1，上限为 20。\n你可以花 1 小时做饭，恢复你及同伴 1d8 的生命值。\n每日一次，你可以花 1 小时做出数量为你的熟练加值，食用时可提供 5 点临时生命值的美味。
 Feat/&FeatChefWisTitle=大厨【感知】
-Feat/&FeatCriticalVirtuosoDescription=你的重击范围降低了 1 点。
 Feat/&FeatDungeonDelverDescription=警惕许多地城中隐藏的陷阱和秘门，你将获得以下好处：\n• 你在感知（察觉）和智力（调查）检定上具有优势。\n• 你在避免或抵抗陷阱的豁免检定上具有优势。\n• 你获得对陷阱伤害的抗性。\n• 快速行进不会对你的被动感知（察觉）造成正常的 -5 减值。
 Feat/&FeatDungeonDelverTitle=地城探险者
 Feat/&FeatEldritchAdeptDescription=你可以从邪术士职业中选择一种祈唤。如果祈唤有先决条件，则只有当你是邪术士并且满足先决条件时才能选择该祈唤。每当你获得一个等级时，你就可以用另一个来自邪术士职业的祈唤来替换该祈唤。

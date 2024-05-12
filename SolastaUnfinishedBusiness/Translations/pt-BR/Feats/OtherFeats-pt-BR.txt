@@ -30,7 +30,6 @@ Feat/&FeatChefConDescription=Aumente sua Constituição em 1, até um máximo de
 Feat/&FeatChefConTitle=Chef [Com]
 Feat/&FeatChefWisDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê pode gastar 1 hora para preparar uma refeição para curar você e seus companheiros em 1d8 HP.\nUma vez por dia, você pode gastar uma hora para cozinhar um número. de guloseimas iguais ao seu bônus de proficiência que fornecem 5 HP temporários quando comidas.
 Feat/&FeatChefWisTitle=Chef [Sab]
-Feat/&FeatCriticalVirtuosoDescription=Seu limite crítico é reduzido em 1.
 Feat/&FeatDungeonDelverDescription=Alerta às armadilhas escondidas e portas secretas encontradas em muitas masmorras, você ganha os seguintes benefícios:\n• Você tem vantagem em testes de Sabedoria (Percepção) e Inteligência (Investigação).\n• Você tem vantagem em testes de resistência feitos para evite ou resista a armadilhas.\n• Você tem resistência ao dano causado por armadilhas.\n• Viajar em ritmo acelerado não impõe a penalidade normal de -5 em seu valor de Sabedoria passiva (Percepção).
 Feat/&FeatDungeonDelverTitle=Explorador de Masmorras
 Feat/&FeatEldritchAdeptDescription=Você aprende uma opção de Invocação Eldritch de sua escolha na classe Warlock. Se a invocação tiver um pré-requisito, você só poderá escolher essa invocação se for um bruxo e somente se atender ao pré-requisito. Sempre que você ganha um nível, você pode substituir a invocação por outra da classe bruxo.
