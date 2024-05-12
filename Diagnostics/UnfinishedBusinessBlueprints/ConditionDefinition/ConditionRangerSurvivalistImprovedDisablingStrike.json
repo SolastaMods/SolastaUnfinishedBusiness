@@ -4,8 +4,7 @@
   "parentCondition": "Definition:ConditionHindered:a7ec75561313d2a41aab8635a306ed41",
   "conditionType": "Detrimental",
   "features": [
-    "Definition:AttributeModifierRangerSurvivalistImprovedDisablingStrike:3eeccab0-8b60-5f3f-b529-256bfe40926b",
-    "Definition:MovementAffinityConditionHindered:d8369308deca3fc47a6a9c3ab5518949"
+    "Definition:AttributeModifierRangerSurvivalistImprovedDisablingStrike:3eeccab0-8b60-5f3f-b529-256bfe40926b"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

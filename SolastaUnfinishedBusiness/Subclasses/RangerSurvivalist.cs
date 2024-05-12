@@ -57,13 +57,12 @@ public sealed class RangerSurvivalist : AbstractSubclass
         // Disabling Strike
 
         var conditionDisablingStrike = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionHindered_By_Frost, $"Condition{Name}DisablingStrike")
+            .Create(ConditionDefinitions.ConditionHindered, $"Condition{Name}DisablingStrike")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetParentCondition(ConditionDefinitions.ConditionHindered)
             .SetPossessive()
+            .SetFeatures()
             .AddToDB();
-
-        conditionDisablingStrike.specialDuration = false;
 
         // kept name for backward compatibility
         var additionalDamageDisablingStrike = FeatureDefinitionPowerBuilder
