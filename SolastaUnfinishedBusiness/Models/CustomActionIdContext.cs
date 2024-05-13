@@ -158,22 +158,6 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(CastInvocation, "CastSpellMasteryMain")
-            .SetGuiPresentation("CastSpellMastery", Category.Action, Sprites.ActionPlaneMagic, 10)
-            .SetActionId(ExtraActionId.CastSpellMasteryMain)
-            .SetActionType(ActionType.Main)
-            .SetActionScope(ActionScope.All)
-            .AddToDB();
-
-        ActionDefinitionBuilder
-            .Create(CastInvocation, "CastSignatureSpellsMain")
-            .SetGuiPresentation("CastSignatureSpells", Category.Action, Sprites.ActionPlaneMagic, 10)
-            .SetActionId(ExtraActionId.CastSignatureSpellsMain)
-            .SetActionType(ActionType.Main)
-            .SetActionScope(ActionScope.All)
-            .AddToDB();
-
-        ActionDefinitionBuilder
             .Create(CastInvocation, "EldritchVersatilityMain")
             .SetGuiPresentation("EldritchVersatility", Category.Action, Sprites.ActionEldritchVersatility, 20)
             .SetActionId(ExtraActionId.EldritchVersatilityMain)
@@ -626,8 +610,6 @@ public static class CustomActionIdContext
                    or ExtraActionId.InventorInfusion
                    or ExtraActionId.CastPlaneMagicMain
                    or ExtraActionId.CastPlaneMagicBonus
-                   or ExtraActionId.CastSpellMasteryMain
-                   or ExtraActionId.CastSignatureSpellsMain
                || IsGambitActionId(id)
                || IsEldritchVersatilityId(id)
                || IsEldritchVersatilityId(id);

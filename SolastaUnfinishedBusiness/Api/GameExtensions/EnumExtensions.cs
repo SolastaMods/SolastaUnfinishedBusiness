@@ -15,8 +15,6 @@ internal enum ExtraActionId
     CastInvocationNoCost,
     CastPlaneMagicBonus,
     CastPlaneMagicMain,
-    CastSignatureSpellsMain,
-    CastSpellMasteryMain,
     CombatRageStart,
     CombatWildShape,
     CompellingStrikeToggle,

@@ -202,14 +202,6 @@ internal class InvocationPoolTypeCustom
             Register("Infusion", requireClassLevel: InventorClass.ClassName,
                 main: (Id)ExtraActionId.InventorInfusion);
 
-        internal static readonly InvocationPoolTypeCustom SpellMastery =
-            Register("SpellMastery",
-                main: (Id)ExtraActionId.CastSpellMasteryMain, hidden: true);
-
-        internal static readonly InvocationPoolTypeCustom SignatureSpells =
-            Register("SignatureSpells", requireClassLevel: CharacterClassDefinitions.Wizard.Name,
-                main: (Id)ExtraActionId.CastSignatureSpellsMain, hidden: true);
-
         internal static readonly InvocationPoolTypeCustom Gambit =
             Register("Gambit", requireClassLevel: MartialTactician.Name,
                 main: (Id)ExtraActionId.TacticianGambitMain,
