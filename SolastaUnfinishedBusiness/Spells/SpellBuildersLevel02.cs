@@ -509,7 +509,8 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 2)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                    .SetSavingThrowData(
+                        false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -543,34 +544,74 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSpellCastingBonus,
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                        conditionSpellCastingBonus,
                         ConditionForm.ConditionOperation.Add, true))
                     .SetCasterEffectParameters(FalseLife)
                     .Build())
             .AddToDB();
 
         conditionSpellCastingBonus.AddCustomSubFeatures(
-            new AddUsablePowersFromCondition(), new CustomBehaviorWitherAndBloom(spell, power));
+            new AddUsablePowersFromCondition(),
+            new CustomBehaviorWitherAndBloomPower(power, conditionSpellCastingBonus));
+        spell.AddCustomSubFeatures(new CustomBehaviorWitherAndBloom(power, conditionSpellCastingBonus));
 
         return spell;
     }
 
-    private sealed class CustomBehaviorWitherAndBloom(
-        SpellDefinition spellWitherAndBloom,
-        FeatureDefinitionPower powerWitherAndBloom) : IMagicEffectFinishedByMeAny, IModifyDiceRollHitDice
+    private sealed class CustomBehaviorWitherAndBloomPower(
+        FeatureDefinitionPower powerWitherAndBloom,
+        ConditionDefinition conditionWitherAndBloom) : IModifyDiceRollHitDice, IModifyEffectDescription
     {
-        private int _modifier;
-
-        public IEnumerator OnMagicEffectFinishedByMeAny(
-            CharacterActionMagicEffect action,
-            GameLocationCharacter attacker,
-            // ReSharper disable once InconsistentNaming
-            List<GameLocationCharacter> _targets)
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            if (action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                rulesetEffectSpell.SpellDefinition != spellWitherAndBloom)
+            return definition == powerWitherAndBloom;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionWitherAndBloom.Name, out var activeCondition))
+            {
+                effectDescription.EffectForms[0].DamageForm.DiceNumber = activeCondition.EffectLevel;
+            }
+
+            return effectDescription;
+        }
+
+        public void BeforeRoll(
+            RulesetCharacterHero __instance,
+            ref DieType die, 
+            ref int modifier,
+            ref AdvantageType advantageType,
+            ref bool healKindred,
+            ref bool isBonus)
+        {
+            if (__instance.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionWitherAndBloom.Name, out var activeCondition))
+            {
+                modifier = activeCondition.amount;
+            }
+        }
+    }
+    
+    private sealed class CustomBehaviorWitherAndBloom(
+        FeatureDefinitionPower powerWitherAndBloom,
+        ConditionDefinition conditionWitherAndBloom) : IMagicEffectFinishedByMe
+    {
+        private int _spellCastingAbility;
+        
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell)
             {
                 yield break;
             }
@@ -592,16 +633,23 @@ internal static partial class SpellBuilders
             {
                 yield break;
             }
-
+            
+            var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            _modifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+            _spellCastingAbility = AttributeDefinitions.ComputeAbilityScoreModifier(
                 rulesetAttacker.TryGetAttributeValue(rulesetEffectSpell.SpellRepertoire.SpellCastingAbility));
-
-            rulesetTarget.HitDieRolled += HitDieRolled;
-
+            
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionWitherAndBloom.Name, out var activeCondition))
+            {
+                activeCondition.Amount = _spellCastingAbility;
+            }
+            
             var hasHealed = false;
             var effectLevel = rulesetEffectSpell.EffectLevel;
+
+            rulesetTarget.HitDieRolled += HitDieRolled;
 
             while (--effectLevel > 0 &&
                    rulesetTarget.RemainingHitDiceCount() > 0 &&
@@ -610,12 +658,12 @@ internal static partial class SpellBuilders
                 var maxHitPoints = rulesetTarget.TryGetAttributeValue(AttributeDefinitions.HitPoints);
                 var remainingHitPoints = maxHitPoints - rulesetTarget.MissingHitPoints;
                 var reactionParams =
-                    new CharacterActionParams(target, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                    new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                     {
                         StringParameter = Gui.Format(
                             "Reaction/&CustomReactionWitherAndBloomDescription",
                             remainingHitPoints.ToString(), maxHitPoints.ToString(), attacker.Name,
-                            _modifier.ToString())
+                            _spellCastingAbility.ToString())
                     };
                 var reactionRequest = new ReactionRequestCustom("WitherAndBloom", reactionParams);
                 var count = actionManager.PendingReactionRequestGroups.Count;
@@ -656,18 +704,7 @@ internal static partial class SpellBuilders
             }
 
             ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
-        }
-
-        public void BeforeRoll(
-            RulesetCharacterHero __instance,
-            ref DieType die,
-            ref int modifier,
-            ref AdvantageType advantageType,
-            ref bool healKindred,
-            ref bool isBonus)
-        {
-            modifier = _modifier;
+                .ExecuteAction(actionParams, null, false);
         }
 
         private void HitDieRolled(
@@ -691,7 +728,7 @@ internal static partial class SpellBuilders
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
-                    (ConsoleStyleDuplet.ParameterType.Positive, $"{value - modifier}+{modifier}"),
+                    (ConsoleStyleDuplet.ParameterType.Positive, $"{value - _spellCastingAbility}+{_spellCastingAbility}"),
                     (ConsoleStyleDuplet.ParameterType.Positive, $"{value}")
                 ]);
         }
@@ -769,6 +806,7 @@ internal static partial class SpellBuilders
             .SetOrUpdateGuiPresentation(Category.Item, ItemDefinitions.Enchanted_Dagger_Souldrinker)
             .SetItemTags(TagsDefinitions.ItemTagConjured)
             .MakeMagical()
+            .HideFromDungeonEditor()
             .AddToDB();
 
         itemShadowBlade.activeTags.Clear();
