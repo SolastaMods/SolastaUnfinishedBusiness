@@ -549,8 +549,8 @@ internal static partial class SpellBuilders
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(
-                        conditionSpellCastingBonus,
-                        ConditionForm.ConditionOperation.Add, true))
+                            conditionSpellCastingBonus,
+                            ConditionForm.ConditionOperation.Add, true))
                     .SetCasterEffectParameters(FalseLife)
                     .Build())
             .AddToDB();
@@ -567,6 +567,21 @@ internal static partial class SpellBuilders
         FeatureDefinitionPower powerWitherAndBloom,
         ConditionDefinition conditionWitherAndBloom) : IModifyDiceRollHitDice, IModifyEffectDescription
     {
+        public void BeforeRoll(
+            RulesetCharacterHero __instance,
+            ref DieType die,
+            ref int modifier,
+            ref AdvantageType advantageType,
+            ref bool healKindred,
+            ref bool isBonus)
+        {
+            if (__instance.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionWitherAndBloom.Name, out var activeCondition))
+            {
+                modifier = activeCondition.amount;
+            }
+        }
+
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == powerWitherAndBloom;
@@ -586,29 +601,14 @@ internal static partial class SpellBuilders
 
             return effectDescription;
         }
-
-        public void BeforeRoll(
-            RulesetCharacterHero __instance,
-            ref DieType die, 
-            ref int modifier,
-            ref AdvantageType advantageType,
-            ref bool healKindred,
-            ref bool isBonus)
-        {
-            if (__instance.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionWitherAndBloom.Name, out var activeCondition))
-            {
-                modifier = activeCondition.amount;
-            }
-        }
     }
-    
+
     private sealed class CustomBehaviorWitherAndBloom(
         FeatureDefinitionPower powerWitherAndBloom,
         ConditionDefinition conditionWitherAndBloom) : IMagicEffectFinishedByMe
     {
         private int _spellCastingAbility;
-        
+
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell)
@@ -633,19 +633,19 @@ internal static partial class SpellBuilders
             {
                 yield break;
             }
-            
+
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
             _spellCastingAbility = AttributeDefinitions.ComputeAbilityScoreModifier(
                 rulesetAttacker.TryGetAttributeValue(rulesetEffectSpell.SpellRepertoire.SpellCastingAbility));
-            
+
             if (rulesetAttacker.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionWitherAndBloom.Name, out var activeCondition))
             {
                 activeCondition.Amount = _spellCastingAbility;
             }
-            
+
             var hasHealed = false;
             var effectLevel = rulesetEffectSpell.EffectLevel;
 
@@ -658,7 +658,7 @@ internal static partial class SpellBuilders
                 var maxHitPoints = rulesetTarget.TryGetAttributeValue(AttributeDefinitions.HitPoints);
                 var remainingHitPoints = maxHitPoints - rulesetTarget.MissingHitPoints;
                 var reactionParams =
-                    new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                    new CharacterActionParams(target, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                     {
                         StringParameter = Gui.Format(
                             "Reaction/&CustomReactionWitherAndBloomDescription",
@@ -704,7 +704,7 @@ internal static partial class SpellBuilders
             }
 
             ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, false);
+                .ExecuteAction(actionParams, null, true);
         }
 
         private void HitDieRolled(
@@ -728,7 +728,8 @@ internal static partial class SpellBuilders
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
-                    (ConsoleStyleDuplet.ParameterType.Positive, $"{value - _spellCastingAbility}+{_spellCastingAbility}"),
+                    (ConsoleStyleDuplet.ParameterType.Positive,
+                        $"{value - _spellCastingAbility}+{_spellCastingAbility}"),
                     (ConsoleStyleDuplet.ParameterType.Positive, $"{value}")
                 ]);
         }

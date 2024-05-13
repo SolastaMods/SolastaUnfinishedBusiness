@@ -2530,7 +2530,7 @@ internal static partial class SpellBuilders
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellWitchBolt,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionWitchBolt) : IActionFinishedByMe
+        ConditionDefinition conditionWitchBolt) : IActionFinishedByMe, IOnConditionAddedOrRemoved
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
@@ -2567,7 +2567,24 @@ internal static partial class SpellBuilders
 
             if (rulesetSpell != null)
             {
-                rulesetCharacter.TerminateSpell(rulesetSpell);
+                rulesetCaster.TerminateSpell(rulesetSpell);
+            }
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            var rulesetSpell = rulesetCaster?.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellWitchBolt);
+
+            if (rulesetSpell != null)
+            {
+                rulesetCaster.TerminateSpell(rulesetSpell);
             }
         }
     }
