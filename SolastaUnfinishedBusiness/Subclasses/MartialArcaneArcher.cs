@@ -749,13 +749,14 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             if (!actionManager ||
                 action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 helper != attacker ||
+                !helper.CanReact() ||
                 !IsBow(attackMode, null, null))
             {
                 yield break;
             }
 
             var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = "Reaction/&CustomReactionMartialArcaneArcherGuidedShotDescription"
                 };
