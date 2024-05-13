@@ -388,6 +388,19 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
             hero.FeaturesOrigin,
             offHandItem);
 
+        var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+        if (damageForm != null)
+        {
+            var trend = damageForm.DamageBonusTrends.FirstOrDefault(x => x.sourceName == "Dueling");
+
+            if (trend.sourceName == "Dueling")
+            {
+                damageForm.DamageBonusTrends.Remove(trend);
+                damageForm.BonusDamage -= 2;
+            }
+        }
+
         if (offHandItem.ItemDefinition.Magical)
         {
             attackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
