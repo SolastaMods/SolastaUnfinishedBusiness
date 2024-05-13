@@ -145,23 +145,23 @@ public sealed class RoguishDuelist : AbstractSubclass
     //
 
     private sealed class CustomBehaviorReflexiveParry(
-        FeatureDefinition featureReflexiveParry) : IAttackBeforeHitPossibleOnMeOrAlly
+        FeatureDefinition featureReflexiveParry) : IPhysicalAttackBeforeHitConfirmedOnMe
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
-            [UsedImplicitly] GameLocationCharacter attacker,
+            GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (helper != defender ||
-                rulesetEffect != null ||
-                !ValidatorsWeapon.IsMelee(attackMode) ||
+            if (!ValidatorsWeapon.IsMelee(attackMode) ||
                 !defender.OncePerTurnIsValid(featureReflexiveParry.Name) ||
                 rulesetDefender.HasAnyConditionOfTypeOrSubType(
                     ConditionDefinitions.ConditionDazzled.Name,
@@ -173,7 +173,6 @@ public sealed class RoguishDuelist : AbstractSubclass
             }
 
             defender.UsedSpecialFeatures.TryAdd(featureReflexiveParry.Name, 0);
-
             actionModifier.DefenderDamageMultiplier *= 0.5f;
             rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParry);
         }

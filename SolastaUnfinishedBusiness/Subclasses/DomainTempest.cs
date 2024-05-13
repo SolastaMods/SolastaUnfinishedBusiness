@@ -323,7 +323,7 @@ public sealed class DomainTempest : AbstractSubclass
     }
 
     private sealed class CustomBehaviorWrathOfTheStorm(FeatureDefinitionPower powerWrathOfTheStorm)
-        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByEnemy
+        : IAttackBeforeHitPossibleOnMeOrAlly, IActionFinishedByEnemy
     {
         private bool _isValid;
 
@@ -388,35 +388,15 @@ public sealed class DomainTempest : AbstractSubclass
             }
         }
 
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
+            [UsedImplicitly] GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            _isValid = attacker.IsWithinRange(defender, 1) &&
-                       attacker.CanReact() &&
-                       defender.CanPerceiveTarget(attacker) &&
-                       rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit;
-
-            yield break;
-        }
-
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            RulesetEffect rulesetEffect,
+            int attackRoll)
         {
             _isValid = attacker.IsWithinRange(defender, 1) &&
                        attacker.CanReact() &&

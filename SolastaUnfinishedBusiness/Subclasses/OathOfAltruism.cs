@@ -229,12 +229,6 @@ public sealed class OathOfAltruism : AbstractSubclass
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            if (rulesetEffect != null &&
-                rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
-            {
-                yield break;
-            }
-
             var rulesetHelper = helper.RulesetCharacter;
 
             if (helper == defender ||
