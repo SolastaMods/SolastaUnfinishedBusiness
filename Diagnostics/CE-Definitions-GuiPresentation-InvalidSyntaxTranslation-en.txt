@@ -846,7 +846,7 @@ FeatGroupMeleeCombat	Description='Always Ready, Baleful Scion, Blade Mastery, Ch
 FeatGroupOldTactics	Description='Increase your Strength or Dexterity by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.'.
 FeatGroupOrcishAggression	Description='Your aggression burns tirelessly. You gain the following benefits:
 • Increase your Strength or Constitution by 1, up to a maximum of 20.
-• As a bonus action, when wielding a melee weapon in main hand, you can charge up to your speed toward an enemy of your choice and free attack the creature with your main weapon.'.
+• As a bonus action, when wielding a melee weapon in main hand, you can charge up to your speed toward an enemy of your choice and free attack the creature with your main weapon. This feature can be used proficiency bonus times per long rest.'.
 FeatGroupOrcishFury	Description='Your fury burns tirelessly. You gain the following benefits:
 • Increase your Strength or Constitution by 1, up to a maximum of 20.
 • When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.

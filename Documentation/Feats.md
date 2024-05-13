@@ -178,7 +178,7 @@ When you successfully shove an enemy, they lose half their movement speed (round
 
 # 37. - *Defensive Duelist* © [UB]
 
-When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, potentially causing the attack to miss you.
+When you are wielding a melee weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, potentially causing the attack to miss you.
 
 # 38. - Devastating Strikes [UB]
 
@@ -516,7 +516,7 @@ Increase your Strength or Dexterity by 1. Once per round, when a prone enemy wit
 
 Your aggression burns tirelessly. You gain the following benefits:
 • Increase your Strength or Constitution by 1, up to a maximum of 20.
-• As a bonus action, when wielding a melee weapon in main hand, you can charge up to your speed toward an enemy of your choice and free attack the creature with your main weapon.
+• As a bonus action, when wielding a melee weapon in main hand, you can charge up to your speed toward an enemy of your choice and free attack the creature with your main weapon. This feature can be used proficiency bonus times per long rest.
 
 # 107. - *Orcish Fury* © [UB]
 
@@ -757,7 +757,7 @@ You have practiced extensively with a variety of weapons, gaining the following 
 
 # 155. - Wise Archery [UB]
 
-Your intuition guides your hand when using a bow. Increase your Wisdom attribute by 1, to a maximum of 20. You can use your Wisdom modifier instead of your Dexterity modifer for the attack and damage rolls with these weapons.
+Your intuition guides your hand when using a bow. Increase your Wisdom attribute by 1, to a maximum of 20. You can use your Wisdom modifier instead of your Dexterity modifier for the attack and damage rolls with these weapons.
 
 # 156. - *Wood-Elf Magic* © [UB]
 

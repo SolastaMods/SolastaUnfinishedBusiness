@@ -12,11 +12,11 @@ You have blind sight with a range of 10 ft. Within that range, you can effective
 
 # 4. - Classical Swordplay [UB]
 
-While wielding a melee one-handed or versatile weapon and no other weapon or shield, you gain a +1 bonus to your attack rolls with the weapon and a +1 to your Armor Class.
+You gain a +1 bonus to your attack rolls and a +1 to bonus to your Armor Class while wielding a melee one-handed or versatile weapon and no other weapon or shield.
 
 # 5. - Crippling [UB]
 
-Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft until the end of your next turn.
+You reduce the speed of your opponents by 10 ft until the end of your next turn on a melee attack hit.
 
 # 6. - Defense [SOL]
 
@@ -28,7 +28,7 @@ When you are wielding a melee weapon in one hand and no other weapons, you gain 
 
 # 8. - Executioner [UB]
 
-You add your proficiency bonus to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
+You add your proficiency bonus to damage against blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned creatures.
 
 # 9. - Great Weapon Fighting [SOL]
 
@@ -40,7 +40,7 @@ When a creature you can see hits a target, other than you, within 5 feet of you 
 
 # 11. - Lunger [UB]
 
-Your melee weapon reach increases by 5 ft while wielding a weapon without the heavy tag and a free offhand.
+Your melee weapon reach increases by 5 ft while wielding a weapon without the heavy tag and no other weapon or shield.
 
 # 12. - Protection [SOL]
 
@@ -48,7 +48,7 @@ When a creature you can see attacks a target other than you that is within one c
 
 # 13. - Pugilist [UB]
 
-Your unarmed strikes deal an additional 1d4 bludgeoning damage, and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
+Your unarmed strikes deal an additional 1d4 bludgeoning damage, and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have no other weapon or shield.
 
 # 14. - *Superior Technique* © [UB]
 
@@ -58,7 +58,7 @@ You have martial training that allows you to perform special combat techniques c
 
 # 15. - Torchbearer [UB]
 
-You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
+As a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
 
 # 16. - Two Weapon Fighting [SOL]
 
