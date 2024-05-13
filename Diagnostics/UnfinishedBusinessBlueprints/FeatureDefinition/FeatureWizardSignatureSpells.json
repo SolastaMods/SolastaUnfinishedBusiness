@@ -1,10 +1,10 @@
 {
-  "$type": "FeatureDefinitionGrantInvocations, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GrantInvocationsSpellMasteryTitle",
-    "description": "Feature/&GrantInvocationsSpellMasteryDescription",
+    "title": "Feature/&FeatureWizardSignatureSpellsTitle",
+    "description": "Feature/&FeatureWizardSignatureSpellsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7c3c4938-2d3a-5082-87c8-93a4f776340d",
+  "guid": "c7dccbf4-4875-590d-a1aa-0f694998baab",
   "contentPack": 9999,
-  "name": "GrantInvocationsSpellMastery"
+  "name": "FeatureWizardSignatureSpells"
 }

@@ -1,10 +1,17 @@
 {
-  "$type": "FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
+  "$type": "RestActivityDefinition, Assembly-CSharp",
+  "restStage": "AfterRest",
+  "restType": "LongRest",
+  "condition": "CanPrepareSpells",
+  "requiresMissingClassSpellSlots": false,
+  "functor": "FunctorSpellMastery",
+  "stringParameter": "",
+  "checkConsciousness": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InvocationPoolWizardSignatureSpellsTitle",
-    "description": "Feature/&InvocationPoolWizardSignatureSpellsDescription",
+    "title": "RestActivity/&RestActivitySpellMasteryTitle",
+    "description": "RestActivity/&RestActivitySpellMasteryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "65077b25-9277-5c8a-b0c2-50d35aaa7f09",
+  "guid": "ab92f6eb-8a55-581f-8d9b-28470f5e70c1",
   "contentPack": 9999,
-  "name": "InvocationPoolWizardSignatureSpells"
+  "name": "RestActivitySpellMastery"
 }
