@@ -150,6 +150,7 @@ ModUi/&EnableRogueFightingStyle=Activer le choix de <b>Style de combat</b> du <c
 ModUi/&EnableRogueSteadyAim=Activez la <b>Visée Stable</b> du <color=#D89555>Roublard</color> au niveau de classe 3 <i><color=#F0DAA0>[l'action bonus donne un avantage lors de votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
 ModUi/&EnableRogueStrSaving=Activez <color=#D89555>Rogue</color> pour utiliser les modificateurs DEX ou STR sur <b>Frappe rusée/diable</b>, <b>Frappe débilitante/améliorée</b> et <b>Grêle de lames. </b>
 ModUi/&EnableSaveByLocation=Autoriser l'enregistrement par campagnes / localités
+ModUi/&EnableSignatureSpellsRelearn=Activer la préparation des sorts de signature de <color=#D89555>Assistant</color> à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=• De plus, chaque héros ajoute un jet de D20 au poids de leur vote pour rajouter un peu d'aléatoire.

@@ -150,6 +150,7 @@ ModUi/&EnableRogueFightingStyle=レベル 2 で<color=#D89555>ローグ</color>�
 ModUi/&EnableRogueSteadyAim=クラスレベル3で<color=#D89555>ローグ</color>の<b>ステディエイム</b>を有効にする<i><color=#F0DAA0>[ボーナスアクションにより、現在のターンの次の攻撃ロールでアドバンテージが得られます。まだ移動していません]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>ローグ</color>が<b>狡猾/悪魔の一撃</b>、<b>衰弱/改善された一撃</b>、<b>刃の雹でDEXまたはSTR修正を使用できるようにします</b>
 ModUi/&EnableSaveByLocation=キャンペーン/場所ごとの保存を有効にする
+ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>ウィザード</color>の特徴的な呪文を<i><color=#F0DAA0>[レベル20で1回ではなく]長い休憩ごとに準備できるようにする</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセットのソートを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=。また、各ヒーローは少しランダム性を持たせるためにウェイトに D20 ロールを追加します。

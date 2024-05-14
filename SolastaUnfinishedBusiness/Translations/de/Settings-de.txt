@@ -150,6 +150,7 @@ ModUi/&EnableRogueFightingStyle=Aktivieren Sie die Wahl des <color=#D89555>Schur
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Rogue</color> <b>Steady Aim</b> auf Klassenstufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft Ihnen einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sind noch nicht umgezogen]</color></i>
 ModUi/&EnableRogueStrSaving=Aktivieren Sie <color=#D89555>Schurke</color>, um DEX- oder STR-Modifikatoren für <b>List/Teufelsschlag</b>, <b>Schwächender/Verbesserter Schlag</b> und <b>Klingenhagel zu verwenden </b>
 ModUi/&EnableSaveByLocation=Aktivieren Sie die Speicherung nach Kampagnen/Standorten
+ModUi/&EnableSignatureSpellsRelearn=Aktivieren Sie <color=#D89555>Zauberer</color>-Signaturzauber, die bei jeder langen Pause <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i> vorbereitet werden
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=• Außerdem erhöht jeder Held das Gewicht um einen W20-Wurf, um ein wenig Zufälligkeit zu gewährleisten

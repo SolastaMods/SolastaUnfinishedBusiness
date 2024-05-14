@@ -423,10 +423,10 @@ internal static class RulesDisplay
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
 
-        toggle = Main.Settings.EnableRogueStrSaving;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueStrSaving"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSignatureSpellsRelearn;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSignatureSpellsRelearn"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableRogueStrSaving = toggle;
+            Main.Settings.EnableSignatureSpellsRelearn = toggle;
         }
 
         UI.Label();

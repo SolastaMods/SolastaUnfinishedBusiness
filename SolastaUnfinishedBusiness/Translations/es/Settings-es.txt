@@ -150,6 +150,7 @@ ModUi/&EnableRogueFightingStyle=Habilita la elección de <color=#D89555>Pícaro<
 ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Rogue</color> <b>Steady Aim</b> en el nivel de clase 3 <i><color=#F0DAA0>[la acción adicional te da ventaja en tu próxima tirada de ataque en el turno actual si aún no me he movido]</color></i>
 ModUi/&EnableRogueStrSaving=Habilite a <color=#D89555>Pícaro</color> para que use modificadores de DEX o STR en <b>Astucia/Golpe diabólico</b>, <b>Golpe debilitante/mejorado</b> y <b>Lluvia de espadas. </b>
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
+ModUi/&EnableSignatureSpellsRelearn=Habilite los hechizos característicos del <color=#D89555>Mago</color> para que se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=• Además, cada héroe agrega una tirada de D20 al peso para darle un poco de aleatoriedad.

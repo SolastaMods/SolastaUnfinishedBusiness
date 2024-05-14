@@ -617,6 +617,14 @@ internal static class Level20Context
             return activity != RestActivitySpellMastery || hero.GetClassLevel(Wizard) >= 18;
         }
 
+        internal static bool IsInvalidSelectedSpell(RulesetCharacter rulesetCharacter, SpellDefinition spell)
+        {
+            return
+                rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, $"ConditionSpell{Mastery}") &&
+                spell.SpellLevel is not (1 or 2);
+        }
+
         internal static bool IsPreparation(RulesetCharacter rulesetCharacter, out int maxPreparedSpell)
         {
             maxPreparedSpell = 2;
@@ -704,7 +712,8 @@ internal static class Level20Context
                     yield return null;
                 }
 
-                spellRepertoire.ExtraSpellsByTag[Mastery].SetRange(spellRepertoire.PreparedSpells.Except(spellRepertoire.AutoPreparedSpells));
+                spellRepertoire.ExtraSpellsByTag[Mastery]
+                    .SetRange(spellRepertoire.PreparedSpells.Except(spellRepertoire.AutoPreparedSpells));
                 spellRepertoire.PreparedSpells.SetRange(preparedSpellsClone);
                 spellRepertoire.PreparedSpells.RemoveAll(x => spellRepertoire.ExtraSpellsByTag[Mastery].Contains(x));
                 partyStatusScreen.SetupDisplayPreferences(true, true, true);
@@ -740,8 +749,10 @@ internal static class Level20Context
             return
                 activity != RestActivitySignatureSpells ||
                 (hero.GetClassLevel(Wizard) >= 20 &&
-                 hero.SpellRepertoires.All(x =>
-                     !x.ExtraSpellsByTag.TryGetValue(Signature, out var spells) || spells.Count == 0));
+                 (Main.Settings.EnableSignatureSpellsRelearn ||
+                  hero.SpellRepertoires.All(x =>
+                      !x.ExtraSpellsByTag.TryGetValue(Signature, out var spells) ||
+                      spells.Count == 0)));
         }
 
         internal static bool IsPreparation(RulesetCharacter rulesetCharacter, out int maxPreparedSpell)
@@ -750,6 +761,14 @@ internal static class Level20Context
 
             return rulesetCharacter.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, $"Condition{Signature}");
+        }
+
+        internal static bool IsInvalidSelectedSpell(RulesetCharacter rulesetCharacter, SpellDefinition spell)
+        {
+            return
+                rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, $"ConditionSpell{Signature}") &&
+                spell.SpellLevel is not 3;
         }
 
         internal static bool ShouldConsumeSlot(RulesetCharacter caster, RulesetEffectSpell activeSpell)
@@ -856,7 +875,8 @@ internal static class Level20Context
                     yield return null;
                 }
 
-                spellRepertoire.ExtraSpellsByTag[Signature].SetRange(spellRepertoire.PreparedSpells.Except(spellRepertoire.AutoPreparedSpells));
+                spellRepertoire.ExtraSpellsByTag[Signature]
+                    .SetRange(spellRepertoire.PreparedSpells.Except(spellRepertoire.AutoPreparedSpells));
                 spellRepertoire.PreparedSpells.SetRange(preparedSpellsClone);
                 spellRepertoire.PreparedSpells.RemoveAll(x => spellRepertoire.ExtraSpellsByTag[Signature].Contains(x));
                 partyStatusScreen.SetupDisplayPreferences(true, true, true);

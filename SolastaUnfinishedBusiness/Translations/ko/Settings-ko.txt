@@ -150,6 +150,7 @@ ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>도적</color> <b>
 ModUi/&EnableRogueSteadyAim=클래스 레벨 3에서 <color=#D89555>도적</color> <b>고정 조준</b>을 활성화하세요. <i><color=#F0DAA0>[다음 경우에 보너스 행동은 현재 턴의 다음 공격 굴림에 이점을 줍니다. 아직 움직이지 않았습니다]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>도적</color>을 활성화하여 <b>교활한/악마의 일격</b>, <b>약화/개선된 일격</b> 및 <b>칼날비에 DEX 또는 STR 수정자를 사용하세요. </b>
 ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
+ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 준비되도록 <color=#D89555>마법사</color> 시그니처 주문을 활성화하세요. <i><color=#F0DAA0>[레벨 20에 한 번이 아닌]</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=던전 만들기 편집기에서 에셋 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=• 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다.

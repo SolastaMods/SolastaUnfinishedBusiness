@@ -213,6 +213,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
+    public bool EnableRogueStrSaving { get; set; }
 
     // Visuals
     public bool OfferAdditionalLoreFriendlyNames { get; set; }
@@ -285,7 +286,7 @@ public class Settings : UnityModManager.ModSettings
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public bool ChangeDragonbornElementalBreathUsages { get; set; }
-    public bool EnableRogueStrSaving { get; set; }
+    public bool EnableSignatureSpellsRelearn { get; set; }
     public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AllowFlightSuspend { get; set; }
     public bool FlightSuspendWingedBoots { get; set; }

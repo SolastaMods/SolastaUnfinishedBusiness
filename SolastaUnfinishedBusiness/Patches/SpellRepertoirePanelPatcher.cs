@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 using TMPro;
 using UnityEngine;
+using static SolastaUnfinishedBusiness.Models.Level20Context;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -36,6 +37,24 @@ public static class SpellRepertoirePanelPatcher
             {
                 __instance.sorceryPointsBox.gameObject.SetActive(false);
             }
+        }
+    }
+
+    //PATCH: Supports Wizard Mastery and Signature spell features
+    //UI allows other spells to be selected so easier to prevent it here
+    [HarmonyPatch(typeof(SpellRepertoirePanel), nameof(SpellRepertoirePanel.OnSpellSelectedForPreparation))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class OnSpellSelectedForPreparation_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(SpellRepertoirePanel __instance, SpellBox spellBox)
+        {
+            var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
+
+            return
+                !WizardSpellMastery.IsInvalidSelectedSpell(rulesetCharacter, spellBox.SpellDefinition) &&
+                !WizardSignatureSpells.IsInvalidSelectedSpell(rulesetCharacter, spellBox.SpellDefinition);
         }
     }
 
@@ -81,21 +100,21 @@ public static class SpellRepertoirePanelPatcher
         {
             var rulesetCharacter = spellRepertoirePanel.GuiCharacter.RulesetCharacter;
 
-            if (Level20Context.WizardSpellMastery.IsPreparation(rulesetCharacter, out _))
+            if (WizardSpellMastery.IsPreparation(rulesetCharacter, out _))
             {
                 RepaintPanel(
                     spellRepertoirePanel,
-                    Gui.Localize(Level20Context.WizardSpellMastery.FeatureSpellMastery.GuiPresentation.Title),
+                    Gui.Localize(WizardSpellMastery.FeatureSpellMastery.GuiPresentation.Title),
                     true, false);
 
                 canSelectSpells = spellsByLevelGroup.SpellLevel is 1 or 2;
             }
-            else if (Level20Context.WizardSignatureSpells.IsPreparation(rulesetCharacter, out _))
+            else if (WizardSignatureSpells.IsPreparation(rulesetCharacter, out _))
             {
                 RepaintPanel(
                     spellRepertoirePanel,
-                    Gui.Localize(Level20Context.WizardSignatureSpells.PowerSignatureSpells.GuiPresentation.Title),
-                    false, false);
+                    Gui.Localize(WizardSignatureSpells.PowerSignatureSpells.GuiPresentation.Title),
+                    Main.Settings.EnableSignatureSpellsRelearn, false);
 
                 canSelectSpells = spellsByLevelGroup.SpellLevel is 3;
             }

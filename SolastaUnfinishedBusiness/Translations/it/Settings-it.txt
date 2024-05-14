@@ -150,6 +150,7 @@ ModUi/&EnableRogueFightingStyle=Abilita la scelta dello <color=#D89555>Ladro</co
 ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Ladro</color> <b>Mira costante</b> al livello di classe 3 <i><color=#F0DAA0>[l'azione bonus dà vantaggio al tuo prossimo tiro per colpire nel turno corrente se non mi sono ancora trasferito]</color></i>
 ModUi/&EnableRogueStrSaving=Abilita <color=#D89555>Ladro</color> per utilizzare i modificatori DEX o FOR su <b>Colpo astuto/diabolico</b>, <b>Colpo debilitante/migliorato</b> e <b>Pianta di lame </b>
 ModUi/&EnableSaveByLocation=Abilita il salvataggio per campagne/località
+ModUi/&EnableSignatureSpellsRelearn=Abilita gli incantesimi distintivi <color=#D89555>Mago</color> da preparare ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sul tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=• Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità
