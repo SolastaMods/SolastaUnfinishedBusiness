@@ -81,12 +81,20 @@ public sealed class RoguishDuelist : AbstractSubclass
 
         // Reflexive Parry
 
+        var conditionReflexiveParty = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ReflexiveParty")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
         var featureReflexiveParry = FeatureDefinitionBuilder
             .Create($"Feature{Name}ReflexiveParry")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureReflexiveParry.AddCustomSubFeatures(new CustomBehaviorReflexiveParry(featureReflexiveParry));
+        featureReflexiveParry.AddCustomSubFeatures(
+            new CustomBehaviorReflexiveParry(featureReflexiveParry, conditionReflexiveParty));
 
         // LEVEL 17
 
@@ -145,7 +153,8 @@ public sealed class RoguishDuelist : AbstractSubclass
     //
 
     private sealed class CustomBehaviorReflexiveParry(
-        FeatureDefinition featureReflexiveParry) : IPhysicalAttackBeforeHitConfirmedOnMe
+        FeatureDefinition featureReflexiveParry,
+        ConditionDefinition conditionReflexiveParty) : IPhysicalAttackBeforeHitConfirmedOnMe
     {
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -162,8 +171,8 @@ public sealed class RoguishDuelist : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (!ValidatorsWeapon.IsMelee(attackMode) ||
-                !defender.OncePerTurnIsValid(featureReflexiveParry.Name) ||
                 rulesetDefender.HasAnyConditionOfTypeOrSubType(
+                    conditionReflexiveParty.Name,
                     ConditionDefinitions.ConditionDazzled.Name,
                     ConditionDefinitions.ConditionIncapacitated.Name,
                     ConditionDefinitions.ConditionShocked.Name,
@@ -172,7 +181,19 @@ public sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
-            defender.UsedSpecialFeatures.TryAdd(featureReflexiveParry.Name, 0);
+            rulesetDefender.InflictCondition(
+                conditionReflexiveParty.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                conditionReflexiveParty.Name,
+                0,
+                0,
+                0);
             actionModifier.DefenderDamageMultiplier *= 0.5f;
             rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParry);
         }
