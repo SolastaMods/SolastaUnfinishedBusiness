@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
@@ -328,28 +329,24 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
             item
         );
 
+        var effectDamageForms = attackMode.EffectDescription.EffectForms
+            .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+            .ToList();
+
+        if (effectDamageForms.Count != 0)
+        {
+            effectDamageForms[0] = EffectForm.GetCopy(effectDamageForms[0]);
+            effectDamageForms[0].DamageForm.DamageType = DamageTypeBludgeoning;
+            effectDamageForms[0].DamageForm.DieType = DieType.D4;
+            effectDamageForms[0].DamageForm.DiceNumber = 1;
+            effectDamageForms[0].DamageForm.versatile = false;
+        }
+
         attackMode.Reach = true;
         attackMode.Ranged = false;
         attackMode.Thrown = false;
-
-        // this is required to correctly interact with Spear Mastery dice upgrade
-        attackMode.AttackTags.Add("Polearm");
-
-        var damage = DamageForm.GetCopy(attackMode.EffectDescription.FindFirstDamageForm());
-
-        damage.DieType = DieType.D4;
-        damage.VersatileDieType = DieType.D4;
-        damage.versatile = false;
-        damage.DiceNumber = 1;
-        damage.DamageType = DamageTypeBludgeoning;
-
-        var effectForm = EffectForm.Get();
-
-        effectForm.FormType = EffectForm.EffectFormType.Damage;
-        effectForm.DamageForm = damage;
-        attackMode.EffectDescription.Clear();
-        attackMode.EffectDescription.EffectForms.Add(effectForm);
-
+        attackMode.AttackTags.Add("Polearm"); // required to correctly interact with Spear Mastery dice upgrade
+        attackMode.EffectDescription.EffectForms.SetRange(effectDamageForms);
         attackModes.Add(attackMode);
     }
 }

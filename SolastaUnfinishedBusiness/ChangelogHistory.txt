@@ -5,15 +5,22 @@
 - converted Merciless fighting style to feat
 - converted Rope it Up to Thrown Weapons Master feat, increased short by 10 ft, long by 20 ft, removed +1 to hit / +1 to damage
 - converted Shield Expert fighting style to Shield Bash feat and removed restrictions with Dueling
-- fixed Arcane Archer guided shot to consume reaction
-- fixed Chaos Bolt, Witch Bolt, and Wither and Bloom colateral scenarios [these spells might break multiplayer sessions. won't fix]
+- fixed Arcane Archer guided shot to consume a reaction
+- fixed Chaos Bolt, Witch Bolt, and Wither and Bloom collateral scenarios
 - fixed mod items and monsters bleeding into dungeon maker
-- fixed non implemented Wall of Force on Armorer, Battlesmith, and Oath of Altruism
+- fixed non implemented Wall of Force on Armorer, Battle Smith, and Oath of Altruism
+- fixed Polearm Expert to consider all additional weapon dice damage on bonus attack
 - fixed Wizard Spell Mastery, and Signature Spells [RESPEC is required for any Wizard at or above level 18th]
 - hided Hammer the Point, and Monastic Shield Training
 - removed -1 AC Debuff from Crippling fighting style
-- removed +STR to damage from Bow Mastery and Crossbow Mastery feats, and bonus action now triggers with any valid weapon
 - removed finesse requirement from Defensive Duelist feat
+- replaced +STR to damage from Bow Mastery and Crossbow Mastery feats with normal weapon bonus, all valid weapons get it
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Artillerist Fortified Position medium cannon doesn't grant buff to self
+- Chaos Bolt, and Wither and Bloom don't behave well under multiplayer [first one crashes, second one doubles the damage]
 
 1.5.97.8:
 
