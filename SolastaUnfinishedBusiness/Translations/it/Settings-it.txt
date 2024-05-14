@@ -72,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Oscu
 ModUi/&DisableUnofficialTranslations=Disabilita il supporto delle traduzioni non ufficiali per velocizzare la mod <i><color=#F0DAA0>[a meno che non parli cinese, italiano, giapponese, coreano o spagnolo]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostra tutti gli incantesimi conosciuti di altre classi durante l'aumento di livello</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostra slot patto <color=#D89555>Stregone</color> sulla selezione degli incantesimi invece che sul pannello del personaggio</i>
-ModUi/&DocsArcaneShots=DOCUMENTI: Colpi Arcani
-ModUi/&DocsBackgrounds=DOCUMENTI: Sfondi
-ModUi/&DocsFeats=DOCUMENTI: Talenti
-ModUi/&DocsFightingStyles=DOCUMENTI: Stili di combattimento
-ModUi/&DocsInfusions=DOCUMENTI: Infusi
-ModUi/&DocsInvocations=DOCUMENTI: Invocazioni
-ModUi/&DocsManeuvers=DOCUMENTI: Manovre
-ModUi/&DocsMetamagic=DOCUMENTI: Metamagia
-ModUi/&DocsRaces=DOCUMENTI: Razze
-ModUi/&DocsSpells=DOCUMENTI: Incantesimi
-ModUi/&DocsSubclasses=DOCUMENTI: Sottoclassi
-ModUi/&DocsSubraces=DOCUMENTI: Sottorazze
+ModUi/&DocsArcaneShots=Colpi Arcani
+ModUi/&DocsBackgrounds=Sfondi
+ModUi/&DocsFeats=Talenti
+ModUi/&DocsFightingStyles=Stili di combattimento
+ModUi/&DocsInfusions=Infusi
+ModUi/&DocsInvocations=Invocazioni
+ModUi/&DocsManeuvers=Manovre
+ModUi/&DocsMetamagic=Metamagia
+ModUi/&DocsRaces=Razze
+ModUi/&DocsSpells=Incantesimi
+ModUi/&DocsSubclasses=Sottoclassi
+ModUi/&DocsSubraces=Sottorazze
+ModUi/&DocsVersatilities=Versatilità
 ModUi/&Donate=<b><color=#D89555>Dona:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Non visualizzare i caschi sui caratteri grafici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Non terminare il turno dopo aver utilizzato l'azione pronta <i><color=#F0DAA0>[consente di utilizzare l'azione bonus o qualsiasi azione principale extra da Fretta o altre fonti]</color></i>

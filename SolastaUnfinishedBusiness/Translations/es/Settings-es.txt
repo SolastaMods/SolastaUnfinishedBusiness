@@ -72,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Sup
 ModUi/&DisableUnofficialTranslations=Desactive la compatibilidad con traducciones no oficiales para acelerar el mod <i><color=#F0DAA0>[a menos que hable chino, italiano, japonés, coreano o español]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostrar todos los hechizos conocidos de otras clases durante la subida de nivel</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostrar espacios de pacto <color=#D89555>Brujo</color> en la selección de hechizos en lugar del panel de personajes</i>
-ModUi/&DocsArcaneShots=DOCS: Disparos arcanos
-ModUi/&DocsBackgrounds=DOCUMENTOS: Antecedentes
-ModUi/&DocsFeats=DOCUMENTOS: Hazañas
-ModUi/&DocsFightingStyles=DOCS: Estilos de lucha
-ModUi/&DocsInfusions=DOCS: Infusiones
-ModUi/&DocsInvocations=DOCS: Invocaciones
-ModUi/&DocsManeuvers=DOCS: Maniobras
-ModUi/&DocsMetamagic=DOCUMENTOS: Metamágica
-ModUi/&DocsRaces=DOCUMENTOS: Carreras
-ModUi/&DocsSpells=DOCUMENTOS: Hechizos
-ModUi/&DocsSubclasses=DOCS: Subclases
-ModUi/&DocsSubraces=DOCS: Subrazas
+ModUi/&DocsArcaneShots=Disparos arcanos
+ModUi/&DocsBackgrounds=Antecedentes
+ModUi/&DocsFeats=Hazañas
+ModUi/&DocsFightingStyles=Estilos de lucha
+ModUi/&DocsInfusions=Infusiones
+ModUi/&DocsInvocations=Invocaciones
+ModUi/&DocsManeuvers=Maniobras
+ModUi/&DocsMetamagic=Metamágica
+ModUi/&DocsRaces=Carreras
+ModUi/&DocsSpells=Hechizos
+ModUi/&DocsSubclasses=Subclases
+ModUi/&DocsSubraces=Subrazas
+ModUi/&DocsVersatilities=Versatilidades
 ModUi/&Donate=<b><color=#D89555>Donar:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=No mostrar cascos en caracteres gráficos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DontEndTurnAfterReady=No finalice el turno después de usar la acción lista <i><color=#F0DAA0>[permite usar la acción adicional o cualquier acción principal adicional de Prisa u otras fuentes]</color></i>

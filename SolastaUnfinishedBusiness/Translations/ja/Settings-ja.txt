@@ -72,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=プレイ可能なすべての
 ModUi/&DisableUnofficialTranslations=非公式翻訳サポートを無効にして MOD <i><color=#F0DAA0>[中国語、イタリア語、日本語、韓国語、またはスペイン語を話せない場合]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ レベルアップ中に他のクラスの既知の呪文をすべて表示</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ キャラクターパネルの代わりに呪文選択時に<color=#D89555>ウォーロック</color>の協定スロットを表示する</i>
-ModUi/&DocsArcaneShots=DOCS: アーケインショット
-ModUi/&DocsBackgrounds=DOCS: 背景
-ModUi/&DocsFeats=DOCS: 偉業
-ModUi/&DocsFightingStyles=DOCS: 戦闘スタイル
-ModUi/&DocsInfusions=DOCS: 輸液
-ModUi/&DocsInvocations=DOCS: 呼び出し
-ModUi/&DocsManeuvers=DOCS: 作戦
-ModUi/&DocsMetamagic=DOCS: メタマジック
-ModUi/&DocsRaces=DOCS: レース
-ModUi/&DocsSpells=DOCS: 呪文
-ModUi/&DocsSubclasses=DOCS: サブクラス
-ModUi/&DocsSubraces=DOCS: 亜人種
+ModUi/&DocsArcaneShots=アーケインショット
+ModUi/&DocsBackgrounds=背景
+ModUi/&DocsFeats=偉業
+ModUi/&DocsFightingStyles=戦闘スタイル
+ModUi/&DocsInfusions=輸液
+ModUi/&DocsInvocations=呼び出し
+ModUi/&DocsManeuvers=作戦
+ModUi/&DocsMetamagic=メタマジック
+ModUi/&DocsRaces=レース
+ModUi/&DocsSpells=呪文
+ModUi/&DocsSubclasses=サブクラス
+ModUi/&DocsSubraces=亜人種
+ModUi/&DocsVersatilities=多用途性
 ModUi/&Donate=<b><color=#D89555>寄付:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=グラフィック キャラクターにヘルメットを表示しない<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DontEndTurnAfterReady=準備完了アクションを使用した後にターンを終了しない<i><color=#F0DAA0>[ボーナス アクション、またはヘイストやその他のソースからの追加のメイン アクションを使用できます]</color></i>

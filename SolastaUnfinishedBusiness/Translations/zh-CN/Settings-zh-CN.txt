@@ -84,6 +84,7 @@ ModUi/&DocsRaces=文档：种族
 ModUi/&DocsSpells=文档：法术
 ModUi/&DocsSubclasses=文档：子职
 ModUi/&DocsSubraces=文档：亚种
+ModUi/&DocsVersatilities=多功能性
 ModUi/&Donate=<b><color=#D89555>捐赠：</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=不在角色图像上显示头盔<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&DontEndTurnAfterReady=使用准备动作后不会结束回合<i><color=#F0DAA0>[允许使用附赠动作或任何来自加速或其他来源的额外主要动作]</color></i>

@@ -129,13 +129,13 @@ internal static class ProficienciesDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton(Gui.Localize("ModUi/&DocsArcaneShots").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("ArcaneShots.md"), UI.Width(200f));
-            2.Space();
-            UI.ActionButton(Gui.Localize("ModUi/&DocsManeuvers").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Maneuvers.md"), UI.Width(200f));
-            2.Space();
+                () => UpdateContext.OpenDocumentation("ArcaneShots.md"), UI.Width(150f));
             UI.ActionButton(Gui.Localize("ModUi/&DocsInfusions").Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("Infusions.md"), UI.Width(200f));
+                () => UpdateContext.OpenDocumentation("Infusions.md"), UI.Width(150f));
+            UI.ActionButton(Gui.Localize("ModUi/&DocsManeuvers").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("Maneuvers.md"), UI.Width(150f));
+            UI.ActionButton(Gui.Localize("ModUi/&DocsVersatilities").Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("Versatilities.md"), UI.Width(150f));
         }
 
         UI.Label();

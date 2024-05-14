@@ -72,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktivieren Sie <color=#D8955
 ModUi/&DisableUnofficialTranslations=Deaktivieren Sie die Unterstützung inoffizieller Übersetzungen, um den Mod zu beschleunigen <i><color=#F0DAA0>[es sei denn, ich spreche Chinesisch, Italienisch, Japanisch, Koreanisch oder Spanisch]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Zeigt beim Levelaufstieg alle bekannten Zauber anderer Klassen an</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Paktslots für <color=#D89555>Hexenmeister</color> bei der Zauberauswahl statt im Charakterfenster anzeigen</i>
-ModUi/&DocsArcaneShots=DOCS: Arkane Schüsse
-ModUi/&DocsBackgrounds=DOCS: Hintergründe
-ModUi/&DocsFeats=DOCS: Leistungen
-ModUi/&DocsFightingStyles=DOCS: Kampfstile
-ModUi/&DocsInfusions=DOCS: Infusionen
-ModUi/&DocsInvocations=DOCS: Aufrufe
-ModUi/&DocsManeuvers=DOCS: Manöver
-ModUi/&DocsMetamagic=DOCS: Metamagie
-ModUi/&DocsRaces=DOCS: Rennen
-ModUi/&DocsSpells=DOCS: Zauber
-ModUi/&DocsSubclasses=DOCS: Unterklassen
-ModUi/&DocsSubraces=DOCS: Subraces
+ModUi/&DocsArcaneShots=Arkane Schüsse
+ModUi/&DocsBackgrounds=Hintergründe
+ModUi/&DocsFeats=Leistungen
+ModUi/&DocsFightingStyles=Kampfstile
+ModUi/&DocsInfusions=Infusionen
+ModUi/&DocsInvocations=Aufrufe
+ModUi/&DocsManeuvers=Manöver
+ModUi/&DocsMetamagic=Metamagie
+ModUi/&DocsRaces=Rennen
+ModUi/&DocsSpells=Zauber
+ModUi/&DocsSubclasses=Unterklassen
+ModUi/&DocsSubraces=Subraces
+ModUi/&DocsVersatilities=Vielseitigkeit
 ModUi/&Donate=<b><color=#D89555>Spenden:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Helme nicht auf grafischen Charakteren anzeigen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht, nachdem Sie die Bereitschaftsaktion verwendet haben <i><color=#F0DAA0>[ermöglicht die Verwendung der Bonusaktion oder zusätzlicher Hauptaktionen aus Tempo oder anderen Quellen]</color></i>

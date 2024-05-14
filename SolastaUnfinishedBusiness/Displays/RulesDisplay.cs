@@ -217,8 +217,6 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
         }
 
-        UI.Label();
-
         toggle = Main.Settings.AddBleedingToLesserRestoration;
         if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
         {
@@ -280,6 +278,8 @@ internal static class RulesDisplay
             Main.Settings.FixEldritchBlastRange = toggle;
             SrdAndHouseRulesContext.SwitchEldritchBlastRange();
         }
+
+        UI.Label();
 
         toggle = Main.Settings.FixRingOfRegenerationHealRate;
         if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))
@@ -488,23 +488,6 @@ internal static class RulesDisplay
         {
             Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition = toggle;
             SrdAndHouseRulesContext.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AddDarknessPerceptiveToDarkRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
-            CharacterContext.SwitchDarknessPerceptive();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
-        if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RaceLightSensitivityApplyOutdoorsOnly = toggle;
         }
 
         UI.Label();
