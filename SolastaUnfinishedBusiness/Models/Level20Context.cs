@@ -676,7 +676,7 @@ internal static class Level20Context
 
                 var preparedSpellsClone = spellRepertoire.PreparedSpells.ToList();
 
-                spellRepertoire.ExtraSpellsByTag.TryAdd(Mastery, []);
+                spellRepertoire.ExtraSpellsByTag.TryAdd(Mastery, spellRepertoire.AutoPreparedSpells.ToList());
                 spellRepertoire.PreparedSpells.SetRange(spellRepertoire.ExtraSpellsByTag[Mastery]);
                 spellRepertoire.ExtraSpellsByTag[Mastery] = [];
 
@@ -704,7 +704,7 @@ internal static class Level20Context
                     yield return null;
                 }
 
-                spellRepertoire.ExtraSpellsByTag[Mastery].SetRange(spellRepertoire.PreparedSpells);
+                spellRepertoire.ExtraSpellsByTag[Mastery].SetRange(spellRepertoire.PreparedSpells.Except(spellRepertoire.AutoPreparedSpells));
                 spellRepertoire.PreparedSpells.SetRange(preparedSpellsClone);
                 spellRepertoire.PreparedSpells.RemoveAll(x => spellRepertoire.ExtraSpellsByTag[Mastery].Contains(x));
                 partyStatusScreen.SetupDisplayPreferences(true, true, true);
@@ -741,7 +741,7 @@ internal static class Level20Context
                 activity != RestActivitySignatureSpells ||
                 (hero.GetClassLevel(Wizard) >= 20 &&
                  hero.SpellRepertoires.All(x =>
-                     x.ExtraSpellsByTag.TryGetValue(Signature, out var spells) && spells.Count == 0));
+                     !x.ExtraSpellsByTag.TryGetValue(Signature, out var spells) || spells.Count == 0));
         }
 
         internal static bool IsPreparation(RulesetCharacter rulesetCharacter, out int maxPreparedSpell)
@@ -767,7 +767,7 @@ internal static class Level20Context
 
             var usablePower = PowerProvider.Get(PowerSignatureSpells, caster);
 
-            if (usablePower.remainingUses == 3)
+            if (usablePower.remainingUses == 0)
             {
                 return true;
             }
@@ -783,6 +783,7 @@ internal static class Level20Context
                             return true;
                         default:
                             usablePower.remainingUses -= i == 0 ? 1 : 2;
+                            caster.LogCharacterUsedFeature(PowerSignatureSpells);
                             return false;
                     }
                 }
@@ -827,7 +828,7 @@ internal static class Level20Context
 
                 var preparedSpellsClone = spellRepertoire.PreparedSpells.ToList();
 
-                spellRepertoire.ExtraSpellsByTag.TryAdd(Signature, []);
+                spellRepertoire.ExtraSpellsByTag.TryAdd(Signature, spellRepertoire.AutoPreparedSpells.ToList());
                 spellRepertoire.PreparedSpells.SetRange(spellRepertoire.ExtraSpellsByTag[Signature]);
                 spellRepertoire.ExtraSpellsByTag[Signature] = [];
 
@@ -855,7 +856,7 @@ internal static class Level20Context
                     yield return null;
                 }
 
-                spellRepertoire.ExtraSpellsByTag[Signature].SetRange(spellRepertoire.PreparedSpells);
+                spellRepertoire.ExtraSpellsByTag[Signature].SetRange(spellRepertoire.PreparedSpells.Except(spellRepertoire.AutoPreparedSpells));
                 spellRepertoire.PreparedSpells.SetRange(preparedSpellsClone);
                 spellRepertoire.PreparedSpells.RemoveAll(x => spellRepertoire.ExtraSpellsByTag[Signature].Contains(x));
                 partyStatusScreen.SetupDisplayPreferences(true, true, true);
