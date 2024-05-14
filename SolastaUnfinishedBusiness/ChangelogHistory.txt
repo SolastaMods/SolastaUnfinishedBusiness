@@ -1,3 +1,20 @@
+1.5.97.9:
+
+- converted Astral Reach feat to fighting style and remove +1 to WIS / opportunity attacks
+- converted Improved Critical, and Superior Critical feats to set a critical range instead of a decrement
+- converted Merciless fighting style to feat
+- converted Rope it Up to Thrown Weapons Master feat, increased short by 10 ft, long by 20 ft, removed +1 to hit / +1 to damage
+- converted Shield Expert fighting style to Shield Bash feat and removed restrictions with Dueling
+- fixed Arcane Archer guided shot to consume reaction
+- fixed Chaos Bolt, Witch Bolt, and Wither and Bloom colateral scenarios [these spells might break multiplayer sessions. won't fix]
+- fixed mod items and monsters bleeding into dungeon maker
+- fixed non implemented Wall of Force on Armorer, Battlesmith, and Oath of Altruism
+- fixed Wizard Spell Mastery, and Signature Spells [RESPEC is required for any Wizard at or above level 18th]
+- hided Hammer the Point, and Monastic Shield Training
+- removed -1 AC Debuff from Crippling fighting style
+- removed +STR to damage from Bow Mastery and Crossbow Mastery feats, and bonus action now triggers with any valid weapon
+- removed finesse requirement from Defensive Duelist feat
+
 1.5.97.8:
 
 - added Stealthy feat

@@ -73,7 +73,7 @@ public static class SpellBoxPatcher
             const string CLASS_FORMAT = "Screen/&ClassExtraSpellDescriptionFormat";
             const string SUBCLASS_FORMAT = "Screen/&SubclassClassExtraSpellDescriptionFormat";
 
-            __instance.autoPreparedTitle.Text = "Screen/&MulticlassExtraSpellTitle";
+            //__instance.autoPreparedTitle.Text = "Screen/&MulticlassExtraSpellTitle";
 
             switch (type)
             {

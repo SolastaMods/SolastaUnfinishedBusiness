@@ -29,7 +29,7 @@ Learn and have always prepared:
 
 	IV	Fire Shield, Greater Invisibility
 
-	V	Far Step, Wall of Force
+	V	Far Step, Hold Monster
 
 
 
@@ -134,7 +134,7 @@ Learn and have always prepared:
 
 	IV	Fire Shield, Death Ward
 
-	V	Mass Cure Wounds, Wall of Force
+	V	Mass Cure Wounds, Telekinesis
 
 
 
@@ -3700,7 +3700,7 @@ In your list and always prepared:
 
 	IV	Dominate Beast, Guardian of Faith
 
-	V	Hold Monster, Wall of Force
+	V	Hold Monster, Mass Cure Wounds
 
 
 ### Level 7

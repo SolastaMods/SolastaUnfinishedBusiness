@@ -37,7 +37,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 BuildSpellGroup(5, CalmEmotions, HoldPerson),
                 BuildSpellGroup(9, Counterspell, HypnoticPattern),
                 BuildSpellGroup(13, DominateBeast, GuardianOfFaith),
-                BuildSpellGroup(17, HoldMonster, WallOfForce))
+                BuildSpellGroup(17, HoldMonster, MassCureWounds))
             .SetSpellcastingClass(CharacterClassDefinitions.Paladin)
             .AddToDB();
 
