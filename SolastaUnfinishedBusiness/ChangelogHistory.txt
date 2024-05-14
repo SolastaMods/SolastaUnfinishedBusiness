@@ -1,3 +1,28 @@
+1.5.97.9:
+
+- converted Astral Reach feat to fighting style and removed +1 to WIS and opportunity attacks
+- converted Improved Critical, and Superior Critical feats to set a critical range instead of a decrement
+- converted Merciless fighting style to feat
+- converted Rope it Up to Thrown Weapons Master feat, increased ranges by 10ft, removed +1 to hit and to damage
+- converted Shield Expert fighting style to Shield Bash feat and removed restrictions with Dueling
+- fixed Arcane Archer guided shot to consume a reaction
+- fixed Chaos Bolt, Witch Bolt, and Wither and Bloom collateral scenarios
+- fixed mod items and monsters bleeding into dungeon maker
+- fixed non implemented Wall of Force on Armorer, Battle Smith, and Oath of Altruism
+- fixed Polearm Expert to consider all additional weapon dice damage on bonus attack
+- fixed Roguish Duelist reflexive party to be once per turn
+- fixed Wizard Spell Mastery, and Signature Spells [RESPEC is required for any Wizard above 18th]
+- hided Hammer the Point, and Monastic Shield Training
+- removed -1 AC debuff from Crippling fighting style
+- removed finesse requirement from Defensive Duelist feat
+- replaced STR damage bonus on Bow Mastery and Crossbow Mastery feats with DEX weapon bonus, all bows/cross get it
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Artillerist Fortified Position medium cannon doesn't grant buff to self
+- Chaos Bolt, and Wither and Bloom don't behave well under multiplayer [first one crashes, second one doubles the damage]
+
 1.5.97.8:
 
 - added Stealthy feat

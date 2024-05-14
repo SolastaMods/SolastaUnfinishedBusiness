@@ -33,6 +33,9 @@ internal static class MeleeCombatFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        // kept for backward compatibility
+        _ = BuildHammerThePoint();
+
         FeatFencer = BuildFencer();
 
         var featAlwaysReady = BuildAlwaysReady();
@@ -44,7 +47,6 @@ internal static class MeleeCombatFeats
         var featDefensiveDuelist = BuildDefensiveDuelist();
         var featDevastatingStrikes = BuildDevastatingStrikes();
         var featFellHanded = BuildFellHanded();
-        var featHammerThePoint = BuildHammerThePoint();
         var featLongSwordFinesse = BuildLongswordFinesse();
         var featOldTacticsDex = BuildOldTacticsDex();
         var featOldTacticsStr = BuildOldTacticsStr();
@@ -68,7 +70,6 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
-            featHammerThePoint,
             featLongSwordFinesse,
             featOldTacticsDex,
             featOldTacticsStr,
@@ -110,7 +111,6 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
-            featHammerThePoint,
             featLongSwordFinesse,
             featPowerAttack,
             featRecklessAttack,
@@ -623,8 +623,8 @@ internal static class MeleeCombatFeats
             var rulesetHelper = helper.RulesetCharacter;
 
             if (helper != defender ||
-                !defender.CanReact() ||
-                !ValidatorsWeapon.HasAnyWeaponTag(rulesetHelper.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
+                !helper.CanReact() ||
+                !ValidatorsWeapon.IsMelee(rulesetHelper.GetMainWeapon()))
             {
                 yield break;
             }
@@ -695,7 +695,7 @@ internal static class MeleeCombatFeats
 
         var featHammerThePoint = FeatDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .SetFeatures(additionalDamageHammerThePoint)
             .AddToDB();
 

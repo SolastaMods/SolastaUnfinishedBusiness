@@ -166,9 +166,11 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         // Lunar Chill Debuff
 
         var conditionLunarChillEnemy = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionHindered_By_Frost, $"Condition{Name}LunarChillEnemy")
+            .Create(ConditionDefinitions.ConditionHindered, $"Condition{Name}LunarChillEnemy")
             .SetOrUpdateGuiPresentation($"Power{Name}LunarChill", Category.Feature)
+            .SetParentCondition(ConditionDefinitions.ConditionHindered)
             .SetPossessive()
+            .SetFeatures()
             .CopyParticleReferences(FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
 

@@ -942,6 +942,16 @@ public static class RulesetCharacterHeroPatcher
         {
             __instance.afterRestActions.RemoveAll(activity =>
             {
+                if (!Level20Context.WizardSpellMastery.IsRestActivityAvailable(activity, __instance))
+                {
+                    return true;
+                }
+
+                if (!Level20Context.WizardSignatureSpells.IsRestActivityAvailable(activity, __instance))
+                {
+                    return true;
+                }
+
                 if (activity.functor != PowerBundleContext.UseCustomRestPowerFunctorName)
                 {
                     return false;

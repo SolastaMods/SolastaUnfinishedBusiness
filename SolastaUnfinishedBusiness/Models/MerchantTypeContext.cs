@@ -294,9 +294,8 @@ internal static class RecipeHelper
             .SetItemTags(TagsDefinitions.ItemTagStandard, TagsDefinitions.ItemTagPaper)
             .SetDocumentInformation(recipe, reference.DocumentDescription.ContentFragments)
             .SetGold(Main.Settings.RecipeCost)
+            .HideFromDungeonEditor()
             .AddToDB();
-
-        manual.inDungeonEditor = false;
 
         return manual;
     }

@@ -783,6 +783,7 @@ internal static class GambitsBuilders
             .Create(ItemDefinitions.Dagger, "ConcealedDagger")
             .SetOrUpdateGuiPresentation("Item/&ConcealedDaggerTitle",
                 ItemDefinitions.Dagger.GuiPresentation.Description)
+            .HideFromDungeonEditor()
             .AddToDB();
 
         power.AddCustomSubFeatures(new SwiftThrow(concealedDagger, power));

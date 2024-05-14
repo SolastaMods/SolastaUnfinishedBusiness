@@ -30,7 +30,6 @@ ModUi/&AllowHasteCasting=追加のアクションを持つ呪文をヘイスト�
 ModUi/&AllowHornsOnAllRaces=すべての種族で角を許可<i><color=#F0DAA0>[種族、頭、角によってはひどい結果になる可能性があります]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=残りのパネルでより実際の状態を許可します<i><color=#F0DAA0>[前のパネルでは休憩後のアクションを非表示にし、後のパネルでは回復機能を非表示にします]</color></i>
 ModUi/&AllowStackedMaterialComponent=スタックされたマテリアル コンポーネントを許可します<i><color=#F0DAA0>[例: 2x500gp ダイヤモンドは 1000gp ダイヤモンドに相当します]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>チェインライトニング</color>呪文を唱えるときにターゲットの選択を許可する
 ModUi/&AllowUnmarkedSorcerers=起源のマークやタトゥーのない<color=#D89555>魔術師</color>を許可する
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> キーはパーティの視野内のガジェットのみを強調表示します<i><color=#F0DAA0>[カスタムダンジョンのみ]</color></i>
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>アルケイン・シールドスタッフ</color>をどのクラスでも調整できるようにする
@@ -73,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=プレイ可能なすべての
 ModUi/&DisableUnofficialTranslations=非公式翻訳サポートを無効にして MOD <i><color=#F0DAA0>[中国語、イタリア語、日本語、韓国語、またはスペイン語を話せない場合]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ レベルアップ中に他のクラスの既知の呪文をすべて表示</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ キャラクターパネルの代わりに呪文選択時に<color=#D89555>ウォーロック</color>の協定スロットを表示する</i>
-ModUi/&DocsArcaneShots=DOCS: アーケインショット
-ModUi/&DocsBackgrounds=DOCS: 背景
-ModUi/&DocsFeats=DOCS: 偉業
-ModUi/&DocsFightingStyles=DOCS: 戦闘スタイル
-ModUi/&DocsInfusions=DOCS: 輸液
-ModUi/&DocsInvocations=DOCS: 呼び出し
-ModUi/&DocsManeuvers=DOCS: 作戦
-ModUi/&DocsMetamagic=DOCS: メタマジック
-ModUi/&DocsRaces=DOCS: レース
-ModUi/&DocsSpells=DOCS: 呪文
-ModUi/&DocsSubclasses=DOCS: サブクラス
-ModUi/&DocsSubraces=DOCS: 亜人種
+ModUi/&DocsArcaneShots=アーケインショット
+ModUi/&DocsBackgrounds=背景
+ModUi/&DocsFeats=偉業
+ModUi/&DocsFightingStyles=戦闘スタイル
+ModUi/&DocsInfusions=輸液
+ModUi/&DocsInvocations=呼び出し
+ModUi/&DocsManeuvers=作戦
+ModUi/&DocsMetamagic=メタマジック
+ModUi/&DocsRaces=レース
+ModUi/&DocsSpells=呪文
+ModUi/&DocsSubclasses=サブクラス
+ModUi/&DocsSubraces=亜人種
+ModUi/&DocsVersatilities=多用途性
 ModUi/&Donate=<b><color=#D89555>寄付:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=グラフィック キャラクターにヘルメットを表示しない<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DontEndTurnAfterReady=準備完了アクションを使用した後にターンを終了しない<i><color=#F0DAA0>[ボーナス アクション、またはヘイストやその他のソースからの追加のメイン アクションを使用できます]</color></i>
@@ -151,6 +151,7 @@ ModUi/&EnableRogueFightingStyle=レベル 2 で<color=#D89555>ローグ</color>�
 ModUi/&EnableRogueSteadyAim=クラスレベル3で<color=#D89555>ローグ</color>の<b>ステディエイム</b>を有効にする<i><color=#F0DAA0>[ボーナスアクションにより、現在のターンの次の攻撃ロールでアドバンテージが得られます。まだ移動していません]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>ローグ</color>が<b>狡猾/悪魔の一撃</b>、<b>衰弱/改善された一撃</b>、<b>刃の雹でDEXまたはSTR修正を使用できるようにします</b>
 ModUi/&EnableSaveByLocation=キャンペーン/場所ごとの保存を有効にする
+ModUi/&EnableSignatureSpellsRelearn=<color=#D89555>ウィザード</color>の特徴的な呪文を<i><color=#F0DAA0>[レベル20で1回ではなく]長い休憩ごとに準備できるようにする</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセットのソートを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=。また、各ヒーローは少しランダム性を持たせるためにウェイトに D20 ロールを追加します。

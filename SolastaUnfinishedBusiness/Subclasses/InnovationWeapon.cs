@@ -72,7 +72,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddPreparedSpellGroup(5, BrandingSmite, SpiritualWeapon)
             .AddPreparedSpellGroup(9, RemoveCurse, BeaconOfHope)
             .AddPreparedSpellGroup(13, FireShield, DeathWard)
-            .AddPreparedSpellGroup(17, MassCureWounds, WallOfForce)
+            .AddPreparedSpellGroup(17, MassCureWounds, SpellsContext.Telekinesis)
             .AddToDB();
     }
 

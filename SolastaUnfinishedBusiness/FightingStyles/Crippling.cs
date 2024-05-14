@@ -7,8 +7,6 @@ using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
 
@@ -29,18 +27,11 @@ internal sealed class Crippling : AbstractFightingStyle
                 .AddConditionOperation(
                     ConditionOperationDescription.ConditionOperation.Add,
                     ConditionDefinitionBuilder
-                        .Create(ConditionHindered_By_Frost, "ConditionFightingStyleCrippling")
+                        .Create(ConditionHindered, "ConditionFightingStyleCrippling")
                         .SetGuiPresentation(Category.Condition, ConditionSlowed)
-                        .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                         .SetParentCondition(ConditionHindered)
-                        .SetFeatures(
-                            MovementAffinityConditionHindered,
-                            FeatureDefinitionAttributeModifierBuilder
-                                .Create("AttributeModifierCripplingACDebuff")
-                                .SetGuiPresentationNoContent(true)
-                                .SetModifier(AttributeModifierOperation.Additive,
-                                    AttributeDefinitions.ArmorClass, -1)
-                                .AddToDB())
+                        .SetFeatures()
+                        .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                         .AddToDB())
                 .AddToDB())
         .AddToDB();

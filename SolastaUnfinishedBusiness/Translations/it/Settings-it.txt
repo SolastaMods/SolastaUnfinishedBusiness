@@ -30,7 +30,6 @@ ModUi/&AllowHasteCasting=Consenti di lanciare incantesimi con azione extra dall'
 ModUi/&AllowHornsOnAllRaces=Consenti le corna a tutte le razze <i><color=#F0DAA0>[i risultati potrebbero sembrare terribili a seconda della razza, della testa e delle corna]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Consenti più stato reale sul pannello di riposo <i><color=#F0DAA0>[nascondi le azioni dopo il riposo sul pannello prima e le funzionalità di recupero sul pannello dopo]</color></i>
 ModUi/&AllowStackedMaterialComponent=Consenti componente materiale impilato <i><color=#F0DAA0>[ad es. 2 diamanti da 500 gp equivalgono a un diamante da 1000 gp]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Consenti la selezione del bersaglio quando lanci l'incantesimo <color=#D89555>Catena di Fulmini</color>
 ModUi/&AllowUnmarkedSorcerers=Consenti <color=#D89555>Stregone</color> senza segni di origine e tatuaggi
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Il tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=#F0DAA0>[solo dungeon personalizzati]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Consenti a <color=#D89555>Bastone Scudo Arcano</color> di essere sintonizzato da qualsiasi classe
@@ -73,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Oscu
 ModUi/&DisableUnofficialTranslations=Disabilita il supporto delle traduzioni non ufficiali per velocizzare la mod <i><color=#F0DAA0>[a meno che non parli cinese, italiano, giapponese, coreano o spagnolo]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostra tutti gli incantesimi conosciuti di altre classi durante l'aumento di livello</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostra slot patto <color=#D89555>Stregone</color> sulla selezione degli incantesimi invece che sul pannello del personaggio</i>
-ModUi/&DocsArcaneShots=DOCUMENTI: Colpi Arcani
-ModUi/&DocsBackgrounds=DOCUMENTI: Sfondi
-ModUi/&DocsFeats=DOCUMENTI: Talenti
-ModUi/&DocsFightingStyles=DOCUMENTI: Stili di combattimento
-ModUi/&DocsInfusions=DOCUMENTI: Infusi
-ModUi/&DocsInvocations=DOCUMENTI: Invocazioni
-ModUi/&DocsManeuvers=DOCUMENTI: Manovre
-ModUi/&DocsMetamagic=DOCUMENTI: Metamagia
-ModUi/&DocsRaces=DOCUMENTI: Razze
-ModUi/&DocsSpells=DOCUMENTI: Incantesimi
-ModUi/&DocsSubclasses=DOCUMENTI: Sottoclassi
-ModUi/&DocsSubraces=DOCUMENTI: Sottorazze
+ModUi/&DocsArcaneShots=Colpi Arcani
+ModUi/&DocsBackgrounds=Sfondi
+ModUi/&DocsFeats=Talenti
+ModUi/&DocsFightingStyles=Stili di combattimento
+ModUi/&DocsInfusions=Infusi
+ModUi/&DocsInvocations=Invocazioni
+ModUi/&DocsManeuvers=Manovre
+ModUi/&DocsMetamagic=Metamagia
+ModUi/&DocsRaces=Razze
+ModUi/&DocsSpells=Incantesimi
+ModUi/&DocsSubclasses=Sottoclassi
+ModUi/&DocsSubraces=Sottorazze
+ModUi/&DocsVersatilities=Versatilità
 ModUi/&Donate=<b><color=#D89555>Dona:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Non visualizzare i caschi sui caratteri grafici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Non terminare il turno dopo aver utilizzato l'azione pronta <i><color=#F0DAA0>[consente di utilizzare l'azione bonus o qualsiasi azione principale extra da Fretta o altre fonti]</color></i>
@@ -151,6 +151,7 @@ ModUi/&EnableRogueFightingStyle=Abilita la scelta dello <color=#D89555>Ladro</co
 ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Ladro</color> <b>Mira costante</b> al livello di classe 3 <i><color=#F0DAA0>[l'azione bonus dà vantaggio al tuo prossimo tiro per colpire nel turno corrente se non mi sono ancora trasferito]</color></i>
 ModUi/&EnableRogueStrSaving=Abilita <color=#D89555>Ladro</color> per utilizzare i modificatori DEX o FOR su <b>Colpo astuto/diabolico</b>, <b>Colpo debilitante/migliorato</b> e <b>Pianta di lame </b>
 ModUi/&EnableSaveByLocation=Abilita il salvataggio per campagne/località
+ModUi/&EnableSignatureSpellsRelearn=Abilita gli incantesimi distintivi <color=#D89555>Mago</color> da preparare ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sul tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=• Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità

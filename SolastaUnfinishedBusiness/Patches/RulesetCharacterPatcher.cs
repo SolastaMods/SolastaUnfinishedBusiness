@@ -2009,9 +2009,11 @@ public static class RulesetCharacterPatcher
 
             if (effectLevel > 0)
             {
-                foreach (var featureDefinition in __instance.GetFeaturesByType<ISpellCastingAffinityProvider>()
-                             .Where(featureDefinition => featureDefinition.PreserveSlotRoll
-                                                         && featureDefinition.PreserveSlotLevelCap >= effectLevel))
+                foreach (var featureDefinition in __instance
+                             .GetFeaturesByType<ISpellCastingAffinityProvider>()
+                             .Where(featureDefinition =>
+                                 featureDefinition.PreserveSlotRoll &&
+                                 featureDefinition.PreserveSlotLevelCap >= effectLevel))
                 {
                     preserveSlotThreshold =
                         Math.Min(preserveSlotThreshold, featureDefinition.PreserveSlotThreshold);
@@ -2031,14 +2033,26 @@ public static class RulesetCharacterPatcher
 
                     if (caster != null)
                     {
-                        EffectHelpers.StartVisualEffect(caster, caster, LesserRestoration,
-                            EffectHelpers.EffectType.Caster);
+                        EffectHelpers.StartVisualEffect(
+                            caster, caster, LesserRestoration, EffectHelpers.EffectType.Caster);
                     }
 
                     __instance.SpellSlotPreserved?.Invoke(__instance, preserveSlotThresholdFeature, rolledValue);
                 }
                 else
                 {
+                    //BEGIN PATCH: supports Wizard Spell Mastery and Signature Spells
+                    if (!Level20Context.WizardSpellMastery.ShouldConsumeSlot(__instance, activeSpell))
+                    {
+                        return false;
+                    }
+
+                    if (!Level20Context.WizardSignatureSpells.ShouldConsumeSlot(__instance, activeSpell))
+                    {
+                        return false;
+                    }
+                    //END PATCH
+
                     activeSpell.SpellRepertoire.SpendSpellSlot(activeSpell.SlotLevel);
                 }
             }

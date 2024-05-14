@@ -3,39 +3,49 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.FightingStyles;
-using SolastaUnfinishedBusiness.Validators;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FightingStyleContext
 {
+    internal static readonly HashSet<string> DemotedFightingStyles =
+    [
+        Merciless.MercilessName,
+        MonkShieldExpert.ShieldExpertName,
+        PolearmExpert.PolearmExpertName,
+        RopeItUp.RopeItUpName,
+        Sentinel.SentinelName,
+        ShieldExpert.ShieldExpertName
+    ];
+
     private static Dictionary<FightingStyleDefinition, List<FeatureDefinitionFightingStyleChoice>>
-        FightingStylesChoiceList { get; } = new();
+        FightingStylesChoiceList { get; } = [];
 
     internal static HashSet<FightingStyleDefinition> FightingStyles { get; private set; } = [];
 
     internal static void Load()
     {
+        // kept for backward compatibility
+        _ = new Merciless();
+        _ = new MonkShieldExpert();
+        _ = new PolearmExpert();
+        _ = new RopeItUp();
+        _ = new ShieldExpert();
+        _ = new Sentinel();
+
+        LoadStyle(new AstralReach());
         LoadStyle(new BlindFighting());
         LoadStyle(new Crippling());
         LoadStyle(new Executioner());
         LoadStyle(new HandAndAHalf());
         LoadStyle(new Interception());
         LoadStyle(new Lunger());
-        LoadStyle(new Merciless());
         LoadStyle(new Pugilist());
         LoadStyle(new RemarkableTechnique());
-        LoadStyle(new RopeItUp());
-        LoadStyle(new ShieldExpert());
         LoadStyle(new Torchbearer());
 
-        // kept for backward compatibility
-        _ = new MonkShieldExpert();
-        _ = new PolearmExpert();
-        _ = new Sentinel();
-
         // sorting
-        FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();
+        FightingStyles = [.. FightingStyles.OrderBy(x => x.FormatTitle())];
 
         // settings paring
         foreach (var name in Main.Settings.FightingStyleEnabled
@@ -105,41 +115,14 @@ internal static class FightingStyleContext
 
     internal static void RefreshFightingStylesPatch(RulesetCharacterHero hero)
     {
-        foreach (var trainedFightingStyle in hero.trainedFightingStyles)
+        foreach (var trainedFightingStyle in hero.trainedFightingStyles
+                     .Where(x =>
+                         // activate all modded fighting styles by default
+                         x.contentPack == CeContentPackContext.CeContentPack ||
+                         // handles this in a different place [AddCustomWeaponValidatorToFightingStyleArchery()] so always allow here
+                         x.Condition == FightingStyleDefinition.TriggerCondition.RangedWeaponAttack))
         {
-            var isActive = trainedFightingStyle.contentPack == CeContentPackContext.CeContentPack;
-
-            // activate all modded fighting styles by default
-            if (isActive)
-            {
-                hero.activeFightingStyles.TryAdd(trainedFightingStyle);
-
-                continue;
-            }
-
-            // disallow Shield Expert to work with Dueling Fighting Style
-            if (trainedFightingStyle.Condition == FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon)
-            {
-                hero.activeFightingStyles.Remove(trainedFightingStyle);
-            }
-
-            isActive = trainedFightingStyle.Condition switch
-            {
-                // handles this in a different place [AddCustomWeaponValidatorToFightingStyleArchery()] so always allow here
-                FightingStyleDefinition.TriggerCondition.RangedWeaponAttack => true,
-                // disallow Shield Expert to work with Dueling Fighting Style
-                FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon =>
-                    ValidatorsCharacter.HasMeleeWeaponInMainAndNoBonusAttackInOffhand(hero),
-                // allow Shield Expert to work with Two Weapon Fighting Style
-                FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded =>
-                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(hero),
-                _ => false
-            };
-
-            if (isActive)
-            {
-                hero.activeFightingStyles.TryAdd(trainedFightingStyle);
-            }
+            hero.activeFightingStyles.TryAdd(trainedFightingStyle);
         }
     }
 }

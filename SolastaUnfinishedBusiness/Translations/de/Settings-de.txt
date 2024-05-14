@@ -30,7 +30,6 @@ ModUi/&AllowHasteCasting=Erlaube das Wirken von Zaubersprüchen mit zusätzliche
 ModUi/&AllowHornsOnAllRaces=Erlaube Hörner bei allen Rennen <i><color=#F0DAA0>[Ergebnisse können je nach Rasse, Kopf und Hupe schrecklich aussehen]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Status im Rest-Panel <i><color=#F0DAA0>[Nach-Ruhe-Aktionen im Vor-Panel ausblenden und Wiederherstellungsfunktionen im Nach-Panel]</color></i>
 ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente <i><color=#F0DAA0> zulassen[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Ermögliche die Zielauswahl beim Wirken des Zaubers <color=#D89555>Kettenblitz</color>
 ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Sorcerer</color> ohne Ursprungsmarkierungen und Tätowierungen
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Ermöglichen Sie die Abstimmung von <color=#D89555>Arkaner Schildstab</color> durch jede Klasse
@@ -73,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktivieren Sie <color=#D8955
 ModUi/&DisableUnofficialTranslations=Deaktivieren Sie die Unterstützung inoffizieller Übersetzungen, um den Mod zu beschleunigen <i><color=#F0DAA0>[es sei denn, ich spreche Chinesisch, Italienisch, Japanisch, Koreanisch oder Spanisch]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Zeigt beim Levelaufstieg alle bekannten Zauber anderer Klassen an</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Paktslots für <color=#D89555>Hexenmeister</color> bei der Zauberauswahl statt im Charakterfenster anzeigen</i>
-ModUi/&DocsArcaneShots=DOCS: Arkane Schüsse
-ModUi/&DocsBackgrounds=DOCS: Hintergründe
-ModUi/&DocsFeats=DOCS: Leistungen
-ModUi/&DocsFightingStyles=DOCS: Kampfstile
-ModUi/&DocsInfusions=DOCS: Infusionen
-ModUi/&DocsInvocations=DOCS: Aufrufe
-ModUi/&DocsManeuvers=DOCS: Manöver
-ModUi/&DocsMetamagic=DOCS: Metamagie
-ModUi/&DocsRaces=DOCS: Rennen
-ModUi/&DocsSpells=DOCS: Zauber
-ModUi/&DocsSubclasses=DOCS: Unterklassen
-ModUi/&DocsSubraces=DOCS: Subraces
+ModUi/&DocsArcaneShots=Arkane Schüsse
+ModUi/&DocsBackgrounds=Hintergründe
+ModUi/&DocsFeats=Leistungen
+ModUi/&DocsFightingStyles=Kampfstile
+ModUi/&DocsInfusions=Infusionen
+ModUi/&DocsInvocations=Aufrufe
+ModUi/&DocsManeuvers=Manöver
+ModUi/&DocsMetamagic=Metamagie
+ModUi/&DocsRaces=Rennen
+ModUi/&DocsSpells=Zauber
+ModUi/&DocsSubclasses=Unterklassen
+ModUi/&DocsSubraces=Subraces
+ModUi/&DocsVersatilities=Vielseitigkeit
 ModUi/&Donate=<b><color=#D89555>Spenden:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Helme nicht auf grafischen Charakteren anzeigen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht, nachdem Sie die Bereitschaftsaktion verwendet haben <i><color=#F0DAA0>[ermöglicht die Verwendung der Bonusaktion oder zusätzlicher Hauptaktionen aus Tempo oder anderen Quellen]</color></i>
@@ -151,6 +151,7 @@ ModUi/&EnableRogueFightingStyle=Aktivieren Sie die Wahl des <color=#D89555>Schur
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Rogue</color> <b>Steady Aim</b> auf Klassenstufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft Ihnen einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sind noch nicht umgezogen]</color></i>
 ModUi/&EnableRogueStrSaving=Aktivieren Sie <color=#D89555>Schurke</color>, um DEX- oder STR-Modifikatoren für <b>List/Teufelsschlag</b>, <b>Schwächender/Verbesserter Schlag</b> und <b>Klingenhagel zu verwenden </b>
 ModUi/&EnableSaveByLocation=Aktivieren Sie die Speicherung nach Kampagnen/Standorten
+ModUi/&EnableSignatureSpellsRelearn=Aktivieren Sie <color=#D89555>Zauberer</color>-Signaturzauber, die bei jeder langen Pause <i><color=#F0DAA0>[statt einmal auf Stufe 20]</color></i> vorbereitet werden
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=• Außerdem erhöht jeder Held das Gewicht um einen W20-Wurf, um ein wenig Zufälligkeit zu gewährleisten

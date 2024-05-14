@@ -30,7 +30,6 @@ ModUi/&AllowHasteCasting=Autoriser le lancement de sorts avec l'action suppléme
 ModUi/&AllowHornsOnAllRaces=Autoriser les cornes sur toutes les Ascendances <i><color=#F0DAA0>[les résultats peuvent être décevant selon la race, la tête et le type de cornes]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Autoriser l'affichage de plus d'informations sur l'état réel du groupe dans la fenêtre de repos <i><color=#F0DAA0>[Est masqué sur la fenêtre d'invite après les repos, et sur la fenêtre de validation après les compétences de récupération]</color></i>
 ModUi/&AllowStackedMaterialComponent=Autoriser l'empilement des composantes matérielles dans l'inventaire <i><color=#F0DAA0>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélection des cibles lors du lancement du sort <color=#D89555>Chaîne d'éclairs</color>
 ModUi/&AllowUnmarkedSorcerers=Autoriser les <color=#D89555>Ensorceleurs</color> sans marques ni tatouages d'origine
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Autoriser <color=#D89555>Arcane Shieldstaff</color> à être harmonisé par n'importe quelle classe
@@ -73,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactiver <color=#D89555>Vis
 ModUi/&DisableUnofficialTranslations=Désactiver la prise en charge des traductions non officielles pour accélérer le mod <i><color=#F0DAA0>[sauf si je parle chinois, italien, japonais, coréen ou espagnol]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus des autres classes lors de la montée de niveau</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte de l'<color=#D89555>Occultiste</color> sur la sélection de sorts plutôt que sur l'écran de personnage</i>
-ModUi/&DocsArcaneShots=DOCS : Tirs arcaniques
-ModUi/&DocsBackgrounds=DOCS : arrière-plans
-ModUi/&DocsFeats=DOCS : exploits
-ModUi/&DocsFightingStyles=DOCS : Styles de combat
-ModUi/&DocsInfusions=DOCS : Infusions
-ModUi/&DocsInvocations=DOCS : Invocations
-ModUi/&DocsManeuvers=DOCS : Manœuvres
-ModUi/&DocsMetamagic=DOCS : Métamagie
-ModUi/&DocsRaces=DOCS : Courses
-ModUi/&DocsSpells=DOCS : Sorts
-ModUi/&DocsSubclasses=DOCS : sous-classes
-ModUi/&DocsSubraces=DOCS : sous-races
+ModUi/&DocsArcaneShots=Tirs arcaniques
+ModUi/&DocsBackgrounds=Arrière-plans
+ModUi/&DocsFeats=Exploits
+ModUi/&DocsFightingStyles=Styles de combat
+ModUi/&DocsInfusions=Infusions
+ModUi/&DocsInvocations=Invocations
+ModUi/&DocsManeuvers=Manœuvres
+ModUi/&DocsMetamagic=Métamagie
+ModUi/&DocsRaces=Courses
+ModUi/&DocsSpells=Sorts
+ModUi/&DocsSubclasses=Sous-classes
+ModUi/&DocsSubraces=Sous-races
+ModUi/&DocsVersatilities=Polyvalences
 ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Ne pas afficher les casques sur les vignettes de personnages<b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir sélectionné une action préparée <i><color=#F0DAA0>[permet d'utiliser l'action bonus ou toute action principale supplémentaire liée à Hâte ou d'autres sources]</color></i>
@@ -151,6 +151,7 @@ ModUi/&EnableRogueFightingStyle=Activer le choix de <b>Style de combat</b> du <c
 ModUi/&EnableRogueSteadyAim=Activez la <b>Visée Stable</b> du <color=#D89555>Roublard</color> au niveau de classe 3 <i><color=#F0DAA0>[l'action bonus donne un avantage lors de votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
 ModUi/&EnableRogueStrSaving=Activez <color=#D89555>Rogue</color> pour utiliser les modificateurs DEX ou STR sur <b>Frappe rusée/diable</b>, <b>Frappe débilitante/améliorée</b> et <b>Grêle de lames. </b>
 ModUi/&EnableSaveByLocation=Autoriser l'enregistrement par campagnes / localités
+ModUi/&EnableSignatureSpellsRelearn=Activer la préparation des sorts de signature de <color=#D89555>Assistant</color> à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=• De plus, chaque héros ajoute un jet de D20 au poids de leur vote pour rajouter un peu d'aléatoire.

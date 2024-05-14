@@ -30,7 +30,6 @@ Feat/&FeatChefConDescription=Aumenta tu Constitución en 1, hasta un máximo de 
 Feat/&FeatChefConTitle=Chef [Con]
 Feat/&FeatChefWisDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nPuedes dedicar 1 hora a cocinar una comida para curarte a ti y a tus compañeros por 1d8 HP.\nUna vez al día, puedes dedicar una hora a cocinar varios de golosinas equivalentes a tu bonificación de competencia que proporcionan 5 HP temporales cuando se comen.
 Feat/&FeatChefWisTitle=Chef [Wis]
-Feat/&FeatCriticalVirtuosoDescription=Su umbral crítico se reduce en 1.
 Feat/&FeatDungeonDelverDescription=Al estar alerta de las trampas ocultas y las puertas secretas que se encuentran en muchas mazmorras, obtienes los siguientes beneficios:\n• Tienes ventaja en las pruebas de Sabiduría (Percepción) e Inteligencia (Investigación).\n• Tienes ventaja en las tiradas de salvación realizadas para evita o resiste las trampas.\n• Tienes resistencia al daño causado por las trampas.\n• Viajar a un ritmo rápido no impone la penalización normal de -5 en tu puntuación pasiva de Sabiduría (Percepción).
 Feat/&FeatDungeonDelverTitle=Explorador de mazmorras
 Feat/&FeatEldritchAdeptDescription=Aprendes una opción de Invocación sobrenatural de tu elección de la clase de brujo. Si la invocación tiene un requisito previo, puedes elegir esa invocación sólo si eres un brujo y sólo si cumples el requisito previo. Cada vez que ganes un nivel, podrás reemplazar la invocación por otra de la clase de brujo.

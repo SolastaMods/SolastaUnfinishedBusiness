@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
-using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
@@ -112,31 +111,9 @@ internal static class ValidatorsCharacter
     {
         var weapon = character.GetOffhandWeapon();
 
-        if (ValidatorsWeapon.IsMelee(weapon) || (weapon == null && InnovationArmor.InGuardianMode(character)))
-        {
-            return true;
-        }
-
-        if (character is not RulesetCharacterHero hero)
-        {
-            return false;
-        }
-
-        var hasShield = HasShield(hero);
-        var hasShieldExpert =
-            hero.TrainedFightingStyles.Any(x => x.Name == ShieldExpert.ShieldExpertName);
-
-        return hasShield && hasShieldExpert;
+        return ValidatorsWeapon.IsMelee(weapon) ||
+               (weapon == null && InnovationArmor.InGuardianMode(character));
     };
-
-    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndNoBonusAttackInOffhand = character =>
-        HasMeleeWeaponInMainHand(character) &&
-        (
-            HasShield(character)
-                ? character.GetOriginalHero() is { } hero &&
-                  hero.TrainedFightingStyles.All(x => x.Name != ShieldExpert.ShieldExpertName)
-                : HasMeleeWeaponInOffHand(character)
-        );
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
         HasMeleeWeaponInMainHand(character) && HasMeleeWeaponInOffHand(character);

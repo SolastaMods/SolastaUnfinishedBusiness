@@ -2066,6 +2066,7 @@ internal static partial class SpellBuilders
             .SetFullyControlledWhenAllied(true)
             .SetDefaultFaction(FactionDefinitions.Party)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
@@ -2478,6 +2479,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
+            // handle initial cases
             switch (action)
             {
                 case CharacterActionUsePower actionUsePower when
@@ -2498,6 +2500,16 @@ internal static partial class SpellBuilders
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
+            // any bonus, reaction, no cost is allowed
+            if (action.ActionType
+                is ActionDefinitions.ActionType.Bonus
+                or ActionDefinitions.ActionType.Reaction
+                or ActionDefinitions.ActionType.NoCost)
+            {
+                yield break;
+            }
+
+            // move allowed if still in range
             if (action.ActionId is ActionDefinitions.Id.TacticalMove or ActionDefinitions.Id.SpecialMove)
             {
                 if (Gui.Battle == null)
@@ -2529,7 +2541,7 @@ internal static partial class SpellBuilders
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellWitchBolt,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionWitchBolt) : IActionFinishedByMe
+        ConditionDefinition conditionWitchBolt) : IActionFinishedByMe, IOnConditionAddedOrRemoved
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
@@ -2566,7 +2578,24 @@ internal static partial class SpellBuilders
 
             if (rulesetSpell != null)
             {
-                rulesetCharacter.TerminateSpell(rulesetSpell);
+                rulesetCaster.TerminateSpell(rulesetSpell);
+            }
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            var rulesetSpell = rulesetCaster?.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellWitchBolt);
+
+            if (rulesetSpell != null)
+            {
+                rulesetCaster.TerminateSpell(rulesetSpell);
             }
         }
     }

@@ -234,6 +234,7 @@ public sealed class CircleOfTheAncientForest : AbstractSubclass
             .SetFoodDescription(foodDescription)
             .SetUsableDeviceDescription(baseItem.UsableDeviceDescription)
             .SetGold(0)
+            .HideFromDungeonEditor()
             .AddToDB();
 
         var brewForm = EffectFormBuilder
@@ -306,6 +307,7 @@ public sealed class CircleOfTheAncientForest : AbstractSubclass
             .SetUsableDeviceDescription(powerAncientForestPotion)
             .SetItemRarity(ItemRarity.Common)
             .SetRequiresIdentification(false)
+            .HideFromDungeonEditor()
             .AddToDB();
 
         var brewForm = EffectFormBuilder

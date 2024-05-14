@@ -78,7 +78,7 @@ public sealed class InnovationArmor : AbstractSubclass
             .AddPreparedSpellGroup(5, MirrorImage, Shatter)
             .AddPreparedSpellGroup(9, HypnoticPattern, LightningBolt)
             .AddPreparedSpellGroup(13, FireShield, GreaterInvisibility)
-            .AddPreparedSpellGroup(17, SpellsContext.FarStep, WallOfForce)
+            .AddPreparedSpellGroup(17, SpellsContext.FarStep, HoldMonster)
             .AddToDB();
     }
 

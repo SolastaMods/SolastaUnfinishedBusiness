@@ -30,7 +30,6 @@ ModUi/&AllowHasteCasting=Permitir lanzar hechizos con acción adicional por esta
 ModUi/&AllowHornsOnAllRaces=Permitir cuernos en todas las razas <i><color=#F0DAA0>[los resultados pueden parecer terribles dependiendo de la raza, cabeza y cuerno]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Permitir más estado real en el panel de descanso <i><color=#F0DAA0>[ocultar acciones posteriores al descanso en el panel anterior y funciones de recuperación en el panel posterior]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material apilado <i><color=#F0DAA0>[p. ej. 2x500gp diamante es equivalente a 1000gp diamante]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selección de objetivos al lanzar el hechizo <color=#D89555>Cadena de relámpagos</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marcas de origen ni tatuajes
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo mazmorras personalizadas]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Permitir que cualquier clase sintonice <color=#D89555>Bastón de escudo arcano</color>
@@ -73,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Sup
 ModUi/&DisableUnofficialTranslations=Desactive la compatibilidad con traducciones no oficiales para acelerar el mod <i><color=#F0DAA0>[a menos que hable chino, italiano, japonés, coreano o español]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostrar todos los hechizos conocidos de otras clases durante la subida de nivel</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostrar espacios de pacto <color=#D89555>Brujo</color> en la selección de hechizos en lugar del panel de personajes</i>
-ModUi/&DocsArcaneShots=DOCS: Disparos arcanos
-ModUi/&DocsBackgrounds=DOCUMENTOS: Antecedentes
-ModUi/&DocsFeats=DOCUMENTOS: Hazañas
-ModUi/&DocsFightingStyles=DOCS: Estilos de lucha
-ModUi/&DocsInfusions=DOCS: Infusiones
-ModUi/&DocsInvocations=DOCS: Invocaciones
-ModUi/&DocsManeuvers=DOCS: Maniobras
-ModUi/&DocsMetamagic=DOCUMENTOS: Metamágica
-ModUi/&DocsRaces=DOCUMENTOS: Carreras
-ModUi/&DocsSpells=DOCUMENTOS: Hechizos
-ModUi/&DocsSubclasses=DOCS: Subclases
-ModUi/&DocsSubraces=DOCS: Subrazas
+ModUi/&DocsArcaneShots=Disparos arcanos
+ModUi/&DocsBackgrounds=Antecedentes
+ModUi/&DocsFeats=Hazañas
+ModUi/&DocsFightingStyles=Estilos de lucha
+ModUi/&DocsInfusions=Infusiones
+ModUi/&DocsInvocations=Invocaciones
+ModUi/&DocsManeuvers=Maniobras
+ModUi/&DocsMetamagic=Metamágica
+ModUi/&DocsRaces=Carreras
+ModUi/&DocsSpells=Hechizos
+ModUi/&DocsSubclasses=Subclases
+ModUi/&DocsSubraces=Subrazas
+ModUi/&DocsVersatilities=Versatilidades
 ModUi/&Donate=<b><color=#D89555>Donar:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=No mostrar cascos en caracteres gráficos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DontEndTurnAfterReady=No finalice el turno después de usar la acción lista <i><color=#F0DAA0>[permite usar la acción adicional o cualquier acción principal adicional de Prisa u otras fuentes]</color></i>
@@ -151,6 +151,7 @@ ModUi/&EnableRogueFightingStyle=Habilita la elección de <color=#D89555>Pícaro<
 ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Rogue</color> <b>Steady Aim</b> en el nivel de clase 3 <i><color=#F0DAA0>[la acción adicional te da ventaja en tu próxima tirada de ataque en el turno actual si aún no me he movido]</color></i>
 ModUi/&EnableRogueStrSaving=Habilite a <color=#D89555>Pícaro</color> para que use modificadores de DEX o STR en <b>Astucia/Golpe diabólico</b>, <b>Golpe debilitante/mejorado</b> y <b>Lluvia de espadas. </b>
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
+ModUi/&EnableSignatureSpellsRelearn=Habilite los hechizos característicos del <color=#D89555>Mago</color> para que se preparen cada descanso prolongado <i><color=#F0DAA0>[en lugar de una vez en el nivel 20]</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=• Además, cada héroe agrega una tirada de D20 al peso para darle un poco de aleatoriedad.

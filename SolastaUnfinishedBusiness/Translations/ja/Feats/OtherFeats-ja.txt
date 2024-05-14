@@ -30,7 +30,6 @@ Feat/&FeatChefConDescription=体質を 1 増やして、最大 20 まで増加�
 Feat/&FeatChefConTitle=シェフ【あり】
 Feat/&FeatChefWisDescription=知恵を 1 増やして、最大 20 まで増やします。\n1 時間かけて料理を作ると、自分と仲間の HP を 1d8 回復できます。\n1 日に 1 回、1 時間かけて料理を作ることができます熟練度ボーナスに等しいおやつを食べたときに一時的に 5 の HP を提供します。
 Feat/&FeatChefWisTitle=シェフ[ウィス]
-Feat/&FeatCriticalVirtuosoDescription=クリティカルの閾値が 1 下がります。
 Feat/&FeatDungeonDelverDescription=多くのダンジョンにある隠された罠や秘密の扉に注意を払うと、次の利点が得られます:\n• 知恵 (知覚) と知力 (調査) 判定で有利になります。\n• セービング スローで有利になります。罠を避けるか抵抗します。\n• 罠によって与えられるダメージに対する耐性があります。\n• 速いペースで移動しても、受動的な知恵（知覚）スコアに通常の -5 ペナルティが課されません。
 Feat/&FeatDungeonDelverTitle=ダンジョンデルバー
 Feat/&FeatEldritchAdeptDescription=ウォーロック クラスから、選択した Eldritch Invocation オプションを 1 つ学習します。その呼び出しに前提条件がある場合、その呼び出しを選択できるのは、ウォーロックであり、前提条件を満たしている場合のみです。レベルが上がるたびに、その呼び出しをウォーロック クラスの別の呼び出しに置き換えることができます。

@@ -30,7 +30,6 @@ ModUi/&AllowHasteCasting=Permitir lançar feitiços com ação extra de ser Acel
 ModUi/&AllowHornsOnAllRaces=Permitir buzinas em todas as corridas <i><color=#F0DAA0>[os resultados podem parecer terríveis dependendo da raça, cabeça e buzina]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Permite mais estado real no painel de repouso <i><color=#F0DAA0>[ocultar ações após repouso no painel anterior e recursos de recuperação no painel posterior]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material empilhado <i><color=#F0DAA0>[ex. 2x500gp de diamante é equivalente a 1000gp de diamante]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permita a seleção do alvo ao lançar o feitiço <color=#D89555>Chain Lightning</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Sorcerer</color> sem marcas de origem e tatuagens
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca gadgets no campo de visão do grupo <i><color=#F0DAA0>[somente masmorras personalizadas]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Permite que o <color=#D89555>Arcane Shieldstaff</color> seja sintonizado por qualquer classe
@@ -73,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desative <color=#D89555>Superi
 ModUi/&DisableUnofficialTranslations=Desative o suporte a traduções não oficiais para acelerar o mod <i><color=#F0DAA0>[a menos que eu fale chinês, italiano, japonês, coreano ou espanhol]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibe todos os feitiços conhecidos de outras classes durante o aumento de nível</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Exibir espaços de pacto <color=#D89555>Warlock</color> na seleção de feitiço em vez do painel de personagem</i>
-ModUi/&DocsArcaneShots=DOCS: Tiros Arcanos
-ModUi/&DocsBackgrounds=DOCUMENTOS: Planos de fundo
-ModUi/&DocsFeats=DOCS: Talentos
-ModUi/&DocsFightingStyles=DOCS: Estilos de luta
-ModUi/&DocsInfusions=DOCS: Infusões
-ModUi/&DocsInvocations=DOCS: invocações
-ModUi/&DocsManeuvers=DOCS: Manobras
-ModUi/&DocsMetamagic=DOCS: Metamágica
-ModUi/&DocsRaces=DOCS: Corridas
-ModUi/&DocsSpells=DOCS: Feitiços
-ModUi/&DocsSubclasses=DOCS: Subclasses
-ModUi/&DocsSubraces=DOCS: Subraças
+ModUi/&DocsArcaneShots=Tiros Arcanos
+ModUi/&DocsBackgrounds=Planos de fundo
+ModUi/&DocsFeats=Talentos
+ModUi/&DocsFightingStyles=Estilos de luta
+ModUi/&DocsInfusions=Infusões
+ModUi/&DocsInvocations=Invocações
+ModUi/&DocsManeuvers=Manobras
+ModUi/&DocsMetamagic=Metamágica
+ModUi/&DocsRaces=Corridas
+ModUi/&DocsSpells=Feitiços
+ModUi/&DocsSubclasses=Subclasses
+ModUi/&DocsSubraces=Subraças
+ModUi/&DocsVersatilities=Versatilidades
 ModUi/&Donate=<b><color=#D89555>Doar:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Não exiba capacetes em personagens gráficos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Não termine o turno após usar a ação pronta <i><color=#F0DAA0>[permite usar Bonus Action ou qualquer ação Principal extra de Haste ou outras fontes]</color></i>
@@ -151,6 +151,7 @@ ModUi/&EnableRogueFightingStyle=Habilite a escolha de <color=#D89555>Rogue</colo
 ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Rogue</color> <b>Steady Aim</b> no nível de classe 3 <i><color=#F0DAA0>[a ação bônus dá vantagem em sua próxima jogada de ataque no turno atual se você ainda não me mudei]</color></i>
 ModUi/&EnableRogueStrSaving=Habilite <color=#D89555>Rogue</color> para usar modificadores de DES ou FOR em <b>Ataque Astuto/Devil</b>, <b>Ataque Debilitante/Aprimorado</b> e <b>Hail of Blades </b>
 ModUi/&EnableSaveByLocation=Ativar salvar por campanhas / locais
+ModUi/&EnableSignatureSpellsRelearn=Habilite que os feitiços característicos do <color=#D89555>Assistente</color> sejam preparados a cada descanso longo <i><color=#F0DAA0>[em vez de uma vez no nível 20]</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=Ativar classificação de recursos no editor do Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=• Além disso, cada herói adiciona um teste D20 ao peso para um pouco de aleatoriedade

@@ -30,7 +30,6 @@ ModUi/&AllowHasteCasting=가속화 주문의 효과로 얻은 행동으로 주�
 ModUi/&AllowHornsOnAllRaces=모든 종족이 뿔을 만들 수 있게 허용 <i><color=#F0DAA0>[경우에 따라 끔찍한 몰골이 만들어질 수도 있음]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=휴식 패널에서 더 많은 행동 허용 <i><color=#F0DAA0>[이전 패널에서는 휴식 행동 후 패널이 숨겨졌지만 회복 특성을 더 사용할 수 있게 합니다]</color></i>
 ModUi/&AllowStackedMaterialComponent=재료 요소 중첩 허용 <i><color=#F0DAA0>[예: 2x500gp 다이아몬드는 1000gp 다이아몬드와 동일]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>연쇄 번개</color> 주문 시전 시 대상을 선택할 수 있게 허용
 ModUi/&AllowUnmarkedSorcerers=기원 및 문신이 없는 <color=#D89555>소서러</color> 허용
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 키는 파티 시야에 있는 물체만 강조 표시합니다 <i><color=#F0DAA0>[사용자 지정 던전만 해당]</color></i>
 ModUi/&ArcaneShieldstaffOptions=모든 직업이 <color=#D89555>비전 보호 스태프</color>를 조율할 수 있도록 허용
@@ -73,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=플레이 가능한 모든 종
 ModUi/&DisableUnofficialTranslations=비공식 번역 지원을 비활성화하여 모드 속도 향상 <i><color=#F0DAA0>[한국어, 일본어, 중국어, 이탈리아어, 스페인어 사용자가 아닐 경우 체크]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 레벨업 중 다른 직업의 모든 알려진 주문 표시</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 캐릭터 패널 대신 주문 선택 시 <color=#D89555>워락</color> 계약 슬롯을 표시</i>
-ModUi/&DocsArcaneShots=DOCS: 신비한 사격
-ModUi/&DocsBackgrounds=문서: 배경
-ModUi/&DocsFeats=문서: 업적
-ModUi/&DocsFightingStyles=문서: 격투 스타일
-ModUi/&DocsInfusions=문서: 주입
-ModUi/&DocsInvocations=문서: 호출
-ModUi/&DocsManeuvers=문서: 기동
-ModUi/&DocsMetamagic=문서: 메타매직
-ModUi/&DocsRaces=문서: 경주
-ModUi/&DocsSpells=문서: 주문
-ModUi/&DocsSubclasses=DOCS: 서브클래스
-ModUi/&DocsSubraces=문서: 하위 경주
+ModUi/&DocsArcaneShots=신비한 사격
+ModUi/&DocsBackgrounds=배경
+ModUi/&DocsFeats=업적
+ModUi/&DocsFightingStyles=격투 스타일
+ModUi/&DocsInfusions=주입
+ModUi/&DocsInvocations=호출
+ModUi/&DocsManeuvers=기동
+ModUi/&DocsMetamagic=메타매직
+ModUi/&DocsRaces=경주
+ModUi/&DocsSpells=주문
+ModUi/&DocsSubclasses=서브클래스
+ModUi/&DocsSubraces=하위 경주
+ModUi/&DocsVersatilities=다양성
 ModUi/&Donate=<b><color=#D89555>후원하기:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=캐릭터 모델링에 머리 방어구 표시 안 함 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&DontEndTurnAfterReady=준비 액션을 사용한 후 턴을 종료하지 않음 <i><color=#F0DAA0>[추가 행동 또는 이동이나 다른 출처의 기타 행동을 사용할 수 있습니다]</color></i>
@@ -151,6 +151,7 @@ ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>도적</color> <b>
 ModUi/&EnableRogueSteadyAim=클래스 레벨 3에서 <color=#D89555>도적</color> <b>고정 조준</b>을 활성화하세요. <i><color=#F0DAA0>[다음 경우에 보너스 행동은 현재 턴의 다음 공격 굴림에 이점을 줍니다. 아직 움직이지 않았습니다]</color></i>
 ModUi/&EnableRogueStrSaving=<color=#D89555>도적</color>을 활성화하여 <b>교활한/악마의 일격</b>, <b>약화/개선된 일격</b> 및 <b>칼날비에 DEX 또는 STR 수정자를 사용하세요. </b>
 ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
+ModUi/&EnableSignatureSpellsRelearn=긴 휴식마다 준비되도록 <color=#D89555>마법사</color> 시그니처 주문을 활성화하세요. <i><color=#F0DAA0>[레벨 20에 한 번이 아닌]</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=던전 만들기 편집기에서 에셋 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=• 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다.

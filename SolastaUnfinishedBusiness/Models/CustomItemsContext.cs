@@ -45,6 +45,8 @@ internal static class CustomItemsContext
                     false))
             .AddToDB();
 
+        item.inDungeonEditor = Main.Settings.AddNewWeaponsAndRecipesToEditor;
+
         MerchantContext.AddItem(item, ShopItemType.MagicItemRare);
         return item;
     }
@@ -74,6 +76,8 @@ internal static class CustomItemsContext
                             (AttributeDefinitions.Dexterity, ToolDefinitions.ThievesToolsType))
                         .AddToDB(), false))
             .AddToDB();
+
+        item.inDungeonEditor = Main.Settings.AddNewWeaponsAndRecipesToEditor;
 
         MerchantContext.AddItem(item, ShopItemType.MagicItemUncommon);
         return item;

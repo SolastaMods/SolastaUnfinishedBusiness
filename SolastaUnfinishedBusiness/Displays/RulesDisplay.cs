@@ -210,22 +210,12 @@ internal static class RulesDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
-            SrdAndHouseRulesContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
-        }
-
         toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
             SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
         }
-
-        UI.Label();
 
         toggle = Main.Settings.AddBleedingToLesserRestoration;
         if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
@@ -288,6 +278,8 @@ internal static class RulesDisplay
             Main.Settings.FixEldritchBlastRange = toggle;
             SrdAndHouseRulesContext.SwitchEldritchBlastRange();
         }
+
+        UI.Label();
 
         toggle = Main.Settings.FixRingOfRegenerationHealRate;
         if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))
@@ -431,10 +423,10 @@ internal static class RulesDisplay
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
 
-        toggle = Main.Settings.EnableRogueStrSaving;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueStrSaving"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableSignatureSpellsRelearn;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSignatureSpellsRelearn"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableRogueStrSaving = toggle;
+            Main.Settings.EnableSignatureSpellsRelearn = toggle;
         }
 
         UI.Label();
@@ -496,23 +488,6 @@ internal static class RulesDisplay
         {
             Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition = toggle;
             SrdAndHouseRulesContext.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AddDarknessPerceptiveToDarkRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
-            CharacterContext.SwitchDarknessPerceptive();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
-        if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RaceLightSensitivityApplyOutdoorsOnly = toggle;
         }
 
         UI.Label();

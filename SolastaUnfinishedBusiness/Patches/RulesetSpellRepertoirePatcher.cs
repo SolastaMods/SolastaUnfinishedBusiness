@@ -29,6 +29,41 @@ public static class RulesetSpellRepertoirePatcher
         return false;
     }
 
+    //PATCH: Supports Wizard Mastery and Signature spell features
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.MaxPreparedSpell), MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class MaxPreparedSpell_Getter_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetSpellRepertoire __instance, ref int __result)
+        {
+            var caster = __instance.GetCasterHero();
+
+            if (caster == null)
+            {
+                return true;
+            }
+
+            if (Level20Context.WizardSpellMastery.IsPreparation(caster, out var maxSpellMastery))
+            {
+                __result = maxSpellMastery;
+
+                return false;
+            }
+
+            // ReSharper disable once InvertIf
+            if (Level20Context.WizardSignatureSpells.IsPreparation(caster, out var maxSignatureSpells))
+            {
+                __result = maxSignatureSpells;
+
+                return false;
+            }
+
+            return true;
+        }
+    }
+
     //PATCH: handles all different scenarios of spell slots consumption (casts, smites, point buys)
     [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.SpendSpellSlot))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

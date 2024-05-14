@@ -82,7 +82,6 @@ internal static class SrdAndHouseRulesContext
         LoadSenseNormalVisionRangeMultiplier();
         SwitchAddBleedingToLesserRestoration();
         SwitchAllowClubsToBeThrown();
-        SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         SwitchChangeSleetStormToCube();
         SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
         SwitchConditionBlindedShouldNotAllowOpportunityAttack();
@@ -320,30 +319,6 @@ internal static class SrdAndHouseRulesContext
         {
             ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
             LightingAndObscurementContext.ConditionBlindedByDarkness.Features.Remove(ActionAffinityConditionBlind);
-        }
-    }
-
-    /// <summary>
-    ///     Allow the user to select targets when using 'Chain Lightning'.
-    /// </summary>
-    internal static void SwitchAllowTargetingSelectionWhenCastingChainLightningSpell()
-    {
-        var spell = ChainLightning.EffectDescription;
-
-        if (Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell)
-        {
-            // This is half fix, half houses rules since it's not completely SRD but better than implemented.
-            // Spell should arc from target (range 150ft) onto upto 3 extra selectable targets (range 30ft from first).
-            // Fix by allowing 4 selectable targets.
-            spell.targetType = TargetType.IndividualsUnique;
-            spell.targetParameter = 4;
-            spell.effectAdvancement.additionalTargetsPerIncrement = 1;
-        }
-        else
-        {
-            spell.targetType = TargetType.ArcFromIndividual;
-            spell.targetParameter = 3;
-            spell.effectAdvancement.additionalTargetsPerIncrement = 0;
         }
     }
 

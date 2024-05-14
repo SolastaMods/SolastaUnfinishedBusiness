@@ -45,12 +45,14 @@ internal class FeatureDefinitionActionAffinityBuilder
         return this;
     }
 
+#if false
     internal FeatureDefinitionActionAffinityBuilder SetActionExecutionModifiers(
         params ActionDefinitions.ActionExecutionModifier[] modifiers)
     {
         Definition.ActionExecutionModifiers.SetRange(modifiers);
         return this;
     }
+#endif
 
     internal FeatureDefinitionActionAffinityBuilder SetAllowedActionTypes(
         bool main = true,

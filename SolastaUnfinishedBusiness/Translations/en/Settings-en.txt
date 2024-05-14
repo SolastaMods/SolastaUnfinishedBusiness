@@ -30,7 +30,6 @@ ModUi/&AllowHasteCasting=Allow casting spells with extra action from being Haste
 ModUi/&AllowHornsOnAllRaces=Allow horns on all races <i><color=#F0DAA0>[results might look terrible depending on race, head and horn]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Allow more real state on rest panel <i><color=#F0DAA0>[hide after rest actions on before panel and recovery features on after panel]</color></i>
 ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=#F0DAA0>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target selection when casting the <color=#D89555>Chain Lightning</color> spell
 ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
@@ -73,18 +72,19 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superio
 ModUi/&DisableUnofficialTranslations=Disable unofficial translations support to speed up mod <i><color=#F0DAA0>[unless I speak Chinese, Italian, Japanese, Korean or Spanish]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from other classes during level up</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Display <color=#D89555>Warlock</color> pact slots on spell selection instead of character panel</i>
-ModUi/&DocsArcaneShots=DOCS: Arcane Shots
-ModUi/&DocsBackgrounds=DOCS: Backgrounds
-ModUi/&DocsFeats=DOCS: Feats
-ModUi/&DocsFightingStyles=DOCS: Fighting Styles
-ModUi/&DocsInfusions=DOCS: Infusions
-ModUi/&DocsInvocations=DOCS: Invocations
-ModUi/&DocsManeuvers=DOCS: Maneuvers
-ModUi/&DocsMetamagic=DOCS: Metamagic
-ModUi/&DocsRaces=DOCS: Races
-ModUi/&DocsSpells=DOCS: Spells
-ModUi/&DocsSubclasses=DOCS: Subclasses
-ModUi/&DocsSubraces=DOCS: Subraces
+ModUi/&DocsArcaneShots=Arcane Shots
+ModUi/&DocsBackgrounds=Backgrounds
+ModUi/&DocsFeats=Feats
+ModUi/&DocsFightingStyles=Fighting Styles
+ModUi/&DocsInfusions=Infusions
+ModUi/&DocsInvocations=Invocations
+ModUi/&DocsManeuvers=Maneuvers
+ModUi/&DocsMetamagic=Metamagic
+ModUi/&DocsRaces=Races
+ModUi/&DocsSpells=Spells
+ModUi/&DocsSubclasses=Subclasses
+ModUi/&DocsSubraces=Subraces
+ModUi/&DocsVersatilities=Versatilities
 ModUi/&Donate=<b><color=#D89555>Donate:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Don't display helmets on graphic characters <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Don't end turn after using <color=#D89555>ready action</color> <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>
@@ -151,6 +151,7 @@ ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Rogue</color> <b>Fighting 
 ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Rogue</color> <b>Steady Aim</b> at level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableRogueStrSaving=Enable <color=#D89555>Rogue</color> to use DEX or STR modifiers on <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b>, and <b>Hail of Blades</b>
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
+ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Wizard</color> signature spells to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Also each hero adds a D20 roll to weight for a bit of randomness <color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>

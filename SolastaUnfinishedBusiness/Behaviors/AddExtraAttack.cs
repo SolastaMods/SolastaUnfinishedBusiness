@@ -4,11 +4,11 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
 
@@ -329,28 +329,24 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
             item
         );
 
+        var effectDamageForms = attackMode.EffectDescription.EffectForms
+            .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+            .ToList();
+
+        if (effectDamageForms.Count != 0)
+        {
+            effectDamageForms[0] = EffectForm.GetCopy(effectDamageForms[0]);
+            effectDamageForms[0].DamageForm.DamageType = DamageTypeBludgeoning;
+            effectDamageForms[0].DamageForm.DieType = DieType.D4;
+            effectDamageForms[0].DamageForm.DiceNumber = 1;
+            effectDamageForms[0].DamageForm.versatile = false;
+        }
+
         attackMode.Reach = true;
         attackMode.Ranged = false;
         attackMode.Thrown = false;
-
-        // this is required to correctly interact with Spear Mastery dice upgrade
-        attackMode.AttackTags.Add("Polearm");
-
-        var damage = DamageForm.GetCopy(attackMode.EffectDescription.FindFirstDamageForm());
-
-        damage.DieType = DieType.D4;
-        damage.VersatileDieType = DieType.D4;
-        damage.versatile = false;
-        damage.DiceNumber = 1;
-        damage.DamageType = DamageTypeBludgeoning;
-
-        var effectForm = EffectForm.Get();
-
-        effectForm.FormType = EffectForm.EffectFormType.Damage;
-        effectForm.DamageForm = damage;
-        attackMode.EffectDescription.Clear();
-        attackMode.EffectDescription.EffectForms.Add(effectForm);
-
+        attackMode.AttackTags.Add("Polearm"); // required to correctly interact with Spear Mastery dice upgrade
+        attackMode.EffectDescription.EffectForms.SetRange(effectDamageForms);
         attackModes.Add(attackMode);
     }
 }
@@ -383,51 +379,31 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
             offHandItem.ItemDefinition,
             ShieldStrike.ShieldWeaponDescription,
             ValidatorsCharacter.IsFreeOffhand(hero),
-            hero.CanAddAbilityBonusToOffhand(),
+            true,
             EquipmentDefinitions.SlotTypeOffHand,
             attackModifiers,
             hero.FeaturesOrigin,
-            offHandItem
-        );
+            offHandItem);
 
-        var attackModes = new List<RulesetAttackMode> { attackMode };
-        var features = new List<FeatureDefinition>();
+        var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
 
-        offHandItem.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
+        if (damageForm != null)
+        {
+            var trend = damageForm.DamageBonusTrends.FirstOrDefault(x => x.sourceName == "Dueling");
 
-        var bonus = features
-            .OfType<FeatureDefinitionAttributeModifier>()
-            .Where(x =>
-                x.ModifiedAttribute == AttributeDefinitions.ArmorClass &&
-                x.ModifierOperation == AttributeModifierOperation.Additive)
-            .Sum(x => x.ModifierValue);
+            if (trend.sourceName == "Dueling")
+            {
+                damageForm.DamageBonusTrends.Remove(trend);
+                damageForm.BonusDamage -= 2;
+            }
+        }
 
-        if (offHandItem.ItemDefinition.Magical || bonus > 0)
+        if (offHandItem.ItemDefinition.Magical)
         {
             attackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
         }
 
-        if (bonus == 0)
-        {
-            return attackModes;
-        }
-
-        var damage = attackMode.EffectDescription?.FindFirstDamageForm();
-        var trendInfo = new TrendInfo(bonus, FeatureSourceType.Equipment,
-            offHandItem.ItemDefinition.GuiPresentation.Title, null);
-
-        attackMode.ToHitBonus += bonus;
-        attackMode.ToHitBonusTrends.Add(trendInfo);
-
-        if (damage == null)
-        {
-            return attackModes;
-        }
-
-        damage.BonusDamage += bonus;
-        damage.DamageBonusTrends.Add(trendInfo);
-
-        return attackModes;
+        return [attackMode];
     }
 }
 

@@ -43,9 +43,11 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        // kept for backward compatibility
+        _ = BuildAstralArms();
+
         var featAcrobat = BuildAcrobat();
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
-        var featAstralArms = BuildAstralArms();
         var featDungeonDelver = BuildDungeonDelver();
         var featEldritchAdept = BuildEldritchAdept();
         var featFightingInitiate = BuildFightingInitiate();
@@ -76,15 +78,18 @@ internal static class OtherFeats
         var weaponMasterGroup = BuildWeaponMaster(feats);
 
         // building this way to keep backward compatibility
-        var featMonkShieldExpert = BuildFeatFromFightingStyle(MonkShieldExpert.ShieldExpertName);
+        _ = BuildFeatFromFightingStyle(MonkShieldExpert.ShieldExpertName);
+
+        var featMerciless = BuildFeatFromFightingStyle(Merciless.MercilessName);
         var featPolearmExpert = BuildFeatFromFightingStyle(PolearmExpert.PolearmExpertName);
+        var featRopeIpUp = BuildFeatFromFightingStyle(RopeItUp.RopeItUpName);
         var featSentinel = BuildFeatFromFightingStyle(Sentinel.SentinelName);
+        var featShieldExpert = BuildFeatFromFightingStyle(ShieldExpert.ShieldExpertName);
 
         feats.AddRange(
             featAcrobat,
             FeatAlert,
             featArcaneArcherAdept,
-            featAstralArms,
             featDungeonDelver,
             featEldritchAdept,
             featFrostAdaptation,
@@ -97,14 +102,16 @@ internal static class OtherFeats
             featMagicInitiate,
             featMartialAdept,
             featMenacing,
+            featMerciless,
             featMetamagicAdept,
-            featMonkShieldExpert,
             featMobile,
             featMonkInitiate,
             featPickPocket,
             featPoisonousSkin,
             featPolearmExpert,
+            featRopeIpUp,
             featSentinel,
+            featShieldExpert,
             FeatStealthy,
             featTough,
             featVersatilityAdept,
@@ -123,11 +130,12 @@ internal static class OtherFeats
             featMobile);
 
         GroupFeats.FeatGroupDefenseCombat.AddFeats(
-            featMonkShieldExpert);
+            featShieldExpert);
 
         GroupFeats.FeatGroupMeleeCombat.AddFeats(
             balefulScionGroup,
-            featPolearmExpert);
+            featPolearmExpert,
+            featShieldExpert);
 
         GroupFeats.FeatGroupTwoHandedCombat.AddFeats(
             featPolearmExpert);
@@ -147,11 +155,12 @@ internal static class OtherFeats
             featLucky,
             FeatMageSlayer,
             featMenacing,
+            featMerciless,
+            featRopeIpUp,
             featSentinel,
             weaponMasterGroup);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
-            featAstralArms,
             featPoisonousSkin);
 
         GroupFeats.FeatGroupSkills.AddFeats(
@@ -198,7 +207,7 @@ internal static class OtherFeats
     {
         return FeatDefinitionBuilder
             .Create("FeatAstralArms")
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .SetFeatures(
                 AttributeModifierCreed_Of_Maraike)
             .AddCustomSubFeatures(
@@ -821,6 +830,7 @@ internal static class OtherFeats
             .SetNotificationTag("BalefulScion")
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeNecrotic)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetImpactParticleReference(PowerWightLordRetaliate)
             .AddToDB();
 
@@ -1016,7 +1026,7 @@ internal static class OtherFeats
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!attacker.IsWithinRange(defender, 12) ||
-                !attacker.OncePerTurnIsValid("AdditionalDamageFeatBalefulScion") ||
+                !attacker.OncePerTurnIsValid(additionalDamageBalefulScion.Name) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.BalefulScionToggle) ||
                 rulesetAttacker.GetRemainingPowerUses(powerBalefulScion) == 0)
             {
@@ -1618,10 +1628,7 @@ internal static class OtherFeats
             .GetDatabase<FightingStyleDefinition>()
             .Where(x =>
                 x.ContentPack == CeContentPackContext.CeContentPack &&
-                x.Name is not (
-                    MonkShieldExpert.ShieldExpertName or
-                    PolearmExpert.PolearmExpertName or
-                    Sentinel.SentinelName))
+                !FightingStyleContext.DemotedFightingStyles.Contains(x.Name))
             .Select(BuildFightingStyleFeat)
             .OfType<FeatDefinition>()
             .ToArray();

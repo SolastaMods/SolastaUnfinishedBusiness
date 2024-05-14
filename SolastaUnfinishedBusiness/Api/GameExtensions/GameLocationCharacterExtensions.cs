@@ -54,10 +54,13 @@ public static class GameLocationCharacterExtensions
             return true;
         }
 
-        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+        var vanillaCanPerceive =
+            (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||
+            (__instance.Side != target.Side && __instance.PerceivedFoes.Contains(target));
+
+        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules || !vanillaCanPerceive)
         {
-            return (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||
-                   (__instance.Side != target.Side && __instance.PerceivedFoes.Contains(target));
+            return vanillaCanPerceive;
         }
 
         // can only perceive targets on cells that can be perceived

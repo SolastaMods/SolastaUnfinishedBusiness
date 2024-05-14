@@ -37,7 +37,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 BuildSpellGroup(5, CalmEmotions, HoldPerson),
                 BuildSpellGroup(9, Counterspell, HypnoticPattern),
                 BuildSpellGroup(13, DominateBeast, GuardianOfFaith),
-                BuildSpellGroup(17, HoldMonster, WallOfForce))
+                BuildSpellGroup(17, HoldMonster, MassCureWounds))
             .SetSpellcastingClass(CharacterClassDefinitions.Paladin)
             .AddToDB();
 
@@ -229,12 +229,6 @@ public sealed class OathOfAltruism : AbstractSubclass
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            if (rulesetEffect != null &&
-                rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
-            {
-                yield break;
-            }
-
             var rulesetHelper = helper.RulesetCharacter;
 
             if (helper == defender ||

@@ -1865,7 +1865,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Spell Mastery
 
-You have achieved such mastery over certain spells that you can cast them at will. The first two 1st and 2nd-level wizard spells that you prepare can be cast at their lowest level without expending a spell slot. If you want to cast either spell at a higher level, you must expend a spell slot as normal.
+You have achieved such mastery over certain spells that you can cast them at will. Choose two 1st-level or 2nd-level wizard spells that are in your spellbook. You can cast those spells at their lowest level without expending a spell slot when you have them prepared. If you want to cast either spell at a higher level, you must expend a spell slot as normal.
 
 
 ## Level 19
@@ -1879,7 +1879,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Signature Spells
 
-You gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells as your signature spells. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest.
+You gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells in your spellbook as your signature spells. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest.
 
 
 
