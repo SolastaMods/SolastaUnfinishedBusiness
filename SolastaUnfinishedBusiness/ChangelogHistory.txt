@@ -10,11 +10,12 @@
 - fixed mod items and monsters bleeding into dungeon maker
 - fixed non implemented Wall of Force on Armorer, Battle Smith, and Oath of Altruism
 - fixed Polearm Expert to consider all additional weapon dice damage on bonus attack
-- fixed Wizard Spell Mastery, and Signature Spells [RESPEC is required for any Wizard at or above level 18th]
+- fixed Roguish Duelist reflexive party to be once per turn
+- fixed Wizard Spell Mastery, and Signature Spells [RESPEC is required for any Wizard at or above 18th]
 - hided Hammer the Point, and Monastic Shield Training
 - removed -1 AC Debuff from Crippling fighting style
 - removed finesse requirement from Defensive Duelist feat
-- replaced +STR to damage from Bow Mastery and Crossbow Mastery feats with normal weapon bonus, all valid weapons get it
+- replaced +STR to damage from Bow Mastery and Crossbow Mastery feats with normal weapon bonus, all bows/cross get it
 
 KNOWN ISSUES:
 
