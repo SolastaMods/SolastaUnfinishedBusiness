@@ -2479,6 +2479,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
+            // handle initial cases
             switch (action)
             {
                 case CharacterActionUsePower actionUsePower when
@@ -2499,6 +2500,16 @@ internal static partial class SpellBuilders
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
+            // any bonus, reaction, no cost is allowed
+            if (action.ActionType
+                is ActionDefinitions.ActionType.Bonus
+                or ActionDefinitions.ActionType.Reaction
+                or ActionDefinitions.ActionType.NoCost)
+            {
+                yield break;
+            }
+
+            // move allowed if still in range
             if (action.ActionId is ActionDefinitions.Id.TacticalMove or ActionDefinitions.Id.SpecialMove)
             {
                 if (Gui.Battle == null)

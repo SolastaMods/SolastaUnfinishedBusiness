@@ -621,7 +621,7 @@ internal static class Level20Context
         {
             return
                 rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, $"ConditionSpell{Mastery}") &&
+                    AttributeDefinitions.TagEffect, $"Condition{Mastery}") &&
                 spell.SpellLevel is not (1 or 2);
         }
 
@@ -630,7 +630,7 @@ internal static class Level20Context
             maxPreparedSpell = 2;
 
             return rulesetCharacter.HasConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect, $"ConditionSpell{Mastery}");
+                AttributeDefinitions.TagEffect, $"Condition{Mastery}");
         }
 
         internal static bool ShouldConsumeSlot(RulesetCharacter caster, RulesetEffectSpell activeSpell)
@@ -651,7 +651,7 @@ internal static class Level20Context
         internal static FeatureDefinition BuildWizardSpellMastery()
         {
             _ = ConditionDefinitionBuilder
-                .Create($"ConditionSpell{Mastery}")
+                .Create($"Condition{Mastery}")
                 .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .AddToDB();
@@ -689,7 +689,7 @@ internal static class Level20Context
                 spellRepertoire.ExtraSpellsByTag[Mastery] = [];
 
                 var activeCondition = hero.InflictCondition(
-                    $"ConditionSpell{Mastery}",
+                    $"Condition{Mastery}",
                     DurationType.Permanent,
                     0,
                     TurnOccurenceType.StartOfTurn,
@@ -697,7 +697,7 @@ internal static class Level20Context
                     hero.guid,
                     hero.CurrentFaction.Name,
                     1,
-                    $"ConditionSpell{Mastery}",
+                    $"Condition{Mastery}",
                     0,
                     0,
                     0);
@@ -729,7 +729,7 @@ internal static class Level20Context
         internal static readonly FeatureDefinitionPower PowerSignatureSpells = FeatureDefinitionPowerBuilder
             .Create("PowerWizardSignatureSpells")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 3)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
@@ -767,7 +767,7 @@ internal static class Level20Context
         {
             return
                 rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, $"ConditionSpell{Signature}") &&
+                    AttributeDefinitions.TagEffect, $"Condition{Signature}") &&
                 spell.SpellLevel is not 3;
         }
 
