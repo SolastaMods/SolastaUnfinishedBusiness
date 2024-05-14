@@ -18,7 +18,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
-using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -528,8 +527,8 @@ internal static class Level20Context
 
     private static void WizardLoad()
     {
-        var spellMastery = BuildWizardSpellMastery();
-        var signatureSpells = BuildWizardSignatureSpells();
+        var spellMastery = WizardSpellMastery.BuildWizardSpellMastery();
+        var signatureSpells = WizardSignatureSpells.BuildWizardSignatureSpells();
 
         Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -593,88 +592,276 @@ internal static class Level20Context
     // HELPERS
     //
 
-    private static FeatureDefinitionGrantInvocations BuildWizardSpellMastery()
+    internal static class WizardSpellMastery
     {
-        const string SPELL_MASTERY = "SpellMastery";
+        private const string Mastery = "SpellMastery";
 
-        // any non reaction spell of 1st or 2nd level
-        var allPossibleSpells = SpellListAllSpells.SpellsByLevel
-            .Where(x => x.level is 1 or 2)
-            .SelectMany(x => x.Spells)
-            .Where(x => x.ActivationTime != ActivationTime.Reaction);
-
-        var invocations = allPossibleSpells
-            .Select(spell =>
-                CustomInvocationDefinitionBuilder
-                    .Create($"CustomInvocation{SPELL_MASTERY}{spell.Name}")
-                    .SetGuiPresentation(spell.GuiPresentation)
-                    .SetPoolType(InvocationPoolTypeCustom.Pools.SpellMastery)
-                    .SetGrantedSpell(spell)
-                    .SetRequirements(3)
-                    .AddCustomSubFeatures(
-                        ValidateRepertoireForAutoprepared.HasSpellCastingFeature(CastSpellWizard.Name),
-                        IsValid())
-                    .AddToDB());
-
-        var grantInvocationsSpellMastery = FeatureDefinitionGrantInvocationsBuilder
-            .Create($"GrantInvocations{SPELL_MASTERY}")
+        internal static readonly FeatureDefinition FeatureSpellMastery = FeatureDefinitionBuilder
+            .Create("FeatureWizardSpellMastery")
             .SetGuiPresentation(Category.Feature)
-            .SetInvocations(invocations)
             .AddToDB();
 
-        return grantInvocationsSpellMastery;
+        private static readonly RestActivityDefinition RestActivitySpellMastery = RestActivityDefinitionBuilder
+            .Create($"RestActivity{Mastery}")
+            .SetGuiPresentation(Category.RestActivity)
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest,
+                RestType.LongRest,
+                RestActivityDefinition.ActivityCondition.CanPrepareSpells,
+                nameof(FunctorSpellMastery),
+                string.Empty)
+            .AddToDB();
 
-        static IsInvocationValidHandler IsValid()
+        internal static bool IsRestActivityAvailable(RestActivityDefinition activity, RulesetCharacterHero hero)
         {
-            return (character, invocation) =>
+            return activity != RestActivitySpellMastery || hero.GetClassLevel(Wizard) >= 18;
+        }
+
+        internal static bool IsPreparation(RulesetCharacter rulesetCharacter, out int maxPreparedSpell)
+        {
+            maxPreparedSpell = 2;
+
+            return rulesetCharacter.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, $"ConditionSpell{Mastery}");
+        }
+
+        internal static bool ShouldConsumeSlot(RulesetCharacter caster, RulesetEffectSpell activeSpell)
+        {
+            if (!activeSpell.SpellRepertoire.ExtraSpellsByTag.TryGetValue(Mastery,
+                    out var signaturePreparedSpells) ||
+                !signaturePreparedSpells.Contains(activeSpell.SpellDefinition) ||
+                activeSpell.EffectLevel != activeSpell.SpellDefinition.SpellLevel)
             {
-                var spellRepertoire = character.GetClassSpellRepertoire(Wizard);
+                return true;
+            }
+
+            caster.LogCharacterUsedFeature(FeatureSpellMastery);
+
+            return false;
+        }
+
+        internal static FeatureDefinition BuildWizardSpellMastery()
+        {
+            _ = ConditionDefinitionBuilder
+                .Create($"ConditionSpell{Mastery}")
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .AddToDB();
+
+            ServiceRepository.GetService<IFunctorService>()
+                .RegisterFunctor(nameof(FunctorSpellMastery), new FunctorSpellMastery());
+
+            return FeatureSpellMastery;
+        }
+
+        private class FunctorSpellMastery : Functor
+        {
+            public override IEnumerator Execute(
+                FunctorParametersDescription functorParameters,
+                FunctorExecutionContext context)
+            {
+                var inspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+                var partyStatusScreen = Gui.GuiService.GetScreen<GamePartyStatusScreen>();
+                var hero = functorParameters.RestingHero;
+
+                Gui.GuiService.GetScreen<RestModal>().KeepCurrentState = true;
+
+                var spellRepertoire = hero.SpellRepertoires.FirstOrDefault(x =>
+                    x.SpellCastingFeature.SpellReadyness == SpellReadyness.Prepared);
 
                 if (spellRepertoire == null)
                 {
-                    return false;
+                    yield break;
                 }
 
-                // get the first 2 non reaction prepared spells of 1st or 2nd level
-                var preparedSpells = spellRepertoire.PreparedSpells
-                    .Where(x => x.SpellLevel is 1 or 2 && x.ActivationTime != ActivationTime.Reaction)
-                    .Take(2);
+                var preparedSpellsClone = spellRepertoire.PreparedSpells.ToList();
 
-                return preparedSpells.Contains(invocation.GrantedSpell);
-            };
+                spellRepertoire.ExtraSpellsByTag.TryAdd(Mastery, []);
+                spellRepertoire.PreparedSpells.SetRange(spellRepertoire.ExtraSpellsByTag[Mastery]);
+                spellRepertoire.ExtraSpellsByTag[Mastery] = [];
+
+                var activeCondition = hero.InflictCondition(
+                    $"ConditionSpell{Mastery}",
+                    DurationType.Permanent,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    hero.guid,
+                    hero.CurrentFaction.Name,
+                    1,
+                    $"ConditionSpell{Mastery}",
+                    0,
+                    0,
+                    0);
+
+                partyStatusScreen.SetupDisplayPreferences(false, false, false);
+
+                inspectionScreen.ShowSpellPreparation(
+                    functorParameters.RestingHero, Gui.GuiService.GetScreen<RestModal>(), spellRepertoire);
+
+                while (context.Async && inspectionScreen.Visible)
+                {
+                    yield return null;
+                }
+
+                spellRepertoire.ExtraSpellsByTag[Mastery].SetRange(spellRepertoire.PreparedSpells);
+                spellRepertoire.PreparedSpells.SetRange(preparedSpellsClone);
+                spellRepertoire.PreparedSpells.RemoveAll(x => spellRepertoire.ExtraSpellsByTag[Mastery].Contains(x));
+                partyStatusScreen.SetupDisplayPreferences(true, true, true);
+                hero.RemoveCondition(activeCondition);
+            }
         }
     }
 
-    private static FeatureDefinitionCustomInvocationPool BuildWizardSignatureSpells()
+    internal static class WizardSignatureSpells
     {
-        const string SIGNATURE_SPELLS = "SignatureSpells";
+        private const string Signature = "SignatureSpells";
 
-        // any non reaction spell of 3rd level
-        var allPossibleSpells = SpellListAllSpells.SpellsByLevel
-            .Where(x => x.level is 3)
-            .SelectMany(x => x.Spells)
-            .Where(x => x.ActivationTime != ActivationTime.Reaction)
-            .ToList();
-
-        allPossibleSpells
-            .ForEach(spell =>
-                CustomInvocationDefinitionBuilder
-                    .Create($"CustomInvocation{SIGNATURE_SPELLS}{spell.name}")
-                    .SetGuiPresentation(spell.GuiPresentation)
-                    .SetPoolType(InvocationPoolTypeCustom.Pools.SignatureSpells)
-                    .SetGrantedSpell(spell)
-                    .AddCustomSubFeatures(
-                        RechargeInvocationOnShortRest.Marker,
-                        ValidateRepertoireForAutoprepared.HasSpellCastingFeature(CastSpellWizard.Name))
-                    .AddToDB());
-
-        var invocationPoolWizardSignatureSpells = CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolWizardSignatureSpells")
+        internal static readonly FeatureDefinitionPower PowerSignatureSpells = FeatureDefinitionPowerBuilder
+            .Create("PowerWizardSignatureSpells")
             .SetGuiPresentation(Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.SignatureSpells, 2)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        return invocationPoolWizardSignatureSpells;
+        private static readonly RestActivityDefinition RestActivitySignatureSpells = RestActivityDefinitionBuilder
+            .Create($"RestActivity{Signature}")
+            .SetGuiPresentation(Category.RestActivity)
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest,
+                RestType.LongRest,
+                RestActivityDefinition.ActivityCondition.CanPrepareSpells,
+                nameof(FunctorSignatureSpells),
+                string.Empty)
+            .AddToDB();
+
+        internal static bool IsRestActivityAvailable(RestActivityDefinition activity, RulesetCharacterHero hero)
+        {
+            return
+                activity != RestActivitySignatureSpells ||
+                (hero.GetClassLevel(Wizard) >= 20 &&
+                 hero.SpellRepertoires.All(x =>
+                     x.ExtraSpellsByTag.TryGetValue(Signature, out var spells) && spells.Count == 0));
+        }
+
+        internal static bool IsPreparation(RulesetCharacter rulesetCharacter, out int maxPreparedSpell)
+        {
+            maxPreparedSpell = 2;
+
+            return rulesetCharacter.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, $"Condition{Signature}");
+        }
+
+        internal static bool ShouldConsumeSlot(RulesetCharacter caster, RulesetEffectSpell activeSpell)
+        {
+            if (activeSpell.EffectLevel != activeSpell.SpellDefinition.SpellLevel)
+            {
+                return true;
+            }
+
+            if (!activeSpell.SpellRepertoire.ExtraSpellsByTag
+                    .TryGetValue(Signature, out var signaturePreparedSpells))
+            {
+                return true;
+            }
+
+            var usablePower = PowerProvider.Get(PowerSignatureSpells, caster);
+
+            if (usablePower.remainingUses == 3)
+            {
+                return true;
+            }
+
+            for (var i = 0; i < signaturePreparedSpells.Count; i++)
+            {
+                if (signaturePreparedSpells[i] == activeSpell.SpellDefinition)
+                {
+                    switch (i)
+                    {
+                        case 0 when usablePower.remainingUses == 2:
+                        case 1 when usablePower.remainingUses == 1:
+                            return true;
+                        default:
+                            usablePower.remainingUses -= i == 0 ? 1 : 2;
+                            return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        internal static FeatureDefinition BuildWizardSignatureSpells()
+        {
+            _ = ConditionDefinitionBuilder
+                .Create($"Condition{Signature}")
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .AddToDB();
+
+            ServiceRepository.GetService<IFunctorService>()
+                .RegisterFunctor(nameof(FunctorSignatureSpells), new FunctorSignatureSpells());
+
+            return PowerSignatureSpells;
+        }
+
+        private class FunctorSignatureSpells : Functor
+        {
+            public override IEnumerator Execute(
+                FunctorParametersDescription functorParameters,
+                FunctorExecutionContext context)
+            {
+                var inspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+                var partyStatusScreen = Gui.GuiService.GetScreen<GamePartyStatusScreen>();
+                var hero = functorParameters.RestingHero;
+
+                Gui.GuiService.GetScreen<RestModal>().KeepCurrentState = true;
+
+                var spellRepertoire = hero.SpellRepertoires.FirstOrDefault(x =>
+                    x.SpellCastingFeature.SpellReadyness == SpellReadyness.Prepared);
+
+                if (spellRepertoire == null)
+                {
+                    yield break;
+                }
+
+                var preparedSpellsClone = spellRepertoire.PreparedSpells.ToList();
+
+                spellRepertoire.ExtraSpellsByTag.TryAdd(Signature, []);
+                spellRepertoire.PreparedSpells.SetRange(spellRepertoire.ExtraSpellsByTag[Signature]);
+                spellRepertoire.ExtraSpellsByTag[Signature] = [];
+
+                var activeCondition = hero.InflictCondition(
+                    $"Condition{Signature}",
+                    DurationType.Permanent,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    hero.guid,
+                    hero.CurrentFaction.Name,
+                    1,
+                    $"Condition{Signature}",
+                    0,
+                    0,
+                    0);
+
+                partyStatusScreen.SetupDisplayPreferences(false, false, false);
+
+                inspectionScreen.ShowSpellPreparation(
+                    functorParameters.RestingHero, Gui.GuiService.GetScreen<RestModal>(), spellRepertoire);
+
+                while (context.Async && inspectionScreen.Visible)
+                {
+                    yield return null;
+                }
+
+                spellRepertoire.ExtraSpellsByTag[Signature].SetRange(spellRepertoire.PreparedSpells);
+                spellRepertoire.PreparedSpells.SetRange(preparedSpellsClone);
+                spellRepertoire.PreparedSpells.RemoveAll(x => spellRepertoire.ExtraSpellsByTag[Signature].Contains(x));
+                partyStatusScreen.SetupDisplayPreferences(true, true, true);
+                hero.RemoveCondition(activeCondition);
+            }
+        }
     }
 
     private sealed class ActionFinishedByMeArchDruid(
