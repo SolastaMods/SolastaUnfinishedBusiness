@@ -712,11 +712,12 @@ internal static partial class SpellBuilders
             .Create($"Power{Name}Explode")
             .SetGuiPresentation(Name, Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -781,11 +782,6 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -800,7 +796,8 @@ internal static partial class SpellBuilders
                 actionModifiers.Add(new ActionModifier());
             }
 
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            // don't use PowerNoCost here as it breaks the spell under MP
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
@@ -811,23 +808,27 @@ internal static partial class SpellBuilders
 
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+
+            yield break;
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
             var attacker = action.ActingCharacter;
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
 
-            _targets.SetRange(Gui.Battle.AllContenders
+            _targets.SetRange(contenders
                 .Where(x =>
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x != attacker &&
                     !action.ActionParams.TargetCharacters.Contains(x) &&
                     attacker.IsWithinRange(x, 2)));
+
+            yield break;
         }
     }
 
