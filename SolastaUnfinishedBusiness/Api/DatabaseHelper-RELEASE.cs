@@ -995,7 +995,10 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRogueSneakAttack { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRogueSneakAttack");
-
+        
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRoguishHoodlumNonFinesseSneakAttack { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRoguishHoodlumNonFinesseSneakAttack");
+        
         internal static FeatureDefinitionAdditionalDamage
             AdditionalDamageTraditionLightRadiantStrikesLuminousKi { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionLightRadiantStrikesLuminousKi");

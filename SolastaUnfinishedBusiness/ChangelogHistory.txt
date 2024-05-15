@@ -1,3 +1,7 @@
+1.5.97.10:
+
+- fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike
+
 1.5.97.9:
 
 - converted Astral Reach feat to fighting style and removed +1 to WIS and opportunity attacks

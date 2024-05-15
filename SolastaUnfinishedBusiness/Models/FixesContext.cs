@@ -592,6 +592,8 @@ internal static class FixesContext
     {
         AdditionalDamageRogueSneakAttack.AddCustomSubFeatures(
             new ModifyAdditionalDamageRogueSneakAttack(AdditionalDamageRogueSneakAttack));
+        AdditionalDamageRoguishHoodlumNonFinesseSneakAttack.AddCustomSubFeatures(
+            new ClassFeats.ModifyAdditionalDamageCloseQuarters(AdditionalDamageRoguishHoodlumNonFinesseSneakAttack));
     }
 
     private static void FixCriticalThresholdModifiers()
