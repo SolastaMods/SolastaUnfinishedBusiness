@@ -409,7 +409,7 @@ public sealed class MartialWarlord : AbstractSubclass
             if (!target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
                     ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
             {
-                return true;
+                return target.RulesetCharacter is not RulesetCharacterEffectProxy;
             }
 
             __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
