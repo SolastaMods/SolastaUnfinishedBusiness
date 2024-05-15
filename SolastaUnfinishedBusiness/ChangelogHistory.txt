@@ -1,5 +1,6 @@
 1.5.97.10:
 
+- added +X to damage on Shield Bash feat for any magical shield with +X to armor class
 - fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike
 
 1.5.97.9:
