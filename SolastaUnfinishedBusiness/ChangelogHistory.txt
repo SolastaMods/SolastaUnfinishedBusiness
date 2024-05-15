@@ -2,6 +2,7 @@
 
 - added +X to damage on Shield Bash feat for any magical shield with +X to armor class
 - fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike
+- fixed Witch Bolt to remove concentration on teleport scenarios when the target becomes outside the spell's range
 
 1.5.97.9:
 

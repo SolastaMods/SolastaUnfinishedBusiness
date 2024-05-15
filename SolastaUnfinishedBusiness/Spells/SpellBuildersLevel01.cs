@@ -2500,27 +2500,24 @@ internal static partial class SpellBuilders
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            // any bonus, reaction, no cost is allowed
             if (action.ActionType
-                is ActionDefinitions.ActionType.Bonus
+                is ActionDefinitions.ActionType.Move
+                // these although allowed could potentially move both contenders off range
+                or ActionDefinitions.ActionType.Bonus
                 or ActionDefinitions.ActionType.Reaction
                 or ActionDefinitions.ActionType.NoCost)
-            {
-                yield break;
-            }
-
-            // move allowed if still in range
-            if (action.ActionId is ActionDefinitions.Id.TacticalMove or ActionDefinitions.Id.SpecialMove)
             {
                 if (Gui.Battle == null)
                 {
                     yield break;
                 }
 
-                var stillInRange = Gui.Battle.GetContenders(actingCharacter, withinRange: 6).Any(x =>
-                    x.RulesetCharacter.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, conditionWitchBolt.Name, out var activeCondition) &&
-                    rulesetCharacter.Guid == activeCondition.SourceGuid);
+                var stillInRange = Gui.Battle
+                    .GetContenders(actingCharacter, withinRange: 6)
+                    .Any(x =>
+                        x.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                            AttributeDefinitions.TagEffect, conditionWitchBolt.Name, out var activeCondition) &&
+                        rulesetCharacter.Guid == activeCondition.SourceGuid);
 
                 if (stillInRange)
                 {
