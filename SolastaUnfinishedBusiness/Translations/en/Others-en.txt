@@ -246,6 +246,7 @@ Rules/&SituationalContext9013Format=Is not effect source:
 Rules/&SituationalContext9014Format=Wearing no armor or light armor without shield:
 Rules/&SituationalContext9015Format=Wearing no armor or light armor with two handed quarterstaff:
 Rules/&SituationalContext9016Format=Is not effect source with melee weapon in main or off hand:
+Rules/&SituationalContext9017Format=Is concentrating on spell:
 Rules/&TurnOccurenceEndOfSourceTurnFormat=End Source of Turn
 Screen/&ClassExtraSpellDescriptionFormat=You know this spell from {0} class.
 Screen/&EditorLocationSize3Title=Huge [MODDED]

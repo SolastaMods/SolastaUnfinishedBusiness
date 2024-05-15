@@ -246,6 +246,7 @@ Rules/&SituationalContext9013Format=No es fuente de efecto:
 Rules/&SituationalContext9014Format=Sin armadura o con armadura ligera sin escudo:
 Rules/&SituationalContext9015Format=Sin armadura o con armadura ligera y con un bastón a dos manos:
 Rules/&SituationalContext9016Format=No se produce efecto con arma cuerpo a cuerpo en la mano principal o secundaria:
+Rules/&SituationalContext9017Format=Se concentra en el hechizo:
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Fuente final del turno
 Screen/&ClassExtraSpellDescriptionFormat=Conoces este hechizo de la clase {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODIFICADO]

@@ -64,6 +64,7 @@ internal enum ExtraActionId
     ThunderousStrikeToggle,
     ProxyDawn,
     BalefulScionToggle,
+    PowerSurgeToggle,
     PrioritizeAction = 10000
 }
 
@@ -183,7 +184,8 @@ internal enum ExtraSituationalContext
     IsNotConditionSource = 9013,
     WearingNoArmorOrLightArmorWithoutShield = 9014,
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 9015,
-    IsNotConditionSourceNotRanged = 9016
+    IsNotConditionSourceNotRanged = 9016,
+    IsConcentratingOnSpell = 9017
 }
 
 internal enum ExtraTurnOccurenceType

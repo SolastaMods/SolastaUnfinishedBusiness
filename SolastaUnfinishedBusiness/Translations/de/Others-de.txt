@@ -246,6 +246,7 @@ Rules/&SituationalContext9013Format=Ist keine Wirkungsquelle:
 Rules/&SituationalContext9014Format=Keine Rüstung oder leichte Rüstung ohne Schild tragen:
 Rules/&SituationalContext9015Format=Ohne Rüstung oder leichte Rüstung mit zweihändigem Kampfstab:
 Rules/&SituationalContext9016Format=Ist keine Effektquelle mit Nahkampfwaffe in der Haupt- oder Nebenhand:
+Rules/&SituationalContext9017Format=Konzentriert sich auf Zauber:
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Endquelle der Wende
 Screen/&ClassExtraSpellDescriptionFormat=Du kennst diesen Zauber aus der Klasse {0}.
 Screen/&EditorLocationSize3Title=Riesig [MODDIERT]

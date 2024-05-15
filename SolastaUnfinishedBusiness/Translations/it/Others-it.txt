@@ -246,6 +246,7 @@ Rules/&SituationalContext9013Format=Non è la fonte dell'effetto:
 Rules/&SituationalContext9014Format=Non indossare armature o armature leggere senza scudo:
 Rules/&SituationalContext9015Format=Non indossare armature o armature leggere con bastone ferrato a due mani:
 Rules/&SituationalContext9016Format=Non è una fonte di effetti con l'arma da mischia nella mano principale o secondaria:
+Rules/&SituationalContext9017Format=Si sta concentrando sull'incantesimo:
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Fine origine del turno
 Screen/&ClassExtraSpellDescriptionFormat=Conosci questo incantesimo dalla classe {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODIFICATO]

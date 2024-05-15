@@ -246,6 +246,7 @@ Rules/&SituationalContext9013Format=효과 소스가 아님:
 Rules/&SituationalContext9014Format=갑옷을 입지 않거나 방패가 없는 경갑을 착용한 경우:
 Rules/&SituationalContext9015Format=갑옷을 입지 않거나 양손 육척봉을 사용하는 경갑옷을 착용한 경우:
 Rules/&SituationalContext9016Format=주손 또는 보조 손에 근접 무기가 있는 효과 소스가 아닙니다.
+Rules/&SituationalContext9017Format=주문에 집중하고 있습니다:
 Rules/&TurnOccurenceEndOfSourceTurnFormat=턴의 최종 소스
 Screen/&ClassExtraSpellDescriptionFormat=당신은 {0} 클래스에서 이 주문을 알고 있습니다.
 Screen/&EditorLocationSize3Title=거대한 [MODDED]

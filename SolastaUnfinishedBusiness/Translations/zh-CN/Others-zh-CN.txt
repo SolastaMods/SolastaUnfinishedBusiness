@@ -246,6 +246,7 @@ Rules/&SituationalContext9013Format=不是效果源：
 Rules/&SituationalContext9014Format=未持盾牌的无甲或轻甲：
 Rules/&SituationalContext9015Format=双手持用木棒的无甲或轻甲：
 Rules/&SituationalContext9016Format=主手或副手近战武器不是效果源：
+Rules/&SituationalContext9017Format=专注于咒语：
 Rules/&TurnOccurenceEndOfSourceTurnFormat=末端转弯源
 Screen/&ClassExtraSpellDescriptionFormat=你从 {0} 职业知道这个法术。
 Screen/&EditorLocationSize3Title=巨型 [改装]

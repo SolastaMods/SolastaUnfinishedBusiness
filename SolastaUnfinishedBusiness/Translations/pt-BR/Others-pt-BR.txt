@@ -246,6 +246,7 @@ Rules/&SituationalContext9013Format=Não é fonte de efeito:
 Rules/&SituationalContext9014Format=Não vestindo armadura ou armadura leve sem escudo:
 Rules/&SituationalContext9015Format=Sem armadura ou armadura leve com bordão de duas mãos:
 Rules/&SituationalContext9016Format=Não é fonte de efeito com arma corpo a corpo na mão principal ou secundária:
+Rules/&SituationalContext9017Format=Está se concentrando no feitiço:
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Fonte Final do Turno
 Screen/&ClassExtraSpellDescriptionFormat=Você conhece esse feitiço da classe {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODDED]

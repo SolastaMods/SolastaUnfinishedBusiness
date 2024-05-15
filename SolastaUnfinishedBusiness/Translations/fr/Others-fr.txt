@@ -246,6 +246,7 @@ Rules/&SituationalContext9013Format=N'est-ce pas une source d'effet :
 Rules/&SituationalContext9014Format=Ne portant aucune armure ou armure légère sans bouclier :
 Rules/&SituationalContext9015Format=Ne portant aucune armure ou armure légère avec un bâton à deux mains :
 Rules/&SituationalContext9016Format=N'est-ce pas une source d'effet avec une arme de mêlée en main principale ou secondaire :
+Rules/&SituationalContext9017Format=Se concentre sur le sort :
 Rules/&TurnOccurenceEndOfSourceTurnFormat=Source finale du tour
 Screen/&ClassExtraSpellDescriptionFormat=Vous connaissez ce sort de la classe {0}.
 Screen/&EditorLocationSize3Title=Énorme [MODDÉ]

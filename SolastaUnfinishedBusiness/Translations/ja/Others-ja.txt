@@ -246,6 +246,7 @@ Rules/&SituationalContext9013Format=エフェクトソースではありませ�
 Rules/&SituationalContext9014Format=鎧を着ていない、または盾なしの軽鎧を着ている場合:
 Rules/&SituationalContext9015Format=鎧を着ていないか、両手のクォータースタッフを持った軽装甲を着用している場合:
 Rules/&SituationalContext9016Format=メインまたはオフハンドの近接武器の効果ソースではありません:
+Rules/&SituationalContext9017Format=呪文に集中しています:
 Rules/&TurnOccurenceEndOfSourceTurnFormat=ターンの終了元
 Screen/&ClassExtraSpellDescriptionFormat=この呪文は {0} クラスで知っていますね。
 Screen/&EditorLocationSize3Title=巨大な[MODD]
