@@ -84,7 +84,7 @@ ModUi/&DocsRaces=Расы
 ModUi/&DocsSpells=Заклинания
 ModUi/&DocsSubclasses=Архетипы
 ModUi/&DocsSubraces=Разновидности
-ModUi/&DocsVersatilities=Универсальность
+ModUi/&DocsVersatilities=Универсалии
 ModUi/&Donate=<b><color=#D89555>Задонатить:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Скрывать шлемы на персонажах <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Не заканчивать ход после использования действия <color=#D89555>Подготовка</color> <i><color=#F0DAA0>[позволяет использовать Бонусное действие или любые дополнительные основные действия от Ускорения или других источников]</color></i>
