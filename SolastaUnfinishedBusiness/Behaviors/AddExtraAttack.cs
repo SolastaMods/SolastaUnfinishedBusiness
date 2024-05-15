@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -373,6 +374,14 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
             return null;
         }
 
+        var acModifier = offHandItem.ItemDefinition.StaticProperties
+            .Where(x => x.Type == ItemPropertyDescription.PropertyType.Feature)
+            .Select(x => x.FeatureDefinition)
+            .OfType<FeatureDefinitionAttributeModifier>()
+            .Where(x => x.ModifiedAttribute == AttributeDefinitions.ArmorClass)
+            .Select(x => x.ModifierValue)
+            .AddItem(0)
+            .Max();
         var attackModifiers = hero.attackModifiers;
         var attackMode = hero.RefreshAttackMode(
             ActionDefinitions.ActionType.Bonus,
@@ -389,12 +398,23 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         if (damageForm != null)
         {
-            var trend = damageForm.DamageBonusTrends.FirstOrDefault(x => x.sourceName == "Dueling");
+            var duelingTrend = damageForm.DamageBonusTrends.FirstOrDefault(x => x.sourceName == "Dueling");
 
-            if (trend.sourceName == "Dueling")
+            if (duelingTrend.sourceName == "Dueling")
             {
-                damageForm.DamageBonusTrends.Remove(trend);
                 damageForm.BonusDamage -= 2;
+                damageForm.DamageBonusTrends.Remove(duelingTrend);
+            }
+
+            if (acModifier > 0)
+            {
+                var magicalTrend = new TrendInfo(acModifier,
+                    FeatureSourceType.Equipment, offHandItem.ItemDefinition.Name, offHandItem.ItemDefinition);
+
+                attackMode.ToHitBonus += acModifier;
+                attackMode.ToHitBonusTrends.Add(magicalTrend);
+                damageForm.BonusDamage += acModifier;
+                damageForm.DamageBonusTrends.Add(magicalTrend);
             }
         }
 
