@@ -979,7 +979,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -1003,6 +1003,7 @@ internal static partial class SpellBuilders
             new ModifyEffectDescriptionLightningArrowLeap(powerLightningArrowLeap, conditionLightningArrow));
 
         conditionLightningArrow.AddCustomSubFeatures(
+            AddUsablePowersFromCondition.Marker,
             new CustomBehaviorLightningArrow(powerLightningArrowLeap, conditionLightningArrow));
 
         var spell = SpellDefinitionBuilder

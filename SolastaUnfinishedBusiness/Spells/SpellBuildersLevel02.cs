@@ -508,7 +508,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetSavingThrowData(
                         false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -556,7 +556,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionSpellCastingBonus.AddCustomSubFeatures(
-            new AddUsablePowersFromCondition(),
+            AddUsablePowersFromCondition.Marker,
             new CustomBehaviorWitherAndBloomPower(power, conditionSpellCastingBonus));
         spell.AddCustomSubFeatures(new CustomBehaviorWitherAndBloom(power, conditionSpellCastingBonus));
 
