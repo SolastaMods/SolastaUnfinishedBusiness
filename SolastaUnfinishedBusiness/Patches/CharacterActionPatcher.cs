@@ -187,9 +187,11 @@ public static class CharacterActionPatcher
                     yield return actionFinished.OnActionFinishedByMe(__instance);
                 }
             }
+            Trace.LogWarning("[Test only] " + actingCharacter + ":" + rulesetCharacter + ":" + actingCharacter?.Name + ":" + __instance?.ActionId);
 
             //PATCH: support for `IActionFinishedByEnemy`
-            if (Gui.Battle != null)
+            // RulesetCharacter can become null when proxy is destroyed after power activation
+            if (Gui.Battle != null && rulesetCharacter != null)
             {
                 foreach (var target in Gui.Battle.GetContenders(actingCharacter))
                 {
