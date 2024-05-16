@@ -121,7 +121,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique, 3)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
+                    .SetImpactEffectParameters(SpellDefinitions.EldritchBlast)
                     .Build())
             .AddToDB();
 
@@ -129,13 +129,12 @@ public sealed class WizardWarMagic : AbstractSubclass
             ModifyPowerVisibility.Hidden,
             new ModifyEffectDescriptionDeflectionShroud(powerDeflectionShroud));
         featureArcaneDeflection.AddCustomSubFeatures(
-            new CustomBehaviorArcaneDeflection(featureArcaneDeflection, conditionArcaneDeflection,
-                powerDeflectionShroud));
+            new CustomBehaviorArcaneDeflection(
+                featureArcaneDeflection, conditionArcaneDeflection, powerDeflectionShroud));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Wizard{Name}")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite(Name, Resources.WizardArcaneFighter, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardArcaneFighter, 256))
             .AddFeaturesAtLevel(2, featureArcaneDeflection, attributeModifierTacticalWit)
             .AddFeaturesAtLevel(6, featureSetPowerSurge)
             .AddFeaturesAtLevel(10, featureDurableMagic)
@@ -201,7 +200,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             rulesetCharacter.InflictCondition(
                 conditionArcaneDeflection.Name,
                 DurationType.Round,
-                1,
+                0,
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
@@ -276,7 +275,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             rulesetCharacter.InflictCondition(
                 conditionArcaneDeflection.Name,
                 DurationType.Round,
-                1,
+                0,
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
@@ -404,7 +403,8 @@ public sealed class WizardWarMagic : AbstractSubclass
                 usablePower.RepayUse();
             }
 
-            if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PowerSurgeToggle) ||
+            if (targetsThatTookDamage.Count == 0 ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PowerSurgeToggle) ||
                 rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
@@ -440,6 +440,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                     position = target.LocationPosition
                 };
 
+                EffectHelpers.StartVisualEffect(attacker, target, SpellDefinitions.EldritchBlast);
                 RulesetActor.InflictDamage(
                     bonusDamage,
                     damageForm,
