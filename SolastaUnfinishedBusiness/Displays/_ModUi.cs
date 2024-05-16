@@ -255,6 +255,7 @@ internal static class ModUi
         "WizardBladeDancer",
         "WizardDeadMaster",
         "WizardGraviturgist",
+        "WizardWarMagic",
         "WrathfulSmite"
     ];
 

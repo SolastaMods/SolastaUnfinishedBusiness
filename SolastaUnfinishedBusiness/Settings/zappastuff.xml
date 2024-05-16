@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>1</DisplayModMessage>
+    <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -440,6 +440,7 @@
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
+    <EnableRogueStrSaving>false</EnableRogueStrSaving>
     <OfferAdditionalLoreFriendlyNames>true</OfferAdditionalLoreFriendlyNames>
     <UnlockAllNpcFaces>true</UnlockAllNpcFaces>
     <AllowUnmarkedSorcerers>true</AllowUnmarkedSorcerers>
@@ -476,7 +477,6 @@
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
-    <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
     <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
     <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>true
@@ -507,7 +507,7 @@
     <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
     <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
     <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
-    <EnableRogueStrSaving>false</EnableRogueStrSaving>
+    <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
     <AccountForAllDiceOnSavageAttack>true</AccountForAllDiceOnSavageAttack>
     <AllowFlightSuspend>true</AllowFlightSuspend>
     <FlightSuspendWingedBoots>true</FlightSuspendWingedBoots>
@@ -991,6 +991,7 @@
                     <string>WizardDeadMaster</string>
                     <string>WizardGraviturgist</string>
                     <string>WizardSpellMaster</string>
+                    <string>WizardWarMagic</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -1018,7 +1019,6 @@
         <string>FeatGroupApothecary</string>
         <string>FeatArcaneArcherAdept</string>
         <string>FeatArcanist</string>
-        <string>FeatAstralArms</string>
         <string>FeatGroupAthlete</string>
         <string>FeatGroupAwakenTheBeastWithin</string>
         <string>FeatGroupBalefulScion</string>
@@ -1060,7 +1060,6 @@
         <string>FeatGiftOfTheChromaticDragon</string>
         <string>FeatCleavingAttack</string>
         <string>FeatGroupGrudgeBearer</string>
-        <string>FeatHammerThePoint</string>
         <string>FeatGroupHardy</string>
         <string>FeatHealer</string>
         <string>FeatHeavyArmorMaster</string>
@@ -1075,10 +1074,10 @@
         <string>FeatTacticianAdept</string>
         <string>FeatMediumArmorMaster</string>
         <string>FeatMenacing</string>
+        <string>FeatMerciless</string>
         <string>FeatMetamagicAdept</string>
         <string>FeatMobile</string>
         <string>FeatGroupMediumArmor</string>
-        <string>FeatMonkShieldExpert</string>
         <string>FeatMonkInitiate</string>
         <string>FeatNaturalFluidity</string>
         <string>FeatGroupOldTactics</string>
@@ -1100,6 +1099,7 @@
         <string>FeatGroupSecondChance</string>
         <string>FeatSentinel</string>
         <string>FeatDeadeye</string>
+        <string>FeatShieldExpert</string>
         <string>FeatShieldTechniques</string>
         <string>FeatGroupSlasher</string>
         <string>FeatSlayTheEnemies</string>
@@ -1111,6 +1111,7 @@
         <string>FeatSuperiorCritical</string>
         <string>FeatGroupTelekinetic</string>
         <string>FeatTheologian</string>
+        <string>FeatRopeItUp</string>
         <string>FeatGroupTouchedMagic</string>
         <string>FeatTough</string>
         <string>FeatGroupToxicologist</string>
@@ -1146,16 +1147,14 @@
     </FeatGroupEnabled>
     <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
     <FightingStyleEnabled>
+        <string>AstralReach</string>
         <string>BlindFighting</string>
         <string>HandAndAHalf</string>
         <string>Crippling</string>
         <string>Executioner</string>
         <string>Interception</string>
         <string>Lunger</string>
-        <string>Merciless</string>
         <string>Pugilist</string>
-        <string>RopeItUp</string>
-        <string>ShieldExpert</string>
         <string>RemarkableTechnique</string>
         <string>Torchbearer</string>
     </FightingStyleEnabled>
