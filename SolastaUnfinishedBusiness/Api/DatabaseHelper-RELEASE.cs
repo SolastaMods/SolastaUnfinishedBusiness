@@ -995,10 +995,10 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRogueSneakAttack { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRogueSneakAttack");
-        
+
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRoguishHoodlumNonFinesseSneakAttack { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRoguishHoodlumNonFinesseSneakAttack");
-        
+
         internal static FeatureDefinitionAdditionalDamage
             AdditionalDamageTraditionLightRadiantStrikesLuminousKi { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionLightRadiantStrikesLuminousKi");
@@ -2207,6 +2207,12 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionRegeneration RegenerationRing { get; } =
             GetDefinition<FeatureDefinitionRegeneration>("RegenerationRing");
+    }
+
+    internal static class FeatureDefinitionRestHealingModifiers
+    {
+        internal static FeatureDefinitionRestHealingModifier RestHealingModifierBardHealingBallad { get; } =
+            GetDefinition<FeatureDefinitionRestHealingModifier>("RestHealingModifierBardHealingBallad");
     }
 
     internal static class FeatureDefinitionSavingThrowAffinitys

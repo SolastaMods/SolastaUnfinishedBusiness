@@ -226,6 +226,7 @@ internal static partial class CharacterContext
         SwitchRogueSteadyAim();
         SwitchRogueStrSaving();
         SwitchScimitarWeaponSpecialization();
+        SwitchBardHealingBalladOnLongRest();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
             FeatureSetPathClawDragonAncestry, InvocationPoolPathClawDraconicChoice,
@@ -906,6 +907,12 @@ internal static partial class CharacterContext
                 proficiency.Proficiencies.Remove(WeaponTypeDefinitions.ScimitarType.Name);
             }
         }
+    }
+
+    internal static void SwitchBardHealingBalladOnLongRest()
+    {
+        FeatureDefinitionRestHealingModifiers.RestHealingModifierBardHealingBallad.applyDuringLongRest =
+            Main.Settings.EnableBardHealingBalladOnLongRest;
     }
 
     private static void SwitchSubclassAncestriesToUseCustomInvocationPools(

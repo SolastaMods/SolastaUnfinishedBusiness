@@ -194,6 +194,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnablesAsiAndFeat { get; set; }
     public bool EnableFeatsAtEveryFourLevels { get; set; }
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
+    public bool EnableBardHealingBalladOnLongRest { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool EnableBarbarianBrutalStrike { get; set; }
     public bool DisableBarbarianBrutalCritical { get; set; }

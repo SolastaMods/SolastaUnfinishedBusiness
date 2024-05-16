@@ -204,6 +204,13 @@ internal static class CharacterDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardHealingBalladOnLongRest = toggle;
+            CharacterContext.SwitchBardHealingBalladOnLongRest();
+        }
+
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {

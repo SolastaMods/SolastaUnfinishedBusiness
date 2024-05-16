@@ -105,6 +105,7 @@ ModUi/&EnableBarbarianBrutalStrike=Enable <color=#D89555>Barbarian</color> <b>Br
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Barbarian</color> <b>Fighting Style</b> choice at level 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Enable <color=#D89555>Barbarian</color> <b>Reckless Attack</b> buff and debuff to finish at start of next turn
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Enable <color=#D89555>Barbarian</color> regain one rage use over a short rest at level 7
+ModUi/&EnableBardHealingBalladOnLongRest=Enable <color=#D89555>Bard College of Hope</color> <b>Healing Ballad</b> on long rest
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCantripsTriggeringOnWarMagic=Enable cantrips to trigger <color=#D89555>War Magic</color> extra bonus attack

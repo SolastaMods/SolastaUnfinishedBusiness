@@ -105,6 +105,7 @@ ModUi/&EnableBarbarianBrutalStrike=在<color=#D89555>野蛮人</color> 9、13 �
 ModUi/&EnableBarbarianFightingStyle=在<color=#D89555>野蛮人</color> 2 级启用<b>战斗风格</b>
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>野蛮人</color><b>鲁莽攻击</b>增益和减益以在下一回合开始时完成
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=在<color=#D89555>野蛮人</color> 7 级时启用在短休后恢复一次狂暴次数
+ModUi/&EnableBardHealingBalladOnLongRest=在长时间休息时启用<color=#D89555>巴德希望学院</color><b>治愈歌谣</b>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
 ModUi/&EnableCantripsTriggeringOnWarMagic=启用戏法触发<color=#D89555>战争魔法</color>，可以用附赠动作发动一次武器攻击
