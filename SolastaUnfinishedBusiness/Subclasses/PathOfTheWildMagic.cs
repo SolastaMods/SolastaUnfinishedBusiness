@@ -331,6 +331,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     yield return handler.HandleWildSurge(characterAction.ActingCharacter);
                     break;
                 case Id.RageStop:
+                    Trace.LogWarning("Rage is stopping..");
                     handler.RemoveExistingWildSurge(characterAction.ActingCharacter.RulesetCharacter);
                     break;
                 default:
@@ -340,7 +341,14 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            // this function is intentionally left blank
+            if (rulesetCondition.Name == ConditionDefinitions.ConditionRaging.Name
+                || rulesetCondition.Name == ConditionDefinitions.ConditionRagingNormal.Name
+                || rulesetCondition.Name == ConditionDefinitions.ConditionRagingPersistent.Name
+                )
+            {
+                Trace.LogWarning("Rage is starting raging condition from " + target.Name);
+                // handler.RemoveExistingWildSurge(target);
+            }
         }
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -392,6 +400,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .Create($"{ConditionWildSurgePrefix}Retribution")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
                 .SetFeatures(featureWildSurgeRetribution)
                 .AddToDB();
 
@@ -410,12 +419,13 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             featureWildSurgeWeapon.AddCustomSubFeatures(
                 new ReturningWeapon(ValidatorsWeapon.AlwaysValid),
-                new WildSurgeWeaponModifyAttackMode(featureWildSurgeWeapon));
+                new WildSurgeWeaponModifyAttackMode());
 
             var condition = ConditionDefinitionBuilder
                 .Create($"{ConditionWildSurgePrefix}Weapon")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
                 .SetFeatures(featureWildSurgeWeapon)
                 .AddToDB();
 
@@ -501,7 +511,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .Create($"{ConditionWildSurgePrefix}Teleport")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
-                .SetTerminateWhenRemoved()
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
                 .SetFeatures(actionAffinityTeleport)
                 .AddToDB();
 
@@ -582,7 +592,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .Create($"{ConditionWildSurgePrefix}Summon")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
-                .SetTerminateWhenRemoved()
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
                 .SetFeatures(actionAffinitySummon)
                 .AddToDB();
             return new WildSurgeEffect()
@@ -666,7 +676,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetFeatures(auraPower)
-                .SetTerminateWhenRemoved()
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
                 .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                 .AddToDB();
 
@@ -703,7 +713,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                         .Build())
                     .Build())
                 .AddToDB();
-            
 
             var featureGrowth = FeatureDefinitionBuilder.Create($"Feature{Name}Growth")
                 .AddCustomSubFeatures(new WildSurgeGrowthOnTurnEnd(powerGrowth))
@@ -713,7 +722,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .Create($"{ConditionWildSurgePrefix}Growth")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
-                .SetTerminateWhenRemoved()
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
                 .SetFeatures(featureGrowth)
                 .AddToDB();
             return new WildSurgeEffect()
@@ -772,7 +781,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .Create($"{ConditionWildSurgePrefix}Bolt")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
-                .SetTerminateWhenRemoved()
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
                 .SetFeatures(actionAffinityBolt)
                 .AddToDB();
             return new WildSurgeEffect()
@@ -782,7 +791,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             };
         }
 
-        public IEnumerator HandleWildSurge(GameLocationCharacter character)
+        public IEnumerator HandleWildSurge(GameLocationCharacter character, GameLocationCharacter attacker = null)
         {
             if (character == null)
             {
@@ -797,11 +806,11 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            // chooce surge effect
+            // choose surge effect
             var dieRoll =
                 rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            dieRoll = 7;
+            // dieRoll = 8;
 
             var wildSurgeEffect = wildSurgeEffects.ElementAt(dieRoll - 1);
             if (wildSurgeEffect.condition != null)
@@ -820,9 +829,10 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     0,
                     0);
             }
-
+            // TODO: Handle wild surge reaction differently
             if (wildSurgeEffect.power != null)
             {
+                var power = attacker == null ? Id.PowerBonus : Id.PowerNoCost;
                 CharacterActionParams actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerBonus);
                 var usablePower = PowerProvider.Get(wildSurgeEffect.power, rulesetCharacter);
                 actionParams.RulesetEffect = implementationManager.InstantiateEffectPower(rulesetCharacter, usablePower, true);
@@ -834,7 +844,17 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 else if (wildSurgeEffect.power.EffectDescription.TargetType == TargetType.Individuals
                     || wildSurgeEffect.power.EffectDescription.TargetType == TargetType.IndividualsUnique)
                 {
-                    cursorService.ActivateCursor<CursorLocationSelectTarget>([actionParams]);
+                    if (attacker != null)
+                    {
+                        actionParams.TargetCharacters.Add(attacker);
+                        actionParams.ActionModifiers.Add(new ActionModifier());
+                        ServiceRepository.GetService<ICommandService>()?
+                            .ExecuteAction(actionParams, null, false);
+                    }
+                    else
+                    {
+                        cursorService.ActivateCursor<CursorLocationSelectTarget>([actionParams]);
+                    }
                 }
                 else
                 {
@@ -853,8 +873,13 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 {
                     continue;
                 }
+                if (!character.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, wildEffect.condition.Name))
+                {
+                    Trace.LogWarning("No type of user type: " + wildEffect.condition.name + " from " + character.Name);
+                    continue;
+                }
                 Trace.LogWarning("Removing type: " + wildEffect.condition.name + " from " + character.Name);
-                character.RemoveAllConditionsOfType(wildEffect.condition.Name);
+                character.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect, wildEffect.condition.Name);
             }
         }
 
@@ -879,10 +904,10 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             if (!rulesetCharacter.IsToggleEnabled(WildSurgeUnstableBacklashToggle))
             {
-                yield break;
+                // yield break;
             }
 
-            yield return wildSurgeHandler.HandleWildSurge(defender);
+            yield return wildSurgeHandler.HandleWildSurge(defender, attacker);
         }
     }
 
@@ -901,23 +926,9 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .ExecuteAction(actionParams, null, true);
         }
     }
-    private sealed class WildSurgeWeaponModifyAttackMode(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureHammersBoon) :
-        IModifyWeaponAttackMode, IModifyAttackActionModifier
+    private sealed class WildSurgeWeaponModifyAttackMode() :
+        IModifyWeaponAttackMode
     {
-
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            string effectName,
-            ref ActionModifier attackModifier)
-        {
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(-1, FeatureSourceType.CharacterFeature, featureHammersBoon.Name, featureHammersBoon));
-        }
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {

@@ -44,6 +44,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.PressTheAdvantageToggle,
         (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,
+        (Id)ExtraActionId.WildSurgeUnstableBacklashToggle,
         (Id)ExtraActionId.SupremeWillToggle
     ];
 
