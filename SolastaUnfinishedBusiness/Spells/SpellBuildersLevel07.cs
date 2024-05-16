@@ -113,7 +113,7 @@ internal static partial class SpellBuilders
                 power,
                 FeatureDefinitionMoveModes.MoveModeFly12,
                 FeatureDefinitionSenses.SenseBlindSight6)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         condition.GuiPresentation.description = Gui.NoLocalization;

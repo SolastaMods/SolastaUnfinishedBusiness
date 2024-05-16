@@ -194,7 +194,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}Self")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var conditionMark = ConditionDefinitionBuilder

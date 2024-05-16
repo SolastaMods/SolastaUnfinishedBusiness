@@ -232,7 +232,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetGuiPresentation($"Power{Name}{Flamethrower}", Category.Feature)
             .SetPossessive()
             .SetFeatures(actionAffinityFlamethrowerTiny, powerFlamethrower)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var conditionForceBallistaTiny = ConditionDefinitionBuilder
@@ -240,7 +240,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetGuiPresentation($"Power{Name}{ForceBallista}", Category.Feature)
             .SetPossessive()
             .SetFeatures(actionAffinityForceBallistaTiny, powerForceBallista)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var conditionProtectorTiny = ConditionDefinitionBuilder
@@ -248,7 +248,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetGuiPresentation($"Power{Name}{Protector}", Category.Feature)
             .SetPossessive()
             .SetFeatures(actionAffinityProtectorTiny, powerProtector)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         // Medium Cannon Actions
@@ -682,21 +682,21 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .Create(conditionFlamethrowerTiny, $"Condition{Name}{Flamethrower}Tiny15")
             .SetParentCondition(conditionFlamethrowerTiny)
             .AddFeatures(powerFortifiedPositionTiny)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var conditionForceBallistaTiny15 = ConditionDefinitionBuilder
             .Create(conditionForceBallistaTiny, $"Condition{Name}{ForceBallista}Tiny15")
             .SetParentCondition(conditionForceBallistaTiny)
             .AddFeatures(powerFortifiedPositionTiny)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var conditionProtectorTiny15 = ConditionDefinitionBuilder
             .Create(conditionProtectorTiny, $"Condition{Name}{Protector}Tiny15")
             .SetParentCondition(conditionProtectorTiny)
             .AddFeatures(powerFortifiedPositionTiny)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         // Fortified Position
