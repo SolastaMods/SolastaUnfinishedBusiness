@@ -57,6 +57,7 @@ internal static class FixesContext
         FixMummyDreadfulGlareSavingAttribute();
         FixPowerDragonbornBreathWeaponDiceProgression();
         FixRecklessAttackForReachWeaponsAndPathOfTheYeoman();
+        FixRestPowerVisibility();
         FixSavingThrowAffinityConditionRaging();
         FixSavingThrowAffinityManaPainterAbsorption();
         FixSmitesAndStrikesDiceProgression();
@@ -535,6 +536,14 @@ internal static class FixesContext
         //instead of if character is next to target
         FeatureDefinitionCombatAffinitys.CombatAffinityReckless.situationalContext = (SituationalContext)
             ExtraSituationalContext.AttackerWithMeleeOrUnarmedAndTargetWithinReachOrYeomanWithLongbow;
+    }
+
+    private static void FixRestPowerVisibility()
+    {
+        FeatureDefinitionPowers.PowerCircleLandNaturalRecovery.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        FeatureDefinitionPowers.PowerMarksmanRecycler.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        FeatureDefinitionPowers.PowerSorcererManaPainterTap.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        FeatureDefinitionPowers.PowerWizardArcaneRecovery.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
     }
 
     private static void FixSmitesAndStrikesDiceProgression()
