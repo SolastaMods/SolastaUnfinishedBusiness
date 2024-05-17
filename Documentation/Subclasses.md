@@ -6832,7 +6832,7 @@ Your keen ability to assess tactical situations allows you to act quickly in bat
 
 * Power Surge
 
-You have a number of power surges equal to your Intelligence modifier (minimum of one). Whenever you successfully end a spell with Counterspell, or end a short rest, you gain one power surge. Once per turn when you deal damage to a creature or object with a wizard spell, you can spend one power surge to deal extra force damage to that target. The extra damage equals your wizard level.
+You have a number of power surges equal to your Intelligence modifier (minimum of one). Whenever you successfully end a spell with Counterspell, you gain one power surge. Once per turn when you deal damage to a creature or object with a wizard spell, you can spend one power surge to deal extra force damage to on one damage roll of that spell. The extra damage equals your wizard level.
 
 
 ### Level 10

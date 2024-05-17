@@ -19,7 +19,7 @@ ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori sequenze narrative</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Consenti a qualsiasi classe di indossare <color=#D89555> Armatura Silvana</color> o <color=#D89555> Abiti da Portatore di Luce</color>
 ModUi/&AllowBeardlessDwarves=Consenti <color=#D89555>Nani</color> senza barba
-ModUi/&AllowClubsToBeThrown=Consenti il ​​lancio di <color=#D89555>mazze</color> come <color=#D89555>pugnali</color> o <color=#D89555>asce</color>
+ModUi/&AllowClubsToBeThrown=Consenti il lancio di <color=#D89555>mazze</color> come <color=#D89555>pugnali</color> o <color=#D89555>asce</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Consenti incantesimi non suggeriti dal mod in ogni elenco
 ModUi/&AllowDisplayingOfficialSpells=Consenti gli incantesimi ufficiali del gioco in ogni elenco
 ModUi/&AllowDruidToWearMetalArmor=Consenti al <color=#D89555>Druido</color> di indossare un'armatura di metallo
@@ -208,7 +208,7 @@ ModUi/&InitialChoices=<color=#F0DAA0>Creazione:</color>
 ModUi/&Input=<color=#F0DAA0>Inserimento:</color>
 ModUi/&Interface=Interfaccia
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventario e articoli:</color>
-ModUi/&InvertAltBehaviorOnTooltips=Inverti il ​​comportamento del tasto <color=#1E81B0>ALT</color> nelle descrizioni comandi
+ModUi/&InvertAltBehaviorOnTooltips=Inverti il comportamento del tasto <color=#1E81B0>ALT</color> nelle descrizioni comandi
 ModUi/&Invocations=<color=#F0DAA0>Invocazioni</color>
 ModUi/&ItemInDm=Articoli nel DM
 ModUi/&Items=<color=#F0DAA0>Articoli:</color>

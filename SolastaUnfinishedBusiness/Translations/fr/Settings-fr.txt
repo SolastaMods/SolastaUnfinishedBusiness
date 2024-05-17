@@ -305,9 +305,9 @@ ModUi/&UnleashEnemyAsNpc=Autoriser la sélection de monstres sur les gadgets des
 ModUi/&UnleashNpcAsEnemy=Débloquez la sélection de monstres
 ModUi/&UnlockAllNpcFaces=Débloquez les visages des PNJ
 ModUi/&UnlockEyeStyles=Débloquez des styles d'yeux
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages et tatouages
 ModUi/&UnlockGlowingEyeColors=Ajoutez des couleurs d'yeux éclatantes
-ModUi/&UnlockMarkAndTattoosForAllCharacters=Débloquez les marques et tatouages ​​d'origine <color=#D89555>Sorcier</color> pour tous les personnages.
+ModUi/&UnlockMarkAndTattoosForAllCharacters=Débloquez les marques et tatouages d'origine <color=#D89555>Sorcier</color> pour tous les personnages.
 ModUi/&UnlockSkinColors=Débloquez les couleurs de peau
 ModUi/&Update=<b><color=#D89555>Mise à jour</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Utilisez des modèles de visage <color=#D89555>Elfe</color> sur les <color=#D89555>Tieflings</color>

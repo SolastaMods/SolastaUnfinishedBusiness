@@ -5,7 +5,7 @@ ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens o
 ModUi/&AddDarknessPerceptiveToDarkRaces=Ative <color=#D89555>Darkness Perceptive</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Adicionado <color=#D89555>Modificador de Destreza</color> aos inimigos <color=#D89555>Rolagem de Iniciativa</color>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Habilite <color=#D89555>Lutador</color> para adicionar o nível de classe como um bônus na nova rolagem do teste de resistência de <color=#D89555>Resistência Indomável</color>
-ModUi/&AddHelpActionToAllRaces=Adicionada a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis ​​<i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1 espaço de você]</color></i>
+ModUi/&AddHelpActionToAllRaces=Adicionada a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1 espaço de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ativar inimigos humanóides preferidos do <color=#D89555>Ranger</color>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens, alabardas, lanças, maças longas, bestas manuais]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
@@ -67,8 +67,8 @@ ModUi/&DisableBarbarianBrutalCritical=<i>+ Desative também <color=#D89555>Bárb
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desative os pré-requisitos de lançamento de feitiço em <color=#D89555>talentos</color> fornecidos por este mod <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível em <color=#D89555>talentos</color> fornecidos por este mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Desative os pré-requisitos de corrida em <color=#D89555>talentos</color> fornecidos por este mod
-ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sense Dark Vision</color> de todas as raças jogáveis ​​<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desativar <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis ​​<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desativar <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableUnofficialTranslations=Desative o suporte a traduções não oficiais para acelerar o mod <i><color=#F0DAA0>[a menos que eu fale chinês, italiano, japonês, coreano ou espanhol]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibir todos os feitiços conhecidos de outras classes durante a subida de nível</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Exibir espaços de pacto de <color=#D89555>Warlock</color> na seleção de feitiços em vez do painel de personagens</i>
@@ -227,7 +227,7 @@ ModUi/&MovementGridWidthModifier=<color=white>Multiplique a largura da grade de 
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clicar em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam os verdes do pacto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
-ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes adicionais amigáveis ​​​​à história na criação de personagens
+ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes adicionais amigáveis à história na criação de personagens
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancelar <color=#D89555>vantagem/desvantagem</color> pares cegos, invisíveis e percebidos <color=#F0DAA0>[útil em conjunto com <color=#D89555>vantagem/desvantagem</color> oficial regras]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Alterar áreas <color=#D89555>fortemente obscurecidas</color> para serem bloqueadores de projéteis <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Fog Cloud </color>, <color=#D89555>Nuvem Incendiária</color>, <color=#D89555>Tempestade de Pétalas</color>, <color=#D89555>Tempestade de Granizo</color>, <color=#D89555> Nuvem fedorenta</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Criaturas invisíveis são fortemente obscurecidas e podem ser alvo, as jogadas de ataque contra a criatura têm desvantagem e as jogadas de ataque da criatura têm vantagem</i>
