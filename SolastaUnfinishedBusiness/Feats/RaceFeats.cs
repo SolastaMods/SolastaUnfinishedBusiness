@@ -408,13 +408,13 @@ internal static class RaceFeats
     private static FeatDefinition BuildSquatNimbleness(List<FeatDefinition> feats)
     {
         const string SquatNimbleness = "SquatNimbleness";
-        
+
         var movementAffinitySquatNimbleness = FeatureDefinitionMovementAffinityBuilder
-            .Create($"MovementAffinitySquatNimbleness")
+            .Create("MovementAffinitySquatNimbleness")
             .SetGuiPresentationNoContent(true)
             .SetBaseSpeedAdditiveModifier(1)
             .AddToDB();
-        
+
         var acrobaticsSkill = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatSquatNimblenessAcrobatics")
             .SetGuiPresentationNoContent(true)
@@ -691,7 +691,7 @@ internal static class RaceFeats
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (!actionManager ||
-                action.AttackRollOutcome != RollOutcome.CriticalFailure ||
+                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 attacker == helper ||
                 attacker.IsOppositeSide(helper.Side) ||
                 !helper.CanReact() ||

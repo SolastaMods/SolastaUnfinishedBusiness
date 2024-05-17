@@ -4,6 +4,7 @@
 - added Gameplay > Character > 'Enable Bard College of Hope healing ballad on long rest' setting
 - added Ranger Fey Wanderer [incomplete, 7th and 11th aren't implemented yet], and Wizard War Magic subclass
 - added Seeking and Transmuted metamagic spells
+- fixed Bountiful Luck feat retry attack behavior only triggering on critical failures
 - fixed Chaos bolt spell crashing under multiplayer sessions if twinned and one bolt misses
 - fixed Domain Nature druid cantrip not getting assigned to repertoire on level up
 - fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike
