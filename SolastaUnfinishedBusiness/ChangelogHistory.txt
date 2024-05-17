@@ -1,10 +1,11 @@
 1.5.97.10:
 
+- added +X to damage on Shield Bash feat on any wielded magical shield that adds +X to armor class
 - added Gameplay > Character > 'Enable Bard College of Hope healing ballad on long rest' setting
 - added Wizard War Magic subclass
-- added +X to damage on Shield Bash feat on any wielded magical shield that adds +X to armor class
-- fixed Thunderstep to avoid causing damage to caster, teleported ally, and other creatures on destination
+- fixed Domain Nature druid cantrip not getting granted on level up
 - fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike
+- fixed Thunderstep to avoid causing damage to caster, teleported ally, and other creatures on destination
 - fixed Witch Bolt to remove concentration on teleport scenarios when the target becomes outside the spell's range
 - fixed Wither and Bloom doubling damage under multiplayer sessions
 
