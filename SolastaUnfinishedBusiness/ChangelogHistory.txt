@@ -3,17 +3,18 @@
 - added +X to damage on Shield Bash feat on any wielded magical shield that adds +X to armor class
 - added Gameplay > Character > 'Enable Bard College of Hope healing ballad on long rest' setting
 - added Wizard War Magic subclass
-- fixed Domain Nature druid cantrip not getting granted on level up
+- fixed Chaos bolt spell crashing under multiplayer sessions if twinned and one bolt misses
+- fixed Domain Nature druid cantrip not getting assigned to repertoire on level up
 - fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike
-- fixed Thunderstep to avoid causing damage to caster, teleported ally, and other creatures on destination
-- fixed Witch Bolt to remove concentration on teleport scenarios when the target becomes outside the spell's range
-- fixed Wither and Bloom doubling damage under multiplayer sessions
+- fixed Thunderstep spell to avoid causing damage to caster, teleported ally, and other creatures on destination
+- fixed Witch Bolt spell to remove concentration on teleport scenarios when the target becomes outside range
+- fixed Wither and Bloom spell doubling damage under multiplayer sessions
 
 KNOWN ISSUES:
 
 - Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [probably won't fix]
 - Artillerist Fortified Position medium cannon doesn't grant buff to self [probably won't fix]
-- Chaos Bolt crashes under multiplayer sessions if used with twinned metamagic and one of the bolts misses
+- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses
 
 1.5.97.9:
 

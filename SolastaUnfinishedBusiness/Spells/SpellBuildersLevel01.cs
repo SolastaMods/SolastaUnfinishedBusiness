@@ -811,8 +811,8 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
-                        EffectFormBuilder.DamageForm("DamagePure", 1, DieType.D6))
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 2, DieType.D8),
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -853,8 +853,8 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
-                        EffectFormBuilder.DamageForm("DamagePure", 1, DieType.D6))
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 2, DieType.D8),
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -1043,7 +1043,7 @@ internal static partial class SpellBuilders
                 foreach (var effectForm in actualEffectForms
                              .Where(x =>
                                  x.FormType == EffectForm.EffectFormType.Damage &&
-                                 x.DamageForm.DamageType == "DamagePure"))
+                                 x.DamageForm.DamageType == DamageTypeBludgeoning))
                 {
                     effectForm.DamageForm.DamageType = damageType;
                 }
@@ -1129,7 +1129,7 @@ internal static partial class SpellBuilders
                 foreach (var effectForm in actualEffectForms
                              .Where(x =>
                                  x.FormType == EffectForm.EffectFormType.Damage &&
-                                 x.DamageForm.DamageType == "DamagePure"))
+                                 x.DamageForm.DamageType == DamageTypeBludgeoning))
                 {
                     effectForm.DamageForm.DamageType = damageType;
                 }
