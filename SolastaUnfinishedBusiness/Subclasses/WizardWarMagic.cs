@@ -121,7 +121,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique, 3)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce))
-                    .SetImpactEffectParameters(SpellDefinitions.EldritchBlast)
+                    .SetImpactEffectParameters(SpellDefinitions.ArcaneSword)
                     .Build())
             .AddToDB();
 
@@ -197,6 +197,8 @@ public sealed class WizardWarMagic : AbstractSubclass
                 yield break;
             }
 
+            EffectHelpers.StartVisualEffect(
+                attacker, attacker, SpellDefinitions.Counterspell, EffectHelpers.EffectType.Caster);
             rulesetCharacter.InflictCondition(
                 conditionArcaneDeflection.Name,
                 DurationType.Round,
@@ -272,6 +274,8 @@ public sealed class WizardWarMagic : AbstractSubclass
                 yield break;
             }
 
+            EffectHelpers.StartVisualEffect(
+                attacker, attacker, SpellDefinitions.Counterspell, EffectHelpers.EffectType.Caster);
             rulesetCharacter.InflictCondition(
                 conditionArcaneDeflection.Name,
                 DurationType.Round,
@@ -363,7 +367,10 @@ public sealed class WizardWarMagic : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            defender.RulesetCharacter.DamageReceived += DamageReceived;
+            if (firstTarget)
+            {
+                defender.RulesetCharacter.DamageReceived += DamageReceived;
+            }
 
             yield break;
         }
