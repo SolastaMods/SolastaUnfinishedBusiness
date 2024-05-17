@@ -408,7 +408,13 @@ internal static class RaceFeats
     private static FeatDefinition BuildSquatNimbleness(List<FeatDefinition> feats)
     {
         const string SquatNimbleness = "SquatNimbleness";
-
+        
+        var movementAffinitySquatNimbleness = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinitySquatNimbleness")
+            .SetGuiPresentationNoContent(true)
+            .SetBaseSpeedAdditiveModifier(1)
+            .AddToDB();
+        
         var acrobaticsSkill = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatSquatNimblenessAcrobatics")
             .SetGuiPresentationNoContent(true)
@@ -424,7 +430,7 @@ internal static class RaceFeats
         var featSquatNimblenessDex = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatSquatNimblenessDex")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, movementAffinitySquatNimbleness)
             .AddCustomSubFeatures(new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Acrobatics,
                 acrobaticsSkill, acrobaticsExpertise))
             .SetValidators(ValidatorsFeat.IsSmallRace)
@@ -446,7 +452,7 @@ internal static class RaceFeats
         var featSquatNimblenessStr = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatSquatNimblenessStr")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, movementAffinitySquatNimbleness)
             .AddCustomSubFeatures(new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Athletics,
                 athleticsSkill, athleticsExpertise))
             .SetValidators(ValidatorsFeat.IsSmallRace)

@@ -6,6 +6,7 @@
 - fixed Chaos bolt spell crashing under multiplayer sessions if twinned and one bolt misses
 - fixed Domain Nature druid cantrip not getting assigned to repertoire on level up
 - fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike
+- fixed Squat Nimbleness feat not adding +1 to movement
 - fixed Thunderstep spell to avoid causing damage to caster, teleported ally, and other creatures on destination
 - fixed Witch Bolt spell to remove concentration on teleport scenarios when the target becomes outside range
 - fixed Wither and Bloom spell doubling damage under multiplayer sessions
@@ -14,7 +15,7 @@ KNOWN ISSUES:
 
 - Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [probably won't fix]
 - Artillerist Fortified Position medium cannon doesn't grant buff to self [probably won't fix]
-- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses
+- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [won't fix]
 
 1.5.97.9:
 
