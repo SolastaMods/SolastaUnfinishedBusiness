@@ -4344,14 +4344,14 @@ Starting at 7th level, you can cause an eruption of arcane energy at a range of 
 
 ## 2. Fey Wanderer [UB]
 
-A fey mystique surrounds you, thanks to the boon of an archfey, the shining fruit you ate from a talking tree, the magic spring you swam in, or some other auspicious event. However you acquired your fey magic, you are now a Fey Wanderer, a ranger who represents both the mortal and the fey realms. As you wander the multiverse, your joyful laughter brightens the hearts of the downtrodden, and your martial prowess strikes terror in your foes, for great is the mirth of the fey and dreadful is their fury.
+A fey mystique surrounds you, thanks to the boon of an arch fey, the shining fruit you ate from a talking tree, the magic spring you swam in, or some other auspicious event. However, you acquired your fey magic, you are now a Fey Wanderer, a ranger who represents both the mortal and the fey realms. As you wander the multiverse, your joyful laughter brightens the hearts of the downtrodden, and your martial prowess strikes terror in your foes, for great is the mirth of the fey and dreadful is their fury.
 
 
 ### Level 3
 
 * Dreadful Strikes
 
- you can augment your weapon strikes with mind-scarring magic, drawn from the gloomy hollows of the Feywild. When you hit a creature with a weapon, you can deal an extra 1d4 psychic damage to the target, which can take this extra damage only once per turn. The extra damage increases to 1d6 when you reach 11th level in this class.
+ you can augment your weapon strikes with mind-scarring magic, drawn from the gloomy hollows of the Fey wild. When you hit a creature with a weapon, you can deal an extra 1d4 psychic damage to the target, which can take this extra damage only once per turn. The extra damage increases to 1d6 when you reach 11th level in this class.
 
 * Fey Wanderer Magic
 
@@ -4378,7 +4378,7 @@ Your fey qualities give you a supernatural charm. As a result, you make Charisma
 
 * Misty Wanderer
 
-You can slip in and out of the Feywild to move in a blink of an eye: you can cast Misty Step without expending a spell slot. You can do so a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses when you finish a long rest. In addition, whenever you cast Misty Step, you can bring along one willing creature you can see within 5 feet of you.
+You can slip in and out of the Fey wild to move in a blink of an eye: you can cast Misty Step without expending a spell slot. You can do so a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses when you finish a long rest. In addition, whenever you cast Misty Step, you can bring along one willing creature you can see within 5 feet of you.
 
 
 

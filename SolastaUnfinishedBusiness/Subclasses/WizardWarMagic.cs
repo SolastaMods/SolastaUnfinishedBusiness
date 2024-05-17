@@ -198,7 +198,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             }
 
             EffectHelpers.StartVisualEffect(
-                attacker, attacker, SpellDefinitions.Counterspell, EffectHelpers.EffectType.Caster);
+                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.Caster);
             rulesetCharacter.InflictCondition(
                 conditionArcaneDeflection.Name,
                 DurationType.Round,
@@ -275,7 +275,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             }
 
             EffectHelpers.StartVisualEffect(
-                attacker, attacker, SpellDefinitions.Counterspell, EffectHelpers.EffectType.Caster);
+                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.Caster);
             rulesetCharacter.InflictCondition(
                 conditionArcaneDeflection.Name,
                 DurationType.Round,
@@ -367,7 +367,14 @@ public sealed class WizardWarMagic : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (firstTarget)
+            if (rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique)
+            {
+                if (firstTarget)
+                {
+                    defender.RulesetCharacter.DamageReceived += DamageReceived;   
+                }
+            }
+            else
             {
                 defender.RulesetCharacter.DamageReceived += DamageReceived;
             }
