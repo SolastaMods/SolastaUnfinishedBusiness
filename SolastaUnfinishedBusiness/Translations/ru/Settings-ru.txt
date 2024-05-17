@@ -105,7 +105,7 @@ ModUi/&EnableBarbarianBrutalStrike=Включить <b>Жестокий удар
 ModUi/&EnableBarbarianFightingStyle=Включить <color=#D89555>Варварам</color> выбор <b>Боевого стиля</b> на уровне 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Включить для <color=#D89555>Варваров</color> завершение эффектов <b>Безрассудной атаки</b> в начале следующего хода
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Включить <color=#D89555>Варварам</color> на уровне 7 возможность восстанавливать один заряд ярости за короткий отдых
-ModUi/&EnableBardHealingBalladOnLongRest=Включить <color=#D89555>Бардовскую коллегию надежды</color> <b>Исцеляющую балладу</b> при длительном отдыхе.
+ModUi/&EnableBardHealingBalladOnLongRest=Включить <color=#D89555>Бардам коллегии надежды</color> работу умения <b>Целительная баллада</b> при длительном отдыхе
 ModUi/&EnableBetaContent=Включить бета-контент <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Включить отмену действия правым кликом мыши
 ModUi/&EnableCantripsTriggeringOnWarMagic=Включить срабатывание дополнительной бонусной атаки <color=#D89555>Боевой магии</color> от заговоров
