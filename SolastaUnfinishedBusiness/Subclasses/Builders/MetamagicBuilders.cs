@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -15,6 +17,8 @@ internal static class MetamagicBuilders
     private const string MetamagicAltruistic = "MetamagicAltruisticSpell";
     private const string MetamagicFocused = "MetamagicFocusedSpell";
     private const string MetamagicPowerful = "MetamagicPowerfulSpell";
+    private const string MetamagicSeeking = "MetamagicSeekingSpell";
+    private const string MetamagicTransmuted = "MetamagicTransmutedSpell";
     private const string MetamagicWidened = "MetamagicWidenedSpell";
 
     #region Metamagic Altruistic
@@ -247,6 +251,99 @@ internal static class MetamagicBuilders
             }
 
             return effectDescription;
+        }
+    }
+
+    #endregion
+
+    #region Metamagic Transmuted
+
+    private static readonly List<string> TransmutedDamageTypes = [DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder];
+    internal static MetamagicOptionDefinition BuildMetamagicTransmutedSpell()
+    {
+        var validator = new ValidateMetamagicApplication(IsMetamagicTransmutedSpellValid);
+
+        return MetamagicOptionDefinitionBuilder
+            .Create(MetamagicTransmuted)
+            .SetGuiPresentation(Category.Feature)
+            .SetCost(MetamagicCostMethod.FixedValue, 2)
+            .AddCustomSubFeatures(new MagicEffectAttackInitiatedByMeTransmuted(), validator)
+            .AddToDB();
+    }
+
+    private static void IsMetamagicTransmutedSpellValid(
+        RulesetCharacter caster,
+        RulesetEffectSpell rulesetEffectSpell,
+        MetamagicOptionDefinition metamagicOption,
+        ref bool result,
+        ref string failure)
+    {
+        if (rulesetEffectSpell.EffectDescription.EffectForms.Any(x =>
+                x.FormType == EffectForm.EffectFormType.Damage &&
+                TransmutedDamageTypes.Contains(x.DamageForm.DamageType)))
+        {
+            return;
+        }
+
+        failure = "Failure/&FailureTransmutedSpell";
+        result = false;
+    }
+
+    private sealed class MagicEffectAttackInitiatedByMeTransmuted : IMagicEffectAttackInitiatedByMe
+    {
+        public IEnumerator OnMagicEffectAttackInitiatedByMe(
+            CharacterActionMagicEffect action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool checkMagicalAttackDamage)
+        {
+            yield break;
+        }
+    }
+
+    #endregion
+    
+    #region Metamagic Seeking
+
+    internal static MetamagicOptionDefinition BuildMetamagicSeekingSpell()
+    {
+        var validator = new ValidateMetamagicApplication(IsMetamagicSeekingSpellValid);
+
+        return MetamagicOptionDefinitionBuilder
+            .Create(MetamagicSeeking)
+            .SetGuiPresentation(Category.Feature)
+            .SetCost(MetamagicCostMethod.FixedValue, 2)
+            .AddCustomSubFeatures(new TryAlterOutcomeAttackMetamagicSeeking(), validator)
+            .AddToDB();
+    }
+
+    private static void IsMetamagicSeekingSpellValid(
+        RulesetCharacter caster,
+        RulesetEffectSpell rulesetEffectSpell,
+        MetamagicOptionDefinition metamagicOption,
+        ref bool result,
+        ref string failure)
+    {
+        failure = "Failure/&FailureSeekingSpell";
+
+        result = false;
+    }
+
+    private sealed class TryAlterOutcomeAttackMetamagicSeeking : ITryAlterOutcomeAttack
+    {
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier)
+        {
+            yield break;
         }
     }
 

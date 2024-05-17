@@ -185,6 +185,8 @@ internal static class ModUi
         "MartialSpellShield",
         "MartialTactician",
         "MassHeal",
+        "MetamagicSeekingSpell",
+        "MetamagicTransmutedSpell",
         "MeteorSwarmSingleTarget",
         "MindBlank",
         "MindSpike",

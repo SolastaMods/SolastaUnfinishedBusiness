@@ -1,0 +1,36 @@
+{
+  "$type": "MetamagicOptionDefinition, Assembly-CSharp",
+  "costMethod": "FixedValue",
+  "sorceryPointsCost": 2,
+  "metamagicType": 9000,
+  "parameterMethod": "FixedValue",
+  "parameterValue": 1,
+  "boundFeature": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&MetamagicTransmutedSpellTitle",
+    "description": "Feature/&MetamagicTransmutedSpellDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "15d5095f-73b8-5bdd-9e86-19a380fdff33",
+  "contentPack": 9999,
+  "name": "MetamagicTransmutedSpell"
+}
