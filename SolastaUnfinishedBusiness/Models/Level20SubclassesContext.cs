@@ -924,6 +924,7 @@ internal static class Level20SubclassesContext
             .SetDamageDice(DieType.D6, 2)
             .SetSpecificDamageType(DamageTypeFire)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetAttackModeOnly()
             .SetImpactParticleReference(FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
