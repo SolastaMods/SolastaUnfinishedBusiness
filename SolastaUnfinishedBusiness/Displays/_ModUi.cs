@@ -218,6 +218,7 @@ internal static class ModUi
         "RaceTieflingFeral",
         "RaceTieflingMephistopheles",
         "RaceTieflingZariel",
+        "RangerFeyWanderer",
         "RangerGloomStalker",
         "RangerWildMaster",
         "RemarkableTechnique",

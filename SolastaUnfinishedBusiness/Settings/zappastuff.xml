@@ -420,6 +420,7 @@
     <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
     <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
     <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+    <EnableBardHealingBalladOnLongRest>false</EnableBardHealingBalladOnLongRest>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>true</DisableBarbarianBrutalCritical>
@@ -924,6 +925,7 @@
             <value>
                 <ArrayOfString>
                     <string>RangerArcanist</string>
+                    <string>RangerFeyWanderer</string>
                     <string>RangerGloomStalker</string>
                     <string>RangerHellWalker</string>
                     <string>RangerLightBearer</string>

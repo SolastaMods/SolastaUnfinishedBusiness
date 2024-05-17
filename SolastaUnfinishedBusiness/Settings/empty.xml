@@ -323,6 +323,7 @@
     <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
     <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
     <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+    <EnableBardHealingBalladOnLongRest>false</EnableBardHealingBalladOnLongRest>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <EnableBarbarianBrutalStrike>false</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>false</DisableBarbarianBrutalCritical>

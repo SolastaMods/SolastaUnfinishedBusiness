@@ -2,7 +2,7 @@
 
 - added +X to damage on Shield Bash feat on any wielded magical shield that adds +X to armor class
 - added Gameplay > Character > 'Enable Bard College of Hope healing ballad on long rest' setting
-- added Wizard War Magic subclass
+- added Ranger Fey Wanderer [incomplete, 7th and 11th are WIP], and Wizard War Magic subclass
 - fixed Chaos bolt spell crashing under multiplayer sessions if twinned and one bolt misses
 - fixed Domain Nature druid cantrip not getting assigned to repertoire on level up
 - fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike

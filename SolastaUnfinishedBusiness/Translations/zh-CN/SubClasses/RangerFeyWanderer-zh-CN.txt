@@ -1,0 +1,12 @@
+Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesDescription=你可以用从妖精荒野阴暗的洞穴中汲取的心灵伤痕魔法来增强你的武器攻击力。当你用武器击中生物时，你可以对目标造成额外的 1d4 精神伤害，该目标每回合只能承受一次额外伤害。当您达到该级别的 11 级时，额外伤害将增加至 1d6。
+Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesTitle=可怕的打击
+Feature/&AutoPreparedSpellsRangerFeyWandererDescription=你获得额外法术，这些法术对你而言被视为游侠法术，它们始终处于准备状态，且不计入你所掌握的游侠法术数量：\n{0}\n\n
+Feature/&AutoPreparedSpellsRangerFeyWandererTitle=妖精漫游者魔法
+Feature/&FeatureSetRangerFeyWandererOtherworldlyGlamourDescription=你的妖精品质赋予你超自然的魅力。结果，你在进行魅力检定时具有优势。此外，您还可以熟练掌握以下您选择的技能之一：欺骗、表演或说服。
+Feature/&FeatureSetRangerFeyWandererOtherworldlyGlamourTitle=超凡脱俗的魅力
+Feature/&PowerRangerFeyWandererMistyWandererDescription=你可以溜进溜出妖精荒野并在眨眼之间移动：你可以施放迷雾步而不消耗法术位。你可以这样做的次数等于你的感知调整值（至少一次），并且当你完成长时间休息时，你会重新获得所有消耗的使用次数。此外，每当你施放迷雾步时，你都可以带上一个在你周围 5 英尺内可以看到的自愿生物。
+Feature/&PowerRangerFeyWandererMistyWandererTitle=迷雾流浪者
+Feedback/&AdditionalDamageDreadfulStrikesFormat=可怕的打击
+Feedback/&AdditionalDamageDreadfulStrikesLine=恐怖打击造成额外 +{2} 伤害！
+Subclass/&RangerFeyWandererDescription=妖精的神秘感围绕着你，这要归功于妖精的恩赐、你从会说话的树上吃下的闪亮果实、你游泳的神奇泉水，或者其他一些吉祥的事件。无论你如何获得精类魔法，你现在都是一名精类流浪者，一名代表凡人和精类领域的游侠。当你在多元宇宙中漫步时，你快乐的笑声照亮了受压迫者的心，你的军事实力让你的敌人感到恐惧，因为精类的欢乐是伟大的，他们的愤怒是可怕的。
+Subclass/&RangerFeyWandererTitle=妖精流浪者

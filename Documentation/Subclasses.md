@@ -4342,7 +4342,47 @@ Starting at 7th level, you can cause an eruption of arcane energy at a range of 
 
 
 
-## 2. Gloom Stalker [UB]
+## 2. Fey Wanderer [UB]
+
+A fey mystique surrounds you, thanks to the boon of an archfey, the shining fruit you ate from a talking tree, the magic spring you swam in, or some other auspicious event. However you acquired your fey magic, you are now a Fey Wanderer, a ranger who represents both the mortal and the fey realms. As you wander the multiverse, your joyful laughter brightens the hearts of the downtrodden, and your martial prowess strikes terror in your foes, for great is the mirth of the fey and dreadful is their fury.
+
+
+### Level 3
+
+* Dreadful Strikes
+
+ you can augment your weapon strikes with mind-scarring magic, drawn from the gloomy hollows of the Feywild. When you hit a creature with a weapon, you can deal an extra 1d4 psychic damage to the target, which can take this extra damage only once per turn. The extra damage increases to 1d6 when you reach 11th level in this class.
+
+* Fey Wanderer Magic
+
+You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know:
+
+	I	Charm Person
+
+	II	Misty Step
+
+	III	Dispel Magic
+
+	IV	Dimension Door
+
+	V	Steel Wind Strike
+
+
+
+* Otherworldly Glamour
+
+Your fey qualities give you a supernatural charm. As a result, you make Charisma checks with advantage. In addition, you gain proficiency in one of the following skills of your choice: Deception, Performance, or Persuasion.
+
+
+### Level 15
+
+* Misty Wanderer
+
+You can slip in and out of the Feywild to move in a blink of an eye: you can cast Misty Step without expending a spell slot. You can do so a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses when you finish a long rest. In addition, whenever you cast Misty Step, you can bring along one willing creature you can see within 5 feet of you.
+
+
+
+## 3. Gloom Stalker [UB]
 
 Gloom stalkers are at home in the darkest places: deep under the earth, in gloomy alleyways, in primeval forests, and wherever else the light dims. Most folk enter such places with trepidation, but a gloom stalker ventures boldly into the darkness, seeking to ambush threats before they can reach the broader world. Such rangers are often found in the Underdark, but they will go any place where evil lurks in the shadows.
 
@@ -4396,7 +4436,7 @@ Whenever a creature is about to hit you with an attack, you can use your reactio
 
 
 
-## 3. Hellwalker [UB]
+## 4. Hellwalker [UB]
 
 You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
 
@@ -4452,7 +4492,7 @@ Your hellish magic has granted you limited command over the dammed creatures tha
 
 
 
-## 4. Hunter [SOL]
+## 5. Hunter [SOL]
 
 Emulating the Hunter archetype means accepting your place as a bulwark between civilization and the terrors of the wilderness. As you walk the Hunter's path, you learn specialized techniques for fighting the threats you face.
 
@@ -4486,7 +4526,7 @@ Select one of the options: Stand Against the Tide, Evasion, or Uncanny Dodge.
 
 
 
-## 5. Lightbearer [UB]
+## 6. Lightbearer [UB]
 
 The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
 
@@ -4538,7 +4578,7 @@ You can use your holy light to temporarily blind assailants. When a creature wit
 
 
 
-## 6. Marksman [SOL]
+## 7. Marksman [SOL]
 
 Marksmen are experts with a bow, inheriting techniques developed by the elite high elven troops of the Manacalon Empire. They are among the deadliest ranged combatants on Solasta.
 
@@ -4580,7 +4620,7 @@ At level 15, you can attack three times whenever you take the Attack action on y
 
 
 
-## 7. Shadow Tamer [SOL]
+## 8. Shadow Tamer [SOL]
 
 Shadow Tamers are used to wandering the desolate lands beyond the Marches. They know the lore and languages of darkness and the hazards and customs of those dreadful caves inhabited by monsters.
 
@@ -4622,7 +4662,7 @@ At level 15, you have proficiency with all saving throws while in dim light or d
 
 
 
-## 8. Sky Warrior [UB]
+## 9. Sky Warrior [UB]
 
 Sky Warriors have been touched by the lingering power of barren windswept landscapes inhabited by nothing but mirages and ghosts. They combine elegant maneuvers of blade and shield with illusion magic to thrive in combat.
 
@@ -4680,7 +4720,7 @@ While wearing a shield, gain a flying speed equal to your walking speed.
 
 
 
-## 9. Survivalist [UB]
+## 10. Survivalist [UB]
 
 Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 
@@ -4734,7 +4774,7 @@ You are immune to being blinded, deafened, frightened, or poisoned, and any crit
 
 
 
-## 10. Swift Blade [SOL]
+## 11. Swift Blade [SOL]
 
 Swift blades are fast, silent, and deadly. They are able to take down targets in a matter of seconds, and then rush out of combat and disappear into the wilderness without a trace.
 
@@ -4772,7 +4812,7 @@ At level 15, you become extremely hard to pin down. Whenever you take any damage
 
 
 
-## 11. Wildmaster [UB]
+## 12. Wildmaster [UB]
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 

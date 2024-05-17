@@ -1,0 +1,12 @@
+Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesDescription=Puoi potenziare i colpi delle tue armi con magie sconvolgenti, estratte dalle cupe cavità della Selva Fatata. Quando colpisci una creatura con un'arma, puoi infliggere 1d4 danni psichici extra al bersaglio, che può subire questo danno extra solo una volta per turno. Il danno extra aumenta a 1d6 quando raggiungi l'11° livello in questa classe.
+Feature/&AdditionalDamageRangerFeyWandererDreadfulStrikesTitle=Colpi terribili
+Feature/&AutoPreparedSpellsRangerFeyWandererDescription=Ottieni incantesimi bonus che per te sono considerati incantesimi da Ranger, sono sempre preparati e non contano nel numero di incantesimi da Ranger che conosci:\n{0}\n\n
+Feature/&AutoPreparedSpellsRangerFeyWandererTitle=Magia del Vagabondo Fatato
+Feature/&FeatureSetRangerFeyWandererOtherworldlyGlamourDescription=Le tue qualità fatate ti conferiscono un fascino soprannaturale. Di conseguenza, effettui prove di Carisma con vantaggio. Inoltre, ottieni competenza in una delle seguenti abilità a tua scelta: Inganno, Esibizione o Persuasione.
+Feature/&FeatureSetRangerFeyWandererOtherworldlyGlamourTitle=Glamour ultraterreno
+Feature/&PowerRangerFeyWandererMistyWandererDescription=Puoi entrare e uscire dalla Selva dei Folletti per muoverti in un batter d'occhio: puoi lanciare Misty Step senza spendere uno slot incantesimo. Puoi farlo un numero di volte pari al tuo modificatore di Saggezza (minimo una volta) e recuperi tutti gli usi spesi quando termini un riposo lungo. Inoltre, ogni volta che lanci Passo Nebbioso, puoi portare con te una creatura consenziente che puoi vedere entro 1,5 metri da te.
+Feature/&PowerRangerFeyWandererMistyWandererTitle=Viandante nebbioso
+Feedback/&AdditionalDamageDreadfulStrikesFormat=Colpi terribili
+Feedback/&AdditionalDamageDreadfulStrikesLine=Dreadful Strikes infligge +{2} danni extra!
+Subclass/&RangerFeyWandererDescription=Un'atmosfera magica ti circonda, grazie al dono di un arcifatato, al frutto splendente che hai mangiato da un albero parlante, alla sorgente magica in cui hai nuotato o a qualche altro evento di buon auspicio. Indipendentemente dal modo in cui hai acquisito la tua magia fatata, ora sei un Fey Wanderer, un ranger che rappresenta sia il regno dei mortali che quello delle fate. Mentre vaghi per il multiverso, la tua risata gioiosa illumina i cuori degli oppressi e la tua abilità marziale incute terrore nei tuoi nemici, perché grande è l'allegria delle fate e terribile è la loro furia.
+Subclass/&RangerFeyWandererTitle=Fey Vagabondo
