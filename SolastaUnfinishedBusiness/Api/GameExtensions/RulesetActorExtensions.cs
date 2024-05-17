@@ -53,8 +53,7 @@ internal static class RulesetActorExtensions
         }
 
         list.AddRange(hero.trainedFeats);
-        // metamagic sub-features processed when they are selected for spell cast
-        // list.AddRange(hero.trainedMetamagicOptions);
+        list.AddRange(hero.trainedMetamagicOptions);
         list.AddRange(hero.trainedInvocations);
         list.AddRange(hero.trainedFightingStyles);
 

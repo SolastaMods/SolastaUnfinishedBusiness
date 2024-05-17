@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
 using static MetricsDefinitions;
@@ -258,7 +262,9 @@ internal static class MetamagicBuilders
 
     #region Metamagic Transmuted
 
-    private static readonly List<string> TransmutedDamageTypes = [DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder];
+    private static readonly List<string> TransmutedDamageTypes =
+        [DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder];
+
     internal static MetamagicOptionDefinition BuildMetamagicTransmutedSpell()
     {
         var validator = new ValidateMetamagicApplication(IsMetamagicTransmutedSpellValid);
@@ -266,7 +272,7 @@ internal static class MetamagicBuilders
         return MetamagicOptionDefinitionBuilder
             .Create(MetamagicTransmuted)
             .SetGuiPresentation(Category.Feature)
-            .SetCost(MetamagicCostMethod.FixedValue, 2)
+            .SetCost()
             .AddCustomSubFeatures(new MagicEffectAttackInitiatedByMeTransmuted(), validator)
             .AddToDB();
     }
@@ -306,7 +312,7 @@ internal static class MetamagicBuilders
     }
 
     #endregion
-    
+
     #region Metamagic Seeking
 
     internal static MetamagicOptionDefinition BuildMetamagicSeekingSpell()
@@ -336,14 +342,77 @@ internal static class MetamagicBuilders
     private sealed class TryAlterOutcomeAttackMetamagicSeeking : ITryAlterOutcomeAttack
     {
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier actionModifier)
+            ActionModifier attackModifier)
         {
-            yield break;
+            if (action is not CharacterActionCastSpell)
+            {
+                yield break;
+            }
+
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var rulesetHelper = helper.RulesetCharacter;
+
+            if (!actionManager ||
+                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                helper != attacker ||
+                !helper.IsActionOnGoing(ActionDefinitions.Id.MetamagicToggle) ||
+                rulesetHelper.RemainingSorceryPoints < 2)
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "CustomReactionMetamagicSeekingSpellDescription".Formatted(
+                        Category.Reaction, defender.Name)
+                };
+            var count = actionManager.PendingReactionRequestGroups.Count;
+
+            var reactionRequest = new ReactionRequestCustom("MetamagicSeekingSpell", reactionParams)
+            {
+                Resource = ReactionResourceSorceryPoints.Instance
+            };
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            rulesetHelper.SpendSorceryPoints(2);
+            rulesetHelper.SorceryPointsAltered?.Invoke(rulesetHelper, rulesetHelper.RemainingSorceryPoints);
+
+            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            action.AttackSuccessDelta += dieRoll - action.AttackRoll;
+            action.AttackRoll = dieRoll;
+
+            if (action.AttackSuccessDelta >= 0)
+            {
+                action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
+            }
+            else
+            {
+                action.AttackRollOutcome = dieRoll == 1 ? RollOutcome.CriticalFailure : RollOutcome.Failure;
+            }
+
+            rulesetHelper.LogCharacterActivatesAbility(
+                "Feature/&MetamagicSeekingSpellTitle",
+                "Feedback/&MetamagicSeekingSpellToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                ]);
         }
     }
 
