@@ -50,7 +50,8 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             .Create($"Condition{Name}DreadfulStrikes")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
+            .SetSpecialDuration()
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var additionalDamageDreadfulStrikes = FeatureDefinitionAdditionalDamageBuilder
