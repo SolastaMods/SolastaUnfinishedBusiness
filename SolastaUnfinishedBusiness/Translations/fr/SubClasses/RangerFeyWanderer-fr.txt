@@ -12,7 +12,7 @@ Feature/&PowerRangerFeyWandererBeguilingTwistFrightenedTitle=Effrayé
 Feature/&PowerRangerFeyWandererBeguilingTwistTitle=Torsion séduisante
 Feature/&PowerRangerFeyWandererFeyReinforcementsDescription=Une fois par repos long, vous pouvez utiliser votre action pour lancer le sort Conjure Fey. Lancer le sort de cette façon ne nécessite ni composants ni concentration et la durée du sort est d'une minute.
 Feature/&PowerRangerFeyWandererFeyReinforcementsTitle=Renforts Fey
-Feature/&PowerRangerFeyWandererMistyWandererDescription=Vous pouvez entrer et sortir du Fey Wild pour vous déplacer en un clin d’œil : vous pouvez lancer Misty Step sans dépenser d’emplacement de sort. Vous pouvez le faire un nombre de fois égal à votre modificateur de Sagesse (au minimum une fois), et vous récupérez toutes les utilisations dépensées lorsque vous terminez un repos long. De plus, chaque fois que vous lancez Misty Step, vous pouvez amener avec vous une créature volontaire que vous pouvez voir.
+Feature/&PowerRangerFeyWandererMistyWandererDescription=Vous pouvez entrer et sortir du Fey Wild pour vous déplacer en un clin d’œil : vous pouvez lancer Misty Step sans dépenser d’emplacement de sort. Vous pouvez le faire un nombre de fois égal à votre modificateur de Sagesse (au minimum une fois), et vous récupérez toutes les utilisations dépensées lorsque vous terminez un repos long. De plus, chaque fois que vous lancez Misty Step, vous pouvez amener avec vous une créature volontaire que vous pouvez voir à moins de 1,50 mètre de vous.
 Feature/&PowerRangerFeyWandererMistyWandererTitle=Vagabond brumeux
 Feedback/&AdditionalDamageDreadfulStrikesFormat=Frappes épouvantables
 Feedback/&AdditionalDamageDreadfulStrikesLine=Dreadful Strikes inflige +{2} dégâts supplémentaires !
@@ -22,3 +22,4 @@ Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistReactTitle
 Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistTitle=Torsion séduisante
 Subclass/&RangerFeyWandererDescription=Une mystique féerique vous entoure, grâce à la bénédiction d'un archfée, aux fruits brillants que vous avez mangés d'un arbre parlant, à la source magique dans laquelle vous avez nagé ou à tout autre événement de bon augure. Quelle que soit la manière dont vous avez acquis votre magie féerique, vous êtes désormais un Fey Wanderer, un rôdeur qui représente à la fois le royaume des mortels et celui des fées. Tandis que vous parcourez le multivers, votre rire joyeux illumine le cœur des opprimés et vos prouesses martiales sèment la terreur chez vos ennemis, car grande est la gaieté des fées et terrible est leur fureur.
 Subclass/&RangerFeyWandererTitle=Fey Vagabond
+Tooltip/&MustBeWithin5ft=Doit être à moins de 5 pieds

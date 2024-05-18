@@ -12,7 +12,7 @@ Feature/&PowerRangerFeyWandererBeguilingTwistFrightenedTitle=Spaventato
 Feature/&PowerRangerFeyWandererBeguilingTwistTitle=Torsione seducente
 Feature/&PowerRangerFeyWandererFeyReinforcementsDescription=Una volta per riposo lungo, puoi usare la tua azione per lanciare l'incantesimo Evoca Fata. Lanciare l'incantesimo in questo modo non richiede componenti o concentrazione e la durata dell'incantesimo è di un minuto.
 Feature/&PowerRangerFeyWandererFeyReinforcementsTitle=Rinforzi delle Fate
-Feature/&PowerRangerFeyWandererMistyWandererDescription=Puoi entrare e uscire dal Fey Wild per muoverti in un batter d'occhio: puoi lanciare Misty Step senza spendere uno slot incantesimo. Puoi farlo un numero di volte pari al tuo modificatore di Saggezza (minimo una volta) e recuperi tutti gli usi spesi quando termini un riposo lungo. Inoltre, ogni volta che lanci Passo Nebbioso, puoi portare con te una creatura consenziente che puoi vedere.
+Feature/&PowerRangerFeyWandererMistyWandererDescription=Puoi entrare e uscire dal Fey Wild per muoverti in un batter d'occhio: puoi lanciare Misty Step senza spendere uno slot incantesimo. Puoi farlo un numero di volte pari al tuo modificatore di Saggezza (minimo una volta) e recuperi tutti gli usi spesi quando termini un riposo lungo. Inoltre, ogni volta che lanci Passo Nebbioso, puoi portare con te una creatura consenziente che puoi vedere entro 1,5 metri da te.
 Feature/&PowerRangerFeyWandererMistyWandererTitle=Viandante nebbioso
 Feedback/&AdditionalDamageDreadfulStrikesFormat=Colpi terribili
 Feedback/&AdditionalDamageDreadfulStrikesLine=Dreadful Strikes infligge +{2} danni extra!
@@ -22,3 +22,4 @@ Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistReactTitle
 Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistTitle=Torsione seducente
 Subclass/&RangerFeyWandererDescription=Un'atmosfera magica ti circonda, grazie al dono di un arcifatato, al frutto splendente che hai mangiato da un albero parlante, alla sorgente magica in cui hai nuotato o a qualche altro evento di buon auspicio. Indipendentemente dal modo in cui hai acquisito la tua magia fatata, ora sei un Fey Wanderer, un ranger che rappresenta sia il regno dei mortali che quello delle fate. Mentre vaghi per il multiverso, la tua risata gioiosa illumina i cuori degli oppressi e la tua abilità marziale incute terrore nei tuoi nemici, perché grande è l'allegria delle fate e terribile è la loro furia.
 Subclass/&RangerFeyWandererTitle=Fey Vagabondo
+Tooltip/&MustBeWithin5ft=Deve essere entro 5 piedi

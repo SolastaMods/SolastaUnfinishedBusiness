@@ -192,8 +192,9 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                     .Create(MistyStep)
                     .InviteOptionalAlly()
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeMistyWanderer())
             .AddToDB();
+
+        powerMistyWanderer.AddCustomSubFeatures(new CustomBehaviorMistyWanderer(powerMistyWanderer));
 
         //
         // MAIN
@@ -346,8 +347,36 @@ public sealed class RangerFeyWanderer : AbstractSubclass
         }
     }
 
-    private sealed class MagicEffectFinishedByMeMistyWanderer : IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorMistyWanderer(FeatureDefinitionPower powerMistyWanderer)
+        : IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != powerMistyWanderer)
+            {
+                return target.RulesetCharacter is not RulesetCharacterEffectProxy;
+            }
+
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid =
+                target.RulesetCharacter is not RulesetCharacterEffectProxy &&
+                __instance.ActionParams.ActingCharacter.IsWithinRange(target, 1);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+            }
+
+            return isValid;
+        }
+
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActingCharacter.UsedBonusSpell = true;

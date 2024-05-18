@@ -12,7 +12,7 @@ Feature/&PowerRangerFeyWandererBeguilingTwistFrightenedTitle=受惊
 Feature/&PowerRangerFeyWandererBeguilingTwistTitle=迷人的扭曲
 Feature/&PowerRangerFeyWandererFeyReinforcementsDescription=每长时间休息一次，你就可以使用你的动作来施展召唤精类法术。以这种方式施展法术不需要成分或专注，并且法术的持续时间为一分钟。
 Feature/&PowerRangerFeyWandererFeyReinforcementsTitle=精宸所与
-Feature/&PowerRangerFeyWandererMistyWandererDescription=你可以在妖精荒野中进出，眨眼之间即可移动：你可以施放迷雾步，而无需消耗法术位。你可以这样做的次数等于你的感知调整值（至少一次），并且当你完成长时间休息时，你会重新获得所有消耗的使用次数。此外，每当你施放迷雾步时，你都可以带上一只你能看到的愿意的生物。
+Feature/&PowerRangerFeyWandererMistyWandererDescription=你可以在妖精荒野中进出，眨眼之间即可移动：你可以施放迷雾步，而无需消耗法术位。你可以这样做的次数等于你的感知调整值（至少一次），并且当你完成长时间休息时，你会重新获得所有消耗的使用次数。此外，每当你施放迷雾步时，你都可以带上一个在你周围 5 英尺内可以看到的自愿生物。
 Feature/&PowerRangerFeyWandererMistyWandererTitle=雾行漫游
 Feedback/&AdditionalDamageDreadfulStrikesFormat=哀惧灵袭
 Feedback/&AdditionalDamageDreadfulStrikesLine=哀惧灵袭造成额外 +{2} 伤害！
@@ -22,3 +22,4 @@ Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistReactTitle
 Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistTitle=迷人的扭曲
 Subclass/&RangerFeyWandererDescription=或来自一位至高妖精的恩惠，或是来自你食用的一枚从能言之树上取下的闪亮果实，或是来自你曾浸游于中的魔法清泉，或是来自其它妙事，你的身侧因那次奇遇而有妖精的魔力缠绕。无论你是怎么得到你来自妖精的魔法的，你现在是一名代表了凡间与妖精国度双方的游侠妖精漫游者。你漫步于多元宇宙之时，你轻快的笑声为受压迫者们带来欣喜的希望，你英勇的技艺直击你敌人的恐惧，你所就的伟绩乃是妖精的喜悦，你散步的恐惧乃是妖精的愤怒。
 Subclass/&RangerFeyWandererTitle=妖精漫游者
+Tooltip/&MustBeWithin5ft=必须在 5 英尺以内

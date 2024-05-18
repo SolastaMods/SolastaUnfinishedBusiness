@@ -12,7 +12,7 @@ Feature/&PowerRangerFeyWandererBeguilingTwistFrightenedTitle=恐ろしかった
 Feature/&PowerRangerFeyWandererBeguilingTwistTitle=魅惑的なひねり
 Feature/&PowerRangerFeyWandererFeyReinforcementsDescription=長い休息ごとに 1 回、アクションを使用して Conjure Fey 呪文を唱えることができます。この方法で呪文を唱えるにはコンポーネントも集中力も必要なく、呪文の持続時間は 1 分です。
 Feature/&PowerRangerFeyWandererFeyReinforcementsTitle=フェイの増援
-Feature/&PowerRangerFeyWandererMistyWandererDescription=瞬く間に妖精の荒野に出入りして移動できます。呪文スロットを消費せずにミスティ ステップを唱えることができます。これは、あなたの知恵修正値に等しい回数 (最低 1 回) 実行でき、大休憩を終えると消費した回数がすべて回復します。さらに、ミスティ ステップを唱えるたびに、視界内の同意するクリーチャー 1 体を連れて行くことができます。
+Feature/&PowerRangerFeyWandererMistyWandererDescription=フェイ ワイルドに出入りして、瞬く間に移動できます。呪文スロットを消費せずにミスティ ステップを唱えることができます。これは、[知恵] 修正値に等しい回数 (最低 1 回) 行うことができ、長い休憩が終了すると、消費した使用量をすべて取り戻します。さらに、Misty Step を唱えるたびに、5 フィート以内に見える自発的なクリーチャーを 1 体連れて行くことができます。
 Feature/&PowerRangerFeyWandererMistyWandererTitle=ミスティワンダラー
 Feedback/&AdditionalDamageDreadfulStrikesFormat=恐ろしい一撃
 Feedback/&AdditionalDamageDreadfulStrikesLine=恐ろしい一撃は追加の +{2} ダメージを与えます。
@@ -22,3 +22,4 @@ Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistReactTitle
 Reaction/&ReactionSpendPowerBundlePowerRangerFeyWandererBeguilingTwistTitle=魅力的なツイスト
 Subclass/&RangerFeyWandererDescription=アーチフェイの恩恵、しゃべる木から食べた輝く果実、泳いだ魔法の泉、またはその他の縁起の良い出来事のおかげで、フェイの神秘的な雰囲気があなたを包みます。どのようにフェイの魔法を習得しても、あなたは今、定命の領域とフェイの領域の両方を代表するレンジャーであるフェイ・ワンダラーです。あなたが多元宇宙をさまようとき、あなたの楽しそうな笑い声は虐げられている人々の心を明るくし、あなたの武勇は敵に恐怖を与えます、なぜならフェイの歓喜は偉大であり、彼らの怒りは恐ろしいからです。
 Subclass/&RangerFeyWandererTitle=フェイ・ワンダラー
+Tooltip/&MustBeWithin5ft=5フィート以内でなければなりません
