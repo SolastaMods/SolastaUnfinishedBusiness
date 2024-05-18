@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AutoPreparedSpellsRangerFeyWandererFeyReinforcements:9a0fc0b7-e3b7-50b9-846f-8002ffab9f99",
+    "Definition:GrantInvocationsRangerFeyWandererFeyReinforcements:9ca8c87a-def9-5d31-ad41-4862af518301"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRangerFeyWandererFeyReinforcementsTitle",
+    "description": "Feature/&FeatureSetRangerFeyWandererFeyReinforcementsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "95fceee2-1d53-57db-94b1-28969ecd8ae3",
+  "contentPack": 9999,
+  "name": "FeatureSetRangerFeyWandererFeyReinforcements"
+}

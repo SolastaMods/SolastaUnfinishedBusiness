@@ -18,6 +18,16 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRangerFeyWandererBeguilingTwist:da80348c-00bf-5329-a5e5-b092293afbe6",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerFeyWandererFeyReinforcements:95fceee2-1d53-57db-94b1-28969ecd8ae3",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRangerFeyWandererMistyWanderer:a2df39ee-b297-5f25-bfd8-a52e2caed1b9",
       "level": 15
     }

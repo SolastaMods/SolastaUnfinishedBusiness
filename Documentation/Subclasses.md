@@ -4374,6 +4374,20 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 Your fey qualities give you a supernatural charm. As a result, you make Charisma checks with advantage. In addition, you gain proficiency in one of the following skills of your choice: Deception, Performance, or Persuasion.
 
 
+### Level 7
+
+* Beguiling Twist
+
+You have advantage on saving throws against being charmed or frightened. In addition, whenever you or a creature you can see within 120 feet of you succeeds on a saving throw against being charmed or frightened, You can use your reaction to force the source to make a Wisdom saving throw against your spell save DC. If the save fails, the source is charmed or frightened by you (your choice) for 1 minute. The source can repeat the saving throw at the end of each of its turns, ending the effect on itself on a successful save.
+
+
+### Level 11
+
+* Fey Reinforcements
+
+You know the spell Summon Fey. It doesn't count against the number of ranger spells you know, and you can cast it without a material component. You can also cast it once without using a spell slot, and you regain the ability to do so when you finish a long rest.
+
+
 ### Level 15
 
 * Misty Wanderer

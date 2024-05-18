@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -85,11 +90,63 @@ public sealed class RangerFeyWanderer : AbstractSubclass
         //
 
         // Beguiling Twist
-        
-        // You have advantage on saving throws against being charmed or frightened.
-        // In addition, whenever you or a creature you can see within 120 feet of you succeeds on a saving throw against being charmed or frightened,
-        // you can use your reaction to force a different creature you can see within 120 feet of you to make a Wisdom saving throw against your spell save DC.
-        // If the save fails, the target is charmed or frightened by you (your choice) for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a successful save.
+
+        var powerBeguilingTwist = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}BeguilingTwist")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .AddToDB();
+
+        var powerBeguilingTwistCharmed = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}BeguilingTwistCharmed")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerBeguilingTwist)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .SetConditionForm(ConditionDefinitions.ConditionCharmed,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var powerBeguilingTwistFrightened = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}BeguilingTwistFrightened")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerBeguilingTwist)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerBeguilingTwist.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new CustomBehaviorBeguilingTwist(powerBeguilingTwist));
+
+        PowerBundle.RegisterPowerBundle(powerBeguilingTwist, false,
+            powerBeguilingTwistCharmed, powerBeguilingTwistFrightened);
 
         //
         // LEVEL 11
@@ -97,9 +154,41 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
         // Fey Reinforcements
 
-        // you know the spell Summon Fey. It doesn't count against the number of ranger spells you know, and you can cast it without a material component.
-        // You can also cast it once without using a spell slot, and you regain the ability to do so when you finish a long rest.
+        // MISSING: 
         // Whenever you start casting the spell, you can modify it so that it doesn't require concentration. If you do so, the spell's duration becomes 1 minute for that casting.
+
+        var feyReinforcementsSpell = SpellDefinitionBuilder
+            .Create(ConjureFey, "ConjureFeyWanderer")
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .AddToDB();
+
+        var autoPreparedSpellsFeyReinforcements = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create($"AutoPreparedSpells{Name}FeyReinforcements")
+            .SetGuiPresentationNoContent(true)
+            .SetAutoTag("Ranger")
+            .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
+            .SetPreparedSpellGroups(BuildSpellGroup(11, feyReinforcementsSpell))
+            .AddToDB();
+
+        var invocation = CustomInvocationDefinitionBuilder
+            .Create($"CustomInvocation{Name}FeyReinforcements")
+            .SetGuiPresentation(feyReinforcementsSpell.GuiPresentation)
+            .AddCustomSubFeatures(ValidateRepertoireForAutoprepared.HasSpellCastingFeature("CastSpellRanger"))
+            .SetPoolType(InvocationPoolTypeCustom.Pools.PlaneMagic)
+            .SetGrantedSpell(feyReinforcementsSpell, longRestRecharge: true)
+            .AddToDB();
+
+        var grantInvocationsFeyReinforcements = FeatureDefinitionGrantInvocationsBuilder
+            .Create($"GrantInvocations{Name}FeyReinforcements")
+            .SetGuiPresentationNoContent(true)
+            .SetInvocations(invocation)
+            .AddToDB();
+
+        var featureSetFeyReinforcements = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}FeyReinforcements")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(autoPreparedSpellsFeyReinforcements, grantInvocationsFeyReinforcements)
+            .AddToDB();
 
         //
         // LEVEL 15
@@ -127,8 +216,8 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CircleOfTheAncientForest, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpells, additionalDamageDreadfulStrikes, featureSetOtherworldlyGlamour)
-            .AddFeaturesAtLevel(7)
-            .AddFeaturesAtLevel(11)
+            .AddFeaturesAtLevel(7, powerBeguilingTwist)
+            .AddFeaturesAtLevel(11, featureSetFeyReinforcements)
             .AddFeaturesAtLevel(15, powerMistyWanderer)
             .AddToDB();
     }
@@ -167,6 +256,84 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             }
 
             damageForm.DieType = DieType.D6;
+        }
+    }
+
+    private sealed class CustomBehaviorBeguilingTwist(
+        FeatureDefinitionPower powerBeguilingTwist) : IRollSavingThrowInitiated, ITryAlterOutcomeSavingThrow
+    {
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            if (HasCharmedOrFrightened(effectForms))
+            {
+                advantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.Power, powerBeguilingTwist.Name, powerBeguilingTwist));
+            }
+        }
+
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck)
+        {
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (!actionManager ||
+                action.AttackRollOutcome != RollOutcome.Success ||
+                !HasCharmedOrFrightened(action.ActionParams.activeEffect.EffectDescription.EffectForms) ||
+                !helper.IsOppositeSide(attacker.Side) ||
+                !helper.CanPerceiveTarget(attacker))
+            {
+                yield break;
+            }
+
+            var rulesetHelper = helper.RulesetCharacter;
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerBeguilingTwist, rulesetHelper);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { actionModifier },
+                StringParameter = powerBeguilingTwist.Name,
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { attacker }
+            };
+
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+        }
+
+        private static bool HasCharmedOrFrightened(List<EffectForm> effectForms)
+        {
+            return effectForms.Any(x =>
+                x.FormType == EffectForm.EffectFormType.Condition &&
+                (x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionCharmed) ||
+                 x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionFrightened)));
         }
     }
 }
