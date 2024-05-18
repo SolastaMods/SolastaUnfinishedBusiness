@@ -300,6 +300,7 @@ internal static class MetamagicBuilders
             .SetFeatures(powers)
             .AddFeatures(powerPool)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var metamagic = MetamagicOptionDefinitionBuilder
@@ -337,6 +338,8 @@ internal static class MetamagicBuilders
         ConditionDefinition condition,
         FeatureDefinitionPower powerPool) : IMagicEffectBeforeHitConfirmedOnEnemy
     {
+        private string _newDamageType;
+
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -354,66 +357,72 @@ internal static class MetamagicBuilders
                 yield break;
             }
 
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
-            var activeCondition = rulesetAttacker.InflictCondition(
-                condition.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                condition.Name,
-                0,
-                0,
-                0);
 
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            if (!rulesetAttacker.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, condition.Name))
             {
-                StringParameter = MetamagicTransmuted,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+                rulesetAttacker.InflictCondition(
+                    condition.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    condition.Name,
+                    0,
+                    0,
+                    0);
 
-            actionManager.AddInterruptRequest(reactionRequest);
+                var actionManager =
+                    ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+                if (!actionManager)
+                {
+                    yield break;
+                }
 
-            rulesetAttacker.RemoveCondition(activeCondition);
+                var implementationManager =
+                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            if (!actionParams.ReactionValidated)
-            {
-                rulesetAttacker.SpendSorceryPoints(-1);
-                rulesetAttacker.SorceryPointsAltered?.Invoke(rulesetAttacker, rulesetAttacker.RemainingSorceryPoints);
+                var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
+                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+                {
+                    StringParameter = MetamagicTransmuted,
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
+                };
+                var count = actionManager.PendingReactionRequestGroups.Count;
+                var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
 
-                yield break;
+                actionManager.AddInterruptRequest(reactionRequest);
+
+                yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+                if (!actionParams.ReactionValidated)
+                {
+                    rulesetAttacker.SpendSorceryPoints(-1);
+                    rulesetAttacker.SorceryPointsAltered?.Invoke(
+                        rulesetAttacker, rulesetAttacker.RemainingSorceryPoints);
+
+                    yield break;
+                }
+
+                var option = reactionRequest.SelectedSubOption;
+
+                _newDamageType = TransmutedDamageTypes[option];
             }
-
-            var option = reactionRequest.SelectedSubOption;
-            var newDamageType = TransmutedDamageTypes[option - 1];
 
             foreach (var effectForm in actualEffectForms
                          .Where(x =>
                              x.FormType == EffectForm.EffectFormType.Damage &&
                              TransmutedDamageTypes.Contains(x.DamageForm.DamageType)))
             {
-                effectForm.DamageForm.damageType = newDamageType;
+                effectForm.DamageForm.damageType = _newDamageType;
             }
         }
     }
@@ -475,10 +484,11 @@ internal static class MetamagicBuilders
             }
 
             var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                 {
                     StringParameter = "CustomReactionMetamagicSeekingSpellDescription".Formatted(
-                        Category.Reaction, defender.Name)
+                        Category.Reaction, defender.Name),
+                    StringParameter2 = "2"
                 };
             var count = actionManager.PendingReactionRequestGroups.Count;
 

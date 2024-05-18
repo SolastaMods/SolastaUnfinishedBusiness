@@ -13,9 +13,9 @@ public class ReactionResourceSorceryPoints : ICustomReactionResource, ICustomRea
 
     public string GetRequestPoints(CharacterReactionItem item)
     {
-        var metamagicOptionDefinition = item.ReactionRequest.ReactionParams.activeEffect.MetamagicOption;
-
-        return metamagicOptionDefinition?.SorceryPointsCost.ToString() ?? "1";
+        return item.ReactionRequest.ReactionParams.StringParameter2 == string.Empty
+            ? "1"
+            : item.ReactionRequest.ReactionParams.StringParameter2;
     }
 
     public AssetReferenceSprite Icon => Sprites.SorceryPointsResourceIcon;
