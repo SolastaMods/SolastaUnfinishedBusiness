@@ -121,6 +121,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique, 3)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce))
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererDraconicDragonWingsSprout)
                     .SetImpactEffectParameters(SpellDefinitions.ArcaneSword)
                     .Build())
             .AddToDB();
@@ -198,7 +199,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             }
 
             EffectHelpers.StartVisualEffect(
-                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.Caster);
+                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
             rulesetCharacter.InflictCondition(
                 conditionArcaneDeflection.Name,
                 DurationType.Round,
@@ -275,7 +276,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             }
 
             EffectHelpers.StartVisualEffect(
-                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.Caster);
+                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
             rulesetCharacter.InflictCondition(
                 conditionArcaneDeflection.Name,
                 DurationType.Round,
@@ -371,7 +372,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             {
                 if (firstTarget)
                 {
-                    defender.RulesetCharacter.DamageReceived += DamageReceived;   
+                    defender.RulesetCharacter.DamageReceived += DamageReceived;
                 }
             }
             else

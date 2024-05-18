@@ -171,7 +171,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} 굴림은 {1} {2} �
 Feedback/&ConcentrationEffectCheckRolledLine={0} 굴림은 {1} 대 DC {2}를 유지하기 위한 굴림, 굴림 {3} = {4}
 Feedback/&FlankingAttack=측면 공격
 Feedback/&HigherGroundAttack=더 높은 땅
-Feedback/&MagicalGuidanceCheckToHitRoll={0}는 {1}을(를) 사용하여 {2}를 굴리고 수표 롤을 교체했습니다.
+Feedback/&MagicalGuidanceCheckToHitRoll={0}은(는) {1}을(를) 사용했고 수표 판정의 {3}을(를) 대체하기 위해 {2}를 굴렸습니다.
 Feedback/&NarrativeChoiceRoll={0}는 {2} 결과와 함께 {1} 설명 선택을 굴립니다.
 Feedback/&ReturningWeaponActivates={1}이(가) {0}(으)로 돌아갑니다!
 Feedback/&SmallRace=소규모 경주

@@ -171,7 +171,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} tira per mantenere 
 Feedback/&ConcentrationEffectCheckRolledLine={0} tira per mantenere {1} contro CD {2}, tira {3} = {4}
 Feedback/&FlankingAttack=Affiancamento
 Feedback/&HigherGroundAttack=Terreno più elevato
-Feedback/&MagicalGuidanceCheckToHitRoll={0} ha utilizzato {1} per lanciare un {2} e sostituire il tiro di controllo
+Feedback/&MagicalGuidanceCheckToHitRoll={0} ha utilizzato {1} e lancia un {2} per sostituire {3} nel tiro di controllo
 Feedback/&NarrativeChoiceRoll={0} lancia una scelta narrativa {1} con un risultato {2}.
 Feedback/&ReturningWeaponActivates={1} ritorna a {0}!
 Feedback/&SmallRace=Piccola Razza

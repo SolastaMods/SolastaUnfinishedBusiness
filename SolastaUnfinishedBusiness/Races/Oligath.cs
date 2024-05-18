@@ -143,6 +143,7 @@ internal static class RaceOligathBuilder
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionOligathStoneEndurance))
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerTraditionOpenHandWholenessOfBody)
                     .Build())
             .AddToDB();
 

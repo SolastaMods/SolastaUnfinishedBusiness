@@ -171,7 +171,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} ロールで {1} �
 Feedback/&ConcentrationEffectCheckRolledLine={0} ロールで {1} 対難易度 {2} を維持、ロール {3} = {4}
 Feedback/&FlankingAttack=側面攻撃
 Feedback/&HigherGroundAttack=高いところ
-Feedback/&MagicalGuidanceCheckToHitRoll={0} は {1} を使用して {2} をロールし、チェックロールを交換しました
+Feedback/&MagicalGuidanceCheckToHitRoll={0}は{1}を使用し、チェックロールで{3}の代わりに{2}をロールします
 Feedback/&NarrativeChoiceRoll={0} は、{1} の物語の選択肢をロールして、{2} の結果をもたらします。
 Feedback/&ReturningWeaponActivates={1} は {0} に戻ります!
 Feedback/&SmallRace=スモールレース

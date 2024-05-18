@@ -171,7 +171,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} würfelt, um {1} {2
 Feedback/&ConcentrationEffectCheckRolledLine={0} würfelt, um {1} gegen DC {2} aufrechtzuerhalten, würfelt {3} = {4}
 Feedback/&FlankingAttack=Flankieren
 Feedback/&HigherGroundAttack=Eine höhere Ebene
-Feedback/&MagicalGuidanceCheckToHitRoll={0} nutzte {1}, um eine {2} zu würfeln und den Kontrollwurf zu ersetzen
+Feedback/&MagicalGuidanceCheckToHitRoll={0} hat {1} verwendet und würfelt eine {2}, um {3} beim Kontrollwurf zu ersetzen
 Feedback/&NarrativeChoiceRoll={0} würfelt eine {1} narrative Wahl mit einem {2} Ergebnis.
 Feedback/&ReturningWeaponActivates={1} kehrt zu {0} zurück!
 Feedback/&SmallRace=Kleines Rennen

@@ -32,7 +32,7 @@
     "targetConditionAsset": null,
     "targetSide": "Enemy",
     "durationType": "Minute",
-    "durationParameter": 10,
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,

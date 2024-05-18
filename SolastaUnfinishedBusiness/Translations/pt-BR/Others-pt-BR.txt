@@ -171,7 +171,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} jogadas para manter
 Feedback/&ConcentrationEffectCheckRolledLine={0} jogadas para manter {1} versus CD {2}, jogadas {3} = {4}
 Feedback/&FlankingAttack=Flanqueamento
 Feedback/&HigherGroundAttack=Terreno mais elevado
-Feedback/&MagicalGuidanceCheckToHitRoll={0} usou {1} para lançar um {2} e substituir a jogada de verificação
+Feedback/&MagicalGuidanceCheckToHitRoll={0} usou {1} e rola um {2} para substituir {3} na jogada de verificação
 Feedback/&NarrativeChoiceRoll={0} lança uma escolha narrativa {1} com um resultado {2}.
 Feedback/&ReturningWeaponActivates={1} retorna para {0}!
 Feedback/&SmallRace=Corrida Pequena

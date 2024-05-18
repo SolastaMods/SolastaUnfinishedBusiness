@@ -4351,7 +4351,7 @@ A fey mystique surrounds you, thanks to the boon of an arch fey, the shining fru
 
 * Dreadful Strikes
 
- you can augment your weapon strikes with mind-scarring magic, drawn from the gloomy hollows of the Fey wild. When you hit a creature with a weapon, you can deal an extra 1d4 psychic damage to the target, which can take this extra damage only once per turn. The extra damage increases to 1d6 when you reach 11th level in this class.
+You can augment your weapon strikes with mind-scarring magic, drawn from the gloomy hollows of the Fey wild. When you hit a creature with a weapon, you can deal an extra 1d4 psychic damage to the target, which can take this extra damage only once per turn. The extra damage increases to 1d6 when you reach 11th level in this class.
 
 * Fey Wanderer Magic
 
@@ -4385,14 +4385,14 @@ You have advantage on saving throws against being charmed or frightened. In addi
 
 * Fey Reinforcements
 
-As an action, you can summon a Fey Bear reinforcement to battle side-by-side with you for 10 minutes. You regain the ability to do so when you finish a long rest.
+Once per long rest, you can use your action to cast Conjure Fey spell. Casting the spell this way doesn't require components or concentration and the spell's duration is one minute.
 
 
 ### Level 15
 
 * Misty Wanderer
 
-You can slip in and out of the Fey wild to move in a blink of an eye: you can cast Misty Step without expending a spell slot. You can do so a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses when you finish a long rest. In addition, whenever you cast Misty Step, you can bring along one willing creature you can see within 5 feet of you.
+You can slip in and out of the Fey wild to move in a blink of an eye: you can cast Misty Step without expending a spell slot. You can do so a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses when you finish a long rest. In addition, whenever you cast Misty Step, you can bring along one willing creature you can see.
 
 
 

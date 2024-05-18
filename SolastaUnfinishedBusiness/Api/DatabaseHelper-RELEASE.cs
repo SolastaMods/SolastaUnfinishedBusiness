@@ -2025,6 +2025,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerTraditionOpenHandTranquility { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionOpenHandTranquility");
 
+        internal static FeatureDefinitionPower PowerTraditionOpenHandWholenessOfBody { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionOpenHandWholenessOfBody");
+
         internal static FeatureDefinitionPower PowerTraditionShockArcanistArcaneFury { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistArcaneFury");
 

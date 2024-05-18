@@ -171,7 +171,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} lance pour mainteni
 Feedback/&ConcentrationEffectCheckRolledLine={0} lance pour maintenir {1} contre DC {2}, lance {3} = {4}
 Feedback/&FlankingAttack=Flanquant
 Feedback/&HigherGroundAttack=Un terrain plus élevé
-Feedback/&MagicalGuidanceCheckToHitRoll={0} a utilisé {1} pour lancer un {2} et remplacer le jet de contrôle
+Feedback/&MagicalGuidanceCheckToHitRoll={0} a utilisé {1} et lance un {2} pour remplacer {3} sur le jet de contrôle
 Feedback/&NarrativeChoiceRoll={0} lance un choix narratif {1} avec un résultat {2}.
 Feedback/&ReturningWeaponActivates={1} revient à {0} !
 Feedback/&SmallRace=Petite course

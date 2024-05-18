@@ -171,7 +171,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} бросает дл
 Feedback/&ConcentrationEffectCheckRolledLine={0} бросает для поддержания {1} против Сл {2}, выкидывает {3} = {4}
 Feedback/&FlankingAttack=Угроза с фланга
 Feedback/&HigherGroundAttack=Возвышенность
-Feedback/&MagicalGuidanceCheckToHitRoll={0} использовал {1}, чтобы бросить {2} и заменить проверочный бросок
+Feedback/&MagicalGuidanceCheckToHitRoll={0} использовал {1} и выбрасывает {2}, чтобы заменить {3} в проверочном броске.
 Feedback/&NarrativeChoiceRoll={0} бросает нарративный выбор {1} с результатом {2}.
 Feedback/&ReturningWeaponActivates={1} возвращается к {0}!
 Feedback/&SmallRace=Раса маленького размера

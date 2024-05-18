@@ -288,6 +288,7 @@ internal static class MetamagicBuilders
                         EffectDescriptionBuilder
                             .Create()
                             .Build())
+                    .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
                     .AddToDB())
             .ToList();
 
@@ -350,9 +351,7 @@ internal static class MetamagicBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.MetamagicOption != metamagicOptionDefinition ||
-                (!firstTarget &&
-                 rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique))
+            if (rulesetEffect.MetamagicOption != metamagicOptionDefinition)
             {
                 yield break;
             }

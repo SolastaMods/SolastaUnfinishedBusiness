@@ -171,7 +171,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} 掷骰以维持 {1}
 Feedback/&ConcentrationEffectCheckRolledLine={0} 掷骰以维持 {1} 对抗 DC {2}，掷骰 {3} = {4}
 Feedback/&FlankingAttack=背后夹击
 Feedback/&HigherGroundAttack=高处攻击
-Feedback/&MagicalGuidanceCheckToHitRoll={0} 使用 {1} 投掷了 {2} 并替换了检定结果
+Feedback/&MagicalGuidanceCheckToHitRoll={0} 使用了 {1} 并投掷了 {2} 以替换检查骰上的 {3}
 Feedback/&NarrativeChoiceRoll={0} 投掷 {1} 个叙述选项，结果为 {2}。
 Feedback/&ReturningWeaponActivates={1} 返回 {0}！
 Feedback/&SmallRace=小赛

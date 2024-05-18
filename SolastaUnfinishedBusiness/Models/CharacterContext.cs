@@ -1209,29 +1209,20 @@ internal static partial class CharacterContext
             rulesetHelper.SorceryPointsAltered?.Invoke(rulesetHelper, rulesetHelper.RemainingSorceryPoints);
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+            var previousRoll = abilityCheckData.AbilityCheckRoll;
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
-
-            (ConsoleStyleDuplet.ParameterType, string) extra;
-
-            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
-            {
-                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
-                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
-            }
-            else
-            {
-                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
-            }
 
             rulesetHelper.LogCharacterActivatesAbility(
                 "Feature/&FeatureSorcererMagicalGuidanceTitle",
                 "Feedback/&MagicalGuidanceCheckToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
-                    extra
+                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        dieRoll.ToString()),
+                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        previousRoll.ToString())
                 ]);
         }
     }

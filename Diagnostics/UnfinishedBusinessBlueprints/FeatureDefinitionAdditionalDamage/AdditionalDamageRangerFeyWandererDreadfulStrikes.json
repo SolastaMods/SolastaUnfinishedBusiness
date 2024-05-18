@@ -1,15 +1,15 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "DreadfulStrikes",
-  "limitedUsage": "OncePerTurn",
+  "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
-  "triggerCondition": "AlwaysActive",
+  "triggerCondition": "TargetDoesNotHaveCondition",
   "requiredProperty": "Weapon",
   "attackModeOnly": true,
   "attackOnly": false,
-  "requiredTargetCondition": null,
+  "requiredTargetCondition": "Definition:ConditionRangerFeyWandererDreadfulStrikes:e57b3920-17ee-55b9-9ef6-aeb86e99838d",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
@@ -33,7 +33,18 @@
   "savingThrowDC": 10,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
-  "conditionOperations": [],
+  "conditionOperations": [
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
+      "operation": "Add",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionRangerFeyWandererDreadfulStrikes:e57b3920-17ee-55b9-9ef6-aeb86e99838d",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    }
+  ],
   "addLightSource": false,
   "lightSourceForm": null,
   "impactParticleReference": null,

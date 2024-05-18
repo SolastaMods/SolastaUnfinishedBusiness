@@ -171,7 +171,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} tira para mantener 
 Feedback/&ConcentrationEffectCheckRolledLine={0} tira para mantener {1} frente a DC {2}, tira {3} = {4}
 Feedback/&FlankingAttack=Flanquear
 Feedback/&HigherGroundAttack=Terreno más alto
-Feedback/&MagicalGuidanceCheckToHitRoll={0} usó {1} para lanzar un {2} y reemplazar la tirada de verificación
+Feedback/&MagicalGuidanceCheckToHitRoll={0} usó {1} y lanza un {2} para reemplazar a {3} en la tirada de verificación
 Feedback/&NarrativeChoiceRoll={0} lanza una elección narrativa {1} con un resultado {2}.
 Feedback/&ReturningWeaponActivates=¡{1} vuelve a {0}!
 Feedback/&SmallRace=Raza pequeña

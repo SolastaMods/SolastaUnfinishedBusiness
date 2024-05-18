@@ -46,15 +46,27 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
         // Dreadful Strikes
 
+        var conditionDreadfulStrikes = ConditionDefinitionBuilder
+            .Create($"Condition{Name}DreadfulStrikes")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
+            .AddToDB();
+
         var additionalDamageDreadfulStrikes = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DreadfulStrikes")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("DreadfulStrikes")
             .SetDamageDice(DieType.D4, 1)
             .SetSpecificDamageType(DamageTypePsychic)
+            .SetTargetCondition(conditionDreadfulStrikes, AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetAttackModeOnly()
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetConditionOperations(new ConditionOperationDescription
+            {
+                ConditionDefinition = conditionDreadfulStrikes,
+                Operation = ConditionOperationDescription.ConditionOperation.Add
+            })
             .AddToDB();
 
         additionalDamageDreadfulStrikes.AddCustomSubFeatures(
@@ -65,7 +77,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
         var pointPoolOtherworldlyGlamour = FeatureDefinitionPointPoolBuilder
             .Create($"PointPool{Name}OtherworldlyGlamour")
             .SetGuiPresentationNoContent(true)
-            .SetPool(HeroDefinitions.PointsPoolType.Skill, 3)
+            .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
             .RestrictChoices(
                 SkillDefinitions.Deception,
                 SkillDefinitions.Performance,
@@ -98,7 +110,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
         var powerBeguilingTwistCharmed = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}BeguilingTwistCharmed")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, powerBeguilingTwist)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -120,7 +132,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
         var powerBeguilingTwistFrightened = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}BeguilingTwistFrightened")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, powerBeguilingTwist)
             .SetShowCasting(false)
             .SetEffectDescription(
@@ -160,7 +172,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(ConjureFey)
-                    .SetDurationData(DurationType.Minute, 10)
+                    .SetDurationData(DurationType.Minute, 1)
                     .Build())
             .AddToDB();
 
@@ -173,12 +185,13 @@ public sealed class RangerFeyWanderer : AbstractSubclass
         var powerMistyWanderer = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MistyWanderer")
             .SetGuiPresentation(Category.Feature, MistyStep)
-            .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(MistyStep)
                     .InviteOptionalAlly()
                     .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeMistyWanderer())
             .AddToDB();
 
         //
@@ -190,7 +203,8 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CircleOfTheAncientForest, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpells, additionalDamageDreadfulStrikes, featureSetOtherworldlyGlamour)
-            .AddFeaturesAtLevel(7, powerBeguilingTwist)
+            .AddFeaturesAtLevel(7,
+                powerBeguilingTwist, powerBeguilingTwistCharmed, powerBeguilingTwistFrightened)
             .AddFeaturesAtLevel(11, powerFeyReinforcements)
             .AddFeaturesAtLevel(15, powerMistyWanderer)
             .AddToDB();
@@ -234,8 +248,16 @@ public sealed class RangerFeyWanderer : AbstractSubclass
     }
 
     private sealed class CustomBehaviorBeguilingTwist(
-        FeatureDefinitionPower powerBeguilingTwist) : IRollSavingThrowInitiated, ITryAlterOutcomeSavingThrow
+        FeatureDefinitionPower powerBeguilingTwist)
+        : IRollSavingThrowInitiated, ITryAlterOutcomeSavingThrow, IMagicEffectFinishedByMe
     {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActingCharacter.UsedMainSpell = true;
+
+            yield break;
+        }
+
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
@@ -271,10 +293,15 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (!actionManager ||
-                action.AttackRollOutcome != RollOutcome.Success ||
-                !HasCharmedOrFrightened(action.ActionParams.activeEffect.EffectDescription.EffectForms) ||
+                !action.RolledSaveThrow ||
+                action.SaveOutcome != RollOutcome.Success ||
+                !HasCharmedOrFrightened(
+                    action.ActionParams.activeEffect?.EffectDescription.EffectForms ??
+                    action.ActionParams.AttackMode?.EffectDescription.EffectForms ??
+                    []) ||
                 !helper.IsOppositeSide(attacker.Side) ||
-                !helper.CanPerceiveTarget(attacker))
+                !helper.IsWithinRange(defender, 24) ||
+                !helper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
@@ -284,7 +311,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerBeguilingTwist, rulesetHelper);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { actionModifier },
                 StringParameter = powerBeguilingTwist.Name,
@@ -300,6 +327,13 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             actionManager.AddInterruptRequest(reactionRequest);
 
             yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (!reactionRequest.Validated)
+            {
+                yield break;
+            }
+
+            helper.SpendActionType(ActionDefinitions.ActionType.Reaction);
         }
 
         private static bool HasCharmedOrFrightened(List<EffectForm> effectForms)
@@ -308,6 +342,16 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                 x.FormType == EffectForm.EffectFormType.Condition &&
                 (x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionCharmed) ||
                  x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionFrightened)));
+        }
+    }
+
+    private sealed class MagicEffectFinishedByMeMistyWanderer : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActingCharacter.UsedBonusSpell = true;
+
+            yield break;
         }
     }
 }

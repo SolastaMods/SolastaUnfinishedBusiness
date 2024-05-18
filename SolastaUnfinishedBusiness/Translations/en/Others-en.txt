@@ -171,7 +171,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} rolls to maintain {
 Feedback/&ConcentrationEffectCheckRolledLine={0} rolls to maintain {1} versus DC {2}, rolls {3} = {4}
 Feedback/&FlankingAttack=Flanking
 Feedback/&HigherGroundAttack=Higher Ground
-Feedback/&MagicalGuidanceCheckToHitRoll={0} used {1} to roll a {2} and replace the check roll
+Feedback/&MagicalGuidanceCheckToHitRoll={0} used {1} and rolls a {2} to replace {3} on the check roll
 Feedback/&NarrativeChoiceRoll={0} rolls a {1} narrative choice with a {2} result.
 Feedback/&ReturningWeaponActivates={1} returns to {0}!
 Feedback/&SmallRace=Small Race
