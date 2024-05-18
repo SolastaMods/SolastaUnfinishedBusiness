@@ -1207,7 +1207,9 @@
     <MetamagicEnabled>
         <string>MetamagicFocusedSpell</string>
         <string>MetamagicPowerfulSpell</string>
+        <string>MetamagicSeekingSpell</string>
         <string>MetamagicAltruisticSpell</string>
+        <string>MetamagicTransmutedSpell</string>
         <string>MetamagicWidenedSpell</string>
     </MetamagicEnabled>
     <AllowDisplayingOfficialSpells>false</AllowDisplayingOfficialSpells>
