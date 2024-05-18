@@ -725,6 +725,7 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+            var previousRoll = action.AttackRoll;
 
             if (dieRoll <= action.AttackRoll)
             {
@@ -767,7 +768,10 @@ internal static class RaceFeats
                 "Feedback/&BountifulLuckAttackToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        dieRoll.ToString()),
+                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        previousRoll.ToString())
                 ]);
         }
 
@@ -817,6 +821,7 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+            var previousRoll = abilityCheckData.AbilityCheckRoll;
 
             if (dieRoll <= abilityCheckData.AbilityCheckRoll)
             {
@@ -834,18 +839,6 @@ internal static class RaceFeats
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
-
-            (ConsoleStyleDuplet.ParameterType, string) extra;
-
-            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
-            {
-                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
-                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
-            }
-            else
-            {
-                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
-            }
 
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,
@@ -866,8 +859,10 @@ internal static class RaceFeats
                 "Feedback/&BountifulLuckCheckToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
-                    extra
+                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        dieRoll.ToString()),
+                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        previousRoll.ToString())
                 ]);
         }
 
@@ -942,18 +937,6 @@ internal static class RaceFeats
             action.saveOutcomeDelta += dieRoll - savingRoll;
             action.RolledSaveThrow = true;
 
-            (ConsoleStyleDuplet.ParameterType, string) extra;
-
-            if (action.saveOutcomeDelta >= 0)
-            {
-                action.saveOutcome = RollOutcome.Success;
-                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
-            }
-            else
-            {
-                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
-            }
-
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,
                 DurationType.Round,
@@ -973,8 +956,10 @@ internal static class RaceFeats
                 "Feedback/&BountifulLuckSavingToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
-                    extra
+                    (dieRoll > savingRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        dieRoll.ToString()),
+                    (savingRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        savingRoll.ToString())
                 ]);
         }
     }
