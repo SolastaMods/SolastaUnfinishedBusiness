@@ -10,15 +10,18 @@ public class ReactionResourceSorceryPoints : ICustomReactionResource, ICustomRea
     }
 
     public static ICustomReactionResource Instance { get; } = new ReactionResourceSorceryPoints();
-    public AssetReferenceSprite Icon => Sprites.SorceryPointsResourceIcon;
 
-    public string GetUses(RulesetCharacter character)
+    public string GetRequestPoints(CharacterReactionItem item)
     {
-        return character.RemainingSorceryPoints.ToString();
+        var metamagicOptionDefinition = item.ReactionRequest.ReactionParams.activeEffect.MetamagicOption;
+
+        return metamagicOptionDefinition?.SorceryPointsCost.ToString() ?? "1";
     }
 
-    public string GetRequestPoints(RulesetCharacter rulesetCharacter)
+    public AssetReferenceSprite Icon => Sprites.SorceryPointsResourceIcon;
+
+    public string GetUses(RulesetCharacter rulesetCharacter)
     {
-        return "2";
+        return rulesetCharacter.RemainingSorceryPoints.ToString();
     }
 }
