@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -154,40 +153,15 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
         // Fey Reinforcements
 
-        // MISSING: 
-        // Whenever you start casting the spell, you can modify it so that it doesn't require concentration. If you do so, the spell's duration becomes 1 minute for that casting.
-
-        var feyReinforcementsSpell = SpellDefinitionBuilder
-            .Create(ConjureFey, "ConjureFeyWanderer")
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .AddToDB();
-
-        var autoPreparedSpellsFeyReinforcements = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create($"AutoPreparedSpells{Name}FeyReinforcements")
-            .SetGuiPresentationNoContent(true)
-            .SetAutoTag("Ranger")
-            .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
-            .SetPreparedSpellGroups(BuildSpellGroup(11, feyReinforcementsSpell))
-            .AddToDB();
-
-        var invocation = CustomInvocationDefinitionBuilder
-            .Create($"CustomInvocation{Name}FeyReinforcements")
-            .SetGuiPresentation(feyReinforcementsSpell.GuiPresentation)
-            .AddCustomSubFeatures(ValidateRepertoireForAutoprepared.HasSpellCastingFeature("CastSpellRanger"))
-            .SetPoolType(InvocationPoolTypeCustom.Pools.PlaneMagic)
-            .SetGrantedSpell(feyReinforcementsSpell, longRestRecharge: true)
-            .AddToDB();
-
-        var grantInvocationsFeyReinforcements = FeatureDefinitionGrantInvocationsBuilder
-            .Create($"GrantInvocations{Name}FeyReinforcements")
-            .SetGuiPresentationNoContent(true)
-            .SetInvocations(invocation)
-            .AddToDB();
-
-        var featureSetFeyReinforcements = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}FeyReinforcements")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(autoPreparedSpellsFeyReinforcements, grantInvocationsFeyReinforcements)
+        var powerFeyReinforcements = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}FeyReinforcements")
+            .SetGuiPresentation(Category.Feature, ConjureFey)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(ConjureFey)
+                    .SetDurationData(DurationType.Minute, 10)
+                    .Build())
             .AddToDB();
 
         //
@@ -217,7 +191,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             .AddFeaturesAtLevel(3,
                 autoPreparedSpells, additionalDamageDreadfulStrikes, featureSetOtherworldlyGlamour)
             .AddFeaturesAtLevel(7, powerBeguilingTwist)
-            .AddFeaturesAtLevel(11, featureSetFeyReinforcements)
+            .AddFeaturesAtLevel(11, powerFeyReinforcements)
             .AddFeaturesAtLevel(15, powerMistyWanderer)
             .AddToDB();
     }

@@ -3,7 +3,7 @@
 - added +X to damage on Shield Bash feat on any wielded magical shield that adds +X to armor class
 - added Gameplay > Character > 'Enable Bard College of Hope healing ballad on long rest' setting
 - added Gameplay > Character > 'Enable Sorcerer Magical Guidance at level 5' setting
-- added Ranger Fey Wanderer, and Wizard War Magic subclass
+- added Ranger Fey Wanderer, and Wizard War Magic subclasses
 - added Seeking and Transmuted metamagic spells
 - fixed Bountiful Luck feat retry attack behavior only triggering on critical failures
 - fixed Chaos bolt spell crashing under multiplayer sessions if twinned and one bolt misses

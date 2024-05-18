@@ -29,7 +29,7 @@ internal static class CreditsDisplay
             "Oath of Altruism, Oath of Dread, Oath of Thunder, " +
             "Path of the Elements, Path of the Ravager, Path of the Reaver, Path of the Savagery, Path of the Yeoman, " +
             "Patron Celestial, Patron Moonlit, Patron Mountain, Patron Riftwalker, " +
-            "Ranger Gloom Stalker, Ranger Hellwalker, Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, Ranger Wildmaster, " +
+            "Ranger Fey Wanderer, Ranger Gloom Stalker, Ranger Hellwalker, Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, Ranger Wildmaster, " +
             "Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Raven, Roguish Slayer, Roguish Umbral Stalker, " +
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, " +
             "Way of Discordance, Way of Shadow, Way of Tempest, Way of Weal and Woe, Way of Zen Archery, " +

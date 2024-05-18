@@ -4385,7 +4385,7 @@ You have advantage on saving throws against being charmed or frightened. In addi
 
 * Fey Reinforcements
 
-You know the spell Summon Fey. It doesn't count against the number of ranger spells you know, and you can cast it without a material component. You can also cast it once without using a spell slot, and you regain the ability to do so when you finish a long rest.
+As an action, you can summon a Fey Bear reinforcement to battle side-by-side with you for 10 minutes. You regain the ability to do so when you finish a long rest.
 
 
 ### Level 15
