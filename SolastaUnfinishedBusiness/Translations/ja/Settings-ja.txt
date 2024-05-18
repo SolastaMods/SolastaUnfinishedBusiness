@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnFollowUpStrike=基本武器ダメージによるすべてのダイスを<color=#D89555>フォローアップストライク</color>特技に追加します
 ModUi/&AccountForAllDiceOnSavageAttack=基本武器ダメージからのすべてのダイスを、1 つのダイスのみではなく基本武器ダメージを追加する機能に追加します<i><color=#F0DAA0>[サベージ アタック、2H 武器など]</color></i>
 ModUi/&AddAllToStore=すべてをストアに追加
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>出血</color>状態を<color=#D89555>より大きな修復</color>と<color=#D89555>小さな修復</color>によって除去された状態に追加します。

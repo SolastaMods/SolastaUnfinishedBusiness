@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnFollowUpStrike=Añade todos los dados del daño base del arma a la hazaña <color=#D89555>Golpe de seguimiento</color>.
 ModUi/&AccountForAllDiceOnSavageAttack=Añade todos los dados del daño base del arma a funciones que añaden daño base del arma en lugar de 1 dado solamente <i><color=#F0DAA0>[Ataque salvaje, armas 2H, etc.]</color></i>
 ModUi/&AddAllToStore=Agregar todo a la tienda
 ModUi/&AddBleedingToLesserRestoration=Agregue la condición de <color=#D89555>Sangrado</color> a las eliminadas por <color=#D89555>Mayor</color> y <color=#D89555>Restauración menor</color>

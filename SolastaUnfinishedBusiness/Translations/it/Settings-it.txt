@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnFollowUpStrike=Aggiungi tutti i dadi del danno base dell'arma al talento <color=#D89555> Colpo Successivo</color>
 ModUi/&AccountForAllDiceOnSavageAttack=Aggiungi tutti i dadi dal danno base dell'arma alle funzionalità che aggiungono danno base dell'arma invece di 1 solo dado <i><color=#F0DAA0>[Attacco selvaggio, armi 2H, ecc.]</color></i>
 ModUi/&AddAllToStore=Aggiungi tutto al negozio
 ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555> Sanguinamento</color> a quelle rimosse da <color=#D89555> Maggiore</color> e <color=#D89555> Restauro Minore</color>

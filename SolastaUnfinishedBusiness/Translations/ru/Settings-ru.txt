@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnFollowUpStrike=Добавьте все кубики от базового урона оружия к навыку <color=#D89555>Follow up Strike</color>.
 ModUi/&AccountForAllDiceOnSavageAttack=Добавлять все кости от базового урона оружия к способностям, которые добавляют базовый урон оружия вместо только одной <i><color=#F0DAA0>[Свирепые атаки, Двуручное оружие и т.д.]</color></i>
 ModUi/&AddAllToStore=Всё в магазин
 ModUi/&AddBleedingToLesserRestoration=Добавить <color=#D89555>Кровотечение</color> к состояниям, снимаемым <color=#D89555>Высшим</color> и <color=#D89555>Малым восстановлением</color>

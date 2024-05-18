@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnFollowUpStrike=기본 무기 피해의 모든 주사위를 <color=#D89555>후속 공격</color> 피트에 추가합니다.
 ModUi/&AccountForAllDiceOnSavageAttack=주사위 1개만 추가하는 대신 기본 무기 피해를 추가하는 기능에 기본 무기 피해의 모든 주사위를 추가합니다. <i><color=#F0DAA0>[야만적 공격, 2H 무기 등]</color></i>
 ModUi/&AddAllToStore=스토어에 모두 추가
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상급</color> 및 <color=#D89555>하급 복원</color>으로 제거된 상태에 <color=#D89555>출혈</color> 상태를 추가합니다.

@@ -289,6 +289,7 @@ public class Settings : UnityModManager.ModSettings
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public bool ChangeDragonbornElementalBreathUsages { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }
+    public bool AccountForAllDiceOnFollowUpStrike { get; set; }
     public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AllowFlightSuspend { get; set; }
     public bool FlightSuspendWingedBoots { get; set; }

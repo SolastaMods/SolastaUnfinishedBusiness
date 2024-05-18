@@ -416,6 +416,90 @@ public static class RulesetCharacterHeroPatcher
     {
         private static bool _callRefresh;
 
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var weaponTagsMethod = typeof(WeaponDescription).GetMethod("get_WeaponTags");
+
+            var myWeaponTagsMethod =
+                new Func<WeaponDescription, List<string>>(WeaponTags).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceCalls(weaponTagsMethod,
+                "RulesetCharacterHero.RefreshAttackModes",
+                new CodeInstruction(OpCodes.Call, myWeaponTagsMethod));
+        }
+
+        //PATCH: supports AccountForAllDiceOnFollowUpStrike
+        private static List<string> WeaponTags(WeaponDescription weaponDescription)
+        {
+            if (!weaponDescription.WeaponTags.Contains("TwoHanded"))
+            {
+                return weaponDescription.WeaponTags;
+            }
+
+            var newWeaponTags = weaponDescription.WeaponTags.ToList();
+
+            // let this be handled later on Postfix
+            newWeaponTags.Remove("TwoHanded");
+
+            return newWeaponTags;
+        }
+
+        private static void HandleFollowUpStrike(RulesetCharacterHero rulesetCharacterHero)
+        {
+            var mainHandInventorySlot =
+                rulesetCharacterHero.CharacterInventory.InventorySlotsByType[EquipmentDefinitions.SlotTypeMainHand][0];
+            var equipedItem = mainHandInventorySlot.EquipedItem;
+            var itemDefinition = mainHandInventorySlot.EquipedItem?.ItemDefinition;
+            var weaponDescription = itemDefinition?.WeaponDescription;
+
+            if (weaponDescription == null ||
+                !weaponDescription.WeaponTags.Contains("TwoHanded") ||
+                weaponDescription.WeaponTypeDefinition.WeaponProximity != AttackProximity.Melee ||
+                rulesetCharacterHero.ExecutedAttacks == 0)
+            {
+                return;
+            }
+
+            foreach (var attackModifier in rulesetCharacterHero.attackModifiers)
+            {
+                if (!attackModifier.FollowUpStrike)
+                {
+                    continue;
+                }
+
+                var attackMode = rulesetCharacterHero.RefreshAttackMode(
+                    ActionDefinitions.ActionType.Bonus,
+                    itemDefinition,
+                    weaponDescription,
+                    false,
+                    attackModifier.FollowUpAddAbilityBonus,
+                    mainHandInventorySlot.Name,
+                    rulesetCharacterHero.attackModifiers,
+                    rulesetCharacterHero.FeaturesOrigin,
+                    equipedItem);
+
+                var effectDamageForms = attackMode.EffectDescription.EffectForms
+                    .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                    .ToList();
+
+                if (effectDamageForms.Count != 0)
+                {
+                    effectDamageForms[0] = EffectForm.GetCopy(effectDamageForms[0]);
+                    effectDamageForms[0].DamageForm.DieType = attackModifier.FollowUpDamageDie;
+                    effectDamageForms[0].DamageForm.DiceNumber = attackModifier.AdditionalDamageDice;
+                }
+
+                if (!Main.Settings.AccountForAllDiceOnFollowUpStrike &&
+                    effectDamageForms.Count > 1)
+                {
+                    effectDamageForms.RemoveRange(1, effectDamageForms.Count - 1);
+                }
+
+                attackMode.EffectDescription.EffectForms.SetRange(effectDamageForms);
+            }
+        }
+
         [UsedImplicitly]
         public static void Prefix(ref bool callRefresh)
         {
@@ -428,6 +512,9 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacterHero __instance)
         {
+            //PATCH: supports AccountForAllDiceOnFollowUpStrike
+            HandleFollowUpStrike(__instance);
+
             //PATCH: Allows adding extra attack modes
             __instance.GetSubFeaturesByType<IAddExtraAttack>()
                 .OrderBy(provider => provider.Priority()).ToList()
