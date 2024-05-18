@@ -53,6 +53,7 @@ internal static class EffectHelpers
         var prefab = effectType switch
         {
             EffectType.Caster => effectParticleParameters.CasterParticle,
+            EffectType.QuickCaster => effectParticleParameters.CasterQuickSpellParticle,
             EffectType.Condition => effectParticleParameters.ConditionParticle,
             EffectType.Effect => effectParticleParameters.EffectParticle,
             EffectType.Impact => effectParticleParameters.ImpactParticle,

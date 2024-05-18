@@ -416,6 +416,7 @@ public static class RulesetCharacterHeroPatcher
     {
         private static bool _callRefresh;
 
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var weaponTagsMethod = typeof(WeaponDescription).GetMethod("get_WeaponTags");
@@ -432,17 +433,7 @@ public static class RulesetCharacterHeroPatcher
         //PATCH: supports AccountForAllDiceOnFollowUpStrike
         private static List<string> WeaponTags(WeaponDescription weaponDescription)
         {
-            if (!weaponDescription.WeaponTags.Contains("TwoHanded"))
-            {
-                return weaponDescription.WeaponTags;
-            }
-
-            var newWeaponTags = weaponDescription.WeaponTags.ToList();
-
-            // let this be handled later on Postfix
-            newWeaponTags.Remove("TwoHanded");
-
-            return newWeaponTags;
+            return weaponDescription.WeaponTags.Where(x => x != "TwoHanded").ToList();
         }
 
         private static void HandleFollowUpStrike(RulesetCharacterHero rulesetCharacterHero)

@@ -660,7 +660,7 @@ internal static partial class SpellBuilders
                     _target.IsOppositeSide(x.Side)));
 
             action.ActionParams.ActionModifiers.Clear();
-            
+
             for (var i = 0; i < action.ActionParams.TargetCharacters.Count; i++)
             {
                 action.ActionParams.ActionModifiers.Add(new ActionModifier());

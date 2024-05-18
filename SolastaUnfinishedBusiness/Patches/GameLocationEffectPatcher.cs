@@ -36,10 +36,12 @@ public static class GameLocationEffectPatcher
                     num = __instance.rulesetEffect.Guid;
                 }
             }
+#if false
             else
             {
-                //Main.Info("SERIALIZATION: null rulesetEffect");
+                Main.Info("SERIALIZATION: null rulesetEffect");
             }
+#endif
 
             var guid = serializer.SerializeAttribute("RulesetEffectGuid", num);
 
@@ -48,10 +50,12 @@ public static class GameLocationEffectPatcher
                 //Main.Info($"SERIALIZATION: {__instance.rulesetEffect.Name}");
                 __instance.rulesetEffect.EntityImplementation = __instance;
             }
+#if false
             else
             {
-                //Main.Info($"Cannot reconcile RulesetEffect {__instance.effectSourceName} of id {guid}");
+                Main.Info($"Cannot reconcile RulesetEffect {__instance.effectSourceName} of id {guid}");
             }
+#endif
 
             __instance.position = serializer.SerializeAttribute("Position", __instance.position);
             __instance.position2 = serializer.SerializeAttribute("Position2", __instance.position2);
