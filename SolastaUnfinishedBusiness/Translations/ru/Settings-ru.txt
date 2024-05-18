@@ -153,6 +153,7 @@ ModUi/&EnableRogueSteadyAim=Включить <color=#D89555>Плутам</color>
 ModUi/&EnableRogueStrSaving=Включить <color=#D89555>Плутам</color> использование модификаторов ЛОВ или СИЛ для <b>Хитрого/Коварного удара</b>, <b>Ослабляющего/Улучшенного ослабляющего удара</b> и <b>Града клинков</b>
 ModUi/&EnableSaveByLocation=Включить сохранения по кампаниям/локациям
 ModUi/&EnableSignatureSpellsRelearn=Включить <color=#D89555>Волшебникам</color> подготовку фирменных заклинаний после каждого продолжительного отдыха <i><color=#F0DAA0>[вместо того, чтобы выбирать их один раз на 20-м уровне]</color></i>
+ModUi/&EnableSorcererMagicalGuidance=Включите <color=#D89555>Колдуна</color> <b>магическое руководство</b> на уровне 5.
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ассетов в редакторе Создателя Подземелий
 ModUi/&EnableStatsOnHeroTooltip=Отображать статистику на всплывающей подсказке о герое <i><color=#F0DAA0>[например: критические удары, критические промахи и т.д.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Также каждый герой добавляет к весомости результат броска D20 для привнесения элемента случайности <color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя + бросок D20]</color></i>

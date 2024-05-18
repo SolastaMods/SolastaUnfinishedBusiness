@@ -5,6 +5,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -42,6 +43,12 @@ internal static partial class CharacterContext
 
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
+
+    private static readonly FeatureDefinition FeatureSorcererMagicalGuidance = FeatureDefinitionBuilder
+        .Create("FeatureSorcererMagicalGuidance")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new TryAlterOutcomeAttributeCheckSorcererMagicalGuidance())
+        .AddToDB();
 
     internal static readonly ConditionDefinition ConditionIndomitableSaving = ConditionDefinitionBuilder
         .Create("ConditionIndomitableSaving")
@@ -225,6 +232,7 @@ internal static partial class CharacterContext
         SwitchRogueFightingStyle();
         SwitchRogueSteadyAim();
         SwitchRogueStrSaving();
+        SwitchSorcererMagicalGuidance();
         SwitchScimitarWeaponSpecialization();
         SwitchBardHealingBalladOnLongRest();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
@@ -892,6 +900,24 @@ internal static partial class CharacterContext
         rangerSurvivalist.FeatureUnlocks.SetRange(replacedFeatures);
     }
 
+    internal static void SwitchSorcererMagicalGuidance()
+    {
+        if (Main.Settings.EnableSorcererMagicalGuidance)
+        {
+            Sorcerer.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(FeatureSorcererMagicalGuidance, 5));
+        }
+        else
+        {
+            Sorcerer.FeatureUnlocks.RemoveAll(x =>
+                x.level == 5 && x.FeatureDefinition == FeatureSorcererMagicalGuidance);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
     internal static void SwitchScimitarWeaponSpecialization()
     {
         var proficiencies = new List<FeatureDefinitionProficiency> { ProficiencyBardWeapon, ProficiencyRogueWeapon };
@@ -1132,6 +1158,82 @@ internal static partial class CharacterContext
     {
         return DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
+    }
+
+    private sealed class TryAlterOutcomeAttributeCheckSorcererMagicalGuidance : ITryAlterOutcomeAttributeCheck
+    {
+        public IEnumerator OnTryAlterAttributeCheck(
+            GameLocationBattleManager battleManager,
+            AbilityCheckData abilityCheckData,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier abilityCheckModifier)
+        {
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            var rulesetHelper = helper.RulesetCharacter;
+
+            if (!actionManager ||
+                abilityCheckData.AbilityCheckRoll == 0 ||
+                abilityCheckData.AbilityCheckRollOutcome != RollOutcome.Failure ||
+                helper != defender ||
+                rulesetHelper.RemainingSorceryPoints == 0)
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "CustomReactionMagicalGuidanceCheckDescription".Formatted(
+                        Category.Reaction, defender.Name, helper.Name)
+                };
+            var count = actionManager.PendingReactionRequestGroups.Count;
+
+            var reactionRequest = new ReactionRequestCustom("MagicalGuidanceCheck", reactionParams)
+            {
+                Resource = ReactionResourceSorceryPoints.Instance
+            };
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(defender, actionManager, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            rulesetHelper.SpendSorceryPoints(1);
+            rulesetHelper.SorceryPointsAltered?.Invoke(rulesetHelper, rulesetHelper.RemainingSorceryPoints);
+
+            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
+            abilityCheckData.AbilityCheckRoll = dieRoll;
+
+            (ConsoleStyleDuplet.ParameterType, string) extra;
+
+            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
+            {
+                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
+                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
+            }
+            else
+            {
+                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
+            }
+
+            rulesetHelper.LogCharacterActivatesAbility(
+                "Feature/&FeatureSorcererMagicalGuidanceTitle",
+                "Feedback/&MagicalGuidanceCheckToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                    extra
+                ]);
+        }
     }
 
     private sealed class FilterTargetingPositionPowerTeleportSummon : IFilterTargetingPosition

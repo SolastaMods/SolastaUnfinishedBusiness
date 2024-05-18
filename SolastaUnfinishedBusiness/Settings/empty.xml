@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>0</DisplayModMessage>
+    <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -345,6 +345,7 @@
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
     <EnableRogueStrSaving>false</EnableRogueStrSaving>
+    <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <OfferAdditionalLoreFriendlyNames>false</OfferAdditionalLoreFriendlyNames>
     <UnlockAllNpcFaces>false</UnlockAllNpcFaces>
     <AllowUnmarkedSorcerers>false</AllowUnmarkedSorcerers>
@@ -1086,4 +1087,7 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

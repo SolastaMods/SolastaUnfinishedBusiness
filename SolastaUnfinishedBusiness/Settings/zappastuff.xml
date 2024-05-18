@@ -420,7 +420,7 @@
     <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
     <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
     <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
-    <EnableBardHealingBalladOnLongRest>false</EnableBardHealingBalladOnLongRest>
+    <EnableBardHealingBalladOnLongRest>true</EnableBardHealingBalladOnLongRest>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>true</DisableBarbarianBrutalCritical>
@@ -441,7 +441,8 @@
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
-    <EnableRogueStrSaving>false</EnableRogueStrSaving>
+    <EnableRogueStrSaving>true</EnableRogueStrSaving>
+    <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <OfferAdditionalLoreFriendlyNames>true</OfferAdditionalLoreFriendlyNames>
     <UnlockAllNpcFaces>true</UnlockAllNpcFaces>
     <AllowUnmarkedSorcerers>true</AllowUnmarkedSorcerers>

@@ -153,6 +153,7 @@ ModUi/&EnableRogueSteadyAim=Activez <color=#D89555>Rogue</color> <b>Steady Aim</
 ModUi/&EnableRogueStrSaving=Activez <color=#D89555>Rogue</color> pour utiliser les modificateurs DEX ou STR sur <b>Frappe rusée/sournoise</b>, <b>Frappe débilitante/améliorée</b> et <b>Grêle de lames. </b>
 ModUi/&EnableSaveByLocation=Activer la sauvegarde par campagnes/emplacements
 ModUi/&EnableSignatureSpellsRelearn=Activer la préparation des sorts de signature de <color=#D89555>Assistant</color> à chaque repos long <i><color=#F0DAA0>[au lieu d'une fois au niveau 20]</color></i>
+ModUi/&EnableSorcererMagicalGuidance=Activer <color=#D89555>Sorcier</color> <b>conseils magiques</b> au niveau 5
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des actifs sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ De plus, chaque héros ajoute un jet de D20 au poids pour un peu de hasard <color=#F0DAA0>[poids du choix = votes * modificateur de Charisme du héros + jet de D20]</color></i>

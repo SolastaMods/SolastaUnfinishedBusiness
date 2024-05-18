@@ -153,6 +153,7 @@ ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Rogue</color> <b>Steady Aim</b
 ModUi/&EnableRogueStrSaving=Enable <color=#D89555>Rogue</color> to use DEX or STR modifiers on <b>Cunning/Devious Strike</b>, <b>Debilitating/Improved Strike</b>, and <b>Hail of Blades</b>
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
 ModUi/&EnableSignatureSpellsRelearn=Enable <color=#D89555>Wizard</color> signature spells to be prepared every long rest <i><color=#F0DAA0>[instead of once at level 20]</color></i>
+ModUi/&EnableSorcererMagicalGuidance=Enable <color=#D89555>Sorcerer</color> <b>magical guidance</b> at level 5
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Also each hero adds a D20 roll to weight for a bit of randomness <color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>

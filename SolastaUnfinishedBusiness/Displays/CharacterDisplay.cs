@@ -211,6 +211,13 @@ internal static class CharacterDisplay
             CharacterContext.SwitchBardHealingBalladOnLongRest();
         }
 
+        toggle = Main.Settings.EnableSorcererMagicalGuidance;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMagicalGuidance"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererMagicalGuidance = toggle;
+            CharacterContext.SwitchSorcererMagicalGuidance();
+        }
+
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {

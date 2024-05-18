@@ -153,6 +153,7 @@ ModUi/&EnableRogueSteadyAim=在<color=#D89555>游荡者</color> 3 级时启用<b
 ModUi/&EnableRogueStrSaving=启用<color=#D89555>游荡者</color>在<b>诡诈/凶狡打击</b>、<b>虚弱/精通打击</b>和<b>剑刃冰雹</b>上使用敏捷或力量调整值
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSignatureSpellsRelearn=启用<color=#D89555>法师</color>招牌法术，以便在每次长休时准备<i><color=#F0DAA0>[而不是在 20 级时一次]</color></i>
+ModUi/&EnableSorcererMagicalGuidance=在第 5 级启用<color=#D89555>巫师</color><b>魔法引导</b>
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=。此外，每个英雄都增加了 D20 骰子重量以获得一点随机性
