@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "370bd5612dbadd74e83596f0937f0373",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -321,7 +321,7 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": false,
+  "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,

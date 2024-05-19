@@ -68,6 +68,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                 ConditionDefinition = conditionDreadfulStrikes,
                 Operation = ConditionOperationDescription.ConditionOperation.Add
             })
+            .SetImpactParticleReference(FeatureDefinitionPowers.Power_HornOfBlasting)
             .AddToDB();
 
         additionalDamageDreadfulStrikes.AddCustomSubFeatures(
@@ -113,7 +114,6 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             .Create($"Power{Name}BeguilingTwistCharmed")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, powerBeguilingTwist)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -128,6 +128,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                             .SetConditionForm(ConditionDefinitions.ConditionCharmed,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererManaPainterDrain )
                     .Build())
             .AddToDB();
 
@@ -135,7 +136,6 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             .Create($"Power{Name}BeguilingTwistFrightened")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, powerBeguilingTwist)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -150,6 +150,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                             .SetConditionForm(ConditionDefinitions.ConditionFrightened,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererManaPainterDrain )
                     .Build())
             .AddToDB();
 
@@ -300,6 +301,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                     action.ActionParams.activeEffect?.EffectDescription.EffectForms ??
                     action.ActionParams.AttackMode?.EffectDescription.EffectForms ??
                     []) ||
+                !helper.CanReact() ||
                 !helper.IsOppositeSide(attacker.Side) ||
                 !helper.IsWithinRange(defender, 24) ||
                 !helper.CanPerceiveTarget(defender))
