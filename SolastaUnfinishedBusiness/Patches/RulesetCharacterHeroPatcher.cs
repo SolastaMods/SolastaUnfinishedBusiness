@@ -478,7 +478,7 @@ public static class RulesetCharacterHeroPatcher
                 {
                     effectDamageForms[0] = EffectForm.GetCopy(effectDamageForms[0]);
                     effectDamageForms[0].DamageForm.DieType = attackModifier.FollowUpDamageDie;
-                    effectDamageForms[0].DamageForm.DiceNumber = attackModifier.AdditionalDamageDice;
+                    effectDamageForms[0].DamageForm.DiceNumber = 1;
                 }
 
                 if (!Main.Settings.AccountForAllDiceOnFollowUpStrike &&
@@ -488,6 +488,7 @@ public static class RulesetCharacterHeroPatcher
                 }
 
                 attackMode.EffectDescription.EffectForms.SetRange(effectDamageForms);
+                rulesetCharacterHero.AttackModes.Add(attackMode);
             }
         }
 
