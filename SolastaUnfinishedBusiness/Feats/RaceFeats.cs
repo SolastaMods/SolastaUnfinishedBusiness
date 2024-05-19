@@ -1493,12 +1493,6 @@ internal static class RaceFeats
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerOrcishAggression)
-            {
-                return true;
-            }
-
             var service = ServiceRepository.GetService<IGameLocationBattleService>();
             var actingCharacter = __instance.ActionParams.ActingCharacter;
 

@@ -493,9 +493,8 @@ internal static class GambitsBuilders
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round)
                     .Build())
+            .AddCustomSubFeatures(new CoordinatedAttack())
             .AddToDB();
-
-        powerCoordinatedAttack.AddCustomSubFeatures(new CoordinatedAttack(powerCoordinatedAttack));
 
         reactionPower = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}React")
@@ -571,7 +570,7 @@ internal static class GambitsBuilders
         power.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.HasMainAttackAvailable,
             new UpgradeSpellRangeBasedOnWeaponReach(power),
-            new OverwhelmingAttack(power));
+            new OverwhelmingAttack());
 
         BuildFeatureInvocation(name, sprite, power);
 
@@ -678,11 +677,8 @@ internal static class GambitsBuilders
                                     (ConditionInterruption)ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .AddToDB()))
                     .Build())
+            .AddCustomSubFeatures(ValidatorsValidatePowerUse.HasMainAttackAvailable, new TacticalStrike())
             .AddToDB();
-
-        power.AddCustomSubFeatures(
-            ValidatorsValidatePowerUse.HasMainAttackAvailable,
-            new TacticalStrike(power));
 
         BuildFeatureInvocation(name, sprite, power);
 
@@ -1150,19 +1146,13 @@ internal static class GambitsBuilders
     // Tactical Strike
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class TacticalStrike(FeatureDefinitionPower powerSelectEnemy) :
+    private sealed class TacticalStrike :
         IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => true;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerSelectEnemy)
-            {
-                return true;
-            }
-
             var selectedTargets = __instance.SelectionService.SelectedTargets;
 
             //
@@ -1492,10 +1482,9 @@ internal static class GambitsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerSwitchActivate)
+            if (target.RulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
             var actingCharacter = __instance.ActionParams.ActingCharacter;
@@ -1876,17 +1865,16 @@ internal static class GambitsBuilders
     // Coordinated Attack
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class CoordinatedAttack(FeatureDefinitionPower powerCoordinatedAttack) :
+    private sealed class CoordinatedAttack :
         IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IMagicEffectFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerCoordinatedAttack)
+            if (target.RulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
             if (!target.CanReact())
@@ -2016,19 +2004,13 @@ internal static class GambitsBuilders
     // Overwhelming Attack
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class OverwhelmingAttack(FeatureDefinitionPower powerOverwhelmingAttack) :
+    private sealed class OverwhelmingAttack :
         IFilterTargetingCharacter, IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
         public bool EnforceFullSelection => true;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerOverwhelmingAttack)
-            {
-                return true;
-            }
-
             var selectedTargets = __instance.SelectionService.SelectedTargets;
 
             if (selectedTargets.Count == 0)

@@ -678,12 +678,9 @@ internal static class Level20SubclassesContext
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)
                     .SetParticleEffectParameters(DreadfulOmen)
                     .Build())
+            .AddCustomSubFeatures(
+                new CustomBehaviorQuiveringPalmTrigger(conditionTraditionOpenHandQuiveringPalm))
             .AddToDB();
-
-        powerTraditionOpenHandQuiveringPalmTrigger.AddCustomSubFeatures(
-            new CustomBehaviorQuiveringPalmTrigger(
-                powerTraditionOpenHandQuiveringPalmTrigger,
-                conditionTraditionOpenHandQuiveringPalm));
 
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalm")
@@ -1999,8 +1996,6 @@ internal static class Level20SubclassesContext
 
     private sealed class CustomBehaviorQuiveringPalmTrigger(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower featureDefinitionPower,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition)
         : IFilterTargetingCharacter, IMagicEffectFinishedByMe
     {
@@ -2008,15 +2003,9 @@ internal static class Level20SubclassesContext
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != featureDefinitionPower)
-            {
-                return true;
-            }
-
             if (target.RulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
             var isValid = target.RulesetCharacter.HasConditionOfType(conditionDefinition.Name);

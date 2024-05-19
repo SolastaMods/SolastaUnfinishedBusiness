@@ -939,7 +939,12 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            var isValid = !target.RulesetActor.HasConditionOfCategoryAndType(
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid = !target.RulesetCharacter.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionMark.Name);
 
             if (!isValid)
@@ -2424,15 +2429,12 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerWitchBolt)
+            if (target.RulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
-            var rulesetTarget = target.RulesetCharacter;
-
-            var isValid = rulesetTarget.HasConditionOfCategoryAndType(
+            var isValid = target.RulesetCharacter.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionWitchBolt.Name);
 
             if (!isValid)

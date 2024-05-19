@@ -386,6 +386,11 @@ public sealed class RangerWildMaster : AbstractSubclass
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
             var isValid = target.RulesetCharacter.GetMySummoner()?.Guid == __instance.ActionParams.ActingCharacter.Guid;
 
             if (!isValid)

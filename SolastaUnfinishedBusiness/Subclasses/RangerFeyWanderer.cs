@@ -192,9 +192,8 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                     .Create(MistyStep)
                     .InviteOptionalAlly()
                     .Build())
+            .AddCustomSubFeatures(new CustomBehaviorMistyWanderer())
             .AddToDB();
-
-        powerMistyWanderer.AddCustomSubFeatures(new CustomBehaviorMistyWanderer(powerMistyWanderer));
 
         //
         // MAIN
@@ -347,19 +346,12 @@ public sealed class RangerFeyWanderer : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorMistyWanderer(FeatureDefinitionPower powerMistyWanderer)
-        : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    private sealed class CustomBehaviorMistyWanderer : IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerMistyWanderer)
-            {
-                return target.RulesetCharacter is not RulesetCharacterEffectProxy;
-            }
-
             if (target.RulesetCharacter == null)
             {
                 return false;

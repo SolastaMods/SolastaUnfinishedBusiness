@@ -1097,7 +1097,7 @@ internal static class InvocationsBuilders
 
             if (rulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
             var isValid = CanApplyHex(rulesetCharacter);
@@ -1220,7 +1220,7 @@ internal static class InvocationsBuilders
 
             if (rulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
             var isValid = CanApplyHex(rulesetCharacter);
@@ -1291,7 +1291,7 @@ internal static class InvocationsBuilders
 
             if (rulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
             var isValid = CanApplyHex(rulesetCharacter);

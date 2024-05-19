@@ -372,16 +372,13 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(DivineWord)
                     .Build())
+            .AddCustomSubFeatures(new FilterTargetingCharacterAuraOfVitality(conditionAuraOfLife))
             .AddToDB();
-
-        spell.AddCustomSubFeatures(new FilterTargetingCharacterAuraOfVitality(spell, conditionAuraOfLife));
 
         return spell;
     }
 
     private sealed class FilterTargetingCharacterAuraOfVitality(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellAuraOfVitality,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionAuraOfVitality) : IFilterTargetingCharacter
     {
@@ -389,15 +386,12 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell
-                || rulesetEffectSpell.SpellDefinition != spellAuraOfVitality)
+            if (target.RulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
-            var rulesetTarget = target.RulesetCharacter;
-
-            var isValid = rulesetTarget.HasConditionOfCategoryAndType(
+            var isValid = target.RulesetCharacter.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionAuraOfVitality.Name);
 
             if (!isValid)
