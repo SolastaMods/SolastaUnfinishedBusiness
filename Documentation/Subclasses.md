@@ -4392,7 +4392,7 @@ Once per long rest, you can use your action to cast Conjure Fey spell. Casting t
 
 * Misty Wanderer
 
-You can slip in and out of the Fey wild to move in a blink of an eye: you can cast Misty Step without expending a spell slot. You can do so a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses when you finish a long rest. In addition, whenever you cast Misty Step, you can bring along one willing creature you can see.
+You can slip in and out of the Fey wild to move in a blink of an eye: you can cast Misty Step without expending a spell slot. You can do so a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses when you finish a long rest. In addition, whenever you cast Misty Step, you can bring along one willing creature you can see within 5 ft of you.
 
 
 

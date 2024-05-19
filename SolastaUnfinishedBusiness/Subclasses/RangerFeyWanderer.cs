@@ -128,7 +128,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                             .SetConditionForm(ConditionDefinitions.ConditionCharmed,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererManaPainterDrain )
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererManaPainterDrain)
                     .Build())
             .AddToDB();
 
@@ -150,7 +150,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                             .SetConditionForm(ConditionDefinitions.ConditionFrightened,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererManaPainterDrain )
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererManaPainterDrain)
                     .Build())
             .AddToDB();
 
