@@ -413,6 +413,7 @@
     <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
     <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
+    <AccountForAllDiceOnFollowUpStrike>false</AccountForAllDiceOnFollowUpStrike>
     <AccountForAllDiceOnSavageAttack>false</AccountForAllDiceOnSavageAttack>
     <AllowFlightSuspend>false</AllowFlightSuspend>
     <FlightSuspendWingedBoots>false</FlightSuspendWingedBoots>
@@ -1087,7 +1088,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

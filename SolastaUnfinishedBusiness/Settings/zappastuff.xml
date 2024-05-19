@@ -489,7 +489,7 @@
     <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
     <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>true</FixEldritchBlastRange>
-    <FixRingOfRegenerationHealRate>false</FixRingOfRegenerationHealRate>
+    <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
     <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
     <IdentifyAfterRest>true</IdentifyAfterRest>
     <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
@@ -510,6 +510,7 @@
     <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
     <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
+    <AccountForAllDiceOnFollowUpStrike>true</AccountForAllDiceOnFollowUpStrike>
     <AccountForAllDiceOnSavageAttack>true</AccountForAllDiceOnSavageAttack>
     <AllowFlightSuspend>true</AllowFlightSuspend>
     <FlightSuspendWingedBoots>true</FlightSuspendWingedBoots>
