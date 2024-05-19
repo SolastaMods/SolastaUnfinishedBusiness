@@ -718,7 +718,7 @@ internal static class MeleeCombatFeats
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
@@ -1904,7 +1904,7 @@ internal static class MeleeCombatFeats
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })

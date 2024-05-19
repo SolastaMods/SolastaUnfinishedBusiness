@@ -1988,7 +1988,7 @@ internal static class RaceFeats
                 toHitBonus = attackMode.ToHitBonus;
                 roll = rulesetAttacker.RollAttack(
                     toHitBonus,
-                    defender.RulesetCharacter,
+                    defender.RulesetActor,
                     attackMode.SourceDefinition,
                     attackMode.ToHitBonusTrends,
                     false,
@@ -2006,7 +2006,7 @@ internal static class RaceFeats
                 toHitBonus = activeEffect.MagicAttackBonus;
                 roll = rulesetAttacker.RollMagicAttack(
                     activeEffect,
-                    defender.RulesetCharacter,
+                    defender.RulesetActor,
                     activeEffect.GetEffectSource(),
                     attackModifier.AttacktoHitTrends,
                     attackModifier.AttackAdvantageTrends,

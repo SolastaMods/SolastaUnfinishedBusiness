@@ -54,8 +54,8 @@ internal static class GuardianAura
         RulesetEffect rulesetEffect,
         int damageAmount)
     {
-        if (!(unit.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraUser>() ?? false)
-            || !(defender.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraCondition>() ?? false))
+        if (!unit.RulesetActor.HasSubFeatureOfType<GuardianAuraUser>()
+            || !defender.RulesetActor.HasSubFeatureOfType<GuardianAuraCondition>())
         {
             yield break;
         }
@@ -65,7 +65,7 @@ internal static class GuardianAura
             yield break;
         }
 
-        if (defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+        if (defender.RulesetActor is not { IsDeadOrDyingOrUnconscious: false })
         {
             yield break;
         }

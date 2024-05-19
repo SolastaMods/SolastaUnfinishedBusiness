@@ -994,7 +994,7 @@ internal static partial class SpellBuilders
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             rulesetDefender.InflictCondition(
                 conditionMark.Name,

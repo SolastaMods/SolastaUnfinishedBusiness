@@ -383,7 +383,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             }
 
             var monkLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender.HasConditionOfType(conditionHadDiscordanceDamageThisTurn) &&
                 monkLevel < EntropicStrikesLevel)

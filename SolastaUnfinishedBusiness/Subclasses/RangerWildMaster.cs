@@ -451,7 +451,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             }
 
             var pb = summoner.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (!rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionKillCommand.Name, out var activeCondition) ||

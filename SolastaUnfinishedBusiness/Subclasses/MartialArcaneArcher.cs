@@ -574,7 +574,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         ArcaneArcherData arcaneArcherData)
     {
         var rulesetAttacker = attacker.RulesetCharacter;
-        var rulesetDefender = defender.RulesetCharacter;
+        var rulesetDefender = defender.RulesetActor;
 
         if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
             rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
@@ -788,7 +788,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             // testMode true avoids the roll to display on combat log as the original one will get there with altered results
             var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
-                defender.RulesetCharacter,
+                defender.RulesetActor,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 attackModifier.IgnoreAdvantage,

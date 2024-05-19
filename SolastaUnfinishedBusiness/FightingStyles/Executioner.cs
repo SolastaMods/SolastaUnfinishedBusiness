@@ -65,7 +65,7 @@ internal sealed class Executioner : AbstractFightingStyle
         {
             reactionParams = null;
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (attackMode == null || rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {

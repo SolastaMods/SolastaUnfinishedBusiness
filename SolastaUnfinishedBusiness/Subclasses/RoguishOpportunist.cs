@@ -235,7 +235,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
             var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;
             var advantageTrends = rulesetDefender.actionModifier.savingThrowAdvantageTrends;
             var attackerDexModifier = ComputeAbilityScoreModifier(rulesetAttacker.TryGetAttributeValue(Dexterity));

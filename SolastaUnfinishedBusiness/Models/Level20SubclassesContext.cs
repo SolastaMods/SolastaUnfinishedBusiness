@@ -1961,7 +1961,7 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
@@ -2108,7 +2108,7 @@ internal static class Level20SubclassesContext
 
             // remove this condition from all other enemies
             foreach (var rulesetDefender in Gui.Battle.GetContenders(gameLocationDefender, isOppositeSide: false)
-                         .Select(defender => defender.RulesetCharacter))
+                         .Select(defender => defender.RulesetActor))
             {
                 if (rulesetDefender.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect,
@@ -2240,7 +2240,7 @@ internal static class Level20SubclassesContext
         {
             reactionParams = null;
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (attackMode == null || rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {

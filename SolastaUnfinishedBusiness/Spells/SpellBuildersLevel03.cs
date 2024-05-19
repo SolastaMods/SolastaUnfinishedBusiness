@@ -1145,7 +1145,7 @@ internal static partial class SpellBuilders
                     DiceNumber = MainTargetDiceNumber + additionalDice
                 };
                 var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-                var rulesetDefender = defender.RulesetCharacter;
+                var rulesetDefender = defender.RulesetActor;
                 var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
                 {
                     sourceCharacter = rulesetAttacker,

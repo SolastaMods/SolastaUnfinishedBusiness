@@ -713,7 +713,7 @@ internal static class OtherFeats
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             attacker.BurnOneMainAttack();
 

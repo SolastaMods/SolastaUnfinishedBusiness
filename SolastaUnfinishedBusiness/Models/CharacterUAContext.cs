@@ -1360,7 +1360,7 @@ internal static partial class CharacterContext
 
             _selectedPower = null;
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {

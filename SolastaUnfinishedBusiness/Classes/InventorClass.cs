@@ -897,7 +897,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         GameLocationCharacter helper,
         ActionModifier abilityCheckModifier)
     {
-        var rulesetDefender = defender.RulesetCharacter;
+        var rulesetDefender = defender.RulesetActor;
 
         if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
             !rulesetDefender.TryGetConditionOfCategoryAndType(
@@ -980,7 +980,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         bool hasHitVisual,
         bool hasBorrowedLuck)
     {
-        var rulesetDefender = defender.RulesetCharacter;
+        var rulesetDefender = defender.RulesetActor;
 
         if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
             !rulesetDefender.TryGetConditionOfCategoryAndType(

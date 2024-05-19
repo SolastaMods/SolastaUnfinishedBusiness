@@ -101,7 +101,7 @@ internal static class RaceOligathBuilder
             .SetGuiPresentation($"Power{Name}StoneEndurance", Category.Feature)
             .SetAlwaysActiveReducedDamage((attacker, defender) =>
             {
-                var rulesetDefender = defender.RulesetCharacter;
+                var rulesetDefender = defender.RulesetActor;
 
                 if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                     !rulesetDefender.HasConditionOfType($"Condition{Name}StoneEndurance"))

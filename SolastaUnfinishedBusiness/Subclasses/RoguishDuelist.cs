@@ -216,7 +216,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {

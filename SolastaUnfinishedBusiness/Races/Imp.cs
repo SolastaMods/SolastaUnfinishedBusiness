@@ -331,17 +331,17 @@ internal static class RaceImpBuilder
             GameLocationCharacter defender)
         {
             // Only remove assisted condition if attacking assisted enemy
-            if (defender.RulesetCharacter.HasConditionOfType(ConditionImpAssistedEnemyName) ||
-                defender.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName))
+            if (defender.RulesetActor.HasConditionOfType(ConditionImpAssistedEnemyName) ||
+                defender.RulesetActor.HasConditionOfType(ConditionImpSpiteName))
             {
-                var isSpite = defender.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName);
+                var isSpite = defender.RulesetActor.HasConditionOfType(ConditionImpSpiteName);
 
                 defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpAssistedEnemyName);
                 defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpSpiteName);
 
                 if (isSpite)
                 {
-                    defender.RulesetCharacter.InflictCondition(
+                    defender.RulesetActor.InflictCondition(
                         ConditionImpSpiteMarkerName,
                         DurationType.Round,
                         0,
@@ -560,12 +560,12 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            if (defender.RulesetCharacter.IsDeadOrDying)
+            if (defender.RulesetActor.IsDeadOrDying)
             {
                 yield break;
             }
 
-            defender.RulesetCharacter.InflictCondition(
+            defender.RulesetActor.InflictCondition(
                 "ConditionMocked",
                 DurationType.Minute,
                 1,
@@ -824,7 +824,7 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrUnconscious: false })
             {

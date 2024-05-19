@@ -263,7 +263,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetDefender.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionSurprised))

@@ -212,7 +212,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetDefender.HasConditionOfType(conditionTrialMark))
