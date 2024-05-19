@@ -63,9 +63,9 @@ Feature/&PowerFeatOrcishAggressionDescription=Como uma ação bônus, ao empunha
 Feature/&PowerFeatOrcishAggressionTitle=Agressão Orc
 Feedback/&AdditionalDamageOrcishFuryFormat=Fúria Orc
 Feedback/&AdditionalDamageOrcishFuryLine=Fúria Orc causa +{2} de dano extra!
-Feedback/&BountifulLuckAttackToHitRoll={0} usou {1} para rolar um {2} e substituir a jogada de ataque
-Feedback/&BountifulLuckCheckToHitRoll={0} usou {1} para lançar um {2} e substituir a jogada de verificação
-Feedback/&BountifulLuckSavingToHitRoll={0} usou {1} para lançar um {2} e substituir a jogada salvadora
+Feedback/&BountifulLuckAttackToHitRoll={0} usou {1} e rola um {2} para substituir {3} na jogada de ataque
+Feedback/&BountifulLuckCheckToHitRoll={0} usou {1} e rola um {2} para substituir {3} na jogada de verificação
+Feedback/&BountifulLuckSavingToHitRoll={0} usou {1} e rola um {2} para substituir {3} na jogada de salvamento
 Feedback/&DwarvenFortitudeHitDieRolled={0} rolou um {2} e curou {3} = {4}.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} perderam {1}. {2} pode reagir para lançar um d20 e substituir a jogada de ataque.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Role um d20 para substituir a jogada de ataque.

@@ -811,8 +811,8 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
-                        EffectFormBuilder.DamageForm("DamagePure", 1, DieType.D6))
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 2, DieType.D8),
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -832,7 +832,7 @@ internal static partial class SpellBuilders
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetFeatures(powerLeap)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -853,8 +853,8 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
-                        EffectFormBuilder.DamageForm("DamagePure", 1, DieType.D6))
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 2, DieType.D8),
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -939,7 +939,12 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            var isValid = !target.RulesetActor.HasConditionOfCategoryAndType(
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid = !target.RulesetCharacter.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionMark.Name);
 
             if (!isValid)
@@ -989,7 +994,7 @@ internal static partial class SpellBuilders
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             rulesetDefender.InflictCondition(
                 conditionMark.Name,
@@ -1043,7 +1048,7 @@ internal static partial class SpellBuilders
                 foreach (var effectForm in actualEffectForms
                              .Where(x =>
                                  x.FormType == EffectForm.EffectFormType.Damage &&
-                                 x.DamageForm.DamageType == "DamagePure"))
+                                 x.DamageForm.DamageType == DamageTypeBludgeoning))
                 {
                     effectForm.DamageForm.DamageType = damageType;
                 }
@@ -1129,7 +1134,7 @@ internal static partial class SpellBuilders
                 foreach (var effectForm in actualEffectForms
                              .Where(x =>
                                  x.FormType == EffectForm.EffectFormType.Damage &&
-                                 x.DamageForm.DamageType == "DamagePure"))
+                                 x.DamageForm.DamageType == DamageTypeBludgeoning))
                 {
                     effectForm.DamageForm.DamageType = damageType;
                 }
@@ -2424,15 +2429,12 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerWitchBolt)
+            if (target.RulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
-            var rulesetTarget = target.RulesetCharacter;
-
-            var isValid = rulesetTarget.HasConditionOfCategoryAndType(
+            var isValid = target.RulesetCharacter.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionWitchBolt.Name);
 
             if (!isValid)
@@ -2500,27 +2502,24 @@ internal static partial class SpellBuilders
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            // any bonus, reaction, no cost is allowed
             if (action.ActionType
-                is ActionDefinitions.ActionType.Bonus
+                is ActionDefinitions.ActionType.Move
+                // these although allowed could potentially move both contenders off range
+                or ActionDefinitions.ActionType.Bonus
                 or ActionDefinitions.ActionType.Reaction
                 or ActionDefinitions.ActionType.NoCost)
-            {
-                yield break;
-            }
-
-            // move allowed if still in range
-            if (action.ActionId is ActionDefinitions.Id.TacticalMove or ActionDefinitions.Id.SpecialMove)
             {
                 if (Gui.Battle == null)
                 {
                     yield break;
                 }
 
-                var stillInRange = Gui.Battle.GetContenders(actingCharacter, withinRange: 6).Any(x =>
-                    x.RulesetCharacter.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, conditionWitchBolt.Name, out var activeCondition) &&
-                    rulesetCharacter.Guid == activeCondition.SourceGuid);
+                var stillInRange = Gui.Battle
+                    .GetContenders(actingCharacter, withinRange: 6)
+                    .Any(x =>
+                        x.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                            AttributeDefinitions.TagEffect, conditionWitchBolt.Name, out var activeCondition) &&
+                        rulesetCharacter.Guid == activeCondition.SourceGuid);
 
                 if (stillInRange)
                 {

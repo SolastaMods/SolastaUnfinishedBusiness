@@ -23,6 +23,7 @@ internal static class EffectHelpers
         var prefab = effectType switch
         {
             EffectType.Caster => magicEffect.EffectDescription.EffectParticleParameters.CasterParticle,
+            EffectType.QuickCaster => magicEffect.EffectDescription.EffectParticleParameters.CasterQuickSpellParticle,
             EffectType.Condition => magicEffect.EffectDescription.EffectParticleParameters.ConditionParticle,
             EffectType.Effect => magicEffect.EffectDescription.EffectParticleParameters.EffectParticle,
             EffectType.Impact => magicEffect.EffectDescription.EffectParticleParameters.ImpactParticle,
@@ -52,6 +53,7 @@ internal static class EffectHelpers
         var prefab = effectType switch
         {
             EffectType.Caster => effectParticleParameters.CasterParticle,
+            EffectType.QuickCaster => effectParticleParameters.CasterQuickSpellParticle,
             EffectType.Condition => effectParticleParameters.ConditionParticle,
             EffectType.Effect => effectParticleParameters.EffectParticle,
             EffectType.Impact => effectParticleParameters.ImpactParticle,
@@ -263,6 +265,7 @@ internal static class EffectHelpers
     internal enum EffectType
     {
         Caster,
+        QuickCaster,
         Condition,
         Effect,
         Impact,

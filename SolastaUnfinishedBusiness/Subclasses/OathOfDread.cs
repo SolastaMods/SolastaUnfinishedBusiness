@@ -216,6 +216,7 @@ public sealed class OathOfDread : AbstractSubclass
             .SetDamageDice(DieType.D8, 1)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetAttackModeOnly()
             .AddToDB();
 
         var featureSetAspectOfDread = FeatureDefinitionFeatureSetBuilder

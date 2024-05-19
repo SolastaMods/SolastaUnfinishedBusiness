@@ -996,6 +996,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRogueSneakAttack { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRogueSneakAttack");
 
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRoguishHoodlumNonFinesseSneakAttack { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRoguishHoodlumNonFinesseSneakAttack");
+
         internal static FeatureDefinitionAdditionalDamage
             AdditionalDamageTraditionLightRadiantStrikesLuminousKi { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionLightRadiantStrikesLuminousKi");
@@ -2022,6 +2025,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerTraditionOpenHandTranquility { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionOpenHandTranquility");
 
+        internal static FeatureDefinitionPower PowerTraditionOpenHandWholenessOfBody { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionOpenHandWholenessOfBody");
+
         internal static FeatureDefinitionPower PowerTraditionShockArcanistArcaneFury { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistArcaneFury");
 
@@ -2204,6 +2210,12 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionRegeneration RegenerationRing { get; } =
             GetDefinition<FeatureDefinitionRegeneration>("RegenerationRing");
+    }
+
+    internal static class FeatureDefinitionRestHealingModifiers
+    {
+        internal static FeatureDefinitionRestHealingModifier RestHealingModifierBardHealingBallad { get; } =
+            GetDefinition<FeatureDefinitionRestHealingModifier>("RestHealingModifierBardHealingBallad");
     }
 
     internal static class FeatureDefinitionSavingThrowAffinitys
@@ -3718,6 +3730,8 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Regenerate { get; } = GetDefinition<SpellDefinition>("Regenerate");
         internal static SpellDefinition RemoveCurse { get; } = GetDefinition<SpellDefinition>("RemoveCurse");
         internal static SpellDefinition Resistance { get; } = GetDefinition<SpellDefinition>("Resistance");
+
+        internal static SpellDefinition Resurrection { get; } = GetDefinition<SpellDefinition>("Resurrection");
         internal static SpellDefinition Revivify { get; } = GetDefinition<SpellDefinition>("Revivify");
         internal static SpellDefinition SacredFlame { get; } = GetDefinition<SpellDefinition>("SacredFlame");
         internal static SpellDefinition SacredFlame_B { get; } = GetDefinition<SpellDefinition>("SacredFlame_B");

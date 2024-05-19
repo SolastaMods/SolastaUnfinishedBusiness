@@ -40,6 +40,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.MindSculptToggle,
         (Id)ExtraActionId.OrcishFuryToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
+        (Id)ExtraActionId.PowerSurgeToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
         (Id)ExtraActionId.ThunderousStrikeToggle,
         (Id)ExtraActionId.QuiveringPalmToggle,

@@ -678,12 +678,9 @@ internal static class Level20SubclassesContext
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)
                     .SetParticleEffectParameters(DreadfulOmen)
                     .Build())
+            .AddCustomSubFeatures(
+                new CustomBehaviorQuiveringPalmTrigger(conditionTraditionOpenHandQuiveringPalm))
             .AddToDB();
-
-        powerTraditionOpenHandQuiveringPalmTrigger.AddCustomSubFeatures(
-            new CustomBehaviorQuiveringPalmTrigger(
-                powerTraditionOpenHandQuiveringPalmTrigger,
-                conditionTraditionOpenHandQuiveringPalm));
 
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalm")
@@ -924,6 +921,7 @@ internal static class Level20SubclassesContext
             .SetDamageDice(DieType.D6, 2)
             .SetSpecificDamageType(DamageTypeFire)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetAttackModeOnly()
             .SetImpactParticleReference(FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
@@ -1963,7 +1961,7 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
@@ -1998,8 +1996,6 @@ internal static class Level20SubclassesContext
 
     private sealed class CustomBehaviorQuiveringPalmTrigger(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower featureDefinitionPower,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition)
         : IFilterTargetingCharacter, IMagicEffectFinishedByMe
     {
@@ -2007,15 +2003,9 @@ internal static class Level20SubclassesContext
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != featureDefinitionPower)
-            {
-                return true;
-            }
-
             if (target.RulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
             var isValid = target.RulesetCharacter.HasConditionOfType(conditionDefinition.Name);
@@ -2118,7 +2108,7 @@ internal static class Level20SubclassesContext
 
             // remove this condition from all other enemies
             foreach (var rulesetDefender in Gui.Battle.GetContenders(gameLocationDefender, isOppositeSide: false)
-                         .Select(defender => defender.RulesetCharacter))
+                         .Select(defender => defender.RulesetActor))
             {
                 if (rulesetDefender.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect,
@@ -2250,7 +2240,7 @@ internal static class Level20SubclassesContext
         {
             reactionParams = null;
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (attackMode == null || rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {

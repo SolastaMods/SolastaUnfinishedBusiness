@@ -63,9 +63,9 @@ Feature/&PowerFeatOrcishAggressionDescription=Если вы держите ру�
 Feature/&PowerFeatOrcishAggressionTitle=Орочья агрессия
 Feedback/&AdditionalDamageOrcishFuryFormat=Орочье буйство
 Feedback/&AdditionalDamageOrcishFuryLine=Орочье буйство наносит дополнительно +{2} урона!
-Feedback/&BountifulLuckAttackToHitRoll={0} использовал {1}, чтобы выкинуть {2} и заменить бросок атаки
-Feedback/&BountifulLuckCheckToHitRoll={0} использовал {1}, чтобы выкинуть {2} и заменить бросок проверки
-Feedback/&BountifulLuckSavingToHitRoll={0} использовал {1}, чтобы выкинуть {2} и заменить спасбросок
+Feedback/&BountifulLuckAttackToHitRoll={0} использовал {1}, чтобы выкинуть {2} и заменить {3} на бросок атаки
+Feedback/&BountifulLuckCheckToHitRoll={0} использовал {1}, чтобы выкинуть {2} и заменить {3} на бросок проверки
+Feedback/&BountifulLuckSavingToHitRoll={0} использовал {1}, чтобы выкинуть {2} и заменить {3} на спасбросок
 Feedback/&DwarvenFortitudeHitDieRolled={0} выкинул {2} и восстановил {3} = {4}.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} промахнулся по {1}. {2} может использовать реакцию для броска d20 и замены броска атаки.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Бросьте d20, чтобы заменить бросок атаки.

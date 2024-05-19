@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnFollowUpStrike=Добавлять все кости от базового урона оружия к урону от черты <color=#D89555>Второй удар</color>
 ModUi/&AccountForAllDiceOnSavageAttack=Добавлять все кости от базового урона оружия к способностям, которые добавляют базовый урон оружия вместо только одной <i><color=#F0DAA0>[Свирепые атаки, Двуручное оружие и т.д.]</color></i>
 ModUi/&AddAllToStore=Всё в магазин
 ModUi/&AddBleedingToLesserRestoration=Добавить <color=#D89555>Кровотечение</color> к состояниям, снимаемым <color=#D89555>Высшим</color> и <color=#D89555>Малым восстановлением</color>
@@ -84,7 +85,7 @@ ModUi/&DocsRaces=Расы
 ModUi/&DocsSpells=Заклинания
 ModUi/&DocsSubclasses=Архетипы
 ModUi/&DocsSubraces=Разновидности
-ModUi/&DocsVersatilities=Универсальность
+ModUi/&DocsVersatilities=Универсалии
 ModUi/&Donate=<b><color=#D89555>Задонатить:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Скрывать шлемы на персонажах <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&DontEndTurnAfterReady=Не заканчивать ход после использования действия <color=#D89555>Подготовка</color> <i><color=#F0DAA0>[позволяет использовать Бонусное действие или любые дополнительные основные действия от Ускорения или других источников]</color></i>
@@ -105,6 +106,7 @@ ModUi/&EnableBarbarianBrutalStrike=Включить <b>Жестокий удар
 ModUi/&EnableBarbarianFightingStyle=Включить <color=#D89555>Варварам</color> выбор <b>Боевого стиля</b> на уровне 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Включить для <color=#D89555>Варваров</color> завершение эффектов <b>Безрассудной атаки</b> в начале следующего хода
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=Включить <color=#D89555>Варварам</color> на уровне 7 возможность восстанавливать один заряд ярости за короткий отдых
+ModUi/&EnableBardHealingBalladOnLongRest=Включить <color=#D89555>Бардам коллегии надежды</color> работу умения <b>Целительная баллада</b> при длительном отдыхе
 ModUi/&EnableBetaContent=Включить бета-контент <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Включить отмену действия правым кликом мыши
 ModUi/&EnableCantripsTriggeringOnWarMagic=Включить срабатывание дополнительной бонусной атаки <color=#D89555>Боевой магии</color> от заговоров
@@ -152,6 +154,7 @@ ModUi/&EnableRogueSteadyAim=Включить <color=#D89555>Плутам</color>
 ModUi/&EnableRogueStrSaving=Включить <color=#D89555>Плутам</color> использование модификаторов ЛОВ или СИЛ для <b>Хитрого/Коварного удара</b>, <b>Ослабляющего/Улучшенного ослабляющего удара</b> и <b>Града клинков</b>
 ModUi/&EnableSaveByLocation=Включить сохранения по кампаниям/локациям
 ModUi/&EnableSignatureSpellsRelearn=Включить <color=#D89555>Волшебникам</color> подготовку фирменных заклинаний после каждого продолжительного отдыха <i><color=#F0DAA0>[вместо того, чтобы выбирать их один раз на 20-м уровне]</color></i>
+ModUi/&EnableSorcererMagicalGuidance=Включить <color=#D89555>Чародеям</color> <b>Волшебное указание</b> на уровне 5
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ассетов в редакторе Создателя Подземелий
 ModUi/&EnableStatsOnHeroTooltip=Отображать статистику на всплывающей подсказке о герое <i><color=#F0DAA0>[например: критические удары, критические промахи и т.д.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Также каждый герой добавляет к весомости результат броска D20 для привнесения элемента случайности <color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя + бросок D20]</color></i>

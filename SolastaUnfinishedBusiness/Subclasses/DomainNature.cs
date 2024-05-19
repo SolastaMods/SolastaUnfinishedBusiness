@@ -22,6 +22,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class DomainNature : AbstractSubclass
 {
+    private const string Name = "DomainNature";
+
     private static readonly string[] DampenElementsDamageTypes =
     [
         DamageTypeAcid,
@@ -33,12 +35,10 @@ public sealed class DomainNature : AbstractSubclass
 
     public DomainNature()
     {
-        const string NAME = "DomainNature";
-
         var divinePowerPrefix = Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": ";
 
         var autoPreparedSpellsDomainNature = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create($"AutoPreparedSpells{NAME}")
+            .Create($"AutoPreparedSpells{Name}")
             .SetGuiPresentation("ExpandedSpells", Category.Feature)
             .SetAutoTag("Domain")
             .SetPreparedSpellGroups(
@@ -53,14 +53,14 @@ public sealed class DomainNature : AbstractSubclass
         // LEVEL 01 - Acolyte of Nature
 
         var pointPoolCantrip = FeatureDefinitionPointPoolBuilder
-            .Create($"PointPool{NAME}Cantrip")
+            .Create($"PointPool{Name}Cantrip")
             .SetGuiPresentationNoContent(true)
             .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, SpellListDefinitions.SpellListDruid,
                 "DomainNature")
             .AddToDB();
 
         var pointPoolSkills = FeatureDefinitionPointPoolBuilder
-            .Create($"PointPool{NAME}Skills")
+            .Create($"PointPool{Name}Skills")
             .SetGuiPresentationNoContent(true)
             .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
             .OnlyUniqueChoices()
@@ -71,19 +71,19 @@ public sealed class DomainNature : AbstractSubclass
             .AddToDB();
 
         var proficiencyHeavyArmor = FeatureDefinitionProficiencyBuilder
-            .Create($"Proficiency{NAME}HeavyArmor")
+            .Create($"Proficiency{Name}HeavyArmor")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
             .AddToDB();
 
         var featureSetBonusProficiency = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{NAME}BonusProficiency")
+            .Create($"FeatureSet{Name}BonusProficiency")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(proficiencyHeavyArmor)
             .AddToDB();
 
         var featureSetAcolyteOfNature = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{NAME}AcolyteOfNature")
+            .Create($"FeatureSet{Name}AcolyteOfNature")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(pointPoolCantrip, pointPoolSkills)
             .AddToDB();
@@ -93,7 +93,7 @@ public sealed class DomainNature : AbstractSubclass
         //
 
         var powerCharmAnimalsAndPlants = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}CharmAnimalsAndPlants")
+            .Create($"Power{Name}CharmAnimalsAndPlants")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("CharmAnimalsAndPlants", Resources.PowerCharmAnimalsAndPlants, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
@@ -120,7 +120,7 @@ public sealed class DomainNature : AbstractSubclass
             .AddToDB();
 
         var featureSetCharmAnimalsAndPlants = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{NAME}CharmAnimalsAndPlants")
+            .Create($"FeatureSet{Name}CharmAnimalsAndPlants")
             .SetGuiPresentation(
                 divinePowerPrefix + powerCharmAnimalsAndPlants.FormatTitle(),
                 powerCharmAnimalsAndPlants.FormatDescription())
@@ -138,7 +138,7 @@ public sealed class DomainNature : AbstractSubclass
             var shortDamageType = damageType.Replace("Damage", string.Empty);
 
             var conditionResistance = ConditionDefinitionBuilder
-                .Create($"Condition{NAME}{damageType}")
+                .Create($"Condition{Name}{damageType}")
                 .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetFeatures(db.GetElement($"DamageAffinity{shortDamageType}Resistance"))
@@ -149,7 +149,7 @@ public sealed class DomainNature : AbstractSubclass
         }
 
         var conditionDampenElements = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}DampenElements")
+            .Create($"Condition{Name}DampenElements")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
@@ -157,7 +157,7 @@ public sealed class DomainNature : AbstractSubclass
         conditionDampenElements.AddCustomSubFeatures(new CustomBehaviorDampenElements(conditionDampenElements));
 
         var powerDampenElements = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}DampenElements")
+            .Create($"Power{Name}DampenElements")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Permanent)
             .SetEffectDescription(
@@ -179,7 +179,7 @@ public sealed class DomainNature : AbstractSubclass
         //
 
         var additionalDamageDivineStrike = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}DivineStrike")
+            .Create($"AdditionalDamage{Name}DivineStrike")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("DivineStrike")
             .SetDamageDice(DieType.D8, 1)
@@ -193,7 +193,7 @@ public sealed class DomainNature : AbstractSubclass
         // LEVEL 17 - Master of Nature
 
         var powerMasterOfNature = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}MasterOfNature")
+            .Create($"Power{Name}MasterOfNature")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("MasterOfNature", Resources.PowerCharmAnimalsAndPlants, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
@@ -222,7 +222,7 @@ public sealed class DomainNature : AbstractSubclass
             .AddToDB();
 
         var featureSetMasterOfNature = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{NAME}MasterOfNature")
+            .Create($"FeatureSet{Name}MasterOfNature")
             .SetGuiPresentation(
                 divinePowerPrefix + powerMasterOfNature.FormatTitle(),
                 powerMasterOfNature.FormatDescription())
@@ -232,7 +232,7 @@ public sealed class DomainNature : AbstractSubclass
         // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(NAME)
+            .Create(Name)
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.TraditionGreenmage)
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsDomainNature, featureSetAcolyteOfNature, featureSetBonusProficiency)
@@ -252,6 +252,22 @@ public sealed class DomainNature : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice { get; }
 
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
+
+    internal static void GrantCantrip(RulesetCharacterHero hero)
+    {
+        var heroBuildingData = hero.GetHeroBuildingData();
+
+        if (!heroBuildingData.AcquiredCantrips.TryGetValue(
+                $"06SubclassCleric1{Name}{Name}", out var cantrips))
+        {
+            return;
+        }
+
+        foreach (var cantrip in cantrips)
+        {
+            hero.GrantCantrip(cantrip, FeatureDefinitionCastSpells.CastSpellCleric);
+        }
+    }
 
     private sealed class CustomBehaviorDampenElements(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor

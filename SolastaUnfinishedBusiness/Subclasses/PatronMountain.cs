@@ -48,7 +48,7 @@ public class PatronMountain : AbstractSubclass
             .SetGuiPresentation($"Power{Name}BarrierOfStone", Category.Feature)
             .SetAlwaysActiveReducedDamage((_, defender) =>
             {
-                var rulesetCharacter = defender.RulesetCharacter;
+                var rulesetCharacter = defender.RulesetActor;
 
                 if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
                 {

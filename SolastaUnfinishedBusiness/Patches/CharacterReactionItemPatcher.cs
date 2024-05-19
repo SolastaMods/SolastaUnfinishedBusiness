@@ -91,9 +91,7 @@ public static class CharacterReactionItemPatcher
             item.remainingResourceValue.Text = resource.GetUses(item.guiCharacter.rulesetCharacter);
             item.resourceCostGroup.gameObject.SetActive(true);
             item.resourceCostImage.sprite = item.resourceCostSprite;
-            item.resourceCostValue.Text =
-                (resource as ICustomReactionCustomResourceUse)?.GetRequestPoints(item.guiCharacter.rulesetCharacter) ??
-                "1";
+            item.resourceCostValue.Text = (resource as ICustomReactionCustomResourceUse)?.GetRequestPoints(item) ?? "1";
         }
 
         //patch implementation

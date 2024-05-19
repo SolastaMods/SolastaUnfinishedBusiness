@@ -245,7 +245,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetDefender.TryGetConditionOfCategoryAndType(

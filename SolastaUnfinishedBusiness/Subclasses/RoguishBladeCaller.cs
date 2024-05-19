@@ -223,10 +223,10 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             // ALWAYS remove Blade Mark condition
-            if (rulesetDefender is { isDeadOrDyingOrUnconscious: false })
+            if (rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
             {
                 rulesetDefender.RemoveAllConditionsOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionBladeMark.Name);
@@ -310,7 +310,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {

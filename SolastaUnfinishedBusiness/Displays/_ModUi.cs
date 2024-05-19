@@ -185,6 +185,8 @@ internal static class ModUi
         "MartialSpellShield",
         "MartialTactician",
         "MassHeal",
+        "MetamagicSeekingSpell",
+        "MetamagicTransmutedSpell",
         "MeteorSwarmSingleTarget",
         "MindBlank",
         "MindSpike",
@@ -218,6 +220,7 @@ internal static class ModUi
         "RaceTieflingFeral",
         "RaceTieflingMephistopheles",
         "RaceTieflingZariel",
+        "RangerFeyWanderer",
         "RangerGloomStalker",
         "RangerWildMaster",
         "RemarkableTechnique",
@@ -255,6 +258,7 @@ internal static class ModUi
         "WizardBladeDancer",
         "WizardDeadMaster",
         "WizardGraviturgist",
+        "WizardWarMagic",
         "WrathfulSmite"
     ];
 

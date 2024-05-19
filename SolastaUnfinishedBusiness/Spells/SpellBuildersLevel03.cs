@@ -372,16 +372,13 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(DivineWord)
                     .Build())
+            .AddCustomSubFeatures(new FilterTargetingCharacterAuraOfVitality(conditionAuraOfLife))
             .AddToDB();
-
-        spell.AddCustomSubFeatures(new FilterTargetingCharacterAuraOfVitality(spell, conditionAuraOfLife));
 
         return spell;
     }
 
     private sealed class FilterTargetingCharacterAuraOfVitality(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellAuraOfVitality,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionAuraOfVitality) : IFilterTargetingCharacter
     {
@@ -389,15 +386,12 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell
-                || rulesetEffectSpell.SpellDefinition != spellAuraOfVitality)
+            if (target.RulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
-            var rulesetTarget = target.RulesetCharacter;
-
-            var isValid = rulesetTarget.HasConditionOfCategoryAndType(
+            var isValid = target.RulesetCharacter.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionAuraOfVitality.Name);
 
             if (!isValid)
@@ -712,11 +706,12 @@ internal static partial class SpellBuilders
             .Create($"Power{Name}Explode")
             .SetGuiPresentation(Name, Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -781,11 +776,6 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -800,7 +790,8 @@ internal static partial class SpellBuilders
                 actionModifiers.Add(new ActionModifier());
             }
 
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            // don't use PowerNoCost here as it breaks the spell under MP
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
@@ -811,23 +802,27 @@ internal static partial class SpellBuilders
 
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+
+            yield break;
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
             var attacker = action.ActingCharacter;
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
 
-            _targets.SetRange(Gui.Battle.AllContenders
+            _targets.SetRange(contenders
                 .Where(x =>
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x != attacker &&
                     !action.ActionParams.TargetCharacters.Contains(x) &&
                     attacker.IsWithinRange(x, 2)));
+
+            yield break;
         }
     }
 
@@ -978,7 +973,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -1002,6 +997,7 @@ internal static partial class SpellBuilders
             new ModifyEffectDescriptionLightningArrowLeap(powerLightningArrowLeap, conditionLightningArrow));
 
         conditionLightningArrow.AddCustomSubFeatures(
+            AddUsablePowersFromCondition.Marker,
             new CustomBehaviorLightningArrow(powerLightningArrowLeap, conditionLightningArrow));
 
         var spell = SpellDefinitionBuilder
@@ -1149,7 +1145,7 @@ internal static partial class SpellBuilders
                     DiceNumber = MainTargetDiceNumber + additionalDice
                 };
                 var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-                var rulesetDefender = defender.RulesetCharacter;
+                var rulesetDefender = defender.RulesetActor;
                 var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
                 {
                     sourceCharacter = rulesetAttacker,

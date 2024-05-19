@@ -576,7 +576,7 @@ internal static partial class SpellBuilders
             int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
                 rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||

@@ -225,7 +225,7 @@ public sealed class MartialGuardian : AbstractSubclass
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             rulesetDefender.InflictCondition(
                 CustomConditionsContext.Taunted.Name,

@@ -323,6 +323,7 @@
     <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
     <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
     <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+    <EnableBardHealingBalladOnLongRest>false</EnableBardHealingBalladOnLongRest>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <EnableBarbarianBrutalStrike>false</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>false</DisableBarbarianBrutalCritical>
@@ -343,6 +344,8 @@
     <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>false</EnableRogueSteadyAim>
+    <EnableRogueStrSaving>false</EnableRogueStrSaving>
+    <EnableSorcererMagicalGuidance>false</EnableSorcererMagicalGuidance>
     <OfferAdditionalLoreFriendlyNames>false</OfferAdditionalLoreFriendlyNames>
     <UnlockAllNpcFaces>false</UnlockAllNpcFaces>
     <AllowUnmarkedSorcerers>false</AllowUnmarkedSorcerers>
@@ -379,7 +382,6 @@
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <BlindedConditionDontAllowAttackOfOpportunity>false</BlindedConditionDontAllowAttackOfOpportunity>
-    <AllowTargetingSelectionWhenCastingChainLightningSpell>false</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>false</RemoveHumanoidFilterOnHideousLaughter>
     <AddBleedingToLesserRestoration>false</AddBleedingToLesserRestoration>
     <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>false
@@ -410,7 +412,8 @@
     <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
     <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
     <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
-    <EnableRogueStrSaving>false</EnableRogueStrSaving>
+    <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
+    <AccountForAllDiceOnFollowUpStrike>false</AccountForAllDiceOnFollowUpStrike>
     <AccountForAllDiceOnSavageAttack>false</AccountForAllDiceOnSavageAttack>
     <AllowFlightSuspend>false</AllowFlightSuspend>
     <FlightSuspendWingedBoots>false</FlightSuspendWingedBoots>
@@ -1085,7 +1088,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

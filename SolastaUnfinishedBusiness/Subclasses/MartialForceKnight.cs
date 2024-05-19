@@ -673,7 +673,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            if (defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            if (defender.RulesetActor is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }

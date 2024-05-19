@@ -71,6 +71,7 @@ public sealed class MartialSpellShield : AbstractSubclass
             .Create($"MagicAffinity{Name}CombatMagicVigor")
             .SetGuiPresentation(Category.Feature)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetAttackModeOnly()
             .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionBladeWeaving)
             .SetImpactParticleReference(AdditionalDamageHalfOrcSavageAttacks.impactParticleReference)
             .AddToDB();

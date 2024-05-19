@@ -847,7 +847,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var customBehavior =
-            new CustomBehaviorResonatingStrike(spell, powerResonatingStrike, conditionResonatingStrike);
+            new CustomBehaviorResonatingStrike(powerResonatingStrike, conditionResonatingStrike);
 
         powerResonatingStrike.AddCustomSubFeatures(customBehavior);
         spell.AddCustomSubFeatures(
@@ -859,8 +859,6 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorResonatingStrike(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellResonatingStrike,
         FeatureDefinitionPower powerResonatingStrike,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionResonatingStrike) :
@@ -874,12 +872,6 @@ internal static partial class SpellBuilders
         // STEP 0: enforce proper second target selection
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                rulesetEffectSpell.SpellDefinition != spellResonatingStrike)
-            {
-                return true;
-            }
-
             if (__instance.SelectionService?.SelectedTargets == null)
             {
                 return false;

@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionCastSpell;
@@ -174,6 +175,9 @@ public static class CharacterBuildingManagerPatcher
         [UsedImplicitly]
         public static void Postfix(CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
+            //PATCH: grants cantrip selected by a Domain Nature on level 1
+            DomainNature.GrantCantrip(hero);
+
             //PATCH: grants spell repertoires and respective selected spells from feats
             LevelUpContext.GrantSpellsOrCantripsFromFeatCastSpell(__instance, hero);
 

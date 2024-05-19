@@ -386,6 +386,11 @@ public sealed class RangerWildMaster : AbstractSubclass
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
             var isValid = target.RulesetCharacter.GetMySummoner()?.Guid == __instance.ActionParams.ActingCharacter.Guid;
 
             if (!isValid)
@@ -413,13 +418,13 @@ public sealed class RangerWildMaster : AbstractSubclass
             }
 
             foreach (var enemy in Gui.Battle.GetMyContenders(target.Side)
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     x.RulesetCharacter != target))
+                         .Where(x => x.RulesetActor is { IsDeadOrDyingOrUnconscious: false } &&
+                                     x.RulesetActor != target))
             {
-                if (enemy.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                if (enemy.RulesetActor.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect, conditionKillCommand.Name, out var activeCondition))
                 {
-                    enemy.RulesetCharacter.RemoveCondition(activeCondition);
+                    enemy.RulesetActor.RemoveCondition(activeCondition);
                 }
             }
         }
@@ -446,7 +451,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             }
 
             var pb = summoner.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (!rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionKillCommand.Name, out var activeCondition) ||

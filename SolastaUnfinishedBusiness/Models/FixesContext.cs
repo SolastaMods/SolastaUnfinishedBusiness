@@ -57,6 +57,7 @@ internal static class FixesContext
         FixMummyDreadfulGlareSavingAttribute();
         FixPowerDragonbornBreathWeaponDiceProgression();
         FixRecklessAttackForReachWeaponsAndPathOfTheYeoman();
+        FixRestPowerVisibility();
         FixSavingThrowAffinityConditionRaging();
         FixSavingThrowAffinityManaPainterAbsorption();
         FixSmitesAndStrikesDiceProgression();
@@ -398,6 +399,9 @@ internal static class FixesContext
 
     private static void FixMinorMagicEffectsIssues()
     {
+        // fix Resurrection
+        Resurrection.EffectDescription.EffectForms[0].ReviveForm.maxSecondsSinceDeath = 864000;
+
         // fix Vampiric Touch
         VampiricTouch.EffectDescription.rangeParameter = 1;
 
@@ -537,6 +541,14 @@ internal static class FixesContext
             ExtraSituationalContext.AttackerWithMeleeOrUnarmedAndTargetWithinReachOrYeomanWithLongbow;
     }
 
+    private static void FixRestPowerVisibility()
+    {
+        FeatureDefinitionPowers.PowerCircleLandNaturalRecovery.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        FeatureDefinitionPowers.PowerMarksmanRecycler.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        FeatureDefinitionPowers.PowerSorcererManaPainterTap.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        FeatureDefinitionPowers.PowerWizardArcaneRecovery.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+    }
+
     private static void FixSmitesAndStrikesDiceProgression()
     {
         //BUGFIX: Makes Divine Smite use correct number of dice when spending slot level 5+
@@ -592,6 +604,8 @@ internal static class FixesContext
     {
         AdditionalDamageRogueSneakAttack.AddCustomSubFeatures(
             new ModifyAdditionalDamageRogueSneakAttack(AdditionalDamageRogueSneakAttack));
+        AdditionalDamageRoguishHoodlumNonFinesseSneakAttack.AddCustomSubFeatures(
+            new ClassFeats.ModifyAdditionalDamageCloseQuarters(AdditionalDamageRoguishHoodlumNonFinesseSneakAttack));
     }
 
     private static void FixCriticalThresholdModifiers()

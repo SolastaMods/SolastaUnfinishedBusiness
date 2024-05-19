@@ -592,7 +592,7 @@ Whenever an opponent attacks you from a nearby cell, you are granted an immediat
 
 * Intimidating Presence
 
-Whenever you start raging as a free action, and while you are raging on subsequent turns as a bonus action, you can strike terror into others with your intimidating presence. Each enemy creature within 30 feet of you must make a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Strength modifier). On a failed save, a creature has the Frightened condition for 1 minute. At the end of each of the Frightened creature's turns, the creature repeats the saving throw, ending the effect on itself on a success. Once you use this feature, you can't use it again until you finish a Long Rest. If you've run out of uses of this feature, you can expend a use of your Rage to use it again. 
+Whenever you start raging, and while you are raging on subsequent turns as a bonus action, you can strike terror into others with your intimidating presence. Each enemy creature within 30 feet of you must make a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Strength modifier). On a failed save, a creature has the Frightened condition for 1 minute. At the end of each of the Frightened creature's turns, the creature repeats the saving throw, ending the effect on itself on a success. Once you use this feature, you can't use it again until you finish a Long Rest. If you've run out of uses of this feature, you can expend a use of your Rage to use it again. 
 
 
 
@@ -4342,7 +4342,61 @@ Starting at 7th level, you can cause an eruption of arcane energy at a range of 
 
 
 
-## 2. Gloom Stalker [UB]
+## 2. Fey Wanderer [UB]
+
+A fey mystique surrounds you, thanks to the boon of an arch fey, the shining fruit you ate from a talking tree, the magic spring you swam in, or some other auspicious event. However, you acquired your fey magic, you are now a Fey Wanderer, a ranger who represents both the mortal and the fey realms. As you wander the multiverse, your joyful laughter brightens the hearts of the downtrodden, and your martial prowess strikes terror in your foes, for great is the mirth of the fey and dreadful is their fury.
+
+
+### Level 3
+
+* Dreadful Strikes
+
+You can augment your weapon strikes with mind-scarring magic, drawn from the gloomy hollows of the Fey wild. When you hit a creature with a weapon, you can deal an extra 1d4 psychic damage to the target, which can take this extra damage only once per turn. The extra damage increases to 1d6 when you reach 11th level in this class.
+
+* Fey Wanderer Magic
+
+You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know:
+
+	I	Charm Person
+
+	II	Misty Step
+
+	III	Dispel Magic
+
+	IV	Dimension Door
+
+	V	Steel Wind Strike
+
+
+
+* Otherworldly Glamour
+
+Your fey qualities give you a supernatural charm. As a result, you make Charisma checks with advantage. In addition, you gain proficiency in one of the following skills of your choice: Deception, Performance, or Persuasion.
+
+
+### Level 7
+
+* Beguiling Twist
+
+You have advantage on saving throws against being charmed or frightened. In addition, whenever you or a creature you can see within 120 feet of you succeeds on a saving throw against being charmed or frightened, You can use your reaction to force the source to make a Wisdom saving throw against your spell save DC. If the save fails, the source is charmed or frightened by you (your choice) for 1 minute. The source can repeat the saving throw at the end of each of its turns, ending the effect on itself on a successful save.
+
+
+### Level 11
+
+* Fey Reinforcements
+
+Once per long rest, you can use your action to cast Conjure Fey spell. Casting the spell this way doesn't require components or concentration and the spell's duration is one minute.
+
+
+### Level 15
+
+* Misty Wanderer
+
+You can slip in and out of the Fey wild to move in a blink of an eye: you can cast Misty Step without expending a spell slot. You can do so a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses when you finish a long rest. In addition, whenever you cast Misty Step, you can bring along one willing creature you can see within 5 ft of you.
+
+
+
+## 3. Gloom Stalker [UB]
 
 Gloom stalkers are at home in the darkest places: deep under the earth, in gloomy alleyways, in primeval forests, and wherever else the light dims. Most folk enter such places with trepidation, but a gloom stalker ventures boldly into the darkness, seeking to ambush threats before they can reach the broader world. Such rangers are often found in the Underdark, but they will go any place where evil lurks in the shadows.
 
@@ -4396,7 +4450,7 @@ Whenever a creature is about to hit you with an attack, you can use your reactio
 
 
 
-## 3. Hellwalker [UB]
+## 4. Hellwalker [UB]
 
 You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
 
@@ -4452,7 +4506,7 @@ Your hellish magic has granted you limited command over the dammed creatures tha
 
 
 
-## 4. Hunter [SOL]
+## 5. Hunter [SOL]
 
 Emulating the Hunter archetype means accepting your place as a bulwark between civilization and the terrors of the wilderness. As you walk the Hunter's path, you learn specialized techniques for fighting the threats you face.
 
@@ -4486,7 +4540,7 @@ Select one of the options: Stand Against the Tide, Evasion, or Uncanny Dodge.
 
 
 
-## 5. Lightbearer [UB]
+## 6. Lightbearer [UB]
 
 The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
 
@@ -4538,7 +4592,7 @@ You can use your holy light to temporarily blind assailants. When a creature wit
 
 
 
-## 6. Marksman [SOL]
+## 7. Marksman [SOL]
 
 Marksmen are experts with a bow, inheriting techniques developed by the elite high elven troops of the Manacalon Empire. They are among the deadliest ranged combatants on Solasta.
 
@@ -4580,7 +4634,7 @@ At level 15, you can attack three times whenever you take the Attack action on y
 
 
 
-## 7. Shadow Tamer [SOL]
+## 8. Shadow Tamer [SOL]
 
 Shadow Tamers are used to wandering the desolate lands beyond the Marches. They know the lore and languages of darkness and the hazards and customs of those dreadful caves inhabited by monsters.
 
@@ -4622,7 +4676,7 @@ At level 15, you have proficiency with all saving throws while in dim light or d
 
 
 
-## 8. Sky Warrior [UB]
+## 9. Sky Warrior [UB]
 
 Sky Warriors have been touched by the lingering power of barren windswept landscapes inhabited by nothing but mirages and ghosts. They combine elegant maneuvers of blade and shield with illusion magic to thrive in combat.
 
@@ -4680,7 +4734,7 @@ While wearing a shield, gain a flying speed equal to your walking speed.
 
 
 
-## 9. Survivalist [UB]
+## 10. Survivalist [UB]
 
 Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 
@@ -4734,7 +4788,7 @@ You are immune to being blinded, deafened, frightened, or poisoned, and any crit
 
 
 
-## 10. Swift Blade [SOL]
+## 11. Swift Blade [SOL]
 
 Swift blades are fast, silent, and deadly. They are able to take down targets in a matter of seconds, and then rush out of combat and disappear into the wilderness without a trace.
 
@@ -4772,7 +4826,7 @@ At level 15, you become extremely hard to pin down. Whenever you take any damage
 
 
 
-## 11. Wildmaster [UB]
+## 12. Wildmaster [UB]
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 
@@ -6809,6 +6863,44 @@ Prepare Intelligence modifier additional spells, so you always have what you nee
 * Spell Resistance
 
 Your training with magic gives you advantage on saving throws against spells.
+
+
+
+## 10. War Magic [UB]
+
+A variety of arcane colleges specialize in training wizards for war. The tradition of War Magic blends principles of evocation and abjuration, rather than specializing in either of those schools. It teaches techniques that empower a caster's spells, while also providing methods for wizards to bolster their own defenses. Followers of this tradition are known as war mages. They see their magic as both a weapon and armor, a resource superior to any piece of steel. War mages act fast in battle, using their spells to seize tactical control of a situation. Their spells strike hard, while their defensive skills foil their opponents' attempts to counterattack. War mages are also adept at turning other spell casters' magical energy against them.
+
+
+### Level 2
+
+* Arcane Deflection
+
+You have learned to weave your magic to fortify yourself against harm. When you are hit by an attack or you fail a saving throw, you can use your reaction to subtract your Intelligence modifier from the attack roll, or add it to the saving roll. When you use this feature, you can't cast spells other than cantrips until the end of your next turn.
+
+* Tactical Wit
+
+Your keen ability to assess tactical situations allows you to act quickly in battle. You can give yourself a bonus to your initiative rolls equal to your Intelligence modifier.
+
+
+### Level 6
+
+* Power Surge
+
+You have a number of power surges equal to your Intelligence modifier (minimum of one). Whenever you successfully end a spell with Counterspell, you gain one power surge. Once per turn when you deal damage to a creature or object with a wizard spell, you can spend one power surge to deal extra force damage to on one damage roll of that spell. The extra damage equals your wizard level.
+
+
+### Level 10
+
+* Durable Magic
+
+The magic you channel helps ward off harm. While you maintain concentration on a spell, you have a +2 bonus to AC and all saving throws.
+
+
+### Level 14
+
+* Deflection Shroud
+
+Your Arcane Deflection becomes infused with deadly magic. When you use your Arcane Deflection feature, you can cause magical energy to arc from you. Up to three closest creatures within 60 feet of you each take force damage equal to half your wizard level.
 
 
 

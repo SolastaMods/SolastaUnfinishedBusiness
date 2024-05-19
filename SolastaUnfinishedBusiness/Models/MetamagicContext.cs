@@ -15,6 +15,8 @@ internal static class MetamagicContext
         LoadMetamagic(BuildMetamagicAltruisticSpell());
         LoadMetamagic(BuildMetamagicFocusedSpell());
         LoadMetamagic(BuildMetamagicPowerfulSpell());
+        LoadMetamagic(BuildMetamagicSeekingSpell());
+        LoadMetamagic(BuildMetamagicTransmutedSpell());
         LoadMetamagic(BuildMetamagicWidenedSpell());
 
         // sorting

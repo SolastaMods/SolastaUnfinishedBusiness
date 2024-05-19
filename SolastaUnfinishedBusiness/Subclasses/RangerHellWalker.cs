@@ -140,13 +140,11 @@ public sealed class RangerHellWalker : AbstractSubclass
                             .SetConditionForm(conditionMarkOfTheDammed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(new CustomBehaviorMarkOfTheDammed(conditionMarkOfTheDammed))
             .AddToDB();
 
         conditionDammingStrike.AddCustomSubFeatures(
             new OnConditionAddedOrRemovedDammingStrike(conditionMarkOfTheDammed));
-
-        powerMarkOfTheDammed.AddCustomSubFeatures(
-            new CustomBehaviorMarkOfTheDammed(powerMarkOfTheDammed, conditionMarkOfTheDammed));
 
         // LEVEL 15
 
@@ -301,8 +299,6 @@ public sealed class RangerHellWalker : AbstractSubclass
 
     private sealed class CustomBehaviorMarkOfTheDammed(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower featureDefinitionPower,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition)
         : IModifyDamageAffinity, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
@@ -310,15 +306,9 @@ public sealed class RangerHellWalker : AbstractSubclass
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != featureDefinitionPower)
-            {
-                return true;
-            }
-
             if (target.RulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
             var isValid = target.RulesetCharacter.HasConditionOfType("ConditionRangerHellWalkerDammingStrike");

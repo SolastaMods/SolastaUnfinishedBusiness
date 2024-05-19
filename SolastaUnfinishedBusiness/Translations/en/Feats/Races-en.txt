@@ -63,9 +63,9 @@ Feature/&PowerFeatOrcishAggressionDescription=As a bonus action, when wielding a
 Feature/&PowerFeatOrcishAggressionTitle=Orcish Aggression
 Feedback/&AdditionalDamageOrcishFuryFormat=Orcish Fury
 Feedback/&AdditionalDamageOrcishFuryLine=Orcish Fury deals extra +{2} damage!
-Feedback/&BountifulLuckAttackToHitRoll={0} used {1} to roll a {2} and replace the attack roll
-Feedback/&BountifulLuckCheckToHitRoll={0} used {1} to roll a {2} and replace the check roll
-Feedback/&BountifulLuckSavingToHitRoll={0} used {1} to roll a {2} and replace the saving roll
+Feedback/&BountifulLuckAttackToHitRoll={0} used {1} and rolls a {2} to replace {3} on the attack roll
+Feedback/&BountifulLuckCheckToHitRoll={0} used {1} and rolls a {2} to replace {3} on the check roll
+Feedback/&BountifulLuckSavingToHitRoll={0} used {1} and rolls a {2} to replace {3} on the saving roll
 Feedback/&DwarvenFortitudeHitDieRolled={0} rolled a {2} and healed {3} = {4}.
 Reaction/&CustomReactionBountifulLuckAttackDescription={0} have missed {1}. {2} can react to roll a d20 and replace the attack roll.
 Reaction/&CustomReactionBountifulLuckAttackReactDescription=Roll a d20 to replace the attack roll.

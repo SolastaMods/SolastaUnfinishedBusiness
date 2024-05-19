@@ -166,7 +166,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
@@ -262,7 +262,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
             var criticalSuccess = outcome == RollOutcome.CriticalSuccess;
             var monkLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
             var dieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage

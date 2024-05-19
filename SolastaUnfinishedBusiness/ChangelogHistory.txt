@@ -1,3 +1,26 @@
+1.5.97.10 - Os cães ladram e a caravana passa:
+
+- added +X to hit and damage on Shield Bash feat on any wielded magical shield that adds +X to armor class
+- added Gameplay > Character > 'Enable Bard College of Hope healing ballad on long rest' setting
+- added Gameplay > Character > 'Enable Sorcerer Magical Guidance at level 5' setting
+- added Gameplay > Rules > 'Add all dice from base weapon damage to Follow up Strike feat' setting
+- added Ranger Fey Wanderer subclass, Seeking metamagic, Transmuted metamagic, and Wizard War Magic subclass
+- fixed Bountiful Luck feat retry attack behavior only triggering on critical failures
+- fixed Chaos bolt spell crashing under multiplayer sessions if twinned and bolt misses
+- fixed Domain Nature druid cantrip not getting assigned to repertoire on level up
+- fixed Resurrection spell interaction with game revive sub system [VANILLA]
+- fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike
+- fixed Squat Nimbleness feat not granting +1 to movement
+- fixed Thunderstep spell to avoid damage to caster, teleported ally, and creatures on destination
+- fixed Witch Bolt spell to remove concentration on teleport scenarios when target becomes outside range
+- fixed Wither and Bloom spell doubling damage under multiplayer sessions
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [probably won't fix]
+- Artillerist Fortified Position medium cannon doesn't grant buff to self [probably won't fix]
+- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and bolt misses [won't fix]
+
 1.5.97.9:
 
 - converted Astral Reach feat to fighting style and removed +1 to WIS and opportunity attacks
@@ -16,12 +39,6 @@
 - removed -1 AC debuff from Crippling fighting style
 - removed finesse requirement from Defensive Duelist feat
 - replaced STR damage bonus on Bow Mastery and Crossbow Mastery feats with DEX weapon bonus, all bows/cross get it
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Artillerist Fortified Position medium cannon doesn't grant buff to self
-- Chaos Bolt, and Wither and Bloom don't behave well under multiplayer [first one crashes, second one doubles the damage]
 
 1.5.97.8:
 

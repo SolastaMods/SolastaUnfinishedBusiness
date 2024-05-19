@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PointPoolRangerFeyWandererOtherworldlyGlamour:4544fb46-2193-545e-a530-83cc83e1c305",
+    "Definition:AbilityCheckAffinityRangerFeyWandererOtherworldlyGlamour:b26da55b-f42b-5e01-a50d-2d7c4da25f33"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRangerFeyWandererOtherworldlyGlamourTitle",
+    "description": "Feature/&FeatureSetRangerFeyWandererOtherworldlyGlamourDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "647f00f2-080a-5c2f-b57f-0cca8458762b",
+  "contentPack": 9999,
+  "name": "FeatureSetRangerFeyWandererOtherworldlyGlamour"
+}

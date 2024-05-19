@@ -81,6 +81,9 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.AttackerWithMeleeOrUnarmedAndTargetWithinReachOrYeomanWithLongbow =>
                 AttackerNextToTargetOrYeomanWithLongbow(contextParams),
 
+            ExtraSituationalContext.IsConcentratingOnSpell =>
+                contextParams.source.ConcentratedSpell != null,
+
             // supports Monk Shield Expert scenarios
             (ExtraSituationalContext)SituationalContext.NotWearingArmorOrShield =>
                 !contextParams.source.IsWearingArmor() &&

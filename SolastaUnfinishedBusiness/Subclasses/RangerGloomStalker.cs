@@ -391,7 +391,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 toHitBonus = attackMode.ToHitBonus;
                 roll = rulesetAttacker.RollAttack(
                     toHitBonus,
-                    defender.RulesetCharacter,
+                    defender.RulesetActor,
                     attackMode.SourceDefinition,
                     attackMode.ToHitBonusTrends,
                     false,
@@ -409,7 +409,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 toHitBonus = activeEffect.MagicAttackBonus;
                 roll = rulesetAttacker.RollMagicAttack(
                     activeEffect,
-                    defender.RulesetCharacter,
+                    defender.RulesetActor,
                     activeEffect.GetEffectSource(),
                     attackModifier.AttacktoHitTrends,
                     attackModifier.AttackAdvantageTrends,

@@ -431,6 +431,12 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AccountForAllDiceOnFollowUpStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnFollowUpStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AccountForAllDiceOnFollowUpStrike = toggle;
+        }
+
         toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
         if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnSavageAttack"), ref toggle, UI.AutoWidth()))
         {

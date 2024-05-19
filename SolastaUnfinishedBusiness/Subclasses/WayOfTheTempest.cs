@@ -406,7 +406,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(attacker)
                 .Where(x =>
-                    x.RulesetCharacter.AllConditions
+                    x.RulesetActor.AllConditions
                         .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
                                   y.SourceGuid == rulesetAttacker.Guid))
                 .ToList();

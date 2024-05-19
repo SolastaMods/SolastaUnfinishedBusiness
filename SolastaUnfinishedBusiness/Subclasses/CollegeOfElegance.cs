@@ -374,7 +374,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
             // remove enemies previously target by amazing display
             targets.RemoveAll(x =>
-                x.RulesetCharacter.HasConditionOfCategoryAndType(TagEffect, conditionAmazingDisplayMarker.Name));
+                x.RulesetActor.HasConditionOfCategoryAndType(TagEffect, conditionAmazingDisplayMarker.Name));
 
             // remove enemies immune to charmed
             targets.RemoveAll(x =>
