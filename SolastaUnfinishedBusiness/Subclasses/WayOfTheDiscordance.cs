@@ -413,8 +413,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             UsePower(attacker, defender, powerDiscordance);
 
             if (monkLevel >= TurmoilLevel &&
-                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                !defender.RulesetCharacter.HasConditionOfType(conditionHadTurmoil))
+                defender.RulesetActor is { IsDeadOrDyingOrUnconscious: false } &&
+                !defender.RulesetActor.HasConditionOfType(conditionHadTurmoil))
             {
                 UsePower(attacker, defender, powerTurmoil);
             }
@@ -485,8 +485,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             // Discordance Damage
             var targets = action.actionParams.TargetCharacters
                 .Where(x =>
-                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                    && x.RulesetCharacter.AllConditions.Count(y =>
+                    x.RulesetActor is { IsDeadOrDyingOrUnconscious: false }
+                    && x.RulesetActor.AllConditions.Count(y =>
                         y.ConditionDefinition == conditionDiscordance) > 1)
                 .ToList();
 
@@ -531,8 +531,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             }
 
             targets.RemoveAll(x =>
-                x.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false }
-                || x.RulesetCharacter.HasConditionOfType(conditionHadTurmoil));
+                x.RulesetActor is not { IsDeadOrDyingOrUnconscious: false }
+                || x.RulesetActor.HasConditionOfType(conditionHadTurmoil));
 
             if (targets.Count == 0)
             {

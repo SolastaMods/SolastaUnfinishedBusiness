@@ -418,13 +418,13 @@ public sealed class RangerWildMaster : AbstractSubclass
             }
 
             foreach (var enemy in Gui.Battle.GetMyContenders(target.Side)
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     x.RulesetCharacter != target))
+                         .Where(x => x.RulesetActor is { IsDeadOrDyingOrUnconscious: false } &&
+                                     x.RulesetActor != target))
             {
-                if (enemy.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                if (enemy.RulesetActor.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect, conditionKillCommand.Name, out var activeCondition))
                 {
-                    enemy.RulesetCharacter.RemoveCondition(activeCondition);
+                    enemy.RulesetActor.RemoveCondition(activeCondition);
                 }
             }
         }

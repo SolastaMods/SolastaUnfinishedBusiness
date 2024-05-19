@@ -2379,7 +2379,7 @@ internal static class OtherFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            defender.RulesetCharacter.InflictCondition(
+            defender.RulesetActor.InflictCondition(
                 conditionConcentrationDisadvantage.Name,
                 DurationType.Round,
                 0,
@@ -2410,7 +2410,7 @@ internal static class OtherFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            defender.RulesetCharacter.InflictCondition(
+            defender.RulesetActor.InflictCondition(
                 conditionConcentrationDisadvantage.Name,
                 DurationType.Round,
                 0,

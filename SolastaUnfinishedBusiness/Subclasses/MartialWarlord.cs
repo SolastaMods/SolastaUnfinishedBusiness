@@ -373,7 +373,7 @@ public sealed class MartialWarlord : AbstractSubclass
             foreach (var character in Gui.Battle.PlayerContenders
                          .Where(x => x.Guid != rulesetCondition.SourceGuid))
             {
-                character.RulesetCharacter.InflictCondition(
+                character.RulesetActor.InflictCondition(
                     conditionCoveringStrikeAlly.Name,
                     DurationType.Round,
                     1,

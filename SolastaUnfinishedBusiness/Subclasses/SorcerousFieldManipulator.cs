@@ -276,7 +276,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                     finalPosition = position + new int3(x, 0, y);
 
                     canPlaceCharacter = positioningManager.CanPlaceCharacterImpl(
-                        target, target.RulesetCharacter.SizeParams, finalPosition, CellHelpers.PlacementMode.Station);
+                        target, target.RulesetActor.SizeParams, finalPosition, CellHelpers.PlacementMode.Station);
 
                     if (canPlaceCharacter)
                     {

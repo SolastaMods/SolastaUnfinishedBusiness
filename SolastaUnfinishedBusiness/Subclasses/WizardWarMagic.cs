@@ -308,7 +308,7 @@ public sealed class WizardWarMagic : AbstractSubclass
         private void HandleDeflectionShroud(GameLocationCharacter helper)
         {
             var rulesetHelper = helper.RulesetCharacter;
-            var classLevel = helper.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Wizard);
+            var classLevel = rulesetHelper.GetClassLevel(CharacterClassDefinitions.Wizard);
 
             if (classLevel < 14 || Gui.Battle == null)
             {
@@ -372,12 +372,12 @@ public sealed class WizardWarMagic : AbstractSubclass
             {
                 if (firstTarget)
                 {
-                    defender.RulesetCharacter.DamageReceived += DamageReceived;
+                    defender.RulesetActor.DamageReceived += DamageReceived;
                 }
             }
             else
             {
-                defender.RulesetCharacter.DamageReceived += DamageReceived;
+                defender.RulesetActor.DamageReceived += DamageReceived;
             }
 
             yield break;

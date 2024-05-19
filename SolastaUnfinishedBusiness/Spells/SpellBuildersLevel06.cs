@@ -342,7 +342,7 @@ internal static partial class SpellBuilders
                 case CharacterActionCastSpell when _remainingRounds > 0:
                     rulesetSpell.RemainingRounds = _remainingRounds;
 
-                    if (action.ActionParams.TargetCharacters[0].RulesetCharacter.TryGetConditionOfCategoryAndType(
+                    if (action.ActionParams.TargetCharacters[0].RulesetActor.TryGetConditionOfCategoryAndType(
                             AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
                     {
                         activeCondition.RemainingRounds = _remainingRounds;
