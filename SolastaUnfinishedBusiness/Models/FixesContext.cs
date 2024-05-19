@@ -399,6 +399,9 @@ internal static class FixesContext
 
     private static void FixMinorMagicEffectsIssues()
     {
+        // fix Resurrection
+        Resurrection.EffectDescription.EffectForms[0].ReviveForm.maxSecondsSinceDeath = 864000;
+
         // fix Vampiric Touch
         VampiricTouch.EffectDescription.rangeParameter = 1;
 

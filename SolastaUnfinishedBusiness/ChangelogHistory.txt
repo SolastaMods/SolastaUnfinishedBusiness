@@ -1,15 +1,14 @@
 1.5.97.10:
 
 - added +X to damage on Shield Bash feat on any wielded magical shield that adds +X to armor class
-- added replaced dice roll on combat log feedback after triggering Bountiful Luck, or Lucky feats
 - added Gameplay > Character > 'Enable Bard College of Hope healing ballad on long rest' setting
 - added Gameplay > Character > 'Enable Sorcerer Magical Guidance at level 5' setting
 - added Gameplay > Rules > 'Add all dice from base weapon damage to Follow up Strike feat' setting
-- added Ranger Fey Wanderer, and Wizard War Magic subclasses
-- added Seeking and Transmuted metamagic spells
+- added Ranger Fey Wanderer subclass, Seeking metamagic, Transmuted metamagic, and Wizard War Magic subclass
 - fixed Bountiful Luck feat retry attack behavior only triggering on critical failures
-- fixed Chaos bolt spell crashing under multiplayer sessions if twinned and one bolt misses
+- fixed Chaos bolt spell crashing under multiplayer sessions if twinned and bolt misses
 - fixed Domain Nature druid cantrip not getting assigned to repertoire on level up
+- fixed Resurrection spell interaction with game revive sub system [VANILLA]
 - fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike
 - fixed Squat Nimbleness feat not adding +1 to movement
 - fixed Thunderstep spell to avoid damage to caster, teleported ally, and other creatures on destination
@@ -20,7 +19,7 @@ KNOWN ISSUES:
 
 - Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [probably won't fix]
 - Artillerist Fortified Position medium cannon doesn't grant buff to self [probably won't fix]
-- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [won't fix]
+- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and bolt misses [won't fix]
 
 1.5.97.9:
 
