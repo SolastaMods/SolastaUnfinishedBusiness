@@ -411,8 +411,8 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
                 var magicalTrend = new TrendInfo(acModifier,
                     FeatureSourceType.Equipment, offHandItem.ItemDefinition.Name, offHandItem.ItemDefinition);
 
-                // attackMode.ToHitBonus += acModifier;
-                // attackMode.ToHitBonusTrends.Add(magicalTrend);
+                attackMode.ToHitBonus += acModifier;
+                attackMode.ToHitBonusTrends.Add(magicalTrend);
                 damageForm.BonusDamage += acModifier;
                 damageForm.DamageBonusTrends.Add(magicalTrend);
             }
