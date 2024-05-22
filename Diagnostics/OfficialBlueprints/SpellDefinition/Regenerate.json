@@ -20,7 +20,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Individuals",
     "itemSelectionType": "Equiped",
-    "targetParameter": 1,
+    "targetParameter": 3,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -91,9 +91,9 @@
         "healingForm": {
           "$type": "HealingForm, Assembly-CSharp",
           "healingComputation": "Dice",
-          "diceNumber": 4,
+          "diceNumber": 5,
           "dieType": "D8",
-          "bonusHealing": 15,
+          "bonusHealing": 30,
           "variablePool": false,
           "healingCap": "MaximumHitPoints"
         },
