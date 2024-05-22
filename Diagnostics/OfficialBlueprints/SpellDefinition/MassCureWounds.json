@@ -91,7 +91,7 @@
         "healingForm": {
           "$type": "HealingForm, Assembly-CSharp",
           "healingComputation": "Dice",
-          "diceNumber": 3,
+          "diceNumber": 5,
           "dieType": "D8",
           "bonusHealing": 0,
           "variablePool": false,
@@ -108,7 +108,7 @@
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 1,
+      "additionalDicePerIncrement": 2,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
