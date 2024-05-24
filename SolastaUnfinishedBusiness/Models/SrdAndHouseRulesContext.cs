@@ -99,6 +99,7 @@ internal static class SrdAndHouseRulesContext
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
+        SwitchCureWoundsDice();
     }
 
     private static void LoadSenseNormalVisionRangeMultiplier()
@@ -498,6 +499,13 @@ internal static class SrdAndHouseRulesContext
             restrictedActions.RemoveAll(id => id == Id.CastMain);
         }
     }
+
+    internal static void SwitchCureWoundsDice()
+    {
+        CureWounds.effectDescription.effectForms.healingForm.diceNumber = Main.Settings.CureWoundsDice ? 2 : 1;
+        CureWounds.effectDescription.effectAdvancement.additionalDicePerIncrement = Main.Settings.CureWoundsDice ? 2 : 1;
+    }
+
 
     internal static void SwitchAddBleedingToLesserRestoration()
     {
