@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -397,21 +398,48 @@ public sealed class DomainSmith : AbstractSubclass
 
     private sealed class PhysicalAttackInitiatedOnMeBlessedMetal(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionBlessedMetal) : IPhysicalAttackInitiatedOnMe
+        ConditionDefinition conditionBlessedMetal)
+        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
-        public IEnumerator OnPhysicalAttackInitiatedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            MaybeAddCondition(defender);
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            MaybeAddCondition(defender);
+
+            yield break;
+        }
+
+        private void MaybeAddCondition(GameLocationCharacter defender)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
             if (!defender.RulesetCharacter.IsWearingArmor())
             {
-                yield break;
+                return;
             }
 
             rulesetDefender.InflictCondition(

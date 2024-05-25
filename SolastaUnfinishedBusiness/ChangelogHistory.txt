@@ -1,3 +1,7 @@
+1.5.97.11:
+
+- fixed Forge Cleric blessed metal not providing fire damage immunity
+
 1.5.97.10 - Os cães ladram e a caravana passa:
 
 - added +X to hit and damage on Shield Bash feat on any wielded magical shield that adds +X to armor class
