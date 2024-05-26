@@ -232,7 +232,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 0)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
@@ -389,7 +389,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
@@ -453,7 +453,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)

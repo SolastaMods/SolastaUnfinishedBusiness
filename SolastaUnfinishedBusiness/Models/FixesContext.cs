@@ -319,10 +319,10 @@ internal static class FixesContext
     private static void FixAttackBuffsAffectingSpellDamage()
     {
         //BUGFIX: fix Branding Smite applying bonus damage to spells
-        AdditionalDamageBrandingSmite.AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
+        AdditionalDamageBrandingSmite.attackModeOnly = true;
 
         //BUGFIX: fix Divine Favor applying bonus damage to spells
-        AdditionalDamageDivineFavor.AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
+        AdditionalDamageDivineFavor.attackModeOnly = true;
     }
 
     private static void FixColorTables()

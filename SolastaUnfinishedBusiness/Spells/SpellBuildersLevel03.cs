@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -43,7 +42,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D8, 3)
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
