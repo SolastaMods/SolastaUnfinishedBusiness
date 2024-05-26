@@ -8,6 +8,7 @@ using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -54,7 +55,9 @@ internal static class SubraceObsidianDwarfBuilder
             .SetFeaturesAtLevel(1,
                 attributeModifierObsidianDwarfStrengthAbilityScoreIncrease,
                 damageAffinityObsidianDwarfFireResistance,
-                proficiencyObsidianDwarfLanguages)
+                proficiencyObsidianDwarfLanguages,
+                SenseDarkvision,
+                SenseNormalVision)
             .AddToDB();
 
         Dwarf.SubRaces.Add(raceObsidianDwarf);
