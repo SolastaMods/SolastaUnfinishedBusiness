@@ -10,6 +10,7 @@
 - fixed Thunderstep spell interaction with Transmuted metamagic
 - fixed Thunderstep spell to only allow optional allies within 5ft
 - fixed Toxicologist feat to always grant Nature regardless of chosen attribute increase
+- fixed Wizard War Magic durable magic to add +2 on concentration checks
 
 1.5.97.10 - Os cães ladram e a caravana passa:
 
