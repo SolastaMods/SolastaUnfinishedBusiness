@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -154,10 +155,26 @@ public static class CharacterActionSpendPowerPatcher
                     {
                         var controller = actingCharacter.GetEffectControllerOrSelf();
 
-                        foreach (var magicalAttackBeforeHitConfirmedOnMe in controller.RulesetCharacter
+                        foreach (var magicalAttackBeforeHitConfirmedOnEnemy in controller.RulesetCharacter
                                      .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnEnemy>())
                         {
-                            yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicEffectBeforeHitConfirmedOnEnemy(
+                            yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
+                                battleManager, controller, target, actionModifier,
+                                rulesetEffect, effectForms, i == 0, false);
+                        }
+
+                        var hero = controller.RulesetCharacter.GetOriginalHero();
+
+                        if (hero == null)
+                        {
+                            continue;
+                        }
+
+                        foreach (var magicalAttackBeforeHitConfirmedOnEnemy in hero.TrainedMetamagicOptions
+                                     .SelectMany(metamagic =>
+                                         metamagic.GetAllSubFeaturesOfType<IMagicEffectBeforeHitConfirmedOnEnemy>()))
+                        {
+                            yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
                                 battleManager, controller, target, actionModifier,
                                 rulesetEffect, effectForms, i == 0, false);
                         }

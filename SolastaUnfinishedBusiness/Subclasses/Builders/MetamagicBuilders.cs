@@ -352,8 +352,7 @@ internal static class MetamagicBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.MetamagicOption != metamagicOptionDefinition &&
-                rulesetEffect.SourceDefinition.Name != "PowerBoomingStepExplode")
+            if (rulesetEffect.MetamagicOption != metamagicOptionDefinition)
             {
                 yield break;
             }

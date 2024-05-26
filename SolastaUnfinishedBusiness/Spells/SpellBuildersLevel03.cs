@@ -791,6 +791,11 @@ internal static partial class SpellBuilders
             }
 
             // don't use PowerNoCost here as it breaks the spell under MP
+            var rulesetEffect = implementationManager
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
+
+            rulesetEffect.MetamagicOption = action.ActionParams.activeEffect.MetamagicOption;
+
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 ActionModifiers = actionModifiers,
