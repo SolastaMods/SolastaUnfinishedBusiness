@@ -770,9 +770,30 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorBoomingStep(FeatureDefinitionPower powerExplode)
-        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         private readonly List<GameLocationCharacter> _targets = [];
+
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid =
+                target.RulesetCharacter is not RulesetCharacterEffectProxy &&
+                __instance.ActionParams.ActingCharacter.IsWithinRange(target, 1);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+            }
+
+            return isValid;
+        }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -791,11 +812,6 @@ internal static partial class SpellBuilders
             }
 
             // don't use PowerNoCost here as it breaks the spell under MP
-            var rulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
-
-            rulesetEffect.MetamagicOption = action.ActionParams.activeEffect.MetamagicOption;
-
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 ActionModifiers = actionModifiers,

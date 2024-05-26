@@ -7,6 +7,7 @@
 - fixed Gray, Ironborn, and Obsidian Dwarf subclasses missing normal and darkvision senses
 - fixed skills, tools, and expertise when granted from feats
 - fixed Thunderstep spell interaction with Transmuted metamagic
+- fixed Thunderstep spell to only allow optional allies within 5ft
 - fixed Toxicologist feat to always grant Nature regardless of chosen attribute increase
 
 1.5.97.10 - Os cães ladram e a caravana passa:

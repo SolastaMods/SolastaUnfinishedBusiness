@@ -352,12 +352,14 @@ internal static class MetamagicBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.MetamagicOption != metamagicOptionDefinition)
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetEffect.MetamagicOption != metamagicOptionDefinition &&
+                rulesetAttacker.SpellsCastByMe
+                    .FirstOrDefault(x => x.SystemName == "BoomingStep")?.MetamagicOption != metamagicOptionDefinition)
             {
                 yield break;
             }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!rulesetAttacker.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, condition.Name))
