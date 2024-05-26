@@ -48,7 +48,7 @@ internal static class FeatHelpers
             if (hasSkill)
             {
                 hero.ActiveFeatures[tag].TryAdd(expertise);
-                hero.TrainedExpertises.TryAdd(expertise.Name);
+                hero.TrainedExpertises.TryAdd(skillDefinition.Name);
             }
             else
             {
@@ -77,7 +77,7 @@ internal static class FeatHelpers
             if (hasTool)
             {
                 hero.ActiveFeatures[tag].TryAdd(expertise);
-                hero.TrainedExpertises.TryAdd(expertise.Name);
+                hero.TrainedExpertises.TryAdd(toolTypeDefinition.Name);
             }
             else
             {
