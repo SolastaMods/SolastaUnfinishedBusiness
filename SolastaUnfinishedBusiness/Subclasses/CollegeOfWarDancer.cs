@@ -390,16 +390,47 @@ public sealed class CollegeOfWarDancer // : AbstractSubclass
         }
     }
 
-    private sealed class FocusedWarDance : IModifyConcentrationAttribute
+    private sealed class FocusedWarDance : IRollSavingCheckInitiated
     {
-        public bool IsValid(RulesetActor rulesetActor)
+        public void OnRollSavingCheckInitiated(
+            RulesetCharacter defender,
+            int saveDC,
+            string damageType,
+            ref ActionModifier actionModifier,
+            ref int modifier)
         {
-            return rulesetActor.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionWarDance.Name);
+            if (!defender.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionWarDance.Name))
+            {
+                return;
+            }
+
+            var myActionModifier = new ActionModifier();
+            var myModifier = GetModifier(defender, myActionModifier, damageType, AttributeDefinitions.Charisma);
+
+            if (myModifier <= modifier)
+            {
+                return;
+            }
+
+            modifier = myModifier;
+            actionModifier = myActionModifier;
         }
 
-        public string ConcentrationAttribute(RulesetActor rulesetActor)
+        private static int GetModifier(
+            RulesetCharacter __instance,
+            ActionModifier effectModifier,
+            string damageType,
+            string abilityScoreName)
         {
-            return AttributeDefinitions.Charisma;
+            var accountedProviders = new List<ISavingThrowAffinityProvider>();
+            var savingThrowBonus =
+                __instance.ComputeBaseSavingThrowBonus(abilityScoreName, effectModifier.SavingThrowModifierTrends);
+
+            __instance.ComputeSavingThrowModifier(
+                abilityScoreName, EffectForm.EffectFormType.Damage, string.Empty,
+                string.Empty, damageType, string.Empty, string.Empty, effectModifier, accountedProviders);
+
+            return savingThrowBonus + effectModifier.GetSavingThrowModifier(abilityScoreName);
         }
     }
 }
