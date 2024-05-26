@@ -141,7 +141,8 @@ internal static class SubraceGrayDwarfBuilder
             .SetFeaturesAtLevel(1,
                 attributeModifierGrayDwarfStrengthAbilityScoreIncrease,
                 featureSetGrayDwarfAncestry,
-                FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                FeatureDefinitionSenses.SenseDarkvision,
+                FeatureDefinitionSenses.SenseNormalVision,
                 lightAffinityGrayDwarfLightSensitivity,
                 FeatureDefinitionProficiencys.ProficiencyDwarfLanguages)
             .AddFeaturesAtLevel(3,
