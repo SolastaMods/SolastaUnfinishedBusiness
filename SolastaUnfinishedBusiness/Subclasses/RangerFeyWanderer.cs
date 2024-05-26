@@ -251,9 +251,9 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
     private sealed class CustomBehaviorBeguilingTwist(
         FeatureDefinitionPower powerBeguilingTwist)
-        : IRollSavingThrowInitiated, ITryAlterOutcomeSavingThrow, IMagicEffectFinishedByMe
+        : IRollSavingThrowInitiated, ITryAlterOutcomeSavingThrow, IMagicEffectInitiatedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActingCharacter.UsedMainSpell = true;
 
@@ -348,7 +348,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorMistyWanderer : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    private sealed class CustomBehaviorMistyWanderer : IMagicEffectInitiatedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
 
@@ -371,7 +371,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActingCharacter.UsedBonusSpell = true;
 

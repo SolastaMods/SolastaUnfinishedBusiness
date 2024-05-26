@@ -6,6 +6,7 @@
 - fixed Forge Cleric blessed metal not providing fire damage immunity
 - fixed Gray, Ironborn, and Obsidian Dwarf subclasses missing normal and darkvision senses
 - fixed Martial Psi-Warrior force powered strike not triggering on ranged attacks
+- fixed Ranger Fey Wanderer misty step to prevent a main levelled spell to be cast
 - fixed skills, tools, and expertise when granted from feats
 - fixed Thunderstep spell interaction with Transmuted metamagic
 - fixed Thunderstep spell to only allow optional allies within 5ft
