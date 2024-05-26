@@ -42,12 +42,19 @@ internal static class FeatHelpers
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             var buildingData = hero.GetHeroBuildingData();
+            var hasSkill = hero.TrainedSkills.Contains(skillDefinition) ||
+                           buildingData.LevelupTrainedSkills.Any(x => x.Value.Contains(skillDefinition));
 
-            hero.ActiveFeatures[tag].TryAdd(
-                hero.TrainedSkills.Contains(skillDefinition) ||
-                buildingData.LevelupTrainedSkills.Any(x => x.Value.Contains(skillDefinition))
-                    ? expertise
-                    : skill);
+            if (hasSkill)
+            {
+                hero.ActiveFeatures[tag].TryAdd(expertise);
+                hero.TrainedExpertises.TryAdd(expertise.Name);
+            }
+            else
+            {
+                hero.ActiveFeatures[tag].TryAdd(skill);
+                hero.TrainedSkills.TryAdd(skillDefinition);
+            }
         }
 
         public void RemoveFeature(RulesetCharacterHero hero, string tag)
@@ -64,12 +71,19 @@ internal static class FeatHelpers
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             var buildingData = hero.GetHeroBuildingData();
+            var hasTool = hero.TrainedToolTypes.Contains(toolTypeDefinition) ||
+                          buildingData.LevelupTrainedToolTypes.Any(x => x.Value.Contains(toolTypeDefinition));
 
-            hero.ActiveFeatures[tag].TryAdd(
-                hero.TrainedToolTypes.Contains(toolTypeDefinition) ||
-                buildingData.LevelupTrainedToolTypes.Any(x => x.Value.Contains(toolTypeDefinition))
-                    ? expertise
-                    : tool);
+            if (hasTool)
+            {
+                hero.ActiveFeatures[tag].TryAdd(expertise);
+                hero.TrainedExpertises.TryAdd(expertise.Name);
+            }
+            else
+            {
+                hero.ActiveFeatures[tag].TryAdd(tool);
+                hero.TrainedToolTypes.TryAdd(toolTypeDefinition);
+            }
         }
 
         public void RemoveFeature(RulesetCharacterHero hero, string tag)

@@ -2,6 +2,7 @@
 
 - fixed Forge Cleric blessed metal not providing fire damage immunity
 - fixed Gray and Ironborn Dwarf subclasses missing normal and darkvision senses
+- fixed skills, tools, and expertise when granted from feats
 
 1.5.97.10 - Os cães ladram e a caravana passa:
 
