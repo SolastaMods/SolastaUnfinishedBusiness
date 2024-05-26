@@ -22,7 +22,8 @@ internal static class CraftyFeats
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Arcana)
             .AddToDB();
 
-        var proficiencyCraftyAnimalHandling = FeatureDefinitionProficiencyBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyAnimalHandling")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.AnimalHandling)
@@ -70,7 +71,8 @@ internal static class CraftyFeats
             .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Arcana)
             .AddToDB();
 
-        var proficiencyCraftyAnimalHandlingExpertise = FeatureDefinitionProficiencyBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyAnimalHandlingExpertise")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.AnimalHandling)
@@ -123,8 +125,8 @@ internal static class CraftyFeats
             .AddCustomSubFeatures(
                 new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.HerbalismKitType,
                     proficiencyCraftyHerbalismKit, proficiencyCraftyHerbalismKitExpertise),
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Arcana,
-                    proficiencyCraftyArcana, proficiencyCraftyArcanaExpertise))
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Medecine,
+                    proficiencyCraftyMedicine, proficiencyCraftyMedicineExpertise))
             .SetFeatFamily("Apothecary")
             .AddToDB();
 
@@ -180,8 +182,8 @@ internal static class CraftyFeats
             .AddCustomSubFeatures(
                 new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType,
                     proficiencyCraftyPoisonersKit, proficiencyCraftyPoisonersKitExpertise),
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Medecine,
-                    proficiencyCraftyMedicine, proficiencyCraftyMedicineExpertise))
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Nature,
+                    proficiencyCraftyNature, proficiencyCraftyNatureExpertise))
             .SetFeatFamily("Toxicologist")
             .AddToDB();
 
@@ -192,8 +194,8 @@ internal static class CraftyFeats
             .AddCustomSubFeatures(
                 new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType,
                     proficiencyCraftyPoisonersKit, proficiencyCraftyPoisonersKitExpertise),
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.AnimalHandling,
-                    proficiencyCraftyAnimalHandling, proficiencyCraftyAnimalHandlingExpertise))
+                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Nature,
+                    proficiencyCraftyNature, proficiencyCraftyNatureExpertise))
             .SetFeatFamily("Toxicologist")
             .AddToDB();
 
