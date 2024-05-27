@@ -12,7 +12,8 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ActionAffinityFeatPoisoner:84210b8c-a6cd-53b7-acde-c0424a98a02d"
+    "Definition:ActionAffinityFeatPoisoner:84210b8c-a6cd-53b7-acde-c0424a98a02d",
+    "Definition:ProficiencyFeatPoisoner:9fcf9187-9d80-5363-b82e-e1f162565cab"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

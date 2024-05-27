@@ -12,7 +12,9 @@
   "familyTag": "Toxicologist",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c"
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
+    "Definition:ProficiencyCraftyNature:29c0f4f0-57c2-5a82-b5c1-88eaf4123d94",
+    "Definition:ProficiencyCraftyPoisonersKit:a6c63404-64c1-5af8-b9cf-3f6dd08709fb"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

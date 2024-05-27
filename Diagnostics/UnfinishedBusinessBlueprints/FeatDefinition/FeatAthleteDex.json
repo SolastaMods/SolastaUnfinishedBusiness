@@ -13,7 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
-    "Definition:MovementAffinityAthlete:91ac75d7-4763-54d6-98f5-7554fc304f01"
+    "Definition:MovementAffinityAthlete:91ac75d7-4763-54d6-98f5-7554fc304f01",
+    "Definition:ProficiencyAthlete:241be27a-e339-5e2b-952c-ec4dd090b461"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

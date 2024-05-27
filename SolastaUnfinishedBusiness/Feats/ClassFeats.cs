@@ -247,30 +247,22 @@ internal static class ClassFeats
                 ToolTypeDefinitions.PoisonersKitType)
             .AddToDB();
 
-        var tool = FeatureDefinitionProficiencyBuilder
-            .Create($"Proficiency{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Tool, PoisonersKitType)
-            .AddToDB();
-
-        var expertise = FeatureDefinitionProficiencyBuilder
-            .Create($"Proficiency{Name}Expertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, PoisonersKitType)
-            .AddToDB();
-
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.ToolOrExpertise, PoisonersKitType)
+                    .AddToDB(),
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{Name}")
                     .SetGuiPresentationNoContent(true)
                     .AddCustomSubFeatures(
                         new ValidateDeviceFunctionUse((_, device, _) =>
                             device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")),
-                        new ModifyDamageResistancePoisoner(),
-                        new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType, tool, expertise))
+                        new ModifyDamageResistancePoisoner())
                     .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
                     .AddToDB())
             .AddToDB();

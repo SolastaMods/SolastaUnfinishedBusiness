@@ -13,7 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
-    "Definition:PowerFeatMenacing:2e3ca902-484d-53b9-9daf-97f99a6efc50"
+    "Definition:PowerFeatMenacing:2e3ca902-484d-53b9-9daf-97f99a6efc50",
+    "Definition:ProficiencyFeatMenacing:124a0eba-3658-5337-a675-1de95d55c6ad"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

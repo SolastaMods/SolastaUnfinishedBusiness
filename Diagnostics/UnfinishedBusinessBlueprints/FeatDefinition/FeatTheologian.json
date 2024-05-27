@@ -13,7 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
-    "Definition:PowerFeatTheologian:1285becd-b2b5-5885-8f8f-b4d33fcea587"
+    "Definition:PowerFeatTheologian:1285becd-b2b5-5885-8f8f-b4d33fcea587",
+    "Definition:ProficiencyCraftyReligion:28a79077-c8ba-55af-9191-86fe0d9d6657"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
