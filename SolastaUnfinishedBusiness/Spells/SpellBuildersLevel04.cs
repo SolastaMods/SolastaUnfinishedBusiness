@@ -198,7 +198,7 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 4)
+                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 3)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder

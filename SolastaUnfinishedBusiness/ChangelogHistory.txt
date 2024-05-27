@@ -4,6 +4,7 @@
 - fixed Chain Lightning to not consider allies or unperceived enemies
 - fixed Domain Forge blessed metal immunity and resistance logic
 - fixed Earthquake spell interaction with Widened metamagic
+- fixed Gravity Sinkhole spell movement to effect origin
 - fixed Gray, Ironborn, and Obsidian Dwarf subclasses missing normal and darkvision senses
 - fixed Martial Psi-Warrior force powered strike not triggering on ranged attacks
 - fixed Ranger Fey Wanderer misty step to prevent a main levelled spell to be cast
