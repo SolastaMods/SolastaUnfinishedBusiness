@@ -1,6 +1,6 @@
 1.5.97.11:
 
-- fixed Apothecary feat to always grant Medicine regardless of chosen attribute increase
+- fixed Apothecary feat to always grant Medicine regardless of chosen attribute
 - fixed Arcane Backslash spell double caster animation effects
 - fixed Earthquake spell interaction with Widened metamagic
 - fixed Forge Cleric blessed metal not providing fire damage immunity
@@ -8,9 +8,10 @@
 - fixed Martial Psi-Warrior force powered strike not triggering on ranged attacks
 - fixed Ranger Fey Wanderer misty step to prevent a main levelled spell to be cast
 - fixed skills, tools, and expertise when granted from feats
+- fixed Taunted condition to not enforce disadvantage against taunter
 - fixed Thunderstep spell interaction with Transmuted metamagic
 - fixed Thunderstep spell to only allow optional allies within 5ft
-- fixed Toxicologist feat to always grant Nature regardless of chosen attribute increase
+- fixed Toxicologist feat to always grant Nature regardless of chosen attribute
 - fixed Wizard War Magic durable magic to add +2 on concentration checks
 
 1.5.97.10 - Os cães ladram e a caravana passa:
