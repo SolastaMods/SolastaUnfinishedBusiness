@@ -142,6 +142,7 @@ ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>몽크</color>
 ModUi/&EnableMonkFightingStyle=레벨 2에서 <color=#D89555>몽크</color> <b>격투 스타일</b> 선택 활성화
 ModUi/&EnableMonkHeightenedMetabolism=레벨 10 <i><color=#F0DAA0>[<b>폭풍의 타격</b>, <b>환자 방어에서 <color=#D89555>몽크</color> <b>신진대사 강화</b> 활성화 </b> 및 <b>바람의 발걸음</b>은 추가 혜택을 얻습니다.]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=추락하지 않고 수직 표면을 따라 이동하려면 <color=#D89555>몽크</color> <b>향상된 비무장 이동</b>을 활성화하세요.
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=레벨 18에서 <b>Empty Body</b>를 대체하려면 <color=#D89555>몽크</color> <b>우수 방어</b>를 활성화하세요.
 ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>몽크</color> <b>무기 전문화</b>를 활성화하세요. <i><color=#F0DAA0>[선택한 무기 유형이 몽크 무기가 됩니다]</color></i>
 ModUi/&EnableMulticlass=멀티클래스 활성화 <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&EnablePcgRandom=더 나은 무작위 생성기 알고리즘 활성화 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

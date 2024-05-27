@@ -37,7 +37,9 @@
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [],
+  "cancellingConditions": [
+    "Definition:ConditionIncapacitated:24d96cfe3b77b9a4b951bfb0e02fc018"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
@@ -141,8 +143,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionMonkEmptyBodyTitle",
-    "description": "Condition/&ConditionMonkEmptyBodyDescription",
+    "title": "Condition/&ConditionMonkSuperiorDefenseTitle",
+    "description": "Condition/&ConditionMonkSuperiorDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "869bb1641c1c46242931a9fb5819c792",
@@ -162,7 +164,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e63f7a84-446c-5053-91f6-9ba2c2b2ef74",
+  "guid": "7bfd8efa-e1d4-5a65-af38-da7cd44d8da9",
   "contentPack": 9999,
-  "name": "ConditionMonkEmptyBody"
+  "name": "ConditionMonkSuperiorDefense"
 }

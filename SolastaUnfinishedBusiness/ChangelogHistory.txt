@@ -1,6 +1,7 @@
 1.5.97.12:
 
 - added Gameplay > Character > 'Enable Monk Heightened Metabolism at level 10' setting
+- added Gameplay > Character > 'Enable Monk Superior Defense to replace Empty Body at level 18' setting
 
 1.5.97.11:
 

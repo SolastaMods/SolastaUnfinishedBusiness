@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -20,6 +21,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefiniti
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -665,6 +667,43 @@ internal static partial class CharacterContext
                     .AddToDB())
             .AddToDB();
 
+    internal static readonly FeatureDefinitionPower PowerMonkSuperiorDefense = FeatureDefinitionPowerBuilder
+        .Create("PowerMonkSuperiorDefense")
+        .SetGuiPresentation(Category.Feature, Sprites.GetSprite("SuperiorDefense", Resources.EmptyBody, 128, 64))
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 3, 3)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create("ConditionMonkSuperiorDefense")
+                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionShielded)
+                                .SetPossessive()
+                                .AddFeatures(
+                                    DamageAffinityAcidResistance,
+                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityColdResistance,
+                                    DamageAffinityFireResistance,
+                                    DamageAffinityLightningResistance,
+                                    DamageAffinityNecroticResistance,
+                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPoisonResistance,
+                                    DamageAffinityPsychicResistance,
+                                    DamageAffinityRadiantResistance,
+                                    DamageAffinitySlashingResistance,
+                                    DamageAffinityThunderResistance)
+                                .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+        .AddToDB();
+
     private static void LoadMonkWeaponSpecialization()
     {
         var weaponTypeDefinitions = new List<WeaponTypeDefinition>
@@ -839,6 +878,31 @@ internal static partial class CharacterContext
             Monk.FeatureUnlocks
                 .RemoveAll(x => x.level == 10 &&
                                 x.FeatureDefinition == FeatureMonkHeightenedMetabolism);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    internal static void SwitchMonkSuperiorDefenseToReplaceEmptyBody()
+    {
+        if (Main.Settings.EnableMonkAbundantKi)
+        {
+            Monk.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(PowerMonkSuperiorDefense, 18));
+            Monk.FeatureUnlocks
+                .RemoveAll(x => x.level == 18 &&
+                                x.FeatureDefinition == Level20Context.PowerMonkEmptyBody);
+        }
+        else
+        {
+            Monk.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(Level20Context.PowerMonkEmptyBody, 18));
+            Monk.FeatureUnlocks
+                .RemoveAll(x => x.level == 18 &&
+                                x.FeatureDefinition == PowerMonkSuperiorDefense);
         }
 
         if (Main.Settings.EnableSortingFutureFeatures)

@@ -142,6 +142,7 @@ ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Abilita <color=#D89555>Mistic
 ModUi/&EnableMonkFightingStyle=Abilita la scelta dello <color=#D89555>Mistico</color> <b>Stile di combattimento</b> al livello 2
 ModUi/&EnableMonkHeightenedMetabolism=Abilita <color=#D89555>Mistico</color> <b>Metabolismo potenziato</b> al livello 10 <i><color=#F0DAA0>[<b>Raffica di colpi</b>, <b>Difesa del paziente </b> e <b>Step of the Wind</b> ottengono ulteriori vantaggi]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Abilita <color=#D89555>Mistico</color> <b>Movimento senza armatura migliorato</b> per muoversi lungo superfici verticali senza cadere
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Abilita <color=#D89555>Mistico</color> <b>Difesa superiore</b> per sostituire <b>Corpo Vuoto</b> al livello 18
 ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>specializzazione arma</b> ai livelli 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa per te un'arma da monaco]</color></i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnablePcgRandom=Abilita un algoritmo di generazione casuale migliore <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

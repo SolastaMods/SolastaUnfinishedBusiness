@@ -341,6 +341,7 @@
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
     <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>false</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
     <EnableMonkHeightenedMetabolism>false</EnableMonkHeightenedMetabolism>
+    <EnableMonkSuperiorDefenseToReplaceEmptyBody>false</EnableMonkSuperiorDefenseToReplaceEmptyBody>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
     <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>

@@ -39,6 +39,49 @@ internal static class Level20Context
     internal const int ModMaxExperience = 355000;
     internal const int GameMaxLevel = 16;
 
+    internal static readonly FeatureDefinitionPower PowerMonkEmptyBody = FeatureDefinitionPowerBuilder
+        .Create("PowerMonkEmptyBody")
+        .SetGuiPresentation(Category.Feature, Sprites.GetSprite("EmptyBody", Resources.EmptyBody, 128, 64))
+        .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 4, 4)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(DatabaseHelper.ConditionDefinitions.ConditionInvisibleGreater,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create("ConditionMonkEmptyBody")
+                                .SetGuiPresentation(
+                                    Category.Condition,
+                                    DatabaseHelper.ConditionDefinitions.ConditionShielded)
+                                .AddFeatures(
+                                    DamageAffinityAcidResistance,
+                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityColdResistance,
+                                    DamageAffinityFireResistance,
+                                    DamageAffinityLightningResistance,
+                                    DamageAffinityNecroticResistance,
+                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPoisonResistance,
+                                    DamageAffinityPsychicResistance,
+                                    DamageAffinityRadiantResistance,
+                                    DamageAffinitySlashingResistance,
+                                    DamageAffinityThunderResistance)
+                                .SetPossessive()
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+        .AddToDB();
+
     internal static void Load()
     {
         BarbarianLoad();
@@ -257,66 +300,6 @@ internal static class Level20Context
 
     private static void MonkLoad()
     {
-        var emptyBodySprite = Sprites.GetSprite("EmptyBody", Resources.EmptyBody, 128, 64);
-
-        var powerMonkEmptyBody = FeatureDefinitionPowerBuilder
-            .Create("PowerMonkEmptyBody")
-            .SetGuiPresentation(Category.Feature, emptyBodySprite)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 4, 4)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(DatabaseHelper.ConditionDefinitions.ConditionInvisibleGreater,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create("ConditionMonkEmptyBody")
-                                    .SetGuiPresentation(
-                                        Category.Condition,
-                                        DatabaseHelper.ConditionDefinitions.ConditionShielded)
-                                    .AddFeatures(
-                                        DamageAffinityAcidResistance,
-                                        DamageAffinityColdResistance,
-                                        DamageAffinityFireResistance,
-                                        DamageAffinityLightningResistance,
-                                        DamageAffinityNecroticResistance,
-                                        DamageAffinityPoisonResistance,
-                                        DamageAffinityPsychicResistance,
-                                        DamageAffinityRadiantResistance,
-                                        DamageAffinityThunderResistance,
-                                        FeatureDefinitionDamageAffinityBuilder
-                                            .Create("DamageAffinityMonkEmptyBodyBludgeoningResistance")
-                                            .SetGuiPresentationNoContent(true)
-                                            .SetDamageType(DamageTypeBludgeoning)
-                                            .SetDamageAffinityType(DamageAffinityType.Resistance)
-                                            .AddToDB(),
-                                        FeatureDefinitionDamageAffinityBuilder
-                                            .Create("DamageAffinityMonkEmptyBodyPiercingResistance")
-                                            .SetGuiPresentationNoContent(true)
-                                            .SetDamageType(DamageTypePiercing)
-                                            .SetDamageAffinityType(DamageAffinityType.Resistance)
-                                            .AddToDB(),
-                                        FeatureDefinitionDamageAffinityBuilder
-                                            .Create("DamageAffinityMonkEmptyBodySlashingResistance")
-                                            .SetGuiPresentationNoContent(true)
-                                            .SetDamageType(DamageTypeSlashing)
-                                            .SetDamageAffinityType(DamageAffinityType.Resistance)
-                                            .AddToDB())
-                                    .SetPossessive()
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
         var battleStartedListenerMonkPerfectSelf = FeatureDefinitionBuilder
             .Create("BattleStartedListenerMonkPerfectSelf")
             .SetGuiPresentation(Category.Feature)
@@ -327,7 +310,7 @@ internal static class Level20Context
 
         Monk.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(powerMonkEmptyBody, 18),
+            new(PowerMonkEmptyBody, 18),
             new(FeatureSetAbilityScoreChoice, 19),
             new(battleStartedListenerMonkPerfectSelf, 20)
         });

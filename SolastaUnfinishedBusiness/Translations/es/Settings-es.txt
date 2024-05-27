@@ -142,6 +142,7 @@ ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Habilite <color=#D89555>Monje
 ModUi/&EnableMonkFightingStyle=Habilita la elección de <color=#D89555>Monje</color> <b>Estilo de lucha</b> en el nivel 2.
 ModUi/&EnableMonkHeightenedMetabolism=Activa <color=#D89555>Monje</color> <b>Metabolismo intensificado</b> en el nivel 10 <i><color=#F0DAA0>[<b>Ráfaga de golpes</b>, <b>Defensa del paciente. </b> y <b>El Paso del Viento</b> obtienen beneficios adicionales]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilite <color=#D89555>Monje</color> <b>Movimiento sin armadura mejorado</b> para moverse a lo largo de superficies verticales sin caerse.
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilite <color=#D89555>Monje</color> <b>Defensa superior</b> para reemplazar <b>Cuerpo vacío</b> en el nivel 18.
 ModUi/&EnableMonkWeaponSpecialization=Habilita <color=#D89555>Monje</color> <b>Especialización en armas</b> en los niveles 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionada se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar multiclase <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnablePcgRandom=Habilite un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

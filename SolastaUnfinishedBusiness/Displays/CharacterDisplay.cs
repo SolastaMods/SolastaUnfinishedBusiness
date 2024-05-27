@@ -322,6 +322,14 @@ internal static class CharacterDisplay
             CharacterContext.SwitchMonkHeightenedMetabolism();
         }
 
+        toggle = Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody = toggle;
+            CharacterContext.SwitchMonkSuperiorDefenseToReplaceEmptyBody();
+        }
+
         toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack"), ref toggle,
                 UI.AutoWidth()))

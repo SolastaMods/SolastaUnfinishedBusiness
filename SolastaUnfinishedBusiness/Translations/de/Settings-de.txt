@@ -142,6 +142,7 @@ ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Aktivieren Sie <color=#D89555
 ModUi/&EnableMonkFightingStyle=Aktiviere die Wahl des <color=#D89555>Mönchs</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableMonkHeightenedMetabolism=Aktiviere <color=#D89555>Mönch</color> <b>Erhöhter Stoffwechsel</b> auf Stufe 10 <i><color=#F0DAA0>[<b>Schlaghagel</b>, <b>Geduldige Verteidigung </b> und <b>Schritt des Windes</b> erhalten zusätzliche Vorteile]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Aktivieren Sie <color=#D89555>Mönch</color> <b>Verbesserte ungepanzerte Bewegung</b>, um sich entlang vertikaler Flächen zu bewegen, ohne zu fallen
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Aktivieren Sie <color=#D89555>Mönch</color> <b>Überlegene Verteidigung</b>, um <b>Leeren Körper</b> auf Stufe 18 zu ersetzen
 ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf den Stufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie Multiclass <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

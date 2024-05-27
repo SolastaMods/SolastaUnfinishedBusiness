@@ -142,6 +142,7 @@ ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Позволить <color=#D8
 ModUi/&EnableMonkFightingStyle=Включить <color=#D89555>Монахам</color> выбор <b>Боевого стиля</b> на уровне 2
 ModUi/&EnableMonkHeightenedMetabolism=Включите <color=#D89555>Монах</color> <b>Усиленный метаболизм</b> на уровне 10 <i><color=#F0DAA0>[<b>Шквал ударов</b>, <b>Защита пациента </b> и <b>Шаг ветра</b> получают дополнительные преимущества]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Позволить <color=#D89555>Монаху</color> использовать <b>Улучшенное движение без доспехов</b> для перемещения по вертикальным поверхностям, не падая во время движения
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Включите <color=#D89555>Монах</color> <b>Превосходную защиту</b>, чтобы заменить <b>Пустое тело</b> на уровне 18.
 ModUi/&EnableMonkWeaponSpecialization=Включить <b>Специализацию на оружии</b> для <color=#D89555>Монаха</color> на уровнях 2 и 11 <i><color=#F0DAA0>[оружие выбранного типа становится для вас оружием монаха]</color></i>
 ModUi/&EnableMulticlass=Включить мультиклассирование <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnablePcgRandom=Включить улучшенный алгоритм генерации случайных чисел <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

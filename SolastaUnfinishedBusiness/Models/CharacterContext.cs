@@ -224,6 +224,7 @@ internal static partial class CharacterContext
         SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
         SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
         SwitchMonkHeightenedMetabolism();
+        SwitchMonkSuperiorDefenseToReplaceEmptyBody();
         SwitchMonkWeaponSpecialization();
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchRangerHumanoidFavoredEnemy();

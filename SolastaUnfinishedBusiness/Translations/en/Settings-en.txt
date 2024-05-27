@@ -142,6 +142,7 @@ ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Enable <color=#D89555>Monk</c
 ModUi/&EnableMonkFightingStyle=Enable <color=#D89555>Monk</color> <b>Fighting Style</b> choice at level 2
 ModUi/&EnableMonkHeightenedMetabolism=Enable <color=#D89555>Monk</color> <b>Heightened Metabolism</b> at level 10 <i><color=#F0DAA0>[<b>Flurry of Blows</b>, <b>Patient Defense</b>, and <b>Step of the Wind</b> gain additional benefits]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <color=#D89555>Monk</color> <b>Improved Unarmored Movement</b> to move along vertical surfaces without falling
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Enable <color=#D89555>Monk</color> <b>Superior Defense</b> to replace <b>Empty Body</b> at level 18
 ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Monk</color> <b>Weapon Specialization</b> at levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
