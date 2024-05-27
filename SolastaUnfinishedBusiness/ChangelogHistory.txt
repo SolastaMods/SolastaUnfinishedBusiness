@@ -2,6 +2,7 @@
 
 - fixed Apothecary feat to always grant Medicine regardless of chosen attribute
 - fixed Arcane Backslash spell double caster animation effects
+- fixed Domain Forge blessed metal immunity and resistance logic
 - fixed Earthquake spell interaction with Widened metamagic
 - fixed Forge Cleric blessed metal not providing fire damage immunity
 - fixed Gray, Ironborn, and Obsidian Dwarf subclasses missing normal and darkvision senses

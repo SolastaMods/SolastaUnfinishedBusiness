@@ -648,14 +648,22 @@ public static class RulesetActorPatcher
                 }
             }
 
-            //PATCH: add `IDamageAffinityProvider` from dynamic item properties
-            //fixes game not applying damage reductions from dynamic item properties
-            //used for Inventor's Resistant Armor infusions
             if (actor is not RulesetCharacterHero hero)
             {
                 return;
             }
 
+            //PATCH: allow to remove damage affinities if necessary
+            var featuresActor = actor.GetSubFeaturesByType<IModifyDamageAffinity>();
+
+            foreach (var feature in featuresActor)
+            {
+                feature.ModifyDamageAffinity(actor, caster, featuresToBrowse);
+            }
+
+            //PATCH: add `IDamageAffinityProvider` from dynamic item properties
+            //fixes game not applying damage reductions from dynamic item properties
+            //used for Inventor's Resistant Armor infusions
             foreach (var equipedItem in hero.CharacterInventory.InventorySlotsByName
                          .Select(keyValuePair => keyValuePair.Value)
                          .Where(slot => slot.EquipedItem != null && !slot.Disabled && !slot.ConfigSlot)
