@@ -1,15 +1,16 @@
 1.5.97.11:
 
-- fixed Chain Lighting to not consider allies
+- fixed Chain Lighting to not consider allies on bounce damage
 - fixed Domain Forge blessed metal feature immunity and resistance logic
+- fixed Domain Nature not getting a cantrip offered at level 4 [RESPEC required]
 - fixed Earthquake spell interaction with Widened metamagic
-- fixed Gravity Sinkhole spell movement to effect origin
+- fixed Gravity Sinkhole spell push movement to effect center point
 - fixed Gray, Ironborn, and Obsidian Dwarf subclasses missing normal and darkvision senses
 - fixed Martial Psi-Warrior force powered strike feature not triggering on ranged attacks
-- fixed Ranger Fey Wanderer misty step feature to prevent a main levelled spell to be cast on use
 - fixed Ranger Fey Wanderer misty step feature to only allow target allies within 5ft
+- fixed Ranger Fey Wanderer misty step feature to prevent a main leveled spell to be cast on use
 - fixed Ranger Fey Wanderer to allow invite an optional ally on misty step spell cast from level 15
-- fixed skills, tools, and expertise granted from feats [might need RESPEC on Arcanist, Poisoner, Toxicologist, etc.]
+- fixed skills, tools, and expertise granted from feats [RESPEC required on Arcanist, Poisoner, Toxicologist, etc.]
 - fixed Taunted condition to not enforce disadvantage against taunter
 - fixed Thunderstep spell interaction with Transmuted metamagic
 - fixed Thunderstep spell to only allow target allies within 5ft
