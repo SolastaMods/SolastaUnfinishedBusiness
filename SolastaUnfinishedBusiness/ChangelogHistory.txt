@@ -9,7 +9,7 @@
 - fixed Ranger Fey Wanderer misty step feature to prevent a main levelled spell to be cast on use
 - fixed Ranger Fey Wanderer misty step feature to only allow target allies within 5ft
 - fixed Ranger Fey Wanderer to allow invite an optional ally on misty step spell cast from level 15
-- fixed skills, tools, and expertise when granted from feats [might need RESPEC on feats that grant skill or tools]
+- fixed skills, tools, and expertise granted from feats [might need RESPEC on Arcanist, Poisoner, Toxicologist, etc.]
 - fixed Taunted condition to not enforce disadvantage against taunter
 - fixed Thunderstep spell interaction with Transmuted metamagic
 - fixed Thunderstep spell to only allow target allies within 5ft

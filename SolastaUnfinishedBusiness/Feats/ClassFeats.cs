@@ -239,14 +239,6 @@ internal static class ClassFeats
     {
         const string Name = "FeatPoisoner";
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionCraftingAffinityBuilder
-            .Create($"CraftingAffinity{Name}")
-            .SetGuiPresentationNoContent(true)
-            .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
-                ToolTypeDefinitions.PoisonersKitType)
-            .AddToDB();
-
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
