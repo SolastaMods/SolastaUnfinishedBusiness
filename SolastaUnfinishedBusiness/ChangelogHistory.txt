@@ -21,7 +21,6 @@ KNOWN ISSUES:
 - Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [won't fix]
 - Artillerist Fortified Position medium cannon doesn't grant buff to self [won't fix]
 - Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [won't fix]
-- Domain Nature doesn't get a cantrip offered at level 4
 
 1.5.97.10 - Os cães ladram e a caravana passa:
 
