@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -43,7 +42,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D8, 3)
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
@@ -770,9 +769,30 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorBoomingStep(FeatureDefinitionPower powerExplode)
-        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         private readonly List<GameLocationCharacter> _targets = [];
+
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid =
+                target.RulesetCharacter is not RulesetCharacterEffectProxy &&
+                __instance.ActionParams.ActingCharacter.IsWithinRange(target, 1);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+            }
+
+            return isValid;
+        }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

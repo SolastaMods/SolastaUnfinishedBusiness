@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -19,97 +18,43 @@ internal static class CraftyFeats
         var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyArcana")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Arcana)
-            .AddToDB();
-
-        var proficiencyCraftyAnimalHandling = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyAnimalHandling")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.AnimalHandling)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Arcana)
             .AddToDB();
 
         var proficiencyCraftyMedicine = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyMedicine")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Medecine)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
             .AddToDB();
 
         var proficiencyCraftyNature = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyNature")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Nature)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Nature)
             .AddToDB();
 
         var proficiencyCraftyReligion = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyReligion")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Religion)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Religion)
             .AddToDB();
 
         var proficiencyCraftyHerbalismKit = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyHerbalismKit")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Tool, ToolTypeDefinitions.HerbalismKitType.Name)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.HerbalismKitType.Name)
             .AddToDB();
 
         var proficiencyCraftyPoisonersKit = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyPoisonersKit")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Tool, ToolTypeDefinitions.PoisonersKitType.Name)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.PoisonersKitType.Name)
             .AddToDB();
 
         var proficiencyCraftyScrollKit = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyScrollKit")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Tool, ToolTypeDefinitions.ScrollKitType.Name)
-            .AddToDB();
-
-        var proficiencyCraftyArcanaExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyArcanaExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Arcana)
-            .AddToDB();
-
-        var proficiencyCraftyAnimalHandlingExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyAnimalHandlingExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.AnimalHandling)
-            .AddToDB();
-
-        var proficiencyCraftyMedicineExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyMedicineExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Medecine)
-            .AddToDB();
-
-        var proficiencyCraftyNatureExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyNatureExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Nature)
-            .AddToDB();
-
-        var proficiencyCraftyReligionExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyReligionExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Religion)
-            .AddToDB();
-
-        var proficiencyCraftyHerbalismKitExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyHerbalismKitExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, ToolTypeDefinitions.HerbalismKitType.Name)
-            .AddToDB();
-
-        var proficiencyCraftyPoisonersKitExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyPoisonersKitExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, ToolTypeDefinitions.PoisonersKitType.Name)
-            .AddToDB();
-
-        var proficiencyCraftyScrollKitExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCraftyScrollKitExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, ToolTypeDefinitions.ScrollKitType.Name)
+            .SetProficiencies(ProficiencyType.ToolOrExpertise, ToolTypeDefinitions.ScrollKitType.Name)
             .AddToDB();
 
         //
@@ -119,36 +64,21 @@ internal static class CraftyFeats
         var featApothecaryInt = FeatDefinitionBuilder
             .Create("FeatApothecaryInt")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Pakri)
-            .AddCustomSubFeatures(
-                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.HerbalismKitType,
-                    proficiencyCraftyHerbalismKit, proficiencyCraftyHerbalismKitExpertise),
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Arcana,
-                    proficiencyCraftyArcana, proficiencyCraftyArcanaExpertise))
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyHerbalismKit, proficiencyCraftyMedicine)
             .SetFeatFamily("Apothecary")
             .AddToDB();
 
         var featApothecaryWis = FeatDefinitionBuilder
             .Create("FeatApothecaryWis")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Maraike)
-            .AddCustomSubFeatures(
-                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.HerbalismKitType,
-                    proficiencyCraftyHerbalismKit, proficiencyCraftyHerbalismKitExpertise),
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Medecine,
-                    proficiencyCraftyMedicine, proficiencyCraftyMedicineExpertise))
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, proficiencyCraftyHerbalismKit, proficiencyCraftyMedicine)
             .SetFeatFamily("Apothecary")
             .AddToDB();
 
         var featApothecaryCha = FeatDefinitionBuilder
             .Create("FeatApothecaryCha")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Solasta)
-            .AddCustomSubFeatures(
-                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.HerbalismKitType,
-                    proficiencyCraftyHerbalismKit, proficiencyCraftyHerbalismKitExpertise),
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Medecine,
-                    proficiencyCraftyMedicine, proficiencyCraftyMedicineExpertise))
+            .SetFeatures(AttributeModifierCreed_Of_Solasta, proficiencyCraftyHerbalismKit, proficiencyCraftyMedicine)
             .SetFeatFamily("Apothecary")
             .AddToDB();
 
@@ -164,36 +94,21 @@ internal static class CraftyFeats
         var featToxicologistInt = FeatDefinitionBuilder
             .Create("FeatToxicologistInt")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Pakri)
-            .AddCustomSubFeatures(
-                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType,
-                    proficiencyCraftyPoisonersKit, proficiencyCraftyPoisonersKitExpertise),
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Nature,
-                    proficiencyCraftyNature, proficiencyCraftyNatureExpertise))
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyPoisonersKit, proficiencyCraftyNature)
             .SetFeatFamily("Toxicologist")
             .AddToDB();
 
         var featToxicologistWis = FeatDefinitionBuilder
             .Create("FeatToxicologistWis")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Maraike)
-            .AddCustomSubFeatures(
-                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType,
-                    proficiencyCraftyPoisonersKit, proficiencyCraftyPoisonersKitExpertise),
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Medecine,
-                    proficiencyCraftyMedicine, proficiencyCraftyMedicineExpertise))
+            .SetFeatures(AttributeModifierCreed_Of_Maraike, proficiencyCraftyPoisonersKit, proficiencyCraftyNature)
             .SetFeatFamily("Toxicologist")
             .AddToDB();
 
         var featToxicologistCha = FeatDefinitionBuilder
             .Create("FeatToxicologistCha")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Solasta)
-            .AddCustomSubFeatures(
-                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.PoisonersKitType,
-                    proficiencyCraftyPoisonersKit, proficiencyCraftyPoisonersKitExpertise),
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.AnimalHandling,
-                    proficiencyCraftyAnimalHandling, proficiencyCraftyAnimalHandlingExpertise))
+            .SetFeatures(AttributeModifierCreed_Of_Solasta, proficiencyCraftyPoisonersKit, proficiencyCraftyNature)
             .SetFeatFamily("Toxicologist")
             .AddToDB();
 
@@ -210,12 +125,7 @@ internal static class CraftyFeats
             .Create("FeatCraftyScriber")
             .SetGuiPresentation(Category.Feat)
             .SetMustCastSpellsPrerequisite()
-            .SetFeatures(AttributeModifierCreed_Of_Pakri)
-            .AddCustomSubFeatures(
-                new FeatHelpers.ToolOrExpertise(ToolTypeDefinitions.ScrollKitType,
-                    proficiencyCraftyScrollKit, proficiencyCraftyScrollKitExpertise),
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Arcana,
-                    proficiencyCraftyArcana, proficiencyCraftyArcanaExpertise))
+            .SetFeatures(AttributeModifierCreed_Of_Pakri, proficiencyCraftyScrollKit, proficiencyCraftyArcana)
             .AddToDB();
 
         //
@@ -227,6 +137,7 @@ internal static class CraftyFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Pakri,
+                proficiencyCraftyArcana,
                 FeatureDefinitionPowerBuilder
                     .Create("PowerFeatArcanist")
                     .SetGuiPresentation(SpellDefinitions.DetectMagic.GuiPresentation)
@@ -236,9 +147,6 @@ internal static class CraftyFeats
                             .Create(SpellDefinitions.DetectMagic)
                             .Build())
                     .AddToDB())
-            .AddCustomSubFeatures(
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Arcana,
-                    proficiencyCraftyArcana, proficiencyCraftyArcanaExpertise))
             .AddToDB();
 
         //
@@ -250,6 +158,7 @@ internal static class CraftyFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Pakri,
+                proficiencyCraftyReligion,
                 FeatureDefinitionPowerBuilder
                     .Create("PowerFeatTheologian")
                     .SetGuiPresentation(SpellDefinitions.DetectEvilAndGood.GuiPresentation)
@@ -259,9 +168,6 @@ internal static class CraftyFeats
                             .Create(SpellDefinitions.DetectEvilAndGood)
                             .Build())
                     .AddToDB())
-            .AddCustomSubFeatures(
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Religion,
-                    proficiencyCraftyReligion, proficiencyCraftyReligionExpertise))
             .AddToDB();
 
         //

@@ -196,6 +196,8 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             .AddCustomSubFeatures(new CustomBehaviorMistyWanderer())
             .AddToDB();
 
+        MistyStep.AddCustomSubFeatures(new CustomBehaviorMistyStep());
+
         //
         // MAIN
         //
@@ -251,9 +253,9 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
     private sealed class CustomBehaviorBeguilingTwist(
         FeatureDefinitionPower powerBeguilingTwist)
-        : IRollSavingThrowInitiated, ITryAlterOutcomeSavingThrow, IMagicEffectFinishedByMe
+        : IRollSavingThrowInitiated, ITryAlterOutcomeSavingThrow, IMagicEffectInitiatedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActingCharacter.UsedMainSpell = true;
 
@@ -348,7 +350,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorMistyWanderer : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    private sealed class CustomBehaviorMistyStep : IModifyEffectDescription, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
 
@@ -371,7 +373,48 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == MistyStep &&
+                   character.GetSubclassLevel(CharacterClassDefinitions.Ranger, Name) >= 15;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.inviteOptionalAlly = true;
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class CustomBehaviorMistyWanderer : IMagicEffectInitiatedByMe, IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid =
+                target.RulesetCharacter is not RulesetCharacterEffectProxy &&
+                __instance.ActionParams.ActingCharacter.IsWithinRange(target, 1);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+            }
+
+            return isValid;
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActingCharacter.UsedBonusSpell = true;
 

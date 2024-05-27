@@ -22,7 +22,7 @@
   "myDamageReductionDiceNumber": 1,
   "myDamageReductionDieType": "D4",
   "situationalContext": 9013,
-  "requiredCondition": null,
+  "requiredCondition": "Definition:ConditionTaunted:4684284a-a3b2-54f9-9b40-0badf8e95081",
   "nullifiedBySenses": [],
   "nullifiedBySelfSenses": [],
   "multiAttackAffinity": false,

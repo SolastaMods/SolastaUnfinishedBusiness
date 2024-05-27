@@ -520,9 +520,8 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(
-                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack,
-                new PhysicalAttackFinishedByMeBanishingSmite(conditionBanishingSmiteEnemy))
+            .SetAttackModeOnly()
+            .AddCustomSubFeatures(new PhysicalAttackFinishedByMeBanishingSmite(conditionBanishingSmiteEnemy))
             .SetDamageDice(DieType.D10, 5)
             .SetSpecificDamageType(DamageTypeForce)
             // doesn't follow the standard impact particle reference

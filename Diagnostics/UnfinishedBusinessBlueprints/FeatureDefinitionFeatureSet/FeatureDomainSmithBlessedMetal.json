@@ -1,5 +1,18 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:DamageAffinityDomainSmithBlessedMetalFireImmunity:55f1c83e-cad6-555d-9c81-18ce1fa1d16b",
+    "Definition:DamageAffinityDomainSmithBlessedMetalBludgeoningResistance:e77a53c4-08c2-59e8-a451-2e70a57654a6",
+    "Definition:DamageAffinityDomainSmithBlessedMetalPiercingResistance:81cdcfab-9f06-5277-8058-46ba83c50540",
+    "Definition:DamageAffinityDomainSmithBlessedMetalSlashingResistance:13450c00-a95f-5da4-9849-6af75c643590"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

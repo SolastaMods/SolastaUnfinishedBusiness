@@ -106,7 +106,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             .SetSituationalContext(ExtraSituationalContext.IsConcentratingOnSpell)
             .AddToDB();
 
-        featureDurableMagic.AddCustomSubFeatures(new RollSavingThrowInitiatedDurableMagic(featureDurableMagic));
+        featureDurableMagic.AddCustomSubFeatures(new CustomBehaviorDurableMagic(featureDurableMagic));
 
         // LEVEL 14
 
@@ -495,9 +495,26 @@ public sealed class WizardWarMagic : AbstractSubclass
         }
     }
 
-    private sealed class RollSavingThrowInitiatedDurableMagic(
-        FeatureDefinition featureDurableMagic) : IRollSavingThrowInitiated
+    private sealed class CustomBehaviorDurableMagic(
+        FeatureDefinition featureDurableMagic) : IRollSavingThrowInitiated, IRollSavingCheckInitiated
     {
+        public void OnRollSavingCheckInitiated(
+            RulesetCharacter defender,
+            int saveDC,
+            string damageType,
+            ref ActionModifier actionModifier,
+            ref int modifier)
+        {
+            if (defender.ConcentratedSpell == null)
+            {
+                return;
+            }
+
+            modifier += 2;
+            actionModifier.SavingThrowModifierTrends.Add(
+                new TrendInfo(2, FeatureSourceType.CharacterFeature, featureDurableMagic.Name, featureDurableMagic));
+        }
+
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,

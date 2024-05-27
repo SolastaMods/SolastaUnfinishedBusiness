@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -33,6 +34,9 @@ public sealed class DomainNature : AbstractSubclass
         DamageTypeThunder
     ];
 
+    private static FeatureDefinitionCastSpell _castSpellDomainNature;
+    private static CharacterSubclassDefinition _domainNature;
+
     public DomainNature()
     {
         var divinePowerPrefix = Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": ";
@@ -51,6 +55,22 @@ public sealed class DomainNature : AbstractSubclass
             .AddToDB();
 
         // LEVEL 01 - Acolyte of Nature
+
+        var spellListDomainNature = SpellListDefinitionBuilder
+            .Create($"SpellList{Name}")
+            .SetGuiPresentationNoContent(true)
+            .FinalizeSpells()
+            .AddToDB();
+
+        //explicitly re-use druid spell list, so custom cantrips selected for druid will show here 
+        spellListDomainNature.SpellsByLevel[0].Spells = SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells;
+
+        _castSpellDomainNature = FeatureDefinitionCastSpellBuilder
+            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, $"CastSpell{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
+            .SetSpellList(spellListDomainNature)
+            .AddToDB();
 
         var pointPoolCantrip = FeatureDefinitionPointPoolBuilder
             .Create($"PointPool{Name}Cantrip")
@@ -82,6 +102,8 @@ public sealed class DomainNature : AbstractSubclass
             .AddFeatureSet(proficiencyHeavyArmor)
             .AddToDB();
 
+        // cannot add cast spell here as for whatever reason game tries to offer cleric cantrips
+        // custom added later on GrantCantrip
         var featureSetAcolyteOfNature = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}AcolyteOfNature")
             .SetGuiPresentation(Category.Feature)
@@ -231,7 +253,7 @@ public sealed class DomainNature : AbstractSubclass
 
         // MAIN
 
-        Subclass = CharacterSubclassDefinitionBuilder
+        _domainNature = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.TraditionGreenmage)
             .AddFeaturesAtLevel(1,
@@ -242,6 +264,8 @@ public sealed class DomainNature : AbstractSubclass
             .AddFeaturesAtLevel(10, PowerClericDivineInterventionWizard)
             .AddFeaturesAtLevel(17, featureSetMasterOfNature)
             .AddToDB();
+
+        Subclass = _domainNature;
     }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Cleric;
@@ -263,9 +287,16 @@ public sealed class DomainNature : AbstractSubclass
             return;
         }
 
+        var selectedClass = LevelUpContext.GetSelectedClass(hero);
+        var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
+        var subclassTag = AttributeDefinitions.GetSubclassTag(selectedClass, 1, selectedSubclass);
+
+        hero.ActiveFeatures[subclassTag].Add(_castSpellDomainNature);
+        hero.GrantSpellRepertoire(_castSpellDomainNature, null, _domainNature, null);
+
         foreach (var cantrip in cantrips)
         {
-            hero.GrantCantrip(cantrip, FeatureDefinitionCastSpells.CastSpellCleric);
+            hero.GrantCantrip(cantrip, _castSpellDomainNature);
         }
     }
 

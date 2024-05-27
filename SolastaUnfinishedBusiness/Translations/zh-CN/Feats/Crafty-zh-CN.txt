@@ -1,8 +1,8 @@
-Feat/&FeatApothecaryChaDescription=你的魅力 +1，上限为 20。\n你获得草药工具和奥秘熟练项，如果已有熟练项，则获得专精。
+Feat/&FeatApothecaryChaDescription=你的魅力 +1，上限为 20。\n你获得草药工具和医药熟练项，如果已有熟练项，则获得专精。
 Feat/&FeatApothecaryChaTitle=药剂师【魅力】
-Feat/&FeatApothecaryIntDescription=你的智力 +1，上限为 20。\n你获得草药工具和奥秘熟练项，如果已有熟练项，则获得专精。
+Feat/&FeatApothecaryIntDescription=你的智力 +1，上限为 20。\n你获得草药工具和医药熟练项，如果已有熟练项，则获得专精。
 Feat/&FeatApothecaryIntTitle=药剂师【智力】
-Feat/&FeatApothecaryWisDescription=你的感知 +1，上限为 20。\n你获得草药工具和奥秘熟练项，如果已有熟练项，则获得专精。
+Feat/&FeatApothecaryWisDescription=你的感知 +1，上限为 20。\n你获得草药工具和医药熟练项，如果已有熟练项，则获得专精。
 Feat/&FeatApothecaryWisTitle=药剂师【感知】
 Feat/&FeatArcanistDescription=你学习奥术艺术，获得以下好处：\n• 你的智力 +1，上限为 20。\n• 你获得奥秘熟练项，如果已有熟练项，则获得专精。\n• 你学会探测魔法咒语。你可以在不消耗法术位的情况下施放一次 <b>侦测魔法</b>，并且在完成长休后你将重新获得这样做的能力。
 Feat/&FeatArcanistTitle=奥术师

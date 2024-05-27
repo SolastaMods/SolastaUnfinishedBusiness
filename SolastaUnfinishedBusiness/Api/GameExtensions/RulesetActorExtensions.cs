@@ -52,8 +52,8 @@ internal static class RulesetActorExtensions
             return list;
         }
 
+        // metamagic are handled in other locations
         list.AddRange(hero.trainedFeats);
-        list.AddRange(hero.trainedMetamagicOptions);
         list.AddRange(hero.trainedInvocations);
         list.AddRange(hero.trainedFightingStyles);
 

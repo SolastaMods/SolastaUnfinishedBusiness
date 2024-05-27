@@ -15,12 +15,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyIronbornDwarfArmorTraining:6b3b86a5-5a8e-5208-b590-d63322af3186",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyDwarfLanguages:bc18fab78e7b7414590755243ca5b6d3",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
       "level": 1
     }
   ],

@@ -318,14 +318,15 @@ internal static class MetamagicBuilders
 
     private static void IsMetamagicTransmutedSpellValid(
         RulesetCharacter caster,
-        RulesetEffectSpell rulesetEffectSpell,
+        RulesetEffectSpell rulesetEffect,
         MetamagicOptionDefinition metamagicOption,
         ref bool result,
         ref string failure)
     {
-        if (rulesetEffectSpell.EffectDescription.EffectForms.Any(x =>
+        if (rulesetEffect.EffectDescription.EffectForms.Any(x =>
                 x.FormType == EffectForm.EffectFormType.Damage &&
-                TransmutedDamageTypes.Contains(x.DamageForm.DamageType)))
+                TransmutedDamageTypes.Contains(x.DamageForm.DamageType)) ||
+            rulesetEffect.SpellDefinition.Name == "BoomingStep")
         {
             return;
         }
@@ -351,12 +352,14 @@ internal static class MetamagicBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.MetamagicOption != metamagicOptionDefinition)
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetEffect.MetamagicOption != metamagicOptionDefinition &&
+                rulesetAttacker.SpellsCastByMe
+                    .FirstOrDefault(x => x.SystemName == "BoomingStep")?.MetamagicOption != metamagicOptionDefinition)
             {
                 yield break;
             }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!rulesetAttacker.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, condition.Name))

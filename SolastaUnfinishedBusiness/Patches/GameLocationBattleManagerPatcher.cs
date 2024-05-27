@@ -776,6 +776,22 @@ public static class GameLocationBattleManagerPatcher
                         criticalHit);
                 }
 
+                // supports metamagic use cases
+                var hero = controller.RulesetCharacter.GetOriginalHero();
+
+                if (hero != null)
+                {
+                    foreach (var magicalAttackBeforeHitConfirmedOnEnemy in hero.TrainedMetamagicOptions
+                                 .SelectMany(metamagic =>
+                                     metamagic.GetAllSubFeaturesOfType<IMagicEffectBeforeHitConfirmedOnEnemy>()))
+                    {
+                        yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
+                            __instance, controller, defender, magicModifier, rulesetEffect, actualEffectForms,
+                            firstTarget,
+                            criticalHit);
+                    }
+                }
+
                 if (rulesetEffect is { SourceDefinition: SpellDefinition spellDefinition })
                 {
                     //PATCH: illusionary spells against creatures with True Sight should automatically save

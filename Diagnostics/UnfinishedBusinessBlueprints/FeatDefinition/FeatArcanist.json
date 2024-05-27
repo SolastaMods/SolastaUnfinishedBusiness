@@ -13,7 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
-    "Definition:PowerFeatArcanist:e6ac8ee4-7cc2-5b1e-a689-60f74c048d59"
+    "Definition:PowerFeatArcanist:e6ac8ee4-7cc2-5b1e-a689-60f74c048d59",
+    "Definition:ProficiencyCraftyArcana:619274ef-feed-56b7-9ad5-6394333b3884"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

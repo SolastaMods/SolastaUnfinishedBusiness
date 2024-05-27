@@ -62,7 +62,7 @@ internal static class CustomConditionsContext
                 FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
             .AddToDB();
 
-        Taunted = BuildTaunted();
+        BuildTaunted();
     }
 
     private static ConditionDefinition BuildLightSensitivity()
@@ -97,17 +97,8 @@ internal static class CustomConditionsContext
     }
 
 
-    private static ConditionDefinition BuildTaunted()
+    private static void BuildTaunted()
     {
-        var combatAffinityTaunted = FeatureDefinitionCombatAffinityBuilder
-            .Create("CombatAffinityTaunted")
-            .SetGuiPresentation("ConditionTaunted", Category.Condition, Gui.NoLocalization)
-            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-            .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
-            .AddToDB();
-
-        combatAffinityTaunted.requiredCondition = Taunted;
-
         _taunter = ConditionDefinitionBuilder
             .Create("ConditionTaunter")
             .SetGuiPresentationNoContent(true)
@@ -115,7 +106,14 @@ internal static class CustomConditionsContext
             .AddCustomSubFeatures(new ActionFinishedByMeTaunter())
             .AddToDB();
 
-        return ConditionDefinitionBuilder
+        var combatAffinityTaunted = FeatureDefinitionCombatAffinityBuilder
+            .Create("CombatAffinityTaunted")
+            .SetGuiPresentation("ConditionTaunted", Category.Condition, Gui.NoLocalization)
+            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+            .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
+            .AddToDB();
+
+        Taunted = ConditionDefinitionBuilder
             .Create("ConditionTaunted")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
             .SetConditionType(ConditionType.Detrimental)
@@ -124,6 +122,8 @@ internal static class CustomConditionsContext
             .SetFeatures(combatAffinityTaunted)
             .AddCustomSubFeatures(new CustomBehaviorTaunted())
             .AddToDB();
+
+        combatAffinityTaunted.requiredCondition = Taunted;
     }
 
     private static ConditionDefinition BuildFlightSuspended()

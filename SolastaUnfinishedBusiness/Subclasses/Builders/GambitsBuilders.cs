@@ -73,11 +73,11 @@ internal static class GambitsBuilders
                     conditionName = MartialTactician.MarkDamagedByGambit
                 })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
+            .SetAttackModeOnly()
             .AddToDB();
 
         gambitDieDamage.AddCustomSubFeatures(
-            new ModifyAdditionalDamageGambitDieSize(gambitDieDamage),
-            ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
+            new ModifyAdditionalDamageGambitDieSize(gambitDieDamage));
 
         var gambitDieDamageMelee = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageGambitDieMelee")
@@ -92,6 +92,7 @@ internal static class GambitsBuilders
                     conditionName = MartialTactician.MarkDamagedByGambit
                 })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
+            .SetAttackModeOnly()
             .AddToDB();
 
         gambitDieDamageMelee.AddCustomSubFeatures(

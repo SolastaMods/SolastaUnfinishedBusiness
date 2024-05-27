@@ -13,7 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
-    "Definition:PowerFeatAcrobat:acbb3f93-a540-503d-b3d8-31dfa87a2a95"
+    "Definition:PowerFeatAcrobat:acbb3f93-a540-503d-b3d8-31dfa87a2a95",
+    "Definition:ProficiencyFeatAcrobat:fe1d07bd-a7a1-5c92-804e-e97a96c0a211"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -12,7 +12,8 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
+    "Definition:ProficiencyFeatStealthy:dfb97213-b173-5c3c-910c-1b555599df79"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

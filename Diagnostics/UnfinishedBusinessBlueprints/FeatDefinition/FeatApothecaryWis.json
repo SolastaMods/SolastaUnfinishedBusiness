@@ -12,7 +12,9 @@
   "familyTag": "Apothecary",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d"
+    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
+    "Definition:ProficiencyCraftyHerbalismKit:9418eab1-c4ca-51d3-8566-ed00ecb2afe2",
+    "Definition:ProficiencyCraftyMedicine:0f303467-f208-5a69-96e0-9c249edd7033"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
