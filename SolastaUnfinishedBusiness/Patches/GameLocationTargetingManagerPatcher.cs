@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -165,7 +164,7 @@ public static class GameLocationTargetingManagerPatcher
         }
     }
 
-    //BUGFIX: Chain Lightning allow targeting enemies that cannot be perceived creating soft lock situations
+    //BUGFIX: Chain Lightning allow targeting allies
     [HarmonyPatch(typeof(GameLocationTargetingManager), "IGameLocationTargetingService.ComputeAndSortSubtargets")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -229,7 +228,6 @@ public static class GameLocationTargetingManagerPatcher
 
                 if (validEntity != mainTarget &&
                     //BEGIN PATCH
-                    caster.CanPerceiveTarget(validEntity) &&
                     caster.IsOppositeSide(validEntity.Side) &&
                     //END PATCH
                     battleService.IsWithinXCells(mainTarget, validEntity, range))

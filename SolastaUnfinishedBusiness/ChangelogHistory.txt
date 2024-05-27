@@ -1,19 +1,26 @@
 1.5.97.11:
 
-- fixed Apothecary feat to grant Medicine regardless of chosen attribute
-- fixed Chain Lightning to not consider allies or unperceived enemies
-- fixed Domain Forge blessed metal immunity and resistance logic
+- fixed Chain Lighting to not consider allies
+- fixed Domain Forge blessed metal feature immunity and resistance logic
 - fixed Earthquake spell interaction with Widened metamagic
 - fixed Gravity Sinkhole spell movement to effect origin
 - fixed Gray, Ironborn, and Obsidian Dwarf subclasses missing normal and darkvision senses
-- fixed Martial Psi-Warrior force powered strike not triggering on ranged attacks
-- fixed Ranger Fey Wanderer misty step to prevent a main levelled spell to be cast
-- fixed skills, tools, and expertise when granted from feats
+- fixed Martial Psi-Warrior force powered strike feature not triggering on ranged attacks
+- fixed Ranger Fey Wanderer misty step feature to prevent a main levelled spell to be cast on use
+- fixed Ranger Fey Wanderer misty step feature to only allow target allies within 5ft
+- fixed Ranger Fey Wanderer to allow invite an optional ally on misty step spell cast from level 15
+- fixed skills, tools, and expertise when granted from feats [might need RESPEC on feats that grant skill or tools]
 - fixed Taunted condition to not enforce disadvantage against taunter
 - fixed Thunderstep spell interaction with Transmuted metamagic
-- fixed Thunderstep spell to only allow optional allies within 5ft
-- fixed Toxicologist feat to grant Nature regardless of chosen attribute
-- fixed Wizard War Magic durable magic to add +2 on concentration checks
+- fixed Thunderstep spell to only allow target allies within 5ft
+- fixed Wizard War Magic durable magic feature to add +2 on concentration checks
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [won't fix]
+- Artillerist Fortified Position medium cannon doesn't grant buff to self [won't fix]
+- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [won't fix]
+- Domain Nature doesn't get a cantrip offered at level 4
 
 1.5.97.10 - Os cães ladram e a caravana passa:
 
@@ -31,12 +38,6 @@
 - fixed Thunderstep spell to avoid damage to caster, teleported ally, and creatures on destination
 - fixed Witch Bolt spell to remove concentration on teleport scenarios when target becomes outside range
 - fixed Wither and Bloom spell doubling damage under multiplayer sessions
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [probably won't fix]
-- Artillerist Fortified Position medium cannon doesn't grant buff to self [probably won't fix]
-- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and bolt misses [won't fix]
 
 1.5.97.9:
 

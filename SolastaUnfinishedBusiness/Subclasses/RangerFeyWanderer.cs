@@ -196,6 +196,8 @@ public sealed class RangerFeyWanderer : AbstractSubclass
             .AddCustomSubFeatures(new CustomBehaviorMistyWanderer())
             .AddToDB();
 
+        MistyStep.AddCustomSubFeatures(new CustomBehaviorMistyStep());
+
         //
         // MAIN
         //
@@ -345,6 +347,47 @@ public sealed class RangerFeyWanderer : AbstractSubclass
                 x.FormType == EffectForm.EffectFormType.Condition &&
                 (x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionCharmed) ||
                  x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionFrightened)));
+        }
+    }
+
+    private sealed class CustomBehaviorMistyStep : IModifyEffectDescription, IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid =
+                target.RulesetCharacter is not RulesetCharacterEffectProxy &&
+                __instance.ActionParams.ActingCharacter.IsWithinRange(target, 1);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+            }
+
+            return isValid;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == MistyStep &&
+                   character.GetSubclassLevel(CharacterClassDefinitions.Ranger, Name) >= 15;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.inviteOptionalAlly = true;
+
+            return effectDescription;
         }
     }
 
