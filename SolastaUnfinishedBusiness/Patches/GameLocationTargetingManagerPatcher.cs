@@ -230,6 +230,7 @@ public static class GameLocationTargetingManagerPatcher
                 if (validEntity != mainTarget &&
                     //BEGIN PATCH
                     caster.CanPerceiveTarget(validEntity) &&
+                    caster.IsOppositeSide(validEntity.Side) &&
                     //END PATCH
                     battleService.IsWithinXCells(mainTarget, validEntity, range))
                 {

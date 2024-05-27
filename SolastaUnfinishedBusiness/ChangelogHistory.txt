@@ -1,6 +1,7 @@
 1.5.97.11:
 
 - fixed Apothecary feat to grant Medicine regardless of chosen attribute
+- fixed Chain Lightning to not consider allies or unperceived enemies
 - fixed Domain Forge blessed metal immunity and resistance logic
 - fixed Earthquake spell interaction with Widened metamagic
 - fixed Gray, Ironborn, and Obsidian Dwarf subclasses missing normal and darkvision senses
