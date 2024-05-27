@@ -137,6 +137,7 @@ ModUi/&EnableLogDialoguesToConsole=Activer les dialogues de journal sur la conso
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Activer la journalisation des références invalides dans les campagnes personnalisées
 ModUi/&EnableMinInOutAttributes=<i>+ Imposer les scores de capacité minimum à l'entrée et à la sortie</i>
 ModUi/&EnableMonkAbundantKi=Activer <color=#D89555>Moine</color> <b>Ki abondant</b> au niveau 2 <i><color=#F0DAA0>[gagner du Ki supplémentaire égal à la moitié du bonus de compétence arrondi au supérieur]</color> </i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Activez <color=#D89555>Moine</color> <b>Corps et esprit</b> pour remplacer <b>Perfect Self</b> au niveau 20.
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Activez <color=#D89555>Moine</color> <b>Arts martiaux - Bonus de frappes à mains nues</b> pour ne pas nécessiter d'action d'attaque avant utilisation.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Activez <color=#D89555>Moine</color> <b>Flurry of Blows</b> pour ne pas nécessiter d'action d'attaque avant utilisation.
 ModUi/&EnableMonkFightingStyle=Activer le choix <color=#D89555>Moine</color> <b>Style de combat</b> au niveau 2

@@ -212,6 +212,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkImprovedUnarmoredMovementToMoveOnTheWall { get; set; }
     public bool EnableMonkHeightenedMetabolism { get; set; }
     public bool EnableMonkSuperiorDefenseToReplaceEmptyBody { get; set; }
+    public bool EnableMonkBodyAndMindToReplacePerfectSelf { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }

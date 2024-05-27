@@ -137,6 +137,7 @@ ModUi/&EnableLogDialoguesToConsole=物語シーケンス中にゲームコンソ
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=カスタム キャンペーンで無効な参照のログを有効にする
 ModUi/&EnableMinInOutAttributes=<i>+ 前提条件の内外での能力スコアの最小値を強制する</i>
 ModUi/&EnableMonkAbundantKi=<color=#D89555>モンク</color> の<b>豊富な気力</b>をレベル 2 で有効にします<i><color=#F0DAA0>[熟練度ボーナスの切り上げの半分に等しい追加気力を獲得]</color> </i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=レベル 20 で<color=#D89555>モンク</color>の<b>肉体と精神</b>を<b>完璧な自己</b>に置き換えられるようにします
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>モンク</color>の<b>格闘技 - ボーナス素手攻撃</b>を有効にすると、使用前に攻撃アクションが不要になります。
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>モンク</color> の<b>連打</b>を有効にして、使用前に攻撃アクションを必要としないようにします
 ModUi/&EnableMonkFightingStyle=レベル 2 で<color=#D89555>モンク</color>の<b>戦闘スタイル</b>の選択が可能になります

@@ -330,6 +330,14 @@ internal static class CharacterDisplay
             CharacterContext.SwitchMonkSuperiorDefenseToReplaceEmptyBody();
         }
 
+        toggle = Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf = toggle;
+            CharacterContext.SwitchMonkBodyAndMindToReplacePerfectSelf();
+        }
+
         toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack"), ref toggle,
                 UI.AutoWidth()))

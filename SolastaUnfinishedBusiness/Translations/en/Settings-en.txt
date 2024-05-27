@@ -137,6 +137,7 @@ ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during n
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Enable logging invalid references in custom campaigns
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
 ModUi/&EnableMonkAbundantKi=Enable <color=#D89555>Monk</color> <b>Abundant Ki</b> at level 2 <i><color=#F0DAA0>[gain additional Ki equals to half the proficiency bonus rounded up]</color></i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Enable <color=#D89555>Monk</color> <b>Body and Mind</b> to replace <b>Perfect Self</b> at level 20
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Enable <color=#D89555>Monk</color> <b>Martial Arts - Bonus Unarmed Strikes</b> to not require an attack action before usage
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Enable <color=#D89555>Monk</color> <b>Flurry of Blows</b> to not require an attack action before usage
 ModUi/&EnableMonkFightingStyle=Enable <color=#D89555>Monk</color> <b>Fighting Style</b> choice at level 2

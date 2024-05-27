@@ -137,6 +137,7 @@ ModUi/&EnableLogDialoguesToConsole=Habilite los diálogos de registro en la cons
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Habilite el registro de referencias no válidas en campañas personalizadas
 ModUi/&EnableMinInOutAttributes=<i>+ Hacer cumplir los requisitos previos mínimos de entrada y salida de puntuaciones de capacidad</i>
 ModUi/&EnableMonkAbundantKi=Habilite <color=#D89555>Monje</color> <b>Abundante Ki</b> en el nivel 2 <i><color=#F0DAA0>[obtener Ki adicional equivale a la mitad del bono de competencia redondeado hacia arriba]</color> </i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Habilita <color=#D89555>Monje</color> <b>Cuerpo y Mente</b> para reemplazar <b>Yo Perfecto</b> en el nivel 20.
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Habilite <color=#D89555>Monje</color> <b>Artes marciales: ataques extra sin armas</b> para que no requiera una acción de ataque antes de su uso.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Habilite <color=#D89555>Monje</color> <b>Ráfaga de golpes</b> para que no requiera una acción de ataque antes de su uso.
 ModUi/&EnableMonkFightingStyle=Habilita la elección de <color=#D89555>Monje</color> <b>Estilo de lucha</b> en el nivel 2.

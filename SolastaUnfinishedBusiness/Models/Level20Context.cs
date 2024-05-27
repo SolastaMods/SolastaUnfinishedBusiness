@@ -82,6 +82,12 @@ internal static class Level20Context
                 .Build())
         .AddToDB();
 
+    internal static readonly FeatureDefinition FeatureMonkPerfectSelf = FeatureDefinitionBuilder
+        .Create("BattleStartedListenerMonkPerfectSelf")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new BattleStartedListenerMonkPerfectSelf())
+        .AddToDB();
+
     internal static void Load()
     {
         BarbarianLoad();
@@ -300,19 +306,9 @@ internal static class Level20Context
 
     private static void MonkLoad()
     {
-        var battleStartedListenerMonkPerfectSelf = FeatureDefinitionBuilder
-            .Create("BattleStartedListenerMonkPerfectSelf")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        battleStartedListenerMonkPerfectSelf.AddCustomSubFeatures(
-            new BattleStartedListenerMonkPerfectSelf(battleStartedListenerMonkPerfectSelf));
-
         Monk.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(PowerMonkEmptyBody, 18),
-            new(FeatureSetAbilityScoreChoice, 19),
-            new(battleStartedListenerMonkPerfectSelf, 20)
+            new(PowerMonkEmptyBody, 18), new(FeatureSetAbilityScoreChoice, 19), new(FeatureMonkPerfectSelf, 20)
         });
     }
 
@@ -952,10 +948,7 @@ internal static class Level20Context
         }
     }
 
-    private sealed class BattleStartedListenerMonkPerfectSelf(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition)
-        : ICharacterBattleStartedListener
+    private sealed class BattleStartedListenerMonkPerfectSelf : ICharacterBattleStartedListener
     {
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
@@ -973,7 +966,7 @@ internal static class Level20Context
 
             character.ForceKiPointConsumption(-4);
             character.KiPointsAltered?.Invoke(character, character.RemainingKiPoints);
-            character.LogCharacterUsedFeature(featureDefinition);
+            character.LogCharacterUsedFeature(FeatureMonkPerfectSelf);
         }
     }
 

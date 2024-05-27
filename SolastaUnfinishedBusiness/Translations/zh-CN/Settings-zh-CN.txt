@@ -137,6 +137,7 @@ ModUi/&EnableLogDialoguesToConsole=在叙述序列期间启用日志对话到游
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义活动中启用记录无效引用
 ModUi/&EnableMinInOutAttributes=<i>+强制属性值最低的前置条件</i>
 ModUi/&EnableMonkAbundantKi=在<color=#D89555>武僧</color> 1 级启用<b>丰富的气</b><i><color=#F0DAA0>[获得额外的等于熟练加值一半的气]</color> </i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=20级时启用<color=#D89555>武僧</color><b>身心</b>取代<b>完美自我</b>
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=启用<color=#D89555>武僧</color><b>武术 - 额外徒手攻击</b>，在使用前不需要进行攻击动作
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=启用<color=#D89555>武僧</color><b>疾风连击</b>，在使用前不需要进行攻击动作
 ModUi/&EnableMonkFightingStyle=在<color=#D89555>武僧</color> 2 级启用<b>战斗风格</b>选择

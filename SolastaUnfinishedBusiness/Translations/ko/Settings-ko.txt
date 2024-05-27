@@ -137,6 +137,7 @@ ModUi/&EnableLogDialoguesToConsole=내러티브 시퀀스 중에 게임 콘솔�
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=맞춤 캠페인에서 잘못된 참조 기록 활성화
 ModUi/&EnableMinInOutAttributes=<i>+ 능력 점수 최소 입력 및 출력 전제 조건 시행</i>
 ModUi/&EnableMonkAbundantKi=레벨 2에서 <color=#D89555>몽크</color> <b>풍부한 Ki</b> 활성화 <i><color=#F0DAA0>[숙련 보너스 반올림에 해당하는 추가 Ki 획득]</color> </i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=<color=#D89555>수도사</color> <b>몸과 정신</b>을 활성화하여 레벨 20에서 <b>완벽한 자아</b>를 대체하세요.
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>몽크</color> <b>무술 - 보너스 비무장 공격</b>을 활성화하여 사용 전에 공격 조치가 필요하지 않도록 하세요.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>몽크</color> <b>Flurry of Blows</b>를 활성화하면 사용 전에 공격 조치가 필요하지 않습니다.
 ModUi/&EnableMonkFightingStyle=레벨 2에서 <color=#D89555>몽크</color> <b>격투 스타일</b> 선택 활성화

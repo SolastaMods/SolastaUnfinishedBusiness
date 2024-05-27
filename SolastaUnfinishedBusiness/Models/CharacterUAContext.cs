@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -667,7 +668,7 @@ internal static partial class CharacterContext
                     .AddToDB())
             .AddToDB();
 
-    internal static readonly FeatureDefinitionPower PowerMonkSuperiorDefense = FeatureDefinitionPowerBuilder
+    private static readonly FeatureDefinitionPower PowerMonkSuperiorDefense = FeatureDefinitionPowerBuilder
         .Create("PowerMonkSuperiorDefense")
         .SetGuiPresentation(Category.Feature, Sprites.GetSprite("SuperiorDefense", Resources.EmptyBody, 128, 64))
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 3, 3)
@@ -702,6 +703,12 @@ internal static partial class CharacterContext
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureMonkBodyAndMind = FeatureDefinitionBuilder
+        .Create("FeatureMonkBodyAndMind")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new CustomLevelUpLogicMonkBodyAndMind())
         .AddToDB();
 
     private static void LoadMonkWeaponSpecialization()
@@ -888,22 +895,33 @@ internal static partial class CharacterContext
 
     internal static void SwitchMonkSuperiorDefenseToReplaceEmptyBody()
     {
-        if (Main.Settings.EnableMonkAbundantKi)
+        Monk.FeatureUnlocks
+            .RemoveAll(x => x.level == 18 &&
+                            (x.FeatureDefinition == Level20Context.PowerMonkEmptyBody ||
+                             x.FeatureDefinition == PowerMonkSuperiorDefense));
+
+        Monk.FeatureUnlocks.TryAdd(
+            Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody
+                ? new FeatureUnlockByLevel(PowerMonkSuperiorDefense, 18)
+                : new FeatureUnlockByLevel(Level20Context.PowerMonkEmptyBody, 18));
+
+        if (Main.Settings.EnableSortingFutureFeatures)
         {
-            Monk.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(PowerMonkSuperiorDefense, 18));
-            Monk.FeatureUnlocks
-                .RemoveAll(x => x.level == 18 &&
-                                x.FeatureDefinition == Level20Context.PowerMonkEmptyBody);
+            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
-        else
-        {
-            Monk.FeatureUnlocks.TryAdd(
-                new FeatureUnlockByLevel(Level20Context.PowerMonkEmptyBody, 18));
-            Monk.FeatureUnlocks
-                .RemoveAll(x => x.level == 18 &&
-                                x.FeatureDefinition == PowerMonkSuperiorDefense);
-        }
+    }
+
+    internal static void SwitchMonkBodyAndMindToReplacePerfectSelf()
+    {
+        Monk.FeatureUnlocks
+            .RemoveAll(x => x.level == 20 &&
+                            (x.FeatureDefinition == Level20Context.FeatureMonkPerfectSelf ||
+                             x.FeatureDefinition == FeatureMonkBodyAndMind));
+
+        Monk.FeatureUnlocks.TryAdd(
+            Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf
+                ? new FeatureUnlockByLevel(FeatureMonkBodyAndMind, 20)
+                : new FeatureUnlockByLevel(Level20Context.FeatureMonkPerfectSelf, 20));
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {
@@ -991,6 +1009,37 @@ internal static partial class CharacterContext
             }
 
             return effectDescription;
+        }
+    }
+
+    private sealed class CustomLevelUpLogicMonkBodyAndMind : ICustomLevelUpLogic
+    {
+        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
+        {
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Dexterity, 4);
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, 4);
+
+            hero.RefreshAll();
+        }
+
+        public void RemoveFeature([NotNull] RulesetCharacterHero hero, string tag)
+        {
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Dexterity, -4);
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, -4);
+
+            hero.RefreshAll();
+        }
+
+        private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)
+        {
+            var attribute = hero.GetAttribute(attributeName);
+
+            attribute.BaseValue += amount;
+            attribute.MaxValue += amount;
+            attribute.MaxEditableValue += amount;
+            attribute.Refresh();
+
+            hero.AbilityScoreIncreased?.Invoke(hero, attributeName, amount, amount);
         }
     }
 
