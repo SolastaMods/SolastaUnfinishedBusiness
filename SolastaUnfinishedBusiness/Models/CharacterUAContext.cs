@@ -827,11 +827,6 @@ internal static partial class CharacterContext
         }
     }
 
-
-    private static void LoadMonkHeightenedMetabolism()
-    {
-    }
-
     internal static void SwitchMonkHeightenedMetabolism()
     {
         if (Main.Settings.EnableMonkAbundantKi)
