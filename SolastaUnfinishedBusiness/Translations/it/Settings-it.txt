@@ -140,6 +140,7 @@ ModUi/&EnableMonkAbundantKi=Abilita <color=#D89555>Monaco</color> <b>Ki abbondan
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Abilita <color=#D89555>Monaco</color> <b>Arti marziali - Colpi senz'armi bonus</b> per non richiedere un'azione di attacco prima dell'uso
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Abilita <color=#D89555>Mistico</color> <b>Raffica di Colpi</b> per non richiedere un'azione di attacco prima dell'uso
 ModUi/&EnableMonkFightingStyle=Abilita la scelta dello <color=#D89555>Mistico</color> <b>Stile di combattimento</b> al livello 2
+ModUi/&EnableMonkHeightenedMetabolism=Abilita <color=#D89555>Mistico</color> <b>Metabolismo potenziato</b> al livello 10 <i><color=#F0DAA0>[<b>Raffica di colpi</b>, <b>Difesa del paziente </b> e <b>Step of the Wind</b> ottengono ulteriori vantaggi]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Abilita <color=#D89555>Mistico</color> <b>Movimento senza armatura migliorato</b> per muoversi lungo superfici verticali senza cadere
 ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>specializzazione arma</b> ai livelli 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa per te un'arma da monaco]</color></i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

@@ -198,6 +198,7 @@ internal static partial class CharacterContext
         LoadAdditionalNames();
         LoadEpicArray();
         LoadFeatsPointPools();
+        LoadMonkHeightenedMetabolism();
         LoadMonkWeaponSpecialization();
         LoadVision();
         LoadVisuals();

@@ -1,3 +1,7 @@
+1.5.97.12:
+
+- added Gameplay > Character > 'Enable Monk Heightened Metabolism at level 10' setting
+
 1.5.97.11:
 
 - fixed Chain Lighting to not consider allies on bounce damage

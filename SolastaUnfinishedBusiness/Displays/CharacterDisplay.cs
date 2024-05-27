@@ -314,6 +314,14 @@ internal static class CharacterDisplay
             CharacterContext.SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
         }
 
+        toggle = Main.Settings.EnableMonkHeightenedMetabolism;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkHeightenedMetabolism"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkHeightenedMetabolism = toggle;
+            CharacterContext.SwitchMonkHeightenedMetabolism();
+        }
+
         toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack"), ref toggle,
                 UI.AutoWidth()))

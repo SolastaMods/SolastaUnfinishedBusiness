@@ -140,6 +140,7 @@ ModUi/&EnableMonkAbundantKi=Activer <color=#D89555>Moine</color> <b>Ki abondant<
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Activez <color=#D89555>Moine</color> <b>Arts martiaux - Bonus de frappes à mains nues</b> pour ne pas nécessiter d'action d'attaque avant utilisation.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Activez <color=#D89555>Moine</color> <b>Flurry of Blows</b> pour ne pas nécessiter d'action d'attaque avant utilisation.
 ModUi/&EnableMonkFightingStyle=Activer le choix <color=#D89555>Moine</color> <b>Style de combat</b> au niveau 2
+ModUi/&EnableMonkHeightenedMetabolism=Activer <color=#D89555>Moine</color> <b>Métabolisme accru</b> au niveau 10 <i><color=#F0DAA0>[<b>Rafale de coups</b>, <b>Défense du patient </b> et <b>Pas du Vent</b> gagnent des avantages supplémentaires]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Permet au <color=#D89555>Moine</color> <b>Mouvement sans armure amélioré</b> de se déplacer le long des surfaces verticales sans tomber.
 ModUi/&EnableMonkWeaponSpecialization=Activez la <color=#D89555>Moine</color> <b>Spécialisation d'arme</b> aux niveaux 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer le multiclasse <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

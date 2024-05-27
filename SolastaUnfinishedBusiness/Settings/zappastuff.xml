@@ -437,6 +437,7 @@
     <EnableMonkDoNotRequireAttackActionForFlurry>true</EnableMonkDoNotRequireAttackActionForFlurry>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
     <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>true</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
+    <EnableMonkHeightenedMetabolism>true</EnableMonkHeightenedMetabolism>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>

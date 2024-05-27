@@ -140,6 +140,7 @@ ModUi/&EnableMonkAbundantKi=Habilite <color=#D89555>Monge</color> <b>Ki Abundant
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Ative <color=#D89555>Monk</color> <b>Artes Marciais - Ataques Desarmados Bônus</b> para não exigir uma ação de ataque antes do uso
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Ative <color=#D89555>Monk</color> <b>Flurry of Blows</b> para não exigir uma ação de ataque antes do uso
 ModUi/&EnableMonkFightingStyle=Habilite a escolha de <color=#D89555>Monk</color> <b>Estilo de Luta</b> no nível 2
+ModUi/&EnableMonkHeightenedMetabolism=Ativar <color=#D89555>Monk</color> <b>Metabolismo Acelerado</b> no nível 10 <i><color=#F0DAA0>[<b>Rajada de Golpes</b>, <b>Defesa do Paciente </b> e <b>Passo do Vento</b> ganham benefícios adicionais]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Ative o <color=#D89555>Monk</color> <b>Movimento sem armadura aprimorado</b> para se mover em superfícies verticais sem cair
 ModUi/&EnableMonkWeaponSpecialization=Habilite <color=#D89555>Monk</color> <b>Especialização em Armas</b> nos níveis 2 e 11 <i><color=#F0DAA0>[o tipo de arma selecionado torna-se uma arma de monge para você]</color </i>
 ModUi/&EnableMulticlass=Ativar multiclasse <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

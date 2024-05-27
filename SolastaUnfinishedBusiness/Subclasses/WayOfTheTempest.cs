@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -81,7 +82,9 @@ public sealed class WayOfTheTempest : AbstractSubclass
                     .SetParticleEffectParameters(ShockingGrasp)
                     .AddEffectForms(
                         EffectFormBuilder.ConditionForm(
-                            ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus),
+                            Main.Settings.EnableMonkHeightenedMetabolism
+                                ? CharacterContext.ConditionMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism
+                                : ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus),
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitions.ConditionDisengaging))
                     .Build())

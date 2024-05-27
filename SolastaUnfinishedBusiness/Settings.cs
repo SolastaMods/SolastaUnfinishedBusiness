@@ -210,6 +210,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkDoNotRequireAttackActionForFlurry { get; set; }
     public bool EnableMonkFightingStyle { get; set; }
     public bool EnableMonkImprovedUnarmoredMovementToMoveOnTheWall { get; set; }
+    public bool EnableMonkHeightenedMetabolism { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }

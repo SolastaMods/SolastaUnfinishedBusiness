@@ -647,6 +647,24 @@ internal static partial class CharacterContext
 
     #region Monk
 
+    private static readonly FeatureDefinition FeatureMonkHeightenedMetabolism = FeatureDefinitionBuilder
+        .Create("FeatureMonkHeightenedMetabolism")
+        .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new CustomBehaviorHeightenedMetabolism())
+        .AddToDB();
+
+    internal static readonly ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism =
+        ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus,
+                "ConditionMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism")
+            .SetFeatures(
+                FeatureDefinitionAttackModifierBuilder
+                    .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
+                        "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism")
+                    .SetUnarmedStrike(3)
+                    .AddToDB())
+            .AddToDB();
+
     private static void LoadMonkWeaponSpecialization()
     {
         var weaponTypeDefinitions = new List<WeaponTypeDefinition>
@@ -809,6 +827,31 @@ internal static partial class CharacterContext
         }
     }
 
+
+    private static void LoadMonkHeightenedMetabolism()
+    {
+    }
+
+    internal static void SwitchMonkHeightenedMetabolism()
+    {
+        if (Main.Settings.EnableMonkAbundantKi)
+        {
+            Monk.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(FeatureMonkHeightenedMetabolism, 10));
+        }
+        else
+        {
+            Monk.FeatureUnlocks
+                .RemoveAll(x => x.level == 10 &&
+                                x.FeatureDefinition == FeatureMonkHeightenedMetabolism);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
     internal static void SwitchMonkWeaponSpecialization()
     {
         var levels = new[] { 2, 11 };
@@ -837,6 +880,60 @@ internal static partial class CharacterContext
         }
     }
 
+    private sealed class CustomBehaviorHeightenedMetabolism : IModifyEffectDescription, IMagicEffectFinishedByMeAny
+    {
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            var definition = action.ActionParams.activeEffect.SourceDefinition;
+
+            if (definition != PowerMonkPatientDefense)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var dieType = rulesetCharacter.GetMonkDieType();
+            var tempHp = rulesetCharacter.RollDiceAndSum(dieType, RollContext.HealValueRoll, 2, []);
+
+            rulesetCharacter.ReceiveTemporaryHitPoints(tempHp, DurationType.UntilAnyRest, 0,
+                TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return Main.Settings.EnableMonkHeightenedMetabolism &&
+                   (definition == PowerMonkStepOfTheWindDash ||
+                    definition == PowerMonkStepOftheWindDisengage ||
+                    definition == PowerMonkFlurryOfBlows) &&
+                   character.GetClassLevel(Monk) >= 10;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (definition == PowerMonkStepOfTheWindDash)
+            {
+                effectDescription.EffectForms.Add(PowerMonkStepOftheWindDisengage.EffectDescription.EffectForms[0]);
+            }
+            else if (definition == PowerMonkStepOftheWindDisengage)
+            {
+                effectDescription.EffectForms.Add(PowerMonkStepOfTheWindDash.EffectDescription.EffectForms[0]);
+            }
+            else if (definition == PowerMonkFlurryOfBlows)
+            {
+                effectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
+                    ConditionMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism;
+            }
+
+            return effectDescription;
+        }
+    }
 
     internal sealed class MonkWeaponSpecialization
     {
