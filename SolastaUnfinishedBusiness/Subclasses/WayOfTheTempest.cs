@@ -21,7 +21,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 [UsedImplicitly]
-public sealed class WayOfTheTempest : AbstractSubclass
+public sealed class WayOfTheTempest // : AbstractSubclass
 {
     private const string Name = "WayOfTheTempest";
 
@@ -229,7 +229,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
         // MAIN
         //
 
-        Subclass = CharacterSubclassDefinitionBuilder
+        _ = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheTempest, 256))
             .AddFeaturesAtLevel(3, movementAffinityTempestSwiftness)
@@ -239,6 +239,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .AddToDB();
     }
 
+#if false
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Monk;
 
     internal override CharacterSubclassDefinition Subclass { get; }
@@ -248,6 +249,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+#endif
 
     //
     // Tempest Swiftness
