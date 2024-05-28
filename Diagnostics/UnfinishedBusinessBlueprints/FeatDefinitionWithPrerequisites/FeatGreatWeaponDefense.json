@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,12 +11,15 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierFeatGreatWeaponDefense:a9f334a7-a792-5cc1-a93a-9916396b6bd2",
+    "Definition:PowerGreatWeaponDefense:8c999720-7ce8-5e7f-8fc2-c0357738dc81"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupDefenseCombatTitle",
-    "description": "Always Ready, Cloak and Dagger, Defensive Duelist, Dual Wielder, Fade Away, Great Weapon Defense, Raise Shield, Shield Bash, Shield Master, Twin Blade, Unarmored Expert",
+    "title": "Feat/&FeatGreatWeaponDefenseTitle",
+    "description": "Feat/&FeatGreatWeaponDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "41b14fa2-53a6-57cd-9655-ae19d9ffe57a",
+  "guid": "79d82161-1f6e-5796-be34-1dda9e6498e8",
   "contentPack": 9999,
-  "name": "FeatGroupDefenseCombat"
+  "name": "FeatGreatWeaponDefense"
 }

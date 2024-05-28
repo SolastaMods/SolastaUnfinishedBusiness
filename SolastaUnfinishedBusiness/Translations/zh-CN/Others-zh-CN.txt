@@ -250,6 +250,7 @@ Rules/&SituationalContext9000Format=手持剑刃精通武器：
 Rules/&SituationalContext9001Format=手持巨剑：
 Rules/&SituationalContext9002Format=手持长剑：
 Rules/&SituationalContext9003Format=主手有近战武器，副手有空闲武器：
+Rules/&SituationalContext9004Format=主手拥有重型或多功能武器，副手有空闲武器：
 Rules/&SituationalContext9005Format=手上有简单或军用武器：
 Rules/&SituationalContext9007Format=不处于明亮光照下：
 Rules/&SituationalContext9008Format=处于狂暴与双持状态：

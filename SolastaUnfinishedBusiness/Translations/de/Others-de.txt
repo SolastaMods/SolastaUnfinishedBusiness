@@ -250,6 +250,7 @@ Rules/&SituationalContext9000Format=Hat Klingenmeister-Waffentypen in der Hand:
 Rules/&SituationalContext9001Format=Hat Großschwert in Händen:
 Rules/&SituationalContext9002Format=Hat Langschwert in Händen:
 Rules/&SituationalContext9003Format=Hat Nahkampfwaffe in der Haupthand mit freier Nebenhand:
+Rules/&SituationalContext9004Format=Hat eine schwere oder vielseitige Waffe in der Haupthand und eine freie Zweithand:
 Rules/&SituationalContext9005Format=Hat einfache oder Kampfwaffen in der Hand:
 Rules/&SituationalContext9007Format=Steht nicht in hellem Licht:
 Rules/&SituationalContext9008Format=Wütet und führt zwei Waffen:

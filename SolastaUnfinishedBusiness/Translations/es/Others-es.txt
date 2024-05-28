@@ -250,6 +250,7 @@ Rules/&SituationalContext9000Format=Tiene tipos de armas Blade Mastery en manos:
 Rules/&SituationalContext9001Format=Tiene gran espada en manos:
 Rules/&SituationalContext9002Format=Tiene Longsword en manos:
 Rules/&SituationalContext9003Format=Tiene arma cuerpo a cuerpo en la mano principal con la mano libre:
+Rules/&SituationalContext9004Format=Tiene un arma pesada o versátil en la mano principal con la mano libre:
 Rules/&SituationalContext9005Format=Tiene armas simples o marciales en la mano:
 Rules/&SituationalContext9007Format=No hay mucha luz:
 Rules/&SituationalContext9008Format=Está furioso y con doble empuñadura:

@@ -250,6 +250,7 @@ Rules/&SituationalContext9000Format=Ha in mano i tipi di armi Maestria della lam
 Rules/&SituationalContext9001Format=Ha lo spadone in mano:
 Rules/&SituationalContext9002Format=Ha la spada lunga in mano:
 Rules/&SituationalContext9003Format=Ha un'arma da mischia nella mano principale con la mano secondaria libera:
+Rules/&SituationalContext9004Format=Ha un'arma pesante o versatile nella mano principale con la mano secondaria libera:
 Rules/&SituationalContext9005Format=Ha in mano armi semplici o da guerra:
 Rules/&SituationalContext9007Format=Non è in piena luce:
 Rules/&SituationalContext9008Format=È furioso e ha una doppia impugnatura:

@@ -250,6 +250,7 @@ Rules/&SituationalContext9000Format=ブレードマスタリーの武器タイ�
 Rules/&SituationalContext9001Format=手に大剣を持っている:
 Rules/&SituationalContext9002Format=ロングソードを手に持っている：
 Rules/&SituationalContext9003Format=メインハンドに近接武器を持ち、オフハンドをフリーにします。
+Rules/&SituationalContext9004Format=メインハンドにヘビーまたはバーサタイル武器を持ち、オフハンドをフリーにします。
 Rules/&SituationalContext9005Format=簡易武器または格闘武器を手に持っている：
 Rules/&SituationalContext9007Format=明るい場所ではない場合:
 Rules/&SituationalContext9008Format=荒れ狂う二刀流です。

@@ -47,6 +47,7 @@ internal static class MeleeCombatFeats
         var featDefensiveDuelist = BuildDefensiveDuelist();
         var featDevastatingStrikes = BuildDevastatingStrikes();
         var featFellHanded = BuildFellHanded();
+        var featGreatWeaponDefense = BuildGreatWeaponDefense();
         var featLongSwordFinesse = BuildLongswordFinesse();
         var featOldTacticsDex = BuildOldTacticsDex();
         var featOldTacticsStr = BuildOldTacticsStr();
@@ -72,6 +73,7 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
+            featGreatWeaponDefense,
             featLongSwordFinesse,
             featOldTacticsDex,
             featOldTacticsStr,
@@ -108,7 +110,8 @@ internal static class MeleeCombatFeats
 
         GroupFeats.FeatGroupDefenseCombat.AddFeats(
             featAlwaysReady,
-            featDefensiveDuelist);
+            featDefensiveDuelist,
+            featGreatWeaponDefense);
 
         GroupFeats.FeatGroupMeleeCombat.AddFeats(
             FeatFencer,
@@ -127,6 +130,9 @@ internal static class MeleeCombatFeats
             featGroupOldTactics,
             featGroupSlasher,
             featGroupWhirlwindAttack);
+
+        GroupFeats.FeatGroupSupportCombat.AddFeats(
+            featGreatWeaponDefense);
     }
 
     #region Reckless Attack
@@ -349,6 +355,151 @@ internal static class MeleeCombatFeats
                     ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
                     ValidatorsCharacter.HasMeleeWeaponInMainHand))
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Great Weapon Defense
+
+    private static FeatDefinitionWithPrerequisites BuildGreatWeaponDefense()
+    {
+        const string NAME = "FeatGreatWeaponDefense";
+
+        var combatAffinity = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+            .SetSituationalContext(SituationalContext.TargetIsEffectSource)
+            .AddToDB();
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat, ConditionDefinitions.ConditionDistracted)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(combatAffinity)
+            .AddToDB();
+
+        condition.GuiPresentation.description = Gui.NoLocalization;
+        condition.AddCustomSubFeatures(new ActionFinishedByMeGreatWeaponDefense(condition));
+
+        var conditionSelf = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Self")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(new ActionFinishedByMeGreatWeaponDefenseSelf(condition))
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create("PowerGreatWeaponDefense")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(condition),
+                        EffectFormBuilder.ConditionForm(conditionSelf, ConditionForm.ConditionOperation.Add, true))
+                    .Build())
+            .AddCustomSubFeatures(
+                ValidatorsValidatePowerUse.HasMainAttackAvailable,
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasFreeHandWithHeavyOrVersatileInMain))
+            .AddToDB();
+
+        var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
+            .SetSituationalContext(ExtraSituationalContext.HasFreeHandWithHeavyOrVersatileInMain)
+            .AddToDB();
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(attributeModifierArmorClass, power)
+            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
+            .AddToDB();
+    }
+
+    private sealed class ActionFinishedByMeGreatWeaponDefense(ConditionDefinition condition) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
+
+            if (attacker != null &&
+                DistanceCalculation.GetDistanceFromCharacters(attacker, actingCharacter) > 1)
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+        }
+    }
+
+    private sealed class ActionFinishedByMeGreatWeaponDefenseSelf(ConditionDefinition condition)
+        : IActionFinishedByMe, IOnItemEquipped
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+
+            foreach (var enemy in Gui.Battle.GetContenders(actingCharacter)
+                         .Where(x => DistanceCalculation.GetDistanceFromCharacters(actingCharacter, x) > 1))
+            {
+                var rulesetEnemy = enemy.RulesetCharacter;
+
+                if (rulesetEnemy.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
+                {
+                    rulesetEnemy.RemoveCondition(activeCondition);
+                }
+            }
+        }
+
+        public void OnItemEquipped(RulesetCharacterHero hero)
+        {
+            if (hero.HasFreeHandSlot() || Gui.Battle == null)
+            {
+                return;
+            }
+
+            var glc = GameLocationCharacter.GetFromActor(hero);
+
+            if (glc == null)
+            {
+                return;
+            }
+
+            foreach (var rulesetEnemy in Gui.Battle.GetContenders(glc)
+                         .Select(enemy => enemy.RulesetCharacter))
+            {
+                if (rulesetEnemy.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
+                {
+                    rulesetEnemy.RemoveCondition(activeCondition);
+                }
+            }
+        }
     }
 
     #endregion
@@ -2001,7 +2152,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    internal sealed class AttackAfterMagicEffectWhirlWindMain : IAttackAfterMagicEffect
+    private sealed class AttackAfterMagicEffectWhirlWindMain : IAttackAfterMagicEffect
     {
         public IAttackAfterMagicEffect.CanAttackHandler CanAttack { get; } =
             CanMeleeAttack;
@@ -2073,6 +2224,8 @@ internal static class MeleeCombatFeats
             attackMode.ActionType = effect.ActionType;
 
             var attackModifier = new ActionModifier();
+
+            actionParams.ActingCharacter.BurnOneMainAttack();
 
             return targets
                 .Where(t => CanMeleeAttack(caster, t))

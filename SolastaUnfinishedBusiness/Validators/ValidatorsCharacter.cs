@@ -88,6 +88,11 @@ internal static class ValidatorsCharacter
         character.HasFreeHandSlot() &&
         !ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(), TagsDefinitions.WeaponTagTwoHanded);
 
+    internal static readonly IsCharacterValidHandler HasFreeHandWithHeavyOrVersatileInMain = character =>
+        character.HasFreeHandSlot() &&
+        ValidatorsWeapon.HasAnyWeaponTag(
+            character.GetMainWeapon(), TagsDefinitions.WeaponTagHeavy, TagsDefinitions.WeaponTagVersatile);
+
     internal static readonly IsCharacterValidHandler HasFreeHand = character =>
         character.HasFreeHandSlot() ||
         character is RulesetCharacterMonster;

@@ -250,6 +250,7 @@ Rules/&SituationalContext9000Format=Держит в руках тип оружи
 Rules/&SituationalContext9001Format=Держит в руках двуручный меч:
 Rules/&SituationalContext9002Format=Держит в руках длинный меч:
 Rules/&SituationalContext9003Format=Держит оружие ближнего боя в основной руке, вторая рука свободна:
+Rules/&SituationalContext9004Format=Имеет тяжелое или универсальное оружие в основной руке и свободную руку:
 Rules/&SituationalContext9005Format=Держит в руках простое или боевое оружие:
 Rules/&SituationalContext9007Format=Не на ярком свету:
 Rules/&SituationalContext9008Format=В ярости и с оружем в обеих руках:
