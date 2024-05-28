@@ -125,6 +125,19 @@ internal static class ValidatorsFeat
     // Validators
     //
 
+    internal static (bool result, string output) ValidateHasExtraAttack(FeatDefinition _, RulesetCharacterHero hero)
+    {
+        var guiFormat = Gui.Localize("Tooltip/&PreReqMustHaveExtraAttacks");
+        var hasExtraAttack = hero.GetFeaturesByType<FeatureDefinitionAttributeModifier>()
+            .Any(x =>
+                x.ModifiedAttribute == AttributeDefinitions.AttacksNumber &&
+                x.ModifierOperation
+                    is FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive
+                    or FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter);
+
+        return hasExtraAttack ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+    }
+
     [NotNull]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFightingStyle(

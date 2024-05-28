@@ -58,6 +58,8 @@ internal static class MeleeCombatFeats
         var featSlasherStr = BuildSlasherStr();
         var featSlasherDex = BuildSlasherDex();
         var featSpearMastery = BuildSpearMastery();
+        var featWhirlwindAttackDex = BuildWhirlWindAttackDex();
+        var featWhirlwindAttackStr = BuildWhirlWindAttackStr();
 
         feats.AddRange(
             FeatFencer,
@@ -80,7 +82,9 @@ internal static class MeleeCombatFeats
             featSavageAttack,
             featSlasherDex,
             featSlasherStr,
-            featSpearMastery);
+            featSpearMastery,
+            featWhirlwindAttackDex,
+            featWhirlwindAttackStr);
 
         var featGroupOldTactics = GroupFeats.MakeGroup("FeatGroupOldTactics", GroupFeats.OldTactics,
             featOldTacticsDex,
@@ -89,6 +93,10 @@ internal static class MeleeCombatFeats
         var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", GroupFeats.Slasher,
             featSlasherDex,
             featSlasherStr);
+
+        var featGroupWhirlwindAttack = GroupFeats.MakeGroup("FeatGroupWhirlWindAttack", GroupFeats.WhirlwindAttack,
+            featWhirlwindAttackDex,
+            featWhirlwindAttackStr);
 
         GroupFeats.FeatGroupCrusher.AddFeats(
             featCrusherStr,
@@ -117,7 +125,8 @@ internal static class MeleeCombatFeats
             featSavageAttack,
             featSpearMastery,
             featGroupOldTactics,
-            featGroupSlasher);
+            featGroupSlasher,
+            featGroupWhirlwindAttack);
     }
 
     #region Reckless Attack
@@ -1947,6 +1956,141 @@ internal static class MeleeCombatFeats
                 0,
                 0,
                 0);
+        }
+    }
+
+    #endregion
+
+    #region Whirlwind Attack
+
+    private static readonly FeatureDefinition PowerWhirlWindAttack = FeatureDefinitionPowerBuilder
+        .Create("PowerWhirlWindAttack")
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+                .Build())
+        .AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.HasMainAttackAvailable,
+            new ValidatorsValidatePowerUse(
+                ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
+            new AttackAfterMagicEffectWhirlWindMain())
+        .AddToDB();
+
+    private static FeatDefinitionWithPrerequisites BuildWhirlWindAttackDex()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatWhirlWindAttackDex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, PowerWhirlWindAttack)
+            .SetFeatFamily(GroupFeats.WhirlwindAttack)
+            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
+            .AddToDB();
+    }
+
+    private static FeatDefinitionWithPrerequisites BuildWhirlWindAttackStr()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatWhirlWindAttackStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, PowerWhirlWindAttack)
+            .SetFeatFamily(GroupFeats.WhirlwindAttack)
+            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
+            .AddToDB();
+    }
+
+    internal sealed class AttackAfterMagicEffectWhirlWindMain : IAttackAfterMagicEffect
+    {
+        public IAttackAfterMagicEffect.CanAttackHandler CanAttack { get; } =
+            CanMeleeAttack;
+
+        public IAttackAfterMagicEffect.GetAttackAfterUseHandler PerformAttackAfterUse { get; } =
+            DefaultAttackHandler;
+
+        public IAttackAfterMagicEffect.CanUseHandler CanBeUsedToAttack { get; } =
+            DefaultCanUseHandler;
+
+        private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
+        {
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode == null)
+            {
+                return false;
+            }
+
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var attackModifier = new ActionModifier();
+            var evalParams = new BattleDefinitions.AttackEvaluationParams();
+
+            evalParams.FillForPhysicalReachAttack(
+                caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
+
+            return battleService.CanAttack(evalParams);
+        }
+
+        [CanBeNull]
+        private static IEnumerable<CharacterActionParams> DefaultAttackHandler(
+            [CanBeNull] CharacterActionMagicEffect effect)
+        {
+            var actionParams = effect?.ActionParams;
+
+            if (actionParams == null)
+            {
+                return null;
+            }
+
+            if (Gui.Battle == null)
+            {
+                return null;
+            }
+
+            var caster = actionParams.ActingCharacter;
+            var targets = Gui.Battle.GetContenders(caster, withinRange: 1);
+
+            if (targets.Count == 0)
+            {
+                return null;
+            }
+
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode == null)
+            {
+                return null;
+            }
+
+            //get copy to be sure we don't break existing mode
+            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            rulesetAttackModeCopy.Copy(attackMode);
+
+            attackMode = rulesetAttackModeCopy;
+
+            //set action type to be same as the one used for the magic effect
+            attackMode.ActionType = effect.ActionType;
+
+            var attackModifier = new ActionModifier();
+
+            return targets
+                .Where(t => CanMeleeAttack(caster, t))
+                .Select(target =>
+                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree)
+                    {
+                        AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
+                    });
+        }
+
+        private static bool DefaultCanUseHandler(
+            [NotNull] CursorLocationSelectTarget targeting,
+            GameLocationCharacter caster,
+            GameLocationCharacter target, [NotNull] out string failure)
+        {
+            failure = string.Empty;
+
+            return true;
         }
     }
 

@@ -303,6 +303,7 @@ Tooltip/&PreReqIs=Est-ce que {0}
 Tooltip/&PreReqIsNot=N'est-ce pas {0}
 Tooltip/&PreReqIsWithLevel=Est-ce que {0} est au niveau {1}
 Tooltip/&PreReqLevelFormat=Niveau de personnage minimum {0}
+Tooltip/&PreReqMustHaveExtraAttacks=Doit avoir des attaques supplémentaires
 Tooltip/&PreReqMustKnow=Je dois savoir {0}
 Tooltip/&Tag9000Title=Effet personnalisé
 Tooltip/&TagUnfinishedBusinessTitle=Inachevé

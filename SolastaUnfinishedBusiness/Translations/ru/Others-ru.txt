@@ -303,6 +303,7 @@ Tooltip/&PreReqIs=Это {0}
 Tooltip/&PreReqIsNot=Это не {0}
 Tooltip/&PreReqIsWithLevel=Это {0} уровня {1}
 Tooltip/&PreReqLevelFormat=Минимальный уровень персонажа {0}
+Tooltip/&PreReqMustHaveExtraAttacks=Должны быть дополнительные атаки
 Tooltip/&PreReqMustKnow=Должен знать {0}
 Tooltip/&Tag9000Title=Кастомный эффект
 Tooltip/&TagUnfinishedBusinessTitle=Неоконченное Дело

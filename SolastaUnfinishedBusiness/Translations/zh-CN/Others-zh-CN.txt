@@ -303,6 +303,7 @@ Tooltip/&PreReqIs=是{0}
 Tooltip/&PreReqIsNot=不是{0}
 Tooltip/&PreReqIsWithLevel={0} 级 {1}
 Tooltip/&PreReqLevelFormat=最低角色等级 {0}
+Tooltip/&PreReqMustHaveExtraAttacks=必须有额外的攻击
 Tooltip/&PreReqMustKnow=需要已知 {0}
 Tooltip/&Tag9000Title=自定义效果
 Tooltip/&TagUnfinishedBusinessTitle=未竟之业

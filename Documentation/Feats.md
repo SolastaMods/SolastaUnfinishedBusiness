@@ -755,11 +755,17 @@ You have practiced extensively with a variety of weapons, gaining the following 
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
 • You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.
 
-# 155. - Wise Archery [UB]
+# 155. - Whirlwind Attack [UB]
+
+You become a master of whirling death, gaining the following benefits:
+• Increase your Strength or Dexterity by 1, to a maximum of 20.
+• When you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Whirlwind Attack. Whirlwind Attack makes one attack roll against all enemy creatures within 5ft of you but doesn't add your attribute modifier to damage dealt (unless that modifier is negative).   
+
+# 156. - Wise Archery [UB]
 
 Your intuition guides your hand when using a bow. Increase your Wisdom attribute by 1, to a maximum of 20. You can use your Wisdom modifier instead of your Dexterity modifier for the attack and damage rolls with these weapons.
 
-# 156. - *Wood-Elf Magic* © [UB]
+# 157. - *Wood-Elf Magic* © [UB]
 
 You learn the magic of the primeval woods, which are revered and protected by your people. You learn one Druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest.
 

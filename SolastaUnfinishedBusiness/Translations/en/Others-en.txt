@@ -303,6 +303,7 @@ Tooltip/&PreReqIs=Is {0}
 Tooltip/&PreReqIsNot=Isn't {0}
 Tooltip/&PreReqIsWithLevel=Is {0} level {1}
 Tooltip/&PreReqLevelFormat=Min Character Level {0}
+Tooltip/&PreReqMustHaveExtraAttacks=Must have extra attacks
 Tooltip/&PreReqMustKnow=Must know {0}
 Tooltip/&Tag9000Title=Custom Effect
 Tooltip/&TagUnfinishedBusinessTitle=Unfinished Business

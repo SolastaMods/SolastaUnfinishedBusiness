@@ -1126,6 +1126,7 @@
         <string>FeatEldritchVersatilityAdept</string>
         <string>FeatWarCaster</string>
         <string>FeatGroupWeaponMaster</string>
+        <string>FeatGroupWhirlWindAttack</string>
         <string>FeatZenArcher</string>
         <string>FeatWoodElfMagic</string>
     </FeatEnabled>

@@ -303,6 +303,7 @@ Tooltip/&PreReqIs={0} です
 Tooltip/&PreReqIsNot={0}ではありませんか
 Tooltip/&PreReqIsWithLevel={0} レベルは {1} です
 Tooltip/&PreReqLevelFormat=最小キャラクターレベル {0}
+Tooltip/&PreReqMustHaveExtraAttacks=追加攻撃が必要
 Tooltip/&PreReqMustKnow={0} を知っておく必要があります
 Tooltip/&Tag9000Title=カスタムエフェクト
 Tooltip/&TagUnfinishedBusinessTitle=未完の仕事

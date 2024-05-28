@@ -140,3 +140,5 @@ Feat/&FeatGroupVerdantTouchedDescription=Aumenta uno de tus atributos mentales e
 Feat/&FeatGroupVerdantTouchedTitle=Verde tocado
 Feat/&FeatGroupWeaponMasterDescription=Has practicado extensamente con una variedad de armas y has obtenido los siguientes beneficios:\n• Aumenta tu puntuación de Fuerza o Destreza en 1, hasta un máximo de 20.\n• Obtienes competencia con cuatro armas de tu elección. Cada uno debe ser un arma simple o marcial.
 Feat/&FeatGroupWeaponMasterTitle=Maestro de armas
+Feat/&FeatGroupWhirlWindAttackDescription=Te conviertes en un maestro de la muerte giratoria y obtienes los siguientes beneficios:\n• Aumenta tu fuerza o destreza en 1, hasta un máximo de 20.\n• Cuando realizas la acción de ataque mientras empuñas una gran espada, una gran hacha o un mazo, puedes reemplazar un ataque para lanzar un ataque torbellino. Whirlwind Attack realiza una tirada de ataque contra todas las criaturas enemigas a 5 pies de ti, pero no agrega tu modificador de atributo al daño infligido (a menos que ese modificador sea negativo).
+Feat/&FeatGroupWhirlWindAttackTitle=Ataque torbellino
