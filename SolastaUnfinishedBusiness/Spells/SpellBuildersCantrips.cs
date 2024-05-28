@@ -215,6 +215,49 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Air Blast
+
+    internal static SpellDefinition BuildLightningLure()
+    {
+        const string NAME = "LightningLure";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.LightningLure, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 3, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeLightning, 1, DieType.D8)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetParticleEffectParameters(LightningBolt)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Mind Spike
 
     internal static SpellDefinition BuildMindSpike()

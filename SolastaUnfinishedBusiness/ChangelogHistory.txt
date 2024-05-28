@@ -3,6 +3,13 @@
 - added Gameplay > Character > 'Enable Monk Heightened Metabolism at level 10' setting
 - added Gameplay > Character > 'Enable Monk Superior Defense to replace Empty Body at level 18' setting
 - added Gameplay > Character > 'Enable Monk Body and Mind to replace Perfect Self at level 20' setting
+- added Lightning Lure cantrip
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [won't fix]
+- Artillerist Fortified Position medium cannon doesn't grant buff to self [won't fix]
+- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [won't fix]
 
 1.5.97.11:
 
@@ -21,12 +28,6 @@
 - fixed Thunderstep spell interaction with Transmuted metamagic
 - fixed Thunderstep spell to only allow target allies within 5ft
 - fixed Wizard War Magic durable magic feature to add +2 on concentration checks
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [won't fix]
-- Artillerist Fortified Position medium cannon doesn't grant buff to self [won't fix]
-- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [won't fix]
 
 1.5.97.10 - Os cães ladram e a caravana passa:
 

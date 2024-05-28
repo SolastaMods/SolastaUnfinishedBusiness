@@ -44,6 +44,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition EnduringSting = BuildEnduringSting();
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
+    internal static readonly SpellDefinition LightningLure = BuildLightningLure();
     internal static readonly SpellDefinition MaddeningDarkness = BuildMaddeningDarkness();
     internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition PetalStorm = BuildPetalStorm();
@@ -239,6 +240,7 @@ internal static class SpellsContext
         RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
         RegisterSpell(EnduringSting, 0, SpellListWizard);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(LightningLure, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildMindSpike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildResonatingStrike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
