@@ -437,4 +437,32 @@ public static class GameLocationCharacterExtensions
         instance.CurrentActionRankByType[ActionType.Main]++;
         instance.UsedMainAttacks = 0;
     }
+
+    internal static void BurnOneBonusAttack(this GameLocationCharacter instance)
+    {
+        if (Gui.Battle == null)
+        {
+            return;
+        }
+
+        var rulesetCharacter = instance.RulesetCharacter;
+
+        // burn one bonus attack
+        instance.HasAttackedSinceLastTurn = true;
+        instance.UsedBonusAttacks++;
+        rulesetCharacter.ExecutedBonusAttacks++;
+        rulesetCharacter.RefreshAttackModes();
+
+        var maxAttacksNumber = rulesetCharacter.AttackModes
+            .Where(x => x.ActionType == ActionType.Bonus)
+            .Max(x => x.AttacksNumber);
+
+        if (maxAttacksNumber - instance.UsedBonusAttacks > 0)
+        {
+            return;
+        }
+
+        instance.CurrentActionRankByType[ActionType.Main]++;
+        instance.UsedBonusAttacks = 0;
+    }
 }

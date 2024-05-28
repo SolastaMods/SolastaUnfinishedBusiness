@@ -362,6 +362,8 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
 
             var attackModifier = new ActionModifier();
 
+            actionParams.ActingCharacter.BurnOneBonusAttack();
+
             return targets
                 .Where(t => CanMeleeAttack(caster, t))
                 .Select(target =>
