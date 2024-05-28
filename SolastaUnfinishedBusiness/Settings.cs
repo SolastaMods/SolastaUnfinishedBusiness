@@ -270,6 +270,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseHeightOneCylinderEffect { get; set; }
     public bool FixEldritchBlastRange { get; set; }
     public bool FixRingOfRegenerationHealRate { get; set; }
+    public bool CureWoundsDice { get; set; }
 
     // House
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
