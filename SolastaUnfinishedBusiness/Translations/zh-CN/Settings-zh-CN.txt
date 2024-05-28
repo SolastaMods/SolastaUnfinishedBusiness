@@ -137,13 +137,13 @@ ModUi/&EnableLogDialoguesToConsole=在叙述序列期间启用日志对话到游
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义活动中启用记录无效引用
 ModUi/&EnableMinInOutAttributes=<i>+强制属性值最低的前置条件</i>
 ModUi/&EnableMonkAbundantKi=在<color=#D89555>武僧</color> 1 级启用<b>丰富的气</b><i><color=#F0DAA0>[获得额外的等于熟练加值一半的气]</color> </i>
-ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=20级时启用<color=#D89555>武僧</color><b>身心</b>取代<b>完美自我</b>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=20 级时启用<color=#D89555>武僧</color><b>身心</b>取代<b>超凡入圣</b>
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=启用<color=#D89555>武僧</color><b>武术 - 额外徒手攻击</b>，在使用前不需要进行攻击动作
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=启用<color=#D89555>武僧</color><b>疾风连击</b>，在使用前不需要进行攻击动作
 ModUi/&EnableMonkFightingStyle=在<color=#D89555>武僧</color> 2 级启用<b>战斗风格</b>选择
-ModUi/&EnableMonkHeightenedMetabolism=在 10 级时启用<color=#D89555>武僧</color> <b>增强新陈代谢</b> <i><color=#F0DAA0>[<b>连击</b>、<b>耐心防御</b>和<b>风之步</b>获得额外好处]</color></i>
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>武僧</color><b>改进的无甲移动</b>沿垂直表面移动而不会掉落
-ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=18级时启用<color=#D89555>武僧</color><b>超防御</b>取代<b>空身</b>
+ModUi/&EnableMonkHeightenedMetabolism=在 10 级时启用<color=#D89555>武僧</color> <b>气通周天</b> <i><color=#F0DAA0>[<b>疾风连击</b>、<b>坚强防御</b>和<b>飞檐走壁</b>获得额外好处]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>武僧</color><b>精通无甲移动</b>沿垂直表面移动而不会掉落
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=18 级时启用<color=#D89555>武僧</color><b>无懈可击</b>取代<b>空灵体</b>
 ModUi/&EnableMonkWeaponSpecialization=在<color=#D89555>武僧</color> 2 级和 11 级启用<b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
