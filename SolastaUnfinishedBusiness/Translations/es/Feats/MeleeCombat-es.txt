@@ -10,6 +10,8 @@ Condition/&ConditionFeatSlasherHitDescription=Tu velocidad se reduce en 10 pies 
 Condition/&ConditionFeatSlasherHitTitle=Cortado
 Condition/&ConditionFeatSpearMasteryChargeDescription=Puedes usar la reacción para realizar un ataque de oportunidad con una lanza al enemigo que entra a tu alcance e infligir daño adicional si ese ataque impacta.
 Condition/&ConditionFeatSpearMasteryChargeTitle=Lanza preparada
+Condition/&ConditionGreatWeaponDefenseDescription=Realizas todas las tiradas de ataque con desventaja contra la fuente mientras estás a 5 pies de ella.
+Condition/&ConditionGreatWeaponDefenseTitle=Defensa enfocada
 Feat/&FeatAlwaysReadyDescription=Preparas automáticamente un ataque cuerpo a cuerpo o desarmado al final de tu turno si realizaste la acción de ataque y fallaste cualquier ataque cuerpo a cuerpo o desarmado.
 Feat/&FeatAlwaysReadyTitle=Siempre listo
 Feat/&FeatBladeMasteryDescription=Dominas la daga, la espada corta, la espada larga, la cimitarra, el estoque y la gran espada. Obtienes una bonificación de +1 a las tiradas de ataque que realizas con el arma y una bonificación de +1 a tu CA mientras empuñas cualquiera de ellas. Cuando realizas un ataque de oportunidad con el arma, tienes ventaja en la tirada de ataque.
@@ -55,7 +57,7 @@ Feat/&FeatSlasherStrTitle=Asesino [Str]
 Feat/&FeatSpearMasteryDescription=Aunque la lanza es un arma fácil de aprender, te recompensa por el tiempo que te has tomado para dominarla:\n• Obtienes una bonificación de +1 a las tiradas de ataque que haces con una lanza y su dado de daño cambia de un d6 a un d8, y de un d8 a un d10 cuando se empuña con las dos manos.\n• Como acción adicional, puedes apuntalar tu lanza para interceptar a los enemigos que se acercan. Puedes usar la reacción para realizar un ataque de oportunidad con una lanza al enemigo que entre a tu alcance e infligir un daño adicional si ese ataque impacta.\n• Como acción adicional, puedes aumentar tu alcance con una lanza en 5 pies por el resto de tu turno.
 Feat/&FeatSpearMasteryTitle=Dominio de la lanza
 Feat/&FeatWhirlWindAttackDexDescription=Te conviertes en un maestro de la muerte giratoria y obtienes los siguientes beneficios:\n• Aumenta tu Destreza en 1, hasta un máximo de 20.\n• Cuando realizas la acción de Ataque mientras empuñas una gran espada, una gran hacha o un mazo, puedes reemplaza un ataque para lanzar un ataque torbellino. Whirlwind Attack realiza una tirada de ataque contra todas las criaturas enemigas a 5 pies de ti, pero no agrega tu modificador de atributo al daño infligido (a menos que ese modificador sea negativo).
-Feat/&FeatWhirlWindAttackDexTitle== Ataque torbellino [Dex]
+Feat/&FeatWhirlWindAttackDexTitle=Ataque torbellino [Dex]
 Feat/&FeatWhirlWindAttackStrDescription=Te conviertes en un maestro de la muerte giratoria y obtienes los siguientes beneficios:\n• Aumenta tu fuerza en 1, hasta un máximo de 20.\n• Cuando realizas la acción de ataque mientras empuñas una gran espada, una gran hacha o un mazo, puedes reemplaza un ataque para lanzar un ataque torbellino. Whirlwind Attack realiza una tirada de ataque contra todas las criaturas enemigas a 5 pies de ti, pero no agrega tu modificador de atributo al daño infligido (a menos que ese modificador sea negativo).
 Feat/&FeatWhirlWindAttackStrTitle=Ataque torbellino [Str]
 Feature/&AttackModifierFeatSpearMasteryDescription=Obtienes una bonificación de +1 a las tiradas de ataque que realizas con una lanza y su dado de daño cambia de d6 a d8, y de d8 a d10 cuando se empuña con las dos manos.

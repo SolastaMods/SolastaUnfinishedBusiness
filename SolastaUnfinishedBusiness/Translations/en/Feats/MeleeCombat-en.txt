@@ -10,6 +10,8 @@ Condition/&ConditionFeatSlasherHitDescription=Your speed is reduced by 10 ft unt
 Condition/&ConditionFeatSlasherHitTitle=Slashed
 Condition/&ConditionFeatSpearMasteryChargeDescription=You can use reaction to perform attack of opportunity with a spear on enemy that enters you reach and deal extra die of damage if that attack hits.
 Condition/&ConditionFeatSpearMasteryChargeTitle=Spear Readied
+Condition/&ConditionGreatWeaponDefenseDescription=You make all attack rolls with disadvantage against the source while you are within 5ft of it.
+Condition/&ConditionGreatWeaponDefenseTitle=Focused Defense
 Feat/&FeatAlwaysReadyDescription=You automatically ready a melee or unarmed attack at the end of your turn if you took the attack action and missed any melee or unarmed attack hit.
 Feat/&FeatAlwaysReadyTitle=Always Ready
 Feat/&FeatBladeMasteryDescription=You master the dagger, shortsword, longsword, scimitar, rapier, and greatsword. You gain a +1 bonus to attack rolls you make with the weapon, and a +1 bonus to your AC while you're wielding any of them. When you make an opportunity attack with the weapon, you have advantage on the attack roll.
@@ -55,7 +57,7 @@ Feat/&FeatSlasherStrTitle=Slasher [Str]
 Feat/&FeatSpearMasteryDescription=Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it:\n• You gain a +1 bonus to attack rolls you make with a spear and its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands.\n• As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.\n• As a bonus action, you can increase your reach with a spear by 5 ft for the rest of your turn.
 Feat/&FeatSpearMasteryTitle=Spear Mastery
 Feat/&FeatWhirlWindAttackDexDescription=You become a master of whirling death, gaining the following benefits:\n• Increase your Dexterity by 1, to a maximum of 20.\n• When you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Whirlwind Attack. Whirlwind Attack makes one attack roll against all enemy creatures within 5ft of you but doesn't add your attribute modifier to damage dealt (unless that modifier is negative).
-Feat/&FeatWhirlWindAttackDexTitle==Whirlwind Attack [Dex]
+Feat/&FeatWhirlWindAttackDexTitle=Whirlwind Attack [Dex]
 Feat/&FeatWhirlWindAttackStrDescription=You become a master of whirling death, gaining the following benefits:\n• Increase your Strength by 1, to a maximum of 20.\n• When you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Whirlwind Attack. Whirlwind Attack makes one attack roll against all enemy creatures within 5ft of you but doesn't add your attribute modifier to damage dealt (unless that modifier is negative).   
 Feat/&FeatWhirlWindAttackStrTitle=Whirlwind Attack [Str]
 Feature/&AttackModifierFeatSpearMasteryDescription=You gain a +1 bonus to attack rolls you make with a spear and its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands.

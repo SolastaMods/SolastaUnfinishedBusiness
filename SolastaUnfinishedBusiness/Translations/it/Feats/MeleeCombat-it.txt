@@ -10,6 +10,8 @@ Condition/&ConditionFeatSlasherHitDescription=La tua velocità viene ridotta di 
 Condition/&ConditionFeatSlasherHitTitle=Tagliato
 Condition/&ConditionFeatSpearMasteryChargeDescription=Puoi usare la reazione per eseguire un attacco di opportunità con una lancia sul nemico che entra nella tua portata e infliggere un dado di danno aggiuntivo se l'attacco va a segno.
 Condition/&ConditionFeatSpearMasteryChargeTitle=Lancia pronta
+Condition/&ConditionGreatWeaponDefenseDescription=Effettui tutti i tiri per colpire con svantaggio contro la fonte mentre ti trovi entro 1,5 metri da essa.
+Condition/&ConditionGreatWeaponDefenseTitle=Difesa mirata
 Feat/&FeatAlwaysReadyDescription=Ti prepari automaticamente per un attacco in mischia o senz'armi alla fine del tuo turno se hai effettuato l'azione di attacco e hai mancato un attacco in mischia o senz'armi.
 Feat/&FeatAlwaysReadyTitle=Sempre pronto
 Feat/&FeatBladeMasteryDescription=Padroneggia il pugnale, la spada corta, la spada lunga, la scimitarra, lo stocco e lo spadone. Ottieni un bonus +1 ai tiri per colpire che effettui con l'arma e un bonus +1 alla tua CA mentre la impugni. Quando effettui un attacco di opportunità con l'arma, hai vantaggio sul tiro per colpire.
@@ -55,7 +57,7 @@ Feat/&FeatSlasherStrTitle=Slasher [Str]
 Feat/&FeatSpearMasteryDescription=Sebbene la lancia sia un'arma semplice da imparare, ti ricompensa per il tempo che hai impiegato per padroneggiarla:\n• Ottieni un bonus di +1 ai tiri per colpire effettuati con una lancia e il suo dado di danno cambia da d6 a un d8 e da un d8 a un d10 se impugnato con due mani.\n• Come azione bonus puoi impugnare la lancia per intercettare i nemici in avvicinamento. Puoi usare la reazione per eseguire un attacco di opportunità con una lancia sul nemico che entra nella tua portata e infliggere un dado di danni extra se l'attacco va a segno.\n• Come azione bonus, puoi aumentare la tua portata con una lancia di 5 piedi per il resto del tuo turno.
 Feat/&FeatSpearMasteryTitle=Maestria della lancia
 Feat/&FeatWhirlWindAttackDexDescription=Diventi un maestro della morte vorticosa, ottenendo i seguenti benefici:\n• Aumenta la tua Destrezza di 1, fino a un massimo di 20.\n• Quando effettui l'azione Attacco mentre impugni uno spadone, un'ascia o una mazza, puoi sostituisci un attacco per lanciare invece un Attacco Turbinante. Attacco Turbinante effettua un tiro per colpire contro tutte le creature nemiche entro 1,5 piedi da te, ma non aggiunge il tuo modificatore di attributo al danno inflitto (a meno che quel modificatore non sia negativo).
-Feat/&FeatWhirlWindAttackDexTitle==Attacco Turbinante [Destrezza]
+Feat/&FeatWhirlWindAttackDexTitle=Attacco Turbinante [Destrezza]
 Feat/&FeatWhirlWindAttackStrDescription=Diventi un maestro della morte vorticosa, ottenendo i seguenti benefici:\n• Aumenta la tua Forza di 1, fino a un massimo di 20.\n• Quando esegui l'azione Attacco mentre impugni uno spadone, un'ascia bipenne o una mazza, puoi sostituisci un attacco per lanciare invece un Attacco Turbinante. Attacco Turbinante effettua un tiro per colpire contro tutte le creature nemiche entro 1,5 piedi da te, ma non aggiunge il tuo modificatore di attributo al danno inflitto (a meno che quel modificatore non sia negativo).
 Feat/&FeatWhirlWindAttackStrTitle=Attacco vorticoso [Str]
 Feature/&AttackModifierFeatSpearMasteryDescription=Ottieni un bonus di +1 ai tiri per colpire effettuati con una lancia e il suo dado di danno cambia da d6 a d8 e da d8 a d10 quando impugnata con due mani.
