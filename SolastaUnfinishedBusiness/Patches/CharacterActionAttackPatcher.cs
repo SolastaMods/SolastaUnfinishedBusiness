@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine;
 using static RuleDefinitions;
 using Coroutine = TA.Coroutine;
@@ -49,10 +50,18 @@ public static class CharacterActionAttackPatcher
 
             //BEGIN PATCH
 
-            if (__instance.ActionType == ActionDefinitions.ActionType.Main)
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+            switch (__instance.ActionType)
             {
-                actingCharacter.UsedSpecialFeatures.TryAdd("AttackedWithMain", 0);
+                case ActionDefinitions.ActionType.Main:
+                    actingCharacter.UsedSpecialFeatures.TryAdd(ValidatorsValidatePowerUse.HasAttackedWithMain, 0);
+                    break;
+                case ActionDefinitions.ActionType.Bonus:
+                    actingCharacter.UsedSpecialFeatures.TryAdd(ValidatorsValidatePowerUse.HasAttackedWithBonus, 0);
+                    break;
             }
+
+            //END PATCH
 
             // Check action params
             var canAttackMain =

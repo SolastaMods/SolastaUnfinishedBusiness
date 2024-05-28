@@ -9,6 +9,9 @@ internal delegate bool IsPowerUseValidHandler(RulesetCharacter character, Featur
 
 internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
 {
+    public const string HasAttackedWithBonus = "HasAttackedWithBonus";
+    public const string HasAttackedWithMain = "HasAttackedWithMain";
+
     public static readonly IValidatePowerUse NotInCombat = new ValidatorsValidatePowerUse(_ => Gui.Battle == null);
 
     public static readonly IValidatePowerUse InCombat = new ValidatorsValidatePowerUse(_ => Gui.Battle != null);
@@ -18,6 +21,36 @@ internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
         var glc = GameLocationCharacter.GetFromActor(character);
 
         return Gui.Battle == null || glc is { RemainingTacticalMoves: > 0 };
+    });
+
+    public static readonly IValidatePowerUse HasBonusAttackAvailable = new ValidatorsValidatePowerUse(character =>
+    {
+        if (Gui.Battle == null)
+        {
+            return true;
+        }
+
+        const ActionDefinitions.ActionType ACTION_TYPE = ActionDefinitions.ActionType.Bonus;
+
+        var glc = GameLocationCharacter.GetFromActor(character);
+
+        if (glc == null)
+        {
+            return false;
+        }
+
+        var isBonusAvailable = glc.GetActionTypeStatus(ACTION_TYPE) == ActionDefinitions.ActionStatus.Available;
+
+        if (!isBonusAvailable && !glc.UsedSpecialFeatures.ContainsKey(HasAttackedWithBonus))
+        {
+            return false;
+        }
+
+        var maxAttacksNumber = character.AttackModes
+            .Where(attackMode => attackMode.ActionType == ACTION_TYPE)
+            .Max(attackMode => attackMode.AttacksNumber);
+
+        return maxAttacksNumber - character.ExecutedBonusAttacks > 0;
     });
 
     public static readonly IValidatePowerUse HasMainAttackAvailable = new ValidatorsValidatePowerUse(character =>
@@ -38,7 +71,7 @@ internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
 
         var isMainAvailable = glc.GetActionTypeStatus(ACTION_TYPE) == ActionDefinitions.ActionStatus.Available;
 
-        if (!isMainAvailable && !glc.UsedSpecialFeatures.ContainsKey("AttackedWithMain"))
+        if (!isMainAvailable && !glc.UsedSpecialFeatures.ContainsKey(HasAttackedWithMain))
         {
             return false;
         }
