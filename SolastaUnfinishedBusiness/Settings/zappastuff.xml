@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>1</DisplayModMessage>
+    <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -902,7 +902,7 @@
                     <string>WayOfTheDiscordance</string>
                     <string>WayOfTheDragon</string>
                     <string>WayOfSilhouette</string>
-                    <string>WayOfTheTempest</string>
+                    <string>WayOfTheStormSoul</string>
                     <string>WayOfWealAndWoe</string>
                     <string>WayOfZenArchery</string>
                 </ArrayOfString>

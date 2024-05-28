@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -90,7 +88,7 @@ public sealed class WayOfTheTempest // : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerTempestFury.AddCustomSubFeatures(new AttackAfterMagicEffectTempestFury());
+        powerTempestFury.AddCustomSubFeatures(new WayOfTheStormSoul.AttackAfterMagicEffectTempestFury());
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.FlurryOfBlows, "ActionTempestFury")
@@ -216,7 +214,8 @@ public sealed class WayOfTheTempest // : AbstractSubclass
                     .Build())
             .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.InCombat,
-                new MagicEffectFinishedByMeEyeOfTheStorm(powerEyeOfTheStormLeap, conditionEyeOfTheStorm))
+                new WayOfTheStormSoul.MagicEffectFinishedByMeEyeOfTheStorm(powerEyeOfTheStormLeap,
+                    conditionEyeOfTheStorm))
             .AddToDB();
 
         var featureSetEyeOfTheStorm = FeatureDefinitionFeatureSetBuilder
@@ -284,155 +283,6 @@ public sealed class WayOfTheTempest // : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-    }
-
-    //
-    // Tempest Fury
-    //
-
-    private sealed class AttackAfterMagicEffectTempestFury : IAttackAfterMagicEffect
-    {
-        public IAttackAfterMagicEffect.CanAttackHandler CanAttack { get; } =
-            CanMeleeAttack;
-
-        public IAttackAfterMagicEffect.GetAttackAfterUseHandler PerformAttackAfterUse { get; } =
-            DefaultAttackHandler;
-
-        public IAttackAfterMagicEffect.CanUseHandler CanBeUsedToAttack { get; } =
-            DefaultCanUseHandler;
-
-        private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
-        {
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
-
-            if (attackMode == null)
-            {
-                return false;
-            }
-
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var attackModifier = new ActionModifier();
-            var evalParams = new BattleDefinitions.AttackEvaluationParams();
-
-            evalParams.FillForPhysicalReachAttack(
-                caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
-
-            return battleService.CanAttack(evalParams);
-        }
-
-        [CanBeNull]
-        private static IEnumerable<CharacterActionParams> DefaultAttackHandler(
-            [CanBeNull] CharacterActionMagicEffect effect)
-        {
-            var actionParams = effect?.ActionParams;
-
-            if (actionParams == null)
-            {
-                return null;
-            }
-
-            if (Gui.Battle == null)
-            {
-                return null;
-            }
-
-            var caster = actionParams.ActingCharacter;
-            var targets = Gui.Battle
-                .GetContenders(caster, withinRange: 1);
-
-            if (targets.Count == 0)
-            {
-                return null;
-            }
-
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
-
-            if (attackMode == null)
-            {
-                return null;
-            }
-
-            //get copy to be sure we don't break existing mode
-            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            rulesetAttackModeCopy.Copy(attackMode);
-
-            attackMode = rulesetAttackModeCopy;
-
-            //set action type to be same as the one used for the magic effect
-            attackMode.ActionType = effect.ActionType;
-
-            var attackModifier = new ActionModifier();
-
-            return targets
-                .Where(t => CanMeleeAttack(caster, t))
-                .Select(target =>
-                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree)
-                    {
-                        AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
-                    });
-        }
-
-        private static bool DefaultCanUseHandler(
-            [NotNull] CursorLocationSelectTarget targeting,
-            GameLocationCharacter caster,
-            GameLocationCharacter target, [NotNull] out string failure)
-        {
-            failure = string.Empty;
-
-            return true;
-        }
-    }
-
-    //
-    // Eye of The Storm
-    //
-
-    private sealed class MagicEffectFinishedByMeEyeOfTheStorm(
-        FeatureDefinitionPower powerEyeOfTheStormLeap,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionEyeOfTheStorm)
-        : IMagicEffectFinishedByMe
-    {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
-            var attacker = action.ActingCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
-            var targets = Gui.Battle.GetContenders(attacker)
-                .Where(x =>
-                    x.RulesetActor.AllConditions
-                        .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
-                                  y.SourceGuid == rulesetAttacker.Guid))
-                .ToList();
-            var actionModifiers = new List<ActionModifier>();
-
-            for (var i = 0; i < targets.Count; i++)
-            {
-                actionModifiers.Add(new ActionModifier());
-            }
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = actionModifiers,
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
         }
     }
 }

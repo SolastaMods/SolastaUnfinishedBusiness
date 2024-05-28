@@ -1,0 +1,16 @@
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=Dieses Zeichen kann jederzeit explodieren und 5W10 Donnerschaden verursachen.
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Mal der Sturmseele
+Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Immer wenn Sie „Flurry of Blows“ einsetzen, profitieren Sie auch von den Vorteilen der Rückzugsaktion. Die dadurch bereitgestellten Bonusangriffe verursachen zusätzlichen Blitzschaden in Höhe Ihres Kampfkunstwürfels.
+Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=Schüler der Stürme
+Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=Immer wenn du einer Kreatur mit einer Mönchswaffe, einem unbewaffneten Angriff oder einem Blitzköder-Cantrip Schaden zufügst, markierst du diese Kreatur 1 Minute lang mit anhaltenden leitfähigen Energien. Du kannst deine Aktion nutzen und 3 Ki ausgeben, um das Zeichen auf jeder Kreatur zu verbrauchen und ihnen einen Geschicklichkeitsrettungswurf zu erzwingen (SG = 8 + Fähigkeitsbonus + Weisheitsmodifikator). Bei einem fehlgeschlagenen Rettungswurf erleidet jede Kreatur 5W10 Blitzschaden (bis auf die Hälfte).
+Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormTitle=Das Auge des Sturms
+Feature/&FeatureSetWayOfTheStormSoulLightningWarriorDescription=Du erhältst Resistenz gegen Blitzschaden und kannst jeden deiner Hauptaktionsangriffe ersetzen, um einen „Blitzköder“-Cantrip ohne Komponenten zu wirken, indem du deine Weisheit als Zaubermodifikator verwendest.
+Feature/&FeatureSetWayOfTheStormSoulLightningWarriorTitle=Blitzkrieger
+Feature/&PowerWayOfTheStormSoulLightningLureDescription=Sie können jeden Ihrer Hauptaktionsangriffe ersetzen, um einen „Blitzköder“-Cantrip ohne Komponenten zu wirken, indem Sie Ihre Weisheit als Zaubermodifikator verwenden.
+Feature/&PowerWayOfTheStormSoulLightningLureTitle=Blitzköder
+Feature/&PowerWayOfTheStormSoulTempestFuryDescription=Du kannst 1 Ki ausgeben, um einen der Bonusangriffe von „Flurry of Blows“ zu ersetzen und stattdessen alle gegnerischen Kreaturen in einem Umkreis von 5 Fuß um dich herum damit anzugreifen.
+Feature/&PowerWayOfTheStormSoulTempestFuryTitle=Zorn des Sturms
+Feedback/&AdditionalDamageDiscipleOfStormsFormat=Schüler der Stürme!
+Feedback/&AdditionalDamageDiscipleOfStormsLine={0} trifft {1} mit einem Blitz (+{2})
+Subclass/&WayOfTheStormSoulDescription=Mönche des Weges der Sturmseele leben auf den höchsten Berggipfeln von Solasta, stellen sich auf die Energien mächtiger Stürme ein und lernen, die Kraft des Blitzes in ihr Wesen zu kanalisieren. Diese Kampfkünstler nutzen ihre einzigartigen Disziplinen, um zu einem ungezügelten Sturm zu werden, der mühelos das Schlachtfeld manövriert, von einem Feind zum nächsten stürmt und unzählige Blitzschläge auf ihn entfesselt.
+Subclass/&WayOfTheStormSoulTitle=Weg der Sturmseele

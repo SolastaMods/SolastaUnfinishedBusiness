@@ -1,0 +1,16 @@
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=이 표식은 언제든지 폭발하여 5D10 천둥 피해를 입힐 수 있습니다.
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=스톰 소울의 징표
+Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Flurry of Blows를 사용할 때마다 해제 조치의 이점도 얻습니다. 그것이 제공하는 보너스 공격은 무술 주사위와 동일한 추가 번개 피해를 입힙니다.
+Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=폭풍의 제자
+Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=수도사 무기, 비무장 공격 또는 번개 미끼 캔트립으로 생물체에 피해를 줄 때마다 해당 생물체에 1분 동안 지속되는 전도성 에너지 표시가 표시됩니다. 당신은 당신의 행동을 사용하고 3ki를 소비하여 각 생물의 표식을 소비하고 민첩 내성 굴림을 강제할 수 있습니다(DC = 8 + 숙련도 보너스 + 지혜 수정치). 내성 굴림에 실패하면 각 생물은 5d10의 번개 피해를 받습니다(절반만 절약).
+Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormTitle=폭풍의 눈
+Feature/&FeatureSetWayOfTheStormSoulLightningWarriorDescription=당신은 번개 피해에 대한 저항력을 얻고, 지혜를 주문 시전 수정자로 사용하여 구성 요소 없이 번개 미끼 캔트립을 시전하기 위해 주요 행동 공격을 대체할 수 있습니다.
+Feature/&FeatureSetWayOfTheStormSoulLightningWarriorTitle=번개 전사
+Feature/&PowerWayOfTheStormSoulLightningLureDescription=지혜를 주문 시전 수정자로 사용하여 구성 요소 없이 Lightning Lure 캔트립을 시전하기 위해 주요 액션 공격을 대체할 수 있습니다.
+Feature/&PowerWayOfTheStormSoulLightningLureTitle=번개 미끼
+Feature/&PowerWayOfTheStormSoulTempestFuryDescription=1ki를 사용하여 Flurry of Blows가 제공하는 보너스 공격 중 하나를 대신 사용하여 5피트 내의 모든 적 생물을 공격할 수 있습니다.
+Feature/&PowerWayOfTheStormSoulTempestFuryTitle=폭풍우의 분노
+Feedback/&AdditionalDamageDiscipleOfStormsFormat=폭풍의 제자!
+Feedback/&AdditionalDamageDiscipleOfStormsLine={0}이(가) 번개(+{2})로 {1}을(를) 쳤습니다.
+Subclass/&WayOfTheStormSoulDescription=폭풍 영혼의 길의 수도사들은 솔라스타의 가장 높은 산꼭대기에 살면서 강력한 폭풍의 에너지에 적응하고 번개의 힘을 자신의 존재에 전달하는 방법을 배웁니다. 이 무술가들은 자신들의 고유한 기술을 사용하여 자유로운 폭풍이 되어 전장을 쉽게 이동하고, 한 적에서 다음 적으로 돌진하고, 수많은 번개가 주입된 공격을 퍼붓습니다.
+Subclass/&WayOfTheStormSoulTitle=폭풍의 영혼의 길

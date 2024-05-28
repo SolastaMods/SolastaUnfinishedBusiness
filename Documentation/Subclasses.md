@@ -3488,7 +3488,41 @@ When a creature is about to hit you with an attack, you can spend 3 ki and use y
 
 
 
-## 6. Way of Survival [SOL]
+## 6. Way of Storm Soul [UB]
+
+Monks of the Way of the Storm Soul live on the highest mountaintops of Solasta, attuning themselves to the energies of mighty storms and learning to channel the power of lightning into their being. These martial artists use their unique disciplines to become an unbridled tempest, effortlessly maneuvering the battlefield, rushing from one enemy to the next and unleashing countless lightning-infused strikes upon them. 
+
+
+### Level 3
+
+* Disciple of Storms
+
+Whenever you use your Flurry of Blows, you also gain the benefits of the disengage action. Bonus attacks provided by it deal extra lightning damage equal to your martial arts die. 
+
+
+### Level 6
+
+* Lightning Warrior
+
+You gain resistance to lightning damage, and you can replace any of your main action attacks to cast Lightning Lure cantrip without any components using your Wisdom as spellcasting modifier. 
+
+
+### Level 11
+
+* Tempest's Fury
+
+You can spend 1 ki to replace one of bonus attacks provided by Flurry of Blows to instead attack all enemy creatures within 5 ft of you with it.
+
+
+### Level 17
+
+* Eye of the Storm
+
+Whenever you damage a creature with a monk weapon, unarmed attack or Lightning Lure cantrip, you mark that creature with lingering conductive energies for 1 minute. You can use your action and spend 3 ki to consume the mark on each creature and force a Dexterity saving throw on them (DC = 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 5d10 lightning damage (save for half).
+
+
+
+## 7. Way of Survival [SOL]
 
 In the aftermath of the Cataclysm, isolated communities developed physical and mental techniques that allowed them to push the limits of their strength and endurance to the utmost. Surviving while their neighbors perished, the followers of the Way of Survival are as tough as the harsh times that forged them.
 
@@ -3521,40 +3555,6 @@ Starting at the 11th level, you now add your CON modifier to the damage rolls of
 Starting at 17th level, you gain the following benefits:
 • While you have less than half your maximum hit points, healing of your Unbreakable Body feature is doubled.
 • When you are reduced to 0 hit points, you can pay 1 Ki to restore 1 hit point.
-
-
-
-## 7. Way of Tempest [UB]
-
-Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists effortlessly maneuver the battlefield, rushing from one enemy to the next and raining countless blows upon them.
-
-
-### Level 3
-
-* Tempest's Swiftness
-
-Starting at 3rd level, your base movement speed is increased by 10 feet. Whenever you use your Flurry of Blows, you also gain the benefits of the disengage action.
-
-
-### Level 6
-
-* Gathering Storm
-
-Starting at 6th level, you become resistant to lightning damage and your bonus attacks provided by your Flurry of Blows each deal additional lightning damage equal to your martial arts die.
-
-
-### Level 11
-
-* Tempest's Fury
-
-Starting at 11th level, after using your attack action, you can spend 3 Ki to use Tempest's Fury as a bonus action. It is an upgraded version of your Flurry of Blows, that in addition to granting benefits of the disengage action and allowing you to make two unarmed attacks as a bonus action, also immediately initiates one extra unarmed attack against each enemy creature within 5 feet of you upon its activation. All attacks provided by this feature deal additional lightning damage equal to your martial arts die.
-
-
-### Level 17
-
-* Eye of the Storm
-
-Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 Ki to consume the mark on each creature and force a Dexterity saving throw on them (DC 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 4d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
 
 
 

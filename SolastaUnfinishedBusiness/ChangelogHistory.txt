@@ -4,6 +4,7 @@
 - added Gameplay > Character > 'Enable Monk Superior Defense to replace Empty Body at level 18' setting
 - added Gameplay > Character > 'Enable Monk Body and Mind to replace Perfect Self at level 20' setting
 - added Lightning Lure cantrip
+- added Way of Storm Soul subclass [replaced Way of Tempest]
 
 KNOWN ISSUES:
 
