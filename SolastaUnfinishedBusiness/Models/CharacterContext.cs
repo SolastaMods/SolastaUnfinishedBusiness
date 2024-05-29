@@ -223,8 +223,9 @@ internal static partial class CharacterContext
         SwitchMonkDoNotRequireAttackActionForFlurry();
         SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
         SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
-        SwitchMonkHeightenedMetabolism();
+        // SwitchMonkHeightenedMetabolism();
         SwitchMonkSuperiorDefenseToReplaceEmptyBody();
+        SwitchMonkBodyAndMindToReplacePerfectSelf();
         SwitchMonkWeaponSpecialization();
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchRangerHumanoidFavoredEnemy();

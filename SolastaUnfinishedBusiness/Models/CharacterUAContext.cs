@@ -650,6 +650,7 @@ internal static partial class CharacterContext
 
     #region Monk
 
+#if false
     private static readonly FeatureDefinition FeatureMonkHeightenedMetabolism = FeatureDefinitionBuilder
         .Create("FeatureMonkHeightenedMetabolism")
         .SetGuiPresentation(Category.Feature)
@@ -667,10 +668,12 @@ internal static partial class CharacterContext
                     .SetUnarmedStrike(3)
                     .AddToDB())
             .AddToDB();
+#endif
 
     private static readonly FeatureDefinitionPower PowerMonkSuperiorDefense = FeatureDefinitionPowerBuilder
         .Create("PowerMonkSuperiorDefense")
-        .SetGuiPresentation(Category.Feature, Sprites.GetSprite("SuperiorDefense", Resources.EmptyBody, 128, 64))
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerMonkSuperiorDefense", Resources.PowerMonkSuperiorDefense, 256, 128))
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 3, 3)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -873,6 +876,7 @@ internal static partial class CharacterContext
         }
     }
 
+#if false
     internal static void SwitchMonkHeightenedMetabolism()
     {
         if (Main.Settings.EnableMonkHeightenedMetabolism)
@@ -892,6 +896,7 @@ internal static partial class CharacterContext
             Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
+#endif
 
     internal static void SwitchMonkSuperiorDefenseToReplaceEmptyBody()
     {
@@ -957,6 +962,7 @@ internal static partial class CharacterContext
         }
     }
 
+#if false
     private sealed class CustomBehaviorHeightenedMetabolism : IModifyEffectDescription, IMagicEffectFinishedByMeAny
     {
         public IEnumerator OnMagicEffectFinishedByMeAny(
@@ -1011,6 +1017,7 @@ internal static partial class CharacterContext
             return effectDescription;
         }
     }
+#endif
 
     private sealed class CustomLevelUpLogicMonkBodyAndMind : ICustomLevelUpLogic
     {

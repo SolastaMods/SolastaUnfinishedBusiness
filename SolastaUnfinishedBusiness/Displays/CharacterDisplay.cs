@@ -314,6 +314,7 @@ internal static class CharacterDisplay
             CharacterContext.SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
         }
 
+#if false
         toggle = Main.Settings.EnableMonkHeightenedMetabolism;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkHeightenedMetabolism"), ref toggle,
                 UI.AutoWidth()))
@@ -321,6 +322,7 @@ internal static class CharacterDisplay
             Main.Settings.EnableMonkHeightenedMetabolism = toggle;
             CharacterContext.SwitchMonkHeightenedMetabolism();
         }
+#endif
 
         toggle = Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody"), ref toggle,
