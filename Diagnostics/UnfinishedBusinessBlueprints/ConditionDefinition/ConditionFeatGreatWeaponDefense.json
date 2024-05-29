@@ -131,7 +131,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ConditionFeatGreatWeaponDefenseTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Condition/&ConditionFeatGreatWeaponDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",

@@ -1,5 +1,5 @@
 Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=Эта метка может взорваться в любой момент и нанести урон громом 5D10.
-Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Знак Штормовой Души
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Штормовой знак
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Каждый раз, когда вы используете «Шквал ударов», вы также получаете преимущества действия выхода из боя. Бонусные атаки, предоставляемые им, наносят дополнительный урон молнией, равный вашему кубику боевых искусств.
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=Ученик Штормов
 Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=Каждый раз, когда вы наносите вред существу оружием монаха, атакой без оружия или заклинанием «Приманка молнией», вы помечаете это существо сохраняющейся проводящей энергией на 1 минуту. Вы можете действием и потратить 3 ки, чтобы поглотить метку на каждом существе и заставить их совершить спасбросок Ловкости (DC = 8 + бонус мастерства + модификатор Мудрости). При провале спасброска каждое существо получает урон электричеством 5d10 (сохраните половину).

@@ -1,5 +1,5 @@
 Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=This mark can can explode at any time and cause 5D10 thunder damage.
-Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Storm Soul's Mark
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Storm Mark
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Whenever you use your Flurry of Blows, you also gain the benefits of the disengage action. Bonus attacks provided by it deal extra lightning damage equal to your martial arts die. 
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=Disciple of Storms
 Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=Whenever you damage a creature with a monk weapon, unarmed attack or Lightning Lure cantrip, you mark that creature with lingering conductive energies for 1 minute. You can use your action and spend 3 ki to consume the mark on each creature and force a Dexterity saving throw on them (DC = 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 5d10 lightning damage (save for half).

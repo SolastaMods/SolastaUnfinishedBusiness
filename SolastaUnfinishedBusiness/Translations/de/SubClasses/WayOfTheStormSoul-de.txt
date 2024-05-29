@@ -1,5 +1,5 @@
 Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=Dieses Zeichen kann jederzeit explodieren und 5W10 Donnerschaden verursachen.
-Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Mal der Sturmseele
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Sturmzeichen
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Immer wenn Sie „Flurry of Blows“ einsetzen, profitieren Sie auch von den Vorteilen der Rückzugsaktion. Die dadurch bereitgestellten Bonusangriffe verursachen zusätzlichen Blitzschaden in Höhe Ihres Kampfkunstwürfels.
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=Schüler der Stürme
 Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=Immer wenn du einer Kreatur mit einer Mönchswaffe, einem unbewaffneten Angriff oder einem Blitzköder-Cantrip Schaden zufügst, markierst du diese Kreatur 1 Minute lang mit anhaltenden leitfähigen Energien. Du kannst deine Aktion nutzen und 3 Ki ausgeben, um das Zeichen auf jeder Kreatur zu verbrauchen und ihnen einen Geschicklichkeitsrettungswurf zu erzwingen (SG = 8 + Fähigkeitsbonus + Weisheitsmodifikator). Bei einem fehlgeschlagenen Rettungswurf erleidet jede Kreatur 5W10 Blitzschaden (bis auf die Hälfte).

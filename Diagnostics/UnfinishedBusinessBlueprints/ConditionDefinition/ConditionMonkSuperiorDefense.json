@@ -147,8 +147,8 @@
     "description": "Condition/&ConditionMonkSuperiorDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "869bb1641c1c46242931a9fb5819c792",
-      "m_SubObjectName": "ConditionShielded",
+      "m_AssetGUID": "04f42c446dd0c5143bcc4d3b56edfbb2",
+      "m_SubObjectName": "ConditionShieldedByFaith",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

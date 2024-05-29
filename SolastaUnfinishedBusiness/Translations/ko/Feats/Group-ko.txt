@@ -140,5 +140,5 @@ Feat/&FeatGroupVerdantTouchedDescription=정신 속성 중 하나를 1 증가시
 Feat/&FeatGroupVerdantTouchedTitle=신록의 감동
 Feat/&FeatGroupWeaponMasterDescription=다양한 무기를 사용하여 광범위하게 연습하여 다음과 같은 이점을 얻었습니다.\n• 힘 또는 민첩 점수를 1 올려 최대 20까지 높입니다.\n• 선택한 4가지 무기를 능숙하게 사용할 수 있습니다. 각각은 단순한 무기이거나 전투용 무기여야 합니다.
 Feat/&FeatGroupWeaponMasterTitle=무기 마스터
-Feat/&FeatGroupWhirlWindAttackDescription=소용돌이치는 죽음의 달인이 되어 다음과 같은 이점을 얻습니다.\n• 힘이나 민첩이 1 증가하여 최대 20까지 증가합니다.\n• 대검, 거대도끼 또는 망치를 휘두르며 공격 행동을 취하면, 하나의 공격을 교체하여 대신 회오리바람 공격을 시작할 수 있습니다. 회오리바람 공격은 당신으로부터 5피트 내의 모든 적 생물에 대해 한 번의 공격 굴림을 하지만, 입히는 피해에 당신의 속성 수정자를 추가하지 않습니다(해당 수정자가 음수인 경우는 제외).
+Feat/&FeatGroupWhirlWindAttackDescription=소용돌이치는 죽음의 달인이 되어 다음과 같은 이점을 얻습니다.\n• 힘이나 민첩이 1 증가하여 최대 20까지 증가합니다.\n• 자신의 차례에 대검을 휘두르며 공격 행동을 취할 때 한 번, greataxe 또는 maul의 경우 하나의 공격을 대신하여 Whirlwind Attack을 시작할 수 있습니다. 회오리바람 공격은 당신으로부터 5피트 내의 모든 적 생물에 대해 한 번의 공격 굴림을 하지만, 입히는 피해에 당신의 속성 수정자를 추가하지 않습니다(해당 수정자가 음수인 경우는 제외).
 Feat/&FeatGroupWhirlWindAttackTitle=회오리바람 공격

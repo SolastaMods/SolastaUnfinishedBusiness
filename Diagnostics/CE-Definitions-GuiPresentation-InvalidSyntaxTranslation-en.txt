@@ -895,7 +895,7 @@ FeatGroupWeaponMaster	Description='You have practiced extensively with a variety
 • You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.'.
 FeatGroupWhirlWindAttack	Description='You become a master of whirling death, gaining the following benefits:
 • Increase your Strength or Dexterity by 1, to a maximum of 20.
-• When you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Whirlwind Attack. Whirlwind Attack makes one attack roll against all enemy creatures within 5ft of you but doesn't add your attribute modifier to damage dealt (unless that modifier is negative).   '.
+• Once during your turn when you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Whirlwind Attack. Whirlwind Attack makes one attack roll against all enemy creatures within 5ft of you but doesn’t add your attribute modifier to damage dealt (unless that modifier is negative).   '.
 FeatMagicInitiateBard	Title='Magic Initiate [Bard]'.
 FeatMagicInitiateBard	Description='You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatMagicInitiateCleric	Title='Magic Initiate [Cleric]'.

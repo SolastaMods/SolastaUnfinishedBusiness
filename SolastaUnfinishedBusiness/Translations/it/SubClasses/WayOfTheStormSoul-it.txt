@@ -1,5 +1,5 @@
 Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=Questo marchio può esplodere in qualsiasi momento e causare 5D10 danni da tuono.
-Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Marchio dell'Anima della Tempesta
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Marco Tempesta
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Ogni volta che usi Raffica di Colpi, ottieni anche i benefici dell'azione di disimpegnarsi. Gli attacchi bonus forniti da esso infliggono danni da fulmine aggiuntivi pari al tuo dado di arti marziali.
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=Discepolo delle Tempeste
 Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=Ogni volta che si danneggia una creatura con un'arma da monaco, un attacco senz'armi o un trucchetto con Esca Fulminante, si marchi quella creatura con energie conduttive persistenti per 1 minuto. Puoi usare la tua azione e spendere 3 ki per consumare il marchio su ogni creatura e forzare un tiro salvezza su Destrezza su di loro (CD = 8 + bonus di competenza + modificatore di Saggezza). Se il tiro salvezza fallisce, ogni creatura riceve 5d10 danni da fulmine (tiro salvezza per la metà).

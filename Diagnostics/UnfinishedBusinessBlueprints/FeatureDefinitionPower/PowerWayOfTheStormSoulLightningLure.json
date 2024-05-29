@@ -90,116 +90,10 @@
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Damage",
         "addBonusMode": "None",
-        "applyLevel": "DiceNumberByLevelTable",
+        "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
-        "diceByLevelTable": [
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 0,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 1,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 2,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 3,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 4,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 5,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 6,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 7,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 8,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 9,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 10,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 11,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 12,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 13,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 14,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 15,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 16,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 17,
-            "diceNumber": 3
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 18,
-            "diceNumber": 3
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 19,
-            "diceNumber": 3
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 20,
-            "diceNumber": 3
-          }
-        ],
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
@@ -211,7 +105,7 @@
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
           "diceNumber": 1,
-          "dieType": "D8",
+          "dieType": "D6",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
@@ -254,7 +148,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "44e6449335f642743a6c8d5fda526cfd",
+        "m_AssetGUID": "4bcfd3b84d6fd5f4ea65243ec317be36",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -471,7 +365,7 @@
     "description": "Feature/&PowerWayOfTheStormSoulLightningLureDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4261e976-f51b-5690-99e2-7375f4e5abe2",
+      "m_AssetGUID": "7db16baf-3e09-5f5e-9c57-e583cd41139d",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
