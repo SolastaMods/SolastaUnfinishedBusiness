@@ -332,7 +332,7 @@
     "description": "Feature/&PowerMonkSuperiorDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9eb54522-8a27-58a9-bb0a-7b59d8872d9d",
+      "m_AssetGUID": "6874a924-c364-541e-8f98-b544536bc54b",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
