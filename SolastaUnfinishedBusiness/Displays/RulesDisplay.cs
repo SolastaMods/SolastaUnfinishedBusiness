@@ -279,6 +279,13 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchEldritchBlastRange();
         }
 
+        toggle = Main.Settings.HealSpellDice;
+        if (UI.Toggle(Gui.Localize("ModUi/&HealSpellDice"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.HealSpellDice = toggle;
+            SrdAndHouseRulesContext.SwitchHealSpellDice();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.FixRingOfRegenerationHealRate;
