@@ -34,7 +34,7 @@ internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
 
         var glc = GameLocationCharacter.GetFromActor(character);
 
-        if (glc == null)
+        if (glc != Gui.Battle.ActiveContender)
         {
             return false;
         }
@@ -47,8 +47,7 @@ internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
         }
 
         var maxAttacksNumber = character.AttackModes
-            .Where(attackMode => attackMode.ActionType == ACTION_TYPE)
-            .Max(attackMode => attackMode.AttacksNumber);
+            .FirstOrDefault(attackMode => attackMode.ActionType == ACTION_TYPE)?.AttacksNumber ?? 0;
 
         return maxAttacksNumber - character.ExecutedBonusAttacks > 0;
     });
@@ -77,8 +76,7 @@ internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
         }
 
         var maxAttacksNumber = character.AttackModes
-            .Where(attackMode => attackMode.ActionType == ACTION_TYPE)
-            .Max(attackMode => attackMode.AttacksNumber);
+            .FirstOrDefault(attackMode => attackMode.ActionType == ACTION_TYPE)?.AttacksNumber ?? 0;
 
         return maxAttacksNumber - character.ExecutedAttacks > 0;
     });
