@@ -304,7 +304,7 @@
     "description": "Feature/&PowerWhirlWindAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "339ce59b-9f5a-5914-b644-5a11203cf06a",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

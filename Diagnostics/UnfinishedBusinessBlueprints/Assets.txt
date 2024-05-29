@@ -1297,7 +1297,7 @@ FeatGroupTwoWeaponCombat	FeatDefinition	FeatDefinition	62597d02-7727-525e-ac88-4
 FeatGroupUnarmoredCombat	FeatDefinition	FeatDefinition	af80122b-d06d-5b88-99db-09e33e54fe63
 FeatGroupVerdantTouched	FeatDefinition	FeatDefinition	38d2b36a-fe3e-5d3e-92cf-464b98133432
 FeatGroupWeaponMaster	FeatDefinition	FeatDefinition	b5135d1b-4309-5d0e-a75e-36b5924a8f82
-FeatGroupWhirlWindAttack	FeatDefinition	FeatDefinition	af0f2825-c6f1-5b79-9fe6-54bcdce40bf0
+FeatGroupWhirlWindAttack	FeatDefinitionWithPrerequisites	FeatDefinition	af0f2825-c6f1-5b79-9fe6-54bcdce40bf0
 FeatGrudgeBearerCon	FeatDefinitionWithPrerequisites	FeatDefinition	ad80b302-064a-5dad-b483-4fba286a8245
 FeatGrudgeBearerStr	FeatDefinitionWithPrerequisites	FeatDefinition	c53d92d3-66e8-5c23-8249-576157d393df
 FeatGrudgeBearerWis	FeatDefinitionWithPrerequisites	FeatDefinition	edd3a449-64a9-5f81-9899-0dd7de0f146f

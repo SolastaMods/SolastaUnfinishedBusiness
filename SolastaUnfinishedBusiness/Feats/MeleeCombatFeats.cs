@@ -96,7 +96,8 @@ internal static class MeleeCombatFeats
             featSlasherDex,
             featSlasherStr);
 
-        var featGroupWhirlwindAttack = GroupFeats.MakeGroup("FeatGroupWhirlWindAttack", GroupFeats.WhirlwindAttack,
+        var featGroupWhirlwindAttack = GroupFeats.MakeGroupWithPreRequisite("FeatGroupWhirlWindAttack", GroupFeats.WhirlwindAttack,
+            ValidatorsFeat.ValidateHasExtraAttack,
             featWhirlwindAttackDex,
             featWhirlwindAttackStr);
 
@@ -374,7 +375,7 @@ internal static class MeleeCombatFeats
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat, ConditionDefinitions.ConditionDistracted)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionCursed)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(combatAffinity)
@@ -386,12 +387,13 @@ internal static class MeleeCombatFeats
         var conditionSelf = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Self")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(new ActionFinishedByMeGreatWeaponDefenseSelf(condition))
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerGreatWeaponDefense")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerGreatWeaponDefense", Resources.PowerGreatWeaponDefense, 256, 128))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -401,11 +403,15 @@ internal static class MeleeCombatFeats
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(condition),
                         EffectFormBuilder.ConditionForm(conditionSelf, ConditionForm.ConditionOperation.Add, true))
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerFunctionWandFearCommand)
+                    .SetImpactEffectParameters(FeatureDefinitionPowers.PowerBerserkerIntimidatingPresence)
                     .Build())
             .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.HasMainAttackAvailable,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasFreeHandWithHeavyOrVersatileInMain))
             .AddToDB();
+
+        conditionSelf.AddCustomSubFeatures(new ActionFinishedByMeGreatWeaponDefenseSelf(power, condition));
 
         var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{NAME}")
@@ -451,7 +457,8 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class ActionFinishedByMeGreatWeaponDefenseSelf(ConditionDefinition condition)
+    private sealed class ActionFinishedByMeGreatWeaponDefenseSelf(
+        FeatureDefinitionPower power, ConditionDefinition condition)
         : IActionFinishedByMe, IOnItemEquipped
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
@@ -462,6 +469,12 @@ internal static class MeleeCombatFeats
             }
 
             var actingCharacter = action.ActingCharacter;
+
+            if (action is CharacterActionUsePower actionUsePower &&
+                actionUsePower.activePower.PowerDefinition == power)
+            {
+                actingCharacter.BurnOneMainAttack();
+            }
 
             foreach (var enemy in Gui.Battle.GetContenders(actingCharacter)
                          .Where(x => DistanceCalculation.GetDistanceFromCharacters(actingCharacter, x) > 1))
@@ -478,7 +491,7 @@ internal static class MeleeCombatFeats
 
         public void OnItemEquipped(RulesetCharacterHero hero)
         {
-            if (hero.HasFreeHandSlot() || Gui.Battle == null)
+            if (ValidatorsCharacter.HasFreeHandWithHeavyOrVersatileInMain(hero) || Gui.Battle == null)
             {
                 return;
             }
@@ -2116,7 +2129,8 @@ internal static class MeleeCombatFeats
 
     private static readonly FeatureDefinition PowerWhirlWindAttack = FeatureDefinitionPowerBuilder
         .Create("PowerWhirlWindAttack")
-        .SetGuiPresentation(Category.Feature)
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerWhirlWindAttack", Resources.PowerWhirlWindAttack, 256, 128))
         .SetUsesFixed(ActivationTime.NoCost)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -2175,7 +2189,7 @@ internal static class MeleeCombatFeats
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
-
+            
             evalParams.FillForPhysicalReachAttack(
                 caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
@@ -2219,6 +2233,16 @@ internal static class MeleeCombatFeats
             rulesetAttackModeCopy.Copy(attackMode);
 
             attackMode = rulesetAttackModeCopy;
+
+            //remove additional Ability Score modifier damage
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+            var modifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                caster.RulesetCharacter.TryGetAttributeValue(attackMode.AbilityScore));
+
+            if (modifier > 0)
+            {
+                damageForm.BonusDamage -= modifier;
+            }
 
             //set action type to be same as the one used for the magic effect
             attackMode.ActionType = effect.ActionType;

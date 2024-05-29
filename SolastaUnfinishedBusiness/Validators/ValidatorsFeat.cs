@@ -135,7 +135,7 @@ internal static class ValidatorsFeat
                     is FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive
                     or FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter);
 
-        return hasExtraAttack ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+        return !hasExtraAttack ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
     }
 
     [NotNull]

@@ -875,7 +875,7 @@ internal static partial class CharacterContext
 
     internal static void SwitchMonkHeightenedMetabolism()
     {
-        if (Main.Settings.EnableMonkAbundantKi)
+        if (Main.Settings.EnableMonkHeightenedMetabolism)
         {
             Monk.FeatureUnlocks.TryAdd(
                 new FeatureUnlockByLevel(FeatureMonkHeightenedMetabolism, 10));

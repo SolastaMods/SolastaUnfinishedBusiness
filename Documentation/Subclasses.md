@@ -1853,7 +1853,7 @@ The Mischief domain is followed by those who pursue joy, pleasure, and wealth th
 
 * Borrowed Luck
 
-When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
 
 * Mischief Domain Spells
 
@@ -1887,7 +1887,7 @@ When you hit a creature with a melee or ranged weapon attack, you can Channel Di
 
 * Elusive Target
 
-Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
 
 
 ### Level 8
@@ -2929,14 +2929,14 @@ You can use a bonus action to give all allies within 3 cells of you (including y
 
 ### Level 7
 
-* Coordinated Defense
+* Coordinated Defense​​​​​​​
 
 When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
 
 
 ### Level 10
 
-* Invigorating Shout
+* Invigorating Shout​​​​​​​
 
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 
@@ -6875,7 +6875,7 @@ A variety of arcane colleges specialize in training wizards for war. The traditi
 
 * Arcane Deflection
 
-You have learned to weave your magic to fortify yourself against harm. When you are hit by an attack or you fail a saving throw, you can use your reaction to subtract your Intelligence modifier from the attack roll, or add it to the saving roll. When you use this feature, you can't cast spells other than cantrips until the end of your next turn.
+You have learned to weave your magic to fortify yourself against harm. When you are hit by an attack, or you fail a saving throw, you can use your reaction to subtract your Intelligence modifier from the attack roll, or add it to the saving roll. When you use this feature, you can't cast spells other than cantrips until the end of your next turn.
 
 * Tactical Wit
 
@@ -6886,7 +6886,7 @@ Your keen ability to assess tactical situations allows you to act quickly in bat
 
 * Power Surge
 
-You have a number of power surges equal to your Intelligence modifier (minimum of one). Whenever you successfully end a spell with Counterspell, you gain one power surge. Once per turn when you deal damage to a creature or object with a wizard spell, you can spend one power surge to deal extra force damage to on one damage roll of that spell. The extra damage equals your wizard level.
+You have a number of power surges equal to your Intelligence modifier (minimum of one) per long rest. Whenever you successfully end a spell with Counterspell, you regain one power surge. Once per turn when you deal damage to a creature or object with a wizard spell, you can spend one power surge to deal extra force damage to on one damage roll of that spell. The extra damage equals your wizard level.
 
 
 ### Level 10
