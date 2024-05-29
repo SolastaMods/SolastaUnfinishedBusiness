@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -80,15 +79,13 @@ public sealed class WayOfTheTempest // : AbstractSubclass
                     .SetParticleEffectParameters(ShockingGrasp)
                     .AddEffectForms(
                         EffectFormBuilder.ConditionForm(
-                            Main.Settings.EnableMonkHeightenedMetabolism
-                                ? CharacterContext.ConditionMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism
-                                : ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus),
+                            ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus),
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitions.ConditionDisengaging))
                     .Build())
             .AddToDB();
 
-        powerTempestFury.AddCustomSubFeatures(new WayOfTheStormSoul.AttackAfterMagicEffectTempestFury());
+        powerTempestFury.AddCustomSubFeatures(new WayOfTheStormSoul.MagicEffectFinishedByMeTempestFury());
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.FlurryOfBlows, "ActionTempestFury")

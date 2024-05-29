@@ -94,7 +94,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.HasBonusAttackAvailable,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlurryOfBlows)),
-                new AttackAfterMagicEffectTempestFury())
+                new MagicEffectFinishedByMeTempestFury())
             .AddToDB();
 
         // LEVEL 17
@@ -238,11 +238,8 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
 
     private sealed class CustomBehaviorLightningLure(
         FeatureDefinitionPower powerLightningLure,
-        ConditionDefinition conditionEyeOfTheStorm)
-        : IModifyEffectDescription, IMagicEffectFinishedByMe, IValidatePowerUse
+        ConditionDefinition conditionEyeOfTheStorm) : IModifyEffectDescription, IMagicEffectFinishedByMe
     {
-        private const string Tag = "LightningLure";
-
         private readonly EffectForm _effectFormEyeOfTheStorm = EffectFormBuilder
             .Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -254,15 +251,13 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             var actingCharacter = action.ActingCharacter;
 
             actingCharacter.BurnOneMainAttack();
-            actingCharacter.UsedSpecialFeatures.TryAdd(Tag, 0);
 
             yield break;
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == powerLightningLure &&
-                   character.GetClassLevel(CharacterClassDefinitions.Monk) >= 17;
+            return definition == powerLightningLure;
         }
 
         public EffectDescription GetEffectDescription(
@@ -271,16 +266,16 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            effectDescription.EffectForms.Add(_effectFormEyeOfTheStorm);
+            if (character.GetClassLevel(CharacterClassDefinitions.Monk) >= 17)
+            {
+                effectDescription.EffectForms.Add(_effectFormEyeOfTheStorm);
+            }
+
+            effectDescription.EffectForms[0].DamageForm.DieType = character.GetMonkDieType();
+            effectDescription.EffectForms[0].DamageForm.BonusDamage = AttributeDefinitions.ComputeAbilityScoreModifier(
+                character.TryGetAttributeValue(AttributeDefinitions.Dexterity));
 
             return effectDescription;
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
-        {
-            var glc = GameLocationCharacter.GetFromActor(character);
-
-            return glc != null && glc.OnceInMyTurnIsValid(Tag);
         }
     }
 
@@ -288,99 +283,50 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
     // Tempest Fury
     //
 
-    internal sealed class AttackAfterMagicEffectTempestFury : IAttackAfterMagicEffect
+    internal sealed class MagicEffectFinishedByMeTempestFury : IMagicEffectFinishedByMe
     {
-        public IAttackAfterMagicEffect.CanAttackHandler CanAttack { get; } =
-            CanMeleeAttack;
-
-        public IAttackAfterMagicEffect.GetAttackAfterUseHandler PerformAttackAfterUse { get; } =
-            DefaultAttackHandler;
-
-        public IAttackAfterMagicEffect.CanUseHandler CanBeUsedToAttack { get; } =
-            DefaultCanUseHandler;
-
-        private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
-
-            if (attackMode == null)
-            {
-                return false;
-            }
-
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var attackModifier = new ActionModifier();
-            var evalParams = new BattleDefinitions.AttackEvaluationParams();
-
-            evalParams.FillForPhysicalReachAttack(
-                caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
-
-            return battleService.CanAttack(evalParams);
-        }
-
-        [CanBeNull]
-        private static IEnumerable<CharacterActionParams> DefaultAttackHandler(
-            [CanBeNull] CharacterActionMagicEffect effect)
-        {
-            var actionParams = effect?.ActionParams;
-
-            if (actionParams == null)
-            {
-                return null;
-            }
-
             if (Gui.Battle == null)
             {
-                return null;
+                yield break;
             }
 
-            var caster = actionParams.ActingCharacter;
-            var targets = Gui.Battle
-                .GetContenders(caster, withinRange: 1);
+            var actingCharacter = action.ActingCharacter;
+            var targets = Gui.Battle.GetContenders(actingCharacter, withinRange: 1);
 
             if (targets.Count == 0)
             {
-                return null;
+                yield break;
             }
 
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+            var attackModeMain = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
-            if (attackMode == null)
+            if (attackModeMain == null)
             {
-                return null;
+                yield break;
             }
 
             //get copy to be sure we don't break existing mode
-            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+            var attackMode = RulesetAttackMode.AttackModesPool.Get();
 
-            rulesetAttackModeCopy.Copy(attackMode);
+            attackMode.Copy(attackModeMain);
+            attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
 
-            attackMode = rulesetAttackModeCopy;
+            actingCharacter.BurnOneMainAttack();
 
-            //set action type to be same as the one used for the magic effect
-            attackMode.ActionType = effect.ActionType;
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var target in targets)
+            {
+                var attackModifier = new ActionModifier();
+                var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree)
+                {
+                    AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
+                };
 
-            var attackModifier = new ActionModifier();
-
-            actionParams.ActingCharacter.BurnOneBonusAttack();
-
-            return targets
-                .Where(t => CanMeleeAttack(caster, t))
-                .Select(target =>
-                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree)
-                    {
-                        AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
-                    });
-        }
-
-        private static bool DefaultCanUseHandler(
-            [NotNull] CursorLocationSelectTarget targeting,
-            GameLocationCharacter caster,
-            GameLocationCharacter target, [NotNull] out string failure)
-        {
-            failure = string.Empty;
-
-            return true;
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParams, null, true);
+            }
         }
     }
 
