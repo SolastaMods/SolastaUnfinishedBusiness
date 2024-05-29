@@ -99,6 +99,7 @@ internal static class SrdAndHouseRulesContext
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
+        SwitchHealSpellDice();
     }
 
     private static void LoadSenseNormalVisionRangeMultiplier()
@@ -497,6 +498,20 @@ internal static class SrdAndHouseRulesContext
         {
             restrictedActions.RemoveAll(id => id == Id.CastMain);
         }
+    }
+
+    internal static void SwitchHealSpellDice()
+    {
+        CureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = Main.Settings.HealSpellDice ? 2 : 1;
+        CureWounds.effectDescription.effectAdvancement.additionalDicePerIncrement = Main.Settings.HealSpellDice ? 2 : 1;
+        HealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = Main.Settings.HealSpellDice ? 2 : 1;
+        HealingWord.effectDescription.effectAdvancement.additionalDicePerIncrement = Main.Settings.HealSpellDice ? 2 : 1;
+        PrayerOfHealing.effectDescription.EffectForms[0].healingForm.diceNumber = Main.Settings.HealSpellDice ? 3 : 1;
+        PrayerOfHealing.effectDescription.effectAdvancement.additionalDicePerIncrement = Main.Settings.HealSpellDice ? 2 : 1;
+        MassHealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = Main.Settings.HealSpellDice ? 3 : 1;
+        MassHealingWord.effectDescription.effectAdvancement.additionalDicePerIncrement = Main.Settings.HealSpellDice ? 2 : 1;
+        MassCureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = Main.Settings.HealSpellDice ? 5 : 3;
+        MassCureWounds.effectDescription.effectAdvancement.additionalDicePerIncrement = Main.Settings.HealSpellDice ? 2 : 1;
     }
 
     internal static void SwitchAddBleedingToLesserRestoration()
