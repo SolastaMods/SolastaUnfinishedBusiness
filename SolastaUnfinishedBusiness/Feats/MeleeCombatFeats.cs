@@ -369,7 +369,7 @@ internal static class MeleeCombatFeats
 
         var combatAffinity = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
             .SetSituationalContext(SituationalContext.TargetIsEffectSource)
             .AddToDB();
@@ -382,7 +382,6 @@ internal static class MeleeCombatFeats
             .SetFeatures(combatAffinity)
             .AddToDB();
 
-        condition.GuiPresentation.description = Gui.NoLocalization;
         condition.AddCustomSubFeatures(new ActionFinishedByMeGreatWeaponDefense(condition));
 
         var conditionSelf = ConditionDefinitionBuilder
@@ -459,7 +458,8 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class ActionFinishedByMeGreatWeaponDefenseSelf(
-        FeatureDefinitionPower power, ConditionDefinition condition) : IActionFinishedByMe, IOnItemEquipped
+        FeatureDefinitionPower power,
+        ConditionDefinition condition) : IActionFinishedByMe, IOnItemEquipped
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
@@ -2132,6 +2132,7 @@ internal static class MeleeCombatFeats
         .SetGuiPresentation(Category.Feature,
             Sprites.GetSprite("PowerWhirlWindAttack", Resources.PowerWhirlWindAttack, 256, 128))
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
@@ -2166,7 +2167,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class MagicEffectFinishedByMeWhirlWindAttack : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeWhirlWindAttack : IMagicEffectFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -2207,6 +2208,7 @@ internal static class MeleeCombatFeats
             }
 
             actingCharacter.BurnOneMainAttack();
+            actingCharacter.UsedSpecialFeatures.TryAdd("PowerWhirlWindAttack", 0);
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
@@ -2220,6 +2222,13 @@ internal static class MeleeCombatFeats
                 ServiceRepository.GetService<IGameLocationActionService>()?
                     .ExecuteAction(actionParams, null, true);
             }
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            var glc = GameLocationCharacter.GetFromActor(character);
+
+            return glc != null && glc.OncePerTurnIsValid("PowerWhirlWindAttack");
         }
     }
 

@@ -426,8 +426,7 @@ public static class GameLocationCharacterExtensions
         rulesetCharacter.RefreshAttackModes();
 
         var maxAttacksNumber = rulesetCharacter.AttackModes
-            .Where(x => x.ActionType == ActionType.Main)
-            .Max(x => x.AttacksNumber);
+            .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
 
         if (maxAttacksNumber - instance.UsedMainAttacks > 0)
         {
@@ -435,7 +434,7 @@ public static class GameLocationCharacterExtensions
         }
 
         instance.CurrentActionRankByType[ActionType.Main]++;
-        instance.UsedMainAttacks = 0;
+        //instance.UsedMainAttacks = 0;
     }
 
     internal static void BurnOneBonusAttack(this GameLocationCharacter instance)
@@ -454,15 +453,14 @@ public static class GameLocationCharacterExtensions
         rulesetCharacter.RefreshAttackModes();
 
         var maxAttacksNumber = rulesetCharacter.AttackModes
-            .Where(x => x.ActionType == ActionType.Bonus)
-            .Max(x => x.AttacksNumber);
+            .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Bonus)?.AttacksNumber ?? 0;
 
         if (maxAttacksNumber - instance.UsedBonusAttacks > 0)
         {
             return;
         }
 
-        instance.CurrentActionRankByType[ActionType.Main]++;
-        instance.UsedBonusAttacks = 0;
+        instance.CurrentActionRankByType[ActionType.Bonus]++;
+        //instance.UsedBonusAttacks = 0;
     }
 }

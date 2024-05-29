@@ -90,7 +90,7 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HasFreeHandWithHeavyOrVersatileInMain = character =>
         character.HasFreeHandSlot() &&
-        !ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(), TagsDefinitions.WeaponTagTwoHanded) &&
+        ValidatorsWeapon.IsMelee(character.GetMainWeapon()) &&
         ValidatorsWeapon.HasAnyWeaponTag(
             character.GetMainWeapon(), TagsDefinitions.WeaponTagHeavy, TagsDefinitions.WeaponTagVersatile);
 

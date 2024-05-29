@@ -686,7 +686,7 @@ internal static partial class CharacterContext
                         .SetConditionForm(
                             ConditionDefinitionBuilder
                                 .Create("ConditionMonkSuperiorDefense")
-                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionShielded)
+                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAuraOfProtection)
                                 .SetPossessive()
                                 .AddFeatures(
                                     DamageAffinityAcidResistance,
@@ -705,6 +705,7 @@ internal static partial class CharacterContext
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add)
                         .Build())
+                .SetCasterEffectParameters(PowerOathOfTirmarGoldenSpeech)
                 .Build())
         .AddToDB();
 

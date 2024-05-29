@@ -47,7 +47,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
         var powerLightningLure = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}LightningLure")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("LightningLure", Resources.LightningLure, 128))
+                Sprites.GetSprite("PowerLightningLure", Resources.PowerLightningLure, 128))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -63,11 +63,11 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeLightning, 1, DieType.D8)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (5, 1), (11, 2), (17, 3))
+                            .SetDamageForm(DamageTypeLightning, 1, DieType.D6)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(LightningBolt)
+                    .SetCasterEffectParameters(PowerDomainElementalLightningBlade)
                     .Build())
             .AddToDB();
 
@@ -83,13 +83,13 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
 
         var powerTempestFury = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TempestFury")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerOathOfDevotionTurnUnholy)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
-                    .SetParticleEffectParameters(ShockingGrasp)
+                    .SetCasterEffectParameters(ShockingGrasp)
                     .Build())
             .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.HasBonusAttackAvailable,
@@ -149,8 +149,10 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
 
         var powerEyeOfTheStorm = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EyeOfTheStorm")
-            .SetGuiPresentation($"FeatureSet{Name}EyeOfTheStorm", Category.Feature, PowerOathOfDevotionTurnUnholy)
+            .SetGuiPresentation($"FeatureSet{Name}EyeOfTheStorm", Category.Feature,
+                Sprites.GetSprite(Name, Resources.PowerEyeOfTheStorm, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 3)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -271,8 +273,8 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                 effectDescription.EffectForms.Add(_effectFormEyeOfTheStorm);
             }
 
-            effectDescription.EffectForms[0].DamageForm.DieType = character.GetMonkDieType();
-            effectDescription.EffectForms[0].DamageForm.BonusDamage = AttributeDefinitions.ComputeAbilityScoreModifier(
+            effectDescription.EffectForms[1].DamageForm.DieType = character.GetMonkDieType();
+            effectDescription.EffectForms[1].DamageForm.BonusDamage = AttributeDefinitions.ComputeAbilityScoreModifier(
                 character.TryGetAttributeValue(AttributeDefinitions.Dexterity));
 
             return effectDescription;
@@ -283,7 +285,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
     // Tempest Fury
     //
 
-    internal sealed class MagicEffectFinishedByMeTempestFury : IMagicEffectFinishedByMe
+    internal sealed class MagicEffectFinishedByMeTempestFury : IMagicEffectFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -300,9 +302,9 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                 yield break;
             }
 
-            var attackModeMain = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackModeOff = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
 
-            if (attackModeMain == null)
+            if (attackModeOff == null)
             {
                 yield break;
             }
@@ -310,10 +312,11 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             //get copy to be sure we don't break existing mode
             var attackMode = RulesetAttackMode.AttackModesPool.Get();
 
-            attackMode.Copy(attackModeMain);
+            attackMode.Copy(attackModeOff);
             attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
 
-            actingCharacter.BurnOneMainAttack();
+            actingCharacter.BurnOneBonusAttack();
+            actingCharacter.UsedSpecialFeatures.TryAdd("PowerTempestFury", 0);
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
@@ -327,6 +330,13 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                 ServiceRepository.GetService<IGameLocationActionService>()?
                     .ExecuteAction(actionParams, null, true);
             }
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            var glc = GameLocationCharacter.GetFromActor(character);
+
+            return glc != null && glc.OncePerTurnIsValid("PowerTempestFury");
         }
     }
 
