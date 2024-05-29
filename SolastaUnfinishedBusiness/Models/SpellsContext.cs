@@ -249,6 +249,7 @@ internal static class SpellsContext
             spellListInventorClass);
         RegisterSpell(BuildSwordStorm(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
+        RegisterSpell(BuildStarryWisp(), 0, SpellListBard, SpellListDruid);
         RegisterSpell(BuildTollTheDead(), 0, SpellListCleric, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, spellListInventorClass);
         RegisterSpell(BuildThunderStrike(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWarlock,

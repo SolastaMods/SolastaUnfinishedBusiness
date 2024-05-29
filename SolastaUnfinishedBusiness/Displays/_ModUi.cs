@@ -239,6 +239,7 @@ internal static class ModUi
         "SpikeBarrage",
         "SpiritShroud",
         "StaggeringSmite",
+        "StarryWisp",
         "SteelWhirlwind",
         "StrikeWithTheWind",
         "SwordStorm",

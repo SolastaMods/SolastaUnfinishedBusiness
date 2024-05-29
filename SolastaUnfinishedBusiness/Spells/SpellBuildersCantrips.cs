@@ -215,7 +215,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Air Blast
+    #region Lightning Lure
 
     internal static SpellDefinition BuildLightningLure()
     {
@@ -336,6 +336,54 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeNecrotic, 1, DieType.D6, 0, HealFromInflictedDamage.Half)
                             .Build())
                     .SetParticleEffectParameters(VampiricTouch)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Starry Wisp
+
+    internal static SpellDefinition BuildStarryWisp()
+    {
+        const string NAME = "StarryWisp";
+
+        var lightSourceForm =
+            FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.LightningLure, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetLightSourceForm(
+                                LightSourceType.Basic, 0, 2,
+                                lightSourceForm.lightSourceForm.color,
+                                lightSourceForm.lightSourceForm.graphicsPrefabReference)
+                            .Build())
+                    .SetParticleEffectParameters(FaerieFire)
                     .Build())
             .AddToDB();
 
