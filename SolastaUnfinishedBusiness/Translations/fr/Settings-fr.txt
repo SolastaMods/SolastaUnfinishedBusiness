@@ -146,6 +146,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Permet au <color=#D895
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Activez <color=#D89555>Moine</color> <b>Défense supérieure</b> pour remplacer <b>Corps vide</b> au niveau 18
 ModUi/&EnableMonkWeaponSpecialization=Activez la <color=#D89555>Moine</color> <b>Spécialisation d'arme</b> aux niveaux 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer le multiclasse <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=Activez le bonus des dés de guérison OneDnd sur <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color> et <color= #D89555>Mot de guérison de masse</color>
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme de générateur aléatoire <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=Activez la fonctionnalité <color=#D89555>Ranger</color> <b>Voile de la nature</b> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour. ]</color></i>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 personnes ]</color></i>

@@ -146,6 +146,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>モン�
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<color=#D89555>モンク</color>の<b>優れた防御力</b>を有効にして<b>空の体</b>を置き換えます。
 ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で<color=#D89555>モンク</color>の<b>武器特化</b>を有効にします<i><color=#F0DAA0>[選択した武器タイプがモンク武器になります]</color></i>
 ModUi/&EnableMulticlass=マルチクラス <b><i><color=#C04040E0>[再起動が必要]</color></i></b> を有効にする
+ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>Cure Wounds</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> で OneDnd ヒーリング ダイス バッファーを有効にします。
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=<color=#D89555>レンジャー</color> の<b>自然のベール</b>機能をレベル 10 で有効にします<i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法のように透明になることができます。 ]</color></i>
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color> を有効にすると、何も選択されていない場合、選択したヒーローまたはリーダーを中心としたパーティーに再参加できます<i><color=#F0DAA0>[5 人または 6 人のパーティーで便利です] ]</color></i>

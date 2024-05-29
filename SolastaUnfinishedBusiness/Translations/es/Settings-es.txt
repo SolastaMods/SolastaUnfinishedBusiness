@@ -146,6 +146,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilite <color=#D8955
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilite <color=#D89555>Monje</color> <b>Defensa superior</b> para reemplazar <b>Cuerpo vacío</b> en el nivel 18.
 ModUi/&EnableMonkWeaponSpecialization=Habilita <color=#D89555>Monje</color> <b>Especialización en armas</b> en los niveles 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionada se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar multiclase <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=Habilite la mejora de dados de curación OneDnd en <color=#D89555>Curar heridas</color>, <color=#D89555>Palabra de curación</color>, <color=#D89555>Curar heridas en masa</color> y <color= #D89555>Palabra de sanación masiva</color>
 ModUi/&EnablePcgRandom=Habilite un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=Activa la función <color=#D89555>Ranger</color> <b>Velo de la Naturaleza</b> en el nivel 10 <i><color=#F0DAA0>[como acción adicional, puedes volverte invisible mágicamente hasta el comienzo del siguiente turno. ]</color></i>
 ModUi/&EnableRejoinParty=Habilite <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirse al grupo alrededor del héroe seleccionado o del líder si no se selecciona ninguno <i><color=#F0DAA0>[útil con grupos de 5 o 6 ]</color></i>

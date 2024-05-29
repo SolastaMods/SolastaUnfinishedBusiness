@@ -146,6 +146,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Abilita <color=#D89555
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Abilita <color=#D89555>Mistico</color> <b>Difesa superiore</b> per sostituire <b>Corpo Vuoto</b> al livello 18
 ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>specializzazione arma</b> ai livelli 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa per te un'arma da monaco]</color></i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=Abilita il potenziamento dei dadi di guarigione OneDnd su <color=#D89555> Cura ferite</color>, <color=#D89555> Parola curativa</color>, <color=#D89555> Cura ferite di massa</color> e <color= #D89555>Parola di guarigione di massa</color>
 ModUi/&EnablePcgRandom=Abilita un algoritmo di generazione casuale migliore <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=Abilita la funzione <color=#D89555>Ranger</color> <b>Velo della Natura</b> al livello 10 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo ]</color></i>
 ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per unirsi al gruppo attorno all'eroe selezionato o al leader se non è selezionato nessuno <i><color=#F0DAA0>[utile con gruppi di 5 o 6 ]</color></i>

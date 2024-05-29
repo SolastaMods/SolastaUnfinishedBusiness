@@ -146,6 +146,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>�
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=18 级时启用<color=#D89555>武僧</color><b>无懈可击</b>取代<b>空灵体</b>
 ModUi/&EnableMonkWeaponSpecialization=在<color=#D89555>武僧</color> 2 级和 11 级启用<b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=在<color=#D89555>治疗伤口</color>、<color=#D89555>治疗之言</color>、<color=#D89555>群体治疗伤口</color>和<color=#D89555>群体治疗之言</color>上启用 OneDnd 治疗骰子缓冲区
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=在<color=#D89555>游侠</color> 10 级启用<b>自然面纱</b>特性<i><color=#F0DAA0>[作为附赠动作，你可以魔法地变得隐形，直到下回合开始]</color></i>
 ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于 5 人或 6 人的队伍]</color></i>

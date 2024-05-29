@@ -493,6 +493,7 @@
     <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>true</FixEldritchBlastRange>
     <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
+    <EnableOneDndHealingSpellsBuf>true</EnableOneDndHealingSpellsBuf>
     <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
     <IdentifyAfterRest>true</IdentifyAfterRest>
     <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>

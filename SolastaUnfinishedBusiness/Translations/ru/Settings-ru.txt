@@ -146,6 +146,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Позволить <co
 ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Включите <color=#D89555>Монах</color> <b>Превосходную защиту</b>, чтобы заменить <b>Пустое тело</b> на уровне 18.
 ModUi/&EnableMonkWeaponSpecialization=Включить <b>Специализацию на оружии</b> для <color=#D89555>Монаха</color> на уровнях 2 и 11 <i><color=#F0DAA0>[оружие выбранного типа становится для вас оружием монаха]</color></i>
 ModUi/&EnableMulticlass=Включить мультиклассирование <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=Включите усиление кубиков исцеления OneDnd для <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color> и <color= #D89555>Слово массового исцеления</color>
 ModUi/&EnablePcgRandom=Включить улучшенный алгоритм генерации случайных чисел <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=Включить умение <color=#D89555>Следопыта</color> <b>Природная завеса</b> на уровне 10 <i><color=#F0DAA0>[бонусным действием вы можете волшебным образом стать невидимым до начала следующего хода]</color></i>
 ModUi/&EnableRejoinParty=Включить принудительную группировку персонажей вокруг выбранного героя или лидера, если никто не выбран, по нажатию <color=#1E81B0>CTRL-SHIFT-(R)</color> <i><color=#F0DAA0>[полезно в пати из 5 или 6 персонажей]</color></i>

@@ -281,6 +281,13 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
+        }
+
         toggle = Main.Settings.FixRingOfRegenerationHealRate;
         if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))
         {
