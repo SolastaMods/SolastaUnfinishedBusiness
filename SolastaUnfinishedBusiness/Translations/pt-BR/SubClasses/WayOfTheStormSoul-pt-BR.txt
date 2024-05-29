@@ -1,5 +1,5 @@
 Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=Esta marca pode explodir a qualquer momento e causar 5D10 de dano trovejante.
-Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle1=Marca da Tempestade
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Marca da Tempestade
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Sempre que você usa sua Rajada de Golpes, você também ganha os benefícios da ação de desengajamento. Os ataques bônus fornecidos por ele causam dano elétrico extra igual ao seu dado de artes marciais.
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=Discípulo das Tempestades
 Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=Sempre que você causar dano a uma criatura com uma arma de monge, ataque desarmado ou truque de Isca Relâmpago, você marca aquela criatura com energias condutoras persistentes por 1 minuto. Você pode usar sua ação e gastar 3 ki para consumir a marca em cada criatura e forçar um teste de resistência de Destreza nelas (CD = 8 + bônus de proficiência + modificador de Sabedoria). Se falhar no teste de resistência, cada criatura recebe 5d10 de dano elétrico (exceto metade).

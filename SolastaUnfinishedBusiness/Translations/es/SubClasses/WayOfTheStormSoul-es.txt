@@ -1,5 +1,5 @@
 Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=Esta marca puede explotar en cualquier momento y causar daño por trueno 5D10.
-Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle1=Marca de tormenta
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Marca de tormenta
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Siempre que uses tu Ráfaga de golpes, también obtendrás los beneficios de la acción de desenganche. Los ataques adicionales que proporciona infligen un daño de rayo adicional equivalente a tu dado de artes marciales.
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=Discípulo de las tormentas
 Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=Cada vez que dañas a una criatura con un arma de monje, un ataque desarmado o un truco de Lightning Lure, marcas a esa criatura con energías conductoras persistentes durante 1 minuto. Puedes usar tu acción y gastar 3 ki para consumir la marca de cada criatura y forzarles una tirada de salvación de Destreza (CD = 8 + bonificación de competencia + modificador de Sabiduría). En una tirada de salvación fallida, cada criatura recibe 5d10 de daño por rayo (excepto la mitad).

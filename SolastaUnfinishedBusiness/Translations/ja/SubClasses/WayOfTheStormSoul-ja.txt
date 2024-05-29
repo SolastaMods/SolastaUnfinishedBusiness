@@ -1,5 +1,5 @@
 Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=このマークはいつでも爆発して、5D10 の雷ダメージを引き起こす可能性があります。
-Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle1=ストームマーク
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=ストームマーク
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Flurry of Blows を使用するたびに、解除アクションの利点も得られます。それによって提供されるボーナス攻撃は、武道のダイスに等しい追加の雷ダメージを与えます。
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=嵐の弟子
 Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=モンク武器、素手攻撃、またはライトニングルアーのキャントリップでクリーチャーにダメージを与えるたび、そのクリーチャーに1分間残留する伝導エネルギーのマークを付けます。あなたはアクションを使用し、3 気を消費して各クリーチャーのマークを消費し、それらに器用さセーヴィング・スローを強制することができます (難易度 = 8 + 熟練度ボーナス + 知恵修正値)。セーヴィング・スローが失敗すると、各クリーチャーは 5d10 の雷ダメージを受けます (半分はセーブされます)。

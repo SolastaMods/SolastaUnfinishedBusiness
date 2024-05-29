@@ -1,4 +1,5 @@
 Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=这个印记随时可以爆炸，造成 5D10 雷鸣伤害。
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=风暴标记
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=每当你使用疾风连击时，你也会获得撤离动作的好处。它提供的额外攻击会造成额外的闪电伤害，伤害值等于你的武艺骰。
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=风暴门徒
 Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=每当你用武僧武器、徒手攻击或闪电牵引伤害一个生物时，你就会用挥之不去的传导能量标记该生物 1 分钟。你可以使用你的行动并花费 3 气来消耗每个生物上的标记，并对它们强制进行敏捷豁免检定（DC = 8 + 熟练加值 + 感知调整值）。如果豁免失败，每个生物都会受到 5d10 点闪电伤害（豁免一半）。
