@@ -1,6 +1,6 @@
 Condition/&ConditionFeatCleavingAttackFinishDescription=让他们来吧！
 Condition/&ConditionFeatCleavingAttackFinishTitle=巨武器大师
-Condition/&ConditionFeatCrusherCriticalHitDescription=你被暴击击倒，对你的攻击有优势。
+Condition/&ConditionFeatCrusherCriticalHitDescription=你被重击破碎，对你的攻击有优势。
 Condition/&ConditionFeatCrusherCriticalHitTitle=破碎
 Condition/&ConditionFeatGreatWeaponDefenseDescription=你对抗 5 尺以内攻击源时，该攻击源对你进行的所有攻击掷骰均处于劣势。
 Condition/&ConditionFeatGreatWeaponDefenseTitle=专注防御
@@ -93,7 +93,7 @@ Reaction/&ReactionSpendPowerBundlePowerFeatChargerDescription=你可以增加额
 Reaction/&ReactionSpendPowerBundlePowerFeatChargerReactDescription=应用附加效果。
 Reaction/&ReactionSpendPowerBundlePowerFeatChargerReactTitle=冲锋
 Reaction/&ReactionSpendPowerBundlePowerFeatChargerTitle=冲锋
-Reaction/&UseDefensiveDuelistDescription=你快要被打了！你可以采取防御姿态来防止受到攻击。
+Reaction/&UseDefensiveDuelistDescription=你快要被命中了！你可以采取防御姿态来防止受到攻击。
 Reaction/&UseDefensiveDuelistReactDescription=使用防御姿势来防止受到攻击。
 Reaction/&UseDefensiveDuelistReactTitle=保卫
 Reaction/&UseDefensiveDuelistTitle=防御姿态
