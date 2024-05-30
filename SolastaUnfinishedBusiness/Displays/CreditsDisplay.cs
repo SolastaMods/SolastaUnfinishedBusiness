@@ -28,7 +28,7 @@ internal static class CreditsDisplay
             "Martial Arcane Archer, Martial Banneret, Martial Guardian, Martial Psi Warrior, Martial Warlord, Martial Weapon Master, " +
             "Oath of Altruism, Oath of Dread, Oath of Thunder, " +
             "Path of the Elements, Path of the Ravager, Path of the Reaver, Path of the Savagery, Path of the Yeoman, " +
-            "Patron Celestial, Patron Moonlit, Patron Mountain, Patron Riftwalker, " +
+            "Patron Archfey, Patron Celestial, Patron Moonlit, Patron Mountain, Patron Riftwalker, " +
             "Ranger Fey Wanderer, Ranger Gloom Stalker, Ranger Hellwalker, Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, Ranger Wildmaster, " +
             "Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Raven, Roguish Slayer, Roguish Umbral Stalker, " +
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, " +
