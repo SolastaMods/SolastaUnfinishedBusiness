@@ -1,16 +1,16 @@
-Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=Эта метка может взорваться в любой момент и нанести урон громом 5D10.
-Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Штормовой знак
-Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Каждый раз, когда вы используете «Шквал ударов», вы также получаете преимущества действия выхода из боя. Бонусные атаки, предоставляемые им, наносят дополнительный урон молнией, равный вашему кубику боевых искусств.
-Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=Ученик Штормов
-Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=Каждый раз, когда вы наносите вред существу оружием монаха, атакой без оружия или заклинанием «Приманка молнией», вы помечаете это существо сохраняющейся проводящей энергией на 1 минуту. Вы можете действием и потратить 3 ки, чтобы поглотить метку на каждом существе и заставить их совершить спасбросок Ловкости (DC = 8 + бонус мастерства + модификатор Мудрости). При провале спасброска каждое существо получает урон электричеством 5d10 (сохраните половину).
-Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormTitle=Центр урагана
-Feature/&FeatureSetWayOfTheStormSoulLightningWarriorDescription=Вы получаете устойчивость к урону от молнии и можете заменить любую из своих основных атак на заклинание «Приманка молнией» без каких-либо компонентов, используя свою Мудрость в качестве модификатора заклинаний.
-Feature/&FeatureSetWayOfTheStormSoulLightningWarriorTitle=Молниеносный воин
-Feature/&PowerWayOfTheStormSoulLightningLureDescription=Вы можете заменить любую из своих основных атак на заклинание «Приманка молнией» без каких-либо компонентов, используя свою Мудрость в качестве модификатора заклинаний.
-Feature/&PowerWayOfTheStormSoulLightningLureTitle=Молниеносная приманка
-Feature/&PowerWayOfTheStormSoulTempestFuryDescription=Вы можете потратить 1 ки, чтобы заменить одну из бонусных атак, предоставляемых «Шквалом ударов», на атаку ею всех вражеских существ в пределах 5 футов от вас.
-Feature/&PowerWayOfTheStormSoulTempestFuryTitle=Ярость Бури
-Feedback/&AdditionalDamageDiscipleOfStormsFormat=Ученик Штормов!
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=Эта метка может взорваться в любой момент и нанести 5d10 урона звуком.
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Метка бури
+Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Каждый раз, когда вы используете Шквал ударов, вы также получаете преимущества действия Отход. Бонусные атаки, предоставляемые этим умением, наносят дополнительный урон электричеством, равный вашей кости боевых искусств.
+Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=Ученик бури
+Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=Каждый раз, когда вы наносите урон существу монашеским оружием, безоружной атакой или заговором Лассо молний, вы помечаете это существо остаточной проводящей энергией на 1 минуту. Вы можете действием и потратить 3 очка ци, чтобы поглотить метку на каждом существе и заставить их совершить спасбросок Ловкости (Сл = 8 + ваш бонус мастерства + ваш модификатор Мудрости). При провале каждое существо получает урон электричеством 5d10 (половину при успехе).
+Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormTitle=Око бури
+Feature/&FeatureSetWayOfTheStormSoulLightningWarriorDescription=Вы получаете сопротивление урону электричеством и можете заменить любую из своих атак основным действием на наложение заговора Лассо молний без требования компонентов, используя свою Мудрость в качестве заклинательной характеристики.
+Feature/&FeatureSetWayOfTheStormSoulLightningWarriorTitle=Воин молнии
+Feature/&PowerWayOfTheStormSoulLightningLureDescription=Вы можете заменить любую из своих атак основным действием на наложение заговора Лассо молний без требования компонентов, используя свою Мудрость в качестве заклинательной характеристики.
+Feature/&PowerWayOfTheStormSoulLightningLureTitle=Лассо молний
+Feature/&PowerWayOfTheStormSoulTempestFuryDescription=Вы можете потратить 1 очко ци, чтобы заменить одну из бонусных атак от Шквала ударов на атаку, которая поражает всех враждебных существ в пределах 5 футов от вас.
+Feature/&PowerWayOfTheStormSoulTempestFuryTitle=Ярость бури
+Feedback/&AdditionalDamageDiscipleOfStormsFormat=Ученик бури!
 Feedback/&AdditionalDamageDiscipleOfStormsLine={0} поражает {1} молнией (+{2})
-Subclass/&WayOfTheStormSoulDescription=Монахи Пути Души Бури живут на самых высоких горных вершинах Соласты, настраиваясь на энергию могучих штормов и обучаясь направлять силу молнии в свое существо. Эти мастера боевых искусств используют свои уникальные навыки, чтобы превратиться в необузданную бурю, легко маневрируя на поле боя, бросаясь от одного врага к другому и нанося им бесчисленные удары молниями.
-Subclass/&WayOfTheStormSoulTitle=Путь Штормовой Души
+Subclass/&WayOfTheStormSoulDescription=Монахи Пути души бури живут на самых высоких горных вершинах Соласты, перенимая энергию могучих штормов и учась наполнять себя силой молний. Эти мастера боевых искусств используют свои уникальные дисциплины, чтобы превратиться в неудержимую бурю, без труда маневрируя на поле боя, бросаясь от одного врага к другому и обрушивая на них бесчисленные удары, заряженные энергией молний.
+Subclass/&WayOfTheStormSoulTitle=Путь души бури
