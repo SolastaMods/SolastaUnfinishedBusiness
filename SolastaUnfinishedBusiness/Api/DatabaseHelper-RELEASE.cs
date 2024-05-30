@@ -296,6 +296,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionHolyAura { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHolyAura");
+
         internal static ConditionDefinition ConditionAcidArrowed { get; } =
             GetDefinition<ConditionDefinition>("ConditionAcidArrowed");
 
@@ -1671,6 +1674,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerGreen_Hag_Invisibility { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerGreen_Hag_Invisibility");
+
         internal static FeatureDefinitionPower PowerPatronTimekeeperAccelerate { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperAccelerate");
 

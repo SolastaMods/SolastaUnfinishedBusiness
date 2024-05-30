@@ -701,6 +701,8 @@ internal static partial class CharacterContext
                                     DamageAffinityRadiantResistance,
                                     DamageAffinitySlashingResistance,
                                     DamageAffinityThunderResistance)
+                                .SetConditionParticleReference(
+                                    ConditionDefinitions.ConditionHolyAura.conditionParticleReference)
                                 .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add)

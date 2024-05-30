@@ -45,6 +45,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition MaddeningDarkness = BuildMaddeningDarkness();
+    internal static readonly SpellDefinition MantleOfThorns = BuildMantleOfThorns();
     internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition PetalStorm = BuildPetalStorm();
     internal static readonly SpellDefinition PsychicWhip = BuildPsychicWhip();
@@ -334,7 +335,7 @@ internal static class SpellsContext
         RegisterSpell(DivineWrath, 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildIncineration(), 0, SpellListSorcerer, SpellListWizard);
-        RegisterSpell(BuildMantleOfThorns(), 0, SpellListDruid);
+        RegisterSpell(MantleOfThorns, 0, SpellListDruid);
         RegisterSpell(SteelWhirlwind, 0, SpellListRanger, SpellListWizard);
         RegisterSpell(SonicBoom, 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(Telekinesis, 0, SpellListSorcerer, SpellListWizard);
