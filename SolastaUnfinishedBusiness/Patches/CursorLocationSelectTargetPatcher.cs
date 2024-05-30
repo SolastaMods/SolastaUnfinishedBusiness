@@ -6,11 +6,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Spells;
 using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Subclasses.SorcerousFieldManipulator;
+using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -67,7 +67,7 @@ public static class CursorLocationSelectTargetPatcher
                 var familiar = Gui.Battle.AllContenders
                     .FirstOrDefault(x =>
                         x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
-                        rulesetCharacterMonster.MonsterDefinition.Name == SpellBuilders.OwlFamiliar &&
+                        rulesetCharacterMonster.MonsterDefinition.Name == OwlFamiliar &&
                         rulesetCharacterMonster.AllConditions.Exists(y =>
                             y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
                             y.SourceGuid == actingCharacter.Guid));

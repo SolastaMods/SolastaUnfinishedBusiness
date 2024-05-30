@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -1081,7 +1080,7 @@ internal static class Level20SubclassesContext
         // Hoodlum
         //
 
-        PowerRoguishHoodlumDirtyFighting.AddCustomSubFeatures(new AttackAfterMagicEffectBrutalAssault());
+        PowerRoguishHoodlumDirtyFighting.AddCustomSubFeatures(new MagicEffectFinishedByMeDirtyFighting());
 
         var featureRoguishHoodlumBrutalAssault = FeatureDefinitionBuilder
             .Create("FeatureRoguishHoodlumBrutalAssault")
@@ -2129,95 +2128,53 @@ internal static class Level20SubclassesContext
     // Brutal Assault
     //
 
-    private sealed class AttackAfterMagicEffectBrutalAssault : IAttackAfterMagicEffect
+    private sealed class MagicEffectFinishedByMeDirtyFighting : IMagicEffectFinishedByMe
     {
-        public IAttackAfterMagicEffect.CanAttackHandler CanAttack { get; } =
-            CanMeleeAttack;
-
-        public IAttackAfterMagicEffect.GetAttackAfterUseHandler PerformAttackAfterUse { get; } =
-            DefaultAttackHandler;
-
-        public IAttackAfterMagicEffect.CanUseHandler CanBeUsedToAttack { get; } =
-            DefaultCanUseHandler;
-
-        private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            if (attackMode == null)
+            if (Gui.Battle == null)
             {
-                return false;
+                yield break;
             }
 
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-            var attackModifier = new ActionModifier();
-            var evalParams = new BattleDefinitions.AttackEvaluationParams();
+            var actingCharacter = action.ActingCharacter;
+            var targets = action.ActionParams.TargetCharacters
+                .Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    x.RulesetCharacter.HasConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, "ConditionHitByDirtyFighting"))
+                .ToList();
 
-            evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
-                target.LocationPosition, attackModifier);
-
-            return battleManager.CanAttack(evalParams);
-        }
-
-        [CanBeNull]
-        private static IEnumerable<CharacterActionParams> DefaultAttackHandler(
-            [CanBeNull] CharacterActionMagicEffect effect)
-        {
-            var actionParams = effect?.ActionParams;
-
-            if (actionParams == null)
+            if (targets.Count == 0)
             {
-                return null;
+                yield break;
             }
 
-            var caster = actionParams.ActingCharacter;
-            var targets = actionParams.TargetCharacters
-                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                            x.RulesetCharacter.HasConditionOfCategoryAndType(
-                                AttributeDefinitions.TagEffect, "ConditionHitByDirtyFighting"))
-                .ToList(); // avoid changing enumerator
+            var attackModeMain = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
-            if (caster == null || targets.Count == 0)
+            if (attackModeMain == null)
             {
-                return null;
-            }
-
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            if (attackMode == null)
-            {
-                return null;
+                yield break;
             }
 
             //get copy to be sure we don't break existing mode
-            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+            var attackMode = RulesetAttackMode.AttackModesPool.Get();
 
-            rulesetAttackModeCopy.Copy(attackMode);
+            attackMode.Copy(attackModeMain);
+            attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
 
-            attackMode = rulesetAttackModeCopy;
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var target in targets)
+            {
+                var attackModifier = new ActionModifier();
+                var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree)
+                {
+                    AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
+                };
 
-            //set action type to be same as the one used for the magic effect
-            attackMode.ActionType = effect.ActionType;
-
-            var attackModifier = new ActionModifier();
-
-            return targets
-                .Where(t => CanMeleeAttack(caster, t))
-                .Select(target =>
-                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree)
-                    {
-                        AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
-                    });
-        }
-
-        private static bool DefaultCanUseHandler(
-            [NotNull] CursorLocationSelectTarget targeting,
-            GameLocationCharacter caster,
-            GameLocationCharacter target, [NotNull] out string failure)
-        {
-            failure = string.Empty;
-
-            return true;
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParams, null, true);
+            }
         }
     }
 

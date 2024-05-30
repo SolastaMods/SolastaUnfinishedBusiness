@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -18,6 +17,25 @@ internal static partial class SpellBuilders
         (DamageTypeAcid, AcidSplash), (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt),
         (DamageTypeLightning, LightningBolt), (DamageTypePoison, PoisonSpray), (DamageTypeThunder, Shatter)
     ];
+
+    public interface IAttackAfterMagicEffect
+    {
+        public delegate bool CanAttackHandler(GameLocationCharacter caster, GameLocationCharacter target);
+
+        public delegate bool CanUseHandler(
+            CursorLocationSelectTarget targeting,
+            GameLocationCharacter caster,
+            GameLocationCharacter target,
+            out string failure);
+
+        [CanBeNull]
+        public delegate IEnumerable<CharacterActionParams> GetAttackAfterUseHandler(
+            CharacterActionMagicEffect actionMagicEffect);
+
+        public CanUseHandler CanBeUsedToAttack { get; }
+        public GetAttackAfterUseHandler PerformAttackAfterUse { get; }
+        public CanAttackHandler CanAttack { get; }
+    }
 
     private sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
     {

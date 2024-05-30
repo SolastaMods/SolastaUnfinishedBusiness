@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -106,7 +105,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cone, 9)
                     .Build())
-            .AddCustomSubFeatures(new AttackAfterMagicEffectHailOfArrows())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeHailOfArrows())
             .AddToDB();
 
         var actionHailOfArrows = ActionDefinitionBuilder
@@ -240,16 +239,52 @@ public sealed class WayOfZenArchery : AbstractSubclass
     // Hail of Arrows
     //
 
-    private sealed class AttackAfterMagicEffectHailOfArrows : IAttackAfterMagicEffect
+    private sealed class MagicEffectFinishedByMeHailOfArrows : IMagicEffectFinishedByMe
     {
-        public IAttackAfterMagicEffect.CanAttackHandler CanAttack { get; } =
-            CanBowAttack;
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
 
-        public IAttackAfterMagicEffect.GetAttackAfterUseHandler PerformAttackAfterUse { get; } =
-            DefaultAttackHandler;
+            var actingCharacter = action.ActingCharacter;
+            var targets = action.ActionParams.TargetCharacters
+                .Where(x => CanBowAttack(actingCharacter, x))
+                .ToList();
 
-        public IAttackAfterMagicEffect.CanUseHandler CanBeUsedToAttack { get; } =
-            DefaultCanUseHandler;
+            if (targets.Count == 0)
+            {
+                yield break;
+            }
+
+            var attackModeMain = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackModeMain == null)
+            {
+                yield break;
+            }
+
+            //get copy to be sure we don't break existing mode
+            var attackMode = RulesetAttackMode.AttackModesPool.Get();
+
+            attackMode.Copy(attackModeMain);
+            attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
+            attackMode.AttackTags.Add(HailOfArrows);
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var target in targets)
+            {
+                var attackModifier = new ActionModifier();
+                var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree)
+                {
+                    AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
+                };
+
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParams, null, true);
+            }
+        }
 
         private static bool CanBowAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
         {
@@ -267,64 +302,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
             return battleService.CanAttack(evalParams);
-        }
-
-        [CanBeNull]
-        private static IEnumerable<CharacterActionParams> DefaultAttackHandler(
-            [CanBeNull] CharacterActionMagicEffect effect)
-        {
-            var actionParams = effect?.ActionParams;
-
-            if (actionParams == null)
-            {
-                return null;
-            }
-
-            var caster = actionParams.ActingCharacter;
-            var targets = actionParams.TargetCharacters;
-
-            if (targets.Count == 0)
-            {
-                return null;
-            }
-
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            if (attackMode == null)
-            {
-                return null;
-            }
-
-            //get copy to be sure we don't break existing mode
-            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            rulesetAttackModeCopy.Copy(attackMode);
-
-            attackMode = rulesetAttackModeCopy;
-
-            //set action type to be same as the one used for the magic effect
-            attackMode.ActionType = effect.ActionType;
-            attackMode.AttackTags.Add(HailOfArrows);
-
-            var attackModifier = new ActionModifier();
-
-            return targets
-                .Where(t => CanBowAttack(caster, t))
-                .Select(target =>
-                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree)
-                    {
-                        AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
-                    });
-        }
-
-        private static bool DefaultCanUseHandler(
-            [NotNull] CursorLocationSelectTarget targeting,
-            GameLocationCharacter caster,
-            GameLocationCharacter target, [NotNull] out string failure)
-        {
-            failure = string.Empty;
-
-            return true;
         }
     }
 }

@@ -18,6 +18,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 
 namespace SolastaUnfinishedBusiness.Patches;
 

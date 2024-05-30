@@ -23,6 +23,7 @@ using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using MirrorImage = SolastaUnfinishedBusiness.Behaviors.Specific.MirrorImage;
 
 namespace SolastaUnfinishedBusiness.Patches;

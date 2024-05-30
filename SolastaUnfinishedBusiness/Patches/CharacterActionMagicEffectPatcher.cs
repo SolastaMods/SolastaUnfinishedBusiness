@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using TA;
 using UnityEngine;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
