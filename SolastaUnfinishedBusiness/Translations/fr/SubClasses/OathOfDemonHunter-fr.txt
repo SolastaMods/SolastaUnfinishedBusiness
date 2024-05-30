@@ -1,6 +1,6 @@
 Condition/&ConditionOathOfDemonHunterTrialMarkDescription=Vous subissez des dégâts radiants supplémentaires lorsque vous subissez des dégâts d'arme provenant de la source de la marque d'essai.
 Condition/&ConditionOathOfDemonHunterTrialMarkTitle=Marque d'essai
-Feature/&AttributeModifierOathOfDemonHunterDivineCrossbowDescription=À partir du niveau 15, vous imprégnez votre arbalète d’un pouvoir divin. Vous bénéficiez des avantages suivants :\n· La portée de vos arbalètes augmente de 9 pieds.\n· La portée de votre menace de coup critique augmente de 1 point.
+Feature/&AttributeModifierOathOfDemonHunterDivineCrossbowDescription=À partir du niveau 15, vous imprégnez votre arbalète d'un pouvoir divin. Vous bénéficiez des avantages suivants :\n· La portée de vos arbalètes augmente de 9 pieds.\n· La portée de votre menace de coup critique augmente de 1 point.
 Feature/&AttributeModifierOathOfDemonHunterDivineCrossbowTitle=Arbalète divine
 Feature/&DieRollModifierOathOfDemonHunterDemonSlayer=Grâce à la capacité de Demon Slayer, {0} relance le dé {1} de {2} à {3}.
 Feature/&FeatureOathOfDemonHunterDemonHunterDescription=À partir du niveau 3, vous pouvez appliquer votre capacité Châtiment divin lorsque vous frappez un ennemi avec une arbalète légère, une arbalète à main ou une arbalète lourde.

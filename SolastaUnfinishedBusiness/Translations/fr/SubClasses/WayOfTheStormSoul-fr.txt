@@ -1,6 +1,6 @@
 Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=Cette marque peut exploser à tout moment et causer 5D10 dégâts de tonnerre.
 Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=Marque de tempête
-Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Chaque fois que vous utilisez votre Rafale de coups, vous bénéficiez également des avantages de l’action de désengagement. Les attaques bonus qu'il fournit infligent des dégâts de foudre supplémentaires égaux à votre dé d'arts martiaux.
+Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=Chaque fois que vous utilisez votre Rafale de coups, vous bénéficiez également des avantages de l'action de désengagement. Les attaques bonus qu'il fournit infligent des dégâts de foudre supplémentaires égaux à votre dé d'arts martiaux.
 Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=Disciple des Tempêtes
 Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=Chaque fois que vous endommagez une créature avec une arme de moine, une attaque à mains nues ou un cantrip Lightning Lure, vous marquez cette créature avec des énergies conductrices persistantes pendant 1 minute. Vous pouvez utiliser votre action et dépenser 3 ki pour consommer la marque sur chaque créature et leur imposer un jet de sauvegarde de Dextérité (DD = 8 + bonus de maîtrise + modificateur de Sagesse). En cas d'échec d'un jet de sauvegarde, chaque créature reçoit 5d10 dégâts de foudre (réserve de moitié).
 Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormTitle=L'œil du cyclone

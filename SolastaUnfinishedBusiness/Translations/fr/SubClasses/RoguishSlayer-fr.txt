@@ -10,5 +10,5 @@ Feature/&FeatureRoguishSlayerFatalStrikeDescription=À partir du niveau 17, vous
 Feature/&FeatureRoguishSlayerFatalStrikeTitle=Frappe fatale
 Feature/&PowerRoguishSlayerCloakOfShadowsDescription=À partir du niveau 13, vous pouvez utiliser votre action bonus pour devenir invisible pendant 1 minute. Vous pouvez utiliser cette fonctionnalité un nombre de fois par repos long égal à votre modificateur de Dextérité.
 Feature/&PowerRoguishSlayerCloakOfShadowsTitle=Cape des ombres
-Subclass/&RoguishSlayerDescription=Les Slayers concentrent leur entraînement sur l’art sinistre de la mort. Ceux qui adhèrent à cet archétype sont divers : des tueurs à gages, des espions, des chasseurs de primes et même des prêtres spécialement oints et formés pour exterminer les ennemis de leur divinité. La furtivité, le poison et le déguisement vous aident à éliminer vos ennemis avec une efficacité mortelle.
+Subclass/&RoguishSlayerDescription=Les Slayers concentrent leur entraînement sur l'art sinistre de la mort. Ceux qui adhèrent à cet archétype sont divers : des tueurs à gages, des espions, des chasseurs de primes et même des prêtres spécialement oints et formés pour exterminer les ennemis de leur divinité. La furtivité, le poison et le déguisement vous aident à éliminer vos ennemis avec une efficacité mortelle.
 Subclass/&RoguishSlayerTitle=Tueur

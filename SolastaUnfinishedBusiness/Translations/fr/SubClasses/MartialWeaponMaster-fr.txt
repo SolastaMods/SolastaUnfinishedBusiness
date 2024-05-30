@@ -1,6 +1,6 @@
 Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=Vous avez l'avantage sur toutes les attaques avec votre arme spécialisée jusqu'à la fin de votre tour.
 Condition/&ConditionMartialWeaponMasterFocusedStrikesTitle=Frappes ciblées
-Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=Vous gagnez +1 aux jets de touche et de dégâts avec votre type d’arme spécialisée. Un Maître d'Armes Martiales aura un désavantage pour attaquer avec tous les autres types d'armes mais obtiendra un bonus de +2 à partir du niveau 9 et un bonus de +3 à partir du niveau 17.
+Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=Vous gagnez +1 aux jets de touche et de dégâts avec votre type d'arme spécialisée. Un Maître d'Armes Martiales aura un désavantage pour attaquer avec tous les autres types d'armes mais obtiendra un bonus de +2 à partir du niveau 9 et un bonus de +3 à partir du niveau 17.
 Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle=Spécialisation des armes
 Feature/&FeatureMartialWeaponMasterBattleStanceDescription=Chaque fois que vous lancez un jet d'initiative, vous gagnez des points de vie temporaires égaux à votre niveau de maîtrise d'arme + modificateur de Constitution et récupérez une utilisation de votre fonction Frappes ciblées si votre arme spécialisée est équipée.
 Feature/&FeatureMartialWeaponMasterBattleStanceTitle=Position de combat
