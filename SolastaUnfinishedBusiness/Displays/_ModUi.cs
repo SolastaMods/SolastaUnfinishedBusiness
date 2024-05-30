@@ -196,6 +196,7 @@ internal static class ModUi
         "OathOfAncients",
         "PathOfTheRavager",
         "PathOfTheSpirits",
+        "PatronArchfey",
         "PatronCelestial",
         "PatronSoulBlade",
         "PowerWordHeal",

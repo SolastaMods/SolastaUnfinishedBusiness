@@ -245,6 +245,9 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition RangerMarksman { get; } =
             GetDefinition<CharacterSubclassDefinition>("RangerMarksman");
 
+        internal static CharacterSubclassDefinition RangerShadowTamer { get; } =
+            GetDefinition<CharacterSubclassDefinition>("RangerShadowTamer");
+
         internal static CharacterSubclassDefinition RangerSwiftBlade { get; } =
             GetDefinition<CharacterSubclassDefinition>("RangerSwiftBlade");
 

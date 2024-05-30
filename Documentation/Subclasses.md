@@ -1853,7 +1853,7 @@ The Mischief domain is followed by those who pursue joy, pleasure, and wealth th
 
 * Borrowed Luck
 
-When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.​​​​​​​
+When you fail a saving throw where you did not have disadvantage, you can use your reaction to roll again. If you succeed, you will have disadvantage on your next saving throw.
 
 * Mischief Domain Spells
 
@@ -1887,7 +1887,7 @@ When you hit a creature with a melee or ranged weapon attack, you can Channel Di
 
 * Elusive Target
 
-Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.​​​​​​
+Starting at level 6, you are extremely hard to corner in close combat. When a melee attack hits you, you can use your reaction to gain the benefits of Dodging and Disengaging until the end of your next turn.
 
 
 ### Level 8
@@ -2929,14 +2929,14 @@ You can use a bonus action to give all allies within 3 cells of you (including y
 
 ### Level 7
 
-* Coordinated Defense​​​​​​​
+* Coordinated Defense
 
 When you use the attack action, you can forego one of your attacks to grant an ally within 3 cells of you (including yourself) Dodge until the start of your next turn.
 
 
 ### Level 10
 
-* Invigorating Shout​​​​​​​
+* Invigorating Shout
 
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 
@@ -5860,7 +5860,54 @@ Starting at 18th level, your gain the ability to corrupt creatures on touch and 
 
 # Warlock
 
-## 1. The Celestial [UB]
+## 1. Patron Archfey [UB]
+
+Your patron is a lord or lady of the fey, a creature of legend who holds secrets that were forgotten before the mortal races were born. This being's motivations are often inscrutable, and sometimes whimsical, and might involve a striving for greater magical power or the settling of age-old grudges.
+
+
+### Level 1
+
+* Expanded Spells
+
+
+	I	Faerie Fire, Sleep
+
+	II	Calm Emotions
+
+	IV	Dominate Beast, Greater Invisibility
+
+	V	Dominate Person
+
+
+
+* Fey Presence
+
+As an action, you can cause each creature in a 10-foot cube originating from you to make a Wisdom saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn. Once you use this feature, you can't use it again until you finish a short or long rest.
+
+
+### Level 6
+
+* Misty Escape
+
+ When you take damage, you can use your reaction to turn invisible and teleport up to 60 feet to an unoccupied space you can see. You remain invisible until the start of your next turn or until you attack or cast a spell. Once you use this feature, you can't use it again until you finish a short or long rest.
+
+
+### Level 10
+
+* Beguiling Defenses
+
+You are immune to being charmed, and when another creature attempts to charm you, you can use your reaction to attempt to turn the charm back on that creature. The creature must succeed on a Wisdom saving throw against your warlock spell save DC or be charmed by you for 1 minute or until the creature takes any damage.
+
+
+### Level 14
+
+* Dark Delirium
+
+As an action, choose a creature that you can see within 60 feet of you. It must make a Wisdom saving throw against your warlock spell save DC. On a failed save, it is charmed or frightened by you (your choice) for 1 minute. This effect ends early if the creature takes any damage. Once you use this feature, you can't use it again until you finish a short or long rest.
+
+
+
+## 2. The Celestial [UB]
 
 Your patron is a powerful being of the Upper Planes. You have bound yourself to an ancient empyrean, solar, ki-rin, unicorn, or other entity that resides in the planes of everlasting bliss. Your pact with that being allows you to experience the barest touch of the holy light that illuminates the multiverse.
 
@@ -5913,7 +5960,7 @@ The radiant energy you channel allows you to resist death. When you have to make
 
 
 
-## 2. The Eldritch Surge [UB]
+## 3. The Eldritch Surge [UB]
 
 You made a pact with a mysterious entity that may be a consciousness that emerged from the intricacy of the Weave, believing that pure arcane power can create any phenomenon. And you are to prove it.
 
@@ -5971,7 +6018,7 @@ You learn one Versatility.
 
 
 
-## 3. The Elementalist [UB]
+## 4. The Elementalist [UB]
 
 You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 
@@ -6022,7 +6069,7 @@ Your control of elemental energies has increased to the point than you now have 
 
 
 
-## 4. The Fiend [SOL]
+## 5. The Fiend [SOL]
 
 A fiend is a dangerous patron whose power comes at a cost. A denizen of the lower planes of existence, your patron's aims are evil, and although you may strive against those aims, your patron still desires the corruption or destruction of all things, ultimately including you.
 
@@ -6072,7 +6119,7 @@ When you hit a creature with an attack, you can banish it to the lower planes un
 
 
 
-## 5. The Hexblade [UB]
+## 6. The Hexblade [UB]
 
 You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 
@@ -6132,7 +6179,7 @@ You can use Soul Hex twice per short rest now, and you can use a bonus action to
 
 
 
-## 6. The Hive [SOL]
+## 7. The Hive [SOL]
 
 The insects known as redeemers were developed by the Manacalon Empire as living weapons controlled by hive intelligence. With the fall of the Empire, that intelligence became self-willed and powerful - and curious about others. The Hive studies its warlocks as well as empowering them.
 
@@ -6181,7 +6228,7 @@ Starting at level 14, you have advantage on saving throws against spells and mag
 
 
 
-## 7. The Moonlit [UB]
+## 8. The Moonlit [UB]
 
 Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 
@@ -6232,7 +6279,7 @@ Whenever a creature damages you, you can use your reaction to become invisible u
 
 
 
-## 8. The Mountain [UB]
+## 9. The Mountain [UB]
 
 You have made a pact with an ancient primal entity that dwells atop the highest mountains of Solasta. Such entities yearn for a simpler epoch when mortals left them to their long slumber above the clouds, raising no cities and delving no mines. Their warlocks disdain the tools of civilization, calling upon the mountain's strength to shield their companions and strike down their foes.
 
@@ -6289,7 +6336,7 @@ Gain immunity to cold damage. The first time you hit an enemy with an attack on 
 
 
 
-## 9. The Riftwalker [UB]
+## 10. The Riftwalker [UB]
 
 Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 
@@ -6350,7 +6397,7 @@ As a main action, your control of rift portals has increased to the point that y
 
 
 
-## 10. The Timekeeper [SOL]
+## 11. The Timekeeper [SOL]
 
 Time is eternal, just a long flow. And yet, it longs for more than this endless flow; it longs to feel the meaning of a single moment. The Timekeepers fulfill this longing and can even sometimes manipulate the flow, a boon granted to agents of Time.
 
@@ -6403,7 +6450,7 @@ Starting at the 14th level, on your turn, you can take one additional action on 
 
 
 
-## 11. The Tree [SOL]
+## 12. The Tree [SOL]
 
 The Tree stands at the heart of the Forest of Colthannin. To the sylvan elves - and more recently, to others - it is the soul of the forest. Its roots probe the depths, its branches touch the sky - and its warlocks travel the world between, informing and enacting its labyrinthine plans.
 
