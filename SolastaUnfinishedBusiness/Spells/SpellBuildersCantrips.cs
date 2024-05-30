@@ -368,18 +368,14 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build(),
+                        EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D8),
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitions.ConditionInvisible, ConditionForm.ConditionOperation.Remove),
                         EffectFormBuilder
                             .Create()
                             .SetLightSourceForm(
-                                LightSourceType.Basic, 0, 2,
+                                LightSourceType.Basic, 1, 2,
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())

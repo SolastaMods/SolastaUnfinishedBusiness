@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -11,8 +11,10 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -34,9 +36,9 @@ public class PatronArchfey : AbstractSubclass
             .ClearSpells()
             .SetSpellsAtLevel(1, FaerieFire, Sleep)
             .SetSpellsAtLevel(2, CalmEmotions, SpellsContext.MirrorImage)
-            .SetSpellsAtLevel(3, DispelMagic, Fly)
+            .SetSpellsAtLevel(3, ConjureAnimals, ProtectionFromEnergy)
             .SetSpellsAtLevel(4, DominateBeast, GreaterInvisibility)
-            .SetSpellsAtLevel(5, DominatePerson, HoldMonster)
+            .SetSpellsAtLevel(5, DominatePerson, SpellsContext.MantleOfThorns)
             .FinalizeSpells(true, 9)
             .AddToDB();
 
@@ -50,13 +52,14 @@ public class PatronArchfey : AbstractSubclass
 
         var powerFeyPresence = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}FeyPresence")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerFeyPresence", Resources.PowerFeyPresence, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 5)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .Build())
@@ -64,13 +67,13 @@ public class PatronArchfey : AbstractSubclass
 
         var powerFeyPresenceCharmed = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}FeyPresenceCharmed")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.Action, powerFeyPresence)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 5)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -80,18 +83,20 @@ public class PatronArchfey : AbstractSubclass
                             .SetConditionForm(ConditionDefinitions.ConditionCharmed,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(PowerSorcererDraconicElementalResistance)
+                    .SetImpactEffectParameters(CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
         var powerFeyPresenceFrightened = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}FeyPresenceFrightened")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.Action, powerFeyPresence)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 5)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -101,6 +106,8 @@ public class PatronArchfey : AbstractSubclass
                             .SetConditionForm(ConditionDefinitions.ConditionFrightened,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(PowerSorcererDraconicElementalResistance)
+                    .SetImpactEffectParameters(Malediction.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
@@ -116,12 +123,6 @@ public class PatronArchfey : AbstractSubclass
         // LEVEL 06
 
         // Misty Escape
-
-        var conditionMistyEscape = ConditionDefinitionBuilder
-            .Create($"Condition{Name}MistyEscape")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
 
         var powerMistyEscape = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MistyEscape")
@@ -139,15 +140,13 @@ public class PatronArchfey : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionInvisible,
                             ConditionForm.ConditionOperation.Add, true, true))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMelekTeleport)
+                    .SetParticleEffectParameters(PowerMelekTeleport)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        conditionMistyEscape.AddCustomSubFeatures(
-            new ActionFinishedByMeMistyEscape(powerMistyEscape, conditionMistyEscape));
-
-        powerMistyEscape.AddCustomSubFeatures(new CustomBehaviorMistyEscape(conditionMistyEscape));
+        powerMistyEscape.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new CustomBehaviorMistyEscape(powerMistyEscape));
 
         // LEVEL 10
 
@@ -162,7 +161,7 @@ public class PatronArchfey : AbstractSubclass
 
         var powerBeguilingDefenses = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BeguilingDefenses")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -177,10 +176,13 @@ public class PatronArchfey : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionBeguilingDefenses, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(PowerSorcererDraconicElementalResistance)
+                    .SetImpactEffectParameters(CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
-        powerBeguilingDefenses.AddCustomSubFeatures(new CustomBehaviorBeguilingDefenses(powerBeguilingDefenses));
+        powerBeguilingDefenses.AddCustomSubFeatures(
+            new CustomBehaviorBeguilingDefenses(powerBeguilingDefenses));
 
         var conditionAffinityBeguilingDefenses = FeatureDefinitionConditionAffinityBuilder
             .Create($"ConditionAffinity{Name}BeguilingDefenses")
@@ -201,7 +203,8 @@ public class PatronArchfey : AbstractSubclass
 
         var powerDarkDelirium = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DarkDelirium")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerDarkDelirium", Resources.PowerDarkDelirium, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -222,7 +225,7 @@ public class PatronArchfey : AbstractSubclass
 
         var powerDarkDeliriumCharmed = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}DarkDeliriumCharmed")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.Action, powerDarkDelirium)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -237,6 +240,8 @@ public class PatronArchfey : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionDarkDeliriumCharmed, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(PowerGreen_Hag_Invisibility)
+                    .SetImpactEffectParameters(CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
@@ -249,7 +254,7 @@ public class PatronArchfey : AbstractSubclass
 
         var powerDarkDeliriumFrightened = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}DarkDeliriumFrightened")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.Action, powerDarkDelirium)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -264,6 +269,8 @@ public class PatronArchfey : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionDarkDeliriumFrightened, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(PowerGreen_Hag_Invisibility)
+                    .SetEffectEffectParameters(PhantasmalKiller)
                     .Build())
             .AddToDB();
 
@@ -278,7 +285,7 @@ public class PatronArchfey : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Patron{Name}")
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerShadowTamer)
+            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainElementalLighting)
             .AddFeaturesAtLevel(1, magicAffinityExpandedSpells, featureSetFeyPresence)
             .AddFeaturesAtLevel(6, powerMistyEscape)
             .AddFeaturesAtLevel(10, featureSetBeguilingDefenses)
@@ -296,9 +303,21 @@ public class PatronArchfey : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomBehaviorMistyEscape(ConditionDefinition conditionMistyEscape)
-        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorMistyEscape(FeatureDefinitionPower powerMistyEscape)
+        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe, IActionFinishedByEnemy, IIgnoreInvisibilityInterruptionCheck
     {
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        {
+            if (!target.UsedSpecialFeatures.ContainsKey("MistyEscape"))
+            {
+                yield break;
+            }
+
+            target.UsedSpecialFeatures.Remove("MistyEscape");
+            
+            yield return SelectPositionAndExecutePower(target);
+        }
+
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -327,6 +346,46 @@ public class PatronArchfey : AbstractSubclass
             yield return HandleReaction(battleManager, attacker, defender);
         }
 
+        private IEnumerator SelectPositionAndExecutePower(GameLocationCharacter defender)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+            var cursorManager = ServiceRepository.GetService<ICursorService>() as CursorManager;
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerMistyEscape, rulesetDefender);
+            var rulesetEffect = implementationManager
+                .MyInstantiateEffectPower(defender.RulesetCharacter, usablePower, false);
+            
+            var actionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            {
+                RulesetEffect = rulesetEffect,
+                UsablePower = usablePower
+            };
+
+            cursorManager!.ActivateCursor<CursorLocationSelectPosition>(actionParams);
+
+            while (cursorManager.CurrentCursor is not
+                   (CursorLocationBattleFriendlyTurn or CursorLocationBattleEnemyTurn))
+            {
+                yield return null;
+            }
+
+            var c = cursorManager.cursorsByType[typeof(CursorLocationSelectPosition)] as CursorLocationSelectPosition;
+
+            actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { new ActionModifier()},
+                RulesetEffect = rulesetEffect,
+                UsablePower = usablePower,
+                TargetCharacters = { defender },
+                positions = [.. c!.selectedPositions]
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+
         private IEnumerator HandleReaction(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -335,12 +394,17 @@ public class PatronArchfey : AbstractSubclass
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager)
+            if (!actionManager ||
+                defender.RulesetCharacter.GetRemainingPowerUses(powerMistyEscape) == 0 ||
+                defender.IsMyTurn())
             {
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            var reactionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            {
+                StringParameter = "Reaction/&CustomReactionMistyEscapeDescription"
+            };
             var reactionRequest = new ReactionRequestCustom("MistyEscape", reactionParams);
             var count = actionManager.PendingReactionRequestGroups.Count;
 
@@ -353,68 +417,7 @@ public class PatronArchfey : AbstractSubclass
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            rulesetAttacker.InflictCondition(
-                conditionMistyEscape.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                conditionMistyEscape.Name,
-                0,
-                0,
-                0);
-        }
-    }
-
-    private sealed class ActionFinishedByMeMistyEscape(
-        FeatureDefinitionPower powerMistyEscape,
-        ConditionDefinition conditionMistyEscape) : IActionFinishedByMe
-    {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            var attacker = action.ActingCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionMistyEscape.Name, out var activeCondition))
-            {
-                yield break;
-            }
-
-            var rulesetDefender = EffectHelpers.GetCharacterByEffectGuid(activeCondition.SourceGuid);
-            var defender = GameLocationCharacter.GetFromActor(rulesetDefender);
-
-            rulesetAttacker.RemoveCondition(activeCondition);
-
-            var cursorService = ServiceRepository.GetService<ICursorService>();
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerMistyEscape, rulesetDefender);
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(defender.RulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-
-            cursorService.ActivateCursor<CursorLocationSelectPosition>(actionParams);
-
-            while (cursorService.CurrentCursor is not (CursorLocationBattleFriendlyTurn or CursorLocationBattleEnemyTurn
-                   ))
-            {
-                yield return null;
-            }
-
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            defender.UsedSpecialFeatures.TryAdd("MistyEscape", 0);
         }
     }
 
@@ -460,7 +463,8 @@ public class PatronArchfey : AbstractSubclass
                 !defender.CanPerceiveTarget(attacker) ||
                 !actualEffectForms.Any(x =>
                     x.FormType == EffectForm.EffectFormType.Condition &&
-                    x.ConditionForm.ConditionDefinition == ConditionDefinitions.ConditionCharmed))
+                    (x.ConditionForm.ConditionDefinition == ConditionDefinitions.ConditionCharmed ||
+                     x.ConditionForm.ConditionDefinition.parentCondition == ConditionDefinitions.ConditionCharmed)))
             {
                 yield break;
             }
