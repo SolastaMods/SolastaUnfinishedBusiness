@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "94705f3ef20195442b2d38ac29286eed",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -163,7 +163,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "a0f591bf23319d846abb89ac112a66c6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -327,7 +327,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&PowerArchfeyBeguilingDefensesTitle",
     "description": "Feature/&PowerArchfeyBeguilingDefensesDescription",
     "spriteReference": {

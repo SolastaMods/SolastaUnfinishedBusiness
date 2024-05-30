@@ -173,7 +173,7 @@
     "description": "Feature/&PowerArchfeyFeyPresenceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "0a61312d-8c66-5132-9625-6911ed337299",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

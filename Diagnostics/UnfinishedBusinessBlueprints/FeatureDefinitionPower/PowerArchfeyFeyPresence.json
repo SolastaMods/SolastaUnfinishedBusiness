@@ -8,7 +8,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Cube",
     "itemSelectionType": "None",
-    "targetParameter": 3,
+    "targetParameter": 5,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -30,7 +30,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
+    "targetSide": "Enemy",
     "durationType": "Round",
     "durationParameter": 1,
     "endOfEffect": "StartOfTurn",
@@ -304,7 +304,7 @@
     "description": "Feature/&PowerArchfeyFeyPresenceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "0a61312d-8c66-5132-9625-6911ed337299",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

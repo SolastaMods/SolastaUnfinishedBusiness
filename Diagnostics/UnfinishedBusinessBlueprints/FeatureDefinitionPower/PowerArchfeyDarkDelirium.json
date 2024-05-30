@@ -304,7 +304,7 @@
     "description": "Feature/&PowerArchfeyDarkDeliriumDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "5085d080-e27c-5a35-b9de-a685dd4c17a0",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

@@ -28,8 +28,8 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 3,
       "spells": [
-        "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
-        "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83"
+        "Definition:ConjureAnimals:f0e0d1125df2d554eb10d3dde3a2050d",
+        "Definition:ProtectionFromEnergy:8416ac74aea478f498e2d50380376e90"
       ]
     },
     {
@@ -45,7 +45,7 @@
       "level": 5,
       "spells": [
         "Definition:DominatePerson:89e34ee9a6361c040abb36971b697031",
-        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16"
+        "Definition:MantleOfThorns:e104287c-c35e-5355-b4ab-527a4a46860e"
       ]
     },
     {
