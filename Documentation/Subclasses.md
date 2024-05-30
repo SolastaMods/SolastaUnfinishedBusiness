@@ -5860,7 +5860,7 @@ Starting at 18th level, your gain the ability to corrupt creatures on touch and 
 
 # Warlock
 
-## 1. Patron Archfey [UB]
+## 1. The Archfey [UB]
 
 Your patron is a lord or lady of the fey, a creature of legend who holds secrets that were forgotten before the mortal races were born. This being's motivations are often inscrutable, and sometimes whimsical, and might involve a striving for greater magical power or the settling of age-old grudges.
 
@@ -5872,24 +5872,26 @@ Your patron is a lord or lady of the fey, a creature of legend who holds secrets
 
 	I	Faerie Fire, Sleep
 
-	II	Calm Emotions
+	II	Calm Emotions, Mirror Image
+
+	III	Conjure Animal, Protection from Energy
 
 	IV	Dominate Beast, Greater Invisibility
 
-	V	Dominate Person
+	V	Dominate Person, Mantle of Thorns
 
 
 
 * Fey Presence
 
-As an action, you can cause each creature in a 10-foot cube originating from you to make a Wisdom saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn. Once you use this feature, you can't use it again until you finish a short or long rest.
+As an action, you can cause each creature in a 3x3 cube originating from you to make a Wisdom saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn. Once you use this feature, you can't use it again until you finish a short or long rest.
 
 
 ### Level 6
 
 * Misty Escape
 
- When you take damage, you can use your reaction to turn invisible and teleport up to 60 feet to an unoccupied space you can see. You remain invisible until the start of your next turn or until you attack or cast a spell. Once you use this feature, you can't use it again until you finish a short or long rest.
+ When you are hit, you can use your reaction to turn invisible and teleport up to 60 feet to an unoccupied space you can see. You remain invisible until the start of your next turn or until you attack or cast a spell. Once you use this feature, you can't use it again until you finish a short or long rest.
 
 
 ### Level 10

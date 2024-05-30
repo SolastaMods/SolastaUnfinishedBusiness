@@ -765,7 +765,7 @@ You have practiced extensively with a variety of weapons, gaining the following 
 
 You become a master of whirling death, gaining the following benefits:
 • Increase your Strength or Dexterity by 1, to a maximum of 20.
-• Once during your turn when you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Whirlwind Attack. Whirlwind Attack makes one attack roll against all enemy creatures within 5ft of you but doesn’t add your attribute modifier to damage dealt (unless that modifier is negative).   
+• Once during your turn when you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Whirlwind Attack. Whirlwind Attack makes one attack roll against all enemy creatures within 5ft of you but doesn't add your attribute modifier to damage dealt (unless that modifier is negative).   
 
 # 157. - Wise Archery [UB]
 
