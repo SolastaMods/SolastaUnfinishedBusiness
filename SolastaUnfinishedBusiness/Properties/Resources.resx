@@ -492,6 +492,16 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerFeyPresence" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerFeyPresence.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PowerDarkDelirium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerDarkDelirium.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="PowerBulwark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerBulwark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
