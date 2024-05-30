@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Validators;
 
@@ -23,63 +24,49 @@ internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
         return Gui.Battle == null || glc is { RemainingTacticalMoves: > 0 };
     });
 
-    public static readonly IValidatePowerUse HasBonusAttackAvailable = new ValidatorsValidatePowerUse(character =>
-    {
-        if (Gui.Battle == null)
+    public static readonly IValidatePowerUse HasBonusAttackAvailable = new ValidatorsValidatePowerUse(
+        rulesetCharacter =>
         {
-            return true;
-        }
+            if (Gui.Battle == null)
+            {
+                return true;
+            }
 
-        const ActionDefinitions.ActionType ACTION_TYPE = ActionDefinitions.ActionType.Bonus;
+            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
-        var glc = GameLocationCharacter.GetFromActor(character);
+            if (character == null ||
+                character.GetActionStatus(Id.AttackOff, ActionScope.Battle) != ActionStatus.Available)
+            {
+                return false;
+            }
 
-        if (glc != Gui.Battle.ActiveContender)
+            var maxAttacksNumber = rulesetCharacter.AttackModes
+                .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Bonus)?.AttacksNumber ?? 0;
+
+            return maxAttacksNumber - character.UsedBonusAttacks > 0;
+        });
+
+    public static readonly IValidatePowerUse HasMainAttackAvailable = new ValidatorsValidatePowerUse(
+        rulesetCharacter =>
         {
-            return false;
-        }
+            if (Gui.Battle == null)
+            {
+                return true;
+            }
 
-        var isBonusAvailable = glc.GetActionTypeStatus(ACTION_TYPE) == ActionDefinitions.ActionStatus.Available;
+            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
-        if (!isBonusAvailable && !glc.UsedSpecialFeatures.ContainsKey(HasAttackedWithBonus))
-        {
-            return false;
-        }
+            if (character == null ||
+                character.GetActionStatus(Id.AttackMain, ActionScope.Battle) != ActionStatus.Available)
+            {
+                return false;
+            }
 
-        var maxAttacksNumber = character.AttackModes
-            .FirstOrDefault(attackMode => attackMode.ActionType == ACTION_TYPE)?.AttacksNumber ?? 0;
+            var maxAttacksNumber = rulesetCharacter.AttackModes
+                .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
 
-        return maxAttacksNumber - character.ExecutedBonusAttacks > 0;
-    });
-
-    public static readonly IValidatePowerUse HasMainAttackAvailable = new ValidatorsValidatePowerUse(character =>
-    {
-        if (Gui.Battle == null)
-        {
-            return true;
-        }
-
-        const ActionDefinitions.ActionType ACTION_TYPE = ActionDefinitions.ActionType.Main;
-
-        var glc = GameLocationCharacter.GetFromActor(character);
-
-        if (glc == null)
-        {
-            return false;
-        }
-
-        var isMainAvailable = glc.GetActionTypeStatus(ACTION_TYPE) == ActionDefinitions.ActionStatus.Available;
-
-        if (!isMainAvailable && !glc.UsedSpecialFeatures.ContainsKey(HasAttackedWithMain))
-        {
-            return false;
-        }
-
-        var maxAttacksNumber = character.AttackModes
-            .FirstOrDefault(attackMode => attackMode.ActionType == ACTION_TYPE)?.AttacksNumber ?? 0;
-
-        return maxAttacksNumber - character.ExecutedAttacks > 0;
-    });
+            return maxAttacksNumber - character.UsedMainAttacks > 0;
+        });
 
     private readonly IsPowerUseValidHandler[] _validators;
 

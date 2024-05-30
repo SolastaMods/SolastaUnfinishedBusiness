@@ -544,7 +544,9 @@ public static class CharacterActionMagicEffectPatcher
                         .Where(attackMode => attackMode.ActionType == ActionDefinitions.ActionType.Main)
                         .Max(attackMode => attackMode.AttacksNumber);
 
-                    actingCharacter.RulesetCharacter.ExecutedAttacks = maxAttacksNumber;
+                    // burn all main attacks
+                    actingCharacter.UsedMainAttacks = maxAttacksNumber;
+                    actingCharacter.RulesetCharacter.ExecutedAttacks += maxAttacksNumber;
                 }
             }
 

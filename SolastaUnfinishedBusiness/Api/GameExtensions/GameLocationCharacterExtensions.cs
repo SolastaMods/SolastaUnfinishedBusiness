@@ -392,32 +392,43 @@ public static class GameLocationCharacterExtensions
         return false;
     }
 
-    internal static void BurnOneMainAttack(this GameLocationCharacter instance)
+    private static void HandleMonkMartialArts(this GameLocationCharacter instance)
+    {
+        var rulesetCharacter = instance.RulesetCharacter;
+
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack ||
+            rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) == 0)
+        {
+            return;
+        }
+
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
+        var actionParams = new CharacterActionParams(instance, Id.SpendPower)
+        {
+            RulesetEffect = implementationManager
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+            UsablePower = usablePower
+        };
+
+        ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+    }
+
+    internal static void BurnOneMainAttack(this GameLocationCharacter instance, bool handleMonkMartialArts = true)
     {
         if (Gui.Battle == null)
         {
             return;
         }
 
-        var rulesetCharacter = instance.RulesetCharacter;
-
-        if (!Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
-            rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) > 0)
+        if (handleMonkMartialArts)
         {
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
-            var actionParams = new CharacterActionParams(instance, Id.SpendPower)
-            {
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower
-            };
-
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
+            instance.HandleMonkMartialArts();
         }
+
+        var rulesetCharacter = instance.RulesetCharacter;
 
         // burn one main attack
         instance.HasAttackedSinceLastTurn = true;
@@ -428,13 +439,13 @@ public static class GameLocationCharacterExtensions
         var maxAttacksNumber = rulesetCharacter.AttackModes
             .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
 
-        if (maxAttacksNumber - instance.UsedMainAttacks > 0)
+        if (instance.UsedMainAttacks < maxAttacksNumber)
         {
             return;
         }
 
         instance.CurrentActionRankByType[ActionType.Main]++;
-        //instance.UsedMainAttacks = 0;
+        instance.UsedMainAttacks = 0;
     }
 
     internal static void BurnOneBonusAttack(this GameLocationCharacter instance)
@@ -455,12 +466,12 @@ public static class GameLocationCharacterExtensions
         var maxAttacksNumber = rulesetCharacter.AttackModes
             .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Bonus)?.AttacksNumber ?? 0;
 
-        if (maxAttacksNumber - instance.UsedBonusAttacks > 0)
+        if (instance.UsedBonusAttacks < maxAttacksNumber)
         {
             return;
         }
 
         instance.CurrentActionRankByType[ActionType.Bonus]++;
-        //instance.UsedBonusAttacks = 0;
+        instance.UsedBonusAttacks = 0;
     }
 }
