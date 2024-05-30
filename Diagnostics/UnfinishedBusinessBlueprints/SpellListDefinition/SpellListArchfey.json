@@ -20,13 +20,17 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 2,
       "spells": [
-        "Definition:CalmEmotions:a879080b607fd75458e0eca2dea58e8a"
+        "Definition:CalmEmotions:a879080b607fd75458e0eca2dea58e8a",
+        "Definition:MirrorImage:5c2d6ee9e5e53e742974baf0e543224c"
       ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 3,
-      "spells": []
+      "spells": [
+        "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
+        "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83"
+      ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
@@ -40,7 +44,8 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 5,
       "spells": [
-        "Definition:DominatePerson:89e34ee9a6361c040abb36971b697031"
+        "Definition:DominatePerson:89e34ee9a6361c040abb36971b697031",
+        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16"
       ]
     },
     {

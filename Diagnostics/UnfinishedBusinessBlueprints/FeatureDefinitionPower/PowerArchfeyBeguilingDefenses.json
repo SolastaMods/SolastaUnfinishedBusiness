@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
@@ -78,8 +78,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionArchfeyDarkDeliriumFrightened",
-          "conditionDefinition": "Definition:ConditionArchfeyDarkDeliriumFrightened:c2dca090-94d5-5746-9e68-f0e214015078",
+          "conditionDefinitionName": "ConditionArchfeyBeguilingDefenses",
+          "conditionDefinition": "Definition:ConditionArchfeyBeguilingDefenses:e078b30d-df8e-52ea-aa2e-8ab260e23d75",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -292,7 +292,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -308,7 +308,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -328,8 +328,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerArchfeyDarkDeliriumFrightenedTitle",
-    "description": "Feature/&PowerArchfeyDarkDeliriumFrightenedDescription",
+    "title": "Feature/&PowerArchfeyBeguilingDefensesTitle",
+    "description": "Feature/&PowerArchfeyBeguilingDefensesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -349,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7865300d-13da-53d6-8e29-2ef906b9c855",
+  "guid": "bda1c6ae-f640-5f19-b859-0d6bd426933d",
   "contentPack": 9999,
-  "name": "PowerArchfeyDarkDeliriumFrightened"
+  "name": "PowerArchfeyBeguilingDefenses"
 }
