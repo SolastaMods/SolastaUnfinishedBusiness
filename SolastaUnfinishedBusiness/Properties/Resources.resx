@@ -517,6 +517,16 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerEmergencySurgery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerEmergencySurgery.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PowerStepOfTheWind" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerStepOfTheWind.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="PowerCosmosOmen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerCosmosOmen.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
