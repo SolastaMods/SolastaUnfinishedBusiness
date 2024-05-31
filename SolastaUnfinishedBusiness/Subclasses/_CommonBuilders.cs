@@ -165,30 +165,19 @@ internal static class CommonBuilders
 
     private sealed class CustomBehaviorCasterFightingWarMagic(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition)
-        : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
+        ConditionDefinition conditionDefinition) : IMagicEffectFinishedByMeAny, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            List<GameLocationCharacter> targets)
         {
-            if (rulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
+            if (action.ActionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell &&
+                (Main.Settings.EnableCantripsTriggeringOnWarMagic ||
+                 rulesetEffectSpell.SpellDefinition.SpellLevel > 0))
             {
-                yield break;
+                yield return TryAddCondition(attacker.RulesetCharacter);
             }
-
-            if (rulesetEffectSpell.SpellDefinition.SpellLevel == 0 && !Main.Settings.EnableCantripsTriggeringOnWarMagic)
-            {
-                yield break;
-            }
-
-            yield return TryAddCondition(attacker);
         }
 
         //supports Sunlit Blade and Resonating Strike
@@ -204,39 +193,34 @@ internal static class CommonBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (!Main.Settings.EnableCantripsTriggeringOnWarMagic ||
-                (attackMode != null && !attackMode.AttackTags.Contains(SpellBuilders.PhysicalAttackFromCantrip)))
+            if (Main.Settings.EnableCantripsTriggeringOnWarMagic &&
+                attackMode.AttackTags.Contains(SpellBuilders.PhysicalAttackFromCantrip))
             {
-                yield break;
+                yield return TryAddCondition(attacker.RulesetCharacter);
             }
-
-            yield return TryAddCondition(attacker);
         }
 
-        private IEnumerator TryAddCondition(IControllableCharacter attacker)
+        private IEnumerator TryAddCondition(RulesetCharacter rulesetAttacker)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetAttacker.HasConditionOfCategoryAndType(
+            if (!rulesetAttacker.HasConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionDefinition.Name))
             {
-                yield break;
+                rulesetAttacker.InflictCondition(
+                    conditionDefinition.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionDefinition.Name,
+                    0,
+                    0,
+                    0);
             }
 
-            rulesetAttacker.InflictCondition(
-                conditionDefinition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                conditionDefinition.Name,
-                0,
-                0,
-                0);
+            yield break;
         }
     }
 

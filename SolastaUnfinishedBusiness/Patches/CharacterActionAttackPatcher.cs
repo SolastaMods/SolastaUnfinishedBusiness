@@ -1,12 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Validators;
 using UnityEngine;
 using static RuleDefinitions;
 using Coroutine = TA.Coroutine;
@@ -47,21 +45,6 @@ public static class CharacterActionAttackPatcher
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var itemService = ServiceRepository.GetService<IGameLocationItemService>();
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-
-            //BEGIN PATCH
-
-            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-            switch (__instance.ActionType)
-            {
-                case ActionDefinitions.ActionType.Main:
-                    actingCharacter.UsedSpecialFeatures.TryAdd(ValidatorsValidatePowerUse.HasAttackedWithMain, 0);
-                    break;
-                case ActionDefinitions.ActionType.Bonus:
-                    actingCharacter.UsedSpecialFeatures.TryAdd(ValidatorsValidatePowerUse.HasAttackedWithBonus, 0);
-                    break;
-            }
-
-            //END PATCH
 
             // Check action params
             var canAttackMain =

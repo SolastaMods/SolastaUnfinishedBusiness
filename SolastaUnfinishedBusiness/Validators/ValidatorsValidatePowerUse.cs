@@ -10,9 +10,6 @@ internal delegate bool IsPowerUseValidHandler(RulesetCharacter character, Featur
 
 internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
 {
-    public const string HasAttackedWithBonus = "HasAttackedWithBonus";
-    public const string HasAttackedWithMain = "HasAttackedWithMain";
-
     public static readonly IValidatePowerUse NotInCombat = new ValidatorsValidatePowerUse(_ => Gui.Battle == null);
 
     public static readonly IValidatePowerUse InCombat = new ValidatorsValidatePowerUse(_ => Gui.Battle != null);
