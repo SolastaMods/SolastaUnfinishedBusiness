@@ -537,16 +537,8 @@ public static class CharacterActionMagicEffectPatcher
                     foreach (var actionParam in characterActionParams)
                     {
                         ServiceRepository.GetService<IGameLocationActionService>()?
-                            .ExecuteAction(actionParam, null, true);
+                            .ExecuteAction(actionParam, null, false);
                     }
-
-                    var maxAttacksNumber = actingCharacter.RulesetCharacter.AttackModes
-                        .Where(attackMode => attackMode.ActionType == ActionDefinitions.ActionType.Main)
-                        .Max(attackMode => attackMode.AttacksNumber);
-
-                    // burn all main attacks
-                    actingCharacter.UsedMainAttacks = maxAttacksNumber;
-                    actingCharacter.RulesetCharacter.ExecutedAttacks += maxAttacksNumber;
                 }
             }
 

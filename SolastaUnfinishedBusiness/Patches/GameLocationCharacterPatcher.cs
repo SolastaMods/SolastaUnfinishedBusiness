@@ -410,8 +410,7 @@ public static class GameLocationCharacterPatcher
                     __instance.UsedBonusSpell = true;
                 }
 
-                // ensure we update some action switching related flags here as they get overwritten later
-                // under some scenarios involving cantrips that attack and war caster
+                // ensure we update some action switching related flags here as they might get overwritten later
                 // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                 switch (actionParams.ActionDefinition.ActionType)
                 {

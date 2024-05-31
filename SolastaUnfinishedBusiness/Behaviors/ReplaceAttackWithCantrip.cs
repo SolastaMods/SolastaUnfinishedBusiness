@@ -28,12 +28,12 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        if (character.usedMainAttacks == 0)
+        if (character.UsedMainAttacks == 0)
         {
             return;
         }
 
-        if (character.usedMainCantrip)
+        if (character.UsedMainCantrip)
         {
             return;
         }
