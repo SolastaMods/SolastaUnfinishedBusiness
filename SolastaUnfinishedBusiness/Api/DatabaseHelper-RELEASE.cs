@@ -1862,12 +1862,21 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMonkFlurryOfBlows { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkFlurryOfBlows");
-
+        
+        internal static FeatureDefinitionPower PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement");
+        
         internal static FeatureDefinitionPower PowerMonkMartialArts { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkMartialArts");
 
         internal static FeatureDefinitionPower PowerMonkPatientDefense { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefense");
+
+        internal static FeatureDefinitionPower PowerMonkPatientDefenseSurvival3 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefenseSurvival3");
+
+        internal static FeatureDefinitionPower PowerMonkPatientDefenseSurvival6 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefenseSurvival6");
 
         internal static FeatureDefinitionPower PowerMonkStepOfTheWindDash { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkStepOfTheWindDash");

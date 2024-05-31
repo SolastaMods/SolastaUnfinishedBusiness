@@ -665,6 +665,17 @@ internal static partial class CharacterContext
                                 "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism")
                             .SetUnarmedStrike(3)
                             .AddToDB())
+                    .AddToDB(),
+                ConditionDefinitionBuilder
+                    .Create("ConditionMonkFlurryOfBlowsFreedomHeightenedMetabolism")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetFeatures(
+                        FeatureDefinitionAttackModifierBuilder
+                            .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom,
+                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedomHeightenedMetabolism")
+                            .SetUnarmedStrike(4)
+                            .AddToDB())
                     .AddToDB()))
         .AddToDB();
 
@@ -962,11 +973,15 @@ internal static partial class CharacterContext
     }
 
     private sealed class CustomBehaviorHeightenedMetabolism(
-        ConditionDefinition conditionFlurryOfBlowsHeightenedMetabolism)
+        ConditionDefinition conditionFlurryOfBlowsHeightenedMetabolism,
+        ConditionDefinition conditionFlurryOfBlowsFreedomHeightenedMetabolism)
         : IModifyEffectDescription, IMagicEffectFinishedByMeAny
     {
         private readonly EffectForm _effectForm =
             EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsHeightenedMetabolism);
+
+        private readonly EffectForm _effectFormFreedom =
+            EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsFreedomHeightenedMetabolism);
 
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
@@ -975,7 +990,9 @@ internal static partial class CharacterContext
         {
             var definition = action.ActionParams.activeEffect.SourceDefinition;
 
-            if (definition != PowerMonkPatientDefense)
+            if (definition != PowerMonkPatientDefense &&
+                definition != PowerMonkPatientDefenseSurvival3 &&
+                definition != PowerMonkPatientDefenseSurvival6)
             {
                 yield break;
             }
@@ -984,8 +1001,8 @@ internal static partial class CharacterContext
             var dieType = rulesetCharacter.GetMonkDieType();
             var tempHp = rulesetCharacter.RollDiceAndSum(dieType, RollContext.HealValueRoll, 2, []);
 
-            rulesetCharacter.ReceiveTemporaryHitPoints(tempHp, DurationType.UntilAnyRest, 0,
-                TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                tempHp, DurationType.Round, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -993,6 +1010,7 @@ internal static partial class CharacterContext
             return Main.Settings.EnableMonkHeightenedMetabolism &&
                    character.GetClassLevel(Monk) >= 10 &&
                    (definition == PowerMonkFlurryOfBlows ||
+                    definition == PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement ||
                     definition == PowerMonkStepOfTheWindDash ||
                     definition == PowerMonkStepOftheWindDisengage);
         }
@@ -1003,9 +1021,21 @@ internal static partial class CharacterContext
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition == PowerMonkFlurryOfBlows)
+            if (definition == PowerMonkStepOfTheWindDash)
+            {
+                effectDescription.EffectForms.Add(PowerMonkStepOftheWindDisengage.EffectDescription.EffectForms[0]);
+            }
+            else if (definition == PowerMonkStepOftheWindDisengage)
+            {
+                effectDescription.EffectForms.Add(PowerMonkStepOfTheWindDash.EffectDescription.EffectForms[0]);
+            }
+            else if (definition == PowerMonkFlurryOfBlows)
             {
                 effectDescription.EffectForms.TryAdd(_effectForm);
+            }
+            else if (definition == PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement)
+            {
+                effectDescription.EffectForms.TryAdd(_effectFormFreedom);
             }
 
             return effectDescription;

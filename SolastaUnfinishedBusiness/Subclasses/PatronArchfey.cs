@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -84,7 +83,8 @@ public class PatronArchfey : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetCasterEffectParameters(PowerSorcererDraconicElementalResistance)
-                    .SetImpactEffectParameters(CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
+                    .SetImpactEffectParameters(
+                        CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
@@ -107,7 +107,8 @@ public class PatronArchfey : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetCasterEffectParameters(PowerSorcererDraconicElementalResistance)
-                    .SetImpactEffectParameters(Malediction.EffectDescription.EffectParticleParameters.effectParticleReference)
+                    .SetImpactEffectParameters(
+                        Malediction.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
@@ -177,7 +178,8 @@ public class PatronArchfey : AbstractSubclass
                             .SetConditionForm(conditionBeguilingDefenses, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetCasterEffectParameters(PowerSorcererDraconicElementalResistance)
-                    .SetImpactEffectParameters(CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
+                    .SetImpactEffectParameters(
+                        CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
@@ -241,7 +243,8 @@ public class PatronArchfey : AbstractSubclass
                             .SetConditionForm(conditionDarkDeliriumCharmed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetCasterEffectParameters(PowerGreen_Hag_Invisibility)
-                    .SetImpactEffectParameters(CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
+                    .SetImpactEffectParameters(
+                        CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
@@ -285,7 +288,7 @@ public class PatronArchfey : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Patron{Name}")
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainElementalLighting)
+            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerShadowTamer)
             .AddFeaturesAtLevel(1, magicAffinityExpandedSpells, featureSetFeyPresence)
             .AddFeaturesAtLevel(6, powerMistyEscape)
             .AddFeaturesAtLevel(10, featureSetBeguilingDefenses)
@@ -304,7 +307,8 @@ public class PatronArchfey : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class CustomBehaviorMistyEscape(FeatureDefinitionPower powerMistyEscape)
-        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe, IActionFinishedByEnemy, IIgnoreInvisibilityInterruptionCheck
+        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe, IActionFinishedByEnemy,
+            IIgnoreInvisibilityInterruptionCheck
     {
         public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
@@ -314,7 +318,7 @@ public class PatronArchfey : AbstractSubclass
             }
 
             target.UsedSpecialFeatures.Remove("MistyEscape");
-            
+
             yield return SelectPositionAndExecutePower(target);
         }
 
@@ -356,11 +360,10 @@ public class PatronArchfey : AbstractSubclass
             var usablePower = PowerProvider.Get(powerMistyEscape, rulesetDefender);
             var rulesetEffect = implementationManager
                 .MyInstantiateEffectPower(defender.RulesetCharacter, usablePower, false);
-            
+
             var actionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
-                RulesetEffect = rulesetEffect,
-                UsablePower = usablePower
+                RulesetEffect = rulesetEffect, UsablePower = usablePower
             };
 
             cursorManager!.ActivateCursor<CursorLocationSelectPosition>(actionParams);
@@ -375,7 +378,7 @@ public class PatronArchfey : AbstractSubclass
 
             actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = { new ActionModifier()},
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = rulesetEffect,
                 UsablePower = usablePower,
                 TargetCharacters = { defender },
