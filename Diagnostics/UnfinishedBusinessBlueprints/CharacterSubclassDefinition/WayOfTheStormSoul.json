@@ -31,9 +31,9 @@
     "description": "Subclass/&WayOfTheStormSoulDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "201f8991-bd33-5775-9d09-4643dc6a90c6",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "2e87609ff921809408f223c91150a5f8",
+      "m_SubObjectName": "Cleric_Storm",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
