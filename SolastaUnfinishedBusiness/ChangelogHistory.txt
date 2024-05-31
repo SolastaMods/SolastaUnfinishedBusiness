@@ -6,8 +6,7 @@
 - added Gameplay > Rules > 'Enable OneDnd healing dice buff' setting
 - added Great Weapon Defense and Whirlwind Attack feats
 - added Lightning Lure and Starry Wisp cantrips
-- added Patron Archfey subclass
-- replaced Way of Tempest with Way of Storm Soul subclass
+- added Patron Archfey and Way of Storm Soul [Tempest rework] subclasses
 
 KNOWN ISSUES:
 

@@ -385,6 +385,7 @@
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <BlindedConditionDontAllowAttackOfOpportunity>false</BlindedConditionDontAllowAttackOfOpportunity>
+    <AllowTargetingSelectionWhenCastingChainLightningSpell>false</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>false</RemoveHumanoidFilterOnHideousLaughter>
     <AddBleedingToLesserRestoration>false</AddBleedingToLesserRestoration>
     <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>false
@@ -1092,4 +1093,7 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

@@ -482,6 +482,7 @@
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
+    <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
     <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
     <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>true
@@ -978,6 +979,7 @@
             </key>
             <value>
                 <ArrayOfString>
+                    <string>PatronArchfey</string>
                     <string>PatronCelestial</string>
                     <string>PatronEldritchSurge</string>
                     <string>PatronElementalist</string>
