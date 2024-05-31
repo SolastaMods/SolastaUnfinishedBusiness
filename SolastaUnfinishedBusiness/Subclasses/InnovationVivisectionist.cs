@@ -1,7 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -52,16 +52,18 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .SetNotificationTag("MedicalAccuracy")
             .SetDamageDice(DieType.D6, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetAttackOnly()
             .AddToDB();
 
         // Emergency Surgery
 
         var powerEmergencySurgery = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EmergencySurgery")
-            .SetGuiPresentation(Category.Feature, PowerDomainInsightForeknowledge)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerEmergencySurgery", Resources.PowerEmergencySurgery, 256, 128))
             .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -265,10 +267,13 @@ public sealed class InnovationVivisectionist : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.GetRemainingPowerUses(powerOrganDonation) == 0)
+            if (rulesetAttacker.GetRemainingPowerUses(powerOrganDonation) == 0 ||
+                !attacker.OncePerTurnIsValid(powerOrganDonation.Name))
             {
                 yield break;
             }
+
+            attacker.UsedSpecialFeatures.TryAdd(powerOrganDonation.Name, 0);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var implementationManager =
@@ -292,9 +297,6 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             {
                 yield break;
             }
-
-            rulesetAttacker.UsePower(usablePower);
-            rulesetAttacker.LogCharacterUsedPower(powerOrganDonation);
 
             var usablePowerEmergencyCure = PowerProvider.Get(powerEmergencyCure, rulesetAttacker);
 
