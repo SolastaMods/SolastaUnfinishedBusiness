@@ -131,6 +131,10 @@
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/UnityEngine.DirectorModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/UnityEngine.ImageConversionModule.dll</HintPath>
       <Private>false</Private>

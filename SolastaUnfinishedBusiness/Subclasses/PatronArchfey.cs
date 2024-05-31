@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using UnityEngine.Playables;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -350,8 +351,34 @@ public class PatronArchfey : AbstractSubclass
             yield return HandleReaction(battleManager, attacker, defender);
         }
 
+        private static void ResetCamera()
+        {
+            var viewLocationContextualManager =
+                ServiceRepository.GetService<IViewLocationContextualService>() as ViewLocationContextualManager;
+
+            if (!viewLocationContextualManager)
+            {
+                return;
+            }
+
+            if (viewLocationContextualManager.rangeAttackDirector.state == PlayState.Playing)
+            {
+                viewLocationContextualManager.rangeAttackDirector.Stop();
+                viewLocationContextualManager.ContextualSequenceEnd?.Invoke();
+            }
+
+            // ReSharper disable once InvertIf
+            if (viewLocationContextualManager.meleeAttackDirector.state == PlayState.Playing)
+            {
+                viewLocationContextualManager.meleeAttackDirector.Stop();
+                viewLocationContextualManager.ContextualSequenceEnd?.Invoke();
+            }
+        }
+
         private IEnumerator SelectPositionAndExecutePower(GameLocationCharacter defender)
         {
+            ResetCamera();
+
             var rulesetDefender = defender.RulesetCharacter;
             var cursorManager = ServiceRepository.GetService<ICursorService>() as CursorManager;
             var implementationManager =
@@ -366,15 +393,21 @@ public class PatronArchfey : AbstractSubclass
                 RulesetEffect = rulesetEffect, UsablePower = usablePower
             };
 
-            cursorManager!.ActivateCursor<CursorLocationSelectPosition>(actionParams);
+            var cursorLocationSelectPosition =
+                cursorManager!.cursorsByType[typeof(CursorLocationSelectPosition)] as CursorLocationSelectPosition;
 
-            while (cursorManager.CurrentCursor is not
-                   (CursorLocationBattleFriendlyTurn or CursorLocationBattleEnemyTurn))
+            cursorLocationSelectPosition!.selectedPositions.Clear();
+
+            // need this outer loop to ensure we re-activate cursor if game cancels it
+            while (cursorLocationSelectPosition.selectedPositions.Count == 0)
             {
-                yield return null;
-            }
+                cursorManager!.ActivateCursor<CursorLocationSelectPosition>(actionParams);
 
-            var c = cursorManager.cursorsByType[typeof(CursorLocationSelectPosition)] as CursorLocationSelectPosition;
+                while (cursorManager.CurrentCursor is CursorLocationSelectPosition)
+                {
+                    yield return null;
+                }
+            }
 
             actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
@@ -382,7 +415,7 @@ public class PatronArchfey : AbstractSubclass
                 RulesetEffect = rulesetEffect,
                 UsablePower = usablePower,
                 TargetCharacters = { defender },
-                positions = [.. c!.selectedPositions]
+                positions = [.. cursorLocationSelectPosition!.selectedPositions]
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?
