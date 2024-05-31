@@ -1038,9 +1038,8 @@ internal static partial class CharacterContext
             return Main.Settings.EnableMonkHeightenedMetabolism &&
                    character.GetClassLevel(Monk) >= 10 &&
                    (definition == PowerMonkFlurryOfBlows ||
-                    definition == PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement ||
-                    definition == PowerMonkStepOfTheWindDash ||
-                    definition == PowerMonkStepOftheWindDisengage);
+                    definition == PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement ||
+                    definition == PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement);
         }
 
         public EffectDescription GetEffectDescription(
@@ -1049,15 +1048,11 @@ internal static partial class CharacterContext
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition == PowerMonkStepOfTheWindDash)
+            if (definition == PowerMonkFlurryOfBlows)
             {
-                effectDescription.EffectForms.Add(PowerMonkStepOftheWindDisengage.EffectDescription.EffectForms[0]);
+                effectDescription.EffectForms.TryAdd(_effectForm);
             }
-            else if (definition == PowerMonkStepOftheWindDisengage)
-            {
-                effectDescription.EffectForms.Add(PowerMonkStepOfTheWindDash.EffectDescription.EffectForms[0]);
-            }
-            else if (definition == PowerMonkFlurryOfBlows)
+            else if (definition == PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement)
             {
                 effectDescription.EffectForms.TryAdd(_effectForm);
             }
