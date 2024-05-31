@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -301,6 +302,20 @@ public static class GameLocationCharacterPatcher
                 __instance.RulesetCharacter.RemainingKiPoints > 0)
             {
                 __result = ActionDefinitions.ActionStatus.Available;
+            }
+
+            var traditionFreedomLevel = __instance.RulesetCharacter.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Monk, "TraditionFreedom");
+
+            //BUGFIX: Hide other Flurry of Blows actions on Way of Freedom Monk as it levels up
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+            switch (actionId)
+            {
+                case ActionDefinitions.Id.FlurryOfBlows when
+                    traditionFreedomLevel >= 3:
+                case ActionDefinitions.Id.FlurryOfBlowsSwiftSteps when
+                    traditionFreedomLevel >= 11:
+                    __result = ActionDefinitions.ActionStatus.Unavailable;
+                    break;
             }
         }
     }
