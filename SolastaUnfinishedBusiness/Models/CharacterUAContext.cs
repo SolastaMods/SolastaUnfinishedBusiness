@@ -650,25 +650,23 @@ internal static partial class CharacterContext
 
     #region Monk
 
-#if false
     private static readonly FeatureDefinition FeatureMonkHeightenedMetabolism = FeatureDefinitionBuilder
         .Create("FeatureMonkHeightenedMetabolism")
         .SetGuiPresentation(Category.Feature)
-        .AddCustomSubFeatures(new CustomBehaviorHeightenedMetabolism())
+        .AddCustomSubFeatures(
+            new CustomBehaviorHeightenedMetabolism(
+                ConditionDefinitionBuilder
+                    .Create("ConditionMonkFlurryOfBlowsHeightenedMetabolism")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetFeatures(
+                        FeatureDefinitionAttackModifierBuilder
+                            .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
+                                "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism")
+                            .SetUnarmedStrike(3)
+                            .AddToDB())
+                    .AddToDB()))
         .AddToDB();
-
-    internal static readonly ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism =
-        ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus,
-                "ConditionMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism")
-            .SetFeatures(
-                FeatureDefinitionAttackModifierBuilder
-                    .Create(AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
-                        "AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism")
-                    .SetUnarmedStrike(3)
-                    .AddToDB())
-            .AddToDB();
-#endif
 
     private static readonly FeatureDefinitionPower PowerMonkSuperiorDefense = FeatureDefinitionPowerBuilder
         .Create("PowerMonkSuperiorDefense")
@@ -879,7 +877,6 @@ internal static partial class CharacterContext
         }
     }
 
-#if false
     internal static void SwitchMonkHeightenedMetabolism()
     {
         if (Main.Settings.EnableMonkHeightenedMetabolism)
@@ -899,7 +896,6 @@ internal static partial class CharacterContext
             Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
-#endif
 
     internal static void SwitchMonkSuperiorDefenseToReplaceEmptyBody()
     {
@@ -965,9 +961,13 @@ internal static partial class CharacterContext
         }
     }
 
-#if false
-    private sealed class CustomBehaviorHeightenedMetabolism : IModifyEffectDescription, IMagicEffectFinishedByMeAny
+    private sealed class CustomBehaviorHeightenedMetabolism(
+        ConditionDefinition conditionFlurryOfBlowsHeightenedMetabolism)
+        : IModifyEffectDescription, IMagicEffectFinishedByMeAny
     {
+        private readonly EffectForm _effectForm =
+            EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsHeightenedMetabolism);
+
         public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
@@ -991,10 +991,10 @@ internal static partial class CharacterContext
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return Main.Settings.EnableMonkHeightenedMetabolism &&
-                   (definition == PowerMonkStepOfTheWindDash ||
-                    definition == PowerMonkStepOftheWindDisengage ||
-                    definition == PowerMonkFlurryOfBlows) &&
-                   character.GetClassLevel(Monk) >= 10;
+                   character.GetClassLevel(Monk) >= 10 &&
+                   (definition == PowerMonkFlurryOfBlows ||
+                    definition == PowerMonkStepOfTheWindDash ||
+                    definition == PowerMonkStepOftheWindDisengage);
         }
 
         public EffectDescription GetEffectDescription(
@@ -1003,24 +1003,14 @@ internal static partial class CharacterContext
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition == PowerMonkStepOfTheWindDash)
+            if (definition == PowerMonkFlurryOfBlows)
             {
-                effectDescription.EffectForms.Add(PowerMonkStepOftheWindDisengage.EffectDescription.EffectForms[0]);
-            }
-            else if (definition == PowerMonkStepOftheWindDisengage)
-            {
-                effectDescription.EffectForms.Add(PowerMonkStepOfTheWindDash.EffectDescription.EffectForms[0]);
-            }
-            else if (definition == PowerMonkFlurryOfBlows)
-            {
-                effectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
-                    ConditionMonkFlurryOfBlowsUnarmedStrikeBonusHeightenedMetabolism;
+                effectDescription.EffectForms.TryAdd(_effectForm);
             }
 
             return effectDescription;
         }
     }
-#endif
 
     private sealed class CustomLevelUpLogicMonkBodyAndMind : ICustomLevelUpLogic
     {
@@ -1442,7 +1432,7 @@ internal static partial class CharacterContext
         GameLocationCharacter attacker,
         GameLocationCharacter defender)
     {
-        // only trigger if haven't used sneak attack yet
+        // only trigger if it hasn't used sneak attack yet
         if (!attacker.OncePerTurnIsValid("AdditionalDamageRogueSneakAttack") ||
             !attacker.OncePerTurnIsValid("AdditionalDamageRoguishHoodlumNonFinesseSneakAttack") ||
             !attacker.OncePerTurnIsValid("AdditionalDamageRoguishDuelistDaringDuel") ||

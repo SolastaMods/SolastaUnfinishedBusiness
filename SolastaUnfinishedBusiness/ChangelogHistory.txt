@@ -1,5 +1,6 @@
 1.5.97.12:
 
+- added Gameplay > Character > 'Enable Monk Heightened Metabolism at level 10' setting
 - added Gameplay > Character > 'Enable Monk Superior Defense to replace Empty Body at level 18' setting
 - added Gameplay > Character > 'Enable Monk Body and Mind to replace Perfect Self at level 20' setting
 - added Gameplay > Rules > 'Enable OneDnd healing dice buff' setting
