@@ -55,7 +55,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetAttackOnly()
+            .SetAttackModeOnly()
             .AddToDB();
 
         // Emergency Surgery
