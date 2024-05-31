@@ -31,6 +31,7 @@ ModUi/&AllowHasteCasting=Erlaube das Wirken von Zaubersprüchen mit zusätzliche
 ModUi/&AllowHornsOnAllRaces=Erlaube Hörner bei allen Rennen <i><color=#F0DAA0>[Ergebnisse können je nach Rasse, Kopf und Hupe schrecklich aussehen]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Ermöglichen Sie einen realistischeren Status im Ruhebereich <i><color=#F0DAA0>[Aktionen nach Ruhe im Bereich vor dem Bereich ausblenden und Wiederherstellungsfunktionen im Bereich nach dem Bereich ausblenden]</color></i>
 ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente <i><color=#F0DAA0> zulassen[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Erlaubt Zielauswahl beim Wirken des Zaubers <color=#D89555>Kettenblitzschlag</color>
 ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Sorcerer</color> ohne Ursprungsmarkierungen und Tätowierungen
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Ermöglichen Sie die Abstimmung von <color=#D89555>Arkaner Schildstab</color> durch jede Klasse

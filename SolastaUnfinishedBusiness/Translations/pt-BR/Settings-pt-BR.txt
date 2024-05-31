@@ -31,6 +31,7 @@ ModUi/&AllowHasteCasting=Permitir que feitiços com ação extra sejam lançados
 ModUi/&AllowHornsOnAllRaces=Permitir buzinas em todas as corridas <i><color=#F0DAA0>[os resultados podem parecer terríveis dependendo da raça, da cabeça e da buzina]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Permitir mais estado real no painel de descanso <i><color=#F0DAA0>[ocultar ações após o descanso no painel anterior e recursos de recuperação no painel posterior]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material empilhado <i><color=#F0DAA0>[por exemplo Um diamante de 2x500gp equivale a um diamante de 1000gp]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir seleção de alvo ao lançar o feitiço <color=#D89555>Chain Lightning</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Feiticeiro</color> sem marcas de origem e tatuagens
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca gadgets no campo de visão do grupo <i><color=#F0DAA0>[somente masmorras personalizadas]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Permitir que <color=#D89555>Cajado de Escudo Arcano</color> seja sintonizado por qualquer classe

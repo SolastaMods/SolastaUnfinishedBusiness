@@ -31,6 +31,7 @@ ModUi/&AllowHasteCasting=추가 행동이 포함된 주문의 시전이 가속�
 ModUi/&AllowHornsOnAllRaces=모든 인종에 경적 허용 <i><color=#F0DAA0>[인종, 머리, 경적에 따라 결과가 끔찍해 보일 수 있음]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=나머지 패널에서 더 많은 실제 상태 허용 <i><color=#F0DAA0>[전 패널의 휴식 작업 후 숨기기 및 후 패널의 복구 기능]</color></i>
 ModUi/&AllowStackedMaterialComponent=스택된 재료 구성요소 허용 <i><color=#F0DAA0>[예: 2x500gp 다이아몬드는 1000gp 다이아몬드와 같습니다.]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>연쇄 번개</color> 주문 시전 시 대상 선택 허용
 ModUi/&AllowUnmarkedSorcerers=원산지 표시와 문신 없이 <color=#D89555>Sorcerer</color>를 허용합니다.
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 키만 파티 시야에 있는 가젯을 강조 표시합니다. <i><color=#F0DAA0>[사용자 정의 던전만 해당]</color></i>
 ModUi/&ArcaneShieldstaffOptions=모든 클래스가 <color=#D89555>아케인 쉴드스태프</color>를 조정할 수 있도록 허용

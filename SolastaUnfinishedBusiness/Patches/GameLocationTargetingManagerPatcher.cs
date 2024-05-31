@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -164,6 +163,7 @@ public static class GameLocationTargetingManagerPatcher
         }
     }
 
+#if false
     //BUGFIX: Chain Lightning allow targeting allies
     [HarmonyPatch(typeof(GameLocationTargetingManager), "IGameLocationTargetingService.ComputeAndSortSubtargets")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -266,4 +266,5 @@ public static class GameLocationTargetingManagerPatcher
             }
         }
     }
+#endif
 }

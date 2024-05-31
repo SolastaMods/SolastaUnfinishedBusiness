@@ -31,6 +31,7 @@ ModUi/&AllowHasteCasting=Consenti di lanciare incantesimi con azione extra dall'
 ModUi/&AllowHornsOnAllRaces=Consenti corni a tutte le razze <i><color=#F0DAA0>[i risultati potrebbero sembrare terribili a seconda della razza, della testa e del corno]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Consenti più stato reale nel pannello di riposo <i><color=#F0DAA0>[nascondi le azioni dopo il riposo nel pannello prima e le funzionalità di ripristino nel pannello dopo]</color></i>
 ModUi/&AllowStackedMaterialComponent=Consenti componente materiale impilato <i><color=#F0DAA0>[ad es. 2 diamanti da 500 mo equivalgono a 1000 mo di diamanti]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Consenti la selezione del bersaglio quando lanci l'incantesimo <color=#D89555>Catena di Fulmini</color>
 ModUi/&AllowUnmarkedSorcerers=Consenti <color=#D89555>Stregone</color> senza segni di origine e tatuaggi
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Il tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=#F0DAA0>[solo dungeon personalizzati]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Consenti al <color=#D89555>Bastone dello Scudo Arcano</color> di essere sintonizzato da qualsiasi classe

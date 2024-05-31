@@ -58,7 +58,7 @@ public static class GameLocationCharacterExtensions
             (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||
             (__instance.Side != target.Side && __instance.PerceivedFoes.Contains(target));
 
-        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules || !vanillaCanPerceive)
+        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules) // || !vanillaCanPerceive)
         {
             return vanillaCanPerceive;
         }

@@ -31,6 +31,7 @@ ModUi/&AllowHasteCasting=Autoriser le lancement de sorts avec une action supplé
 ModUi/&AllowHornsOnAllRaces=Autoriser les klaxons sur toutes les courses <i><color=#F0DAA0>[les résultats peuvent paraître terribles selon la race, la tête et le klaxon]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Autoriser davantage d'état réel sur le panneau de repos <i><color=#F0DAA0>[masquer les actions après le repos sur le panneau avant et les fonctionnalités de récupération sur le panneau après]</color></i>
 ModUi/&AllowStackedMaterialComponent=Autoriser les composants de matériaux empilés <i><color=#F0DAA0>[par ex. 2x500gp diamant équivaut à 1000gp diamant]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélection de cible lors du lancement du sort <color=#D89555>Chaîne d'éclairs</color>
 ModUi/&AllowUnmarkedSorcerers=Autoriser <color=#D89555>Sorcier</color> sans marques d'origine ni tatouages
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Permettre au <color=#D89555>Bâton de bouclier arcanique</color> d'être harmonisé par n'importe quelle classe.

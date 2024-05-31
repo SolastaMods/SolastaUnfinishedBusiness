@@ -210,6 +210,14 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
+            SrdAndHouseRulesContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
+        }
+
         toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
         {

@@ -31,6 +31,7 @@ ModUi/&AllowHasteCasting=Permitir que se apresure el lanzamiento de hechizos con
 ModUi/&AllowHornsOnAllRaces=Permitir bocinas en todas las razas <i><color=#F0DAA0>[los resultados pueden verse terribles según la raza, la cabeza y la bocina]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Permitir más estado real en el panel de descanso <i><color=#F0DAA0>[ocultar acciones después del descanso en el panel anterior y funciones de recuperación en el panel posterior]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir el componente de material apilado <i><color=#F0DAA0>[p. ej. 2 diamantes de 500 po equivalen a 1000 po de diamante]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selección de objetivos al lanzar el hechizo <color=#D89555>Chain Lightning</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marcas de origen ni tatuajes
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los gadgets en el campo de visión del grupo <i><color=#F0DAA0>[solo mazmorras personalizadas]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Permitir que cualquier clase sintonice <color=#D89555>Arcane Shieldstaff</color>
