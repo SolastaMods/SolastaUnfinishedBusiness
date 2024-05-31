@@ -353,6 +353,15 @@ internal static partial class SpellBuilders
         var lightSourceForm =
             FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionLightSensitive)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetConditionType(ConditionType.Detrimental)
+            .AddToDB();
+
+        ConditionInvisibleBase.cancellingConditions.Add(condition);
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.StarryWisp, 128))
@@ -366,16 +375,18 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D8),
+                        EffectFormBuilder.ConditionForm(condition),
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitions.ConditionInvisible, ConditionForm.ConditionOperation.Remove),
                         EffectFormBuilder
                             .Create()
                             .SetLightSourceForm(
-                                LightSourceType.Basic, 1, 2,
+                                LightSourceType.Basic, 0, 2,
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
