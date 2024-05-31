@@ -126,6 +126,24 @@ public class PatronArchfey : AbstractSubclass
 
         // Misty Escape
 
+        var conditionMistyEscape = ConditionDefinitionBuilder
+            .Create($"Condition{Name}MistyEscape")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{Name}MistyEscape")
+                    .SetGuiPresentationNoContent(true)
+                    .SetForbiddenActions(
+                        ActionDefinitions.Id.Shove,
+                        ActionDefinitions.Id.ShoveBonus,
+                        ActionDefinitions.Id.AttackMain,
+                        ActionDefinitions.Id.AttackOff,
+                        ActionDefinitions.Id.AttackFree)
+                    .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
         var powerMistyEscape = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MistyEscape")
             .SetGuiPresentation(Category.Feature, MistyStep)
@@ -133,7 +151,7 @@ public class PatronArchfey : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -148,7 +166,7 @@ public class PatronArchfey : AbstractSubclass
 
         powerMistyEscape.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new CustomBehaviorMistyEscape(powerMistyEscape));
+            new CustomBehaviorMistyEscape(powerMistyEscape, conditionMistyEscape));
 
         // LEVEL 10
 
@@ -307,18 +325,26 @@ public class PatronArchfey : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomBehaviorMistyEscape(FeatureDefinitionPower powerMistyEscape)
+    //
+    // Misty Escape
+    //
+
+    private sealed class CustomBehaviorMistyEscape(
+        FeatureDefinitionPower powerMistyEscape,
+        ConditionDefinition conditionMistyEscape)
         : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe, IActionFinishedByEnemy,
             IIgnoreInvisibilityInterruptionCheck
     {
+        private const string TagMistyEscape = "MistyEscape";
+
         public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
-            if (!target.UsedSpecialFeatures.ContainsKey("MistyEscape"))
+            if (!target.UsedSpecialFeatures.ContainsKey(TagMistyEscape))
             {
                 yield break;
             }
 
-            target.UsedSpecialFeatures.Remove("MistyEscape");
+            target.UsedSpecialFeatures.Remove(TagMistyEscape);
 
             yield return SelectPositionAndExecutePower(target);
         }
@@ -439,9 +465,9 @@ public class PatronArchfey : AbstractSubclass
 
             var reactionParams = new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
-                StringParameter = "Reaction/&CustomReactionMistyEscapeDescription"
+                StringParameter = $"Reaction/&CustomReaction{TagMistyEscape}Description"
             };
-            var reactionRequest = new ReactionRequestCustom("MistyEscape", reactionParams);
+            var reactionRequest = new ReactionRequestCustom(TagMistyEscape, reactionParams);
             var count = actionManager.PendingReactionRequestGroups.Count;
 
             actionManager.AddInterruptRequest(reactionRequest);
@@ -453,9 +479,31 @@ public class PatronArchfey : AbstractSubclass
                 yield break;
             }
 
-            defender.UsedSpecialFeatures.TryAdd("MistyEscape", 0);
+            defender.UsedSpecialFeatures.TryAdd(TagMistyEscape, 0);
+
+            // trick to ensure enemy won't execute any more attack or shove action after teleport
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                conditionMistyEscape.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                conditionMistyEscape.Name,
+                0,
+                0,
+                0);
         }
     }
+
+    //
+    // Beguiling Defenses
+    //
 
     private class CustomBehaviorBeguilingDefenses(FeatureDefinitionPower powerBeguilingDefenses)
         : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
