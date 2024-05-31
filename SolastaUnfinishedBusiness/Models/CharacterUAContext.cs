@@ -679,6 +679,22 @@ internal static partial class CharacterContext
                     .AddToDB()))
         .AddToDB();
 
+    private static readonly FeatureDefinitionPower PowerMonkStepOfTheWindHeightenedMetabolism =
+        FeatureDefinitionPowerBuilder
+            .Create("PowerMonkStepOfTheWindHeightenedMetabolism")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerStepOfTheWind", Resources.PowerStepOfTheWind, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerMonkStepOfTheWindDash)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .AddEffectForms(PowerMonkStepOftheWindDisengage.EffectDescription.EffectForms[0])
+                    .SetCasterEffectParameters(PowerOathOfTirmarGoldenSpeech)
+                    .Build())
+            .AddToDB();
+
     private static readonly FeatureDefinitionPower PowerMonkSuperiorDefense = FeatureDefinitionPowerBuilder
         .Create("PowerMonkSuperiorDefense")
         .SetGuiPresentation(Category.Feature,
@@ -725,6 +741,15 @@ internal static partial class CharacterContext
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(new CustomLevelUpLogicMonkBodyAndMind())
         .AddToDB();
+
+    private static void LoadMonkHeightenedMetabolism()
+    {
+        var validatePower = new ValidatorsValidatePowerUse(c =>
+            !Main.Settings.EnableMonkHeightenedMetabolism || c.GetClassLevel(Monk) < 10);
+
+        PowerMonkStepOfTheWindDash.AddCustomSubFeatures(validatePower);
+        PowerMonkStepOftheWindDisengage.AddCustomSubFeatures(validatePower);
+    }
 
     private static void LoadMonkWeaponSpecialization()
     {
@@ -894,12 +919,15 @@ internal static partial class CharacterContext
         {
             Monk.FeatureUnlocks.TryAdd(
                 new FeatureUnlockByLevel(FeatureMonkHeightenedMetabolism, 10));
+            Monk.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(PowerMonkStepOfTheWindHeightenedMetabolism, 10));
         }
         else
         {
             Monk.FeatureUnlocks
                 .RemoveAll(x => x.level == 10 &&
-                                x.FeatureDefinition == FeatureMonkHeightenedMetabolism);
+                                (x.FeatureDefinition == FeatureMonkHeightenedMetabolism ||
+                                 x.FeatureDefinition == PowerMonkStepOfTheWindHeightenedMetabolism));
         }
 
         if (Main.Settings.EnableSortingFutureFeatures)
