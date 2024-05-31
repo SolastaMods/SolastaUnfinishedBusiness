@@ -418,21 +418,13 @@ internal static class RaceFeats
         var acrobaticsSkill = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatSquatNimblenessAcrobatics")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Acrobatics)
-            .AddToDB();
-
-        var acrobaticsExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatSquatNimblenessAcrobaticsExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Acrobatics)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Acrobatics)
             .AddToDB();
 
         var featSquatNimblenessDex = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatSquatNimblenessDex")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, movementAffinitySquatNimbleness)
-            .AddCustomSubFeatures(new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Acrobatics,
-                acrobaticsSkill, acrobaticsExpertise))
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, movementAffinitySquatNimbleness, acrobaticsSkill)
             .SetValidators(ValidatorsFeat.IsSmallRace)
             .SetFeatFamily(SquatNimbleness)
             .AddToDB();
@@ -440,21 +432,13 @@ internal static class RaceFeats
         var athleticsSkill = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatSquatNimblenessAthletics")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Athletics)
-            .AddToDB();
-
-        var athleticsExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatSquatNimblenessAthleticsExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Athletics)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Athletics)
             .AddToDB();
 
         var featSquatNimblenessStr = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatSquatNimblenessStr")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar, movementAffinitySquatNimbleness)
-            .AddCustomSubFeatures(new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Athletics,
-                athleticsSkill, athleticsExpertise))
+            .SetFeatures(AttributeModifierCreed_Of_Einar, movementAffinitySquatNimbleness, athleticsSkill)
             .SetValidators(ValidatorsFeat.IsSmallRace)
             .SetFeatFamily(SquatNimbleness)
             .AddToDB();
@@ -467,28 +451,6 @@ internal static class RaceFeats
             ValidatorsFeat.IsSmallRace,
             featSquatNimblenessDex,
             featSquatNimblenessStr);
-    }
-
-    private sealed class SkillOrExpertise(
-        SkillDefinition skillDefinition,
-        FeatureDefinitionProficiency skill,
-        FeatureDefinitionProficiency expertise) : ICustomLevelUpLogic
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            var buildingData = hero.GetHeroBuildingData();
-
-            hero.ActiveFeatures[tag].TryAdd(
-                hero.TrainedSkills.Contains(skillDefinition) ||
-                buildingData.LevelupTrainedSkills.Any(x => x.Value.Contains(skillDefinition))
-                    ? expertise
-                    : skill);
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // empty
-        }
     }
 
     #endregion

@@ -1862,10 +1862,13 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMonkFlurryOfBlows { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkFlurryOfBlows");
-        
+
+        internal static FeatureDefinitionPower PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement");
+
         internal static FeatureDefinitionPower PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement");
-        
+
         internal static FeatureDefinitionPower PowerMonkMartialArts { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkMartialArts");
 
@@ -3503,20 +3506,6 @@ internal static partial class DatabaseHelper
 
         internal static SchoolOfMagicDefinition SchoolTransmutation { get; } =
             GetDefinition<SchoolOfMagicDefinition>("SchoolTransmutation");
-    }
-
-    internal static class SkillDefinitions
-    {
-        internal static SkillDefinition Acrobatics { get; } = GetDefinition<SkillDefinition>("Acrobatics");
-        internal static SkillDefinition AnimalHandling { get; } = GetDefinition<SkillDefinition>("AnimalHandling");
-        internal static SkillDefinition Arcana { get; } = GetDefinition<SkillDefinition>("Arcana");
-        internal static SkillDefinition Athletics { get; } = GetDefinition<SkillDefinition>("Athletics");
-        internal static SkillDefinition Intimidation { get; } = GetDefinition<SkillDefinition>("Intimidation");
-        internal static SkillDefinition Medecine { get; } = GetDefinition<SkillDefinition>("Medecine");
-        internal static SkillDefinition Nature { get; } = GetDefinition<SkillDefinition>("Nature");
-        internal static SkillDefinition Religion { get; } = GetDefinition<SkillDefinition>("Religion");
-        internal static SkillDefinition SleightOfHand { get; } = GetDefinition<SkillDefinition>("SleightOfHand");
-        internal static SkillDefinition Stealth { get; } = GetDefinition<SkillDefinition>("Stealth");
     }
 
     internal static class SlotTypeDefinitions
