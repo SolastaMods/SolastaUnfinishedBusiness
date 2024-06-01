@@ -8,8 +8,7 @@
 - added Infestation, Lightning Lure, Primal Savagery, and Starry Wisp cantrips
 - added Patron Archfey and Way of Storm Soul [Tempest rework] subclasses
 - fixed Booming Blade interaction with War Caster feat to allow sheathed to explode at enemy's move end
-- fixed Innovation Vivisectionist medical accuracy feature to trigger on any weapon attack
-- fixed Innovation Vivisectionist organ donation feature to be once per short rest
+- fixed Innovation Vivisectionist medical accuracy and organ donation features to work as described
 - fixed Way of Freedom displaying additional flurry of blow actions on levels 3 and 11 [VANILLA]
 
 KNOWN ISSUES:

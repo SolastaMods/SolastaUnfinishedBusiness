@@ -19,12 +19,10 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
         nameof(FunctorSetGadgetConditionByAbilityCheck.Execute))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class SelectCharacters_Patch
+    public static class Execute_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(
-            ref IEnumerator __result,
-            FunctorParametersDescription functorParameters)
+        public static bool Prefix(ref IEnumerator __result, FunctorParametersDescription functorParameters)
         {
             __result = Execute(functorParameters);
 

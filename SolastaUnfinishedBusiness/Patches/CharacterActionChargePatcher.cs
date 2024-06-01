@@ -17,9 +17,7 @@ public static class CharacterActionChargePatcher
     public static class ExecuteImpl_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(
-            ref IEnumerator __result,
-            CharacterActionCharge __instance)
+        public static bool Prefix(ref IEnumerator __result, CharacterActionCharge __instance)
         {
             if (__instance.ActingCharacter.RulesetCharacter.GetOriginalHero() is not { } hero ||
                 (!hero.TrainedFeats.Contains(RaceFeats.FeatOrcishAggressionStr) &&
