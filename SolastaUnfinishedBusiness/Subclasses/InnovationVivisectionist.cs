@@ -129,7 +129,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
         var powerOrganDonation = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}OrganDonation")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
         powerOrganDonation.AddCustomSubFeatures(
@@ -266,9 +266,13 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePowerEmergencyCure = PowerProvider.Get(powerEmergencyCure, rulesetAttacker);
+            var usablePowerEmergencySurgery = PowerProvider.Get(powerEmergencySurgery, rulesetAttacker);
 
             if (rulesetAttacker.GetRemainingPowerUses(powerOrganDonation) == 0 ||
-                !attacker.OncePerTurnIsValid(powerOrganDonation.Name))
+                !attacker.OncePerTurnIsValid(powerOrganDonation.Name) ||
+                (usablePowerEmergencyCure.MaxUses == usablePowerEmergencyCure.RemainingUses &&
+                 usablePowerEmergencySurgery.MaxUses == usablePowerEmergencySurgery.RemainingUses))
             {
                 yield break;
             }
@@ -298,12 +302,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
                 yield break;
             }
 
-            var usablePowerEmergencyCure = PowerProvider.Get(powerEmergencyCure, rulesetAttacker);
-
             rulesetAttacker.RepayPowerUse(usablePowerEmergencyCure);
-
-            var usablePowerEmergencySurgery = PowerProvider.Get(powerEmergencySurgery, rulesetAttacker);
-
             rulesetAttacker.RepayPowerUse(usablePowerEmergencySurgery);
         }
     }
