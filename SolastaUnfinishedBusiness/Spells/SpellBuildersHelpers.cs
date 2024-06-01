@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -150,17 +149,18 @@ internal static partial class SpellBuilders
                 castSpell.ActiveSpell.MetamagicOption == MetamagicTwinnedSpell;
             var maxAttacks = _maxAttacks + (twinned ? 1 : 0);
 
-            var attackModifier = new ActionModifier();
-
-            caster.BurnOneMainAttack();
+            // this is required to support reaction scenarios where AttackMain won't work
+            var actionId = attackMode.ActionType == ActionDefinitions.ActionType.Main
+                ? ActionDefinitions.Id.AttackMain
+                : ActionDefinitions.Id.AttackFree;
 
             foreach (var target in targets)
             {
                 var attackActionParams =
-                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
+                    new CharacterActionParams(caster, actionId) { AttackMode = attackMode };
 
                 attackActionParams.TargetCharacters.Add(target);
-                attackActionParams.ActionModifiers.Add(attackModifier);
+                attackActionParams.ActionModifiers.Add(new ActionModifier());
                 attacks.Add(attackActionParams);
 
                 if (attackActionParams.TargetCharacters.Count >= maxAttacks)

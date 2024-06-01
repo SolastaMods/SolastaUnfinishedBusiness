@@ -28,7 +28,7 @@ public static class CharacterActionAttackPatcher
             return false;
         }
 
-        private static IEnumerator ExecuteImpl(CharacterActionAttack __instance)
+        internal static IEnumerator ExecuteImpl(CharacterActionAttack __instance)
         {
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 

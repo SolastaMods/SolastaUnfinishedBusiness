@@ -536,8 +536,18 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     foreach (var actionParam in characterActionParams)
                     {
-                        ServiceRepository.GetService<IGameLocationActionService>()?
-                            .ExecuteAction(actionParam, null, false);
+                        // don't use ExecuteAction here to ensure compatibility with War Caster feat
+                        if (__instance.ActionType == ActionDefinitions.ActionType.Reaction)
+                        {
+                            var actionAttack = new CharacterActionAttack(actionParam);
+
+                            yield return CharacterActionAttackPatcher.ExecuteImpl_Patch.ExecuteImpl(actionAttack);
+                        }
+                        else
+                        {
+                            ServiceRepository.GetService<IGameLocationActionService>()?
+                                .ExecuteAction(actionParam, null, false);
+                        }
                     }
                 }
             }

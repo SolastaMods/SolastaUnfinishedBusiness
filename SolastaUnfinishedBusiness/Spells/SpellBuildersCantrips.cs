@@ -873,7 +873,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            if (characterAction is not CharacterActionMove)
+            if (characterAction.ActionId != ActionDefinitions.Id.TacticalMove)
             {
                 yield break;
             }
@@ -914,8 +914,6 @@ internal static partial class SpellBuilders
             return;
         }
 
-        rulesetDefender.RemoveCondition(usableCondition);
-
         // deal damage
         var characterLevel = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
         var diceNumber = characterLevel switch
@@ -952,6 +950,8 @@ internal static partial class SpellBuilders
             new RollInfo(damageForm.DieType, rolls, 0),
             false,
             out _);
+
+        rulesetDefender.RemoveCondition(usableCondition);
     }
 
     #endregion
