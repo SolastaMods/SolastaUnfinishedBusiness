@@ -796,74 +796,80 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var defender = characterAction.ActingCharacter;
-            var rulesetDefender = characterAction.ActingCharacter.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var usableCondition =
-                rulesetDefender.AllConditions.FirstOrDefault(x =>
-                    x.ConditionDefinition.Name == "ConditionBoomingBladeSheathed");
-
-            if (usableCondition == null)
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(usableCondition.SourceGuid);
-
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
-
-            if (attacker == null)
-            {
-                yield break;
-            }
-
-            var characterLevel = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-            var diceNumber = characterLevel switch
-            {
-                >= 17 => 4,
-                >= 11 => 3,
-                >= 5 => 2,
-                _ => 1
-            };
-            var damageForm = new DamageForm
-            {
-                DamageType = DamageTypeThunder, DieType = DieType.D8, DiceNumber = diceNumber, BonusDamage = 0
-            };
-            var rolls = new List<int>();
-            var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetDefender,
-                position = defender.LocationPosition
-            };
-
-            EffectHelpers.StartVisualEffect(attacker, defender, Shatter);
-            RulesetActor.InflictDamage(
-                damageRoll,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetDefender,
-                false,
-                rulesetAttacker.Guid,
-                false,
-                attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? [],
-                new RollInfo(damageForm.DieType, rolls, 0),
-                false,
-                out _);
-            rulesetDefender.RemoveCondition(usableCondition);
+            HandleBoomingBladeSheathedDamage(characterAction.ActingCharacter);
         }
+    }
+
+    internal static void HandleBoomingBladeSheathedDamage(GameLocationCharacter defender)
+    {
+        var rulesetDefender = defender.RulesetCharacter;
+
+        if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+        {
+            return;
+        }
+
+        var usableCondition =
+            rulesetDefender.AllConditions.FirstOrDefault(x =>
+                x.ConditionDefinition.Name == "ConditionBoomingBladeSheathed");
+
+        if (usableCondition == null)
+        {
+            return;
+        }
+
+        var rulesetAttacker = EffectHelpers.GetCharacterByGuid(usableCondition.SourceGuid);
+
+        if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+        {
+            return;
+        }
+
+        var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
+
+        if (attacker == null)
+        {
+            return;
+        }
+
+        rulesetDefender.RemoveCondition(usableCondition);
+
+        // deal damage
+        var characterLevel = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+        var diceNumber = characterLevel switch
+        {
+            >= 17 => 4,
+            >= 11 => 3,
+            >= 5 => 2,
+            _ => 1
+        };
+        var damageForm = new DamageForm
+        {
+            DamageType = DamageTypeThunder, DieType = DieType.D8, DiceNumber = diceNumber, BonusDamage = 0
+        };
+        var rolls = new List<int>();
+        var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+        var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+        {
+            sourceCharacter = rulesetAttacker,
+            targetCharacter = rulesetDefender,
+            position = defender.LocationPosition
+        };
+
+        EffectHelpers.StartVisualEffect(attacker, defender, Shatter);
+        RulesetActor.InflictDamage(
+            damageRoll,
+            damageForm,
+            damageForm.DamageType,
+            applyFormsParams,
+            rulesetDefender,
+            false,
+            rulesetAttacker.Guid,
+            false,
+            attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? [],
+            new RollInfo(damageForm.DieType, rolls, 0),
+            false,
+            out _);
     }
 
     #endregion

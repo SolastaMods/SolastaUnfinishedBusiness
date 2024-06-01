@@ -8,8 +8,8 @@
 - added Lightning Lure and Starry Wisp cantrips
 - added Patron Archfey and Way of Storm Soul [Tempest rework] subclasses
 - fixed Innovation Vivisectionist medical accuracy feature to trigger on any weapon attack
-- fixed Innovation Vivisectionist organ donation feature to consume power only once
-- fixed Way of Freedom displaying additional flurry of blow actions on level 3 and 11 [VANILLA]
+- fixed Innovation Vivisectionist organ donation feature to be once per short rest
+- fixed Way of Freedom displaying additional flurry of blow actions on levels 3 and 11 [VANILLA]
 
 KNOWN ISSUES:
 
