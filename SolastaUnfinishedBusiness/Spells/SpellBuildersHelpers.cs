@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -116,7 +117,9 @@ internal static partial class SpellBuilders
             }
 
             var caster = actionParams.ActingCharacter;
-            var targets = actionParams.TargetCharacters;
+            var targets = actionParams.TargetCharacters
+                .Where(t => CanMeleeAttack(caster, t))
+                .ToList();
 
             if (targets.Count == 0)
             {
@@ -149,10 +152,12 @@ internal static partial class SpellBuilders
 
             var attackModifier = new ActionModifier();
 
-            foreach (var target in targets.Where(t => CanMeleeAttack(caster, t)))
+            caster.BurnOneMainAttack();
+
+            foreach (var target in targets)
             {
                 var attackActionParams =
-                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackMain) { AttackMode = attackMode };
+                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
 
                 attackActionParams.TargetCharacters.Add(target);
                 attackActionParams.ActionModifiers.Add(attackModifier);

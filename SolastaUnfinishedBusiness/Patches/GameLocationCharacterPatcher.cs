@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine;
@@ -414,32 +415,37 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
+            //PATCH: support for attack cantrips
+            if (actionParams.AttackMode != null &&
+                actionParams.AttackMode.AttackTags.Contains(SpellBuilders.PhysicalAttackFromCantrip))
+            {
+                __instance.UsedMainCantrip = true;
+            }
+
             //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
 
-            //PATCH: support for action switching
-            if (Main.Settings.EnableActionSwitching &&
-                actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell)
+            //PATCH: support for action switching interaction with war magic and MetamagicQuickenedSpell
+            if (Main.Settings.EnableActionSwitching)
             {
-                if (rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
+                if (actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell)
                 {
-                    // ensure we block double dip on bonus spells if metamagic is present
-                    __instance.UsedBonusSpell = true;
-                }
-
-                // ensure we update some action switching related flags here as they might get overwritten later
-                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-                switch (actionParams.ActionDefinition.ActionType)
-                {
-                    case ActionDefinitions.ActionType.Main when rulesetEffectSpell.SpellDefinition.SpellLevel == 0:
-                        __instance.UsedMainCantrip = true;
-                        break;
-                    case ActionDefinitions.ActionType.Main:
+                    if (rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
+                    {
+                        // ensure we block double dip on bonus spells if metamagic is present
                         __instance.UsedBonusSpell = true;
-                        break;
-                    case ActionDefinitions.ActionType.Bonus:
-                        __instance.UsedMainSpell = true;
-                        break;
+                    }
+
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                    switch (actionParams.ActionDefinition.ActionType)
+                    {
+                        case ActionDefinitions.ActionType.Main:
+                            __instance.UsedBonusSpell = true;
+                            break;
+                        case ActionDefinitions.ActionType.Bonus:
+                            __instance.UsedMainSpell = true;
+                            break;
+                    }
                 }
             }
 
