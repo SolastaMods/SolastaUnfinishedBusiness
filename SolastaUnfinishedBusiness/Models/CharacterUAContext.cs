@@ -688,8 +688,8 @@ internal static partial class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerMonkStepOfTheWindDash)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Minute, 1)
                     .AddEffectForms(PowerMonkStepOftheWindDisengage.EffectDescription.EffectForms[0])
                     .SetCasterEffectParameters(PowerOathOfTirmarGoldenSpeech)
                     .Build())
