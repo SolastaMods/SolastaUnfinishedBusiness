@@ -1320,6 +1320,7 @@
                     <string>BladeWard</string>
                     <string>IlluminatingSphere</string>
                     <string>MinorLifesteal</string>
+                    <string>StarryWisp</string>
                     <string>ThunderStrike</string>
                     <string>EarthTremor</string>
                     <string>Mule</string>
@@ -1368,6 +1369,9 @@
                 <ArrayOfString>
                     <string>AcidClaws</string>
                     <string>AirBlast</string>
+                    <string>Infestation</string>
+                    <string>PrimalSavagery</string>
+                    <string>StarryWisp</string>
                     <string>ThornyVines</string>
                     <string>ThunderStrike</string>
                     <string>ElementalInfusion</string>
@@ -1401,6 +1405,7 @@
                 <ArrayOfString>
                     <string>BoomingBlade</string>
                     <string>ResonatingStrike</string>
+                    <string>LightningLure</string>
                     <string>SunlightBlade</string>
                     <string>SwordStorm</string>
                     <string>ThornyVines</string>
@@ -1477,6 +1482,8 @@
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
+                    <string>Infestation</string>
+                    <string>LightningLure</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
                     <string>SunlightBlade</string>
@@ -1533,6 +1540,8 @@
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
                     <string>ResonatingStrike</string>
+                    <string>Infestation</string>
+                    <string>LightningLure</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
                     <string>SunlightBlade</string>
@@ -1583,6 +1592,8 @@
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
+                    <string>Infestation</string>
+                    <string>LightningLure</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
                     <string>EnduringSting</string>

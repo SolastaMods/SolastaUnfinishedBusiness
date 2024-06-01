@@ -22,6 +22,58 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    #region Acid Claws
+
+    internal static SpellDefinition BuildAcidClaw()
+    {
+        const string NAME = "AcidClaws";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AcidClaws, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create("ConditionAcidClaws")
+                                    .SetGuiPresentation(Category.Condition, ConditionAcidSpit)
+                                    .SetConditionType(ConditionType.Detrimental)
+                                    .SetFeatures(
+                                        FeatureDefinitionAttributeModifierBuilder
+                                            .Create("AttributeModifierAcidClawsACDebuff")
+                                            .SetGuiPresentation("ConditionAcidClaws", Category.Condition)
+                                            .SetModifier(AttributeModifierOperation.Additive,
+                                                AttributeDefinitions.ArmorClass, -1)
+                                            .AddToDB())
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(AcidSplash)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Air Blast
 
     internal static SpellDefinition BuildAirBlast()
@@ -215,6 +267,51 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Infestation
+
+    internal static SpellDefinition BuildInfestation()
+    {
+        const string NAME = "Infestation";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Infestation, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypePoison, 1, DieType.D6)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushRandomDirection, 1)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetCasterEffectParameters(PoisonSpray)
+                    .SetImpactEffectParameters(
+                        PoisonSpray.EffectDescription.EffectParticleParameters.effectParticleReference)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Lightning Lure
 
     internal static SpellDefinition BuildLightningLure()
@@ -344,6 +441,43 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Primal Savagery
+
+    internal static SpellDefinition BuildPrimalSavagery()
+    {
+        const string NAME = "PrimalSavagery";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PrimalSavagery, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeAcid, 1, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetCasterEffectParameters(AcidSplash)
+                    .SetImpactEffectParameters(AcidArrow)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Starry Wisp
 
     internal static SpellDefinition BuildStarryWisp()
@@ -393,6 +527,90 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(FaerieFire)
                     .Build())
             .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Sunlit Blade
+
+    internal static SpellDefinition BuildSunlightBlade()
+    {
+        var conditionMarked = ConditionDefinitionBuilder
+            .Create("ConditionSunlightBladeMarked")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .AddToDB();
+
+        var conditionSunlightBlade = ConditionDefinitionBuilder
+            .Create("ConditionSunlightBlade")
+            .SetGuiPresentation(Category.Condition)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create("AdditionalDamageSunlightBlade")
+                    .SetGuiPresentationNoContent(true)
+                    .SetNotificationTag("SunlightBlade")
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                    .SetAttackModeOnly()
+                    .SetDamageDice(DieType.D8, 1)
+                    .SetSpecificDamageType(DamageTypeRadiant)
+                    .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel,
+                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
+                    .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
+                    .AddConditionOperation(
+                        ConditionOperationDescription.ConditionOperation.Add,
+                        ConditionDefinitionBuilder
+                            .Create(ConditionHighlighted, "ConditionSunlightBladeHighlighted")
+                            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                            .AddToDB())
+                    .SetAddLightSource(true)
+                    .SetLightSourceForm(new LightSourceForm
+                    {
+                        brightRange = 0,
+                        dimAdditionalRange = 2,
+                        lightSourceType = LightSourceType.Basic,
+                        color = new Color(0.9f, 0.8f, 0.4f),
+                        graphicsPrefabReference = FeatureDefinitionAdditionalDamages
+                            .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
+                    })
+                    .SetImpactParticleReference(DivineFavor)
+                    .AddToDB())
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create("SunlightBlade")
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SunlightBlade", Resources.SunlightBlade, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetIgnoreCover()
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            conditionSunlightBlade, ConditionForm.ConditionOperation.Add, true),
+                        EffectFormBuilder.ConditionForm(conditionMarked))
+                    .SetParticleEffectParameters(DivineFavor)
+                    .Build())
+            .AddToDB();
+
+        spell.AddCustomSubFeatures(
+            AttackAfterMagicEffect.SunlitBladeAttack,
+            new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
@@ -577,142 +795,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Sunlit Blade
-
-    internal static SpellDefinition BuildSunlightBlade()
-    {
-        var conditionMarked = ConditionDefinitionBuilder
-            .Create("ConditionSunlightBladeMarked")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-            .AddToDB();
-
-        var conditionSunlightBlade = ConditionDefinitionBuilder
-            .Create("ConditionSunlightBlade")
-            .SetGuiPresentation(Category.Condition)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionAdditionalDamageBuilder
-                    .Create("AdditionalDamageSunlightBlade")
-                    .SetGuiPresentationNoContent(true)
-                    .SetNotificationTag("SunlightBlade")
-                    .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-                    .SetAttackModeOnly()
-                    .SetDamageDice(DieType.D8, 1)
-                    .SetSpecificDamageType(DamageTypeRadiant)
-                    .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
-                    .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
-                    .AddConditionOperation(
-                        ConditionOperationDescription.ConditionOperation.Add,
-                        ConditionDefinitionBuilder
-                            .Create(ConditionHighlighted, "ConditionSunlightBladeHighlighted")
-                            .SetSpecialInterruptions(ConditionInterruption.Attacked)
-                            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                            .AddToDB())
-                    .SetAddLightSource(true)
-                    .SetLightSourceForm(new LightSourceForm
-                    {
-                        brightRange = 0,
-                        dimAdditionalRange = 2,
-                        lightSourceType = LightSourceType.Basic,
-                        color = new Color(0.9f, 0.8f, 0.4f),
-                        graphicsPrefabReference = FeatureDefinitionAdditionalDamages
-                            .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
-                    })
-                    .SetImpactParticleReference(DivineFavor)
-                    .AddToDB())
-            .AddToDB();
-
-        var spell = SpellDefinitionBuilder
-            .Create("SunlightBlade")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SunlightBlade", Resources.SunlightBlade, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(0)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
-            .SetVerboseComponent(false)
-            .SetSomaticComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetIgnoreCover()
-                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(
-                            conditionSunlightBlade, ConditionForm.ConditionOperation.Add, true),
-                        EffectFormBuilder.ConditionForm(conditionMarked))
-                    .SetParticleEffectParameters(DivineFavor)
-                    .Build())
-            .AddToDB();
-
-        spell.AddCustomSubFeatures(
-            AttackAfterMagicEffect.SunlitBladeAttack,
-            new UpgradeSpellRangeBasedOnWeaponReach(spell));
-
-        return spell;
-    }
-
-    #endregion
-
-    #region Acid Claws
-
-    internal static SpellDefinition BuildAcidClaw()
-    {
-        const string NAME = "AcidClaws";
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AcidClaws, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(0)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetVerboseComponent(false)
-            .SetSomaticComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
-                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create("ConditionAcidClaws")
-                                    .SetGuiPresentation(Category.Condition, ConditionAcidSpit)
-                                    .SetConditionType(ConditionType.Detrimental)
-                                    .SetFeatures(
-                                        FeatureDefinitionAttributeModifierBuilder
-                                            .Create("AttributeModifierAcidClawsACDebuff")
-                                            .SetGuiPresentation("ConditionAcidClaws", Category.Condition)
-                                            .SetModifier(AttributeModifierOperation.Additive,
-                                                AttributeDefinitions.ArmorClass, -1)
-                                            .AddToDB())
-                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetParticleEffectParameters(AcidSplash)
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    #endregion
-
     #region Booming Blade
 
     internal static SpellDefinition BuildBoomingBlade()
@@ -800,7 +882,7 @@ internal static partial class SpellBuilders
         }
     }
 
-    internal static void HandleBoomingBladeSheathedDamage(GameLocationCharacter defender)
+    private static void HandleBoomingBladeSheathedDamage(GameLocationCharacter defender)
     {
         var rulesetDefender = defender.RulesetCharacter;
 
@@ -874,7 +956,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Burning Blade (Resonating Strike)
+    #region Burning Blade
 
     internal static SpellDefinition BuildResonatingStrike()
     {

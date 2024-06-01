@@ -668,6 +668,16 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="Infestation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/Infestation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PrimalSavagery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/PrimalSavagery.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="RingOfBlades" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/RingOfBlades.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089

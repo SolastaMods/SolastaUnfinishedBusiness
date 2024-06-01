@@ -11620,6 +11620,7 @@ HungerOfTheVoid	SpellDefinition	SpellDefinition	fa794ede-4149-54ed-914d-f25cd55f
 IceBlade	SpellDefinition	SpellDefinition	659510a2-17ce-5577-8f85-d7756eac3bd9
 IlluminatingSphere	SpellDefinition	SpellDefinition	e7fc59b8-93d9-53aa-86f7-659ac0d16fcf
 Incineration	SpellDefinition	SpellDefinition	9736f77e-4d1b-5fa9-ba08-e0937463546c
+Infestation	SpellDefinition	SpellDefinition	588e52e7-a8b5-58b4-9b07-1d02dcb7520a
 IrresistiblePerformance	SpellDefinition	SpellDefinition	a1da847d-a053-5ba7-92a1-11a5f2260d2a
 LevitateSpell	SpellDefinition	SpellDefinition	91d64839-2a19-5655-a8f5-e14cd8e8033c
 LightningArrow	SpellDefinition	SpellDefinition	67f4d8f5-2b76-530c-969d-887c67ecbbc3
@@ -11641,6 +11642,7 @@ PetalStorm	SpellDefinition	SpellDefinition	4cc7aea6-dee9-5631-8b2a-f0e497b71bde
 PoisonWave	SpellDefinition	SpellDefinition	eb22297a-4da6-5f24-87e8-ddcd2b957bd0
 PowerWordHeal	SpellDefinition	SpellDefinition	f9e2477f-fbee-5778-8ffc-c0380c0dea7d
 PowerWordKill	SpellDefinition	SpellDefinition	7d618d6a-004a-539e-a996-e180936abe9c
+PrimalSavagery	SpellDefinition	SpellDefinition	a24eee9b-4a70-559f-838b-76777d3f6666
 ProtectThreshold	SpellDefinition	SpellDefinition	edc0ec8d-88e4-5c7d-b60e-be3e6b2e9cf0
 PsychicLance	SpellDefinition	SpellDefinition	fff99143-9ef0-55fa-acd9-b0f52c733ff6
 PsychicWhip	SpellDefinition	SpellDefinition	d5f035f9-1550-509c-b809-526e8e8e87d4
