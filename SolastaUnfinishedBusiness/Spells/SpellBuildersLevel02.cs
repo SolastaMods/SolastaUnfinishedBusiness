@@ -696,7 +696,7 @@ internal static partial class SpellBuilders
             }
 
             var selectedPower = powers[reactionRequest.SelectedSubOption];
-            
+
             foreach (var skill in skillsDb)
             {
                 var conditionName = $"ConditionBorrowedKnowledge{skill.Name}";
