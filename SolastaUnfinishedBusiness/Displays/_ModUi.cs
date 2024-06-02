@@ -178,6 +178,7 @@ internal static class ModUi
         "InvocationUltimatePactWeapon",
         "InvocationUndyingServitude",
         "InvocationVexingHex",
+        "KineticJaunt",
         "LightningArrow",
         "LightningLure",
         "MaddeningDarkness",

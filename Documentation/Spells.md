@@ -530,7 +530,7 @@ Paralyze a humanoid you can see for a limited time.
 
 Make an ally invisible for a limited time.
 
-# 129. - Kinetic Jaunt (S) level 2 Evocation [Concentration] [UB]
+# 129. - *Kinetic Jaunt* © (S) level 2 Evocation [Concentration] [UB]
 
 You magically empower your movement with dance like steps, giving yourself the following benefits for the duration:
 • Your walking speed increases by 10 feet.
