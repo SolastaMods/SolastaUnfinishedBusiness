@@ -11755,6 +11755,7 @@ PowerWordHeal	SpellDefinition	SpellDefinition	f9e2477f-fbee-5778-8ffc-c0380c0dea
 PowerWordKill	SpellDefinition	SpellDefinition	7d618d6a-004a-539e-a996-e180936abe9c
 PrimalSavagery	SpellDefinition	SpellDefinition	a24eee9b-4a70-559f-838b-76777d3f6666
 ProtectThreshold	SpellDefinition	SpellDefinition	edc0ec8d-88e4-5c7d-b60e-be3e6b2e9cf0
+PsionicBlast	SpellDefinition	SpellDefinition	6a0a898a-721a-5d5d-8375-ddb854508fc2
 PsychicLance	SpellDefinition	SpellDefinition	fff99143-9ef0-55fa-acd9-b0f52c733ff6
 PsychicWhip	SpellDefinition	SpellDefinition	d5f035f9-1550-509c-b809-526e8e8e87d4
 PulseWave	SpellDefinition	SpellDefinition	71a547b1-f108-54be-95ee-56263814b30b

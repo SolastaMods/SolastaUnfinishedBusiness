@@ -206,6 +206,7 @@ internal static class ModUi
         "PowerWordHeal",
         "PowerWordKill",
         "PrimalSavagery",
+        "PsionicBlast",
         "PsychicLance",
         "PsychicWhip",
         "PulseWave",
