@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -75,6 +76,9 @@ public sealed class InnovationVivisectionist : AbstractSubclass
                             .SetHealingForm(
                                 HealingComputation.Dice, 0, DieType.D6, 1, false, HealingCap.MaximumHitPoints)
                             .Build())
+                    .SetCasterEffectParameters(new AssetReference())
+                    .SetImpactEffectParameters(PowerTraditionOpenHandWholenessOfBody
+                        .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
