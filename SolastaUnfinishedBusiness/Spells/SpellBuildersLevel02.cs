@@ -216,7 +216,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Color Burst
+    #region Kinetic Jaunt
 
     internal static SpellDefinition BuildKineticJaunt()
     {
@@ -224,7 +224,7 @@ internal static partial class SpellBuilders
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+            .SetGuiPresentation(NAME, Category.Spell, ConditionFreedomOfMovement)
             .SetPossessive()
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
@@ -544,7 +544,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Binding Ice
+    #region Borrowed Knowledge
 
     internal static SpellDefinition BuildBorrowedKnowledge()
     {
@@ -573,7 +573,8 @@ internal static partial class SpellBuilders
                             EffectFormBuilder.ConditionForm(
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{NAME}{skill.Name}")
-                                    .SetGuiPresentation(skill.GuiPresentation.Title, Gui.NoLocalization)
+                                    .SetGuiPresentation(skill.GuiPresentation.Title, Gui.NoLocalization,
+                                        ConditionBullsStrength)
                                     .SetPossessive()
                                     .SetFeatures(
                                         FeatureDefinitionProficiencyBuilder
@@ -645,11 +646,21 @@ internal static partial class SpellBuilders
             {
                 var skillName = power.Name.Replace("PowerBorrowedKnowledge", string.Empty);
 
-                if (skillsDb.TryGetElement(skillName, out var skill) &&
-                    !hero.TrainedSkills.Contains(skill))
+                if (!skillsDb.TryGetElement(skillName, out var skill) ||
+                    hero.TrainedSkills.Contains(skill) ||
+                    hero.BackgroundDefinition.Features
+                        .OfType<FeatureDefinitionProficiency>()
+                        .Any(x =>
+                            x.ProficiencyType is ProficiencyType.Skill or ProficiencyType.SkillOrExpertise &&
+                            x.Proficiencies.Contains(skillName)))
                 {
-                    usablePowers.Add(PowerProvider.Get(power, rulesetCharacter));
+                    continue;
                 }
+
+                var up = PowerProvider.Get(power, rulesetCharacter);
+
+                usablePowers.Add(up);
+                rulesetCharacter.UsablePowers.Add(up);
             }
 
             var implementationManager =
