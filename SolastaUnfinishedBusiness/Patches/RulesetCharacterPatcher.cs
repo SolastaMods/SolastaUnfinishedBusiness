@@ -23,7 +23,6 @@ using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using MirrorImage = SolastaUnfinishedBusiness.Behaviors.Specific.MirrorImage;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -554,7 +553,7 @@ public static class RulesetCharacterPatcher
 
             var effect = PowerBundle.ModifySpellEffect(cantrip, __instance);
             var hasDamage = effect.HasFormOfType(EffectForm.EffectFormType.Damage);
-            var hasAttack = cantrip.HasSubFeatureOfType<IAttackAfterMagicEffect>();
+            var hasAttack = cantrip.HasSubFeatureOfType<AttackAfterMagicEffect>();
             var notGadgets = effect.TargetFilteringMethod != TargetFilteringMethod.GadgetOnly;
             var componentsValid = __instance.AreSpellComponentsValid(cantrip);
 

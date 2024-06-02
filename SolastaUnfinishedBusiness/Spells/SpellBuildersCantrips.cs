@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -22,6 +23,12 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    private static readonly (string, IMagicEffect)[] DamagesAndEffects =
+    [
+        (DamageTypeAcid, AcidSplash), (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt),
+        (DamageTypeLightning, LightningBolt), (DamageTypePoison, PoisonSpray), (DamageTypeThunder, Shatter)
+    ];
+
     #region Acid Claws
 
     internal static SpellDefinition BuildAcidClaw()
@@ -609,7 +616,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         spell.AddCustomSubFeatures(
-            AttackAfterMagicEffect.SunlitBladeAttack,
+            AttackAfterMagicEffect.Marker,
             new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;
@@ -863,7 +870,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         spell.AddCustomSubFeatures(
-            AttackAfterMagicEffect.BoomingBladeAttack,
+            AttackAfterMagicEffect.Marker,
             new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;
@@ -1038,7 +1045,7 @@ internal static partial class SpellBuilders
         powerResonatingStrike.AddCustomSubFeatures(customBehavior);
         spell.AddCustomSubFeatures(
             customBehavior,
-            AttackAfterMagicEffect.ResonatingStrikeAttack,
+            AttackAfterMagicEffect.Marker,
             new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;

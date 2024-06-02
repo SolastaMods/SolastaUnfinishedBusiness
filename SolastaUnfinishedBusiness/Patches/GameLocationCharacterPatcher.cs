@@ -13,12 +13,10 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -391,10 +389,7 @@ public static class GameLocationCharacterPatcher
         private static int _mainAttacks, _bonusAttacks, _mainRank, _bonusRank;
 
         [UsedImplicitly]
-        public static void Prefix(
-            GameLocationCharacter __instance,
-            CharacterActionParams actionParams,
-            ActionDefinitions.ActionScope scope)
+        public static void Prefix(GameLocationCharacter __instance)
         {
             _mainRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Main];
             _bonusRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Bonus];
@@ -408,46 +403,11 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            var rulesetCharacter = __instance.RulesetCharacter;
+            //PATCH: support for `AttackAfterMagicEffect`
+            AttackAfterMagicEffect.MaybeMarkUsedMainCantrip(__instance, actionParams);
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                return;
-            }
-
-            //PATCH: support for attack cantrips
-            if (actionParams.AttackMode != null &&
-                actionParams.AttackMode.AttackTags.Contains(SpellBuilders.PhysicalAttackFromCantrip))
-            {
-                __instance.UsedMainCantrip = true;
-            }
-
-            //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
+            //PATCH: support for `IReplaceAttackWithCantrip`
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
-
-            //PATCH: support for action switching interaction with war magic and MetamagicQuickenedSpell
-            if (Main.Settings.EnableActionSwitching)
-            {
-                if (actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell)
-                {
-                    if (rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
-                    {
-                        // ensure we block double dip on bonus spells if metamagic is present
-                        __instance.UsedBonusSpell = true;
-                    }
-
-                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-                    switch (actionParams.ActionDefinition.ActionType)
-                    {
-                        case ActionDefinitions.ActionType.Main:
-                            __instance.UsedBonusSpell = true;
-                            break;
-                        case ActionDefinitions.ActionType.Bonus:
-                            __instance.UsedMainSpell = true;
-                            break;
-                    }
-                }
-            }
 
             //PATCH: support for action switching
             ActionSwitching.CheckIfActionSwitched(
