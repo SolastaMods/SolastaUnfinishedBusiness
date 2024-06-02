@@ -553,7 +553,7 @@ public static class RulesetCharacterPatcher
 
             var effect = PowerBundle.ModifySpellEffect(cantrip, __instance);
             var hasDamage = effect.HasFormOfType(EffectForm.EffectFormType.Damage);
-            var hasAttack = cantrip.HasSubFeatureOfType<IAttackAfterMagicEffect>();
+            var hasAttack = cantrip.HasSubFeatureOfType<AttackAfterMagicEffect>();
             var notGadgets = effect.TargetFilteringMethod != TargetFilteringMethod.GadgetOnly;
             var componentsValid = __instance.AreSpellComponentsValid(cantrip);
 
@@ -1717,112 +1717,92 @@ public static class RulesetCharacterPatcher
     [UsedImplicitly]
     public static class RollConcentrationCheck_Patch
     {
-        [UsedImplicitly]
-        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        private static int GetModifier(
+            RulesetCharacter __instance,
+            ActionModifier effectModifier,
+            string damageType,
+            string abilityScoreName)
         {
-            var myComputeBaseSavingThrowBonus =
-                new Func<RulesetActor, string, List<TrendInfo>, int>(ComputeBaseSavingThrowBonus)
-                    .Method;
+            var accountedProviders = new List<ISavingThrowAffinityProvider>();
+            var savingThrowBonus =
+                __instance.ComputeBaseSavingThrowBonus(abilityScoreName, effectModifier.SavingThrowModifierTrends);
 
-            var myComputeSavingThrowModifier =
-                new Action<RulesetActor, string, EffectForm.EffectFormType, string, string, string, string, string,
-                        ActionModifier, List<ISavingThrowAffinityProvider>, int>(ComputeSavingThrowModifier)
-                    .Method;
+            __instance.ComputeSavingThrowModifier(
+                abilityScoreName, EffectForm.EffectFormType.Damage, string.Empty,
+                string.Empty, damageType, string.Empty, string.Empty, effectModifier, accountedProviders);
 
-            var myGetSavingThrowModifier =
-                new Func<ActionModifier, string, bool, RulesetActor, int>(GetSavingThrowModifier).Method;
-
-            var computeBaseSavingThrowBonus = typeof(RulesetActor).GetMethod("ComputeBaseSavingThrowBonus");
-            var computeSavingThrowModifier = typeof(RulesetActor).GetMethod("ComputeSavingThrowModifier");
-            var getSavingThrowModifier = typeof(ActionModifier).GetMethod("GetSavingThrowModifier");
-
-            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions
-                //PATCH: supports changing the concentration attribute score
-                .ReplaceCalls(computeBaseSavingThrowBonus,
-                    "RulesetCharacter.RollConcentrationCheck.ComputeBaseSavingThrowBonus",
-                    new CodeInstruction(OpCodes.Call, myComputeBaseSavingThrowBonus))
-                .ReplaceCalls(computeSavingThrowModifier,
-                    "RulesetCharacter.RollConcentrationCheck.ComputeSavingThrowModifier",
-                    new CodeInstruction(OpCodes.Call, myComputeSavingThrowModifier))
-                .ReplaceCalls(getSavingThrowModifier,
-                    "RulesetCharacter.RollConcentrationCheck.GetSavingThrowModifier",
-                    new CodeInstruction(OpCodes.Ldarg_0),
-                    new CodeInstruction(OpCodes.Call, myGetSavingThrowModifier))
-                //PATCH: allow modifiers from items to be considered on concentration checks
-                .ReplaceEnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
-                    "RulesetCharacter.RollConcentrationCheck.EnumerateSpellCastingAffinities",
-                    EnumerateFeaturesFromItems<ISpellCastingAffinityProvider>);
+            return savingThrowBonus + effectModifier.GetSavingThrowModifier(abilityScoreName);
         }
 
-        private static void GetBestSavingThrowAbilityScore(RulesetActor rulesetActor, ref string attributeScore)
+        private static void RollConcentrationCheck(
+            RulesetCharacter __instance,
+            int saveDC,
+            string damageType,
+            out RollOutcome outcome)
         {
-            var savingThrowBonus =
-                AttributeDefinitions.ComputeAbilityScoreModifier(
-                    rulesetActor.TryGetAttributeValue(attributeScore)) +
-                rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, []);
+            var effectModifier = new ActionModifier();
+            var modifier = GetModifier(__instance, effectModifier, damageType, AttributeDefinitions.Constitution);
 
-            foreach (var attribute in rulesetActor
-                         .GetSubFeaturesByType<IModifyConcentrationAttribute>()
-                         .Where(x => x.IsValid(rulesetActor))
-                         .Select(x => x.ConcentrationAttribute(rulesetActor)))
+            foreach (var rollSavingCheckInitiated in __instance.GetSubFeaturesByType<IRollSavingCheckInitiated>())
             {
-                var newSavingThrowBonus =
-                    AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attribute)) +
-                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, []);
+                rollSavingCheckInitiated
+                    .OnRollSavingCheckInitiated(__instance, saveDC, damageType, ref effectModifier, ref modifier);
+            }
 
-                // get the last one instead unless we start using this with other subs and then need to decide which one is better
-                if (newSavingThrowBonus <= savingThrowBonus)
+            outcome = RollOutcome.Neutral;
+
+            __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
+                __instance.FeaturesToBrowse, __instance.FeaturesOrigin);
+
+            foreach (var key in __instance.FeaturesToBrowse)
+            {
+                var affinityProvider = key as ISpellCastingAffinityProvider;
+
+                if (affinityProvider is { ConcentrationAffinity: ConcentrationAffinity.CannotConcentrate })
                 {
-                    continue;
+                    outcome = RollOutcome.Failure;
+                    break;
                 }
 
-                attributeScore = attribute;
-                savingThrowBonus = newSavingThrowBonus;
+                if (affinityProvider is
+                    { ConcentrationAffinity: ConcentrationAffinity.Advantage or ConcentrationAffinity.Disadvantage })
+                {
+                    effectModifier.SavingThrowAdvantageTrends.Add(
+                        new TrendInfo(
+                            affinityProvider.ConcentrationAffinity == ConcentrationAffinity.Advantage ? 1 : -1,
+                            __instance.FeaturesOrigin[key].sourceType, __instance.FeaturesOrigin[key].sourceName,
+                            __instance.FeaturesOrigin[key].source));
+                }
             }
+
+            if (outcome == RollOutcome.Failure)
+            {
+                return;
+            }
+
+            var rawRoll = __instance.RollDie(DieType.D20, RollContext.ConcentrationCheck, false,
+                ComputeAdvantage(effectModifier.SavingThrowAdvantageTrends), out _, out _);
+
+            var totalRoll = rawRoll + modifier;
+
+            outcome = totalRoll < saveDC ? RollOutcome.Failure : RollOutcome.Success;
+
+            __instance.ConcentrationCheckRolled?.Invoke(__instance, outcome, totalRoll, rawRoll, modifier, saveDC,
+                effectModifier.SavingThrowModifierTrends, effectModifier.SavingThrowAdvantageTrends);
         }
 
-        private static int ComputeBaseSavingThrowBonus(
-            RulesetActor __instance,
-            string abilityScoreName,
-            List<TrendInfo> savingThrowModifierTrends)
-        {
-            GetBestSavingThrowAbilityScore(__instance, ref abilityScoreName);
-
-            return __instance.ComputeBaseSavingThrowBonus(abilityScoreName, savingThrowModifierTrends);
-        }
-
-        private static void ComputeSavingThrowModifier(
-            RulesetActor __instance,
-            string abilityType,
-            EffectForm.EffectFormType formType,
-            string sourceName,
-            string schoolOfMagic,
+        [UsedImplicitly]
+        public static bool Prefix(
+            RulesetCharacter __instance,
+            int saveDC,
             string damageType,
-            string conditionType,
-            string sourceFamily,
-            ActionModifier effectModifier,
-            List<ISavingThrowAffinityProvider> accountedProviders,
-            int savingThrowContextField = 0)
+            out RollOutcome outcome)
         {
-            GetBestSavingThrowAbilityScore(__instance, ref abilityType);
+            RollConcentrationCheck(__instance, saveDC, damageType, out outcome);
 
-            __instance.ComputeSavingThrowModifier(abilityType, formType, sourceName, schoolOfMagic, damageType,
-                conditionType, sourceFamily, effectModifier, accountedProviders, savingThrowContextField);
-        }
-
-        private static int GetSavingThrowModifier(
-            ActionModifier __instance,
-            string abilityType,
-            bool ignoreCover,
-            RulesetActor rulesetActor)
-        {
-            GetBestSavingThrowAbilityScore(rulesetActor, ref abilityType);
-
-            return __instance.GetSavingThrowModifier(abilityType, ignoreCover);
+            return false;
         }
     }
-
 
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RollConcentrationCheckFromDamage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

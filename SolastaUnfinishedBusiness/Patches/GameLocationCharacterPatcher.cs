@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -16,7 +17,6 @@ using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -302,6 +302,22 @@ public static class GameLocationCharacterPatcher
             {
                 __result = ActionDefinitions.ActionStatus.Available;
             }
+
+            var traditionFreedomLevel =
+                __instance.RulesetCharacter.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Monk,
+                    "TraditionFreedom");
+
+            //BUGFIX: Hide other Flurry of Blows actions on Way of Freedom Monk as it levels up
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+            switch (actionId)
+            {
+                case ActionDefinitions.Id.FlurryOfBlows when
+                    traditionFreedomLevel >= 3:
+                case ActionDefinitions.Id.FlurryOfBlowsSwiftSteps when
+                    traditionFreedomLevel >= 11:
+                    __result = ActionDefinitions.ActionStatus.Unavailable;
+                    break;
+            }
         }
     }
 
@@ -373,10 +389,7 @@ public static class GameLocationCharacterPatcher
         private static int _mainAttacks, _bonusAttacks, _mainRank, _bonusRank;
 
         [UsedImplicitly]
-        public static void Prefix(
-            GameLocationCharacter __instance,
-            CharacterActionParams actionParams,
-            ActionDefinitions.ActionScope scope)
+        public static void Prefix(GameLocationCharacter __instance)
         {
             _mainRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Main];
             _bonusRank = __instance.currentActionRankByType[ActionDefinitions.ActionType.Bonus];
@@ -390,42 +403,11 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            var rulesetCharacter = __instance.RulesetCharacter;
+            //PATCH: support for `AttackAfterMagicEffect`
+            AttackAfterMagicEffect.MaybeMarkUsedMainCantrip(__instance, actionParams);
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                return;
-            }
-
-            //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
+            //PATCH: support for `IReplaceAttackWithCantrip`
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
-
-            //PATCH: support for action switching
-            if (Main.Settings.EnableActionSwitching &&
-                actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell)
-            {
-                if (rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
-                {
-                    // ensure we block double dip on bonus spells if metamagic is present
-                    __instance.UsedBonusSpell = true;
-                }
-
-                // ensure we update some action switching related flags here as they get overwritten later
-                // under some scenarios involving cantrips that attack and war caster
-                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-                switch (actionParams.ActionDefinition.ActionType)
-                {
-                    case ActionDefinitions.ActionType.Main when rulesetEffectSpell.SpellDefinition.SpellLevel == 0:
-                        __instance.UsedMainCantrip = true;
-                        break;
-                    case ActionDefinitions.ActionType.Main:
-                        __instance.UsedBonusSpell = true;
-                        break;
-                    case ActionDefinitions.ActionType.Bonus:
-                        __instance.UsedMainSpell = true;
-                        break;
-                }
-            }
 
             //PATCH: support for action switching
             ActionSwitching.CheckIfActionSwitched(

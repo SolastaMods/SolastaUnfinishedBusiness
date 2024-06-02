@@ -232,7 +232,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 0)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
@@ -389,7 +389,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
@@ -453,7 +453,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
@@ -811,8 +811,8 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
-                        EffectFormBuilder.DamageForm("DamagePure", 1, DieType.D6))
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 2, DieType.D8),
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -853,8 +853,8 @@ internal static partial class SpellBuilders
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm("DamagePure", 2, DieType.D8),
-                        EffectFormBuilder.DamageForm("DamagePure", 1, DieType.D6))
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 2, DieType.D8),
+                        EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1, DieType.D6))
                     .SetCasterEffectParameters(PrismaticSpray)
                     .SetImpactEffectParameters(new AssetReference())
                     .Build())
@@ -939,7 +939,12 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            var isValid = !target.RulesetActor.HasConditionOfCategoryAndType(
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid = !target.RulesetCharacter.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionMark.Name);
 
             if (!isValid)
@@ -989,7 +994,7 @@ internal static partial class SpellBuilders
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             rulesetDefender.InflictCondition(
                 conditionMark.Name,
@@ -1043,7 +1048,7 @@ internal static partial class SpellBuilders
                 foreach (var effectForm in actualEffectForms
                              .Where(x =>
                                  x.FormType == EffectForm.EffectFormType.Damage &&
-                                 x.DamageForm.DamageType == "DamagePure"))
+                                 x.DamageForm.DamageType == DamageTypeBludgeoning))
                 {
                     effectForm.DamageForm.DamageType = damageType;
                 }
@@ -1129,7 +1134,7 @@ internal static partial class SpellBuilders
                 foreach (var effectForm in actualEffectForms
                              .Where(x =>
                                  x.FormType == EffectForm.EffectFormType.Damage &&
-                                 x.DamageForm.DamageType == "DamagePure"))
+                                 x.DamageForm.DamageType == DamageTypeBludgeoning))
                 {
                     effectForm.DamageForm.DamageType = damageType;
                 }
@@ -2424,15 +2429,12 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerWitchBolt)
+            if (target.RulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
-            var rulesetTarget = target.RulesetCharacter;
-
-            var isValid = rulesetTarget.HasConditionOfCategoryAndType(
+            var isValid = target.RulesetCharacter.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionWitchBolt.Name);
 
             if (!isValid)

@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Tool",
+  "proficiencyType": "ToolOrExpertise",
   "proficiencies": [
     "PoisonersKitType"
   ],

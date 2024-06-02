@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -165,70 +164,28 @@ internal static class CommonBuilders
 
     private sealed class CustomBehaviorCasterFightingWarMagic(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition)
-        : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
+        ConditionDefinition conditionDefinition) : IMagicEffectFinishedByMeAny
     {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            List<GameLocationCharacter> targets)
         {
-            if (rulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
+            if (action.ActionType is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus) ||
+                action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
+                (!Main.Settings.EnableCantripsTriggeringOnWarMagic &&
+                 rulesetEffectSpell.SpellDefinition.SpellLevel <= 0))
             {
                 yield break;
             }
 
-            if (rulesetEffectSpell.SpellDefinition.SpellLevel == 0 && !Main.Settings.EnableCantripsTriggeringOnWarMagic)
-            {
-                yield break;
-            }
-
-            yield return TryAddCondition(attacker);
-        }
-
-        //supports Sunlit Blade and Resonating Strike
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (!Main.Settings.EnableCantripsTriggeringOnWarMagic ||
-                (attackMode != null && !attackMode.AttackTags.Contains(SpellBuilders.PhysicalAttackFromCantrip)))
-            {
-                yield break;
-            }
-
-            yield return TryAddCondition(attacker);
-        }
-
-        private IEnumerator TryAddCondition(IControllableCharacter attacker)
-        {
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetAttacker.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionDefinition.Name))
-            {
-                yield break;
-            }
 
             rulesetAttacker.InflictCondition(
                 conditionDefinition.Name,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.EndOfTurn,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,

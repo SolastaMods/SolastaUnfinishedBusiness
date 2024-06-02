@@ -6,5 +6,5 @@ Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Grâce à v
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Concentration améliorée
 Feedback/&AdditionalDamageArcaneFighterFormat=Combattant arcanique !
 Feedback/&AdditionalDamageArcaneFighterLine=Arcane Fighter inflige +{2} dégâts supplémentaires !
-Subclass/&WizardArcaneFighterDescription=Les combattants arcaniques canalisent la magie dans leurs armes afin d'effectuer des attaques dévastatrices. Leurs adversaires sont souvent surpris de la férocité et de l’acharnement de ces lanceurs de sorts.
+Subclass/&WizardArcaneFighterDescription=Les combattants arcaniques canalisent la magie dans leurs armes afin d'effectuer des attaques dévastatrices. Leurs adversaires sont souvent surpris de la férocité et de l'acharnement de ces lanceurs de sorts.
 Subclass/&WizardArcaneFighterTitle=Combattant arcanique

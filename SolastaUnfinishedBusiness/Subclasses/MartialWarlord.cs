@@ -373,7 +373,7 @@ public sealed class MartialWarlord : AbstractSubclass
             foreach (var character in Gui.Battle.PlayerContenders
                          .Where(x => x.Guid != rulesetCondition.SourceGuid))
             {
-                character.RulesetCharacter.InflictCondition(
+                character.RulesetActor.InflictCondition(
                     conditionCoveringStrikeAlly.Name,
                     DurationType.Round,
                     1,
@@ -406,15 +406,21 @@ public sealed class MartialWarlord : AbstractSubclass
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (!target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
-                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
+            if (target.RulesetCharacter == null)
             {
-                return target.RulesetCharacter is not RulesetCharacterEffectProxy;
+                return false;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
+            var isValid =
+                !target.RulesetCharacter
+                    .HasAnyConditionOfTypeOrSubType(ConditionIncapacitated, ConditionParalyzed, ConditionRestrained);
 
-            return false;
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
+            }
+
+            return isValid;
         }
 
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)

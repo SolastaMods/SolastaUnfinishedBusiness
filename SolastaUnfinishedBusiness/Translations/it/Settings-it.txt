@@ -1,78 +1,80 @@
-ModUi/&AccountForAllDiceOnSavageAttack=Aggiungi tutti i dadi del danno base dell'arma alle caratteristiche che aggiungono il danno base dell'arma invece di 1 solo dado <i><color=#F0DAA0>[Attacco selvaggio, armi 2H, ecc.]</color></i>
+ModUi/&AccountForAllDiceOnFollowUpStrike=Aggiungi tutti i dadi del danno base dell'arma al talento <color=#D89555> Colpo Successivo</color>
+ModUi/&AccountForAllDiceOnSavageAttack=Aggiungi tutti i dadi dal danno base dell'arma alle funzionalità che aggiungono danno base dell'arma invece di 1 solo dado <i><color=#F0DAA0>[Attacco selvaggio, armi 2H, ecc.]</color></i>
 ModUi/&AddAllToStore=Aggiungi tutto al negozio
-ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555> Sanguinamento</color> a quelle rimosse da <color=#D89555> Maggiore</color> e <color=#D89555> Restauro minore</color>
+ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555> Sanguinamento</color> a quelle rimosse da <color=#D89555> Maggiore</color> e <color=#D89555> Restauro Minore</color>
 ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate agli oggetti di gioco ufficiali <i><color=#F0DAA0>[munizioni, ricette, kit, ecc.]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio] </color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percettivo dell'oscurità</color> su <color=#D89555>Elfo Oscuro</color>, <color=#D89555>Coboldo Oscuro</color> e <color=#D89555>Nano Grigio</ color> <i><color=#F0DAA0>\n[concede vantaggio alle prove di percezione quando spento o nell'oscurità magica]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percettivo dell'oscurità</color> su <color=#D89555>Elfo Oscuro</color>, <color=#D89555>Coboldo Oscuro</color> e <color=#D89555>Nano Grigio</color> <i><color=#F0DAA0>\n[concede vantaggio alle prove di percezione quando spento o nell'oscurità magica]</color></i>
 ModUi/&AddDexModifierToEnemiesInitiativeRoll=Aggiungi <color=#D89555> Modificatore di Destrezza</color> ai nemici <color=#D89555> Tiro di Iniziativa</color>
-ModUi/&AddFighterLevelToIndomitableSavingReroll=Aggiungi il livello <color=#D89555>Guerriero</color> al tiro salvezza di <color=#D89555>Indomabile</color>
-ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze giocabili <i><color=#F0DAA0>[puoi aiutare una creatura amica ad attaccare una creatura entro 1,5 metri da te]</color></i>
+ModUi/&AddFighterLevelToIndomitableSavingReroll=Abilita <color=#D89555>Guerriero</color> per aggiungere il livello di classe come bonus al tiro salvezza di <color=#D89555>Resistenza indomabile</color>
+ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze giocabili <i><color=#F0DAA0>[puoi aiutare una creatura amica ad attaccare una creatura entro 1 cella da te]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Abilita i nemici preferiti umanoidi <color=#D89555>Ranger</color>
-ModUi/&AddNewBrightEyeColors=Aggiungi nuovi colori luminosi per gli occhi
-ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce per le mani, alabarde, picche, lunghe mazze, balestre a mano]</color></i> <b><i><color=#C04040E0> [Richiede il riavvio]</color></i></b>
-ModUi/&AddPaladinSmiteToggle=Aggiungi un interruttore per consentire ai <color=#D89555>Paladini</color> di abilitare solo i colpi critici <i><color=#F0DAA0>[utile per ridurre al minimo le richieste di reazione]</color></i>
-ModUi/&AddPickPocketableLoot=Aggiungi bottino borseggiatore <i><color=#F0DAA0>[suggerito se il talento <color=#D89555> Borseggiatore</color> è abilitato]</color></i>
+ModUi/&AddNewBrightEyeColors=Aggiungi nuovi colori brillanti per gli occhi
+ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce, alabarde, picche, mazze lunghe, balestre a mano]</color></i> <b><i><color=#C04040E0> [Richiede il riavvio]</color></i></b>
+ModUi/&AddPaladinSmiteToggle=Aggiungi un interruttore per consentire ai <color=#D89555>Paladini</color> di abilitare le punizioni solo sui colpi critici <i><color=#F0DAA0>[utile per ridurre al minimo le richieste di reazione]</color></i>
+ModUi/&AddPickPocketableLoot=Aggiungi bottino borseggiabile <i><color=#F0DAA0>[suggerito se il talento <color=#D89555>Borseggiatore</color> è abilitato]</color></i>
 ModUi/&AddToStore=Aggiungi al negozio
 ModUi/&Advanced=<color=#F0DAA0>Avanzate:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATTENZIONE:</color></b> Queste impostazioni richiedono che il giocatore abbia installato questa mod
+ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATTENZIONE:</color></b> Queste impostazioni richiederanno che il giocatore abbia installato questa mod
 ModUi/&AllItemInDm=Tutti gli articoli in DM
 ModUi/&AllRecipesInDm=Tutte le ricette in DM
-ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori nelle sequenze narrative</i>
-ModUi/&AllowAnyClassToWearSylvanArmor=Consenti a qualsiasi classe di indossare l'<color=#D89555> Armatura Silvana</color> o <color=#D89555> Abiti dell'Araldo della Luce</color>
-ModUi/&AllowBeardlessDwarves=Consenti i <color=#D89555>Nani</color> senza barba
+ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori sequenze narrative</i>
+ModUi/&AllowAnyClassToWearSylvanArmor=Consenti a qualsiasi classe di indossare <color=#D89555> Armatura Silvana</color> o <color=#D89555> Abiti da Portatore di Luce</color>
+ModUi/&AllowBeardlessDwarves=Consenti <color=#D89555>Nani</color> senza barba
 ModUi/&AllowClubsToBeThrown=Consenti il lancio di <color=#D89555>mazze</color> come <color=#D89555>pugnali</color> o <color=#D89555>asce</color>
 ModUi/&AllowDisplayingNonSuggestedSpells=Consenti incantesimi non suggeriti dal mod in ogni elenco
 ModUi/&AllowDisplayingOfficialSpells=Consenti gli incantesimi ufficiali del gioco in ogni elenco
 ModUi/&AllowDruidToWearMetalArmor=Consenti al <color=#D89555>Druido</color> di indossare un'armatura di metallo
 ModUi/&AllowDungeonsMaxLevel20=Consenti dungeon con livello massimo 20
-ModUi/&AllowFlightSuspend=Consenti la sospensione temporanea del volo da oggetti e incantesimi <i><color=#F0DAA0>[non influisce sulle forme selvatiche o sulle razze volanti]</color></i>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Abilita il <color=#1E81B0>CTRL</color> clic per ignorare qualsiasi controllo quando si posizionano gadget o oggetti di scena
-ModUi/&AllowHasteCasting=Consenti di lanciare incantesimi con azione extra dall'essere affrettati <color=#F0DAA0>[sei ancora limitato a 1 incantesimo di azione principale per round]</color>
-ModUi/&AllowHornsOnAllRaces=Consenti le corna a tutte le razze <i><color=#F0DAA0>[i risultati potrebbero sembrare terribili a seconda della razza, della testa e delle corna]</color></i>
-ModUi/&AllowMoreRealStateOnRestPanel=Consenti più stato reale sul pannello di riposo <i><color=#F0DAA0>[nascondi le azioni dopo il riposo sul pannello prima e le funzionalità di recupero sul pannello dopo]</color></i>
-ModUi/&AllowStackedMaterialComponent=Consenti componente materiale impilato <i><color=#F0DAA0>[ad es. 2 diamanti da 500 gp equivalgono a un diamante da 1000 gp]</color></i>
+ModUi/&AllowFlightSuspend=Consenti la sospensione temporanea del volo da oggetti e incantesimi <i><color=#F0DAA0>[non influenza le razze selvagge o volanti]</color></i>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Abilita il clic <color=#1E81B0>CTRL</color> per ignorare qualsiasi controllo quando si posizionano gadget o oggetti di scena
+ModUi/&AllowHasteCasting=Consenti di lanciare incantesimi con azione extra dall'avere fretta <color=#F0DAA0> [sei ancora limitato a 1 incantesimo di azione principale per round]</color>
+ModUi/&AllowHornsOnAllRaces=Consenti corni a tutte le razze <i><color=#F0DAA0>[i risultati potrebbero sembrare terribili a seconda della razza, della testa e del corno]</color></i>
+ModUi/&AllowMoreRealStateOnRestPanel=Consenti più stato reale nel pannello di riposo <i><color=#F0DAA0>[nascondi le azioni dopo il riposo nel pannello prima e le funzionalità di ripristino nel pannello dopo]</color></i>
+ModUi/&AllowStackedMaterialComponent=Consenti componente materiale impilato <i><color=#F0DAA0>[ad es. 2 diamanti da 500 mo equivalgono a 1000 mo di diamanti]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Consenti la selezione del bersaglio quando lanci l'incantesimo <color=#D89555>Catena di Fulmini</color>
 ModUi/&AllowUnmarkedSorcerers=Consenti <color=#D89555>Stregone</color> senza segni di origine e tatuaggi
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Il tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=#F0DAA0>[solo dungeon personalizzati]</color></i>
-ModUi/&ArcaneShieldstaffOptions=Consenti a <color=#D89555>Bastone Scudo Arcano</color> di essere sintonizzato da qualsiasi classe
+ModUi/&ArcaneShieldstaffOptions=Consenti al <color=#D89555>Bastone dello Scudo Arcano</color> di essere sintonizzato da qualsiasi classe
 ModUi/&Backgrounds=<color=#F0DAA0>Sfondi</color>
-ModUi/&BackgroundsAndRaces=Sfondi e gare
-ModUi/&Basic=<color=#F0DAA0> Base:</color>
+ModUi/&BackgroundsAndRaces=Sfondi e razze
+ModUi/&Basic=<color=#F0DAA0>Base:</color>
 ModUi/&Bestiary=Bestiario
-ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Infliggi Maledizione</color> non richiede concentrazione se lanciato con uno slot incantesimo L5+
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Lancia Maledizione</color> non richiede concentrazione se lanciato con uno slot incantesimo L5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condizione <color=#D89555>Accecato</color> non consente attacchi di opportunità
-ModUi/&Blueprints=Cianografie
+ModUi/&Blueprints=Progetti
 ModUi/&Campaigns=<color=#F0DAA0>Campagne:</color>
-ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagne e località:</color>
+ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagne e posizioni:</color>
 ModUi/&Category=Categoria
-ModUi/&ChangeDragonbornElementalBreathUsages=Cambia gli usi del soffio elementale <color=#D89555>Dragonborn</color> in modificatore di costituzione per riposo breve
-ModUi/&ChangeSleetStormToCube=Cambia <color=#D89555>Tempesta di nevischio</color> per usare un cubo invece di un cilindro
+ModUi/&ChangeDragonbornElementalBreathUsages=Cambia l'utilizzo del respiro elementale <color=#D89555>Dragonborn</color> nel modificatore di Costituzione per riposo breve
+ModUi/&ChangeSleetStormToCube=Cambia <color=#D89555>Tempesta di nevischio</color> per utilizzare un cubo invece di un cilindro
 ModUi/&Changelog=<b><color=#D89555>Registro modifiche</color></b>
 ModUi/&Character=Carattere
-ModUi/&CharactersPool=Pool di personaggi
+ModUi/&CharactersPool=Piscina di personaggi
 ModUi/&Classes=<color=#F0DAA0>Classi</color>
 ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>Immunità al freddo</color> garantisce anche l'immunità alle condizioni fredde e congelate
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Resistenza al freddo</color> garantisce inoltre l'immunità alla condizione di freddo e riduce il congelamento a freddo
 ModUi/&Combat=<color=#F0DAA0>Combattimento:</color>
 ModUi/&Crafting=<color=#F0DAA0>Creazione:</color>
-ModUi/&CraftingHelp=• Premi il pulsante per imparare le ricette all'istante sulla festa attiva\n• Gli articoli aggiunti ai negozi potrebbero richiedere che il gruppo si allontani dal luogo e ritorni
+ModUi/&CraftingHelp=• Premi il pulsante per apprendere istantaneamente le ricette del gruppo attivo\n• Gli articoli aggiunti ai negozi potrebbero richiedere che il gruppo si allontani dal luogo e ritorni
 ModUi/&Credits=Crediti
 ModUi/&CreditsAndDiagnostics=Crediti e diagnostica
-ModUi/&Critical=<color=#F0DAA0> Colpo critico:</color>
-ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: impostazione predefinita del gioco, tira due volte i dadi di danno, somma il risultato e aggiungi i modificatori <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
-ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: somma il risultato massimo per i dadi di danno e sommalo al danno dell'attacco <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
-ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a ripetere il tiro di tutti i dadi danno che ottengono il risultato più alto possibile e aggiungilo al danno totale
-ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: raddoppia il danno totale del tuo attacco invece di tirare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
+ModUi/&Critical=<color=#F0DAA0>Colpo critico:</color>
+ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: impostazione predefinita del gioco, lancia due volte i dadi di danno, aggiungi il risultato e aggiungi i modificatori <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
+ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: somma il risultato massimo dei dadi di danno e aggiungilo al danno dell'attacco <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
+ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a ripetere il lancio di tutti i dadi di danno che ottengono il risultato più alto possibile e aggiungilo al danno totale
+ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: raddoppia il danno totale del tuo attacco invece di lanciare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinità</color>
-ModUi/&DisableAutoEquip=Disattiva l'equipaggiamento automatico degli articoli nell'inventario
-ModUi/&DisableBarbarianBrutalCritical=<i>+ Disabilita anche <color=#D89555>Barbaro</color> <b>Critico Brutale</b> ai livelli di classe 9, 13 e 17</i>
-ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disabilita i prerequisiti di lancio degli incantesimi sui talenti forniti da questa mod <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui talenti forniti da questa mod
-ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui talenti forniti da questa mod
-ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci la visione oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Oscuro Senso Superiore</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&DisableUnofficialTranslations=Disabilita il supporto delle traduzioni non ufficiali per velocizzare la mod <i><color=#F0DAA0>[a meno che non parli cinese, italiano, giapponese, coreano o spagnolo]</color></i>
-ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostra tutti gli incantesimi conosciuti di altre classi durante l'aumento di livello</i>
-ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostra slot patto <color=#D89555>Stregone</color> sulla selezione degli incantesimi invece che sul pannello del personaggio</i>
-ModUi/&DocsArcaneShots=Colpi Arcani
+ModUi/&DisableAutoEquip=Disabilita l'equipaggiamento automatico degli oggetti nell'inventario
+ModUi/&DisableBarbarianBrutalCritical=<i>+ Disabilita anche <color=#D89555>Barbaro</color> <b>Critico Brutale</b> ai livelli 9, 13 e 17</i>
+ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disabilita i prerequisiti di lancio degli incantesimi sui <color=#D89555>talenti</color> forniti da questo mod <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui <color=#D89555>talenti</color> forniti da questo mod
+ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui <color=#D89555> talenti</color> forniti da questo mod
+ModUi/&DisableSenseDarkVisionFromAllRaces=Disattiva <color=#D89555>Percepire visione oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Senso superiore, visione oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&DisableUnofficialTranslations=Disattiva il supporto delle traduzioni non ufficiali per velocizzare la mod <i><color=#F0DAA0>[a meno che non parli cinese, italiano, giapponese, coreano o spagnolo]</color></i>
+ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Visualizza tutti gli incantesimi conosciuti di altre classi durante l'aumento di livello</i>
+ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Visualizza gli slot patto <color=#D89555>Stregone</color> nella selezione degli incantesimi invece che nel pannello del personaggio</i>
+ModUi/&DocsArcaneShots=Colpi arcani
 ModUi/&DocsBackgrounds=Sfondi
 ModUi/&DocsFeats=Talenti
 ModUi/&DocsFightingStyles=Stili di combattimento
@@ -87,216 +89,222 @@ ModUi/&DocsSubraces=Sottorazze
 ModUi/&DocsVersatilities=Versatilità
 ModUi/&Donate=<b><color=#D89555>Dona:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Non visualizzare i caschi sui caratteri grafici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&DontEndTurnAfterReady=Non terminare il turno dopo aver utilizzato l'azione pronta <i><color=#F0DAA0>[consente di utilizzare l'azione bonus o qualsiasi azione principale extra da Fretta o altre fonti]</color></i>
+ModUi/&DontEndTurnAfterReady=Non terminare il turno dopo aver utilizzato <color=#D89555>azione pronta</color> <i><color=#F0DAA0>[consente di utilizzare Azione Bonus o qualsiasi azione Principale extra da Rapidità o altre fonti]</color></i>
 ModUi/&DontFollowCharacterInBattle=La telecamera di battaglia non segue quando il personaggio è già sullo schermo
-ModUi/&DontFollowMargin=<i><color=white>+ A meno che l'eroe non sia spento o entro il % del bordo dello schermo</color></i>
+ModUi/&DontFollowMargin=<i><color=white>+ A meno che l'eroe non sia spento o si trovi entro la % del bordo dello schermo</color></i>
 ModUi/&DungeonMakerBasicHelp=• Queste impostazioni non richiedono che il giocatore abbia installato questa mod
-ModUi/&DungeonMakerMenu=Creatore di sotterranei
+ModUi/&DungeonMakerMenu=Creatore di dungeon
 ModUi/&Effects=Effetti
-ModUi/&EmpressGarbAppearance=Aspetto <color=#D89555>Abito da Imperatrice</color>
+ModUi/&EmpressGarbAppearance=Aspetto <color=#D89555>Abito dell'Imperatrice</color>
 ModUi/&EnableActionSwitching=Abilita la barra di cambio azione <i><color=#F0DAA0>[utile quando si ha fretta per usare l'azione veloce prima dell'azione principale]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Abilita la visualizzazione aggiuntiva del retroscena durante l'ispezione in background
-ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti, uscite e teletrasporto sulla mappa del livello
+ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti, uscite e teletrasporti sulla mappa dei livelli
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Aggiungi nuovi elementi a Dungeon Maker</i>
-ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color=#F0DAA0>[+1 talento / +2 scelte attributi / +1 abilità]</color></i>
-ModUi/&EnableAlternateVotingSystem=Abilita il sistema di voto alternativo <i><color=#F0DAA0>[usa il modificatore di carisma dell'eroe per determinare il peso della scelta]</color></i>
-ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Abilita <color=#D89555> Ispirazione bardica</color> ad attivarsi anche durante i controlli degli attributi fuori combattimento
-ModUi/&EnableBarbarianBrutalStrike=Abilita <color=#D89555>Barbaro</color> <b>Colpo Brutale</b> e <b>Miglioramento Colpo Brutale</b> ai livelli di classe 9, 13 e 17
+ModUi/&EnableAlternateHuman=Abilita l'<color=#D89555>Umano</color> alternativo <i><color=#F0DAA0>[+1 talento / +2 scelte di attributo / +1 abilità]</color></i>
+ModUi/&EnableAlternateVotingSystem=Abilita il sistema di voto alternativo <i><color=#F0DAA0>[peso scelta = voti * modificatore carisma eroe]</color></i>
+ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Abilita <color=#D89555>Ispirazione bardica</color> per attivare anche i controlli degli attributi di combattimento fuori combattimento
+ModUi/&EnableBarbarianBrutalStrike=Abilita <color=#D89555>Barbaro</color> <b>Colpo Brutale</b> e <b>Miglioramento Colpo Brutale</b> ai livelli 9, 13 e 17
 ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Barbaro</color> <b>Stile di combattimento</b> al livello 2
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=Abilita il buff e il debuff <color=#D89555>Barbaro</color> <b>Attacco spericolato</b> per terminare all'inizio del turno successivo
-ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita <color=#D89555>Barbaro</color> a riacquistare un uso dell'ira durante un riposo breve al livello di classe 7
-ModUi/&EnableBetaContent=Abilita i contenuti beta <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&EnableBarbarianRegainOneRageAtShortRest=Abilita <color=#D89555>Barbaro</color> a recuperare un uso della rabbia durante un riposo breve al livello 7
+ModUi/&EnableBardHealingBalladOnLongRest=Abilita <color=#D89555>Bard College of Hope</color> <b>Ballata Curativa</b> con riposo lungo
+ModUi/&EnableBetaContent=Abilita contenuto beta <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse
-ModUi/&EnableCantripsTriggeringOnWarMagic=Abilita i trucchetti per attivare <color=#D89555> Magia da guerra </color> attacco bonus extra
+ModUi/&EnableCantripsTriggeringOnWarMagic=Abilita i trucchetti per attivare l'attacco bonus extra <color=#D89555>Magia di guerra</color>
 ModUi/&EnableCharacterChecker=Abilita il pulsante Controllo caratteri nella schermata principale > Personaggi
-ModUi/&EnableCharacterExport=Abilita <color=#1E81B0>CTRL-MAIUSC-(E)</color> per esportare il personaggio
-ModUi/&EnableCharactersOnFireToEmitLight=I personaggi in fiamme dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di Luce, Elementale del Fuoco, Giullare del Fuoco, Osprey del Fuoco, Ragno del Fuoco e famiglia delle condizioni in fiamme]</color></i>
+ModUi/&EnableCharacterExport=Abilita <color=#1E81B0>CTRL-MAIUSC-(E)</color> per esportare il carattere
+ModUi/&EnableCharactersOnFireToEmitLight=I personaggi in fiamme dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di luce, Elementale del fuoco, Giullare del fuoco, Falco pescatore di fuoco, Ragno di fuoco e famiglia con condizioni di fuoco]</color></i>
 ModUi/&EnableCheatMenu=Abilita il menu dei trucchi
 ModUi/&EnableCustomPortraits=Abilita ritratti personalizzati
-ModUi/&EnableCustomPortraitsHelp=• Inserisci i tuoi ritratti personalizzati nelle sottocartelle <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color></b></i>, dal nome del nome dell'eroe <i><color=#F0DAA0>[es.: Anton, Celia, Nialla, ecc.]</color></i>\n• Utilizza immagini PNG, di dimensioni 256 x 384 pixel, con un livello di trasparenza <i><color=#F0DAA0>[usa GIMP per i migliori risultati]</color></i>
+ModUi/&EnableCustomPortraitsHelp=• Inserisci i tuoi ritratti personalizzati nelle sottocartelle <i><b><color=#F0DAA0>Personale</color></b></i> o <i><b><color=#F0DAA0>PreGen</color> </b></i>, che prende il nome dal nome dell'eroe <i><color=#F0DAA0>[es.: Anton, Celia, Nialla, ecc.]</color></i>\n• Usa PNG immagini, dimensioni 256 x 384 pixel, con un livello di trasparenza <i><color=#F0DAA0>[usa GIMP per i migliori risultati]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0DAA0>[include stanze piatte, dimensioni di dungeon 150x150 e 200x200 e senza fronzoli mescolando risorse da tutti gli ambienti]</color></i>
-ModUi/&EnableEpicPointsAndArray=Abilita un epico sistema di acquisto e array da 35 punti <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=Abilita la visualizzazione estesa del pannello delle competenze <i><color=#F0DAA0>[Tiri arcani, infusioni, astuzie e versatilità]</color></i>\n<b><i><color=#C04040E0>[successo prestazionale sul personaggio ispezione. utilizzare a proprio rischio]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=Abilita la selezione dei talenti ai livelli di classe 2, 10 e 18
-ModUi/&EnableFeatsAtEvenLevelsMiddle=Abilita la selezione dei talenti ai livelli di classe 6 e 14
-ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Guerriero</color> <b>Specializzazione arma</b> ai livelli di classe 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altro tipo di arma]</color></i>
-ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona abilità e competenze sugli strumenti dagli sfondi]</color></i>
-ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti punteggio abilità invece delle impostazioni razziali predefinite]</color></i>
+ModUi/&EnableEpicPointsAndArray=Abilita un sistema di acquisto epico da 35 punti e un array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&EnableExtendedProficienciesPanelDisplay=Abilita la visualizzazione del pannello delle competenze estese <i><color=#F0DAA0>[Tiri arcani, infusioni, manovre e versatilità]</color></i>\n<b><i><color=#C04040E0>[prestazioni colpo sull'ispezione del carattere. utilizzare a proprio rischio]</color></i></b>
+ModUi/&EnableFeatsAtEvenLevels=Abilita la selezione dei <color=#D89555>talenti</color> ai livelli 2, 10 e 18
+ModUi/&EnableFeatsAtEvenLevelsMiddle=Abilita la selezione dei <color=#D89555>talenti</color> ai livelli 6 e 14
+ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Combattente</color> <b>specializzazione arma</b> ai livelli 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altra arma tipo]</color></i>
+ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona abilità e competenze negli strumenti dagli sfondi]</color></i>
+ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti di abilità invece delle impostazioni razziali predefinite]</color></i>
 ModUi/&EnableHeroWithBestProficiencyToRollChoice=Consenti all'eroe con la migliore competenza di effettuare scelte di dialogo
-ModUi/&EnableHigherGroundRules=Abilita le regole del terreno più alto <i><color=#F0DAA0>[+1 per colpire se si attacca da un terreno più alto]</color></i>
-ModUi/&EnableHotkeyDebugOverlay=Abilita <color=#1E81B0>CTRL-MAIUSC-(D)</color> per visualizzare la sovrapposizione di debug
-ModUi/&EnableHotkeyToggleHud=Abilita <color=#1E81B0>CTRL-MAIUSC-(H)</color> per alternare la visualizzazione dell'HUD
-ModUi/&EnableInventoryFilteringAndSorting=Abilita il filtro e l'ordinamento dell'inventario
+ModUi/&EnableHigherGroundRules=Abilita le regole per i terreni più elevati <i><color=#F0DAA0>[+1 per colpire se attacchi da un terreno più elevato]</color></i>
+ModUi/&EnableHotkeyDebugOverlay=Abilita <color=#1E81B0>CTRL-MAIUSC-(D)</color> per visualizzare l'overlay di debug
+ModUi/&EnableHotkeyToggleHud=Abilita <color=#1E81B0>CTRL-MAIUSC-(H)</color> per attivare/disattivare la visualizzazione dell'HUD
+ModUi/&EnableInventoryFilteringAndSorting=Abilita il filtraggio e l'ordinamento dell'inventario
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Colora di rosso qualsiasi oggetto in cui l'eroe non è competente
-ModUi/&EnableInventoryTintKnownRecipesRed=Tinta ricette note rosse
-ModUi/&EnableInvisibleCrownOfTheMagister=Nascondi la <color=#D89555>Corona del Magister</color> sull'interfaccia utente del gioco
-ModUi/&EnableLevel20=Abilita livello 20 <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&EnableLogDialoguesToConsole=Abilita i dialoghi di registrazione sulla console di gioco durante le sequenze narrative
-ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Abilita la registrazione di riferimenti non validi nelle campagne personalizzate
-ModUi/&EnableMinInOutAttributes=<i>+ Imponi i punteggi di abilità minimi pre-requisiti in entrata e in uscita</i>
-ModUi/&EnableMonkAbundantKi=Abilita <color=#D89555>Monaco</color> <b>K Ki abbondante</b> al livello 2 <i><color=#F0DAA0>[ottieni Ki aggiuntivo pari alla metà del bonus di competenza arrotondato per eccesso]</color> </i>
+ModUi/&EnableInventoryTintKnownRecipesRed=Tinta di rosso le ricette conosciute
+ModUi/&EnableInvisibleCrownOfTheMagister=Nascondi la <color=#D89555>Corona del Magister</color> nell'interfaccia utente del gioco
+ModUi/&EnableLevel20=Abilita il livello 20 <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&EnableLogDialoguesToConsole=Abilita i dialoghi di registro sulla console di gioco durante le sequenze narrative
+ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Abilita la registrazione dei riferimenti non validi nelle campagne personalizzate
+ModUi/&EnableMinInOutAttributes=<i>+ Applica i prerequisiti minimi di entrata e uscita dei punteggi di abilità</i>
+ModUi/&EnableMonkAbundantKi=Abilita <color=#D89555>Monaco</color> <b>Ki abbondante</b> al livello 2 <i><color=#F0DAA0>[ottieni Ki aggiuntivo pari alla metà del bonus di competenza arrotondato per eccesso]</color> </i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Abilita <color=#D89555>Mistico</color> <b>Corpo e Mente</b> per sostituire <b>Sé Perfetto</b> al livello 20
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Abilita <color=#D89555>Monaco</color> <b>Arti marziali - Colpi senz'armi bonus</b> per non richiedere un'azione di attacco prima dell'uso
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Abilita <color=#D89555>Mistico</color> <b>Raffica di Colpi</b> per non richiedere un'azione di attacco prima dell'uso
-ModUi/&EnableMonkFightingStyle=Abilita la scelta <color=#D89555>Monaco</color> <b>Stile di combattimento</b> al livello 2
+ModUi/&EnableMonkFightingStyle=Abilita la scelta dello <color=#D89555>Mistico</color> <b>Stile di combattimento</b> al livello 2
+ModUi/&EnableMonkHeightenedMetabolism=Abilita <color=#D89555>Mistico</color> <b>Metabolismo potenziato</b> al livello 10 <i><color=#F0DAA0>[<b>Raffica di colpi</b>, <b>Difesa del paziente </b> e <b>Step of the Wind</b> ottengono ulteriori vantaggi]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Abilita <color=#D89555>Mistico</color> <b>Movimento senza armatura migliorato</b> per muoversi lungo superfici verticali senza cadere
-ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>Specializzazione arma</b> ai livelli di classe 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa un'arma monaco per te]</color></i>
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Abilita <color=#D89555>Mistico</color> <b>Difesa superiore</b> per sostituire <b>Corpo Vuoto</b> al livello 18
+ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>specializzazione arma</b> ai livelli 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa per te un'arma da monaco]</color></i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&EnablePcgRandom=Abilita un migliore algoritmo generatore casuale <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
-ModUi/&EnableRangerNatureShroudAt10=Abilita la funzione <color=#D89555>Ranger</color> <b>Sudario della Natura</b> al livello 10 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo ]</color></i>
-ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per ricongiungersi al gruppo attorno all'eroe selezionato o al leader se non ne è selezionato nessuno <i><color=#F0DAA0>[utile con gruppi di 5 o 6 ]</color></i>
+ModUi/&EnableOneDndHealingSpellsBuf=Abilita il potenziamento dei dadi di guarigione OneDnd su <color=#D89555> Cura ferite</color>, <color=#D89555> Parola curativa</color>, <color=#D89555> Cura ferite di massa</color> e <color= #D89555>Parola di guarigione di massa</color>
+ModUi/&EnablePcgRandom=Abilita un algoritmo di generazione casuale migliore <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Abilita la funzione <color=#D89555>Ranger</color> <b>Velo della Natura</b> al livello 10 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo ]</color></i>
+ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per unirsi al gruppo attorno all'eroe selezionato o al leader se non è selezionato nessuno <i><color=#F0DAA0>[utile con gruppi di 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=Abilita la selezione di trucchetti o incantesimi già appresi da altre fonti
-ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo
-ModUi/&EnableRogueCunningStrike=Abilita <color=#D89555>Ladro</color> <b>Colpo astuto</b> e <b>Colpo subdolo</b> ai livelli di classe 5 e 14 <i><color=#F0DAA0>[lascia perdere 1 dado di attacco furtivo per effetti di colpo aggiuntivi]</color></i>
+ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo <i><color=#F0DAA0>[non utilizzare RESPEC durante una sessione multiplayer]</color></i>
+ModUi/&EnableRogueCunningStrike=Abilita <color=#D89555>Ladro</color> <b>Colpo astuto</b> e <b>Colpo subdolo</b> ai livelli 5 e 14 <i><color=#F0DAA0>[hai lasciato rinunciare 1 dadi di attacco furtivo per effetti di colpo aggiuntivi]</color></i>
 ModUi/&EnableRogueFightingStyle=Abilita la scelta dello <color=#D89555>Ladro</color> <b>Stile di combattimento</b> al livello 2
-ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Ladro</color> <b>Mira costante</b> al livello di classe 3 <i><color=#F0DAA0>[l'azione bonus dà vantaggio al tuo prossimo tiro per colpire nel turno corrente se non mi sono ancora trasferito]</color></i>
-ModUi/&EnableRogueStrSaving=Abilita <color=#D89555>Ladro</color> per utilizzare i modificatori DEX o FOR su <b>Colpo astuto/diabolico</b>, <b>Colpo debilitante/migliorato</b> e <b>Pianta di lame </b>
+ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Ladro</color> <b>Mira costante</b> al livello 3 <i><color=#F0DAA0>[l'azione bonus dà vantaggio al tuo prossimo tiro per colpire nel turno corrente se hai non ancora spostato]</color></i>
+ModUi/&EnableRogueStrSaving=Abilita <color=#D89555>Ladro</color> per usare i modificatori DEX o FOR su <b>Colpo astuto/subdolo</b>, <b>Colpo debilitante/migliorato</b> e <b>Pianta di lame </b>
 ModUi/&EnableSaveByLocation=Abilita il salvataggio per campagne/località
 ModUi/&EnableSignatureSpellsRelearn=Abilita gli incantesimi distintivi <color=#D89555>Mago</color> da preparare ogni riposo lungo <i><color=#F0DAA0>[invece di una volta al livello 20]</color></i>
+ModUi/&EnableSorcererMagicalGuidance=Abilita <color=#D89555>Stregone</color> <b>guida magica</b> al livello 5
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
-ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sul tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
-ModUi/&EnableSumD20OnAlternateVotingSystem=• Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità
+ModUi/&EnableStatsOnHeroTooltip=Visualizza le statistiche nel tooltip dell'eroe <i><color=#F0DAA0>[es.: colpi critici, fallimenti critici, ecc.]</color></i>
+ModUi/&EnableSumD20OnAlternateVotingSystem=<i>+ Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità <color=#F0DAA0>[peso scelta = voti * modificatore di carisma dell'eroe + tiro di D20]</color></i>
 ModUi/&EnableTeleportParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(T)</color> per teletrasportare il gruppo <i><color=#F0DAA0>[potresti interrompere le missioni se ti teletrasporti in un luogo sconosciuto]</color></i>
-ModUi/&EnableTogglesToOverwriteDefaultTestParty=Attiva/disattiva il pool di personaggi per impostare il gruppo di gioco e di prova predefinito
+ModUi/&EnableTogglesToOverwriteDefaultTestParty=Abilita gli interruttori sul pool di personaggi per impostare il gioco predefinito e il gruppo di prova
 ModUi/&EnableTooltipDistance=Abilita la visualizzazione della distanza sui tooltip quando si passa sopra un personaggio in combattimento
-ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555> Evoca Elementale</color> e <color=#D89555> Evoca Folletto</color>
+ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555>Evoca Elementale</color> e <color=#D89555>Evoca Fata</color>
 ModUi/&EnableVttCamera=Abilita <color=#1E81B0>CTRL-SHIFT-(V)</color> per attivare/disattivare la telecamera VTT <i><color=#F0DAA0>[fai clic con il pulsante destro del mouse e trascina per posizionare la telecamera, WASD per eseguire la panoramica e Pagina su/ Pagina giù per ingrandire]</color></i>
-ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
-ModUi/&EncounterPercentageChance=<color=white>Imposta probabilità percentuali di incontri casuali</color>
+ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei <color=#D89555>talenti</color> <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
+ModUi/&EncounterPercentageChance=<color=white>Imposta la percentuale di possibilità di incontri casuali</color>
 ModUi/&Encounters=Incontri
 ModUi/&EnemiesAlwaysRollInitiative=<i>+ I nemici tirano sempre l'iniziativa invece di un valore forzato <color=#F0DAA0>[es: Sorak Assassin]</color></i>
 ModUi/&ExpandAll=Espandi tutto
-ModUi/&FactionHelp=<color=#C04040E0>Carica un gioco della campagna ufficiale per modificare le relazioni tra fazioni...</color>
-ModUi/&FactionRelations=<color=#F0DAA0> Fazioni:</color>
+ModUi/&FactionHelp=<color=#C04040E0>Carica un gioco di campagna ufficiale per modificare le relazioni tra fazioni...</color>
+ModUi/&FactionRelations=<color=#F0DAA0>Fazioni:</color>
 ModUi/&FasterTimeModifier=<color=white>Modificatore del tempo di gioco quando si preme la barra spaziatrice</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Gruppi di talenti</color>
-ModUi/&FeatGroupsHelp=• Ogni gruppo è un consolidamento di talenti simili <i><color=#F0DAA0>[ad es.: credo, stili di combattimento, metamagia, ecc.]</color></i>\n• I talenti in questi gruppi non saranno più direttamente visibili nella fase di selezione delle competenze\n• Il gruppo, quando selezionato, li offre in un elenco a discesa per riordinare la schermata di gioco
-ModUi/&Feats=<color=#F0DAA0> Talenti</color>
+ModUi/&FeatGroupsHelp=• Ogni gruppo è un consolidamento di <color=#D89555>talenti</color> <i><color=#F0DAA0>[ad esempio: credi, stili di combattimento, metamagia, ecc.]</color></i>{99 }• I talenti di questi gruppi non saranno più direttamente visibili nella fase di selezione delle competenze\n• Il gruppo, una volta selezionato, li offre in un elenco a discesa per ordinare la schermata di gioco
+ModUi/&Feats=<color=#F0DAA0>Talenti</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Stili di combattimento</color>
-ModUi/&FixAsianLanguagesTextWrap=Risolto il problema con il testo dell'interfaccia utente del gioco in lingue asiatiche <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&FixEldritchBlastRange=Cambia la portata di <color=#D89555>Eldritch Blast</color> a 24 <i><color=#F0DAA0>[invece di 16]</color></i>
-ModUi/&FixRingOfRegenerationHealRate=Imposta la velocità di guarigione dell'<color=#D89555>Anello della rigenerazione</color> su 1 CV ogni 3 minuti
-ModUi/&FlightSuspendWingedBoots=<i>+ Usa le regole ufficiali degli Stivali Alati <color=#F0DAA0>[durata rimanente non conteggiata quando il volo è sospeso]</color></i>
+ModUi/&FixAsianLanguagesTextWrap=Risolto il problema con il testo a capo dell'interfaccia utente del gioco delle lingue asiatiche <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&FixEldritchBlastRange=Utilizza l'intervallo ufficiale di 24 celle con <color=#D89555>Eldritch Blast</color> <i><color=#F0DAA0>[invece di 12]</color></i>
+ModUi/&FixRingOfRegenerationHealRate=Imposta la velocità di guarigione dell'<color=#D89555>Anello della rigenerazione</color> su 1 HP ogni 3 minuti
+ModUi/&FlightSuspendWingedBoots=<i>+ Usa le regole ufficiali degli Stivali Alati <color=#F0DAA0>[la durata rimanente non viene conteggiata quando il volo è sospeso]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formazione:</color>
 ModUi/&FormationError=<color=#C04040E0>Non puoi cambiare la tua formazione durante una partita multiplayer...</color>
-ModUi/&FormationHelp1=• Usa i pulsanti numerici per modificare un determinato set <i><color=#F0DAA0>[considera di abilitare i tasti di scelta rapida sotto l'input]</color></i>
+ModUi/&FormationHelp1=• Utilizza i pulsanti numerici per modificare un determinato set <i><color=#F0DAA0>[considera l'abilitazione dei tasti di scelta rapida sotto input]</color></i>
 ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> rappresentano le posizioni relative degli eroi
 ModUi/&FormationHelp3=• Fare clic su 2 pulsanti qualsiasi per scambiare le loro posizioni
-ModUi/&FormationHotkey=Abilita <color=#1E81B0>CTRL-MAIUSC-(1..5)</color> per scambiare i set di formazione nel gioco
+ModUi/&FormationHotkey=Abilita <color=#1E81B0>CTRL-SHIFT-(1..5)</color> per scambiare i set di formazioni nel gioco
 ModUi/&FormationResetAllSets=Resetta tutto
-ModUi/&FormationResetThisSet=Ripristina questo
-ModUi/&FormationSelected=Gruppo di formazione {0} selezionato
-ModUi/&FullyControlConjurations=Controlla completamente le evocazioni <i><color=#F0DAA0>[animali, elementali, ecc.]</color></i>
+ModUi/&FormationResetThisSet=Reimposta questo
+ModUi/&FormationSelected=Set di formazione {0} selezionato
+ModUi/&FullyControlConjurations=Controlla completamente gli incantesimi <i><color=#F0DAA0>[animali, elementali, ecc.]</color></i>
 ModUi/&GameUi=Interfaccia utente del gioco
 ModUi/&Gameplay=Gioco
 ModUi/&General=<color=#F0DAA0>Generale:</color>
 ModUi/&GeneralMenu=Generale
-ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Concedi la <b>Specializzazione arma</b> a Scimitarra a <color=#D89555>Bardi</color> e <color=#D89555>Ladri</color>
+ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Concede la <b>specializzazione nell'arma</b> della Scimitarra ai <color=#D89555>Bardi</color> e ai <color=#D89555>Ladri</color>
 ModUi/&GridSelectedColor=Cambia il <b><color=$$$$$$>colore della griglia</color></b> del movimento
-ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi gli effetti visivi delle uscite e dei teletrasporti se non ancora scoperti
-ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri in passi del 25% / 50% / 75% / 100% invece dei punti ferita esatti
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi gli effetti visivi delle uscite e del teletrasporto se non ancora scoperti
+ModUi/&HideMonsterHitPoints=Visualizza la salute dei mostri in incrementi del 25%/50%/75%/100% anziché i punti ferita esatti
 ModUi/&HighContrastTargetingAoeColor=Cambia le creature AoE <b><color=$$$$$$>evidenzia seleziona colore</color></b>
 ModUi/&HighContrastTargetingSingleColor=Cambia singole creature <b><color=$$$$$$>evidenzia seleziona colore</color></b>
 ModUi/&House=<color=#F0DAA0>Casa:</color>
-ModUi/&IdentifyAfterRest=Aggiungi un potere per <color=#D89555>identificare oggetti magici</color> durante un riposo breve o lungo
-ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessaria la mano libera per usare <color=#D89555>Balestre a mano</color>
+ModUi/&IdentifyAfterRest=Aggiungi un potere per <color=#D89555>identificare gli oggetti magici</color> durante un riposo breve o lungo
+ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessaria la mano libera per usare le <color=#D89555>balestre a mano</color>
 ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Gli incantesimi di illusione falliscono automaticamente contro bersagli con <color=#D89555>TrueSight</color> nel raggio d'azione
-ModUi/&ImproveLevelUpFeaturesSelection=Migliora la selezione delle funzionalità per salire di livello <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Esploratore</color> Nemico preferito e affinità con il terreno, <color=#D89555>Druido</color> Bestia affine, <color=#D89555>Barbaro</color> Sentiero degli elementi e sottoclassi scelte Draconiche]</color></i>
+ModUi/&ImproveLevelUpFeaturesSelection=Migliora la selezione delle funzionalità di aumento di livello <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>\n<i><color=#F0DAA0>[impatta <color=#D89555>Ranger</color> Nemico preferito e affinità con il terreno, <color=#D89555>Druido</color> Bestia affine, <color=#D89555>Barbaro</color> Sentiero degli Elementi e sottoclassi Scelte draconiche]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumenta il tempo di gioco di
 ModUi/&IncreaseMaxAttunedItems=Aumenta il numero massimo di oggetti sintonizzati a 4 al livello 10 e 5 al livello 18
 ModUi/&InitialChoices=<color=#F0DAA0>Creazione:</color>
 ModUi/&Input=<color=#F0DAA0>Inserimento:</color>
 ModUi/&Interface=Interfaccia
-ModUi/&InventoryAndItems=<color=#F0DAA0>Inventario e oggetti:</color>
-ModUi/&InvertAltBehaviorOnTooltips=Inverti il comportamento del tasto <color=#1E81B0>ALT</color> nei suggerimenti
+ModUi/&InventoryAndItems=<color=#F0DAA0>Inventario e articoli:</color>
+ModUi/&InvertAltBehaviorOnTooltips=Inverti il comportamento del tasto <color=#1E81B0>ALT</color> nelle descrizioni comandi
 ModUi/&Invocations=<color=#F0DAA0>Invocazioni</color>
-ModUi/&ItemInDm=Articoli in DM
-ModUi/&Items=<color=#F0DAA0>Oggetti:</color>
-ModUi/&ItemsCraftingMerchants=Creazione, oggetti e mercanti
+ModUi/&ItemInDm=Articoli nel DM
+ModUi/&Items=<color=#F0DAA0>Articoli:</color>
+ModUi/&ItemsCraftingMerchants=Crafting, oggetti e commercianti
 ModUi/&ItemsHelp1=<color=#C04040E0>Apri la schermata di ispezione del personaggio per aggiungere oggetti agli eroi...</color>
 ModUi/&ItemsHelp2=<b>Premi + per aggiungere oggetti al contenitore a terra</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Abilita l'utilizzo degli oggetti senza interrompere l'<color=#D89555>Invisibilità</color>
 ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Aggiorna la furtività dell'eroe dopo l'attacco se percepita nel round a sorpresa <i><color=#F0DAA0>[solo primo eroe]</color></i>
-ModUi/&MakeAllMagicStaveArcaneFoci=Trasforma tutti i bastoni magici in fuochi arcani <i><color=#F0DAA0> [tranne <color=#D89555> Bastone della Guarigione</color> che è Universale]</color></i>
-ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Contrassegna anche la posizione dei teletrasporti invisibili sulla mappa del livello dopo la scoperta</i>
+ModUi/&MakeAllMagicStaveArcaneFoci=Rendi tutti i bastoni magici punti di fuoco arcani <i><color=#F0DAA0>[eccetto <color=#D89555>Bastone della Guarigione</color> che è universale]</color></i>
+ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Contrassegna anche la posizione dei teletrasporti invisibili sulla mappa dei livelli dopo la scoperta</i>
 ModUi/&MaxAllowedClasses=<color=white>Classi massime consentite</color>
-ModUi/&Merchants=<color=#F0DAA0> Commercianti:</color>
+ModUi/&Merchants=<color=#F0DAA0>Commercianti:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Mostri:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Moltiplica la larghezza della griglia di movimento per</color> <color=#C04040E0>[%]</color>
-ModUi/&MulticlassKeyHelp=Fare clic su <color=#1E81B0>MAIUSC</color> su un incantesimo inverte il tipo di slot del repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Stregone</color> spende slot incantesimo bianchi e altri spendono patti verdi]</color></i>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAIUSC</color> fare clic su un incantesimo inverte il tipo di slot di repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Stregone</color> spende slot incantesimo bianchi e altri spendono quelli verdi del patto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Moltiplica l'esperienza acquisita per</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Non è richiesta alcuna esperienza per salire di livello
-ModUi/&OfferAdditionalLoreFriendlyNames=Offri nomi amichevoli aggiuntivi sulla creazione del personaggio
-ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Annulla <color=#D89555>vantaggio/svantaggio</color> coppie accecate e percepite <color=#F0DAA0>[utile insieme alle regole ufficiali di <color=#D89555>vantaggio/svantaggio</color>]< /colore></i>
+ModUi/&OfferAdditionalLoreFriendlyNames=Offri ulteriori nomi amichevoli della tradizione sulla creazione del personaggio
+ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Annulla <color=#D89555>vantaggio/svantaggio</color> coppie accecate, invisibili e percepite <color=#F0DAA0>[utile insieme al <color=#D89555>vantaggio/svantaggio</color> ufficiale regole]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Cambia le aree <color=#D89555>fortemente oscurate</color> in bloccanti di proiettili <color=#F0DAA0>[<color=#D89555>Nuvola Uccidi</color>, <color=#D89555>Nuvola di Nebbia </color>, <color=#D89555>Nube incendiaria</color>, <color=#D89555>Tempesta di petali</color>, <color=#D89555>Tempesta di nevischio</color>, <color=#D89555> Nuvola Puzzolente</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Le creature invisibili sono pesantemente oscurate e possono essere bersagli, i tiri per colpire contro la creatura hanno svantaggio e i tiri per colpire della creatura hanno vantaggio</i>
-ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambia le aree <color=#D89555>magicamente oscurate</color> in bloccanti dei proiettili <color=#F0DAA0>[qualsiasi fonte dell'effetto dell'incantesimo <color=#D89555>Oscurità</color>]</color ></i>
+ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambia le aree <color=#D89555>magicamente oscurate</color> in bloccanti dei proiettili <color=#F0DAA0>[qualsiasi fonte dell'effetto dell'incantesimo <color=#D89555>Oscurità</color>]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Aggiungi <color=#D89555>Scurovisione</color>, <color=#D89555>BlindSight</color> e <color=#D89555>TrueSight</color> a mostri e NPC quando appropriato\n <color=#F0DAA0>[raccolte di impostazioni <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
-ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostra solo le creature più potenti nell'elenco delle evocazioni</i>
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostra solo le creature più potenti nell'elenco degli incantesimi</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Moltiplica la larghezza della griglia del contorno per</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Moltiplica la velocità di animazione della griglia del contorno per</color> <color=#C04040E0>[%]</color>
-ModUi/&OverrideMinMaxLevel=Ignora i livelli minimo e massimo richiesti quando inizi nuove avventure
-ModUi/&OverridePartySize=<color=white>Sostituisci le dimensioni del gruppo</color>
-ModUi/&Patches=<color=#F0DAA0> Patch:</color>
+ModUi/&OverrideMinMaxLevel=Sostituisci i livelli minimo e massimo richiesti quando inizi nuove avventure
+ModUi/&OverridePartySize=<color=white>Sostituisci la dimensione del gruppo</color>
+ModUi/&Patches=<color=#F0DAA0>Patch:</color>
 ModUi/&PortraitsOpenFolder=Apri la cartella dei ritratti
 ModUi/&PrimedItems=Articoli innescati
 ModUi/&Progression=<color=#F0DAA0>Progressione:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Abilita <color=#D89555> Sensibilità alla luce</color> su <color=#D89555> Elfo scuro</color>, <color=#D89555> Coboldo scuro</color> e <color=#D89555> Nano grigio</ color> per attivarsi solo all'aperto\n<i><color=#F0DAA0>[le aree interne in luoghi esterni accessibili senza schermata di caricamento sono considerate esterne dal motore di gioco]</color></i>
-ModUi/&Races=<color=#F0DAA0>Gare</color>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Abilita <color=#D89555> Sensibilità alla luce</color> su <color=#D89555> Elfo scuro</color>, <color=#D89555> Coboldo scuro</color> e <color=#D89555> Nano grigio</color> per attivarsi solo all'aperto\n<i><color=#F0DAA0>[le aree interne in luoghi esterni accessibili senza schermata di caricamento sono considerate esterne dal motore di gioco]</color></i>
+ModUi/&Races=<color=#F0DAA0>Razze</color>
 ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RecipesInDm=Ricette in DM
-ModUi/&RelicForgeries=Falsi di reliquie
+ModUi/&RelicForgeries=Falsificazioni di reliquie
 ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di attivazione <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con effetti visivi alternativi nel gioco <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi il filtro umanoide su <color=#D89555>Risate orribili</color>
-ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555>Intralcia</color> solo al momento del lancio e forza anche un controllo di forza per liberarsi dai rampicanti
+ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con elementi visivi alternativi nel gioco <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi il filtro umanoide su <color=#D89555>Risate Orribili</color>
+ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555> Intralcia</color> solo al momento del lancio e forza anche un controllo di forza per liberarsi dai rampicanti
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Rimuovi le restrizioni scolastiche da <color=#D89555>Incantatrice</color>
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Rimuovi le restrizioni scolastiche da <color=#D89555>Spellblade</color>
-ModUi/&RestockAntiquarians=Rifornisci Antiquari <i><color=#F0DAA0>[Halman Summer]</color></i>
-ModUi/&RestockArcaneum=Rifornisci Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
+ModUi/&RestockAntiquarians=Rifornisci gli antiquari <i><color=#F0DAA0>[Halman Summer]</color></i>
+ModUi/&RestockArcaneum=Rifornisci l'Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Rifornisci il Circolo di Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
-ModUi/&RestockHelp=• Ignora le impostazioni predefinite per forzare il rifornimento di tutte le scorte del commerciante nel tempo <i><color=#F0DAA0>[esclusi manuali e tomi]</color></i>\n• Nota che alcuni oggetti possono richiedere fino a 7 giorni di gioco per essere riforniti
+ModUi/&RestockHelp=• Sostituisci le impostazioni predefinite per forzare il rifornimento di tutte le scorte del commerciante nel tempo <i><color=#F0DAA0>[esclusi manuali e tomi]</color></i>\n• Tieni presente che alcuni articoli possono richiedere fino a 7 giorni di gioco per rifornire
 ModUi/&RestockTowerOfKnowledge=Rifornisci la Torre della Conoscenza <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
-ModUi/&Rollback=<b><color=#D89555>Ripristina</color></b>
+ModUi/&Rollback=<b><color=#D89555>Ripristino</color></b>
 ModUi/&Rules=Regole
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
-ModUi/&ScaleMerchantPricesCorrectly=Ridimensiona i prezzi del commerciante correttamente/esattamente <i><color=#F0DAA0>[niente più errori di arrotondamento durante la conversione dei valori delle monete]</color></i>
+ModUi/&ScaleMerchantPricesCorrectly=Ridimensiona i prezzi del commerciante in modo corretto/esatto <i><color=#F0DAA0>[nessun più errore di arrotondamento durante la conversione dei valori delle monete]</color></i>
 ModUi/&SelectAll=Seleziona tutto
 ModUi/&SelectDisplayed=Seleziona Visualizzato
 ModUi/&SelectSuggested=Seleziona Consigliato
 ModUi/&SelectTabletop=Seleziona Da tavolo
 ModUi/&SenseNormalVisionRangeMultiplier=Modifica il raggio <color=#D89555>Visione normale</color> <i><color=#F0DAA0>[solo nelle battaglie]</color></i>
 ModUi/&Services=Servizi
-ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cintura dei Nani</color> <color=white>probabilità che appaia la barba</color>
+ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cintura della razza nanica</color> <color=white>possibilità di apparizione della barba</color>
 ModUi/&SettingsExport=Esportare
-ModUi/&SettingsHelp=• In qualità di host puoi esportare la tua configurazione attuale, aprire la cartella delle esportazioni e condividerla facilmente con i tuoi colleghi\n• Come ospite puoi aprire la cartella delle esportazioni, incollare il file condiviso dall'host e caricarlo su <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&SettingsLoad=• Carica un'impostazione esportata
+ModUi/&SettingsHelp=• Come host puoi esportare la tua configurazione attuale, aprire la cartella delle esportazioni e condividerla facilmente con i tuoi colleghi\n• Come ospite puoi aprire la cartella delle esportazioni, incollare il file condiviso dall'host e caricarlo <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&SettingsLoad=• Caricare un'impostazione esportata
 ModUi/&SettingsOpenFolder=Apri la cartella delle impostazioni esportate
 ModUi/&SettingsRefresh=Ricaricare
 ModUi/&SettingsRemove=Rimuovere
-ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Pulsante Mostra che apre le informazioni sui mostri controllati <i><color=#F0DAA0>[druidi a forma selvaggia, evocazioni, seguaci NPC, ecc. ]</color></i>
-ModUi/&ShowChannelDivinityOnPortrait=Mostra quanti usi di <color=#D89555>Incanalare Divinità</color> ha un eroe sul proprio ritratto, in modo simile ai punti stregoneria
-ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato vicino all'oggetto della ricetta nel negozio e nell'inventario <i><color=#F0DAA0>[Passandoci sopra verrà visualizzato il suggerimento per l'oggetto creato]</color></i>
-ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in suggerimenti dettagliati
+ModUi/&ShowButtonWithControlledMonsterInfo=Mostra il pulsante che apre le informazioni sui mostri controllati <i><color=#F0DAA0>[druidi dalla forma selvaggia, evocazioni, seguaci NPC, ecc.]</color></i>
+ModUi/&ShowChannelDivinityOnPortrait=Mostra quanti usi di <color=#D89555>Canale Divinità</color> ha un eroe sul suo ritratto, in modo simile ai punti stregoneria
+ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato vicino all'oggetto della ricetta nel negozio e nell'inventario <i><color=#F0DAA0>[Passando il mouse sopra verrà mostrato un suggerimento per l'oggetto creato]</color></i>
+ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione nelle descrizioni comandi dettagliate
 ModUi/&ShowDescriptions=Mostra descrizioni
-ModUi/&SpellLevelFilter=<b><i><color=white>filtro livello incantesimo</color> <color=#F0DAA0>[-1 visualizza tutto]</color></i></b>
+ModUi/&SpellLevelFilter=<b><i><color=white>filtro del livello dell'incantesimo</color> <color=#F0DAA0>[-1 mostra tutto]</color></i></b>
 ModUi/&SpellsMenu=Incantesimi
-ModUi/&StealthBreaksWhenAttackHits=Abilita la perdita furtiva quando l'attacco con un'arma o un incantesimo colpisce
+ModUi/&StealthBreaksWhenAttackHits=Abilita la perdita furtiva quando l'arma o l'attacco con incantesimo colpisce
 ModUi/&StealthBreaksWhenAttackMisses=Abilita la perdita furtiva quando l'attacco con arma o incantesimo fallisce
-ModUi/&StealthBreaksWhenCastingMaterial=Abilita la perdita di furtività quando si lancia materiale <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO]</color></i>
-ModUi/&StealthBreaksWhenCastingSomatic=Abilita la perdita di furtività quando si lancia <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO] somatico</color></i>
-ModUi/&StealthBreaksWhenCastingVerbose=Abilita la perdita di furtività quando si lancia <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO] verboso</color></i>
-ModUi/&StealthDoesNotBreakWithSubtle=Abilita la furtività senza interruzioni se <color=#D89555> Metamagia sottile</color> e nessun componente materiale
-ModUi/&StockGorimStoreWithAllNonMagicalClothing=Fai scorta del negozio di Gorim con tutti i vestiti non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Fai scorta del negozio di Gorim con tutti gli strumenti musicali non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta del negozio di Hugo con <color=#D89555> Bastone Arcano</color>, <color=#D89555> Collo del Druido</color>, <color=#D89555> Bastone</color> e <color=#D89555> Mazza</color> impostato come elementi focali
+ModUi/&StealthBreaksWhenCastingMaterial=Abilita la perdita di furtività quando si lancia <color=#D89555>materiale</color> <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Abilita la perdita di furtività quando lanci <color=#D89555>somatico</color> <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Abilita la perdita di furtività quando lanci <color=#D89555>verbale</color> <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Abilita la furtività senza rotolare se <color=#D89555> Metamagia sottile</color> e nessun componente <color=#D89555> materiale</color>
+ModUi/&StockGorimStoreWithAllNonMagicalClothing=Rifornisci il negozio di Gorim con tutti gli indumenti non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Rifornisci il negozio di Gorim con tutti gli strumenti musicali non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&StockHugoStoreWithAdditionalFoci=Rifornisci il negozio di Hugo con <color=#D89555> Bastone arcano</color>, <color=#D89555> Collo da druido</color>, <color=#D89555> Bastone</color> e <color=#D89555> Club</color> impostato come elementi focus
 ModUi/&Subclasses=<color=#F0DAA0>Sottoclassi</color>
 ModUi/&Subraces=<color=#F0DAA0>Sottorazze</color>
-ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti realizzati nel negozio</i>
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti artigianali nel negozio</i>
 ModUi/&TargetLanguage=Lingua di destinazione
 ModUi/&Tools=Utensili
 ModUi/&TotalCraftingTimeModifier=<color=white>Riduci il tempo di creazione di</color>
-ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Talenti totali concessi al primo livello</color>
+ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Totale <color=#D89555>talenti</color> concessi al primo livello</color>
 ModUi/&Translate=Tradurre
 ModUi/&TranslateCancel=Annulla {0} alle {1}
 ModUi/&Translations=Traduzioni
@@ -309,15 +317,15 @@ ModUi/&UnlockGlowingEyeColors=Aggiungi colori luminosi per gli occhi
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Sblocca i segni di origine e i tatuaggi <color=#D89555>Stregone</color> per tutti i personaggi
 ModUi/&UnlockSkinColors=Sblocca i colori della pelle
 ModUi/&Update=<b><color=#D89555>Aggiorna</color></b>
-ModUi/&UseElfFaceModelsOnTieflings=Usa i modelli del viso <color=#D89555>Elfo</color> sui <color=#D89555>Tiefling</color>
-ModUi/&UseHeightOneCylinderEffect=Usa un effetto cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralcio, Grasso</color> <i><color=#F0DAA0>[square]</color></i> o <color=#D89555>Picchi di Crescita</color> <i><color=#F0DAA0>[round]</color></i>
-ModUi/&UseMathFlankingRules=<i>+ Usa calcoli precisi per determinare il fiancheggiamento <color=#F0DAA0>[può avere un impatto sulle prestazioni su macchine lente]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio <i><color=#F0DAA0>[se le circostanze fanno sì che un tiro abbia entrambi, sei considerato non avere nessuno dei due]</color></i>
-ModUi/&UseOfficialFlankingRules=Usa le regole ufficiali sui fianchi <i><color=#F0DAA0>[un attaccante ha vantaggio se un alleato si trova sul lato opposto del bersaglio]</color></i>
+ModUi/&UseElfFaceModelsOnTieflings=Usa i modelli del volto di <color=#D89555>Elfo</color> su <color=#D89555>Tiefling</color>
+ModUi/&UseHeightOneCylinderEffect=Usa un effetto del cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralciare, Ungere</color> <i><color=#F0DAA0>[quadrato]</color></i> o <color=#D89555>Picco di crescita</color> <i><color=#F0DAA0>[turno]</color></i>
+ModUi/&UseMathFlankingRules=<i>+ Utilizza calcoli precisi per determinare il fiancheggiamento <color=#F0DAA0>[potrebbe avere un impatto sulle prestazioni sulle macchine lente]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=Utilizza le regole ufficiali <color=#D89555>vantaggio/svantaggio</color> <i><color=#F0DAA0>[se le circostanze fanno sì che un tiro abbia entrambi, sei considerato non avere nessuno dei due]</color></i>
+ModUi/&UseOfficialFlankingRules=Utilizza le regole ufficiali di <color=#D89555>fiancamento</color> <i><color=#F0DAA0>[un attaccante ha vantaggio se un alleato è sul lato opposto del bersaglio]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Abilita anche gli attacchi a distanza <color=#F0DAA0>[disabilita matematica precisa]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Abilita anche gli attacchi con portata <color=#F0DAA0>[disabilita matematica precisa]</color></i>
-ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Invece del vantaggio, concedi +1 al tiro per colpire</i>
-ModUi/&UseOfficialFoodRationsWeight=Usa <color=#D89555>razione di cibo</color> ufficiale di 2 libbre
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Abilita anche gli attacchi di portata <color=#F0DAA0>[disabilita matematica precisa]</color></i>
+ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Invece del vantaggio concedi +1 al tiro per colpire</i>
+ModUi/&UseOfficialFoodRationsWeight=Usa la <color=#D89555>razione alimentare</color> ufficiale del peso di 2 libbre
 ModUi/&UseOfficialObscurementRules=Utilizza le regole di combattimento ufficiali di <color=#D89555>illuminazione, oscuramento e visione</color>\n<i><color=#F0DAA0>[l'attaccante che percepisce il difensore che non può percepirlo ottiene ADV e l'attaccante che non lo fa percepisce il difensore che può percepirlo ottiene DIS\n le aree fortemente oscurate infliggono una condizione di accecamento, dove i tiri per colpire contro la creatura hanno ADV e i tiri per colpire della creatura hanno DIS\n tutti gli incantesimi a distanza che prendono di mira gli individui non possono essere lanciati se l'attaccante non ha vista , ad eccezione di quelli che chiaramente non indicano che è richiesta la vista]</color></i>
-ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilizza le <color=#D89555>regole ufficiali delle razze piccole</color> quando impugni armi pesanti <i><color=#F0DAA0>[i tuoi attacchi hanno svantaggio]</color></i>
-ModUi/&Visuals=<color=#F0DAA0> Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilizza le regole ufficiali delle <color=#D89555>piccole razze</color> quando impugni armi pesanti <i><color=#F0DAA0>[i tuoi attacchi hanno svantaggio]</color></i>
+ModUi/&Visuals=<color=#F0DAA0>Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

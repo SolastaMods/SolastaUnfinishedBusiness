@@ -64,13 +64,13 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeForce)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetAttackModeOnly()
             .SetImpactParticleReference(
                 SpellDefinitions.ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         additionalDamageForcePoweredStrike.AddCustomSubFeatures(
-            new ModifyAdditionalDamagePoweredStrike(additionalDamageForcePoweredStrike),
-            ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
+            new ModifyAdditionalDamagePoweredStrike(additionalDamageForcePoweredStrike));
 
         var conditionForcePoweredStrike = ConditionDefinitionBuilder
             .Create($"Condition{Name}ForcePoweredStrike")
@@ -627,11 +627,6 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
-            {
-                yield break;
-            }
-
             _considerTriggerPsionicAdept = true;
 
             attacker.UsedSpecialFeatures.TryAdd("ForcePoweredStrike", 0);
@@ -673,7 +668,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            if (defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            if (defender.RulesetActor is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }

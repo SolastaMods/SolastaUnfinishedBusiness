@@ -13,7 +13,7 @@ public sealed class ModifyEffectDescriptionSavingThrowRogue(
         RulesetCharacter character,
         EffectDescription effectDescription)
     {
-        return definition == baseDefinition;
+        return definition == baseDefinition && Main.Settings.EnableRogueStrSaving;
     }
 
     public EffectDescription GetEffectDescription(

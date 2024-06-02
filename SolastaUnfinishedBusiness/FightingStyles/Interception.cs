@@ -42,7 +42,7 @@ internal sealed class Interception : AbstractFightingStyle
                                     .Create($"ReduceDamage{Name}")
                                     .SetGuiPresentation(Name, Category.FightingStyle)
                                     .SetAlwaysActiveReducedDamage(
-                                        (_, defender) => defender.RulesetCharacter.AllConditions.FirstOrDefault(
+                                        (_, defender) => defender.RulesetActor.AllConditions.FirstOrDefault(
                                             x => x.ConditionDefinition.Name == $"Condition{Name}")!.Amount)
                                     .AddToDB())
                             .AddToDB()))
@@ -119,7 +119,7 @@ internal sealed class Interception : AbstractFightingStyle
             var roll = helperCharacter.RollDie(DieType.D10, RollContext.None, true, AdvantageType.None, out _, out _);
             var reducedDamage = roll + helperCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
-            defender.RulesetCharacter.InflictCondition(
+            defender.RulesetActor.InflictCondition(
                 conditionDefinition.Name,
                 DurationType.Round,
                 0,

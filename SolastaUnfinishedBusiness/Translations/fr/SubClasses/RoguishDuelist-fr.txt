@@ -12,5 +12,5 @@ Feature/&FeatureSetRoguishDuelistSureFootedDescription=Lorsqu'il n'est pas armé
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Le pied sûr
 Feedback/&AdditionalDamageSureFootedFormat=Le pied sûr
 Feedback/&AdditionalDamageSureFootedLine=Sure Footed inflige +{2} dégâts supplémentaires !
-Subclass/&RoguishDuelistDescription=Les duellistes possèdent une bravade fanfaronne. Ils sont vifs d’esprit, autonomes et dangereux pour les ennemis isolés.
+Subclass/&RoguishDuelistDescription=Les duellistes possèdent une bravade fanfaronne. Ils sont vifs d'esprit, autonomes et dangereux pour les ennemis isolés.
 Subclass/&RoguishDuelistTitle=Duelliste

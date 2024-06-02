@@ -140,17 +140,16 @@ public static class GameLocationBattleManagerPatcher
         {
             //PATCH: Checks if attack cantrip is valid to be cast as readied action on a target
             // Used to properly check if melee cantrip can hit target when used for readied action
-
             if (!DatabaseHelper.TryGetDefinition<SpellDefinition>(attackParams.effectName, out var cantrip))
             {
                 return;
             }
 
-            var canAttack = cantrip.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>()?.CanAttack;
+            var attackAfterMagicEffect = cantrip.GetFirstSubFeatureOfType<AttackAfterMagicEffect>();
 
-            if (canAttack != null)
+            if (attackAfterMagicEffect != null)
             {
-                __result = canAttack(attackParams.attacker, attackParams.defender);
+                __result = AttackAfterMagicEffect.CanAttack(attackParams.attacker, attackParams.defender);
             }
         }
     }
@@ -774,6 +773,22 @@ public static class GameLocationBattleManagerPatcher
                     yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
                         __instance, controller, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget,
                         criticalHit);
+                }
+
+                // supports metamagic use cases
+                var hero = controller.RulesetCharacter.GetOriginalHero();
+
+                if (hero != null)
+                {
+                    foreach (var magicalAttackBeforeHitConfirmedOnEnemy in hero.TrainedMetamagicOptions
+                                 .SelectMany(metamagic =>
+                                     metamagic.GetAllSubFeaturesOfType<IMagicEffectBeforeHitConfirmedOnEnemy>()))
+                    {
+                        yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
+                            __instance, controller, defender, magicModifier, rulesetEffect, actualEffectForms,
+                            firstTarget,
+                            criticalHit);
+                    }
                 }
 
                 if (rulesetEffect is { SourceDefinition: SpellDefinition spellDefinition })

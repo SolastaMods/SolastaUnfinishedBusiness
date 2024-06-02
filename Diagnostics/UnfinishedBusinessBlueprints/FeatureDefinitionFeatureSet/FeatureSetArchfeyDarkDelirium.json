@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerArchfeyDarkDelirium:6bf32d72-507c-5688-b4ea-04c1295fd001",
+    "Definition:PowerArchfeyDarkDeliriumCharmed:5a372252-07e2-59eb-9772-f284e921ff3c",
+    "Definition:PowerArchfeyDarkDeliriumFrightened:7865300d-13da-53d6-8e29-2ef906b9c855"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerArchfeyDarkDeliriumTitle",
+    "description": "Feature/&PowerArchfeyDarkDeliriumDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "bf7a8867-7e4c-5dec-99d1-81f3fc50ad6c",
+  "contentPack": 9999,
+  "name": "FeatureSetArchfeyDarkDelirium"
+}

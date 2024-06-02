@@ -296,7 +296,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             // testMode true avoids the roll to display on combat log as the original one will get there with altered results
             var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
-                defender.RulesetCharacter,
+                defender.RulesetActor,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 false,

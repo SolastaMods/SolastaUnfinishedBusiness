@@ -61,7 +61,7 @@ public static class CharacterActionMagicEffectPatcher
             // BEGIN PATCH
 
             //PATCH: skip spell animation if this is "attack after cast" spell
-            if (baseDefinition.HasSubFeatureOfType<IAttackAfterMagicEffect>())
+            if (baseDefinition.HasSubFeatureOfType<AttackAfterMagicEffect>())
             {
                 actionParams.SkipAnimationsAndVFX = true;
             }
@@ -522,28 +522,25 @@ public static class CharacterActionMagicEffectPatcher
                 yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
             }
 
-            //PATCH: supports `IPerformAttackAfterMagicEffectUse`
-            var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
+            //PATCH: supports `AttackAfterMagicEffect`
+            var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<AttackAfterMagicEffect>();
 
             if (attackAfterMagicEffect != null)
             {
-                var performAttackAfterUse = attackAfterMagicEffect.PerformAttackAfterUse;
-                var characterActionParams = performAttackAfterUse?
-                    .Invoke(__instance);
-
-                if (characterActionParams != null)
+                foreach (var actionParam in AttackAfterMagicEffect.PerformAttackAfterUse(__instance))
                 {
-                    foreach (var actionParam in characterActionParams)
+                    // don't use ExecuteAction here to ensure compatibility with War Caster feat
+                    if (__instance.ActionType == ActionDefinitions.ActionType.Reaction)
+                    {
+                        var actionAttack = new CharacterActionAttack(actionParam);
+
+                        yield return CharacterActionAttackPatcher.ExecuteImpl_Patch.ExecuteImpl(actionAttack);
+                    }
+                    else
                     {
                         ServiceRepository.GetService<IGameLocationActionService>()?
-                            .ExecuteAction(actionParam, null, true);
+                            .ExecuteAction(actionParam, null, false);
                     }
-
-                    var maxAttacksNumber = actingCharacter.RulesetCharacter.AttackModes
-                        .Where(attackMode => attackMode.ActionType == ActionDefinitions.ActionType.Main)
-                        .Max(attackMode => attackMode.AttacksNumber);
-
-                    actingCharacter.RulesetCharacter.ExecutedAttacks = maxAttacksNumber;
                 }
             }
 

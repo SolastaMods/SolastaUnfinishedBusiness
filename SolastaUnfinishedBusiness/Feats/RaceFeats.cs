@@ -409,24 +409,22 @@ internal static class RaceFeats
     {
         const string SquatNimbleness = "SquatNimbleness";
 
+        var movementAffinitySquatNimbleness = FeatureDefinitionMovementAffinityBuilder
+            .Create("MovementAffinitySquatNimbleness")
+            .SetGuiPresentationNoContent(true)
+            .SetBaseSpeedAdditiveModifier(1)
+            .AddToDB();
+
         var acrobaticsSkill = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatSquatNimblenessAcrobatics")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Acrobatics)
-            .AddToDB();
-
-        var acrobaticsExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatSquatNimblenessAcrobaticsExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Acrobatics)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Acrobatics)
             .AddToDB();
 
         var featSquatNimblenessDex = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatSquatNimblenessDex")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye)
-            .AddCustomSubFeatures(new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Acrobatics,
-                acrobaticsSkill, acrobaticsExpertise))
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, movementAffinitySquatNimbleness, acrobaticsSkill)
             .SetValidators(ValidatorsFeat.IsSmallRace)
             .SetFeatFamily(SquatNimbleness)
             .AddToDB();
@@ -434,21 +432,13 @@ internal static class RaceFeats
         var athleticsSkill = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatSquatNimblenessAthletics")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Athletics)
-            .AddToDB();
-
-        var athleticsExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatSquatNimblenessAthleticsExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Athletics)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Athletics)
             .AddToDB();
 
         var featSquatNimblenessStr = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatSquatNimblenessStr")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar)
-            .AddCustomSubFeatures(new SkillOrExpertise(DatabaseHelper.SkillDefinitions.Athletics,
-                athleticsSkill, athleticsExpertise))
+            .SetFeatures(AttributeModifierCreed_Of_Einar, movementAffinitySquatNimbleness, athleticsSkill)
             .SetValidators(ValidatorsFeat.IsSmallRace)
             .SetFeatFamily(SquatNimbleness)
             .AddToDB();
@@ -461,28 +451,6 @@ internal static class RaceFeats
             ValidatorsFeat.IsSmallRace,
             featSquatNimblenessDex,
             featSquatNimblenessStr);
-    }
-
-    private sealed class SkillOrExpertise(
-        SkillDefinition skillDefinition,
-        FeatureDefinitionProficiency skill,
-        FeatureDefinitionProficiency expertise) : ICustomLevelUpLogic
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            var buildingData = hero.GetHeroBuildingData();
-
-            hero.ActiveFeatures[tag].TryAdd(
-                hero.TrainedSkills.Contains(skillDefinition) ||
-                buildingData.LevelupTrainedSkills.Any(x => x.Value.Contains(skillDefinition))
-                    ? expertise
-                    : skill);
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // empty
-        }
     }
 
     #endregion
@@ -685,7 +653,7 @@ internal static class RaceFeats
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (!actionManager ||
-                action.AttackRollOutcome != RollOutcome.CriticalFailure ||
+                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 attacker == helper ||
                 attacker.IsOppositeSide(helper.Side) ||
                 !helper.CanReact() ||
@@ -719,6 +687,7 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+            var previousRoll = action.AttackRoll;
 
             if (dieRoll <= action.AttackRoll)
             {
@@ -761,7 +730,10 @@ internal static class RaceFeats
                 "Feedback/&BountifulLuckAttackToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        dieRoll.ToString()),
+                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        previousRoll.ToString())
                 ]);
         }
 
@@ -811,6 +783,7 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+            var previousRoll = abilityCheckData.AbilityCheckRoll;
 
             if (dieRoll <= abilityCheckData.AbilityCheckRoll)
             {
@@ -828,18 +801,6 @@ internal static class RaceFeats
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
-
-            (ConsoleStyleDuplet.ParameterType, string) extra;
-
-            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
-            {
-                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
-                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
-            }
-            else
-            {
-                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
-            }
 
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,
@@ -860,8 +821,10 @@ internal static class RaceFeats
                 "Feedback/&BountifulLuckCheckToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
-                    extra
+                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        dieRoll.ToString()),
+                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        previousRoll.ToString())
                 ]);
         }
 
@@ -936,18 +899,6 @@ internal static class RaceFeats
             action.saveOutcomeDelta += dieRoll - savingRoll;
             action.RolledSaveThrow = true;
 
-            (ConsoleStyleDuplet.ParameterType, string) extra;
-
-            if (action.saveOutcomeDelta >= 0)
-            {
-                action.saveOutcome = RollOutcome.Success;
-                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
-            }
-            else
-            {
-                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
-            }
-
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,
                 DurationType.Round,
@@ -967,8 +918,10 @@ internal static class RaceFeats
                 "Feedback/&BountifulLuckSavingToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
-                    extra
+                    (dieRoll > savingRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        dieRoll.ToString()),
+                    (savingRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        savingRoll.ToString())
                 ]);
         }
     }
@@ -1502,12 +1455,6 @@ internal static class RaceFeats
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerOrcishAggression)
-            {
-                return true;
-            }
-
             var service = ServiceRepository.GetService<IGameLocationBattleService>();
             var actingCharacter = __instance.ActionParams.ActingCharacter;
 
@@ -2003,7 +1950,7 @@ internal static class RaceFeats
                 toHitBonus = attackMode.ToHitBonus;
                 roll = rulesetAttacker.RollAttack(
                     toHitBonus,
-                    defender.RulesetCharacter,
+                    defender.RulesetActor,
                     attackMode.SourceDefinition,
                     attackMode.ToHitBonusTrends,
                     false,
@@ -2021,7 +1968,7 @@ internal static class RaceFeats
                 toHitBonus = activeEffect.MagicAttackBonus;
                 roll = rulesetAttacker.RollMagicAttack(
                     activeEffect,
-                    defender.RulesetCharacter,
+                    defender.RulesetActor,
                     activeEffect.GetEffectSource(),
                     attackModifier.AttacktoHitTrends,
                     attackModifier.AttackAdvantageTrends,

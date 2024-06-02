@@ -361,7 +361,9 @@ internal static partial class SpellBuilders
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())
-                    .SetParticleEffectParameters(PhantasmalKiller)
+                    .SetCasterEffectParameters(PhantasmalKiller)
+                    .SetImpactEffectParameters(
+                        PhantasmalKiller.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .SetRequiresConcentration(true)
             .AddToDB();

@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -43,7 +42,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D8, 3)
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
@@ -372,16 +371,13 @@ internal static partial class SpellBuilders
                             ConditionForm.ConditionOperation.Add, true, true))
                     .SetParticleEffectParameters(DivineWord)
                     .Build())
+            .AddCustomSubFeatures(new FilterTargetingCharacterAuraOfVitality(conditionAuraOfLife))
             .AddToDB();
-
-        spell.AddCustomSubFeatures(new FilterTargetingCharacterAuraOfVitality(spell, conditionAuraOfLife));
 
         return spell;
     }
 
     private sealed class FilterTargetingCharacterAuraOfVitality(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellAuraOfVitality,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionAuraOfVitality) : IFilterTargetingCharacter
     {
@@ -389,15 +385,12 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell
-                || rulesetEffectSpell.SpellDefinition != spellAuraOfVitality)
+            if (target.RulesetCharacter == null)
             {
-                return true;
+                return false;
             }
 
-            var rulesetTarget = target.RulesetCharacter;
-
-            var isValid = rulesetTarget.HasConditionOfCategoryAndType(
+            var isValid = target.RulesetCharacter.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionAuraOfVitality.Name);
 
             if (!isValid)
@@ -776,9 +769,30 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorBoomingStep(FeatureDefinitionPower powerExplode)
-        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         private readonly List<GameLocationCharacter> _targets = [];
+
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid =
+                target.RulesetCharacter is not RulesetCharacterEffectProxy &&
+                __instance.ActionParams.ActingCharacter.IsWithinRange(target, 1);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+            }
+
+            return isValid;
+        }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1151,7 +1165,7 @@ internal static partial class SpellBuilders
                     DiceNumber = MainTargetDiceNumber + additionalDice
                 };
                 var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-                var rulesetDefender = defender.RulesetCharacter;
+                var rulesetDefender = defender.RulesetActor;
                 var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
                 {
                     sourceCharacter = rulesetAttacker,

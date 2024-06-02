@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -49,6 +50,7 @@ public sealed class WizardSpellMaster : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                     .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // LEVEL 06

@@ -45,6 +45,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition MaddeningDarkness = BuildMaddeningDarkness();
+    internal static readonly SpellDefinition MantleOfThorns = BuildMantleOfThorns();
     internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition PetalStorm = BuildPetalStorm();
     internal static readonly SpellDefinition PsychicWhip = BuildPsychicWhip();
@@ -52,6 +53,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SonicBoom = BuildSonicBoom();
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
+    internal static readonly SpellDefinition SteelWhirlwind = BuildSteelWhirlwind();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
     internal static readonly SpellDefinition Telekinesis = BuildTelekinesis();
     internal static readonly SpellDefinition ThunderousSmite = BuildThunderousSmite();
@@ -238,14 +240,19 @@ internal static class SpellsContext
         RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
         RegisterSpell(EnduringSting, 0, SpellListWizard);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildInfestation(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildLightningLure(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+            spellListInventorClass);
         RegisterSpell(BuildMindSpike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildPrimalSavagery(), 0, SpellListDruid);
         RegisterSpell(BuildResonatingStrike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(SunlightBlade, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildSwordStorm(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
+        RegisterSpell(BuildStarryWisp(), 0, SpellListBard, SpellListDruid);
         RegisterSpell(BuildTollTheDead(), 0, SpellListCleric, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, spellListInventorClass);
         RegisterSpell(BuildThunderStrike(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWarlock,
@@ -330,8 +337,8 @@ internal static class SpellsContext
         RegisterSpell(DivineWrath, 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildIncineration(), 0, SpellListSorcerer, SpellListWizard);
-        RegisterSpell(BuildMantleOfThorns(), 0, SpellListDruid);
-        RegisterSpell(BuildSteelWhirlwind(), 0, SpellListRanger, SpellListWizard);
+        RegisterSpell(MantleOfThorns, 0, SpellListDruid);
+        RegisterSpell(SteelWhirlwind, 0, SpellListRanger, SpellListWizard);
         RegisterSpell(SonicBoom, 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(Telekinesis, 0, SpellListSorcerer, SpellListWizard);
 

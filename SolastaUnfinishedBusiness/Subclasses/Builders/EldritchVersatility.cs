@@ -1193,8 +1193,10 @@ internal static class EldritchVersatilityBuilders
     private class ReactionResourceEldritchVersatilityPoints(int requestPoints)
         : ICustomReactionResource, ICustomReactionCustomResourceUse
     {
-        public string GetRequestPoints(RulesetCharacter character)
+        public string GetRequestPoints(CharacterReactionItem item)
         {
+            var character = item.guiCharacter.RulesetCharacter;
+
             character.GetVersatilitySupportCondition(out _);
 
             return $"{requestPoints}";

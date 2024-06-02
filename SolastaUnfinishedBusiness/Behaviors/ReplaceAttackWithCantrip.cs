@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
@@ -29,12 +28,12 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        if (character.usedMainAttacks == 0)
+        if (character.UsedMainAttacks == 0)
         {
             return;
         }
 
-        if (character.usedMainCantrip)
+        if (character.UsedMainCantrip)
         {
             return;
         }
@@ -73,36 +72,6 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        const ActionType ACTION_TYPE = ActionType.Main;
-        var rank = --character.currentActionRankByType[ACTION_TYPE];
-
-        //If character can't attack on this action - do not refund it
-        if (character.GetActionStatus(Id.AttackMain, ActionScope.Battle) != ActionStatus.Available)
-        {
-            character.currentActionRankByType[ACTION_TYPE]++;
-            return;
-        }
-
-        var maxAllowedAttacks = character.actionPerformancesByType[ACTION_TYPE][rank].MaxAttacksNumber;
-        var maxAttacksNumber = rulesetCharacter.AttackModes
-            .Where(attackMode => attackMode.ActionType == ActionType.Main)
-            .Max(attackMode => attackMode.AttacksNumber);
-
-        if (maxAllowedAttacks < 0 || maxAllowedAttacks >= maxAttacksNumber)
-        {
-            maxAllowedAttacks = maxAttacksNumber;
-        }
-
-        character.UsedMainAttacks++;
-        rulesetCharacter.ExecutedAttacks++;
-        rulesetCharacter.RefreshAttackModes();
-
-        if (character.UsedMainAttacks < maxAllowedAttacks)
-        {
-            return;
-        }
-
-        character.currentActionRankByType[ACTION_TYPE]++;
-        character.UsedMainAttacks = 0;
+        character.BurnOneMainAttack(false);
     }
 }

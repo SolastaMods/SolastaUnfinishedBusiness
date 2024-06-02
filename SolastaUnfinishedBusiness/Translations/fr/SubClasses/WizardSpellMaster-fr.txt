@@ -1,4 +1,4 @@
-Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Préparez des sorts supplémentaires de modificateur d’Intelligence pour avoir toujours ce dont vous avez besoin.
+Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Préparez des sorts supplémentaires de modificateur d'Intelligence pour avoir toujours ce dont vous avez besoin.
 Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Extra préparé
 Feature/&MagicAffinitySpellMasterKnowledgeDescription=Tracez un sort supplémentaire à chaque niveau supérieur.
 Feature/&MagicAffinitySpellMasterKnowledgeTitle=Étendue des connaissances

@@ -20,5 +20,5 @@ Reaction/&UseHailOfBladesDescription=Utilisez votre réaction pour invoquer un m
 Reaction/&UseHailOfBladesReactDescription=Utilisez votre réaction pour invoquer un maelström de lames éthérées et lancez-les sur vos ennemis.
 Reaction/&UseHailOfBladesReactTitle=Grêle de lames
 Reaction/&UseHailOfBladesTitle=Grêle de lames
-Subclass/&RoguishBladeCallerDescription=Les Blade Callers sont les descendants d’assassins légendaires, du moins c’est ce que disent les histoires urbaines. Rapides et précis, ces combattants utilisent des arts de l'épée mortels pour exploiter les points faibles de leurs adversaires, les frappant avec une finesse sans égal lorsque le moment opportun se présente.
+Subclass/&RoguishBladeCallerDescription=Les Blade Callers sont les descendants d'assassins légendaires, du moins c'est ce que disent les histoires urbaines. Rapides et précis, ces combattants utilisent des arts de l'épée mortels pour exploiter les points faibles de leurs adversaires, les frappant avec une finesse sans égal lorsque le moment opportun se présente.
 Subclass/&RoguishBladeCallerTitle=Appeleur de lame

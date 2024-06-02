@@ -57,6 +57,7 @@ internal static class FixesContext
         FixMummyDreadfulGlareSavingAttribute();
         FixPowerDragonbornBreathWeaponDiceProgression();
         FixRecklessAttackForReachWeaponsAndPathOfTheYeoman();
+        FixRestPowerVisibility();
         FixSavingThrowAffinityConditionRaging();
         FixSavingThrowAffinityManaPainterAbsorption();
         FixSmitesAndStrikesDiceProgression();
@@ -318,10 +319,10 @@ internal static class FixesContext
     private static void FixAttackBuffsAffectingSpellDamage()
     {
         //BUGFIX: fix Branding Smite applying bonus damage to spells
-        AdditionalDamageBrandingSmite.AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
+        AdditionalDamageBrandingSmite.attackModeOnly = true;
 
         //BUGFIX: fix Divine Favor applying bonus damage to spells
-        AdditionalDamageDivineFavor.AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
+        AdditionalDamageDivineFavor.attackModeOnly = true;
     }
 
     private static void FixColorTables()
@@ -398,6 +399,9 @@ internal static class FixesContext
 
     private static void FixMinorMagicEffectsIssues()
     {
+        // fix Resurrection
+        Resurrection.EffectDescription.EffectForms[0].ReviveForm.maxSecondsSinceDeath = 864000;
+
         // fix Vampiric Touch
         VampiricTouch.EffectDescription.rangeParameter = 1;
 
@@ -535,6 +539,14 @@ internal static class FixesContext
         //instead of if character is next to target
         FeatureDefinitionCombatAffinitys.CombatAffinityReckless.situationalContext = (SituationalContext)
             ExtraSituationalContext.AttackerWithMeleeOrUnarmedAndTargetWithinReachOrYeomanWithLongbow;
+    }
+
+    private static void FixRestPowerVisibility()
+    {
+        FeatureDefinitionPowers.PowerCircleLandNaturalRecovery.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        FeatureDefinitionPowers.PowerMarksmanRecycler.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        FeatureDefinitionPowers.PowerSorcererManaPainterTap.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
+        FeatureDefinitionPowers.PowerWizardArcaneRecovery.AddCustomSubFeatures(ModifyPowerVisibility.Hidden);
     }
 
     private static void FixSmitesAndStrikesDiceProgression()

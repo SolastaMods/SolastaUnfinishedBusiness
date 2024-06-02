@@ -31,6 +31,12 @@ internal class FeatureDefinitionAttackModifierBuilder
         return this;
     }
 
+    internal FeatureDefinitionAttackModifierBuilder SetUnarmedStrike(int additionalBonusUnarmedStrikeAttacksCount)
+    {
+        Definition.additionalBonusUnarmedStrikeAttacksCount = additionalBonusUnarmedStrikeAttacksCount;
+        return this;
+    }
+
     internal FeatureDefinitionAttackModifierBuilder SetMagicalWeapon()
     {
         Definition.magicalWeapon = true;

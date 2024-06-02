@@ -24,17 +24,33 @@ internal static class TryAlterOutcomeAttack
         GameLocationCharacter defender,
         ActionModifier actionModifier)
     {
-        if (Gui.Battle == null)
-        {
-            yield break;
-        }
+        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var contenders =
+            (Gui.Battle?.AllContenders ??
+             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+            .ToList();
 
-        foreach (var unit in Gui.Battle.AllContenders
+        foreach (var unit in contenders
                      .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                      .ToList())
         {
             foreach (var feature in unit.RulesetCharacter
                          .GetSubFeaturesByType<ITryAlterOutcomeAttack>())
+            {
+                yield return feature.OnTryAlterOutcomeAttack(
+                    battleManager, action, attacker, defender, unit, actionModifier);
+            }
+
+            // supports metamagic use cases
+            var hero = unit.RulesetCharacter.GetOriginalHero();
+
+            if (hero == null)
+            {
+                continue;
+            }
+
+            foreach (var feature in hero.TrainedMetamagicOptions
+                         .SelectMany(metamagic => metamagic.GetAllSubFeaturesOfType<ITryAlterOutcomeAttack>()))
             {
                 yield return feature.OnTryAlterOutcomeAttack(
                     battleManager, action, attacker, defender, unit, actionModifier);

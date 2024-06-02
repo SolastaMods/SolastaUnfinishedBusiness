@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupDefenseCombatTitle",
-    "description": "Always Ready, Cloak and Dagger, Defensive Duelist, Dual Wielder, Fade Away, Raise Shield, Shield Bash, Shield Master, Twin Blade, Unarmored Expert",
+    "description": "Always Ready, Cloak and Dagger, Defensive Duelist, Dual Wielder, Fade Away, Great Weapon Defense, Raise Shield, Shield Bash, Shield Master, Twin Blade, Unarmored Expert",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

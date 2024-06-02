@@ -452,23 +452,12 @@ internal static class OtherFeats
             .Create(FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
                 "ProficiencyFeatPickPocket")
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.SleightOfHand)
-            .AddToDB();
-
-        var proficiencyFeatPickPocketExpertise = FeatureDefinitionProficiencyBuilder
-            .Create(FeatureDefinitionProficiencys.ProficiencyFeatLockbreaker,
-                "ProficiencyFeatPickPocketExpertise")
-            .SetGuiPresentation("FeatPickPocket", Category.Feat)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.SleightOfHand)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.SleightOfHand)
             .AddToDB();
 
         return FeatDefinitionBuilder
             .Create(FeatDefinitions.Lockbreaker, "FeatPickPocket")
-            .SetFeatures(abilityCheckAffinityFeatPickPocket)
-            .AddCustomSubFeatures(
-                new FeatHelpers.SkillOrExpertise(
-                    DatabaseHelper.SkillDefinitions.SleightOfHand,
-                    proficiencyFeatPickPocket, proficiencyFeatPickPocketExpertise))
+            .SetFeatures(abilityCheckAffinityFeatPickPocket, proficiencyFeatPickPocket)
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
@@ -579,19 +568,13 @@ internal static class OtherFeats
     private static readonly FeatDefinition FeatStealthy = FeatDefinitionBuilder
         .Create(FeatStealthyName)
         .SetGuiPresentation(Category.Feat)
-        .SetFeatures(AttributeModifierCreed_Of_Misaye)
-        .AddCustomSubFeatures(
-            new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Stealth,
-                FeatureDefinitionProficiencyBuilder
-                    .Create($"Proficiency{FeatStealthyName}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Stealth)
-                    .AddToDB(),
-                FeatureDefinitionProficiencyBuilder
-                    .Create($"Proficiency{FeatStealthyName}Expertise")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Stealth)
-                    .AddToDB()))
+        .SetFeatures(
+            AttributeModifierCreed_Of_Misaye,
+            FeatureDefinitionProficiencyBuilder
+                .Create($"Proficiency{FeatStealthyName}")
+                .SetGuiPresentationNoContent(true)
+                .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Stealth)
+                .AddToDB())
         .AddToDB();
 
     internal static readonly Dictionary<GameLocationCharacter, HashSet<int3>> FeatStealthPositionsCache = [];
@@ -635,13 +618,7 @@ internal static class OtherFeats
         var proficiencySkill = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{NAME}")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Intimidation)
-            .AddToDB();
-
-        var proficiencyExpertise = FeatureDefinitionProficiencyBuilder
-            .Create($"Proficiency{NAME}Expertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Intimidation)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Intimidation)
             .AddToDB();
 
         var condition = ConditionDefinitionBuilder
@@ -665,14 +642,12 @@ internal static class OtherFeats
 
         power.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.HasMainAttackAvailable,
-            new CustomBehaviorMenacing(condition),
-            new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Intimidation,
-                proficiencySkill, proficiencyExpertise));
+            new CustomBehaviorMenacing(condition));
 
         var feat = FeatDefinitionWithPrerequisitesBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Solasta, power)
+            .SetFeatures(AttributeModifierCreed_Of_Solasta, power, proficiencySkill)
             .AddToDB();
 
         return feat;
@@ -713,7 +688,7 @@ internal static class OtherFeats
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             attacker.BurnOneMainAttack();
 
@@ -1193,22 +1168,13 @@ internal static class OtherFeats
         var skill = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Acrobatics)
-            .AddToDB();
-
-        var expertise = FeatureDefinitionProficiencyBuilder
-            .Create($"Proficiency{Name}Expertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Acrobatics)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Acrobatics)
             .AddToDB();
 
         return FeatDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, power)
-            .AddCustomSubFeatures(
-                new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Acrobatics,
-                    skill, expertise))
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, power, skill)
             .AddToDB();
     }
 
@@ -1278,31 +1244,21 @@ internal static class OtherFeats
         var skill = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Athletics)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Athletics)
             .AddToDB();
 
-        var expertise = FeatureDefinitionProficiencyBuilder
-            .Create($"Proficiency{Name}Expertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Athletics)
-            .AddToDB();
-
-        var customBehavior = new FeatHelpers.SkillOrExpertise(DatabaseHelper.SkillDefinitions.Athletics,
-            skill, expertise);
 
         FeatAthleteStr = FeatDefinitionBuilder
             .Create($"Feat{Name}Str")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar, movementAffinity)
-            .AddCustomSubFeatures(customBehavior)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, movementAffinity, skill)
             .SetFeatFamily(Name)
             .AddToDB();
 
         FeatAthleteDex = FeatDefinitionBuilder
             .Create($"Feat{Name}Dex")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, movementAffinity)
-            .AddCustomSubFeatures(customBehavior)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, movementAffinity, skill)
             .SetFeatFamily(Name)
             .AddToDB();
 
@@ -1961,27 +1917,18 @@ internal static class OtherFeats
         var proficiencyFeatHealerMedicine = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatHealerMedicine")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Medecine)
-            .AddToDB();
-
-        var proficiencyFeatHealerMedicineExpertise = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFeatHealerMedicineExpertise")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Expertise, SkillDefinitions.Medecine)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
             .AddToDB();
 
         return FeatDefinitionBuilder
             .Create("FeatHealer")
             .SetGuiPresentation(Category.Feat, PowerFunctionGoodberryHealingOther)
             .SetFeatures(
+                proficiencyFeatHealerMedicine,
                 powerFeatHealerMedKit,
                 powerFeatHealerResuscitate,
                 powerFeatHealerStabilize,
                 proficiencyFeatHealerMedicine)
-            .AddCustomSubFeatures(
-                new FeatHelpers.SkillOrExpertise(
-                    DatabaseHelper.SkillDefinitions.Medecine,
-                    proficiencyFeatHealerMedicine, proficiencyFeatHealerMedicineExpertise))
             .AddToDB();
     }
 
@@ -2122,6 +2069,7 @@ internal static class OtherFeats
             }
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+            var previousRoll = action.AttackRoll;
 
             switch (stringParameter)
             {
@@ -2162,7 +2110,10 @@ internal static class OtherFeats
                 "Feedback/&LuckyAttackToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        dieRoll.ToString()),
+                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        previousRoll.ToString())
                 ]);
         }
 
@@ -2210,6 +2161,7 @@ internal static class OtherFeats
             }
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+            var previousRoll = abilityCheckData.AbilityCheckRoll;
 
             if (dieRoll <= abilityCheckData.AbilityCheckRoll)
             {
@@ -2228,25 +2180,15 @@ internal static class OtherFeats
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
 
-            (ConsoleStyleDuplet.ParameterType, string) extra;
-
-            if (abilityCheckData.AbilityCheckSuccessDelta >= 0)
-            {
-                abilityCheckData.AbilityCheckRollOutcome = RollOutcome.Success;
-                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
-            }
-            else
-            {
-                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
-            }
-
             rulesetHelper.LogCharacterActivatesAbility(
                 "Feat/&FeatLuckyTitle",
                 "Feedback/&LuckyCheckToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
-                    extra
+                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        dieRoll.ToString()),
+                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        previousRoll.ToString())
                 ]);
         }
 
@@ -2318,25 +2260,15 @@ internal static class OtherFeats
             action.saveOutcomeDelta += dieRoll - savingRoll;
             action.RolledSaveThrow = true;
 
-            (ConsoleStyleDuplet.ParameterType, string) extra;
-
-            if (action.saveOutcomeDelta >= 0)
-            {
-                action.saveOutcome = RollOutcome.Success;
-                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
-            }
-            else
-            {
-                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
-            }
-
             rulesetHelper.LogCharacterActivatesAbility(
                 "Feat/&FeatLuckyTitle",
                 "Feedback/&LuckySavingToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
-                    extra
+                    (dieRoll > savingRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        dieRoll.ToString()),
+                    (savingRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        savingRoll.ToString())
                 ]);
         }
     }
@@ -2394,7 +2326,7 @@ internal static class OtherFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            defender.RulesetCharacter.InflictCondition(
+            defender.RulesetActor.InflictCondition(
                 conditionConcentrationDisadvantage.Name,
                 DurationType.Round,
                 0,
@@ -2425,7 +2357,7 @@ internal static class OtherFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            defender.RulesetCharacter.InflictCondition(
+            defender.RulesetActor.InflictCondition(
                 conditionConcentrationDisadvantage.Name,
                 DurationType.Round,
                 0,

@@ -101,7 +101,7 @@ internal static class RaceOligathBuilder
             .SetGuiPresentation($"Power{Name}StoneEndurance", Category.Feature)
             .SetAlwaysActiveReducedDamage((attacker, defender) =>
             {
-                var rulesetDefender = defender.RulesetCharacter;
+                var rulesetDefender = defender.RulesetActor;
 
                 if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                     !rulesetDefender.HasConditionOfType($"Condition{Name}StoneEndurance"))
@@ -143,6 +143,7 @@ internal static class RaceOligathBuilder
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionOligathStoneEndurance))
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerTraditionOpenHandWholenessOfBody)
                     .Build())
             .AddToDB();
 

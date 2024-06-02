@@ -283,6 +283,10 @@ The Gray Dwarves are dwarves who have been changed after only a few generations 
 
 Strength +1
 
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
 * Gray Dwarf Ancestry
 
 Saving throw advantage against Charm, Paralyze and Illusions
@@ -294,10 +298,6 @@ Common, Dwarvish
 * Light Sensitivity
 
 You have Disadvantage on Wisdom (Perception) checks in bright light and suffers a -1d4 penalty on attack rolls.
-
-* Superior Darkvision
-
-Within the specified range, a creature with superior Darkvision can see perfectly in all lighting conditions.
 
 
 ## Level 3
@@ -587,6 +587,10 @@ Strong and hardy, the Ironborn Dwarves live among, but often apart from, their c
 
 Strength +2
 
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
 * Ironborn Armor Training
 
 You have proficiency with light and medium armor.
@@ -674,6 +678,10 @@ Strength +1
 * Cradled by Fire
 
 You have resistance to fire damage.
+
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
 
 * Languages
 

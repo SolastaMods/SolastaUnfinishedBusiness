@@ -1,5 +1,6 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -311,21 +312,21 @@ public sealed class DomainSmith : AbstractSubclass
             .SetDamageAffinityType(DamageAffinityType.Resistance)
             .AddToDB();
 
-        var conditionBlessedMetal = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}BlessedMetal")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
+        damageAffinityBlessedMetalFireImmunity.AddCustomSubFeatures(
+            new ModifyDamageAffinityBlessedMetal(
+                damageAffinityBlessedMetalFireImmunity,
+                damageAffinityBlessedMetalBludgeoningResistance,
+                damageAffinityBlessedMetalPiercingResistance,
+                damageAffinityBlessedMetalSlashingResistance));
+
+        var featureBlessedMetal = FeatureDefinitionFeatureSetBuilder
+            .Create(BLESSED_METAL)
+            .SetGuiPresentation(Category.Feature)
+            .SetFeatureSet(
                 damageAffinityBlessedMetalFireImmunity,
                 damageAffinityBlessedMetalBludgeoningResistance,
                 damageAffinityBlessedMetalPiercingResistance,
                 damageAffinityBlessedMetalSlashingResistance)
-            .AddToDB();
-
-        var featureBlessedMetal = FeatureDefinitionBuilder
-            .Create(BLESSED_METAL)
-            .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new PhysicalAttackInitiatedOnMeBlessedMetal(conditionBlessedMetal))
             .AddToDB();
 
         // MAIN
@@ -395,38 +396,21 @@ public sealed class DomainSmith : AbstractSubclass
         return !definition.Magical;
     }
 
-    private sealed class PhysicalAttackInitiatedOnMeBlessedMetal(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionBlessedMetal) : IPhysicalAttackInitiatedOnMe
+    private sealed class ModifyDamageAffinityBlessedMetal(
+        params FeatureDefinitionDamageAffinity[] damageAffinities) : IModifyDamageAffinity
     {
-        public IEnumerator OnPhysicalAttackInitiatedOnMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (!defender.RulesetCharacter.IsWearingArmor())
+            if (defender is RulesetCharacter rulesetCharacter &&
+                rulesetCharacter.IsWearingArmor())
             {
-                yield break;
+                return;
             }
 
-            rulesetDefender.InflictCondition(
-                conditionBlessedMetal.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetDefender.guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                conditionBlessedMetal.Name,
-                0,
-                0,
-                0);
+            foreach (var damageAffinity in damageAffinities)
+            {
+                features.Remove(damageAffinity);
+            }
         }
     }
 }

@@ -1,8 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
 using static MetricsDefinitions;
@@ -15,6 +22,8 @@ internal static class MetamagicBuilders
     private const string MetamagicAltruistic = "MetamagicAltruisticSpell";
     private const string MetamagicFocused = "MetamagicFocusedSpell";
     private const string MetamagicPowerful = "MetamagicPowerfulSpell";
+    private const string MetamagicSeeking = "MetamagicSeekingSpell";
+    private const string MetamagicTransmuted = "MetamagicTransmutedSpell";
     private const string MetamagicWidened = "MetamagicWidenedSpell";
 
     #region Metamagic Altruistic
@@ -247,6 +256,286 @@ internal static class MetamagicBuilders
             }
 
             return effectDescription;
+        }
+    }
+
+    #endregion
+
+    #region Metamagic Transmuted
+
+    private static readonly List<string> TransmutedDamageTypes =
+        [DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder];
+
+    internal static MetamagicOptionDefinition BuildMetamagicTransmutedSpell()
+    {
+        var validator = new ValidateMetamagicApplication(IsMetamagicTransmutedSpellValid);
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{MetamagicTransmuted}")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .AddToDB();
+
+        var powers = (from damageType in TransmutedDamageTypes
+                let title = Gui.Localize($"Tooltip/&Tag{damageType}Title")
+                let description = Gui.Format($"Feedback/&{MetamagicTransmuted}Description", title)
+                select FeatureDefinitionPowerSharedPoolBuilder
+                    .Create($"Power{MetamagicTransmuted}{damageType}")
+                    .SetGuiPresentation(title, description)
+                    .SetSharedPool(ActivationTime.NoCost, powerPool)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create()
+                            .Build())
+                    .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+                    .AddToDB())
+            .ToList();
+
+        PowerBundle.RegisterPowerBundle(powerPool, false, powers);
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{MetamagicTransmuted}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powers)
+            .AddFeatures(powerPool)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var metamagic = MetamagicOptionDefinitionBuilder
+            .Create(MetamagicTransmuted)
+            .SetGuiPresentation(Category.Feature)
+            .SetCost()
+            .AddToDB();
+
+        metamagic.AddCustomSubFeatures(
+            new MagicEffectBeforeHitConfirmedOnEnemyTransmuted(metamagic, condition, powerPool), validator);
+
+        return metamagic;
+    }
+
+    private static void IsMetamagicTransmutedSpellValid(
+        RulesetCharacter caster,
+        RulesetEffectSpell rulesetEffect,
+        MetamagicOptionDefinition metamagicOption,
+        ref bool result,
+        ref string failure)
+    {
+        if (rulesetEffect.EffectDescription.EffectForms.Any(x =>
+                x.FormType == EffectForm.EffectFormType.Damage &&
+                TransmutedDamageTypes.Contains(x.DamageForm.DamageType)) ||
+            rulesetEffect.SpellDefinition.Name == "BoomingStep")
+        {
+            return;
+        }
+
+        failure = "Failure/&FailureTransmutedSpell";
+        result = false;
+    }
+
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemyTransmuted(
+        MetamagicOptionDefinition metamagicOptionDefinition,
+        ConditionDefinition condition,
+        FeatureDefinitionPower powerPool) : IMagicEffectBeforeHitConfirmedOnEnemy
+    {
+        private string _newDamageType;
+
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetEffect.MetamagicOption != metamagicOptionDefinition &&
+                rulesetAttacker.SpellsCastByMe
+                    .FirstOrDefault(x => x.SystemName == "BoomingStep")?.MetamagicOption != metamagicOptionDefinition)
+            {
+                yield break;
+            }
+
+            if (!rulesetAttacker.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, condition.Name))
+            {
+                rulesetAttacker.InflictCondition(
+                    condition.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    condition.Name,
+                    0,
+                    0,
+                    0);
+
+                var actionManager =
+                    ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+                if (!actionManager)
+                {
+                    yield break;
+                }
+
+                var implementationManager =
+                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+                var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
+                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+                {
+                    StringParameter = MetamagicTransmuted,
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
+                };
+                var count = actionManager.PendingReactionRequestGroups.Count;
+                var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+                actionManager.AddInterruptRequest(reactionRequest);
+
+                yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+                if (!actionParams.ReactionValidated)
+                {
+                    rulesetAttacker.SpendSorceryPoints(-1);
+                    rulesetAttacker.SorceryPointsAltered?.Invoke(
+                        rulesetAttacker, rulesetAttacker.RemainingSorceryPoints);
+
+                    yield break;
+                }
+
+                var option = reactionRequest.SelectedSubOption;
+
+                _newDamageType = TransmutedDamageTypes[option];
+            }
+
+            foreach (var effectForm in actualEffectForms
+                         .Where(x =>
+                             x.FormType == EffectForm.EffectFormType.Damage &&
+                             TransmutedDamageTypes.Contains(x.DamageForm.DamageType)))
+            {
+                effectForm.DamageForm.damageType = _newDamageType;
+            }
+        }
+    }
+
+    #endregion
+
+    #region Metamagic Seeking
+
+    internal static MetamagicOptionDefinition BuildMetamagicSeekingSpell()
+    {
+        var validator = new ValidateMetamagicApplication(IsMetamagicSeekingSpellValid);
+
+        return MetamagicOptionDefinitionBuilder
+            .Create(MetamagicSeeking)
+            .SetGuiPresentation(Category.Feature)
+            .SetCost(MetamagicCostMethod.FixedValue, 2)
+            .AddCustomSubFeatures(new TryAlterOutcomeAttackMetamagicSeeking(), validator)
+            .AddToDB();
+    }
+
+    private static void IsMetamagicSeekingSpellValid(
+        RulesetCharacter caster,
+        RulesetEffectSpell rulesetEffectSpell,
+        MetamagicOptionDefinition metamagicOption,
+        ref bool result,
+        ref string failure)
+    {
+        failure = "Failure/&FailureSeekingSpell";
+
+        result = false;
+    }
+
+    private sealed class TryAlterOutcomeAttackMetamagicSeeking : ITryAlterOutcomeAttack
+    {
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier attackModifier)
+        {
+            if (action is not CharacterActionCastSpell)
+            {
+                yield break;
+            }
+
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var rulesetHelper = helper.RulesetCharacter;
+
+            if (!actionManager ||
+                action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                helper != attacker ||
+                !helper.IsActionOnGoing(ActionDefinitions.Id.MetamagicToggle) ||
+                rulesetHelper.RemainingSorceryPoints < 2)
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                {
+                    StringParameter = "CustomReactionMetamagicSeekingSpellDescription".Formatted(
+                        Category.Reaction, defender.Name),
+                    StringParameter2 = "2"
+                };
+            var count = actionManager.PendingReactionRequestGroups.Count;
+
+            var reactionRequest = new ReactionRequestCustom("MetamagicSeekingSpell", reactionParams)
+            {
+                Resource = ReactionResourceSorceryPoints.Instance
+            };
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            rulesetHelper.SpendSorceryPoints(2);
+            rulesetHelper.SorceryPointsAltered?.Invoke(rulesetHelper, rulesetHelper.RemainingSorceryPoints);
+
+            var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
+            var previousRoll = action.AttackRoll;
+
+            action.AttackSuccessDelta += dieRoll - previousRoll;
+            action.AttackRoll = dieRoll;
+
+            if (action.AttackSuccessDelta >= 0)
+            {
+                action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
+            }
+            else
+            {
+                action.AttackRollOutcome = dieRoll == 1 ? RollOutcome.CriticalFailure : RollOutcome.Failure;
+            }
+
+            rulesetHelper.LogCharacterActivatesAbility(
+                "Feature/&MetamagicSeekingSpellTitle",
+                "Feedback/&MetamagicSeekingSpellToHitRoll",
+                extra:
+                [
+                    (dieRoll > previousRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        dieRoll.ToString()),
+                    (previousRoll > dieRoll ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                        previousRoll.ToString())
+                ]);
         }
     }
 

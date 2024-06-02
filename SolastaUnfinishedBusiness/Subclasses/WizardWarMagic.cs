@@ -106,7 +106,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             .SetSituationalContext(ExtraSituationalContext.IsConcentratingOnSpell)
             .AddToDB();
 
-        featureDurableMagic.AddCustomSubFeatures(new RollSavingThrowInitiatedDurableMagic(featureDurableMagic));
+        featureDurableMagic.AddCustomSubFeatures(new CustomBehaviorDurableMagic(featureDurableMagic));
 
         // LEVEL 14
 
@@ -121,7 +121,8 @@ public sealed class WizardWarMagic : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique, 3)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce))
-                    .SetImpactEffectParameters(SpellDefinitions.EldritchBlast)
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerSorcererDraconicDragonWingsSprout)
+                    .SetImpactEffectParameters(SpellDefinitions.ArcaneSword)
                     .Build())
             .AddToDB();
 
@@ -197,6 +198,8 @@ public sealed class WizardWarMagic : AbstractSubclass
                 yield break;
             }
 
+            EffectHelpers.StartVisualEffect(
+                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
             rulesetCharacter.InflictCondition(
                 conditionArcaneDeflection.Name,
                 DurationType.Round,
@@ -272,6 +275,8 @@ public sealed class WizardWarMagic : AbstractSubclass
                 yield break;
             }
 
+            EffectHelpers.StartVisualEffect(
+                helper, helper, SpellDefinitions.Shield, EffectHelpers.EffectType.QuickCaster);
             rulesetCharacter.InflictCondition(
                 conditionArcaneDeflection.Name,
                 DurationType.Round,
@@ -303,7 +308,7 @@ public sealed class WizardWarMagic : AbstractSubclass
         private void HandleDeflectionShroud(GameLocationCharacter helper)
         {
             var rulesetHelper = helper.RulesetCharacter;
-            var classLevel = helper.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Wizard);
+            var classLevel = rulesetHelper.GetClassLevel(CharacterClassDefinitions.Wizard);
 
             if (classLevel < 14 || Gui.Battle == null)
             {
@@ -363,7 +368,17 @@ public sealed class WizardWarMagic : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            defender.RulesetCharacter.DamageReceived += DamageReceived;
+            if (rulesetEffect.EffectDescription.TargetType is TargetType.Individuals or TargetType.IndividualsUnique)
+            {
+                if (firstTarget)
+                {
+                    defender.RulesetActor.DamageReceived += DamageReceived;
+                }
+            }
+            else
+            {
+                defender.RulesetActor.DamageReceived += DamageReceived;
+            }
 
             yield break;
         }
@@ -480,9 +495,26 @@ public sealed class WizardWarMagic : AbstractSubclass
         }
     }
 
-    private sealed class RollSavingThrowInitiatedDurableMagic(
-        FeatureDefinition featureDurableMagic) : IRollSavingThrowInitiated
+    private sealed class CustomBehaviorDurableMagic(
+        FeatureDefinition featureDurableMagic) : IRollSavingThrowInitiated, IRollSavingCheckInitiated
     {
+        public void OnRollSavingCheckInitiated(
+            RulesetCharacter defender,
+            int saveDC,
+            string damageType,
+            ref ActionModifier actionModifier,
+            ref int modifier)
+        {
+            if (defender.ConcentratedSpell == null)
+            {
+                return;
+            }
+
+            modifier += 2;
+            actionModifier.SavingThrowModifierTrends.Add(
+                new TrendInfo(2, FeatureSourceType.CharacterFeature, featureDurableMagic.Name, featureDurableMagic));
+        }
+
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,

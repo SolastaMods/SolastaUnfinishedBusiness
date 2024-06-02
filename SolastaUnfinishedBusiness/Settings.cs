@@ -194,6 +194,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnablesAsiAndFeat { get; set; }
     public bool EnableFeatsAtEveryFourLevels { get; set; }
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
+    public bool EnableBardHealingBalladOnLongRest { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool EnableBarbarianBrutalStrike { get; set; }
     public bool DisableBarbarianBrutalCritical { get; set; }
@@ -209,11 +210,15 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkDoNotRequireAttackActionForFlurry { get; set; }
     public bool EnableMonkFightingStyle { get; set; }
     public bool EnableMonkImprovedUnarmoredMovementToMoveOnTheWall { get; set; }
+    public bool EnableMonkHeightenedMetabolism { get; set; }
+    public bool EnableMonkSuperiorDefenseToReplaceEmptyBody { get; set; }
+    public bool EnableMonkBodyAndMindToReplacePerfectSelf { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
     public bool EnableRogueStrSaving { get; set; }
+    public bool EnableSorcererMagicalGuidance { get; set; }
 
     // Visuals
     public bool OfferAdditionalLoreFriendlyNames { get; set; }
@@ -255,6 +260,7 @@ public class Settings : UnityModManager.ModSettings
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
+    public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
     public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
@@ -265,6 +271,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseHeightOneCylinderEffect { get; set; }
     public bool FixEldritchBlastRange { get; set; }
     public bool FixRingOfRegenerationHealRate { get; set; }
+    public bool EnableOneDndHealingSpellsBuf { get; set; }
 
     // House
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
@@ -287,6 +294,7 @@ public class Settings : UnityModManager.ModSettings
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
     public bool ChangeDragonbornElementalBreathUsages { get; set; }
     public bool EnableSignatureSpellsRelearn { get; set; }
+    public bool AccountForAllDiceOnFollowUpStrike { get; set; }
     public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AllowFlightSuspend { get; set; }
     public bool FlightSuspendWingedBoots { get; set; }

@@ -2,5 +2,5 @@
 
 internal interface ICustomReactionCustomResourceUse
 {
-    string GetRequestPoints(RulesetCharacter rulesetCharacter);
+    string GetRequestPoints(CharacterReactionItem item);
 }

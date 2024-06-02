@@ -204,6 +204,20 @@ internal static class CharacterDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableBardHealingBalladOnLongRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBardHealingBalladOnLongRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBardHealingBalladOnLongRest = toggle;
+            CharacterContext.SwitchBardHealingBalladOnLongRest();
+        }
+
+        toggle = Main.Settings.EnableSorcererMagicalGuidance;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSorcererMagicalGuidance"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableSorcererMagicalGuidance = toggle;
+            CharacterContext.SwitchSorcererMagicalGuidance();
+        }
+
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {
@@ -298,6 +312,30 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall = toggle;
             CharacterContext.SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
+        }
+
+        toggle = Main.Settings.EnableMonkHeightenedMetabolism;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkHeightenedMetabolism"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkHeightenedMetabolism = toggle;
+            CharacterContext.SwitchMonkHeightenedMetabolism();
+        }
+
+        toggle = Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkSuperiorDefenseToReplaceEmptyBody = toggle;
+            CharacterContext.SwitchMonkSuperiorDefenseToReplaceEmptyBody();
+        }
+
+        toggle = Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkBodyAndMindToReplacePerfectSelf = toggle;
+            CharacterContext.SwitchMonkBodyAndMindToReplacePerfectSelf();
         }
 
         toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack;

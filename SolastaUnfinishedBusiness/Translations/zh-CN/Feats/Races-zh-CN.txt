@@ -63,12 +63,12 @@ Feature/&PowerFeatOrcishAggressionDescription=作为附赠动作，当你在主�
 Feature/&PowerFeatOrcishAggressionTitle=兽人侵袭
 Feedback/&AdditionalDamageOrcishFuryFormat=兽人之怒
 Feedback/&AdditionalDamageOrcishFuryLine=兽人之怒造成额外 +{2} 伤害！
-Feedback/&BountifulLuckAttackToHitRoll={0} 使用 {1} 投掷了 {2} 掷骰并替换攻击检定
-Feedback/&BountifulLuckCheckToHitRoll={0} 使用 {1} 投掷了 {2} 并替换检定结果
-Feedback/&BountifulLuckSavingToHitRoll={0} 使用 {1} 投掷了 {2} 并替换豁免结果
-Feedback/&DwarvenFortitudeHitDieRolled={0}投掷了{2}并治愈了{3} = {4}。
-Reaction/&CustomReactionBountifulLuckAttackDescription={0}错过了{1}。 {2} 可以作出反应来投掷 d20 并替换攻击检定。
-Reaction/&CustomReactionBountifulLuckAttackReactDescription=投掷 d20 来替换攻击检定。
+Feedback/&BountifulLuckAttackToHitRoll={0} 使用 {1} 并掷出 {2} 以替换攻击检定上的 {3}
+Feedback/&BountifulLuckCheckToHitRoll={0} 使用 {1} 并掷出 {2} 以替换检定结果上的 {3}
+Feedback/&BountifulLuckSavingToHitRoll={0} 使用 {1} 并掷出 {2} 以替换豁免结果上的 {3}
+Feedback/&DwarvenFortitudeHitDieRolled={0}掷出{2}并治愈了{3} = {4}。
+Reaction/&CustomReactionBountifulLuckAttackDescription={0}未命中{1}。 {2} 可以作出反应来投掷 d20 以替换攻击检定。
+Reaction/&CustomReactionBountifulLuckAttackReactDescription=投掷 d20 以替换攻击检定。
 Reaction/&CustomReactionBountifulLuckAttackReactTitle=好运连连
 Reaction/&CustomReactionBountifulLuckAttackTitle=好运连连
 Reaction/&CustomReactionBountifulLuckCheckDescription={0} 检定失败。 {1} 可以做出反应来投掷 d20 并替换检定结果。

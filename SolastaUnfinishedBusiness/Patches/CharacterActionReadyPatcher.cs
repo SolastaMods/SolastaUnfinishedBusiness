@@ -14,9 +14,7 @@ public static class CharacterActionReadyPatcher
     public static class ExecuteImpl_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(
-            [NotNull] CharacterActionReady __instance,
-            [NotNull] ref IEnumerator __result)
+        public static bool Prefix(ref IEnumerator __result, CharacterActionReady __instance)
         {
             //PATCH: Adds support for DontEndTurnAfterReady setting 
             if (!Main.Settings.DontEndTurnAfterReady)

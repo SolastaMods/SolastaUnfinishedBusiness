@@ -283,7 +283,12 @@ internal static partial class SpellBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            var isValid = !target.RulesetActor.HasConditionOfCategoryAndType(
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid = !target.RulesetCharacter.HasConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionMark.Name);
 
             if (!isValid)
@@ -337,7 +342,7 @@ internal static partial class SpellBuilders
                 case CharacterActionCastSpell when _remainingRounds > 0:
                     rulesetSpell.RemainingRounds = _remainingRounds;
 
-                    if (action.ActionParams.TargetCharacters[0].RulesetCharacter.TryGetConditionOfCategoryAndType(
+                    if (action.ActionParams.TargetCharacters[0].RulesetActor.TryGetConditionOfCategoryAndType(
                             AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
                     {
                         activeCondition.RemainingRounds = _remainingRounds;
@@ -752,9 +757,8 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
                     .SetCasterEffectParameters(SleetStorm)
                     .Build())
+            .AddCustomSubFeatures(new FilterTargetingCharacterFlashFreeze())
             .AddToDB();
-
-        spell.AddCustomSubFeatures(new FilterTargetingCharacterFlashFreeze(spell));
 
         spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
             ConditionDefinitions.ConditionRestrained.conditionStartParticleReference;
@@ -767,26 +771,18 @@ internal static partial class SpellBuilders
     }
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class FilterTargetingCharacterFlashFreeze(SpellDefinition spellFlashFreeze)
-        : IFilterTargetingCharacter
+    private sealed class FilterTargetingCharacterFlashFreeze : IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                rulesetEffectSpell.SpellDefinition != spellFlashFreeze)
-            {
-                return true;
-            }
-
-            var rulesetTarget = target.RulesetActor;
-
-            if (rulesetTarget is not RulesetCharacter rulesetCharacter)
+            if (target.RulesetCharacter == null)
             {
                 return false;
             }
 
+            var rulesetCharacter = target.RulesetCharacter;
             var isValid = rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.DragonSize
                           && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.Gargantuan
                           && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.Huge

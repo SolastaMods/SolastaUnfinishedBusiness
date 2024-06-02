@@ -199,7 +199,7 @@ internal static class RaceImpBuilder
         var powerImpAssistMagicEffect = new PowerImpAssistMagicEffectFinishedByMe(ConditionImpAssistedEnemyName);
 
         powerImpBadlandAssist.AddCustomSubFeatures(
-            new PowerImpAssistTargetFilter(powerImpBadlandAssist, true), powerImpAssistMagicEffect);
+            new PowerImpAssistTargetFilter(true), powerImpAssistMagicEffect);
 
         var powerImpBadlandHospitality = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}Hospitality")
@@ -219,7 +219,7 @@ internal static class RaceImpBuilder
             .AddToDB();
 
         powerImpBadlandHospitality.AddCustomSubFeatures(
-            new PowerImpAssistTargetFilter(powerImpBadlandHospitality, false),
+            new PowerImpAssistTargetFilter(false),
             new PowerImpHospitalityMagic(powerImpAssistMagicEffect));
 
         var powerImpBadlandPassage = FeatureDefinitionPowerSharedPoolBuilder
@@ -239,7 +239,7 @@ internal static class RaceImpBuilder
             .AddToDB();
 
         powerImpBadlandPassage.AddCustomSubFeatures(
-            new PowerImpAssistTargetFilter(powerImpBadlandPassage, false),
+            new PowerImpAssistTargetFilter(false),
             new PowerImpPassageMagic(powerImpAssistMagicEffect));
 
         var powerImpBadlandSpite = FeatureDefinitionPowerSharedPoolBuilder
@@ -258,7 +258,7 @@ internal static class RaceImpBuilder
             .AddToDB();
 
         powerImpBadlandSpite.AddCustomSubFeatures(
-            new PowerImpAssistTargetFilter(powerImpBadlandSpite, true),
+            new PowerImpAssistTargetFilter(true),
             new PowerImpAssistMagicEffectFinishedByMe(conditionSpite.name));
 
         var raceImpBadland = CharacterRaceDefinitionBuilder
@@ -331,17 +331,17 @@ internal static class RaceImpBuilder
             GameLocationCharacter defender)
         {
             // Only remove assisted condition if attacking assisted enemy
-            if (defender.RulesetCharacter.HasConditionOfType(ConditionImpAssistedEnemyName) ||
-                defender.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName))
+            if (defender.RulesetActor.HasConditionOfType(ConditionImpAssistedEnemyName) ||
+                defender.RulesetActor.HasConditionOfType(ConditionImpSpiteName))
             {
-                var isSpite = defender.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName);
+                var isSpite = defender.RulesetActor.HasConditionOfType(ConditionImpSpiteName);
 
                 defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpAssistedEnemyName);
                 defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpSpiteName);
 
                 if (isSpite)
                 {
-                    defender.RulesetCharacter.InflictCondition(
+                    defender.RulesetActor.InflictCondition(
                         ConditionImpSpiteMarkerName,
                         DurationType.Round,
                         0,
@@ -456,22 +456,14 @@ internal static class RaceImpBuilder
         }
     }
 
-    private class PowerImpAssistTargetFilter(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerImpBadlandAssist,
-        bool requireEnemy) : IFilterTargetingCharacter
+    private class PowerImpAssistTargetFilter(bool requireEnemy) : IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => requireEnemy;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerImpBadlandAssist)
-            {
-                return true;
-            }
-
-            if (__instance.SelectionService?.SelectedTargets == null)
+            if (__instance.SelectionService?.SelectedTargets == null ||
+                target.RulesetCharacter == null)
             {
                 return false;
             }
@@ -568,12 +560,12 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            if (defender.RulesetCharacter.IsDeadOrDying)
+            if (defender.RulesetActor.IsDeadOrDying)
             {
                 yield break;
             }
 
-            defender.RulesetCharacter.InflictCondition(
+            defender.RulesetActor.InflictCondition(
                 "ConditionMocked",
                 DurationType.Minute,
                 1,
@@ -832,7 +824,7 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrUnconscious: false })
             {

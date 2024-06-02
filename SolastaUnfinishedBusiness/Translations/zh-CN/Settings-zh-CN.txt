@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnFollowUpStrike=将基础武器伤害的所有骰子添加到<color=#D89555>后续打击</color>专长
 ModUi/&AccountForAllDiceOnSavageAttack=将所有添加武器伤害骰的特性以添加武器基础伤害骰取代只有 1 个骰<i><color=#F0DAA0>[半兽人的凶蛮攻击特性、双手武器等等]</color></i>
 ModUi/&AddAllToStore=全部添加到商店
 ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>流血</color>状态添加到<color=#D89555>高等复原术</color>和<color=#D89555>次级复原术</color>的移除列表里
@@ -30,6 +31,7 @@ ModUi/&AllowHasteCasting=允许使用加速术赋予的额外动作施法<color=
 ModUi/&AllowHornsOnAllRaces=允许所有种族长角<i><color=#F0DAA0>[根据种族、头和角的不同，结果可能看起来很怪]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=允许在休息面板上显示更多真实状态<i><color=#F0DAA0>[在面板打开后隐藏休息动作，在面板关闭后恢复功能]</color></i>
 ModUi/&AllowStackedMaterialComponent=允许堆叠材料组件<i><color=#F0DAA0>[例如2x500gp钻石相当于1000gp钻石]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施展<color=#D89555>连锁闪电</color>法术时选择目标
 ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>术士</color>没有起源标记和纹身
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=按<color=#1E81B0>ALT</color>键只高亮队伍视野中的可用物品<i><color=#F0DAA0>[仅限自定义地下城]</color></i>
 ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任何职业同调
@@ -105,6 +107,7 @@ ModUi/&EnableBarbarianBrutalStrike=在<color=#D89555>野蛮人</color> 9、13 �
 ModUi/&EnableBarbarianFightingStyle=在<color=#D89555>野蛮人</color> 2 级启用<b>战斗风格</b>
 ModUi/&EnableBarbarianRecklessSameBuffDebuffDuration=启用<color=#D89555>野蛮人</color><b>鲁莽攻击</b>增益和减益以在下一回合开始时完成
 ModUi/&EnableBarbarianRegainOneRageAtShortRest=在<color=#D89555>野蛮人</color> 7 级时启用在短休后恢复一次狂暴次数
+ModUi/&EnableBardHealingBalladOnLongRest=在长休时启用<color=#D89555>吟游诗人希望学院</color><b>治愈歌谣</b>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
 ModUi/&EnableCantripsTriggeringOnWarMagic=启用戏法触发<color=#D89555>战争魔法</color>，可以用附赠动作发动一次武器攻击
@@ -135,30 +138,35 @@ ModUi/&EnableLogDialoguesToConsole=在叙述序列期间启用日志对话到游
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义活动中启用记录无效引用
 ModUi/&EnableMinInOutAttributes=<i>+强制属性值最低的前置条件</i>
 ModUi/&EnableMonkAbundantKi=在<color=#D89555>武僧</color> 1 级启用<b>丰富的气</b><i><color=#F0DAA0>[获得额外的等于熟练加值一半的气]</color> </i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=20 级时启用<color=#D89555>武僧</color><b>身心</b>取代<b>超凡入圣</b>
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=启用<color=#D89555>武僧</color><b>武术 - 额外徒手攻击</b>，在使用前不需要进行攻击动作
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=启用<color=#D89555>武僧</color><b>疾风连击</b>，在使用前不需要进行攻击动作
 ModUi/&EnableMonkFightingStyle=在<color=#D89555>武僧</color> 2 级启用<b>战斗风格</b>选择
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>武僧</color><b>改进的无甲移动</b>沿垂直表面移动而不会掉落
+ModUi/&EnableMonkHeightenedMetabolism=在 10 级时启用<color=#D89555>武僧</color> <b>气通周天</b> <i><color=#F0DAA0>[<b>疾风连击</b>、<b>坚强防御</b>和<b>飞檐走壁</b>获得额外好处]</color></i>
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=启用<color=#D89555>武僧</color><b>精通无甲移动</b>沿垂直表面移动而不会掉落
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=18 级时启用<color=#D89555>武僧</color><b>无懈可击</b>取代<b>空灵体</b>
 ModUi/&EnableMonkWeaponSpecialization=在<color=#D89555>武僧</color> 2 级和 11 级启用<b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的武僧武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=在<color=#D89555>疗伤术</color>、<color=#D89555>治愈真言</color>、<color=#D89555>群体疗伤术</color>和<color=#D89555>群体治愈真言</color>上启用 OneDnd 治疗骰增益
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=在<color=#D89555>游侠</color> 10 级启用<b>自然面纱</b>特性<i><color=#F0DAA0>[作为附赠动作，你可以魔法地变得隐形，直到下回合开始]</color></i>
 ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于 5 人或 6 人的队伍]</color></i>
 ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的戏法或法术</i>
 ModUi/&EnableRespec=在休息操作后启用洗点
-ModUi/&EnableRogueCunningStrike=在<color=#D89555>游荡者</color> 5 级和 14 级时启用<b>诡诈打击</b>和<b>凶狡打击</b><i><color=#F0DAA0>[你放弃 1 个偷袭骰子可获得额外的命中效果]</color></i>
+ModUi/&EnableRogueCunningStrike=在<color=#D89555>游荡者</color> 5 级和 14 级时启用<b>诡诈打击</b>和<b>凶狡打击</b><i><color=#F0DAA0>[你放弃 1 个偷袭骰可获得额外的命中效果]</color></i>
 ModUi/&EnableRogueFightingStyle=在<color=#D89555>游荡者</color> 2 级启用<b>战斗风格</b>选择
 ModUi/&EnableRogueSteadyAim=在<color=#D89555>游荡者</color> 3 级时启用<b>手稳就准</b><i><color=#F0DAA0>[作为附赠动作，在当前回合中为你的下一次攻击检定带来优势，如果你还没移动]</color></i>
 ModUi/&EnableRogueStrSaving=启用<color=#D89555>游荡者</color>在<b>诡诈/凶狡打击</b>、<b>虚弱/精通打击</b>和<b>剑刃冰雹</b>上使用敏捷或力量调整值
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSignatureSpellsRelearn=启用<color=#D89555>法师</color>招牌法术，以便在每次长休时准备<i><color=#F0DAA0>[而不是在 20 级时一次]</color></i>
+ModUi/&EnableSorcererMagicalGuidance=在第 5 级启用<color=#D89555>术士</color><b>魔法指引</b>
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=。此外，每个英雄都增加了 D20 骰子重量以获得一点随机性
 ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-(T)</color>传送队伍<i><color=#F0DAA0>[如果你传送到一个未被发现的地方，你可能会破坏任务]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池的切换来设置默认的游戏和测试队伍
 ModUi/&EnableTooltipDistance=在战斗中将鼠标悬停在角色上时启用在工具提示上显示距离
-ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素咒唤</color>和<color=#D89555>精类咒唤</color>的升环
+ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素咒唤术</color>和<color=#D89555>精类咒唤术</color>的升环
 ModUi/&EnableVttCamera=启用 <color=#1E81B0>CTRL-SHIFT-(V)</color> 切换 VTT 摄像头<i><color=#F0DAA0>[右键单击并拖动以定位摄像头，WASD 进行平移和 Page Up/向下翻页放大]</color></i>
 ModUi/&EnablesAsiAndFeat=启用属性值提升和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>

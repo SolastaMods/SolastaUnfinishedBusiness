@@ -239,7 +239,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
-            var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+            var armorClass = defender.RulesetActor.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
             var totalAttack =
                 attackRoll +
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +

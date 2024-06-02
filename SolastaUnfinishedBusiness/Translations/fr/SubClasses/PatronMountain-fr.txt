@@ -1,6 +1,6 @@
 Feature/&FeatureSetPatronMountainEternalGuardianDescription=Vous pouvez utiliser votre fonction Barrière de pierre un nombre de fois égal à votre modificateur de Charisme par court repos.
 Feature/&FeatureSetPatronMountainEternalGuardianTitle=Gardien éternel
-Feature/&FeatureSetPatronMountainIceboundSoulDescription=Gagnez l’immunité contre les dégâts du froid. La première fois que vous frappez un ennemi avec une attaque pendant votre tour, il doit effectuer un jet de sauvegarde de Constitution contre le DD de votre sort de démoniste ou devenir aveuglé jusqu'à la fin de son prochain tour.
+Feature/&FeatureSetPatronMountainIceboundSoulDescription=Gagnez l'immunité contre les dégâts du froid. La première fois que vous frappez un ennemi avec une attaque pendant votre tour, il doit effectuer un jet de sauvegarde de Constitution contre le DD de votre sort de démoniste ou devenir aveuglé jusqu'à la fin de son prochain tour.
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=Âme glacée
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=Maîtrisez la nature et la survie. Gagnez Montagne comme type de terrain privilégié.
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsTitle=Connaissance des éons

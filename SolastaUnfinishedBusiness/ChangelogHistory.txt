@@ -1,17 +1,56 @@
-1.5.97.10:
+1.5.97.12:
 
-- added Wizard War Magic subclass
-- added +X to damage on Shield Bash feat on any wielded magical shield that adds +X to armor class
-- fixed Thunderstep to avoid causing damage to caster, teleported ally, and other creatures on destination
-- fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike
-- fixed Witch Bolt to remove concentration on teleport scenarios when the target becomes outside the spell's range
+- added Gameplay > Character > 'Enable Monk Heightened Metabolism at level 10' setting
+- added Gameplay > Character > 'Enable Monk Superior Defense to replace Empty Body at level 18' setting
+- added Gameplay > Character > 'Enable Monk Body and Mind to replace Perfect Self at level 20' setting
+- added Gameplay > Rules > 'Enable OneDnd healing dice buff' setting
+- added Great Weapon Defense and Whirlwind Attack feats
+- added Infestation, Lightning Lure, Primal Savagery, and Starry Wisp cantrips
+- added Patron Archfey and Way of Storm Soul [Tempest rework] subclasses
+- fixed Booming Blade interaction with War Caster feat to allow sheathed to explode at enemy's move end
+- fixed Innovation Vivisectionist medical accuracy and organ donation features to work as described
+- fixed Way of Freedom displaying additional flurry of blow actions on levels 3 and 11 [VANILLA]
 
 KNOWN ISSUES:
 
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [probably won't fix]
-- Artillerist Fortified Position medium cannon doesn't grant buff to self [probably won't fix]
-- Chaos Bolt crashes under multiplayer sessions if used with twinned metamagic and one of the bolts misses
-- Wither and Bloom doubles the damage under multiplayer sessions
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [won't fix]
+- Artillerist Fortified Position medium cannon doesn't grant buff to self [won't fix]
+- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [won't fix]
+
+1.5.97.11:
+
+- fixed Chain Lighting to not consider allies on bounce damage
+- fixed Domain Forge blessed metal feature immunity and resistance logic
+- fixed Domain Nature not getting a cantrip offered at level 4 [RESPEC required]
+- fixed Earthquake spell interaction with Widened metamagic
+- fixed Gravity Sinkhole spell push movement to effect center point
+- fixed Gray, Ironborn, and Obsidian Dwarf subclasses missing normal and darkvision senses
+- fixed Martial Psi-Warrior force powered strike feature not triggering on ranged attacks
+- fixed Ranger Fey Wanderer misty step feature to only allow target allies within 5ft
+- fixed Ranger Fey Wanderer misty step feature to prevent a main leveled spell to be cast on use
+- fixed Ranger Fey Wanderer to allow invite an optional ally on misty step spell cast from level 15
+- fixed skills, tools, and expertise granted from feats [RESPEC required on Arcanist, Poisoner, Toxicologist, etc.]
+- fixed Taunted condition to not enforce disadvantage against taunter
+- fixed Thunderstep spell interaction with Transmuted metamagic
+- fixed Thunderstep spell to only allow target allies within 5ft
+- fixed Wizard War Magic durable magic feature to add +2 on concentration checks
+
+1.5.97.10 - Os cães ladram e a caravana passa:
+
+- added +X to hit and damage on Shield Bash feat on any wielded magical shield that adds +X to armor class
+- added Gameplay > Character > 'Enable Bard College of Hope healing ballad on long rest' setting
+- added Gameplay > Character > 'Enable Sorcerer Magical Guidance at level 5' setting
+- added Gameplay > Rules > 'Add all dice from base weapon damage to Follow up Strike feat' setting
+- added Ranger Fey Wanderer subclass, Seeking metamagic, Transmuted metamagic, and Wizard War Magic subclass
+- fixed Bountiful Luck feat retry attack behavior only triggering on critical failures
+- fixed Chaos bolt spell crashing under multiplayer sessions if twinned and bolt misses
+- fixed Domain Nature druid cantrip not getting assigned to repertoire on level up
+- fixed Resurrection spell interaction with game revive sub system [VANILLA]
+- fixed Roguish Hoodlum sneak attack interaction with close quarters, cunning strike, and devious strike
+- fixed Squat Nimbleness feat not granting +1 to movement
+- fixed Thunderstep spell to avoid damage to caster, teleported ally, and creatures on destination
+- fixed Witch Bolt spell to remove concentration on teleport scenarios when target becomes outside range
+- fixed Wither and Bloom spell doubling damage under multiplayer sessions
 
 1.5.97.9:
 

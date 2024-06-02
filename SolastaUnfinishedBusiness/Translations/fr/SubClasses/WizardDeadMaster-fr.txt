@@ -10,5 +10,5 @@ Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Une fois par tou
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=Récolte austère
 Spell/&SpellRaiseDeadFormatDescription=Invocation <b>{0}</b> :\n{1}
 Spell/&SpellRaiseDeadFormatTitle=Augmenter {0}
-Subclass/&WizardDeadMasterDescription=Les Deadmasters apprennent à manipuler l’énergie qui anime tous les êtres vivants. Au fur et à mesure de votre progression, vous apprenez à saper la force vitale d'une créature tandis que votre magie détruit son corps, transformant cette énergie vitale en pouvoir magique que vous pouvez manipuler.
+Subclass/&WizardDeadMasterDescription=Les Deadmasters apprennent à manipuler l'énergie qui anime tous les êtres vivants. Au fur et à mesure de votre progression, vous apprenez à saper la force vitale d'une créature tandis que votre magie détruit son corps, transformant cette énergie vitale en pouvoir magique que vous pouvez manipuler.
 Subclass/&WizardDeadMasterTitle=Maître mort

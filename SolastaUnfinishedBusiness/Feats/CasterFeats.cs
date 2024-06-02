@@ -152,6 +152,7 @@ internal static class CasterFeats
                     .AddFeatures(MakeSpellFeatureAndInvocations(spells, tag, AttributeDefinitions.Intelligence))
                     .SetGuiPresentation(Category.Feat)
                     .SetFeatFamily(TOUCHED_MAGIC)
+                    .SetMustCastSpellsPrerequisite()
                     .AddToDB(),
                 FeatDefinitionBuilder
                     .Create($"Feat{tag}Wis")
@@ -159,6 +160,7 @@ internal static class CasterFeats
                     .AddFeatures(MakeSpellFeatureAndInvocations(spells, tag, AttributeDefinitions.Wisdom))
                     .SetGuiPresentation(Category.Feat)
                     .SetFeatFamily(TOUCHED_MAGIC)
+                    .SetMustCastSpellsPrerequisite()
                     .AddToDB(),
                 FeatDefinitionBuilder
                     .Create($"Feat{tag}Cha")
@@ -166,6 +168,7 @@ internal static class CasterFeats
                     .AddFeatures(MakeSpellFeatureAndInvocations(spells, tag, AttributeDefinitions.Charisma))
                     .SetGuiPresentation(Category.Feat)
                     .SetFeatFamily(TOUCHED_MAGIC)
+                    .SetMustCastSpellsPrerequisite()
                     .AddToDB());
 
             featGroups.Add(GroupFeats.MakeGroup($"FeatGroup{tag}", TOUCHED_MAGIC, groupFeats));

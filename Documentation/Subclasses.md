@@ -3488,7 +3488,41 @@ When a creature is about to hit you with an attack, you can spend 3 ki and use y
 
 
 
-## 6. Way of Survival [SOL]
+## 6. Way of Storm Soul [UB]
+
+Monks of the Way of the Storm Soul live on the highest mountaintops of Solasta, attuning themselves to the energies of mighty storms and learning to channel the power of lightning into their being. These martial artists use their unique disciplines to become an unbridled tempest, effortlessly maneuvering the battlefield, rushing from one enemy to the next and unleashing countless lightning-infused strikes upon them. 
+
+
+### Level 3
+
+* Disciple of Storms
+
+Whenever you use your Flurry of Blows, you also gain the benefits of the disengage action. Bonus attacks provided by it deal extra lightning damage equal to your martial arts die. 
+
+
+### Level 6
+
+* Lightning Warrior
+
+You gain resistance to lightning damage, and you can replace any of your main action attacks to cast Lightning Lure cantrip without any components using your Wisdom as spellcasting modifier. 
+
+
+### Level 11
+
+* Tempest's Fury
+
+You can spend 1 ki to replace one of bonus attacks provided by Flurry of Blows to instead attack all enemy creatures within 5 ft of you with it.
+
+
+### Level 17
+
+* Eye of the Storm
+
+Whenever you damage a creature with a monk weapon, unarmed attack or Lightning Lure cantrip, you mark that creature with lingering conductive energies for 1 minute. You can use your action and spend 3 ki to consume the mark on each creature and force a Dexterity saving throw on them (DC = 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 5d10 lightning damage (save for half).
+
+
+
+## 7. Way of Survival [SOL]
 
 In the aftermath of the Cataclysm, isolated communities developed physical and mental techniques that allowed them to push the limits of their strength and endurance to the utmost. Surviving while their neighbors perished, the followers of the Way of Survival are as tough as the harsh times that forged them.
 
@@ -3521,40 +3555,6 @@ Starting at the 11th level, you now add your CON modifier to the damage rolls of
 Starting at 17th level, you gain the following benefits:
 • While you have less than half your maximum hit points, healing of your Unbreakable Body feature is doubled.
 • When you are reduced to 0 hit points, you can pay 1 Ki to restore 1 hit point.
-
-
-
-## 7. Way of Tempest [UB]
-
-Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists effortlessly maneuver the battlefield, rushing from one enemy to the next and raining countless blows upon them.
-
-
-### Level 3
-
-* Tempest's Swiftness
-
-Starting at 3rd level, your base movement speed is increased by 10 feet. Whenever you use your Flurry of Blows, you also gain the benefits of the disengage action.
-
-
-### Level 6
-
-* Gathering Storm
-
-Starting at 6th level, you become resistant to lightning damage and your bonus attacks provided by your Flurry of Blows each deal additional lightning damage equal to your martial arts die.
-
-
-### Level 11
-
-* Tempest's Fury
-
-Starting at 11th level, after using your attack action, you can spend 3 Ki to use Tempest's Fury as a bonus action. It is an upgraded version of your Flurry of Blows, that in addition to granting benefits of the disengage action and allowing you to make two unarmed attacks as a bonus action, also immediately initiates one extra unarmed attack against each enemy creature within 5 feet of you upon its activation. All attacks provided by this feature deal additional lightning damage equal to your martial arts die.
-
-
-### Level 17
-
-* Eye of the Storm
-
-Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 Ki to consume the mark on each creature and force a Dexterity saving throw on them (DC 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 4d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
 
 
 
@@ -4342,7 +4342,61 @@ Starting at 7th level, you can cause an eruption of arcane energy at a range of 
 
 
 
-## 2. Gloom Stalker [UB]
+## 2. Fey Wanderer [UB]
+
+A fey mystique surrounds you, thanks to the boon of an arch fey, the shining fruit you ate from a talking tree, the magic spring you swam in, or some other auspicious event. However, you acquired your fey magic, you are now a Fey Wanderer, a ranger who represents both the mortal and the fey realms. As you wander the multiverse, your joyful laughter brightens the hearts of the downtrodden, and your martial prowess strikes terror in your foes, for great is the mirth of the fey and dreadful is their fury.
+
+
+### Level 3
+
+* Dreadful Strikes
+
+You can augment your weapon strikes with mind-scarring magic, drawn from the gloomy hollows of the Fey wild. When you hit a creature with a weapon, you can deal an extra 1d4 psychic damage to the target, which can take this extra damage only once per turn. The extra damage increases to 1d6 when you reach 11th level in this class.
+
+* Fey Wanderer Magic
+
+You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know:
+
+	I	Charm Person
+
+	II	Misty Step
+
+	III	Dispel Magic
+
+	IV	Dimension Door
+
+	V	Steel Wind Strike
+
+
+
+* Otherworldly Glamour
+
+Your fey qualities give you a supernatural charm. As a result, you make Charisma checks with advantage. In addition, you gain proficiency in one of the following skills of your choice: Deception, Performance, or Persuasion.
+
+
+### Level 7
+
+* Beguiling Twist
+
+You have advantage on saving throws against being charmed or frightened. In addition, whenever you or a creature you can see within 120 feet of you succeeds on a saving throw against being charmed or frightened, You can use your reaction to force the source to make a Wisdom saving throw against your spell save DC. If the save fails, the source is charmed or frightened by you (your choice) for 1 minute. The source can repeat the saving throw at the end of each of its turns, ending the effect on itself on a successful save.
+
+
+### Level 11
+
+* Fey Reinforcements
+
+Once per long rest, you can use your action to cast Conjure Fey spell. Casting the spell this way doesn't require components or concentration and the spell's duration is one minute.
+
+
+### Level 15
+
+* Misty Wanderer
+
+You can slip in and out of the Fey wild to move in a blink of an eye: you can cast Misty Step without expending a spell slot. You can do so a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses when you finish a long rest. In addition, whenever you cast Misty Step, you can bring along one willing creature you can see within 5 ft of you.
+
+
+
+## 3. Gloom Stalker [UB]
 
 Gloom stalkers are at home in the darkest places: deep under the earth, in gloomy alleyways, in primeval forests, and wherever else the light dims. Most folk enter such places with trepidation, but a gloom stalker ventures boldly into the darkness, seeking to ambush threats before they can reach the broader world. Such rangers are often found in the Underdark, but they will go any place where evil lurks in the shadows.
 
@@ -4396,7 +4450,7 @@ Whenever a creature is about to hit you with an attack, you can use your reactio
 
 
 
-## 3. Hellwalker [UB]
+## 4. Hellwalker [UB]
 
 You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
 
@@ -4452,7 +4506,7 @@ Your hellish magic has granted you limited command over the dammed creatures tha
 
 
 
-## 4. Hunter [SOL]
+## 5. Hunter [SOL]
 
 Emulating the Hunter archetype means accepting your place as a bulwark between civilization and the terrors of the wilderness. As you walk the Hunter's path, you learn specialized techniques for fighting the threats you face.
 
@@ -4486,7 +4540,7 @@ Select one of the options: Stand Against the Tide, Evasion, or Uncanny Dodge.
 
 
 
-## 5. Lightbearer [UB]
+## 6. Lightbearer [UB]
 
 The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
 
@@ -4538,7 +4592,7 @@ You can use your holy light to temporarily blind assailants. When a creature wit
 
 
 
-## 6. Marksman [SOL]
+## 7. Marksman [SOL]
 
 Marksmen are experts with a bow, inheriting techniques developed by the elite high elven troops of the Manacalon Empire. They are among the deadliest ranged combatants on Solasta.
 
@@ -4580,7 +4634,7 @@ At level 15, you can attack three times whenever you take the Attack action on y
 
 
 
-## 7. Shadow Tamer [SOL]
+## 8. Shadow Tamer [SOL]
 
 Shadow Tamers are used to wandering the desolate lands beyond the Marches. They know the lore and languages of darkness and the hazards and customs of those dreadful caves inhabited by monsters.
 
@@ -4622,7 +4676,7 @@ At level 15, you have proficiency with all saving throws while in dim light or d
 
 
 
-## 8. Sky Warrior [UB]
+## 9. Sky Warrior [UB]
 
 Sky Warriors have been touched by the lingering power of barren windswept landscapes inhabited by nothing but mirages and ghosts. They combine elegant maneuvers of blade and shield with illusion magic to thrive in combat.
 
@@ -4680,7 +4734,7 @@ While wearing a shield, gain a flying speed equal to your walking speed.
 
 
 
-## 9. Survivalist [UB]
+## 10. Survivalist [UB]
 
 Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 
@@ -4734,7 +4788,7 @@ You are immune to being blinded, deafened, frightened, or poisoned, and any crit
 
 
 
-## 10. Swift Blade [SOL]
+## 11. Swift Blade [SOL]
 
 Swift blades are fast, silent, and deadly. They are able to take down targets in a matter of seconds, and then rush out of combat and disappear into the wilderness without a trace.
 
@@ -4772,7 +4826,7 @@ At level 15, you become extremely hard to pin down. Whenever you take any damage
 
 
 
-## 11. Wildmaster [UB]
+## 12. Wildmaster [UB]
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 
@@ -5806,7 +5860,56 @@ Starting at 18th level, your gain the ability to corrupt creatures on touch and 
 
 # Warlock
 
-## 1. The Celestial [UB]
+## 1. The Archfey [UB]
+
+Your patron is a lord or lady of the fey, a creature of legend who holds secrets that were forgotten before the mortal races were born. This being's motivations are often inscrutable, and sometimes whimsical, and might involve a striving for greater magical power or the settling of age-old grudges.
+
+
+### Level 1
+
+* Expanded Spells
+
+
+	I	Faerie Fire, Sleep
+
+	II	Calm Emotions, Mirror Image
+
+	III	Conjure Animal, Protection from Energy
+
+	IV	Dominate Beast, Greater Invisibility
+
+	V	Dominate Person, Mantle of Thorns
+
+
+
+* Fey Presence
+
+As an action, you can cause each creature in a 5x5 cube originating from you to make a Wisdom saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn. Once you use this feature, you can't use it again until you finish a short or long rest.
+
+
+### Level 6
+
+* Misty Escape
+
+ When you are hit, you can use your reaction to turn invisible and teleport up to 60 feet to an unoccupied space you can see. You remain invisible until the start of your next turn or until you attack or cast a spell. Once you use this feature, you can't use it again until you finish a short or long rest.
+
+
+### Level 10
+
+* Beguiling Defenses
+
+You are immune to being charmed, and when another creature attempts to charm you, you can use your reaction to attempt to turn the charm back on that creature. The creature must succeed on a Wisdom saving throw against your warlock spell save DC or be charmed by you for 1 minute or until the creature takes any damage.
+
+
+### Level 14
+
+* Dark Delirium
+
+As an action, choose a creature that you can see within 60 feet of you. It must make a Wisdom saving throw against your warlock spell save DC. On a failed save, it is charmed or frightened by you (your choice) for 1 minute. This effect ends early if the creature takes any damage. Once you use this feature, you can't use it again until you finish a short or long rest.
+
+
+
+## 2. The Celestial [UB]
 
 Your patron is a powerful being of the Upper Planes. You have bound yourself to an ancient empyrean, solar, ki-rin, unicorn, or other entity that resides in the planes of everlasting bliss. Your pact with that being allows you to experience the barest touch of the holy light that illuminates the multiverse.
 
@@ -5859,7 +5962,7 @@ The radiant energy you channel allows you to resist death. When you have to make
 
 
 
-## 2. The Eldritch Surge [UB]
+## 3. The Eldritch Surge [UB]
 
 You made a pact with a mysterious entity that may be a consciousness that emerged from the intricacy of the Weave, believing that pure arcane power can create any phenomenon. And you are to prove it.
 
@@ -5917,7 +6020,7 @@ You learn one Versatility.
 
 
 
-## 3. The Elementalist [UB]
+## 4. The Elementalist [UB]
 
 You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 
@@ -5968,7 +6071,7 @@ Your control of elemental energies has increased to the point than you now have 
 
 
 
-## 4. The Fiend [SOL]
+## 5. The Fiend [SOL]
 
 A fiend is a dangerous patron whose power comes at a cost. A denizen of the lower planes of existence, your patron's aims are evil, and although you may strive against those aims, your patron still desires the corruption or destruction of all things, ultimately including you.
 
@@ -6018,7 +6121,7 @@ When you hit a creature with an attack, you can banish it to the lower planes un
 
 
 
-## 5. The Hexblade [UB]
+## 6. The Hexblade [UB]
 
 You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 
@@ -6078,7 +6181,7 @@ You can use Soul Hex twice per short rest now, and you can use a bonus action to
 
 
 
-## 6. The Hive [SOL]
+## 7. The Hive [SOL]
 
 The insects known as redeemers were developed by the Manacalon Empire as living weapons controlled by hive intelligence. With the fall of the Empire, that intelligence became self-willed and powerful - and curious about others. The Hive studies its warlocks as well as empowering them.
 
@@ -6127,7 +6230,7 @@ Starting at level 14, you have advantage on saving throws against spells and mag
 
 
 
-## 7. The Moonlit [UB]
+## 8. The Moonlit [UB]
 
 Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 
@@ -6178,7 +6281,7 @@ Whenever a creature damages you, you can use your reaction to become invisible u
 
 
 
-## 8. The Mountain [UB]
+## 9. The Mountain [UB]
 
 You have made a pact with an ancient primal entity that dwells atop the highest mountains of Solasta. Such entities yearn for a simpler epoch when mortals left them to their long slumber above the clouds, raising no cities and delving no mines. Their warlocks disdain the tools of civilization, calling upon the mountain's strength to shield their companions and strike down their foes.
 
@@ -6235,7 +6338,7 @@ Gain immunity to cold damage. The first time you hit an enemy with an attack on 
 
 
 
-## 9. The Riftwalker [UB]
+## 10. The Riftwalker [UB]
 
 Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 
@@ -6296,7 +6399,7 @@ As a main action, your control of rift portals has increased to the point that y
 
 
 
-## 10. The Timekeeper [SOL]
+## 11. The Timekeeper [SOL]
 
 Time is eternal, just a long flow. And yet, it longs for more than this endless flow; it longs to feel the meaning of a single moment. The Timekeepers fulfill this longing and can even sometimes manipulate the flow, a boon granted to agents of Time.
 
@@ -6349,7 +6452,7 @@ Starting at the 14th level, on your turn, you can take one additional action on 
 
 
 
-## 11. The Tree [SOL]
+## 12. The Tree [SOL]
 
 The Tree stands at the heart of the Forest of Colthannin. To the sylvan elves - and more recently, to others - it is the soul of the forest. Its roots probe the depths, its branches touch the sky - and its warlocks travel the world between, informing and enacting its labyrinthine plans.
 
@@ -6821,7 +6924,7 @@ A variety of arcane colleges specialize in training wizards for war. The traditi
 
 * Arcane Deflection
 
-You have learned to weave your magic to fortify yourself against harm. When you are hit by an attack or you fail a saving throw, you can use your reaction to subtract your Intelligence modifier from the attack roll, or add it to the saving roll. When you use this feature, you can't cast spells other than cantrips until the end of your next turn.
+You have learned to weave your magic to fortify yourself against harm. When you are hit by an attack, or you fail a saving throw, you can use your reaction to subtract your Intelligence modifier from the attack roll, or add it to the saving roll. When you use this feature, you can't cast spells other than cantrips until the end of your next turn.
 
 * Tactical Wit
 
@@ -6832,7 +6935,7 @@ Your keen ability to assess tactical situations allows you to act quickly in bat
 
 * Power Surge
 
-You have a number of power surges equal to your Intelligence modifier (minimum of one). Whenever you successfully end a spell with Counterspell, or end a short rest, you gain one power surge. Once per turn when you deal damage to a creature or object with a wizard spell, you can spend one power surge to deal extra force damage to that target. The extra damage equals your wizard level.
+You have a number of power surges equal to your Intelligence modifier (minimum of one) per long rest. Whenever you successfully end a spell with Counterspell, you regain one power surge. Once per turn when you deal damage to a creature or object with a wizard spell, you can spend one power surge to deal extra force damage to on one damage roll of that spell. The extra damage equals your wizard level.
 
 
 ### Level 10

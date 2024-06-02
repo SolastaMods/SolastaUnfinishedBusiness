@@ -49,6 +49,9 @@ public static class Sprites
     internal static AssetReferenceSprite EldritchVersatilityResourceIcon =>
         GetSprite("EldritchVersatilityResourceIcon", Resources.EldritchVersatilityResourceIcon, 64);
 
+    internal static AssetReferenceSprite SorceryPointsResourceIcon =>
+        GetSprite("SorceryPointsResourceIcon", Resources.SorceryPoints, 64);
+
     #endregion
 
     #region UI

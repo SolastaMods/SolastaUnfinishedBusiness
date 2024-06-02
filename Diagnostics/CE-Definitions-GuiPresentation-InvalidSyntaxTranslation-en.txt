@@ -799,7 +799,7 @@ FeatGroupCloseQuarters	Description='You are experienced with fighting in close q
 FeatGroupCreed	Description='Creed of Arun, Creed of Einar, Creed of Maraike, Creed of Misaye, Creed of Pakri, Creed of Solasta'.
 FeatGroupCrusher	Description='Increase your Strength or Constitution by 1, to a maximum of 20.
 When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.'.
-FeatGroupDefenseCombat	Description='Always Ready, Cloak and Dagger, Defensive Duelist, Dual Wielder, Fade Away, Raise Shield, Shield Bash, Shield Master, Twin Blade, Unarmored Expert'.
+FeatGroupDefenseCombat	Description='Always Ready, Cloak and Dagger, Defensive Duelist, Dual Wielder, Fade Away, Great Weapon Defense, Raise Shield, Shield Bash, Shield Master, Twin Blade, Unarmored Expert'.
 FeatGroupDefenseExpert	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.'.
 FeatGroupDragonFear	Description='When angered, you radiate menace. You gain the following benefits:
@@ -832,9 +832,9 @@ FeatGroupGrudgeBearer	Description='You have a deep hatred for a particular kind 
 FeatGroupHalfAttributes	Description='Half Charisma, Half Constitution, Half Dexterity, Half Intelligence, Half Strength, Half Wisdom'.
 FeatGroupHalfCharisma	Description='Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Baleful Scion [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Dragon Fear [Cha], Dragon Hide [Cha], Elven Accuracy [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Flames of Phlegethos [Cha], Iridescent Touched [Cha], Menacing, Peregrination Touched [Cha], Retinue Touched [Cha], Second Chance [Cha], Shadow Touched [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]'.
 FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Baleful Scion [Con], Chef [Con], Creed of Arun, Crusher [Con], Dragon Fear [Con], Dragon Hide [Con], Dwarven Fortitude, Enduring Body, Focused Sleeper, Frost Adaptation, Grudge Bearer [Con], Hard to Kill, Hardy [Con], Infernal Constitution, Orcish Aggression [Con], Orcish Fury [Con], Primal Rage [Con], Robust, Second Chance [Con], Sturdiness of the Tundra'.
-FeatGroupHalfDexterity	Description='Acrobat, Ambidextrous, Athlete [Dex], Awaken the Beast [Dex], Baleful Scion [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Stealthy, Uncanny Accuracy, Weapon Master [Dex]'.
+FeatGroupHalfDexterity	Description='Acrobat, Ambidextrous, Athlete [Dex], Awaken the Beast [Dex], Baleful Scion [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Accuracy [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Moderately Armored [Dex], Old Tactics [Dex], Piercer [Dex], Revenant Blade [Dex], Second Chance [Dex], Slasher [Dex], Squat Nimbleness [Dex], Steady Aim, Stealthy, Uncanny Accuracy, Weapon Master [Dex], Whirlwind Attack [Dex]'.
 FeatGroupHalfIntelligence	Description='Aegis Touched [Int], Apothecary [Int], Arcane Defense, Arcane Precision, Arcanist, Awaken the Beast [Int], Baleful Scion [Int], Celestial Touched [Int], Close Quarters [Int], Creed of Pakri, Elven Accuracy [Int], Fade Away [Int], Fey Teleportation [Int], Flame Touched [Int], Flames of Phlegethos [Int], Iridescent Touched [Int], Peregrination Touched [Int], Retinue Touched [Int], Scriber, Shadow Touched [Int], Telekinetic [Int], Theologian, Toxicologist [Int], Verdant Touched [Int]'.
-FeatGroupHalfStrength	Description='Athlete [Str], Awaken the Beast [Str], Baleful Scion [Str], Creed of Einar, Crusher [Str], Dragon Fear [Str], Dragon Hide [Str], Grudge Bearer [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Aggression [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str], Weapon Master [Str]'.
+FeatGroupHalfStrength	Description='Athlete [Str], Awaken the Beast [Str], Baleful Scion [Str], Creed of Einar, Crusher [Str], Dragon Fear [Str], Dragon Hide [Str], Grudge Bearer [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Orcish Aggression [Str], Orcish Fury [Str], Piercer [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str], Weapon Master [Str], Whirlwind Attack [Str]'.
 FeatGroupHalfWisdom	Description='Aegis Touched [Wis], Apothecary [Wis], Astral Reach, Awaken the Beast [Wis], Baleful Scion [Wis], Blessed Soul [Cleric], Celestial Touched [Wis], Chef [Wis], Creed of Maraike, Elven Accuracy [Wis], Expand the Hunt, Fey Teleportation [Wis], Flame Touched [Wis], Grudge Bearer [Wis], Iridescent Touched [Wis], Peregrination Touched [Wis], Retinue Touched [Wis], Shadow Touched [Wis], Telekinetic [Wis], Toxicologist [Wis], Verdant Touched [Wis], Wise Archery, Wise Defense, Wise Precision'.
 FeatGroupHardy	Description='Increase your Strength or Constitution by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.'.
 FeatGroupIridescentTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
@@ -842,7 +842,7 @@ You gain the ability to cast the color spray, faerie fire and color burst spells
 FeatGroupMagicInitiate	Description='Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatGroupMediumArmor	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.'.
-FeatGroupMeleeCombat	Description='Always Ready, Baleful Scion, Blade Mastery, Charger, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Longsword Finesse, Old Tactics, Piercer, Polearm Master, Power Attack, Reckless Attack, Savage Attack, Shield Bash, Slasher, Spear Mastery, Trip Attack'.
+FeatGroupMeleeCombat	Description='Always Ready, Baleful Scion, Blade Mastery, Charger, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Longsword Finesse, Old Tactics, Piercer, Polearm Master, Power Attack, Reckless Attack, Savage Attack, Shield Bash, Slasher, Spear Mastery, Trip Attack, Whirlwind Attack'.
 FeatGroupOldTactics	Description='Increase your Strength or Dexterity by 1. Once per round, when a prone enemy within range of your melee weapon stands up you may make an attack of opportunity against the target.'.
 FeatGroupOrcishAggression	Description='Your aggression burns tirelessly. You gain the following benefits:
 • Increase your Strength or Constitution by 1, up to a maximum of 20.
@@ -877,7 +877,7 @@ When you hit a creature with an attack that deals slashing damage, you can reduc
 FeatGroupSpellCombat	Description='Baleful Scion, Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster'.
 FeatGroupSpellSniper	Description='You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatGroupSquatNimbleness	Description='You are uncommonly nimble for your race. Increase your Strength or Dexterity by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.'.
-FeatGroupSupportCombat	Description='Call for Charge, Chef, Gift of the Chromatic Dragon, Hardy, Healer, Improved Critical, Inspiring Leader, Lucky, Mage Slayer, Menacing, Mender, Merciless, Poisoner, Precision Focused, Sentinel, Superior Critical, Thrown Weapons Master, Weapon Master'.
+FeatGroupSupportCombat	Description='Call for Charge, Chef, Gift of the Chromatic Dragon, Great Weapon Defense, Hardy, Healer, Improved Critical, Inspiring Leader, Lucky, Mage Slayer, Menacing, Mender, Merciless, Poisoner, Precision Focused, Sentinel, Superior Critical, Thrown Weapons Master, Weapon Master'.
 FeatGroupTelekinetic	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.'.
 FeatGroupTools	Description='Initiate Alchemist, Initiate Enchanter, Lock Breaker, Master Alchemist, Master Enchanter, Poisoner, Scriber, Toxicologist'.
@@ -893,6 +893,9 @@ You gain the ability to cast the barkskin, entangle, and goodberry spells once p
 FeatGroupWeaponMaster	Description='You have practiced extensively with a variety of weapons, gaining the following benefits:
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
 • You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.'.
+FeatGroupWhirlWindAttack	Description='You become a master of whirling death, gaining the following benefits:
+• Increase your Strength or Dexterity by 1, to a maximum of 20.
+• Once during your turn when you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Whirlwind Attack. Whirlwind Attack makes one attack roll against all enemy creatures within 5ft of you but doesn't add your attribute modifier to damage dealt (unless that modifier is negative).   '.
 FeatMagicInitiateBard	Title='Magic Initiate [Bard]'.
 FeatMagicInitiateBard	Description='You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatMagicInitiateCleric	Title='Magic Initiate [Cleric]'.
@@ -1299,6 +1302,18 @@ PowerInnovationAlchemyRefundFromSlot4	Title='Refund 4 Alchemy Charges'.
 PowerInnovationAlchemyRefundFromSlot4	Description='Refund 4 alchemy charges by spending one slot of level 4.'.
 PowerInnovationAlchemyRefundFromSlot5	Title='Refund 5 Alchemy Charges'.
 PowerInnovationAlchemyRefundFromSlot5	Description='Refund 5 alchemy charges by spending one slot of level 5.'.
+PowerMetamagicTransmutedSpellDamageAcid	Title='Acid Damage'.
+PowerMetamagicTransmutedSpellDamageAcid	Description='Replace the magic effect damage type with Acid Damage.'.
+PowerMetamagicTransmutedSpellDamageCold	Title='Cold Damage'.
+PowerMetamagicTransmutedSpellDamageCold	Description='Replace the magic effect damage type with Cold Damage.'.
+PowerMetamagicTransmutedSpellDamageFire	Title='Fire Damage'.
+PowerMetamagicTransmutedSpellDamageFire	Description='Replace the magic effect damage type with Fire Damage.'.
+PowerMetamagicTransmutedSpellDamageLightning	Title='Lightning Damage'.
+PowerMetamagicTransmutedSpellDamageLightning	Description='Replace the magic effect damage type with Lightning Damage.'.
+PowerMetamagicTransmutedSpellDamagePoison	Title='Poison Damage'.
+PowerMetamagicTransmutedSpellDamagePoison	Description='Replace the magic effect damage type with Poison Damage.'.
+PowerMetamagicTransmutedSpellDamageThunder	Title='Thunder Damage'.
+PowerMetamagicTransmutedSpellDamageThunder	Description='Replace the magic effect damage type with Thunder Damage.'.
 PowerRangerWildMasterSummonBeastCompanionKindredSpiritBear	Title='Summon Black Bear'.
 PowerRangerWildMasterSummonBeastCompanionKindredSpiritBear	Description='A Black Bear bonded to a Ranger.'.
 PowerRangerWildMasterSummonBeastCompanionKindredSpiritEagle	Title='Summon Badlands Eagle'.
@@ -1466,6 +1481,18 @@ SpellPowerInnovationAlchemyRefundFromSlot4	Title='Refund 4 Alchemy Charges'.
 SpellPowerInnovationAlchemyRefundFromSlot4	Description='Refund 4 alchemy charges by spending one slot of level 4.'.
 SpellPowerInnovationAlchemyRefundFromSlot5	Title='Refund 5 Alchemy Charges'.
 SpellPowerInnovationAlchemyRefundFromSlot5	Description='Refund 5 alchemy charges by spending one slot of level 5.'.
+SpellPowerMetamagicTransmutedSpellDamageAcid	Title='Acid Damage'.
+SpellPowerMetamagicTransmutedSpellDamageAcid	Description='Replace the magic effect damage type with Acid Damage.'.
+SpellPowerMetamagicTransmutedSpellDamageCold	Title='Cold Damage'.
+SpellPowerMetamagicTransmutedSpellDamageCold	Description='Replace the magic effect damage type with Cold Damage.'.
+SpellPowerMetamagicTransmutedSpellDamageFire	Title='Fire Damage'.
+SpellPowerMetamagicTransmutedSpellDamageFire	Description='Replace the magic effect damage type with Fire Damage.'.
+SpellPowerMetamagicTransmutedSpellDamageLightning	Title='Lightning Damage'.
+SpellPowerMetamagicTransmutedSpellDamageLightning	Description='Replace the magic effect damage type with Lightning Damage.'.
+SpellPowerMetamagicTransmutedSpellDamagePoison	Title='Poison Damage'.
+SpellPowerMetamagicTransmutedSpellDamagePoison	Description='Replace the magic effect damage type with Poison Damage.'.
+SpellPowerMetamagicTransmutedSpellDamageThunder	Title='Thunder Damage'.
+SpellPowerMetamagicTransmutedSpellDamageThunder	Description='Replace the magic effect damage type with Thunder Damage.'.
 SpellPowerRangerWildMasterSummonBeastCompanionKindredSpiritBear	Title='Summon Black Bear'.
 SpellPowerRangerWildMasterSummonBeastCompanionKindredSpiritBear	Description='A Black Bear bonded to a Ranger.'.
 SpellPowerRangerWildMasterSummonBeastCompanionKindredSpiritEagle	Title='Summon Badlands Eagle'.

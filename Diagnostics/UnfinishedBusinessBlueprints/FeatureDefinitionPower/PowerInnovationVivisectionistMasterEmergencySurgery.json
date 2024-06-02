@@ -332,9 +332,9 @@
     "description": "Feature/&PowerInnovationVivisectionistMasterEmergencySurgeryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2243d06e69e758d4c9191ef1c49c3ebf",
-      "m_SubObjectName": "Foreknowledge",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "4af5a375-b5a8-5c56-b055-47105d0c3b4f",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

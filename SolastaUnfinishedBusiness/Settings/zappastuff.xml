@@ -420,6 +420,7 @@
     <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
     <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
     <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+    <EnableBardHealingBalladOnLongRest>true</EnableBardHealingBalladOnLongRest>
     <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <EnableBarbarianBrutalStrike>true</EnableBarbarianBrutalStrike>
     <DisableBarbarianBrutalCritical>true</DisableBarbarianBrutalCritical>
@@ -436,11 +437,15 @@
     <EnableMonkDoNotRequireAttackActionForFlurry>true</EnableMonkDoNotRequireAttackActionForFlurry>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
     <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>true</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
+    <EnableMonkHeightenedMetabolism>true</EnableMonkHeightenedMetabolism>
+    <EnableMonkSuperiorDefenseToReplaceEmptyBody>true</EnableMonkSuperiorDefenseToReplaceEmptyBody>
+    <EnableMonkBodyAndMindToReplacePerfectSelf>true</EnableMonkBodyAndMindToReplacePerfectSelf>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
-    <EnableRogueStrSaving>false</EnableRogueStrSaving>
+    <EnableRogueStrSaving>true</EnableRogueStrSaving>
+    <EnableSorcererMagicalGuidance>true</EnableSorcererMagicalGuidance>
     <OfferAdditionalLoreFriendlyNames>true</OfferAdditionalLoreFriendlyNames>
     <UnlockAllNpcFaces>true</UnlockAllNpcFaces>
     <AllowUnmarkedSorcerers>true</AllowUnmarkedSorcerers>
@@ -477,6 +482,7 @@
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
+    <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
     <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
     <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>true
@@ -487,7 +493,8 @@
     <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
     <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>true</FixEldritchBlastRange>
-    <FixRingOfRegenerationHealRate>false</FixRingOfRegenerationHealRate>
+    <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
+    <EnableOneDndHealingSpellsBuf>true</EnableOneDndHealingSpellsBuf>
     <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
     <IdentifyAfterRest>true</IdentifyAfterRest>
     <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
@@ -508,6 +515,7 @@
     <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
     <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
     <EnableSignatureSpellsRelearn>false</EnableSignatureSpellsRelearn>
+    <AccountForAllDiceOnFollowUpStrike>true</AccountForAllDiceOnFollowUpStrike>
     <AccountForAllDiceOnSavageAttack>true</AccountForAllDiceOnSavageAttack>
     <AllowFlightSuspend>true</AllowFlightSuspend>
     <FlightSuspendWingedBoots>true</FlightSuspendWingedBoots>
@@ -896,7 +904,7 @@
                     <string>WayOfTheDiscordance</string>
                     <string>WayOfTheDragon</string>
                     <string>WayOfSilhouette</string>
-                    <string>WayOfTheTempest</string>
+                    <string>WayOfTheStormSoul</string>
                     <string>WayOfWealAndWoe</string>
                     <string>WayOfZenArchery</string>
                 </ArrayOfString>
@@ -924,6 +932,7 @@
             <value>
                 <ArrayOfString>
                     <string>RangerArcanist</string>
+                    <string>RangerFeyWanderer</string>
                     <string>RangerGloomStalker</string>
                     <string>RangerHellWalker</string>
                     <string>RangerLightBearer</string>
@@ -970,6 +979,7 @@
             </key>
             <value>
                 <ArrayOfString>
+                    <string>PatronArchfey</string>
                     <string>PatronCelestial</string>
                     <string>PatronEldritchSurge</string>
                     <string>PatronElementalist</string>
@@ -1058,6 +1068,7 @@
         <string>FeatGroupFlamesOfPhlegethos</string>
         <string>FeatFrostAdaptation</string>
         <string>FeatGiftOfTheChromaticDragon</string>
+        <string>FeatGreatWeaponDefense</string>
         <string>FeatCleavingAttack</string>
         <string>FeatGroupGrudgeBearer</string>
         <string>FeatGroupHardy</string>
@@ -1119,6 +1130,7 @@
         <string>FeatEldritchVersatilityAdept</string>
         <string>FeatWarCaster</string>
         <string>FeatGroupWeaponMaster</string>
+        <string>FeatGroupWhirlWindAttack</string>
         <string>FeatZenArcher</string>
         <string>FeatWoodElfMagic</string>
     </FeatEnabled>
@@ -1205,7 +1217,9 @@
     <MetamagicEnabled>
         <string>MetamagicFocusedSpell</string>
         <string>MetamagicPowerfulSpell</string>
+        <string>MetamagicSeekingSpell</string>
         <string>MetamagicAltruisticSpell</string>
+        <string>MetamagicTransmutedSpell</string>
         <string>MetamagicWidenedSpell</string>
     </MetamagicEnabled>
     <AllowDisplayingOfficialSpells>false</AllowDisplayingOfficialSpells>
@@ -1306,6 +1320,7 @@
                     <string>BladeWard</string>
                     <string>IlluminatingSphere</string>
                     <string>MinorLifesteal</string>
+                    <string>StarryWisp</string>
                     <string>ThunderStrike</string>
                     <string>EarthTremor</string>
                     <string>Mule</string>
@@ -1354,6 +1369,9 @@
                 <ArrayOfString>
                     <string>AcidClaws</string>
                     <string>AirBlast</string>
+                    <string>Infestation</string>
+                    <string>PrimalSavagery</string>
+                    <string>StarryWisp</string>
                     <string>ThornyVines</string>
                     <string>ThunderStrike</string>
                     <string>ElementalInfusion</string>
@@ -1387,6 +1405,7 @@
                 <ArrayOfString>
                     <string>BoomingBlade</string>
                     <string>ResonatingStrike</string>
+                    <string>LightningLure</string>
                     <string>SunlightBlade</string>
                     <string>SwordStorm</string>
                     <string>ThornyVines</string>
@@ -1463,6 +1482,8 @@
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
+                    <string>Infestation</string>
+                    <string>LightningLure</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
                     <string>SunlightBlade</string>
@@ -1519,6 +1540,8 @@
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
                     <string>ResonatingStrike</string>
+                    <string>Infestation</string>
+                    <string>LightningLure</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
                     <string>SunlightBlade</string>
@@ -1569,6 +1592,8 @@
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
+                    <string>Infestation</string>
+                    <string>LightningLure</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
                     <string>EnduringSting</string>

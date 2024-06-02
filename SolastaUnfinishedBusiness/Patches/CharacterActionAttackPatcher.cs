@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -29,7 +28,7 @@ public static class CharacterActionAttackPatcher
             return false;
         }
 
-        private static IEnumerator ExecuteImpl(CharacterActionAttack __instance)
+        internal static IEnumerator ExecuteImpl(CharacterActionAttack __instance)
         {
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
@@ -46,13 +45,6 @@ public static class CharacterActionAttackPatcher
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var itemService = ServiceRepository.GetService<IGameLocationItemService>();
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-
-            //BEGIN PATCH
-
-            if (__instance.ActionType == ActionDefinitions.ActionType.Main)
-            {
-                actingCharacter.UsedSpecialFeatures.TryAdd("AttackedWithMain", 0);
-            }
 
             // Check action params
             var canAttackMain =

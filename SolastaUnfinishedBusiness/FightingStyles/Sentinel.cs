@@ -59,7 +59,7 @@ internal sealed class Sentinel : AbstractFightingStyle
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
