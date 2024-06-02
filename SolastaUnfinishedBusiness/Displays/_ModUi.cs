@@ -45,6 +45,7 @@ internal static class ModUi
         "BlindingSmite",
         "BoomingBlade",
         "BoomingStep",
+        "BorrowedKnowledge",
         "BurstOfRadiance",
         "ChromaticOrb",
         "CircleOfMagicalNegation",

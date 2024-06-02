@@ -1324,6 +1324,7 @@
                     <string>ThunderStrike</string>
                     <string>EarthTremor</string>
                     <string>Mule</string>
+                    <string>BorrowedKnowledge</string>
                     <string>CloudOfDaggers</string>
                     <string>MirrorImage</string>
                     <string>BlessingOfRime</string>
@@ -1349,6 +1350,7 @@
                     <string>BurstOfRadiance</string>
                     <string>Wrack</string>
                     <string>Sanctuary</string>
+                    <string>BorrowedKnowledge</string>
                     <string>ProtectThreshold</string>
                     <string>AuraOfLife</string>
                     <string>VitalityTransfer</string>
@@ -1552,6 +1554,7 @@
                     <string>VoidGrasp</string>
                     <string>Mule</string>
                     <string>WitchBolt</string>
+                    <string>BorrowedKnowledge</string>
                     <string>CloudOfDaggers</string>
                     <string>MirrorImage</string>
                     <string>NoxiousSpray</string>
@@ -1614,6 +1617,7 @@
                     <string>VileBrew</string>
                     <string>WitchBolt</string>
                     <string>AganazzarScorcher</string>
+                    <string>BorrowedKnowledge</string>
                     <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
                     <string>MirrorImage</string>
@@ -1906,4 +1910,7 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

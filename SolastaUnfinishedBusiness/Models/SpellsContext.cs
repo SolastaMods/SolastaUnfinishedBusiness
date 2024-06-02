@@ -286,6 +286,7 @@ internal static class SpellsContext
         // 2nd level
         RegisterSpell(BuildAganazzarScorcher(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BindingIce, 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildBorrowedKnowledge(), 0, SpellListBard, SpellListCleric, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildCloudOfDaggers(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         DatabaseHelper.SpellDefinitions.ConjureGoblinoids.contentPack = CeContentPackContext.CeContentPack;
