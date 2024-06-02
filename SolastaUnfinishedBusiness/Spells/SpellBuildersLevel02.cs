@@ -216,6 +216,54 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Color Burst
+
+    internal static SpellDefinition BuildKineticJaunt()
+    {
+        const string NAME = "KineticJaunt";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create($"MovementAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetImmunities(difficultTerrainImmunity: true)
+                    .SetBaseSpeedAdditiveModifier(2)
+                    .AddToDB(),
+                FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging,
+                FeatureDefinitionMoveThroughEnemyModifiers.MoveThroughEnemyModifierHalflingNimbleness)
+            .AddToDB();
+
+        condition.GuiPresentation.Description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.KineticJaunt, 128))
+            .SetSpellLevel(2)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
+                    .SetParticleEffectParameters(Haste)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Mirror Image
 
     [NotNull]

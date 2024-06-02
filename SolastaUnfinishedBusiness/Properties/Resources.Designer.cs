@@ -2042,6 +2042,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] KineticJaunt {
+            get {
+                object obj = ResourceManager.GetObject("KineticJaunt", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] Kobold {
             get {
                 object obj = ResourceManager.GetObject("Kobold", resourceCulture);
