@@ -10,6 +10,7 @@
 - added Patron Archfey and Way of Storm Soul [Tempest rework] subclasses
 - fixed Booming Blade interaction with War Caster feat to allow sheathed explosion
 - fixed Innovation Vivisectionist medical accuracy to work with any weapon, and organ donation to be once per short
+- fixed Patron Riftwalker rift strike to banish enemy
 - fixed Way of Freedom displaying additional flurry of blow actions on levels 3 and 11 [VANILLA]
 
 KNOWN ISSUES:
