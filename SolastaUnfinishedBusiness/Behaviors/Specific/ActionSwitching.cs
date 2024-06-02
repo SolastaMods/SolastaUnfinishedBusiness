@@ -276,12 +276,13 @@ public static class ActionSwitching
             {
                 // ensure we block double dip on bonus spells if metamagic is present
                 character.UsedBonusSpell = true;
+                character.UsedMainSpell = true;
             }
 
             // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (actionParams.ActionDefinition.ActionType)
             {
-                case ActionDefinitions.ActionType.Main:
+                case ActionDefinitions.ActionType.Main when rulesetEffectSpell.SpellDefinition.SpellLevel > 0:
                     character.UsedBonusSpell = true;
                     break;
                 case ActionDefinitions.ActionType.Bonus:

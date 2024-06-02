@@ -72,6 +72,7 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        character.BurnOneMainAttack(false);
+        character.UsedMainCantrip = true;
+        character.BurnOneMainAttack();
     }
 }
