@@ -332,12 +332,12 @@ public class PatronArchfey : AbstractSubclass
     private sealed class CustomBehaviorMistyEscape(
         FeatureDefinitionPower powerMistyEscape,
         ConditionDefinition conditionMistyEscape)
-        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe, IActionFinishedByEnemy,
+        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe, IActionFinishedByContender,
             IIgnoreInvisibilityInterruptionCheck
     {
         private const string TagMistyEscape = "MistyEscape";
 
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
         {
             if (!target.UsedSpecialFeatures.ContainsKey(TagMistyEscape))
             {

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -188,20 +189,24 @@ public static class CharacterActionPatcher
                 }
             }
 
-            //PATCH: support for `IActionFinishedByEnemy`
-            if (Gui.Battle != null)
-            {
-                foreach (var target in Gui.Battle.GetContenders(actingCharacter))
-                {
-                    var rulesetTarget = target.RulesetCharacter;
+            //PATCH: support for `IActionFinishedByContender`
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
 
-                    foreach (var actionFinishedByEnemy in rulesetTarget
-                                 .GetSubFeaturesByType<IActionFinishedByEnemy>())
-                    {
-                        yield return actionFinishedByEnemy.OnActionFinishedByEnemy(__instance, target);
-                    }
+            foreach (var target in contenders)
+            {
+                var rulesetTarget = target.RulesetCharacter;
+
+                foreach (var actionFinishedByContender in rulesetTarget
+                             .GetSubFeaturesByType<IActionFinishedByContender>())
+                {
+                    yield return actionFinishedByContender.OnActionFinishedByContender(__instance, target);
                 }
             }
+
 
             if (__instance.ActionType == ActionDefinitions.ActionType.Bonus)
             {

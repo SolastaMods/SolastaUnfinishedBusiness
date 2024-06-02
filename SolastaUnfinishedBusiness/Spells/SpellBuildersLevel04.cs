@@ -357,10 +357,9 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorBlessingOfRime(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellDefinition)
-        : IActionFinishedByEnemy, IRollSavingThrowInitiated
+        SpellDefinition spellDefinition) : IActionFinishedByContender, IRollSavingThrowInitiated
     {
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
         {
             var rulesetCharacter = target.RulesetCharacter;
 

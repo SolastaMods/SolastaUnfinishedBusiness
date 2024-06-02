@@ -1274,19 +1274,18 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionCorruptingBolt.AddCustomSubFeatures(
-            new ActionFinishedByEnemyCorruptingBolt(conditionCorruptingBolt, spell));
+            new ActionFinishedByContenderCorruptingBolt(conditionCorruptingBolt, spell));
 
         return spell;
     }
 
-    private sealed class ActionFinishedByEnemyCorruptingBolt(
+    private sealed class ActionFinishedByContenderCorruptingBolt(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionCorruptingBolt,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellCorruptingBolt)
-        : IActionFinishedByEnemy
+        SpellDefinition spellCorruptingBolt) : IActionFinishedByContender
     {
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
         {
             if (characterAction is CharacterActionCastSpell actionCastSpell &&
                 actionCastSpell.activeSpell.SpellDefinition == spellCorruptingBolt)

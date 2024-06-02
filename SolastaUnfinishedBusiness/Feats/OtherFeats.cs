@@ -2610,10 +2610,10 @@ internal static class OtherFeats
     }
 
     private class CustomBehaviorFeatPoisonousSkin(FeatureDefinitionPower powerPoisonousSkin) :
-        IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
+        IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByContender
     {
         //Poison character that shoves me
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction action, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction action, GameLocationCharacter target)
         {
             if (action.ActionId != ActionDefinitions.Id.Shove &&
                 action.ActionId != ActionDefinitions.Id.ShoveBonus &&
