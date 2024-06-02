@@ -13,35 +13,17 @@ internal static class ReplaceAttackWithCantrip
         ActionScope scope,
         ref ActionStatus result)
     {
-        if (scope != ActionScope.Battle)
+        if (scope != ActionScope.Battle ||
+            actionId != Id.CastMain ||
+            character.UsedMainCantrip ||
+            character.UsedMainAttacks == 0 ||
+            result != ActionStatus.NoLongerAvailable ||
+            !character.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
         {
             return;
         }
 
-        if (actionId != Id.CastMain)
-        {
-            return;
-        }
-
-        if (!character.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
-        {
-            return;
-        }
-
-        if (character.UsedMainAttacks == 0)
-        {
-            return;
-        }
-
-        if (character.UsedMainCantrip)
-        {
-            return;
-        }
-
-        if (result == ActionStatus.NoLongerAvailable)
-        {
-            result = ActionStatus.Available;
-        }
+        result = ActionStatus.Available;
     }
 
     internal static void AllowAttacksAfterCantrip(
@@ -49,25 +31,11 @@ internal static class ReplaceAttackWithCantrip
         CharacterActionParams actionParams,
         ActionScope scope)
     {
-        if (scope != ActionScope.Battle)
-        {
-            return;
-        }
-
-        var rulesetCharacter = character.RulesetCharacter;
-
-        if (!rulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
-        {
-            return;
-        }
-
-        if (actionParams.actionDefinition.Id != Id.CastMain)
-        {
-            return;
-        }
-
-        if (actionParams.activeEffect is not RulesetEffectSpell spellEffect ||
-            spellEffect.spellDefinition.spellLevel > 0)
+        if (scope != ActionScope.Battle ||
+            actionParams.actionDefinition.Id != Id.CastMain ||
+            actionParams.activeEffect is not RulesetEffectSpell spellEffect ||
+            spellEffect.spellDefinition.spellLevel > 0 ||
+            !character.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
         {
             return;
         }

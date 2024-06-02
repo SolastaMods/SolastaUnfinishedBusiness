@@ -466,11 +466,8 @@ public static class GameLocationCharacterExtensions
         var maxAttacks = rulesetCharacter.AttackModes
             .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Bonus)?.AttacksNumber ?? 0;
 
-        // if still attacks left - refund bonus action
         if (instance.UsedMainAttacks < maxAttacks)
         {
-            instance.currentActionRankByType[ActionType.Bonus]--;
-
             return;
         }
 
