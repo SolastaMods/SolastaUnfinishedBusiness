@@ -316,6 +316,8 @@ internal static class SpellsContext
         RegisterSpell(BuildFlameArrows(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildLightningArrow(), 0, SpellListRanger);
+        RegisterSpell(BuildIntellectFortress(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+            spellListInventorClass);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildVitalityTransfer(), 0, SpellListCleric, SpellListWizard);
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);

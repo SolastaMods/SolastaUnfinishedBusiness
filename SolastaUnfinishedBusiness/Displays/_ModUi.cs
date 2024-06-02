@@ -155,6 +155,7 @@ internal static class ModUi
         "InnovationArmor",
         "InnovationArtillerist",
         "InnovationWeapon",
+        "IntellectFortress",
         "Interception",
         "InvocationAbilitiesOfTheChainMaster",
         "InvocationAspectOfTheMoon",

@@ -196,6 +196,57 @@ internal static partial class SpellBuilders
 
     #region Pulse Wave
 
+    internal static SpellDefinition BuildIntellectFortress()
+    {
+        const string NAME = "IntellectFortress";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionProtectedInsideMagicCircle)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create($"SavingThrowAffinity{NAME}")
+                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Wisdom,
+                        AttributeDefinitions.Charisma)
+                    .AddToDB(),
+                FeatureDefinitionDamageAffinitys.DamageAffinityPsychicResistance)
+            .AddToDB();
+
+        condition.GuiPresentation.description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.IntellectFortress, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
+                    .SetParticleEffectParameters(EnhanceAbility)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Pulse Wave
+
     internal static SpellDefinition BuildPulseWave()
     {
         const string NAME = "PulseWave";

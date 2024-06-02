@@ -1912,6 +1912,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] IntellectFortress {
+            get {
+                object obj = ResourceManager.GetObject("IntellectFortress", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] Inventor {
             get {
                 object obj = ResourceManager.GetObject("Inventor", resourceCulture);

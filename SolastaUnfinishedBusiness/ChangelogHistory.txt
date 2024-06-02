@@ -4,13 +4,13 @@
 - added Gameplay > Character > 'Enable Monk Superior Defense to replace Empty Body at level 18' setting
 - added Gameplay > Character > 'Enable Monk Body and Mind to replace Perfect Self at level 20' setting
 - added Gameplay > Rules > 'Enable OneDnd healing dice buff' setting
-- added Borrowed Knowledge, and Kinetic Jaunt spells
+- added Borrowed Knowledge, Intellect Fortress, and Kinetic Jaunt spells
 - added Great Weapon Defense and Whirlwind Attack feats
 - added Infestation, Lightning Lure, Primal Savagery, and Starry Wisp cantrips
 - added Patron Archfey and Way of Storm Soul [Tempest rework] subclasses
 - fixed Booming Blade interaction with War Caster feat to allow sheathed explosion
 - fixed Innovation Vivisectionist medical accuracy to work with any weapon, and organ donation to be once per short
-- fixed Patron Riftwalker rift strike to banish enemy
+- fixed Patron Riftwalker rift strike to banish enemy instead of self
 - fixed Way of Freedom displaying additional flurry of blow actions on levels 3 and 11 [VANILLA]
 
 KNOWN ISSUES:
