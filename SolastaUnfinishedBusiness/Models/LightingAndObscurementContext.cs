@@ -727,8 +727,8 @@ internal static class LightingAndObscurementContext
             condition.GuiPresentation.description = replaceTerm;
         }
 
+        SwitchCombatAffinityInvisibleSenses();
         SwitchHeavilyObscuredOnObscurementRules();
-        SwitchInvisibleCreaturesCanBeTarget();
         SwitchMagicalDarknessOnObscurementRules();
         SwitchMonstersOnObscurementRules();
 
@@ -863,12 +863,12 @@ internal static class LightingAndObscurementContext
         SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
     }
 
-    internal static void SwitchInvisibleCreaturesCanBeTarget()
+    private static void SwitchCombatAffinityInvisibleSenses()
     {
         var modSenses = new List<Type> { Type.Blindsight, Type.Tremorsense, Type.Truesight, Type.DetectInvisibility };
         var vanillaSenses = new List<Type> { Type.Truesight, Type.DetectInvisibility };
 
-        if (Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget)
+        if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
             CombatAffinityInvisible.nullifiedBySenses = modSenses;
             CombatAffinityInvisibleStalker.nullifiedBySenses = modSenses;

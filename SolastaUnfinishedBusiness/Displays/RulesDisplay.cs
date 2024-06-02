@@ -106,7 +106,6 @@ internal static class RulesDisplay
                     UI.AutoWidth()))
             {
                 Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget = toggle;
-                LightingAndObscurementContext.SwitchInvisibleCreaturesCanBeTarget();
             }
 
             toggle = Main.Settings.OfficialObscurementRulesCancelAdvDisPairs;
