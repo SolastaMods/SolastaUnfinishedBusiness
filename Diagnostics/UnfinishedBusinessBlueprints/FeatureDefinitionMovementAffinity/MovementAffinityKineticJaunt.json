@@ -16,7 +16,7 @@
   "canFlyWithWalkSpeed": false,
   "enhancedJump": false,
   "additionalJumpCells": 0,
-  "immuneDifficultTerrain": true,
+  "immuneDifficultTerrain": false,
   "disableVault": false,
   "disableDrop": false,
   "disableJump": false,

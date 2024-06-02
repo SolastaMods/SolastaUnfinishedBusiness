@@ -230,11 +230,14 @@ internal static partial class SpellBuilders
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetImmunities(difficultTerrainImmunity: true)
                     .SetBaseSpeedAdditiveModifier(2)
                     .AddToDB(),
-                FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging,
-                FeatureDefinitionMoveThroughEnemyModifiers.MoveThroughEnemyModifierHalflingNimbleness)
+                FeatureDefinitionMoveThroughEnemyModifierBuilder
+                    .Create($"MoveThroughEnemyModifier{NAME}")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetMinSizeDifference(10)
+                    .AddToDB(),
+                FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging)
             .AddToDB();
 
         condition.GuiPresentation.Description = Gui.NoLocalization;
@@ -608,6 +611,8 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetCasterEffectParameters(TrueSeeing)
+                    .SetEffectEffectParameters(PowerPaladinCleansingTouch)
                     .Build())
             .AddCustomSubFeatures(new MagicEffectFinishedByMeBorrowedKnowledge(powerPool, [.. powers]))
             .AddToDB();
@@ -684,6 +689,25 @@ internal static partial class SpellBuilders
 
             rulesetCharacter.UsablePowers.Remove(usablePower);
             usablePowers.ForEach(x => rulesetCharacter.UsablePowers.Remove(x));
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var selectedPower = powers[reactionRequest.SelectedSubOption];
+            
+            foreach (var skill in skillsDb)
+            {
+                var conditionName = $"ConditionBorrowedKnowledge{skill.Name}";
+
+                if (!selectedPower.Name.Contains(skill.Name) &&
+                    rulesetCharacter.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionName, out var activeCondition))
+                {
+                    rulesetCharacter.RemoveCondition(activeCondition);
+                }
+            }
         }
     }
 

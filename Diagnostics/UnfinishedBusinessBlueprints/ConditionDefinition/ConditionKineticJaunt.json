@@ -6,7 +6,7 @@
   "features": [
     "Definition:CombatAffinityDisengaging:9dda4a1eb70c8f94d9fb16a802947a2a",
     "Definition:MovementAffinityKineticJaunt:85a4ac2e-feaf-5e7f-8115-35bdb0a8a286",
-    "Definition:MoveThroughEnemyModifierHalflingNimbleness:6ae832e9873b6e94289d046c87ea2e0f"
+    "Definition:MoveThroughEnemyModifierKineticJaunt:d9780b4f-8fc3-58b5-bb80-d00bb576bfef"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

@@ -535,8 +535,7 @@ Make an ally invisible for a limited time.
 You magically empower your movement with dance like steps, giving yourself the following benefits for the duration:
 • Your walking speed increases by 10 feet.
 • You don't provoke opportunity attacks.
-• Moving through difficult terrain does not cost extra movement.
-• You can move through the space of any creature that is of a larger size than you.
+• You can move through the space of any creature.
 
 # 130. - Knock (V) level 2 Transmutation [SOL]
 
