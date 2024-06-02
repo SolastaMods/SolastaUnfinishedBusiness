@@ -350,7 +350,7 @@ Regain one use of your Emergency Surgery and your Emergency Cure when you reduce
 
 * Stable Surgery
 
-When casting a healing spell your minimum healing dice roll is 2.
+Whenever you heal another creature, you treat all 1 rolls as 2 instead.
 
 
 ### Level 15

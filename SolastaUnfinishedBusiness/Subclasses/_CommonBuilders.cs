@@ -171,7 +171,8 @@ internal static class CommonBuilders
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action.ActionType is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus) ||
+            if (Gui.Battle == null ||
+                action.ActionType is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus) ||
                 action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
                 (!Main.Settings.EnableCantripsTriggeringOnWarMagic &&
                  rulesetEffectSpell.SpellDefinition.SpellLevel <= 0))

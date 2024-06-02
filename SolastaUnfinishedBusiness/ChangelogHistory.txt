@@ -6,9 +6,9 @@
 - added Gameplay > Rules > 'Enable OneDnd healing dice buff' setting
 - added Great Weapon Defense and Whirlwind Attack feats
 - added Infestation, Lightning Lure, Primal Savagery, and Starry Wisp cantrips
-- added Patron Archfey and Way of Storm Soul [Tempest rework] subclasses
+- added Patron Archfey and Way of Storm Soul [Tempest rework, no RESPEC required] subclasses
 - fixed Booming Blade interaction with War Caster feat to allow sheathed to explode at enemy's move end
-- fixed Innovation Vivisectionist medical accuracy and organ donation features to work as described
+- fixed Innovation Vivisectionist medical accuracy to work with any weapon, and organ donation to be once per short
 - fixed Way of Freedom displaying additional flurry of blow actions on levels 3 and 11 [VANILLA]
 
 KNOWN ISSUES:
