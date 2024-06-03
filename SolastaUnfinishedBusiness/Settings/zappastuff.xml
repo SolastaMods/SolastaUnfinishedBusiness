@@ -1328,6 +1328,7 @@
                     <string>CloudOfDaggers</string>
                     <string>KineticJaunt</string>
                     <string>MirrorImage</string>
+                    <string>IntellectFortress</string>
                     <string>BlessingOfRime</string>
                     <string>BrainBulwark</string>
                     <string>IrresistiblePerformance</string>
@@ -1422,6 +1423,7 @@
                     <string>SpellWeb</string>
                     <string>ElementalWeapon</string>
                     <string>FlameArrows</string>
+                    <string>IntellectFortress</string>
                     <string>BrainBulwark</string>
                     <string>FaithfulHound</string>
                 </ArrayOfString>
@@ -1517,6 +1519,8 @@
                     <string>AdderFangs</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
+                    <string>IntellectFortress</string>
+                    <string>PsionicBlast</string>
                     <string>BoomingStep</string>
                     <string>WinterBreath</string>
                     <string>BrainBulwark</string>
@@ -1565,6 +1569,8 @@
                     <string>AdderFangs</string>
                     <string>CorruptingBolt</string>
                     <string>HungerOfTheVoid</string>
+                    <string>IntellectFortress</string>
+                    <string>PsionicBlast</string>
                     <string>SpiritShroud</string>
                     <string>BoomingStep</string>
                     <string>BrainBulwark</string>
@@ -1634,7 +1640,9 @@
                     <string>WitherAndBloom</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
+                    <string>IntellectFortress</string>
                     <string>VitalityTransfer</string>
+                    <string>PsionicBlast</string>
                     <string>PulseWave</string>
                     <string>SpiritShroud</string>
                     <string>BoomingStep</string>

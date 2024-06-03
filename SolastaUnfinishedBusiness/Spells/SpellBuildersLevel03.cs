@@ -232,11 +232,13 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Hour, 1)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
                     .SetParticleEffectParameters(EnhanceAbility)
+                    .SetImpactEffectParameters(Aid)
                     .Build())
             .AddToDB();
 
@@ -356,7 +358,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Intellect Fortress
+    #region Psionic Blast
 
     internal static SpellDefinition BuildPsionicBlast()
     {
@@ -364,7 +366,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.IntellectFortress, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsionicBlast, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.Action)
@@ -378,6 +380,8 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
@@ -395,8 +399,8 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
                             .Build())
-                    .SetParticleEffectParameters(DreadfulOmen)
                     .SetCasterEffectParameters(ViciousMockery)
+                    .SetImpactEffectParameters(DreadfulOmen)
                     .Build())
             .AddToDB();
 
