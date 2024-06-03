@@ -340,6 +340,9 @@
     <EnableMonkDoNotRequireAttackActionForFlurry>false</EnableMonkDoNotRequireAttackActionForFlurry>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
     <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>false</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
+    <EnableMonkHeightenedMetabolism>false</EnableMonkHeightenedMetabolism>
+    <EnableMonkSuperiorDefenseToReplaceEmptyBody>false</EnableMonkSuperiorDefenseToReplaceEmptyBody>
+    <EnableMonkBodyAndMindToReplacePerfectSelf>false</EnableMonkBodyAndMindToReplacePerfectSelf>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
     <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
@@ -382,6 +385,7 @@
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <BlindedConditionDontAllowAttackOfOpportunity>false</BlindedConditionDontAllowAttackOfOpportunity>
+    <AllowTargetingSelectionWhenCastingChainLightningSpell>false</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>false</RemoveHumanoidFilterOnHideousLaughter>
     <AddBleedingToLesserRestoration>false</AddBleedingToLesserRestoration>
     <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>false
@@ -393,6 +397,7 @@
     <UseHeightOneCylinderEffect>false</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>false</FixEldritchBlastRange>
     <FixRingOfRegenerationHealRate>false</FixRingOfRegenerationHealRate>
+    <EnableOneDndHealingSpellsBuf>false</EnableOneDndHealingSpellsBuf>
     <AllowAnyClassToUseArcaneShieldstaff>false</AllowAnyClassToUseArcaneShieldstaff>
     <IdentifyAfterRest>false</IdentifyAfterRest>
     <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
@@ -1088,4 +1093,7 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

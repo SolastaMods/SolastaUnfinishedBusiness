@@ -31,6 +31,7 @@ ModUi/&AllowHasteCasting=Permitir que se apresure el lanzamiento de hechizos con
 ModUi/&AllowHornsOnAllRaces=Permitir bocinas en todas las razas <i><color=#F0DAA0>[los resultados pueden verse terribles según la raza, la cabeza y la bocina]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Permitir más estado real en el panel de descanso <i><color=#F0DAA0>[ocultar acciones después del descanso en el panel anterior y funciones de recuperación en el panel posterior]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir el componente de material apilado <i><color=#F0DAA0>[p. ej. 2 diamantes de 500 po equivalen a 1000 po de diamante]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selección de objetivos al lanzar el hechizo <color=#D89555>Chain Lightning</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marcas de origen ni tatuajes
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los gadgets en el campo de visión del grupo <i><color=#F0DAA0>[solo mazmorras personalizadas]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Permitir que cualquier clase sintonice <color=#D89555>Arcane Shieldstaff</color>
@@ -137,12 +138,16 @@ ModUi/&EnableLogDialoguesToConsole=Habilite los diálogos de registro en la cons
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Habilite el registro de referencias no válidas en campañas personalizadas
 ModUi/&EnableMinInOutAttributes=<i>+ Hacer cumplir los requisitos previos mínimos de entrada y salida de puntuaciones de capacidad</i>
 ModUi/&EnableMonkAbundantKi=Habilite <color=#D89555>Monje</color> <b>Abundante Ki</b> en el nivel 2 <i><color=#F0DAA0>[obtener Ki adicional equivale a la mitad del bono de competencia redondeado hacia arriba]</color> </i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Habilita <color=#D89555>Monje</color> <b>Cuerpo y Mente</b> para reemplazar <b>Yo Perfecto</b> en el nivel 20.
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Habilite <color=#D89555>Monje</color> <b>Artes marciales: ataques extra sin armas</b> para que no requiera una acción de ataque antes de su uso.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Habilite <color=#D89555>Monje</color> <b>Ráfaga de golpes</b> para que no requiera una acción de ataque antes de su uso.
 ModUi/&EnableMonkFightingStyle=Habilita la elección de <color=#D89555>Monje</color> <b>Estilo de lucha</b> en el nivel 2.
+ModUi/&EnableMonkHeightenedMetabolism=Activa <color=#D89555>Monje</color> <b>Metabolismo intensificado</b> en el nivel 10 <i><color=#F0DAA0>[<b>Ráfaga de golpes</b>, <b>Defensa del paciente. </b> y <b>El Paso del Viento</b> obtienen beneficios adicionales]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilite <color=#D89555>Monje</color> <b>Movimiento sin armadura mejorado</b> para moverse a lo largo de superficies verticales sin caerse.
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Habilite <color=#D89555>Monje</color> <b>Defensa superior</b> para reemplazar <b>Cuerpo vacío</b> en el nivel 18.
 ModUi/&EnableMonkWeaponSpecialization=Habilita <color=#D89555>Monje</color> <b>Especialización en armas</b> en los niveles 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionada se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar multiclase <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=Habilite la mejora de dados de curación OneDnd en <color=#D89555>Curar heridas</color>, <color=#D89555>Palabra de curación</color>, <color=#D89555>Curar heridas en masa</color> y <color= #D89555>Palabra de sanación masiva</color>
 ModUi/&EnablePcgRandom=Habilite un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=Activa la función <color=#D89555>Ranger</color> <b>Velo de la Naturaleza</b> en el nivel 10 <i><color=#F0DAA0>[como acción adicional, puedes volverte invisible mágicamente hasta el comienzo del siguiente turno. ]</color></i>
 ModUi/&EnableRejoinParty=Habilite <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirse al grupo alrededor del héroe seleccionado o del líder si no se selecciona ninguno <i><color=#F0DAA0>[útil con grupos de 5 o 6 ]</color></i>

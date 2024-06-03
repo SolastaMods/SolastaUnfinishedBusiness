@@ -106,7 +106,6 @@ internal static class RulesDisplay
                     UI.AutoWidth()))
             {
                 Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget = toggle;
-                LightingAndObscurementContext.SwitchInvisibleCreaturesCanBeTarget();
             }
 
             toggle = Main.Settings.OfficialObscurementRulesCancelAdvDisPairs;
@@ -210,6 +209,14 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
+            SrdAndHouseRulesContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
+        }
+
         toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
         {
@@ -280,6 +287,13 @@ internal static class RulesDisplay
         }
 
         UI.Label();
+
+        toggle = Main.Settings.EnableOneDndHealingSpellsBuf;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOneDndHealingSpellsBuf"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOneDndHealingSpellsBuf = toggle;
+            SrdAndHouseRulesContext.SwitchOneDndHealingSpellsBuf();
+        }
 
         toggle = Main.Settings.FixRingOfRegenerationHealRate;
         if (UI.Toggle(Gui.Localize("ModUi/&FixRingOfRegenerationHealRate"), ref toggle, UI.AutoWidth()))

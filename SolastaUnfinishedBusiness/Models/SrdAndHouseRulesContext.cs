@@ -92,7 +92,9 @@ internal static class SrdAndHouseRulesContext
         SwitchFullyControlConjurations();
         SwitchHastedCasing();
         SwitchMagicStaffFoci();
+        SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         SwitchOfficialFoodRationsWeight();
+        SwitchOneDndHealingSpellsBuf();
         SwitchRecurringEffectOnEntangle();
         SwitchRingOfRegenerationHealRate();
         SwitchSchoolRestrictionsFromShadowCaster();
@@ -322,6 +324,27 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
+    internal static void SwitchAllowTargetingSelectionWhenCastingChainLightningSpell()
+    {
+        var spell = ChainLightning.EffectDescription;
+
+        if (Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell)
+        {
+            // This is half fix, half houses rules since it's not completely SRD but better than implemented.
+            // Spell should arc from target (range 150ft) onto upto 3 extra selectable targets (range 30ft from first).
+            // Fix by allowing 4 selectable targets.
+            spell.targetType = TargetType.IndividualsUnique;
+            spell.targetParameter = 4;
+            spell.effectAdvancement.additionalTargetsPerIncrement = 1;
+        }
+        else
+        {
+            spell.targetType = TargetType.ArcFromIndividual;
+            spell.targetParameter = 3;
+            spell.effectAdvancement.additionalTargetsPerIncrement = 0;
+        }
+    }
+
     internal static void SwitchOfficialFoodRationsWeight()
     {
         var foodSrdWeight = Food_Ration;
@@ -337,6 +360,21 @@ internal static class SrdAndHouseRulesContext
             foodSrdWeight.weight = 3.0f;
             foodForagedSrdWeight.weight = 3.0f;
         }
+    }
+
+    internal static void SwitchOneDndHealingSpellsBuf()
+    {
+        var dice = Main.Settings.EnableOneDndHealingSpellsBuf ? 2 : 1;
+
+        // Cure Wounds, Healing Word got buf on base damage and add dice
+        CureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        CureWounds.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
+        HealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        HealingWord.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
+
+        // Mass Cure Wounds and Mass Healing Word only got buf on base damage
+        MassCureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        MassHealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
     }
 
     internal static void SwitchFilterOnHideousLaughter()

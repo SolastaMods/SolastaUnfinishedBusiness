@@ -1,0 +1,16 @@
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormDescription=这个印记随时可以爆炸，造成 5D10 雷鸣伤害。
+Condition/&ConditionWayOfTheStormSoulEyeOfTheStormTitle=风暴印记
+Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsDescription=每当你使用疾风连击时，你也会获得撤离动作的好处。它提供的额外攻击会造成额外的闪电伤害，伤害值等于你的武艺骰。
+Feature/&AdditionalDamageWayOfTheStormSoulDiscipleOfStormsTitle=风暴门徒
+Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormDescription=每当你用武僧武器、徒手攻击或闪电牵引伤害一个生物时，你就会用挥之不去的传导能量标记该生物 1 分钟。你可以使用你的行动并花费 3 气来消耗每个生物上的标记，并对它们强制进行敏捷豁免检定（DC = 8 + 熟练加值 + 感知调整值）。如果豁免失败，每个生物都会受到 5d10 点闪电伤害（豁免一半）。
+Feature/&FeatureSetWayOfTheStormSoulEyeOfTheStormTitle=风暴之眼
+Feature/&FeatureSetWayOfTheStormSoulLightningWarriorDescription=你获得了对闪电伤害的抗性，并且你可以使用你的感知作为施法调整值来替换你的任何主要动作攻击来施放闪电牵引戏法，而无需任何成分。
+Feature/&FeatureSetWayOfTheStormSoulLightningWarriorTitle=闪电战士
+Feature/&PowerWayOfTheStormSoulLightningLureDescription=你可以使用你的感知作为施法关键属性来替换你的任何主要动作攻击来施放闪电牵引戏法，而无需任何成分。
+Feature/&PowerWayOfTheStormSoulLightningLureTitle=闪电牵引
+Feature/&PowerWayOfTheStormSoulTempestFuryDescription=你可以花费 1 气来替换疾风连击提供的奖励攻击之一，以攻击你周围 5 尺内的所有敌方生物。
+Feature/&PowerWayOfTheStormSoulTempestFuryTitle=风暴之怒
+Feedback/&AdditionalDamageDiscipleOfStormsFormat=风暴门徒！
+Feedback/&AdditionalDamageDiscipleOfStormsLine={0} 用闪电 (+{2}) 打击 {1}
+Subclass/&WayOfTheStormSoulDescription=颶魂宗的武僧生活在索拉斯塔最高的山顶上，他们使自己适应强大风暴的能量，并学习将闪电的力量引导到他们的存在中。这些武者们利用自己独特的门派，化身为一股肆无忌惮的风暴，毫不费力地操纵着战场，从一个敌人冲向另一个敌人，向他们释放出无数闪电般的攻击。
+Subclass/&WayOfTheStormSoulTitle=颶魂宗

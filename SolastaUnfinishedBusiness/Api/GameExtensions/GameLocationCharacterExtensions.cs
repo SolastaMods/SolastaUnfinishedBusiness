@@ -58,7 +58,7 @@ public static class GameLocationCharacterExtensions
             (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||
             (__instance.Side != target.Side && __instance.PerceivedFoes.Contains(target));
 
-        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules || !vanillaCanPerceive)
+        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules) // || !vanillaCanPerceive)
         {
             return vanillaCanPerceive;
         }
@@ -392,7 +392,63 @@ public static class GameLocationCharacterExtensions
         return false;
     }
 
+    private static void HandleMonkMartialArts(this GameLocationCharacter instance)
+    {
+        var rulesetCharacter = instance.RulesetCharacter;
+
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack ||
+            rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) == 0)
+        {
+            return;
+        }
+
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
+        var actionParams = new CharacterActionParams(instance, Id.SpendPower)
+        {
+            RulesetEffect = implementationManager
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+            UsablePower = usablePower
+        };
+
+        ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+    }
+
     internal static void BurnOneMainAttack(this GameLocationCharacter instance)
+    {
+        if (Gui.Battle == null)
+        {
+            return;
+        }
+
+        instance.HandleMonkMartialArts();
+
+        var rulesetCharacter = instance.RulesetCharacter;
+
+        // burn one main attack
+        instance.HasAttackedSinceLastTurn = true;
+        instance.UsedMainAttacks++;
+        rulesetCharacter.ExecutedAttacks++;
+        rulesetCharacter.RefreshAttackModes();
+
+        var maxAttacks = rulesetCharacter.AttackModes
+            .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
+
+        // if still attacks left - refund main action
+        if (instance.UsedMainAttacks < maxAttacks)
+        {
+            instance.currentActionRankByType[ActionType.Main]--;
+
+            return;
+        }
+
+        instance.CurrentActionRankByType[ActionType.Main]++;
+        instance.UsedMainAttacks = 0;
+    }
+
+    internal static void BurnOneBonusAttack(this GameLocationCharacter instance)
     {
         if (Gui.Battle == null)
         {
@@ -401,40 +457,21 @@ public static class GameLocationCharacterExtensions
 
         var rulesetCharacter = instance.RulesetCharacter;
 
-        if (!Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
-            rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) > 0)
-        {
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
-            var actionParams = new CharacterActionParams(instance, Id.SpendPower)
-            {
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower
-            };
-
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
-        }
-
-        // burn one main attack
+        // burn one bonus attack
         instance.HasAttackedSinceLastTurn = true;
-        instance.UsedMainAttacks++;
-        rulesetCharacter.ExecutedAttacks++;
+        instance.UsedBonusAttacks++;
+        rulesetCharacter.ExecutedBonusAttacks++;
         rulesetCharacter.RefreshAttackModes();
 
-        var maxAttacksNumber = rulesetCharacter.AttackModes
-            .Where(x => x.ActionType == ActionType.Main)
-            .Max(x => x.AttacksNumber);
+        var maxAttacks = rulesetCharacter.AttackModes
+            .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Bonus)?.AttacksNumber ?? 0;
 
-        if (maxAttacksNumber - instance.UsedMainAttacks > 0)
+        if (instance.UsedMainAttacks < maxAttacks)
         {
             return;
         }
 
-        instance.CurrentActionRankByType[ActionType.Main]++;
-        instance.UsedMainAttacks = 0;
+        instance.CurrentActionRankByType[ActionType.Bonus]++;
+        instance.UsedBonusAttacks = 0;
     }
 }

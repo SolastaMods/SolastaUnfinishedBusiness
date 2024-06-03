@@ -1,6 +1,6 @@
 Condition/&ConditionMarkedByArcanistDescription=Lorsqu'elle est touchée par le lanceur avec une attaque avec une arme, la marque explose, infligeant 1d6 dégâts de force à la personne touchée et détruisant la marque. À partir du niveau 11, les dégâts de votre détonation arcanique augmentent à 2d6.
 Condition/&ConditionMarkedByArcanistTitle=Marque de l'arcaniste
-Feature/&AdditionalDamageArcanistArcaneDetonationDescription=À partir du niveau 3, vous imprégnez vos armes d’un pouvoir arcanique. Les créatures touchées par vos attaques sont affligées par la Marque de l'Arcaniste.
+Feature/&AdditionalDamageArcanistArcaneDetonationDescription=À partir du niveau 3, vous imprégnez vos armes d'un pouvoir arcanique. Les créatures touchées par vos attaques sont affligées par la Marque de l'Arcaniste.
 Feature/&AdditionalDamageArcanistArcaneDetonationTitle=Détonation arcanique
 Feature/&AdditionalDamageArcanistArcaneDetonationUpgradeDescription=À partir du niveau 11, les dégâts de votre détonation arcanique augmentent à 2d6.
 Feature/&AdditionalDamageArcanistArcaneDetonationUpgradeTitle=Détonation arcanique supérieure

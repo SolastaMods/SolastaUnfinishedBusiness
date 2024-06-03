@@ -210,6 +210,9 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkDoNotRequireAttackActionForFlurry { get; set; }
     public bool EnableMonkFightingStyle { get; set; }
     public bool EnableMonkImprovedUnarmoredMovementToMoveOnTheWall { get; set; }
+    public bool EnableMonkHeightenedMetabolism { get; set; }
+    public bool EnableMonkSuperiorDefenseToReplaceEmptyBody { get; set; }
+    public bool EnableMonkBodyAndMindToReplacePerfectSelf { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
@@ -257,6 +260,7 @@ public class Settings : UnityModManager.ModSettings
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
+    public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
     public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
@@ -267,6 +271,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseHeightOneCylinderEffect { get; set; }
     public bool FixEldritchBlastRange { get; set; }
     public bool FixRingOfRegenerationHealRate { get; set; }
+    public bool EnableOneDndHealingSpellsBuf { get; set; }
 
     // House
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }

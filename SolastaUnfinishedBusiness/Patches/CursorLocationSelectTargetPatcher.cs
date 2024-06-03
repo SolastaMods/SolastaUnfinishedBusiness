@@ -4,13 +4,14 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Spells;
 using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Subclasses.SorcerousFieldManipulator;
+using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -67,7 +68,7 @@ public static class CursorLocationSelectTargetPatcher
                 var familiar = Gui.Battle.AllContenders
                     .FirstOrDefault(x =>
                         x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
-                        rulesetCharacterMonster.MonsterDefinition.Name == SpellBuilders.OwlFamiliar &&
+                        rulesetCharacterMonster.MonsterDefinition.Name == OwlFamiliar &&
                         rulesetCharacterMonster.AllConditions.Exists(y =>
                             y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
                             y.SourceGuid == actingCharacter.Guid));
@@ -105,11 +106,12 @@ public static class CursorLocationSelectTargetPatcher
             GameLocationCharacter target)
         {
             var actionParams = __instance.actionParams;
-            var canBeUsedToAttack = actionParams?.RulesetEffect
-                ?.SourceDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>()?.CanBeUsedToAttack;
+            var attackAfterMagicEffect =
+                actionParams?.RulesetEffect?.SourceDefinition.GetFirstSubFeatureOfType<AttackAfterMagicEffect>();
 
-            if (canBeUsedToAttack == null || canBeUsedToAttack(__instance, actionParams.actingCharacter, target,
-                    out var failure))
+            if (attackAfterMagicEffect == null ||
+                AttackAfterMagicEffect.CanBeUsedToAttack(
+                    __instance, actionParams.actingCharacter, target, out var failure))
             {
                 return true;
             }

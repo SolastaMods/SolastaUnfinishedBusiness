@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
@@ -247,7 +248,8 @@ public static class ActionSwitching
         character.RulesetCharacter?.RefreshAttackModes();
     }
 
-    internal static void CheckIfActionSwitched(GameLocationCharacter character,
+    internal static void CheckIfActionSwitched(
+        GameLocationCharacter character,
         CharacterActionParams actionParams,
         ActionDefinitions.ActionScope scope,
         int mainRank, int mainAttacks, int bonusRank, int bonusAttacks)
@@ -257,14 +259,36 @@ public static class ActionSwitching
             return;
         }
 
+        if (character.Side != RuleDefinitions.Side.Ally)
+        {
+            return;
+        }
+
         if (scope != ActionDefinitions.ActionScope.Battle)
         {
             return;
         }
 
-        if (character.Side != RuleDefinitions.Side.Ally)
+        //supports for action switching interaction with war magic and MetamagicQuickenedSpell
+        if (actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell)
         {
-            return;
+            if (rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
+            {
+                // ensure we block double dip on bonus spells if metamagic is present
+                character.UsedBonusSpell = true;
+                character.UsedMainSpell = true;
+            }
+
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+            switch (actionParams.ActionDefinition.ActionType)
+            {
+                case ActionDefinitions.ActionType.Main when rulesetEffectSpell.SpellDefinition.SpellLevel > 0:
+                    character.UsedBonusSpell = true;
+                    break;
+                case ActionDefinitions.ActionType.Bonus:
+                    character.UsedMainSpell = true;
+                    break;
+            }
         }
 
         var type = actionParams.ActionDefinition.ActionType;

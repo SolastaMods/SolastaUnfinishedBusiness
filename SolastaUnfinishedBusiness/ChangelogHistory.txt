@@ -1,3 +1,24 @@
+1.5.97.12:
+
+- added Gameplay > Character > 'Enable Monk Heightened Metabolism at level 10' setting
+- added Gameplay > Character > 'Enable Monk Superior Defense to replace Empty Body at level 18' setting
+- added Gameplay > Character > 'Enable Monk Body and Mind to replace Perfect Self at level 20' setting
+- added Gameplay > Rules > 'Enable OneDnd healing dice buff' setting
+- added Borrowed Knowledge, Kinetic Jaunt, Intellect Fortress, and Psionic Blast spells
+- added Great Weapon Defense and Whirlwind Attack feats
+- added Infestation, Lightning Lure, Primal Savagery, and Starry Wisp cantrips
+- added Patron Archfey and Way of Storm Soul [Tempest rework] subclasses
+- fixed Booming Blade interaction with War Caster feat to immediately attack and allow sheathed explosion
+- fixed Innovation Vivisectionist medical accuracy to work with any weapon, and organ donation to be once per short
+- fixed Patron Riftwalker rift strike to banish enemy instead of self
+- fixed Way of Freedom displaying additional flurry of blow actions on levels 3 and 11 [VANILLA]
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [won't fix]
+- Artillerist Fortified Position medium cannon doesn't grant buff to self [won't fix]
+- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [won't fix]
+
 1.5.97.11:
 
 - fixed Chain Lighting to not consider allies on bounce damage
@@ -15,12 +36,6 @@
 - fixed Thunderstep spell interaction with Transmuted metamagic
 - fixed Thunderstep spell to only allow target allies within 5ft
 - fixed Wizard War Magic durable magic feature to add +2 on concentration checks
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [won't fix]
-- Artillerist Fortified Position medium cannon doesn't grant buff to self [won't fix]
-- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [won't fix]
 
 1.5.97.10 - Os cães ladram e a caravana passa:
 

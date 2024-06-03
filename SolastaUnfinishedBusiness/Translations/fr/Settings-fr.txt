@@ -31,6 +31,7 @@ ModUi/&AllowHasteCasting=Autoriser le lancement de sorts avec une action supplé
 ModUi/&AllowHornsOnAllRaces=Autoriser les klaxons sur toutes les courses <i><color=#F0DAA0>[les résultats peuvent paraître terribles selon la race, la tête et le klaxon]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Autoriser davantage d'état réel sur le panneau de repos <i><color=#F0DAA0>[masquer les actions après le repos sur le panneau avant et les fonctionnalités de récupération sur le panneau après]</color></i>
 ModUi/&AllowStackedMaterialComponent=Autoriser les composants de matériaux empilés <i><color=#F0DAA0>[par ex. 2x500gp diamant équivaut à 1000gp diamant]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélection de cible lors du lancement du sort <color=#D89555>Chaîne d'éclairs</color>
 ModUi/&AllowUnmarkedSorcerers=Autoriser <color=#D89555>Sorcier</color> sans marques d'origine ni tatouages
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Permettre au <color=#D89555>Bâton de bouclier arcanique</color> d'être harmonisé par n'importe quelle classe.
@@ -137,12 +138,16 @@ ModUi/&EnableLogDialoguesToConsole=Activer les dialogues de journal sur la conso
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Activer la journalisation des références invalides dans les campagnes personnalisées
 ModUi/&EnableMinInOutAttributes=<i>+ Imposer les scores de capacité minimum à l'entrée et à la sortie</i>
 ModUi/&EnableMonkAbundantKi=Activer <color=#D89555>Moine</color> <b>Ki abondant</b> au niveau 2 <i><color=#F0DAA0>[gagner du Ki supplémentaire égal à la moitié du bonus de compétence arrondi au supérieur]</color> </i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=Activez <color=#D89555>Moine</color> <b>Corps et esprit</b> pour remplacer <b>Perfect Self</b> au niveau 20.
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Activez <color=#D89555>Moine</color> <b>Arts martiaux - Bonus de frappes à mains nues</b> pour ne pas nécessiter d'action d'attaque avant utilisation.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Activez <color=#D89555>Moine</color> <b>Flurry of Blows</b> pour ne pas nécessiter d'action d'attaque avant utilisation.
 ModUi/&EnableMonkFightingStyle=Activer le choix <color=#D89555>Moine</color> <b>Style de combat</b> au niveau 2
+ModUi/&EnableMonkHeightenedMetabolism=Activer <color=#D89555>Moine</color> <b>Métabolisme accru</b> au niveau 10 <i><color=#F0DAA0>[<b>Rafale de coups</b>, <b>Défense du patient </b> et <b>Pas du Vent</b> gagnent des avantages supplémentaires]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Permet au <color=#D89555>Moine</color> <b>Mouvement sans armure amélioré</b> de se déplacer le long des surfaces verticales sans tomber.
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=Activez <color=#D89555>Moine</color> <b>Défense supérieure</b> pour remplacer <b>Corps vide</b> au niveau 18
 ModUi/&EnableMonkWeaponSpecialization=Activez la <color=#D89555>Moine</color> <b>Spécialisation d'arme</b> aux niveaux 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer le multiclasse <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=Activez le bonus des dés de guérison OneDnd sur <color=#D89555>Cure Wounds</color>, <color=#D89555>Healing Word</color>, <color=#D89555>Mass Cure Wounds</color> et <color= #D89555>Mot de guérison de masse</color>
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme de générateur aléatoire <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=Activez la fonctionnalité <color=#D89555>Ranger</color> <b>Voile de la nature</b> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour. ]</color></i>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 personnes ]</color></i>

@@ -1,7 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -52,16 +53,18 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .SetNotificationTag("MedicalAccuracy")
             .SetDamageDice(DieType.D6, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetAttackModeOnly()
             .AddToDB();
 
         // Emergency Surgery
 
         var powerEmergencySurgery = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EmergencySurgery")
-            .SetGuiPresentation(Category.Feature, PowerDomainInsightForeknowledge)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerEmergencySurgery", Resources.PowerEmergencySurgery, 256, 128))
             .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -73,6 +76,9 @@ public sealed class InnovationVivisectionist : AbstractSubclass
                             .SetHealingForm(
                                 HealingComputation.Dice, 0, DieType.D6, 1, false, HealingCap.MaximumHitPoints)
                             .Build())
+                    .SetCasterEffectParameters(new AssetReference())
+                    .SetImpactEffectParameters(PowerTraditionOpenHandWholenessOfBody
+                        .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
@@ -127,7 +133,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
         var powerOrganDonation = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}OrganDonation")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
         powerOrganDonation.AddCustomSubFeatures(
@@ -264,11 +270,18 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePowerEmergencyCure = PowerProvider.Get(powerEmergencyCure, rulesetAttacker);
+            var usablePowerEmergencySurgery = PowerProvider.Get(powerEmergencySurgery, rulesetAttacker);
 
-            if (rulesetAttacker.GetRemainingPowerUses(powerOrganDonation) == 0)
+            if (rulesetAttacker.GetRemainingPowerUses(powerOrganDonation) == 0 ||
+                !attacker.OncePerTurnIsValid(powerOrganDonation.Name) ||
+                (usablePowerEmergencyCure.MaxUses == usablePowerEmergencyCure.RemainingUses &&
+                 usablePowerEmergencySurgery.MaxUses == usablePowerEmergencySurgery.RemainingUses))
             {
                 yield break;
             }
+
+            attacker.UsedSpecialFeatures.TryAdd(powerOrganDonation.Name, 0);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var implementationManager =
@@ -293,15 +306,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UsePower(usablePower);
-            rulesetAttacker.LogCharacterUsedPower(powerOrganDonation);
-
-            var usablePowerEmergencyCure = PowerProvider.Get(powerEmergencyCure, rulesetAttacker);
-
             rulesetAttacker.RepayPowerUse(usablePowerEmergencyCure);
-
-            var usablePowerEmergencySurgery = PowerProvider.Get(powerEmergencySurgery, rulesetAttacker);
-
             rulesetAttacker.RepayPowerUse(usablePowerEmergencySurgery);
         }
     }

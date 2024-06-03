@@ -31,6 +31,7 @@ ModUi/&AllowHasteCasting=追加のアクションを持つ呪文をヘイスト�
 ModUi/&AllowHornsOnAllRaces=すべての種族で角を許可します <i><color=#F0DAA0>[種族、頭、角によっては結果がひどいものになる可能性があります]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=残りのパネルでより実際の状態を許可します<i><color=#F0DAA0>[前のパネルでは休憩後のアクションを非表示にし、後のパネルでは回復機能を非表示にします]</color></i>
 ModUi/&AllowStackedMaterialComponent=スタックされたマテリアル コンポーネントを許可します<i><color=#F0DAA0>[例: 2x500gp ダイヤモンドは 1000gp ダイヤモンドに相当します]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>チェインライトニング</color>呪文を唱える際にターゲット選択を許可します
 ModUi/&AllowUnmarkedSorcerers=起源のマークやタトゥーのない<color=#D89555>魔術師</color>を許可する
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> キーはパーティの視野内のガジェットのみを強調表示します<i><color=#F0DAA0>[カスタム ダンジョンのみ]</color></i>
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>アルケイン・シールドスタッフ</color>をどのクラスでも調整できるようにする
@@ -137,12 +138,16 @@ ModUi/&EnableLogDialoguesToConsole=物語シーケンス中にゲームコンソ
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=カスタム キャンペーンで無効な参照のログを有効にする
 ModUi/&EnableMinInOutAttributes=<i>+ 前提条件の内外での能力スコアの最小値を強制する</i>
 ModUi/&EnableMonkAbundantKi=<color=#D89555>モンク</color> の<b>豊富な気力</b>をレベル 2 で有効にします<i><color=#F0DAA0>[熟練度ボーナスの切り上げの半分に等しい追加気力を獲得]</color> </i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=レベル 20 で<color=#D89555>モンク</color>の<b>肉体と精神</b>を<b>完璧な自己</b>に置き換えられるようにします
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>モンク</color>の<b>格闘技 - ボーナス素手攻撃</b>を有効にすると、使用前に攻撃アクションが不要になります。
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>モンク</color> の<b>連打</b>を有効にして、使用前に攻撃アクションを必要としないようにします
 ModUi/&EnableMonkFightingStyle=レベル 2 で<color=#D89555>モンク</color>の<b>戦闘スタイル</b>の選択が可能になります
+ModUi/&EnableMonkHeightenedMetabolism=<color=#D89555>モンク</color> の<b>新陳代謝の向上</b>をレベル 10 で有効にします。 <i><color=#F0DAA0>[<b>連打</b>、<b>患者の防御力] </b> と <b>風のステップ</b> には追加のメリットが得られます]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>モンク</color> の<b>非武装での移動の改善</b>が可能になり、落下せずに垂直面に沿って移動できるようになります
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=レベル18で<color=#D89555>モンク</color>の<b>優れた防御力</b>を有効にして<b>空の体</b>を置き換えます。
 ModUi/&EnableMonkWeaponSpecialization=レベル 2 と 11 で<color=#D89555>モンク</color>の<b>武器特化</b>を有効にします<i><color=#F0DAA0>[選択した武器タイプがモンク武器になります]</color></i>
 ModUi/&EnableMulticlass=マルチクラス <b><i><color=#C04040E0>[再起動が必要]</color></i></b> を有効にする
+ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>Cure Wounds</color>、<color=#D89555>Healing Word</color>、<color=#D89555>Mass Cure Wounds</color>、<color=#D89555>Mass Healing Word</color> で OneDnd ヒーリング ダイス バッファーを有効にします。
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=<color=#D89555>レンジャー</color> の<b>自然のベール</b>機能をレベル 10 で有効にします<i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法のように透明になることができます。 ]</color></i>
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color> を有効にすると、何も選択されていない場合、選択したヒーローまたはリーダーを中心としたパーティーに再参加できます<i><color=#F0DAA0>[5 人または 6 人のパーティーで便利です] ]</color></i>

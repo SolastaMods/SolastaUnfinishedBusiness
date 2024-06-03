@@ -20,5 +20,5 @@ Feature/&PowerSharedPoolCollegeOfLifeHealDescription=Utilisez votre Force de tra
 Feature/&PowerSharedPoolCollegeOfLifeHealTitle=Guérir
 Feature/&PowerSharedPoolCollegeOfLifeReviveDescription=Utilisez votre Force de transmutation pour faire revivre un personnage dans la minute qui suit sa mort.
 Feature/&PowerSharedPoolCollegeOfLifeReviveTitle=Relancer
-Subclass/&CollegeOfLifeDescription=Maîtres dans la manipulation de la matière et de l’énergie vitale.
+Subclass/&CollegeOfLifeDescription=Maîtres dans la manipulation de la matière et de l'énergie vitale.
 Subclass/&CollegeOfLifeTitle=Collège de la Vie

@@ -19,9 +19,6 @@ internal static class PickPocketContext
 
         _initialized = true;
 
-        var sleightOfHand = DatabaseHelper.SkillDefinitions.SleightOfHand;
-        sleightOfHand.GuiPresentation.unusedInSolastaCOTM = false;
-
         var pickpocketTableLow = TreasureTableDefinitionBuilder
             .Create(RandomTreasureTableE2_Mundane_Ingredients, "PickPocketTableLow")
             .SetGuiPresentationNoContent()

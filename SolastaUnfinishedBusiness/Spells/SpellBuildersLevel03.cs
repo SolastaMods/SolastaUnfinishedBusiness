@@ -194,6 +194,59 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Intellect Fortress
+
+    internal static SpellDefinition BuildIntellectFortress()
+    {
+        const string NAME = "IntellectFortress";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionProtectedInsideMagicCircle)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create($"SavingThrowAffinity{NAME}")
+                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Wisdom,
+                        AttributeDefinitions.Charisma)
+                    .AddToDB(),
+                FeatureDefinitionDamageAffinitys.DamageAffinityPsychicResistance)
+            .AddToDB();
+
+        condition.GuiPresentation.description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.IntellectFortress, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
+                    .SetParticleEffectParameters(EnhanceAbility)
+                    .SetImpactEffectParameters(Aid)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Pulse Wave
 
     internal static SpellDefinition BuildPulseWave()
@@ -297,6 +350,57 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(VenomousSpike)
                     .SetEffectEffectParameters(InflictWounds)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Psionic Blast
+
+    internal static SpellDefinition BuildPsionicBlast()
+    {
+        const string NAME = "PsionicBlast";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsionicBlast, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
+                            .Build())
+                    .SetCasterEffectParameters(ViciousMockery)
+                    .SetImpactEffectParameters(DreadfulOmen)
                     .Build())
             .AddToDB();
 
@@ -1274,19 +1378,18 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionCorruptingBolt.AddCustomSubFeatures(
-            new ActionFinishedByEnemyCorruptingBolt(conditionCorruptingBolt, spell));
+            new ActionFinishedByContenderCorruptingBolt(conditionCorruptingBolt, spell));
 
         return spell;
     }
 
-    private sealed class ActionFinishedByEnemyCorruptingBolt(
+    private sealed class ActionFinishedByContenderCorruptingBolt(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionCorruptingBolt,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellCorruptingBolt)
-        : IActionFinishedByEnemy
+        SpellDefinition spellCorruptingBolt) : IActionFinishedByContender
     {
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
         {
             if (characterAction is CharacterActionCastSpell actionCastSpell &&
                 actionCastSpell.activeSpell.SpellDefinition == spellCorruptingBolt)

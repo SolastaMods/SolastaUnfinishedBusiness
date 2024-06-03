@@ -47,6 +47,7 @@ internal static class MeleeCombatFeats
         var featDefensiveDuelist = BuildDefensiveDuelist();
         var featDevastatingStrikes = BuildDevastatingStrikes();
         var featFellHanded = BuildFellHanded();
+        var featGreatWeaponDefense = BuildGreatWeaponDefense();
         var featLongSwordFinesse = BuildLongswordFinesse();
         var featOldTacticsDex = BuildOldTacticsDex();
         var featOldTacticsStr = BuildOldTacticsStr();
@@ -58,6 +59,8 @@ internal static class MeleeCombatFeats
         var featSlasherStr = BuildSlasherStr();
         var featSlasherDex = BuildSlasherDex();
         var featSpearMastery = BuildSpearMastery();
+        var featWhirlwindAttackDex = BuildWhirlWindAttackDex();
+        var featWhirlwindAttackStr = BuildWhirlWindAttackStr();
 
         feats.AddRange(
             FeatFencer,
@@ -70,6 +73,7 @@ internal static class MeleeCombatFeats
             featDefensiveDuelist,
             featDevastatingStrikes,
             featFellHanded,
+            featGreatWeaponDefense,
             featLongSwordFinesse,
             featOldTacticsDex,
             featOldTacticsStr,
@@ -80,7 +84,9 @@ internal static class MeleeCombatFeats
             featSavageAttack,
             featSlasherDex,
             featSlasherStr,
-            featSpearMastery);
+            featSpearMastery,
+            featWhirlwindAttackDex,
+            featWhirlwindAttackStr);
 
         var featGroupOldTactics = GroupFeats.MakeGroup("FeatGroupOldTactics", GroupFeats.OldTactics,
             featOldTacticsDex,
@@ -89,6 +95,12 @@ internal static class MeleeCombatFeats
         var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", GroupFeats.Slasher,
             featSlasherDex,
             featSlasherStr);
+
+        var featGroupWhirlwindAttack = GroupFeats.MakeGroupWithPreRequisite("FeatGroupWhirlWindAttack",
+            GroupFeats.WhirlwindAttack,
+            ValidatorsFeat.ValidateHasExtraAttack,
+            featWhirlwindAttackDex,
+            featWhirlwindAttackStr);
 
         GroupFeats.FeatGroupCrusher.AddFeats(
             featCrusherStr,
@@ -100,7 +112,8 @@ internal static class MeleeCombatFeats
 
         GroupFeats.FeatGroupDefenseCombat.AddFeats(
             featAlwaysReady,
-            featDefensiveDuelist);
+            featDefensiveDuelist,
+            featGreatWeaponDefense);
 
         GroupFeats.FeatGroupMeleeCombat.AddFeats(
             FeatFencer,
@@ -117,7 +130,11 @@ internal static class MeleeCombatFeats
             featSavageAttack,
             featSpearMastery,
             featGroupOldTactics,
-            featGroupSlasher);
+            featGroupSlasher,
+            featGroupWhirlwindAttack);
+
+        GroupFeats.FeatGroupSupportCombat.AddFeats(
+            featGreatWeaponDefense);
     }
 
     #region Reckless Attack
@@ -340,6 +357,162 @@ internal static class MeleeCombatFeats
                     ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
                     ValidatorsCharacter.HasMeleeWeaponInMainHand))
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Great Weapon Defense
+
+    private static FeatDefinitionWithPrerequisites BuildGreatWeaponDefense()
+    {
+        const string NAME = "FeatGreatWeaponDefense";
+
+        var combatAffinity = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+            .SetSituationalContext(SituationalContext.TargetIsEffectSource)
+            .AddToDB();
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionCursed)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(combatAffinity)
+            .AddToDB();
+
+        condition.AddCustomSubFeatures(new ActionFinishedByMeGreatWeaponDefense(condition));
+
+        var conditionSelf = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Self")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create("PowerGreatWeaponDefense")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerGreatWeaponDefense", Resources.PowerGreatWeaponDefense, 256, 128))
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(condition),
+                        EffectFormBuilder.ConditionForm(conditionSelf, ConditionForm.ConditionOperation.Add, true))
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerFunctionWandFearCommand)
+                    .SetImpactEffectParameters(FeatureDefinitionPowers.PowerBerserkerIntimidatingPresence)
+                    .Build())
+            .AddCustomSubFeatures(
+                ValidatorsValidatePowerUse.HasMainAttackAvailable,
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasFreeHandWithHeavyOrVersatileInMain))
+            .AddToDB();
+
+        conditionSelf.AddCustomSubFeatures(new ActionFinishedByMeGreatWeaponDefenseSelf(power, condition));
+
+        var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
+            .SetSituationalContext(ExtraSituationalContext.HasFreeHandWithHeavyOrVersatileInMain)
+            .AddToDB();
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(attributeModifierArmorClass, power)
+            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
+            .AddToDB();
+    }
+
+    private sealed class ActionFinishedByMeGreatWeaponDefense(ConditionDefinition condition) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
+
+            if (attacker != null &&
+                DistanceCalculation.GetDistanceFromCharacters(attacker, actingCharacter) > 1)
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+        }
+    }
+
+    private sealed class ActionFinishedByMeGreatWeaponDefenseSelf(
+        FeatureDefinitionPower power,
+        ConditionDefinition condition) : IActionFinishedByMe, IOnItemEquipped
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+
+            if (action is CharacterActionUsePower actionUsePower &&
+                actionUsePower.activePower.PowerDefinition == power)
+            {
+                actingCharacter.BurnOneMainAttack();
+            }
+
+            foreach (var enemy in Gui.Battle.GetContenders(actingCharacter)
+                         .Where(x => DistanceCalculation.GetDistanceFromCharacters(actingCharacter, x) > 1))
+            {
+                var rulesetEnemy = enemy.RulesetCharacter;
+
+                if (rulesetEnemy.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
+                {
+                    rulesetEnemy.RemoveCondition(activeCondition);
+                }
+            }
+        }
+
+        public void OnItemEquipped(RulesetCharacterHero hero)
+        {
+            if (ValidatorsCharacter.HasFreeHandWithHeavyOrVersatileInMain(hero) || Gui.Battle == null)
+            {
+                return;
+            }
+
+            var glc = GameLocationCharacter.GetFromActor(hero);
+
+            if (glc == null)
+            {
+                return;
+            }
+
+            foreach (var rulesetEnemy in Gui.Battle.GetContenders(glc)
+                         .Select(enemy => enemy.RulesetCharacter))
+            {
+                if (rulesetEnemy.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
+                {
+                    rulesetEnemy.RemoveCondition(activeCondition);
+                }
+            }
+        }
     }
 
     #endregion
@@ -763,7 +936,7 @@ internal static class MeleeCombatFeats
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Einar)
-            .AddCustomSubFeatures(new ActionFinishedByEnemyOldTactics())
+            .AddCustomSubFeatures(new ActionFinishedByContenderOldTactics())
             .SetFeatFamily(GroupFeats.OldTactics)
             .AddToDB();
     }
@@ -776,14 +949,14 @@ internal static class MeleeCombatFeats
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Misaye)
-            .AddCustomSubFeatures(new ActionFinishedByEnemyOldTactics())
+            .AddCustomSubFeatures(new ActionFinishedByContenderOldTactics())
             .SetFeatFamily(GroupFeats.OldTactics)
             .AddToDB();
     }
 
-    private sealed class ActionFinishedByEnemyOldTactics : IActionFinishedByEnemy
+    private sealed class ActionFinishedByContenderOldTactics : IActionFinishedByContender
     {
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -1947,6 +2120,115 @@ internal static class MeleeCombatFeats
                 0,
                 0,
                 0);
+        }
+    }
+
+    #endregion
+
+    #region Whirlwind Attack
+
+    private static readonly FeatureDefinition PowerWhirlWindAttack = FeatureDefinitionPowerBuilder
+        .Create("PowerWhirlWindAttack")
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerWhirlWindAttack", Resources.PowerWhirlWindAttack, 256, 128))
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+                .Build())
+        .AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.HasMainAttackAvailable,
+            new ValidatorsValidatePowerUse(
+                ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
+            new MagicEffectFinishedByMeWhirlWindAttack())
+        .AddToDB();
+
+    private static FeatDefinitionWithPrerequisites BuildWhirlWindAttackDex()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatWhirlWindAttackDex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye, PowerWhirlWindAttack)
+            .SetFeatFamily(GroupFeats.WhirlwindAttack)
+            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
+            .AddToDB();
+    }
+
+    private static FeatDefinitionWithPrerequisites BuildWhirlWindAttackStr()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatWhirlWindAttackStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar, PowerWhirlWindAttack)
+            .SetFeatFamily(GroupFeats.WhirlwindAttack)
+            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
+            .AddToDB();
+    }
+
+    private sealed class MagicEffectFinishedByMeWhirlWindAttack : IMagicEffectFinishedByMe, IValidatePowerUse
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var targets = Gui.Battle.GetContenders(actingCharacter, withinRange: 1);
+
+            if (targets.Count == 0)
+            {
+                yield break;
+            }
+
+            var attackModeMain = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackModeMain == null)
+            {
+                yield break;
+            }
+
+            //get copy to be sure we don't break existing mode
+            var attackMode = RulesetAttackMode.AttackModesPool.Get();
+
+            attackMode.Copy(attackModeMain);
+            attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
+
+            //remove additional ability score modifier damage
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+            var modifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                actingCharacter.RulesetCharacter.TryGetAttributeValue(attackMode.AbilityScore));
+
+            if (modifier > 0)
+            {
+                damageForm.BonusDamage -= modifier;
+            }
+
+            actingCharacter.BurnOneMainAttack();
+            actingCharacter.UsedSpecialFeatures.TryAdd("PowerWhirlWindAttack", 0);
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var target in targets)
+            {
+                var attackModifier = new ActionModifier();
+                var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree)
+                {
+                    AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
+                };
+
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParams, null, true);
+            }
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            var glc = GameLocationCharacter.GetFromActor(character);
+
+            return glc != null && glc.OncePerTurnIsValid("PowerWhirlWindAttack");
         }
     }
 

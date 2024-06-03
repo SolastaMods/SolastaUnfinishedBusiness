@@ -1766,7 +1766,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetFeatures(damageAffinitySkinOfRetribution)
             .SetTerminateWhenRemoved()
-            .AddCustomSubFeatures(new ActionFinishedByEnemySkinOfRetribution())
+            .AddCustomSubFeatures(new ActionFinishedByContenderSkinOfRetribution())
             .CopyParticleReferences(PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
 
@@ -1823,9 +1823,9 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class ActionFinishedByEnemySkinOfRetribution : IActionFinishedByEnemy
+    private sealed class ActionFinishedByContenderSkinOfRetribution : IActionFinishedByContender
     {
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
         {
             HandleSkinOfRetribution();
 

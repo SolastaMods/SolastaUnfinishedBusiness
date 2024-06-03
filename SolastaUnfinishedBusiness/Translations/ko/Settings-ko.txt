@@ -31,6 +31,7 @@ ModUi/&AllowHasteCasting=추가 행동이 포함된 주문의 시전이 가속�
 ModUi/&AllowHornsOnAllRaces=모든 인종에 경적 허용 <i><color=#F0DAA0>[인종, 머리, 경적에 따라 결과가 끔찍해 보일 수 있음]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=나머지 패널에서 더 많은 실제 상태 허용 <i><color=#F0DAA0>[전 패널의 휴식 작업 후 숨기기 및 후 패널의 복구 기능]</color></i>
 ModUi/&AllowStackedMaterialComponent=스택된 재료 구성요소 허용 <i><color=#F0DAA0>[예: 2x500gp 다이아몬드는 1000gp 다이아몬드와 같습니다.]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>연쇄 번개</color> 주문 시전 시 대상 선택 허용
 ModUi/&AllowUnmarkedSorcerers=원산지 표시와 문신 없이 <color=#D89555>Sorcerer</color>를 허용합니다.
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 키만 파티 시야에 있는 가젯을 강조 표시합니다. <i><color=#F0DAA0>[사용자 정의 던전만 해당]</color></i>
 ModUi/&ArcaneShieldstaffOptions=모든 클래스가 <color=#D89555>아케인 쉴드스태프</color>를 조정할 수 있도록 허용
@@ -137,12 +138,16 @@ ModUi/&EnableLogDialoguesToConsole=내러티브 시퀀스 중에 게임 콘솔�
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=맞춤 캠페인에서 잘못된 참조 기록 활성화
 ModUi/&EnableMinInOutAttributes=<i>+ 능력 점수 최소 입력 및 출력 전제 조건 시행</i>
 ModUi/&EnableMonkAbundantKi=레벨 2에서 <color=#D89555>몽크</color> <b>풍부한 Ki</b> 활성화 <i><color=#F0DAA0>[숙련 보너스 반올림에 해당하는 추가 Ki 획득]</color> </i>
+ModUi/&EnableMonkBodyAndMindToReplacePerfectSelf=<color=#D89555>수도사</color> <b>몸과 정신</b>을 활성화하여 레벨 20에서 <b>완벽한 자아</b>를 대체하세요.
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>몽크</color> <b>무술 - 보너스 비무장 공격</b>을 활성화하여 사용 전에 공격 조치가 필요하지 않도록 하세요.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>몽크</color> <b>Flurry of Blows</b>를 활성화하면 사용 전에 공격 조치가 필요하지 않습니다.
 ModUi/&EnableMonkFightingStyle=레벨 2에서 <color=#D89555>몽크</color> <b>격투 스타일</b> 선택 활성화
+ModUi/&EnableMonkHeightenedMetabolism=레벨 10 <i><color=#F0DAA0>[<b>폭풍의 타격</b>, <b>환자 방어에서 <color=#D89555>몽크</color> <b>신진대사 강화</b> 활성화 </b> 및 <b>바람의 발걸음</b>은 추가 혜택을 얻습니다.]</color></i>
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=추락하지 않고 수직 표면을 따라 이동하려면 <color=#D89555>몽크</color> <b>향상된 비무장 이동</b>을 활성화하세요.
+ModUi/&EnableMonkSuperiorDefenseToReplaceEmptyBody=레벨 18에서 <b>Empty Body</b>를 대체하려면 <color=#D89555>몽크</color> <b>우수 방어</b>를 활성화하세요.
 ModUi/&EnableMonkWeaponSpecialization=레벨 2와 11에서 <color=#D89555>몽크</color> <b>무기 전문화</b>를 활성화하세요. <i><color=#F0DAA0>[선택한 무기 유형이 몽크 무기가 됩니다]</color></i>
 ModUi/&EnableMulticlass=멀티클래스 활성화 <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
+ModUi/&EnableOneDndHealingSpellsBuf=<color=#D89555>상처 치료</color>, <color=#D89555>치유의 말씀</color>, <color=#D89555>상처 대량 치료</color> 및 <color=에서 OneDnd 치유 주사위 버프를 활성화하세요. #D89555>대량 치유의 말씀</color>
 ModUi/&EnablePcgRandom=더 나은 무작위 생성기 알고리즘 활성화 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=레벨 10에서 <color=#D89555>레인저</color> <b>자연의 장막</b> 기능을 활성화하세요. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법처럼 투명해질 수 있습니다 ]</color></i>
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color>을 활성화하면 선택한 영웅이나 리더를 중심으로 파티에 다시 합류할 수 있습니다. <i><color=#F0DAA0>[5인 또는 6인 파티에 유용합니다. ]</color></i>

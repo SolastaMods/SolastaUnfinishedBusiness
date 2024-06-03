@@ -1,4 +1,4 @@
-Feature/&BonusCantripElementalistMinorElementalDescription=Votre contrôle sur les énergies élémentaires a augmenté au point que vous dominez désormais les élémentaux les plus faibles. Vous pouvez lancer une conjuration d’élémentaire mineur à volonté.
+Feature/&BonusCantripElementalistMinorElementalDescription=Votre contrôle sur les énergies élémentaires a augmenté au point que vous dominez désormais les élémentaux les plus faibles. Vous pouvez lancer une conjuration d'élémentaire mineur à volonté.
 Feature/&BonusCantripElementalistMinorElementalTitle=Serviteurs élémentaires
 Feature/&ElementalPatronAirPlane=Avion
 Feature/&ElementalPatronEarthPlane=Plan terrestre

@@ -437,6 +437,9 @@
     <EnableMonkDoNotRequireAttackActionForFlurry>true</EnableMonkDoNotRequireAttackActionForFlurry>
     <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
     <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>true</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
+    <EnableMonkHeightenedMetabolism>true</EnableMonkHeightenedMetabolism>
+    <EnableMonkSuperiorDefenseToReplaceEmptyBody>true</EnableMonkSuperiorDefenseToReplaceEmptyBody>
+    <EnableMonkBodyAndMindToReplacePerfectSelf>true</EnableMonkBodyAndMindToReplacePerfectSelf>
     <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
     <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
@@ -479,6 +482,7 @@
     <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
+    <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
     <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
     <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>true
@@ -490,6 +494,7 @@
     <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
     <FixEldritchBlastRange>true</FixEldritchBlastRange>
     <FixRingOfRegenerationHealRate>true</FixRingOfRegenerationHealRate>
+    <EnableOneDndHealingSpellsBuf>true</EnableOneDndHealingSpellsBuf>
     <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
     <IdentifyAfterRest>true</IdentifyAfterRest>
     <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
@@ -899,7 +904,7 @@
                     <string>WayOfTheDiscordance</string>
                     <string>WayOfTheDragon</string>
                     <string>WayOfSilhouette</string>
-                    <string>WayOfTheTempest</string>
+                    <string>WayOfTheStormSoul</string>
                     <string>WayOfWealAndWoe</string>
                     <string>WayOfZenArchery</string>
                 </ArrayOfString>
@@ -974,6 +979,7 @@
             </key>
             <value>
                 <ArrayOfString>
+                    <string>PatronArchfey</string>
                     <string>PatronCelestial</string>
                     <string>PatronEldritchSurge</string>
                     <string>PatronElementalist</string>
@@ -1062,6 +1068,7 @@
         <string>FeatGroupFlamesOfPhlegethos</string>
         <string>FeatFrostAdaptation</string>
         <string>FeatGiftOfTheChromaticDragon</string>
+        <string>FeatGreatWeaponDefense</string>
         <string>FeatCleavingAttack</string>
         <string>FeatGroupGrudgeBearer</string>
         <string>FeatGroupHardy</string>
@@ -1123,6 +1130,7 @@
         <string>FeatEldritchVersatilityAdept</string>
         <string>FeatWarCaster</string>
         <string>FeatGroupWeaponMaster</string>
+        <string>FeatGroupWhirlWindAttack</string>
         <string>FeatZenArcher</string>
         <string>FeatWoodElfMagic</string>
     </FeatEnabled>
@@ -1312,11 +1320,15 @@
                     <string>BladeWard</string>
                     <string>IlluminatingSphere</string>
                     <string>MinorLifesteal</string>
+                    <string>StarryWisp</string>
                     <string>ThunderStrike</string>
                     <string>EarthTremor</string>
                     <string>Mule</string>
+                    <string>BorrowedKnowledge</string>
                     <string>CloudOfDaggers</string>
+                    <string>KineticJaunt</string>
                     <string>MirrorImage</string>
+                    <string>IntellectFortress</string>
                     <string>BlessingOfRime</string>
                     <string>BrainBulwark</string>
                     <string>IrresistiblePerformance</string>
@@ -1340,6 +1352,7 @@
                     <string>BurstOfRadiance</string>
                     <string>Wrack</string>
                     <string>Sanctuary</string>
+                    <string>BorrowedKnowledge</string>
                     <string>ProtectThreshold</string>
                     <string>AuraOfLife</string>
                     <string>VitalityTransfer</string>
@@ -1360,6 +1373,9 @@
                 <ArrayOfString>
                     <string>AcidClaws</string>
                     <string>AirBlast</string>
+                    <string>Infestation</string>
+                    <string>PrimalSavagery</string>
+                    <string>StarryWisp</string>
                     <string>ThornyVines</string>
                     <string>ThunderStrike</string>
                     <string>ElementalInfusion</string>
@@ -1393,6 +1409,7 @@
                 <ArrayOfString>
                     <string>BoomingBlade</string>
                     <string>ResonatingStrike</string>
+                    <string>LightningLure</string>
                     <string>SunlightBlade</string>
                     <string>SwordStorm</string>
                     <string>ThornyVines</string>
@@ -1402,9 +1419,11 @@
                     <string>Sanctuary</string>
                     <string>VileBrew</string>
                     <string>ColorBurst</string>
+                    <string>KineticJaunt</string>
                     <string>SpellWeb</string>
                     <string>ElementalWeapon</string>
                     <string>FlameArrows</string>
+                    <string>IntellectFortress</string>
                     <string>BrainBulwark</string>
                     <string>FaithfulHound</string>
                 </ArrayOfString>
@@ -1469,6 +1488,8 @@
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
+                    <string>Infestation</string>
+                    <string>LightningLure</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
                     <string>SunlightBlade</string>
@@ -1486,6 +1507,7 @@
                     <string>AganazzarScorcher</string>
                     <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
+                    <string>KineticJaunt</string>
                     <string>MirrorImage</string>
                     <string>NoxiousSpray</string>
                     <string>BindingIce</string>
@@ -1497,6 +1519,8 @@
                     <string>AdderFangs</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
+                    <string>IntellectFortress</string>
+                    <string>PsionicBlast</string>
                     <string>BoomingStep</string>
                     <string>WinterBreath</string>
                     <string>BrainBulwark</string>
@@ -1525,6 +1549,8 @@
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
                     <string>ResonatingStrike</string>
+                    <string>Infestation</string>
+                    <string>LightningLure</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
                     <string>SunlightBlade</string>
@@ -1535,6 +1561,7 @@
                     <string>VoidGrasp</string>
                     <string>Mule</string>
                     <string>WitchBolt</string>
+                    <string>BorrowedKnowledge</string>
                     <string>CloudOfDaggers</string>
                     <string>MirrorImage</string>
                     <string>NoxiousSpray</string>
@@ -1542,6 +1569,8 @@
                     <string>AdderFangs</string>
                     <string>CorruptingBolt</string>
                     <string>HungerOfTheVoid</string>
+                    <string>IntellectFortress</string>
+                    <string>PsionicBlast</string>
                     <string>SpiritShroud</string>
                     <string>BoomingStep</string>
                     <string>BrainBulwark</string>
@@ -1575,6 +1604,8 @@
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
+                    <string>Infestation</string>
+                    <string>LightningLure</string>
                     <string>MindSpike</string>
                     <string>MinorLifesteal</string>
                     <string>EnduringSting</string>
@@ -1595,8 +1626,10 @@
                     <string>VileBrew</string>
                     <string>WitchBolt</string>
                     <string>AganazzarScorcher</string>
+                    <string>BorrowedKnowledge</string>
                     <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
+                    <string>KineticJaunt</string>
                     <string>MirrorImage</string>
                     <string>NoxiousSpray</string>
                     <string>BindingIce</string>
@@ -1607,7 +1640,9 @@
                     <string>WitherAndBloom</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
+                    <string>IntellectFortress</string>
                     <string>VitalityTransfer</string>
+                    <string>PsionicBlast</string>
                     <string>PulseWave</string>
                     <string>SpiritShroud</string>
                     <string>BoomingStep</string>

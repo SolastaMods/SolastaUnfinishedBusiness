@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -14,11 +13,11 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
-using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -70,7 +69,7 @@ internal static class RaceLizardfolkBuilder
             .AddToDB();
 
         powerLizardfolkHungryJaws.AddCustomSubFeatures(
-            new AttackAfterMagicEffectHungryJaws(),
+            new MagicEffectFinishedByMeHungryJaws(),
             new PhysicalAttackFinishedByMeHungryJaws(powerLizardfolkHungryJaws));
 
         var racePresentation = Dragonborn.RacePresentation.DeepCopy();
@@ -102,45 +101,36 @@ internal static class RaceLizardfolkBuilder
     }
 
 
-    private sealed class AttackAfterMagicEffectHungryJaws : IAttackAfterMagicEffect
+    private sealed class MagicEffectFinishedByMeHungryJaws : IMagicEffectFinishedByMe
     {
-        private const int MaxAttacks = 1;
-
-        public IAttackAfterMagicEffect.CanAttackHandler CanAttack { get; } =
-            CanMeleeAttack;
-
-        public IAttackAfterMagicEffect.GetAttackAfterUseHandler PerformAttackAfterUse { get; } =
-            DefaultAttackHandler;
-
-        public IAttackAfterMagicEffect.CanUseHandler CanBeUsedToAttack { get; } =
-            DefaultCanUseHandler;
-
-        private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            return true;
-        }
-
-        [CanBeNull]
-        private static IEnumerable<CharacterActionParams> DefaultAttackHandler(
-            [CanBeNull] CharacterActionMagicEffect actionMagicEffect)
-        {
-            var attacks = new List<CharacterActionParams>();
-            var actionParams = actionMagicEffect?.ActionParams;
-
-            if (actionParams == null)
+            if (Gui.Battle == null)
             {
-                return attacks;
+                yield break;
             }
 
-            var caster = actionParams.ActingCharacter;
-            var targets = actionParams.TargetCharacters;
-            var rulesetCharacter = caster.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var targets = action.ActionParams.TargetCharacters
+                .Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    x.RulesetCharacter.HasConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, "ConditionHitByDirtyFighting"))
+                .ToList();
 
             if (targets.Count == 0)
             {
-                return attacks;
+                yield break;
             }
 
+            var attackModeMain = actingCharacter.FindActionAttackMode(Id.AttackMain);
+
+            if (attackModeMain == null)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
             var attackModifiers = rulesetCharacter switch
             {
                 RulesetCharacterHero hero => hero.attackModifiers,
@@ -161,32 +151,23 @@ internal static class RaceLizardfolkBuilder
 
             attackMode.HasPriority = true;
 
-            //get copy to be sure we don't break existing mode
-            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-            rulesetAttackModeCopy.Copy(attackMode);
-
-            attackMode = rulesetAttackModeCopy;
+            attackMode.Copy(attackModeMain);
+            attackMode.ActionType = ActionType.NoCost;
             attackMode.AddAttackTagAsNeeded(TagHungryJaws);
-            ApplyAttackModeModifiers(caster, attackMode);
+            ApplyAttackModeModifiers(actingCharacter, attackMode);
 
-            var attackModifier = new ActionModifier();
-
-            foreach (var target in targets.Where(t => CanMeleeAttack(caster, t)))
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var target in targets)
             {
-                var attackActionParams =
-                    new CharacterActionParams(caster, Id.AttackFree) { AttackMode = attackMode };
-
-                attackActionParams.TargetCharacters.Add(target);
-                attackActionParams.ActionModifiers.Add(attackModifier);
-                attacks.Add(attackActionParams);
-
-                if (attackActionParams.TargetCharacters.Count >= MaxAttacks)
+                var attackModifier = new ActionModifier();
+                var actionParams = new CharacterActionParams(actingCharacter, Id.AttackFree)
                 {
-                    break;
-                }
-            }
+                    AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
+                };
 
-            return attacks;
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParams, null, true);
+            }
         }
 
         private static void ApplyAttackModeModifiers(
@@ -214,16 +195,6 @@ internal static class RaceLizardfolkBuilder
             {
                 modifier.ModifyAttackMode(hero, attackMode);
             }
-        }
-
-        private static bool DefaultCanUseHandler(
-            [NotNull] CursorLocationSelectTarget targeting,
-            GameLocationCharacter caster,
-            GameLocationCharacter target, [NotNull] out string failure)
-        {
-            failure = string.Empty;
-
-            return true;
         }
     }
 

@@ -9,6 +9,12 @@ namespace SolastaUnfinishedBusiness.Api;
 
 internal static partial class DatabaseHelper
 {
+    internal static class FeatureDefinitionMoveThroughEnemyModifiers
+    {
+        internal static FeatureDefinitionMoveThroughEnemyModifier MoveThroughEnemyModifierHalflingNimbleness { get; } =
+            GetDefinition<FeatureDefinitionMoveThroughEnemyModifier>("MoveThroughEnemyModifierHalflingNimbleness");
+    }
+
     internal static class FeatureDefinitionPerceptionAffinitys
     {
         internal static FeatureDefinitionPerceptionAffinity PerceptionAffinityConditionBlinded { get; } =
@@ -245,6 +251,9 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition RangerMarksman { get; } =
             GetDefinition<CharacterSubclassDefinition>("RangerMarksman");
 
+        internal static CharacterSubclassDefinition RangerShadowTamer { get; } =
+            GetDefinition<CharacterSubclassDefinition>("RangerShadowTamer");
+
         internal static CharacterSubclassDefinition RangerSwiftBlade { get; } =
             GetDefinition<CharacterSubclassDefinition>("RangerSwiftBlade");
 
@@ -293,6 +302,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionHolyAura { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHolyAura");
+
         internal static ConditionDefinition ConditionAcidArrowed { get; } =
             GetDefinition<ConditionDefinition>("ConditionAcidArrowed");
 
@@ -1668,6 +1680,12 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerPaladinCleansingTouch { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPaladinCleansingTouch");
+
+        internal static FeatureDefinitionPower PowerGreen_Hag_Invisibility { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerGreen_Hag_Invisibility");
+
         internal static FeatureDefinitionPower PowerPatronTimekeeperAccelerate { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperAccelerate");
 
@@ -1854,11 +1872,23 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerMonkFlurryOfBlows { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkFlurryOfBlows");
 
+        internal static FeatureDefinitionPower PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionFreedomFlurryOfBlowsSwiftStepsImprovement");
+
+        internal static FeatureDefinitionPower PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement");
+
         internal static FeatureDefinitionPower PowerMonkMartialArts { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkMartialArts");
 
         internal static FeatureDefinitionPower PowerMonkPatientDefense { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefense");
+
+        internal static FeatureDefinitionPower PowerMonkPatientDefenseSurvival3 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefenseSurvival3");
+
+        internal static FeatureDefinitionPower PowerMonkPatientDefenseSurvival6 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefenseSurvival6");
 
         internal static FeatureDefinitionPower PowerMonkStepOfTheWindDash { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkStepOfTheWindDash");
@@ -3485,20 +3515,6 @@ internal static partial class DatabaseHelper
 
         internal static SchoolOfMagicDefinition SchoolTransmutation { get; } =
             GetDefinition<SchoolOfMagicDefinition>("SchoolTransmutation");
-    }
-
-    internal static class SkillDefinitions
-    {
-        internal static SkillDefinition Acrobatics { get; } = GetDefinition<SkillDefinition>("Acrobatics");
-        internal static SkillDefinition AnimalHandling { get; } = GetDefinition<SkillDefinition>("AnimalHandling");
-        internal static SkillDefinition Arcana { get; } = GetDefinition<SkillDefinition>("Arcana");
-        internal static SkillDefinition Athletics { get; } = GetDefinition<SkillDefinition>("Athletics");
-        internal static SkillDefinition Intimidation { get; } = GetDefinition<SkillDefinition>("Intimidation");
-        internal static SkillDefinition Medecine { get; } = GetDefinition<SkillDefinition>("Medecine");
-        internal static SkillDefinition Nature { get; } = GetDefinition<SkillDefinition>("Nature");
-        internal static SkillDefinition Religion { get; } = GetDefinition<SkillDefinition>("Religion");
-        internal static SkillDefinition SleightOfHand { get; } = GetDefinition<SkillDefinition>("SleightOfHand");
-        internal static SkillDefinition Stealth { get; } = GetDefinition<SkillDefinition>("Stealth");
     }
 
     internal static class SlotTypeDefinitions

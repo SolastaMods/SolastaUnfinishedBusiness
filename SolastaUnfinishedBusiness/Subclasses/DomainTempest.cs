@@ -323,11 +323,11 @@ public sealed class DomainTempest : AbstractSubclass
     }
 
     private sealed class CustomBehaviorWrathOfTheStorm(FeatureDefinitionPower powerWrathOfTheStorm)
-        : IAttackBeforeHitPossibleOnMeOrAlly, IActionFinishedByEnemy
+        : IAttackBeforeHitPossibleOnMeOrAlly, IActionFinishedByContender
     {
         private bool _isValid;
 
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction action, GameLocationCharacter defender)
+        public IEnumerator OnActionFinishedByContender(CharacterAction action, GameLocationCharacter defender)
         {
             if (!_isValid)
             {

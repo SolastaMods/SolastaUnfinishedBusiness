@@ -198,6 +198,7 @@ internal static partial class CharacterContext
         LoadAdditionalNames();
         LoadEpicArray();
         LoadFeatsPointPools();
+        LoadMonkHeightenedMetabolism();
         LoadMonkWeaponSpecialization();
         LoadVision();
         LoadVisuals();
@@ -223,6 +224,9 @@ internal static partial class CharacterContext
         SwitchMonkDoNotRequireAttackActionForFlurry();
         SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
         SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
+        SwitchMonkHeightenedMetabolism();
+        SwitchMonkSuperiorDefenseToReplaceEmptyBody();
+        SwitchMonkBodyAndMindToReplacePerfectSelf();
         SwitchMonkWeaponSpecialization();
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchRangerHumanoidFavoredEnemy();
