@@ -4,7 +4,7 @@
 - added Gameplay > Character > 'Enable Monk Superior Defense to replace Empty Body at level 18' setting
 - added Gameplay > Character > 'Enable Monk Body and Mind to replace Perfect Self at level 20' setting
 - added Gameplay > Rules > 'Enable OneDnd healing dice buff' setting
-- added Borrowed Knowledge, Intellect Fortress, Kinetic Jaunt, and Psionic Blast spells
+- added Borrowed Knowledge, Kinetic Jaunt, Intellect Fortress, and Psionic Blast spells
 - added Great Weapon Defense and Whirlwind Attack feats
 - added Infestation, Lightning Lure, Primal Savagery, and Starry Wisp cantrips
 - added Patron Archfey and Way of Storm Soul [Tempest rework] subclasses
