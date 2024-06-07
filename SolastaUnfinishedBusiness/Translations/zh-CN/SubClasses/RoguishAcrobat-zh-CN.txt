@@ -1,4 +1,4 @@
-Feature/&AttributeModifierRoguishAcrobatProtectorDescription=当你用两只手挥舞长棍时，你将一半的熟练加值加到你的护甲等级上，并且你没有穿着盔甲或轻甲。
+Feature/&AttributeModifierRoguishAcrobatProtectorDescription=当你用两只手挥舞长棍时，你将一半的熟练加值（向下取整）加到你的护甲等级上，并且你没有穿着盔甲或轻甲。
 Feature/&AttributeModifierRoguishAcrobatProtectorTitle=特技保护者
 Feature/&FeatureRoguishAcrobatTrooperDescription=你获得了使用长棍作为灵巧武器的能力，长棍的攻击距离增加 5 尺。\n当你使用长棍进行攻击动作时，你可以使用附赠动作用长棍的另一端作为近战攻击武器。这次攻击使用与主要攻击相同的属性调整值并造成 1d4 钝击伤害。
 Feature/&FeatureRoguishAcrobatTrooperTitle=特技尖兵
