@@ -404,7 +404,7 @@ public static class GameLocationCharacterPatcher
             ActionDefinitions.ActionScope scope)
         {
             //PATCH: support for `AttackAfterMagicEffect`
-            AttackAfterMagicEffect.MaybeMarkUsedMainCantrip(__instance, actionParams);
+            AttackAfterMagicEffect.HandleAttackAfterMagicEffect(__instance, actionParams);
 
             //PATCH: support for `IReplaceAttackWithCantrip`
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);

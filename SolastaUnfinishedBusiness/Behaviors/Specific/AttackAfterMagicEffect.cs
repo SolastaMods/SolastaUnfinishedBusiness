@@ -9,20 +9,39 @@ namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
 internal sealed class AttackAfterMagicEffect
 {
-    internal const string AttackCantrip = "AttackCantrip";
-
+    private const string AttackCantrip = "AttackCantrip";
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
 
-    internal static readonly AttackAfterMagicEffect Marker = new();
+    private static readonly HashSet<SpellDefinition> RegisteredSpells = [];
 
-    internal static void MaybeMarkUsedMainCantrip(GameLocationCharacter character, CharacterActionParams actionParams)
+    internal AttackAfterMagicEffect(SpellDefinition spellDefinition)
     {
-        if (actionParams.AttackMode != null &&
-            actionParams.AttackMode.AttackTags.Contains(AttackCantrip))
+        RegisteredSpells.Add(spellDefinition);
+    }
+
+    internal static void HandleAttackAfterMagicEffect(GameLocationCharacter character,
+        CharacterActionParams actionParams)
+    {
+        if (actionParams.AttackMode == null ||
+            !actionParams.AttackMode.AttackTags.Contains(AttackCantrip))
         {
-            character.UsedMainCantrip = true;
+            return;
         }
+
+        character.UsedMainCantrip = true;
+
+        //supports for attack cantrips interaction with MetamagicQuickenedSpell
+        //you can only cast cantrips after quicken a spell
+        if (!character.RulesetCharacter.SpellsCastByMe.Any(x =>
+                x.MetamagicOption == MetamagicQuickenedSpell &&
+                RegisteredSpells.Contains(x.SpellDefinition)))
+        {
+            return;
+        }
+
+        character.UsedMainSpell = true;
+        character.SpendActionType(ActionDefinitions.ActionType.Bonus);
     }
 
     internal static bool CanAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
