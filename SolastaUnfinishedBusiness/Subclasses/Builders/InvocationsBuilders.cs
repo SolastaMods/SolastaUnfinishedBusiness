@@ -187,7 +187,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionMagicAffinityBuilder
                     .Create("MagicAffinityInvocationEldritchMind")
                     .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
+                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
                     .AddToDB())
             .AddToDB();
     }
