@@ -1,4 +1,4 @@
-Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Du addierst die Hälfte deines Fähigkeitsbonus zu deiner Rüstungsklasse, während du einen Kampfstab in zwei Händen führst und weder Rüstung noch leichte Rüstung trägst.
+Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Sie addieren die Hälfte Ihres Kompetenzbonus (abgerundet) zu Ihrer Rüstungsklasse, während Sie einen Kampfstab in beiden Händen halten und keine oder nur eine leichte Rüstung tragen.
 Feature/&AttributeModifierRoguishAcrobatProtectorTitle=Akrobaten-Beschützer
 Feature/&FeatureRoguishAcrobatTrooperDescription=Sie erhalten die Fähigkeit, einen Kampfstab als Finessewaffe zu verwenden, und die Reichweite des Kampfstabs erhöht sich um 5 Fuß.\nWenn Sie die Angriffsaktion mit einem Kampfstab ausführen, können Sie Ihre Bonusaktion nutzen, um einen Nahkampfangriff mit dem anderen Ende des Kampfstabs durchzuführen Waffe. Dieser Angriff verwendet denselben Fähigkeitsmodifikator wie der Primärangriff und verursacht 1W4 Wuchtschaden.
 Feature/&FeatureRoguishAcrobatTrooperTitle=Akrobat-Soldat

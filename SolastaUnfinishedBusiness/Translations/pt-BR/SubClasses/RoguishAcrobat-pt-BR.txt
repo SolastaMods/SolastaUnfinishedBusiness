@@ -1,4 +1,4 @@
-Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Você adiciona metade do seu bônus de proficiência à sua classe de armadura enquanto empunha um bordão com as duas mãos e não está usando nenhuma armadura ou armadura leve.
+Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Você adiciona metade do seu bônus de proficiência (arredondado para baixo) à sua classe de armadura enquanto empunha um cajado com as duas mãos, e não está usando armadura alguma ou está usando armadura leve.
 Feature/&AttributeModifierRoguishAcrobatProtectorTitle=Protetor Acrobata
 Feature/&FeatureRoguishAcrobatTrooperDescription=Você ganha a habilidade de usar um bordão como arma de precisão e o alcance do bordão aumenta em 1,5 m.\nQuando você realiza a ação de Ataque com um bordão, você pode usar sua ação bônus para fazer um ataque corpo a corpo com a extremidade oposta do bordão. arma. Este ataque usa o mesmo modificador de habilidade do ataque primário e causa 1d4 de dano de concussão.
 Feature/&FeatureRoguishAcrobatTrooperTitle=Soldado Acrobata
