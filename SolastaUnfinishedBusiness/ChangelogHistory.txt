@@ -1,6 +1,6 @@
 1.5.97.14:
 
-- added Ashardalon's Stride spell
+- added Ashardalon's Stride, and Elemental Bane spells
 - fixed Domain Tempest wrath of the storm feature not consuming a reaction
 - fixed Mind Sharpener infusion not providing advantage on concentration checks
 - fixed Pulse Wave spell to offer push/pull options as well as increase distance on upcasting

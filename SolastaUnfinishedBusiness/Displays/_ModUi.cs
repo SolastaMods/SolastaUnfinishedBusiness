@@ -66,6 +66,7 @@ internal static class ModUi
         "DomainSmith",
         "DraconicTransformation",
         "EarthTremor",
+        "ElementalBane",
         "ElementalInfusion",
         "ElementalWeapon",
         "EnduringSting",

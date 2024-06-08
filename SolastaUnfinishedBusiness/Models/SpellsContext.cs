@@ -331,6 +331,8 @@ internal static class SpellsContext
         RegisterSpell(BlessingOfRime, 0, SpellListBard, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
+        RegisterSpell(BuildElementalBane(), 0, SpellListDruid, SpellListWarlock, SpellListWizard,
+            spellListInventorClass);
         RegisterSpell(BuildFaithfulHound(), 0, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildForestGuardian(), 0, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildGravitySinkhole(), 0, SpellListWizard);

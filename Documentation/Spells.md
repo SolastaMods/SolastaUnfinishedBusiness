@@ -662,7 +662,7 @@ You create the visage of a massive green snake that appears for an instant befor
 
 # 160. - *Ashardalon's Stride* © (V,S) level 3 Transmutation [Concentration] [UB]
 
-The billowing flames of a dragon blast from your feet, granting you explosive speed. For the duration, your speed increases by 20 feet and moving doesn't provoke opportunity attacks. When you move within 5 feet of a creature or an object that isn’t being worn or carried, it takes 1d6 fire damage from your trail of heat. A creature or object can take this damage only once during a turn.When you cast this spell using a spell slot of 4th level or higher, increase your speed by 5 feet for each spell slot level above 3rd. The spell deals an additional 1d6 fire damage for each slot level above 3rd.
+The billowing flames of a dragon blast from your feet, granting you explosive speed. For the duration, your speed increases by 20 feet and moving doesn't provoke opportunity attacks. When you move within 5 feet of a creature, it takes 1d6 fire damage from your trail of heat. A creature can take this damage only once during a turn. When you cast this spell using a spell slot of 4th level or higher, increase your speed by 5 feet for each spell slot level above 3rd. The spell deals an additional 1d6 fire damage for each slot level above 3rd.
 
 # 161. - *Aura of Vitality* © (V) level 3 Evocation [Concentration] [UB]
 
@@ -880,191 +880,195 @@ Grants you control over an enemy beast.
 
 You whisper dreadful words that cause immense mental anguish in your enemies. On a failed wisdom saving throw, they take psychic damage and become frightened until the end of their next turn, moving away from you as much as possible. On a successful save, they take half as much damage and are not frightened.
 
-# 214. - Fire Shield (V,S) level 4 Evocation [SOL]
+# 214. - *Elemental Bane* © (V,S) level 4 Transmutation [Concentration] [UB]
+
+Choose one creature you can see within range, and choose one of the following damage types: acid, cold, fire, lightning, or thunder. The target must succeed on a Constitution saving throw or be affected by the spell for its duration. The first time each turn the affected target takes damage of the chosen type, the target takes an extra 2d6 damage of that type. Moreover, the target loses any resistance to that damage type until the spell ends. When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them.
+
+# 215. - Fire Shield (V,S) level 4 Evocation [SOL]
 
 Grants resistance to fire or cold, and damages creatures attacking the caster with melee attacks.
 
-# 215. - Freedom of Movement (V,S) level 4 Abjuration [SOL]
+# 216. - Freedom of Movement (V,S) level 4 Abjuration [SOL]
 
 Grants immunity to movement restrictions, as well as being paralyzed or restrained.
 
-# 216. - Giant Insect (V,S) level 4 Transmutation [Concentration] [SOL]
+# 217. - Giant Insect (V,S) level 4 Transmutation [Concentration] [SOL]
 
 Conjures a giant version of a natural insect or arthropod.
 
-# 217. - *Gravity Sinkhole* © (V,S) level 4 Evocation [UB]
+# 218. - *Gravity Sinkhole* © (V,S) level 4 Evocation [UB]
 
 A 20-foot-radius sphere of crushing force forms at a point you can see within range and tugs at the creatures there. Each creature in the sphere must make a Constitution saving throw. On a failed save, the creature takes 5d10 force damage, and is pulled in a straight line toward the center of the sphere, ending in an unoccupied space as close to the center as possible. On a successful save, the creature takes half as much damage and isn't pulled. When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d10 for each slot level above 4th.
 
-# 218. - Greater Invisibility (V,S) level 4 Illusion [Concentration] [SOL]
+# 219. - Greater Invisibility (V,S) level 4 Illusion [Concentration] [SOL]
 
 Target becomes invisible for the duration, even when attacking or casting spells.
 
-# 219. - Guardian of Faith (V) level 4 Conjuration [SOL]
+# 220. - Guardian of Faith (V) level 4 Conjuration [SOL]
 
 Conjures a large spectral guardian that damages approaching enemies.
 
-# 220. - *Guardian of Nature* © (V) level 4 Transmutation [Concentration] [UB]
+# 221. - *Guardian of Nature* © (V) level 4 Transmutation [Concentration] [UB]
 
 A nature spirit answers your call and transforms you into a powerful guardian. The transformation lasts until the spell ends. You choose between a Beast or a Tree form.
 
-# 221. - Ice Storm (V,S) level 4 Evocation [SOL]
+# 222. - Ice Storm (V,S) level 4 Evocation [SOL]
 
 Causes bludgeoning and cold damage in the area, and turns the ground into difficult terrain.
 
-# 222. - Identify Creatures (V,S) level 4 Divination [SOL]
+# 223. - Identify Creatures (V,S) level 4 Divination [SOL]
 
 Reveals full bestiary knowledge for the affected creatures.
 
-# 223. - Irresistible Performance (V) level 4 Enchantment [UB]
+# 224. - Irresistible Performance (V) level 4 Enchantment [UB]
 
 You weave a song into the air, causing those who hear it to applaud its magnificence. All creatures of your choice inside a 30-foot-cube within range must make a Charisma saving throw or be forced to clap and shout until the start of your next turn. A creature that is charmed by you always fails this saving throw. A clapping creature cannot perform any actions that require their hands or mouth but can otherwise act normally. This spell has no effect on creatures that are immune to charm.
 
-# 224. - *Mordenkainen's Faithful Hound* © (V,S) level 4 Conjuration [UB]
+# 225. - *Mordenkainen's Faithful Hound* © (V,S) level 4 Conjuration [UB]
 
 You conjure a phantom watchdog in an unoccupied space that you can see within range, where it remains for the duration. The hound has Darkvision up to 60 ft, Truesight up to 80 ft, is invisible to all creatures except you and can't be harmed. During each of your turns, the hound can attempt to bite one creature within 5 feet of it that is hostile to you as a free action. The hound's attack bonus is equal to your spellcasting ability modifier + your proficiency bonus. On a hit, it deals 4d8 piercing damage.
 
-# 225. - Phantasmal Killer (V,S) level 4 Illusion [Concentration] [SOL]
+# 226. - Phantasmal Killer (V,S) level 4 Illusion [Concentration] [SOL]
 
 Causes psychic damage to the target creature with each turn, unless a saving throw is successful or the effect ends.
 
-# 226. - Psionic Blast (V) level 4 Evocation [Concentration] [UB]
+# 227. - Psionic Blast (V) level 4 Evocation [Concentration] [UB]
 
-You unleash a destructive wave of mental power in a 30-foot cone. Each creature in the area must make an Intelligence saving throw. On a failed save, a target takes 5d8 psychic damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn’t pushed or knocked prone. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.
+You unleash a destructive wave of mental power in a 30-foot cone. Each creature in the area must make an Intelligence saving throw. On a failed save, a target takes 5d8 psychic damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn't pushed or knocked prone. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.
 
-# 227. - *Raulothim's Psychic Lance* © (V) level 4 Enchantment [UB]
+# 228. - *Raulothim's Psychic Lance* © (V) level 4 Enchantment [UB]
 
 You unleash a shimmering lance of psychic power from your forehead at a creature that you can see within range. It must succeed on an Intelligence saving throw or take 7d6 psychic damage and be incapacitated until the end of your next turn. On a successful save, the creature takes half damage and isn't incapacitated. At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 4th.
 
-# 228. - *Staggering Smite* © (V) level 4 Evocation [Concentration] [UB]
+# 229. - *Staggering Smite* © (V) level 4 Evocation [Concentration] [UB]
 
 The next time you hit a creature with a weapon attack during this spell's duration, your weapon pierces both body and mind, and the attack deals an extra 4d6 psychic damage to the target. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
 
-# 229. - Stoneskin (M,V,S) level 4 Abjuration [Concentration] [SOL]
+# 230. - Stoneskin (M,V,S) level 4 Abjuration [Concentration] [SOL]
 
 Grants resistance to non-magical bludgeoning, slashing, and piercing damage.
 
-# 230. - Wall of Fire (V,S) level 4 Evocation [Concentration] [SOL]
+# 231. - Wall of Fire (V,S) level 4 Evocation [Concentration] [SOL]
 
 Create a burning wall that injures creatures in or next to it.
 
-# 231. - *Banishing Smite* © (V) level 5 Abjuration [Concentration] [UB]
+# 232. - *Banishing Smite* © (V) level 5 Abjuration [Concentration] [UB]
 
 Your next hit deals additional 5d10 force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
 
-# 232. - *Circle of Power* © (V) level 5 Abjuration [Concentration] [UB]
+# 233. - *Circle of Power* © (V) level 5 Abjuration [Concentration] [UB]
 
 Divine energy radiates from you, distorting and diffusing magical energy within 30 feet of you. Until the spell ends, the sphere moves with you, centered on you. For the duration, each friendly creature in the area, including you, has advantage on saving throws against spells and other magical effects. Additionally, when an affected creature succeeds on a saving throw made against a spell or magical effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throws.
 
-# 233. - Cloudkill (V,S) level 5 Conjuration [Concentration] [SOL]
+# 234. - Cloudkill (V,S) level 5 Conjuration [Concentration] [SOL]
 
 Creates an obscuring and poisonous cloud. The cloud moves every round.
 
-# 234. - Cone of Cold (V,S) level 5 Evocation [SOL]
+# 235. - Cone of Cold (V,S) level 5 Evocation [SOL]
 
 Inflicts massive cold damage in the cone of effect.
 
-# 235. - Conjure Elemental (V,S) level 5 Conjuration [Concentration] [SOL]
+# 236. - Conjure Elemental (V,S) level 5 Conjuration [Concentration] [SOL]
 
 Conjures an elemental of the chosen element that fights alongside you. If you lose concentration, the elemental remains and becomes hostile.
 
-# 236. - Contagion (V,S) level 5 Necromancy [SOL]
+# 237. - Contagion (V,S) level 5 Necromancy [SOL]
 
 Hit a creature to inflict a disease from the options.
 
-# 237. - *Dawn* © (V,S) level 5 Evocation [Concentration] [UB]
+# 238. - *Dawn* © (V,S) level 5 Evocation [Concentration] [UB]
 
 The light of dawn shines down on a location you specify within range. Until the spell ends, a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight. When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10 radiant damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw whenever it ends its turn in the cylinder. If you're within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action on your turn.
 
-# 238. - *Destructive Wave* © (V) level 5 Evocation [UB]
+# 239. - *Destructive Wave* © (V) level 5 Evocation [UB]
 
 You strike the ground, creating a burst of divine energy that ripples outward from you. Each creature you choose within 30 feet of you must succeed on a Constitution saving throw or take 5d6 thunder damage, as well as 5d6 radiant or necrotic damage, and be knocked prone. A creature that succeeds on its saving throw takes half as much damage and isn't knocked prone.
 
-# 239. - Dispel Evil and Good (V,S) level 5 Abjuration [Concentration] [SOL]
+# 240. - Dispel Evil and Good (V,S) level 5 Abjuration [Concentration] [SOL]
 
 Celestial, elementals, feys, fiends, and undead have disadvantage on attacks against you. This spell also allows you to cancel hostile enchantments or dismiss extraplanar creatures hit by your attacks once.
 
-# 240. - Dominate Person (V,S) level 5 Enchantment [Concentration] [SOL]
+# 241. - Dominate Person (V,S) level 5 Enchantment [Concentration] [SOL]
 
 Grants you control over an enemy creature.
 
-# 241. - *Far Step* © (V) level 5 Conjuration [Concentration] [UB]
+# 242. - *Far Step* © (V) level 5 Conjuration [Concentration] [UB]
 
 You teleport up to 60 ft to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 
-# 242. - Flame Strike (V,S) level 5 Evocation [SOL]
+# 243. - Flame Strike (V,S) level 5 Evocation [SOL]
 
 Conjures a burning column of fire and radiance affecting all creatures inside.
 
-# 243. - Greater Restoration (V,S) level 5 Abjuration [SOL]
+# 244. - Greater Restoration (V,S) level 5 Abjuration [SOL]
 
 Removes one detrimental condition, such as a charm or curse, or an effect that reduces an ability score or hit points.
 
-# 244. - Hold Monster (V,S) level 5 Enchantment [Concentration] [SOL]
+# 245. - Hold Monster (V,S) level 5 Enchantment [Concentration] [SOL]
 
 Paralyzes a creature unless it succeeds a WIS saving throw. No effect on undead.
 
-# 245. - *Immolation* © (V) level 5 Evocation [Concentration] [UB]
+# 246. - *Immolation* © (V) level 5 Evocation [Concentration] [UB]
 
 Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 8d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet and takes 8d6 fire damage at the start of each of its turns.
 
-# 246. - Insect Plague (V,S) level 5 Conjuration [Concentration] [SOL]
+# 247. - Insect Plague (V,S) level 5 Conjuration [Concentration] [SOL]
 
 Summons a sphere of biting insects.
 
-# 247. - Mantle of Thorns (V,S) level 5 Transmutation [Concentration] [UB]
+# 248. - Mantle of Thorns (V,S) level 5 Transmutation [Concentration] [UB]
 
 Surround yourself with an aura of thorns. Those that start or walk through take 2d8 piercing damage. This damage scales at higher levels by 1d8 per slot.
 
-# 248. - Mass Cure Wounds (V,S) level 5 Evocation [SOL]
+# 249. - Mass Cure Wounds (V,S) level 5 Evocation [SOL]
 
 Heals up to 6 creatures.
 
-# 249. - Mind Twist (V,S) level 5 Enchantment [SOL]
+# 250. - Mind Twist (V,S) level 5 Enchantment [SOL]
 
 Causes massive psychic damage to all creatures around you, and incapacitates them if they fail their INT saving throw.
 
-# 250. - Raise Dead (M,V,S) level 5 Necromancy [SOL]
+# 251. - Raise Dead (M,V,S) level 5 Necromancy [SOL]
 
 Brings one creature back to life, up to 10 days after death.
 
-# 251. - Sonic Boom (V,S) level 5 Evocation [UB]
+# 252. - Sonic Boom (V,S) level 5 Evocation [UB]
 
 A small orb the same color as the balloon used appears at a point you choose within range then expands with a loud crack into an explosion of force. Each creature in a 30-foot radius must make a Strength saving throw. A target is pushed up to 30 feet away from the center and dealt 6d8 thunder damage on a failed save, or half as much damage and no movement on a successful one.
 
-# 252. - *Steel Wind Strike* © (M,S) level 5 Conjuration [UB]
+# 253. - *Steel Wind Strike* © (M,S) level 5 Conjuration [UB]
 
 You flourish the weapon used in the casting and then vanish to strike like the wind. Choose up to five creatures you can see within range. Make a melee spell attack against each target. On a hit, a target takes 6d10 force damage. You can then teleport to an unoccupied space you can see within 5 feet of one of the targets you hit or missed.
 
-# 253. - *Telekinesis* © (V,S) level 5 Transmutation [Concentration] [UB]
+# 254. - *Telekinesis* © (V,S) level 5 Transmutation [Concentration] [UB]
 
 You can try to move a Huge or smaller creature. Make an ability check with your spellcasting ability contested by the creature's Strength check. If you win the contest, you move the creature up to 30 feet in any direction, but not beyond the range of this spell. Until the end of your next turn, the creature is restrained in your telekinetic grip. On subsequent rounds, you can use your action to attempt to maintain your telekinetic grip on the creature by repeating the contest, or target a new creature, ending the restrained effect on the previously affected creature.
 
-# 254. - Blade Barrier (V,S) level 6 Evocation [Concentration] [SOL]
+# 255. - Blade Barrier (V,S) level 6 Evocation [Concentration] [SOL]
 
 Conjures a wall of razor sharp blades which causes 6d10 slashing damage to anyone crossing it
 
-# 255. - Chain Lightning (V,S) level 6 Evocation [SOL]
+# 256. - Chain Lightning (V,S) level 6 Evocation [SOL]
 
 Target a creature with lightning, which can arc to 3 other targets within 6 cells.
 
-# 256. - Circle of Death (M,V,S) level 6 Necromancy [SOL]
+# 257. - Circle of Death (M,V,S) level 6 Necromancy [SOL]
 
 A sphere of negative energy causes Necrotic damage from a point you choose
 
-# 257. - Conjure Fey (V,S) level 6 Conjuration [Concentration] [SOL]
+# 258. - Conjure Fey (V,S) level 6 Conjuration [Concentration] [SOL]
 
 Conjures a fey creature of challenge rating 1 to 6 to fight alongside you. If you lose concentration, the creature stays but becomes hostile.
 
-# 258. - Disintegrate (V,S) level 6 Transmutation [SOL]
+# 259. - Disintegrate (V,S) level 6 Transmutation [SOL]
 
 Causes massive force damage on the target, which can be disintegrated if reduced to 0 hit points
 
-# 259. - Eyebite (V,S) level 6 Necromancy [Concentration] [SOL]
+# 260. - Eyebite (V,S) level 6 Necromancy [Concentration] [SOL]
 
 Your eyes gain a specific property which can target a creature each turn
 
-# 260. - *Fizban's Platinum Shield* © (M,V,S) level 6 Abjuration [Concentration] [UB]
+# 261. - *Fizban's Platinum Shield* © (M,V,S) level 6 Abjuration [Concentration] [UB]
 
 You create a field of silvery light that surrounds a creature of your choice within range. The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits:
 • The creature has half cover.
@@ -1072,51 +1076,51 @@ You create a field of silvery light that surrounds a creature of your choice wit
 • If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.
 As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field.
 
-# 261. - Flash Freeze (V,S) level 6 Evocation [UB]
+# 262. - Flash Freeze (V,S) level 6 Evocation [UB]
 
 You attempt to encase a creature you can see within range in a prison of solid ice. The target must make a Dexterity saving throw. On a failed save, the target takes 10d6 cold damage and becomes restrained in layers of thick ice. On a successful save, the target takes half as much damage and is not restrained. The spell can only be used on creatures up to large size. To break out, the restrained target can make a Strength check as an action against your spell save DC. On success, the target escapes and is no longer restrained. When you cast this spell using a spell slot of 7th level or higher, the cold damage increases by 2d6 for each slot level above 6th.
 
-# 262. - Freezing Sphere (V,S) level 6 Evocation [SOL]
+# 263. - Freezing Sphere (V,S) level 6 Evocation [SOL]
 
 Toss a huge ball of cold energy that explodes on impact
 
-# 263. - Globe Of Invulnerability (V,S) level 6 Abjuration [Concentration] [SOL]
+# 264. - Globe Of Invulnerability (V,S) level 6 Abjuration [Concentration] [SOL]
 
 A sphere surrounding you prevents any spell up to 5th level to affect anyone inside it.
 
-# 264. - Harm (V,S) level 6 Necromancy [SOL]
+# 265. - Harm (V,S) level 6 Necromancy [SOL]
 
 Inflicts devastating necrotic damage and reduces the maximum hit points accordingly. Cannot drop the target below 1 hit points
 
-# 265. - Heal (V,S) level 6 Evocation [SOL]
+# 266. - Heal (V,S) level 6 Evocation [SOL]
 
 Heals 70 hit points and also removes blindness and diseases
 
-# 266. - Heroes Feast (M,V,S) level 6 Conjuration [SOL]
+# 267. - Heroes Feast (M,V,S) level 6 Conjuration [SOL]
 
 Summons a feast which cures most ailments and grants immunity to poisonand being frightened, WIS save advantage, and increased maximum hitpoints
 
-# 267. - Hilarity (V) level 6 Enchantment [Concentration] [SOL]
+# 268. - Hilarity (V) level 6 Enchantment [Concentration] [SOL]
 
 Choose one target. They fall down laughing, becoming prone and incapacitated, and take psychic damage until they save at the end of one of their turns, or until the spell ends.
 
-# 268. - Poison Wave (M,V,S) level 6 Evocation [UB]
+# 269. - Poison Wave (M,V,S) level 6 Evocation [UB]
 
 A poisonous wave erupts from you, engulfing those close by. Each creature within the spell's radius must make a Constitution saving throw, taking 6d10 poison damage on a failure, or half as much damage on a successful one. A creature who fails their saving throw is also poisoned for 1 minute, and can repeat the saving throw at the end of each of its turn. When you cast this spell using a slot of 7th level or higher, the damage increases by 1d10 for each slot level above 6th.
 
-# 269. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration] [UB]
+# 270. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration] [UB]
 
 You raise both hands as you evoke six transparent blades around you as a bonus action. When you cast this spell, and as a bonus action on each subsequent turn, you can throw one of these blades at a creature within 60 feet from you. Make a ranged spell attack. On a hit, the target takes 4d10 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage of each blade increases by 1d10 for each slot level above 6th.
 
-# 270. - Sunbeam (V,S) level 6 Evocation [Concentration] [SOL]
+# 271. - Sunbeam (V,S) level 6 Evocation [Concentration] [SOL]
 
 You conjure a line of radiance which can burn and blind creatures in the line of effect; undead and oozes save with disadvantage. The beam can be retargeted each turn
 
-# 271. - *Tasha's Otherworldly Guise* © (M,V,S) level 6 Transmutation [Concentration] [UB]
+# 272. - *Tasha's Otherworldly Guise* © (M,V,S) level 6 Transmutation [Concentration] [UB]
 
 Uttering an incantation, you draw on the magic of the Lower Planes or Upper Planes (your choice) to transform yourself.
 
-# 272. - *Tenser's Transformation* © (V,S) level 6 Transmutation [Concentration] [UB]
+# 273. - *Tenser's Transformation* © (V,S) level 6 Transmutation [Concentration] [UB]
 
 You endow yourself with endurance and martial prowess fueled by magic. Until the spell ends, you can't cast spells, and you gain the following benefits:
 • You gain 50 temporary hit points. If any of these remain when the spell ends, they are lost.
@@ -1126,154 +1130,154 @@ You endow yourself with endurance and martial prowess fueled by magic. Until the
 • You can attack twice, instead of once, when you take the Attack action on your turn.
 Immediately after the spell ends, you must succeed on a DC 15 Constitution saving throw or suffer one level of exhaustion.
 
-# 273. - True Seeing (V,S) level 6 Divination [SOL]
+# 274. - True Seeing (V,S) level 6 Divination [SOL]
 
 A creature you touch gains True Sight for one hour
 
-# 274. - Wall of Thorns (V,S) level 6 Conjuration [Concentration] [SOL]
+# 275. - Wall of Thorns (V,S) level 6 Conjuration [Concentration] [SOL]
 
 Creates a wall of tough of needle-sharp thorns, that hurts and slows every creature in it.
 
-# 275. - Arcane Sword (M,V,S) level 7 Evocation [Concentration] [SOL]
+# 276. - Arcane Sword (M,V,S) level 7 Evocation [Concentration] [SOL]
 
 Summon a weapon that fights for you.
 
-# 276. - Conjure Celestial (V,S) level 7 Conjuration [Concentration] [SOL]
+# 277. - Conjure Celestial (V,S) level 7 Conjuration [Concentration] [SOL]
 
 Conjures a celestial creature of challenge rating 4 that fights alongside you. If you lose concentration, the creature is dismissed.
 
-# 277. - Delayed Blast Fireball (V,S) level 7 Evocation [Concentration] [SOL]
+# 278. - Delayed Blast Fireball (V,S) level 7 Evocation [Concentration] [SOL]
 
 Conjures a ball of fire that grows more powerful with time, detonating when a creature enters its space or when the spell ends.
 
-# 278. - Divine Word (V) level 7 Evocation [SOL]
+# 279. - Divine Word (V) level 7 Evocation [SOL]
 
 Utter a divine word that inflicts various negative conditions on enemies you can see, based on their HP. Also banishes all celestials, elementals, feys, and fiends if they fail their saving throws.
 
-# 279. - *Draconic Transformation* © (M,V,S) level 7 Transmutation [Concentration] [UB]
+# 280. - *Draconic Transformation* © (M,V,S) level 7 Transmutation [Concentration] [UB]
 
 With a roar, you draw on the magic of dragons to transform yourself, taking on draconic features. You gain the following benefits until the spell ends:
 • You have blindsight with a range of 30 feet.
 • When you cast this spell, and as a bonus action on subsequent turns for the duration, you can exhale shimmering energy in a 60-foot cone. Each creature in that area must make a Dexterity saving throw, taking 6d8 force damage on a failed save, or half as much damage on a successful one.
 • Incorporeal wings sprout from your back, giving you a flying speed of 60 feet.
 
-# 280. - Finger of Death (V,S) level 7 Necromancy [SOL]
+# 281. - Finger of Death (V,S) level 7 Necromancy [SOL]
 
 Send negative energy coursing through a creature within range.
 
-# 281. - Fire Storm (V,S) level 7 Evocation [SOL]
+# 282. - Fire Storm (V,S) level 7 Evocation [SOL]
 
 Causes a wide wall of roaring flames to burst up wherever you choose within range.
 
-# 282. - Gravity Slam (V,S) level 7 Transmutation [SOL]
+# 283. - Gravity Slam (V,S) level 7 Transmutation [SOL]
 
 Increase gravity to slam everyone in a specific area onto the ground.
 
-# 283. - Prismatic Spray (V,S) level 7 Evocation [SOL]
+# 284. - Prismatic Spray (V,S) level 7 Evocation [SOL]
 
 Each creature within the cone of effect is randomly affected by one or two (roll 8 on d8) rays with the following effects:
 
-# 284. - Regenerate (V,S) level 7 Transmutation [SOL]
+# 285. - Regenerate (V,S) level 7 Transmutation [SOL]
 
 Touch a creature and stimulate its natural healing ability.
 
-# 285. - Resurrection (M,V,S) level 7 Necromancy [SOL]
+# 286. - Resurrection (M,V,S) level 7 Necromancy [SOL]
 
 Brings one creature back to life, up to 100 years after death.
 
-# 286. - *Reverse Gravity* © (V,S) level 7 Transmutation [Concentration] [UB]
+# 287. - *Reverse Gravity* © (V,S) level 7 Transmutation [Concentration] [UB]
 
 This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 
-# 287. - Symbol (V,S) level 7 Abjuration [SOL]
+# 288. - Symbol (V,S) level 7 Abjuration [SOL]
 
 Inscribe a glyph on a surface. When an enemy starts its turn in the area or enters it, the glyph's effect is applied in a sphere with a 12-cell radius.
 
-# 288. - Divine Blade (V,S) level 8 Evocation [Concentration] [SOL]
+# 289. - Divine Blade (V,S) level 8 Evocation [Concentration] [SOL]
 
 A glowing blade of pure energy springs from your hand. On a hit, the target takes 6d8 radiant damage and must roll a Wisdom saving throw to avoid being stunned until the end of its next turn.
 
-# 289. - Dominate Monster (V,S) level 8 Enchantment [Concentration] [SOL]
+# 290. - Dominate Monster (V,S) level 8 Enchantment [Concentration] [SOL]
 
 Grants you control over an enemy creature of any type.
 
-# 290. - Earthquake (V,S) level 8 Evocation [Concentration] [SOL]
+# 291. - Earthquake (V,S) level 8 Evocation [Concentration] [SOL]
 
 You create a seismic disturbance that violently shakes the ground and the creatures standing on it for the duration of the spell.
 
-# 291. - Feeblemind (V,S) level 8 Enchantment [SOL]
+# 292. - Feeblemind (V,S) level 8 Enchantment [SOL]
 
 You blast the mind of one creature, attempting to shatter its intellect and personality. The target takes 4d6 psychic damage and must make an Intelligence saving throw. On a failed save, the creature's Intelligence, Charisma and Wisdom scores become 1 and it is unable to cast spells. These effects last for 1 minute.
 
-# 292. - Holy Aura (V,S) level 8 Abjuration [Concentration] [SOL]
+# 293. - Holy Aura (V,S) level 8 Abjuration [Concentration] [SOL]
 
 Allies within 6 cells of you when you cast Holy Aura gain advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends. In addition, when a fiend or an undead hits an affected creature with a melee attack, they must succeed on a Constitution saving throw or be blinded until the spell ends.
 
-# 293. - Incendiary Cloud (V,S) level 8 Conjuration [Concentration] [SOL]
+# 294. - Incendiary Cloud (V,S) level 8 Conjuration [Concentration] [SOL]
 
 A cloud of smoke appears in a sphere with a 4-cell radius. The cloud damages each creature inside it, and moves away from you each turn until the end of the spell's duration or until a moderate wind disperses the cloud.
 
-# 294. - *Maddening Darkness* © (V) level 8 Evocation [Concentration] [UB]
+# 295. - *Maddening Darkness* © (V) level 8 Evocation [Concentration] [UB]
 
 Magical darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the spell ends. Shrieks, gibbering, and mad laughter can be heard within the sphere. On activation, and whenever a creature ends its turn in the sphere, it must make a Wisdom saving throw, taking 6d8 psychic damage on a failed save, or half as much damage on a successful one.
 
-# 295. - Maze (V,S) level 8 Abjuration [Concentration] [SOL]
+# 296. - Maze (V,S) level 8 Abjuration [Concentration] [SOL]
 
 You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the spell's duration or until it escapes the maze.
 
-# 296. - *Mind Blank* © (V,S) level 8 Transmutation [UB]
+# 297. - *Mind Blank* © (V,S) level 8 Transmutation [UB]
 
 Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 
-# 297. - Power Word Stun (V) level 8 Enchantment [SOL]
+# 298. - Power Word Stun (V) level 8 Enchantment [SOL]
 
 Overwhelm the mind of a creature that has 150 hit points or fewer, leaving it stunned.
 
-# 298. - Spell Ward (V,S) level 8 Abjuration [Concentration] [SOL]
+# 299. - Spell Ward (V,S) level 8 Abjuration [Concentration] [SOL]
 
 Creates a mobile globe that is impenetrable to enemy spells cast from outside it.
 
-# 299. - Sunburst (V,S) level 8 Evocation [SOL]
+# 300. - Sunburst (V,S) level 8 Evocation [SOL]
 
 Brilliant sunlight blazes in a sphere with a 12-cell radius. Each creature that fails a Constitution saving throw takes radiant damage and is blinded for 1 minute. Any darkness created by a spell in the area is dispelled.
 
-# 300. - Thunderstorm (V,S) level 8 Transmutation [SOL]
+# 301. - Thunderstorm (V,S) level 8 Transmutation [SOL]
 
 You create a blast of thunder in a sphere that causes thunder and lightning damage to everyone, and can blind or stun those who fail a CON saving throw.
 
-# 301. - Wild Shapes (V,S) level 8 Transmutation [Concentration] [SOL]
+# 302. - Wild Shapes (V,S) level 8 Transmutation [Concentration] [SOL]
 
 Turns other creatures in to beasts for one day.
 
-# 302. - *Foresight* © (V,S) level 9 Transmutation [UB]
+# 303. - *Foresight* © (V,S) level 9 Transmutation [UB]
 
 You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 
-# 303. - *Mass Heal* © (V,S) level 9 Transmutation [UB]
+# 304. - *Mass Heal* © (V,S) level 9 Transmutation [UB]
 
 A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 
-# 304. - *Meteor Swarm* © (V,S) level 9 Transmutation [UB]
+# 305. - *Meteor Swarm* © (V,S) level 9 Transmutation [UB]
 
 Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 
-# 305. - *Power Word Heal* © (V,S) level 9 Enchantment [UB]
+# 306. - *Power Word Heal* © (V,S) level 9 Enchantment [UB]
 
 A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
 
-# 306. - *Power Word Kill* © (V,S) level 9 Transmutation [UB]
+# 307. - *Power Word Kill* © (V,S) level 9 Transmutation [UB]
 
 You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
 
-# 307. - *Shapechange* © (M,V,S) level 9 Transmutation [Concentration] [UB]
+# 308. - *Shapechange* © (M,V,S) level 9 Transmutation [Concentration] [UB]
 
 You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
 
-# 308. - *Time Stop* © (V) level 9 Transmutation [UB]
+# 309. - *Time Stop* © (V) level 9 Transmutation [UB]
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 
-# 309. - *Weird* © (V,S) level 9 Illusion [Concentration] [UB]
+# 310. - *Weird* © (V,S) level 9 Illusion [Concentration] [UB]
 
 Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each enemy in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 
