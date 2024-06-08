@@ -156,7 +156,7 @@ ModUi/&EnableRespec=在休息操作后启用洗点
 ModUi/&EnableRogueCunningStrike=在<color=#D89555>游荡者</color> 5 级和 14 级时启用<b>诡诈打击</b>和<b>凶狡打击</b><i><color=#F0DAA0>[你放弃 1 个偷袭骰可获得额外的命中效果]</color></i>
 ModUi/&EnableRogueFightingStyle=在<color=#D89555>游荡者</color> 2 级启用<b>战斗风格</b>选择
 ModUi/&EnableRogueSteadyAim=在<color=#D89555>游荡者</color> 3 级时启用<b>手稳就准</b><i><color=#F0DAA0>[作为附赠动作，在当前回合中为你的下一次攻击检定带来优势，如果你还没移动]</color></i>
-ModUi/&EnableRogueStrSaving=启用<color=#D89555>游荡者</color>在<b>诡诈/凶狡打击</b>、<b>虚弱/精通打击</b>和<b>剑刃冰雹</b>上使用敏捷或力量调整值
+ModUi/&EnableRogueStrSaving=启用<color=#D89555>游荡者</color>在<b>诡诈/凶狡打击</b>、<b>虚弱/精通打击</b>和<b>剑刃如风</b>上使用敏捷或力量调整值
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSignatureSpellsRelearn=启用<color=#D89555>法师</color>招牌法术，以便在每次长休时准备<i><color=#F0DAA0>[而不是在 20 级时一次]</color></i>
 ModUi/&EnableSorcererMagicalGuidance=在第 5 级启用<color=#D89555>术士</color><b>魔法指引</b>
