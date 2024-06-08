@@ -11759,6 +11759,8 @@ PsionicBlast	SpellDefinition	SpellDefinition	6a0a898a-721a-5d5d-8375-ddb854508fc
 PsychicLance	SpellDefinition	SpellDefinition	fff99143-9ef0-55fa-acd9-b0f52c733ff6
 PsychicWhip	SpellDefinition	SpellDefinition	d5f035f9-1550-509c-b809-526e8e8e87d4
 PulseWave	SpellDefinition	SpellDefinition	71a547b1-f108-54be-95ee-56263814b30b
+PulseWavePull	SpellDefinition	SpellDefinition	d73ffef6-a447-5003-b21e-ba2115a2fc51
+PulseWavePush	SpellDefinition	SpellDefinition	244c87d2-5dfc-53fa-8603-fb3635bd38e5
 RadiantMotes	SpellDefinition	SpellDefinition	ff59b2b4-3fd1-55c2-a7ab-7c6c5b004633
 ResonatingStrike	SpellDefinition	SpellDefinition	c8ecadb8-8b2a-57dd-93dd-41f6557ef52d
 ReverseGravity	SpellDefinition	SpellDefinition	8589da03-628b-5f85-84fd-9198418e2b8f

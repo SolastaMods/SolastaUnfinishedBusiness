@@ -214,6 +214,7 @@ internal static partial class SpellBuilders
                         AttributeDefinitions.Charisma)
                     .AddToDB(),
                 FeatureDefinitionDamageAffinitys.DamageAffinityPsychicResistance)
+            .SetConditionParticleReference(ConditionFeebleMinded.conditionParticleReference)
             .AddToDB();
 
         condition.GuiPresentation.description = Gui.NoLocalization;
@@ -237,59 +238,9 @@ internal static partial class SpellBuilders
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
-                    .SetParticleEffectParameters(EnhanceAbility)
-                    .SetImpactEffectParameters(Aid)
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    #endregion
-
-    #region Pulse Wave
-
-    internal static SpellDefinition BuildPulseWave()
-    {
-        const string NAME = "PulseWave";
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PulseWave, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(3)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
-                    .ExcludeCaster()
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Constitution,
-                        true,
-                        EffectDifficultyClassComputation.SpellCastingFeature,
-                        AttributeDefinitions.Wisdom,
-                        12)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
-                    .SetParticleEffectParameters(PowerFunctionWandFearCone)
-                    .SetCasterEffectParameters(Darkness)
-                    .SetImpactEffectParameters(MindTwist)
+                    .SetCasterEffectParameters(Confusion)
+                    .SetImpactEffectParameters(
+                        PowerMagebaneSpellCrusher.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
@@ -405,6 +356,166 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Pulse Wave
+
+    internal static SpellDefinition BuildPulseWave()
+    {
+        const string NAME = "PulseWave";
+
+        var spellPush = SpellDefinitionBuilder
+            .Create($"{NAME}Push")
+            .SetGuiPresentation(Category.Spell)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                    .ExcludeCaster()
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Wisdom,
+                        12)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetParticleEffectParameters(PowerFunctionWandFearCone)
+                    .SetCasterEffectParameters(Darkness)
+                    .SetImpactEffectParameters(MindTwist)
+                    .Build())
+            .AddToDB();
+
+        spellPush.AddCustomSubFeatures(new ModifyEffectDescriptionPulseWave(spellPush));
+
+        var spellPull = SpellDefinitionBuilder
+            .Create($"{NAME}Pull")
+            .SetGuiPresentation(Category.Spell)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                    .ExcludeCaster()
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Wisdom,
+                        12)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 3)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetParticleEffectParameters(PowerFunctionWandFearCone)
+                    .SetCasterEffectParameters(Darkness)
+                    .SetImpactEffectParameters(MindTwist)
+                    .Build())
+            .AddToDB();
+
+        spellPull.AddCustomSubFeatures(new ModifyEffectDescriptionPulseWave(spellPull));
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PulseWave, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                // UI Only
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                    .ExcludeCaster()
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Wisdom,
+                        12)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 3)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .SetSubSpells(spellPush, spellPull)
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class ModifyEffectDescriptionPulseWave(SpellDefinition spellDefinition) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == spellDefinition;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var effectLevel = rulesetEffect.EffectLevel;
+
+            effectDescription.EffectForms[1].MotionForm.distance = effectLevel;
+
+            return effectDescription;
+        }
     }
 
     #endregion
