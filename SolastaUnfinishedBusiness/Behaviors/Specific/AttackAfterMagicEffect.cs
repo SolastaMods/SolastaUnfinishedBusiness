@@ -10,38 +10,29 @@ namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 internal sealed class AttackAfterMagicEffect
 {
     private const string AttackCantrip = "AttackCantrip";
+    private const string QuickenedAttackCantrip = "QuickenedAttackCantrip";
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
-
-    private static readonly HashSet<SpellDefinition> RegisteredSpells = [];
-
-    internal AttackAfterMagicEffect(SpellDefinition spellDefinition)
-    {
-        RegisteredSpells.Add(spellDefinition);
-    }
 
     internal static void HandleAttackAfterMagicEffect(GameLocationCharacter character,
         CharacterActionParams actionParams)
     {
-        if (actionParams.AttackMode == null ||
-            !actionParams.AttackMode.AttackTags.Contains(AttackCantrip))
+        if (actionParams.AttackMode == null)
         {
             return;
         }
 
-        character.UsedMainCantrip = true;
-
-        //supports for attack cantrips interaction with MetamagicQuickenedSpell
-        //you can only cast cantrips after quicken a spell
-        if (!character.RulesetCharacter.SpellsCastByMe.Any(x =>
-                x.MetamagicOption == MetamagicQuickenedSpell &&
-                RegisteredSpells.Contains(x.SpellDefinition)))
+        if (actionParams.AttackMode.AttackTags.Contains(AttackCantrip))
         {
-            return;
+            character.UsedMainCantrip = true;
         }
 
-        character.UsedMainSpell = true;
-        character.SpendActionType(ActionDefinitions.ActionType.Bonus);
+        // ReSharper disable once InvertIf
+        if (actionParams.AttackMode.AttackTags.Contains(QuickenedAttackCantrip))
+        {
+            character.UsedMainSpell = true;
+            character.SpendActionType(ActionDefinitions.ActionType.Bonus);
+        }
     }
 
     internal static bool CanAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
@@ -121,9 +112,19 @@ internal sealed class AttackAfterMagicEffect
         //mark this attack for proper integration with War Magic
         attackMode.AttackTags.TryAdd(AttackCantrip);
 
-        var twinned =
-            actionMagicEffect is CharacterActionCastSpell castSpell &&
-            castSpell.ActiveSpell.MetamagicOption == MetamagicTwinnedSpell;
+        var twinned = false;
+
+        if (actionMagicEffect is CharacterActionCastSpell actionCastSpell)
+        {
+            twinned = actionCastSpell.ActiveSpell.MetamagicOption == MetamagicTwinnedSpell;
+
+            //mark this attack for proper integration with Quickened
+            if (actionCastSpell.ActiveSpell.MetamagicOption == MetamagicQuickenedSpell)
+            {
+                attackMode.AttackTags.TryAdd(QuickenedAttackCantrip);
+            }
+        }
+
         var maxAttacks = 1 + (twinned ? 1 : 0);
 
         // this is required to support reaction scenarios where AttackMain won't work

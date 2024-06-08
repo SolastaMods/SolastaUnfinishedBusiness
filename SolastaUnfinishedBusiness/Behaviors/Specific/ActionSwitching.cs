@@ -269,12 +269,26 @@ public static class ActionSwitching
             return;
         }
 
-        //supports for action switching interaction with MetamagicQuickenedSpell
-        //you can only cast cantrips after quicken a spell
-        if (actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell &&
-            rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
+        if (actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell)
         {
-            character.UsedMainSpell = true;
+            //you can only cast one leveled spell per turn
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+            switch (actionParams.ActionDefinition.ActionType)
+            {
+                case ActionDefinitions.ActionType.Main when rulesetEffectSpell.SpellDefinition.SpellLevel > 0:
+                    character.UsedBonusSpell = true;
+                    break;
+                case ActionDefinitions.ActionType.Bonus:
+                    character.UsedMainSpell = true;
+                    break;
+            }
+
+            //supports for action switching interaction with MetamagicQuickenedSpell
+            //you can only cast cantrips after quicken a spell
+            if (rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
+            {
+                character.UsedMainSpell = true;
+            }
         }
 
         var type = actionParams.ActionDefinition.ActionType;

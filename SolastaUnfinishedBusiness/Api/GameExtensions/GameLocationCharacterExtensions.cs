@@ -444,7 +444,8 @@ public static class GameLocationCharacterExtensions
             return;
         }
 
-        instance.CurrentActionRankByType[ActionType.Main]++;
+        //TODO: test this with other features that burn main attack
+        // instance.CurrentActionRankByType[ActionType.Main]++;
         instance.UsedMainAttacks = 0;
     }
 
