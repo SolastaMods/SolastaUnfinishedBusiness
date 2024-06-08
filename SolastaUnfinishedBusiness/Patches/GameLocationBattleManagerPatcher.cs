@@ -274,6 +274,19 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
+            //PATCH: support for `IMoveStepFinished`
+            if (CharacterActionMoveStepWalkPatcher.IsCharacterActionMoveStepWalk)
+            {
+                CharacterActionMoveStepWalkPatcher.IsCharacterActionMoveStepWalk = false;
+            }
+            else
+            {
+                foreach (var moveStepFinished in mover.RulesetCharacter.GetSubFeaturesByType<IMoveStepFinished>())
+                {
+                    moveStepFinished.MoveStepFinished(mover);
+                }
+            }
+
             if (__instance.Battle == null ||
                 mover.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
