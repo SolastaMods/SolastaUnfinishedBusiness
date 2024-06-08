@@ -177,7 +177,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Carica un gioco di campagna ufficiale per mo
 ModUi/&FactionRelations=<color=#F0DAA0>Fazioni:</color>
 ModUi/&FasterTimeModifier=<color=white>Modificatore del tempo di gioco quando si preme la barra spaziatrice</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Gruppi di talenti</color>
-ModUi/&FeatGroupsHelp=• Ogni gruppo è un consolidamento di <color=#D89555>talenti</color> <i><color=#F0DAA0>[ad esempio: credi, stili di combattimento, metamagia, ecc.]</color></i>{99 }• I talenti di questi gruppi non saranno più direttamente visibili nella fase di selezione delle competenze\n• Il gruppo, una volta selezionato, li offre in un elenco a discesa per ordinare la schermata di gioco
+ModUi/&FeatGroupsHelp=• Ogni gruppo è un consolidamento di <color=#D89555>talenti</color> <i><color=#F0DAA0>[ad esempio: credi, stili di combattimento, metamagia, ecc.]</color></i>\n• I talenti di questi gruppi non saranno più direttamente visibili nella fase di selezione delle competenze\n• Il gruppo, una volta selezionato, li offre in un elenco a discesa per ordinare la schermata di gioco
 ModUi/&Feats=<color=#F0DAA0>Talenti</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Stili di combattimento</color>
 ModUi/&FixAsianLanguagesTextWrap=Risolto il problema con il testo a capo dell'interfaccia utente del gioco delle lingue asiatiche <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

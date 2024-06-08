@@ -177,7 +177,7 @@ ModUi/&FactionHelp=<color=#C04040E0>진영 관계를 수정하려면 공식 캠�
 ModUi/&FactionRelations=<color=#F0DAA0>진영:</color>
 ModUi/&FasterTimeModifier=<color=white>스페이스바를 누를 때의 게임 시간 수정</color>
 ModUi/&FeatGroups=<color=#F0DAA0>피트 그룹</color>
-ModUi/&FeatGroupsHelp=• 각 그룹은 유사한 <color=#D89555>공적</color> <i><color=#F0DAA0>[예: 신조, 전투 스타일, 메타마법 등]</color></i>의 통합입니다.{99 }• 이 그룹의 업적은 더 이상 숙련도 선택 단계에서 직접 표시되지 않습니다.\n• 그룹을 선택하면 게임 화면을 깔끔하게 정리하기 위해 드롭다운 목록에 해당 업적이 제공됩니다.
+ModUi/&FeatGroupsHelp=• 각 그룹은 유사한 <color=#D89555>공적</color> <i><color=#F0DAA0>[예: 신조, 전투 스타일, 메타마법 등]</color></i>의 통합입니다.\n• 이 그룹의 업적은 더 이상 숙련도 선택 단계에서 직접 표시되지 않습니다.\n• 그룹을 선택하면 게임 화면을 깔끔하게 정리하기 위해 드롭다운 목록에 해당 업적이 제공됩니다.
 ModUi/&Feats=<color=#F0DAA0>특징</color>
 ModUi/&FightingStyles=<color=#F0DAA0>격투 스타일</color>
 ModUi/&FixAsianLanguagesTextWrap=아시아 언어의 게임 UI 텍스트 줄바꿈 수정 <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>

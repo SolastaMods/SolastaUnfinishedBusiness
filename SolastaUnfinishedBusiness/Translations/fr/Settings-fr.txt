@@ -177,7 +177,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Charger un jeu de campagne officiel pour mod
 ModUi/&FactionRelations=<color=#F0DAA0>Factions :</color>
 ModUi/&FasterTimeModifier=<color=white>Modificateur de temps de jeu en appuyant sur la barre d'espace</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Groupes d'exploits</color>
-ModUi/&FeatGroupsHelp=• Chaque groupe est une consolidation de <color=#D89555>exploits</color> similaires <i><color=#F0DAA0>[c'est-à-dire : croyances, styles de combat, métamagie, etc.]</color></i>{99 }• Les exploits de ces groupes ne seront plus directement visibles lors de l'étape de sélection des compétences.\n• Le groupe, une fois sélectionné, les propose dans une liste déroulante pour désencombrer l'écran de jeu.
+ModUi/&FeatGroupsHelp=• Chaque groupe est une consolidation de <color=#D89555>exploits</color> similaires <i><color=#F0DAA0>[c'est-à-dire : croyances, styles de combat, métamagie, etc.]</color></i>\n• Les exploits de ces groupes ne seront plus directement visibles lors de l'étape de sélection des compétences.\n• Le groupe, une fois sélectionné, les propose dans une liste déroulante pour désencombrer l'écran de jeu.
 ModUi/&Feats=<color=#F0DAA0>Exploits</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Styles de combat</color>
 ModUi/&FixAsianLanguagesTextWrap=Correction du retour à la ligne du texte de l'interface utilisateur du jeu dans les langues asiatiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
