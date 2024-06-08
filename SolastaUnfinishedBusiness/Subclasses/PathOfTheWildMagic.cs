@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.Remoting.Lifetime;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using TA.AI.Activities;
+using UnityEngine.InputSystem.XR;
+using UnityEngine.Playables;
 using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -29,9 +32,9 @@ using static UnityEngine.EventSystems.EventTrigger;
 namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class PathOfTheWildMagic : AbstractSubclass
 {
+    private const string TagWildSurge = "TagWildSurge";
     private const string Name = "PathOfTheWildMagic";
     private const string ConditionWildSurgePrefix = $"Condition{Name}WildSurge";
-    private const ActionDefinitions.Id WildSurgeUnstableBacklashToggle = (ActionDefinitions.Id)ExtraActionId.WildSurgeUnstableBacklashToggle;
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Barbarian;
@@ -44,8 +47,13 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
     public PathOfTheWildMagic()
     {
+        // Controlled Surge
+        var featureControlledSurge = FeatureDefinitionBuilder
+            .Create($"Feature{Name}ControlledSurge")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
 
-        var wildSurgeHandler = new WildSurgeHandler();
+        var wildSurgeHandler = new WildSurgeHandler(featureControlledSurge);
         // LEVEL 03
 
         var featureWildSurge = FeatureDefinitionBuilder
@@ -78,41 +86,53 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         // Unstable Backslash
 
-        _ = ActionDefinitionBuilder
-            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "WildSurgeUnstableBacklashToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.WildSurgeUnstableBacklashToggle)
+        var powerUnstableBackslash = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}UnstableBacklash")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.AtWill)
+            .SetReactionContext(ReactionTriggerContext.DamagedWithinRange)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                .SetNoSavingThrow()
+                .UseQuickAnimations()
+                .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfTurn)
+                .SetEffectForms(
+                    EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDummy)
+                )
+                .Build())
+            .AddToDB();
+        powerUnstableBackslash.AddCustomSubFeatures(new UnstableBackslashHandler(wildSurgeHandler, powerUnstableBackslash));
+
+        var conditionUnstableBacklash = ConditionDefinitionBuilder
+            .Create($"ConditionUnstableBacklash")
+            .SetFeatures(powerUnstableBackslash)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
             .AddToDB();
 
-        var actionAffinityUnstableBacklashToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
-                $"ActionAffinity{Name}UnstableBacklashToggle")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions(WildSurgeUnstableBacklashToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(
-                    ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionRaging.Name)))
-            .AddToDB();
-
-        var featureUnstableBackslash = FeatureDefinitionBuilder
+        var featureUnstableBackslash = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}UnstableBackslash")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new UnstableBackslashHandler(wildSurgeHandler))
-            .AddToDB();
-
-        // Controlled Surge
-        var featureControlledSurge = FeatureDefinitionBuilder
-            .Create($"Feature{Name}ControlledSurge")
-            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.OnRageStartAutomatic, RechargeRate.AtWill)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Individuals)
+                .SetNoSavingThrow()
+                .UseQuickAnimations()
+                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfTurn)
+                .SetEffectForms(
+                    EffectFormBuilder.ConditionForm(conditionUnstableBacklash)
+                )
+                .Build())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheElements, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheWildMagic, 256))
             .AddFeaturesAtLevel(3, featureWildSurge, powerWildMagicAwareness)
             .AddFeaturesAtLevel(6, featuresBolsteringMagic)
-            .AddFeaturesAtLevel(10, featureUnstableBackslash, actionAffinityUnstableBacklashToggle)
+            .AddFeaturesAtLevel(10, featureUnstableBackslash)
             .AddFeaturesAtLevel(14, featureControlledSurge)
             .AddToDB();
     }
@@ -121,7 +141,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     {
         var powerBolsteringMagic = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BolsteringMagic")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite("PowerBolsteringMagic", Resources.PowerBolsteringMagic, 256, 128))
             .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -132,7 +152,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         var conditionBolsteringMagicRoll = ConditionDefinitionBuilder
             .Create($"Condition{Name}BolsteringMagicRoll")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
             .AddToDB();
 
         conditionBolsteringMagicRoll.AddCustomSubFeatures(
@@ -145,15 +165,25 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetEffectEffectParameters(SpellDefinitions.Aid.EffectDescription.effectParticleParameters.effectParticleReference)
                     .SetDurationData(DurationType.Minute, 10)
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBolsteringMagicRoll))
                     .Build())
             .AddToDB();
 
-        var conditionBolsteringMagicSpell = ConditionDefinitionBuilder.Create($"Condition{Name}BolsteringMagicSpell")
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
+        var db = DatabaseRepository.GetDatabase<FeatureDefinitionMagicAffinity>();
+        var conditions = new ConditionDefinition[3];
+
+        for (var i = 1; i <= 3; i++)
+        {
+            conditions[i - 1] = ConditionDefinitionBuilder
+                .Create($"Condition{Name}BolsteringMagicSpell{i}")
+                .SetGuiPresentation($"Condition{Name}BolsteringMagicSpell", Category.Condition)
+                .SetSilent(Silent.WhenRemoved)
+                .SetFeatures(db.GetElement($"MagicAffinityAdditionalSpellSlot{i}"))
+                .AddToDB();
+        }
 
         var powerBolsteringMagicSpell = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}BolsteringMagicSpell")
@@ -162,14 +192,23 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetEffectEffectParameters(SpellDefinitions.Aid.EffectDescription.effectParticleParameters.effectParticleReference)
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditions[0],
+                                ConditionForm.ConditionOperation.AddRandom,
+                                false, false, conditions)
+                            .Build())
                 .Build()
             )
             .AddToDB();
 
         powerBolsteringMagicSpell.AddCustomSubFeatures(
-            new WildMagicBolsteringMagicSpellHandler(powerBolsteringMagicSpell, conditionBolsteringMagicSpell));
+            new FilterTargetingCharacterBolsteringMagicSpell(conditions));
 
         PowerBundle.RegisterPowerBundle(powerBolsteringMagic, false,
             powerBolsteringMagicRoll, powerBolsteringMagicSpell);
@@ -228,9 +267,10 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         }
     }
 
-    private sealed class WildMagicBolsteringMagicSpellHandler(FeatureDefinitionPower power, ConditionDefinition condition) : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    private sealed class FilterTargetingCharacterBolsteringMagicSpell(ConditionDefinition[] conditions) : IFilterTargetingCharacter
     {
-        public bool EnforceFullSelection => true;
+        private readonly string[] _conditionNames = conditions.Select(x => x.Name).ToArray();
+        public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
@@ -241,7 +281,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 return false;
             }
 
-            if (hero.HasConditionOfType(condition.name))
+            if (hero.HasAnyConditionOfType(_conditionNames))
             {
                 __instance.actionModifier.FailureFlags.Add($"Tooltip/&{Name}AlreadyBolstered");
                 return false;
@@ -250,12 +290,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             if (!hero.CanCastSpells())
             {
                 __instance.actionModifier.FailureFlags.Add($"Tooltip/&{Name}CannotCastSpells");
-                return false;
-            }
-
-            if (!hero.SpellRepertoires.Any(repertoire => repertoire.HasMissingSpellSlots()))
-            {
-                __instance.actionModifier.FailureFlags.Add($"Tooltip/&{Name}DoesNotHaveMissingSpellSlots");
                 return false;
             }
 
@@ -270,71 +304,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 RulesetCharacterMonster monster when monster.originalFormCharacter is RulesetCharacterHero originalHero => originalHero,
                 _ => null
             };
-        }
-
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var targetCharacter = action.actionParams.TargetCharacters?.FirstOrDefault();
-
-            if (targetCharacter == null)
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = GetOriginalHero(targetCharacter);
-            if (!targetCharacter.RulesetCharacter.CanCastSpells())
-            {
-                yield break;
-            }
-
-            rulesetCharacter.InflictCondition(
-                condition.name,
-                DurationType.UntilLongRest,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.name,
-                1,
-                condition.name,
-                0,
-                0,
-                0);
-
-            var dieRoll = rulesetCharacter.RollDie(
-                DieType.D3,
-                RollContext.None,
-                false,
-                AdvantageType.None,
-                out _,
-                out _);
-
-            bool recovered = false;
-
-            // TODO: let user choose the repertoire to recover
-            foreach (var repertory in rulesetCharacter.spellRepertoires)
-            {
-                if (!repertory.HasMissingSpellSlots()) 
-                { 
-                    continue; 
-                }
-                if (ServiceRepository.GetService<IPlayerControllerService>()?.ActivePlayerController?.IsCharacterControlled(rulesetCharacter) ?? false)
-                {
-                    Gui.GuiService.GetScreen<SlotRecoveryModal>().ShowSlotRecovery(
-                        rulesetCharacter, power.Name, repertory, dieRoll, dieRoll);
-                }
-                recovered = true;
-                break;
-            }
-
-            var console = Gui.Game.GameConsole;
-            var entryMessage = recovered
-                ? $"Feedback/&Power{Name}BolsteringMagicRecoveredSlot"
-                : $"Feedback/&Power{Name}BolsteringMagicFailed";
-            var entry = new GameConsoleEntry(entryMessage, console.consoleTableDefinition);
-
-            console.AddCharacterEntry(rulesetCharacter, entry);
-            console.AddEntry(entry);
         }
     }
 
@@ -359,30 +328,23 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     private sealed class WildSurgeEffect
     {
         public ConditionDefinition condition;
+        public ConditionDefinition conditionFirstTurn;
         public FeatureDefinitionPower power;
         public FeatureDefinitionPower reactPower;
-        public WildSurgeReactionHandler ReactionHandler { get; set; }
-
-        public delegate IEnumerator WildSurgeReactionHandler(GameLocationCharacter me, GameLocationCharacter attacker);
+        public string name;
     }
 
     private class WildSurgeHandler
     {
         readonly List<WildSurgeEffect> wildSurgeEffects = [];
-        
-        enum WildSurgeType
+
+        FeatureDefinitionPower powerPool;
+        List<FeatureDefinitionPower> powers;
+        private FeatureDefinition featureControlledSurge;
+
+        public WildSurgeHandler(FeatureDefinition featureControlledSurge)
         {
-            Drain = 1,
-            Teleport,
-            Summon,
-            Weapon,
-            Retribution,
-            Aura,
-            Growth,
-            Bolt
-        }
-        public WildSurgeHandler()
-        {
+            this.featureControlledSurge = featureControlledSurge;
             wildSurgeEffects.Add(BuildWildSurgeDrain());
             wildSurgeEffects.Add(BuildWildSurgeTeleport());
             wildSurgeEffects.Add(BuildWildSurgeSummon());
@@ -391,184 +353,26 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             wildSurgeEffects.Add(BuildWildSurgeAura());
             wildSurgeEffects.Add(BuildWildSurgeGrowth());
             wildSurgeEffects.Add(BuildWildSurgeBolt());
-        }
 
-        private static WildSurgeEffect BuildWildSurgeRetribution()
-        {
-            var featureWildSurgeRetribution = FeatureDefinitionBuilder
-                .Create($"Feature{Name}Retribution")
-                .SetGuiPresentation(Category.Feature)
+
+            powerPool = FeatureDefinitionPowerBuilder
+                .Create($"Power{Name}WildSurgePool")
+                .SetGuiPresentationNoContent(true)
+                .SetUsesFixed(ActivationTime.NoCost)
                 .AddToDB();
-            var wildRetributionHandler = new WildSurgeRetributionPhysicalAttackFinishedOnMe();
-
-            featureWildSurgeRetribution.AddCustomSubFeatures(
-                wildRetributionHandler);
-
-            var condition = ConditionDefinitionBuilder
-                .Create($"{ConditionWildSurgePrefix}Retribution")
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
-                .SetConditionType(ConditionType.Beneficial)
-                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
-                .SetFeatures(featureWildSurgeRetribution)
-                .AddToDB();
-
-            var effectDescription = EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
-                .SetNoSavingThrow()
-                .SetEffectForms(
-                    EffectFormBuilder.DamageForm(DamageTypeForce, 1, DieType.D6)
-                )
-                .SetParticleEffectParameters(SpellDefinitions.MagicMissile)
-                .Build();
-
-
-            var powerWildSurgeRetribution = FeatureDefinitionPowerBuilder
-                .Create($"Power{Name}Retribution")
-                .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicMissile)
-                .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.TurnStart)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetDurationData(DurationType.Irrelevant, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
-                        .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique, 1)
-                        .SetNoSavingThrow()
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetDamageForm(DamageTypeForce, 1, DieType.D6)
-                                .Build())
-                        .UseQuickAnimations()
-                        .SetParticleEffectParameters(SpellDefinitions.MagicMissile)
-                        .Build())
-                .AddToDB();
-            return new WildSurgeEffect()
+            powers = [];
+            foreach (var effect in wildSurgeEffects)
             {
-                condition = condition,
-                ReactionHandler = wildRetributionHandler.HandleWildRetribution
-            };
-        }
-
-        private sealed class WildSurgeRetributionPhysicalAttackFinishedOnMe() : IPhysicalAttackFinishedOnMe
-        {
-
-            public IEnumerator OnPhysicalAttackFinishedOnMe(
-                GameLocationBattleManager battleManager,
-                CharacterAction action,
-                GameLocationCharacter attacker,
-                GameLocationCharacter defender,
-                RulesetAttackMode attackMode,
-                RollOutcome rollOutcome,
-                int damageAmount)
-            {
-                if (rollOutcome != RollOutcome.Success && rollOutcome != RollOutcome.CriticalSuccess)
-                {
-                    yield break;
-                }
-                yield return HandleWildRetribution(defender, attacker);
+                var title = Gui.Localize($"Condition/&{ConditionWildSurgePrefix}{effect.name}Title");
+                var description = Gui.Localize($"Condition/&{ConditionWildSurgePrefix}{effect.name}Description");
+                var power = FeatureDefinitionPowerSharedPoolBuilder
+                    .Create($"Power{Name}WildSurge{effect.name}")
+                    .SetGuiPresentation(title, description)
+                    .SetSharedPool(ActivationTime.NoCost, powerPool)
+                    .AddToDB();
+                powers.Add(power);
             }
-
-            public IEnumerator HandleWildRetribution(GameLocationCharacter defender, GameLocationCharacter attacker)
-            {
-                var rulesetAttacker = attacker.RulesetCharacter;
-                var rulesetDefender = defender.RulesetCharacter;
-
-                if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                    rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
-                {
-                    yield break;
-                }
-
-                var damageForm = new DamageForm
-                {
-                    DamageType = DamageTypeForce,
-                    DieType = DieType.D6,
-                    DiceNumber = 1,
-                    BonusDamage = 0
-                };
-
-                var rolls = new List<int>();
-                var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                {
-                    sourceCharacter = rulesetDefender,
-                    targetCharacter = rulesetAttacker,
-                    position = attacker.LocationPosition
-                };
-
-                EffectHelpers.StartVisualEffect(attacker, defender, SpellDefinitions.MagicMissile, EffectHelpers.EffectType.Impact);
-                RulesetActor.InflictDamage(
-                    damageRoll,
-                    damageForm,
-                    DamageTypeForce,
-                    applyFormsParams,
-                    rulesetAttacker,
-                    false,
-                    rulesetDefender.Guid,
-                    false,
-                    [],
-                    new RollInfo(damageForm.DieType, rolls, 0),
-                    false,
-                    out _);
-            }
-        }
-
-        private static WildSurgeEffect BuildWildSurgeWeapon()
-        {
-            var featureWildSurgeWeapon = FeatureDefinitionAdditionalDamageBuilder
-                .Create($"Feature{Name}Weapon")
-                .SetGuiPresentation(Category.Feature)
-                .SetNotificationTag(FeatureDefinitionAdditionalDamages.AdditionalDamageConditionRaging.NotificationTag)
-                .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
-                .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-               .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty(
-                (_, _, _, _, rangedAttack, mode, effect) =>
-                    (OperationType.Set, mode != null && mode.Thrown && rangedAttack)
-                        ))
-                .AddToDB();
-
-            featureWildSurgeWeapon.AddCustomSubFeatures(
-                new ReturningWeapon(ValidatorsWeapon.AlwaysValid),
-                new WildSurgeWeaponModifyAttackMode());
-
-            var condition = ConditionDefinitionBuilder
-                .Create($"{ConditionWildSurgePrefix}Weapon")
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
-                .SetConditionType(ConditionType.Beneficial)
-                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
-                .SetFeatures(featureWildSurgeWeapon)
-                .AddToDB();
-
-            return new WildSurgeEffect()
-            {
-                condition = condition
-            };
-        }
-
-        private sealed class WildSurgeWeaponModifyAttackMode() :
-            IModifyWeaponAttackMode
-        {
-            public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-            {
-                attackMode.AddAttackTagAsNeeded(TagsDefinitions.WeaponTagThrown);
-                attackMode.thrown = true;
-                attackMode.closeRange = 4;
-                attackMode.maxRange = 12;
-
-                if (attackMode.EffectDescription?.EffectForms == null)
-                {
-                    return;
-                }
-
-                foreach (var item in attackMode.EffectDescription.EffectForms)
-                {
-                    var damageForm = item.DamageForm;
-                    if (damageForm != null)
-                    {
-                        damageForm.DamageType = DamageTypeForce;
-                    }
-                }
-            }
+            PowerBundle.RegisterPowerBundle(powerPool, false, powers);
         }
 
         private static WildSurgeEffect BuildWildSurgeDrain()
@@ -577,12 +381,12 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             {
                 power = FeatureDefinitionPowerBuilder
                 .Create($"Power{Name}Drain")
-                .SetGuiPresentation(Category.Feature, SpellDefinitions.ChillTouch)
+                .SetGuiPresentation(Category.Feature)
                 .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.TurnStart)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
-                        .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                        .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                         .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                         .ExcludeCaster()
                         .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
@@ -599,109 +403,162 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                         .UseQuickAnimations()
                         .SetParticleEffectParameters(SpellDefinitions.ChillTouch)
                         .Build())
-                .AddToDB()
+                .AddToDB(),
+                name = "Drain"
             };
         }
 
         private static WildSurgeEffect BuildWildSurgeTeleport()
         {
-            var powerTeleport = FeatureDefinitionPowerBuilder
-                .Create($"Power{Name}Teleport")
-                .SetGuiPresentation(Category.Feature, SpellDefinitions.DimensionDoor)
-                .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.TurnStart)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-                        .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
-                                .Build())
-                        .UseQuickAnimations()
-                        .SetParticleEffectParameters(SpellDefinitions.MistyStep)
-                        .Build())
-                .AddToDB();
-
-            ActionDefinitionBuilder.Create("WildSurgeTeleport")
-                .SetActionId(ExtraActionId.WildSurgeTeleport)
-                .SetActionType(ActionType.Bonus)
-                .SetFormType(ActionFormType.Large)
-                .RequiresAuthorization()
-                .SetGuiPresentation(Category.Action, SpellDefinitions.MistyStep, 20)
-                .SetActionScope(ActionScope.Battle)
-                .OverrideClassName("UsePower")
-                .SetActivatedPower(powerTeleport)
-                .AddToDB();
-
             var actionAffinityTeleport = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}Teleport")
                 .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeTeleport)
                 .AddToDB();
 
+            var actionAffinityTeleportFree = FeatureDefinitionActionAffinityBuilder
+                .Create(FeatureDefinitionActionAffinitys.ActionAffinityBarbarianRecklessAttack, $"ActionAffinity{Name}TeleportFree")
+                .SetAllowedActionTypes()
+                .SetAuthorizedActions((Id)ExtraActionId.WildSurgeTeleportFree)
+                .AddToDB();
+
             var conditionWildSurgeTeleport = ConditionDefinitionBuilder
                 .Create($"{ConditionWildSurgePrefix}Teleport")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
-                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
                 .SetFeatures(actionAffinityTeleport)
+                .AddToDB();
+
+            var conditionWildSurgeTeleportFree = ConditionDefinitionBuilder
+                .Create($"{ConditionWildSurgePrefix}TeleportFree")
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetConditionType(ConditionType.Beneficial)
+                .SetFeatures(actionAffinityTeleportFree)
+                .AddToDB();
+
+            var powerTeleport = FeatureDefinitionPowerBuilder
+                .Create($"Power{Name}Teleport")
+                .SetGuiPresentation(Category.Feature, SpellDefinitions.MistyStep)
+                .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.TurnStart)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                        .SetTargetingData(Side.Ally, RangeType.Distance, 7, TargetType.Position)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                                .Build(),
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(conditionWildSurgeTeleportFree, ConditionForm.ConditionOperation.Remove, true, true)
+                                .Build())
+                        .UseQuickAnimations()
+                        .SetParticleEffectParameters(SpellDefinitions.MistyStep)
+                        .Build())
+                .AddToDB();
+
+            var actionWildSurgeTeleport = ActionDefinitionBuilder.Create("WildSurgeTeleport")
+                .SetActionId(ExtraActionId.WildSurgeTeleport)
+                .SetActionType(ActionType.Bonus)
+                .SetFormType(ActionFormType.Large)
+                .SetGuiPresentation(Category.Action, SpellDefinitions.MistyStep, 20)
+                .SetActionScope(ActionScope.All)
+                .RequiresAuthorization()
+                .OverrideClassName("UsePower")
+                .SetActivatedPower(powerTeleport)
+                .AddToDB();
+
+            ActionDefinitionBuilder.Create(actionWildSurgeTeleport, "WildSurgeTeleportFree")
+                .SetActionId(ExtraActionId.WildSurgeTeleportFree)
+                .SetActionType(ActionType.NoCost)
                 .AddToDB();
 
             return new WildSurgeEffect()
             {
+                name = "Teleport",
                 condition = conditionWildSurgeTeleport,
-                power = powerTeleport
+                conditionFirstTurn = conditionWildSurgeTeleportFree,
+                reactPower = powerTeleport
             };
         }
 
         private static WildSurgeEffect BuildWildSurgeSummon()
         {
-            var powerSummonBlast = FeatureDefinitionPowerBuilder
-                .Create(FeatureDefinitionPowers.PowerDelayedBlastFireballDetonate, $"Power{Name}SummonBlast")
-                .SetGuiPresentation(Category.Feature)
-                .SetEffectDescription(EffectDescriptionBuilder
-                    .Create(FeatureDefinitionPowers.PowerDelayedBlastFireballDetonate)
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
-                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Constitution, 8)
-                    .SetEffectForms(
-                        EffectFormBuilder.Create()
-                        .SetDamageForm(DamageTypeForce, 1, DieType.D6)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                    .Build())
-                .AddToDB();
-
-            var powerReactionSummonBlast = FeatureDefinitionPowerBuilder
-                .Create(FeatureDefinitionPowers.PowerDelayedBlastFireballDetonate, $"Power{Name}ReactionSummonBlast")
-                .SetGuiPresentation(Category.Feature)
-                .SetEffectDescription(EffectDescriptionBuilder
-                    .Create(FeatureDefinitionPowers.PowerDelayedBlastFireballDetonate)
-                    .SetTargetingData(Side.All, RangeType.Distance, 0, TargetType.Cube, 3)
-                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Constitution, 8)
-                    .SetEffectForms(
-                        EffectFormBuilder.Create()
-                        .SetDamageForm(DamageTypeForce, 1, DieType.D6)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                    .SetParticleEffectParameters(SpellDefinitions.Shatter)
-                    .Build())
-                .AddToDB();
-
             var proxySummon = EffectProxyDefinitionBuilder
                 .Create(EffectProxyDefinitions.ProxyDancingLights, $"Proxy{Name}Summon")
-                .SetGuiPresentation(Category.Proxy, EffectProxyDefinitions.ProxyDancingLights)
+                .SetGuiPresentation(Category.Proxy, EffectProxyDefinitions.ProxyDelayedBlastFireball)
                 .SetPortrait(EffectProxyDefinitions.ProxyDancingLights.PortraitSpriteReference)
                 .SetCanMove(false, false)
+                .SetAttackMethod(ProxyAttackMethod.ReproduceDamageForms)
                 .AddToDB();
 
             proxySummon.autoTerminateOnTriggerPower = true;
-            proxySummon.attackPower = powerSummonBlast;
             proxySummon.actionId = Id.NoAction;
             proxySummon.canTriggerPower = true;
+
+            var actionAffinitySummon = FeatureDefinitionActionAffinityBuilder
+                .Create($"ActionAffinity{Name}Summon")
+                .SetAllowedActionTypes()
+                .SetAuthorizedActions((Id)ExtraActionId.WildSurgeSummon)
+                .AddCustomSubFeatures(new WildSurgeSummonOnTurnEnd(proxySummon))
+                .AddToDB();
+
+            var actionAffinitySummonFree = FeatureDefinitionActionAffinityBuilder
+                .Create($"ActionAffinity{Name}SummonFree")
+                .SetAllowedActionTypes()
+                .SetAuthorizedActions((Id)ExtraActionId.WildSurgeSummonFree)
+                .AddToDB();
+
+            var conditionWildSurgeSummon = ConditionDefinitionBuilder
+                .Create($"{ConditionWildSurgePrefix}Summon")
+                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
+                .SetConditionType(ConditionType.Beneficial)
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
+                .SetFeatures(actionAffinitySummon)
+                .AddToDB();
+
+            var conditionWildSurgeSummonFree = ConditionDefinitionBuilder
+                .Create($"{ConditionWildSurgePrefix}SummonFree")
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(actionAffinitySummonFree)
+                .AddToDB();
+
+            var effectDescriptionBlast = EffectDescriptionBuilder
+                    .Create(FeatureDefinitionPowers.PowerDelayedBlastFireballDetonate.effectDescription)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3, 2)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Constitution, 8)
+                    .UseQuickAnimations()
+                    .SetEffectForms(
+                        EffectFormBuilder.Create()
+                        .SetDamageForm(DamageTypeForce, 1, DieType.D6)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                    .Build();
+
+            effectDescriptionBlast.EffectParticleParameters.impactParticleReference
+                = SpellDefinitions.MagicMissile.effectDescription.EffectParticleParameters.impactParticleReference;
+            effectDescriptionBlast.EffectParticleParameters.zoneParticleReference
+                = SpellDefinitions.Shatter.effectDescription.EffectParticleParameters.zoneParticleReference;
+
+            var powerSummonBlast = FeatureDefinitionPowerBuilder
+                .Create(FeatureDefinitionPowers.PowerDelayedBlastFireballDetonate, $"Power{Name}SummonBlast")
+                .SetGuiPresentation(Category.Feature)
+                .SetEffectDescription(effectDescriptionBlast)
+                .AddToDB();
+            proxySummon.attackPower = powerSummonBlast;
+
+            var powerSummonBlastReaction = FeatureDefinitionPowerBuilder
+                .Create(powerSummonBlast, $"Power{Name}SummonBlastReaction")
+                .SetGuiPresentation(Category.Feature)
+                .SetEffectDescription(EffectDescriptionBuilder.Create(effectDescriptionBlast)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube, 3, 2)
+                    .Build())
+                .AddToDB();
+            powerSummonBlastReaction.guiPresentation = powerSummonBlast.guiPresentation;
 
             var effectDescription = EffectDescriptionBuilder
                 .Create()
@@ -709,7 +566,11 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
                 .SetEffectForms(
                     EffectFormBuilder.Create().SetSummonEffectProxyForm(proxySummon)
-                    .Build())
+                    .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionWildSurgeSummonFree, ConditionForm.ConditionOperation.Remove, true, true)
+                        .Build())
                 .Build();
 
             var powerSummon = FeatureDefinitionPowerBuilder
@@ -719,7 +580,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetEffectDescription(effectDescription)
                 .AddToDB();
 
-            ActionDefinitionBuilder.Create("WildSurgeSummon")
+            var actionSummon = ActionDefinitionBuilder.Create("WildSurgeSummon")
                 .SetActionId(ExtraActionId.WildSurgeSummon)
                 .SetActionType(ActionType.Bonus)
                 .SetFormType(ActionFormType.Large)
@@ -730,26 +591,17 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetActivatedPower(powerSummon)
                 .AddToDB();
 
-            var actionAffinitySummon = FeatureDefinitionActionAffinityBuilder
-                .Create($"ActionAffinity{Name}Summon")
-                .SetAllowedActionTypes()
-                .SetAuthorizedActions((Id)ExtraActionId.WildSurgeSummon)
-                .AddCustomSubFeatures(new WildSurgeSummonOnTurnEnd(proxySummon))
-                .AddToDB();
-
-            var conditionWildSurgeSummon = ConditionDefinitionBuilder
-                .Create($"{ConditionWildSurgePrefix}Summon")
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
-                .SetConditionType(ConditionType.Beneficial)
-                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
-                .SetFeatures(actionAffinitySummon)
+            ActionDefinitionBuilder.Create(actionSummon, "WildSurgeSummonFree")
+                .SetActionId(ExtraActionId.WildSurgeSummonFree)
+                .SetActionType(ActionType.NoCost)
                 .AddToDB();
 
             return new WildSurgeEffect()
             {
+                name = "Summon",
                 condition = conditionWildSurgeSummon,
-                power = powerSummon,
-                reactPower = powerReactionSummonBlast
+                conditionFirstTurn = conditionWildSurgeSummonFree,
+                reactPower = powerSummonBlastReaction
             };
         }
         private sealed class WildSurgeSummonOnTurnEnd(EffectProxyDefinition powerSummon) 
@@ -773,21 +625,127 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     return;
                 }
 
-                foreach (var proxyCharacter in locationCharacter.RulesetCharacter.controlledEffectProxies)
+                foreach (var proxy in locationCharacter.RulesetCharacter.controlledEffectProxies)
                 {
-                    if (proxyCharacter?.EffectProxyDefinition?.Name != powerSummon?.Name || proxyCharacter?.ControllerGuid == null)
+                    if (proxy?.EffectProxyDefinition?.Name != powerSummon?.Name || proxy?.ControllerGuid == null)
                     {
                         continue;
                     }
 
-                    if (RulesetEntity.TryGetEntity<RulesetCharacter>(proxyCharacter.ControllerGuid, out var entity))
+                    if (RulesetEntity.TryGetEntity<RulesetCharacter>(proxy.ControllerGuid, out var controller))
                     {
-                        ServiceRepository.GetService<IRulesetImplementationService>()?.AutoTriggerProxy(proxyCharacter, entity);
+                        var service = ServiceRepository.GetService<IRulesetImplementationService>();
+                        service.AutoTriggerProxy(proxy, controller);
+
                     }
                 }
             }
         }
 
+        private static WildSurgeEffect BuildWildSurgeWeapon()
+        {
+            var featureWildSurgeWeapon = FeatureDefinitionAdditionalDamageBuilder
+                .Create($"Feature{Name}Weapon")
+                .SetGuiPresentation(Category.Feature)
+                .SetNotificationTag(FeatureDefinitionAdditionalDamages.AdditionalDamageConditionRaging.NotificationTag)
+                .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
+                .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+                .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty(
+                    (_, _, _, _, rangedAttack, mode, effect) =>
+                        (OperationType.Set, mode != null && mode.Thrown && rangedAttack)
+                 ))
+                .AddToDB();
+
+            featureWildSurgeWeapon.AddCustomSubFeatures(
+                new ReturningWeapon(ValidatorsWeapon.AlwaysValid),
+                new WildSurgeWeaponModifyAttackMode());
+
+            var condition = ConditionDefinitionBuilder
+                .Create($"{ConditionWildSurgePrefix}Weapon")
+                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
+                .SetConditionType(ConditionType.Beneficial)
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
+                .SetFeatures(featureWildSurgeWeapon)
+                .AddToDB();
+
+            return new WildSurgeEffect()
+            {
+                name = "Weapon",
+                condition = condition
+            };
+        }
+        private sealed class WildSurgeWeaponModifyAttackMode() :
+            IModifyWeaponAttackMode
+        {
+            public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+            {
+                if (ValidatorsWeapon.IsMelee(attackMode))
+                {
+                    attackMode.AddAttackTagAsNeeded(TagsDefinitions.WeaponTagThrown);
+                    attackMode.thrown = true;
+                    attackMode.closeRange = 4;
+                    attackMode.maxRange = 12;
+                }
+
+                if (attackMode.EffectDescription?.EffectForms == null)
+                {
+                    return;
+                }
+
+                foreach (var item in attackMode.EffectDescription.EffectForms)
+                {
+                    var damageForm = item.DamageForm;
+                    if (damageForm != null)
+                    {
+                        damageForm.DamageType = DamageTypeForce;
+                    }
+                }
+            }
+        }
+        private static WildSurgeEffect BuildWildSurgeRetribution()
+        {
+            var powerWildSurgeRetribution = FeatureDefinitionPowerBuilder
+                .Create($"Power{Name}Retribution")
+                .SetGuiPresentationNoContent( true )
+                .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.TurnStart)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Irrelevant, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
+                        .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Individuals, 1)
+                        .SetNoSavingThrow()
+                        .UseQuickAnimations()
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetDamageForm(DamageTypeForce, 1, DieType.D6)
+                                .Build())
+                        .UseQuickAnimations()
+                        .SetParticleEffectParameters(SpellDefinitions.MagicMissile)
+                        .Build())
+                .AddToDB();
+
+            var featureWildSurgeRetribution = FeatureDefinitionDamageAffinityBuilder
+                .Create($"Feature{Name}Retribution")
+                .SetGuiPresentation(Category.Feature)
+                .SetRetaliate(powerWildSurgeRetribution, 99)
+                .AddToDB();
+
+            var condition = ConditionDefinitionBuilder
+                .Create($"{ConditionWildSurgePrefix}Retribution")
+                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
+                .SetConditionType(ConditionType.Beneficial)
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
+                .SetFeatures(featureWildSurgeRetribution)
+                .AddToDB();
+
+            return new WildSurgeEffect()
+            {
+                name = "Retribution",
+                condition = condition,
+                reactPower = powerWildSurgeRetribution
+            };
+        }
         private static WildSurgeEffect BuildWildSurgeAura()
         {
             var attributeModifierAuraBonus = FeatureDefinitionAttributeModifierBuilder
@@ -798,14 +756,17 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             var conditionAuraBonus = ConditionDefinitionBuilder
                 .Create($"Condition{Name}AuraBonus")
+                .SetConditionParticleReference(ConditionDefinitions.ConditionHolyAura.conditionParticleReference)
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetFeatures(attributeModifierAuraBonus)
                 .AddToDB();
+            conditionAuraBonus.conditionStartParticleReference = ConditionDefinitions.ConditionHolyAura.conditionStartParticleReference;
+            conditionAuraBonus.conditionEndParticleReference = ConditionDefinitions.ConditionHolyAura.conditionEndParticleReference;
 
             var auraPower = FeatureDefinitionPowerBuilder
                 .Create($"Power{Name}Aura")
-                .SetGuiPresentation(Category.Feature, SpellDefinitions.ChillTouch)
+                .SetGuiPresentation(Category.Feature)
                 .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
                 .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
                 .SetEffectDescription(
@@ -833,12 +794,13 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetFeatures(auraPower)
-                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
                 .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                 .AddToDB();
 
             return new WildSurgeEffect()
             {
+                name = "Aura",
                 condition = conditionWildSurgeAura,
                 power = auraPower
             };
@@ -880,19 +842,20 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .Create($"{ConditionWildSurgePrefix}Growth")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
-                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
                 .SetFeatures(featureGrowth)
                 .AddToDB();
+
             return new WildSurgeEffect()
             {
+                name = "Growth",
                 condition = conditionWildSurgeGrowth,
-                ReactionHandler = growthHandler.ReactionHandler
+                reactPower = powerGrowth
             };
         }
 
         private sealed class WildSurgeGrowthOnTurnEnd(FeatureDefinitionPower power) : ICharacterBeforeTurnEndListener
         {
-
             public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
             {
                 var rulesetCharacter = locationCharacter.RulesetCharacter;
@@ -904,16 +867,36 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 ServiceRepository.GetService<ICommandService>()?
                     .ExecuteAction(actionParams, null, false);
             }
-
-            internal IEnumerator ReactionHandler(GameLocationCharacter locationCharacter, GameLocationCharacter _)
-            {
-                OnCharacterBeforeTurnEnded(locationCharacter);
-                yield return null;
-            }
         }
 
         private static WildSurgeEffect BuildWildSurgeBolt()
         {
+            var actionAffinityBolt = FeatureDefinitionActionAffinityBuilder
+                .Create($"ActionAffinity{Name}Bolt")
+                .SetAllowedActionTypes()
+                .SetAuthorizedActions((Id)ExtraActionId.WildSurgeBolt)
+                .AddToDB();
+
+            var actionAffinityBoltFree = FeatureDefinitionActionAffinityBuilder
+                .Create($"ActionAffinity{Name}BoltFree")
+                .SetAllowedActionTypes()
+                .SetAuthorizedActions((Id)ExtraActionId.WildSurgeBoltFree)
+                .AddToDB();
+
+            var conditionWildSurgeBolt = ConditionDefinitionBuilder
+                .Create($"{ConditionWildSurgePrefix}Bolt")
+                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
+                .SetConditionType(ConditionType.Beneficial)
+                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
+                .SetFeatures(actionAffinityBolt)
+                .AddToDB();
+
+            var conditionWildSurgeBoltFree = ConditionDefinitionBuilder
+                .Create($"{ConditionWildSurgePrefix}BoltFree")
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(actionAffinityBoltFree)
+                .AddToDB();
+
             var powerBolt = FeatureDefinitionPowerBuilder
                 .Create($"Power{Name}Bolt")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.GuidingBolt)
@@ -922,7 +905,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     EffectDescriptionBuilder
                         .Create()
                         .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
-                        .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 1)
+                        .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique, 1)
                         .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                             EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Constitution, 8)
                         .SetEffectForms(
@@ -935,13 +918,18 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                                 .Create()
                                 .SetConditionForm(ConditionDefinitions.ConditionBlinded, ConditionForm.ConditionOperation.Add)
                                 .HasSavingThrow(EffectSavingThrowType.Negates)
+                                .Build(),
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(conditionWildSurgeBoltFree, ConditionForm.ConditionOperation.Remove, true, true)
+                                .HasSavingThrow(EffectSavingThrowType.Negates)
                                 .Build())
                         .UseQuickAnimations()
                         .SetParticleEffectParameters(SpellDefinitions.GuidingBolt)
                         .Build())
                 .AddToDB();
 
-            ActionDefinitionBuilder.Create("WildSurgeBolt")
+            var actionWildSurgeBolt = ActionDefinitionBuilder.Create("WildSurgeBolt")
                 .SetActionId(ExtraActionId.WildSurgeBolt)
                 .SetActionType(ActionType.Bonus)
                 .SetFormType(ActionFormType.Large)
@@ -952,27 +940,20 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetActivatedPower(powerBolt)
                 .AddToDB();
 
-            var actionAffinityBolt = FeatureDefinitionActionAffinityBuilder
-                .Create($"ActionAffinity{Name}Bolt")
-                .SetAllowedActionTypes()
-                .SetAuthorizedActions((Id)ExtraActionId.WildSurgeBolt)
+            ActionDefinitionBuilder.Create(actionWildSurgeBolt, "WildSurgeBoltFree")
+                .SetActionId(ExtraActionId.WildSurgeBoltFree)
+                .SetActionType(ActionType.NoCost)
                 .AddToDB();
 
-            var conditionWildSurgeBolt = ConditionDefinitionBuilder
-                .Create($"{ConditionWildSurgePrefix}Bolt")
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
-                .SetConditionType(ConditionType.Beneficial)
-                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn)
-                .SetFeatures(actionAffinityBolt)
-                .AddToDB();
             return new WildSurgeEffect()
             {
-                power = powerBolt,
+                name = "Bolt",
+                reactPower = powerBolt,
+                conditionFirstTurn = conditionWildSurgeBoltFree,
                 condition = conditionWildSurgeBolt
             };
         }
 
-        int _dieRoll = 1;
         public IEnumerator HandleWildSurge(GameLocationCharacter character, GameLocationCharacter attacker = null)
         {
             if (character == null)
@@ -986,21 +967,25 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            // choose surge effect
-            var dieRoll =
-                rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
-            _dieRoll = (_dieRoll % 8) + 1;
-            dieRoll = _dieRoll;
+            List<int> dieRoll = [1];
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var reactingOutOfTurn = battleManager.Battle.ActiveContender != character && attacker != null;
+            if (rulesetCharacter.HasAnyFeature(featureControlledSurge)) 
+            {
+                yield return HandleControlledSurge(character, dieRoll);
+            } 
+            else
+            {
+                dieRoll[0] =
+                    rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
+            }
 
-            var wildSurgeEffect = wildSurgeEffects.ElementAt(dieRoll - 1);
-
-            var firstTime = true;
+            var wildSurgeEffect = wildSurgeEffects.ElementAt(dieRoll[0] - 1);
             if (wildSurgeEffect.condition != null)
             {
                 var existingCondition = GetExistingWildSurgeCondition(rulesetCharacter);
                 if (existingCondition?.Name == wildSurgeEffect.condition.Name)
                 {
-                    firstTime = false;
                 }
                 else
                 {
@@ -1010,8 +995,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     }
                     rulesetCharacter.InflictCondition(
                         wildSurgeEffect.condition.Name,
-                        DurationType.Irrelevant,
-                        0,
+                        DurationType.Minute,
+                        1,
                         TurnOccurenceType.StartOfTurn,
                         AttributeDefinitions.TagEffect,
                         character.RulesetCharacter.Guid,
@@ -1022,51 +1007,193 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                         0,
                         0);
                 }
+            } 
+            else
+            {
+                RemoveExistingWildSurgeCondition(rulesetCharacter);
             }
-            var power = 
-                attacker != null ? wildSurgeEffect.reactPower ?? wildSurgeEffect.power :
+
+            if (wildSurgeEffect.conditionFirstTurn != null && !reactingOutOfTurn)
+            {
+                rulesetCharacter.InflictCondition(
+                    wildSurgeEffect.conditionFirstTurn.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    character.RulesetCharacter.Guid,
+                    character.RulesetCharacter.CurrentFaction.Name,
+                    1,
+                    wildSurgeEffect.conditionFirstTurn.Name,
+                    0,
+                    0,
+                    0);
+            }
+            var power =
+                reactingOutOfTurn ? wildSurgeEffect.reactPower ?? wildSurgeEffect.power :
                 wildSurgeEffect.power;
             if (power != null)
             {
-                CharacterActionParams actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerBonus);
                 var usablePower = PowerProvider.Get(power, rulesetCharacter);
-                actionParams.RulesetEffect = implementationManager.InstantiateEffectPower(rulesetCharacter, usablePower, true);
-                
+
                 if (power.EffectDescription.TargetType == TargetType.Position)
                 {
+                    CharacterActionParams actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost);
+                    actionParams.RulesetEffect = implementationManager.InstantiateEffectPower(rulesetCharacter, usablePower, true);
+                    // trick to ensure enemy won't execute any more attack or shove action after teleport
+                    if (reactingOutOfTurn)
+                    {
+                        ResetCamera();
+                        var rulesetAttacker = attacker.RulesetCharacter;
+
+                        rulesetAttacker.InflictCondition(
+                            "ConditionArchfeyMistyEscape",
+                            DurationType.Round,
+                            0,
+                            TurnOccurenceType.EndOfTurn,
+                            AttributeDefinitions.TagEffect,
+                            rulesetCharacter.guid,
+                            rulesetCharacter.CurrentFaction.Name,
+                            1,
+                            "ConditionArchfeyMistyEscape",
+                            0,
+                            0,
+                            0);
+                    }
+
                     cursorService.ActivateCursor<CursorLocationSelectPosition>([actionParams]);
+                    while (reactingOutOfTurn && cursorService.CurrentCursor is CursorLocationSelectPosition)
+                    {
+                        yield return null;
+                    }
                 }
                 else if (power.EffectDescription.TargetType == TargetType.Individuals
                     || power.EffectDescription.TargetType == TargetType.IndividualsUnique)
                 {
-                    if (attacker != null)
+                    if (reactingOutOfTurn)
                     {
+                        CharacterActionParams actionParams = new CharacterActionParams(character, ActionDefinitions.Id.SpendPower);
+                        actionParams.RulesetEffect = implementationManager.InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                        actionParams.IsReactionEffect = true;
                         actionParams.TargetCharacters.Add(attacker);
                         actionParams.ActionModifiers.Add(new ActionModifier());
-                        ServiceRepository.GetService<ICommandService>()?
-                            .ExecuteAction(actionParams, null, true);
+                        ServiceRepository.GetService<ICommandService>()?.ExecuteInstantSingleAction(actionParams);
                     }
-                    else
+                }
+                else if (power.EffectDescription.TargetType == TargetType.Cube && power.EffectDescription.RangeType == RangeType.Distance)
+                {
+                    CharacterActionParams actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost);
+                    actionParams.RulesetEffect = implementationManager.InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                    actionParams.IsReactionEffect = true;
+                    if (reactingOutOfTurn)
                     {
-                        cursorService.ActivateCursor<CursorLocationSelectTarget>([actionParams]);
+                        ResetCamera();
+                    }
+                    cursorService.ActivateCursor<CursorLocationGeometricShape>([actionParams]);
+                    while (reactingOutOfTurn && cursorService.CurrentCursor is CursorLocationGeometricShape)
+                    {
+                        yield return null;
                     }
                 }
                 else
                 {
-                    if (power.EffectDescription.TargetType == TargetType.Cube && attacker != null)
-                    {
-
-                        actionParams.positions = [attacker.LocationPosition];
-                    }
-                    ServiceRepository.GetService<ICommandService>()?
-                        .ExecuteAction(actionParams, null, true);
+                    //if (power.ActivationTime == ActivationTime.PermanentUnlessIncapacitated && reactingOutOfTurn)
+                    //{
+                    //    CharacterActionParams actionParams = new CharacterActionParams(character, ActionDefinitions.Id.SpendPower);
+                    //    actionParams.RulesetEffect = implementationManager.InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                    //    ServiceRepository.GetService<ICommandService>()?.ExecuteInstantSingleAction(actionParams);
+                    //} else
+                    //{
+                        CharacterActionParams actionParams = new CharacterActionParams(character, ActionDefinitions.Id.PowerNoCost);
+                        actionParams.RulesetEffect = implementationManager.InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                        ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+                    //}
                 }
             }
-            if (firstTime && attacker != null && wildSurgeEffect.ReactionHandler != null)
+        }
+
+        private IEnumerator HandleControlledSurge(GameLocationCharacter character, List<int> result)
+        {
+            var rulesetAttacker = character.RulesetCharacter;
+            var firstRoll = rulesetAttacker.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
+            var secondRoll = rulesetAttacker.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var myUsablePowers = new List<RulesetUsablePower>();
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var usablePowerPool = PowerProvider.Get(powerPool, rulesetAttacker);
+
+            myUsablePowers.Add(usablePowerPool);
+            if (firstRoll == secondRoll)
             {
-                yield return wildSurgeEffect.ReactionHandler(character, attacker);
+                foreach (var power in powers)
+                {
+                    myUsablePowers.Add(PowerProvider.Get(power, rulesetAttacker));
+                }
+            } else
+            {
+                myUsablePowers.Add(PowerProvider.Get(powers[firstRoll - 1], rulesetAttacker));
+                myUsablePowers.Add(PowerProvider.Get(powers[secondRoll - 1], rulesetAttacker));
+            }
+            var usablePowersOrig = rulesetAttacker.usablePowers;
+            rulesetAttacker.usablePowers = myUsablePowers;
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
+            var actionParams = new CharacterActionParams(GameLocationCharacter.GetFromActor(rulesetAttacker), ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "ControlledSurge",
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters  = [character]
+            };
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(character, actionManager, count);
+
+            rulesetAttacker.usablePowers = usablePowersOrig;
+
+            if (reactionRequest.Validated && reactionRequest.SelectedSubOption >= 0)
+            {
+                result[0] = reactionRequest.SelectedSubOption + 1;
+            } else
+            {
+                result[0] = firstRoll;
+            }
+
+            yield return null;
+        }
+
+        private static void ResetCamera()
+        {
+            var viewLocationContextualManager =
+                ServiceRepository.GetService<IViewLocationContextualService>() as ViewLocationContextualManager;
+
+            if (!viewLocationContextualManager)
+            {
+                return;
+            }
+
+            if (viewLocationContextualManager.rangeAttackDirector.state == PlayState.Playing)
+            {
+                viewLocationContextualManager.rangeAttackDirector.Stop();
+                viewLocationContextualManager.ContextualSequenceEnd?.Invoke();
+            }
+
+            // ReSharper disable once InvertIf
+            if (viewLocationContextualManager.meleeAttackDirector.state == PlayState.Playing)
+            {
+                viewLocationContextualManager.meleeAttackDirector.Stop();
+                viewLocationContextualManager.ContextualSequenceEnd?.Invoke();
             }
         }
+
 
         public void RemoveExistingWildSurgeCondition(RulesetCharacter character)
         {
@@ -1090,87 +1217,40 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         }
     }
 
-    private sealed class UnstableBackslashHandler(WildSurgeHandler wildSurgeHandler) 
-        : IPhysicalAttackFinishedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+    private sealed class UnstableBackslashHandler(WildSurgeHandler wildSurgeHandler, FeatureDefinitionPower featureUnstableBackslash) 
+        : 
+        IActionFinishedByEnemy, 
+        IActionFinishedByMe
     {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager, 
-            GameLocationCharacter attacker, 
-            GameLocationCharacter defender, 
-            ActionModifier actionModifier, 
-            RulesetEffect rulesetEffect, 
-            List<EffectForm> actualEffectForms, 
-            bool firstTarget, 
-            bool criticalHit)
+        private const string TagUnstableBacklash = "UnstableBacklash";
+
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
-            // check if it hit
-            yield return HandleUnstableBacklash(defender, attacker);
+            if (!target.UsedSpecialFeatures.ContainsKey(TagUnstableBacklash))
+            {
+                yield break;
+            }
+
+            target.UsedSpecialFeatures.Remove(TagUnstableBacklash);
+            yield return wildSurgeHandler.HandleWildSurge(target, characterAction.ActingCharacter);
         }
 
-        public IEnumerator OnPhysicalAttackFinishedOnMe(GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (characterAction.ActionType != ActionType.Reaction) { 
+                yield break;
+            }
+            if (characterAction is not CharacterActionUsePower characterPowerAction)
             {
                 yield break;
             }
-
-            yield return HandleUnstableBacklash(defender, attacker);
+            if (characterPowerAction.activePower.PowerDefinition != featureUnstableBackslash)
+            {
+                yield break ;
+            }
+            characterAction.ActingCharacter.UsedSpecialFeatures.TryAdd(TagUnstableBacklash, 0);
         }
 
-        private IEnumerator HandleUnstableBacklash(GameLocationCharacter defender, GameLocationCharacter attacker)
-        {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (!actionManager)
-            {
-                yield break;
-            }
-
-            if (!defender.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
-                    ConditionDefinitions.ConditionRaging.Name,
-                    ConditionDefinitions.ConditionRagingNormal.Name,
-                    ConditionDefinitions.ConditionRagingPersistent.Name) ||
-                !defender.CanReact() ||
-                !defender.IsReactionAvailable() ||
-                defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (!defender.RulesetCharacter.IsToggleEnabled(WildSurgeUnstableBacklashToggle))
-            {
-                yield break;
-            }
-
-            var actionParams = new CharacterActionParams(defender, (Id)ExtraActionId.DoNothingReaction)
-            {
-                StringParameter = $"CustomReactionUnstableBacklashDescription"
-                    .Formatted(Category.Reaction, defender.Name)
-            };
-
-            var count = actionManager.PendingReactionRequestGroups.Count;
-
-            var reactionRequest = new ReactionRequestCustom($"UnstableBacklash", actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-            
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            defender.ReactionEngaged = true;
-
-            yield return wildSurgeHandler.HandleWildSurge(defender, attacker);
-        }
     }
 
 }

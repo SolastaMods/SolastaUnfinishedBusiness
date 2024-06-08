@@ -65,10 +65,12 @@ internal enum ExtraActionId
     ProxyDawn,
     BalefulScionToggle,
     PowerSurgeToggle,
-    WildSurgeUnstableBacklashToggle,
     WildSurgeBolt,
+    WildSurgeBoltFree,
     WildSurgeSummon,
+    WildSurgeSummonFree,
     WildSurgeTeleport,
+    WildSurgeTeleportFree,
     PrioritizeAction = 10000
 }
 
