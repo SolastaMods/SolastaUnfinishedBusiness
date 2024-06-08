@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionElementalBaneTitle",
-    "description": "Condition/&ConditionElementalBaneDescription",
+    "title": "Elemental Bane: Acid Damage",
+    "description": "The first time each turn you take Acid Damage damage, you take an extra 2d6 Acid Damage damage. Moreover, You lose any resistance to Acid Damage damage until the spell ends.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "0a9aadc34a0fd1244b15ab2727a64be1",

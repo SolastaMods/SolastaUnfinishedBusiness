@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:AdditionalDamageElementalBaneDamageLightning:07dd08e9-3d9a-5b60-a573-dbf30b996ab4"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -15,7 +17,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "Attacks"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -149,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "074331ef-ead0-5653-9b36-149e87ed3279",
+  "guid": "a1f70367-7ed2-53f3-9a46-87e0ec11b9b6",
   "contentPack": 9999,
-  "name": "ConditionMartialGuardianVigilance"
+  "name": "ConditionElementalBaneDamageLightningAttacker"
 }

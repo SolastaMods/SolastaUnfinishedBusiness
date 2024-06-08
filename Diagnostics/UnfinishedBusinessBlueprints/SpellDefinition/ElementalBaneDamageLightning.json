@@ -320,7 +320,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Elemental Bane: Lightning Damage",
-    "description": "Choose one creature you can see within range. The target must succeed on a Constitution saving throw or be affected by the spell for its duration. The first time each turn the affected target takes Lightning Damage damage, the target takes an extra 2d6 Lightning Damage damage. Moreover, the target loses any resistance to Lightning Damage damage until the spell ends. When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them.",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
