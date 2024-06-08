@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionMovementAffinity, Assembly-CSharp",
   "appliesToAllModes": true,
   "moveMode": "Walk",
-  "baseSpeedAdditiveModifier": 6,
+  "baseSpeedAdditiveModifier": 8,
   "additiveModifierAdvancement": "None",
   "additiveModifierByLevelTable": [],
   "forceMinimalBaseSpeed": false,
