@@ -200,21 +200,21 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
     }
 
     private sealed class CustomBehaviorBarkWard(FeatureDefinitionPower powerBarkOrImprovedBarkWard)
-        : IAttackBeforeHitPossibleOnMeOrAlly, IActionFinishedByEnemy
+        : IAttackBeforeHitPossibleOnMeOrAlly, IActionFinishedByContender
     {
-        private bool _shouldTrigger;
+        private bool _isValid;
 
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction action, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction action, GameLocationCharacter target)
         {
-            var actingCharacter = action.ActingCharacter;
-            var rulesetAttacker = actingCharacter.RulesetCharacter;
-
-            if (!_shouldTrigger)
+            if (!_isValid)
             {
                 yield break;
             }
 
-            _shouldTrigger = false;
+            _isValid = false;
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetAttacker = actingCharacter.RulesetCharacter;
 
             if (Gui.Battle != null &&
                 Gui.Battle.InitiativeRollFinished &&
@@ -235,7 +235,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            _shouldTrigger =
+            _isValid =
                 defender == helper &&
                 defender.RulesetCharacter.TemporaryHitPoints > 0 &&
                 defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&

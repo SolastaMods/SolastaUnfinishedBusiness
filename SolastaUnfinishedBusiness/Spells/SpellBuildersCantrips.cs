@@ -616,7 +616,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         spell.AddCustomSubFeatures(
-            AttackAfterMagicEffect.Marker,
+            new AttackAfterMagicEffect(spell),
             new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;
@@ -870,7 +870,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         spell.AddCustomSubFeatures(
-            AttackAfterMagicEffect.Marker,
+            new AttackAfterMagicEffect(spell),
             new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;
@@ -1045,7 +1045,7 @@ internal static partial class SpellBuilders
         powerResonatingStrike.AddCustomSubFeatures(customBehavior);
         spell.AddCustomSubFeatures(
             customBehavior,
-            AttackAfterMagicEffect.Marker,
+            new AttackAfterMagicEffect(spell),
             new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;

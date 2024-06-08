@@ -1638,12 +1638,12 @@ internal static class RaceFeats
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
-            IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByEnemy
+            IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByContender
     {
         private bool _isValid;
         private bool _knockOutPrevented;
 
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
         {
             if (!_isValid)
             {

@@ -33,7 +33,7 @@ internal static class CreditsDisplay
             "Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Raven, Roguish Slayer, Roguish Umbral Stalker, " +
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, " +
             "Way of Discordance, Way of Shadow, Way of Storm Soul, Way of Weal and Woe, Way of Zen Archery, " +
-            "Wizard Bladesinger, Wizard Deadmaster, Wizard War Magic" +
+            "Wizard Bladesinger, Wizard Deadmaster, Wizard War Magic, " +
             "Lighting and Obscurement, Level 20, Multiclass"),
 
         ("HiddenHax",

@@ -1,4 +1,4 @@
-Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Agregas la mitad de tu bonificación de competencia a tu clase de armadura mientras empuñas un bastón con las dos manos y no llevas armadura ni armadura ligera.
+Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Agregas la mitad de tu bonificación de competencia (redondeando hacia abajo) a tu clase de armadura mientras empuñas un bastón con las dos manos y no llevas armadura ni armadura ligera.
 Feature/&AttributeModifierRoguishAcrobatProtectorTitle=Protector acróbata
 Feature/&FeatureRoguishAcrobatTrooperDescription=Obtienes la capacidad de usar un bastón como arma delicada y el alcance del bastón aumenta en 5 pies.\nCuando realizas la acción de ataque con un bastón, puedes usar tu acción adicional para realizar un ataque cuerpo a cuerpo con el extremo opuesto del arma. Este ataque utiliza el mismo modificador de habilidad que el ataque principal e inflige 1d4 de daño contundente.
 Feature/&FeatureRoguishAcrobatTrooperTitle=Soldado acróbata

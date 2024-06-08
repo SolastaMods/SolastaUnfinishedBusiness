@@ -1324,8 +1324,11 @@
                     <string>ThunderStrike</string>
                     <string>EarthTremor</string>
                     <string>Mule</string>
+                    <string>BorrowedKnowledge</string>
                     <string>CloudOfDaggers</string>
+                    <string>KineticJaunt</string>
                     <string>MirrorImage</string>
+                    <string>IntellectFortress</string>
                     <string>BlessingOfRime</string>
                     <string>BrainBulwark</string>
                     <string>IrresistiblePerformance</string>
@@ -1349,6 +1352,7 @@
                     <string>BurstOfRadiance</string>
                     <string>Wrack</string>
                     <string>Sanctuary</string>
+                    <string>BorrowedKnowledge</string>
                     <string>ProtectThreshold</string>
                     <string>AuraOfLife</string>
                     <string>VitalityTransfer</string>
@@ -1415,9 +1419,11 @@
                     <string>Sanctuary</string>
                     <string>VileBrew</string>
                     <string>ColorBurst</string>
+                    <string>KineticJaunt</string>
                     <string>SpellWeb</string>
                     <string>ElementalWeapon</string>
                     <string>FlameArrows</string>
+                    <string>IntellectFortress</string>
                     <string>BrainBulwark</string>
                     <string>FaithfulHound</string>
                 </ArrayOfString>
@@ -1501,6 +1507,7 @@
                     <string>AganazzarScorcher</string>
                     <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
+                    <string>KineticJaunt</string>
                     <string>MirrorImage</string>
                     <string>NoxiousSpray</string>
                     <string>BindingIce</string>
@@ -1512,6 +1519,8 @@
                     <string>AdderFangs</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
+                    <string>IntellectFortress</string>
+                    <string>PsionicBlast</string>
                     <string>BoomingStep</string>
                     <string>WinterBreath</string>
                     <string>BrainBulwark</string>
@@ -1552,6 +1561,7 @@
                     <string>VoidGrasp</string>
                     <string>Mule</string>
                     <string>WitchBolt</string>
+                    <string>BorrowedKnowledge</string>
                     <string>CloudOfDaggers</string>
                     <string>MirrorImage</string>
                     <string>NoxiousSpray</string>
@@ -1559,6 +1569,8 @@
                     <string>AdderFangs</string>
                     <string>CorruptingBolt</string>
                     <string>HungerOfTheVoid</string>
+                    <string>IntellectFortress</string>
+                    <string>PsionicBlast</string>
                     <string>SpiritShroud</string>
                     <string>BoomingStep</string>
                     <string>BrainBulwark</string>
@@ -1614,8 +1626,10 @@
                     <string>VileBrew</string>
                     <string>WitchBolt</string>
                     <string>AganazzarScorcher</string>
+                    <string>BorrowedKnowledge</string>
                     <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
+                    <string>KineticJaunt</string>
                     <string>MirrorImage</string>
                     <string>NoxiousSpray</string>
                     <string>BindingIce</string>
@@ -1626,7 +1640,9 @@
                     <string>WitherAndBloom</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
+                    <string>IntellectFortress</string>
                     <string>VitalityTransfer</string>
+                    <string>PsionicBlast</string>
                     <string>PulseWave</string>
                     <string>SpiritShroud</string>
                     <string>BoomingStep</string>

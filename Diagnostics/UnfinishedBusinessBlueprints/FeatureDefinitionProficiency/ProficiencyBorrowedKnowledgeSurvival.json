@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Skill",
+  "proficiencies": [
+    "Survival"
+  ],
+  "forbiddenItemTags": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Skill/&SurvivalTitle",
+    "description": "Skill/&SurvivalDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 17,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f803f7ad-298d-5c3b-a8f9-252c97bca790",
+  "contentPack": 9999,
+  "name": "ProficiencyBorrowedKnowledgeSurvival"
+}

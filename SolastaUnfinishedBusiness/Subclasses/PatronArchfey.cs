@@ -59,7 +59,8 @@ public class PatronArchfey : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 5)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cone, 3)
+                    .ExcludeCaster()
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .Build())
@@ -73,7 +74,8 @@ public class PatronArchfey : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 5)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cone, 3)
+                    .ExcludeCaster()
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -97,7 +99,8 @@ public class PatronArchfey : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 5)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cone, 3)
+                    .ExcludeCaster()
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -332,12 +335,12 @@ public class PatronArchfey : AbstractSubclass
     private sealed class CustomBehaviorMistyEscape(
         FeatureDefinitionPower powerMistyEscape,
         ConditionDefinition conditionMistyEscape)
-        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe, IActionFinishedByEnemy,
+        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe, IActionFinishedByContender,
             IIgnoreInvisibilityInterruptionCheck
     {
         private const string TagMistyEscape = "MistyEscape";
 
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
         {
             if (!target.UsedSpecialFeatures.ContainsKey(TagMistyEscape))
             {

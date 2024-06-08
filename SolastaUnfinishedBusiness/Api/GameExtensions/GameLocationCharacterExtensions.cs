@@ -416,17 +416,14 @@ public static class GameLocationCharacterExtensions
         ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
     }
 
-    internal static void BurnOneMainAttack(this GameLocationCharacter instance, bool handleMonkMartialArts = true)
+    internal static void BurnOneMainAttack(this GameLocationCharacter instance)
     {
         if (Gui.Battle == null)
         {
             return;
         }
 
-        if (handleMonkMartialArts)
-        {
-            instance.HandleMonkMartialArts();
-        }
+        instance.HandleMonkMartialArts();
 
         var rulesetCharacter = instance.RulesetCharacter;
 
@@ -436,11 +433,14 @@ public static class GameLocationCharacterExtensions
         rulesetCharacter.ExecutedAttacks++;
         rulesetCharacter.RefreshAttackModes();
 
-        var maxAttacksNumber = rulesetCharacter.AttackModes
+        var maxAttacks = rulesetCharacter.AttackModes
             .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
 
-        if (instance.UsedMainAttacks < maxAttacksNumber)
+        // if still attacks left - refund main action
+        if (instance.UsedMainAttacks < maxAttacks)
         {
+            instance.currentActionRankByType[ActionType.Main]--;
+
             return;
         }
 
@@ -463,10 +463,10 @@ public static class GameLocationCharacterExtensions
         rulesetCharacter.ExecutedBonusAttacks++;
         rulesetCharacter.RefreshAttackModes();
 
-        var maxAttacksNumber = rulesetCharacter.AttackModes
+        var maxAttacks = rulesetCharacter.AttackModes
             .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Bonus)?.AttacksNumber ?? 0;
 
-        if (instance.UsedBonusAttacks < maxAttacksNumber)
+        if (instance.UsedMainAttacks < maxAttacks)
         {
             return;
         }

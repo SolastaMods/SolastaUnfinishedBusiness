@@ -663,6 +663,11 @@ internal static class FixesContext
                 yield break;
             }
 
+            if (defender.RulesetActor.HasConditionOfTypeOrSubType(ConditionStunned))
+            {
+                yield break;
+            }
+
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
             if (rulesetAttacker.GetRemainingPowerUses(FeatureDefinitionPowers.PowerMonkStunningStrike) == 0)
@@ -695,9 +700,12 @@ internal static class FixesContext
                 yield break;
             }
 
+            rulesetAttacker.ToggledPowersOn.Remove(
+                FeatureDefinitionPowers.PowerMonkStunningStrike.AutoActivationPowerTag);
+
             var wayOfZenArcheryLevels = rulesetAttacker.GetSubclassLevel(Monk, WayOfZenArchery.Name);
 
-            // Zen Archery get stunning strike with bows at 6 and Distant Hand with bows at 11
+            // Zen Archery get stunning strike with bows at 6
             if (!ValidatorsWeapon.IsMelee(attackMode) &&
                 (wayOfZenArcheryLevels < WayOfZenArchery.StunningStrikeWithBowAllowedLevel ||
                  !ValidatorsCharacter.HasBowWithoutArmor(rulesetAttacker)))

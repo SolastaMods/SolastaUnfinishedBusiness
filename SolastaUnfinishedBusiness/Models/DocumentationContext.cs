@@ -61,7 +61,10 @@ internal static class DocumentationContext
                 (x.ContentPack == CeContentPackContext.CeContentPack &&
                  SpellsContext.Spells.Contains(x)) ||
                 (x.ContentPack != CeContentPackContext.CeContentPack &&
-                 !SpellsContext.SpellsChildMaster.ContainsKey(x) && x.implemented));
+                 !SpellsContext.SpellsChildMaster.ContainsKey(x) &&
+                 x.implemented &&
+                 !x.Name.Contains("Invocation") &&
+                 !x.Name.EndsWith("_B")));
         DumpOthers<ItemDefinition>("Items", x => x.IsArmor || x.IsWeapon);
         DumpOthers<MetamagicOptionDefinition>("Metamagic",
             x =>

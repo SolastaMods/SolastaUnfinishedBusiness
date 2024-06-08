@@ -936,7 +936,7 @@ internal static class MeleeCombatFeats
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Einar)
-            .AddCustomSubFeatures(new ActionFinishedByEnemyOldTactics())
+            .AddCustomSubFeatures(new ActionFinishedByContenderOldTactics())
             .SetFeatFamily(GroupFeats.OldTactics)
             .AddToDB();
     }
@@ -949,14 +949,14 @@ internal static class MeleeCombatFeats
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(AttributeModifierCreed_Of_Misaye)
-            .AddCustomSubFeatures(new ActionFinishedByEnemyOldTactics())
+            .AddCustomSubFeatures(new ActionFinishedByContenderOldTactics())
             .SetFeatFamily(GroupFeats.OldTactics)
             .AddToDB();
     }
 
-    private sealed class ActionFinishedByEnemyOldTactics : IActionFinishedByEnemy
+    private sealed class ActionFinishedByContenderOldTactics : IActionFinishedByContender
     {
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;

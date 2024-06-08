@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Skill",
+  "proficiencies": [
+    "AnimalHandling"
+  ],
+  "forbiddenItemTags": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Skill/&AnimalHandlingTitle",
+    "description": "Skill/&AnimalHandlingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": true,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f1637d0e-76f8-5dde-8932-6e864fb9a638",
+  "contentPack": 9999,
+  "name": "ProficiencyBorrowedKnowledgeAnimalHandling"
+}

@@ -2302,7 +2302,7 @@ internal static class OtherFeats
                             FeatureDefinitionMagicAffinityBuilder
                                 .Create($"MagicAffinity{FeatMageSlayerName}")
                                 .SetGuiPresentation(FeatMageSlayerName, Category.Feat)
-                                .SetConcentrationModifiers(ConcentrationAffinity.Disadvantage, 0)
+                                .SetConcentrationModifiers(ConcentrationAffinity.Disadvantage)
                                 .AddToDB())
                         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                         .AddToDB()))
@@ -2610,10 +2610,10 @@ internal static class OtherFeats
     }
 
     private class CustomBehaviorFeatPoisonousSkin(FeatureDefinitionPower powerPoisonousSkin) :
-        IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
+        IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByContender
     {
         //Poison character that shoves me
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction action, GameLocationCharacter target)
+        public IEnumerator OnActionFinishedByContender(CharacterAction action, GameLocationCharacter target)
         {
             if (action.ActionId != ActionDefinitions.Id.Shove &&
                 action.ActionId != ActionDefinitions.Id.ShoveBonus &&
@@ -2864,7 +2864,7 @@ internal static class OtherFeats
                     .SetGuiPresentation(FeatWarCaster, Category.Feat)
                     .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
                         SpellParamsModifierType.None)
-                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
+                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
                     .SetHandsFullCastingModifiers(true, true, true)
                     .AddToDB())
             .SetMustCastSpellsPrerequisite()

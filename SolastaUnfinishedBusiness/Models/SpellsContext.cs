@@ -286,10 +286,13 @@ internal static class SpellsContext
         // 2nd level
         RegisterSpell(BuildAganazzarScorcher(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BindingIce, 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildBorrowedKnowledge(), 0, SpellListBard, SpellListCleric, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildCloudOfDaggers(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         DatabaseHelper.SpellDefinitions.ConjureGoblinoids.contentPack = CeContentPackContext.CeContentPack;
         RegisterSpell(DatabaseHelper.SpellDefinitions.ConjureGoblinoids, 0, SpellListDruid, SpellListRanger);
+        RegisterSpell(BuildKineticJaunt(), 0, SpellListBard, SpellListSorcerer, SpellListWizard,
+            spellListInventorClass);
         RegisterSpell(BuildNoxiousSpray(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(PetalStorm, 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
@@ -313,6 +316,9 @@ internal static class SpellsContext
         RegisterSpell(BuildFlameArrows(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildLightningArrow(), 0, SpellListRanger);
+        RegisterSpell(BuildIntellectFortress(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+            spellListInventorClass);
+        RegisterSpell(BuildPsionicBlast(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildVitalityTransfer(), 0, SpellListCleric, SpellListWizard);
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);

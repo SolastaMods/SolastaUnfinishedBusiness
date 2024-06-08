@@ -82,7 +82,7 @@ internal static class CommonBuilders
         FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityCasterFightingCombatMagic")
             .SetGuiPresentation(Category.Feature)
-            .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
+            .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
             .SetHandsFullCastingModifiers(true, true, true)
             .AddToDB();
 
@@ -90,7 +90,7 @@ internal static class CommonBuilders
         FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityCasterFightingCombatMagicImproved")
             .SetGuiPresentation(Category.Feature)
-            .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
+            .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
             .SetHandsFullCastingModifiers(true, true, true)
             .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
             .AddToDB();
@@ -171,7 +171,8 @@ internal static class CommonBuilders
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action.ActionType is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus) ||
+            if (Gui.Battle == null ||
+                action.ActionType is not (ActionDefinitions.ActionType.Main or ActionDefinitions.ActionType.Bonus) ||
                 action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
                 (!Main.Settings.EnableCantripsTriggeringOnWarMagic &&
                  rulesetEffectSpell.SpellDefinition.SpellLevel <= 0))

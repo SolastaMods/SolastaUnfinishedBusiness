@@ -350,7 +350,7 @@ Regain one use of your Emergency Surgery and your Emergency Cure when you reduce
 
 * Stable Surgery
 
-When casting a healing spell your minimum healing dice roll is 2.
+Whenever you heal another creature, you treat all 1 rolls as 2 instead.
 
 
 ### Level 15
@@ -5884,7 +5884,7 @@ Your patron is a lord or lady of the fey, a creature of legend who holds secrets
 
 * Fey Presence
 
-As an action, you can cause each creature in a 5x5 cube originating from you to make a Wisdom saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn. Once you use this feature, you can't use it again until you finish a short or long rest.
+As an action, you can cause each creature in a 15 ft cone to make a Wisdom saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn. Once you use this feature, you can't use it again until you finish a short or long rest.
 
 
 ### Level 6
