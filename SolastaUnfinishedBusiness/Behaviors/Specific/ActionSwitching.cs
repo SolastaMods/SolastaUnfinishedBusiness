@@ -271,18 +271,6 @@ public static class ActionSwitching
 
         if (actionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell)
         {
-            //you can only cast one leveled spell per turn
-            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-            switch (actionParams.ActionDefinition.ActionType)
-            {
-                case ActionDefinitions.ActionType.Main when rulesetEffectSpell.SpellDefinition.SpellLevel > 0:
-                    character.UsedBonusSpell = true;
-                    break;
-                case ActionDefinitions.ActionType.Bonus:
-                    character.UsedMainSpell = true;
-                    break;
-            }
-
             //supports for action switching interaction with MetamagicQuickenedSpell
             //you can only cast cantrips after quicken a spell
             if (rulesetEffectSpell.MetamagicOption == MetamagicQuickenedSpell)
