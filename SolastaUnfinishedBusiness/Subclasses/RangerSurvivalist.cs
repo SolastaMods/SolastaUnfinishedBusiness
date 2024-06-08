@@ -97,8 +97,9 @@ public sealed class RangerSurvivalist : AbstractSubclass
         var abilityCheckAnalyticalMind = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheck{Name}AnalyticalMind")
             .SetGuiPresentation($"FeatureSet{Name}AnalyticalMind", Category.Feature)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
-                (AttributeDefinitions.Wisdom, SkillDefinitions.Survival))
+            .BuildAndSetAffinityGroups(
+                CharacterAbilityCheckAffinity.Advantage,
+                abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Survival))
             .AddToDB();
 
         FeatureSetAnalyticalMind.FeatureSet.Add(abilityCheckAnalyticalMind);

@@ -70,8 +70,10 @@ internal static class CustomItemsContext
                     FeatureDefinitionAbilityCheckAffinityBuilder
                         .Create("AbilityCheckAffinityGlovesOfThievery")
                         .SetGuiPresentation("GlovesOfThievery", Category.Item, Gui.NoLocalization)
-                        .BuildAndSetAffinityGroups(RuleDefinitions.CharacterAbilityCheckAffinity.None,
+                        .BuildAndSetAffinityGroups(
+                            RuleDefinitions.CharacterAbilityCheckAffinity.None,
                             RuleDefinitions.DieType.D1, 5,
+                            RuleDefinitions.AbilityCheckGroupOperation.AddDie,
                             (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand),
                             (AttributeDefinitions.Dexterity, ToolDefinitions.ThievesToolsType))
                         .AddToDB(), false))

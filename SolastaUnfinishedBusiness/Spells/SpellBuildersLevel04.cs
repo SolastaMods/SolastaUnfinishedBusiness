@@ -181,6 +181,36 @@ internal static partial class SpellBuilders
     {
         const string NAME = "PsionicBlast";
 
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionDistracted)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                    .SetMyAttackModifierSign(AttackModifierSign.Substract)
+                    .SetMyAttackModifierDieType(DieType.D6)
+                    .AddToDB(),
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create($"AbilityCheckAffinity{NAME}")
+                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                    .BuildAndSetAffinityGroups(
+                        CharacterAbilityCheckAffinity.None, DieType.D6, 1,
+                        AbilityCheckGroupOperation.SubstractDie,
+                        (AttributeDefinitions.Strength, string.Empty),
+                        (AttributeDefinitions.Strength, string.Empty),
+                        (AttributeDefinitions.Dexterity, string.Empty),
+                        (AttributeDefinitions.Constitution, string.Empty),
+                        (AttributeDefinitions.Intelligence, string.Empty),
+                        (AttributeDefinitions.Wisdom, string.Empty),
+                        (AttributeDefinitions.Charisma, string.Empty))
+                    .AddToDB())
+            .AddToDB();
+
+        condition.GuiPresentation.description = Gui.NoLocalization;
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsionicBlast, 128))
@@ -203,18 +233,13 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetMotionForm(MotionForm.MotionType.FallProne)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetCasterEffectParameters(ViciousMockery)
                     .SetImpactEffectParameters(DreadfulOmen)
@@ -290,13 +315,16 @@ internal static partial class SpellBuilders
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{NAME}")
                     .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
-                    .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
-                        AttributeDefinitions.Strength,
-                        AttributeDefinitions.Dexterity,
-                        AttributeDefinitions.Constitution,
-                        AttributeDefinitions.Intelligence,
-                        AttributeDefinitions.Wisdom,
-                        AttributeDefinitions.Charisma)
+                    .BuildAndSetAffinityGroups(
+                        CharacterAbilityCheckAffinity.Disadvantage,
+                        [
+                            AttributeDefinitions.Strength,
+                            AttributeDefinitions.Dexterity,
+                            AttributeDefinitions.Constitution,
+                            AttributeDefinitions.Intelligence,
+                            AttributeDefinitions.Wisdom,
+                            AttributeDefinitions.Charisma
+                        ])
                     .AddToDB(),
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{NAME}")

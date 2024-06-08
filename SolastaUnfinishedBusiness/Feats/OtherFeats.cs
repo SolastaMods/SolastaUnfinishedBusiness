@@ -444,8 +444,9 @@ internal static class OtherFeats
             .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker,
                 "AbilityCheckAffinityFeatPickPocket")
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
-                (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand))
+            .BuildAndSetAffinityGroups(
+                CharacterAbilityCheckAffinity.Advantage,
+                abilityProficiencyPairs: (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand))
             .AddToDB();
 
         var proficiencyFeatPickPocket = FeatureDefinitionProficiencyBuilder
@@ -1044,6 +1045,7 @@ internal static class OtherFeats
                     .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(
                         CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                        AbilityCheckGroupOperation.AddDie,
                         (AttributeDefinitions.Wisdom, SkillDefinitions.Perception,
                             AbilityCheckContext.GadgetInteraction),
                         (AttributeDefinitions.Intelligence, SkillDefinitions.Investigation,

@@ -60,9 +60,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             .SetGuiPresentation($"FeatureSet{Name}RoyalEnvoy", Category.Feature)
             .BuildAndSetAffinityGroups(
                 CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient,
-                DieType.D1,
-                0,
-                (AttributeDefinitions.Charisma, null))
+                abilityProficiencyPairs: (AttributeDefinitions.Charisma, string.Empty))
             .AddToDB();
 
         var featureSetRoyalEnvoy = FeatureDefinitionFeatureSetBuilder

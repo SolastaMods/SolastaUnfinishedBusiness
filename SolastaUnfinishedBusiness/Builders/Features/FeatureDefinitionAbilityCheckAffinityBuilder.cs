@@ -15,6 +15,7 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
         CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
         DieType dieType = DieType.D1,
         int diceNumber = 0,
+        AbilityCheckGroupOperation abilityCheckGroupOperation = AbilityCheckGroupOperation.AddDie,
         params (string abilityScoreName, string proficiencyName, AbilityCheckContext abilityCheckContext)[]
             abilityProficiencyPairs)
     {
@@ -25,6 +26,7 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
                     abilityScoreName = tuple.abilityScoreName,
                     proficiencyName = (tuple.proficiencyName ?? string.Empty).Trim(),
                     affinity = affinityType,
+                    abilityCheckGroupOperation = abilityCheckGroupOperation,
                     abilityCheckModifierDiceNumber = diceNumber,
                     abilityCheckModifierDieType = dieType,
                     abilityCheckContext = tuple.abilityCheckContext
@@ -37,6 +39,7 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
         CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
         DieType dieType = DieType.D1,
         int diceNumber = 0,
+        AbilityCheckGroupOperation abilityCheckGroupOperation = AbilityCheckGroupOperation.AddDie,
         params (string abilityScoreName, string proficiencyName)[] abilityProficiencyPairs)
     {
         Definition.AffinityGroups.SetRange(
@@ -46,6 +49,7 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
                     abilityScoreName = pair.abilityScoreName,
                     proficiencyName = (pair.proficiencyName ?? string.Empty).Trim(),
                     affinity = affinityType,
+                    abilityCheckGroupOperation = abilityCheckGroupOperation,
                     abilityCheckModifierDiceNumber = diceNumber,
                     abilityCheckModifierDieType = dieType
                 }));
@@ -57,6 +61,7 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
         CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
         DieType dieType = DieType.D1,
         int diceNumber = 0,
+        AbilityCheckGroupOperation abilityCheckGroupOperation = AbilityCheckGroupOperation.AddDie,
         params (string abilityScoreName, string proficiencyName)[] abilityProficiencyPairs)
     {
         Definition.AffinityGroups.AddRange(
@@ -66,6 +71,7 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
                     abilityScoreName = pair.abilityScoreName,
                     proficiencyName = (pair.proficiencyName ?? string.Empty).Trim(),
                     affinity = affinityType,
+                    abilityCheckGroupOperation = abilityCheckGroupOperation,
                     abilityCheckModifierDiceNumber = diceNumber,
                     abilityCheckModifierDieType = dieType
                 }));
@@ -73,30 +79,13 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
         return this;
     }
 
-    private FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
-        CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
-        DieType dieType = DieType.D1,
-        int diceNumber = 0,
-        params string[] abilityScores)
-    {
-        return BuildAndSetAffinityGroups(affinityType, dieType, diceNumber,
-            abilityScores.Select(a => (a, string.Empty)).ToArray());
-    }
-
     internal FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
         CharacterAbilityCheckAffinity affinityType,
         params string[] abilityScores)
     {
-        return BuildAndSetAffinityGroups(affinityType, DieType.D1, 0, abilityScores);
+        return BuildAndSetAffinityGroups(affinityType, DieType.D1, 0, AbilityCheckGroupOperation.AddDie,
+            abilityScores.Select(a => (a, string.Empty)).ToArray());
     }
-
-#if false
-    internal FeatureDefinitionAbilityCheckAffinityBuilder UseControllerAbilityChecks()
-    {
-        Definition.useControllerAbilityChecks = true;
-        return this;
-    }
-#endif
 
     #region Constructors
 
