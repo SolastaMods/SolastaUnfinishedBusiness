@@ -565,8 +565,9 @@ internal static partial class SpellBuilders
                     .SetAttackModeOnly()
                     .SetDamageDice(DieType.D8, 1)
                     .SetSpecificDamageType(DamageTypeRadiant)
-                    .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
+                    .SetAdvancement(
+                        ExtraAdditionalDamageAdvancement.CharacterLevel,
+                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20,   (5, 2), (11, 3), (17, 4)))
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
                     .AddConditionOperation(
                         ConditionOperationDescription.ConditionOperation.Add,
@@ -833,8 +834,9 @@ internal static partial class SpellBuilders
                     .SetAttackModeOnly()
                     .SetDamageDice(DieType.D8, 1)
                     .SetSpecificDamageType(DamageTypeThunder)
-                    .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
+                    .SetAdvancement(
+                        ExtraAdditionalDamageAdvancement.CharacterLevel,
+                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20,   (5, 2), (11, 3), (17, 4)))
                     .AddConditionOperation(
                         ConditionOperationDescription.ConditionOperation.Add, conditionBoomingBladeSheathed)
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
@@ -976,7 +978,7 @@ internal static partial class SpellBuilders
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(
                 ExtraAdditionalDamageAdvancement.CharacterLevel,
-                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
+                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20,   (5, 2), (11, 3), (17, 4)))
             .SetImpactParticleReference(BurningHands_B)
             .SetAttackModeOnly()
             .AddToDB();
