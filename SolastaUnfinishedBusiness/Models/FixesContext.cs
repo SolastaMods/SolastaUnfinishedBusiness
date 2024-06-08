@@ -695,14 +695,6 @@ internal static class FixesContext
                 }
             }
 
-            if (!attacker.IsActionOnGoing(ActionDefinitions.Id.StunningStrikeToggle))
-            {
-                yield break;
-            }
-
-            rulesetAttacker.ToggledPowersOn.Remove(
-                FeatureDefinitionPowers.PowerMonkStunningStrike.AutoActivationPowerTag);
-
             var wayOfZenArcheryLevels = rulesetAttacker.GetSubclassLevel(Monk, WayOfZenArchery.Name);
 
             // Zen Archery get stunning strike with bows at 6
@@ -713,13 +705,20 @@ internal static class FixesContext
                 yield break;
             }
 
+            if (!attacker.IsActionOnGoing(ActionDefinitions.Id.StunningStrikeToggle))
+            {
+                yield break;
+            }
+
+            rulesetAttacker.ToggledPowersOn.Remove(
+                FeatureDefinitionPowers.PowerMonkStunningStrike.AutoActivationPowerTag);
+
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
