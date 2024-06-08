@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnFollowUpStrike=Ajoutez tous les dés des dégâts de base de l'arme au don <color=#D89555>Assaut de suivi</color>.
+ModUi/&AccountForAllDiceOnFollowUpStrike=Ajoutez tous les effets supplémentaires de l'arme de base au don <color=#D89555>Frappe de suivi</color>.
 ModUi/&AccountForAllDiceOnSavageAttack=Ajoutez tous les dés des dégâts de base de l'arme aux fonctionnalités qui ajoutent des dégâts de base de l'arme au lieu de 1 dé seulement <i><color=#F0DAA0>[Attaque sauvage, armes 2H, etc.]</color></i>
 ModUi/&AddAllToStore=Tout ajouter au magasin
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> à celles supprimées par la <color=#D89555>Grande</color> et la <color=#D89555>Restauration moindre</color>

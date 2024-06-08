@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnFollowUpStrike=Füge alle Würfel vom Basiswaffenschaden zum Talent <color=#D89555>Follow-up-Schlag</color> hinzu.
+ModUi/&AccountForAllDiceOnFollowUpStrike=Füge alle zusätzlichen Effekte der Basiswaffe zum Talent <color=#D89555>Folgeschlag</color> hinzu.
 ModUi/&AccountForAllDiceOnSavageAttack=Fügen Sie alle Würfel vom Basiswaffenschaden zu Funktionen hinzu, die Basiswaffenschaden hinzufügen, anstatt nur 1 Würfel <i><color=#F0DAA0>[Wilder Angriff, 2H-Waffen usw.]</color></i>
 ModUi/&AddAllToStore=Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Blutung</color> zu den Zuständen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden

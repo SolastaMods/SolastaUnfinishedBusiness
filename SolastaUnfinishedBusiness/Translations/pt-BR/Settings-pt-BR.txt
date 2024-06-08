@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnFollowUpStrike=Adicione todos os dados do dano base da arma ao talento <color=#D89555>Follow up Strike</color>
+ModUi/&AccountForAllDiceOnFollowUpStrike=Adiciona todos os efeitos adicionais da arma base ao talento <color=#D89555>Ataque de Acompanhamento</color>
 ModUi/&AccountForAllDiceOnSavageAttack=Adicione todos os dados do dano base da arma aos recursos que adicionam o dano base da arma em vez de apenas 1 dado <i><color=#F0DAA0>[Ataque Selvagem, armas 2H, etc.]</color></i>
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Restauração Menor</color>

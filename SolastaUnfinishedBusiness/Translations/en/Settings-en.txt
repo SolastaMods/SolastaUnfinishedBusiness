@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnFollowUpStrike=Add all dice from base weapon damage to <color=#D89555>Follow up Strike</color> feat
+ModUi/&AccountForAllDiceOnFollowUpStrike=Add all additional effect from base weapon to <color=#D89555>Follow up Strike</color> feat
 ModUi/&AccountForAllDiceOnSavageAttack=Add all dice from base weapon damage to features that add base weapon damage instead of 1 dice only <i><color=#F0DAA0>[Savage Attack, 2H weapons, etc.]</color></i>
 ModUi/&AddAllToStore=Add all to store
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the ones removed by <color=#D89555>Greater</color> and <color=#D89555>Lesser Restoration</color>
