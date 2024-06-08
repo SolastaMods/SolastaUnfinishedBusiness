@@ -378,21 +378,40 @@ internal static partial class SpellBuilders
                 continue;
             }
 
-            var condition = ConditionDefinitionBuilder
-                .Create($"Condition{NAME}{damageType}")
-                .SetGuiPresentation($"Condition{NAME}", Category.Condition, ConditionRestrictedInsideMagicCircle)
-                .SetPossessive()
-                .SetConditionType(ConditionType.Detrimental)
-                .AddCustomSubFeatures(new CustomBehaviorElementalBane(damageType))
+            var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+
+            var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+                .Create($"AdditionalDamage{NAME}{damageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag("ElementalBane")
+                .SetSpecificDamageType(damageType)
+                .SetDamageDice(DieType.D6, 2)
+                .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+                .SetImpactParticleReference(magicEffect)
                 .AddToDB();
 
-            var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
-            var title = Gui.Format("Spell/&ElementalBaneSpecificTitle", damageTitle);
-            var description = Gui.Format("Spell/&ElementalBaneSpecificDescription", damageTitle);
+            var conditionAttacker = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{damageType}Attacker")
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(additionalDamage)
+                .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                .AddToDB();
+
+            var title = Gui.Format("Condition/&ConditionElementalBaneTitle", damageTitle);
+            var description = Gui.Format("Condition/&ConditionElementalBaneDescription", damageTitle);
+
+            var condition = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{damageType}")
+                .SetGuiPresentation(title, description, ConditionRestrictedInsideMagicCircle)
+                .SetPossessive()
+                .SetConditionType(ConditionType.Detrimental)
+                .AddCustomSubFeatures(new CustomBehaviorElementalBane(damageType, conditionAttacker))
+                .AddToDB();
 
             var spell = SpellDefinitionBuilder
                 .Create(NAME + damageType)
-                .SetGuiPresentation(title, description)
+                .SetGuiPresentation(title, Gui.NoLocalization)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(4)
                 .SetCastingTime(ActivationTime.Action)
@@ -449,11 +468,10 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorElementalBane(string damageType)
+    private sealed class CustomBehaviorElementalBane(string damageType, ConditionDefinition conditionAttacker)
         : IModifyDamageAffinity, IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe
     {
         private const string Tag = "ElementalBane";
-        private readonly EffectForm _damageEffectForm = EffectFormBuilder.DamageForm(damageType, 2, DieType.D6);
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -464,16 +482,7 @@ internal static partial class SpellBuilders
             List<EffectForm> actualEffectForms,
             bool firstTarget, bool criticalHit)
         {
-            if (!defender.OnceInMyTurnIsValid(Tag) ||
-                !actualEffectForms.Any(x =>
-                    x.FormType == EffectForm.EffectFormType.Damage &&
-                    x.damageForm.DamageType == damageType))
-            {
-                yield break;
-            }
-
-            defender.UsedSpecialFeatures.TryAdd(Tag, 0);
-            actualEffectForms.Add(_damageEffectForm);
+            yield return Handle(attacker, defender, actualEffectForms);
         }
 
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
@@ -496,7 +505,15 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (!defender.OnceInMyTurnIsValid(Tag) ||
+            yield return Handle(attacker, defender, actualEffectForms);
+        }
+
+        private IEnumerator Handle(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<EffectForm> actualEffectForms)
+        {
+            if (!defender.OncePerTurnIsValid(Tag) ||
                 !actualEffectForms.Any(x =>
                     x.FormType == EffectForm.EffectFormType.Damage &&
                     x.damageForm.DamageType == damageType))
@@ -505,7 +522,23 @@ internal static partial class SpellBuilders
             }
 
             defender.UsedSpecialFeatures.TryAdd(Tag, 0);
-            actualEffectForms.Add(_damageEffectForm);
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                conditionAttacker.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                conditionAttacker.Name,
+                0,
+                0,
+                0);
         }
     }
 
