@@ -74,6 +74,12 @@ internal class FeatureDefinitionActionAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionActionAffinityBuilder RechargeReactionsAtEveryTurn(bool value = true)
+    {
+        Definition.rechargeReactionsAtEveryTurn = value;
+        return this;
+    }
+
 #if false
     internal FeatureDefinitionActionAffinityBuilder SetMaxAttackNumber(int maxAttack)
     {
