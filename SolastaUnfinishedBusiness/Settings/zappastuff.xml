@@ -1391,6 +1391,7 @@
                     <string>FlameArrows</string>
                     <string>WinterBreath</string>
                     <string>BlessingOfRime</string>
+                    <string>ElementalBane</string>
                     <string>ForestGuardian</string>
                     <string>MantleOfThorns</string>
                     <string>FlashFreeze</string>
@@ -1421,10 +1422,12 @@
                     <string>ColorBurst</string>
                     <string>KineticJaunt</string>
                     <string>SpellWeb</string>
+                    <string>AshardalonStride</string>
                     <string>ElementalWeapon</string>
                     <string>FlameArrows</string>
                     <string>IntellectFortress</string>
                     <string>BrainBulwark</string>
+                    <string>ElementalBane</string>
                     <string>FaithfulHound</string>
                 </ArrayOfString>
             </value>
@@ -1466,6 +1469,7 @@
                     <string>StrikeWithTheWind</string>
                     <string>ConjureGoblinoids</string>
                     <string>AdderFangs</string>
+                    <string>AshardalonStride</string>
                     <string>ElementalWeapon</string>
                     <string>FlameArrows</string>
                     <string>LightningArrow</string>
@@ -1517,13 +1521,14 @@
                     <string>SpellWeb</string>
                     <string>WitherAndBloom</string>
                     <string>AdderFangs</string>
+                    <string>AshardalonStride</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
                     <string>IntellectFortress</string>
-                    <string>PsionicBlast</string>
                     <string>BoomingStep</string>
                     <string>WinterBreath</string>
                     <string>BrainBulwark</string>
+                    <string>PsionicBlast</string>
                     <string>PsychicLance</string>
                     <string>FarStep</string>
                     <string>Incineration</string>
@@ -1570,10 +1575,11 @@
                     <string>CorruptingBolt</string>
                     <string>HungerOfTheVoid</string>
                     <string>IntellectFortress</string>
-                    <string>PsionicBlast</string>
                     <string>SpiritShroud</string>
                     <string>BoomingStep</string>
                     <string>BrainBulwark</string>
+                    <string>ElementalBane</string>
+                    <string>PsionicBlast</string>
                     <string>PsychicLance</string>
                     <string>FarStep</string>
                     <string>FlashFreeze</string>
@@ -1638,18 +1644,20 @@
                     <string>PsychicWhip</string>
                     <string>SpellWeb</string>
                     <string>WitherAndBloom</string>
+                    <string>AshardalonStride</string>
                     <string>CorruptingBolt</string>
                     <string>FlameArrows</string>
                     <string>IntellectFortress</string>
                     <string>VitalityTransfer</string>
-                    <string>PsionicBlast</string>
                     <string>PulseWave</string>
                     <string>SpiritShroud</string>
                     <string>BoomingStep</string>
                     <string>WinterBreath</string>
                     <string>BrainBulwark</string>
+                    <string>ElementalBane</string>
                     <string>GravitySinkhole</string>
                     <string>FaithfulHound</string>
+                    <string>PsionicBlast</string>
                     <string>PsychicLance</string>
                     <string>Dawn</string>
                     <string>FarStep</string>

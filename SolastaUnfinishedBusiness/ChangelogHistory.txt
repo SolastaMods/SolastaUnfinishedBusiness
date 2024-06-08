@@ -1,12 +1,14 @@
 1.5.97.14:
 
 - added Ashardalon's Stride, and Elemental Bane spells
+- fixed Action Surge interaction with 'replace attacks with cantrips', and 'action switching'
+- fixed Booming Blade, Green-Flame Blade, and Sunlit Blade cantrips interaction with Quickened metamagic
+- fixed Domain Tempest destructive wrath feature interaction with Transmuted metamagic
 - fixed Domain Tempest wrath of the storm feature not consuming a reaction
+- fixed Martial Guardian vigilance feature bleeding reaction refunds to other fighters
 - fixed Mind Sharpener infusion not providing advantage on concentration checks
-- fixed Pulse Wave spell to offer push/pull options as well as increase distance on upcasting
-- fixed Quickened metamagic interaction with Booming Blade, Green-Flame Blade, and Sunlit Blade cantrips
-- fixed Stunning Strike behavior to not trigger on stunned enemies and auto disable on a hit
-- fixed Transmuted metamagic interaction with Domain Tempest destructive wrath feature
+- fixed Pulse Wave spell to offer push/pull options as well as increase motion distance on upcasting
+- fixed Stunning Strike behavior to not trigger on stunned enemies and auto disable on a failed saving
 
 1.5.97.12:
 
