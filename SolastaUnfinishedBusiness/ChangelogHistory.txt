@@ -9,6 +9,7 @@
 - fixed Mind Sharpener infusion not providing advantage on concentration checks
 - fixed Pulse Wave spell to offer push/pull options as well as increase motion distance on upcasting
 - fixed Stunning Strike behavior to not trigger on stunned enemies and auto disable on a failed saving
+- moved Psionic Blast to spell level 4, and converted into homebrew
 
 1.5.97.12:
 
