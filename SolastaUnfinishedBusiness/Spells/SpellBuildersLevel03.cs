@@ -309,57 +309,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Psionic Blast
-
-    internal static SpellDefinition BuildPsionicBlast()
-    {
-        const string NAME = "PsionicBlast";
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsionicBlast, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(3)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(false)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetRequiresConcentration(true)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .ExcludeCaster()
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetMotionForm(MotionForm.MotionType.FallProne)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
-                            .Build())
-                    .SetCasterEffectParameters(ViciousMockery)
-                    .SetImpactEffectParameters(DreadfulOmen)
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    #endregion
-
     #region Pulse Wave
 
     internal static SpellDefinition BuildPulseWave()
