@@ -647,8 +647,21 @@ internal static class FixesContext
             = DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
     }
 
-    private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe,
+        IMagicEffectFinishedByMe
     {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action.RolledSaveThrow &&
+                action.SaveOutcome == RollOutcome.Failure)
+            {
+                action.ActingCharacter.RulesetCharacter.ToggledPowersOn.Remove(
+                    FeatureDefinitionPowers.PowerMonkStunningStrike.AutoActivationPowerTag);
+            }
+
+            yield break;
+        }
+
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -659,11 +672,6 @@ internal static class FixesContext
             int damageAmount)
         {
             if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            if (defender.RulesetActor.HasConditionOfTypeOrSubType(ConditionStunned))
             {
                 yield break;
             }
@@ -709,9 +717,6 @@ internal static class FixesContext
             {
                 yield break;
             }
-
-            rulesetAttacker.ToggledPowersOn.Remove(
-                FeatureDefinitionPowers.PowerMonkStunningStrike.AutoActivationPowerTag);
 
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
