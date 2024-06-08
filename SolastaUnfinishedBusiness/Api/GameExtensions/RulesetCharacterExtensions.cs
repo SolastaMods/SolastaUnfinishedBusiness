@@ -46,9 +46,9 @@ internal static class RulesetCharacterExtensions
     {
         var hero = character.GetOriginalHero();
 
-        if (hero == null ||
-            (hero.ClassesAndSubclasses.TryGetValue(klass, out var characterSubclassDefinition) &&
-             characterSubclassDefinition.Name != subclass))
+        if (hero == null
+            || !hero.ClassesAndSubclasses.TryGetValue(klass, out var characterSubclassDefinition)
+            || characterSubclassDefinition.Name != subclass)
         {
             return 0;
         }
