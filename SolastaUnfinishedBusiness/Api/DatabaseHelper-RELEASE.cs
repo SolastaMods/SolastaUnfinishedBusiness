@@ -298,10 +298,10 @@ internal static partial class DatabaseHelper
     {
         internal static ConditionDefinition ConditionFeebleMinded { get; } =
             GetDefinition<ConditionDefinition>("ConditionFeebleMinded");
-        
+
         internal static ConditionDefinition ConditionMonkSlowFall { get; } =
             GetDefinition<ConditionDefinition>("ConditionMonkSlowFall");
-        
+
         internal static ConditionDefinition ConditionHolyAura { get; } =
             GetDefinition<ConditionDefinition>("ConditionHolyAura");
 

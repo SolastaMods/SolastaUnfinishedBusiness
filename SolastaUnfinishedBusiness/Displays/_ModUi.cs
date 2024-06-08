@@ -35,6 +35,7 @@ internal static class ModUi
     [
         "AganazzarScorcher",
         "AirBlast",
+        "AshardalonStride",
         "AuraOfLife",
         "AuraOfPerseverance",
         "AuraOfVitality",
