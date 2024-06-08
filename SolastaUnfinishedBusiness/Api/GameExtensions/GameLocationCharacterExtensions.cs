@@ -392,7 +392,7 @@ public static class GameLocationCharacterExtensions
         return false;
     }
 
-    private static void HandleMonkMartialArts(this GameLocationCharacter instance)
+    internal static void HandleMonkMartialArts(this GameLocationCharacter instance)
     {
         var rulesetCharacter = instance.RulesetCharacter;
 
@@ -436,16 +436,12 @@ public static class GameLocationCharacterExtensions
         var maxAttacks = rulesetCharacter.AttackModes
             .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
 
-        // if still attacks left - refund main action
         if (instance.UsedMainAttacks < maxAttacks)
         {
-            instance.currentActionRankByType[ActionType.Main]--;
-
             return;
         }
 
-        //TODO: test this with other features that burn main attack
-        // instance.CurrentActionRankByType[ActionType.Main]++;
+        instance.CurrentActionRankByType[ActionType.Main]++;
         instance.UsedMainAttacks = 0;
     }
 
