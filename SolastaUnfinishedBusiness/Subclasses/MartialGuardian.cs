@@ -94,22 +94,15 @@ public sealed class MartialGuardian : AbstractSubclass
 
         // Vigilance
 
-        //Keeping this for compatibility
-        _ = ConditionDefinitionBuilder
-            .Create($"ConditionMartialGuardianVigilance")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
         var perceptionAffinityVigilance = FeatureDefinitionPerceptionAffinityBuilder
             .Create($"PerceptionAffinity{Name}Vigilance")
             .SetGuiPresentation(Category.Feature)
             .CannotBeSurprised()
             .AddToDB();
-        
+
         var actionAffinityVigilance = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}Vigilance")
-            .SetGuiPresentationNoContent(hidden: true)
+            .SetGuiPresentationNoContent(true)
             .RechargeReactionsAtEveryTurn()
             .AddCustomSubFeatures(FeatureUseLimiter.OncePerTurn)
             .AddToDB();

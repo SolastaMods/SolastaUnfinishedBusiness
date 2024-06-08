@@ -9,7 +9,7 @@ public abstract class FeatureUseLimiter
     public abstract bool CanBeUsed(GameLocationCharacter character, FeatureDefinition feature);
 }
 
-class OncePerTurn : FeatureUseLimiter
+internal class OncePerTurn : FeatureUseLimiter
 {
     public override bool CanBeUsed(GameLocationCharacter character, FeatureDefinition feature)
     {

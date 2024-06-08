@@ -173,13 +173,18 @@ public static class GameLocationCharacterPatcher
             {
                 rulesetCharacter.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(
                     __instance.featuresCache, rulesetCharacter.FeaturesOrigin);
+
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
                 foreach (var feature in __instance.featuresCache)
                 {
                     var actionAffinity = feature as FeatureDefinitionActionAffinity;
-                    if (actionAffinity == null || !actionAffinity.RechargeReactionsAtEveryTurn)
+
+                    if (!actionAffinity ||
+                        !actionAffinity.RechargeReactionsAtEveryTurn)
                     {
                         continue;
                     }
+
                     //---- START ----
                     //PATCH: support for feature usage limits
                     if (feature.GetFirstSubFeatureOfType<FeatureUseLimiter>()?.CanBeUsed(__instance, feature) == false)
@@ -188,20 +193,21 @@ public static class GameLocationCharacterPatcher
                     }
 
                     __instance.IncrementSpecialFeatureUses(actionAffinity.Name);
-                    
+
                     //---- END ----
                     __instance.RefundActionUse(ActionDefinitions.ActionType.Reaction);
-                    
+
                     var actionRefunded = __instance.ActionRefunded;
                     actionRefunded?.Invoke(__instance, ActionDefinitions.ActionType.Reaction);
                 }
             }
 
             var db = DatabaseRepository.GetDatabase<FeatureDefinition>();
+
             foreach (var key in __instance.usedSpecialFeatures.Keys)
             {
                 if (db.TryGetElement(key, out var result)
-                    && result is FeatureDefinitionAdditionalDamage {LimitedUsage: FeatureLimitedUsage.OncePerTurn})
+                    && result is FeatureDefinitionAdditionalDamage { LimitedUsage: FeatureLimitedUsage.OncePerTurn })
                 {
                     __instance.restoredFeatures.Add(result);
                 }

@@ -224,7 +224,7 @@ public static class GameLocationCharacterExtensions
     {
         var character = instance.RulesetCharacter;
 
-        return character is {IsDeadOrDyingOrUnconscious: false} &&
+        return character is { IsDeadOrDyingOrUnconscious: false } &&
                !instance.IsCharging &&
                !instance.MoveStepInProgress &&
                !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
