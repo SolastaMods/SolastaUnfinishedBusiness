@@ -334,7 +334,7 @@ internal static partial class SpellBuilders
             var movementAffinity = FeatureDefinitionMovementAffinityBuilder
                 .Create($"MovementAffinity{Name}{effectLevel}")
                 .SetGuiPresentationNoContent(true)
-                .SetBaseSpeedAdditiveModifier(effectLevel - 1)
+                .SetBaseSpeedAdditiveModifier(effectLevel + 1)
                 .AddToDB();
 
             var conditionAshardalonStride = ConditionDefinitionBuilder
@@ -343,6 +343,7 @@ internal static partial class SpellBuilders
                 .SetPossessive()
                 .AddFeatures(movementAffinity, combatAffinity)
                 .AddCustomSubFeatures(new ActionFinishedByMeAshardalonStride(conditionMark))
+                .SetConditionParticleReference(ConditionOnFire.conditionParticleReference)
                 .AddToDB();
 
             conditionAshardalonStride.GuiPresentation.Description = Gui.NoLocalization;
@@ -370,10 +371,12 @@ internal static partial class SpellBuilders
                         additionalTargetCellsPerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditions[0]))
                     .SetCasterEffectParameters(FireBolt)
+                    .SetImpactEffectParameters(PowerOathOfMotherlandFieryWrath
+                        .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
-        spell.AddCustomSubFeatures(new ModifyEffectDescriptionAshardalonStride(spell, [.. conditions]));
+        spell.AddCustomSubFeatures(new ModifyEffectDescriptionAshardalonStride([.. conditions]));
 
         return spell;
     }
@@ -410,7 +413,7 @@ internal static partial class SpellBuilders
                 };
                 var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
-                EffectHelpers.StartVisualEffect(mover, contender, FireBolt);
+                EffectHelpers.StartVisualEffect(mover, contender, Fireball);
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
@@ -442,29 +445,23 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class ModifyEffectDescriptionAshardalonStride(
-        SpellDefinition spellDefinition,
-        params ConditionDefinition[] conditions)
-        : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionAshardalonStride(params ConditionDefinition[] conditions)
+        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            return definition == spellDefinition;
+            action.ActionParams.RulesetEffect.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition =
+                conditions[0];
+
+            yield break;
         }
 
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (rulesetEffect != null)
-            {
-                effectDescription.EffectForms[0].ConditionForm.conditionDefinition =
-                    conditions[rulesetEffect.EffectLevel - 3];
-            }
+            action.ActionParams.RulesetEffect.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition =
+                conditions[action.ActionParams.RulesetEffect.EffectLevel - 3];
 
-            return effectDescription;
+            yield break;
         }
     }
 
@@ -1703,25 +1700,32 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ModifyEffectDescriptionPulseWave(SpellDefinition spellDefinition) : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionPulseWave(SpellDefinition spellDefinition)
+        : IMagicEffectBeforeHitConfirmedOnEnemy
     {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            return definition == spellDefinition;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            if (rulesetEffect != null)
+            if (rulesetEffect.SourceDefinition != spellDefinition)
             {
-                effectDescription.EffectForms[1].MotionForm.distance = rulesetEffect.EffectLevel;
+                yield break;
             }
 
-            return effectDescription;
+            var motionEffect = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Motion);
+
+            if (motionEffect == null)
+            {
+                yield break;
+            }
+
+            motionEffect.MotionForm.distance = rulesetEffect.EffectLevel;
         }
     }
 
