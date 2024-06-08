@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -222,7 +224,7 @@ public static class GameLocationCharacterExtensions
     {
         var character = instance.RulesetCharacter;
 
-        return character is { IsDeadOrDyingOrUnconscious: false } &&
+        return character is {IsDeadOrDyingOrUnconscious: false} &&
                !instance.IsCharging &&
                !instance.MoveStepInProgress &&
                !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
@@ -275,6 +277,11 @@ public static class GameLocationCharacterExtensions
     {
         return instance.OncePerTurnIsValid(key) &&
                Gui.Battle != null && Gui.Battle.ActiveContender == instance;
+    }
+
+    internal static void IncrementSpecialFeatureUses(this GameLocationCharacter instance, string key)
+    {
+        instance.UsedSpecialFeatures.AddOrReplace(key, instance.UsedSpecialFeatures.GetValueOrDefault(key) + 1);
     }
 
     internal static bool OncePerTurnIsValid(this GameLocationCharacter instance, string key)
