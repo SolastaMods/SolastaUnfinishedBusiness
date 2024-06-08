@@ -4875,7 +4875,7 @@ You gain proficiency in the acrobat skill.
 
 * Acrobat Protector
 
-You add half your proficiency bonus to your armor class while wielding a quarterstaff in two hands, and you are wearing no armor or light armor.
+You add half your proficiency bonus (rounded down) to your armor class while wielding a quarterstaff in two hands, and you are wearing no armor or light armor.
 
 * Acrobat Trooper
 

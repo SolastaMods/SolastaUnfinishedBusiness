@@ -765,168 +765,168 @@ Instantly heals up to six allies you can see.
 
 Touch one willing creature to give them resistance to this damage type.
 
-# 186. - *Psionic Blast* © (V) level 3 Evocation [Concentration] [UB]
+# 186. - *Pulse Wave* © (V,S) level 3 Evocation [UB]
 
-You unleash a destructive wave of mental power in a 30-foot cone. Each creature in the area must make a Dexterity saving throw. On a failed save, a target takes 5d8 force damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn’t pushed or knocked prone. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.
+You create intense pressure, unleash it in a 30-foot cone, and decide whether the pressure pulls or pushes creatures and objects. Each creature in that cone must make a Constitution saving throw. A creature takes 6d6 force damage on a failed save, or half as much damage on a successful one. And every creature that fails the save is either pulled 15 feet toward you or pushed 15 feet away from you, depending on the choice you made for the spell. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 and the distance pulled or pushed increases by 5 feet for each slot level above 3rd.
 
-# 187. - *Pulse Wave* © (V,S) level 3 Evocation [UB]
-
-Hurl enemies away with intense gravitational pressure.
-
-# 188. - Remove Curse (V,S) level 3 Abjuration [SOL]
+# 187. - Remove Curse (V,S) level 3 Abjuration [SOL]
 
 Removes all curses affecting the target.
 
-# 189. - Revivify (M,V,S) level 3 Necromancy [SOL]
+# 188. - Revivify (M,V,S) level 3 Necromancy [SOL]
 
 Brings one creature back to life, up to 1 minute after death.
 
-# 190. - Sleet Storm (V,S) level 3 Conjuration [Concentration] [SOL]
+# 189. - Sleet Storm (V,S) level 3 Conjuration [Concentration] [SOL]
 
 Creates an area where the ground is slippery, vision is obscured, and concentration is harder.
 
-# 191. - Slow (V,S) level 3 Transmutation [Concentration] [SOL]
+# 190. - Slow (V,S) level 3 Transmutation [Concentration] [SOL]
 
 Slows and impairs the actions of up to 6 creatures.
 
-# 192. - Spirit Guardians (V,S) level 3 Conjuration [Concentration] [SOL]
+# 191. - Spirit Guardians (V,S) level 3 Conjuration [Concentration] [SOL]
 
 Call forth spirits to protect you.
 
-# 193. - *Spirit Shroud* © (V,S) level 3 Necromancy [Concentration] [UB]
+# 192. - *Spirit Shroud* © (V,S) level 3 Necromancy [Concentration] [UB]
 
 You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
 Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 ft of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn.
 In addition, any enemy creature within 10ft of you when you cast, or that enters or starts its turn in that range has its movement speed lowered by 10ft until start of its next turn.
 When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd.
 
-# 194. - Stinking Cloud (V,S) level 3 Conjuration [Concentration] [SOL]
+# 193. - Stinking Cloud (V,S) level 3 Conjuration [Concentration] [SOL]
 
 Create a cloud of incapacitating, noxious gas.
 
-# 195. - *Thunder Step* © (V) level 3 Conjuration [UB]
+# 194. - *Thunder Step* © (V) level 3 Conjuration [UB]
 
 You teleport yourself to an unoccupied space you can see within range. Immediately after you disappear, a thunderous boom sounds, and each creature within 10 feet of the space you left must make a Constitution saving throw, taking 3d10 thunder damage on a failed save, or half as much damage on a successful one. You can also teleport one willing ally. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d10 for each slot level above 3rd.
 
-# 196. - Tongues (V) level 3 Divination [SOL]
+# 195. - Tongues (V) level 3 Divination [SOL]
 
 Grants knowledge of all languages for one hour.
 
-# 197. - Vampiric Touch (V,S) level 3 Necromancy [Concentration] [SOL]
+# 196. - Vampiric Touch (V,S) level 3 Necromancy [Concentration] [SOL]
 
 Grants you a life-draining melee attack for one minute.
 
-# 198. - Wind Wall (V,S) level 3 Evocation [Concentration] [SOL]
+# 197. - Wind Wall (V,S) level 3 Evocation [Concentration] [SOL]
 
 Create a wall of wind that causes damage, pushes creatures and objects away, and disperses fogs and gases.
 
-# 199. - Winter's Breath (V,S) level 3 Conjuration [UB]
+# 198. - Winter's Breath (V,S) level 3 Conjuration [UB]
 
 Create a blast of cold wind to chill your enemies and knock them prone.
 
-# 200. - *Aura of Life* © (V) level 4 Abjuration [Concentration] [UB]
+# 199. - *Aura of Life* © (V) level 4 Abjuration [Concentration] [UB]
 
 Life-preserving energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura, including you, has resistance to necrotic damage, and its hit point maximum can't be reduced. In addition, a non-hostile, living creature regains 1 hit point when it starts its turn in the aura with 0 hit points.
 
-# 201. - *Aura of Purity* © (V) level 4 Abjuration [Concentration] [UB]
+# 200. - *Aura of Purity* © (V) level 4 Abjuration [Concentration] [UB]
 
 Purifying energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each non-hostile creature in the aura, including you, can't become diseased, has resistance to poison damage, and has advantage on saving throws against effects that cause any of the following conditions: blinded, charmed, deafened, frightened, paralyzed, poisoned, and stunned.
 
-# 202. - Banishment (V,S) level 4 Abjuration [Concentration] [SOL]
+# 201. - Banishment (V,S) level 4 Abjuration [Concentration] [SOL]
 
 Banishes a creature as long as you concentrate. The creature can be permanently banished if it is extraplanar.
 
-# 203. - Black Tentacles (V,S) level 4 Conjuration [Concentration] [SOL]
+# 202. - Black Tentacles (V,S) level 4 Conjuration [Concentration] [SOL]
 
 Conjures black tentacles that restrain and damage creatures within the area of effect.
 
-# 204. - Blessing of Rime (V,S) level 4 Evocation [UB]
+# 203. - Blessing of Rime (V,S) level 4 Evocation [UB]
 
 You summon a chill wind that numbs the pain of your allies. Choose up to three creatures within range. Each creature gains 3d8 temporary hit points for the duration. While a creature has these hit points, if it would make a Constitution saving throw, it gains advantage on the roll. When you cast this spell using a spell slot of 5th level or higher, the temporary hit points increase by 1d8 for each slot level above 4th.
 
-# 205. - Blight (V,S) level 4 Necromancy [SOL]
+# 204. - Blight (V,S) level 4 Necromancy [SOL]
 
 Drains life from a creature, causing massive necrotic damage.
 
-# 206. - Brain Bulwark (V) level 4 Abjuration [UB]
+# 205. - Brain Bulwark (V) level 4 Abjuration [UB]
 
 For the duration, you or one willing creature you can see within range has resistance to psychic damage, as well as Immunity to the Charmed, Frightened, Fear, Mind dominated and Mind controlled conditions.
 
-# 207. - Confusion (V,S) level 4 Enchantment [Concentration] [SOL]
+# 206. - Confusion (V,S) level 4 Enchantment [Concentration] [SOL]
 
 Creates confusion and erratic behavior in a creature, possibly leading it to attack its allies.
 
-# 208. - Conjure 4 Elementals (V,S) level 4 Conjuration [Concentration] [SOL]
+# 207. - Conjure 4 Elementals (V,S) level 4 Conjuration [Concentration] [SOL]
 
 4 elementals are conjured (CR 1/2).
 
-# 209. - Conjure Minor Elementals (V,S) level 4 Conjuration [Concentration] [SOL]
+# 208. - Conjure Minor Elementals (V,S) level 4 Conjuration [Concentration] [SOL]
 
 Conjure elemental creatures under your command, which are dismissed when the spell ends or is broken.
 
-# 210. - Death Ward (V,S) level 4 Abjuration [SOL]
+# 209. - Death Ward (V,S) level 4 Abjuration [SOL]
 
 Protects the creature once against instant death or being reduced to 0 hit points.
 
-# 211. - Dimension Door (V) level 4 Conjuration [SOL]
+# 210. - Dimension Door (V) level 4 Conjuration [SOL]
 
 Transfers the caster and a friendly creature to a specified destination.
 
-# 212. - Dominate Beast (V,S) level 4 Enchantment [Concentration] [SOL]
+# 211. - Dominate Beast (V,S) level 4 Enchantment [Concentration] [SOL]
 
 Grants you control over an enemy beast.
 
-# 213. - Dreadful Omen (V,S) level 4 Enchantment [SOL]
+# 212. - Dreadful Omen (V,S) level 4 Enchantment [SOL]
 
 You whisper dreadful words that cause immense mental anguish in your enemies. On a failed wisdom saving throw, they take psychic damage and become frightened until the end of their next turn, moving away from you as much as possible. On a successful save, they take half as much damage and are not frightened.
 
-# 214. - Fire Shield (V,S) level 4 Evocation [SOL]
+# 213. - Fire Shield (V,S) level 4 Evocation [SOL]
 
 Grants resistance to fire or cold, and damages creatures attacking the caster with melee attacks.
 
-# 215. - Freedom of Movement (V,S) level 4 Abjuration [SOL]
+# 214. - Freedom of Movement (V,S) level 4 Abjuration [SOL]
 
 Grants immunity to movement restrictions, as well as being paralyzed or restrained.
 
-# 216. - Giant Insect (V,S) level 4 Transmutation [Concentration] [SOL]
+# 215. - Giant Insect (V,S) level 4 Transmutation [Concentration] [SOL]
 
 Conjures a giant version of a natural insect or arthropod.
 
-# 217. - *Gravity Sinkhole* © (V,S) level 4 Evocation [UB]
+# 216. - *Gravity Sinkhole* © (V,S) level 4 Evocation [UB]
 
 A 20-foot-radius sphere of crushing force forms at a point you can see within range and tugs at the creatures there. Each creature in the sphere must make a Constitution saving throw. On a failed save, the creature takes 5d10 force damage, and is pulled in a straight line toward the center of the sphere, ending in an unoccupied space as close to the center as possible. On a successful save, the creature takes half as much damage and isn't pulled. When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d10 for each slot level above 4th.
 
-# 218. - Greater Invisibility (V,S) level 4 Illusion [Concentration] [SOL]
+# 217. - Greater Invisibility (V,S) level 4 Illusion [Concentration] [SOL]
 
 Target becomes invisible for the duration, even when attacking or casting spells.
 
-# 219. - Guardian of Faith (V) level 4 Conjuration [SOL]
+# 218. - Guardian of Faith (V) level 4 Conjuration [SOL]
 
 Conjures a large spectral guardian that damages approaching enemies.
 
-# 220. - *Guardian of Nature* © (V) level 4 Transmutation [Concentration] [UB]
+# 219. - *Guardian of Nature* © (V) level 4 Transmutation [Concentration] [UB]
 
 A nature spirit answers your call and transforms you into a powerful guardian. The transformation lasts until the spell ends. You choose between a Beast or a Tree form.
 
-# 221. - Ice Storm (V,S) level 4 Evocation [SOL]
+# 220. - Ice Storm (V,S) level 4 Evocation [SOL]
 
 Causes bludgeoning and cold damage in the area, and turns the ground into difficult terrain.
 
-# 222. - Identify Creatures (V,S) level 4 Divination [SOL]
+# 221. - Identify Creatures (V,S) level 4 Divination [SOL]
 
 Reveals full bestiary knowledge for the affected creatures.
 
-# 223. - Irresistible Performance (V) level 4 Enchantment [UB]
+# 222. - Irresistible Performance (V) level 4 Enchantment [UB]
 
 You weave a song into the air, causing those who hear it to applaud its magnificence. All creatures of your choice inside a 30-foot-cube within range must make a Charisma saving throw or be forced to clap and shout until the start of your next turn. A creature that is charmed by you always fails this saving throw. A clapping creature cannot perform any actions that require their hands or mouth but can otherwise act normally. This spell has no effect on creatures that are immune to charm.
 
-# 224. - *Mordenkainen's Faithful Hound* © (V,S) level 4 Conjuration [UB]
+# 223. - *Mordenkainen's Faithful Hound* © (V,S) level 4 Conjuration [UB]
 
 You conjure a phantom watchdog in an unoccupied space that you can see within range, where it remains for the duration. The hound has Darkvision up to 60 ft, Truesight up to 80 ft, is invisible to all creatures except you and can't be harmed. During each of your turns, the hound can attempt to bite one creature within 5 feet of it that is hostile to you as a free action. The hound's attack bonus is equal to your spellcasting ability modifier + your proficiency bonus. On a hit, it deals 4d8 piercing damage.
 
-# 225. - Phantasmal Killer (V,S) level 4 Illusion [Concentration] [SOL]
+# 224. - Phantasmal Killer (V,S) level 4 Illusion [Concentration] [SOL]
 
 Causes psychic damage to the target creature with each turn, unless a saving throw is successful or the effect ends.
+
+# 225. - Psionic Blast (V) level 4 Evocation [Concentration] [UB]
+
+You unleash a destructive wave of mental power in a 30-foot cone. Each creature in the area must make an Intelligence saving throw. On a failed save, a target takes 5d8 psychic damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn’t pushed or knocked prone. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.
 
 # 226. - *Raulothim's Psychic Lance* © (V) level 4 Enchantment [UB]
 
