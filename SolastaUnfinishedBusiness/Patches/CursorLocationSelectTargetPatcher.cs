@@ -4,14 +4,11 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Subclasses.SorcerousFieldManipulator;
-using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -33,7 +30,7 @@ public static class CursorLocationSelectTargetPatcher
             var actingCharacter = __instance.actionParams.actingCharacter;
 
             // required for familiar attack
-            actingCharacter.UsedSpecialFeatures.Remove("FamiliarAttack");
+            // actingCharacter.UsedSpecialFeatures.Remove("FamiliarAttack");
 
             //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
             if (__result &&
@@ -43,82 +40,61 @@ public static class CursorLocationSelectTargetPatcher
             {
                 __instance.actionModifier.FailureFlags.Add("Failure/&FailureFlagNoPerceptionOfTargetDescription");
                 __result = false;
-
-                return;
             }
 
             //PATCH: supports `IFilterTargetingCharacter`
-            foreach (var filterTargetingMagicEffect in
-                     definition.GetAllSubFeaturesOfType<IFilterTargetingCharacter>())
-            {
-                __result = filterTargetingMagicEffect.IsValid(__instance, target);
-
-                if (__result)
-                {
-                    return;
-                }
-            }
-
-            //PATCH: supports Find Familiar specific case for any caster as spell can be granted to other classes
-            if (Gui.Battle != null &&
-                actingCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                __instance.ActionParams.activeEffect is RulesetEffectSpell rulesetEffectSpell &&
-                rulesetEffectSpell.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit)
-            {
-                var familiar = Gui.Battle.AllContenders
-                    .FirstOrDefault(x =>
-                        x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
-                        rulesetCharacterMonster.MonsterDefinition.Name == OwlFamiliar &&
-                        rulesetCharacterMonster.AllConditions.Exists(y =>
-                            y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
-                            y.SourceGuid == actingCharacter.Guid));
-
-                var canAttack = familiar != null && familiar.IsWithinRange(target, 1);
-
-                if (canAttack)
-                {
-                    var effectDescription = new EffectDescription();
-
-                    effectDescription.Copy(__instance.effectDescription);
-                    effectDescription.rangeParameter = 24;
-
-                    __instance.effectDescription = effectDescription;
-                    actingCharacter.UsedSpecialFeatures.Add("FamiliarAttack", 0);
-                }
-                else
-                {
-                    __instance.effectDescription = __instance.ActionParams.RulesetEffect.EffectDescription;
-                }
-            }
-
-            //PATCH: support for target spell filtering based on custom spell filters
-            // used for melee cantrips to limit targets to weapon attack range
             if (!__result)
             {
                 return;
             }
 
-            __result = IsFilteringValidMeleeCantrip(__instance, target);
-        }
-
-        private static bool IsFilteringValidMeleeCantrip(
-            CursorLocationSelectTarget __instance,
-            GameLocationCharacter target)
-        {
-            var actionParams = __instance.actionParams;
-            var attackAfterMagicEffect =
-                actionParams?.RulesetEffect?.SourceDefinition.GetFirstSubFeatureOfType<AttackAfterMagicEffect>();
-
-            if (attackAfterMagicEffect == null ||
-                AttackAfterMagicEffect.CanBeUsedToAttack(
-                    __instance, actionParams.actingCharacter, target, out var failure))
+            foreach (var filterTargetingMagicEffect in
+                     definition.GetAllSubFeaturesOfType<IFilterTargetingCharacter>())
             {
-                return true;
+                __result = filterTargetingMagicEffect.IsValid(__instance, target);
+
+                if (!__result)
+                {
+                    break;
+                }
             }
 
-            __instance.actionModifier.FailureFlags.Add(failure);
+#if false
+            //TODO: need to review below. sounds fishy
+            //PATCH: supports Find Familiar specific case for any caster as spell can be granted to other classes
+            if (Gui.Battle == null ||
+                actingCharacter.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                __instance.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
+                rulesetEffectSpell.EffectDescription.RangeType is not (RangeType.Touch or RangeType.MeleeHit))
+            {
+                return;
+            }
 
-            return false;
+            var familiar = Gui.Battle.AllContenders
+                .FirstOrDefault(x =>
+                    x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
+                    rulesetCharacterMonster.MonsterDefinition.Name == OwlFamiliar &&
+                    rulesetCharacterMonster.AllConditions.Exists(y =>
+                        y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
+                        y.SourceGuid == actingCharacter.Guid));
+
+            var canAttack = familiar != null && familiar.IsWithinRange(target, 1);
+
+            if (canAttack)
+            {
+                var effectDescription = new EffectDescription();
+
+                effectDescription.Copy(__instance.effectDescription);
+                effectDescription.rangeParameter = 24;
+
+                __instance.effectDescription = effectDescription;
+                actingCharacter.UsedSpecialFeatures.Add("FamiliarAttack", 0);
+            }
+            else
+            {
+                __instance.effectDescription = __instance.ActionParams.RulesetEffect.EffectDescription;
+            }
+#endif
         }
     }
 
@@ -132,16 +108,14 @@ public static class CursorLocationSelectTargetPatcher
         {
             //PATCH: allows Sorcerous Field Manipulator displacement to select any character
             if (parameters.Length <= 0 ||
-                parameters[0] is not CharacterActionParams { RulesetEffect: RulesetEffectPower rulesetEffectPower })
+                parameters[0] is not CharacterActionParams { RulesetEffect: RulesetEffectPower rulesetEffectPower } ||
+                rulesetEffectPower.PowerDefinition != PowerSorcerousFieldManipulatorDisplacement)
             {
                 return;
             }
 
-            if (rulesetEffectPower.PowerDefinition == PowerSorcerousFieldManipulatorDisplacement)
-            {
-                // allows any target to be selected as well as automatically presents a better UI description
-                rulesetEffectPower.EffectDescription.inviteOptionalAlly = false;
-            }
+            // allows any target to be selected as well as automatically presents a better UI description
+            rulesetEffectPower.EffectDescription.inviteOptionalAlly = false;
         }
     }
 
@@ -154,16 +128,14 @@ public static class CursorLocationSelectTargetPatcher
         public static void Prefix(CursorLocationSelectTarget __instance)
         {
             //PATCH: allows Sorcerous Field Manipulator displacement to select any character
-            if (__instance.actionParams is not { RulesetEffect: RulesetEffectPower rulesetEffectPower })
+            if (__instance.actionParams is not { RulesetEffect: RulesetEffectPower rulesetEffectPower } ||
+                rulesetEffectPower.PowerDefinition != PowerSorcerousFieldManipulatorDisplacement)
             {
                 return;
             }
 
-            if (rulesetEffectPower.PowerDefinition == PowerSorcerousFieldManipulatorDisplacement)
-            {
-                // brings back power effect to it's original definition
-                rulesetEffectPower.EffectDescription.inviteOptionalAlly = true;
-            }
+            // brings back power effect to its original definition
+            rulesetEffectPower.EffectDescription.inviteOptionalAlly = true;
         }
     }
 
@@ -385,6 +357,7 @@ public static class CursorLocationSelectTargetPatcher
             out CursorDefinitions.CursorActionResult actionResult)
         {
             actionResult = CursorDefinitions.CursorActionResult.None;
+
             if (__instance.RefreshTargetedCharacter())
             {
                 __instance.actionModifier.Reset();
