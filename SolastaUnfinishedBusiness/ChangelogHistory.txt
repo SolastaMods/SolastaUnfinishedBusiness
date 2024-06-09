@@ -1,3 +1,15 @@
+1.5.97.14:
+
+- added Ashardalon's Stride, and Elemental Bane spells
+- fixed Domain Tempest destructive wrath, and Transmuted interactions
+- fixed Domain Tempest wrath of the storm feature not consuming a reaction
+- fixed Haste, Quickened, Surge, 'action switching', 'attack cantrips', and 'replace attacks with cantrips' interactions
+- fixed Martial Guardian vigilance feature granting reaction refunds to other fighter subclasses at any level
+- fixed Mind Sharpener infusion not providing advantage on concentration checks
+- fixed Pulse Wave spell to offer push/pull options as well as increase motion distance on upcasting
+- fixed Stunning Strike behavior to not trigger on stunned enemies and auto disable on a failed saving
+- moved Psionic Blast to spell level 4, and converted it into homebrew
+
 1.5.97.12:
 
 - added Gameplay > Character > 'Enable Monk Heightened Metabolism at level 10' setting

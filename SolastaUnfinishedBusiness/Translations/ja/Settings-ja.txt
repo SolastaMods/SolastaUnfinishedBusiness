@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnFollowUpStrike=基本武器ダメージによるすべてのダイスを<color=#D89555>フォローアップストライク</color>特技に追加します
+ModUi/&AccountForAllDiceOnFollowUpStrike=基本武器のすべての追加効果を<color=#D89555>追撃攻撃</color>特技に追加します
 ModUi/&AccountForAllDiceOnSavageAttack=基本武器ダメージからのすべてのダイスを、1 つのダイスのみではなく基本武器ダメージを追加する機能に追加します<i><color=#F0DAA0>[サベージ アタック、2H 武器など]</color></i>
 ModUi/&AddAllToStore=すべてをストアに追加
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>出血</color>状態を<color=#D89555>より大きな修復</color>と<color=#D89555>小さな修復</color>によって除去された状態に追加します。
@@ -177,7 +177,7 @@ ModUi/&FactionHelp=<color=#C04040E0>公式キャンペーン ゲームをロー�
 ModUi/&FactionRelations=<color=#F0DAA0>派閥:</color>
 ModUi/&FasterTimeModifier=<color=white>スペースバーを押したときのゲーム時間変更子</color>
 ModUi/&FeatGroups=<color=#F0DAA0>特技グループ</color>
-ModUi/&FeatGroupsHelp=• 各グループは類似の<color=#D89555>特技</color> <i><color=#F0DAA0>[例: 信条、戦闘スタイル、メタマジックなど]</color></i>{99 }• これらのグループの特技は、熟練度選択ステージで直接表示されなくなります。\n• グループを選択すると、ゲーム画面が整理されるためにドロップダウン リストに特技が表示されます。
+ModUi/&FeatGroupsHelp=• 各グループは類似の<color=#D89555>特技</color> <i><color=#F0DAA0>[例: 信条、戦闘スタイル、メタマジックなど]</color></i>\n• これらのグループの特技は、熟練度選択ステージで直接表示されなくなります。\n• グループを選択すると、ゲーム画面が整理されるためにドロップダウン リストに特技が表示されます。
 ModUi/&Feats=<color=#F0DAA0>特技</color>
 ModUi/&FightingStyles=<color=#F0DAA0>戦闘スタイル</color>
 ModUi/&FixAsianLanguagesTextWrap=アジア言語のゲーム UI テキストの回り込みを修正 <b><i><color=#C04040E0>[再起動が必要]</color></i></b>

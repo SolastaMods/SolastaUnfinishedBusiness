@@ -1,7 +1,10 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
-  "spellsBundle": false,
-  "subspellsList": [],
+  "spellsBundle": true,
+  "subspellsList": [
+    "Definition:PulseWavePush:244c87d2-5dfc-53fa-8603-fb3635bd38e5",
+    "Definition:PulseWavePull:d73ffef6-a447-5003-b21e-ba2115a2fc51"
+  ],
   "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
@@ -132,6 +135,31 @@
         },
         "hasFilterId": false,
         "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Motion",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "motionForm": {
+          "$type": "MotionForm, Assembly-CSharp",
+          "type": "DragToOrigin",
+          "distance": 3,
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
     "specialFormsDescription": "",
@@ -160,7 +188,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81dc5e854a40ec74fb48b370b138e9a6",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -196,7 +224,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2c0d4e20e73fc6e478d2b03871821bc2",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -208,7 +236,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "288f328d9d10d774f8d7d39f181660a0",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

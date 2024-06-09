@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnFollowUpStrike=Añade todos los dados del daño base del arma a la hazaña <color=#D89555>Golpe de seguimiento</color>.
+ModUi/&AccountForAllDiceOnFollowUpStrike=Añade todos los efectos adicionales del arma base a la dote <color=#D89555>Golpe de seguimiento</color>
 ModUi/&AccountForAllDiceOnSavageAttack=Añade todos los dados del daño base del arma a funciones que añaden daño base del arma en lugar de 1 dado solamente <i><color=#F0DAA0>[Ataque salvaje, armas 2H, etc.]</color></i>
 ModUi/&AddAllToStore=Agregar todo a la tienda
 ModUi/&AddBleedingToLesserRestoration=Agregue la condición de <color=#D89555>Sangrado</color> a las eliminadas por <color=#D89555>Mayor</color> y <color=#D89555>Restauración menor</color>
@@ -177,7 +177,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Carga un juego de campaña oficial para modi
 ModUi/&FactionRelations=<color=#F0DAA0>Facciones:</color>
 ModUi/&FasterTimeModifier=<color=white>Modificador de tiempo de juego al presionar la barra espaciadora</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Grupos de funciones</color>
-ModUi/&FeatGroupsHelp=• Cada grupo es una consolidación de <color=#D89555>dotes</color> <i><color=#F0DAA0>[es decir: credos, estilos de lucha, metamagia, etc.] similares</color></i>{99 }• Las dotes de estos grupos ya no serán visibles directamente en la etapa de selección de competencia.\n• El grupo, cuando se selecciona, las ofrece en una lista desplegable para ordenar la pantalla del juego.
+ModUi/&FeatGroupsHelp=• Cada grupo es una consolidación de <color=#D89555>dotes</color> <i><color=#F0DAA0>[es decir: credos, estilos de lucha, metamagia, etc.] similares</color></i>\n• Las dotes de estos grupos ya no serán visibles directamente en la etapa de selección de competencia.\n• El grupo, cuando se selecciona, las ofrece en una lista desplegable para ordenar la pantalla del juego.
 ModUi/&Feats=<color=#F0DAA0>Dotes</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de lucha</color>
 ModUi/&FixAsianLanguagesTextWrap=Se corrigió el ajuste de texto de la interfaz de usuario del juego en idiomas asiáticos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>

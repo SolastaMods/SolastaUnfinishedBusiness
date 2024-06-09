@@ -3,7 +3,7 @@
   <PropertyGroup>
     <LangVersion>12</LangVersion>
     <TargetFramework>net48</TargetFramework>
-    <AssemblyVersion>1.5.97.12</AssemblyVersion>
+    <AssemblyVersion>1.5.97.14</AssemblyVersion>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Configurations>Debug Install;Release Install</Configurations>

@@ -361,7 +361,7 @@ public sealed class DomainTempest : AbstractSubclass
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
             {
                 ActionModifiers = { new ActionModifier() },
                 StringParameter = "WrathOfTheStorm",
@@ -407,8 +407,7 @@ public sealed class DomainTempest : AbstractSubclass
     }
 
     private sealed class CustomBehaviorDestructiveWrath(FeatureDefinitionPower powerDestructiveWrath)
-        : IForceMaxDamageTypeDependent, IModifyAdditionalDamage, IActionFinishedByMe,
-            IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
+        : IForceMaxDamageTypeDependent, IActionFinishedByMe
     {
         private bool _isValid;
 
@@ -429,88 +428,26 @@ public sealed class DomainTempest : AbstractSubclass
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter.GetEffectControllerOrSelf();
             var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
 
+            rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
             rulesetAttacker.UsePower(usablePower);
         }
 
         public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
         {
-            return _isValid && damageForm.DamageType is DamageTypeLightning or DamageTypeThunder;
-        }
+            if (rulesetActor is not RulesetCharacter rulesetCharacter)
+            {
+                return false;
+            }
 
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            Validate(attacker.RulesetCharacter, actualEffectForms);
-
-            yield break;
-        }
-
-        public void ModifyAdditionalDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            List<EffectForm> actualEffectForms,
-            ref DamageForm additionalDamageForm)
-        {
-            var damageType = GetAdditionalDamageType(attacker, additionalDamageForm, featureDefinitionAdditionalDamage);
-            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetAttacker = rulesetCharacter.GetEffectControllerOrSelf();
             var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
-            var isValid = rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
+            var isValid = rulesetAttacker!.GetRemainingUsesOfPower(usablePower) > 0 &&
                           rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
-                          damageType is DamageTypeLightning or DamageTypeThunder;
+                          damageForm.DamageType is DamageTypeLightning or DamageTypeThunder;
 
-            if (!isValid)
-            {
-                return;
-            }
+            _isValid = _isValid || isValid;
 
-            _isValid = true;
-            rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
-        }
-
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            Validate(attacker.RulesetCharacter, actualEffectForms);
-
-            yield break;
-        }
-
-        private void Validate(
-            RulesetCharacter rulesetAttacker,
-            // ReSharper disable once ParameterTypeCanBeEnumerable.Local
-            List<EffectForm> actualEffectForms)
-        {
-            var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
-
-            _isValid =
-                rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
-                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
-                actualEffectForms.Any(x =>
-                    x.FormType == EffectForm.EffectFormType.Damage &&
-                    x.DamageForm.DamageType is DamageTypeLightning or DamageTypeThunder);
-
-            if (_isValid)
-            {
-                rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
-            }
+            return isValid;
         }
     }
 

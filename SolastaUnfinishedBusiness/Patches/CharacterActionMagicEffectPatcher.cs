@@ -60,6 +60,13 @@ public static class CharacterActionMagicEffectPatcher
 
             // BEGIN PATCH
 
+            //PATCH: mark if levelled spell was used for correct action surge interaction
+            if (__instance is CharacterActionCastSpell actionCastSpell &&
+                actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel > 0)
+            {
+                actingCharacter.UsedSpecialFeatures.TryAdd("LevelledSpell", 0);
+            }
+            
             //PATCH: skip spell animation if this is "attack after cast" spell
             if (baseDefinition.HasSubFeatureOfType<AttackAfterMagicEffect>())
             {

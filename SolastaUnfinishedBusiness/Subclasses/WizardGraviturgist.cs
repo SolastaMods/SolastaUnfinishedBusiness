@@ -40,8 +40,7 @@ public sealed class WizardGraviturgist : AbstractSubclass
                     .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(
                         CharacterAbilityCheckAffinity.Advantage,
-                        DieType.D8, 0,
-                        (AttributeDefinitions.Strength, SkillDefinitions.Athletics))
+                        abilityProficiencyPairs: (AttributeDefinitions.Strength, SkillDefinitions.Athletics))
                     .AddToDB(),
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinity{Name}DensityIncrease")
@@ -90,8 +89,7 @@ public sealed class WizardGraviturgist : AbstractSubclass
                     .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(
                         CharacterAbilityCheckAffinity.Disadvantage,
-                        DieType.D8, 0,
-                        (AttributeDefinitions.Strength, SkillDefinitions.Athletics))
+                        abilityProficiencyPairs: (AttributeDefinitions.Strength, SkillDefinitions.Athletics))
                     .AddToDB(),
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinity{Name}DensityDecrease")

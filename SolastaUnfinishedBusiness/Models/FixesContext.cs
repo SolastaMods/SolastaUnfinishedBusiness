@@ -647,8 +647,21 @@ internal static class FixesContext
             = DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
     }
 
-    private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe,
+        IMagicEffectFinishedByMe
     {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action.RolledSaveThrow &&
+                action.SaveOutcome == RollOutcome.Failure)
+            {
+                action.ActingCharacter.RulesetCharacter.ToggledPowersOn.Remove(
+                    FeatureDefinitionPowers.PowerMonkStunningStrike.AutoActivationPowerTag);
+            }
+
+            yield break;
+        }
+
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -690,17 +703,17 @@ internal static class FixesContext
                 }
             }
 
-            if (!attacker.IsActionOnGoing(ActionDefinitions.Id.StunningStrikeToggle))
+            var wayOfZenArcheryLevels = rulesetAttacker.GetSubclassLevel(Monk, WayOfZenArchery.Name);
+
+            // Zen Archery get stunning strike with bows at 6
+            if (!ValidatorsWeapon.IsMelee(attackMode) &&
+                (wayOfZenArcheryLevels < WayOfZenArchery.StunningStrikeWithBowAllowedLevel ||
+                 !ValidatorsCharacter.HasBowWithoutArmor(rulesetAttacker)))
             {
                 yield break;
             }
 
-            var wayOfZenArcheryLevels = rulesetAttacker.GetSubclassLevel(Monk, WayOfZenArchery.Name);
-
-            // Zen Archery get stunning strike with bows at 6 and Distant Hand with bows at 11
-            if (!ValidatorsWeapon.IsMelee(attackMode) &&
-                (wayOfZenArcheryLevels < WayOfZenArchery.StunningStrikeWithBowAllowedLevel ||
-                 !ValidatorsCharacter.HasBowWithoutArmor(rulesetAttacker)))
+            if (!attacker.IsActionOnGoing(ActionDefinitions.Id.StunningStrikeToggle))
             {
                 yield break;
             }
@@ -709,9 +722,8 @@ internal static class FixesContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,

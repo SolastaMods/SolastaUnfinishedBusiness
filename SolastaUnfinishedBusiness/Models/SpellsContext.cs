@@ -304,6 +304,8 @@ internal static class SpellsContext
         RegisterSpell(BuildWitherAndBloom(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
 
         // 3rd level
+        RegisterSpell(BuildAshardalonStride(), 0, SpellListRanger, SpellListSorcerer, SpellListWizard,
+            spellListInventorClass);
         RegisterSpell(BuildAuraOfVitality(), 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BuildAdderFangs(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWarlock);
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
@@ -328,6 +330,8 @@ internal static class SpellsContext
         RegisterSpell(AuraOfLife, 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BlessingOfRime, 0, SpellListBard, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+            spellListInventorClass);
+        RegisterSpell(BuildElementalBane(), 0, SpellListDruid, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildFaithfulHound(), 0, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildForestGuardian(), 0, SpellListDruid, SpellListRanger);

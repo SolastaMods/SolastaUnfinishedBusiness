@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnFollowUpStrike=Adicione todos os dados do dano base da arma ao talento <color=#D89555>Follow up Strike</color>
+ModUi/&AccountForAllDiceOnFollowUpStrike=Adiciona todos os efeitos adicionais da arma base ao talento <color=#D89555>Ataque de Acompanhamento</color>
 ModUi/&AccountForAllDiceOnSavageAttack=Adicione todos os dados do dano base da arma aos recursos que adicionam o dano base da arma em vez de apenas 1 dado <i><color=#F0DAA0>[Ataque Selvagem, armas 2H, etc.]</color></i>
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Restauração Menor</color>
@@ -177,7 +177,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Carregue um jogo de campanha oficial para mo
 ModUi/&FactionRelations=<color=#F0DAA0>Facções:</color>
 ModUi/&FasterTimeModifier=<color=white>Modificador de tempo de jogo ao pressionar a barra de espaço</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Grupos de Talentos</color>
-ModUi/&FeatGroupsHelp=• Cada grupo é uma consolidação de <color=#D89555>talentos</color> <i><color=#F0DAA0>[ou seja: credos, estilos de luta, metamágica, etc.]</color></i>{99 }• Os talentos nesses grupos não ficarão mais diretamente visíveis no estágio de seleção de proficiência\n• O grupo, quando selecionado, os oferece em uma lista suspensa para organizar a tela do jogo
+ModUi/&FeatGroupsHelp=• Cada grupo é uma consolidação de <color=#D89555>talentos</color> <i><color=#F0DAA0>[ou seja: credos, estilos de luta, metamágica, etc.]</color></i>\n• Os talentos nesses grupos não ficarão mais diretamente visíveis no estágio de seleção de proficiência\n• O grupo, quando selecionado, os oferece em uma lista suspensa para organizar a tela do jogo
 ModUi/&Feats=<color=#F0DAA0>Talentos</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de luta</color>
 ModUi/&FixAsianLanguagesTextWrap=Corrigir quebra automática de texto da IU do jogo em idiomas asiáticos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

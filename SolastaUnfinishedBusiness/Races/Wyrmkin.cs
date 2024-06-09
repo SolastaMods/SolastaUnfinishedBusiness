@@ -81,8 +81,9 @@ internal static class RaceWyrmkinBuilder
         var abilityCheckAffinityCaveWyrmkinCaveSenses = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}CaveSenses")
             .SetGuiPresentation(Category.Feature)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
-                (AttributeDefinitions.Wisdom, SkillDefinitions.Survival))
+            .BuildAndSetAffinityGroups(
+                CharacterAbilityCheckAffinity.Advantage,
+                abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Survival))
             .AddToDB();
 
         var conditionCaveWyrmkinShovingAttack = ConditionDefinitionBuilder

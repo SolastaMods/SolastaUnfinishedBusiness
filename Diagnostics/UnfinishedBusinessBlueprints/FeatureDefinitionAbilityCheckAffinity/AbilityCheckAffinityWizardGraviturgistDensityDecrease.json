@@ -9,7 +9,7 @@
       "affinity": "Disadvantage",
       "abilityCheckGroupOperation": "AddDie",
       "abilityCheckModifierDiceNumber": 0,
-      "abilityCheckModifierDieType": "D8",
+      "abilityCheckModifierDieType": "D1",
       "abilityCheckContext": "None",
       "lightingContext": "Irrelevant"
     }

@@ -1,4 +1,4 @@
-Feature/&AttributeModifierRoguishAcrobatProtectorDescription=육척봉을 양손으로 휘두르며 갑옷이나 경갑을 착용하지 않은 상태에서 갑옷 클래스에 숙련도 보너스의 절반을 추가합니다.
+Feature/&AttributeModifierRoguishAcrobatProtectorDescription=육척봉을 양손으로 휘두르며 갑옷이나 경갑을 착용하지 않은 상태에서 갑옷 클래스에 숙련도 보너스의 절반(반내림)을 추가합니다.
 Feature/&AttributeModifierRoguishAcrobatProtectorTitle=아크로바트 수호자
 Feature/&FeatureRoguishAcrobatTrooperDescription=육척봉을 고급 무기로 사용할 수 있는 능력을 얻고 육척봉의 도달 범위가 5피트 증가합니다.\n육척봉으로 공격 행동을 취하는 경우 보너스 행동을 사용하여 육척봉의 반대쪽 끝으로 근접 공격을 할 수 있습니다. 무기. 이 공격은 기본 공격과 동일한 능력 수정자를 사용하며 1d4의 타격 피해를 줍니다.
 Feature/&FeatureRoguishAcrobatTrooperTitle=아크로바트 기병

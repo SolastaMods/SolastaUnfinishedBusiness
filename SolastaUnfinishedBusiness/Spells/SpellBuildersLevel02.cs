@@ -238,6 +238,7 @@ internal static partial class SpellBuilders
                     .SetMinSizeDifference(10)
                     .AddToDB(),
                 FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging)
+            .SetConditionParticleReference(ConditionMonkSlowFall.conditionParticleReference)
             .AddToDB();
 
         condition.GuiPresentation.Description = Gui.NoLocalization;

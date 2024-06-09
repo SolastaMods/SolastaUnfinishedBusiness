@@ -159,6 +159,75 @@ public static class GameLocationCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.StartBattleTurnOtherContender))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class StartBattleTurnOtherContender_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationCharacter __instance)
+        {
+            var rulesetCharacter = __instance.RulesetCharacter;
+            if (__instance.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
+                ActionDefinitions.ActionStatus.Available)
+            {
+                rulesetCharacter.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(
+                    __instance.featuresCache, rulesetCharacter.FeaturesOrigin);
+
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var feature in __instance.featuresCache)
+                {
+                    var actionAffinity = feature as FeatureDefinitionActionAffinity;
+
+                    if (!actionAffinity ||
+                        !actionAffinity.RechargeReactionsAtEveryTurn)
+                    {
+                        continue;
+                    }
+
+                    //---- START ----
+                    //PATCH: support for feature usage limits
+                    if (feature.GetFirstSubFeatureOfType<FeatureUseLimiter>()?.CanBeUsed(__instance, feature) == false)
+                    {
+                        continue;
+                    }
+
+                    __instance.IncrementSpecialFeatureUses(actionAffinity.Name);
+
+                    //---- END ----
+                    __instance.RefundActionUse(ActionDefinitions.ActionType.Reaction);
+
+                    var actionRefunded = __instance.ActionRefunded;
+                    actionRefunded?.Invoke(__instance, ActionDefinitions.ActionType.Reaction);
+                }
+            }
+
+            var db = DatabaseRepository.GetDatabase<FeatureDefinition>();
+
+            foreach (var key in __instance.usedSpecialFeatures.Keys)
+            {
+                if (db.TryGetElement(key, out var result)
+                    && result is FeatureDefinitionAdditionalDamage { LimitedUsage: FeatureLimitedUsage.OncePerTurn })
+                {
+                    __instance.restoredFeatures.Add(result);
+                }
+            }
+
+            foreach (var restoredFeature in __instance.restoredFeatures)
+            {
+                __instance.usedSpecialFeatures.Remove(restoredFeature.Name);
+            }
+
+            __instance.restoredFeatures.Clear();
+            foreach (var proxy in rulesetCharacter.ControlledEffectProxies)
+            {
+                GameLocationCharacter.GetFromActor(proxy)?.StartBattleTurnOtherContender();
+            }
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.EndBattleTurn))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -403,8 +472,15 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
+            //PATCH: ensure we can only cast one levelled spell per turn (required by action surge)
+            if (__instance.UsedSpecialFeatures.TryGetValue("LevelledSpell", out _))
+            {
+                __instance.UsedBonusSpell = true;
+                __instance.UsedMainSpell = true;
+            }
+
             //PATCH: support for `AttackAfterMagicEffect`
-            AttackAfterMagicEffect.MaybeMarkUsedMainCantrip(__instance, actionParams);
+            AttackAfterMagicEffect.HandleAttackAfterMagicEffect(__instance, actionParams);
 
             //PATCH: support for `IReplaceAttackWithCantrip`
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);

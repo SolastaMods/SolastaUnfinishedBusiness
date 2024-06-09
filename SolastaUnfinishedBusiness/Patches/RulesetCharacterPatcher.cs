@@ -1754,6 +1754,28 @@ public static class RulesetCharacterPatcher
             __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
                 __instance.FeaturesToBrowse, __instance.FeaturesOrigin);
 
+            // supports mind sharpener infusion
+            if (__instance.CharacterInventory.InventorySlotsByName
+                .TryGetValue(EquipmentDefinitions.SlotTypeTorso, out var inventorySlot))
+            {
+                var equipedItem = inventorySlot.EquipedItem;
+
+                if (equipedItem != null)
+                {
+                    foreach (var featureDefinition in equipedItem.DynamicItemProperties
+                                 .Select(x => x.FeatureDefinition)
+                                 .OfType<ISpellCastingAffinityProvider>()
+                                 .OfType<FeatureDefinition>())
+                    {
+                        var featureOrigin = new FeatureOrigin(FeatureSourceType.CharacterFeature,
+                            featureDefinition.Name, featureDefinition, string.Empty);
+
+                        __instance.FeaturesToBrowse.Add(featureDefinition);
+                        __instance.FeaturesOrigin.Add(featureDefinition, featureOrigin);
+                    }
+                }
+            }
+
             foreach (var key in __instance.FeaturesToBrowse)
             {
                 var affinityProvider = key as ISpellCastingAffinityProvider;

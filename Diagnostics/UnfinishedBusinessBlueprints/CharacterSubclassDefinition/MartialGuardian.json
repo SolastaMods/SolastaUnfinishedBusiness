@@ -23,6 +23,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityMartialGuardianVigilance:f6ac6c26-2020-59c7-8b1f-78831b915690",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PerceptionAffinityMartialGuardianVigilance:b0c29b41-a91c-5a72-acb5-8c0f38bb3b58",
       "level": 15
     },

@@ -73,8 +73,9 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     FeatureDefinitionAbilityCheckAffinityBuilder
                         .Create($"AbilityCheckAffinity{Name}BearMight")
                         .SetGuiPresentationNoContent(true)
-                        .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
-                            (AttributeDefinitions.Strength, string.Empty))
+                        .BuildAndSetAffinityGroups(
+                            CharacterAbilityCheckAffinity.Advantage,
+                            abilityProficiencyPairs: (AttributeDefinitions.Strength, string.Empty))
                         .AddToDB()),
                 BuildAnimalAspectChoice("Eagle",
                     SenseSuperiorDarkvision,
@@ -86,8 +87,9 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     FeatureDefinitionAbilityCheckAffinityBuilder
                         .Create($"AbilityCheckAffinity{Name}Eagle")
                         .SetGuiPresentation("FeatureSetPathOfTheSpiritsAnimalAspectChoiceEagle", Category.Feature)
-                        .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
-                            (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
+                        .BuildAndSetAffinityGroups(
+                            CharacterAbilityCheckAffinity.Advantage,
+                            abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
                         .AddToDB()),
                 BuildAnimalAspectChoice("Wolf",
                     FeatureDefinitionProficiencyBuilder
@@ -98,8 +100,9 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     FeatureDefinitionAbilityCheckAffinityBuilder
                         .Create($"AbilityCheckAffinity{Name}Wolf")
                         .SetGuiPresentation("FeatureSetPathOfTheSpiritsAnimalAspectChoiceWolf", Category.Feature)
-                        .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
-                            (AttributeDefinitions.Wisdom, SkillDefinitions.Survival))
+                        .BuildAndSetAffinityGroups(
+                            CharacterAbilityCheckAffinity.Advantage,
+                            abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Survival))
                         .AddToDB(),
                     BuildSpiritSeekerSpell(SpellDefinitions.IdentifyCreatures, RechargeRate.LongRest)))
             .AddToDB();

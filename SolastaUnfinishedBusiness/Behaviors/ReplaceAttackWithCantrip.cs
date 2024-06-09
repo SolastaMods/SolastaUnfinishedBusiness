@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
@@ -40,7 +41,25 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        character.UsedMainCantrip = true;
-        character.BurnOneMainAttack();
+        // very similar to BurnOneMainAttack but differences are to handle Action Surge and other scenarios
+        var rulesetCharacter = character.RulesetCharacter;
+
+        character.HandleMonkMartialArts();
+        character.HasAttackedSinceLastTurn = true;
+        character.UsedMainAttacks++;
+        rulesetCharacter.ExecutedAttacks++;
+        rulesetCharacter.RefreshAttackModes();
+
+        var maxAttacks = rulesetCharacter.AttackModes
+            .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
+
+        if (character.UsedMainAttacks < maxAttacks)
+        {
+            character.currentActionRankByType[ActionType.Main]--;
+        }
+        else
+        {
+            character.UsedMainAttacks = 0;
+        }
     }
 }

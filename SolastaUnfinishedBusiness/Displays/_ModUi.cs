@@ -35,6 +35,7 @@ internal static class ModUi
     [
         "AganazzarScorcher",
         "AirBlast",
+        "AshardalonStride",
         "AuraOfLife",
         "AuraOfPerseverance",
         "AuraOfVitality",
@@ -65,6 +66,7 @@ internal static class ModUi
         "DomainSmith",
         "DraconicTransformation",
         "EarthTremor",
+        "ElementalBane",
         "ElementalInfusion",
         "ElementalWeapon",
         "EnduringSting",
@@ -206,7 +208,6 @@ internal static class ModUi
         "PowerWordHeal",
         "PowerWordKill",
         "PrimalSavagery",
-        "PsionicBlast",
         "PsychicLance",
         "PsychicWhip",
         "PulseWave",

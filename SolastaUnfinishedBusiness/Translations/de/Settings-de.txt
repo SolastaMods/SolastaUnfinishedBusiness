@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnFollowUpStrike=Füge alle Würfel vom Basiswaffenschaden zum Talent <color=#D89555>Follow-up-Schlag</color> hinzu.
+ModUi/&AccountForAllDiceOnFollowUpStrike=Füge alle zusätzlichen Effekte der Basiswaffe zum Talent <color=#D89555>Folgeschlag</color> hinzu.
 ModUi/&AccountForAllDiceOnSavageAttack=Fügen Sie alle Würfel vom Basiswaffenschaden zu Funktionen hinzu, die Basiswaffenschaden hinzufügen, anstatt nur 1 Würfel <i><color=#F0DAA0>[Wilder Angriff, 2H-Waffen usw.]</color></i>
 ModUi/&AddAllToStore=Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Blutung</color> zu den Zuständen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
@@ -177,7 +177,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Laden Sie ein offizielles Kampagnenspiel, um
 ModUi/&FactionRelations=<color=#F0DAA0>Fraktionen:</color>
 ModUi/&FasterTimeModifier=<color=white>Spielzeitmodifikator beim Drücken der Leertaste</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Feature-Gruppen</color>
-ModUi/&FeatGroupsHelp=• Jede Gruppe ist eine Konsolidierung ähnlicher <color=#D89555>Leistungen</color> <i><color=#F0DAA0>[d. h.: Glaubensbekenntnisse, Kampfstile, Metamagie usw.]</color></i>{99 }• Leistungen in diesen Gruppen werden in der Kompetenzauswahlphase nicht mehr direkt sichtbar sein.\n• Wenn die Gruppe ausgewählt ist, werden sie in einer Dropdown-Liste angezeigt, um den Spielbildschirm übersichtlicher zu gestalten
+ModUi/&FeatGroupsHelp=• Jede Gruppe ist eine Konsolidierung ähnlicher <color=#D89555>Leistungen</color> <i><color=#F0DAA0>[d. h.: Glaubensbekenntnisse, Kampfstile, Metamagie usw.]</color></i>\n• Leistungen in diesen Gruppen werden in der Kompetenzauswahlphase nicht mehr direkt sichtbar sein.\n• Wenn die Gruppe ausgewählt ist, werden sie in einer Dropdown-Liste angezeigt, um den Spielbildschirm übersichtlicher zu gestalten
 ModUi/&Feats=<color=#F0DAA0>Talente</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Kampfstile</color>
 ModUi/&FixAsianLanguagesTextWrap=Korrigieren Sie den Textumbruch in der Spiel-Benutzeroberfläche für asiatische Sprachen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -277,6 +279,11 @@ public static class GameLocationCharacterExtensions
                Gui.Battle != null && Gui.Battle.ActiveContender == instance;
     }
 
+    internal static void IncrementSpecialFeatureUses(this GameLocationCharacter instance, string key)
+    {
+        instance.UsedSpecialFeatures.AddOrReplace(key, instance.UsedSpecialFeatures.GetValueOrDefault(key) + 1);
+    }
+
     internal static bool OncePerTurnIsValid(this GameLocationCharacter instance, string key)
     {
         return !instance.UsedSpecialFeatures.ContainsKey(key);
@@ -392,7 +399,7 @@ public static class GameLocationCharacterExtensions
         return false;
     }
 
-    private static void HandleMonkMartialArts(this GameLocationCharacter instance)
+    internal static void HandleMonkMartialArts(this GameLocationCharacter instance)
     {
         var rulesetCharacter = instance.RulesetCharacter;
 
@@ -436,11 +443,8 @@ public static class GameLocationCharacterExtensions
         var maxAttacks = rulesetCharacter.AttackModes
             .FirstOrDefault(attackMode => attackMode.ActionType == ActionType.Main)?.AttacksNumber ?? 0;
 
-        // if still attacks left - refund main action
         if (instance.UsedMainAttacks < maxAttacks)
         {
-            instance.currentActionRankByType[ActionType.Main]--;
-
             return;
         }
 

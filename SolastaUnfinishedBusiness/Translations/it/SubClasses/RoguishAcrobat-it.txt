@@ -1,4 +1,4 @@
-Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Aggiungi metà del tuo bonus di competenza alla tua classe di armatura mentre impugni un bastone ferrato in due mani e non indossi alcuna armatura o armatura leggera.
+Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Aggiungi metà del tuo bonus di competenza (arrotondato per difetto) alla tua classe di armatura mentre impugni un bastone ferrato in due mani e non indossi alcuna armatura o armatura leggera.
 Feature/&AttributeModifierRoguishAcrobatProtectorTitle=Protettore dell'acrobata
 Feature/&FeatureRoguishAcrobatTrooperDescription=Ottieni la capacità di utilizzare un bastone ferrato come arma di precisione e la portata del bastone ferrato aumenta di 1,5 m.\nQuando esegui l'azione Attacco con un bastone ferrato, puoi usare la tua azione bonus per effettuare un attacco in mischia con l'estremità opposta del bastone ferrato arma. Questo attacco utilizza lo stesso modificatore di caratteristica dell'attacco primario e infligge 1d4 danni contundenti.
 Feature/&FeatureRoguishAcrobatTrooperTitle=Soldato acrobata

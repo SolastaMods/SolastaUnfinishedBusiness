@@ -1,28 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
-internal sealed class AttackAfterMagicEffect
+internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
 {
-    internal const string AttackCantrip = "AttackCantrip";
-
+    private const string AttackCantrip = "AttackCantrip";
+    private const string QuickenedAttackCantrip = "QuickenedAttackCantrip";
+    private const string ReplaceAttackCantrip = "ReplaceAttackCantrip";
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
 
-    internal static readonly AttackAfterMagicEffect Marker = new();
+    public bool EnforceFullSelection => false;
 
-    internal static void MaybeMarkUsedMainCantrip(GameLocationCharacter character, CharacterActionParams actionParams)
+    public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
     {
-        if (actionParams.AttackMode != null &&
-            actionParams.AttackMode.AttackTags.Contains(AttackCantrip))
+        var isValid = CanAttack(__instance.ActionParams.ActingCharacter, target);
+
+        if (!isValid)
+        {
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMeleeWeaponError");
+        }
+
+        return isValid;
+    }
+
+    internal static void HandleAttackAfterMagicEffect(GameLocationCharacter character,
+        CharacterActionParams actionParams)
+    {
+        if (actionParams.AttackMode == null)
+        {
+            return;
+        }
+
+        var attackTags = actionParams.AttackMode.AttackTags;
+
+        if (attackTags.Contains(AttackCantrip))
         {
             character.UsedMainCantrip = true;
+
+            if (!attackTags.Contains(ReplaceAttackCantrip))
+            {
+                character.SpendActionType(ActionDefinitions.ActionType.Main);
+            }
         }
+
+        if (!attackTags.Contains(QuickenedAttackCantrip))
+        {
+            return;
+        }
+
+        character.UsedMainSpell = true;
+        character.SpendActionType(ActionDefinitions.ActionType.Bonus);
     }
 
     internal static bool CanAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
@@ -102,9 +136,25 @@ internal sealed class AttackAfterMagicEffect
         //mark this attack for proper integration with War Magic
         attackMode.AttackTags.TryAdd(AttackCantrip);
 
-        var twinned =
-            actionMagicEffect is CharacterActionCastSpell castSpell &&
-            castSpell.ActiveSpell.MetamagicOption == MetamagicTwinnedSpell;
+        //mark this attack for proper integration with Replace Attack with cantrip
+        if (actionParams.ActingCharacter.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
+        {
+            attackMode.AttackTags.TryAdd(ReplaceAttackCantrip);
+        }
+
+        var twinned = false;
+
+        if (actionMagicEffect is CharacterActionCastSpell actionCastSpell)
+        {
+            twinned = actionCastSpell.ActiveSpell.MetamagicOption == MetamagicTwinnedSpell;
+
+            //mark this attack for proper integration with Quickened
+            if (actionCastSpell.ActiveSpell.MetamagicOption == MetamagicQuickenedSpell)
+            {
+                attackMode.AttackTags.TryAdd(QuickenedAttackCantrip);
+            }
+        }
+
         var maxAttacks = 1 + (twinned ? 1 : 0);
 
         // this is required to support reaction scenarios where AttackMain won't work
@@ -128,32 +178,5 @@ internal sealed class AttackAfterMagicEffect
         }
 
         return attacks;
-    }
-
-    internal static bool CanBeUsedToAttack(
-        [NotNull] CursorLocationSelectTarget targeting,
-        GameLocationCharacter caster,
-        GameLocationCharacter target,
-        [NotNull] out string failure)
-    {
-        failure = String.Empty;
-
-        var maxTargets = targeting.maxTargets;
-        var remainingTargets = targeting.remainingTargets;
-        var selectedTargets = maxTargets - remainingTargets;
-
-        if (selectedTargets > 0)
-        {
-            return true;
-        }
-
-        var canAttack = CanAttack(caster, target);
-
-        if (!canAttack)
-        {
-            failure = "Failure/&FailureFlagTargetMeleeWeaponError";
-        }
-
-        return canAttack;
     }
 }

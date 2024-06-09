@@ -648,17 +648,17 @@ public static class RulesetActorPatcher
                 }
             }
 
-            if (actor is not RulesetCharacterHero hero)
-            {
-                return;
-            }
-
             //PATCH: allow to remove damage affinities if necessary
             var featuresActor = actor.GetSubFeaturesByType<IModifyDamageAffinity>();
 
             foreach (var feature in featuresActor)
             {
                 feature.ModifyDamageAffinity(actor, caster, featuresToBrowse);
+            }
+
+            if (actor is not RulesetCharacterHero hero)
+            {
+                return;
             }
 
             //PATCH: add `IDamageAffinityProvider` from dynamic item properties

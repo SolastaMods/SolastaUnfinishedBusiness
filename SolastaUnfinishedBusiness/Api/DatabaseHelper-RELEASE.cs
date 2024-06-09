@@ -9,12 +9,6 @@ namespace SolastaUnfinishedBusiness.Api;
 
 internal static partial class DatabaseHelper
 {
-    internal static class FeatureDefinitionMoveThroughEnemyModifiers
-    {
-        internal static FeatureDefinitionMoveThroughEnemyModifier MoveThroughEnemyModifierHalflingNimbleness { get; } =
-            GetDefinition<FeatureDefinitionMoveThroughEnemyModifier>("MoveThroughEnemyModifierHalflingNimbleness");
-    }
-
     internal static class FeatureDefinitionPerceptionAffinitys
     {
         internal static FeatureDefinitionPerceptionAffinity PerceptionAffinityConditionBlinded { get; } =
@@ -302,6 +296,12 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionFeebleMinded { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFeebleMinded");
+
+        internal static ConditionDefinition ConditionMonkSlowFall { get; } =
+            GetDefinition<ConditionDefinition>("ConditionMonkSlowFall");
+
         internal static ConditionDefinition ConditionHolyAura { get; } =
             GetDefinition<ConditionDefinition>("ConditionHolyAura");
 
@@ -1680,6 +1680,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerOathOfMotherlandFieryWrath { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerOathOfMotherlandFieryWrath");
+
         internal static FeatureDefinitionPower PowerPaladinCleansingTouch { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPaladinCleansingTouch");
 

@@ -444,8 +444,9 @@ internal static class OtherFeats
             .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityFeatLockbreaker,
                 "AbilityCheckAffinityFeatPickPocket")
             .SetGuiPresentation("FeatPickPocket", Category.Feat)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
-                (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand))
+            .BuildAndSetAffinityGroups(
+                CharacterAbilityCheckAffinity.Advantage,
+                abilityProficiencyPairs: (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand))
             .AddToDB();
 
         var proficiencyFeatPickPocket = FeatureDefinitionProficiencyBuilder
@@ -1044,6 +1045,7 @@ internal static class OtherFeats
                     .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(
                         CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                        AbilityCheckGroupOperation.AddDie,
                         (AttributeDefinitions.Wisdom, SkillDefinitions.Perception,
                             AbilityCheckContext.GadgetInteraction),
                         (AttributeDefinitions.Intelligence, SkillDefinitions.Investigation,
@@ -2302,7 +2304,7 @@ internal static class OtherFeats
                             FeatureDefinitionMagicAffinityBuilder
                                 .Create($"MagicAffinity{FeatMageSlayerName}")
                                 .SetGuiPresentation(FeatMageSlayerName, Category.Feat)
-                                .SetConcentrationModifiers(ConcentrationAffinity.Disadvantage, 0)
+                                .SetConcentrationModifiers(ConcentrationAffinity.Disadvantage)
                                 .AddToDB())
                         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                         .AddToDB()))
@@ -2864,7 +2866,7 @@ internal static class OtherFeats
                     .SetGuiPresentation(FeatWarCaster, Category.Feat)
                     .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
                         SpellParamsModifierType.None)
-                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
+                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
                     .SetHandsFullCastingModifiers(true, true, true)
                     .AddToDB())
             .SetMustCastSpellsPrerequisite()
