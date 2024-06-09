@@ -567,7 +567,7 @@ internal static partial class SpellBuilders
                     .SetSpecificDamageType(DamageTypeRadiant)
                     .SetAdvancement(
                         ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20,   (5, 2), (11, 3), (17, 4)))
+                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 2), (11, 3), (17, 4)))
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
                     .AddConditionOperation(
                         ConditionOperationDescription.ConditionOperation.Add,
@@ -836,7 +836,7 @@ internal static partial class SpellBuilders
                     .SetSpecificDamageType(DamageTypeThunder)
                     .SetAdvancement(
                         ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20,   (5, 2), (11, 3), (17, 4)))
+                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 2), (11, 3), (17, 4)))
                     .AddConditionOperation(
                         ConditionOperationDescription.ConditionOperation.Add, conditionBoomingBladeSheathed)
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
@@ -978,7 +978,7 @@ internal static partial class SpellBuilders
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(
                 ExtraAdditionalDamageAdvancement.CharacterLevel,
-                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20,   (5, 2), (11, 3), (17, 4)))
+                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 2), (11, 3), (17, 4)))
             .SetImpactParticleReference(BurningHands_B)
             .SetAttackModeOnly()
             .AddToDB();
@@ -1022,6 +1022,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         spell.AddCustomSubFeatures(
+            // order matters here as below also implements IFilterTargetingCharacter
             new CustomBehaviorResonatingStrike(),
             new AttackAfterMagicEffect(),
             new UpgradeSpellRangeBasedOnWeaponReach(spell));
@@ -1036,31 +1037,32 @@ internal static partial class SpellBuilders
 
         public bool EnforceFullSelection => false;
 
-        // STEP 0: enforce proper second target selection
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.SelectionService?.SelectedTargets == null)
-            {
-                return false;
-            }
+            bool isValid;
 
             if (__instance.SelectionService.SelectedTargets.Count == 0)
             {
-                var caster = __instance.SelectionService.SelectedCharacters[0];
-                var attackMode = caster?.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+                isValid = AttackAfterMagicEffect.CanAttack(__instance.ActionParams.ActingCharacter, target);
 
-                if (attackMode is not { SourceObject: RulesetItem })
+                if (!isValid)
                 {
-                    return false;
+                    __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMeleeWeaponError");
                 }
 
-                return !attackMode.Ranged && __instance.SelectionService.SelectedCharacters[0]
-                    .IsWithinRange(target, attackMode.reachRange);
+                return isValid;
             }
 
             var firstTarget = __instance.SelectionService.SelectedTargets[0];
 
-            return firstTarget.IsWithinRange(target, 1);
+            isValid = firstTarget.IsWithinRange(target, 1);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&SecondTargetNotWithinRange");
+            }
+
+            return isValid;
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition spell)

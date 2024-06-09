@@ -48,15 +48,11 @@ public static class CursorLocationSelectTargetPatcher
                 return;
             }
 
-            foreach (var filterTargetingMagicEffect in
-                     definition.GetAllSubFeaturesOfType<IFilterTargetingCharacter>())
+            var filterTargetingMagicEffect = definition.GetFirstSubFeatureOfType<IFilterTargetingCharacter>();
+
+            if (filterTargetingMagicEffect != null)
             {
                 __result = filterTargetingMagicEffect.IsValid(__instance, target);
-
-                if (!__result)
-                {
-                    break;
-                }
             }
 
 #if false

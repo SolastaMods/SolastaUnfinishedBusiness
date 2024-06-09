@@ -1,20 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
-internal sealed class AttackAfterMagicEffect
+internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
 {
     private const string AttackCantrip = "AttackCantrip";
     private const string QuickenedAttackCantrip = "QuickenedAttackCantrip";
     private const string ReplaceAttackCantrip = "ReplaceAttackCantrip";
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
+
+    public bool EnforceFullSelection => false;
+
+    public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+    {
+        var isValid = CanAttack(__instance.ActionParams.ActingCharacter, target);
+
+        if (!isValid)
+        {
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMeleeWeaponError");
+        }
+
+        return isValid;
+    }
 
     internal static void HandleAttackAfterMagicEffect(GameLocationCharacter character,
         CharacterActionParams actionParams)
@@ -164,32 +178,5 @@ internal sealed class AttackAfterMagicEffect
         }
 
         return attacks;
-    }
-
-    internal static bool CanBeUsedToAttack(
-        [NotNull] CursorLocationSelectTarget targeting,
-        GameLocationCharacter caster,
-        GameLocationCharacter target,
-        [NotNull] out string failure)
-    {
-        failure = String.Empty;
-
-        var maxTargets = targeting.maxTargets;
-        var remainingTargets = targeting.remainingTargets;
-        var selectedTargets = maxTargets - remainingTargets;
-
-        if (selectedTargets > 0)
-        {
-            return true;
-        }
-
-        var canAttack = CanAttack(caster, target);
-
-        if (!canAttack)
-        {
-            failure = "Failure/&FailureFlagTargetMeleeWeaponError";
-        }
-
-        return canAttack;
     }
 }
