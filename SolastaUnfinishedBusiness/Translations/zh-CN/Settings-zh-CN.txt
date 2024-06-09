@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnFollowUpStrike=将基础武器伤害的所有骰子添加到<color=#D89555>后续打击</color>专长
+ModUi/&AccountForAllDiceOnFollowUpStrike=将基础武器的所有附加效果添加到<color=#D89555>后续打击</color>专长
 ModUi/&AccountForAllDiceOnSavageAttack=将所有添加武器伤害骰的特性以添加武器基础伤害骰取代只有 1 个骰<i><color=#F0DAA0>[半兽人的凶蛮攻击特性、双手武器等等]</color></i>
 ModUi/&AddAllToStore=全部添加到商店
 ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>流血</color>状态添加到<color=#D89555>高等复原术</color>和<color=#D89555>次级复原术</color>的移除列表里
