@@ -665,6 +665,13 @@ internal static class TranslatorContext
                 item.Title = Translate(item.Title, languageCode);
                 item.Description = Translate(item.Title, languageCode);
 
+                // Some item's reference didn't have document
+                // such as CELongMace
+                if (item.referenceItemDefinition == null || item.referenceItemDefinition.documentDescription == null)
+                {
+                    continue;
+                }
+                
                 if (item.DocumentFragments.Count == 0)
                 {
                     continue;
