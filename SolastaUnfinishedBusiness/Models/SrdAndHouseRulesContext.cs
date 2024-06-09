@@ -365,6 +365,8 @@ internal static class SrdAndHouseRulesContext
     internal static void SwitchOneDndHealingSpellsBuf()
     {
         var dice = Main.Settings.EnableOneDndHealingSpellsBuf ? 2 : 1;
+        var dice2 = Main.Settings.EnableOneDndHealingSpellsBuf ? 5 : 3;
+        var dice3 = Main.Settings.EnableOneDndHealingSpellsBuf ? 3 : 1;
 
         // Cure Wounds, Healing Word got buf on base damage and add dice
         CureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
@@ -373,8 +375,8 @@ internal static class SrdAndHouseRulesContext
         HealingWord.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
 
         // Mass Cure Wounds and Mass Healing Word only got buf on base damage
-        MassCureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
-        MassHealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
+        MassCureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice2;
+        MassHealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice3;
     }
 
     internal static void SwitchFilterOnHideousLaughter()
