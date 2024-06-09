@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
@@ -11,6 +12,7 @@ internal sealed class AttackAfterMagicEffect
 {
     private const string AttackCantrip = "AttackCantrip";
     private const string QuickenedAttackCantrip = "QuickenedAttackCantrip";
+    private const string ReplaceAttackCantrip = "ReplaceAttackCantrip";
     private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
     private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
 
@@ -22,17 +24,25 @@ internal sealed class AttackAfterMagicEffect
             return;
         }
 
-        if (actionParams.AttackMode.AttackTags.Contains(AttackCantrip))
+        var attackTags = actionParams.AttackMode.AttackTags;
+
+        if (attackTags.Contains(AttackCantrip))
         {
             character.UsedMainCantrip = true;
+
+            if (!attackTags.Contains(ReplaceAttackCantrip))
+            {
+                character.SpendActionType(ActionDefinitions.ActionType.Main);
+            }
         }
 
-        // ReSharper disable once InvertIf
-        if (actionParams.AttackMode.AttackTags.Contains(QuickenedAttackCantrip))
+        if (!attackTags.Contains(QuickenedAttackCantrip))
         {
-            character.UsedMainSpell = true;
-            character.SpendActionType(ActionDefinitions.ActionType.Bonus);
+            return;
         }
+
+        character.UsedMainSpell = true;
+        character.SpendActionType(ActionDefinitions.ActionType.Bonus);
     }
 
     internal static bool CanAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
@@ -111,6 +121,12 @@ internal sealed class AttackAfterMagicEffect
 
         //mark this attack for proper integration with War Magic
         attackMode.AttackTags.TryAdd(AttackCantrip);
+
+        //mark this attack for proper integration with Replace Attack with cantrip
+        if (actionParams.ActingCharacter.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
+        {
+            attackMode.AttackTags.TryAdd(ReplaceAttackCantrip);
+        }
 
         var twinned = false;
 

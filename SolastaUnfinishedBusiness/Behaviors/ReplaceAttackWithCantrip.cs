@@ -41,8 +41,6 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        character.UsedMainCantrip = true;
-
         // very similar to BurnOneMainAttack but differences are to handle Action Surge and other scenarios
         var rulesetCharacter = character.RulesetCharacter;
 
@@ -58,10 +56,10 @@ internal static class ReplaceAttackWithCantrip
         if (character.UsedMainAttacks < maxAttacks)
         {
             character.currentActionRankByType[ActionType.Main]--;
-
-            return;
         }
-
-        character.UsedMainAttacks = 0;
+        else
+        {
+            character.UsedMainAttacks = 0;
+        }
     }
 }
