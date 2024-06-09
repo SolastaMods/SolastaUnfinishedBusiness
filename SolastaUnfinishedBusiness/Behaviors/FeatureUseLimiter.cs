@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Behaviors;
 //Currently implemented only for reaction restoration of ActionAffinity features
 public abstract class FeatureUseLimiter
 {
-    public static FeatureUseLimiter OncePerTurn = new OncePerTurn();
+    public static readonly FeatureUseLimiter OncePerTurn = new OncePerTurn();
     public abstract bool CanBeUsed(GameLocationCharacter character, FeatureDefinition feature);
 }
 

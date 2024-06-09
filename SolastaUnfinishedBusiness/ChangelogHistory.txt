@@ -1,8 +1,7 @@
 1.5.97.14:
 
 - added Ashardalon's Stride, and Elemental Bane spells
-- fixed Action Surge interaction with 'replace attacks with cantrips', and 'action switching'
-- fixed Booming Blade, Green-Flame Blade, and Sunlit Blade cantrips interaction with Quickened metamagic
+- fixed Action Surge, Quickened, 'action switching', attack cantrips, and 'replace attacks with cantrips' interactions
 - fixed Domain Tempest destructive wrath feature interaction with Transmuted metamagic
 - fixed Domain Tempest wrath of the storm feature not consuming a reaction
 - fixed Martial Guardian vigilance feature bleeding reaction refunds to other fighters

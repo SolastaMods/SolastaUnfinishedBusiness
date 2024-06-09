@@ -2026,7 +2026,7 @@ internal static partial class SpellBuilders
 
     #region Owl Familiar
 
-    internal const string OwlFamiliar = "OwlFamiliar";
+    private const string OwlFamiliar = "OwlFamiliar";
 
     internal static SpellDefinition BuildFindFamiliar()
     {
