@@ -234,6 +234,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
+                .SetPossessive()
                 .SetFeatures(actionAffinityTeleport)
                 .AddToDB();
 
@@ -324,6 +325,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
+                .SetPossessive()
                 .SetFeatures(actionAffinitySummon)
                 .AddToDB();
 
@@ -472,6 +474,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
+                .SetPossessive()
                 .SetFeatures(featureWildSurgeWeapon)
                 .AddToDB();
 
@@ -551,6 +554,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
+                .SetPossessive()
                 .SetFeatures(featureWildSurgeRetributionMelee, featureWildSurgeRetributionRanged)
                 .AddToDB();
 
@@ -610,6 +614,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetConditionType(ConditionType.Beneficial)
                 .SetFeatures(powerAura)
                 .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
+                .SetPossessive()
                 .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                 .AddToDB();
 
@@ -658,6 +663,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
+                .SetPossessive()
                 .SetFeatures(featureGrowth)
                 .AddToDB();
 
@@ -703,6 +709,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
+                .SetPossessive()
                 .SetFeatures(actionAffinityBolt)
                 .AddToDB();
 
@@ -1096,6 +1103,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             .Create($"Condition{Name}BolsteringMagicRoll")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
             .SetFeatures(abilityCheckAffinityBolsteringMagicRoll, combatAffinityBolsteringMagicRoll)
+            .SetPossessive()
             .AddToDB();
 
         var powerBolsteringMagicRoll = FeatureDefinitionPowerSharedPoolBuilder
@@ -1123,6 +1131,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentation($"Condition{Name}BolsteringMagicSpell", Category.Condition)
                 .SetSilent(Silent.WhenRemoved)
                 .SetFeatures(db.GetElement($"MagicAffinityAdditionalSpellSlot{i}"))
+                .SetPossessive()
                 .AddToDB();
         }
 
