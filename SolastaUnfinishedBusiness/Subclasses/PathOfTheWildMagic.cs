@@ -451,7 +451,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         private static WildSurgeEffect BuildWildSurgeWeapon()
         {
-            var additionalDamageWildSurgeWeapon = FeatureDefinitionAdditionalDamageBuilder
+            var featureWildSurgeWeapon = FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{Name}Weapon")
                 .SetGuiPresentation(Category.Feature)
                 .SetNotificationTag(FeatureDefinitionAdditionalDamages.AdditionalDamageConditionRaging.NotificationTag)
@@ -463,7 +463,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                  ))
                 .AddToDB();
 
-            additionalDamageWildSurgeWeapon.AddCustomSubFeatures(
+            featureWildSurgeWeapon.AddCustomSubFeatures(
                 new ReturningWeapon(ValidatorsWeapon.AlwaysValid),
                 new WildSurgeWeaponModifyAttackMode());
 
@@ -472,7 +472,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn, ConditionInterruption.RageStop)
-                .SetFeatures(additionalDamageWildSurgeWeapon)
+                .SetFeatures(featureWildSurgeWeapon)
                 .AddToDB();
 
             return new WildSurgeEffect()
@@ -784,7 +784,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             List<int> dieRoll = [1];
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            var reactingOutOfTurn = battleManager.Battle.ActiveContender != character && attacker != null;
+            var reactingOutOfTurn = battleManager?.Battle?.ActiveContender != character && attacker != null;
+
             if (rulesetCharacter.HasAnyFeature(featureControlledSurge))
             {
                 yield return HandleControlledSurge(character, dieRoll);
@@ -959,7 +960,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var usablePowerPool = PowerProvider.Get(powerPool, rulesetAttacker);
 
             myUsablePowers.Add(usablePowerPool);
-            if (firstRoll == secondRoll || true)
+            if (firstRoll == secondRoll)
             {
                 foreach (var power in powers)
                 {
