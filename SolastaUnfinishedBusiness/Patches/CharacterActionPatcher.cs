@@ -195,17 +195,14 @@ public static class CharacterActionPatcher
                 (Gui.Battle?.AllContenders ??
                  locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
                 .ToList();
-            if (Gui.Battle != null && rulesetCharacter != null)
+            foreach (var target in contenders)
             {
-                foreach (var target in contenders)
-                {
-                    var rulesetTarget = target.RulesetCharacter;
+                var rulesetTarget = target.RulesetCharacter;
 
-                    foreach (var actionFinishedByContender in rulesetTarget
-                                 .GetSubFeaturesByType<IActionFinishedByContender>())
-                    {
-                        yield return actionFinishedByContender.OnActionFinishedByContender(__instance, target);
-                    }
+                foreach (var actionFinishedByContender in rulesetTarget
+                                .GetSubFeaturesByType<IActionFinishedByContender>())
+                {
+                    yield return actionFinishedByContender.OnActionFinishedByContender(__instance, target);
                 }
             }
 
