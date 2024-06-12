@@ -142,6 +142,12 @@ internal static class CommonBuilders
             .AddCustomSubFeatures(new AttackReplaceWithCantrip())
             .AddToDB();
 
+    internal static readonly DieTypeDefinition DieTypeD3 = 
+        DieTypeDefinitionBuilder
+            .Create(DatabaseHelper. GetDefinition<DieTypeDefinition>("DieTypeD6"), "DieTypeD3")
+            .SetOrUpdateGuiPresentation("Rules/&DieD3Title", "Feature/&NoContentTitle")
+            .SetDieType(DieType.D3)
+            .AddToDB();
     //
     // Enchant Weapon
     //
