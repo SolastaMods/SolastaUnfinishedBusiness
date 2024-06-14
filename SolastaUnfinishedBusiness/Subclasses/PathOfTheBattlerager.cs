@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -18,22 +14,16 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
+
+[UsedImplicitly]
 public sealed class PathOfTheBattlerager : AbstractSubclass
 {
-    internal const string Name = "PathOfTheBattlerager";
-
-    internal override CharacterSubclassDefinition Subclass { get; }
-
-    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Barbarian;
-
-    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
-        FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
-
-    internal override DeityDefinition DeityDefinition { get; }
+    private const string Name = "PathOfTheBattlerager";
 
     public PathOfTheBattlerager()
     {
         // Level 3
+
         var proficiencyBattleragerArmor = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}BattleragerArmor")
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
@@ -41,22 +31,31 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
             .AddToDB();
 
         var abilityCheckAffinityRagingBattlerager = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionRaging, $"AbilityCheckAffinity{Name}RagingBattleRager")
+            .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionRaging,
+                $"AbilityCheckAffinity{Name}RagingBattleRager")
             .AddToDB();
 
         abilityCheckAffinityRagingBattlerager.affinityGroups[0].abilityCheckContext = AbilityCheckContext.None;
 
         var damageAffinityRagingBattleragerBludgeoning = FeatureDefinitionDamageAffinityBuilder
-            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityConditionRagingBludgeoning, $"DamageAffinity{Name}RagingBattleragerBludgeoning")
+            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityConditionRagingBludgeoning,
+                $"DamageAffinity{Name}RagingBattleragerBludgeoning")
             .AddToDB();
+
         damageAffinityRagingBattleragerBludgeoning.situationalContext = SituationalContext.None;
+
         var damageAffinityRagingBattleragerPiercing = FeatureDefinitionDamageAffinityBuilder
-            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityConditionRagingBludgeoning, $"DamageAffinity{Name}RagingBattleragerPiercing")
+            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityConditionRagingBludgeoning,
+                $"DamageAffinity{Name}RagingBattleragerPiercing")
             .AddToDB();
+
         damageAffinityRagingBattleragerPiercing.situationalContext = SituationalContext.None;
+
         var damageAffinityRagingBattleragerSlashing = FeatureDefinitionDamageAffinityBuilder
-            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityConditionRagingBludgeoning, $"DamageAffinity{Name}RagingBattleragerSlashing")
+            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityConditionRagingBludgeoning,
+                $"DamageAffinity{Name}RagingBattleragerSlashing")
             .AddToDB();
+
         damageAffinityRagingBattleragerSlashing.situationalContext = SituationalContext.None;
 
         var additionalDamageRagingBattlerager = FeatureDefinitionAdditionalDamageBuilder
@@ -65,17 +64,18 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
             .SetNotificationTag(FeatureDefinitionAdditionalDamages.AdditionalDamageConditionRaging.NotificationTag)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty(
-                (_, _, rulesetCharacter, _, rangedAttack, mode, effect) =>
-                    (OperationType.Set, rulesetCharacter.IsWearingHeavyArmor() && mode != null && !mode.Ranged)
-             ))
+            .AddCustomSubFeatures(
+                new ValidateContextInsteadOfRestrictedProperty(
+                    (_, _, rulesetCharacter, _, _, mode, _) =>
+                        (OperationType.Set, rulesetCharacter.IsWearingHeavyArmor() && mode is { Ranged: false })))
             .AddToDB();
 
         var conditionRagingBattlerager = ConditionDefinitionBuilder
             .Create($"Condition{Name}RagingBattlerager")
             .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(abilityCheckAffinityRagingBattlerager,
+            .SetFeatures(
+                abilityCheckAffinityRagingBattlerager,
                 damageAffinityRagingBattleragerBludgeoning,
                 damageAffinityRagingBattleragerPiercing,
                 damageAffinityRagingBattleragerSlashing,
@@ -86,17 +86,16 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
 
         var powerRagingBattlerager = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}RagingBattlerager")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetShowCasting(false)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Individuals)
-                .SetNoSavingThrow()
-                .SetDurationData(DurationType.UntilLongRest)
-                .SetEffectForms(
-                    EffectFormBuilder.ConditionForm(conditionRagingBattlerager)
-                )
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Individuals)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionRagingBattlerager))
+                    .Build())
             .AddToDB();
 
         var featureSetBattleragerArmor = FeatureDefinitionFeatureSetBuilder
@@ -117,9 +116,10 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
 
         var conditionBattleragerCharge = ConditionDefinitionBuilder
             .Create($"Condition{Name}BattleragerCharge")
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityAggressive)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .AddToDB();
 
         var powerBattleragerCharge = FeatureDefinitionPowerBuilder
@@ -127,17 +127,17 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetShowCasting(false)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Individuals)
-                .SetNoSavingThrow()
-                .SetDurationData(DurationType.UntilLongRest)
-                .SetEffectForms(
-                    EffectFormBuilder.ConditionForm(conditionBattleragerCharge)
-                )
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Individuals)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBattleragerCharge))
+                    .Build())
             .AddToDB();
 
         // Level 14
+
         var powerArmoredRetributionRetaliate = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArmoredRetributionRetaliate")
             .SetGuiPresentationNoContent(true)
@@ -145,16 +145,15 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Irrelevant, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
-                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Individuals, 1)
-                    .SetNoSavingThrow()
+                    .SetDurationData(DurationType.Irrelevant, 1,
+                        (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Individuals)
                     .UseQuickAnimations()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeBludgeoning, 0, DieType.D1, 3)
                             .Build())
-                    .UseQuickAnimations()
                     .SetParticleEffectParameters(SpellDefinitions.MagicMissile)
                     .Build())
             .AddToDB();
@@ -164,14 +163,16 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetRetaliate(powerArmoredRetributionRetaliate, 1)
             .AddToDB();
+
         damageAffinityArmoredRetribution.retaliateProximity = AttackProximity.Melee;
         damageAffinityArmoredRetribution.situationalContext = SituationalContext.WearingArmor;
 
         var conditionArmoredRetribution = ConditionDefinitionBuilder
             .Create($"Condition{Name}ArmoredRetribution")
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(damageAffinityArmoredRetribution)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .AddToDB();
 
         var powerArmorRetribution = FeatureDefinitionPowerBuilder
@@ -179,19 +180,18 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetShowCasting(false)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Individuals)
-                .SetNoSavingThrow()
-                .SetDurationData(DurationType.UntilLongRest)
-                .SetEffectForms(
-                    EffectFormBuilder.ConditionForm(conditionArmoredRetribution)
-                )
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Individuals)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionArmoredRetribution))
+                    .Build())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("PathOfTheBattlerager", Resources.PathOfTheBattlerager, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheBattlerager, 256))
             .AddFeaturesAtLevel(3, featureSetBattleragerArmor)
             .AddFeaturesAtLevel(6, featureRecklessAbandon)
             .AddFeaturesAtLevel(10, powerBattleragerCharge)
@@ -199,13 +199,18 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterSubclassDefinition Subclass { get; }
+
+    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Barbarian;
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
+
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
+    internal override DeityDefinition DeityDefinition { get; }
+
     private class ActionFinishedByMeRecklessAbandon : IActionFinishedByMe
     {
-
-        public ActionFinishedByMeRecklessAbandon()
-        {
-        }
-
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             var character = characterAction.ActingCharacter;
@@ -224,43 +229,40 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
             var constitution = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Constitution);
             var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
 
-            EffectHelpers.StartVisualEffect(character, character, SpellDefinitions.CureWounds,
-                EffectHelpers.EffectType.Effect);
+            EffectHelpers.StartVisualEffect(
+                character, character, SpellDefinitions.CureWounds, EffectHelpers.EffectType.Effect);
             rulesetCharacter.ReceiveTemporaryHitPoints(
-                constitutionModifier, DurationType.Minute, 0, TurnOccurenceType.StartOfTurn,
+                constitutionModifier, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn,
                 rulesetCharacter.guid);
         }
     }
 
     private class ModifyAttackModeBattleragerArmor : IModifyWeaponAttackMode
     {
-        public ModifyAttackModeBattleragerArmor()
-        {
-        }
-
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             if (!ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;
             }
+
             if (!character.IsWearingArmor())
             {
                 return;
             }
-            
-            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
-            if (character is RulesetCharacterHero hero) {
-                RulesetItem equipedItem = hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
-                if (equipedItem != null && equipedItem.ItemDefinition.IsArmor)
+
+            if (character is RulesetCharacterHero hero)
+            {
+                var equipedItem =
+                    hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
+
+                if (equipedItem != null && equipedItem.ItemDefinition.IsArmor && equipedItem.ItemDefinition.Magical)
                 {
-                    if (equipedItem.ItemDefinition.Magical)
-                    {
-                        attackMode.attackTags.Add("MagicalWeapon");
-                    }
+                    attackMode.attackTags.Add(TagsDefinitions.MagicalWeapon);
                 }
             }
 
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
 
             if (damage == null)
             {
