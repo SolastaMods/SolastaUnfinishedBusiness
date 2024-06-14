@@ -1,0 +1,10 @@
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Wenn Sie im Wutzustand „Rücksichtsloser Angriff“ verwenden, erhalten Sie außerdem vorübergehend Trefferpunkte in Höhe Ihres Konstitutionsmodifikators (mindestens 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Rücksichtsloses Verlassen
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Du erlangst Fertigkeit im Umgang mit schwerer Rüstung. Deine Wutfähigkeiten funktionieren auch, wenn du schwere Rüstung trägst.\n\nWährend du Rüstung trägst, verursacht dein unbewaffneter Schlag 1W6 Grundschaden. Wenn du magische Rüstung trägst, gelten deine unbewaffneten Schläge als magisch, wenn es darum geht, Widerstand und Immunität gegen nichtmagische Angriffe und Schäden zu überwinden. \n\nWährend du Wut ausübst, kannst du unbewaffnete Schläge als Bonusaktion verwenden.
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Battlerager-Rüstung
+Feature/&PowerPathOfTheBattleragerArmoredRetributionDescription=Wenn Sie in Rage sind und eine Kreatur in einem Umkreis von 1,5 Metern Sie mit einem Nahkampfangriff trifft, erleidet der Angreifer 3 Schlagschaden.
+Feature/&PowerPathOfTheBattleragerArmoredRetributionTitle=Gepanzerte Vergeltung
+Feature/&PowerPathOfTheBattleragerBattleragerChargeDescription=Während Sie wütend sind, können Sie die Aktion „Dash“ als Bonusaktion ausführen.
+Feature/&PowerPathOfTheBattleragerBattleragerChargeTitle=Schlachtwüter-Ansturm
+Subclass/&PathOfTheBattleragerDescription=Battleragers beherrschen die Kunst, ihre Rüstungen als Waffen einzusetzen und sich mitten in die Reihen ihrer Feinde zu werfen.
+Subclass/&PathOfTheBattleragerTitle=Pfad des Schlachtwüters

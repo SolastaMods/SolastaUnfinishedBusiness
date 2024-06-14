@@ -1,0 +1,10 @@
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Lorsque vous utilisez Attaque téméraire en étant enragé, vous gagnez également des points de vie temporaires égaux à votre modificateur de Constitution (minimum de 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Abandon imprudent
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Vous gagnez la maîtrise de l'armure lourde. Vos caractéristiques enragées fonctionnent également lorsque vous portez une armure lourde.\n\nLorsque vous portez une armure, votre frappe à mains nues inflige 1d6 dégâts de base. Si vous portez une armure magique, vos frappes à mains nues sont considérées comme magiques dans le but de vaincre la résistance et l'immunité aux attaques et dégâts non magiques. \n\nEn rage, vous pouvez utiliser une frappe à mains nues comme action bonus.
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Armure de Battlerager
+Feature/&PowerPathOfTheBattleragerArmoredRetributionDescription=Pendant que vous êtes en rage, lorsqu'une créature à moins de 1,50 mètre de vous vous frappe avec une attaque de mêlée, l'attaquant subit 3 dégâts contondants.
+Feature/&PowerPathOfTheBattleragerArmoredRetributionTitle=Châtiment blindé
+Feature/&PowerPathOfTheBattleragerBattleragerChargeDescription=Pendant que vous êtes en rage, vous pouvez effectuer l’action Dash comme action bonus.
+Feature/&PowerPathOfTheBattleragerBattleragerChargeTitle=Charge de rage de guerre
+Subclass/&PathOfTheBattleragerDescription=Les Battleragers maîtrisent l'art d'utiliser leurs armures comme des armes et de se jeter au milieu de leurs ennemis.
+Subclass/&PathOfTheBattleragerTitle=Voie du Battlerager
