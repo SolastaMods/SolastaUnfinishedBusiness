@@ -1081,7 +1081,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         var abilityCheckAffinityBolsteringMagicRoll = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}BolsteringMagicRoll")
             .SetGuiPresentationNoContent()
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.None, DieType.D3, 1,
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.None, DieType.D3, 1, AbilityCheckGroupOperation.AddDie,
                 [(AttributeDefinitions.Strength, ""),
                  (AttributeDefinitions.Dexterity, ""),
                  (AttributeDefinitions.Wisdom, ""),
