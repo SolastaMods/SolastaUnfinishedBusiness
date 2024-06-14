@@ -664,7 +664,7 @@ internal static class TranslatorContext
 
                 item.Title = Translate(item.Title, languageCode);
                 item.Description = Translate(item.Title, languageCode);
-                
+
                 if (item.DocumentFragments.Count == 0)
                 {
                     continue;

@@ -371,12 +371,12 @@ internal static class SrdAndHouseRulesContext
         CureWounds.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
         HealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
         HealingWord.effectDescription.effectAdvancement.additionalDicePerIncrement = dice;
-        
+
         // Mass Cure Wounds and Mass Healing Word only got buf on base damage
         MassHealingWord.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
-        
+
         dice = Main.Settings.EnableOneDndHealingSpellsBuf ? 5 : 3;
-        
+
         MassCureWounds.effectDescription.EffectForms[0].healingForm.diceNumber = dice;
     }
 

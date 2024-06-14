@@ -1757,7 +1757,7 @@ public static class RulesetCharacterPatcher
             // supports mind sharpener infusion
             if (__instance.CharacterInventory != null &&
                 __instance.CharacterInventory.InventorySlotsByName
-                .TryGetValue(EquipmentDefinitions.SlotTypeTorso, out var inventorySlot))
+                    .TryGetValue(EquipmentDefinitions.SlotTypeTorso, out var inventorySlot))
             {
                 var equipedItem = inventorySlot.EquipedItem;
 

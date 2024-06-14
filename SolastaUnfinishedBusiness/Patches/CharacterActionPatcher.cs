@@ -200,7 +200,7 @@ public static class CharacterActionPatcher
                 var rulesetTarget = target.RulesetCharacter;
 
                 foreach (var actionFinishedByContender in rulesetTarget
-                                .GetSubFeaturesByType<IActionFinishedByContender>())
+                             .GetSubFeaturesByType<IActionFinishedByContender>())
                 {
                     yield return actionFinishedByContender.OnActionFinishedByContender(__instance, target);
                 }
