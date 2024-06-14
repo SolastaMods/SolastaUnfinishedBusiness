@@ -27,6 +27,7 @@ internal static class CraftingContext
         { "ChainShirt", Gui.Localize("Equipment/&Armor_ChainShirtTitle") },
         { "ClothesWizard", Gui.Localize("Armor_Adventuring_Wizard_OutfitTitle") },
         { "Club", Gui.Localize("Equipment/&ClubTypeTitle") },
+        { "Dagger", Gui.Localize("Equipment/&DaggerTypeTitle") },
         { "Dart", Gui.Localize("Equipment/&DartTypeTitle") },
         { "EnchantingIngredients", Gui.Localize("Tooltip/&IngredientsHeaderTitle") },
         { "Greataxe", Gui.Localize("Equipment/&GreataxeTypeTitle") },
@@ -85,6 +86,7 @@ internal static class CraftingContext
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(BashingWeaponsData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(BattleAxeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(CrossbowData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(DaggerData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(GreatAxeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(GreatSwordData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HalberdData.Items);
