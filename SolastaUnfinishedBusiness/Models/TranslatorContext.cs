@@ -664,7 +664,7 @@ internal static class TranslatorContext
 
                 item.Title = Translate(item.Title, languageCode);
                 item.Description = Translate(item.Title, languageCode);
-
+                
                 if (item.DocumentFragments.Count == 0)
                 {
                     continue;
@@ -788,7 +788,7 @@ internal static class TranslatorContext
             {
                 yield return Update();
 
-                // userCampaignMapNode.userLocationName = Translate(userCampaignMapNode.userLocationName, languageCode);
+                userCampaignMapNode.userLocationName = Translate(userCampaignMapNode.userLocationName, languageCode);
                 userCampaignMapNode.overriddenTitle = Translate(userCampaignMapNode.overriddenTitle, languageCode);
                 userCampaignMapNode.overriddenDescription =
                     Translate(userCampaignMapNode.overriddenDescription, languageCode);
