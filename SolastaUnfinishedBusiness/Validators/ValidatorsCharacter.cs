@@ -68,6 +68,8 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HasNoArmor = character => !character.IsWearingArmor();
 
+    internal static readonly IsCharacterValidHandler HasArmor = character => character.IsWearingArmor();
+
     internal static readonly IsCharacterValidHandler HasNoShield = character => !character.IsWearingShield();
 
     internal static readonly IsCharacterValidHandler HasShield = character => character.IsWearingShield();

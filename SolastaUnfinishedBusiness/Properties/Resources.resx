@@ -532,6 +532,12 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerBolsteringMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Powers/PowerBolsteringMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="PowerBulwark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerBulwark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -2076,6 +2082,18 @@
   </data>
   <data name="PathOfTheSpirits" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheSpirits.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PathOfTheWildMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ..\Resources\Subclasses\PathOfTheWildMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PathOfTheBattlerager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ..\Resources\Subclasses\PathOfTheBattlerager.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>

@@ -1,0 +1,10 @@
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=When you use Reckless Attack while raging, you also gain temporary hit points equal to your Constitution modifier (minimum of 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Reckless Abandon
+Feature/&PowerPathOfTheBattleragerBattleragerChargeDescription=While you are raging, you can take the Dash action as a bonus action.
+Feature/&PowerPathOfTheBattleragerBattleragerChargeTitle=Battlerager Charge
+Feature/&PowerPathOfTheBattleragerArmoredRetributionDescription=While you are raging, when a creature within 5 feet of you hits you with a melee attack, the attacker takes 3 bludgeoning damage.
+Feature/&PowerPathOfTheBattleragerArmoredRetributionTitle=Armored Retribution
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=You gain proficiency in Heavy Armor. Your raging features also work while wearing heavy armor.\n\nWhile wearing armor, your unarmed strike deal 1d6 base damage. If you are wearing magical armor, your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. \n\nWhile raging, you can use unarmed strike as a bonus action.
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Battlerager Armor
+Subclass/&PathOfTheBattleragerDescription=Battleragers have mastered the art of using their armors as weapons and hurling themselves in the midst of their foes.
+Subclass/&PathOfTheBattleragerTitle=Path of the Battlerager
