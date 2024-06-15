@@ -167,7 +167,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Wild Surge: Growth",
-    "description": "Condition/&ConditionPathOfTheWildMagicWildSurgeGrowthDescription",
+    "description": "Until your rage ends, at the end of each of your turn, the ground within 15 feet of you becomes difficult terrain until the beginning of your next turn.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
