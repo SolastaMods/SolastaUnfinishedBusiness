@@ -8,7 +8,6 @@ Feature/&FeaturePathOfTheElementsElementalConduitBlizzardDescription=当你狂�
 Feature/&FeaturePathOfTheElementsElementalConduitBlizzardTitle=暴雪回路
 Feature/&FeaturePathOfTheElementsElementalConduitWildfireDescription=当你狂暴时，每当一个敌方生物用攻击击中你时，你可以使用你的反应迫使该生物进行一次敏捷豁免。豁免失败时，该生物将受到等同于你野蛮人等级一半的火焰伤害。
 Feature/&FeaturePathOfTheElementsElementalConduitWildfireTitle=野火回路
-Feature/&FeaturePathOfTheElementsElementalConduitBlizzardTitle=暴雪回路
 Feature/&FeatureSetPathOfTheElementsElementalBlessingDescription=从第 6 级开始，你对第 3 级选择的元素之灾的献力为你和你的盟友提供了对该伤害类型的抵抗力。\n• <b>风暴</b>：当你狂暴时，你和所有盟友在你 10 尺范围内获得闪电抗性。\n• <b>暴雪</b>：当你狂暴时，你和在你 10 尺范围内的所有盟友获得冷冻抗性。\n• <b>野火</b>：当你狂暴时，你和你周围 10 尺内的所有盟友获得火焰抗性。
 Feature/&FeatureSetPathOfTheElementsElementalBlessingTitle=元素祝福
 Feature/&FeatureSetPathOfTheElementsElementalBurstDescription=从 10 级开始，根据在 3 级时选择的元素之灾，你获得额外的力量。\n• <b>风暴</b>：{0}\n• <b>暴雪</b>：{1}\n• <b>野火</b>：{2}
