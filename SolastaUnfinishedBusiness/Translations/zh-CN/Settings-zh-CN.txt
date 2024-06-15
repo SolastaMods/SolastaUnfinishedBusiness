@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnFollowUpStrike=将基础武器伤害的所有骰子添加到<color=#D89555>后续打击</color>专长
+ModUi/&AccountForAllDiceOnFollowUpStrike=将基础武器的所有附加效果添加到<color=#D89555>后续打击</color>专长
 ModUi/&AccountForAllDiceOnSavageAttack=将所有添加武器伤害骰的特性以添加武器基础伤害骰取代只有 1 个骰<i><color=#F0DAA0>[半兽人的凶蛮攻击特性、双手武器等等]</color></i>
 ModUi/&AddAllToStore=全部添加到商店
 ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>流血</color>状态添加到<color=#D89555>高等复原术</color>和<color=#D89555>次级复原术</color>的移除列表里
@@ -177,7 +177,7 @@ ModUi/&FactionHelp=<color=#C04040E0>加载官方战役游戏以修改派系关�
 ModUi/&FactionRelations=<color=#F0DAA0>派系：</color>
 ModUi/&FasterTimeModifier=<color=white>按下空格键时的游戏时间修改器</color>
 ModUi/&FeatGroups=<color=#F0DAA0>专长组</color>
-ModUi/&FeatGroupsHelp=•每个组都是相似专长的综合<i><color=#F0DAA0>[即：信条、战斗风格、超魔等]</color></i>\n。这些组中的专长将不再直接显示在熟练程度选择阶段\n。该组在被选中后会在下拉列表中提供它们以供选择。
+ModUi/&FeatGroupsHelp=•每个组都是相似专长的综合<i><color=#F0DAA0>[即：信条、战斗风格、超魔等]</color></i>\n• 这些组中的专长将不再直接显示在熟练程度选择阶段\n• 该组在被选中后会在下拉列表中提供它们以供选择。
 ModUi/&Feats=<color=#F0DAA0>专长</color>
 ModUi/&FightingStyles=<color=#F0DAA0>战斗风格</color>
 ModUi/&FixAsianLanguagesTextWrap=修复亚洲语言的游戏 UI 文本换行<b><i><color=#C04040E0>[需要重启]</color></i></b>

@@ -195,7 +195,6 @@ public static class CharacterActionPatcher
                 (Gui.Battle?.AllContenders ??
                  locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
                 .ToList();
-
             foreach (var target in contenders)
             {
                 var rulesetTarget = target.RulesetCharacter;

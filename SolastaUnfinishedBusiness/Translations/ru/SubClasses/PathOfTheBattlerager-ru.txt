@@ -1,0 +1,10 @@
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Когда вы используете «Безрассудную атаку» в ярости, вы также получаете временные очки жизни, равные вашему модификатору Телосложения (минимум 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Безрассудный отказ
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Вы получаете навык владения тяжелой броней. Ваши способности ярости также работают, когда вы носите тяжелую броню.\n\nКогда вы носите броню, ваш невооруженный удар наносит 1d6 базового урона. Если вы носите магическую броню, ваши безоружные удары считаются магическими с целью преодоления сопротивления и иммунитета к немагическим атакам и повреждениям. \n\nВо время ярости вы можете использовать безоружный удар в качестве бонусного действия.
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Броня яростного боя
+Feature/&PowerPathOfTheBattleragerArmoredRetributionDescription=Пока вы в ярости, когда существо в пределах 5 футов от вас поражает вас рукопашной атакой, атакующий получает 3 дробящего урона.
+Feature/&PowerPathOfTheBattleragerArmoredRetributionTitle=Бронированное возмездие
+Feature/&PowerPathOfTheBattleragerBattleragerChargeDescription=Пока вы в ярости, вы можете совершить действие Рывок в качестве бонусного действия.
+Feature/&PowerPathOfTheBattleragerBattleragerChargeTitle=Атака ярости
+Subclass/&PathOfTheBattleragerDescription=Ярость битвы овладела искусством использования своих доспехов в качестве оружия и броска в гущу врагов.
+Subclass/&PathOfTheBattleragerTitle=Путь Яростного Боя

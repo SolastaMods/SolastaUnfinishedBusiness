@@ -32,7 +32,8 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
 
         if (!Definition.isDocument)
         {
-            Definition.documentDescription = null;
+            // must need empty DocumentDescription
+            Definition.documentDescription = new DocumentDescription();
         }
 
         if (!Definition.isMusicalInstrument)

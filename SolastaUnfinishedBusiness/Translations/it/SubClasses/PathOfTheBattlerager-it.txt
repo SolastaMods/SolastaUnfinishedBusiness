@@ -1,0 +1,10 @@
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Quando usi Attacco Spericolato mentre sei in ira, guadagni anche punti ferita temporanei pari al tuo modificatore di Costituzione (minimo 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Abbandono imprudente
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Ottieni competenza nelle armature pesanti. I tuoi privilegi di rabbia funzionano anche mentre indossi un'armatura pesante.\n\nMentre indossi un'armatura, il tuo colpo senz'armi infligge 1d6 danni base. Se indossi un'armatura magica, i tuoi colpi senz'armi contano come magici allo scopo di superare la resistenza e l'immunità agli attacchi e ai danni non magici. \n\nMentre sei in ira, puoi usare il colpo senz'armi come azione bonus.
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Armatura del Guerriero Guerriero
+Feature/&PowerPathOfTheBattleragerArmoredRetributionDescription=Mentre sei in ira, quando una creatura entro 1,5 metri da te ti colpisce con un attacco in mischia, l'attaccante subisce 3 danni contundenti.
+Feature/&PowerPathOfTheBattleragerArmoredRetributionTitle=Punizione corazzata
+Feature/&PowerPathOfTheBattleragerBattleragerChargeDescription=Mentre sei in ira, puoi effettuare l'azione Scattare come azione bonus.
+Feature/&PowerPathOfTheBattleragerBattleragerChargeTitle=Carica del Guerriero Guerriero
+Subclass/&PathOfTheBattleragerDescription=I Battleragers hanno imparato l'arte di usare le loro armature come armi e di scagliarsi in mezzo ai nemici.
+Subclass/&PathOfTheBattleragerTitle=Sentiero del Guerriero Guerriero

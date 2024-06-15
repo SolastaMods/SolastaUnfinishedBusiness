@@ -1,0 +1,10 @@
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Cuando usas Ataque imprudente mientras estás furioso, también obtienes puntos de golpe temporales iguales a tu modificador de Constitución (mínimo de 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Abandono imprudente
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Obtienes competencia en armadura pesada. Tus características de furia también funcionan cuando usas una armadura pesada.\n\nMientras usas una armadura, tu ataque sin armas causa 1d6 de daño base. Si llevas una armadura mágica, tus ataques sin armas cuentan como mágicos a efectos de superar la resistencia y la inmunidad a ataques y daños no mágicos. \n\nMientras estás furioso, puedes usar el ataque desarmado como acción adicional.
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Armadura de guerrero
+Feature/&PowerPathOfTheBattleragerArmoredRetributionDescription=Mientras estás furioso, cuando una criatura a 5 pies de ti te golpea con un ataque cuerpo a cuerpo, el atacante recibe 3 daños contundentes.
+Feature/&PowerPathOfTheBattleragerArmoredRetributionTitle=Retribución blindada
+Feature/&PowerPathOfTheBattleragerBattleragerChargeDescription=Mientras estás furioso, puedes realizar la acción Dash como acción adicional.
+Feature/&PowerPathOfTheBattleragerBattleragerChargeTitle=Carga de guerrero
+Subclass/&PathOfTheBattleragerDescription=Los Battleragers han dominado el arte de usar sus armaduras como armas y lanzarse en medio de sus enemigos.
+Subclass/&PathOfTheBattleragerTitle=El camino del guerrero

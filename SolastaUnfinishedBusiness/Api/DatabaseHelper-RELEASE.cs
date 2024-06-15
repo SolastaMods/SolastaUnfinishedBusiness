@@ -296,6 +296,9 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionDummy { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDummy");
+
         internal static ConditionDefinition ConditionFeebleMinded { get; } =
             GetDefinition<ConditionDefinition>("ConditionFeebleMinded");
 
@@ -744,6 +747,12 @@ internal static partial class DatabaseHelper
 
     internal static class EffectProxyDefinitions
     {
+        internal static EffectProxyDefinition ProxyDelayedBlastFireball { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyDelayedBlastFireball");
+
+        internal static EffectProxyDefinition ProxyDancingLights { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyDancingLights");
+
         internal static EffectProxyDefinition ProxyArcaneSword { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyArcaneSword");
 
@@ -761,6 +770,10 @@ internal static partial class DatabaseHelper
 
         internal static EffectProxyDefinition ProxyInsectPlague { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyInsectPlague");
+
+
+        internal static EffectProxyDefinition ProxySpikeGrowth { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxySpikeGrowth");
 
         internal static EffectProxyDefinition ProxyStinkingCloud { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyStinkingCloud");
@@ -874,6 +887,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionAbilityCheckAffinitys
     {
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionRaging { get; } =
+            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionRaging");
+
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionBearsEndurance { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionBearsEndurance");
 
@@ -918,6 +934,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionActionAffinitys
     {
+        internal static FeatureDefinitionActionAffinity ActionAffinityAggressive { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityAggressive");
+
         internal static FeatureDefinitionActionAffinity ActionAffinityBarbarianRecklessAttack { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityBarbarianRecklessAttack");
 
@@ -966,6 +985,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionAdditionalDamages
     {
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageConditionRaging { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageConditionRaging");
+
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageBrandingSmite { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageBrandingSmite");
 
@@ -1368,6 +1390,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionDamageAffinitys
     {
+        internal static FeatureDefinitionDamageAffinity DamageAffinityConditionRagingBludgeoning { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityConditionRagingBludgeoning");
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityAcidResistance { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityAcidResistance");
 
@@ -1680,6 +1705,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerDelayedBlastFireballDetonate { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDelayedBlastFireballDetonate");
+
         internal static FeatureDefinitionPower PowerOathOfMotherlandFieryWrath { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfMotherlandFieryWrath");
 
@@ -3534,6 +3562,9 @@ internal static partial class DatabaseHelper
 
     internal static class SpellDefinitions
     {
+        internal static SpellDefinition DelayedBlastFireball { get; } =
+            GetDefinition<SpellDefinition>("DelayedBlastFireball");
+
         internal static SpellDefinition AcidArrow { get; } = GetDefinition<SpellDefinition>("AcidArrow");
         internal static SpellDefinition AcidSplash { get; } = GetDefinition<SpellDefinition>("AcidSplash");
         internal static SpellDefinition Aid { get; } = GetDefinition<SpellDefinition>("Aid");
