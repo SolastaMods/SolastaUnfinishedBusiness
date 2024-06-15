@@ -351,13 +351,6 @@ public sealed class DomainTempest : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerWrathOfTheStorm, rulesetDefender);
 
-            if (!defender.CanReact() ||
-                !defender.IsWithinRange(attacker, 1) ||
-                rulesetDefender.GetRemainingUsesOfPower(usablePower) == 0)
-            {
-                yield break;
-            }
-
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
@@ -398,9 +391,14 @@ public sealed class DomainTempest : AbstractSubclass
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            _isValid = attacker.IsWithinRange(defender, 1) &&
-                       attacker.CanReact() &&
-                       defender.CanPerceiveTarget(attacker);
+            var rulesetHelper = helper.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerWrathOfTheStorm, rulesetHelper);
+            
+            _isValid = helper == defender &&
+                       helper.IsWithinRange(attacker, 1) &&
+                       helper.CanReact() &&
+                       helper.CanPerceiveTarget(attacker) &&
+                       rulesetHelper.GetRemainingUsesOfPower(usablePower) > 0;
 
             yield break;
         }
