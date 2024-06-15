@@ -21,28 +21,28 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
+[UsedImplicitly]
 public sealed class PathOfTheBeast : AbstractSubclass
 {
-    internal const string Name = "PathOfTheBeast";
-    internal const string TagBeastWeapon = "BeastWeapon";
-    internal const string TagBeastClawAttack = "BeastClawAttack";
-    internal const string TagBeastBiteAttack = "BeastBiteAttack";
-    internal const string TagBeastTailArmorClass = "BeastTailArmorClass";
-    internal static ItemDefinition BeastClaws;
-    internal static ItemDefinition BeastTail;
-    internal static ItemDefinition BeastBite;
+    private const string Name = "PathOfTheBeast";
+    private const string TagBeastWeapon = "BeastWeapon";
+    private const string TagBeastClawAttack = "BeastClawAttack";
+    private const string TagBeastTailArmorClass = "BeastTailArmorClass";
+    private static ItemDefinition _beastClaws;
+    private static ItemDefinition _beastTail;
+    private static ItemDefinition _beastBite;
 
     public PathOfTheBeast()
     {
         BuildBeastClaws();
         BuildBeastTail();
         BuildBeastBite();
-        
+
         var powerFormOfTheBeast = BuildPowerFormOfTheBeast();
         var powerBestialSoul = BuildPowerBestialSoul();
         var featureInfectiousFury = BuildFeatureInfectiousFury();
         var featureCallTheHunt = BuildFeatureCallTheHunt();
-        
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("PathOfTheBeast", Resources.PathOfTheBeast, 256))
@@ -69,19 +69,19 @@ public sealed class PathOfTheBeast : AbstractSubclass
         var baseItem = ItemDefinitions.UnarmedStrikeBase;
         var basePresentation = baseItem.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription);
-        var damageForm = baseDescription.EffectDescription
-            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+        var damageForm = baseDescription.EffectDescription.FindFirstDamageForm();
 
         damageForm.dieType = DieType.D8;
         damageForm.diceNumber = 1;
         damageForm.damageType = DamageTypePiercing;
-        BeastBite = CustomWeaponsContext.BuildWeapon("CEBeastBite", baseItem, 0, true, ItemRarity.Common,
-            basePresentation, baseDescription,
+
+        _beastBite = CustomWeaponsContext.BuildWeapon(
+            "CEBeastBite", baseItem, 0, true, ItemRarity.Common, basePresentation, baseDescription,
             Sprites.GetSprite("BeastBite", Resources.BeastBite, 128));
-        BeastBite.itemTags = [TagBeastWeapon];
+        _beastBite.itemTags = [TagBeastWeapon];
     }
 
-    private void BuildBeastTail()
+    private static void BuildBeastTail()
     {
         var baseItem = ItemDefinitions.UnarmedStrikeBase;
         var basePresentation = baseItem.ItemPresentation;
@@ -94,37 +94,38 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 TagsDefinitions.WeaponTagMelee
             ]
         };
-        var damageForm = baseDescription.EffectDescription
-            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+        var damageForm = baseDescription.EffectDescription.FindFirstDamageForm();
+
         damageForm.dieType = DieType.D8;
         damageForm.diceNumber = 1;
         damageForm.damageType = DamageTypePiercing;
-        BeastTail = CustomWeaponsContext.BuildWeapon("CEBeastTail", baseItem, 0, true, ItemRarity.Common,
-            basePresentation, baseDescription,
+
+        _beastTail = CustomWeaponsContext.BuildWeapon(
+            "CEBeastTail", baseItem, 0, true, ItemRarity.Common, basePresentation, baseDescription,
             Sprites.GetSprite("BeastTail", Resources.BeastTail, 128));
-        BeastTail.itemTags = [TagBeastWeapon];
+        _beastTail.itemTags = [TagBeastWeapon];
     }
 
-    private void BuildBeastClaws()
+    private static void BuildBeastClaws()
     {
         var baseItem = ItemDefinitions.UnarmedStrikeBase;
         var basePresentation = baseItem.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription);
-        var damageForm = baseDescription.EffectDescription
-            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+        var damageForm = baseDescription.EffectDescription.FindFirstDamageForm();
 
         damageForm.dieType = DieType.D6;
         damageForm.diceNumber = 1;
         damageForm.damageType = DamageTypeSlashing;
-        BeastClaws = CustomWeaponsContext.BuildWeapon("CEBeastClaws", baseItem, 0, true, ItemRarity.Common,
-            basePresentation, baseDescription,
+
+        _beastClaws = CustomWeaponsContext.BuildWeapon(
+            "CEBeastClaws", baseItem, 0, true, ItemRarity.Common, basePresentation, baseDescription,
             Sprites.GetSprite("UnarmedStrikeClaws", Resources.UnarmedStrikeClaws, 128));
-        BeastClaws.itemTags = [TagBeastWeapon];
+        _beastClaws.itemTags = [TagBeastWeapon];
     }
 
     #region Call the Hunt
 
-    private FeatureDefinition BuildFeatureCallTheHunt()
+    private static FeatureDefinitionPower BuildFeatureCallTheHunt()
     {
         var additionalDamageCallTheHuntBonus = FeatureDefinitionAdditionalDamageBuilder
             .Create($"Power{Name}CallTheHuntBonus")
@@ -160,10 +161,9 @@ public sealed class PathOfTheBeast : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .AddEffectForms(
                         EffectFormBuilder.ConditionForm(conditionCallTheHunt),
-                        EffectFormBuilder.ConditionForm(conditionCallTheHunt, ConditionForm.ConditionOperation.Add,
-                            true, true))
-                    .Build()
-            )
+                        EffectFormBuilder.ConditionForm(conditionCallTheHunt,
+                            ConditionForm.ConditionOperation.Add, true, true))
+                    .Build())
             .AddToDB();
         // need to handle custom because OnRageStartChoice doesn't seem to affect allies
         powerCallTheHunt.AddCustomSubFeatures(new PowerCallTheHuntHandler(powerCallTheHunt));
@@ -174,7 +174,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
     #region Form of the Beast
 
-    private FeatureDefinition[] BuildPowerFormOfTheBeast()
+    private static FeatureDefinition[] BuildPowerFormOfTheBeast()
     {
         var powerFormOfTheBeast = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}FormOfTheBeast")
@@ -184,8 +184,9 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
         string[] suffixes = ["Bite", "Claws", "Tail"];
 
-        object[] subfeatures = [new BeastBiteHandler(), new BeastClawsHandler(), new BeastTailHandler()];
+        object[] subFeatures = [new BeastBiteHandler(), new BeastClawsHandler(), new BeastTailHandler()];
         var powers = new List<FeatureDefinitionPower>();
+
         for (var i = 0; i < suffixes.Length; i++)
         {
             var condition = ConditionDefinitionBuilder
@@ -196,7 +197,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .SetSpecialInterruptions((ConditionInterruption)ExtraConditionInterruption.SourceRageStop,
                     ConditionInterruption.BattleEnd)
                 .SetPossessive()
-                .AddCustomSubFeatures(subfeatures[i])
+                .AddCustomSubFeatures(subFeatures[i])
                 .AddToDB();
 
             var power = FeatureDefinitionPowerSharedPoolBuilder
@@ -207,9 +208,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                     .SetNoSavingThrow()
                     .SetDurationData(DurationType.UntilLongRest)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(condition)
-                    )
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
                     .Build())
                 .AddToDB();
 
@@ -217,8 +216,8 @@ public sealed class PathOfTheBeast : AbstractSubclass
         }
 
         PowerBundle.RegisterPowerBundle(powerFormOfTheBeast, false, powers);
-
         powerFormOfTheBeast.AddCustomSubFeatures(new ActionFinishedByMeBeastForm(powerFormOfTheBeast));
+
         return [powerFormOfTheBeast, .. powers];
     }
 
@@ -234,9 +233,15 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!actionManager || !battleManager)
+            {
+                yield break;
+            }
+
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             var character = characterAction.ActingCharacter;
             var rulesetCharacter = character.RulesetCharacter;
@@ -248,7 +253,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 {
                     StringParameter = "FormOfTheBeast",
                     RulesetEffect = implementationManager
-                        .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                        .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                     UsablePower = usablePower,
                     targetCharacters = [character]
                 };
@@ -273,26 +278,25 @@ public sealed class PathOfTheBeast : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome != RollOutcome.Success && rollOutcome != RollOutcome.CriticalSuccess)
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
 
-            if (attackMode.sourceDefinition is not ItemDefinition item
-                || item != BeastBite)
+            if (attackMode.sourceDefinition is not ItemDefinition item ||
+                item != _beastBite)
             {
                 yield break;
             }
 
-            var character = attacker;
-            var rulesetCharacter = character.RulesetCharacter;
-            var bonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var bonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             var applyFormsParams = new ApplyFormsParams
             {
-                sourceCharacter = rulesetCharacter,
-                targetCharacter = rulesetCharacter,
-                position = character.LocationPosition
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetAttacker,
+                position = attacker.LocationPosition
             };
 
             var healingForm = new HealingForm
@@ -304,6 +308,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             };
 
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
             implementationService.ApplyEffectForms(
                 [new EffectForm { healingForm = healingForm, formType = EffectForm.EffectFormType.Healing }],
                 applyFormsParams,
@@ -311,7 +316,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 out _,
                 out _);
 
-            EffectHelpers.StartVisualEffect(character, character, SpellDefinitions.CureWounds,
+            EffectHelpers.StartVisualEffect(attacker, attacker, SpellDefinitions.CureWounds,
                 EffectHelpers.EffectType.Effect);
         }
 
@@ -327,26 +332,22 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 return null;
             }
 
-            var attackModes = new List<RulesetAttackMode>();
             var attackModifiers = hero.attackModifiers;
             ActionDefinitions.ActionType[] list =
                 [ActionDefinitions.ActionType.Reaction, ActionDefinitions.ActionType.Main];
-            foreach (var type in list)
-            {
-                var newAttackMode = character.TryRefreshAttackMode(
-                    type,
-                    BeastBite,
-                    BeastBite.WeaponDescription,
-                    ValidatorsCharacter.IsFreeOffhandVanilla(character),
-                    true,
-                    EquipmentDefinitions.SlotTypeMainHand,
-                    attackModifiers,
-                    character.FeaturesOrigin
-                );
-                attackModes.Add(newAttackMode);
-            }
 
-            return attackModes;
+            return list
+                .Select(type =>
+                    character.TryRefreshAttackMode(
+                        type,
+                        _beastBite,
+                        _beastBite.WeaponDescription,
+                        ValidatorsCharacter.IsFreeOffhandVanilla(character),
+                        true,
+                        EquipmentDefinitions.SlotTypeMainHand,
+                        attackModifiers,
+                        character.FeaturesOrigin))
+                .ToList();
         }
     }
 
@@ -360,61 +361,59 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 yield break;
             }
 
-            if (characterAction.actionParams.attackMode.sourceDefinition is not ItemDefinition item)
+            if (characterAction.actionParams.attackMode.sourceDefinition is not ItemDefinition item ||
+                item != _beastClaws)
             {
                 yield break;
             }
 
-            if (item != BeastClaws)
+            if (characterAction.actionParams.targetCharacters.Count == 0 ||
+                characterAction.actionParams.targetCharacters[0].RulesetCharacter is not
+                    { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            if (characterAction.actionParams.targetCharacters.Count == 0
-                || characterAction.actionParams.targetCharacters.First().RulesetCharacter.IsDeadOrDying)
-            {
-                yield break;
-            }
-
-            var character = characterAction.ActingCharacter;
-            var rulesetCharacter = character.RulesetCharacter;
-
-            if (character.UsedSpecialFeatures.ContainsKey(TagBeastClawAttack))
-            {
-                yield break;
-            }
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!actionManager || !battleManager)
+            {
+                yield break;
+            }
+
+            var actingCharacter = characterAction.ActingCharacter;
+
+            if (actingCharacter.UsedSpecialFeatures.ContainsKey(TagBeastClawAttack))
+            {
+                yield break;
+            }
+
             var reactionParams =
-                new CharacterActionParams(character, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(actingCharacter, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = Gui.Format("Reaction/&CustomReactionExtraClawAttackDescription")
                 };
             var reactionRequest = new ReactionRequestCustom("ExtraClawAttack", reactionParams);
-            var count = actionService.PendingReactionRequestGroups.Count;
-            actionService.AddInterruptRequest(reactionRequest);
-            yield return battleManager.WaitForReactions(character, actionService, count);
+            var count = actionManager.PendingReactionRequestGroups.Count;
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
 
             if (!reactionParams.reactionValidated)
             {
                 yield break;
             }
 
-            character.UsedSpecialFeatures.Add(TagBeastClawAttack, 0);
-            var attackModifiers = rulesetCharacter switch
-            {
-                RulesetCharacterHero hero => hero.attackModifiers,
-                RulesetCharacterMonster monster => monster.attackModifiers,
-                _ => []
-            };
+            actingCharacter.UsedSpecialFeatures.Add(TagBeastClawAttack, 0);
 
             var attackMode = characterAction.actionParams.attackMode.DeepCopy();
+
             attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
 
-            var cursorService = ServiceRepository.GetService<ICursorService>() as CursorManager;
-
-            var actionParams = new CharacterActionParams(character, ActionDefinitions.Id.AttackFree)
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree)
             {
                 ActionModifiers = { new ActionModifier() },
                 AttackMode = attackMode,
@@ -442,26 +441,22 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 return null;
             }
 
-            var attackModes = new List<RulesetAttackMode>();
             var attackModifiers = hero.attackModifiers;
             ActionDefinitions.ActionType[] list =
                 [ActionDefinitions.ActionType.Reaction, ActionDefinitions.ActionType.Main];
-            foreach (var type in list)
-            {
-                var newAttackMode = character.TryRefreshAttackMode(
-                    type,
-                    BeastClaws,
-                    BeastClaws.WeaponDescription,
-                    ValidatorsCharacter.IsFreeOffhandVanilla(character),
-                    true,
-                    EquipmentDefinitions.SlotTypeMainHand,
-                    attackModifiers,
-                    character.FeaturesOrigin
-                );
-                attackModes.Add(newAttackMode);
-            }
 
-            return attackModes;
+            return list
+                .Select(type =>
+                    character.TryRefreshAttackMode(
+                        type,
+                        _beastClaws,
+                        _beastClaws.WeaponDescription,
+                        ValidatorsCharacter.IsFreeOffhandVanilla(character),
+                        true,
+                        EquipmentDefinitions.SlotTypeMainHand,
+                        attackModifiers,
+                        character.FeaturesOrigin))
+                .ToList();
         }
     }
 
@@ -503,7 +498,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
     private class BeastTailHandler : AddExtraAttackBase, IAttackBeforeHitPossibleOnMeOrAlly
     {
-        private readonly FeatureDefinitionPower powerTailSwipe;
+        private readonly FeatureDefinitionPower _powerTailSwipe;
 
         internal BeastTailHandler() : base(ActionDefinitions.ActionType.Main)
         {
@@ -515,7 +510,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .AddToDB();
             conditionTailSwipe.AddCustomSubFeatures(new BeastTailModifyArmorClass(conditionTailSwipe));
 
-            powerTailSwipe = FeatureDefinitionPowerBuilder
+            _powerTailSwipe = FeatureDefinitionPowerBuilder
                 .Create($"Power{Name}TailSwipe")
                 .SetGuiPresentation(Category.Feature)
                 .SetUsesFixed(ActivationTime.Reaction)
@@ -539,6 +534,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             int attackRoll)
         {
             var rulesetDefender = defender.RulesetCharacter;
+
             if (defender != helper ||
                 defender.IsMyTurn() ||
                 !defender.CanReact() ||
@@ -554,7 +550,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerTailSwipe, rulesetDefender);
+            var usablePower = PowerProvider.Get(_powerTailSwipe, rulesetDefender);
             var actionParams =
                 new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
                 {
@@ -584,26 +580,22 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 return null;
             }
 
-            var attackModes = new List<RulesetAttackMode>();
             var attackModifiers = hero.attackModifiers;
             ActionDefinitions.ActionType[] list =
                 [ActionDefinitions.ActionType.Reaction, ActionDefinitions.ActionType.Main];
-            foreach (var type in list)
-            {
-                var newAttackMode = character.TryRefreshAttackMode(
-                    type,
-                    BeastTail,
-                    BeastTail.WeaponDescription,
-                    ValidatorsCharacter.IsFreeOffhandVanilla(character),
-                    true,
-                    EquipmentDefinitions.SlotTypeMainHand,
-                    attackModifiers,
-                    character.FeaturesOrigin
-                );
-                attackModes.Add(newAttackMode);
-            }
 
-            return attackModes;
+            return list
+                .Select(type =>
+                    character.TryRefreshAttackMode(
+                        type,
+                        _beastTail,
+                        _beastTail.WeaponDescription,
+                        ValidatorsCharacter.IsFreeOffhandVanilla(character),
+                        true,
+                        EquipmentDefinitions.SlotTypeMainHand,
+                        attackModifiers,
+                        character.FeaturesOrigin))
+                .ToList();
         }
     }
 
@@ -611,7 +603,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
     #region Bestial Soul
 
-    private FeatureDefinition BuildPowerBestialSoul()
+    private static FeatureDefinitionPower BuildPowerBestialSoul()
     {
         var powerBestialSoul = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BestialSoul")
@@ -626,6 +618,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAdditionalJumpCells(3)
             .AddToDB();
+
         featureBestialSoulJump.enhancedJump = true;
 
         string[] suffixes = ["Hare", "Spider", "Snake"];
@@ -667,8 +660,8 @@ public sealed class PathOfTheBeast : AbstractSubclass
             powers.Add(power);
         }
 
-        PowerBundle.RegisterPowerBundle(powerBestialSoul, false,
-            powers);
+        PowerBundle.RegisterPowerBundle(powerBestialSoul, false, powers);
+
         return powerBestialSoul;
     }
 
@@ -676,8 +669,8 @@ public sealed class PathOfTheBeast : AbstractSubclass
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (attackMode.sourceDefinition is not ItemDefinition item
-                || !item.ItemTags.Contains(TagBeastWeapon))
+            if (attackMode.sourceDefinition is not ItemDefinition item ||
+                !item.ItemTags.Contains(TagBeastWeapon))
             {
                 return;
             }
@@ -690,7 +683,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
     #region Infectious Fury
 
-    private FeatureDefinition[] BuildFeatureInfectiousFury()
+    private static FeatureDefinition[] BuildFeatureInfectiousFury()
     {
         var conditionInfectiousFury = ConditionDefinitionBuilder
             .Create($"Condition{Name}InfectiousFury")
@@ -725,6 +718,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique, 2)
                 .Build())
             .AddToDB();
+
         powerInfectiousFuryCompelledStrike.AddCustomSubFeatures(new CompelledStrikeHandler(conditionInfectiousFury));
 
         var powerInfectiousFuryMindlash = FeatureDefinitionPowerBuilder
@@ -745,6 +739,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
         powerInfectiousFury.AddCustomSubFeatures(
             new InfectiousFuryHandler(powerInfectiousFury, conditionInfectiousFury));
+
         return [powerInfectiousFury, powerInfectiousFuryCompelledStrike, powerInfectiousFuryMindlash];
     }
 
@@ -761,7 +756,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome != RollOutcome.Success && rollOutcome != RollOutcome.CriticalSuccess)
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
@@ -771,15 +766,15 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 yield break;
             }
 
-            if (defender.RulesetCharacter.IsDeadOrDying
-                || defender.RulesetCharacter.HasAnyConditionOfType(condition.name)
-                || attacker.RulesetCharacter.GetRemainingPowerUses(powerInfectiousFury) == 0)
+            if (defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                defender.RulesetCharacter.HasAnyConditionOfType(condition.name) ||
+                attacker.RulesetCharacter.GetRemainingPowerUses(powerInfectiousFury) == 0)
             {
                 yield break;
             }
 
-            if (attackMode.SourceDefinition is not ItemDefinition item
-                || !item.ItemTags.Contains(TagBeastWeapon))
+            if (attackMode.SourceDefinition is not ItemDefinition item ||
+                !item.ItemTags.Contains(TagBeastWeapon))
             {
                 yield break;
             }
@@ -797,12 +792,14 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 actionModifiers = [new ActionModifier()]
             };
             var count = actionService.PendingReactionRequestGroups.Count;
+
             actionService.ReactToSpendPower(reactionParams);
+
             yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 
-    internal class CompelledStrikeHandler(ConditionDefinition condition)
+    private class CompelledStrikeHandler(ConditionDefinition condition)
         : IFilterTargetingCharacter, IMagicEffectFinishedByMe
     {
         public bool EnforceFullSelection => true;
@@ -816,12 +813,14 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 if (!target.RulesetCharacter.HasConditionOfType(condition))
                 {
                     __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetMustHaveInfectiousFury");
+
                     return false;
                 }
 
                 if (!target.CanReact())
                 {
                     __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToReact");
+
                     return false;
                 }
 
@@ -829,13 +828,11 @@ public sealed class PathOfTheBeast : AbstractSubclass
             }
 
             var selectedTarget = selectedTargets[0];
-            var attacker = selectedTarget;
-            var defender = target;
-
-            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackMode = selectedTarget.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             // ReSharper disable once InvertIf
-            if (attackMode == null || !IsValidAttack(__instance, attackMode, attacker, defender))
+            if (attackMode == null ||
+                !IsValidAttack(__instance, attackMode, selectedTarget, target))
             {
                 __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeAbleToAttackTarget");
 
@@ -851,7 +848,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             var attacker = targetCharacters[0];
             var defender = targetCharacters[1];
 
-            // issue ally attack
+            // issue ally's attack
             var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             if (attackMode == null)
@@ -924,13 +921,21 @@ internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFi
             yield break;
         }
 
-        var character = characterAction.ActingCharacter;
-        var rulesetCharacter = character.RulesetCharacter;
         var actionManager =
             ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!actionManager || !battleManager)
+        {
+            yield break;
+        }
+
+        var character = characterAction.ActingCharacter;
+        var rulesetCharacter = character.RulesetCharacter;
+
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
         var usablePower = PowerProvider.Get(power, rulesetCharacter);
@@ -938,11 +943,12 @@ internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFi
         {
             StringParameter = "CallTheHunt",
             RulesetEffect = implementationManager
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
             targetCharacters = [character],
             actionModifiers = [new ActionModifier()]
         };
+
         foreach (var ally in locationCharacterService.AllValidEntities
                      .Where(x =>
                          x.Side == character.Side &&
@@ -956,32 +962,37 @@ internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFi
 
         var count = actionManager.PendingReactionRequestGroups.Count;
         var reactionRequest = new ReactionRequestSpendPower(actionParams);
+
         actionManager.AddInterruptRequest(reactionRequest);
+
         yield return battleManager.WaitForReactions(character, actionManager, count);
 
-        if (reactionRequest.Validated)
+        if (!reactionRequest.Validated)
         {
-            var applyFormsParams = new ApplyFormsParams
-            {
-                sourceCharacter = rulesetCharacter,
-                targetCharacter = rulesetCharacter,
-                position = character.locationPosition
-            };
-            _ = implementationManager.ApplyEffectForms(
-                [
-                    new EffectForm
-                    {
-                        formType = EffectForm.EffectFormType.TemporaryHitPoints,
-                        temporaryHitPointsForm = new TemporaryHitPointsForm
-                        {
-                            applyToSelf = true, bonusHitPoints = 15, diceNumber = 0
-                        }
-                    }
-                ],
-                applyFormsParams,
-                [],
-                out _,
-                out _);
+            yield break;
         }
+
+        var applyFormsParams = new ApplyFormsParams
+        {
+            sourceCharacter = rulesetCharacter,
+            targetCharacter = rulesetCharacter,
+            position = character.locationPosition
+        };
+
+        _ = implementationManager!.ApplyEffectForms(
+            [
+                new EffectForm
+                {
+                    formType = EffectForm.EffectFormType.TemporaryHitPoints,
+                    temporaryHitPointsForm = new TemporaryHitPointsForm
+                    {
+                        applyToSelf = true, bonusHitPoints = 15, diceNumber = 0
+                    }
+                }
+            ],
+            applyFormsParams,
+            [],
+            out _,
+            out _);
     }
 }
