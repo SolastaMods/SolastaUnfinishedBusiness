@@ -1,3 +1,10 @@
+1.5.97.15:
+
+- added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [all by Otearaisu]
+- fixed concentration check causing a soft lock
+- fixed attack cantrips interaction with quickened metamagic
+- fixed Mass Cure Wounds incorrect dice assignment with OneDnd setting
+
 1.5.97.14:
 
 - added Ashardalon's Stride, and Elemental Bane spells
