@@ -1,0 +1,79 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheBeastFormOfTheBeast:1f337834-f06a-5481-bfd9-4ceb90e113ed",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheBeastFormOfTheBeastBite:2b5e3fb3-318b-57b8-83b1-32fb97c9e1ce",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheBeastFormOfTheBeastClaws:ad046e41-f30e-5a08-b590-50d44831cbfc",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheBeastFormOfTheBeastTail:fa88af1e-589c-5571-8450-662350e5803f",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheBeastBestialSoul:d2e2f4c3-9efe-5c6c-9d14-f9cc11ab5550",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheBeastInfectiousFury:8ce5b619-f5e7-5fe3-979e-cd29b8e12228",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheBeastInfectiousFuryCompelledStrike:10081323-37d2-55f8-8d01-6c5e905025be",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheBeastInfectiousFuryMindlash:ff2e786c-c0ba-5934-a9e2-b5af9a707af4",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheBeastCallTheHunt:3207b479-7868-56de-90e3-22ca7cb0b55b",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&PathOfTheBeastTitle",
+    "description": "Subclass/&PathOfTheBeastDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "97bb7395-35d1-5698-a178-89fbe1b078fa",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "86302553-f1ac-5bf4-9fda-2baf282f5d4e",
+  "contentPack": 9999,
+  "name": "PathOfTheBeast"
+}

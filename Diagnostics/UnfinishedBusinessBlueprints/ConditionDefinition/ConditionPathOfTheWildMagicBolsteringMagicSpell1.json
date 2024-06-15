@@ -2,14 +2,13 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:AbilityCheckAffinityPsionicBlast:90bc26bd-59be-5205-8444-4a86f72b7a33",
-    "Definition:CombatAffinityPsionicBlast:c70af40a-901c-5673-94b1-3e3c38181282"
+    "Definition:MagicAffinityAdditionalSpellSlot1:b6026a11243d6e44c92642da4b3ff44a"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -47,9 +46,9 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "9c1efbc9a63159c408219632d84eda30",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -131,13 +130,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&PsionicBlastTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Condition/&ConditionPathOfTheWildMagicBolsteringMagicSpellTitle",
+    "description": "Condition/&ConditionPathOfTheWildMagicBolsteringMagicSpellDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6530b9c65863efc4487e6039a5acc474",
-      "m_SubObjectName": "ConditionConfused",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -152,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cb0c1036-6f3f-592c-b467-a4c6d4725038",
+  "guid": "77a6d998-4b90-5d27-81b3-897e74ac709a",
   "contentPack": 9999,
-  "name": "ConditionPsionicBlast"
+  "name": "ConditionPathOfTheWildMagicBolsteringMagicSpell1"
 }

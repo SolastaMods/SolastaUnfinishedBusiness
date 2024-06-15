@@ -2,10 +2,9 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:AbilityCheckAffinityPsionicBlast:90bc26bd-59be-5205-8444-4a86f72b7a33",
-    "Definition:CombatAffinityPsionicBlast:c70af40a-901c-5673-94b1-3e3c38181282"
+    "Definition:AttributeModifierPathOfTheWildMagicAuraBonus:5ea46160-a18e-5302-b2c8-850e0e5d3e89"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -16,7 +15,7 @@
   "durationType": "Hour",
   "durationParameterDie": "D4",
   "durationParameter": 1,
-  "forceTurnOccurence": false,
+  "forceTurnOccurence": true,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
@@ -41,21 +40,21 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "744039185ca95a045a08d72f1018923f",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "9c1efbc9a63159c408219632d84eda30",
+    "m_AssetGUID": "f0a59cf0508ad4646a12b2ed976feffa",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "13f8421f446e523428a845b103c38b9a",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
@@ -88,7 +87,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -131,12 +130,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&PsionicBlastTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Condition/&ConditionPathOfTheWildMagicAuraBonusTitle",
+    "description": "Condition/&ConditionPathOfTheWildMagicAuraBonusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6530b9c65863efc4487e6039a5acc474",
-      "m_SubObjectName": "ConditionConfused",
+      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
+      "m_SubObjectName": "ConditionPositive",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -152,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cb0c1036-6f3f-592c-b467-a4c6d4725038",
+  "guid": "05c396d3-28d9-5484-9c5a-ffc9e0d86585",
   "contentPack": 9999,
-  "name": "ConditionPsionicBlast"
+  "name": "ConditionPathOfTheWildMagicAuraBonus"
 }

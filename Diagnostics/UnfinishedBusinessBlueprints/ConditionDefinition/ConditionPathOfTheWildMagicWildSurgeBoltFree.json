@@ -2,14 +2,13 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:AbilityCheckAffinityPsionicBlast:90bc26bd-59be-5205-8444-4a86f72b7a33",
-    "Definition:CombatAffinityPsionicBlast:c70af40a-901c-5673-94b1-3e3c38181282"
+    "Definition:ActionAffinityPathOfTheWildMagicBoltFree:4acb3741-8891-5758-9246-c32b87021d87"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -47,9 +46,9 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "9c1efbc9a63159c408219632d84eda30",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -88,7 +87,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -131,14 +130,9 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&PsionicBlastTitle",
-    "description": "Feature/&NoContentTitle",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6530b9c65863efc4487e6039a5acc474",
-      "m_SubObjectName": "ConditionConfused",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
-    },
+    "title": "Feature/&Emptystring",
+    "description": "Feature/&Emptystring",
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
@@ -152,7 +146,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cb0c1036-6f3f-592c-b467-a4c6d4725038",
+  "guid": "6255cd01-fd2d-5004-805f-f9d71847d60f",
   "contentPack": 9999,
-  "name": "ConditionPsionicBlast"
+  "name": "ConditionPathOfTheWildMagicWildSurgeBoltFree"
 }

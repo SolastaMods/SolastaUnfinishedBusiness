@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerPathOfTheWildMagicBolsteringMagic:e9e69642-281f-5567-872d-2067d3ecd394",
+    "Definition:PowerPathOfTheWildMagicBolsteringMagicRoll:f8db5d62-1fa6-51ea-b201-e0a1d33237dd",
+    "Definition:PowerPathOfTheWildMagicBolsteringMagicSpell:8126627e-adfa-53d7-a02e-0d351907ad37"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerPathOfTheWildMagicBolsteringMagicTitle",
+    "description": "Feature/&PowerPathOfTheWildMagicBolsteringMagicDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5bf17882-e808-5077-85f8-ff74d0a21dd5",
+  "contentPack": 9999,
+  "name": "FeatureSetPathOfTheWildMagicBolsteringMagic"
+}

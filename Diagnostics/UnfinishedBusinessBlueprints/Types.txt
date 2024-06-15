@@ -7,6 +7,7 @@ CharacterSubclassDefinition
 ConditionDefinition
 ContentPackDefinition
 DamageDefinition
+DieTypeDefinition
 EffectProxyDefinition
 FeatDefinition
 FeatDefinitionWithPrerequisites
