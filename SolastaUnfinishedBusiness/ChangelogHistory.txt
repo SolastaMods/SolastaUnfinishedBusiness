@@ -7,6 +7,7 @@
 - fixed concentration check causing a soft lock
 - fixed effect proxies interactions with each other
 - fixed Mass Cure Wounds incorrect dice assignment after 'Enable OneDnd healing dice buff' setting was added
+- fixed Mobile feat to only prevent AoO from defender that was hit with a melee weapon
 
 1.5.97.14:
 
