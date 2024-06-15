@@ -251,7 +251,6 @@ Rules/&SituationalContext9000Format=Has Blade Mastery weapon types in hands:
 Rules/&SituationalContext9001Format=Has Greatsword in hands:
 Rules/&SituationalContext9002Format=Has Longsword in hands:
 Rules/&SituationalContext9003Format=Has Melee weapon in main hand with free off hand:
-Rules/&SituationalContext9004Format=Has Heavy or Versatile weapon in main hand with free off hand:
 Rules/&SituationalContext9005Format=Has simple or martial weapons in hand:
 Rules/&SituationalContext9007Format=Is not in bright light:
 Rules/&SituationalContext9008Format=Is raging and dual wielding:

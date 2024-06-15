@@ -251,7 +251,6 @@ Rules/&SituationalContext9000Format=손에 블레이드 마스터리 무기 유�
 Rules/&SituationalContext9001Format=대검을 손에 쥐고 있음:
 Rules/&SituationalContext9002Format=손에 장검이 있음:
 Rules/&SituationalContext9003Format=주 손에 근접 무기를 들고 다른 손에는 없는 경우:
-Rules/&SituationalContext9004Format=보조 손으로 중화기 또는 다용도 무기를 주손에 들고 있는 경우:
 Rules/&SituationalContext9005Format=손에 단순 또는 군용 무기가 있음:
 Rules/&SituationalContext9007Format=밝은 빛이 아닙니다:
 Rules/&SituationalContext9008Format=격노하고 이중 휘두르기:
