@@ -411,7 +411,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         {
             var featureWildSurgeWeapon = FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{Name}Weapon")
-                .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(FeatureDefinitionAdditionalDamages.AdditionalDamageConditionRaging.NotificationTag)
                 .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
                 .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
