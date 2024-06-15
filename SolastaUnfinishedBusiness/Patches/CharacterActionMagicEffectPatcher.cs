@@ -60,11 +60,10 @@ public static class CharacterActionMagicEffectPatcher
 
             // BEGIN PATCH
 
-            //PATCH: mark if levelled spell was used for correct action surge interaction
-            if (__instance is CharacterActionCastSpell actionCastSpell &&
-                actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel > 0)
+            //PATCH: mark if bonus spell was used for correct action surge interaction
+            if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Bonus })
             {
-                actingCharacter.UsedSpecialFeatures.TryAdd("LevelledSpell", 0);
+                actingCharacter.UsedSpecialFeatures.TryAdd("BonusSpell", 0);
             }
 
             //PATCH: skip spell animation if this is "attack after cast" spell

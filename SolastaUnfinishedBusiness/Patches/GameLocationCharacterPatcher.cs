@@ -472,10 +472,9 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            //PATCH: ensure we can only cast one levelled spell per turn (required by action surge)
-            if (__instance.UsedSpecialFeatures.TryGetValue("LevelledSpell", out _))
+            //PATCH: ensure we block casting main spells if bonus spell was used
+            if (__instance.UsedSpecialFeatures.TryGetValue("BonusSpell", out _))
             {
-                __instance.UsedBonusSpell = true;
                 __instance.UsedMainSpell = true;
             }
 
