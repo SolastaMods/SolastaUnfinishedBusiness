@@ -183,7 +183,7 @@ internal static partial class SpellBuilders
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionDistracted)
+            .SetGuiPresentation(NAME, Category.Spell, ConditionConfused)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
@@ -207,6 +207,7 @@ internal static partial class SpellBuilders
                         (AttributeDefinitions.Wisdom, string.Empty),
                         (AttributeDefinitions.Charisma, string.Empty))
                     .AddToDB())
+            .SetConditionParticleReference(ConditionFeebleMinded.conditionParticleReference)
             .AddToDB();
 
         condition.GuiPresentation.description = Gui.NoLocalization;
@@ -225,6 +226,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
@@ -242,7 +244,8 @@ internal static partial class SpellBuilders
                             .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetCasterEffectParameters(ViciousMockery)
-                    .SetImpactEffectParameters(DreadfulOmen)
+                    .SetImpactEffectParameters(PowerMagebaneWarcry )
+                    .SetEffectEffectParameters(Fear )
                     .Build())
             .AddToDB();
 
