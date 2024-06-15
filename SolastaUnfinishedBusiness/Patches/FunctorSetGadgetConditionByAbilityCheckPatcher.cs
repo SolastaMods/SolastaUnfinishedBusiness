@@ -229,7 +229,8 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                     .ToList();
 
                 foreach (var unit in contenders
-                             .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
+                             .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .ToList())
                 {
                     foreach (var feature in unit.RulesetCharacter
                                  .GetSubFeaturesByType<ITryAlterOutcomeAttributeCheck>())
