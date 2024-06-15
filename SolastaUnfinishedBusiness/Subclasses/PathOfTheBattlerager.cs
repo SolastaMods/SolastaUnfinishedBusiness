@@ -60,7 +60,7 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
 
         var additionalDamageRagingBattlerager = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}RagingBattlerager")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag(FeatureDefinitionAdditionalDamages.AdditionalDamageConditionRaging.NotificationTag)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
