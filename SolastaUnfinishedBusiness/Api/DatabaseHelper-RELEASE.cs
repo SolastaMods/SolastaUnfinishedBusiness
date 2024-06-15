@@ -9,6 +9,12 @@ namespace SolastaUnfinishedBusiness.Api;
 
 internal static partial class DatabaseHelper
 {
+    internal static class FeatureDefinitionMoveThroughEnemyModifiers
+    {
+        internal static FeatureDefinitionMoveThroughEnemyModifier MoveThroughEnemyModifierHalflingNimbleness { get; } =
+            GetDefinition<FeatureDefinitionMoveThroughEnemyModifier>("MoveThroughEnemyModifierHalflingNimbleness");
+    }
+
     internal static class FeatureDefinitionPerceptionAffinitys
     {
         internal static FeatureDefinitionPerceptionAffinity PerceptionAffinityConditionBlinded { get; } =
