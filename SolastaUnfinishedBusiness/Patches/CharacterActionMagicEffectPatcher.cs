@@ -588,6 +588,11 @@ public static class CharacterActionMagicEffectPatcher
             bool firstTarget,
             bool checkMagicalAttackDamage)
         {
+            if (target.RulesetCharacter is RulesetCharacterEffectProxy)
+            {
+                yield break;
+            }
+
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (!battleManager)
@@ -826,7 +831,7 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     var hasBorrowedLuck = target.RulesetActor.HasConditionOfTypeOrSubType(ConditionBorrowedLuck);
                     var side = actingCharacter?.Side ?? Side.Neutral;
-
+                    
                     __instance.RolledSaveThrow = activeEffect.TryRollSavingThrow(
                         actingCharacter?.RulesetCharacter,
                         side,
