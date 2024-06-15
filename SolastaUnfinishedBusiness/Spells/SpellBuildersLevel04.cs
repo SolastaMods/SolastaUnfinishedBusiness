@@ -401,6 +401,17 @@ internal static partial class SpellBuilders
 
         var sprite = Sprites.GetSprite(NAME, Resources.ElementalBane, 128);
         var subSpells = new List<SpellDefinition>();
+        var conditionEffects = new List<AssetReference>
+        {
+            ConditionOnAcidPilgrim.conditionParticleReference,
+            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters
+                .conditionParticleReference,
+            ConditionOnFire.conditionParticleReference,
+            ConditionDefinitions.ConditionParalyzed.conditionParticleReference,
+            PowerDomainElementalHeraldOfTheElementsThunder.EffectDescription.EffectParticleParameters
+                .conditionParticleReference
+        };
+        var current = 0;
 
         foreach (var (damageType, magicEffect) in DamagesAndEffects)
         {
@@ -417,7 +428,7 @@ internal static partial class SpellBuilders
                 .SetNotificationTag("ElementalBane")
                 .SetSpecificDamageType(damageType)
                 .SetDamageDice(DieType.D6, 2)
-                .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+                .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
                 .SetImpactParticleReference(magicEffect)
                 .AddToDB();
 
@@ -426,7 +437,6 @@ internal static partial class SpellBuilders
                 .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetFeatures(additionalDamage)
-                .SetSpecialInterruptions(ConditionInterruption.Attacks)
                 .AddToDB();
 
             var title = Gui.Format("Condition/&ConditionElementalBaneTitle", damageTitle);
@@ -438,6 +448,7 @@ internal static partial class SpellBuilders
                 .SetPossessive()
                 .SetConditionType(ConditionType.Detrimental)
                 .AddCustomSubFeatures(new CustomBehaviorElementalBane(damageType, conditionAttacker))
+                .SetConditionParticleReference(conditionEffects[current++])
                 .AddToDB();
 
             var spell = SpellDefinitionBuilder
@@ -466,7 +477,8 @@ internal static partial class SpellBuilders
                                 .Build())
                         .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                             additionalTargetsPerIncrement: 1)
-                        .SetParticleEffectParameters(magicEffect)
+                        .SetCasterEffectParameters(magicEffect)
+                        .SetEffectEffectParameters(magicEffect)
                         .Build())
                 .AddToDB();
 

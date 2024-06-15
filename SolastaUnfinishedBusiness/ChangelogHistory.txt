@@ -7,6 +7,7 @@
 - fixed attack cantrips interactions with quickened metamagic
 - fixed concentration check causing a soft lock
 - fixed effect proxies interactions with each other
+- fixed Elemental Bane spell behavior, and improved SFX
 - fixed Mass Cure Wounds incorrect dice assignment after 'Enable OneDnd healing dice buff' setting was added
 - fixed Mobile feat to only prevent AoO from defender that was attacked with a melee weapon
 - fixed Psionic Blast spell duration, and improved SFX
