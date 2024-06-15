@@ -2707,7 +2707,6 @@ internal static partial class DatabaseHelper
             GetDefinition<ItemDefinition>("CrownOfTheMagister12");
 
         internal static ItemDefinition Dagger { get; } = GetDefinition<ItemDefinition>("Dagger");
-        internal static ItemDefinition DaggerPlus1 { get; } = GetDefinition<ItemDefinition>("Dagger+1");
         internal static ItemDefinition DaggerPlus2 { get; } = GetDefinition<ItemDefinition>("Dagger+2");
         internal static ItemDefinition Dart { get; } = GetDefinition<ItemDefinition>("Dart");
         internal static ItemDefinition DivineBladeWeapon { get; } = GetDefinition<ItemDefinition>("DivineBladeWeapon");

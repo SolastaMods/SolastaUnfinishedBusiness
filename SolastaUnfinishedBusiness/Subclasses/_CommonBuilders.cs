@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -142,7 +143,7 @@ internal static class CommonBuilders
             .AddCustomSubFeatures(new AttackReplaceWithCantrip())
             .AddToDB();
 
-    internal static readonly DieTypeDefinition DieTypeD3 =
+    [UsedImplicitly] internal static readonly DieTypeDefinition DieTypeD3 =
         DieTypeDefinitionBuilder
             .Create(DatabaseHelper.GetDefinition<DieTypeDefinition>("DieTypeD6"), "DieTypeD3")
             .SetOrUpdateGuiPresentation("Rules/&DieD3Title", Gui.NoLocalization)

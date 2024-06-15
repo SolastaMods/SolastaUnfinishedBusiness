@@ -1,7 +1,9 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
+[UsedImplicitly]
 internal class DieTypeDefinitionBuilder : DefinitionBuilder<DieTypeDefinition, DieTypeDefinitionBuilder>
 {
     protected DieTypeDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
