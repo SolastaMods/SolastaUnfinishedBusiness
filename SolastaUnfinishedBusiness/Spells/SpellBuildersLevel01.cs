@@ -993,6 +993,11 @@ internal static partial class SpellBuilders
                     yield break;
             }
 
+            if (rulesetEffect is not (RulesetEffectSpell or RulesetEffectPower))
+            {
+                yield break;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetActor;
 
