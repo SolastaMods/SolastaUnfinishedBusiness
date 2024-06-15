@@ -654,7 +654,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
                 .SetRequiredCondition(conditionInfectiousFury)
                 .SetEffectForms(
-                    EffectFormBuilder.DamageForm(DamageTypePsychic, 2, DieType.D6), 
+                    EffectFormBuilder.DamageForm(DamageTypePsychic, 2, DieType.D12), 
                     EffectFormBuilder.ConditionForm(conditionInfectiousFury, ConditionForm.ConditionOperation.Remove))
                 .SetNoSavingThrow()
                 .Build())
