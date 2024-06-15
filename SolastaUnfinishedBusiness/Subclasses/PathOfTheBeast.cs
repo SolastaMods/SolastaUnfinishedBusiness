@@ -258,30 +258,22 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 return null;
             }
             var attackModes = new List<RulesetAttackMode>();
-
             var attackModifiers = hero.attackModifiers;
-            
-            var attackModeMain = GameLocationCharacter.GetFromActor(character).FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            if (attackModeMain == null)
+            ActionDefinitions.ActionType[] list = [ActionDefinitions.ActionType.Reaction, ActionDefinitions.ActionType.Main];
+            foreach (var type in list)
             {
-                return null;
+                var newAttackMode = character.TryRefreshAttackMode(
+                    type,
+                    BeastBite,
+                    BeastBite.WeaponDescription,
+                    ValidatorsCharacter.IsFreeOffhandVanilla(character),
+                    true,
+                    EquipmentDefinitions.SlotTypeMainHand,
+                    attackModifiers,
+                    character.FeaturesOrigin
+                );
+                attackModes.Add(newAttackMode);
             }
-
-            var newAttackMode = character.TryRefreshAttackMode(
-                ActionType,
-                BeastBite,
-                BeastBite.WeaponDescription,
-                ValidatorsCharacter.IsFreeOffhandVanilla(character),
-                true,
-                EquipmentDefinitions.SlotTypeMainHand,
-                attackModifiers,
-                character.FeaturesOrigin
-            );
-
-            newAttackMode.attacksNumber = attackModeMain.attacksNumber;
-            attackModes.Add(newAttackMode);
-
             return attackModes;
         }
     }
@@ -372,30 +364,22 @@ public sealed class PathOfTheBeast : AbstractSubclass
             }
 
             var attackModes = new List<RulesetAttackMode>();
-
-            var attackModifiers = hero?.attackModifiers;
-
-            var attackModeMain = GameLocationCharacter.GetFromActor(character).FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            if (attackModeMain == null)
+            var attackModifiers = hero.attackModifiers;
+            ActionDefinitions.ActionType[] list = [ActionDefinitions.ActionType.Reaction, ActionDefinitions.ActionType.Main];
+            foreach (var type in list)
             {
-                return null;
+                var newAttackMode = character.TryRefreshAttackMode(
+                    type,
+                    BeastClaws,
+                    BeastClaws.WeaponDescription,
+                    ValidatorsCharacter.IsFreeOffhandVanilla(character),
+                    true,
+                    EquipmentDefinitions.SlotTypeMainHand,
+                    attackModifiers,
+                    character.FeaturesOrigin
+                );
+                attackModes.Add(newAttackMode);
             }
-
-            var newAttackMode = character.TryRefreshAttackMode(
-                ActionDefinitions.ActionType.Main,
-                BeastClaws,
-                BeastClaws.WeaponDescription,
-                ValidatorsCharacter.IsFreeOffhandVanilla(character),
-                true,
-                EquipmentDefinitions.SlotTypeMainHand,
-                attackModifiers,
-                character.FeaturesOrigin
-            );
-
-            newAttackMode.attacksNumber = attackModeMain.AttacksNumber;
-            attackModes.Add(newAttackMode);
-            
             return attackModes;
         }
     }
@@ -516,32 +500,23 @@ public sealed class PathOfTheBeast : AbstractSubclass
             {
                 return null;
             }
-
             var attackModes = new List<RulesetAttackMode>();
-
             var attackModifiers = hero.attackModifiers;
-
-            var attackModeMain = GameLocationCharacter.GetFromActor(character).FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            if (attackModeMain == null)
+            ActionDefinitions.ActionType[]  list = [ActionDefinitions.ActionType.Reaction, ActionDefinitions.ActionType.Main];
+            foreach (var type in list)
             {
-                return null;
+                var newAttackMode = character.TryRefreshAttackMode(
+                    type,
+                    BeastTail,
+                    BeastTail.WeaponDescription,
+                    ValidatorsCharacter.IsFreeOffhandVanilla(character),
+                    true,
+                    EquipmentDefinitions.SlotTypeMainHand,
+                    attackModifiers,
+                    character.FeaturesOrigin
+                );
+                attackModes.Add(newAttackMode);
             }
-
-            var newAttackMode = character.TryRefreshAttackMode(
-                ActionType,
-                BeastTail,
-                BeastTail.WeaponDescription,
-                ValidatorsCharacter.IsFreeOffhandVanilla(character),
-                true,
-                EquipmentDefinitions.SlotTypeMainHand,
-                attackModifiers,
-                character.FeaturesOrigin
-            );
-
-            newAttackMode.attacksNumber = attackModeMain.attacksNumber;
-            attackModes.Add(newAttackMode);
-
             return attackModes;
         }
     }
