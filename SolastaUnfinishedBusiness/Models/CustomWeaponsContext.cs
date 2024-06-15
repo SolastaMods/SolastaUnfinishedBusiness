@@ -87,7 +87,7 @@ internal static class CustomWeaponsContext
     }
 
     [NotNull]
-    private static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, int goldCost, bool noDescription,
+    internal static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, int goldCost, bool noDescription,
         ItemRarity rarity,
         ItemPresentation basePresentation = null,
         WeaponDescription baseDescription = null,
