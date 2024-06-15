@@ -367,7 +367,107 @@ You can take a bonus action to heal an ally within 5 feet for an amount equal to
 
 # Barbarian
 
-## 1. Path of the Berserker [SOL]
+## 1. Path of the Battlerager [UB]
+
+Battleragers have mastered the art of using their armors as weapons and hurling themselves in the midst of their foes.
+
+
+### Level 3
+
+* Battlerager Armor
+
+You gain proficiency in Heavy Armor. Your raging features also work while wearing heavy armor.
+
+While wearing armor, your unarmed strike deal 1d6 base damage. If you are wearing magical armor, your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. 
+
+While raging, you can use unarmed strike as a bonus action.
+
+
+### Level 6
+
+* Reckless Abandon
+
+When you use Reckless Attack while raging, you also gain temporary hit points equal to your Constitution modifier (minimum of 1).
+
+
+### Level 10
+
+* Battlerager Charge
+
+While you are raging, you can take the Dash action as a bonus action.
+
+
+### Level 14
+
+* Armored Retribution
+
+While you are raging, when a creature within 5 feet of you hits you with a melee attack, the attacker takes 3 bludgeoning damage.
+
+
+
+## 2. Path of the Beast [UB]
+
+These barbarians have returned to their animalistic roots and channel their bestial essence to the point of manifesting them physically.
+
+
+### Level 3
+
+* Form of the Beast
+
+When you rage, you transform, revealing the bestial power within you. Until the rage ends, you manifest a natural weapon. It counts as a simple melee weapon for you, and you add your Strength modifier to the attack and damage rolls when you attack with it, as normal.
+
+* Form: Bite
+
+Your mouth transforms into a bestial muzzle or great mandibles (your choice). It deals 1d8 piercing damage on a hit. When you damage a creature with this bite, you regain a number of hit points equal to your proficiency bonus, provided you have less than half your hit points when you hit.
+
+* Form: Claws
+
+Each of your hands transforms into a claw, which you can use as a weapon if it's empty. It deals 1d6 slashing damage on a hit. Once on each of your turns when you attack with a claw using the Attack action, you can make one additional claw attack to the same target as part of your action.
+
+* Form: Tail
+
+You grow a lashing, spiny tail, which deals 1d8 piercing damage on a hit and has the reach property. If a creature you can see within 10 feet of you hits you with an attack roll, you can use your reaction to swipe your tail and roll a d8, applying a bonus to your AC equal to the number rolled, potentially causing the attack to miss you.
+
+
+### Level 6
+
+* Bestial Soul
+
+The natural weapons of your Form of the Beast to count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+
+Once per rest as a free action, you can choose one benefit which will last until you finish a short or a long rest:
+
+- Your jump distance increases by 15 feet.
+- You can climb on vertical surfaces.
+- You can squeeze through enemies and ignore difficult terrain.
+
+
+### Level 10
+
+* Infectious Fury
+
+When you hit a creature with your natural weapons while you are raging, the beast within you can curse your target with rabid fury. The target must succeed on a Wisdom saving throw (DC equal to 8 + your Constitution modifier + your proficiency bonus) or suffer one of the following effects (your choice).
+
+* Infectious Fury: Compelled Strike
+
+Target attacks another creature of your choice within the target's reach.
+
+* Infectious Fury: Mindlash
+
+Target takes 2d12 Psychic Damage.
+
+
+### Level 14
+
+* Call the Hunt
+
+The beast within you grows so powerful that you can spread its ferocity to others and gain resilience from them joining your hunt. When you enter your rage, you can activate this feature to gain 15 temporary hit points. Additionally, allies within 30 feet of you gains ferocity. Until your rage ends, once per turn when an affected ally hits with an attack, they deal an additional 1d6 bonus damage.
+
+You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+
+
+
+## 3. Path of the Berserker [SOL]
 
 The Path of the Berserker is a path of untrammeled fury, slick with blood. As you enter the berserker's rage, you thrill in the chaos of battle, heedless of your own health or well-being.
 
@@ -401,7 +501,7 @@ Whenever an opponent attacks you from a nearby cell, you are granted an immediat
 
 
 
-## 2. Path of the Claw [SOL]
+## 4. Path of the Claw [SOL]
 
 It is an open secret that Barbarians of the Path of the Claw are the descendants of an old clan that mingled with dragons. Whenever they enter a rage, their ancestry comes rushing out and takes over their senses, allowing them to perform incredible feats of power.
 
@@ -439,7 +539,7 @@ While raging, the first creature you hit with a melee attack each turn must make
 
 
 
-## 3. Path of the Elements [UB]
+## 5. Path of the Elements [UB]
 
 Barbarians who follow the Path of the Elements learned to harness the destructive powers of nature, transforming their rage into a mantle of primal magic that swirls around them. When in a fury, a barbarian of this path taps into nature to create devastating elemental calamities.
 
@@ -486,7 +586,7 @@ Starting at 10th level, you gain additional powers depending on the elemental ca
 
 
 
-## 4. Path of the Light [UB]
+## 6. Path of the Light [UB]
 
 Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 
@@ -528,7 +628,7 @@ On the turn that you enter your rage, you can choose to illuminate up to three e
 
 
 
-## 5. Path of the Magebane [SOL]
+## 7. Path of the Magebane [SOL]
 
 Followers of this path have developed a profound hatred for magic and magic-users. For them, physical prowess is the only decent way. They despise and distrust magic and magic-users.
 
@@ -562,7 +662,7 @@ When raging, you can dispel a magical effect on a creature or object as a bonus 
 
 
 
-## 6. Path of the Ravager [UB]
+## 8. Path of the Ravager [UB]
 
 The Path of the Ravager is a path of untrammeled fury, slick with blood. As you enter the ravager's rage, you thrill in the chaos of battle, heedless of your own health or well-being.
 
@@ -596,7 +696,7 @@ Whenever you start raging, and while you are raging on subsequent turns as a bon
 
 
 
-## 7. Path of the Reaver [UB]
+## 9. Path of the Reaver [UB]
 
 All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
 
@@ -634,7 +734,7 @@ Starting at 14th level, your blood becomes permanently corrupted, damaging creat
 
 
 
-## 8. Path of the Savagery [UB]
+## 10. Path of the Savagery [UB]
 
 Barbarians who walk the Path of the Savage are forces of nature, fighting less like men, and more like wild beasts. They strike with explosive speed and power, leveraging twin blades akin to a wild animal fighting with claws and fangs.
 
@@ -672,7 +772,7 @@ Starting at 14th level, while you are raging, whenever you hit a creature with a
 
 
 
-## 9. Path of the Stone [SOL]
+## 11. Path of the Stone [SOL]
 
 Barbarians following this path draw their strength from their connection to stone. They are known for their doggedness. They never give up in the face of adversity and thrive in hostile environments.
 
@@ -706,7 +806,7 @@ You gain a bonus to your melee weapon damage roll equal to your proficiency.
 
 
 
-## 10. Path of the Totem Warrior [UB]
+## 12. Path of the Totem Warrior [UB]
 
 Barbarians who follow the Path of the Totem Warrior accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 
@@ -744,7 +844,58 @@ Starting at 14th level, choose an animal to hone your spiritual connection to, g
 
 
 
-## 11. Path of the Yeoman [UB]
+## 13. Path of the Wild Magic [UB]
+
+Many places in the multiverse abound with beauty, intense emotion, and rampant magic. the Feywild, the Upper Planes, and other realms of supernatural power radiate with such forces and can profoundly influence people. As folk of deep feeling, barbarians are especially susceptible to these wild influences, with some barbarians being transformed by the magic. These magic-suffused barbarians walk the Path of Wild Magic. Elf, tiefling, and aasimars often seek this path, eager to manifest the otherworldly magic of their ancestors.
+
+
+### Level 3
+
+* Magic Awareness
+
+As an action, you can open your awareness to the presence of concentrated magic. Over the next minute, you know the location of any spell or magic item within 60 feet of you.
+
+* Wild Surge
+
+When you enter your rage, roll on the Wild Magic table to determine the magical effect produced. If the effect requires a saving throw, the DC equals 8 + your proficiency bonus + your Constitution modifier.
+
+Wild Magic Table:
+- Each creature within 30 feet of you must succeed on a Constitution saving throw or take 1d12 necrotic damage. You also gain 1d12 temporary hit points.
+- You teleport up to 30 feet to an unoccupied space you can see. Until your rage ends, you can use this effect again on each of your turns as a bonus action.
+- An intangible spirit appears an unoccupied space that you can see within 30 feet of you. At the end of the current turn, the spirit explodes, and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 1d6 force damage. Until your rage ends, you can use this effect again, summoning another spirit, on each of your turns as a bonus action.
+- Magic infuses the weapon that you are holding. Until your rage ends, the weapon's damage type changes to force, and it gains the thrown properties, with a normal range of 20 feet and a long range of 60 feet. If the weapon leaves your hand, the weapon reappears in your hand. Your rage damage bonus will also apply on this thrown weapon.
+- Whenever a creature hits you with an attack roll before your rage ends, that creature takes 1d6 force damage.
+- Until your rage ends, you gain a +1 bonus to AC, and while within 10 feet of you, your allies gain the same bonus.
+- Until your rage ends, at the end of each of your turn, the ground within 15 feet of you becomes difficult terrain until the beginning of your next turn.
+- A bolt of light shoots from your chest. Another creature of your choice that you can see within 30 feet of you must succeed on a Constitution saving throw or take 1d6 radiant damage and be blinded until the start of your next turn. Until your rage ends, you can use this effect again on each of your turns as a bonus action.
+
+
+### Level 6
+
+* Bolstering Magic
+
+As an action, you can touch one ally and confer one of the following benefits of your choice:
+- For 10 minutes, the creature can roll a d3 whenever making an attack roll or an ability check and add the number rolled to the d20 roll.
+- Roll a d3. The creature will receive an additional spell slot equivalent to the number rolled. Once a creature receives this benefit, that creature can't receive it again until after a long rest.
+You can take this action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+
+
+### Level 10
+
+* Unstable Backslash
+
+Immediately after you take damage while raging, you can use your reaction to roll on the Wild Magic table and immediately produce the effect rolled. This effect replaces your current Wild Magic effect.
+
+
+### Level 14
+
+* Controlled Surge
+
+Whenever you roll on the Wild Magic table, you can roll the die twice and choose which of the two effects to unleash. If you roll the same number on both dice, you can ignore the number and choose any effect on the table.
+
+
+
+## 14. Path of the Yeoman [UB]
 
 Barbarians following the Path of the Yeoman ignore melee weapons to master the longbow. No less strong than barbarians that follow other paths, their arrows fell the mightiest of foes and their single-minded focus increases their already formidable defenses to incredible heights.
 
