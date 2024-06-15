@@ -118,7 +118,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
         var powerFormOfTheBeast = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}FormOfTheBeast")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction)
+            .SetUsesFixed(ActivationTime.OnPowerActivatedAuto)
             .AddToDB();
 
         string[] suffixes = ["Bite", "Claws", "Tail"];
@@ -139,7 +139,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             var power = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"Power{Name}FormOfTheBeast{suffixes[i]}")
                 .SetGuiPresentation(Category.Feature)
-                .SetSharedPool(ActivationTime.Reaction, powerFormOfTheBeast)
+                .SetSharedPool(ActivationTime.OnPowerActivatedAuto, powerFormOfTheBeast)
                 .SetEffectDescription(EffectDescriptionBuilder.Create()
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                     .SetNoSavingThrow()
@@ -197,6 +197,10 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
     private class BeastBiteHandler() : AddExtraAttackBase(ActionDefinitions.ActionType.Main), IPhysicalAttackFinishedByMe
     {
+        protected override AttackModeOrder GetOrder(RulesetCharacter character)
+        {
+            return AttackModeOrder.Start;
+        }
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager, 
             CharacterAction action, 
@@ -285,6 +289,10 @@ public sealed class PathOfTheBeast : AbstractSubclass
     private class BeastClawsHandler() : AddExtraAttackBase(ActionDefinitions.ActionType.None), 
         IActionFinishedByMe, ICharacterTurnStartListener
     {
+        protected override AttackModeOrder GetOrder(RulesetCharacter character)
+        {
+            return AttackModeOrder.Start;
+        }
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             if (characterAction.ActionId != ActionDefinitions.Id.AttackMain)
@@ -455,6 +463,10 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .AddToDB();
         }
 
+        protected override AttackModeOrder GetOrder(RulesetCharacter character)
+        {
+            return AttackModeOrder.Start;
+        }
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager, 
             [UsedImplicitly] GameLocationCharacter attacker, 
             GameLocationCharacter defender, 
@@ -851,7 +863,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
         var powerCallTheHunt = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CallTheHunt")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.Reaction)
+            .SetUsesProficiencyBonus(ActivationTime.OnPowerActivatedAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder.Create()
                     .SetDurationData(DurationType.Minute, 1)
