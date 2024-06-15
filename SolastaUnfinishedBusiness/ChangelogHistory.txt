@@ -1,9 +1,12 @@
 1.5.97.15:
 
-- added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [all by Otearaisu]
+- added Dagger recipes [by MagicSword]
+- added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [by Otearaisu]
+- fixed action surge interactions with casting bonus spells
+- fixed attack cantrips interactions with quickened metamagic
 - fixed concentration check causing a soft lock
-- fixed attack cantrips interaction with quickened metamagic
-- fixed Mass Cure Wounds incorrect dice assignment with OneDnd setting
+- fixed effect proxies interactions with each other
+- fixed Mass Cure Wounds incorrect dice assignment after 'Enable OneDnd healing dice buff' setting was added
 
 1.5.97.14:
 

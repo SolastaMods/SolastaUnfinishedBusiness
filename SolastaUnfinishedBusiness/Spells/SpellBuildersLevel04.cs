@@ -244,8 +244,8 @@ internal static partial class SpellBuilders
                             .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetCasterEffectParameters(ViciousMockery)
-                    .SetImpactEffectParameters(PowerMagebaneWarcry )
-                    .SetEffectEffectParameters(Fear )
+                    .SetImpactEffectParameters(PowerMagebaneWarcry)
+                    .SetEffectEffectParameters(Fear)
                     .Build())
             .AddToDB();
 
