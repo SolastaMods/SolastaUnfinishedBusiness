@@ -831,7 +831,7 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     var hasBorrowedLuck = target.RulesetActor.HasConditionOfTypeOrSubType(ConditionBorrowedLuck);
                     var side = actingCharacter?.Side ?? Side.Neutral;
-                    
+
                     __instance.RolledSaveThrow = activeEffect.TryRollSavingThrow(
                         actingCharacter?.RulesetCharacter,
                         side,

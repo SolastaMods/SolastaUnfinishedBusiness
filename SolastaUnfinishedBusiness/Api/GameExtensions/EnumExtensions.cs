@@ -181,7 +181,6 @@ internal enum ExtraSituationalContext
     HasGreatswordInHands = 9001,
     HasLongswordInHands = 9002,
     HasMeleeWeaponInMainHandWithFreeOffhand = 9003,
-    HasFreeHandWithHeavyOrVersatileInMain = 9004,
     HasSimpleOrMartialWeaponInHands = 9005,
     IsNotInBrightLight = 9007,
     IsRagingAndDualWielding = 9008,

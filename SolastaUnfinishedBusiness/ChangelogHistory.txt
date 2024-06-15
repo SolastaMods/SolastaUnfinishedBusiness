@@ -1,13 +1,16 @@
 1.5.97.15:
 
 - added Dagger recipes [by MagicSword]
-- added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [by Otearaisu]
+- added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [by Otearaisu, still in QA]
+- changed Great Weapon Defense into Battle Fervor [movement and AC bonuses under certain conditions]
 - fixed action surge interactions with casting bonus spells
 - fixed attack cantrips interactions with quickened metamagic
 - fixed concentration check causing a soft lock
 - fixed effect proxies interactions with each other
 - fixed Mass Cure Wounds incorrect dice assignment after 'Enable OneDnd healing dice buff' setting was added
-- fixed Mobile feat to only prevent AoO from defender that was hit with a melee weapon
+- fixed Mobile feat to only prevent AoO from defender that was attacked with a melee weapon
+- fixed Psionic Blast spell duration, and improved SFX
+- fixed some custom items missing document descriptions [by MagicSword]
 
 1.5.97.14:
 

@@ -367,151 +367,171 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatGreatWeaponDefense";
 
-        var combatAffinity = FeatureDefinitionCombatAffinityBuilder
-            .Create($"CombatAffinity{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
-            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-            .SetSituationalContext(SituationalContext.TargetIsEffectSource)
-            .AddToDB();
-
-        var condition = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionCursed)
-            .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(combatAffinity)
-            .AddToDB();
-
-        condition.AddCustomSubFeatures(new ActionFinishedByMeGreatWeaponDefense(condition));
-
-        var conditionSelf = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Self")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        var power = FeatureDefinitionPowerBuilder
-            .Create("PowerGreatWeaponDefense")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerGreatWeaponDefense", Resources.PowerGreatWeaponDefense, 256, 128))
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(condition),
-                        EffectFormBuilder.ConditionForm(conditionSelf, ConditionForm.ConditionOperation.Add, true))
-                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerFunctionWandFearCommand)
-                    .SetImpactEffectParameters(FeatureDefinitionPowers.PowerBerserkerIntimidatingPresence)
-                    .Build())
-            .AddCustomSubFeatures(
-                ValidatorsValidatePowerUse.HasMainAttackAvailable,
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasFreeHandWithHeavyOrVersatileInMain))
-            .AddToDB();
-
-        conditionSelf.AddCustomSubFeatures(new ActionFinishedByMeGreatWeaponDefenseSelf(power, condition));
-
         var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{NAME}")
             .SetGuiPresentation(NAME, Category.Feat)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
-            .SetSituationalContext(ExtraSituationalContext.HasFreeHandWithHeavyOrVersatileInMain)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .AddToDB();
+
+        var conditionArmorClass = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}ArmorClass")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
+            .SetPossessive()
+            .SetFeatures(attributeModifierArmorClass)
+            .AddToDB();
+
+        conditionArmorClass.GuiPresentation.description = Gui.NoLocalization;
+
+        var movementAffinity = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetBaseSpeedAdditiveModifier(3)
+            .AddToDB();
+
+        var conditionMovement = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Movement")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFreedomOfMovement)
+            .SetPossessive()
+            .SetFeatures(movementAffinity)
+            .AddToDB();
+
+        conditionMovement.GuiPresentation.description = Gui.NoLocalization;
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(attributeModifierArmorClass, power)
-            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
+            .AddCustomSubFeatures(new CustomBehaviorGreatWeaponDefense(conditionArmorClass, conditionMovement))
             .AddToDB();
     }
 
-    private sealed class ActionFinishedByMeGreatWeaponDefense(ConditionDefinition condition) : IActionFinishedByMe
+    private sealed class CustomBehaviorGreatWeaponDefense(
+        ConditionDefinition conditionArmorClass,
+        ConditionDefinition conditionMovement)
+        : IPhysicalAttackInitiatedByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy, IOnReducedToZeroHpByMe,
+            IOnItemEquipped
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
-            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
-
-            if (attacker != null &&
-                DistanceCalculation.GetDistanceFromCharacters(attacker, actingCharacter) > 1)
-            {
-                rulesetCharacter.RemoveCondition(activeCondition);
-            }
-        }
-    }
-
-    private sealed class ActionFinishedByMeGreatWeaponDefenseSelf(
-        FeatureDefinitionPower power,
-        ConditionDefinition condition) : IActionFinishedByMe, IOnItemEquipped
-    {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
-            var actingCharacter = action.ActingCharacter;
-
-            if (action is CharacterActionUsePower actionUsePower &&
-                actionUsePower.activePower.PowerDefinition == power)
-            {
-                actingCharacter.BurnOneMainAttack();
-            }
-
-            foreach (var enemy in Gui.Battle.GetContenders(actingCharacter)
-                         .Where(x => DistanceCalculation.GetDistanceFromCharacters(actingCharacter, x) > 1))
-            {
-                var rulesetEnemy = enemy.RulesetCharacter;
-
-                if (rulesetEnemy.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
-                {
-                    rulesetEnemy.RemoveCondition(activeCondition);
-                }
-            }
-        }
-
         public void OnItemEquipped(RulesetCharacterHero hero)
         {
-            if (ValidatorsCharacter.HasFreeHandWithHeavyOrVersatileInMain(hero) || Gui.Battle == null)
+            if (!HasFreeHandWithHeavyOrVersatileInMain(hero))
             {
                 return;
             }
 
-            var glc = GameLocationCharacter.GetFromActor(hero);
-
-            if (glc == null)
+            if (hero.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionArmorClass.Name, out var activeCondition))
             {
-                return;
+                hero.RemoveCondition(activeCondition);
+            }
+        }
+
+        public IEnumerator HandleReducedToZeroHpByMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (!ValidatorsWeapon.IsMelee(attackMode))
+            {
+                yield break;
             }
 
-            foreach (var rulesetEnemy in Gui.Battle.GetContenders(glc)
-                         .Select(enemy => enemy.RulesetCharacter))
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                conditionMovement.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionMovement.Name,
+                0,
+                0,
+                0);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!criticalHit ||
+                !ValidatorsWeapon.IsMelee(attackMode))
             {
-                if (rulesetEnemy.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
-                {
-                    rulesetEnemy.RemoveCondition(activeCondition);
-                }
+                yield break;
             }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                conditionMovement.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionMovement.Name,
+                0,
+                0,
+                0);
+        }
+
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!HasFreeHandWithHeavyOrVersatileInMain(rulesetAttacker, attackMode) ||
+                rulesetAttacker.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionArmorClass.Name))
+            {
+                yield break;
+            }
+
+            rulesetAttacker.InflictCondition(
+                conditionArmorClass.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionArmorClass.Name,
+                0,
+                0,
+                0);
+        }
+
+        private static bool HasFreeHandWithHeavyOrVersatileInMain(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode = null)
+        {
+            var rulesetItem = character.GetMainWeapon();
+            var itemDefinition = attackMode?.SourceDefinition as ItemDefinition ?? rulesetItem.ItemDefinition;
+
+            return
+                character.HasFreeHandSlot() &&
+                ((attackMode != null && ValidatorsWeapon.IsMelee(attackMode)) ||
+                 (attackMode == null && ValidatorsWeapon.IsMelee(character.GetMainWeapon()))) &&
+                ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy,
+                    TagsDefinitions.WeaponTagVersatile);
         }
     }
 
