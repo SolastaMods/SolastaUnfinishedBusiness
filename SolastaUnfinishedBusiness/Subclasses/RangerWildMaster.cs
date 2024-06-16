@@ -257,7 +257,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             .Create($"Condition{Name}KillCommand")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDoomLaughter)
             .SetConditionType(ConditionType.Detrimental)
-            .SetConditionParticleReference(ConditionDefinitions.ConditionPainful.conditionParticleReference)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionPainful)
             .AddToDB();
 
         conditionKillCommand.AddCustomSubFeatures(new CustomBehaviorKillCommand(conditionKillCommand));

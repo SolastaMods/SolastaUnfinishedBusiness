@@ -156,7 +156,7 @@ public sealed class OathOfDread : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive()
             .SetFeatures(featureAuraOfDomination)
-            .SetConditionParticleReference(ConditionBaned.conditionParticleReference)
+            .SetConditionParticleReference(ConditionBaned)
             .AddToDB();
 
         featureAuraOfDomination.AddCustomSubFeatures(

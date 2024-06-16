@@ -421,8 +421,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create(ConditionDefinitions.ConditionRestrained, $"Condition{Name}GraspingArrow")
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .SetFeatures()
-            .SetConditionParticleReference(
-                ConditionDefinitions.ConditionRestrainedByMagicalArrow.conditionParticleReference)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionRestrainedByMagicalArrow)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerGraspingArrow,
@@ -441,7 +440,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         var conditionInsightArrow = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionHighlighted, $"Condition{Name}InsightArrow")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetConditionParticleReference(ConditionDefinitions.ConditionShine.conditionParticleReference)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionShine)
             .AddToDB();
 
         var powerInsightArrow = FeatureDefinitionPowerSharedPoolBuilder

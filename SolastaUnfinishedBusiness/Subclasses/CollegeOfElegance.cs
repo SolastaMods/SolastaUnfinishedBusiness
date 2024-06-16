@@ -156,7 +156,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
                     .SetGuiPresentation(AmazingDisplayName, Category.Feature, Gui.NoLocalization)
                     .SetBaseSpeedMultiplicativeModifier(0)
                     .AddToDB())
-            .SetConditionParticleReference(ConditionDefinitions.ConditionDistracted.conditionParticleReference)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionDistracted)
             .AddToDB();
 
         conditionAmazingDisplay.GuiPresentation.description = Gui.NoLocalization;

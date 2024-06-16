@@ -207,7 +207,7 @@ internal static partial class SpellBuilders
                         (AttributeDefinitions.Wisdom, string.Empty),
                         (AttributeDefinitions.Charisma, string.Empty))
                     .AddToDB())
-            .SetConditionParticleReference(ConditionFeebleMinded.conditionParticleReference)
+            .SetConditionParticleReference(ConditionFeebleMinded)
             .AddToDB();
 
         condition.GuiPresentation.description = Gui.NoLocalization;
@@ -401,15 +401,13 @@ internal static partial class SpellBuilders
 
         var sprite = Sprites.GetSprite(NAME, Resources.ElementalBane, 128);
         var subSpells = new List<SpellDefinition>();
-        var conditionEffects = new List<AssetReference>
+        var conditionEffects = new List<BaseDefinition>
         {
-            ConditionOnAcidPilgrim.conditionParticleReference,
-            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters
-                .conditionParticleReference,
-            ConditionOnFire.conditionParticleReference,
-            ConditionDefinitions.ConditionParalyzed.conditionParticleReference,
-            PowerDomainElementalHeraldOfTheElementsThunder.EffectDescription.EffectParticleParameters
-                .conditionParticleReference
+            ConditionOnAcidPilgrim,
+            PowerDomainElementalHeraldOfTheElementsCold,
+            ConditionOnFire,
+            ConditionDefinitions.ConditionParalyzed,
+            PowerDomainElementalHeraldOfTheElementsThunder
         };
         var current = 0;
 

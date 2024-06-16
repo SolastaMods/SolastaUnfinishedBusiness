@@ -50,7 +50,7 @@ internal static class SubraceShadarKaiBuilder
                 DamageAffinityRadiantResistance,
                 DamageAffinitySlashingResistance,
                 DamageAffinityThunderResistance)
-            .SetConditionParticleReference(ConditionDefinitions.ConditionHopeless.conditionParticleReference)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionHopeless)
             .AddToDB();
 
         conditionTeleport.GuiPresentation.description = Gui.NoLocalization;

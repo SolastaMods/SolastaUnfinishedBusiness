@@ -141,15 +141,10 @@ public sealed class PathOfTheBeast : AbstractSubclass
             .Create($"Condition{Name}CallTheHunt")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
             .SetPossessive()
-            .SetConditionParticleReference(ConditionDefinitions.ConditionHolyAura.conditionParticleReference)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionHolyAura)
             .SetFeatures(additionalDamageCallTheHuntBonus)
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .AddToDB();
-
-        conditionCallTheHunt.conditionStartParticleReference =
-            ConditionDefinitions.ConditionHolyAura.conditionStartParticleReference;
-        conditionCallTheHunt.conditionEndParticleReference =
-            ConditionDefinitions.ConditionHolyAura.conditionEndParticleReference;
 
         var powerCallTheHunt = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CallTheHunt")

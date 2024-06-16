@@ -503,16 +503,14 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             var conditionAuraBonus = ConditionDefinitionBuilder
                 .Create($"Condition{Name}AuraBonus")
-                .SetConditionParticleReference(ConditionDefinitions.ConditionHolyAura.conditionParticleReference)
+                .SetConditionParticleReference(ConditionDefinitions.ConditionHolyAura)
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetFeatures(attributeModifierAuraBonus)
                 .AddToDB();
-            conditionAuraBonus.conditionStartParticleReference =
-                ConditionDefinitions.ConditionHolyAura.conditionStartParticleReference;
-            conditionAuraBonus.conditionEndParticleReference =
-                ConditionDefinitions.ConditionHolyAura.conditionEndParticleReference;
+
             conditionAuraBonus.forceTurnOccurence = true;
+
             var powerAura = FeatureDefinitionPowerBuilder
                 .Create($"Power{Name}Aura")
                 .SetGuiPresentation(Category.Feature)

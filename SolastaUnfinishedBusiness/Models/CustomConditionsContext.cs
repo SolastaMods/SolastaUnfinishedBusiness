@@ -118,8 +118,7 @@ internal static class CustomConditionsContext
             .Create("ConditionTaunted")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
             .SetConditionType(ConditionType.Detrimental)
-            .SetConditionParticleReference(
-                ConditionDefinitions.ConditionUnderDemonicInfluence.conditionParticleReference)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionUnderDemonicInfluence)
             .SetFeatures(combatAffinityTaunted)
             .AddCustomSubFeatures(new CustomBehaviorTaunted())
             .AddToDB();
