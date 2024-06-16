@@ -365,25 +365,29 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(Daylight)
+                    .Create()
                     .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 6, 8)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd)
-                    .AddEffectForms(
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(effectProxy)
+                            .Build(),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeRadiant, 4, DieType.D10)
                             .Build())
+                    .SetParticleEffectParameters(Daylight)
                     .SetImpactEffectParameters(Sunburst)
                     .Build())
             .AddToDB();
 
         spell.EffectDescription.effectParticleParameters.activeEffectImpactParticleReference =
             Sunburst.EffectDescription.EffectParticleParameters.impactParticleReference;
-        spell.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = effectProxy.Name;
 
         return spell;
     }

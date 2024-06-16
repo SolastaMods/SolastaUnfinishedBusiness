@@ -407,17 +407,13 @@ internal static class MeleeCombatFeats
     private sealed class CustomBehaviorGreatWeaponDefense(
         ConditionDefinition conditionArmorClass,
         ConditionDefinition conditionMovement)
-        : IPhysicalAttackInitiatedByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy, IOnReducedToZeroHpByMe,
+        : IPhysicalAttackFinishedByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy, IOnReducedToZeroHpByMe,
             IOnItemEquipped
     {
         public void OnItemEquipped(RulesetCharacterHero hero)
         {
-            if (!HasFreeHandWithHeavyOrVersatileInMain(hero))
-            {
-                return;
-            }
-
-            if (hero.TryGetConditionOfCategoryAndType(
+            if (!HasFreeHandWithHeavyOrVersatileInMain(hero) &&
+                hero.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionArmorClass.Name, out var activeCondition))
             {
                 hero.RemoveCondition(activeCondition);
@@ -464,36 +460,20 @@ internal static class MeleeCombatFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (!criticalHit ||
-                !ValidatorsWeapon.IsMelee(attackMode))
+            if (criticalHit)
             {
-                yield break;
+                yield return HandleReducedToZeroHpByMe(attacker, defender, attackMode, null);
             }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            rulesetAttacker.InflictCondition(
-                conditionMovement.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                conditionMovement.Name,
-                0,
-                0,
-                0);
         }
 
-        public IEnumerator OnPhysicalAttackInitiatedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -524,7 +504,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode = null)
         {
             var rulesetItem = character.GetMainWeapon();
-            var itemDefinition = attackMode?.SourceDefinition as ItemDefinition ?? rulesetItem.ItemDefinition;
+            var itemDefinition = attackMode?.SourceDefinition as ItemDefinition ?? rulesetItem?.ItemDefinition;
 
             return
                 character.HasFreeHandSlot() &&
