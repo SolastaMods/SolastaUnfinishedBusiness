@@ -588,6 +588,11 @@ public static class CharacterActionMagicEffectPatcher
             bool firstTarget,
             bool checkMagicalAttackDamage)
         {
+            if (target.RulesetCharacter is RulesetCharacterEffectProxy)
+            {
+                yield break;
+            }
+
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (!battleManager)
