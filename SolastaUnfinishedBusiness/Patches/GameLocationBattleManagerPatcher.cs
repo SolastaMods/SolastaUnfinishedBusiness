@@ -780,10 +780,10 @@ public static class GameLocationBattleManagerPatcher
             {
                 var controller = attacker.GetEffectControllerOrSelf();
 
-                foreach (var magicalAttackBeforeHitConfirmedOnEnemy in controller.RulesetCharacter
+                foreach (var magicEffectBeforeHitConfirmedOnEnemy in controller.RulesetCharacter
                              .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnEnemy>())
                 {
-                    yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
+                    yield return magicEffectBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
                         __instance, controller, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget,
                         criticalHit);
                 }
@@ -793,11 +793,11 @@ public static class GameLocationBattleManagerPatcher
 
                 if (hero != null)
                 {
-                    foreach (var magicalAttackBeforeHitConfirmedOnEnemy in hero.TrainedMetamagicOptions
+                    foreach (var magicEffectBeforeHitConfirmedOnEnemy in hero.TrainedMetamagicOptions
                                  .SelectMany(metamagic =>
                                      metamagic.GetAllSubFeaturesOfType<IMagicEffectBeforeHitConfirmedOnEnemy>()))
                     {
-                        yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
+                        yield return magicEffectBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
                             __instance, controller, defender, magicModifier, rulesetEffect, actualEffectForms,
                             firstTarget,
                             criticalHit);
@@ -844,9 +844,7 @@ public static class GameLocationBattleManagerPatcher
             // should also happen outside battles
             if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                foreach (var magicalAttackBeforeHitConfirmedOnMe in defender.RulesetCharacter.usableSpells
-                             .Where(usableSpell =>
-                                 usableSpell.ActivationTime == ActivationTime.Reaction)
+                foreach (var magicalAttackBeforeHitConfirmedOnMe in defender.RulesetCharacter.UsableSpells
                              .SelectMany(x => x.GetAllSubFeaturesOfType<IMagicEffectBeforeHitConfirmedOnMe>())
                              .ToList())
                 {

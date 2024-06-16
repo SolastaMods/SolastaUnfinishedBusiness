@@ -1,5 +1,6 @@
 1.5.97.15:
 
+- added a priority order to all features interacting with attack rolls to try change result or buff/debuff contenders
 - added new dagger recipes [by MagicSword]
 - added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [by Otearaisu]
 - converted Devastating Strikes to grant +1 DEX or STR, trigger on any melee attack, and add pb damage once per turn
@@ -13,6 +14,7 @@
 - fixed Dawn spell to not counter and not dispel Magical Darkness
 - fixed Domain Tempest wrath of the storm triggering on ally hit
 - fixed effect proxies interactions with each other, i.e., Darkness, Daylight, Wind Wall [VANILLA]
+- fixed Elemental Bane spell behavior, and improved SFX
 - fixed Mass Cure Wounds incorrect dice assignment after 'Enable OneDnd healing dice buff' setting was added
 - fixed Mobile feat to only prevent AoO from defender that was attacked with a melee weapon
 - fixed Psionic Blast spell duration, and improved SFX

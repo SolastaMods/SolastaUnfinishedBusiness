@@ -7,7 +7,14 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 
 public interface ITryAlterOutcomeAttack
 {
+    // using these priorities across the mod
+    // -50 = Way of the Silhouette Shadowy Sanctuary
+    // -10 = anything that changes attack rolls
     // non-negative priorities will only trigger if attack is success or critical success
+    //   0 = Roguish Acrobat Heroic Uncanny Dodge
+    //  10 = anything that adds resistance to damage
+    //  20 = anything that reduces damage
+    //  30 = anything that debuffs or damages attacker
     public int HandlerPriority { get; }
 
     public IEnumerator OnTryAlterOutcomeAttack(

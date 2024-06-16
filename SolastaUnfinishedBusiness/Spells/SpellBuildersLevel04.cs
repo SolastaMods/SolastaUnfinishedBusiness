@@ -392,7 +392,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Chromatic Orb
+    #region Elemental Bane
 
     internal static SpellDefinition BuildElementalBane()
     {
@@ -509,7 +509,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorElementalBane(string damageType, ConditionDefinition conditionAttacker)
-        : IModifyDamageAffinity, IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe
+        : IModifyDamageAffinity, ITryAlterOutcomeAttack, IMagicEffectBeforeHitConfirmedOnMe
     {
         private const string Tag = "ElementalBane";
 
@@ -520,32 +520,47 @@ internal static partial class SpellBuilders
             ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
-            bool firstTarget, bool criticalHit)
+            bool firstTarget,
+            bool criticalHit)
         {
-            yield return Handle(attacker, defender, actualEffectForms);
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield return Handle(attacker, defender, actualEffectForms);
+            }
         }
 
+        public int HandlerPriority => 10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
+        {
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
+            var actualEffectForms =
+                attackMode?.EffectDescription.EffectForms ?? rulesetEffect?.EffectDescription.EffectForms ?? [];
+
+            yield return Handle(attacker, defender, actualEffectForms);
+        }
+        
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
             features.RemoveAll(x =>
                 x is IDamageAffinityProvider damageAffinityProvider &&
                 damageAffinityProvider.DamageType == damageType &&
                 damageAffinityProvider.DamageAffinityType is DamageAffinityType.Resistance);
-        }
-
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            yield return Handle(attacker, defender, actualEffectForms);
         }
 
         private IEnumerator Handle(
