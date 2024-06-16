@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -18,6 +19,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
+[UsedImplicitly]
 public sealed class PathOfTheWildMagic : AbstractSubclass
 {
     private const string Name = "PathOfTheWildMagic";
@@ -151,6 +153,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .AddToDB();
             _powers = [];
 
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var effect in _wildSurgeEffects)
             {
                 var title = Gui.Localize($"Condition/&{ConditionWildSurgePrefix}{effect.EffectName}Title");
@@ -945,12 +948,10 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var usablePowerPool = PowerProvider.Get(_powerPool, rulesetAttacker);
 
             myUsablePowers.Add(usablePowerPool);
+            
             if (firstRoll == secondRoll)
             {
-                foreach (var power in _powers)
-                {
-                    myUsablePowers.Add(PowerProvider.Get(power, rulesetAttacker));
-                }
+                myUsablePowers.AddRange(_powers.Select(power => PowerProvider.Get(power, rulesetAttacker)));
             }
             else
             {
@@ -959,6 +960,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             }
 
             var usablePowersOrig = rulesetAttacker.usablePowers;
+            
             rulesetAttacker.usablePowers = myUsablePowers;
 
             var implementationManager =
@@ -1030,9 +1032,10 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         private ConditionDefinition GetExistingWildSurgeCondition(RulesetCharacter character)
         {
+            // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
             foreach (var wildEffect in _wildSurgeEffects)
             {
-                if (wildEffect.Condition != null &&
+                if (wildEffect.Condition &&
                     character.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, wildEffect.Condition.Name))
                 {
                     return wildEffect.Condition;
@@ -1063,18 +1066,18 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     return;
                 }
 
-                foreach (var proxy in locationCharacter.RulesetCharacter.controlledEffectProxies)
+                foreach (var proxy in locationCharacter.RulesetCharacter.controlledEffectProxies
+                             .Where(proxy => 
+                                 proxy?.EffectProxyDefinition?.Name == powerSummon?.Name &&
+                                 proxy?.ControllerGuid != null))
                 {
-                    if (proxy?.EffectProxyDefinition?.Name != powerSummon?.Name || proxy?.ControllerGuid == null)
+                    if (!RulesetEntity.TryGetEntity<RulesetCharacter>(proxy.ControllerGuid, out var controller))
                     {
                         continue;
                     }
 
-                    if (RulesetEntity.TryGetEntity<RulesetCharacter>(proxy.ControllerGuid, out var controller))
-                    {
-                        var service = ServiceRepository.GetService<IRulesetImplementationService>();
-                        service.AutoTriggerProxy(proxy, controller);
-                    }
+                    var service = ServiceRepository.GetService<IRulesetImplementationService>();
+                    service.AutoTriggerProxy(proxy, controller);
                 }
             }
         }
@@ -1126,7 +1129,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
     #region Bolstering Magic
 
-    private static FeatureDefinition BuildFeatureBolsteringMagic()
+    private static FeatureDefinitionFeatureSet BuildFeatureBolsteringMagic()
     {
         var powerBolsteringMagic = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BolsteringMagic")
@@ -1278,7 +1281,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
     #region Unstable Backlash
 
-    private static FeatureDefinition BuildFeatureUnstableBacklash(WildSurgeHandler wildSurgeHandler)
+    private static FeatureDefinitionPower BuildFeatureUnstableBacklash(WildSurgeHandler wildSurgeHandler)
     {
         var powerUnstableBackslash = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}UnstableBacklash")
