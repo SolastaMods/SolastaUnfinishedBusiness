@@ -41,7 +41,7 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "e93a9e29f35763940acb4955ce60d5b2",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
