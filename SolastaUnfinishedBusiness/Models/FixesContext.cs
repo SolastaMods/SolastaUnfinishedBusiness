@@ -399,6 +399,20 @@ internal static class FixesContext
 
     private static void FixMinorMagicEffectsIssues()
     {
+        // fix issues with bad targeting
+        Darkness.EffectDescription.targetFilteringMethod = TargetFilteringMethod.AllCharacterAndGadgets;
+        Daylight.EffectDescription.targetFilteringMethod = TargetFilteringMethod.AllCharacterAndGadgets;
+        WindWall.EffectDescription.targetFilteringMethod = TargetFilteringMethod.AllCharacterAndGadgets;
+
+        // not exactly spells but these are all Darkness variations for enemies
+        FeatureDefinitionPowers.PowerDefilerDarkness.EffectDescription.targetFilteringMethod =
+            TargetFilteringMethod.AllCharacterAndGadgets;
+        FeatureDefinitionPowers.PowerSorakWordOfDarkness.EffectDescription.targetFilteringMethod =
+            TargetFilteringMethod.AllCharacterAndGadgets;
+        // well :-)
+        FeatureDefinitionPowers.PowerDomainSunIndomitableLight.EffectDescription.targetFilteringMethod =
+            TargetFilteringMethod.AllCharacterAndGadgets;
+
         // fix Resurrection
         Resurrection.EffectDescription.EffectForms[0].ReviveForm.maxSecondsSinceDeath = 864000;
 
