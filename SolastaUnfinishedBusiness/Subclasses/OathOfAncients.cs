@@ -263,15 +263,9 @@ public sealed class OathOfAncients : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class MagicEffectBeforeHitConfirmedOnMeAuraWarding : IMagicEffectBeforeHitConfirmedOnMe
+    private sealed class MagicEffectBeforeHitConfirmedOnMeAuraWarding(ConditionDefinition conditionWardingAura)
+        : IMagicEffectBeforeHitConfirmedOnMe
     {
-        private readonly ConditionDefinition _conditionWardingAura;
-
-        internal MagicEffectBeforeHitConfirmedOnMeAuraWarding(ConditionDefinition conditionWardingAura)
-        {
-            _conditionWardingAura = conditionWardingAura;
-        }
-
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -285,7 +279,7 @@ public sealed class OathOfAncients : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.InflictCondition(
-                _conditionWardingAura.Name,
+                conditionWardingAura.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
@@ -293,7 +287,7 @@ public sealed class OathOfAncients : AbstractSubclass
                 rulesetDefender.guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                _conditionWardingAura.Name,
+                conditionWardingAura.Name,
                 0,
                 0,
                 0);

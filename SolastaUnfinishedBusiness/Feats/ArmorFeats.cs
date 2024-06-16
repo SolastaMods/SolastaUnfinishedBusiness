@@ -146,7 +146,8 @@ internal static class ArmorFeats
     private sealed class CustomBehaviorShieldTechniques(
         FeatureDefinitionPower powerShieldTechniques,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionMark) : IRollSavingThrowInitiated, IMagicEffectBeforeHitConfirmedOnMe
+        ConditionDefinition conditionMark)
+        : IRollSavingThrowInitiated, ITryAlterOutcomeAttack, IMagicEffectBeforeHitConfirmedOnMe
     {
         // halve any damage taken
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
@@ -242,6 +243,33 @@ internal static class ArmorFeats
             rollModifier += 2;
             modifierTrends.Add(
                 new TrendInfo(2, FeatureSourceType.Power, powerShieldTechniques.Name, powerShieldTechniques));
+        }
+
+        public int HandlerPriority => 10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
+        {
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager ||
+                rulesetEffect == null)
+            {
+                yield break;
+            }
+
+            var actualEffectForms = rulesetEffect.EffectDescription.EffectForms ?? [];
+
+            yield return OnMagicEffectBeforeHitConfirmedOnMe(battleManager, attacker, defender, actionModifier,
+                rulesetEffect, actualEffectForms, false, false);
         }
     }
 }
