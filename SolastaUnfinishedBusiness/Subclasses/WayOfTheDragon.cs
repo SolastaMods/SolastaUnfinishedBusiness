@@ -911,6 +911,8 @@ public sealed class WayOfTheDragon : AbstractSubclass
             }
         }
 
+        public int HandlerPriority => 10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,

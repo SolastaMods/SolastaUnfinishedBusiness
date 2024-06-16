@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -6,7 +7,9 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 
 public interface ITryAlterOutcomeAttack
 {
-    IEnumerator OnTryAlterOutcomeAttack(
+    public int HandlerPriority { get; }
+
+    public IEnumerator OnTryAlterOutcomeAttack(
         GameLocationBattleManager instance,
         CharacterAction action,
         GameLocationCharacter attacker,
@@ -34,31 +37,30 @@ internal static class TryAlterOutcomeAttack
              locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
             .ToList();
 
+        var handlers = new List<(ITryAlterOutcomeAttack, GameLocationCharacter)>();
+
         foreach (var unit in contenders
                      .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                      .ToList())
         {
-            foreach (var feature in unit.RulesetCharacter
-                         .GetSubFeaturesByType<ITryAlterOutcomeAttack>())
-            {
-                yield return feature.OnTryAlterOutcomeAttack(
-                    battleManager, action, attacker, defender, unit, actionModifier, attackMode, rulesetEffect);
-            }
+            handlers.AddRange(unit.RulesetCharacter.GetSubFeaturesByType<ITryAlterOutcomeAttack>()
+                .Select(handler => (handler, unit)));
 
             // supports metamagic use cases
             var hero = unit.RulesetCharacter.GetOriginalHero();
 
-            if (hero == null)
+            if (hero != null)
             {
-                continue;
+                handlers.AddRange(hero.TrainedMetamagicOptions
+                    .SelectMany(metamagic => metamagic.GetAllSubFeaturesOfType<ITryAlterOutcomeAttack>())
+                    .Select(handler => (handler, unit)));
             }
+        }
 
-            foreach (var feature in hero.TrainedMetamagicOptions
-                         .SelectMany(metamagic => metamagic.GetAllSubFeaturesOfType<ITryAlterOutcomeAttack>()))
-            {
-                yield return feature.OnTryAlterOutcomeAttack(
-                    battleManager, action, attacker, defender, unit, actionModifier, attackMode, rulesetEffect);
-            }
+        foreach (var (handler, unit) in handlers.OrderBy(x => x.Item1.HandlerPriority))
+        {
+            yield return handler.OnTryAlterOutcomeAttack(
+                battleManager, action, attacker, defender, unit, actionModifier, attackMode, rulesetEffect);
         }
     }
 }

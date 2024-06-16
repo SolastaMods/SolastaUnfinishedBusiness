@@ -459,6 +459,8 @@ internal static class MetamagicBuilders
 
     private sealed class TryAlterOutcomeAttackMetamagicSeeking : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => 0;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,

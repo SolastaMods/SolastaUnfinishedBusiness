@@ -1011,6 +1011,8 @@ internal static class EldritchVersatilityBuilders
 
     private sealed class EldritchAegisTwistHit : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => 0;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,

@@ -1024,6 +1024,8 @@ internal static class Level20Context
     private class TryAlterOutcomeAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
         : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => 0;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,

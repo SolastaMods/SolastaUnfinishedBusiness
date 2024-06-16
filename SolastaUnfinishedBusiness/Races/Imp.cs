@@ -546,6 +546,8 @@ internal static class RaceImpBuilder
 
     private class ImpSpiteAttackOnHit : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => 0;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,
@@ -586,6 +588,8 @@ internal static class RaceImpBuilder
         ITryAlterOutcomeSavingThrow
     {
         private const int InspirationValue = 3;
+
+        public int HandlerPriority => 0;
 
         public IEnumerator OnTryAlterOutcomeAttack(GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -628,6 +632,7 @@ internal static class RaceImpBuilder
             {
                 yield break;
             }
+
             action.AttackSuccessDelta += InspirationValue;
             action.AttackRollOutcome = RollOutcome.Success;
             actionModifier.AttackRollModifier += InspirationValue;
@@ -676,6 +681,7 @@ internal static class RaceImpBuilder
             {
                 yield break;
             }
+
             action.RolledSaveThrow = true;
             action.saveOutcomeDelta = 0;
             action.saveOutcome = RollOutcome.Success;

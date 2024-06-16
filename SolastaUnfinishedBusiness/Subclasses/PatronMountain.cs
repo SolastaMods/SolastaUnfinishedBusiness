@@ -229,6 +229,8 @@ public class PatronMountain : AbstractSubclass
         FeatureDefinitionPower powerBarrierOfStone,
         FeatureDefinitionPower powerEternalGuardian) : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => 20;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,

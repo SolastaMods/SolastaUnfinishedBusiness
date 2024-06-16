@@ -64,6 +64,8 @@ internal sealed class Interception : AbstractFightingStyle
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition) : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => 20;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,

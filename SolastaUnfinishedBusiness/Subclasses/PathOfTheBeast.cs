@@ -520,6 +520,8 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .AddToDB();
         }
 
+        public int HandlerPriority => 30;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,
@@ -822,6 +824,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                     return false;
                 }
 
+                // ReSharper disable once InvertIf
                 if (!target.CanReact())
                 {
                     __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToReact");

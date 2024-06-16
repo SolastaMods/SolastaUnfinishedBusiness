@@ -258,6 +258,8 @@ public sealed class MartialGuardian : AbstractSubclass
             rulesetCharacter.RepayPowerUse(rulesetUsablePower);
         }
 
+        public int HandlerPriority => 10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,

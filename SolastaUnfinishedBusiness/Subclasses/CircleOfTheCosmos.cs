@@ -858,6 +858,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         private const DieType DieType = RuleDefinitions.DieType.D6;
         private static readonly int MaxDieTypeValue = DiceMaxValue[(int)DieType];
 
+        public int HandlerPriority => 0;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1094,6 +1096,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     {
         private const DieType DieType = RuleDefinitions.DieType.D6;
         private static readonly int MaxDieTypeValue = DiceMaxValue[(int)DieType];
+
+        public int HandlerPriority => 0;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,

@@ -157,6 +157,8 @@ internal static class RaceOligathBuilder
     private class CustomBehaviorStoneEndurance(FeatureDefinitionPower powerStoneEndurance)
         : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => 10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,

@@ -381,6 +381,8 @@ public sealed class DomainTempest : AbstractSubclass
             }
         }
 
+        public int HandlerPriority => 30;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,

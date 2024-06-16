@@ -1971,6 +1971,8 @@ internal static partial class SpellBuilders
             _conditionReduceDamage = conditionReduceDamage;
         }
 
+        public int HandlerPriority => 20;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,

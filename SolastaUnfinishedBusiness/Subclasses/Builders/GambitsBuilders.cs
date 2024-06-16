@@ -1683,6 +1683,8 @@ internal static class GambitsBuilders
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
 
+        public int HandlerPriority => 0;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
             CharacterAction action,
@@ -1782,6 +1784,8 @@ internal static class GambitsBuilders
     private sealed class Parry(FeatureDefinitionPower pool, FeatureDefinition feature) : ITryAlterOutcomeAttack
     {
         private const string Line = "Feedback/&GambitParryDamageReduction";
+
+        public int HandlerPriority => 0;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,

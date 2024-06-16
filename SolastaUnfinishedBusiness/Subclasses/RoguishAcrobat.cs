@@ -202,6 +202,8 @@ public sealed class RoguishAcrobat : AbstractSubclass
         : ITryAlterOutcomeAttack
 
     {
+        public int HandlerPriority => 20;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,

@@ -2012,6 +2012,8 @@ internal static class OtherFeats
             _modifier = saveBonus + rollModifier;
         }
 
+        public int HandlerPriority => 0;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -2540,7 +2542,7 @@ internal static class OtherFeats
 
                 var defender = action.ActionParams.TargetCharacters[0];
                 var rulesetDefender = defender.RulesetCharacter;
-                    
+
                 rulesetDefender.InflictCondition(
                     conditionMark.Name,
                     DurationType.Round,
@@ -2571,7 +2573,7 @@ internal static class OtherFeats
                     0,
                     0);
             }
-            
+
             yield break;
         }
     }

@@ -158,6 +158,8 @@ public sealed class WizardWarMagic : AbstractSubclass
         ConditionDefinition conditionArcaneDeflection,
         FeatureDefinitionPower powerDeflectionShroud) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
     {
+        public int HandlerPriority => 0;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,

@@ -332,6 +332,8 @@ public sealed class RangerGloomStalker : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureShadowyDodge) : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => 0;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,

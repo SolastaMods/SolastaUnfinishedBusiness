@@ -641,6 +641,8 @@ internal static class RaceFeats
             _modifier = saveBonus + rollModifier;
         }
 
+        public int HandlerPriority => 0;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1871,6 +1873,8 @@ internal static class RaceFeats
         FeatureDefinition featureSecondChance,
         ConditionDefinition conditionSecondChance) : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => 0;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
