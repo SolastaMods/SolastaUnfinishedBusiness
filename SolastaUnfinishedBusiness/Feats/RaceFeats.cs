@@ -641,7 +641,7 @@ internal static class RaceFeats
             _modifier = saveBonus + rollModifier;
         }
 
-        public int HandlerPriority => 0;
+        public int HandlerPriority => 1000;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
@@ -713,6 +713,10 @@ internal static class RaceFeats
             if (action.AttackSuccessDelta >= 0)
             {
                 action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
+            }
+            else
+            {
+                action.AttackRollOutcome = dieRoll == 1 ? RollOutcome.CriticalFailure : RollOutcome.Failure;
             }
 
             rulesetHelper.InflictCondition(
@@ -1873,7 +1877,7 @@ internal static class RaceFeats
         FeatureDefinition featureSecondChance,
         ConditionDefinition conditionSecondChance) : ITryAlterOutcomeAttack
     {
-        public int HandlerPriority => 0;
+        public int HandlerPriority => 1000;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,

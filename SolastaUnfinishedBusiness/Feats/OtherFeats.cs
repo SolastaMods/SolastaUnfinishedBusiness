@@ -2012,7 +2012,7 @@ internal static class OtherFeats
             _modifier = saveBonus + rollModifier;
         }
 
-        public int HandlerPriority => 0;
+        public int HandlerPriority => 1000;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
@@ -2109,6 +2109,10 @@ internal static class OtherFeats
             if (action.AttackSuccessDelta >= 0)
             {
                 action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
+            }
+            else
+            {
+                action.AttackRollOutcome = dieRoll == 1 ? RollOutcome.CriticalFailure : RollOutcome.Failure;
             }
 
             rulesetHelper.LogCharacterActivatesAbility(

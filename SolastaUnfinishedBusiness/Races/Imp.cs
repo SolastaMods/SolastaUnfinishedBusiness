@@ -546,7 +546,7 @@ internal static class RaceImpBuilder
 
     private class ImpSpiteAttackOnHit : ITryAlterOutcomeAttack
     {
-        public int HandlerPriority => 0;
+        public int HandlerPriority => 1000;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
@@ -589,7 +589,7 @@ internal static class RaceImpBuilder
     {
         private const int InspirationValue = 3;
 
-        public int HandlerPriority => 0;
+        public int HandlerPriority => 1000;
 
         public IEnumerator OnTryAlterOutcomeAttack(GameLocationBattleManager battleManager,
             CharacterAction action,

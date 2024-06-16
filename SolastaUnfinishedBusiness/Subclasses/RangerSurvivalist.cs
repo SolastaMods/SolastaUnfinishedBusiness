@@ -207,7 +207,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
 
     private sealed class TryAlterOutcomeAttackBlessingWilderness : ITryAlterOutcomeAttack
     {
-        public int HandlerPriority => 0;
+        public int HandlerPriority => 1000;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
