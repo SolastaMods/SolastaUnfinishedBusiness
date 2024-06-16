@@ -780,6 +780,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
                 rulesetHelper.GetRemainingPowerUses(powerKineticBarrier) == 0)

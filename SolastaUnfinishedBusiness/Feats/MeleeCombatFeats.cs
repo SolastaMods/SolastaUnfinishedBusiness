@@ -374,7 +374,7 @@ internal static class MeleeCombatFeats
 
         var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .AddToDB();
 
@@ -389,7 +389,7 @@ internal static class MeleeCombatFeats
 
         var movementAffinity = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
             .SetBaseSpeedAdditiveModifier(3)
             .AddToDB();
 
@@ -442,7 +442,7 @@ internal static class MeleeCombatFeats
                 conditionMovement.Name,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
@@ -2139,7 +2139,7 @@ internal static class MeleeCombatFeats
 
     private static readonly FeatureDefinition PowerWhirlWindAttack = FeatureDefinitionPowerBuilder
         .Create("PowerWhirlWindAttack")
-        .SetGuiPresentation(Category.Feature,
+        .SetGuiPresentation("FeatWhirlWindAttack", Category.Feat,
             Sprites.GetSprite("PowerWhirlWindAttack", Resources.PowerWhirlWindAttack, 256, 128))
         .SetUsesFixed(ActivationTime.NoCost)
         .SetShowCasting(false)

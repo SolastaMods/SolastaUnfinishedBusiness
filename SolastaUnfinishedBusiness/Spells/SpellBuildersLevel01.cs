@@ -1983,7 +1983,8 @@ internal static partial class SpellBuilders
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper.IsOppositeSide(defender.Side))
             {
                 yield break;
             }

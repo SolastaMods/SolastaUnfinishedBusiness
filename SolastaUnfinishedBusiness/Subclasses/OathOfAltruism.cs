@@ -240,6 +240,7 @@ public sealed class OathOfAltruism : AbstractSubclass
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 helper == defender ||
+                helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact(true) ||
                 !helper.CanPerceiveTarget(defender) ||
                 rulesetHelper.GetRemainingPowerUses(powerSpiritualShielding) == 0)

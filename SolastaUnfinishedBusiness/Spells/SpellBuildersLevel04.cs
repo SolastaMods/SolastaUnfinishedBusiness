@@ -222,7 +222,6 @@ internal static partial class SpellBuilders
             .SetSomaticComponent(false)
             .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -243,9 +242,9 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(Fear)
                     .SetCasterEffectParameters(ViciousMockery)
                     .SetImpactEffectParameters(PowerMagebaneWarcry)
-                    .SetEffectEffectParameters(Fear)
                     .Build())
             .AddToDB();
 

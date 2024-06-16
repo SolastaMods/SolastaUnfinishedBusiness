@@ -252,6 +252,7 @@ public class PatronMountain : AbstractSubclass
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 helper == defender ||
+                helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(attacker) ||
                 !helper.CanPerceiveTarget(defender) ||

@@ -1034,6 +1034,7 @@ internal static class EldritchVersatilityBuilders
                 defenderCharacter, out var eldritchAegisSupportCondition);
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper.IsOppositeSide(defender.Side) ||
                 (!alreadyBlocked &&
                  (!defender.IsWithinRange(helper, 6) || !helper.CanPerceiveTarget(defender))))
             {
