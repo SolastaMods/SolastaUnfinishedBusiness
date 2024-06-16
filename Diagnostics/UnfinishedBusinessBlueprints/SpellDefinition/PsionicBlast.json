@@ -11,7 +11,7 @@
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
-  "requiresConcentration": true,
+  "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -198,7 +198,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b295854ad38bcdb4faa4a2e09bdb30dd",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
