@@ -1386,7 +1386,6 @@ FeatGroupTwoWeaponCombat	FeatDefinition	FeatDefinition	62597d02-7727-525e-ac88-4
 FeatGroupUnarmoredCombat	FeatDefinition	FeatDefinition	af80122b-d06d-5b88-99db-09e33e54fe63
 FeatGroupVerdantTouched	FeatDefinition	FeatDefinition	38d2b36a-fe3e-5d3e-92cf-464b98133432
 FeatGroupWeaponMaster	FeatDefinition	FeatDefinition	b5135d1b-4309-5d0e-a75e-36b5924a8f82
-FeatGroupWhirlWindAttack	FeatDefinitionWithPrerequisites	FeatDefinition	af0f2825-c6f1-5b79-9fe6-54bcdce40bf0
 FeatGrudgeBearerCon	FeatDefinitionWithPrerequisites	FeatDefinition	ad80b302-064a-5dad-b483-4fba286a8245
 FeatGrudgeBearerStr	FeatDefinitionWithPrerequisites	FeatDefinition	c53d92d3-66e8-5c23-8249-576157d393df
 FeatGrudgeBearerWis	FeatDefinitionWithPrerequisites	FeatDefinition	edd3a449-64a9-5f81-9899-0dd7de0f146f
@@ -1501,8 +1500,8 @@ FeatVerdantTouchedWis	FeatDefinition	FeatDefinition	ccd5633f-c3a9-516d-a6dc-cacc
 FeatWarCaster	FeatDefinition	FeatDefinition	3e4e09ed-d5a3-5ce0-b82b-55d20e2f4c09
 FeatWeaponMasterDex	FeatDefinition	FeatDefinition	6d530af3-df84-5683-bf1f-5722fb7a2bd0
 FeatWeaponMasterStr	FeatDefinition	FeatDefinition	772a3cc0-2d05-569c-8bf1-b1520ebd39b6
-FeatWhirlWindAttackDex	FeatDefinitionWithPrerequisites	FeatDefinition	23b7b942-a633-5d0f-8905-d930eb352715
-FeatWhirlWindAttackStr	FeatDefinitionWithPrerequisites	FeatDefinition	afb13a4c-6d0b-58a6-9ed9-cfaa2e9e699f
+FeatWhirlWindAttackDex	FeatDefinition	FeatDefinition	23b7b942-a633-5d0f-8905-d930eb352715
+FeatWhirlWindAttackStr	FeatDefinition	FeatDefinition	afb13a4c-6d0b-58a6-9ed9-cfaa2e9e699f
 FeatWiseDefense	FeatDefinition	FeatDefinition	e462dc4b-d1fb-5fbd-80a9-1ae6b4ef3398
 FeatWisePrecision	FeatDefinition	FeatDefinition	7a506dcf-6c03-5b2a-8ad1-ed9eae430df8
 FeatWoodElfMagic	FeatDefinitionWithPrerequisites	FeatDefinition	d945cb80-7efa-56a2-8365-01e0b0f5738a

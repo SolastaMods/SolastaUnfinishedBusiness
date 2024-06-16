@@ -60,8 +60,7 @@ internal static class MeleeCombatFeats
         var featSlasherStr = BuildSlasherStr();
         var featSlasherDex = BuildSlasherDex();
         var featSpearMastery = BuildSpearMastery();
-        var featWhirlwindAttackDex = BuildWhirlWindAttackDex();
-        var featWhirlwindAttackStr = BuildWhirlWindAttackStr();
+        var featWhirlwindAttack = BuildWhirlWindAttack();
 
         feats.AddRange(
             FeatFencer,
@@ -87,8 +86,7 @@ internal static class MeleeCombatFeats
             featSlasherDex,
             featSlasherStr,
             featSpearMastery,
-            featWhirlwindAttackDex,
-            featWhirlwindAttackStr);
+            featWhirlwindAttack);
 
         var featGroupOldTactics = GroupFeats.MakeGroup("FeatGroupOldTactics", GroupFeats.OldTactics,
             featOldTacticsDex,
@@ -102,12 +100,6 @@ internal static class MeleeCombatFeats
             GroupFeats.DevastatingStrikes,
             featDevastatingStrikesDex,
             featDevastatingStrikesStr);
-
-        var featGroupWhirlwindAttack = GroupFeats.MakeGroupWithPreRequisite("FeatGroupWhirlWindAttack",
-            GroupFeats.WhirlwindAttack,
-            ValidatorsFeat.ValidateHasExtraAttack,
-            featWhirlwindAttackDex,
-            featWhirlwindAttackStr);
 
         GroupFeats.FeatGroupCrusher.AddFeats(
             featCrusherStr,
@@ -138,7 +130,7 @@ internal static class MeleeCombatFeats
             featSpearMastery,
             featGroupOldTactics,
             featGroupSlasher,
-            featGroupWhirlwindAttack);
+            featWhirlwindAttack);
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featGreatWeaponDefense);
@@ -2148,25 +2140,20 @@ internal static class MeleeCombatFeats
             new MagicEffectFinishedByMeWhirlWindAttack())
         .AddToDB();
 
-    private static FeatDefinitionWithPrerequisites BuildWhirlWindAttackDex()
+    private static FeatDefinition BuildWhirlWindAttack()
     {
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create("FeatWhirlWindAttackDex")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, PowerWhirlWindAttack)
-            .SetFeatFamily(GroupFeats.WhirlwindAttack)
-            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
-            .AddToDB();
-    }
-
-    private static FeatDefinitionWithPrerequisites BuildWhirlWindAttackStr()
-    {
-        return FeatDefinitionWithPrerequisitesBuilder
+        // kept for backward compatibility
+        _ = FeatDefinitionBuilder
             .Create("FeatWhirlWindAttackStr")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar, PowerWhirlWindAttack)
-            .SetFeatFamily(GroupFeats.WhirlwindAttack)
-            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
+            .SetGuiPresentation("FeatWhirlWindAttack", Category.Feat, hidden: true)
+            .SetFeatures(PowerWhirlWindAttack)
+            .AddToDB();
+
+        // name kept for backward compatibility
+        return FeatDefinitionBuilder
+            .Create("FeatWhirlWindAttackDex")
+            .SetGuiPresentation("FeatWhirlWindAttack", Category.Feat)
+            .SetFeatures(PowerWhirlWindAttack)
             .AddToDB();
     }
 

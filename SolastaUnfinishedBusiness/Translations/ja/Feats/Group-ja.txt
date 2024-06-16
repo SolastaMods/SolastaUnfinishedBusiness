@@ -142,5 +142,3 @@ Feat/&FeatGroupVerdantTouchedDescription=精神属性の 1 つを 1 つ増やし
 Feat/&FeatGroupVerdantTouchedTitle=緑豊かなタッチ
 Feat/&FeatGroupWeaponMasterDescription=さまざまな武器を使って徹底的に練習したため、次のようなメリットが得られます。\n• 強さまたは器用さのスコアが 1 増加し、最大 20 になります。\n• 選択した 4 つの武器の熟練度が上がります。それぞれが単純な武器か武用武器でなければなりません。
 Feat/&FeatGroupWeaponMasterTitle=ウェポンマスター
-Feat/&FeatGroupWhirlWindAttackDescription=あなたは死の旋風の達人となり、以下の恩恵を得ます:\n• 筋力または敏捷性が 1 増加します (最大 20)。\n• 大剣、大斧、またはモールを装備して攻撃アクションを実行するとき、自分のターンに 1 回、攻撃 1 回を代わりに旋風攻撃に置き換えることができます。旋風攻撃は、5 フィート以内のすべての敵クリーチャーに対して 1 回の攻撃ロールを行いますが、与えるダメージに属性修正値を追加しません (その修正値がマイナスでない限り)。
-Feat/&FeatGroupWhirlWindAttackTitle=旋風攻撃

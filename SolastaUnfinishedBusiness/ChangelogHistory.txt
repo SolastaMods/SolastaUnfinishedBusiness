@@ -2,12 +2,14 @@
 
 - added Dagger recipes [by MagicSword]
 - added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [by Otearaisu, still in QA]
-- changed Devastating Strikes feat to trigger on any melee attack, grant +1 DEX or STR, and add. pb damage once per turn
+- changed Devastating Strikes to grant +1 DEX or STR, trigger on any melee attack, and add. pb damage once per turn
 - converted Great Weapon Defense into Battle Fervor [movement and AC bonuses, requires RESPEC]
+- converted Whirlwind Attack into Bladestorm [removed +1 DEX or STR, removed extra attack restriction]
 - fixed action surge interactions with bonus spells casting
 - fixed attack cantrips interactions with quickened metamagic
 - fixed attributes addition operations not considering PB or half PB on non armor class ones
 - fixed concentration check causing a soft lock
+- fixed Dawn spell to not dispel Magical Darkness
 - fixed Domain Tempest wrath of the storm triggering on ally hit
 - fixed effect proxies interactions with each other [VANILLA Darkness, Daylight, Wind Wall, and UB Dawn]
 - fixed Elemental Bane spell behavior, and improved SFX

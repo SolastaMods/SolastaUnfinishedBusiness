@@ -125,6 +125,7 @@ internal static class ValidatorsFeat
     // Validators
     //
 
+#if false
     internal static (bool result, string output) ValidateHasExtraAttack(FeatDefinition _, RulesetCharacterHero hero)
     {
         var guiFormat = Gui.Localize("Tooltip/&PreReqMustHaveExtraAttacks");
@@ -137,6 +138,7 @@ internal static class ValidatorsFeat
 
         return !hasExtraAttack ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
     }
+#endif
 
     [NotNull]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,18 +8,17 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "WhirlwindAttack",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
     "Definition:PowerWhirlWindAttack:8d198daa-c292-55c4-8ec3-f8a88cceef82"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatWhirlWindAttackDexTitle",
-    "description": "Feat/&FeatWhirlWindAttackDexDescription",
+    "title": "Feat/&FeatWhirlWindAttackTitle",
+    "description": "Feat/&FeatWhirlWindAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "23b7b942-a633-5d0f-8905-d930eb352715",
+  "guid": "afb13a4c-6d0b-58a6-9ed9-cfaa2e9e699f",
   "contentPack": 9999,
-  "name": "FeatWhirlWindAttackDex"
+  "name": "FeatWhirlWindAttackStr"
 }

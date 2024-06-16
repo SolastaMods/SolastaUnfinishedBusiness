@@ -77,160 +77,164 @@ You fight arduously with large weapons, gaining the following benefits:
 
 You master the dagger, shortsword, longsword, scimitar, rapier, and greatsword. You gain a +1 bonus to attack rolls you make with the weapon, and a +1 bonus to your AC while you're wielding any of them. When you make an opportunity attack with the weapon, you have advantage on the attack roll.
 
-# 16. - Blessed Soul [UB]
+# 16. - Bladestorm [UB]
+
+Once during your turn when you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Bladestorm attack. Bladestorm makes one attack roll against all enemy creatures within 5ft of you but doesn't add your attribute modifier to damage dealt (unless that modifier is negative).
+
+# 17. - Blessed Soul [UB]
 
 Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.
 
-# 17. - Blessing of the Elements [SOL]
+# 18. - Blessing of the Elements [SOL]
 
 Whenever you take fire, cold, or lightning damage, you can use your reaction to become resistant to those damage types until the start of your next turn. This feature recharges on a short rest.
 
-# 18. - *Bountiful Luck* © [UB]
+# 19. - *Bountiful Luck* © [UB]
 
 Your people have extraordinary luck, which you have learned to mystically lend to your companions whenever you see them falter. You're not sure how you do it, you just wish it, and it happens. Surely a sign of fortune's favor!
 • When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to reroll the die. The ally must use the new roll.
 • When you use this ability, you can't use your Lucky racial trait before the end of your next turn.
 
-# 19. - Bow Mastery [UB]
+# 20. - Bow Mastery [UB]
 
 When you use the Attack action with a bow on your turn, you can make one ranged weapon attack as a bonus action, adding your attribute modifier to damage.
 
-# 20. - Burning Touch [SOL]
+# 21. - Burning Touch [SOL]
 
 The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional fire damage equal to your proficiency bonus.
 
-# 21. - Call for Charge [UB]
+# 22. - Call for Charge [UB]
 
 You may use your bonus action to call for a charge. When you do, until the start of your next turn, you and your allies speed increase by 15 ft, and each one have advantage on their first attack roll. You can use this power a number of times per long rest equal to your Charisma modifier.
 
-# 22. - *Charger* © [UB]
+# 23. - *Charger* © [UB]
 
 You have trained to charge headlong into battle, gaining the following benefits:
 • Whenever you take Dash action, you can use your bonus action to make one melee attack.
 • If you move at least 10 feet in a straight line immediately before hitting with a melee weapon or unarmed attack on your turn, choose one of the following effects: gain a +1d8 bonus to the attack's damage roll, or push the target up to 10 feet, provided the target you want to push is of Large size or smaller. You can use this benefit only once on each of your turns.
 
-# 23. - *Chef* © [UB]
+# 24. - *Chef* © [UB]
 
 Increase your Wisdom or Constitution by 1, to a maximum of 20.
 You can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.
 Once a day, you may spend an hour to cook a number of treats equal to your proficiency bonus that provide 5 temporary HP when eaten.
 
-# 24. - Cloak and Dagger [SOL]
+# 25. - Cloak and Dagger [SOL]
 
 After you hit an enemy with a light weapon, you gain +2 AC until the start of your next turn (doesn't stack).
 
-# 25. - Close Quarters [UB]
+# 26. - Close Quarters [UB]
 
 You are experienced with fighting in close quarters and gain the following benefits:
 • Your Dexterity or Intelligence increases by 1, to a maximum of 20.
 • When you deal sneak attack damage with melee weapon attacks while within 5 feet of your target, your sneak dice become d8 instead of d6. This feature also extends to classes that can deal sneak attacks with melee spell attacks, and rogue features that scale off of sneak dice.
 
-# 26. - Creed of Arun [SOL]
+# 27. - Creed of Arun [SOL]
 
 +1 CON to a maximum of 20
  Proficiency in CON saves if not already proficient; +1 otherwise
 
-# 27. - Creed of Einar [SOL]
+# 28. - Creed of Einar [SOL]
 
 +1 STR to a maximum of 20
  Proficiency in STR saves if not already proficient; +1 otherwise
 
-# 28. - Creed of Maraike [SOL]
+# 29. - Creed of Maraike [SOL]
 
 +1 WIS to a maximum of 20
  Proficiency in WIS saves if not already proficient; +1 otherwise
 
-# 29. - Creed of Misaye [SOL]
+# 30. - Creed of Misaye [SOL]
 
 +1 DEX to a maximum of 20
  Proficiency in DEX saves if not already proficient; +1 otherwise
 
-# 30. - Creed of Pakri [SOL]
+# 31. - Creed of Pakri [SOL]
 
 +1 INT to a maximum of 20
  Proficiency in INT saves if not already proficient; +1 otherwise
 
-# 31. - Creed of Solasta [SOL]
+# 32. - Creed of Solasta [SOL]
 
 +1 CHA to a maximum of 20 
  Proficiency in CHA saves if not already proficient; +1 otherwise
 
-# 32. - *Crossbow Expert* © [UB]
+# 33. - *Crossbow Expert* © [UB]
 
 Your expert training with ranged weapons grants you these benefits:
 • Attacks at melee range don't impose disadvantage.
 • If you take the attack action on your turn, you can make one one-handed ranged bonus attack adding your attribute modifier to damage.
 
-# 33. - Crossbow Mastery [UB]
+# 34. - Crossbow Mastery [UB]
 
 When you use the Attack action with a crossbow on your turn, you can make one ranged weapon attack as a bonus action, adding your attribute modifier to damage.
 
-# 34. - *Crusher* © [UB]
+# 35. - *Crusher* © [UB]
 
 Increase your Strength or Constitution by 1, to a maximum of 20.
 When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.
 
-# 35. - Cunning Escape [UB]
+# 36. - Cunning Escape [UB]
 
 Whenever you use the Dash action as a bonus action, your movement doesn't provoke opportunity attacks for the rest of the turn.
 
-# 36. - *Dark-Elf Magic* © [UB]
+# 37. - *Dark-Elf Magic* © [UB]
 
 You learn more of the magic typical of dark elves. You learn the Detect Magic spell and can cast it at will, without expending a spell slot. You also learn Levitate and Dispel Magic, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Charisma is your spellcasting ability for these spells.
 
-# 37. - Daunting Push [SOL]
+# 38. - Daunting Push [SOL]
 
 When you successfully shove an enemy, they lose half their movement speed (rounded down) on their next turn.
 
-# 38. - *Defensive Duelist* © [UB]
+# 39. - *Defensive Duelist* © [UB]
 
 When you are wielding a melee weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, potentially causing the attack to miss you.
 
-# 39. - Devastating Strikes [UB]
+# 40. - Devastating Strikes [UB]
 
 Your melee attacks are especially deadly. You gain the following benefits:
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
 • Once per turn, when you hit a creature with a melee weapon attack, you deal additional damage equal to your proficiency bonus.
 • Whenever you land a critical hit with a melee weapon, you roll an additional weapon die and ignore target creature's resistances for that attack.
 
-# 40. - Discretion of the Coedymwarth [SOL]
+# 41. - Discretion of the Coedymwarth [SOL]
 
 +1 DEX to a maximum of 20 
  You gain proficiency with Light Armor.
  You gain proficiency with Shortswords, Shortbows, and Longbows.
 
-# 41. - Distracting Gambit [SOL]
+# 42. - Distracting Gambit [SOL]
 
 After you hit an enemy with a one-handed weapon, they lose -1 AC for 1 minute (doesn't stack).
 
-# 42. - *Dragon Fear* © [UB]
+# 43. - *Dragon Fear* © [UB]
 
 When angered, you radiate menace. You gain the following benefits:
 • Increase your Strength, Constitution, or Charisma by 1, to a maximum of 20.
 • Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failed save, a target becomes frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
 
-# 43. - *Dragon Hide* © [UB]
+# 44. - *Dragon Hide* © [UB]
 
 You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:
 • Increase your Strength, Constitution, or Charisma by 1, up to a maximum of 20.
 • Your scales harden. While you aren't wearing armor, your armor class is equal to 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.
 • You can grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.
 
-# 44. - *Dragon Wings* © [UB]
+# 45. - *Dragon Wings* © [UB]
 
 You sprout draconic wings. You gain the ability to fly for a limited time if you aren't wearing heavy armor.
 
-# 45. - Dual Flurry [UB]
+# 46. - Dual Flurry [UB]
 
 You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
 
-# 46. - *Dual Wielder* © [UB]
+# 47. - *Dual Wielder* © [UB]
 
 You master fighting with two weapons, gaining the following benefits:
 • You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
 • You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.
 
-# 47. - *Dungeon Delver* © [UB]
+# 48. - *Dungeon Delver* © [UB]
 
 Alert to the hidden traps and secret doors found in many dungeons, you gain the following benefits:
 • You have advantage on Wisdom (Perception) and Intelligence (Investigation) checks.
@@ -238,56 +242,52 @@ Alert to the hidden traps and secret doors found in many dungeons, you gain the 
 • You have resistance to the damage dealt by traps.
 • Travelling at a fast pace doesn't impose the normal -5 penalty on your passive Wisdom (Perception) score.
 
-# 48. - *Dwarven Fortitude* © [UB]
+# 49. - *Dwarven Fortitude* © [UB]
 
 You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:
 • Increase your Constitution score by 1, to a maximum of 20.
 • Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).
 
-# 49. - Eager for Battle [SOL]
+# 50. - Eager for Battle [SOL]
 
 +1 DEX to a maximum of 20 
  You have advantage on your initiative rolls.
 
-# 50. - *Eldritch Adept* © [UB]
+# 51. - *Eldritch Adept* © [UB]
 
 You learn one Eldritch Invocation option of your choice from the warlock class. If the invocation has a prerequisite, you can choose that invocation only if you're a warlock and only if you meet the prerequisite. Whenever you gain a level, you can replace the invocation with another one from the warlock class.
 
-# 51. - Electrifying Touch [SOL]
+# 52. - Electrifying Touch [SOL]
 
 The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional lightning damage equal to your proficiency bonus.
 
-# 52. - *Elemental Adept* © [UB]
+# 53. - *Elemental Adept* © [UB]
 
 When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to the chosen damage type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.
 
-# 53. - Elemental Master [UB]
+# 54. - Elemental Master [UB]
 
 When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore immunity to the chosen damage type. In addition, when you roll attack for a spell you cast that deals damage of that type, you can reroll any 1s.
 
-# 54. - *Elven Accuracy* © [UB]
+# 55. - *Elven Accuracy* © [UB]
 
 You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity or one of your mental attributes by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 
-# 55. - Enduring Body [SOL]
+# 56. - Enduring Body [SOL]
 
 Increase your Constitution by 1 (max 20) and your hit points increase by an additional +1 each time you gain a level.
 
-# 56. - Expand the Hunt [UB]
+# 57. - Expand the Hunt [UB]
 
 Increase your Wisdom by 1, to a maximum of 20. You can choose one additional favored enemy, language and terrain type.
 
-# 57. - Exploiter [UB]
+# 58. - Exploiter [UB]
 
 You are constantly aware of the surrounding battlefield, honing this awareness into lethal prowess. When a creature within reach of your melee weapon takes damage from an attack that originated from a creature other than yourself, you may use your reaction to make a melee weapon attack against the damaged creature.
 
-# 58. - *Fade Away* © [UB]
+# 59. - *Fade Away* © [UB]
 
 You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity or Intelligence by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.
-
-# 59. - Feat/&FeatDevastatingStrikeDexTitle [UB]
-
-Feat/&FeatDevastatingStrikeDexDescription
 
 # 60. - *Fell Handed* © [UB]
 
@@ -766,17 +766,11 @@ You have practiced extensively with a variety of weapons, gaining the following 
 • Increase your Strength or Dexterity score by 1, to a maximum of 20.
 • You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon.
 
-# 157. - Whirlwind Attack [UB]
-
-You become a master of whirling death, gaining the following benefits:
-• Increase your Strength or Dexterity by 1, to a maximum of 20.
-• Once during your turn when you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Whirlwind Attack. Whirlwind Attack makes one attack roll against all enemy creatures within 5ft of you but doesn't add your attribute modifier to damage dealt (unless that modifier is negative).   
-
-# 158. - Wise Archery [UB]
+# 157. - Wise Archery [UB]
 
 Your intuition guides your hand when using a bow. Increase your Wisdom attribute by 1, to a maximum of 20. You can use your Wisdom modifier instead of your Dexterity modifier for the attack and damage rolls with these weapons.
 
-# 159. - *Wood-Elf Magic* © [UB]
+# 158. - *Wood-Elf Magic* © [UB]
 
 You learn the magic of the primeval woods, which are revered and protected by your people. You learn one Druid cantrip of your choice. You also learn the Longstrider and Pass Without Trace spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest.
 

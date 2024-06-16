@@ -142,5 +142,3 @@ Feat/&FeatGroupVerdantTouchedDescription=Aumente um de seus atributos mentais em
 Feat/&FeatGroupVerdantTouchedTitle=Verdejante Tocado
 Feat/&FeatGroupWeaponMasterDescription=Você praticou extensivamente com uma variedade de armas, ganhando os seguintes benefícios:\n• Aumente seu valor de Força ou Destreza em 1, até um máximo de 20.\n• Você ganha proficiência com quatro armas de sua escolha. Cada uma deve ser uma arma simples ou marcial.
 Feat/&FeatGroupWeaponMasterTitle=Mestre das Armas
-Feat/&FeatGroupWhirlWindAttackDescription=Você se torna um mestre da morte giratória, ganhando os seguintes benefícios:\n• Aumenta sua Força ou Destreza em 1, até um máximo de 20.\n• Uma vez durante seu turno, quando você realiza a ação de Ataque enquanto empunha uma espada larga, machado grande ou maul, você pode substituir um ataque para lançar um Ataque Redemoinho. O Ataque Redemoinho realiza uma jogada de ataque contra todas as criaturas inimigas a até 1,5 metro de você, mas não adiciona seu modificador de atributo ao dano causado (a menos que esse modificador seja negativo).
-Feat/&FeatGroupWhirlWindAttackTitle=Ataque Redemoinho

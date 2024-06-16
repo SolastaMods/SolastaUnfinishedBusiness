@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,15 +8,17 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "WhirlwindAttack",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:PowerWhirlWindAttack:8d198daa-c292-55c4-8ec3-f8a88cceef82"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupWhirlWindAttackTitle",
-    "description": "You become a master of whirling death, gaining the following benefits:\n• Increase your Strength or Dexterity by 1, to a maximum of 20.\n• Once during your turn when you take the Attack action while wielding a greatsword, greataxe or maul, you can replace one attack to instead launch a Whirlwind Attack. Whirlwind Attack makes one attack roll against all enemy creatures within 5ft of you but doesn't add your attribute modifier to damage dealt (unless that modifier is negative).   ",
+    "title": "Feat/&FeatWhirlWindAttackTitle",
+    "description": "Feat/&FeatWhirlWindAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "af0f2825-c6f1-5b79-9fe6-54bcdce40bf0",
+  "guid": "23b7b942-a633-5d0f-8905-d930eb352715",
   "contentPack": 9999,
-  "name": "FeatGroupWhirlWindAttack"
+  "name": "FeatWhirlWindAttackDex"
 }

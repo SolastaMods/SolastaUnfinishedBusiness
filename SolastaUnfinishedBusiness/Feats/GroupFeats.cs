@@ -17,7 +17,7 @@ internal static class GroupFeats
     internal const string DevastatingStrikes = "DevastatingStrikes";
     internal const string OldTactics = "OldTactics";
     internal const string FightingStyle = "FightingStyle";
-    internal const string WhirlwindAttack = "WhirlwindAttack";
+
     internal static List<FeatDefinition> Groups { get; } = [];
 
     internal static FeatDefinition FeatGroupBodyResilience { get; } = MakeGroup("FeatGroupBodyResilience", null,
