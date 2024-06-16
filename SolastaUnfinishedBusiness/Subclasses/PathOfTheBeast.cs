@@ -520,7 +520,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .AddToDB();
         }
 
-        public int HandlerPriority => 30;
+        public int HandlerPriority => 0;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
