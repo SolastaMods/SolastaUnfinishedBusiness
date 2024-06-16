@@ -13,7 +13,7 @@
 - fixed Bountiful Luck / Lucky feats attacks, attribute checks, and savings outcome determination
 - fixed Dawn spell to not counter and not dispel Magical Darkness
 - fixed Domain Tempest wrath of the storm triggering on ally hit
-- fixed effect proxies interactions with each other, i.e., Darkness, Daylight, Wind Wall [VANILLA]
+- fixed effect proxies interactions with each other, i.e., Darkness, Daylight, Wall of Fire, Wind Wall, etc. [VANILLA]
 - fixed Elemental Bane spell behavior, and improved SFX
 - fixed Mass Cure Wounds incorrect dice assignment after 'Enable OneDnd healing dice buff' setting was added
 - fixed Mobile feat to only prevent AoO from defender that was attacked with a melee weapon

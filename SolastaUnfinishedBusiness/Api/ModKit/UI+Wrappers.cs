@@ -124,63 +124,83 @@ internal static partial class UI
     }
 
     [UsedImplicitly]
+    // ReSharper disable once UseSymbolAlias
     public static GUILayout.AreaScope AreaScope(Rect screenRect)
     {
+        // ReSharper disable once UseSymbolAlias
         return new GUILayout.AreaScope(screenRect);
     }
 
     [UsedImplicitly]
+    // ReSharper disable once UseSymbolAlias
     public static GUILayout.AreaScope AreaScope(Rect screenRect, string text)
     {
+        // ReSharper disable once UseSymbolAlias
         return new GUILayout.AreaScope(screenRect, text);
     }
 
     [UsedImplicitly]
+    // ReSharper disable once UseSymbolAlias
     public static GUILayout.HorizontalScope HorizontalScope(params GUILayoutOption[] options)
     {
+        // ReSharper disable once UseSymbolAlias
         return new GUILayout.HorizontalScope(options);
     }
 
     [UsedImplicitly]
+    // ReSharper disable once UseSymbolAlias
     public static GUILayout.HorizontalScope HorizontalScope(float width)
     {
+        // ReSharper disable once UseSymbolAlias
         return new GUILayout.HorizontalScope(Width(width));
     }
 
     [UsedImplicitly]
+    // ReSharper disable once UseSymbolAlias
     public static GUILayout.HorizontalScope HorizontalScope(GUIStyle style, params GUILayoutOption[] options)
     {
+        // ReSharper disable once UseSymbolAlias
         return new GUILayout.HorizontalScope(style, options);
     }
 
     [UsedImplicitly]
+    // ReSharper disable once UseSymbolAlias
     public static GUILayout.HorizontalScope HorizontalScope(GUIStyle style, float width)
     {
+        // ReSharper disable once UseSymbolAlias
         return new GUILayout.HorizontalScope(style, Width(width));
     }
 
     [UsedImplicitly]
+    // ReSharper disable once UseSymbolAlias
     public static GUILayout.VerticalScope VerticalScope(params GUILayoutOption[] options)
     {
+        // ReSharper disable once UseSymbolAlias
         return new GUILayout.VerticalScope(options);
     }
 
     [UsedImplicitly]
+    // ReSharper disable once UseSymbolAlias
     public static GUILayout.VerticalScope VerticalScope(GUIStyle style, params GUILayoutOption[] options)
     {
+        // ReSharper disable once UseSymbolAlias
         return new GUILayout.VerticalScope(style, options);
     }
 
     [UsedImplicitly]
+    // ReSharper disable once UseSymbolAlias
     public static GUILayout.ScrollViewScope ScrollViewScope(Vector2 scrollPosition, params GUILayoutOption[] options)
     {
+        // ReSharper disable once UseSymbolAlias
         return new GUILayout.ScrollViewScope(scrollPosition, options);
     }
 
     [UsedImplicitly]
-    public static GUILayout.ScrollViewScope ScrollViewScope(Vector2 scrollPosition, GUIStyle style,
-        params GUILayoutOption[] options)
+    // ReSharper disable once UseSymbolAlias
+    public static GUILayout.ScrollViewScope ScrollViewScope(
+        Vector2 scrollPosition, GUIStyle style, params GUILayoutOption[] options)
     {
+        // ReSharper disable once UseSymbolAlias
         return new GUILayout.ScrollViewScope(scrollPosition, style, options);
     }
 
