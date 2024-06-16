@@ -826,12 +826,15 @@
             </key>
             <value>
                 <ArrayOfString>
+                    <string>PathOfTheBattlerager</string>
+                    <string>PathOfTheBeast</string>
                     <string>PathOfTheElements</string>
                     <string>PathOfTheLight</string>
                     <string>PathOfTheRavager</string>
                     <string>PathOfTheReaver</string>
                     <string>PathOfTheSavagery</string>
                     <string>PathOfTheSpirits</string>
+                    <string>PathOfTheWildMagic</string>
                     <string>PathOfTheYeoman</string>
                 </ArrayOfString>
             </value>

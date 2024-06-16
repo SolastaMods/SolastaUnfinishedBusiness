@@ -2,7 +2,7 @@
 
 - added Dagger recipes [by MagicSword]
 - added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [by Otearaisu, still in QA]
-- changed Great Weapon Defense into Battle Fervor [movement and AC bonuses. requires RESPEC]
+- converted Great Weapon Defense into Battle Fervor [movement and AC bonuses, requires RESPEC]
 - fixed action surge interactions with casting bonus spells
 - fixed attack cantrips interactions with quickened metamagic
 - fixed attributes addition operations not considering PB or half PB on non armor class ones
