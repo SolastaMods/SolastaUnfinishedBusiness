@@ -366,6 +366,12 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatGreatWeaponDefense";
 
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
+            .Create("PowerGreatWeaponDefense")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+        
         var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{NAME}")
             .SetGuiPresentation(NAME, Category.Feat)
