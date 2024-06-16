@@ -129,6 +129,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
     {
         var additionalDamageCallTheHuntBonus = FeatureDefinitionAdditionalDamageBuilder
             .Create($"Power{Name}CallTheHuntBonus")
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag("CallTheHunt")
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)

@@ -26,6 +26,7 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
 
         var proficiencyBattleragerArmor = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}BattleragerArmor")
+            .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.HeavyArmorCategory)
             .AddCustomSubFeatures(new ModifyAttackModeBattleragerArmor())
             .AddToDB();
@@ -72,7 +73,7 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
 
         var conditionRagingBattlerager = ConditionDefinitionBuilder
             .Create($"Condition{Name}RagingBattlerager")
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 abilityCheckAffinityRagingBattlerager,
@@ -82,6 +83,7 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
                 additionalDamageRagingBattlerager)
             .AddCustomSubFeatures(
                 new AddExtraUnarmedAttack(ActionType.Bonus, ValidatorsCharacter.HasArmor))
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .AddToDB();
 
         var powerRagingBattlerager = FeatureDefinitionPowerBuilder
