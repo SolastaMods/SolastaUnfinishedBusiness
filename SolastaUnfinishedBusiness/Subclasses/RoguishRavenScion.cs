@@ -208,7 +208,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             if (action.AttackRollOutcome != RollOutcome.Success ||
                 attacker != helper ||
@@ -236,9 +238,10 @@ public sealed class RoguishRavenScion : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
-            var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||

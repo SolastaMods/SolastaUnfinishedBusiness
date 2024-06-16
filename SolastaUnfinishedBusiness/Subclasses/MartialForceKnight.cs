@@ -758,21 +758,29 @@ public sealed class MartialForceKnight : AbstractSubclass
     //
 
     private class AttackBeforeHitPossibleOnMeOrAllyKineticBarrier(FeatureDefinitionPower powerKineticBarrier)
-        : IAttackBeforeHitPossibleOnMeOrAlly
+        : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (!helper.CanReact() ||
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
                 rulesetHelper.GetRemainingPowerUses(powerKineticBarrier) == 0)
             {
@@ -780,6 +788,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             }
 
             var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+            var attackRoll = action.AttackRoll;
             var totalAttack =
                 attackRoll +
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +

@@ -738,12 +738,12 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            var attackMode = action.actionParams.attackMode;
 
             if (!actionManager ||
                 action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||

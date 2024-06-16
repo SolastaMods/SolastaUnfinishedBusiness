@@ -1958,7 +1958,7 @@ internal static partial class SpellBuilders
     }
 
     // force the attacker to roll a WIS saving throw or lose the attack
-    private sealed class CustomBehaviorSanctuary : IAttackBeforeHitPossibleOnMeOrAlly
+    private sealed class CustomBehaviorSanctuary : ITryAlterOutcomeAttack
     {
         private readonly ConditionDefinition _conditionReduceDamage;
         private readonly ConditionDefinition _conditionSanctuary;
@@ -1971,19 +1971,19 @@ internal static partial class SpellBuilders
             _conditionReduceDamage = conditionReduceDamage;
         }
 
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }

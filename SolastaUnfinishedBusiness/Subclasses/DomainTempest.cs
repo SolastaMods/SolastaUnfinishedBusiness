@@ -323,7 +323,7 @@ public sealed class DomainTempest : AbstractSubclass
     }
 
     private sealed class CustomBehaviorWrathOfTheStorm(FeatureDefinitionPower powerWrathOfTheStorm)
-        : IAttackBeforeHitPossibleOnMeOrAlly, IActionFinishedByContender
+        : ITryAlterOutcomeAttack, IActionFinishedByContender
     {
         private bool _isValid;
 
@@ -381,20 +381,21 @@ public sealed class DomainTempest : AbstractSubclass
             }
         }
 
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
-            [UsedImplicitly] GameLocationCharacter attacker,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerWrathOfTheStorm, rulesetHelper);
 
-            _isValid = helper == defender &&
+            _isValid = action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
+                       helper == defender &&
                        helper.IsWithinRange(attacker, 1) &&
                        helper.CanReact() &&
                        helper.CanPerceiveTarget(attacker) &&

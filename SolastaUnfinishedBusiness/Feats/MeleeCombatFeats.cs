@@ -371,7 +371,7 @@ internal static class MeleeCombatFeats
             .Create("PowerGreatWeaponDefense")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
-        
+
         var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{NAME}")
             .SetGuiPresentation(NAME, Category.Feat)
@@ -778,19 +778,27 @@ internal static class MeleeCombatFeats
     }
 
     private class AttackBeforeHitPossibleOnMeOrAllyDefensiveDuelist(FeatureDefinitionPower powerDefensiveDuelist)
-        : IAttackBeforeHitPossibleOnMeOrAlly
+        : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
-            if ((rulesetEffect != null &&
-                 rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
                 !ValidatorsWeapon.IsMelee(attackMode))
             {
                 yield break;
@@ -806,6 +814,7 @@ internal static class MeleeCombatFeats
             }
 
             var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+            var attackRoll = action.AttackRoll;
             var totalAttack =
                 attackRoll +
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +

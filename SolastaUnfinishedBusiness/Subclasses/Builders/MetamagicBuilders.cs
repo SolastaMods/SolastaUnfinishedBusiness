@@ -465,7 +465,9 @@ internal static class MetamagicBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             if (action is not CharacterActionCastSpell)
             {

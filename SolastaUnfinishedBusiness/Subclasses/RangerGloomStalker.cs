@@ -338,7 +338,9 @@ public sealed class RangerGloomStalker : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
@@ -374,8 +376,6 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 ? "Feedback/&RollAttackCriticalSuccessTitle"
                 : "Feedback/&RollAttackSuccessTitle";
             var rulesetAttacker = attacker.RulesetCharacter;
-            var attackMode = action.actionParams.attackMode;
-            var activeEffect = action.ActionParams.activeEffect;
 
             int roll;
             int toHitBonus;
@@ -404,13 +404,13 @@ public sealed class RangerGloomStalker : AbstractSubclass
                     -1,
                     true);
             }
-            else if (activeEffect != null)
+            else if (rulesetEffect != null)
             {
-                toHitBonus = activeEffect.MagicAttackBonus;
+                toHitBonus = rulesetEffect.MagicAttackBonus;
                 roll = rulesetAttacker.RollMagicAttack(
-                    activeEffect,
+                    rulesetEffect,
                     defender.RulesetActor,
-                    activeEffect.GetEffectSource(),
+                    rulesetEffect.GetEffectSource(),
                     attackModifier.AttacktoHitTrends,
                     attackModifier.AttackAdvantageTrends,
                     false,

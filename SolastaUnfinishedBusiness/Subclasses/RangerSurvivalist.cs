@@ -213,7 +213,9 @@ public sealed class RangerSurvivalist : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier actionModifier)
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             if (action.AttackRollOutcome is not RollOutcome.CriticalSuccess ||
                 helper != defender ||

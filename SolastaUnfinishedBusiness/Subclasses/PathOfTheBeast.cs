@@ -492,7 +492,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
         }
     }
 
-    private class BeastTailHandler : AddExtraAttackBase, IAttackBeforeHitPossibleOnMeOrAlly
+    private class BeastTailHandler : AddExtraAttackBase, ITryAlterOutcomeAttack
     {
         private readonly FeatureDefinitionPower _powerTailSwipe;
 
@@ -520,18 +520,27 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .AddToDB();
         }
 
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
-            [UsedImplicitly] GameLocationCharacter attacker,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender != helper ||
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                defender != helper ||
                 defender.IsMyTurn() ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||

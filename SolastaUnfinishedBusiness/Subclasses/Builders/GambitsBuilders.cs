@@ -1689,7 +1689,9 @@ internal static class GambitsBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -1777,29 +1779,32 @@ internal static class GambitsBuilders
     // Parry
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class Parry(FeatureDefinitionPower pool, FeatureDefinition feature)
-        : IAttackBeforeHitPossibleOnMeOrAlly
+    private sealed class Parry(FeatureDefinitionPower pool, FeatureDefinition feature) : ITryAlterOutcomeAttack
     {
         private const string Line = "Feedback/&GambitParryDamageReduction";
 
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager)
+            if (!actionManager || !battleManager)
             {
                 yield break;
             }
 
-            if (attackMode is { Ranged: true } ||
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                attackMode is { Ranged: true } ||
                 attackMode is { Thrown: true } ||
                 rulesetEffect != null)
             {

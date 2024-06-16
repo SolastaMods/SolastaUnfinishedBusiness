@@ -647,7 +647,9 @@ internal static class RaceFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -1875,7 +1877,9 @@ internal static class RaceFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -1938,8 +1942,6 @@ internal static class RaceFeats
                 : "Feedback/&RollAttackSuccessTitle";
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var attackMode = action.actionParams.attackMode;
-            var activeEffect = action.ActionParams.activeEffect;
 
             int roll;
             int toHitBonus;
@@ -1963,13 +1965,13 @@ internal static class RaceFeats
                     -1,
                     true);
             }
-            else if (activeEffect != null)
+            else if (rulesetEffect != null)
             {
-                toHitBonus = activeEffect.MagicAttackBonus;
+                toHitBonus = rulesetEffect.MagicAttackBonus;
                 roll = rulesetAttacker.RollMagicAttack(
-                    activeEffect,
+                    rulesetEffect,
                     defender.RulesetActor,
-                    activeEffect.GetEffectSource(),
+                    rulesetEffect.GetEffectSource(),
                     attackModifier.AttacktoHitTrends,
                     attackModifier.AttackAdvantageTrends,
                     false,

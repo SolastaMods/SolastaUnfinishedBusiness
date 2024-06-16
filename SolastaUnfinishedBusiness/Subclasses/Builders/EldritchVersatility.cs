@@ -1009,24 +1009,33 @@ internal static class EldritchVersatilityBuilders
         }
     }
 
-    private sealed class EldritchAegisTwistHit : IAttackBeforeHitPossibleOnMeOrAlly
+    private sealed class EldritchAegisTwistHit : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
             var helperCharacter = helper.RulesetCharacter;
             var defenderCharacter = defender.RulesetCharacter;
             var alreadyBlocked = EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
                 defenderCharacter, out var eldritchAegisSupportCondition);
 
-            if (!alreadyBlocked &&
-                (!defender.IsWithinRange(helper, 6) || !helper.CanPerceiveTarget(defender)))
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                (!alreadyBlocked &&
+                 (!defender.IsWithinRange(helper, 6) || !helper.CanPerceiveTarget(defender))))
             {
                 yield break;
             }
@@ -1038,6 +1047,7 @@ internal static class EldritchVersatilityBuilders
             }
 
             var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+            var attackRoll = action.AttackRoll;
             var totalAttack =
                 attackRoll
                 + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)

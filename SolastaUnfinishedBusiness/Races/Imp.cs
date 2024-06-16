@@ -544,23 +544,20 @@ internal static class RaceImpBuilder
         }
     }
 
-    private class ImpSpiteAttackOnHit : IAttackBeforeHitPossibleOnMeOrAlly
+    private class ImpSpiteAttackOnHit : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
-            [UsedImplicitly] GameLocationCharacter attacker,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
-            if (defender != helper)
-            {
-                yield break;
-            }
-
-            if (defender.RulesetActor.IsDeadOrDying)
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                defender != helper)
             {
                 yield break;
             }
@@ -595,7 +592,9 @@ internal static class RaceImpBuilder
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier actionModifier)
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var rulesetHelper = attacker.RulesetCharacter;
 

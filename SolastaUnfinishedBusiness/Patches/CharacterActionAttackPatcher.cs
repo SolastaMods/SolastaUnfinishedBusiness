@@ -267,13 +267,6 @@ public static class CharacterActionAttackPatcher
                 // END PATCH
             }
 
-            //PATCH: support for `ITryAlterOutcomeAttack`
-            foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttack.Handler(
-                         battleManager, __instance, actingCharacter, target, attackModifier))
-            {
-                yield return tryAlterOutcomeSavingThrow;
-            }
-
             if (rangeAttack)
             {
                 var isMonkReturnMissile = attackMode.ReturnProjectileOnly;
@@ -372,6 +365,14 @@ public static class CharacterActionAttackPatcher
             var attackHasDamaged = false;
             var hit = false;
             var damageReceived = 0;
+
+            //PATCH: support for `ITryAlterOutcomeAttack`
+            foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.Handler(
+                         battleManager, __instance, actingCharacter, target, attackModifier, attackMode, null))
+            {
+                yield return tryAlterOutcomeAttack;
+            }
+            //END PATCH
 
             if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {

@@ -1123,46 +1123,6 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager),
-        nameof(GameLocationBattleManager.HandleCharacterAttackHitPossible))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class HandleCharacterAttackHitPossible_Patch
-    {
-        [UsedImplicitly]
-        public static IEnumerator Postfix(
-            IEnumerator values,
-            GameLocationBattleManager __instance,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            ActionModifier attackModifier,
-            int attackRoll)
-        {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
-            // ReSharper disable once InvertIf
-            if (__instance.Battle != null)
-            {
-                //PATCH: Support for features before hit possible, e.g. spiritual shielding
-                foreach (var contender in __instance.Battle.GetContenders(attacker))
-                {
-                    foreach (var attackBeforeHitPossibleOnMeOrAlly in contender.RulesetCharacter
-                                 .GetSubFeaturesByType<IAttackBeforeHitPossibleOnMeOrAlly>())
-                    {
-                        yield return attackBeforeHitPossibleOnMeOrAlly.OnAttackBeforeHitPossibleOnMeOrAlly(
-                            __instance, attacker, defender, contender, attackModifier, attackMode,
-                            rulesetEffect, attackRoll);
-                    }
-                }
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.ComputeCover))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

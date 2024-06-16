@@ -283,21 +283,48 @@ public sealed class RangerSkyWarrior : AbstractSubclass
     }
 
     private class CustomBehaviorGhostlyHowl(FeatureDefinitionPower powerGhostlyHowl)
-        : IAttackBeforeHitPossibleOnMeOrAlly, IModifyEffectDescription
+        : ITryAlterOutcomeAttack, IModifyEffectDescription
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerGhostlyHowl;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(wisdom));
+
+            effectDescription.durationParameter = wisMod;
+
+            return effectDescription;
+        }
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (helper != defender ||
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper != defender ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
                 !defender.IsWithinRange(attacker, 12) ||
@@ -327,25 +354,6 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             actionService.ReactToUsePower(actionParams, "UsePower", defender);
 
             yield return battleManager.WaitForReactions(attacker, actionService, count);
-        }
-
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerGhostlyHowl;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
-            var wisMod = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(wisdom));
-
-            effectDescription.durationParameter = wisMod;
-
-            return effectDescription;
         }
     }
 

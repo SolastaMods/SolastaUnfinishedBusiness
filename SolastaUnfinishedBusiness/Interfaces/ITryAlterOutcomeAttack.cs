@@ -12,7 +12,9 @@ public interface ITryAlterOutcomeAttack
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         GameLocationCharacter helper,
-        ActionModifier actionModifier);
+        ActionModifier actionModifier,
+        RulesetAttackMode attackMode,
+        RulesetEffect rulesetEffect);
 }
 
 internal static class TryAlterOutcomeAttack
@@ -22,7 +24,9 @@ internal static class TryAlterOutcomeAttack
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        ActionModifier actionModifier)
+        ActionModifier actionModifier,
+        RulesetAttackMode attackMode,
+        RulesetEffect rulesetEffect)
     {
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var contenders =
@@ -38,7 +42,7 @@ internal static class TryAlterOutcomeAttack
                          .GetSubFeaturesByType<ITryAlterOutcomeAttack>())
             {
                 yield return feature.OnTryAlterOutcomeAttack(
-                    battleManager, action, attacker, defender, unit, actionModifier);
+                    battleManager, action, attacker, defender, unit, actionModifier, attackMode, rulesetEffect);
             }
 
             // supports metamagic use cases
@@ -53,7 +57,7 @@ internal static class TryAlterOutcomeAttack
                          .SelectMany(metamagic => metamagic.GetAllSubFeaturesOfType<ITryAlterOutcomeAttack>()))
             {
                 yield return feature.OnTryAlterOutcomeAttack(
-                    battleManager, action, attacker, defender, unit, actionModifier);
+                    battleManager, action, attacker, defender, unit, actionModifier, attackMode, rulesetEffect);
             }
         }
     }
