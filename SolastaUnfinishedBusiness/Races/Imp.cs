@@ -628,8 +628,6 @@ internal static class RaceImpBuilder
             {
                 yield break;
             }
-
-            rulesetHelper.UsePower(usablePower);
             action.AttackSuccessDelta += InspirationValue;
             action.AttackRollOutcome = RollOutcome.Success;
             actionModifier.AttackRollModifier += InspirationValue;
@@ -678,8 +676,6 @@ internal static class RaceImpBuilder
             {
                 yield break;
             }
-
-            rulesetDefender.UsePower(usablePower);
             action.RolledSaveThrow = true;
             action.saveOutcomeDelta = 0;
             action.saveOutcome = RollOutcome.Success;
