@@ -1035,7 +1035,9 @@
         <string>FeatGroupAthlete</string>
         <string>FeatGroupAwakenTheBeastWithin</string>
         <string>FeatGroupBalefulScion</string>
+        <string>FeatGreatWeaponDefense</string>
         <string>FeatBladeMastery</string>
+        <string>FeatWhirlWindAttackDex</string>
         <string>FeatGroupBlessedSoul</string>
         <string>FeatBountifulLuck</string>
         <string>FeatBowMastery</string>
@@ -1049,7 +1051,7 @@
         <string>FeatCunningEscape</string>
         <string>FeatDarkElfMagic</string>
         <string>FeatDefensiveDuelist</string>
-        <string>FeatDevastatingStrikes</string>
+        <string>FeatGroupDevastatingStrikes</string>
         <string>FeatGroupDragonFear</string>
         <string>FeatGroupDragonHide</string>
         <string>FeatDragonWings</string>
@@ -1071,7 +1073,6 @@
         <string>FeatGroupFlamesOfPhlegethos</string>
         <string>FeatFrostAdaptation</string>
         <string>FeatGiftOfTheChromaticDragon</string>
-        <string>FeatGreatWeaponDefense</string>
         <string>FeatCleavingAttack</string>
         <string>FeatGroupGrudgeBearer</string>
         <string>FeatGroupHardy</string>
@@ -1133,7 +1134,6 @@
         <string>FeatEldritchVersatilityAdept</string>
         <string>FeatWarCaster</string>
         <string>FeatGroupWeaponMaster</string>
-        <string>FeatGroupWhirlWindAttack</string>
         <string>FeatZenArcher</string>
         <string>FeatWoodElfMagic</string>
     </FeatEnabled>

@@ -1,17 +1,17 @@
 1.5.97.15:
 
-- added Dagger recipes [by MagicSword]
-- added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [by Otearaisu, still in QA]
-- changed Devastating Strikes to grant +1 DEX or STR, trigger on any melee attack, and add. pb damage once per turn
-- converted Great Weapon Defense into Battle Fervor [15 ft movement, and +2 AC bonuses under certain conditions]
-- converted Whirlwind Attack into Bladestorm [removed +1 DEX or STR, removed extra attack restriction]
+- added new dagger recipes [by MagicSword]
+- added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [by Otearaisu]
+- converted Devastating Strikes to grant +1 DEX or STR, trigger on any melee attack, and add. pb damage once per turn
+- converted Great Weapon Defense into Battle Fervor, and added 15 ft movement; +2 AC bonuses under certain conditions
+- converted Whirlwind Attack into Bladestorm, removed +1 DEX or STR, and removed extra attack restriction
 - fixed action surge interactions with bonus spells casting
 - fixed attack cantrips interactions with quickened metamagic
 - fixed attributes addition operations not considering PB or half PB on non armor class ones
 - fixed concentration check causing a soft lock
 - fixed Dawn spell to not dispel Magical Darkness
 - fixed Domain Tempest wrath of the storm triggering on ally hit
-- fixed effect proxies interactions with each other [VANILLA Darkness, Daylight, Wind Wall, and UB Dawn]
+- fixed effect proxies interactions with each other, i.e., Darkness, Daylight, Wind Wall [VANILLA]
 - fixed Elemental Bane spell behavior, and improved SFX
 - fixed Mass Cure Wounds incorrect dice assignment after 'Enable OneDnd healing dice buff' setting was added
 - fixed Mobile feat to only prevent AoO from defender that was attacked with a melee weapon
