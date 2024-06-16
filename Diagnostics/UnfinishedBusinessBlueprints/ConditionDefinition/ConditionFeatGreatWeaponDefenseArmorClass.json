@@ -2,9 +2,9 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityFeatGreatWeaponDefense:3f2c5bad-4694-582b-bb14-ee2b33b24bea"
+    "Definition:AttributeModifierFeatGreatWeaponDefense:a9f334a7-a792-5cc1-a93a-9916396b6bd2"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -130,12 +130,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionFeatGreatWeaponDefenseTitle",
-    "description": "Condition/&ConditionFeatGreatWeaponDefenseDescription",
+    "title": "Condition/&ConditionFeatGreatWeaponDefenseArmorClassTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",
-      "m_SubObjectName": "ConditionNegative",
+      "m_AssetGUID": "c0a83f49ec8b47a488c1237bb2c82415",
+      "m_SubObjectName": "ConditionMageArmor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "58e6a0c3-8bc0-51bc-acd1-9c46bf83276c",
+  "guid": "d7f68159-9aa9-51e7-9aa0-e4a66dded588",
   "contentPack": 9999,
-  "name": "ConditionFeatGreatWeaponDefense"
+  "name": "ConditionFeatGreatWeaponDefenseArmorClass"
 }

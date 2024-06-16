@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "ElementalBane",
-  "limitedUsage": "OncePerTurn",
+  "limitedUsage": "OnceInMyTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],

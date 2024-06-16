@@ -44,9 +44,9 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "336226270d32b514d976b3c213bd1baa",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",

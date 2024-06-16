@@ -819,7 +819,7 @@ FeatGroupCloseQuarters	Description='You are experienced with fighting in close q
 FeatGroupCreed	Description='Creed of Arun, Creed of Einar, Creed of Maraike, Creed of Misaye, Creed of Pakri, Creed of Solasta'.
 FeatGroupCrusher	Description='Increase your Strength or Constitution by 1, to a maximum of 20.
 When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.'.
-FeatGroupDefenseCombat	Description='Always Ready, Cloak and Dagger, Defensive Duelist, Dual Wielder, Fade Away, Great Weapon Defense, Raise Shield, Shield Bash, Shield Master, Twin Blade, Unarmored Expert'.
+FeatGroupDefenseCombat	Description='Always Ready, Battle Fervor, Cloak and Dagger, Defensive Duelist, Dual Wielder, Fade Away, Raise Shield, Shield Bash, Shield Master, Twin Blade, Unarmored Expert'.
 FeatGroupDefenseExpert	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.'.
 FeatGroupDragonFear	Description='When angered, you radiate menace. You gain the following benefits:
@@ -897,7 +897,7 @@ When you hit a creature with an attack that deals slashing damage, you can reduc
 FeatGroupSpellCombat	Description='Baleful Scion, Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster'.
 FeatGroupSpellSniper	Description='You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
 FeatGroupSquatNimbleness	Description='You are uncommonly nimble for your race. Increase your Strength or Dexterity by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill if Strength is increased or Acrobatics skill if Dexterity is increased.'.
-FeatGroupSupportCombat	Description='Call for Charge, Chef, Gift of the Chromatic Dragon, Great Weapon Defense, Hardy, Healer, Improved Critical, Inspiring Leader, Lucky, Mage Slayer, Menacing, Mender, Merciless, Poisoner, Precision Focused, Sentinel, Superior Critical, Thrown Weapons Master, Weapon Master'.
+FeatGroupSupportCombat	Description='Battle Fervor, Call for Charge, Chef, Gift of the Chromatic Dragon, Hardy, Healer, Improved Critical, Inspiring Leader, Lucky, Mage Slayer, Menacing, Mender, Merciless, Poisoner, Precision Focused, Sentinel, Superior Critical, Thrown Weapons Master, Weapon Master'.
 FeatGroupTelekinetic	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.'.
 FeatGroupTools	Description='Initiate Alchemist, Initiate Enchanter, Lock Breaker, Master Alchemist, Master Enchanter, Poisoner, Scriber, Toxicologist'.

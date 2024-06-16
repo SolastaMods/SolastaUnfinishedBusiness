@@ -2,9 +2,9 @@
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "ArmorClass",
   "modifierOperation": "Additive",
-  "modifierValue": 1,
+  "modifierValue": 2,
   "modifierAbilityScore": "Constitution",
-  "situationalContext": 9004,
+  "situationalContext": "None",
   "minimum1": false,
   "useBonusFromCaster": false,
   "guiPresentation": {

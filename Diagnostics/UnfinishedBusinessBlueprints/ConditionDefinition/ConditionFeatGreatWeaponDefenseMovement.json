@@ -3,10 +3,12 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:MovementAffinityFeatGreatWeaponDefense:dd409e16-6fe8-52b2-9829-0420b02f38b5"
+  ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -85,7 +87,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -127,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionFeatGreatWeaponDefenseMovementTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "330874c01be3cf6408fc2d0a8e697c0a",
+      "m_SubObjectName": "ConditionPositiveMovement",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f0df557b-d844-5ad1-afa9-16ef0a2c21ec",
+  "guid": "b876c72f-d643-54f3-bdad-1ee067c05dbc",
   "contentPack": 9999,
-  "name": "ConditionFeatGreatWeaponDefenseSelf"
+  "name": "ConditionFeatGreatWeaponDefenseMovement"
 }
