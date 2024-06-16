@@ -62,7 +62,7 @@ internal static partial class CharacterContext
         FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierMonkAbundantKi")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.KiPoints, 1)
+            .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.KiPoints)
             .SetSituationalContext(SituationalContext.NotWearingArmorOrShield)
             .AddToDB();
 
