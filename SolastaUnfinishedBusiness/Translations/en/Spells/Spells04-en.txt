@@ -12,6 +12,7 @@ Condition/&ConditionElementalBaneDescription=The first time each turn you take {
 Condition/&ConditionElementalBaneTitle=Elemental Bane: {0}
 Condition/&ConditionIrresistiblePerformanceDescription=You cannot perform any actions that require your hands or mouth but can otherwise act normally.
 Condition/&ConditionIrresistiblePerformanceTitle=Dinah-Moe Humm
+Condition/&ConditionPsionicBlastTitle=Muddled Mind
 Condition/&ConditionStaggeringSmiteEnemyDescription=You're hit by psychic damage.
 Condition/&ConditionStaggeringSmiteEnemyTitle=Staggering Smite
 Condition/&ConditionTreeForestGuardianDescription=You gain 10 temporary hit points, you make Constitution saving throws with advantage, and you make Dexterity and Wisdom-based attack rolls with advantage.

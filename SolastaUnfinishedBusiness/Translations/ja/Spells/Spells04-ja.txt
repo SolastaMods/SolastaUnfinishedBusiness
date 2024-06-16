@@ -12,6 +12,7 @@ Condition/&ConditionElementalBaneDescription=各ターンで初めて{0}ダメ�
 Condition/&ConditionElementalBaneTitle=エレメンタルベイン: {0}
 Condition/&ConditionIrresistiblePerformanceDescription=手や口を必要とする動作は実行できませんが、それ以外の場合は通常どおり動作できます。
 Condition/&ConditionIrresistiblePerformanceTitle=ダイナ・モー・ハム
+Condition/&ConditionPsionicBlastTitle=混乱した心
 Condition/&ConditionStaggeringSmiteEnemyDescription=精神的なダメージを受けてしまいます。
 Condition/&ConditionStaggeringSmiteEnemyTitle=よろめきのスマイト
 Condition/&ConditionTreeForestGuardianDescription=あなたは一時的に 10 のヒット ポイントを獲得し、コンスティテューション セーヴィング スローを有利に行い、器用さと知恵をベースにした攻撃ロールを有利に行います。

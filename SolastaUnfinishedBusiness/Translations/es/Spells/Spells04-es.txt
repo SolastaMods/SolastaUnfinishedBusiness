@@ -12,6 +12,7 @@ Condition/&ConditionElementalBaneDescription=La primera vez que cada turno recib
 Condition/&ConditionElementalBaneTitle=Perdición elemental: {0}
 Condition/&ConditionIrresistiblePerformanceDescription=No puede realizar ninguna acción que requiera el uso de las manos o la boca, pero por lo demás puede actuar con normalidad.
 Condition/&ConditionIrresistiblePerformanceTitle=Dinah Moe Humm
+Condition/&ConditionPsionicBlastTitle=Mente confusa
 Condition/&ConditionStaggeringSmiteEnemyDescription=Estás golpeado por daño psíquico.
 Condition/&ConditionStaggeringSmiteEnemyTitle=Golpe asombroso
 Condition/&ConditionTreeForestGuardianDescription=Obtienes 10 puntos de vida temporales, realizas tiradas de salvación de Constitución con ventaja y realizas tiradas de ataque basadas en Destreza y Sabiduría con ventaja.

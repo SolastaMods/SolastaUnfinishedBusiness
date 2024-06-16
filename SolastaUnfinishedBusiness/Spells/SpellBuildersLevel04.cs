@@ -183,7 +183,7 @@ internal static partial class SpellBuilders
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionConfused)
+            .SetGuiPresentation(Category.Condition, ConditionConfused)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(

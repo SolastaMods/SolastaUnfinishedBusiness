@@ -12,6 +12,7 @@ Condition/&ConditionElementalBaneDescription=La prima volta che in ogni turno su
 Condition/&ConditionElementalBaneTitle=Flagello Elementale: {0}
 Condition/&ConditionIrresistiblePerformanceDescription=Non è possibile eseguire azioni che richiedano l'uso delle mani o della bocca, ma per il resto è possibile agire normalmente.
 Condition/&ConditionIrresistiblePerformanceTitle=Dinah-Moe Humm
+Condition/&ConditionPsionicBlastTitle=Mente confusa
 Condition/&ConditionStaggeringSmiteEnemyDescription=Sei colpito da un danno psichico.
 Condition/&ConditionStaggeringSmiteEnemyTitle=Punizione sconcertante
 Condition/&ConditionTreeForestGuardianDescription=Ottieni 10 punti ferita temporanei, effettui tiri salvezza su Costituzione con vantaggio ed effettui tiri per colpire basati su Destrezza e Saggezza con vantaggio.

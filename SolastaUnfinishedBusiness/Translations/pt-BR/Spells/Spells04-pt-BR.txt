@@ -12,6 +12,7 @@ Condition/&ConditionElementalBaneDescription=Na primeira vez em cada turno que v
 Condition/&ConditionElementalBaneTitle=Maldição Elemental: {0}
 Condition/&ConditionIrresistiblePerformanceDescription=Você não pode realizar nenhuma ação que exija as mãos ou a boca, mas pode agir normalmente.
 Condition/&ConditionIrresistiblePerformanceTitle=Dinah-Moe Humm
+Condition/&ConditionPsionicBlastTitle=Mente confusa
 Condition/&ConditionStaggeringSmiteEnemyDescription=Você é atingido por dano psíquico.
 Condition/&ConditionStaggeringSmiteEnemyTitle=Golpe impressionante
 Condition/&ConditionTreeForestGuardianDescription=Você ganha 10 pontos de vida temporários, faz testes de resistência de Constituição com vantagem e faz jogadas de ataque baseadas em Destreza e Sabedoria com vantagem.

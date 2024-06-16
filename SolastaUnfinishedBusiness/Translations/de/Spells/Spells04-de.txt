@@ -12,6 +12,7 @@ Condition/&ConditionElementalBaneDescription=Beim ersten Mal in jeder Runde, wen
 Condition/&ConditionElementalBaneTitle=Elementarfluch: {0}
 Condition/&ConditionIrresistiblePerformanceDescription=Sie können keine Aktionen ausführen, die Ihre Hände oder Ihren Mund erfordern, können sich aber ansonsten normal verhalten.
 Condition/&ConditionIrresistiblePerformanceTitle=Dinah-Moe Humm
+Condition/&ConditionPsionicBlastTitle=Verwirrter Geist
 Condition/&ConditionStaggeringSmiteEnemyDescription=Du wirst von psychischem Schaden getroffen.
 Condition/&ConditionStaggeringSmiteEnemyTitle=Atemberaubender Schlag
 Condition/&ConditionTreeForestGuardianDescription=Du erhältst 10 temporäre Trefferpunkte, du führst konstitutionsrettende Würfe mit Vorteil aus und du führst auf Geschicklichkeit und Weisheit basierende Angriffswürfe mit Vorteil durch.

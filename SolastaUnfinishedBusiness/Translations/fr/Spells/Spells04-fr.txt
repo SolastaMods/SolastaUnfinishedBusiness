@@ -12,6 +12,7 @@ Condition/&ConditionElementalBaneDescription=La première fois à chaque tour qu
 Condition/&ConditionElementalBaneTitle=Fléau élémentaire : {0}
 Condition/&ConditionIrresistiblePerformanceDescription=Vous ne pouvez effectuer aucune action nécessitant vos mains ou votre bouche, mais vous pouvez autrement agir normalement.
 Condition/&ConditionIrresistiblePerformanceTitle=Dinah Moe Humm
+Condition/&ConditionPsionicBlastTitle=Esprit confus
 Condition/&ConditionStaggeringSmiteEnemyDescription=Vous êtes touché par des dégâts psychiques.
 Condition/&ConditionStaggeringSmiteEnemyTitle=Châtiment stupéfiant
 Condition/&ConditionTreeForestGuardianDescription=Vous gagnez 10 points de vie temporaires, vous effectuez des jets de sauvegarde de Constitution avec avantage et vous effectuez des jets d'attaque basés sur la Dextérité et la Sagesse avec avantage.
