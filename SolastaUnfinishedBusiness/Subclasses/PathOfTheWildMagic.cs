@@ -207,6 +207,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         {
             var actionAffinityTeleport = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}Teleport")
+                .SetGuiPresentationNoContent(true)
                 .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeTeleport)
                 .AddToDB();
@@ -214,6 +215,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var actionAffinityTeleportFree = FeatureDefinitionActionAffinityBuilder
                 .Create(FeatureDefinitionActionAffinitys.ActionAffinityBarbarianRecklessAttack,
                     $"ActionAffinity{Name}TeleportFree")
+                .SetGuiPresentationNoContent(true)
                 .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeTeleportFree)
                 .AddToDB();
@@ -230,6 +232,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             var conditionWildSurgeTeleportFree = ConditionDefinitionBuilder
                 .Create($"{ConditionWildSurgePrefix}TeleportFree")
+                .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetFeatures(actionAffinityTeleportFree)
@@ -259,18 +262,20 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                         .Build())
                 .AddToDB();
 
-            var actionWildSurgeTeleport = ActionDefinitionBuilder.Create("WildSurgeTeleport")
+            var actionWildSurgeTeleport = ActionDefinitionBuilder
+                .Create("WildSurgeTeleport")
+                .SetGuiPresentation(Category.Action, SpellDefinitions.MistyStep, 20)
                 .SetActionId(ExtraActionId.WildSurgeTeleport)
                 .SetActionType(ActionType.Bonus)
                 .SetFormType(ActionFormType.Large)
-                .SetGuiPresentation(Category.Action, SpellDefinitions.MistyStep, 20)
                 .SetActionScope(ActionScope.All)
                 .RequiresAuthorization()
                 .OverrideClassName("UsePower")
                 .SetActivatedPower(powerTeleport)
                 .AddToDB();
 
-            ActionDefinitionBuilder.Create(actionWildSurgeTeleport, "WildSurgeTeleportFree")
+            ActionDefinitionBuilder
+                .Create(actionWildSurgeTeleport, "WildSurgeTeleportFree")
                 .SetActionId(ExtraActionId.WildSurgeTeleportFree)
                 .SetActionType(ActionType.NoCost)
                 .AddToDB();
@@ -300,6 +305,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             var actionAffinitySummon = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}Summon")
+                .SetGuiPresentationNoContent(true)
                 .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeSummon)
                 .AddCustomSubFeatures(new WildSurgeSummonOnTurnEnd(proxySummon))
@@ -307,6 +313,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             var actionAffinitySummonFree = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}SummonFree")
+                .SetGuiPresentationNoContent(true)
                 .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeSummonFree)
                 .AddToDB();
@@ -323,6 +330,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             var conditionWildSurgeSummonFree = ConditionDefinitionBuilder
                 .Create($"{ConditionWildSurgePrefix}SummonFree")
+                .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetFeatures(actionAffinitySummonFree)
                 .AddToDB();
@@ -383,11 +391,11 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .AddToDB();
 
             var actionSummon = ActionDefinitionBuilder.Create("WildSurgeSummon")
+                .SetGuiPresentation(Category.Action, SpellDefinitions.DancingLights, 20)
                 .SetActionId(ExtraActionId.WildSurgeSummon)
                 .SetActionType(ActionType.Bonus)
                 .SetFormType(ActionFormType.Large)
                 .RequiresAuthorization()
-                .SetGuiPresentation(Category.Action, SpellDefinitions.DancingLights, 20)
                 .SetActionScope(ActionScope.Battle)
                 .OverrideClassName("UsePower")
                 .SetActivatedPower(powerSummon)
@@ -503,8 +511,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             var conditionAuraBonus = ConditionDefinitionBuilder
                 .Create($"Condition{Name}AuraBonus")
-                .SetConditionParticleReference(ConditionDefinitions.ConditionHolyAura)
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
+                .SetConditionParticleReference(ConditionDefinitions.ConditionHolyAura)
                 .SetConditionType(ConditionType.Beneficial)
                 .SetFeatures(attributeModifierAuraBonus)
                 .AddToDB();
@@ -559,6 +567,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             var powerGrowth = FeatureDefinitionPowerBuilder
                 .Create($"Power{Name}Growth")
+                .SetGuiPresentationNoContent(true)
                 .SetUsesFixed(ActivationTime.NoCost)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
@@ -577,7 +586,9 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                         .Build())
                 .AddToDB();
             var growthHandler = new WildSurgeGrowthOnTurnEnd(powerGrowth);
-            var featureGrowth = FeatureDefinitionMovementAffinityBuilder.Create($"Feature{Name}Growth")
+            var featureGrowth = FeatureDefinitionMovementAffinityBuilder
+                .Create($"Feature{Name}Growth")
+                .SetGuiPresentationNoContent(true)
                 .SetImmunities(false, false, true)
                 .AddCustomSubFeatures(growthHandler)
                 .AddToDB();
@@ -602,12 +613,14 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         {
             var actionAffinityBolt = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}Bolt")
+                .SetGuiPresentationNoContent(true)
                 .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeBolt)
                 .AddToDB();
 
             var actionAffinityBoltFree = FeatureDefinitionActionAffinityBuilder
                 .Create($"ActionAffinity{Name}BoltFree")
+                .SetGuiPresentationNoContent(true)
                 .SetAllowedActionTypes()
                 .SetAuthorizedActions((Id)ExtraActionId.WildSurgeBoltFree)
                 .AddToDB();
@@ -624,6 +637,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
             var conditionWildSurgeBoltFree = ConditionDefinitionBuilder
                 .Create($"{ConditionWildSurgePrefix}BoltFree")
+                .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetFeatures(actionAffinityBoltFree)
                 .AddToDB();
@@ -665,17 +679,18 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .AddToDB();
 
             var actionWildSurgeBolt = ActionDefinitionBuilder.Create("WildSurgeBolt")
+                .SetGuiPresentation(Category.Action, SpellDefinitions.GuidingBolt, 20)
                 .SetActionId(ExtraActionId.WildSurgeBolt)
                 .SetActionType(ActionType.Bonus)
                 .SetFormType(ActionFormType.Large)
                 .RequiresAuthorization()
-                .SetGuiPresentation(Category.Action, SpellDefinitions.GuidingBolt, 20)
                 .SetActionScope(ActionScope.Battle)
                 .OverrideClassName("UsePower")
                 .SetActivatedPower(powerBolt)
                 .AddToDB();
 
-            ActionDefinitionBuilder.Create(actionWildSurgeBolt, "WildSurgeBoltFree")
+            ActionDefinitionBuilder
+                .Create(actionWildSurgeBolt, "WildSurgeBoltFree")
                 .SetActionId(ExtraActionId.WildSurgeBoltFree)
                 .SetActionType(ActionType.NoCost)
                 .AddToDB();
@@ -1094,7 +1109,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         var abilityCheckAffinityBolsteringMagicRoll = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}BolsteringMagicRoll")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.None, DieType.D3, 1,
                 abilityProficiencyPairs:
                 [
@@ -1110,7 +1125,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         var combatAffinityBolsteringMagicRoll = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}BolsteringMagicRoll")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetMyAttackModifier((ExtraCombatAffinityValueDetermination)CombatAffinityValueDetermination.Die)
             .SetMyAttackModifierDieType(DieType.D3)
             .SetMyAttackModifierSign(AttackModifierSign.Add)
@@ -1260,6 +1275,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         var conditionUnstableBacklash = ConditionDefinitionBuilder
             .Create($"Condition{Name}UnstableBacklash")
+
+            .SetGuiPresentationNoContent(true)
             .SetFeatures(powerUnstableBackslash)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
