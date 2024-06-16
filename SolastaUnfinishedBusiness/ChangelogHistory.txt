@@ -9,10 +9,10 @@
 - fixed attack cantrips interactions with quickened metamagic
 - fixed attributes addition operations not considering PB or half PB on non armor class ones
 - fixed concentration check causing a soft lock
+- fixed Bountiful Luck / Lucky feats attacks, attribute checks, and savings outcome determination
 - fixed Dawn spell to not counter and not dispel Magical Darkness
 - fixed Domain Tempest wrath of the storm triggering on ally hit
 - fixed effect proxies interactions with each other, i.e., Darkness, Daylight, Wind Wall [VANILLA]
-- fixed Lucky feat not changing attacker outcome to critical failure or failure if an enemy
 - fixed Mass Cure Wounds incorrect dice assignment after 'Enable OneDnd healing dice buff' setting was added
 - fixed Mobile feat to only prevent AoO from defender that was attacked with a melee weapon
 - fixed Psionic Blast spell duration, and improved SFX
