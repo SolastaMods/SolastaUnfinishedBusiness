@@ -252,8 +252,7 @@ public class PatronMountain : AbstractSubclass
             var levels = rulesetHelper.GetClassLevel(CharacterClassDefinitions.Warlock);
             var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                helper == defender ||
+            if (helper == defender ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(attacker) ||

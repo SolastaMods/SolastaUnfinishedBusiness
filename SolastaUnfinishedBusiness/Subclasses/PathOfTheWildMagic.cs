@@ -101,9 +101,9 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
     private sealed class WildSurgeEffect
     {
-        public string EffectName;
         public ConditionDefinition Condition;
         public ConditionDefinition ConditionFirstTurn;
+        public string EffectName;
         public FeatureDefinitionPower Power;
         public FeatureDefinitionPower ReactPower;
     }
@@ -118,7 +118,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         public WildSurgeHandler(FeatureDefinition featureControlledSurge)
         {
-            this._featureControlledSurge = featureControlledSurge;
+            _featureControlledSurge = featureControlledSurge;
             _wildSurgeEffects.Add(BuildWildSurgeDrain());
             _wildSurgeEffects.Add(BuildWildSurgeTeleport());
             _wildSurgeEffects.Add(BuildWildSurgeSummon());
@@ -938,7 +938,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             {
                 yield break;
             }
-            
+
             var rulesetAttacker = character.RulesetCharacter;
             var firstRoll =
                 rulesetAttacker.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
@@ -948,7 +948,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             var usablePowerPool = PowerProvider.Get(_powerPool, rulesetAttacker);
 
             myUsablePowers.Add(usablePowerPool);
-            
+
             if (firstRoll == secondRoll)
             {
                 myUsablePowers.AddRange(_powers.Select(power => PowerProvider.Get(power, rulesetAttacker)));
@@ -960,7 +960,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             }
 
             var usablePowersOrig = rulesetAttacker.usablePowers;
-            
+
             rulesetAttacker.usablePowers = myUsablePowers;
 
             var implementationManager =
@@ -1067,7 +1067,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 }
 
                 foreach (var proxy in locationCharacter.RulesetCharacter.controlledEffectProxies
-                             .Where(proxy => 
+                             .Where(proxy =>
                                  proxy?.EffectProxyDefinition?.Name == powerSummon?.Name &&
                                  proxy?.ControllerGuid != null))
                 {

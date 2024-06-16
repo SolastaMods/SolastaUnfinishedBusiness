@@ -223,8 +223,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                defender != helper ||
+            if (defender != helper ||
                 defender.IsMyTurn() ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||

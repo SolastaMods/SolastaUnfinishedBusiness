@@ -238,7 +238,6 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             _isValid =
-                action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
                 defender == helper &&
                 defender.RulesetCharacter.TemporaryHitPoints > 0 &&
                 defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&

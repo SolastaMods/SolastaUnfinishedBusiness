@@ -249,7 +249,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionEvasiveFootwork) : ITryAlterOutcomeAttack
     {
-        public int HandlerPriority => 1000;
+        public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,

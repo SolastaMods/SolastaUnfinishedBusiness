@@ -689,7 +689,7 @@ public static class CharacterActionMagicEffectPatcher
                 __instance.isResultingActionSpendPowerWithMotionForm = false;
 
                 //PATCH: support for `ITryAlterOutcomeAttack`
-                foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.Handler(
+                foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.HandlerNegativePriority(
                              battleManager, __instance, actingCharacter, target, attackModifier, null, rulesetEffect))
                 {
                     yield return tryAlterOutcomeAttack;
@@ -713,6 +713,15 @@ public static class CharacterActionMagicEffectPatcher
                             __instance.AttackSuccessDelta,
                             effectDescription.RangeType == RangeType.RangeHit);
                     }
+
+                    //PATCH: support for `ITryAlterOutcomeAttack`
+                    foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.HandlerNonNegativePriority(
+                                 battleManager, __instance, actingCharacter, target, attackModifier, null,
+                                 rulesetEffect))
+                    {
+                        yield return tryAlterOutcomeAttack;
+                    }
+                    //END PATCH
 
                     // Execute the final step of the attack
                     actingCharacter.RulesetCharacter.RollMagicAttack(

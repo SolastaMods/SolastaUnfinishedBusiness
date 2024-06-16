@@ -202,7 +202,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
     private class TryAlterOutcomeAttackDeadlyAimHeartSeekingShot : ITryAlterOutcomeAttack
     {
-        public int HandlerPriority => 1000;
+        public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
@@ -234,7 +234,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
     private class TryAlterOutcomeAttackDeadlyFocus(FeatureDefinitionPower powerDeadlyFocus) : ITryAlterOutcomeAttack
     {
-        public int HandlerPriority => 1000;
+        public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,

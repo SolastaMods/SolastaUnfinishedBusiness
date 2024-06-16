@@ -267,7 +267,7 @@ public sealed class OathOfHatred : AbstractSubclass
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
         }
 
-        public int HandlerPriority => 1000;
+        public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,

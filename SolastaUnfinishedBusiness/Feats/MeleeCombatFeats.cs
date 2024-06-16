@@ -780,7 +780,7 @@ internal static class MeleeCombatFeats
     private class AttackBeforeHitPossibleOnMeOrAllyDefensiveDuelist(FeatureDefinitionPower powerDefensiveDuelist)
         : ITryAlterOutcomeAttack
     {
-        public int HandlerPriority => 1000;
+        public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,

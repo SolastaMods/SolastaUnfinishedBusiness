@@ -396,8 +396,7 @@ public sealed class DomainTempest : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerWrathOfTheStorm, rulesetHelper);
 
-            _isValid = action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
-                       helper == defender &&
+            _isValid = helper == defender &&
                        helper.IsWithinRange(attacker, 1) &&
                        helper.CanReact() &&
                        helper.CanPerceiveTarget(attacker) &&

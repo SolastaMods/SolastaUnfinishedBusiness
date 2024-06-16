@@ -367,7 +367,7 @@ public static class CharacterActionAttackPatcher
             var damageReceived = 0;
 
             //PATCH: support for `ITryAlterOutcomeAttack`
-            foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.Handler(
+            foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.HandlerNegativePriority(
                          battleManager, __instance, actingCharacter, target, attackModifier, attackMode, null))
             {
                 yield return tryAlterOutcomeAttack;
@@ -389,6 +389,14 @@ public static class CharacterActionAttackPatcher
                         __instance.AttackSuccessDelta,
                         rangeAttack);
                 }
+
+                //PATCH: support for `ITryAlterOutcomeAttack`
+                foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.HandlerNonNegativePriority(
+                             battleManager, __instance, actingCharacter, target, attackModifier, attackMode, null))
+                {
+                    yield return tryAlterOutcomeAttack;
+                }
+                //END PATCH
 
                 // Execute the final step of the attack
                 if (!attackMode.AutomaticHit)

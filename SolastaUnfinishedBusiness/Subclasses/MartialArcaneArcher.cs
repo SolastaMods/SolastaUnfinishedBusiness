@@ -732,7 +732,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private class TryAlterOutcomeAttackGuidedShot(FeatureDefinition featureDefinition) : ITryAlterOutcomeAttack
     {
-        public int HandlerPriority => 1000;
+        public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,

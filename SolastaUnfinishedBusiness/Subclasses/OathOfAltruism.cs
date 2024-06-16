@@ -219,7 +219,7 @@ public sealed class OathOfAltruism : AbstractSubclass
     private class AttackBeforeHitPossibleOnMeOrAllySpiritualShielding(FeatureDefinitionPower powerSpiritualShielding)
         : ITryAlterOutcomeAttack
     {
-        public int HandlerPriority => 1000;
+        public int HandlerPriority => -10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,

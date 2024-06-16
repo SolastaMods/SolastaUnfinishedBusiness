@@ -325,8 +325,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                helper != defender ||
+            if (helper != defender ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
                 !defender.IsWithinRange(attacker, 12) ||

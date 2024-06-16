@@ -86,8 +86,7 @@ internal sealed class Interception : AbstractFightingStyle
                 yield break;
             }
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                helper == defender ||
+            if (helper == defender ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||

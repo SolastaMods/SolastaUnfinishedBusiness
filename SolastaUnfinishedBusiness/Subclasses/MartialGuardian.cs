@@ -272,8 +272,7 @@ public sealed class MartialGuardian : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                defender != helper ||
+            if (defender != helper ||
                 rulesetEffect != null ||
                 attackMode.Magical ||
                 !ValidatorsCharacter.HasHeavyArmor(rulesetDefender))
