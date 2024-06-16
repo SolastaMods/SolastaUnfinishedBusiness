@@ -2,6 +2,7 @@
 
 - added Dagger recipes [by MagicSword]
 - added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [by Otearaisu, still in QA]
+- changed Devastating Strikes feat to trigger on any melee attack, grant +1 DEX or STR, and add. pb damage once per turn
 - converted Great Weapon Defense into Battle Fervor [movement and AC bonuses, requires RESPEC]
 - fixed action surge interactions with bonus spells casting
 - fixed attack cantrips interactions with quickened metamagic

@@ -1263,6 +1263,7 @@ FeatDeadeye	FeatDefinition	FeatDefinition	0e725cf6-1b88-5534-ab03-1f6d1a71454a
 FeatDefense	FeatDefinitionWithPrerequisites	FeatDefinition	a13f121b-4a09-50e7-867a-334ae5354112
 FeatDefensiveDuelist	FeatDefinition	FeatDefinition	d1199d7a-4173-53cb-9fe8-f0f2ecf22268
 FeatDevastatingStrikes	FeatDefinition	FeatDefinition	ca663b00-d67c-5c2a-8152-3fa0776446c4
+FeatDevastatingStrikesStr	FeatDefinition	FeatDefinition	99fe2525-41a8-53eb-a016-d3212fb81cfe
 FeatDragonFearCha	FeatDefinitionWithPrerequisites	FeatDefinition	06b1f905-07cf-5d9d-8661-78fc7505fe7e
 FeatDragonFearCon	FeatDefinitionWithPrerequisites	FeatDefinition	b68488ec-f38a-5e7d-9cc4-783472ff3599
 FeatDragonFearStr	FeatDefinitionWithPrerequisites	FeatDefinition	41d8750f-90a2-5245-a003-e6e722af0b46
@@ -1329,6 +1330,7 @@ FeatGroupCreed	FeatDefinition	FeatDefinition	fa6d77ba-64d9-5e53-807b-375a3239f17
 FeatGroupCrusher	FeatDefinition	FeatDefinition	2b736153-fa6a-509c-8447-e9edb59b2cc4
 FeatGroupDefenseCombat	FeatDefinition	FeatDefinition	41b14fa2-53a6-57cd-9655-ae19d9ffe57a
 FeatGroupDefenseExpert	FeatDefinition	FeatDefinition	66e3f8c9-5bc1-5415-b2a3-0631450564a9
+FeatGroupDevastatingStrikes	FeatDefinition	FeatDefinition	f9a82f50-7a39-5a88-892a-9261f24a7311
 FeatGroupDragonFear	FeatDefinitionWithPrerequisites	FeatDefinition	6205c79e-4051-5a70-8fd3-6a9b1cd70c9c
 FeatGroupDragonHide	FeatDefinitionWithPrerequisites	FeatDefinition	b1e7987d-c76e-59d6-ad39-8e6283dc9b8f
 FeatGroupElementalAdept	FeatDefinition	FeatDefinition	60c01354-01f3-5375-bae9-06def82b8f58

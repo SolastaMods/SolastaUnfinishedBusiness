@@ -8,18 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "DevastatingStrikes",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:AdditionalDamageFeatDevastatingStrikes:784aeecc-2d96-5f0b-ba89-935e4432fa2d",
-    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatDevastatingStrikesDexTitle",
-    "description": "Feat/&FeatDevastatingStrikesDexDescription",
+    "title": "Feat/&FeatGroupDevastatingStrikesTitle",
+    "description": "Your melee attacks are especially deadly. You gain the following benefits:\n• Increase your Strength or Dexterity score by 1, to a maximum of 20.\n• Once per turn, when you hit a creature with a melee weapon attack, you deal additional damage equal to your proficiency bonus.\n• Whenever you land a critical hit with a melee weapon, you roll an additional weapon die and ignore target creature's resistances for that attack.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ca663b00-d67c-5c2a-8152-3fa0776446c4",
+  "guid": "f9a82f50-7a39-5a88-892a-9261f24a7311",
   "contentPack": 9999,
-  "name": "FeatDevastatingStrikes"
+  "name": "FeatGroupDevastatingStrikes"
 }

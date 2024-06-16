@@ -45,7 +45,8 @@ internal static class MeleeCombatFeats
         var featCrusherStr = BuildCrusherStr();
         var featCrusherCon = BuildCrusherCon();
         var featDefensiveDuelist = BuildDefensiveDuelist();
-        var featDevastatingStrikes = BuildDevastatingStrikes();
+        var featDevastatingStrikesDex = BuildDevastatingStrikesDex();
+        var featDevastatingStrikesStr = BuildDevastatingStrikesStr();
         var featFellHanded = BuildFellHanded();
         var featGreatWeaponDefense = BuildGreatWeaponDefense();
         var featLongSwordFinesse = BuildLongswordFinesse();
@@ -71,7 +72,8 @@ internal static class MeleeCombatFeats
             featCrusherCon,
             featCrusherStr,
             featDefensiveDuelist,
-            featDevastatingStrikes,
+            featDevastatingStrikesDex,
+            featDevastatingStrikesStr,
             featFellHanded,
             featGreatWeaponDefense,
             featLongSwordFinesse,
@@ -95,6 +97,11 @@ internal static class MeleeCombatFeats
         var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", GroupFeats.Slasher,
             featSlasherDex,
             featSlasherStr);
+
+        var featGroupDevastatingStrikes = GroupFeats.MakeGroup("FeatGroupDevastatingStrikes",
+            GroupFeats.DevastatingStrikes,
+            featDevastatingStrikesDex,
+            featDevastatingStrikesStr);
 
         var featGroupWhirlwindAttack = GroupFeats.MakeGroupWithPreRequisite("FeatGroupWhirlWindAttack",
             GroupFeats.WhirlwindAttack,
@@ -122,7 +129,7 @@ internal static class MeleeCombatFeats
             featCharger,
             featCleavingAttack,
             featDefensiveDuelist,
-            featDevastatingStrikes,
+            featGroupDevastatingStrikes,
             featFellHanded,
             featLongSwordFinesse,
             featPowerAttack,
@@ -1451,40 +1458,51 @@ internal static class MeleeCombatFeats
 
     #region Devastating Strikes
 
-    private static FeatDefinition BuildDevastatingStrikes()
-    {
-        const string NAME = "FeatDevastatingStrikes";
-
-        var weaponTypes = new[] { GreatswordType, GreataxeType, MaulType };
-
-        var additionalDamageSunderingBlow = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}")
+    private static readonly FeatureDefinitionAdditionalDamage AdditionalDamageFeatDevastatingStrikes =
+        FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageFeatDevastatingStrikes")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("DevastatingStrikes")
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) => (OperationType.Set,
-                    ValidatorsWeapon.IsOfWeaponType(weaponTypes)(mode, null, null))))
+                    ValidatorsWeapon.IsMelee(mode))),
+                new PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionDevastatingStrikes")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                        .AddCustomSubFeatures(new ModifyDamageAffinityDevastatingStrikes())
+                        .AddToDB()))
             .AddToDB();
 
-        var conditionDevastatingStrikes = ConditionDefinitionBuilder
-            .Create("ConditionDevastatingStrikes")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks)
-            .AddCustomSubFeatures(new ModifyDamageAffinityDevastatingStrikes())
+    private static FeatDefinition BuildDevastatingStrikesDex()
+    {
+        const string NAME = "FeatDevastatingStrikes";
+
+        // kept name for backward compatibility
+        var feat = FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation($"{NAME}Dex", Category.Feat)
+            .AddFeatures(AttributeModifierCreed_Of_Misaye, AdditionalDamageFeatDevastatingStrikes)
             .AddToDB();
+
+        return feat;
+    }
+
+    private static FeatDefinition BuildDevastatingStrikesStr()
+    {
+        const string NAME = "FeatDevastatingStrikesStr";
 
         var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .AddFeatures(additionalDamageSunderingBlow)
+            .AddFeatures(AttributeModifierCreed_Of_Einar, AdditionalDamageFeatDevastatingStrikes)
             .AddToDB();
-
-        feat.AddCustomSubFeatures(
-            new PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(conditionDevastatingStrikes, weaponTypes));
 
         return feat;
     }
@@ -1499,19 +1517,9 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class
-        PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes : IPhysicalAttackBeforeHitConfirmedOnEnemy
+        PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(ConditionDefinition conditionBypassResistance)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        private readonly ConditionDefinition _conditionBypassResistance;
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
-
-        public PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(
-            ConditionDefinition conditionBypassResistance,
-            params WeaponTypeDefinition[] weaponTypeDefinition)
-        {
-            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
-            _conditionBypassResistance = conditionBypassResistance;
-        }
-
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1523,21 +1531,16 @@ internal static class MeleeCombatFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+            if (!criticalHit ||
+                !ValidatorsWeapon.IsMelee(attackMode))
             {
                 yield break;
             }
 
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (!criticalHit)
-            {
-                yield break;
-            }
-
             rulesetCharacter.InflictCondition(
-                _conditionBypassResistance.Name,
+                conditionBypassResistance.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -1545,7 +1548,7 @@ internal static class MeleeCombatFeats
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                _conditionBypassResistance.Name,
+                conditionBypassResistance.Name,
                 0,
                 0,
                 0);
