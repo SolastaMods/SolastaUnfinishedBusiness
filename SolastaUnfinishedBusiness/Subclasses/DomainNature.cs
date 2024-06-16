@@ -303,7 +303,7 @@ public sealed class DomainNature : AbstractSubclass
     private sealed class CustomBehaviorDampenElements(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDampenElements)
-        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe
+        : IMagicEffectBeforeHitConfirmedOnMe, ITryAlterOutcomeAttack
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -315,21 +315,35 @@ public sealed class DomainNature : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return Handler(battleManager, attacker, defender, actualEffectForms);
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield return Handler(battleManager, attacker, defender, actualEffectForms);
+            }
         }
 
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => 10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            RulesetEffect rulesetEffect)
         {
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
+            var actualEffectForms =
+                attackMode?.EffectDescription.EffectForms ?? rulesetEffect?.EffectDescription.EffectForms ?? [];
+
             yield return Handler(battleManager, attacker, defender, actualEffectForms);
         }
 
