@@ -345,12 +345,12 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                            .SetDamageForm(DamageTypeLightning, 1, DieType.D8)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeLightning, 1, DieType.D8)
+                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(LightningBolt)
