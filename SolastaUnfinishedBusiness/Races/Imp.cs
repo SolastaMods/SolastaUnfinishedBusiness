@@ -683,8 +683,8 @@ internal static class RaceImpBuilder
             }
 
             action.RolledSaveThrow = true;
-            action.saveOutcomeDelta = 0;
-            action.saveOutcome = RollOutcome.Success;
+            action.SaveOutcomeDelta = 0;
+            action.SaveOutcome = RollOutcome.Success;
         }
     }
 

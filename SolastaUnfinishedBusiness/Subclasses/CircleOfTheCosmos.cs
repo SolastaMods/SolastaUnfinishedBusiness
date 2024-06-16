@@ -1066,7 +1066,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             if (action.SaveOutcomeDelta >= 0)
             {
-                action.saveOutcome = RollOutcome.Success;
+                action.SaveOutcome = RollOutcome.Success;
                 extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
             }
             else
@@ -1305,7 +1305,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             if (action.SaveOutcomeDelta < 0)
             {
-                action.saveOutcome = RollOutcome.Failure;
+                action.SaveOutcome = RollOutcome.Failure;
                 extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
             }
             else

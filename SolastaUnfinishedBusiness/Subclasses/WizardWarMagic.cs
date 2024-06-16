@@ -296,7 +296,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 0);
 
             action.SaveOutcomeDelta += bonus;
-            action.saveOutcome = RollOutcome.Success;
+            action.SaveOutcome = RollOutcome.Success;
             helper.RulesetCharacter.LogCharacterUsedFeature(
                 featureArcaneDeflection,
                 "Feedback/&ArcaneDeflectionSavingRoll",

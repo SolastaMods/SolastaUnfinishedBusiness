@@ -1033,12 +1033,11 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         rulesetHelper.UsePower(usablePower);
 
-        action.RolledSaveThrow = true;
         action.SaveOutcomeDelta += bonus;
 
         if (action.SaveOutcomeDelta >= 0)
         {
-            action.saveOutcome = RollOutcome.Success;
+            action.SaveOutcome = RollOutcome.Success;
         }
 
         var extra = action.SaveOutcomeDelta >= 0

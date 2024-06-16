@@ -897,11 +897,8 @@ internal static class RaceFeats
                 yield break;
             }
 
-            action.saveOutcomeDelta += dieRoll - savingRoll;
-            action.RolledSaveThrow = true;
-
-            action.saveOutcomeDelta += dieRoll - savingRoll;
-            action.RolledSaveThrow = true;
+            action.SaveOutcomeDelta += dieRoll - savingRoll;
+            action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,

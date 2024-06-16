@@ -2267,8 +2267,8 @@ internal static class OtherFeats
                 yield break;
             }
 
-            action.saveOutcomeDelta += dieRoll - savingRoll;
-            action.RolledSaveThrow = true;
+            action.SaveOutcomeDelta += dieRoll - savingRoll;
+            action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
             rulesetHelper.LogCharacterActivatesAbility(
                 "Feat/&FeatLuckyTitle",
@@ -2431,9 +2431,8 @@ internal static class OtherFeats
                 yield break;
             }
 
-            action.RolledSaveThrow = true;
-            action.saveOutcomeDelta = 0;
-            action.saveOutcome = RollOutcome.Success;
+            action.SaveOutcomeDelta = 0;
+            action.SaveOutcome = RollOutcome.Success;
 
             rulesetDefender.UsePower(usablePower);
             rulesetDefender.LogCharacterUsedPower(PowerMageSlayerSaving);
