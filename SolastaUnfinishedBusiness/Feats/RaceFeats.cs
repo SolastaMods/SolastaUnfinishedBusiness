@@ -714,10 +714,6 @@ internal static class RaceFeats
             {
                 action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
             }
-            else
-            {
-                action.AttackRollOutcome = dieRoll == 1 ? RollOutcome.CriticalFailure : RollOutcome.Failure;
-            }
 
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,
