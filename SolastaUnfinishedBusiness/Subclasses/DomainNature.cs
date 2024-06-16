@@ -157,17 +157,13 @@ public sealed class DomainNature : AbstractSubclass
 
         foreach (var damageType in DampenElementsDamageTypes)
         {
-            var shortDamageType = damageType.Replace("Damage", string.Empty);
-
-            var conditionResistance = ConditionDefinitionBuilder
+            _ = ConditionDefinitionBuilder
                 .Create($"Condition{Name}{damageType}")
                 .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
-                .SetFeatures(db.GetElement($"DamageAffinity{shortDamageType}Resistance"))
+                .SetFeatures(db.GetElement($"DamageAffinity{damageType.Replace("Damage", string.Empty)}Resistance"))
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                 .AddToDB();
-
-            conditionResistance.GuiPresentation.description = Gui.NoLocalization;
         }
 
         var conditionDampenElements = ConditionDefinitionBuilder

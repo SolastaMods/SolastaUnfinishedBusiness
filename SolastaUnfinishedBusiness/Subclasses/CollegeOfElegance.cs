@@ -159,8 +159,6 @@ public sealed class CollegeOfElegance : AbstractSubclass
             .SetConditionParticleReference(ConditionDefinitions.ConditionDistracted)
             .AddToDB();
 
-        conditionAmazingDisplay.GuiPresentation.description = Gui.NoLocalization;
-
         var conditionAmazingDisplayMarker = ConditionDefinitionBuilder
             .Create($"Condition{Name}AmazingDisplayMarker")
             .SetGuiPresentationNoContent(true)

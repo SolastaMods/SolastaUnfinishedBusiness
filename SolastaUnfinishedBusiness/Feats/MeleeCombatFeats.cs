@@ -380,12 +380,10 @@ internal static class MeleeCombatFeats
 
         var conditionArmorClass = ConditionDefinitionBuilder
             .Create($"Condition{NAME}ArmorClass")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
             .SetFeatures(attributeModifierArmorClass)
             .AddToDB();
-
-        conditionArmorClass.GuiPresentation.description = Gui.NoLocalization;
 
         var movementAffinity = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{NAME}")
@@ -395,12 +393,10 @@ internal static class MeleeCombatFeats
 
         var conditionMovement = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Movement")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFreedomOfMovement)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionFreedomOfMovement)
             .SetPossessive()
             .SetFeatures(movementAffinity)
             .AddToDB();
-
-        conditionMovement.GuiPresentation.description = Gui.NoLocalization;
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(NAME)
@@ -2139,38 +2135,40 @@ internal static class MeleeCombatFeats
 
     #region Whirlwind Attack
 
-    private static readonly FeatureDefinition PowerWhirlWindAttack = FeatureDefinitionPowerBuilder
-        .Create("PowerWhirlWindAttack")
-        .SetGuiPresentation("FeatWhirlWindAttack", Category.Feat,
-            Sprites.GetSprite("PowerWhirlWindAttack", Resources.PowerWhirlWindAttack, 256, 128))
-        .SetUsesFixed(ActivationTime.NoCost)
-        .SetShowCasting(false)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
-                .Build())
-        .AddCustomSubFeatures(
-            ValidatorsValidatePowerUse.HasMainAttackAvailable,
-            new ValidatorsValidatePowerUse(
-                ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
-            new MagicEffectFinishedByMeWhirlWindAttack())
-        .AddToDB();
-
     private static FeatDefinition BuildWhirlWindAttack()
     {
+        const string NAME = "WhirlWindAttack";
+
+        var powerWhirlWindAttack = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation($"Feat{NAME}", Category.Feat,
+                Sprites.GetSprite($"Power{NAME}", Resources.PowerWhirlWindAttack, 256, 128))
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+                    .Build())
+            .AddCustomSubFeatures(
+                ValidatorsValidatePowerUse.HasMainAttackAvailable,
+                new ValidatorsValidatePowerUse(
+                    ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
+                new MagicEffectFinishedByMeWhirlWindAttack())
+            .AddToDB();
+
         // kept for backward compatibility
         _ = FeatDefinitionBuilder
-            .Create("FeatWhirlWindAttackStr")
-            .SetGuiPresentation("FeatWhirlWindAttack", Category.Feat, hidden: true)
-            .SetFeatures(PowerWhirlWindAttack)
+            .Create($"Feat{NAME}Str")
+            .SetGuiPresentation($"Feat{NAME}", Category.Feat, hidden: true)
+            .SetFeatures(powerWhirlWindAttack)
             .AddToDB();
 
         // name kept for backward compatibility
         return FeatDefinitionBuilder
             .Create("FeatWhirlWindAttackDex")
-            .SetGuiPresentation("FeatWhirlWindAttack", Category.Feat)
-            .SetFeatures(PowerWhirlWindAttack)
+            .SetGuiPresentation($"Feat{NAME}", Category.Feat)
+            .SetFeatures(powerWhirlWindAttack)
             .AddToDB();
     }
 

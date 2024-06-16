@@ -183,7 +183,7 @@ internal static partial class SpellBuilders
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionConfused)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionConfused)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
@@ -209,8 +209,6 @@ internal static partial class SpellBuilders
                     .AddToDB())
             .SetConditionParticleReference(ConditionFeebleMinded)
             .AddToDB();
-
-        condition.GuiPresentation.description = Gui.NoLocalization;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -529,6 +527,14 @@ internal static partial class SpellBuilders
             }
         }
 
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider damageAffinityProvider &&
+                damageAffinityProvider.DamageType == damageType &&
+                damageAffinityProvider.DamageAffinityType is DamageAffinityType.Resistance);
+        }
+
         public int HandlerPriority => 10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
@@ -553,14 +559,6 @@ internal static partial class SpellBuilders
                 attackMode?.EffectDescription.EffectForms ?? rulesetEffect?.EffectDescription.EffectForms ?? [];
 
             yield return Handle(attacker, defender, actualEffectForms);
-        }
-        
-        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
-        {
-            features.RemoveAll(x =>
-                x is IDamageAffinityProvider damageAffinityProvider &&
-                damageAffinityProvider.DamageType == damageType &&
-                damageAffinityProvider.DamageAffinityType is DamageAffinityType.Resistance);
         }
 
         private IEnumerator Handle(
