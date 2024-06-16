@@ -1217,6 +1217,9 @@ internal static partial class CharacterContext
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
+            abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                ? RollOutcome.Success
+                : RollOutcome.Failure;
 
             rulesetHelper.LogCharacterActivatesAbility(
                 "Feature/&FeatureSorcererMagicalGuidanceTitle",

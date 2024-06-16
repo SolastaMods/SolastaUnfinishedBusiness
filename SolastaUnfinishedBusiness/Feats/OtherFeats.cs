@@ -2189,7 +2189,10 @@ internal static class OtherFeats
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
-
+            abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                ? RollOutcome.Success
+                : RollOutcome.Failure;
+            
             rulesetHelper.LogCharacterActivatesAbility(
                 "Feat/&FeatLuckyTitle",
                 "Feedback/&LuckyCheckToHitRoll",

@@ -805,7 +805,10 @@ internal static class RaceFeats
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
-
+            abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                ? RollOutcome.Success
+                : RollOutcome.Failure;
+            
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,
                 DurationType.Round,
