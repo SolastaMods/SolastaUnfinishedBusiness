@@ -425,7 +425,7 @@ internal static partial class SpellBuilders
                 .SetGuiPresentation(title, description, ConditionRestrictedInsideMagicCircle)
                 .SetPossessive()
                 .SetConditionType(ConditionType.Detrimental)
-                .AddCustomSubFeatures(new CustomBehaviorElementalBane(damageType))
+                .AddCustomSubFeatures(new CustomBehaviorElementalBane(damageType, magicEffect))
                 .SetConditionParticleReference(conditionEffects[current++])
                 .AddToDB();
 
@@ -489,7 +489,7 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorElementalBane(string damageType)
+    private sealed class CustomBehaviorElementalBane(string damageType, IMagicEffect magicEffect)
         : IModifyDamageAffinity, IOnConditionAddedOrRemoved
     {
         private readonly string _tag = $"ElementalBane{damageType}";
@@ -535,6 +535,7 @@ internal static partial class SpellBuilders
             defender.UsedSpecialFeatures.TryAdd(_tag, 0);
 
             var rulesetAttacker = EffectHelpers.GetCharacterByGuid(sourceGuid);
+            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
             var rolls = new List<int>();
             var damageForm = new DamageForm { DamageType = damageType, DieType = DieType.D6, DiceNumber = 2 };
             var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
@@ -547,6 +548,7 @@ internal static partial class SpellBuilders
             };
 
             rulesetAttacker.LogCharacterActivatesAbility(string.Empty, "Feedback/&AdditionalDamageElementalBaneLine");
+            EffectHelpers.StartVisualEffect(attacker, defender, magicEffect);
             RulesetActor.InflictDamage(
                 damageRoll,
                 damageForm,
