@@ -1,10 +1,10 @@
 1.5.97.15:
 
-- added a priority order to all features interacting with attack rolls to try change result or buff/debuff contenders
+- added a priority order to all features interacting with attack rolls trying to change result or buff/debuff contenders
 - added new dagger recipes [by magicskysword]
 - added Path of the Battlerager, Path of the Beast, Path of the Wild Magic subclasses [by otearaisu]
 - converted Devastating Strikes to grant +1 DEX or STR, trigger on any melee attack, and add pb damage once per turn
-- converted Dual Flurry to deal 2 off-hand attacks against same target after a main hit if dual-wielding weapons
+- converted Dual Flurry to deal 2 attacks when dual wielding and using a weapon on an off-hand attack
 - converted Great Weapon Defense into Battle Fervor, added 15 ft movement, and +2 AC under certain conditions
 - converted Whirlwind Attack into Bladestorm, removed +1 DEX or STR, and removed extra attack restriction
 - fixed action surge interactions with bonus spells casting
@@ -12,17 +12,17 @@
 - fixed attack cantrips interactions with quickened metamagic
 - fixed attributes addition operations not considering PB or half PB on non armor class ones
 - fixed concentration check causing a soft lock
-- fixed Barbarian reckless feature not triggering on reach attacks under certain scenarios  [by otearaisu]
+- fixed Barbarian reckless feature not triggering on reach attacks under certain scenarios
 - fixed Bountiful Luck / Lucky feats attacks, attribute checks, and saving throws outcome assignment
 - fixed Dawn spell to not counter and not dispel Magical Darkness
 - fixed Domain Tempest wrath of the storm triggering on ally hit
 - fixed effect proxies interactions with each other, i.e., Darkness, Daylight, Wall of Fire, Wind Wall, etc. [VANILLA]
 - fixed Elemental Bane spell behavior, and improved SFX
-- fixed Lizard Folk feeding claws feature not triggering attack [by otearaisu]
+- fixed Lizard Folk feeding claws feature not triggering attack
 - fixed Mass Cure Wounds incorrect dice assignment after 'Enable OneDnd healing dice buff' setting was added
 - fixed Mobile feat to only prevent AoO from defender that was attacked with a melee weapon
 - fixed Psionic Blast spell duration, removed concentration, and improved SFX
-- fixed some custom items missing document descriptions [by magicskysword]
+- fixed some custom items missing document descriptions
 
 KNOWN ISSUES:
 

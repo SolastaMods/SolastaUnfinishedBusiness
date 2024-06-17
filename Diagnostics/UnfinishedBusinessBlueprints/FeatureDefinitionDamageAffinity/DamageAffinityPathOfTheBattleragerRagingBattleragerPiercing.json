@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionDamageAffinity, Assembly-CSharp",
   "ancestryDefinesDamageType": false,
   "ancestryType": "Sorcerer",
-  "damageType": "DamageBludgeoning",
+  "damageType": "DamagePiercing",
   "savingThrowAdvantageType": "None",
   "savingThrowModifier": 0,
   "damageAffinityType": "Resistance",

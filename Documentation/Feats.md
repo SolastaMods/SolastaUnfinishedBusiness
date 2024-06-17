@@ -226,7 +226,7 @@ You sprout draconic wings. You gain the ability to fly for a limited time if you
 
 # 46. - Dual Flurry [UB]
 
-While you are dual-wielding melee weapons, when you use your bonus action to attack a creature with your off-hand one, after you hit a creature with your main, you make two attacks against the same creature with your off-hand instead of one.
+While you are dual-wielding melee weapons, when you use your bonus action to attack a creature with your off-hand weapon, you make two attacks against the creature with the weapon instead of one.
 
 # 47. - *Dual Wielder* © [UB]
 
