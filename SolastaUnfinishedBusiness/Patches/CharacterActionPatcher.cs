@@ -195,6 +195,7 @@ public static class CharacterActionPatcher
                 (Gui.Battle?.AllContenders ??
                  locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
                 .ToList();
+
             foreach (var target in contenders)
             {
                 var rulesetTarget = target.RulesetCharacter;
@@ -205,7 +206,6 @@ public static class CharacterActionPatcher
                     yield return actionFinishedByContender.OnActionFinishedByContender(__instance, target);
                 }
             }
-
 
             if (__instance.ActionType == ActionDefinitions.ActionType.Bonus)
             {
