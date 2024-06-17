@@ -380,7 +380,7 @@ internal static class MeleeCombatFeats
 
         var conditionArmorClass = ConditionDefinitionBuilder
             .Create($"Condition{NAME}ArmorClass")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionMagicallyArmored)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
             .SetFeatures(attributeModifierArmorClass)
             .AddToDB();
@@ -393,7 +393,7 @@ internal static class MeleeCombatFeats
 
         var conditionMovement = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Movement")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionFreedomOfMovement)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFreedomOfMovement)
             .SetPossessive()
             .SetFeatures(movementAffinity)
             .AddToDB();
