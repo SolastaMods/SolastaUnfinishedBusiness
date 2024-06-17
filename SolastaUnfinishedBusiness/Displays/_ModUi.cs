@@ -200,7 +200,6 @@ internal static class ModUi
         "MirrorImage",
         "MysticalCloak",
         "OathOfAncients",
-        "PathOfTheBattlerager",
         "PathOfTheBeast",
         "PathOfTheRavager",
         "PathOfTheSpirits",
