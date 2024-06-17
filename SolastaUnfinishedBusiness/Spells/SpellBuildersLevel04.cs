@@ -578,7 +578,6 @@ internal static partial class SpellBuilders
             defender.UsedSpecialFeatures.TryAdd(Tag, 0);
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
 
             rulesetAttacker.InflictCondition(
                 conditionAttacker.Name,
@@ -586,8 +585,8 @@ internal static partial class SpellBuilders
                 0,
                 TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
-                rulesetDefender.guid,
-                rulesetDefender.CurrentFaction.Name,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
                 1,
                 conditionAttacker.Name,
                 0,
