@@ -221,8 +221,8 @@ public sealed class RangerSurvivalist : AbstractSubclass
         {
             if (action.AttackRollOutcome is not RollOutcome.CriticalSuccess ||
                 helper != defender ||
-                !defender.CanPerceiveTarget(attacker) ||
-                defender.RulesetActor.HasConditionOfTypeOrSubType(ConditionIncapacitated))
+                !defender.CanAct() ||
+                !defender.CanPerceiveTarget(attacker))
             {
                 yield break;
             }

@@ -179,8 +179,8 @@ public sealed class WizardWarMagic : AbstractSubclass
                 action.AttackRollOutcome != RollOutcome.Success ||
                 action.AttackSuccessDelta - bonus >= 0 ||
                 helper != defender ||
-                !helper.CanReact() ||
-                !helper.CanPerceiveTarget(attacker))
+                !defender.CanReact() ||
+                !defender.CanPerceiveTarget(attacker))
             {
                 yield break;
             }

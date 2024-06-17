@@ -796,17 +796,10 @@ internal static class MeleeCombatFeats
             }
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper != defender ||
+                !helper.CanReact() ||
                 (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
                 !ValidatorsWeapon.IsMelee(attackMode))
-            {
-                yield break;
-            }
-
-            var rulesetHelper = helper.RulesetCharacter;
-
-            if (helper != defender ||
-                !helper.CanReact() ||
-                !ValidatorsWeapon.IsMelee(rulesetHelper.GetMainWeapon()))
             {
                 yield break;
             }
@@ -823,6 +816,7 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
+            var rulesetHelper = helper.RulesetCharacter;
             var pb = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             if (armorClass + pb <= totalAttack)

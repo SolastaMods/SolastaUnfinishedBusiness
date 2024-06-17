@@ -272,7 +272,7 @@ public sealed class MartialGuardian : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender != helper ||
+            if (helper != defender ||
                 rulesetEffect != null ||
                 attackMode.Magical ||
                 !ValidatorsCharacter.HasHeavyArmor(rulesetDefender))

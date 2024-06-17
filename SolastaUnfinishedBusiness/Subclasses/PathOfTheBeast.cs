@@ -542,7 +542,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                defender != helper ||
+                helper != defender ||
                 defender.IsMyTurn() ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||

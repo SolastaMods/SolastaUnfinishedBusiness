@@ -604,7 +604,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!battleManager)
+            if (!battleManager ||
+                helper != defender)
             {
                 yield break;
             }

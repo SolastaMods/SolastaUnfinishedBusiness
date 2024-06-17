@@ -215,9 +215,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             if (action.AttackRollOutcome != RollOutcome.Success ||
-                attacker != helper ||
-                action.ActionParams.attackMode.SourceDefinition is not ItemDefinition itemDefinition ||
-                !ValidatorsWeapon.IsTwoHandedRanged(itemDefinition))
+                helper != attacker ||
+                attackMode is not { Ranged: true } ||
+                !ValidatorsWeapon.HasTwoHandedTag(attackMode))
             {
                 yield break;
             }
@@ -249,9 +249,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
-                attacker != helper ||
-                rulesetAttacker.GetRemainingPowerUses(powerDeadlyFocus) == 0 ||
-                attackMode is not { ranged: true })
+                helper != attacker ||
+                attackMode is not { ranged: true } ||
+                rulesetAttacker.GetRemainingPowerUses(powerDeadlyFocus) == 0)
             {
                 yield break;
             }

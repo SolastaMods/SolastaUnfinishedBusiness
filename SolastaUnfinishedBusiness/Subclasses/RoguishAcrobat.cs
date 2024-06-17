@@ -223,7 +223,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender != helper ||
+            if (helper != defender ||
                 defender.IsMyTurn() ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||

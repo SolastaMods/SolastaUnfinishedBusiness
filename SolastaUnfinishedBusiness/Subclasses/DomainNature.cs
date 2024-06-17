@@ -332,7 +332,8 @@ public sealed class DomainNature : AbstractSubclass
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!battleManager)
+            if (!battleManager ||
+                helper != defender)
             {
                 yield break;
             }
