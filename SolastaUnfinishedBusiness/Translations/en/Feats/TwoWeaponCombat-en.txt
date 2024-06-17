@@ -1,6 +1,6 @@
-Condition/&ConditionDualFlurryGrantDescription=Your foes are reeling!
-Condition/&ConditionDualFlurryGrantTitle=Dual Flurry
-Feat/&FeatDualFlurryDescription=You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
+Condition/&ConditionFeatDualFlurryMarkDescription=When you use your bonus action to attack a creature with your off-hand weapon, you make two attacks against the same creature instead of one.
+Condition/&ConditionFeatDualFlurryMarkTitle=Dual Flurry
+Feat/&FeatDualFlurryDescription=While you are dual-wielding melee weapons, when you use your bonus action to attack a creature with your off-hand one, after you hit a creature with your main, you make two attacks against the same creature with your off-hand instead of one.
 Feat/&FeatDualFlurryTitle=Dual Flurry
-Feat/&FeatDualWeaponDefenseDescription=You master fighting with two weapons, gaining the following benefits:\n• You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.\n• You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.
+Feat/&FeatDualWeaponDefenseDescription=You master fighting with two weapons, gaining the following benefits:\n• You gain a +1 bonus to AC while you are dual-wielding melee weapons.\n• You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.
 Feat/&FeatDualWeaponDefenseTitle=Dual Wielder

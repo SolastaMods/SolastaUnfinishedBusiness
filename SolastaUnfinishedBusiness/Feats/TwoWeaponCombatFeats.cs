@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -30,41 +29,6 @@ internal static class TwoWeaponCombatFeats
             featDualWeaponDefense);
     }
 
-    private static FeatDefinition BuildDualFlurry()
-    {
-        var conditionDualFlurryApply = ConditionDefinitionBuilder
-            .Create("ConditionDualFlurryApply")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        var conditionDualFlurryGrant = ConditionDefinitionBuilder
-            .Create("ConditionDualFlurryGrant")
-            .SetGuiPresentation(Category.Condition)
-            .SetPossessive()
-            .SetFeatures(
-                FeatureDefinitionAdditionalActionBuilder
-                    .Create("AdditionalActionDualFlurry")
-                    .SetGuiPresentationNoContent(true)
-                    .SetActionType(ActionDefinitions.ActionType.Bonus)
-                    .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
-                    .SetMaxAttacksNumber(-1)
-                    .AddToDB())
-            .AddToDB();
-
-        return FeatDefinitionBuilder
-            .Create("FeatDualFlurry")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("OnAttackDamageEffectFeatDualFlurry")
-                    .SetGuiPresentation("FeatDualFlurry", Category.Feat)
-                    .AddCustomSubFeatures(
-                        new PhysicalAttackFinishedByMeDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
-                    .AddToDB())
-            .AddToDB();
-    }
-
     private static FeatDefinition BuildDualWeaponDefense()
     {
         const string NAME = "FeatDualWeaponDefense";
@@ -85,19 +49,33 @@ internal static class TwoWeaponCombatFeats
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackFinishedByMeDualFlurry : IPhysicalAttackFinishedByMe
+    private static FeatDefinition BuildDualFlurry()
     {
-        private readonly ConditionDefinition _conditionDualFlurryApply;
-        private readonly ConditionDefinition _conditionDualFlurryGrant;
+        const string NAME = "FeatDualFlurry";
 
-        internal PhysicalAttackFinishedByMeDualFlurry(
-            ConditionDefinition conditionDualFlurryGrant,
-            ConditionDefinition conditionDualFlurryApply)
-        {
-            _conditionDualFlurryGrant = conditionDualFlurryGrant;
-            _conditionDualFlurryApply = conditionDualFlurryApply;
-        }
+        // kept for backward compatibility
+        _ = FeatureDefinitionBuilder
+            .Create($"OnAttackDamageEffect{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
 
+
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
+            .SetPossessive()
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .AddCustomSubFeatures(new PhysicalAttackFinishedByMeDualFlurry(conditionMark))
+            .AddToDB();
+    }
+
+    private sealed class PhysicalAttackFinishedByMeDualFlurry(ConditionDefinition conditionMark)
+        : IPhysicalAttackFinishedByMe
+    {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -107,47 +85,61 @@ internal static class TwoWeaponCombatFeats
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker))
             {
                 yield break;
             }
 
-            if (attacker.RulesetCharacter is not RulesetCharacterHero hero)
+            var hasMark = rulesetAttacker.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionMark.Name, out var activeCondition);
+
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+            switch (action.ActionType)
             {
-                yield break;
+                case ActionDefinitions.ActionType.Main when
+                    rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
+                    !hasMark:
+
+                    rulesetAttacker.InflictCondition(
+                        conditionMark.Name,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetAttacker.guid,
+                        rulesetAttacker.CurrentFaction.Name,
+                        1,
+                        conditionMark.Name,
+                        0,
+                        0,
+                        0);
+                    break;
+
+                case ActionDefinitions.ActionType.Bonus when
+                    hasMark &&
+                    defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    attackMode.IsOneHandedWeapon():
+
+                    var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+                    attackModeCopy.Copy(attackMode);
+                    attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
+
+                    var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.AttackFree)
+                    {
+                        AttackMode = attackModeCopy,
+                        TargetCharacters = { defender },
+                        ActionModifiers = { new ActionModifier() }
+                    };
+
+                    rulesetAttacker.RemoveCondition(activeCondition);
+
+                    ServiceRepository.GetService<IGameLocationActionService>()?
+                        .ExecuteAction(actionParams, null, true);
+                    break;
             }
-
-            if (attackMode == null || !ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(hero))
-            {
-                yield break;
-            }
-
-            if (!attacker.OnceInMyTurnIsValid(_conditionDualFlurryGrant.Name))
-            {
-                yield break;
-            }
-
-            var condition = _conditionDualFlurryApply;
-
-            if (hero.HasConditionOfType(condition))
-            {
-                attacker.UsedSpecialFeatures.TryAdd(_conditionDualFlurryGrant.Name, 1);
-                condition = _conditionDualFlurryGrant;
-            }
-
-            hero.InflictCondition(
-                condition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                hero.guid,
-                hero.CurrentFaction.Name,
-                1,
-                condition.Name,
-                0,
-                0,
-                0);
         }
     }
 }

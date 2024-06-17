@@ -1,6 +1,6 @@
-Condition/&ConditionDualFlurryGrantDescription=Vos ennemis sont sous le choc !
-Condition/&ConditionDualFlurryGrantTitle=Double rafale
-Feat/&FeatDualFlurryDescription=Vous êtes un maître du combat avec des armes jumelées. À n'importe quel tour où vous frappez deux fois avec des attaques de mêlée tout en brandissant une arme dans chaque main, vous pouvez effectuer une attaque supplémentaire avec votre main secondaire lorsque vous attaquez avec votre action bonus.
+Condition/&ConditionFeatDualFlurryMarkDescription=Lorsque vous utilisez votre action bonus pour attaquer une créature avec votre arme de main gauche, vous effectuez deux attaques contre la même créature au lieu d'une.
+Condition/&ConditionFeatDualFlurryMarkTitle=Double rafale
+Feat/&FeatDualFlurryDescription=Pendant que vous utilisez des armes de mêlée à double usage, lorsque vous utilisez votre action bonus pour attaquer une créature avec votre main secondaire, après avoir touché une créature avec votre main secondaire, vous effectuez deux attaques contre la même créature avec votre main secondaire au lieu de un.
 Feat/&FeatDualFlurryTitle=Double rafale
-Feat/&FeatDualWeaponDefenseDescription=Vous maîtrisez le combat à deux armes et bénéficiez des avantages suivants :\n• Vous bénéficiez d'un bonus de +1 à la CA lorsque vous utilisez une arme de mêlée distincte dans chaque main.\n• Vous pouvez utiliser le combat à deux armes même lorsque la Les armes de mêlée à une main que vous utilisez ne sont pas légères.
+Feat/&FeatDualWeaponDefenseDescription=Vous maîtrisez le combat avec deux armes et bénéficiez des avantages suivants :\n• Vous bénéficiez d'un bonus de +1 à la CA lorsque vous utilisez des armes de mêlée à deux mains.\n• Vous pouvez utiliser le combat à deux armes même lorsque l'arme à une main les armes de mêlée que vous utilisez ne sont pas légères.
 Feat/&FeatDualWeaponDefenseTitle=Double porteur

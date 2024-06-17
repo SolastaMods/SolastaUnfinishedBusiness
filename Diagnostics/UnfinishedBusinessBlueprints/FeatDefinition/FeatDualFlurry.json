@@ -11,9 +11,7 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:OnAttackDamageEffectFeatDualFlurry:2ba7acb1-0bd0-597d-92f2-6efc06f0478b"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

@@ -1,6 +1,6 @@
-Condition/&ConditionDualFlurryGrantDescription=Seus inimigos estão cambaleando!
-Condition/&ConditionDualFlurryGrantTitle=Agitação Dupla
-Feat/&FeatDualFlurryDescription=Você é um mestre na luta com armas emparelhadas. Em qualquer turno em que você acertar duas vezes com ataques corpo a corpo enquanto empunha uma arma em cada mão, você pode realizar um ataque adicional com a mão secundária ao atacar com sua ação bônus.
+Condition/&ConditionFeatDualFlurryMarkDescription=Quando você usa sua ação bônus para atacar uma criatura com sua arma secundária, você faz dois ataques contra a mesma criatura em vez de um.
+Condition/&ConditionFeatDualFlurryMarkTitle=Agitação Dupla
+Feat/&FeatDualFlurryDescription=Enquanto estiver empunhando duas armas corpo a corpo, ao usar sua ação bônus para atacar uma criatura com sua mão secundária, depois de atingir uma criatura com sua mão principal, você faz dois ataques contra a mesma criatura com sua mão secundária em vez de um.
 Feat/&FeatDualFlurryTitle=Agitação Dupla
-Feat/&FeatDualWeaponDefenseDescription=Você domina o combate com duas armas, ganhando os seguintes benefícios:\n• Você ganha um bônus de +1 na CA enquanto estiver empunhando uma arma corpo a corpo separada em cada mão.\n• Você pode usar o combate com duas armas mesmo quando o as armas brancas de uma mão que você empunha não são leves.
+Feat/&FeatDualWeaponDefenseDescription=Você domina o combate com duas armas, ganhando os seguintes benefícios:\n• Você ganha um bônus de +1 na CA enquanto usa armas corpo a corpo com empunhadura dupla.\n• Você pode usar o combate com duas armas, mesmo quando estiver com uma mão. as armas brancas que você empunha não são leves.
 Feat/&FeatDualWeaponDefenseTitle=Portador Duplo

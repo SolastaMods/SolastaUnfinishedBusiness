@@ -226,12 +226,12 @@ You sprout draconic wings. You gain the ability to fly for a limited time if you
 
 # 46. - Dual Flurry [UB]
 
-You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
+While you are dual-wielding melee weapons, when you use your bonus action to attack a creature with your off-hand one, after you hit a creature with your main, you make two attacks against the same creature with your off-hand instead of one.
 
 # 47. - *Dual Wielder* © [UB]
 
 You master fighting with two weapons, gaining the following benefits:
-• You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
+• You gain a +1 bonus to AC while you are dual-wielding melee weapons.
 • You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.
 
 # 48. - *Dungeon Delver* © [UB]
