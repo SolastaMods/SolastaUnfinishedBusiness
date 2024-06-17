@@ -106,9 +106,10 @@ internal static class CustomSituationalContext
         var sourceCharacter = GameLocationCharacter.GetFromActor(source);
         var targetCharacter = GameLocationCharacter.GetFromActor(contextParams.target);
 
+        var attackMode = sourceCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
         var weapon = source.GetMainWeapon();
-        var reachRange = weapon?.ItemDefinition.WeaponDescription.ReachRange ?? 1;
-
+        var reachRange = attackMode?.reachRange ?? weapon?.ItemDefinition.WeaponDescription.ReachRange ?? 1;
+        
         if (sourceCharacter.IsWithinRange(targetCharacter, reachRange))
         {
             return true;
