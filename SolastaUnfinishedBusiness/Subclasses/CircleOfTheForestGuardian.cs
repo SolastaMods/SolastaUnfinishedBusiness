@@ -238,7 +238,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             _isValid =
-                defender == helper &&
+                helper == defender &&
                 defender.RulesetCharacter.TemporaryHitPoints > 0 &&
                 defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
                 ValidatorsWeapon.IsMelee(attackMode);

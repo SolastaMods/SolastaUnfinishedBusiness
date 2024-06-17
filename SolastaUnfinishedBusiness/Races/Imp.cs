@@ -559,7 +559,7 @@ internal static class RaceImpBuilder
             RulesetEffect rulesetEffect)
         {
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                defender != helper)
+                helper != defender)
             {
                 yield break;
             }
@@ -603,8 +603,8 @@ internal static class RaceImpBuilder
             var rulesetHelper = attacker.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
-                action.AttackSuccessDelta < -InspirationValue ||
                 helper != attacker ||
+                action.AttackSuccessDelta < -InspirationValue ||
                 rulesetHelper.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0)
             {
                 yield break;
@@ -651,7 +651,7 @@ internal static class RaceImpBuilder
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender != helper ||
+            if (helper != defender ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 rulesetDefender.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0 ||

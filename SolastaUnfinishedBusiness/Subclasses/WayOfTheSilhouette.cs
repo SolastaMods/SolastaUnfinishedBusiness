@@ -294,7 +294,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                defender != helper ||
+                helper != defender ||
                 !defender.CanReact() ||
                 rulesetDefender.GetRemainingPowerUses(powerShadowSanctuary) == 0)
             {

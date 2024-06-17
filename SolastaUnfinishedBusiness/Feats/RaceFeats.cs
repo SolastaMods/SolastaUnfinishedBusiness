@@ -808,7 +808,7 @@ internal static class RaceFeats
             abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
                 ? RollOutcome.Success
                 : RollOutcome.Failure;
-            
+
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,
                 DurationType.Round,
@@ -1893,14 +1893,11 @@ internal static class RaceFeats
                 yield break;
             }
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender != helper ||
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper != defender ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
                 rulesetDefender.HasConditionOfType(conditionSecondChance))

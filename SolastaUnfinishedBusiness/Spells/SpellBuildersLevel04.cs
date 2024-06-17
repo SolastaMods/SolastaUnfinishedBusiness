@@ -550,7 +550,8 @@ internal static partial class SpellBuilders
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!battleManager)
+            if (!battleManager ||
+                helper != defender)
             {
                 yield break;
             }

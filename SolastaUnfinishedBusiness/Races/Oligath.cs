@@ -179,7 +179,7 @@ internal static class RaceOligathBuilder
             var rulesetDefender = defender.RulesetCharacter;
 
             // don't use CanReact() to allow stone endurance when prone
-            if (defender != helper ||
+            if (helper != defender ||
                 !defender.IsReactionAvailable() ||
                 rulesetDefender is not { IsDeadOrUnconscious: false } ||
                 rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||

@@ -932,8 +932,9 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender != helper ||
+            if (helper != defender ||
                 !defender.CanReact() ||
+                rulesetEffect != null ||
                 !ValidatorsWeapon.IsMelee(attackMode) ||
                 rulesetDefender.GetRemainingPowerUses(powerReactiveHide) == 0)
             {

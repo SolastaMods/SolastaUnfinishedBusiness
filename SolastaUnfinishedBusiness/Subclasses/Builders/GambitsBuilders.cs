@@ -1698,17 +1698,17 @@ internal static class GambitsBuilders
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            var rulesetHelper = attacker.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!actionManager ||
                 action.AttackRollOutcome != RollOutcome.Failure ||
                 helper != attacker ||
-                !rulesetHelper.CanUsePower(pool))
+                !rulesetAttacker.CanUsePower(pool))
             {
                 yield break;
             }
 
-            var dieType = GetGambitDieSize(rulesetHelper);
+            var dieType = GetGambitDieSize(rulesetAttacker);
             var max = DiceMaxValue[(int)dieType];
             var delta = Math.Abs(action.AttackSuccessDelta);
 
@@ -1741,7 +1741,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            rulesetHelper.UpdateUsageForPower(pool, 1);
+            rulesetAttacker.UpdateUsageForPower(pool, 1);
 
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
@@ -1758,7 +1758,7 @@ internal static class GambitsBuilders
                 action.AttackRollOutcome = RollOutcome.Success;
             }
 
-            rulesetHelper.ShowDieRoll(
+            rulesetAttacker.ShowDieRoll(
                 dieType,
                 dieRoll,
                 title: feature.GuiPresentation.Title,
@@ -1766,7 +1766,7 @@ internal static class GambitsBuilders
                 displayOutcome: true
             );
 
-            rulesetHelper.LogCharacterUsedFeature(
+            rulesetAttacker.LogCharacterUsedFeature(
                 feature,
                 Line,
                 extra:
@@ -1807,19 +1807,15 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                attackMode is { Ranged: true } ||
-                attackMode is { Thrown: true } ||
-                rulesetEffect != null)
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender != helper ||
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper != defender ||
+                rulesetEffect != null ||
                 !defender.CanReact() ||
-                rulesetDefender.GetRemainingPowerCharges(pool) <= 0)
+                rulesetDefender.GetRemainingPowerCharges(pool) <= 0 ||
+                attackMode is { Ranged: true } ||
+                attackMode is { Thrown: true })
             {
                 yield break;
             }

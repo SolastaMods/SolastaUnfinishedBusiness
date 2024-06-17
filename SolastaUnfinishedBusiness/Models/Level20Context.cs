@@ -1036,14 +1036,10 @@ internal static class Level20Context
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (helper != attacker ||
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                helper != attacker ||
                 rulesetAttacker.GetRemainingPowerUses(power) == 0)
             {
                 yield break;

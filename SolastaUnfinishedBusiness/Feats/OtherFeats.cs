@@ -1782,7 +1782,8 @@ internal static class OtherFeats
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!battleManager)
+            if (!battleManager ||
+                helper != defender)
             {
                 yield break;
             }
@@ -2419,7 +2420,7 @@ internal static class OtherFeats
                                     action.ActionParams.RulesetEffect?.EffectDescription;
 
             if (!actionManager ||
-                defender != helper ||
+                helper != defender ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 rulesetDefender.GetRemainingPowerUses(PowerMageSlayerSaving) == 0 ||

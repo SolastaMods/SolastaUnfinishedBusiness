@@ -261,6 +261,7 @@ internal static class ArmorFeats
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (!battleManager ||
+                helper != defender ||
                 rulesetEffect == null)
             {
                 yield break;

@@ -14,7 +14,7 @@ public interface ITryAlterOutcomeAttack
     //   0 = Roguish Acrobat Heroic Uncanny Dodge
     //  10 = anything that adds resistance to damage
     //  20 = anything that reduces damage
-    //  30 = anything that debuffs or damages attacker
+    //  30 = anything that buff defender, debuff attacker or damages attacker
     public int HandlerPriority { get; }
 
     public IEnumerator OnTryAlterOutcomeAttack(
