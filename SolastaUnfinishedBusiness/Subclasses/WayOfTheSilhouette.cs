@@ -269,64 +269,34 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     //
 
     private class CustomBehaviorShadowySanctuary(FeatureDefinitionPower powerShadowSanctuary)
-        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe,
-            IPreventRemoveConcentrationOnPowerUse
+        : ITryAlterOutcomeAttack, IPreventRemoveConcentrationOnPowerUse
     {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => -50;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
-            {
-                yield break;
-            }
-
-            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
-        }
-
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            RulesetEffect rulesetEffect)
         {
-            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
-        }
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-        private IEnumerator HandleReaction(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            // ReSharper disable once SuggestBaseTypeForParameter
-            List<EffectForm> actualEffectForms)
-        {
-            if (!defender.CanReact())
+            if (!battleManager)
             {
                 yield break;
             }
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.GetRemainingPowerUses(powerShadowSanctuary) == 0)
-            {
-                yield break;
-            }
-
-            var rulesetEnemy = attacker.RulesetCharacter;
-
-            if (rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper != defender ||
+                !defender.CanReact() ||
+                rulesetDefender.GetRemainingPowerUses(powerShadowSanctuary) == 0)
             {
                 yield break;
             }
@@ -357,7 +327,11 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
-            actualEffectForms.Clear();
+            var delta = -action.AttackSuccessDelta - 1;
+
+            action.AttackRollOutcome = RollOutcome.Failure;
+            action.AttackSuccessDelta = -1;
+            action.AttackRoll += delta;
         }
     }
 }

@@ -62,7 +62,7 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsTwoHandedRanged([CanBeNull] ItemDefinition itemDefinition)
+    private static bool IsTwoHandedRanged([CanBeNull] ItemDefinition itemDefinition)
     {
         return IsWeaponType(itemDefinition, LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
     }

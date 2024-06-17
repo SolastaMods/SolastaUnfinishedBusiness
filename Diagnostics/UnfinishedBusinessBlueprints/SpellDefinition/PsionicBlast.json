@@ -11,7 +11,7 @@
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
-  "requiresConcentration": true,
+  "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -43,9 +43,9 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "All",
-    "durationType": "Instantaneous",
+    "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "EndOfTurn",
+    "endOfEffect": "EndOfSourceTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Intelligence",
@@ -198,7 +198,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b295854ad38bcdb4faa4a2e09bdb30dd",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -210,7 +210,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f93c33eb8373a334abc48b2bdbe12ed4",
+        "m_AssetGUID": "1ac0728c7c36d2046b9494d3adb7ecf1",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

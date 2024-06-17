@@ -40,23 +40,22 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
 
         var attackTags = actionParams.AttackMode.AttackTags;
 
-        if (attackTags.Contains(AttackCantrip))
-        {
-            character.UsedMainCantrip = true;
-
-            if (!attackTags.Contains(ReplaceAttackCantrip))
-            {
-                character.SpendActionType(ActionDefinitions.ActionType.Main);
-            }
-        }
-
-        if (!attackTags.Contains(QuickenedAttackCantrip))
+        if (!attackTags.Contains(AttackCantrip))
         {
             return;
         }
 
-        character.UsedMainSpell = true;
-        character.SpendActionType(ActionDefinitions.ActionType.Bonus);
+        character.UsedMainCantrip = true;
+
+        if (attackTags.Contains(QuickenedAttackCantrip))
+        {
+            character.UsedMainSpell = true;
+            character.SpendActionType(ActionDefinitions.ActionType.Bonus);
+        }
+        else if (!attackTags.Contains(ReplaceAttackCantrip))
+        {
+            character.SpendActionType(ActionDefinitions.ActionType.Main);
+        }
     }
 
     internal static bool CanAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)

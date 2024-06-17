@@ -62,7 +62,7 @@ internal static partial class CharacterContext
         FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierMonkAbundantKi")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.KiPoints, 1)
+            .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.KiPoints)
             .SetSituationalContext(SituationalContext.NotWearingArmorOrShield)
             .AddToDB();
 
@@ -1217,6 +1217,9 @@ internal static partial class CharacterContext
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
+            abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                ? RollOutcome.Success
+                : RollOutcome.Failure;
 
             rulesetHelper.LogCharacterActivatesAbility(
                 "Feature/&FeatureSorcererMagicalGuidanceTitle",

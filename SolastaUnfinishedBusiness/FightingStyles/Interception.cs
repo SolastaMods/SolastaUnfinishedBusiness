@@ -62,27 +62,32 @@ internal sealed class Interception : AbstractFightingStyle
 
     private sealed class CustomBehaviorInterception(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition) : IAttackBeforeHitPossibleOnMeOrAlly
+        ConditionDefinition conditionDefinition) : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => 20;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager)
+            if (!actionManager || !battleManager)
             {
                 yield break;
             }
 
             if (helper == defender ||
+                helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
                 !helper.IsWithinRange(defender, 1))

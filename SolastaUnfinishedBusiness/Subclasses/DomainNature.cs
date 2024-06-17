@@ -157,17 +157,13 @@ public sealed class DomainNature : AbstractSubclass
 
         foreach (var damageType in DampenElementsDamageTypes)
         {
-            var shortDamageType = damageType.Replace("Damage", string.Empty);
-
-            var conditionResistance = ConditionDefinitionBuilder
+            _ = ConditionDefinitionBuilder
                 .Create($"Condition{Name}{damageType}")
                 .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
-                .SetFeatures(db.GetElement($"DamageAffinity{shortDamageType}Resistance"))
+                .SetFeatures(db.GetElement($"DamageAffinity{damageType.Replace("Damage", string.Empty)}Resistance"))
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                 .AddToDB();
-
-            conditionResistance.GuiPresentation.description = Gui.NoLocalization;
         }
 
         var conditionDampenElements = ConditionDefinitionBuilder
@@ -303,7 +299,7 @@ public sealed class DomainNature : AbstractSubclass
     private sealed class CustomBehaviorDampenElements(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDampenElements)
-        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe
+        : IMagicEffectBeforeHitConfirmedOnMe, ITryAlterOutcomeAttack
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -315,21 +311,36 @@ public sealed class DomainNature : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return Handler(battleManager, attacker, defender, actualEffectForms);
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield return Handler(battleManager, attacker, defender, actualEffectForms);
+            }
         }
 
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => 10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            RulesetEffect rulesetEffect)
         {
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager ||
+                helper != defender)
+            {
+                yield break;
+            }
+
+            var actualEffectForms =
+                attackMode?.EffectDescription.EffectForms ?? rulesetEffect?.EffectDescription.EffectForms ?? [];
+
             yield return Handler(battleManager, attacker, defender, actualEffectForms);
         }
 

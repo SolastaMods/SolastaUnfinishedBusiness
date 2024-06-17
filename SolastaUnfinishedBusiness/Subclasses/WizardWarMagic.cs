@@ -158,13 +158,17 @@ public sealed class WizardWarMagic : AbstractSubclass
         ConditionDefinition conditionArcaneDeflection,
         FeatureDefinitionPower powerDeflectionShroud) : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow
     {
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var rulesetCharacter = helper.RulesetCharacter;
@@ -175,8 +179,8 @@ public sealed class WizardWarMagic : AbstractSubclass
                 action.AttackRollOutcome != RollOutcome.Success ||
                 action.AttackSuccessDelta - bonus >= 0 ||
                 helper != defender ||
-                !helper.CanReact() ||
-                !helper.CanPerceiveTarget(attacker))
+                !defender.CanReact() ||
+                !defender.CanPerceiveTarget(attacker))
             {
                 yield break;
             }
@@ -292,7 +296,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                 0);
 
             action.SaveOutcomeDelta += bonus;
-            action.saveOutcome = RollOutcome.Success;
+            action.SaveOutcome = RollOutcome.Success;
             helper.RulesetCharacter.LogCharacterUsedFeature(
                 featureArcaneDeflection,
                 "Feedback/&ArcaneDeflectionSavingRoll",

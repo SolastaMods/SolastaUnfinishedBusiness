@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ProficiencyPathOfTheBattleragerBattleragerArmor:999c54da-8194-5ecb-adac-32e1d65d97e8",
+    "Definition:PowerPathOfTheBattleragerRagingBattlerager:94ea82c9-c176-5794-9e39-27b755f63d0d"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle",
+    "description": "Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "0482c8b3-5e04-5877-8a90-330ad738ac90",
+  "contentPack": 9999,
+  "name": "FeatureSetPathOfTheBattleragerBattleragerArmor"
+}

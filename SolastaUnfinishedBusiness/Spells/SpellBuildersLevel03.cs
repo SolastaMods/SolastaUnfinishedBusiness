@@ -222,7 +222,7 @@ internal static partial class SpellBuilders
                         AttributeDefinitions.Charisma)
                     .AddToDB(),
                 FeatureDefinitionDamageAffinitys.DamageAffinityPsychicResistance)
-            .SetConditionParticleReference(ConditionFeebleMinded.conditionParticleReference)
+            .SetConditionParticleReference(ConditionFeebleMinded)
             .AddToDB();
 
         condition.GuiPresentation.description = Gui.NoLocalization;
@@ -343,7 +343,7 @@ internal static partial class SpellBuilders
                 .SetPossessive()
                 .AddFeatures(movementAffinity, combatAffinity)
                 .AddCustomSubFeatures(new ActionFinishedByMeAshardalonStride(conditionMark))
-                .SetConditionParticleReference(ConditionOnFire.conditionParticleReference)
+                .SetConditionParticleReference(ConditionOnFire)
                 .AddToDB();
 
             conditionAshardalonStride.GuiPresentation.Description = Gui.NoLocalization;

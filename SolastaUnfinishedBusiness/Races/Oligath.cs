@@ -155,22 +155,31 @@ internal static class RaceOligathBuilder
     }
 
     private class CustomBehaviorStoneEndurance(FeatureDefinitionPower powerStoneEndurance)
-        : IAttackBeforeHitPossibleOnMeOrAlly
+        : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => 10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
             var rulesetDefender = defender.RulesetCharacter;
 
             // don't use CanReact() to allow stone endurance when prone
-            if (defender != helper ||
+            if (helper != defender ||
                 !defender.IsReactionAvailable() ||
                 rulesetDefender is not { IsDeadOrUnconscious: false } ||
                 rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||

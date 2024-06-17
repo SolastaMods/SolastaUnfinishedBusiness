@@ -207,7 +207,6 @@ public static class CharacterActionPatcher
                 }
             }
 
-
             if (__instance.ActionType == ActionDefinitions.ActionType.Bonus)
             {
                 rulesetCharacter.ProcessConditionsMatchingInterruption(

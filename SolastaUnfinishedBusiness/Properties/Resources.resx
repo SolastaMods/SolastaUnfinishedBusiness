@@ -277,11 +277,6 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
-  <data name="PowerGreatWeaponDefense" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Powers/PowerGreatWeaponDefense.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
-  </data>
   <data name="PowerEleganceDash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerEleganceDash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -529,6 +524,12 @@
   </data>
   <data name="PowerDarkDelirium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerDarkDelirium.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PowerBolsteringMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Powers/PowerBolsteringMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -840,7 +841,20 @@
     </value>
   </data>
   <data name="UnarmedStrikeClaws" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Items/UnarmedStrikeClaws.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>
+      ../Resources/Items/UnarmedStrikeClaws.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="BeastBite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Items/BeastBite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="BeastTail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ../Resources/Items/BeastTail.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -1713,6 +1727,26 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+
+  <data name="PowerBestialSoul" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ..\Resources\Powers\PowerBestialSoul.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PowerInfectiousFuryMindlash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ..\Resources\Powers\PowerInfectiousFuryMindlash.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PowerInfectiousFuryCompelledStrike" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ..\Resources\Powers\PowerInfectiousFuryCompelledStrike.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="PowerBurstOfDisharmony" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerBurstOfDisharmony.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
@@ -2076,6 +2110,24 @@
   </data>
   <data name="PathOfTheSpirits" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheSpirits.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PathOfTheWildMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ..\Resources\Subclasses\PathOfTheWildMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PathOfTheBattlerager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ..\Resources\Subclasses\PathOfTheBattlerager.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PathOfTheBeast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>
+      ..\Resources\Subclasses\PathOfTheBeast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>

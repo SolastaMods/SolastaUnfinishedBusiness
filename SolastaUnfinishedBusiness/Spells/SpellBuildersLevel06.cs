@@ -213,8 +213,7 @@ internal static partial class SpellBuilders
                     .SetGuiPresentation(NAME, Category.Spell, "UI/&HasHalfCover")
                     .SetPermanentCover(CoverType.Half)
                     .AddToDB())
-            .SetConditionParticleReference(
-                WardingBond.EffectDescription.EffectParticleParameters.conditionParticleReference)
+            .SetConditionParticleReference(WardingBond)
             .AddToDB();
 
         conditionMark.GuiPresentation.description = Gui.NoLocalization;

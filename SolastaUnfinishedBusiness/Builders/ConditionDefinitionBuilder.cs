@@ -149,6 +149,35 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
+    internal ConditionDefinitionBuilder SetConditionParticleReference(ConditionDefinition conditionDefinition)
+    {
+        Definition.conditionStartParticleReference = conditionDefinition.conditionStartParticleReference;
+        Definition.conditionParticleReference = conditionDefinition.conditionParticleReference;
+        Definition.conditionEndParticleReference = conditionDefinition.conditionEndParticleReference;
+        return this;
+    }
+
+    internal ConditionDefinitionBuilder SetConditionParticleReference(BaseDefinition baseDefinition)
+    {
+        if (baseDefinition is ConditionDefinition conditionDefinition)
+        {
+            return SetConditionParticleReference(conditionDefinition);
+        }
+
+        if (baseDefinition is not IMagicEffect magicEffect)
+        {
+            return this;
+        }
+
+        Definition.conditionStartParticleReference =
+            magicEffect.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        Definition.conditionParticleReference =
+            magicEffect.EffectDescription.EffectParticleParameters.conditionParticleReference;
+        Definition.conditionEndParticleReference =
+            magicEffect.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+        return this;
+    }
+
     internal ConditionDefinitionBuilder SetCharacterShaderReference(AssetReference value)
     {
         Definition.characterShaderReference = value;

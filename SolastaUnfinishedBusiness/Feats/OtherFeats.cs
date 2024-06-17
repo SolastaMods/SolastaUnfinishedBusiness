@@ -1746,7 +1746,7 @@ internal static class OtherFeats
     }
 
     private sealed class CustomBehaviorReactiveResistance(FeatureDefinitionPower powerReactiveResistance)
-        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+        : ITryAlterOutcomeAttack, IMagicEffectBeforeHitConfirmedOnMe
     {
         private static readonly HashSet<string> DamageTypes =
             [DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison];
@@ -1761,21 +1761,36 @@ internal static class OtherFeats
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+            }
         }
 
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => 10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            RulesetEffect rulesetEffect)
         {
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager ||
+                helper != defender)
+            {
+                yield break;
+            }
+
+            var actualEffectForms =
+                attackMode?.EffectDescription.EffectForms ?? rulesetEffect?.EffectDescription.EffectForms ?? [];
+
             yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
@@ -2012,13 +2027,17 @@ internal static class OtherFeats
             _modifier = saveBonus + rollModifier;
         }
 
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerLucky, rulesetHelper);
@@ -2106,6 +2125,10 @@ internal static class OtherFeats
             {
                 action.AttackRollOutcome = dieRoll == 20 ? RollOutcome.CriticalSuccess : RollOutcome.Success;
             }
+            else
+            {
+                action.AttackRollOutcome = dieRoll == 1 ? RollOutcome.CriticalFailure : RollOutcome.Failure;
+            }
 
             rulesetHelper.LogCharacterActivatesAbility(
                 "Feat/&FeatLuckyTitle",
@@ -2181,6 +2204,9 @@ internal static class OtherFeats
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
+            abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                ? RollOutcome.Success
+                : RollOutcome.Failure;
 
             rulesetHelper.LogCharacterActivatesAbility(
                 "Feat/&FeatLuckyTitle",
@@ -2259,8 +2285,8 @@ internal static class OtherFeats
                 yield break;
             }
 
-            action.saveOutcomeDelta += dieRoll - savingRoll;
-            action.RolledSaveThrow = true;
+            action.SaveOutcomeDelta += dieRoll - savingRoll;
+            action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
             rulesetHelper.LogCharacterActivatesAbility(
                 "Feat/&FeatLuckyTitle",
@@ -2394,7 +2420,7 @@ internal static class OtherFeats
                                     action.ActionParams.RulesetEffect?.EffectDescription;
 
             if (!actionManager ||
-                defender != helper ||
+                helper != defender ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 rulesetDefender.GetRemainingPowerUses(PowerMageSlayerSaving) == 0 ||
@@ -2423,9 +2449,8 @@ internal static class OtherFeats
                 yield break;
             }
 
-            action.RolledSaveThrow = true;
-            action.saveOutcomeDelta = 0;
-            action.saveOutcome = RollOutcome.Success;
+            action.SaveOutcomeDelta = 0;
+            action.SaveOutcome = RollOutcome.Success;
 
             rulesetDefender.UsePower(usablePower);
             rulesetDefender.LogCharacterUsedPower(PowerMageSlayerSaving);
@@ -2497,6 +2522,11 @@ internal static class OtherFeats
                                 .SetParentCondition(ConditionDefinitions.ConditionFreedomOfMovement)
                                 .SetPossessive()
                                 .SetFeatures()
+                                .AddToDB(),
+                            ConditionDefinitionBuilder
+                                .Create("ConditionMobileMark")
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
                                 .AddToDB()))
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
@@ -2507,43 +2537,48 @@ internal static class OtherFeats
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionImmuneAoO,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionMovement) : IActionFinishedByMe
+        ConditionDefinition conditionMovement,
+        ConditionDefinition conditionMark) : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
-            // ReSharper disable once ConvertIfStatementToSwitchStatement
-            if (action.ActionId is
-                ActionDefinitions.Id.AttackFree or
-                ActionDefinitions.Id.AttackMain or
-                ActionDefinitions.Id.AttackOff or
-                ActionDefinitions.Id.AttackOpportunity
-                or ActionDefinitions.Id.AttackReadied)
+            if (action is CharacterActionAttack &&
+                ValidatorsWeapon.IsMelee(action.ActionParams.AttackMode))
             {
-                if (ValidatorsWeapon.IsMelee(action.ActionParams.AttackMode))
-                {
-                    rulesetAttacker.InflictCondition(
-                        conditionImmuneAoO.Name,
-                        DurationType.Round,
-                        0,
-                        TurnOccurenceType.EndOfTurn,
-                        AttributeDefinitions.TagEffect,
-                        rulesetAttacker.guid,
-                        rulesetAttacker.CurrentFaction.Name,
-                        1,
-                        conditionImmuneAoO.Name,
-                        0,
-                        0,
-                        0);
-                }
+                rulesetAttacker.InflictCondition(
+                    conditionImmuneAoO.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionImmuneAoO.Name,
+                    0,
+                    0,
+                    0);
 
-                yield break;
+                var defender = action.ActionParams.TargetCharacters[0];
+                var rulesetDefender = defender.RulesetCharacter;
+
+                rulesetDefender.InflictCondition(
+                    conditionMark.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfSourceTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionMark.Name,
+                    0,
+                    0,
+                    0);
             }
-
-            if (action.ActionId is
-                ActionDefinitions.Id.DashBonus or
-                ActionDefinitions.Id.DashMain)
+            else if (action.ActionId is ActionDefinitions.Id.DashBonus or ActionDefinitions.Id.DashMain)
             {
                 rulesetAttacker.InflictCondition(
                     conditionMovement.Name,
@@ -2559,6 +2594,8 @@ internal static class OtherFeats
                     0,
                     0);
             }
+
+            yield break;
         }
     }
 
@@ -2566,7 +2603,8 @@ internal static class OtherFeats
     {
         public bool CanIgnoreAoOOnSelf(RulesetCharacter defender, RulesetCharacter attacker)
         {
-            return true;
+            return attacker.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, "ConditionMobileMark");
         }
     }
 

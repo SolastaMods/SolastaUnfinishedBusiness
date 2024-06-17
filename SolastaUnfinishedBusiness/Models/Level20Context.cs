@@ -1024,22 +1024,22 @@ internal static class Level20Context
     private class TryAlterOutcomeAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
         : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (helper != attacker ||
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+                helper != attacker ||
                 rulesetAttacker.GetRemainingPowerUses(power) == 0)
             {
                 yield break;

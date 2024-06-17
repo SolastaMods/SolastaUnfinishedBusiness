@@ -234,23 +234,45 @@ public sealed class MartialGuardian : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionImperviousProtector,
         FeatureDefinitionPower powerGrandChallenge)
-        : ICharacterBattleStartedListener, IAttackBeforeHitPossibleOnMeOrAlly
+        : ICharacterBattleStartedListener, ITryAlterOutcomeAttack
     {
         private const string Line = "Feedback/&ActivateRepaysLine";
 
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
-            [UsedImplicitly] GameLocationCharacter attacker,
+        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            var rulesetUsablePower = PowerProvider.Get(powerGrandChallenge, rulesetCharacter);
+
+            if (rulesetUsablePower.MaxUses == rulesetUsablePower.RemainingUses)
+            {
+                return;
+            }
+
+            rulesetCharacter.LogCharacterUsedPower(powerGrandChallenge, Line);
+            rulesetCharacter.RepayPowerUse(rulesetUsablePower);
+        }
+
+        public int HandlerPriority => 10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender != helper ||
+            if (helper != defender ||
                 rulesetEffect != null ||
                 attackMode.Magical ||
                 !ValidatorsCharacter.HasHeavyArmor(rulesetDefender))
@@ -271,26 +293,6 @@ public sealed class MartialGuardian : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-
-        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
-        {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                return;
-            }
-
-            var rulesetUsablePower = PowerProvider.Get(powerGrandChallenge, rulesetCharacter);
-
-            if (rulesetUsablePower.MaxUses == rulesetUsablePower.RemainingUses)
-            {
-                return;
-            }
-
-            rulesetCharacter.LogCharacterUsedPower(powerGrandChallenge, Line);
-            rulesetCharacter.RepayPowerUse(rulesetUsablePower);
         }
     }
 }

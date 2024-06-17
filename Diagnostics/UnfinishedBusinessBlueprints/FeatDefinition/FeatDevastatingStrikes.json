@@ -12,13 +12,14 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AdditionalDamageFeatDevastatingStrikes:784aeecc-2d96-5f0b-ba89-935e4432fa2d"
+    "Definition:AdditionalDamageFeatDevastatingStrikes:784aeecc-2d96-5f0b-ba89-935e4432fa2d",
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatDevastatingStrikesTitle",
-    "description": "Feat/&FeatDevastatingStrikesDescription",
+    "title": "Feat/&FeatDevastatingStrikesDexTitle",
+    "description": "Feat/&FeatDevastatingStrikesDexDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

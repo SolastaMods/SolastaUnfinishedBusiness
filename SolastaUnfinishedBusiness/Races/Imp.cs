@@ -544,23 +544,22 @@ internal static class RaceImpBuilder
         }
     }
 
-    private class ImpSpiteAttackOnHit : IAttackBeforeHitPossibleOnMeOrAlly
+    private class ImpSpiteAttackOnHit : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
-            [UsedImplicitly] GameLocationCharacter attacker,
+        public int HandlerPriority => -10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
-            if (defender != helper)
-            {
-                yield break;
-            }
-
-            if (defender.RulesetActor.IsDeadOrDying)
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper != defender)
             {
                 yield break;
             }
@@ -590,18 +589,22 @@ internal static class RaceImpBuilder
     {
         private const int InspirationValue = 3;
 
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier actionModifier)
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var rulesetHelper = attacker.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
-                action.AttackSuccessDelta < -InspirationValue ||
                 helper != attacker ||
+                action.AttackSuccessDelta < -InspirationValue ||
                 rulesetHelper.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0)
             {
                 yield break;
@@ -630,7 +633,6 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            rulesetHelper.UsePower(usablePower);
             action.AttackSuccessDelta += InspirationValue;
             action.AttackRollOutcome = RollOutcome.Success;
             actionModifier.AttackRollModifier += InspirationValue;
@@ -649,7 +651,7 @@ internal static class RaceImpBuilder
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender != helper ||
+            if (helper != defender ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
                 rulesetDefender.GetRemainingPowerUses(powerImpBadlandDrawInspiration) == 0 ||
@@ -680,10 +682,9 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            rulesetDefender.UsePower(usablePower);
             action.RolledSaveThrow = true;
-            action.saveOutcomeDelta = 0;
-            action.saveOutcome = RollOutcome.Success;
+            action.SaveOutcomeDelta = 0;
+            action.SaveOutcome = RollOutcome.Success;
         }
     }
 

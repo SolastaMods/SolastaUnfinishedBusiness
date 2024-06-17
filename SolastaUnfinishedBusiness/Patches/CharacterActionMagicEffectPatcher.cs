@@ -60,13 +60,12 @@ public static class CharacterActionMagicEffectPatcher
 
             // BEGIN PATCH
 
-            //PATCH: mark if levelled spell was used for correct action surge interaction
-            if (__instance is CharacterActionCastSpell actionCastSpell &&
-                actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel > 0)
+            //PATCH: mark if bonus spell was used for correct action surge interaction
+            if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Bonus })
             {
-                actingCharacter.UsedSpecialFeatures.TryAdd("LevelledSpell", 0);
+                actingCharacter.UsedSpecialFeatures.TryAdd("BonusSpell", 0);
             }
-            
+
             //PATCH: skip spell animation if this is "attack after cast" spell
             if (baseDefinition.HasSubFeatureOfType<AttackAfterMagicEffect>())
             {
@@ -582,13 +581,18 @@ public static class CharacterActionMagicEffectPatcher
 
         private static IEnumerator ExecuteMagicAttack(
             CharacterActionMagicEffect __instance,
-            RulesetEffect activeEffect,
+            RulesetEffect rulesetEffect,
             GameLocationCharacter target,
             ActionModifier attackModifier,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
             bool checkMagicalAttackDamage)
         {
+            if (target.RulesetCharacter is RulesetCharacterEffectProxy)
+            {
+                yield break;
+            }
+
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (!battleManager)
@@ -597,7 +601,7 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             var actingCharacter = __instance.ActingCharacter;
-            var effectDescription = activeEffect.EffectDescription;
+            var effectDescription = rulesetEffect.EffectDescription;
 
             __instance.AttackRollOutcome = RollOutcome.Success;
 
@@ -612,7 +616,7 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     yield return magicEffectInitiatedOnMe.OnMagicEffectAttackInitiatedOnMe(
                         __instance,
-                        activeEffect,
+                        rulesetEffect,
                         target,
                         attackModifier,
                         actualEffectForms,
@@ -626,7 +630,7 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     yield return magicEffectInitiatedByMe.OnMagicEffectAttackInitiatedByMe(
                         __instance,
-                        activeEffect,
+                        rulesetEffect,
                         actingCharacter,
                         target,
                         attackModifier,
@@ -635,14 +639,14 @@ public static class CharacterActionMagicEffectPatcher
                         checkMagicalAttackDamage);
                 }
 
-                if (activeEffect is { SourceDefinition: SpellDefinition spellDefinition })
+                if (rulesetEffect is { SourceDefinition: SpellDefinition spellDefinition })
                 {
                     var magicEffectInitiatedByMe =
                         spellDefinition.GetFirstSubFeatureOfType<IMagicEffectAttackInitiatedByMe>();
 
                     yield return magicEffectInitiatedByMe?.OnMagicEffectAttackInitiatedByMe(
                         __instance,
-                        activeEffect,
+                        rulesetEffect,
                         actingCharacter,
                         target,
                         attackModifier,
@@ -655,9 +659,9 @@ public static class CharacterActionMagicEffectPatcher
 
                 // Roll dice + handle target reaction
                 __instance.AttackRoll = actingCharacter.RulesetCharacter.RollMagicAttack(
-                    activeEffect,
+                    rulesetEffect,
                     target.RulesetActor,
-                    activeEffect.GetEffectSource(),
+                    rulesetEffect.GetEffectSource(),
                     attackModifier.AttacktoHitTrends,
                     attackModifier.AttackAdvantageTrends,
                     false,
@@ -687,14 +691,15 @@ public static class CharacterActionMagicEffectPatcher
                     // END PATCH
                 }
 
-                //PATCH: support for `ITryAlterOutcomeAttack`
-                foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttack.Handler(
-                             battleManager, __instance, actingCharacter, target, attackModifier))
-                {
-                    yield return tryAlterOutcomeSavingThrow;
-                }
-
                 __instance.isResultingActionSpendPowerWithMotionForm = false;
+
+                //PATCH: support for `ITryAlterOutcomeAttack`
+                foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.HandlerNegativePriority(
+                             battleManager, __instance, actingCharacter, target, attackModifier, null, rulesetEffect))
+                {
+                    yield return tryAlterOutcomeAttack;
+                }
+                //END PATCH
 
                 // Is this a success?
                 if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
@@ -707,18 +712,27 @@ public static class CharacterActionMagicEffectPatcher
                             actingCharacter,
                             target,
                             null,
-                            activeEffect,
+                            rulesetEffect,
                             attackModifier,
                             __instance.AttackRoll,
                             __instance.AttackSuccessDelta,
                             effectDescription.RangeType == RangeType.RangeHit);
                     }
 
+                    //PATCH: support for `ITryAlterOutcomeAttack`
+                    foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.HandlerNonNegativePriority(
+                                 battleManager, __instance, actingCharacter, target, attackModifier, null,
+                                 rulesetEffect))
+                    {
+                        yield return tryAlterOutcomeAttack;
+                    }
+                    //END PATCH
+
                     // Execute the final step of the attack
                     actingCharacter.RulesetCharacter.RollMagicAttack(
-                        activeEffect,
+                        rulesetEffect,
                         target.RulesetActor,
-                        activeEffect.GetEffectSource(),
+                        rulesetEffect.GetEffectSource(),
                         attackModifier.AttacktoHitTrends,
                         attackModifier.AttackAdvantageTrends,
                         false,
@@ -770,7 +784,7 @@ public static class CharacterActionMagicEffectPatcher
                                 actingCharacter,
                                 target,
                                 attackModifier,
-                                activeEffect,
+                                rulesetEffect,
                                 actualEffectForms,
                                 firstTarget,
                                 __instance.AttackRollOutcome == RollOutcome.CriticalSuccess);
@@ -780,9 +794,9 @@ public static class CharacterActionMagicEffectPatcher
                 else
                 {
                     actingCharacter.RulesetCharacter.RollMagicAttack(
-                        activeEffect,
+                        rulesetEffect,
                         target.RulesetActor,
-                        activeEffect.GetEffectSource(),
+                        rulesetEffect.GetEffectSource(),
                         attackModifier.AttacktoHitTrends,
                         attackModifier.AttackAdvantageTrends,
                         false, attackModifier.AttackRollModifier,
@@ -808,7 +822,7 @@ public static class CharacterActionMagicEffectPatcher
                         actingCharacter,
                         target,
                         attackModifier,
-                        activeEffect,
+                        rulesetEffect,
                         actualEffectForms,
                         firstTarget,
                         false);
@@ -819,16 +833,16 @@ public static class CharacterActionMagicEffectPatcher
             if (!needToRollDie ||
                 __instance.AttackRollOutcome == RollOutcome.Success ||
                 __instance.AttackRollOutcome == RollOutcome.CriticalSuccess ||
-                activeEffect.EffectDescription.HalfDamageOnAMiss)
+                rulesetEffect.EffectDescription.HalfDamageOnAMiss)
             {
                 // Roll the saving throw, if it is the right time
-                if (activeEffect.EffectDescription.RecurrentEffect == RecurrentEffect.No ||
-                    (activeEffect.EffectDescription.RecurrentEffect & RecurrentEffect.OnActivation) != 0)
+                if (rulesetEffect.EffectDescription.RecurrentEffect == RecurrentEffect.No ||
+                    (rulesetEffect.EffectDescription.RecurrentEffect & RecurrentEffect.OnActivation) != 0)
                 {
                     var hasBorrowedLuck = target.RulesetActor.HasConditionOfTypeOrSubType(ConditionBorrowedLuck);
                     var side = actingCharacter?.Side ?? Side.Neutral;
 
-                    __instance.RolledSaveThrow = activeEffect.TryRollSavingThrow(
+                    __instance.RolledSaveThrow = rulesetEffect.TryRollSavingThrow(
                         actingCharacter?.RulesetCharacter,
                         side,
                         target.RulesetActor,
@@ -841,7 +855,7 @@ public static class CharacterActionMagicEffectPatcher
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
                     target.RulesetActor?.GrantConditionOnSavingThrowOutcome(
-                        activeEffect.EffectDescription, saveOutcome, false);
+                        rulesetEffect.EffectDescription, saveOutcome, false);
 
                     // Legendary Resistance or Indomitable?
                     if (__instance.RolledSaveThrow && __instance.SaveOutcome == RollOutcome.Failure)
@@ -865,7 +879,7 @@ public static class CharacterActionMagicEffectPatcher
                 }
             }
 
-            if (!__instance.RolledSaveThrow && activeEffect.EffectDescription.HasShoveRoll)
+            if (!__instance.RolledSaveThrow && rulesetEffect.EffectDescription.HasShoveRoll)
             {
                 __instance.successfulShove =
                     CharacterActionShove.ResolveRolls(actingCharacter, target, ActionDefinitions.Id.Shove);

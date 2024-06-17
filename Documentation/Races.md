@@ -341,7 +341,7 @@ See normally in dim light, and in natural darkness as if in dim light.
 
 * Feeding Claws
 
-You can throw yourself into a feeding frenzy. As a bonus action, you can make a special attack with your claws. If the attack hits, it deals its normal damage, and you gain temporary hit points equal to your proficiency bonus. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. 
+You can throw yourself into a feeding frenzy. As a bonus action, you can make a special attack with your claws. If the attack hits, it deals its normal damage, and you gain temporary hit points equal to your proficiency bonus. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
 
 * Languages
 

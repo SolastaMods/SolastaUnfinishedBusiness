@@ -113,19 +113,10 @@ internal static class RaceLizardfolkBuilder
             var actingCharacter = action.ActingCharacter;
             var targets = action.ActionParams.TargetCharacters
                 .Where(x =>
-                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                    x.RulesetCharacter.HasConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, "ConditionHitByDirtyFighting"))
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                 .ToList();
 
             if (targets.Count == 0)
-            {
-                yield break;
-            }
-
-            var attackModeMain = actingCharacter.FindActionAttackMode(Id.AttackMain);
-
-            if (attackModeMain == null)
             {
                 yield break;
             }
@@ -150,9 +141,6 @@ internal static class RaceLizardfolkBuilder
             );
 
             attackMode.HasPriority = true;
-
-            attackMode.Copy(attackModeMain);
-            attackMode.ActionType = ActionType.NoCost;
             attackMode.AddAttackTagAsNeeded(TagHungryJaws);
             ApplyAttackModeModifiers(actingCharacter, attackMode);
 

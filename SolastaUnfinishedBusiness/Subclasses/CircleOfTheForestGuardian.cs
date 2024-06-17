@@ -200,7 +200,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
     }
 
     private sealed class CustomBehaviorBarkWard(FeatureDefinitionPower powerBarkOrImprovedBarkWard)
-        : IAttackBeforeHitPossibleOnMeOrAlly, IActionFinishedByContender
+        : ITryAlterOutcomeAttack, IActionFinishedByContender
     {
         private bool _isValid;
 
@@ -225,18 +225,20 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             }
         }
 
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => 30;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
             _isValid =
-                defender == helper &&
+                helper == defender &&
                 defender.RulesetCharacter.TemporaryHitPoints > 0 &&
                 defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
                 ValidatorsWeapon.IsMelee(attackMode);

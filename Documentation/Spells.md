@@ -882,7 +882,7 @@ You whisper dreadful words that cause immense mental anguish in your enemies. On
 
 # 214. - *Elemental Bane* © (V,S) level 4 Transmutation [Concentration] [UB]
 
-Choose one creature you can see within range, and choose one of the following damage types: acid, cold, fire, lightning, or thunder. The target must succeed on a Constitution saving throw or be affected by the spell for its duration. The first time each turn the affected target takes damage of the chosen type, the target takes an extra 2d6 damage of that type. Moreover, the target loses any resistance to that damage type until the spell ends. When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them.
+Choose one creature you can see within range, and choose one of the following damage types: acid, cold, fire, lightning, or thunder. The target must succeed on a Constitution saving throw or be affected by the spell for its duration. The first time each turn the affected target takes non-recurrent damage of the chosen type, the target takes an extra 2d6 damage of that type. Moreover, the target loses any resistance to that damage type until the spell ends. When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them.
 
 # 215. - Fire Shield (V,S) level 4 Evocation [SOL]
 
@@ -932,9 +932,9 @@ You conjure a phantom watchdog in an unoccupied space that you can see within ra
 
 Causes psychic damage to the target creature with each turn, unless a saving throw is successful or the effect ends.
 
-# 227. - Psionic Blast (V) level 4 Evocation [Concentration] [UB]
+# 227. - Psionic Blast (V) level 4 Evocation [UB]
 
-You unleash a destructive wave of mental power in a 30-foot cone. Each creature in the area must make an Intelligence saving throw. On a failed save, a target takes 5d8 psychic damage, is pushed 20 feet directly away from you, and is knocked prone. On a successful save, a target takes half as much damage and isn't pushed or knocked prone. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.
+You unleash a debilitating wave of mental power in a 30-foot cone. Each creature in the area must make an Intelligence saving throw. On a failed save, a target takes 5d8 psychic damage, and subtracts d6 from all of its attack rolls and ability checks until the end of your next turn. On a successful save, a target only takes half as much damage. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.
 
 # 228. - *Raulothim's Psychic Lance* © (V) level 4 Enchantment [UB]
 

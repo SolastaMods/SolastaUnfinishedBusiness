@@ -571,7 +571,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
     }
 
     private sealed class CustomBehaviorMoonlightGuise(FeatureDefinitionPower powerMoonlightGuise)
-        : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+        : ITryAlterOutcomeAttack, IMagicEffectBeforeHitConfirmedOnMe
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -583,29 +583,50 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(battleManager, attacker, defender);
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+            }
         }
 
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => 40;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            RulesetEffect rulesetEffect)
         {
-            yield return HandleReaction(battleManager, attacker, defender);
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager ||
+                helper != defender)
+            {
+                yield break;
+            }
+
+            var actualEffectForms =
+                attackMode?.EffectDescription.EffectForms ?? rulesetEffect?.EffectDescription.EffectForms ?? [];
+
+            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
         private IEnumerator HandleReaction(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+            GameLocationCharacter defender,
+            List<EffectForm> actualEffectForms)
         {
+            if (actualEffectForms.All(x => x.FormType != EffectForm.EffectFormType.Damage))
+            {
+                yield break;
+            }
+
             var rulesetDefender = defender.RulesetCharacter;
 
             if (!defender.CanReact() ||

@@ -1683,28 +1683,32 @@ internal static class GambitsBuilders
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
 
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            var rulesetHelper = attacker.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!actionManager ||
                 action.AttackRollOutcome != RollOutcome.Failure ||
                 helper != attacker ||
-                !rulesetHelper.CanUsePower(pool))
+                !rulesetAttacker.CanUsePower(pool))
             {
                 yield break;
             }
 
-            var dieType = GetGambitDieSize(rulesetHelper);
+            var dieType = GetGambitDieSize(rulesetAttacker);
             var max = DiceMaxValue[(int)dieType];
             var delta = Math.Abs(action.AttackSuccessDelta);
 
@@ -1737,7 +1741,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            rulesetHelper.UpdateUsageForPower(pool, 1);
+            rulesetAttacker.UpdateUsageForPower(pool, 1);
 
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
@@ -1754,7 +1758,7 @@ internal static class GambitsBuilders
                 action.AttackRollOutcome = RollOutcome.Success;
             }
 
-            rulesetHelper.ShowDieRoll(
+            rulesetAttacker.ShowDieRoll(
                 dieType,
                 dieRoll,
                 title: feature.GuiPresentation.Title,
@@ -1762,7 +1766,7 @@ internal static class GambitsBuilders
                 displayOutcome: true
             );
 
-            rulesetHelper.LogCharacterUsedFeature(
+            rulesetAttacker.LogCharacterUsedFeature(
                 feature,
                 Line,
                 extra:
@@ -1777,40 +1781,41 @@ internal static class GambitsBuilders
     // Parry
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class Parry(FeatureDefinitionPower pool, FeatureDefinition feature)
-        : IAttackBeforeHitPossibleOnMeOrAlly
+    private sealed class Parry(FeatureDefinitionPower pool, FeatureDefinition feature) : ITryAlterOutcomeAttack
     {
         private const string Line = "Feedback/&GambitParryDamageReduction";
 
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => -10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager)
-            {
-                yield break;
-            }
-
-            if (attackMode is { Ranged: true } ||
-                attackMode is { Thrown: true } ||
-                rulesetEffect != null)
+            if (!actionManager || !battleManager)
             {
                 yield break;
             }
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender != helper ||
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper != defender ||
+                rulesetEffect != null ||
                 !defender.CanReact() ||
-                rulesetDefender.GetRemainingPowerCharges(pool) <= 0)
+                rulesetDefender.GetRemainingPowerCharges(pool) <= 0 ||
+                attackMode is { Ranged: true } ||
+                attackMode is { Thrown: true })
             {
                 yield break;
             }

@@ -267,13 +267,6 @@ public static class CharacterActionAttackPatcher
                 // END PATCH
             }
 
-            //PATCH: support for `ITryAlterOutcomeAttack`
-            foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeAttack.Handler(
-                         battleManager, __instance, actingCharacter, target, attackModifier))
-            {
-                yield return tryAlterOutcomeSavingThrow;
-            }
-
             if (rangeAttack)
             {
                 var isMonkReturnMissile = attackMode.ReturnProjectileOnly;
@@ -373,6 +366,14 @@ public static class CharacterActionAttackPatcher
             var hit = false;
             var damageReceived = 0;
 
+            //PATCH: support for `ITryAlterOutcomeAttack`
+            foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.HandlerNegativePriority(
+                         battleManager, __instance, actingCharacter, target, attackModifier, attackMode, null))
+            {
+                yield return tryAlterOutcomeAttack;
+            }
+            //END PATCH
+
             if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 // No need to test this even if the hit was automatic (natural 20). Warning: Critical Success can occur without rolling a 20 (Champion fighter crits at 19)
@@ -388,6 +389,14 @@ public static class CharacterActionAttackPatcher
                         __instance.AttackSuccessDelta,
                         rangeAttack);
                 }
+
+                //PATCH: support for `ITryAlterOutcomeAttack`
+                foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.HandlerNonNegativePriority(
+                             battleManager, __instance, actingCharacter, target, attackModifier, attackMode, null))
+                {
+                    yield return tryAlterOutcomeAttack;
+                }
+                //END PATCH
 
                 // Execute the final step of the attack
                 if (!attackMode.AutomaticHit)

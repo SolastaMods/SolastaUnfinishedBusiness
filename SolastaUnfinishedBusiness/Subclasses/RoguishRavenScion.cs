@@ -202,18 +202,22 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
     private class TryAlterOutcomeAttackDeadlyAimHeartSeekingShot : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             if (action.AttackRollOutcome != RollOutcome.Success ||
-                attacker != helper ||
-                action.ActionParams.attackMode.SourceDefinition is not ItemDefinition itemDefinition ||
-                !ValidatorsWeapon.IsTwoHandedRanged(itemDefinition))
+                helper != attacker ||
+                attackMode is not { Ranged: true } ||
+                !ValidatorsWeapon.HasTwoHandedTag(attackMode))
             {
                 yield break;
             }
@@ -230,21 +234,24 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
     private class TryAlterOutcomeAttackDeadlyFocus(FeatureDefinitionPower powerDeadlyFocus) : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
-            var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
-                attacker != helper ||
-                rulesetAttacker.GetRemainingPowerUses(powerDeadlyFocus) == 0 ||
-                attackMode is not { ranged: true })
+                helper != attacker ||
+                attackMode is not { ranged: true } ||
+                rulesetAttacker.GetRemainingPowerUses(powerDeadlyFocus) == 0)
             {
                 yield break;
             }

@@ -858,13 +858,17 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         private const DieType DieType = RuleDefinitions.DieType.D6;
         private static readonly int MaxDieTypeValue = DiceMaxValue[(int)DieType];
 
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var rulesetHelper = helper.RulesetCharacter;
 
@@ -1062,7 +1066,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             if (action.SaveOutcomeDelta >= 0)
             {
-                action.saveOutcome = RollOutcome.Success;
+                action.SaveOutcome = RollOutcome.Success;
                 extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
             }
             else
@@ -1093,13 +1097,17 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         private const DieType DieType = RuleDefinitions.DieType.D6;
         private static readonly int MaxDieTypeValue = DiceMaxValue[(int)DieType];
 
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var rulesetHelper = helper.RulesetCharacter;
 
@@ -1297,7 +1305,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             if (action.SaveOutcomeDelta < 0)
             {
-                action.saveOutcome = RollOutcome.Failure;
+                action.SaveOutcome = RollOutcome.Failure;
                 extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
             }
             else

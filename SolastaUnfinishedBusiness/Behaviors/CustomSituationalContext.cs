@@ -48,9 +48,6 @@ internal static class CustomSituationalContext
                 ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(contextParams.source) &&
                 ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source),
 
-            ExtraSituationalContext.HasFreeHandWithHeavyOrVersatileInMain =>
-                ValidatorsCharacter.HasFreeHandWithHeavyOrVersatileInMain(contextParams.source),
-
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
                 (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
                  ValidatorsCharacter.HasLightArmor(contextParams.source)) &&
@@ -109,8 +106,9 @@ internal static class CustomSituationalContext
         var sourceCharacter = GameLocationCharacter.GetFromActor(source);
         var targetCharacter = GameLocationCharacter.GetFromActor(contextParams.target);
 
+        var attackMode = sourceCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
         var weapon = source.GetMainWeapon();
-        var reachRange = weapon?.ItemDefinition.WeaponDescription.ReachRange ?? 1;
+        var reachRange = attackMode?.reachRange ?? weapon?.ItemDefinition.WeaponDescription.ReachRange ?? 1;
 
         if (sourceCharacter.IsWithinRange(targetCharacter, reachRange))
         {

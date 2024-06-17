@@ -124,64 +124,84 @@ internal static partial class UI
     }
 
     [UsedImplicitly]
-    public static GL.AreaScope AreaScope(Rect screenRect)
+    // ReSharper disable once UseSymbolAlias
+    public static GUILayout.AreaScope AreaScope(Rect screenRect)
     {
-        return new GL.AreaScope(screenRect);
+        // ReSharper disable once UseSymbolAlias
+        return new GUILayout.AreaScope(screenRect);
     }
 
     [UsedImplicitly]
-    public static GL.AreaScope AreaScope(Rect screenRect, string text)
+    // ReSharper disable once UseSymbolAlias
+    public static GUILayout.AreaScope AreaScope(Rect screenRect, string text)
     {
-        return new GL.AreaScope(screenRect, text);
+        // ReSharper disable once UseSymbolAlias
+        return new GUILayout.AreaScope(screenRect, text);
     }
 
     [UsedImplicitly]
-    public static GL.HorizontalScope HorizontalScope(params GUILayoutOption[] options)
+    // ReSharper disable once UseSymbolAlias
+    public static GUILayout.HorizontalScope HorizontalScope(params GUILayoutOption[] options)
     {
-        return new GL.HorizontalScope(options);
+        // ReSharper disable once UseSymbolAlias
+        return new GUILayout.HorizontalScope(options);
     }
 
     [UsedImplicitly]
-    public static GL.HorizontalScope HorizontalScope(float width)
+    // ReSharper disable once UseSymbolAlias
+    public static GUILayout.HorizontalScope HorizontalScope(float width)
     {
-        return new GL.HorizontalScope(Width(width));
+        // ReSharper disable once UseSymbolAlias
+        return new GUILayout.HorizontalScope(Width(width));
     }
 
     [UsedImplicitly]
-    public static GL.HorizontalScope HorizontalScope(GUIStyle style, params GUILayoutOption[] options)
+    // ReSharper disable once UseSymbolAlias
+    public static GUILayout.HorizontalScope HorizontalScope(GUIStyle style, params GUILayoutOption[] options)
     {
-        return new GL.HorizontalScope(style, options);
+        // ReSharper disable once UseSymbolAlias
+        return new GUILayout.HorizontalScope(style, options);
     }
 
     [UsedImplicitly]
-    public static GL.HorizontalScope HorizontalScope(GUIStyle style, float width)
+    // ReSharper disable once UseSymbolAlias
+    public static GUILayout.HorizontalScope HorizontalScope(GUIStyle style, float width)
     {
-        return new GL.HorizontalScope(style, Width(width));
+        // ReSharper disable once UseSymbolAlias
+        return new GUILayout.HorizontalScope(style, Width(width));
     }
 
     [UsedImplicitly]
-    public static GL.VerticalScope VerticalScope(params GUILayoutOption[] options)
+    // ReSharper disable once UseSymbolAlias
+    public static GUILayout.VerticalScope VerticalScope(params GUILayoutOption[] options)
     {
-        return new GL.VerticalScope(options);
+        // ReSharper disable once UseSymbolAlias
+        return new GUILayout.VerticalScope(options);
     }
 
     [UsedImplicitly]
-    public static GL.VerticalScope VerticalScope(GUIStyle style, params GUILayoutOption[] options)
+    // ReSharper disable once UseSymbolAlias
+    public static GUILayout.VerticalScope VerticalScope(GUIStyle style, params GUILayoutOption[] options)
     {
-        return new GL.VerticalScope(style, options);
+        // ReSharper disable once UseSymbolAlias
+        return new GUILayout.VerticalScope(style, options);
     }
 
     [UsedImplicitly]
-    public static GL.ScrollViewScope ScrollViewScope(Vector2 scrollPosition, params GUILayoutOption[] options)
+    // ReSharper disable once UseSymbolAlias
+    public static GUILayout.ScrollViewScope ScrollViewScope(Vector2 scrollPosition, params GUILayoutOption[] options)
     {
-        return new GL.ScrollViewScope(scrollPosition, options);
+        // ReSharper disable once UseSymbolAlias
+        return new GUILayout.ScrollViewScope(scrollPosition, options);
     }
 
     [UsedImplicitly]
-    public static GL.ScrollViewScope ScrollViewScope(Vector2 scrollPosition, GUIStyle style,
-        params GUILayoutOption[] options)
+    // ReSharper disable once UseSymbolAlias
+    public static GUILayout.ScrollViewScope ScrollViewScope(
+        Vector2 scrollPosition, GUIStyle style, params GUILayoutOption[] options)
     {
-        return new GL.ScrollViewScope(scrollPosition, style, options);
+        // ReSharper disable once UseSymbolAlias
+        return new GUILayout.ScrollViewScope(scrollPosition, style, options);
     }
 
     [UsedImplicitly]

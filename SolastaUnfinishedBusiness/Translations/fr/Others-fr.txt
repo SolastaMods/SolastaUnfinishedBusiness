@@ -251,7 +251,6 @@ Rules/&SituationalContext9000Format=A des types d'armes de maîtrise de la lame 
 Rules/&SituationalContext9001Format=A l'espadon dans les mains :
 Rules/&SituationalContext9002Format=A une épée longue en main :
 Rules/&SituationalContext9003Format=A une arme de mêlée dans la main principale avec une main libre :
-Rules/&SituationalContext9004Format=Possède une arme lourde ou polyvalente dans la main principale avec une main libre :
 Rules/&SituationalContext9005Format=A des armes simples ou martiales en main :
 Rules/&SituationalContext9007Format=N'est pas exposé à une lumière vive :
 Rules/&SituationalContext9008Format=Est déchaîné et à double usage :

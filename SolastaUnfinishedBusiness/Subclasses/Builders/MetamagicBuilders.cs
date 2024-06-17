@@ -459,13 +459,17 @@ internal static class MetamagicBuilders
 
     private sealed class TryAlterOutcomeAttackMetamagicSeeking : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             if (action is not CharacterActionCastSpell)
             {

@@ -207,18 +207,22 @@ public sealed class RangerSurvivalist : AbstractSubclass
 
     private sealed class TryAlterOutcomeAttackBlessingWilderness : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager instance,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier actionModifier)
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             if (action.AttackRollOutcome is not RollOutcome.CriticalSuccess ||
                 helper != defender ||
-                !defender.CanPerceiveTarget(attacker) ||
-                defender.RulesetActor.HasConditionOfTypeOrSubType(ConditionIncapacitated))
+                !defender.CanAct() ||
+                !defender.CanPerceiveTarget(attacker))
             {
                 yield break;
             }

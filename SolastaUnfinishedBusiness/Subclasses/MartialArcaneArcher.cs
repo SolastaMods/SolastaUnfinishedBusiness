@@ -421,8 +421,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create(ConditionDefinitions.ConditionRestrained, $"Condition{Name}GraspingArrow")
             .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .SetFeatures()
-            .SetConditionParticleReference(
-                ConditionDefinitions.ConditionRestrainedByMagicalArrow.conditionParticleReference)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionRestrainedByMagicalArrow)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerGraspingArrow,
@@ -441,7 +440,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         var conditionInsightArrow = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionHighlighted, $"Condition{Name}InsightArrow")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetConditionParticleReference(ConditionDefinitions.ConditionShine.conditionParticleReference)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionShine)
             .AddToDB();
 
         var powerInsightArrow = FeatureDefinitionPowerSharedPoolBuilder
@@ -733,18 +732,20 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private class TryAlterOutcomeAttackGuidedShot(FeatureDefinition featureDefinition) : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            var attackMode = action.actionParams.attackMode;
 
             if (!actionManager ||
                 action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||

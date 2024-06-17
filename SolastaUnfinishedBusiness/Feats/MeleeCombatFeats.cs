@@ -45,7 +45,8 @@ internal static class MeleeCombatFeats
         var featCrusherStr = BuildCrusherStr();
         var featCrusherCon = BuildCrusherCon();
         var featDefensiveDuelist = BuildDefensiveDuelist();
-        var featDevastatingStrikes = BuildDevastatingStrikes();
+        var featDevastatingStrikesDex = BuildDevastatingStrikesDex();
+        var featDevastatingStrikesStr = BuildDevastatingStrikesStr();
         var featFellHanded = BuildFellHanded();
         var featGreatWeaponDefense = BuildGreatWeaponDefense();
         var featLongSwordFinesse = BuildLongswordFinesse();
@@ -59,8 +60,7 @@ internal static class MeleeCombatFeats
         var featSlasherStr = BuildSlasherStr();
         var featSlasherDex = BuildSlasherDex();
         var featSpearMastery = BuildSpearMastery();
-        var featWhirlwindAttackDex = BuildWhirlWindAttackDex();
-        var featWhirlwindAttackStr = BuildWhirlWindAttackStr();
+        var featWhirlwindAttack = BuildWhirlWindAttack();
 
         feats.AddRange(
             FeatFencer,
@@ -71,7 +71,8 @@ internal static class MeleeCombatFeats
             featCrusherCon,
             featCrusherStr,
             featDefensiveDuelist,
-            featDevastatingStrikes,
+            featDevastatingStrikesDex,
+            featDevastatingStrikesStr,
             featFellHanded,
             featGreatWeaponDefense,
             featLongSwordFinesse,
@@ -85,8 +86,7 @@ internal static class MeleeCombatFeats
             featSlasherDex,
             featSlasherStr,
             featSpearMastery,
-            featWhirlwindAttackDex,
-            featWhirlwindAttackStr);
+            featWhirlwindAttack);
 
         var featGroupOldTactics = GroupFeats.MakeGroup("FeatGroupOldTactics", GroupFeats.OldTactics,
             featOldTacticsDex,
@@ -96,11 +96,10 @@ internal static class MeleeCombatFeats
             featSlasherDex,
             featSlasherStr);
 
-        var featGroupWhirlwindAttack = GroupFeats.MakeGroupWithPreRequisite("FeatGroupWhirlWindAttack",
-            GroupFeats.WhirlwindAttack,
-            ValidatorsFeat.ValidateHasExtraAttack,
-            featWhirlwindAttackDex,
-            featWhirlwindAttackStr);
+        var featGroupDevastatingStrikes = GroupFeats.MakeGroup("FeatGroupDevastatingStrikes",
+            GroupFeats.DevastatingStrikes,
+            featDevastatingStrikesDex,
+            featDevastatingStrikesStr);
 
         GroupFeats.FeatGroupCrusher.AddFeats(
             featCrusherStr,
@@ -122,7 +121,7 @@ internal static class MeleeCombatFeats
             featCharger,
             featCleavingAttack,
             featDefensiveDuelist,
-            featDevastatingStrikes,
+            featGroupDevastatingStrikes,
             featFellHanded,
             featLongSwordFinesse,
             featPowerAttack,
@@ -131,7 +130,7 @@ internal static class MeleeCombatFeats
             featSpearMastery,
             featGroupOldTactics,
             featGroupSlasher,
-            featGroupWhirlwindAttack);
+            featWhirlwindAttack);
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featGreatWeaponDefense);
@@ -367,151 +366,153 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatGreatWeaponDefense";
 
-        var combatAffinity = FeatureDefinitionCombatAffinityBuilder
-            .Create($"CombatAffinity{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
-            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-            .SetSituationalContext(SituationalContext.TargetIsEffectSource)
-            .AddToDB();
-
-        var condition = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionCursed)
-            .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(combatAffinity)
-            .AddToDB();
-
-        condition.AddCustomSubFeatures(new ActionFinishedByMeGreatWeaponDefense(condition));
-
-        var conditionSelf = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Self")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        var power = FeatureDefinitionPowerBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
             .Create("PowerGreatWeaponDefense")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerGreatWeaponDefense", Resources.PowerGreatWeaponDefense, 256, 128))
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(condition),
-                        EffectFormBuilder.ConditionForm(conditionSelf, ConditionForm.ConditionOperation.Add, true))
-                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerFunctionWandFearCommand)
-                    .SetImpactEffectParameters(FeatureDefinitionPowers.PowerBerserkerIntimidatingPresence)
-                    .Build())
-            .AddCustomSubFeatures(
-                ValidatorsValidatePowerUse.HasMainAttackAvailable,
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasFreeHandWithHeavyOrVersatileInMain))
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
-
-        conditionSelf.AddCustomSubFeatures(new ActionFinishedByMeGreatWeaponDefenseSelf(power, condition));
 
         var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
-            .SetSituationalContext(ExtraSituationalContext.HasFreeHandWithHeavyOrVersatileInMain)
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+            .AddToDB();
+
+        var conditionArmorClass = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}ArmorClass")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
+            .SetPossessive()
+            .SetFeatures(attributeModifierArmorClass)
+            .AddToDB();
+
+        var movementAffinity = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+            .SetBaseSpeedAdditiveModifier(3)
+            .AddToDB();
+
+        var conditionMovement = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Movement")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFreedomOfMovement)
+            .SetPossessive()
+            .SetFeatures(movementAffinity)
             .AddToDB();
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(attributeModifierArmorClass, power)
-            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
+            .AddCustomSubFeatures(new CustomBehaviorGreatWeaponDefense(conditionArmorClass, conditionMovement))
             .AddToDB();
     }
 
-    private sealed class ActionFinishedByMeGreatWeaponDefense(ConditionDefinition condition) : IActionFinishedByMe
+    private sealed class CustomBehaviorGreatWeaponDefense(
+        ConditionDefinition conditionArmorClass,
+        ConditionDefinition conditionMovement)
+        : IPhysicalAttackFinishedByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy, IOnReducedToZeroHpByMe,
+            IOnItemEquipped
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
-            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
-
-            if (attacker != null &&
-                DistanceCalculation.GetDistanceFromCharacters(attacker, actingCharacter) > 1)
-            {
-                rulesetCharacter.RemoveCondition(activeCondition);
-            }
-        }
-    }
-
-    private sealed class ActionFinishedByMeGreatWeaponDefenseSelf(
-        FeatureDefinitionPower power,
-        ConditionDefinition condition) : IActionFinishedByMe, IOnItemEquipped
-    {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
-            var actingCharacter = action.ActingCharacter;
-
-            if (action is CharacterActionUsePower actionUsePower &&
-                actionUsePower.activePower.PowerDefinition == power)
-            {
-                actingCharacter.BurnOneMainAttack();
-            }
-
-            foreach (var enemy in Gui.Battle.GetContenders(actingCharacter)
-                         .Where(x => DistanceCalculation.GetDistanceFromCharacters(actingCharacter, x) > 1))
-            {
-                var rulesetEnemy = enemy.RulesetCharacter;
-
-                if (rulesetEnemy.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
-                {
-                    rulesetEnemy.RemoveCondition(activeCondition);
-                }
-            }
-        }
-
         public void OnItemEquipped(RulesetCharacterHero hero)
         {
-            if (ValidatorsCharacter.HasFreeHandWithHeavyOrVersatileInMain(hero) || Gui.Battle == null)
+            if (!HasFreeHandWithHeavyOrVersatileInMain(hero) &&
+                hero.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionArmorClass.Name, out var activeCondition))
             {
-                return;
+                hero.RemoveCondition(activeCondition);
+            }
+        }
+
+        public IEnumerator HandleReducedToZeroHpByMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (!ValidatorsWeapon.IsMelee(attackMode))
+            {
+                yield break;
             }
 
-            var glc = GameLocationCharacter.GetFromActor(hero);
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (glc == null)
+            rulesetAttacker.InflictCondition(
+                conditionMovement.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionMovement.Name,
+                0,
+                0,
+                0);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (criticalHit)
             {
-                return;
+                yield return HandleReducedToZeroHpByMe(attacker, defender, attackMode, null);
+            }
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!HasFreeHandWithHeavyOrVersatileInMain(rulesetAttacker, attackMode) ||
+                rulesetAttacker.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionArmorClass.Name))
+            {
+                yield break;
             }
 
-            foreach (var rulesetEnemy in Gui.Battle.GetContenders(glc)
-                         .Select(enemy => enemy.RulesetCharacter))
-            {
-                if (rulesetEnemy.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
-                {
-                    rulesetEnemy.RemoveCondition(activeCondition);
-                }
-            }
+            rulesetAttacker.InflictCondition(
+                conditionArmorClass.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionArmorClass.Name,
+                0,
+                0,
+                0);
+        }
+
+        private static bool HasFreeHandWithHeavyOrVersatileInMain(
+            RulesetCharacter character,
+            RulesetAttackMode attackMode = null)
+        {
+            var rulesetItem = character.GetMainWeapon();
+            var itemDefinition = attackMode?.SourceDefinition as ItemDefinition ?? rulesetItem?.ItemDefinition;
+
+            return
+                character.HasFreeHandSlot() &&
+                ((attackMode != null && ValidatorsWeapon.IsMelee(attackMode)) ||
+                 (attackMode == null && ValidatorsWeapon.IsMelee(character.GetMainWeapon()))) &&
+                ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy,
+                    TagsDefinitions.WeaponTagVersatile);
         }
     }
 
@@ -773,34 +774,38 @@ internal static class MeleeCombatFeats
     }
 
     private class AttackBeforeHitPossibleOnMeOrAllyDefensiveDuelist(FeatureDefinitionPower powerDefensiveDuelist)
-        : IAttackBeforeHitPossibleOnMeOrAlly
+        : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
+        public int HandlerPriority => -10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
-            if ((rulesetEffect != null &&
-                 rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper != defender ||
+                !helper.CanReact() ||
+                (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
                 !ValidatorsWeapon.IsMelee(attackMode))
             {
                 yield break;
             }
 
-            var rulesetHelper = helper.RulesetCharacter;
-
-            if (helper != defender ||
-                !helper.CanReact() ||
-                !ValidatorsWeapon.IsMelee(rulesetHelper.GetMainWeapon()))
-            {
-                yield break;
-            }
-
             var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+            var attackRoll = action.AttackRoll;
             var totalAttack =
                 attackRoll +
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
@@ -811,6 +816,7 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
+            var rulesetHelper = helper.RulesetCharacter;
             var pb = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             if (armorClass + pb <= totalAttack)
@@ -1451,40 +1457,51 @@ internal static class MeleeCombatFeats
 
     #region Devastating Strikes
 
-    private static FeatDefinition BuildDevastatingStrikes()
-    {
-        const string NAME = "FeatDevastatingStrikes";
-
-        var weaponTypes = new[] { GreatswordType, GreataxeType, MaulType };
-
-        var additionalDamageSunderingBlow = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}")
+    private static readonly FeatureDefinitionAdditionalDamage AdditionalDamageFeatDevastatingStrikes =
+        FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageFeatDevastatingStrikes")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("DevastatingStrikes")
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) => (OperationType.Set,
-                    ValidatorsWeapon.IsOfWeaponType(weaponTypes)(mode, null, null))))
+                    ValidatorsWeapon.IsMelee(mode))),
+                new PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionDevastatingStrikes")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                        .AddCustomSubFeatures(new ModifyDamageAffinityDevastatingStrikes())
+                        .AddToDB()))
             .AddToDB();
 
-        var conditionDevastatingStrikes = ConditionDefinitionBuilder
-            .Create("ConditionDevastatingStrikes")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks)
-            .AddCustomSubFeatures(new ModifyDamageAffinityDevastatingStrikes())
+    private static FeatDefinition BuildDevastatingStrikesDex()
+    {
+        const string NAME = "FeatDevastatingStrikes";
+
+        // kept name for backward compatibility
+        var feat = FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation($"{NAME}Dex", Category.Feat)
+            .AddFeatures(AttributeModifierCreed_Of_Misaye, AdditionalDamageFeatDevastatingStrikes)
             .AddToDB();
+
+        return feat;
+    }
+
+    private static FeatDefinition BuildDevastatingStrikesStr()
+    {
+        const string NAME = "FeatDevastatingStrikesStr";
 
         var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .AddFeatures(additionalDamageSunderingBlow)
+            .AddFeatures(AttributeModifierCreed_Of_Einar, AdditionalDamageFeatDevastatingStrikes)
             .AddToDB();
-
-        feat.AddCustomSubFeatures(
-            new PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(conditionDevastatingStrikes, weaponTypes));
 
         return feat;
     }
@@ -1499,19 +1516,9 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class
-        PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes : IPhysicalAttackBeforeHitConfirmedOnEnemy
+        PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(ConditionDefinition conditionBypassResistance)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        private readonly ConditionDefinition _conditionBypassResistance;
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
-
-        public PhysicalAttackBeforeHitConfirmedOnEnemyDevastatingStrikes(
-            ConditionDefinition conditionBypassResistance,
-            params WeaponTypeDefinition[] weaponTypeDefinition)
-        {
-            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
-            _conditionBypassResistance = conditionBypassResistance;
-        }
-
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1523,21 +1530,16 @@ internal static class MeleeCombatFeats
             bool firstTarget,
             bool criticalHit)
         {
-            if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+            if (!criticalHit ||
+                !ValidatorsWeapon.IsMelee(attackMode))
             {
                 yield break;
             }
 
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (!criticalHit)
-            {
-                yield break;
-            }
-
             rulesetCharacter.InflictCondition(
-                _conditionBypassResistance.Name,
+                conditionBypassResistance.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -1545,7 +1547,7 @@ internal static class MeleeCombatFeats
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                _conditionBypassResistance.Name,
+                conditionBypassResistance.Name,
                 0,
                 0,
                 0);
@@ -2127,43 +2129,40 @@ internal static class MeleeCombatFeats
 
     #region Whirlwind Attack
 
-    private static readonly FeatureDefinition PowerWhirlWindAttack = FeatureDefinitionPowerBuilder
-        .Create("PowerWhirlWindAttack")
-        .SetGuiPresentation(Category.Feature,
-            Sprites.GetSprite("PowerWhirlWindAttack", Resources.PowerWhirlWindAttack, 256, 128))
-        .SetUsesFixed(ActivationTime.NoCost)
-        .SetShowCasting(false)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
-                .Build())
-        .AddCustomSubFeatures(
-            ValidatorsValidatePowerUse.HasMainAttackAvailable,
-            new ValidatorsValidatePowerUse(
-                ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
-            new MagicEffectFinishedByMeWhirlWindAttack())
-        .AddToDB();
-
-    private static FeatDefinitionWithPrerequisites BuildWhirlWindAttackDex()
+    private static FeatDefinition BuildWhirlWindAttack()
     {
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create("FeatWhirlWindAttackDex")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye, PowerWhirlWindAttack)
-            .SetFeatFamily(GroupFeats.WhirlwindAttack)
-            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
+        const string NAME = "WhirlWindAttack";
+
+        var powerWhirlWindAttack = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation($"Feat{NAME}", Category.Feat,
+                Sprites.GetSprite($"Power{NAME}", Resources.PowerWhirlWindAttack, 256, 128))
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+                    .Build())
+            .AddCustomSubFeatures(
+                ValidatorsValidatePowerUse.HasMainAttackAvailable,
+                new ValidatorsValidatePowerUse(
+                    ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
+                new MagicEffectFinishedByMeWhirlWindAttack())
             .AddToDB();
-    }
 
-    private static FeatDefinitionWithPrerequisites BuildWhirlWindAttackStr()
-    {
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create("FeatWhirlWindAttackStr")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar, PowerWhirlWindAttack)
-            .SetFeatFamily(GroupFeats.WhirlwindAttack)
-            .SetValidators(ValidatorsFeat.ValidateHasExtraAttack)
+        // kept for backward compatibility
+        _ = FeatDefinitionBuilder
+            .Create($"Feat{NAME}Str")
+            .SetGuiPresentation($"Feat{NAME}", Category.Feat, hidden: true)
+            .SetFeatures(powerWhirlWindAttack)
+            .AddToDB();
+
+        // name kept for backward compatibility
+        return FeatDefinitionBuilder
+            .Create("FeatWhirlWindAttackDex")
+            .SetGuiPresentation($"Feat{NAME}", Category.Feat)
+            .SetFeatures(powerWhirlWindAttack)
             .AddToDB();
     }
 

@@ -993,6 +993,11 @@ internal static partial class SpellBuilders
                     yield break;
             }
 
+            if (rulesetEffect is not (RulesetEffectSpell or RulesetEffectPower))
+            {
+                yield break;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetActor;
 
@@ -1505,7 +1510,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorElementalInfusion(SpellDefinition spellDefinition) :
-        IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+        ITryAlterOutcomeAttack, IMagicEffectBeforeHitConfirmedOnMe
     {
         private static readonly IEnumerable<string> AllowedDamageTypes = DamagesAndEffects
             .Where(x => x.Item1 != DamageTypePoison)
@@ -1521,21 +1526,36 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+            }
         }
 
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => 10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+            RulesetEffect rulesetEffect)
         {
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager ||
+                helper != defender)
+            {
+                yield break;
+            }
+
+            var actualEffectForms =
+                attackMode?.EffectDescription.EffectForms ?? rulesetEffect?.EffectDescription.EffectForms ?? [];
+
             yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
         }
 
@@ -1631,7 +1651,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetFeatures(movementAffinityStrikeWithTheWind)
-            .SetConditionParticleReference(ConditionSpellbladeArcaneEscape.conditionParticleReference)
+            .SetConditionParticleReference(ConditionSpellbladeArcaneEscape)
             .AddToDB();
 
         var additionalDamageStrikeWithTheWind = FeatureDefinitionAdditionalDamageBuilder
@@ -1656,7 +1676,7 @@ internal static partial class SpellBuilders
             .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddCustomSubFeatures(
                 new OnConditionAddedOrRemovedStrikeWithTheWindAttack(conditionStrikeWithTheWindAttackMovement))
-            .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage.conditionParticleReference)
+            .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage)
             .AddToDB();
 
         var powerStrikeWithTheWind = FeatureDefinitionPowerBuilder
@@ -1678,7 +1698,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .AddFeatures(powerStrikeWithTheWind)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
-            .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage.conditionParticleReference)
+            .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -1953,7 +1973,7 @@ internal static partial class SpellBuilders
     }
 
     // force the attacker to roll a WIS saving throw or lose the attack
-    private sealed class CustomBehaviorSanctuary : IAttackBeforeHitPossibleOnMeOrAlly
+    private sealed class CustomBehaviorSanctuary : ITryAlterOutcomeAttack
     {
         private readonly ConditionDefinition _conditionReduceDamage;
         private readonly ConditionDefinition _conditionSanctuary;
@@ -1966,19 +1986,21 @@ internal static partial class SpellBuilders
             _conditionReduceDamage = conditionReduceDamage;
         }
 
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => 20;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            if (helper.IsOppositeSide(defender.Side))
             {
                 yield break;
             }

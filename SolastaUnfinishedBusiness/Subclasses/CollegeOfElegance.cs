@@ -156,10 +156,8 @@ public sealed class CollegeOfElegance : AbstractSubclass
                     .SetGuiPresentation(AmazingDisplayName, Category.Feature, Gui.NoLocalization)
                     .SetBaseSpeedMultiplicativeModifier(0)
                     .AddToDB())
-            .SetConditionParticleReference(ConditionDefinitions.ConditionDistracted.conditionParticleReference)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionDistracted)
             .AddToDB();
-
-        conditionAmazingDisplay.GuiPresentation.description = Gui.NoLocalization;
 
         var conditionAmazingDisplayMarker = ConditionDefinitionBuilder
             .Create($"Condition{Name}AmazingDisplayMarker")
@@ -247,29 +245,34 @@ public sealed class CollegeOfElegance : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureEvasiveFootwork,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionEvasiveFootwork) : IAttackBeforeHitPossibleOnMeOrAlly
+        ConditionDefinition conditionEvasiveFootwork) : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => -10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager)
+            if (!actionManager || !battleManager)
             {
                 yield break;
             }
 
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (helper != defender ||
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper != defender ||
                 !defender.CanReact() ||
                 !ValidatorsCharacter.HasNoArmor(rulesetHelper) ||
                 !ValidatorsCharacter.HasNoShield(rulesetHelper))
@@ -278,6 +281,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
             }
 
             var armorClass = defender.RulesetCharacter.TryGetAttributeValue(ArmorClass);
+            var attackRoll = action.AttackRoll;
             var totalAttack =
                 attackRoll +
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +

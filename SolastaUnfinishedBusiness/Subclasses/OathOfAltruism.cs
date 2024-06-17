@@ -217,21 +217,32 @@ public sealed class OathOfAltruism : AbstractSubclass
     }
 
     private class AttackBeforeHitPossibleOnMeOrAllySpiritualShielding(FeatureDefinitionPower powerSpiritualShielding)
-        : IAttackBeforeHitPossibleOnMeOrAlly
+        : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
+        public int HandlerPriority => -10;
+
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect,
-            int attackRoll)
+            RulesetEffect rulesetEffect)
         {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!battleManager)
+            {
+                yield break;
+            }
+
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (helper == defender ||
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper == defender ||
+                helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact(true) ||
                 !helper.CanPerceiveTarget(defender) ||
                 rulesetHelper.GetRemainingPowerUses(powerSpiritualShielding) == 0)
@@ -240,6 +251,7 @@ public sealed class OathOfAltruism : AbstractSubclass
             }
 
             var armorClass = defender.RulesetActor.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+            var attackRoll = action.AttackRoll;
             var totalAttack =
                 attackRoll +
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +

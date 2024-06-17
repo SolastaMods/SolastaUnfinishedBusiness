@@ -1,0 +1,10 @@
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonDescription=Когда вы используете умение «Безрассудная атака», находясь в ярости, вы также получаете временные хиты, равные вашему модификатору Телосложения (минимум 1).
+Feature/&FeaturePathOfTheBattleragerRecklessAbandonTitle=Полное безрассудство
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorDescription=Вы получаете владение тяжёлыми доспехами. Ваши эффекты ярости также работают, когда вы носите тяжёлые доспехи.\n\nКогда вы носите доспехи, ваш безоружный удар наносит 1d6 урона. Если вы носите магические доспехи, ваши безоружные удары считаются магическими при преодолении сопротивления и иммунитета к немагическим атакам и урону.\n\nПока вы в ярости, вы можете использовать безоружный удар бонусным действием.
+Feature/&FeatureSetPathOfTheBattleragerBattleragerArmorTitle=Броня бушующего в бою
+Feature/&PowerPathOfTheBattleragerArmoredRetributionDescription=Когда существо в пределах 5 футов от вас попадает по вам рукопашной атакой, атакующий получает 3 дробящего урона.
+Feature/&PowerPathOfTheBattleragerArmoredRetributionTitle=Бронированная расплата
+Feature/&PowerPathOfTheBattleragerBattleragerChargeDescription=Вы можете совершать действие Рывок бонусным действием, пока вы в ярости.
+Feature/&PowerPathOfTheBattleragerBattleragerChargeTitle=Налёт бушующего в бою
+Subclass/&PathOfTheBattleragerDescription=Бушующие в бою специализируются в ношении громоздких шипованных доспехов, бросаются в бой, используя тело как оружие и всецело отдаваясь ярости битвы.
+Subclass/&PathOfTheBattleragerTitle=Путь бушующего в бою

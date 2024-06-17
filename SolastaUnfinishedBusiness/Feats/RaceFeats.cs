@@ -641,13 +641,17 @@ internal static class RaceFeats
             _modifier = saveBonus + rollModifier;
         }
 
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -801,6 +805,9 @@ internal static class RaceFeats
 
             abilityCheckData.AbilityCheckSuccessDelta += dieRoll - abilityCheckData.AbilityCheckRoll;
             abilityCheckData.AbilityCheckRoll = dieRoll;
+            abilityCheckData.AbilityCheckRollOutcome = abilityCheckData.AbilityCheckSuccessDelta >= 0
+                ? RollOutcome.Success
+                : RollOutcome.Failure;
 
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,
@@ -893,11 +900,8 @@ internal static class RaceFeats
                 yield break;
             }
 
-            action.saveOutcomeDelta += dieRoll - savingRoll;
-            action.RolledSaveThrow = true;
-
-            action.saveOutcomeDelta += dieRoll - savingRoll;
-            action.RolledSaveThrow = true;
+            action.SaveOutcomeDelta += dieRoll - savingRoll;
+            action.SaveOutcome = action.SaveOutcomeDelta >= 0 ? RollOutcome.Success : RollOutcome.Failure;
 
             rulesetHelper.InflictCondition(
                 conditionBountifulLuck.Name,
@@ -1869,13 +1873,17 @@ internal static class RaceFeats
         FeatureDefinition featureSecondChance,
         ConditionDefinition conditionSecondChance) : ITryAlterOutcomeAttack
     {
+        public int HandlerPriority => -10;
+
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -1885,14 +1893,11 @@ internal static class RaceFeats
                 yield break;
             }
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (defender != helper ||
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                helper != defender ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
                 rulesetDefender.HasConditionOfType(conditionSecondChance))
@@ -1938,8 +1943,6 @@ internal static class RaceFeats
                 : "Feedback/&RollAttackSuccessTitle";
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var attackMode = action.actionParams.attackMode;
-            var activeEffect = action.ActionParams.activeEffect;
 
             int roll;
             int toHitBonus;
@@ -1963,13 +1966,13 @@ internal static class RaceFeats
                     -1,
                     true);
             }
-            else if (activeEffect != null)
+            else if (rulesetEffect != null)
             {
-                toHitBonus = activeEffect.MagicAttackBonus;
+                toHitBonus = rulesetEffect.MagicAttackBonus;
                 roll = rulesetAttacker.RollMagicAttack(
-                    activeEffect,
+                    rulesetEffect,
                     defender.RulesetActor,
-                    activeEffect.GetEffectSource(),
+                    rulesetEffect.GetEffectSource(),
                     attackModifier.AttacktoHitTrends,
                     attackModifier.AttackAdvantageTrends,
                     false,
