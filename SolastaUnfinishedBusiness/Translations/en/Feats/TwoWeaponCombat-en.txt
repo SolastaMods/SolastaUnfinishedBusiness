@@ -1,6 +1,4 @@
-Condition/&ConditionFeatDualFlurryMarkDescription=When you use your bonus action to attack a creature with your off-hand weapon, you make two attacks against the same creature instead of one.
-Condition/&ConditionFeatDualFlurryMarkTitle=Dual Flurry
-Feat/&FeatDualFlurryDescription=While you are dual-wielding melee weapons, when you use your bonus action to attack a creature with your off-hand one, after you hit a creature with your main, you make two attacks against the same creature with your off-hand instead of one.
+Feat/&FeatDualFlurryDescription=While you are dual-wielding melee weapons, when you use your bonus action to attack a creature with your off-hand weapon, you make two attacks against the creature with the weapon instead of one.
 Feat/&FeatDualFlurryTitle=Dual Flurry
 Feat/&FeatDualWeaponDefenseDescription=You master fighting with two weapons, gaining the following benefits:\n• You gain a +1 bonus to AC while you are dual-wielding melee weapons.\n• You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.
 Feat/&FeatDualWeaponDefenseTitle=Dual Wielder

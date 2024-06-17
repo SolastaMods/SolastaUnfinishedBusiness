@@ -1,6 +1,4 @@
-Condition/&ConditionFeatDualFlurryMarkDescription=当你使用奖励行动用副手武器攻击一个生物时，你会对同一个生物进行两次攻击，而不是一次。
-Condition/&ConditionFeatDualFlurryMarkTitle=双重连击
-Feat/&FeatDualFlurryDescription=当你双持近战武器时，当你使用奖励行动用副手武器攻击生物时，在你用主武器击中生物后，你会用副手对同一个生物进行两次攻击，而不是一次。
+Feat/&FeatDualFlurryDescription=当你双持近战武器时，当你使用奖励行动用副手武器攻击生物时，你会用该武器对该生物进行两次攻击，而不是一次。
 Feat/&FeatDualFlurryTitle=双持乱舞
 Feat/&FeatDualWeaponDefenseDescription=你精通使用两种武器进行战斗，并获得以下好处：\n• 当你每只手都使用单独的近战武器时，护甲等级获得 +1 加值。\n• 即使你所使用的并不是轻型单手近战武器。
 Feat/&FeatDualWeaponDefenseTitle=双持客

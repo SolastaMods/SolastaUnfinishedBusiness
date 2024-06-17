@@ -1,6 +1,4 @@
-Condition/&ConditionFeatDualFlurryMarkDescription=ボーナス アクションを使用してオフ ハンドの武器でクリーチャーを攻撃する場合、同じクリーチャーに対して 1 回ではなく 2 回の攻撃を行います。
-Condition/&ConditionFeatDualFlurryMarkTitle=デュアルフラリー
-Feat/&FeatDualFlurryDescription=近接武器を両手で装備しているとき、ボーナス アクションを使用して副手の武器でクリーチャーを攻撃する場合、主手の武器でクリーチャーに攻撃した後、副手の武器で同じクリーチャーに対して 1 回ではなく 2 回の攻撃を行います。
+Feat/&FeatDualFlurryDescription=近接武器を両手で装備している場合、ボーナス アクションを使用して利き手でない方の武器でクリーチャーを攻撃すると、その武器でクリーチャーに対して 1 回ではなく 2 回の攻撃を行います。
 Feat/&FeatDualFlurryTitle=デュアルフラリー
 Feat/&FeatDualWeaponDefenseDescription=あなたは 2 つの武器を使った戦闘をマスターし、以下の利点を得ます:\n• 近接武器を両手で持っている間、AC に +1 のボーナスを得ます。\n• 使用している片手近接武器が軽量でない場合でも、二刀流戦闘を使用できます。
 Feat/&FeatDualWeaponDefenseTitle=二刀流者

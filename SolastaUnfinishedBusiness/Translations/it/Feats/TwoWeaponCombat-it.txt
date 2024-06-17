@@ -1,6 +1,4 @@
-Condition/&ConditionFeatDualFlurryMarkDescription=Quando usi la tua azione bonus per attaccare una creatura con la tua arma secondaria, effettui due attacchi contro la stessa creatura invece di uno.
-Condition/&ConditionFeatDualFlurryMarkTitle=Doppia raffica
-Feat/&FeatDualFlurryDescription=Mentre impugni due armi da mischia, quando usi la tua azione bonus per attaccare una creatura con la mano secondaria, dopo aver colpito una creatura con la mano principale, effettui due attacchi contro la stessa creatura con la mano secondaria invece che con uno.
+Feat/&FeatDualFlurryDescription=Mentre impugni due armi da mischia, quando usi la tua azione bonus per attaccare una creatura con la tua arma secondaria, effettui due attacchi contro la creatura con l'arma invece di uno.
 Feat/&FeatDualFlurryTitle=Doppia raffica
 Feat/&FeatDualWeaponDefenseDescription=Diventi esperto nel combattimento con due armi, ottenendo i seguenti vantaggi:\n• Ottieni un bonus di +1 alla CA mentre impugni due armi da mischia.\n• Puoi usare il combattimento con due armi anche quando usi due armi le armi da mischia che impugni non sono leggere.
 Feat/&FeatDualWeaponDefenseTitle=Doppio possessore

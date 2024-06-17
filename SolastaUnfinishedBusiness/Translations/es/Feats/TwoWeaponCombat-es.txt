@@ -1,6 +1,4 @@
-Condition/&ConditionFeatDualFlurryMarkDescription=Cuando usas tu acción adicional para atacar a una criatura con tu arma de la mano izquierda, realizas dos ataques contra la misma criatura en lugar de uno.
-Condition/&ConditionFeatDualFlurryMarkTitle=Ráfaga doble
-Feat/&FeatDualFlurryDescription=Mientras empuñas dos armas cuerpo a cuerpo, cuando usas tu acción adicional para atacar a una criatura con tu mano izquierda, después de golpear a una criatura con tu mano principal, haces dos ataques contra la misma criatura con tu mano izquierda en lugar de uno.
+Feat/&FeatDualFlurryDescription=Mientras empuñas dos armas cuerpo a cuerpo, cuando usas tu acción adicional para atacar a una criatura con tu arma de la mano izquierda, realizas dos ataques contra la criatura con el arma en lugar de uno.
 Feat/&FeatDualFlurryTitle=Ráfaga doble
 Feat/&FeatDualWeaponDefenseDescription=Dominas la lucha con dos armas y obtienes los siguientes beneficios:\n• Obtienes una bonificación de +1 a la CA mientras empuñas dos armas cuerpo a cuerpo.\n• Puedes usar la lucha con dos armas incluso cuando usas una mano. Las armas cuerpo a cuerpo que empuñas no son ligeras.
 Feat/&FeatDualWeaponDefenseTitle=Doble portador
