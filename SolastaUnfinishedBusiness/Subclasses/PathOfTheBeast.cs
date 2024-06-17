@@ -440,9 +440,12 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
             var attackModifiers = hero.attackModifiers;
             List<ActionDefinitions.ActionType> list = [ActionDefinitions.ActionType.Reaction];
-            if (hero.GetMainWeapon() == null) { 
+            
+            if (hero.GetMainWeapon() == null)
+            {
                 list.Add(ActionDefinitions.ActionType.Main);
             }
+
             if (hero.GetOffhandWeapon() == null)
             {
                 list.Add(ActionDefinitions.ActionType.Bonus);
@@ -456,8 +459,9 @@ public sealed class PathOfTheBeast : AbstractSubclass
                         _beastClaws.WeaponDescription,
                         ValidatorsCharacter.IsFreeOffhandVanilla(character),
                         type != ActionDefinitions.ActionType.Bonus,
-                        type != ActionDefinitions.ActionType.Bonus ? 
-                            EquipmentDefinitions.SlotTypeMainHand : EquipmentDefinitions.SlotTypeOffHand,
+                        type != ActionDefinitions.ActionType.Bonus
+                            ? EquipmentDefinitions.SlotTypeMainHand
+                            : EquipmentDefinitions.SlotTypeOffHand,
                         attackModifiers,
                         character.FeaturesOrigin))
                 .ToList();

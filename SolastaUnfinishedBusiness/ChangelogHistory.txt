@@ -18,7 +18,7 @@
 - fixed Domain Tempest wrath of the storm triggering on ally hit
 - fixed effect proxies interactions with each other, i.e., Darkness, Daylight, Wall of Fire, Wind Wall, etc. [VANILLA]
 - fixed Elemental Bane spell behavior, and improved SFX
-- fixed Lizard Folk hungry jaws feature not triggering attack [by otearaisu]
+- fixed Lizard Folk feeding claws feature not triggering attack [by otearaisu]
 - fixed Mass Cure Wounds incorrect dice assignment after 'Enable OneDnd healing dice buff' setting was added
 - fixed Mobile feat to only prevent AoO from defender that was attacked with a melee weapon
 - fixed Psionic Blast spell duration, removed concentration, and improved SFX
