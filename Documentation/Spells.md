@@ -932,7 +932,7 @@ You conjure a phantom watchdog in an unoccupied space that you can see within ra
 
 Causes psychic damage to the target creature with each turn, unless a saving throw is successful or the effect ends.
 
-# 227. - Psionic Blast (V) level 4 Evocation [Concentration] [UB]
+# 227. - Psionic Blast (V) level 4 Evocation [UB]
 
 You unleash a debilitating wave of mental power in a 30-foot cone. Each creature in the area must make an Intelligence saving throw. On a failed save, a target takes 5d8 psychic damage, and subtracts d6 from all of its attack rolls and ability checks until the end of your next turn. On a successful save, a target only takes half as much damage. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.
 

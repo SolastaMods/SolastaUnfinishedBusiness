@@ -119,8 +119,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Proxy/&ProxyPathOfTheWildMagicSummonTitle",
-    "description": "Proxy/&ProxyPathOfTheWildMagicSummonDescription",
+    "title": "Condition/&ConditionPathOfTheWildMagicWildSurgeSummonTitle",
+    "description": "Condition/&ConditionPathOfTheWildMagicWildSurgeSummonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3e3ee87230f7e034ba9f11a757ada669",

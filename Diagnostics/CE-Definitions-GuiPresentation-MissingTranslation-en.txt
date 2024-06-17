@@ -1,3 +1,0 @@
-ProxyPathOfTheWildMagicGrowth	Title='Proxy/&ProxyPathOfTheWildMagicGrowthTitle'.
-ProxyPathOfTheWildMagicGrowth	Description='Proxy/&ProxyPathOfTheWildMagicGrowthDescription'.
-ProxyPathOfTheWildMagicSummon	Description='Proxy/&ProxyPathOfTheWildMagicSummonDescription'.
