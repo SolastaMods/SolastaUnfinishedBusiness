@@ -397,6 +397,12 @@ internal static partial class SpellBuilders
     {
         const string NAME = "ElementalBane";
 
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
         var sprite = Sprites.GetSprite(NAME, Resources.ElementalBane, 128);
         var subSpells = new List<SpellDefinition>();
         var conditionEffects = new List<BaseDefinition>
@@ -425,7 +431,7 @@ internal static partial class SpellBuilders
                 .SetGuiPresentation(title, description, ConditionRestrictedInsideMagicCircle)
                 .SetPossessive()
                 .SetConditionType(ConditionType.Detrimental)
-                .AddCustomSubFeatures(new CustomBehaviorElementalBane(damageType, magicEffect))
+                .AddCustomSubFeatures(new CustomBehaviorElementalBane(damageType, magicEffect, conditionMark))
                 .SetConditionParticleReference(conditionEffects[current++])
                 .AddToDB();
 
@@ -489,7 +495,10 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorElementalBane(string damageType, IMagicEffect magicEffect)
+    private sealed class CustomBehaviorElementalBane(
+        string damageType,
+        IMagicEffect magicEffect,
+        ConditionDefinition conditionMark)
         : IModifyDamageAffinity, IOnConditionAddedOrRemoved
     {
         private readonly string _tag = $"ElementalBane{damageType}";
@@ -527,14 +536,27 @@ internal static partial class SpellBuilders
             var defender = GameLocationCharacter.GetFromActor(rulesetDefender);
 
             if (defender == null ||
-                !defender.OncePerTurnIsValid(_tag))
+                rulesetDefender.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, conditionMark.Name))
             {
                 return;
             }
 
-            defender.UsedSpecialFeatures.TryAdd(_tag, 0);
-
             var rulesetAttacker = EffectHelpers.GetCharacterByGuid(sourceGuid);
+
+            rulesetDefender.InflictCondition(
+                conditionMark.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionMark.Name,
+                0,
+                0,
+                0);
+
             var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
             var rolls = new List<int>();
             var damageForm = new DamageForm { DamageType = damageType, DieType = DieType.D6, DiceNumber = 2 };

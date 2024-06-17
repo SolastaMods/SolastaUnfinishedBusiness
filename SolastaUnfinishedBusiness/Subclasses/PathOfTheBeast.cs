@@ -440,7 +440,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
             var attackModifiers = hero.attackModifiers;
             List<ActionDefinitions.ActionType> list = [ActionDefinitions.ActionType.Reaction];
-            
+
             if (hero.GetMainWeapon() == null)
             {
                 list.Add(ActionDefinitions.ActionType.Main);
