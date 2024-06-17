@@ -46,14 +46,14 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
         damageAffinityRagingBattleragerBludgeoning.situationalContext = SituationalContext.None;
 
         var damageAffinityRagingBattleragerPiercing = FeatureDefinitionDamageAffinityBuilder
-            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityConditionRagingBludgeoning,
+            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityConditionRagingPiercing,
                 $"DamageAffinity{Name}RagingBattleragerPiercing")
             .AddToDB();
 
         damageAffinityRagingBattleragerPiercing.situationalContext = SituationalContext.None;
 
         var damageAffinityRagingBattleragerSlashing = FeatureDefinitionDamageAffinityBuilder
-            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityConditionRagingBludgeoning,
+            .Create(FeatureDefinitionDamageAffinitys.DamageAffinityConditionRagingSlashing,
                 $"DamageAffinity{Name}RagingBattleragerSlashing")
             .AddToDB();
 
