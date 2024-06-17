@@ -678,6 +678,12 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
+        powerFortifiedPosition.EffectDescription.EffectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetConditionForm(conditionFortifiedPosition, ConditionForm.ConditionOperation.Add, true, true)
+                .Build());
+
         var conditionFlamethrowerTiny15 = ConditionDefinitionBuilder
             .Create(conditionFlamethrowerTiny, $"Condition{Name}{Flamethrower}Tiny15")
             .SetParentCondition(conditionFlamethrowerTiny)
