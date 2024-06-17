@@ -59,22 +59,14 @@ internal static class TwoWeaponCombatFeats
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
-
-        var conditionMark = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Mark")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
-            .SetPossessive()
-            .AddToDB();
-
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .AddCustomSubFeatures(new PhysicalAttackFinishedByMeDualFlurry(conditionMark))
+            .AddCustomSubFeatures(new PhysicalAttackFinishedByMeDualFlurry())
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackFinishedByMeDualFlurry(ConditionDefinition conditionMark)
-        : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeDualFlurry : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
@@ -87,59 +79,28 @@ internal static class TwoWeaponCombatFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker))
+            if (action.ActionType != ActionDefinitions.ActionType.Bonus ||
+                !attackMode.IsOneHandedWeapon() ||
+                !ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(rulesetAttacker) ||
+                defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            var hasMark = rulesetAttacker.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect, conditionMark.Name, out var activeCondition);
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
-            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-            switch (action.ActionType)
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
+
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.AttackFree)
             {
-                case ActionDefinitions.ActionType.Main when
-                    rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
-                    !hasMark:
+                AttackMode = attackModeCopy,
+                TargetCharacters = { defender },
+                ActionModifiers = { new ActionModifier() }
+            };
 
-                    rulesetAttacker.InflictCondition(
-                        conditionMark.Name,
-                        DurationType.Round,
-                        0,
-                        TurnOccurenceType.EndOfTurn,
-                        AttributeDefinitions.TagEffect,
-                        rulesetAttacker.guid,
-                        rulesetAttacker.CurrentFaction.Name,
-                        1,
-                        conditionMark.Name,
-                        0,
-                        0,
-                        0);
-                    break;
-
-                case ActionDefinitions.ActionType.Bonus when
-                    hasMark &&
-                    defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                    attackMode.IsOneHandedWeapon():
-
-                    var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-                    attackModeCopy.Copy(attackMode);
-                    attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
-
-                    var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.AttackFree)
-                    {
-                        AttackMode = attackModeCopy,
-                        TargetCharacters = { defender },
-                        ActionModifiers = { new ActionModifier() }
-                    };
-
-                    rulesetAttacker.RemoveCondition(activeCondition);
-
-                    ServiceRepository.GetService<IGameLocationActionService>()?
-                        .ExecuteAction(actionParams, null, true);
-                    break;
-            }
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 }
