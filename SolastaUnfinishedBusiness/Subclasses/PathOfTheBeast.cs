@@ -352,7 +352,8 @@ public sealed class PathOfTheBeast : AbstractSubclass
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            if (characterAction.ActionId != ActionDefinitions.Id.AttackMain)
+            if (characterAction.ActionId != ActionDefinitions.Id.AttackMain
+                && characterAction.ActionId != ActionDefinitions.Id.AttackOff)
             {
                 yield break;
             }
@@ -438,8 +439,14 @@ public sealed class PathOfTheBeast : AbstractSubclass
             }
 
             var attackModifiers = hero.attackModifiers;
-            ActionDefinitions.ActionType[] list =
-                [ActionDefinitions.ActionType.Reaction, ActionDefinitions.ActionType.Main];
+            List<ActionDefinitions.ActionType> list = [ActionDefinitions.ActionType.Reaction];
+            if (hero.GetMainWeapon() == null) { 
+                list.Add(ActionDefinitions.ActionType.Main);
+            }
+            if (hero.GetOffhandWeapon() == null)
+            {
+                list.Add(ActionDefinitions.ActionType.Bonus);
+            }
 
             return list
                 .Select(type =>
@@ -448,8 +455,9 @@ public sealed class PathOfTheBeast : AbstractSubclass
                         _beastClaws,
                         _beastClaws.WeaponDescription,
                         ValidatorsCharacter.IsFreeOffhandVanilla(character),
-                        true,
-                        EquipmentDefinitions.SlotTypeMainHand,
+                        type != ActionDefinitions.ActionType.Bonus,
+                        type != ActionDefinitions.ActionType.Bonus ? 
+                            EquipmentDefinitions.SlotTypeMainHand : EquipmentDefinitions.SlotTypeOffHand,
                         attackModifiers,
                         character.FeaturesOrigin))
                 .ToList();
