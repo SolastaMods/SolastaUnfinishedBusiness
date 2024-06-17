@@ -120,6 +120,7 @@ internal static class RaceLizardfolkBuilder
             {
                 yield break;
             }
+
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var attackModifiers = rulesetCharacter switch
             {

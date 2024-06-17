@@ -671,7 +671,7 @@ The Path of the Ravager is a path of untrammeled fury, slick with blood. As you 
 
 * Frenzy
 
-Once during your turn, if you use your Reckless Attack while you are raging, the first Strength-based weapon attack that you hit an enemy with deals 2d6 extra damage of the same type as your weapon. This damage is increased to 3d6 at 9th level, and 4d6 at 16th level. 
+Once during your turn, if you use your Reckless Attack while you are raging, the first Strength-based weapon attack that you hit an enemy with deals 2d6 extra damage of the same type as your weapon. This damage is increased to 3d6 at 9th level, and 4d6 at 16th level.
 
 
 ### Level 6
@@ -692,7 +692,7 @@ Whenever an opponent attacks you from a nearby cell, you are granted an immediat
 
 * Intimidating Presence
 
-Whenever you start raging, and while you are raging on subsequent turns as a bonus action, you can strike terror into others with your intimidating presence. Each enemy creature within 30 feet of you must make a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Strength modifier). On a failed save, a creature has the Frightened condition for 1 minute. At the end of each of the Frightened creature's turns, the creature repeats the saving throw, ending the effect on itself on a success. Once you use this feature, you can't use it again until you finish a Long Rest. If you've run out of uses of this feature, you can expend a use of your Rage to use it again. 
+Whenever you start raging, and while you are raging on subsequent turns as a bonus action, you can strike terror into others with your intimidating presence. Each enemy creature within 30 feet of you must make a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Strength modifier). On a failed save, a creature has the Frightened condition for 1 minute. At the end of each of the Frightened creature's turns, the creature repeats the saving throw, ending the effect on itself on a success. Once you use this feature, you can't use it again until you finish a Long Rest. If you've run out of uses of this feature, you can expend a use of your Rage to use it again.
 
 
 
@@ -944,7 +944,7 @@ Increase the damage dice of longbows from d8 to d12. While raging and not wearin
 
 ## 1. College of Elegance [UB]
 
-The College of Elegance is the home of bards who mastered the art of bodily motion. They see exquisite beauty in dancing and expressing oneself through mesmerizing gestures, wearing flashy outfits and oftentimes looking to be the center of attention. In combat, these bards weave elegant steps seamlessly into battle maneuvers, pairing them with a weapon of choice and creating an unforgettable spectacle for friends and foes alike. 
+The College of Elegance is the home of bards who mastered the art of bodily motion. They see exquisite beauty in dancing and expressing oneself through mesmerizing gestures, wearing flashy outfits and oftentimes looking to be the center of attention. In combat, these bards weave elegant steps seamlessly into battle maneuvers, pairing them with a weapon of choice and creating an unforgettable spectacle for friends and foes alike.
 
 
 ### Level 3
@@ -953,7 +953,7 @@ The College of Elegance is the home of bards who mastered the art of bodily moti
 
 You express your battle arts through nimbleness and movement. While you are wearing no armor and not wielding a shield, you gain the following benefits:
 • Your Armor Class equals 10 + your Dexterity modifier + your Charisma modifier.
-• You can expend a Bardic Inspiration die and use your bonus action to gain benefits of Dash, Disengage or Dodge actions. 
+• You can expend a Bardic Inspiration die and use your bonus action to gain benefits of Dash, Disengage or Dodge actions.
 
 * Grace
 
@@ -962,9 +962,9 @@ When you make a Charisma (Performance) or Dexterity (Acrobatics) check, you can 
 
 ### Level 6
 
-* Evasive Footwork 
+* Evasive Footwork
 
-Whenever an attack is about to hit you, and you are wearing no armor and not wielding a shield, you can use your reaction to add your Bardic Inspiration die to your Armor Class for that attack, potentially causing it to miss. 
+Whenever an attack is about to hit you, and you are wearing no armor and not wielding a shield, you can use your reaction to add your Bardic Inspiration die to your Armor Class for that attack, potentially causing it to miss.
 
 * Extra Attack
 
@@ -3504,7 +3504,7 @@ You choose one type of dragon as your ancestor. The damage type associated with 
 
 * Elemental Breath
 
-Once during your turn, you can forgo one of your main action attacks to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive three martial arts dice as damage type of your Dragon Ancestry feature (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and you can spend 2 ki instead if you are out of uses. At 17th level, the damage of your breath increases to four martial arts dice. 
+Once during your turn, you can forgo one of your main action attacks to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive three martial arts dice as damage type of your Dragon Ancestry feature (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and you can spend 2 ki instead if you are out of uses. At 17th level, the damage of your breath increases to four martial arts dice.
 
 
 ### Level 6
@@ -3641,21 +3641,21 @@ When a creature is about to hit you with an attack, you can spend 3 ki and use y
 
 ## 6. Way of Storm Soul [UB]
 
-Monks of the Way of the Storm Soul live on the highest mountaintops of Solasta, attuning themselves to the energies of mighty storms and learning to channel the power of lightning into their being. These martial artists use their unique disciplines to become an unbridled tempest, effortlessly maneuvering the battlefield, rushing from one enemy to the next and unleashing countless lightning-infused strikes upon them. 
+Monks of the Way of the Storm Soul live on the highest mountaintops of Solasta, attuning themselves to the energies of mighty storms and learning to channel the power of lightning into their being. These martial artists use their unique disciplines to become an unbridled tempest, effortlessly maneuvering the battlefield, rushing from one enemy to the next and unleashing countless lightning-infused strikes upon them.
 
 
 ### Level 3
 
 * Disciple of Storms
 
-Whenever you use your Flurry of Blows, you also gain the benefits of the disengage action. Bonus attacks provided by it deal extra lightning damage equal to your martial arts die. 
+Whenever you use your Flurry of Blows, you also gain the benefits of the disengage action. Bonus attacks provided by it deal extra lightning damage equal to your martial arts die.
 
 
 ### Level 6
 
 * Lightning Warrior
 
-You gain resistance to lightning damage, and you can replace any of your main action attacks to cast Lightning Lure cantrip without any components using your Wisdom as spellcasting modifier. 
+You gain resistance to lightning damage, and you can replace any of your main action attacks to cast Lightning Lure cantrip without any components using your Wisdom as spellcasting modifier.
 
 
 ### Level 11
@@ -6042,7 +6042,7 @@ As an action, you can cause each creature in a 15 ft cone to make a Wisdom savin
 
 * Misty Escape
 
- When you are hit, you can use your reaction to turn invisible and teleport up to 60 feet to an unoccupied space you can see. You remain invisible until the start of your next turn or until you attack or cast a spell. Once you use this feature, you can't use it again until you finish a short or long rest.
+When you are hit, you can use your reaction to turn invisible and teleport up to 60 feet to an unoccupied space you can see. You remain invisible until the start of your next turn or until you attack or cast a spell. Once you use this feature, you can't use it again until you finish a short or long rest.
 
 
 ### Level 10
