@@ -3,17 +3,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageRangerSkyWarriorGiftOfTheWind:990f02c2-8261-5213-a2b2-18669c9dedaf",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyRangerSkyWarriorAerialAgility:db174a30-5dbb-5bd5-b562-41c1447f6ba1",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRangerSkyWarriorGiftOfTheWind:c50ce3a5-d5a0-5965-a5f6-4a9e1a0e3cfd",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageRangerSkyWarriorGiftOfTheWind:990f02c2-8261-5213-a2b2-18669c9dedaf",
       "level": 3
     },
     {

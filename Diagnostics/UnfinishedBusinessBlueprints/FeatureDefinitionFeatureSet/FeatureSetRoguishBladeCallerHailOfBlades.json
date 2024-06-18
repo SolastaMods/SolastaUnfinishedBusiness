@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ActionAffinityHailOfBladesToggle:869c1170-11cd-5c19-88fe-eba8456f7fda",
-    "Definition:PowerRoguishBladeCallerHailOfBlades:1bfbffde-ae2a-520e-8fb3-2f500c0694b0"
+    "Definition:PowerRoguishBladeCallerHailOfBlades:1bfbffde-ae2a-520e-8fb3-2f500c0694b0",
+    "Definition:ActionAffinityHailOfBladesToggle:869c1170-11cd-5c19-88fe-eba8456f7fda"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

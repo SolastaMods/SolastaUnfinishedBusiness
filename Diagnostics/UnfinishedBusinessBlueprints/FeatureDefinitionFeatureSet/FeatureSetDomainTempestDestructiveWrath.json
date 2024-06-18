@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ActionAffinityDestructiveWrathToggle:88ff8b4f-0b9c-5bd5-9e0d-63294b3f2563",
-    "Definition:PowerDomainTempestDestructiveWrath:09fb5e43-e1fa-586f-9c40-509a363e14c8"
+    "Definition:PowerDomainTempestDestructiveWrath:09fb5e43-e1fa-586f-9c40-509a363e14c8",
+    "Definition:ActionAffinityDestructiveWrathToggle:88ff8b4f-0b9c-5bd5-9e0d-63294b3f2563"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

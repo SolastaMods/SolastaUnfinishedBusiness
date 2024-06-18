@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerUseModifierInventorInfusionPool2:d990e923-ae81-5f22-bf73-fdea8c5655e1",
     "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f",
-    "Definition:InvocationPoolInfusionLearn4:3eb04c23-5397-5a01-b78e-579982b25bda"
+    "Definition:InvocationPoolInfusionLearn4:3eb04c23-5397-5a01-b78e-579982b25bda",
+    "Definition:PowerUseModifierInventorInfusionPool2:d990e923-ae81-5f22-bf73-fdea8c5655e1"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

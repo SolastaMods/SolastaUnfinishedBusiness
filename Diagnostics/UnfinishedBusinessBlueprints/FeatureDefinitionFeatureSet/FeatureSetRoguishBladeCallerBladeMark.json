@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AdditionalDamageRoguishBladeCallerBladeMark:4f283071-43e2-5a6f-ade6-3d2f93e537dd",
-    "Definition:CombatAffinityRoguishBladeCallerBladeMark:39dca5c9-fd26-5e7b-b7e9-dfc2112b4c52"
+    "Definition:CombatAffinityRoguishBladeCallerBladeMark:39dca5c9-fd26-5e7b-b7e9-dfc2112b4c52",
+    "Definition:AdditionalDamageRoguishBladeCallerBladeMark:4f283071-43e2-5a6f-ade6-3d2f93e537dd"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

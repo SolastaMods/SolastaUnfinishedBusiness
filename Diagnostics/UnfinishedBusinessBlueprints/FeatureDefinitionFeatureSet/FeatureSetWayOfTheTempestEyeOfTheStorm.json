@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AdditionalDamageWayOfTheTempestEyeOfTheStorm:46380848-893d-599a-8219-8500dd16bc92",
     "Definition:PowerWayOfTheTempestEyeOfTheStorm:79d6e3ba-5386-5f3c-8e74-a4a69bc73b1a",
-    "Definition:PowerWayOfTheTempestEyeOfTheStormLeap:38cd49a8-19d1-562b-b43d-fe67248b63d6"
+    "Definition:PowerWayOfTheTempestEyeOfTheStormLeap:38cd49a8-19d1-562b-b43d-fe67248b63d6",
+    "Definition:AdditionalDamageWayOfTheTempestEyeOfTheStorm:46380848-893d-599a-8219-8500dd16bc92"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:PowerPathOfTheLightIlluminatingBurst:e4e99b02-b403-5b0a-9a8b-2b0343d90cf6",
     "Definition:PowerPathOfTheLightIlluminatingBurstInitiator:1b0b222a-d63b-5a1d-a7ff-32e0daee1c22",
-    "Definition:PowerPathOfTheLightIlluminatingBurstSuppressor:2e97d82c-4679-564a-ac16-ff9d9f834ec5",
-    "Definition:PowerPathOfTheLightIlluminatingBurst:e4e99b02-b403-5b0a-9a8b-2b0343d90cf6"
+    "Definition:PowerPathOfTheLightIlluminatingBurstSuppressor:2e97d82c-4679-564a-ac16-ff9d9f834ec5"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

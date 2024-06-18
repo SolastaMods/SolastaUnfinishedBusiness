@@ -3,22 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierAncientForestRegrowth:cdd058d8-d63b-5851-b7b5-fbfd6750653c",
-      "level": 2
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierAncientForestRegrowthMultiplier:06645235-a6d5-510b-aa64-266f04b17886",
-      "level": 2
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:BonusCantripAncientForest:3caea6e1-5db7-5273-b4ce-4cbb5e34794f",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsAncientForest:d8e3a948-e182-50a1-9ef4-f013a8a0436f",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierAncientForestRegrowth:cdd058d8-d63b-5851-b7b5-fbfd6750653c",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierAncientForestRegrowthMultiplier:06645235-a6d5-510b-aa64-266f04b17886",
       "level": 2
     },
     {

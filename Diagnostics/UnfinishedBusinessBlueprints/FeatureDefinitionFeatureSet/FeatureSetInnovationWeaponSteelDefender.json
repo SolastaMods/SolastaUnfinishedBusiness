@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:SummoningAffinityInnovationWeaponSummonSteelDefender:e1f271a7-ad06-5ffc-b4b6-fae7ac0a8430",
     "Definition:PowerInventorWeaponSteelDefenderCommand:429ff712-f9ee-5c0d-bd48-945da7881d33",
+    "Definition:SummoningAffinityInnovationWeaponSummonSteelDefender:e1f271a7-ad06-5ffc-b4b6-fae7ac0a8430",
     "Definition:PowerInnovationWeaponSummonSteelDefender:30f9693e-72d8-5eeb-b005-21802ac84625",
     "Definition:PowerInnovationWeaponSteelDefenderRecuperate:1b4e13a9-a821-5994-b70d-5cc222495bcb"
   ],

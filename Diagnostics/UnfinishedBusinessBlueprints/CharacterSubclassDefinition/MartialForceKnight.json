@@ -38,12 +38,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerUseModifierMartialForceKnightPsionicInitiate15:a78aebe9-156b-5381-ba3f-2680234d9de7",
+      "featureDefinition": "Definition:FeatureSetMartialForceKnightForceBulwark:8692fbcf-4603-5061-9d99-346f04052d12",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetMartialForceKnightForceBulwark:8692fbcf-4603-5061-9d99-346f04052d12",
+      "featureDefinition": "Definition:PowerUseModifierMartialForceKnightPsionicInitiate15:a78aebe9-156b-5381-ba3f-2680234d9de7",
       "level": 15
     },
     {

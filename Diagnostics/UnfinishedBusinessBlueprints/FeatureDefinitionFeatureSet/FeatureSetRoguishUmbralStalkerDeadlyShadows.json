@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AdditionalDamageRoguishUmbralStalkerDeadlyShadows:33ee65a7-f403-52b0-a681-593305cd3418",
-    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:AdditionalDamageRoguishUmbralStalkerDeadlyShadows:33ee65a7-f403-52b0-a681-593305cd3418"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

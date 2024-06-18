@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ActionAffinityPressTheAdvantageToggle:54e9367a-c1f0-537c-90c2-fa88d23e7d4d",
     "Definition:PowerMartialWarlordCoveringStrike:6fd23f92-5fb0-5701-b69c-d78769e59693",
     "Definition:PowerMartialWarlordExploitOpening:4f690112-e2e3-5748-9103-c96cf0369109",
+    "Definition:ActionAffinityPressTheAdvantageToggle:54e9367a-c1f0-537c-90c2-fa88d23e7d4d",
     "Definition:PowerMartialWarlordPredictAttack:e177639a-8c53-5d10-b657-51a71a994650",
     "Definition:PowerMartialWarlordPressTheAdvantage:74d1dbd7-fa35-503e-92e6-9a8a0a368389"
   ],

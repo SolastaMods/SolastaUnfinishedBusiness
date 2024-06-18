@@ -23,12 +23,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ActionAffinityCollegeOfValianceHeroicInspiration:951aafe4-9c11-50cf-a43d-8c23ace8983f",
+      "featureDefinition": "Definition:PowerCollegeOfValianceHeroicInspiration:5b82d737-651e-5bc2-b18b-1963f134f1b5",
       "level": 14
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerCollegeOfValianceHeroicInspiration:5b82d737-651e-5bc2-b18b-1963f134f1b5",
+      "featureDefinition": "Definition:ActionAffinityCollegeOfValianceHeroicInspiration:951aafe4-9c11-50cf-a43d-8c23ace8983f",
       "level": 14
     }
   ],

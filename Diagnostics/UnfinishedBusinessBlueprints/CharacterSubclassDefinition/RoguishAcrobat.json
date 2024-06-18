@@ -23,17 +23,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CombatAffinityRoguishAcrobatFluidMotions:a18c050f-93b7-5cd7-bbc5-a2da036a6671",
-      "level": 13
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRoguishAcrobatReflexes:c6aea9f8-cd38-55f9-8b90-6024ac4a64c4",
       "level": 13
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MovementAffinityRoguishAcrobatFluidMotions:0308d92d-8877-5bfd-bc60-29c215ebabcb",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CombatAffinityRoguishAcrobatFluidMotions:a18c050f-93b7-5cd7-bbc5-a2da036a6671",
       "level": 13
     },
     {

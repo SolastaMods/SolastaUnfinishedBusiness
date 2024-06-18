@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ConditionAffinityBattlebornPoisonResilience:8020a254-1a2d-5772-833d-d1136733149e",
     "Definition:AttributeModifierBattlebornBonusAC:9e20f8c4-0304-50f3-abf9-3fa673bbb54c",
+    "Definition:ConditionAffinityBattlebornPoisonResilience:8020a254-1a2d-5772-833d-d1136733149e",
     "Definition:ConditionAffinityElfFeyAncestrySleep:404060024724e934ab81c8c33398cd57",
     "Definition:ConditionAffinityDiseaseImmunity:1913ab33c64e94f4b88b23ce63268cb1",
     "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75"

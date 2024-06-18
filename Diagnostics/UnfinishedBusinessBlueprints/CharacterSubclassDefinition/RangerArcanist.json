@@ -3,11 +3,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageArcanistMark:63e97e06-1a84-5fa6-8381-fc53d620fd4b",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinityRangerArcanist:4b70f6e4-c7bc-57fe-a53a-08a2b276036f",
       "level": 3
     },
@@ -19,6 +14,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsArcanist:82245fef-4569-5ac9-8e11-8447d946aa5c",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageArcanistMark:63e97e06-1a84-5fa6-8381-fc53d620fd4b",
       "level": 3
     },
     {

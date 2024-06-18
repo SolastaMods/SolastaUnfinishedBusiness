@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerUseModifierInnovationVitriolistMixtureIntelligenceModifier:cdbd45b1-2550-5ba0-abd3-e46904ff1a90",
-    "Definition:PowerUseModifierInnovationVitriolistMixtureProficiencyBonus:42cf9809-9bb1-535d-9517-656b0539bb1a",
     "Definition:PowerInnovationVitriolistAffliction:4252200a-4eb4-5eb7-b189-37d4a3949d55",
     "Definition:PowerInnovationVitriolistCorrosion:e7b06cd1-87c0-5b05-a438-48bdb646d4c2",
     "Definition:PowerInnovationVitriolistMisery:05027a40-2f31-52bd-b294-88f37a7b3435",
     "Definition:PowerInnovationVitriolistViscosity:5416205b-e125-5bcc-97af-721f569fb189",
+    "Definition:PowerUseModifierInnovationVitriolistMixtureIntelligenceModifier:cdbd45b1-2550-5ba0-abd3-e46904ff1a90",
+    "Definition:PowerUseModifierInnovationVitriolistMixtureProficiencyBonus:42cf9809-9bb1-535d-9517-656b0539bb1a",
     "Definition:PowerInnovationVitriolistMixture:f2ad08bf-c231-5c72-942b-5fb4a7ba782e"
   ],
   "mode": "Union",

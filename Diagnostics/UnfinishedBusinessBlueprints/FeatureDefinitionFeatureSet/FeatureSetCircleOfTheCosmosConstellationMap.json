@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AutoPreparedSpellsCircleOfTheCosmosConstellationMap:ee4daf40-cb0e-5508-a21c-48e14f0d912f",
+    "Definition:PowerCircleOfTheCosmosGuidingBolt:dc2b6665-486f-5deb-9306-f021b63c973c",
     "Definition:BonusCantripsCircleOfTheCosmosConstellationMap:0d7c7c3f-5762-5330-a2dc-0f8393181777",
-    "Definition:PowerCircleOfTheCosmosGuidingBolt:dc2b6665-486f-5deb-9306-f021b63c973c"
+    "Definition:AutoPreparedSpellsCircleOfTheCosmosConstellationMap:ee4daf40-cb0e-5508-a21c-48e14f0d912f"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

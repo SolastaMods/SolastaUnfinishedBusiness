@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ActionAffinityCoordinatedAssaultToggle:2052bab8-0723-5f23-ba11-b5340f444906",
-    "Definition:PowerMartialWarlordCoordinatedAssault:a31cf84e-d255-569e-9275-8b1016f36b7e"
+    "Definition:PowerMartialWarlordCoordinatedAssault:a31cf84e-d255-569e-9275-8b1016f36b7e",
+    "Definition:ActionAffinityCoordinatedAssaultToggle:2052bab8-0723-5f23-ba11-b5340f444906"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

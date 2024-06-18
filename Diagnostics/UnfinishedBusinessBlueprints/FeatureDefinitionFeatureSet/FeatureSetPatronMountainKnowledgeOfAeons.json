@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ProficiencyPatronMountainNatureSurvival:d43085ae-10e3-524b-8e86-e139894294cb",
-    "Definition:TerrainTypeAffinityRangerNaturalExplorerMountain:e3f80e8f642548846b8cb1b3eac2887c"
+    "Definition:TerrainTypeAffinityRangerNaturalExplorerMountain:e3f80e8f642548846b8cb1b3eac2887c",
+    "Definition:ProficiencyPatronMountainNatureSurvival:d43085ae-10e3-524b-8e86-e139894294cb"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

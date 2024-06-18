@@ -3,21 +3,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRangerLightBearerLight:febcc1be-370a-5630-affa-931ccf1667a4",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierRangerLightBearerLifeBringerBase:f79600f2-ed73-5124-b23e-2754801f3f18",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierRangerLightBearerLifeBringerAdditive:cfa1d16d-e61b-5bda-aa39-6bb0f5c2b5d5",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRangerLightBearerBlessedWarrior:aedc0c43-42ea-5a06-a568-3f4c34aa8b0b",
       "level": 3
     },
@@ -29,6 +14,21 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsRangerLightBearer:3e11815f-6e00-5577-912d-65c4aab5b1c9",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerLightBearerLight:febcc1be-370a-5630-affa-931ccf1667a4",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierRangerLightBearerLifeBringerBase:f79600f2-ed73-5124-b23e-2754801f3f18",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierRangerLightBearerLifeBringerAdditive:cfa1d16d-e61b-5bda-aa39-6bb0f5c2b5d5",
       "level": 3
     },
     {
