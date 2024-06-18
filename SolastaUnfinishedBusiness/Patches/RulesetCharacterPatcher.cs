@@ -241,20 +241,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.AcknowledgeAttackedCharacter))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class AcknowledgeAttackedCharacter_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix([CanBeNull] RulesetCharacter target)
-        {
-            //PATCH: Allows condition interruption after target was attacked
-            target?.ProcessConditionsMatchingInterruption(
-                (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
-        }
-    }
-
     //PATCH: correctly syncs powers used during WS back to original hero
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.SetupFromSubstituteCharacter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

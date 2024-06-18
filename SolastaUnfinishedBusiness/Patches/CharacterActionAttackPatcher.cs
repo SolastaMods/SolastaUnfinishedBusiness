@@ -38,6 +38,7 @@ public static class CharacterActionAttackPatcher
             }
 
             var actingCharacter = __instance.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
             var actionParams = __instance.ActionParams;
             var attackMode = actionParams.AttackMode;
             var locationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
@@ -139,7 +140,7 @@ public static class CharacterActionAttackPatcher
             // Automatic hit is for Flaming Sphere, which hits automatically with a saving throw
             if (!attackMode.AutomaticHit)
             {
-                __instance.AttackRoll = actingCharacter.RulesetCharacter.RollAttackMode(
+                __instance.AttackRoll = rulesetCharacter.RollAttackMode(
                     attackMode,
                     rangeAttack,
                     target.RulesetActor,
@@ -227,7 +228,7 @@ public static class CharacterActionAttackPatcher
             }
 
             // Wait for monster weapon swap ?
-            if (actingCharacter.RulesetCharacter is RulesetCharacterMonster &&
+            if (rulesetCharacter is RulesetCharacterMonster &&
                 attackMode.SourceDefinition is MonsterAttackDefinition definition)
             {
                 var hasChanged =
@@ -401,7 +402,7 @@ public static class CharacterActionAttackPatcher
                 // Execute the final step of the attack
                 if (!attackMode.AutomaticHit)
                 {
-                    actingCharacter.RulesetCharacter.RollAttackMode(
+                    rulesetCharacter.RollAttackMode(
                         attackMode,
                         rangeAttack,
                         target.RulesetActor,
@@ -420,8 +421,8 @@ public static class CharacterActionAttackPatcher
                 }
                 else
                 {
-                    actingCharacter.RulesetCharacter.AttackAutomaticHit?.Invoke(
-                        actingCharacter.RulesetCharacter, target.RulesetActor, attackMode.SourceDefinition);
+                    rulesetCharacter.AttackAutomaticHit?.Invoke(
+                        rulesetCharacter, target.RulesetActor, attackMode.SourceDefinition);
                 }
 
                 var rulesetDefender = target.RulesetActor;
@@ -459,7 +460,7 @@ public static class CharacterActionAttackPatcher
                     actingCharacter.AttackedHitCreatureIds.TryAdd(target.RulesetActor.Guid);
 
                     // For recovering ammunition
-                    actingCharacter.RulesetCharacter.AcknowledgeAttackHit(
+                    rulesetCharacter.AcknowledgeAttackHit(
                         target, attackMode, attackModifier.Proximity);
 
                     __instance.actualEffectForms.Clear();
@@ -493,7 +494,7 @@ public static class CharacterActionAttackPatcher
 
                     // These bool information must be store as a class member, as it is passed to HandleFailedSavingThrow
                     __instance.RolledSaveThrow = attackMode.TryRollSavingThrow(
-                        actingCharacter.RulesetCharacter, target.RulesetActor, attackModifier,
+                        rulesetCharacter, target.RulesetActor, attackModifier,
                         __instance.actualEffectForms, out var saveOutcome, out var saveOutcomeDelta);
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
@@ -548,7 +549,7 @@ public static class CharacterActionAttackPatcher
                     var wasDeadOrDyingOrUnconscious = target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: true };
                     var formParams = new RulesetImplementationDefinitions.ApplyFormsParams();
 
-                    formParams.FillSourceAndTarget(actingCharacter.RulesetCharacter, target.RulesetActor);
+                    formParams.FillSourceAndTarget(rulesetCharacter, target.RulesetActor);
                     formParams.FillFromAttackMode(attackMode);
                     formParams.FillAttackModeSpecialParameters(
                         __instance.RolledSaveThrow,
@@ -569,11 +570,11 @@ public static class CharacterActionAttackPatcher
 
                         // Specify the class level for forms which depend on it
                         formParams.classLevel =
-                            actingCharacter.RulesetCharacter.TryGetAttributeValue(
+                            rulesetCharacter.TryGetAttributeValue(
                                 AttributeDefinitions.CharacterLevel);
                     }
 
-                    actingCharacter.RulesetCharacter.EvaluateAndNotifyBardicNegativeInspiration(
+                    rulesetCharacter.EvaluateAndNotifyBardicNegativeInspiration(
                         RollContext.AttackDamageValueRoll);
 
                     var saveOutcomeSuccess =
@@ -626,7 +627,7 @@ public static class CharacterActionAttackPatcher
             }
             else
             {
-                actingCharacter.RulesetCharacter.RollAttackMode(
+                rulesetCharacter.RollAttackMode(
                     attackMode, rangeAttack,
                     target.RulesetActor,
                     attackMode.SourceDefinition,
@@ -664,9 +665,9 @@ public static class CharacterActionAttackPatcher
             }
 
             actingCharacter.HasAttackedSinceLastTurn = true;
-            actingCharacter.RulesetCharacter.AcknowledgeAttackUse(
+            rulesetCharacter.AcknowledgeAttackUse(
                 attackMode, attackModifier.Proximity, hit, out var droppedItem, out var needToRefresh);
-            actingCharacter.RulesetCharacter.AcknowledgeAttackedCharacter(
+            rulesetCharacter.AcknowledgeAttackedCharacter(
                 target.RulesetCharacter, attackModifier.Proximity);
 
             if (droppedItem != null)
@@ -689,13 +690,13 @@ public static class CharacterActionAttackPatcher
             }
 
             // Possible condition interruption, after the attack is done. Example: if an invisible character performs an attack, his invisible condition is broken
-            actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+            rulesetCharacter.ProcessConditionsMatchingInterruption(
                 ConditionInterruption.Attacks);
 
             //PATCH: original was IsWieldingBow. Only affects STEP BACK action
-            if (actingCharacter.RulesetCharacter.IsWieldingRangedWeapon())
+            if (rulesetCharacter.IsWieldingRangedWeapon())
             {
-                actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+                rulesetCharacter.ProcessConditionsMatchingInterruption(
                     ConditionInterruption.AttacksWithBow);
             }
 
@@ -726,7 +727,7 @@ public static class CharacterActionAttackPatcher
 
             if (attackHasDamaged)
             {
-                actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+                rulesetCharacter.ProcessConditionsMatchingInterruption(
                     ConditionInterruption.AttacksAndDamages, damageReceived);
             }
 
@@ -738,7 +739,7 @@ public static class CharacterActionAttackPatcher
 
             if (needToRefresh)
             {
-                actingCharacter.RulesetCharacter.RefreshAttackModes();
+                rulesetCharacter.RefreshAttackModes();
             }
 
             if (!isResultingActionSpendPowerWithMotionForm)
@@ -827,6 +828,17 @@ public static class CharacterActionAttackPatcher
 
             target.RulesetActor.ProcessConditionsMatchingInterruption(
                 ConditionInterruption.PhysicalAttackReceivedExecuted);
+
+            //PATCH: Allows condition interruption after target was attacked
+            rulesetCharacter.ProcessConditionsMatchingInterruption(
+                (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
+
+            //PATCH: Allows condition interruption after target was attacked
+            if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                rulesetCharacter.ProcessConditionsMatchingInterruption(
+                    (ConditionInterruption)ExtraConditionInterruption.AfterWasHit);
+            }
 
             yield return battleManager.HandleCharacterAttackOrMagicEffectFinishedLate(
                 __instance, actingCharacter);
