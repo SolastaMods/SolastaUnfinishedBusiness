@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:MagicAffinitySpellBladeIntoTheFray:dcbc028742c7af3479f0c56e3146d286",
-    "Definition:AdditionalDamageInnovationArtilleristArcaneFirearm:632efd21-b02a-552b-96a2-ac91b473e3ee"
+    "Definition:AdditionalDamageInnovationArtilleristArcaneFirearm:632efd21-b02a-552b-96a2-ac91b473e3ee",
+    "Definition:MagicAffinitySpellBladeIntoTheFray:dcbc028742c7af3479f0c56e3146d286"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

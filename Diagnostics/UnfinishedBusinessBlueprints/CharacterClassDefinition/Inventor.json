@@ -186,6 +186,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetInventorRituals:9d79af97-db2b-58a7-8b07-5232cb21f143",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyInventorArmor:cdce92cb-aebe-5adb-b62d-9463d2ddf46c",
       "level": 1
     },
@@ -216,11 +221,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetInventorRituals:9d79af97-db2b-58a7-8b07-5232cb21f143",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyInventorSavingThrow:3ffcc425-4240-5532-839c-5214a75f337d",
       "level": 1
     },
@@ -236,6 +236,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SubclassChoiceInventor:00e82007-cb39-5d19-a903-551a8fa5e13e",
       "level": 3
     },
@@ -247,7 +252,7 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 3
+      "level": 4
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -257,12 +262,12 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 4
+      "level": 5
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 5
+      "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -282,7 +287,7 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 6
+      "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -292,7 +297,7 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 7
+      "level": 8
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -302,12 +307,12 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 8
+      "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 9
+      "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -327,11 +332,6 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 10
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
       "level": 11
     },
     {
@@ -341,18 +341,23 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
+      "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 12
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 12
+      "level": 13
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 13
+      "level": 14
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -372,12 +377,12 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 14
+      "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 15
+      "level": 16
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -387,12 +392,12 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 16
+      "level": 17
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 17
+      "level": 18
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -407,16 +412,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
-      "level": 18
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 19
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolInventorUnlearnInfusion:3c827867-5407-559c-963a-fb1336626294",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 19
     },
     {

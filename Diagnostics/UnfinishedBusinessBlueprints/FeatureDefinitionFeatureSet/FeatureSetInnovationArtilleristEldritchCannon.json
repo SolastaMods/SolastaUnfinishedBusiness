@@ -1,13 +1,13 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:SummoningAffinityInnovationArtilleristEldritchCannon:27227e5a-7af9-51a4-81fa-96c2e67cbeab",
     "Definition:PowerInnovationArtilleristEldritchCannonCommand:f3464ac5-d4c7-547d-88bf-51610d12e28d",
     "Definition:PowerInnovationArtilleristEldritchCannonDismiss:0b1bd58a-fd56-5db1-b551-6859c0549bb9",
     "Definition:PowerInnovationArtilleristSummonFlamethrower3:c54aa7d8-2d9c-57c8-a3ad-81299189bfde",
     "Definition:PowerInnovationArtilleristSummonFlamethrowerTiny3:42300186-8120-544b-a749-19527c27d2d9",
     "Definition:PowerInnovationArtilleristSummonForceBallista3:4a654d4d-fcad-532d-a63d-eecbfaa2ff83",
     "Definition:PowerInnovationArtilleristSummonForceBallistaTiny3:b5b46115-7a1b-5095-9ff8-885e99d35995",
-    "Definition:SummoningAffinityInnovationArtilleristEldritchCannon:27227e5a-7af9-51a4-81fa-96c2e67cbeab",
     "Definition:PowerInnovationArtilleristSummonProtector3:c5cce44b-ccaf-538f-80f7-ce437834f796",
     "Definition:PowerInnovationArtilleristSummonProtectorTiny3:93e65d62-f627-5363-b4f6-7ed58d756ccd",
     "Definition:PowerInnovationArtilleristEldritchCannonRefund:c65a225c-a297-5831-8657-9f73c7006b75",

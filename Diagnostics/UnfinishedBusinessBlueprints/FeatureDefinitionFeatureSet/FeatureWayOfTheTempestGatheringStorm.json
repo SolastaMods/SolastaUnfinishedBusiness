@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
-    "Definition:AdditionalDamageWayOfTheTempestGatheringStorm:7925249d-a7b3-5f40-b8d7-80ff07fe330e"
+    "Definition:AdditionalDamageWayOfTheTempestGatheringStorm:7925249d-a7b3-5f40-b8d7-80ff07fe330e",
+    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

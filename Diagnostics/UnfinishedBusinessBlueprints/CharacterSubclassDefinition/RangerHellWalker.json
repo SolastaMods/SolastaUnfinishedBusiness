@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerHellWalkerFirebolt:7f8c9b44-d62a-5425-9af3-6815b1e1a7d5",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyRangerHellWalkerCursedTongue:dfb0ae19-13dc-52c8-b2b7-5527821f0b71",
       "level": 3
     },
@@ -14,11 +19,6 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsRangerHellWalker:dad8e064-e7a3-5968-956f-3c68d299c6b5",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRangerHellWalkerFirebolt:7f8c9b44-d62a-5425-9af3-6815b1e1a7d5",
       "level": 3
     },
     {

@@ -21,7 +21,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ConditionInnovationArmorInfiltratorModeTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

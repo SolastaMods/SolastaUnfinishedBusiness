@@ -1,10 +1,10 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:ActionAffinityForcePoweredStrikeToggle:cbbd4334-c6c1-5523-a29d-08e16284f63f",
     "Definition:PowerMartialForceKnightForceDrive:d136d978-11bb-551e-b252-4c752d22bfc7",
     "Definition:PowerMartialForceKnightForceDriveOncePerShort:17e91e81-846a-5a10-96a6-5961c86f3fcf",
     "Definition:PowerMartialForceKnightKineticBarrier:d13c0519-8824-57dd-9d24-9126cf81fe86",
-    "Definition:ActionAffinityForcePoweredStrikeToggle:cbbd4334-c6c1-5523-a29d-08e16284f63f",
     "Definition:PowerMartialForceKnightPsionicInitiate:f8f85acb-48e6-5907-b452-d4f17ef11934"
   ],
   "mode": "Union",

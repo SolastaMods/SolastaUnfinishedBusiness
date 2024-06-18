@@ -12,7 +12,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Rules/&DieD3Title",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f63781ed7ca78ca4097d1fef47d8ebff",

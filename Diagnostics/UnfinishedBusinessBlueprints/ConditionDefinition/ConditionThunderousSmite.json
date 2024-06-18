@@ -133,7 +133,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Thunderous Smite",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8440ca8497e8ca64f811d09a9d4679d9",

@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:AdditionalDamageWayOfTheStormSoulEyeOfTheStorm:6adabe7e-e7b2-5684-8c72-9f64ba6647d3",
     "Definition:PowerWayOfTheStormSoulEyeOfTheStorm:6ff6d87a-53e8-5158-a7ac-b92b1f72029b",
-    "Definition:PowerWayOfTheStormSoulEyeOfTheStormLeap:3f31323c-49d2-5687-b8ab-5bfd27c365fe",
-    "Definition:AdditionalDamageWayOfTheStormSoulEyeOfTheStorm:6adabe7e-e7b2-5684-8c72-9f64ba6647d3"
+    "Definition:PowerWayOfTheStormSoulEyeOfTheStormLeap:3f31323c-49d2-5687-b8ab-5bfd27c365fe"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

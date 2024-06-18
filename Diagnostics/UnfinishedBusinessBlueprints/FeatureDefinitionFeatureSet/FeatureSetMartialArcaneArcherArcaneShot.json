@@ -1,10 +1,10 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:InvocationPoolArcaneShotChoice2:3197b363-e7f9-5762-b54f-70123fb9fe88",
-    "Definition:PowerMartialArcaneArcherArcaneShot:3bd8b406-0722-5aa1-9e50-f2e5b2d100ae",
     "Definition:ActionAffinityArcaneArcherToggle:be08f921-ba8c-5368-948c-f9a7ae0eef85",
-    "Definition:PowerUseModifierMartialArcaneArcherArcaneShotUse2:20f9a5dc-986d-5a99-8c76-fb3582782725"
+    "Definition:PowerUseModifierMartialArcaneArcherArcaneShotUse2:20f9a5dc-986d-5a99-8c76-fb3582782725",
+    "Definition:InvocationPoolArcaneShotChoice2:3197b363-e7f9-5762-b54f-70123fb9fe88",
+    "Definition:PowerMartialArcaneArcherArcaneShot:3bd8b406-0722-5aa1-9e50-f2e5b2d100ae"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

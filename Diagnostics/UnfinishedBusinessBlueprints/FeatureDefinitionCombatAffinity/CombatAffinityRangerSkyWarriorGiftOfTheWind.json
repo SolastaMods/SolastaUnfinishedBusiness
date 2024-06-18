@@ -36,7 +36,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

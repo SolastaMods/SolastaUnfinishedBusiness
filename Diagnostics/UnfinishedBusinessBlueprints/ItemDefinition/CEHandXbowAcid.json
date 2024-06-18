@@ -553,7 +553,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Item/&CEHandXbowAcidTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "552bfdcc-7529-57bc-a3be-4082f416c5e2",

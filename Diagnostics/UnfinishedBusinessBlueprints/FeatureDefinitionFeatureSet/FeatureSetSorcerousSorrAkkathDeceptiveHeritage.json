@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:BonusCantripsSorcerousSorrAkkathDeceptiveHeritage:697865d6-ddc5-515d-8561-d8518d4454e0",
     "Definition:ProficiencySorcerousSorrAkkathDeceptiveHeritage:3fa28dd7-2af9-5867-b2ac-3191bf071bca",
-    "Definition:BonusCantripsSorcerousSorrAkkathDeceptiveHeritage:697865d6-ddc5-515d-8561-d8518d4454e0"
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

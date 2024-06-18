@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerImpForestImpishWrath:15c25ed3-32ed-53d1-9234-2f5ed20e9b3f",
-    "Definition:ActionAffinityImpishWrathToggle:a830a80e-5bb7-5572-8613-044936d44537"
+    "Definition:ActionAffinityImpishWrathToggle:a830a80e-5bb7-5572-8613-044936d44537",
+    "Definition:PowerImpForestImpishWrath:15c25ed3-32ed-53d1-9234-2f5ed20e9b3f"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

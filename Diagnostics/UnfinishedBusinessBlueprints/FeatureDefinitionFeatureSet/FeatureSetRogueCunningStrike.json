@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:ActionAffinityCunningStrikeToggle:931a2506-6cb6-572f-8177-206ce4e9bd88",
     "Definition:PowerRogueCunningStrike:cc6e6ef3-2d3a-59c7-bb1f-7c39208fd465",
     "Definition:PowerRogueCunningStrikeDisarm:dde2e9da-2884-568f-8c9c-dfd3d079a36e",
-    "Definition:ActionAffinityCunningStrikeToggle:931a2506-6cb6-572f-8177-206ce4e9bd88",
     "Definition:PowerRogueCunningStrikePoison:1c82a6e4-7c57-552e-8c1f-71545573e41a",
     "Definition:PowerRogueCunningStrikeTrip:5fa142a1-b1f9-5a63-910b-93d0e6c1c5b5",
     "Definition:PowerRogueCunningStrikeWithdraw:5a0366e5-5c4f-5d76-af31-4f6840dd9c82"

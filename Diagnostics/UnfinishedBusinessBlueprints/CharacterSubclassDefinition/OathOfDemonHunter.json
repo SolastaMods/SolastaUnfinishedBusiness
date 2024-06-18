@@ -3,17 +3,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageOathOfDemonHunterTrialMark:fe89691b-e8d4-531b-b3cb-9da56bbb4f49",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerOathOfDemonHunterTrialMark:93548671-e789-5eb7-bff2-ff4f1d72b214",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureOathOfDemonHunterDemonHunter:d9c0fcbe-242e-5017-8034-2dbd520f052f",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageOathOfDemonHunterTrialMark:fe89691b-e8d4-531b-b3cb-9da56bbb4f49",
       "level": 3
     },
     {

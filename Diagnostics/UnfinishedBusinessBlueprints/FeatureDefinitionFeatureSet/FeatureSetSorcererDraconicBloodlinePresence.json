@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:PowerSorcererDraconicBloodlineAweOrFearPresence:7ada44a4-03e0-5d21-8be2-7c4e69319b75",
     "Definition:PowerSorcererDraconicBloodlineAwePresence:09931585-27de-5a10-98b4-3a6f55d39bd3",
-    "Definition:PowerSorcererDraconicBloodlineFearPresence:c31634e0-3835-536d-862d-1239c6275d0d",
-    "Definition:PowerSorcererDraconicBloodlineAweOrFearPresence:7ada44a4-03e0-5d21-8be2-7c4e69319b75"
+    "Definition:PowerSorcererDraconicBloodlineFearPresence:c31634e0-3835-536d-862d-1239c6275d0d"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

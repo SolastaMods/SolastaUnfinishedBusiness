@@ -1,10 +1,10 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:FeatureTraditionLightPurityOfLife:e3758fb0-d760-50ad-813e-d9cb2d26b7ff",
     "Definition:PowerTraditionLightPurityOfLight:f1d798d8-5685-54ad-95e6-2735df7635ac",
     "Definition:AdditionalDamageTraditionLightRadiantStrikesLuminousKiD6:3c4f70ef-3a56-5436-b35a-3228d9e5fdaa",
-    "Definition:AdditionalDamageTraditionLightRadiantStrikesShineD6:46d19e1f-83a7-5678-8cd6-edbc7b4b5e7c",
-    "Definition:FeatureTraditionLightPurityOfLife:e3758fb0-d760-50ad-813e-d9cb2d26b7ff"
+    "Definition:AdditionalDamageTraditionLightRadiantStrikesShineD6:46d19e1f-83a7-5678-8cd6-edbc7b4b5e7c"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

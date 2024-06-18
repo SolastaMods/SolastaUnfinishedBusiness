@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ProficiencyHumanStaticLanguages:02222a9bf6de8bf41ad758bea29829f8",
-    "Definition:PointPoolLanguageChoice_one:15fb3c12-4452-5227-a72a-12ee722f4e15"
+    "Definition:PointPoolLanguageChoice_one:15fb3c12-4452-5227-a72a-12ee722f4e15",
+    "Definition:ProficiencyHumanStaticLanguages:02222a9bf6de8bf41ad758bea29829f8"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

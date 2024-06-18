@@ -13,12 +13,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerCircleOfTheCosmosCosmosOmen:ebf8ca15-2f40-57ad-8985-c58078595335",
+      "featureDefinition": "Definition:PowerCircleOfTheCosmosCosmosOmenPool:fddab354-5c33-5fad-9314-f961b9a9d80a",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerCircleOfTheCosmosCosmosOmenPool:fddab354-5c33-5fad-9314-f961b9a9d80a",
+      "featureDefinition": "Definition:PowerCircleOfTheCosmosCosmosOmen:ebf8ca15-2f40-57ad-8985-c58078595335",
       "level": 6
     },
     {

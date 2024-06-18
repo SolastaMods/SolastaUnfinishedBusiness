@@ -23,12 +23,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfZenArcheryHailOfArrows:b80f0451-b6ae-5cc8-96ad-e376adb76c79",
+      "featureDefinition": "Definition:ActionAffinityWayOfZenArcheryHailOfArrows:695be6c6-8f66-5be9-9353-a935e0b70d61",
       "level": 17
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ActionAffinityWayOfZenArcheryHailOfArrows:695be6c6-8f66-5be9-9353-a935e0b70d61",
+      "featureDefinition": "Definition:PowerWayOfZenArcheryHailOfArrows:b80f0451-b6ae-5cc8-96ad-e376adb76c79",
       "level": 17
     }
   ],

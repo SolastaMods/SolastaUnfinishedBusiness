@@ -23,12 +23,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierDomainSmithForgeMastery:15e6f857-f605-5a36-b5c9-d42ca3ca6c44",
+      "featureDefinition": "Definition:DamageAffinityForgeMastery:60b09043-5b92-5dd8-a6bc-07b38cf24ec5",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityForgeMastery:60b09043-5b92-5dd8-a6bc-07b38cf24ec5",
+      "featureDefinition": "Definition:AttributeModifierDomainSmithForgeMastery:15e6f857-f605-5a36-b5c9-d42ca3ca6c44",
       "level": 6
     },
     {

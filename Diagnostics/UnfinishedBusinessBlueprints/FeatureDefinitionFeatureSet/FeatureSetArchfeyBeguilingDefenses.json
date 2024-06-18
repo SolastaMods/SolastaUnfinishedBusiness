@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerArchfeyBeguilingDefenses:bda1c6ae-f640-5f19-b859-0d6bd426933d",
-    "Definition:ConditionAffinityArchfeyBeguilingDefenses:7b030b99-ab4b-53ec-8063-6c261c21a222"
+    "Definition:ConditionAffinityArchfeyBeguilingDefenses:7b030b99-ab4b-53ec-8063-6c261c21a222",
+    "Definition:PowerArchfeyBeguilingDefenses:bda1c6ae-f640-5f19-b859-0d6bd426933d"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
