@@ -467,7 +467,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                         FeatureDefinitionSavingThrowAffinityBuilder
                             .Create($"SavingThrowAffinityInnovationAlchemy{DAMAGE}")
                             .SetGuiPresentation($"ConditionInnovationAlchemy{DAMAGE}", Category.Condition,
-                                Global.Empty)
+                                Gui.NoLocalization)
                             .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1,
                                 false,
                                 AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom,
@@ -516,7 +516,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                         FeatureDefinitionSavingThrowAffinityBuilder
                             .Create($"SavingThrowAffinityInnovationAlchemy{DAMAGE}")
                             .SetGuiPresentation($"ConditionInnovationAlchemy{DAMAGE}", Category.Condition,
-                                Global.Empty)
+                                Gui.NoLocalization)
                             .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1,
                                 false,
                                 AttributeDefinitions.Strength, AttributeDefinitions.Dexterity,

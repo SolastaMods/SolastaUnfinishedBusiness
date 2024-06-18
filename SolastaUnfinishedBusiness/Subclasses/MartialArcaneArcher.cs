@@ -358,7 +358,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         var abilityCheckAffinityEnfeeblingArrow = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}EnfeeblingArrow")
-            .SetGuiPresentation($"Condition{Name}EnfeeblingArrow", Category.Condition, Global.Empty)
+            .SetGuiPresentation($"Condition{Name}EnfeeblingArrow", Category.Condition, Gui.NoLocalization)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,
@@ -367,7 +367,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         var savingThrowAffinityEnfeeblingArrow = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}EnfeeblingArrow")
-            .SetGuiPresentation($"Condition{Name}EnfeeblingArrow", Category.Condition, Global.Empty)
+            .SetGuiPresentation($"Condition{Name}EnfeeblingArrow", Category.Condition, Gui.NoLocalization)
             .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,

@@ -38,7 +38,7 @@ internal static class CustomItemsContext
                 ItemPropertyDescriptionsContext.BuildFrom(
                     FeatureDefinitionPerceptionAffinityBuilder
                         .Create("PerceptionAffinityHelmOfAwareness")
-                        .SetGuiPresentation(Global.Empty,
+                        .SetGuiPresentation(Gui.NoLocalization,
                             "Feature/&PerceptionAffinityHelmOfAwarenessDescription")
                         .CannotBeSurprised()
                         .AddToDB(),
@@ -69,7 +69,7 @@ internal static class CustomItemsContext
                 .BuildFrom(
                     FeatureDefinitionAbilityCheckAffinityBuilder
                         .Create("AbilityCheckAffinityGlovesOfThievery")
-                        .SetGuiPresentation("GlovesOfThievery", Category.Item, Global.Empty)
+                        .SetGuiPresentation("GlovesOfThievery", Category.Item, Gui.NoLocalization)
                         .BuildAndSetAffinityGroups(
                             RuleDefinitions.CharacterAbilityCheckAffinity.None,
                             RuleDefinitions.DieType.D1, 5,

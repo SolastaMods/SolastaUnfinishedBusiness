@@ -62,7 +62,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
         var combatAffinityBladeMark = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}BladeMark")
-            .SetGuiPresentation($"Condition{Name}BladeMark", Category.Condition, Global.Empty)
+            .SetGuiPresentation($"Condition{Name}BladeMark", Category.Condition, Gui.NoLocalization)
             .SetSituationalContext(SituationalContext.TargetHasCondition, conditionBladeMark)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
@@ -120,7 +120,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
         var movementAffinityBladeSurge = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}BladeSurge")
-            .SetGuiPresentation($"Condition{Name}BladeSurge", Category.Condition, Global.Empty)
+            .SetGuiPresentation($"Condition{Name}BladeSurge", Category.Condition, Gui.NoLocalization)
             .SetBaseSpeedAdditiveModifier(2)
             .AddToDB();
 

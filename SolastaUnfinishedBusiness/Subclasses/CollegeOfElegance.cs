@@ -55,7 +55,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
         var attributeModifierElegantStepsArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}ElegantFightingArmorClass")
-            .SetGuiPresentation(ElegantFightingName, Category.Feature, Global.Empty)
+            .SetGuiPresentation(ElegantFightingName, Category.Feature, Gui.NoLocalization)
             .SetDexPlusAbilityScore(ArmorClass, Charisma)
             .SetSituationalContext(SituationalContext.NotWearingArmorOrShield)
             .AddToDB();
@@ -143,17 +143,17 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
         var conditionAmazingDisplay = ConditionDefinitionBuilder
             .Create($"Condition{Name}AmazingDisplay")
-            .SetGuiPresentation(Category.Condition, Global.Empty, ConditionDefinitions.ConditionDazzled)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDazzled)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{Name}AmazingDisplay")
-                    .SetGuiPresentation(AmazingDisplayName, Category.Feature, Global.Empty)
+                    .SetGuiPresentation(AmazingDisplayName, Category.Feature, Gui.NoLocalization)
                     .SetAllowedActionTypes(reaction: false)
                     .AddToDB(),
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}AmazingDisplay")
-                    .SetGuiPresentation(AmazingDisplayName, Category.Feature, Global.Empty)
+                    .SetGuiPresentation(AmazingDisplayName, Category.Feature, Gui.NoLocalization)
                     .SetBaseSpeedMultiplicativeModifier(0)
                     .AddToDB())
             .SetConditionParticleReference(ConditionDefinitions.ConditionDistracted)
@@ -387,7 +387,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
             if (targets.Count == 0)
             {
-                rulesetAttacker.LogCharacterActivatesAbility(Global.Empty, "Feedback/&AmazingDisplayNotTriggered",
+                rulesetAttacker.LogCharacterActivatesAbility(Gui.NoLocalization, "Feedback/&AmazingDisplayNotTriggered",
                     extra:
                     [
                         (ConsoleStyleDuplet.ParameterType.Player, rulesetAttacker.Name)

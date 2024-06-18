@@ -93,7 +93,7 @@ internal static class RaceFeats
             .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly12)
             .AddToDB();
 
-        condition.GuiPresentation.description = Global.Empty;
+        condition.GuiPresentation.description = Gui.NoLocalization;
 
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatDragonWings")
@@ -489,7 +489,7 @@ internal static class RaceFeats
 
             var combatAffinity = FeatureDefinitionCombatAffinityBuilder
                 .Create($"CombatAffinity{Name}{familyName}")
-                .SetGuiPresentation("FeatGroupGrudgeBearer", Category.Feat, Global.Empty)
+                .SetGuiPresentation("FeatGroupGrudgeBearer", Category.Feat, Gui.NoLocalization)
                 .SetAttackOnMeAdvantage(AdvantageType.Disadvantage)
                 .SetOtherCharacterFamilyRestrictions(familyName)
                 .AddToDB();
@@ -1224,7 +1224,7 @@ internal static class RaceFeats
                 dieType, roll1, roll2, advantage: advantageType, title: feature.GuiPresentation.Title);
 
             character.LogCharacterActivatesAbility(
-                Global.Empty, BASE_LINE, true,
+                Gui.NoLocalization, BASE_LINE, true,
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),

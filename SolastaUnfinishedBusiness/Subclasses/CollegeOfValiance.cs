@@ -222,7 +222,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
             bardCharacter.ShowDieRoll(dieType, r1, r2, advantage: AdvantageType.None,
                 title: conditionDishearteningPerformance.GuiPresentation.Title);
             bardCharacter.LogCharacterActivatesAbility(
-                Global.Empty, baseLine, true,
+                Gui.NoLocalization, baseLine, true,
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),

@@ -150,7 +150,7 @@ public sealed class WayOfTheTempest // : AbstractSubclass
 
         var combatAffinityEyeOfTheStorm = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}AppliedEyeOfTheStorm")
-            .SetGuiPresentation($"Condition{Name}AppliedEyeOfTheStorm", Category.Condition, Global.Empty)
+            .SetGuiPresentation($"Condition{Name}AppliedEyeOfTheStorm", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
             .AddToDB();
 

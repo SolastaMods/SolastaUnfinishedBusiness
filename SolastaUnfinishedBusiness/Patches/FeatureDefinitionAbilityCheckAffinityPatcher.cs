@@ -21,7 +21,7 @@ public static class FeatureDefinitionAbilityCheckAffinityPatcher
             ref string __result)
         {
             if (!string.IsNullOrEmpty(__instance.GuiPresentation.Description) &&
-                __instance.GuiPresentation.Description != Global.Empty)
+                __instance.GuiPresentation.Description != Gui.NoLocalization)
             {
                 return true;
             }

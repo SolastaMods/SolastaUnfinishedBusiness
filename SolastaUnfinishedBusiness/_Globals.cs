@@ -5,8 +5,6 @@ namespace SolastaUnfinishedBusiness;
 
 internal static class Global
 {
-    internal const string Empty = "Feature/&Emptystring";
-
     // required to correctly determine isMelee validation and ensure Zen Archer Hail of Arrows won't trigger PowerMonkMartialArts
     internal static readonly Stack<CharacterActionAttack> CurrentAttackAction = new();
 

@@ -74,7 +74,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{Name}SilhouetteStep")
-                    .SetGuiPresentation($"Condition{Name}SilhouetteStep", Category.Condition, Global.Empty)
+                    .SetGuiPresentation($"Condition{Name}SilhouetteStep", Category.Condition, Gui.NoLocalization)
                     .SetMyAttackAdvantage(AdvantageType.Advantage)
                     .AddToDB())
             .AddToDB();

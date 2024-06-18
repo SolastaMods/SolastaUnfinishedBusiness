@@ -61,7 +61,7 @@ internal static class RaceBattlebornBuilder
             .SetFeatureSet(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{RaceName}BonusAC")
-                    .SetGuiPresentation(Category.Feature, Global.Empty)
+                    .SetGuiPresentation(Category.Feature, Gui.NoLocalization)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
                     .AddToDB(),
                 FeatureDefinitionConditionAffinityBuilder

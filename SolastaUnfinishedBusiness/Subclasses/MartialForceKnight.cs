@@ -96,7 +96,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 MagicAffinityConditionShielded,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}KineticBarrier")
-                    .SetGuiPresentation($"Condition{Name}KineticBarrier", Category.Condition, Global.Empty)
+                    .SetGuiPresentation($"Condition{Name}KineticBarrier", Category.Condition, Gui.NoLocalization)
                     .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
                     .AddToDB())
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
@@ -365,7 +365,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        conditionForceBulwark.GuiPresentation.description = Global.Empty;
+        conditionForceBulwark.GuiPresentation.description = Gui.NoLocalization;
 
         var conditionForceBulwarkSelf = ConditionDefinitionBuilder
             .Create($"Condition{Name}ForceBulwarkSelf")

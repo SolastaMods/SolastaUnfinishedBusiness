@@ -53,7 +53,7 @@ internal static class SubraceShadarKaiBuilder
             .SetConditionParticleReference(ConditionDefinitions.ConditionHopeless)
             .AddToDB();
 
-        conditionTeleport.GuiPresentation.description = Global.Empty;
+        conditionTeleport.GuiPresentation.description = Gui.NoLocalization;
 
         var effectFormTeleport =
             EffectFormBuilder.ConditionForm(conditionTeleport, ConditionForm.ConditionOperation.Add, true, true);

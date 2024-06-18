@@ -76,7 +76,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
         var conditionDefensiveWhirl = ConditionDefinitionBuilder
             .Create($"Condition{Name}DefensiveWhirl")
-            .SetGuiPresentation($"AttributeModifier{Name}DefensiveWhirl", Category.Feature, Global.Empty,
+            .SetGuiPresentation($"AttributeModifier{Name}DefensiveWhirl", Category.Feature, Gui.NoLocalization,
                 ConditionDefinitions.ConditionMagicallyArmored.GuiPresentation.SpriteReference)
             .SetPossessive()
             .SetFeatures(attributeModifierDefensiveWhirl)

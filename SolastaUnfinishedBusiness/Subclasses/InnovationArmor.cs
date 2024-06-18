@@ -113,12 +113,12 @@ public sealed class InnovationArmor : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityInnovationArmorInfiltratorMode")
-                    .SetGuiPresentation(InfiltratorMarkerName, Category.Condition, Global.Empty)
+                    .SetGuiPresentation(InfiltratorMarkerName, Category.Condition, Gui.NoLocalization)
                     .SetBaseSpeedAdditiveModifier(1)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create("AbilityCheckAffinityInnovationArmorInfiltratorMode")
-                    .SetGuiPresentation(InfiltratorMarkerName, Category.Condition, Global.Empty)
+                    .SetGuiPresentation(InfiltratorMarkerName, Category.Condition, Gui.NoLocalization)
                     .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
                         abilityProficiencyPairs: (AttributeDefinitions.Dexterity, SkillDefinitions.Stealth))
                     .AddToDB())
@@ -261,7 +261,7 @@ public sealed class InnovationArmor : AbstractSubclass
                                     FeatureDefinitionCombatAffinityBuilder
                                         .Create("CombatAffinityInventorArmorerInfiltratorGlimmer")
                                         .SetGuiPresentation("ConditionInventorArmorerInfiltratorGlimmer",
-                                            Category.Condition, Global.Empty)
+                                            Category.Condition, Gui.NoLocalization)
                                         .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                         .SetSituationalContext(SituationalContext.TargetIsEffectSource)
                                         .AddToDB())
@@ -280,7 +280,7 @@ public sealed class InnovationArmor : AbstractSubclass
                                     FeatureDefinitionCombatAffinityBuilder
                                         .Create("CombatAffinityInventorArmorerInfiltratorDamage")
                                         .SetGuiPresentation("ConditionInventorArmorerInfiltratorDamage",
-                                            Category.Condition, Global.Empty)
+                                            Category.Condition, Gui.NoLocalization)
                                         .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                                         .AddToDB())
                                 .AddToDB()))

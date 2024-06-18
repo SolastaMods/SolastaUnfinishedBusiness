@@ -88,7 +88,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
         var abilityCheckAffinityOtherworldlyGlamour = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}OtherworldlyGlamour")
-            .SetGuiPresentation($"FeatureSet{Name}OtherworldlyGlamour", Category.Feature, Global.Empty)
+            .SetGuiPresentation($"FeatureSet{Name}OtherworldlyGlamour", Category.Feature, Gui.NoLocalization)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, AttributeDefinitions.Charisma)
             .AddToDB();
 

@@ -35,7 +35,7 @@ public sealed class OathOfDread : AbstractSubclass
         .SetFeatures(
             FeatureDefinitionSavingThrowAffinityBuilder
                 .Create($"SavingThrowAffinity{Name}AspectOfDreadEnemy")
-                .SetGuiPresentation(ConditionAspectOfDreadName, Category.Condition, Global.Empty)
+                .SetGuiPresentation(ConditionAspectOfDreadName, Category.Condition, Gui.NoLocalization)
                 .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                     AttributeDefinitions.Strength,
                     AttributeDefinitions.Dexterity,
@@ -78,7 +78,7 @@ public sealed class OathOfDread : AbstractSubclass
 
         var combatAffinityMarkOfTheSubmission = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}{MARK_OF_SUBMISSION}")
-            .SetGuiPresentation($"Condition{Name}{MARK_OF_SUBMISSION}", Category.Condition, Global.Empty)
+            .SetGuiPresentation($"Condition{Name}{MARK_OF_SUBMISSION}", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .SetSituationalContext(SituationalContext.TargetHasCondition, conditionMarkOfTheSubmission)
             .AddToDB();

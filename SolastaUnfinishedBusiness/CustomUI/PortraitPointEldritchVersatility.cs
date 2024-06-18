@@ -23,8 +23,8 @@ internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvid
                 Category.Tooltip,
                 currentPoints,
                 maxPoints,
-                Global.Empty.Localized(),
-                Global.Empty.Localized());
+                Gui.NoLocalization.Localized(),
+                Gui.NoLocalization.Localized());
         }
 
         currentPoints = supportCondition.CurrentPoints;

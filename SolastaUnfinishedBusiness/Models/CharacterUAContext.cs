@@ -191,13 +191,13 @@ internal static partial class CharacterContext
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityHamstringBlow")
-                    .SetGuiPresentation($"Power{BrutalStrike}HamstringBlow", Category.Feature, Global.Empty)
+                    .SetGuiPresentation($"Power{BrutalStrike}HamstringBlow", Category.Feature, Gui.NoLocalization)
                     .SetBaseSpeedAdditiveModifier(-3)
                     .AddToDB())
             .CopyParticleReferences(ConditionDefinitions.ConditionSlowed)
             .AddToDB();
 
-        _conditionHamstringBlow.GuiPresentation.description = Global.Empty;
+        _conditionHamstringBlow.GuiPresentation.description = Gui.NoLocalization;
 
         // Staggering Blow
 
@@ -219,7 +219,7 @@ internal static partial class CharacterContext
             .SetFeatures(
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create("SavingThrowAffinityStaggeringBlow")
-                    .SetGuiPresentation($"Power{BrutalStrike}StaggeringBlow", Category.Feature, Global.Empty)
+                    .SetGuiPresentation($"Power{BrutalStrike}StaggeringBlow", Category.Feature, Gui.NoLocalization)
                     .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,
@@ -232,7 +232,7 @@ internal static partial class CharacterContext
             .CopyParticleReferences(ConditionDefinitions.ConditionDazzled)
             .AddToDB();
 
-        _conditionStaggeringBlow.GuiPresentation.description = Global.Empty;
+        _conditionStaggeringBlow.GuiPresentation.description = Gui.NoLocalization;
 
         _conditionStaggeringBlowAoO = ConditionDefinitionBuilder
             .Create("ConditionStaggeringBlowAoO")
@@ -1209,13 +1209,13 @@ internal static partial class CharacterContext
 
         var combatAffinityDisarmed = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Cunning}Disarmed")
-            .SetGuiPresentation($"Condition{Cunning}Disarmed", Category.Condition, Global.Empty)
+            .SetGuiPresentation($"Condition{Cunning}Disarmed", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
             .AddToDB();
 
         var conditionDisarmed = ConditionDefinitionBuilder
             .Create($"Condition{Cunning}Disarmed")
-            .SetGuiPresentation(Category.Condition, Global.Empty, ConditionDefinitions.ConditionBaned)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(combatAffinityDisarmed)
             .AddToDB();
@@ -1310,7 +1310,7 @@ internal static partial class CharacterContext
 
         var conditionWithdraw = ConditionDefinitionBuilder
             .Create($"Condition{Cunning}Withdraw")
-            .SetGuiPresentation(Category.Condition, Global.Empty, ConditionDefinitions.ConditionDisengaging)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetSilent(Silent.WhenRemoved)
             .AddFeatures(actionAffinityWithdraw)
@@ -1391,7 +1391,7 @@ internal static partial class CharacterContext
 
         var conditionKnockOut = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Devious}KnockOut")
-            .SetGuiPresentation(Category.Condition, Global.Empty, ConditionDefinitions.ConditionAsleep)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionAsleep)
             .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
             .SetFeatures()
             .SetSpecialInterruptions(ConditionInterruption.Damaged)

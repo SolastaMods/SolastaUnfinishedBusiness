@@ -37,7 +37,7 @@ public sealed class PathOfTheLight : AbstractSubclass
             FeatureDefinitionCombatAffinityBuilder
                 .Create("AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminated")
                 .SetGuiPresentation(ConditionPathOfTheLightIlluminatedName, Category.Condition,
-                    Global.Empty)
+                    Gui.NoLocalization)
                 .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                 .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
                 .AddToDB();

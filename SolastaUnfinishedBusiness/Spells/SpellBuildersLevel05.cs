@@ -633,7 +633,7 @@ internal static partial class SpellBuilders
             .SetFeatures(savingThrowAffinityCircleOfMagicalNegation)
             .AddToDB();
 
-        conditionCircleOfMagicalNegation.GuiPresentation.Description = Global.Empty;
+        conditionCircleOfMagicalNegation.GuiPresentation.Description = Gui.NoLocalization;
 
         conditionCircleOfMagicalNegation.AddCustomSubFeatures(
             new MagicEffectBeforeHitConfirmedOnMeCircleOfMagicalNegation(conditionCircleOfMagicalNegation));

@@ -121,13 +121,13 @@ internal static class ClassFeats
                                                 FeatureDefinitionMovementAffinityBuilder
                                                     .Create($"MovementAffinity{NAME}")
                                                     .SetGuiPresentation($"Condition{NAME}", Category.Condition,
-                                                        Global.Empty)
+                                                        Gui.NoLocalization)
                                                     .SetBaseSpeedAdditiveModifier(3)
                                                     .AddToDB(),
                                                 FeatureDefinitionCombatAffinityBuilder
                                                     .Create($"CombatAffinity{NAME}")
                                                     .SetGuiPresentation(
-                                                        $"Condition{NAME}", Category.Condition, Global.Empty)
+                                                        $"Condition{NAME}", Category.Condition, Gui.NoLocalization)
                                                     .SetMyAttackAdvantage(AdvantageType.Advantage)
                                                     .AddToDB())
                                             .AddToDB(),
@@ -1188,14 +1188,14 @@ internal static class ClassFeats
 
         var advantageOnFavorite = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}Favorite")
-            .SetGuiPresentation(NAME, Category.Feat, Global.Empty)
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .SetSituationalContext(ExtraSituationalContext.TargetIsFavoriteEnemy)
             .AddToDB();
 
         var toHitOnRegular = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}Regular")
-            .SetGuiPresentation(NAME, Category.Feat, Global.Empty)
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
             .SetMyAttackModifier(ExtraCombatAffinityValueDetermination.ConditionAmountIfNotFavoriteEnemy)
             .AddToDB();
 
