@@ -29,7 +29,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    9005
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",

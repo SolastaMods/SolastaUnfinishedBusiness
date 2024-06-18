@@ -154,6 +154,64 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Corrupting Bolt
+
+    internal static SpellDefinition BuildCorruptingBolt()
+    {
+        const string Name = "CorruptingBolt";
+
+        var conditionCorruptingBolt = ConditionDefinitionBuilder
+            .Create(ConditionEyebiteSickened, $"Condition{Name}")
+            .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(
+                DatabaseRepository.GetDatabase<DamageDefinition>()
+                    .Select(damageDefinition =>
+                        FeatureDefinitionDamageAffinityBuilder
+                            .Create($"DamageAffinity{Name}{damageDefinition.Name}")
+                            .SetGuiPresentationNoContent(true)
+                            .SetDamageAffinityType(DamageAffinityType.Vulnerability)
+                            .SetDamageType(damageDefinition.Name)
+                            .AddToDB()))
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasHit)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CorruptingBolt, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeNecrotic, 4, DieType.D8),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionCorruptingBolt, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(FingerOfDeath)
+                    .SetImpactEffectParameters(Disintegrate)
+                    .SetEffectEffectParameters(Disintegrate)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Crusaders Mantle
 
     internal static SpellDefinition BuildCrusadersMantle()
@@ -749,149 +807,6 @@ internal static partial class SpellBuilders
             }
 
             return effectDescription;
-        }
-    }
-
-    #endregion
-
-    #region Corrupting Bolt
-
-    internal static SpellDefinition BuildCorruptingBolt()
-    {
-        const string Name = "CorruptingBolt";
-
-        var conditionCorruptingBolt = ConditionDefinitionBuilder
-            .Create(ConditionEyebiteSickened, $"Condition{Name}")
-            .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures()
-            .AddToDB();
-
-        foreach (var damageDefinition in DatabaseRepository.GetDatabase<DamageDefinition>())
-        {
-            var damageType = damageDefinition.Name;
-
-            var damageAffinity =
-                FeatureDefinitionDamageAffinityBuilder
-                    .Create($"DamageAffinity{Name}{damageType}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetDamageAffinityType(DamageAffinityType.Vulnerability)
-                    .SetDamageType(damageType)
-                    .AddToDB();
-
-            conditionCorruptingBolt.Features.Add(damageAffinity);
-        }
-
-        var spell = SpellDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.CorruptingBolt, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .SetSpellLevel(3)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeNecrotic, 4, DieType.D8))
-                    .SetParticleEffectParameters(FingerOfDeath)
-                    .SetImpactEffectParameters(Disintegrate)
-                    .SetEffectEffectParameters(Disintegrate)
-                    .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeCorruptingBolt(conditionCorruptingBolt))
-            .AddToDB();
-
-        conditionCorruptingBolt.AddCustomSubFeatures(
-            new ActionFinishedByContenderCorruptingBolt(conditionCorruptingBolt, spell));
-
-        return spell;
-    }
-
-    private sealed class ActionFinishedByContenderCorruptingBolt(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionCorruptingBolt,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellCorruptingBolt) : IActionFinishedByContender
-    {
-        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
-        {
-            if (characterAction is CharacterActionCastSpell actionCastSpell &&
-                actionCastSpell.activeSpell.SpellDefinition == spellCorruptingBolt)
-            {
-                yield break;
-            }
-
-            if (characterAction.ActionParams.TargetCharacters.Count == 0 ||
-                characterAction.ActionParams.TargetCharacters[0] != target)
-            {
-                yield break;
-            }
-
-            if (characterAction.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            var rulesetDefender = characterAction.ActionParams.TargetCharacters[0].RulesetCharacter;
-
-            if (rulesetDefender == null)
-            {
-                yield break;
-            }
-
-            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionCorruptingBolt.Name,
-                    out var activeCondition))
-            {
-                yield break;
-            }
-
-            rulesetDefender.RemoveCondition(activeCondition);
-        }
-    }
-
-    private sealed class MagicEffectFinishedByMeCorruptingBolt(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionCorruptingBolt) : IMagicEffectFinishedByMe
-    {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-
-            // need to loop over target characters to support twinned metamagic scenarios
-            foreach (var rulesetDefender in action.ActionParams.TargetCharacters
-                         .Select(target => target.RulesetCharacter)
-                         .Where(rulesetDefender =>
-                             rulesetDefender is { IsDeadOrDyingOrUnconscious: false }))
-            {
-                rulesetDefender.InflictCondition(
-                    conditionCorruptingBolt.Name,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.EndOfSourceTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionCorruptingBolt.Name,
-                    0,
-                    0,
-                    0);
-            }
         }
     }
 
