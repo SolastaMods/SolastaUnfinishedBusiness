@@ -1163,7 +1163,7 @@ internal static partial class SpellBuilders
         ConditionDefinition conditionWitherAndBloom) : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
         private int _spellCastingAbilityModifier;
-        private GameLocationCharacter _target;
+        private readonly List<GameLocationCharacter> _targets = [];
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1178,65 +1178,68 @@ internal static partial class SpellBuilders
             }
 
             if (action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
-                _target == null)
+                _targets.Count == 0)
             {
                 yield break;
             }
 
-            var rulesetTarget = _target.RulesetCharacter.GetOriginalHero();
-
-            if (rulesetTarget == null)
+            foreach (var target in _targets)
             {
-                yield break;
-            }
+                var rulesetTarget = target.RulesetCharacter.GetOriginalHero();
 
-            var attacker = action.ActingCharacter;
-            var hasHealed = false;
-            var effectLevel = rulesetEffectSpell.EffectLevel;
-
-            rulesetTarget.HitDieRolled += HitDieRolled;
-
-            while (--effectLevel > 0 &&
-                   rulesetTarget.RemainingHitDiceCount() > 0 &&
-                   rulesetTarget.MissingHitPoints > 0)
-            {
-                var maxHitPoints = rulesetTarget.TryGetAttributeValue(AttributeDefinitions.HitPoints);
-                var remainingHitPoints = maxHitPoints - rulesetTarget.MissingHitPoints;
-                var reactionParams =
-                    new CharacterActionParams(_target, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-                    {
-                        StringParameter = Gui.Format(
-                            "Reaction/&CustomReactionWitherAndBloomDescription",
-                            remainingHitPoints.ToString(), maxHitPoints.ToString(), attacker.Name,
-                            _spellCastingAbilityModifier.ToString())
-                    };
-                var reactionRequest = new ReactionRequestCustom("WitherAndBloom", reactionParams);
-                var count = actionManager.PendingReactionRequestGroups.Count;
-
-                actionManager.AddInterruptRequest(reactionRequest);
-
-                yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-                if (!reactionParams.ReactionValidated)
+                if (rulesetTarget == null)
                 {
-                    break;
+                    continue;
                 }
 
-                hasHealed = true;
-                rulesetTarget.RollHitDie();
-            }
+                var attacker = action.ActingCharacter;
+                var hasHealed = false;
+                var effectLevel = rulesetEffectSpell.EffectLevel;
 
-            rulesetTarget.HitDieRolled -= HitDieRolled;
+                rulesetTarget.HitDieRolled += HitDieRolled;
 
-            if (hasHealed)
-            {
-                EffectHelpers.StartVisualEffect(attacker, _target, CureWounds, EffectHelpers.EffectType.Effect);
+                while (--effectLevel > 0 &&
+                       rulesetTarget.RemainingHitDiceCount() > 0 &&
+                       rulesetTarget.MissingHitPoints > 0)
+                {
+                    var maxHitPoints = rulesetTarget.TryGetAttributeValue(AttributeDefinitions.HitPoints);
+                    var remainingHitPoints = maxHitPoints - rulesetTarget.MissingHitPoints;
+                    var reactionParams =
+                        new CharacterActionParams(target, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                        {
+                            StringParameter = Gui.Format(
+                                "Reaction/&CustomReactionWitherAndBloomDescription",
+                                remainingHitPoints.ToString(), maxHitPoints.ToString(), attacker.Name,
+                                _spellCastingAbilityModifier.ToString())
+                        };
+                    var reactionRequest = new ReactionRequestCustom("WitherAndBloom", reactionParams);
+                    var count = actionManager.PendingReactionRequestGroups.Count;
+
+                    actionManager.AddInterruptRequest(reactionRequest);
+
+                    yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+                    if (!reactionParams.ReactionValidated)
+                    {
+                        break;
+                    }
+
+                    hasHealed = true;
+                    rulesetTarget.RollHitDie();
+                }
+
+                rulesetTarget.HitDieRolled -= HitDieRolled;
+
+                if (hasHealed)
+                {
+                    EffectHelpers.StartVisualEffect(attacker, target, CureWounds, EffectHelpers.EffectType.Effect);
+                }
             }
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            _target = null;
+            _targets.Clear();
 
             if (action.ActionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
                 action.ActionParams.TargetCharacters.Count == 0)
@@ -1244,43 +1247,47 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            _target = action.ActionParams.TargetCharacters[0];
+            _targets.SetRange(action.ActionParams.TargetCharacters);
 
             var attacker = action.ActingCharacter;
 
-            action.ActionParams.TargetCharacters.SetRange(
-                (Gui.Battle?.AllContenders ?? [])
-                .Where(x =>
-                    _target.IsWithinRange(x, 2) &&
-                    _target.IsOppositeSide(x.Side)));
-
             action.ActionParams.ActionModifiers.Clear();
+            action.ActionParams.TargetCharacters.Clear();
+
+            foreach (var target in _targets)
+            {
+                action.ActionParams.TargetCharacters.AddRange(
+                    (Gui.Battle?.AllContenders ?? [])
+                    .Where(x =>
+                        target.IsWithinRange(x, 2) &&
+                        target.IsOppositeSide(x.Side)));
+
+                var rulesetAttacker = attacker.RulesetCharacter;
+
+                _spellCastingAbilityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                    rulesetAttacker.TryGetAttributeValue(rulesetEffectSpell.spellRepertoire.SpellCastingAbility));
+
+                var rulesetTarget = target.RulesetCharacter;
+
+                rulesetTarget.InflictCondition(
+                    conditionWitherAndBloom.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetTarget.guid,
+                    rulesetTarget.CurrentFaction.Name,
+                    1,
+                    conditionWitherAndBloom.Name,
+                    _spellCastingAbilityModifier,
+                    0,
+                    0);
+            }
 
             for (var i = 0; i < action.ActionParams.TargetCharacters.Count; i++)
             {
                 action.ActionParams.ActionModifiers.Add(new ActionModifier());
             }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            _spellCastingAbilityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetAttacker.TryGetAttributeValue(rulesetEffectSpell.spellRepertoire.SpellCastingAbility));
-
-            var rulesetTarget = _target.RulesetCharacter;
-
-            rulesetTarget.InflictCondition(
-                conditionWitherAndBloom.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetTarget.guid,
-                rulesetTarget.CurrentFaction.Name,
-                1,
-                conditionWitherAndBloom.Name,
-                _spellCastingAbilityModifier,
-                0,
-                0);
         }
 
         private void HitDieRolled(
