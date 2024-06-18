@@ -408,8 +408,7 @@ public static class CharacterActionMagicEffectPatcher
 
                 // BEGIN PATCH
 
-                if (actionParams.RulesetEffect.EffectDescription.RangeType is not
-                    (RangeType.MeleeHit or RangeType.RangeHit))
+                if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
                 {
                     continue;
                 }

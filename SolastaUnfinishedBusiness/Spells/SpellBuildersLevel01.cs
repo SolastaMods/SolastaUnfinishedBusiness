@@ -1446,8 +1446,8 @@ internal static partial class SpellBuilders
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action.ActionParams.activeEffect.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit
-                && action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
+                action.ActionParams.RulesetEffect.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit)
             {
                 attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionElementalInfusion.Name);
