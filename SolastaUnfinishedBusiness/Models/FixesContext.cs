@@ -65,10 +65,18 @@ internal static class FixesContext
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
 
+        // avoid breaking mod if anyone changes settings file manually
+        Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+
         // fix condition UI
         FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
 
-        Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+        foreach (var conditionDefinition in DatabaseRepository
+                     .GetDatabase<ConditionDefinition>()
+                     .Where(x => x.GuiPresentation.Description == Gui.NoLocalization))
+        {
+            conditionDefinition.GuiPresentation.description = "Feature/&Emptystring";
+        }
     }
 
     private static void InitMagicAffinitiesAndCastSpells()
