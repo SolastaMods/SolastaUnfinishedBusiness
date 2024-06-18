@@ -497,8 +497,18 @@ internal static partial class SpellBuilders
     private sealed class CustomBehaviorElementalBane(
         string damageType,
         IMagicEffect magicEffect,
-        ConditionDefinition conditionMark) : IModifyDamageAffinity, IOnConditionAddedOrRemoved
+        ConditionDefinition conditionMark)
+        : IModifyDamageAffinity, IOnConditionAddedOrRemoved, ICharacterTurnStartListener
     {
+        // required to ensure the behavior will still work after loading a save
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            rulesetCharacter.DamageReceived -= DamageReceivedHandler;
+            rulesetCharacter.DamageReceived += DamageReceivedHandler;
+        }
+
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
             features.RemoveAll(x =>
@@ -787,8 +797,18 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorBlessingOfRime(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellDefinition) : IRollSavingThrowInitiated, IOnConditionAddedOrRemoved
+        SpellDefinition spellDefinition)
+        : IRollSavingThrowInitiated, IOnConditionAddedOrRemoved, ICharacterTurnStartListener
     {
+        // required to ensure the behavior will still work after loading a save
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            rulesetCharacter.DamageReceived -= DamageReceivedHandler;
+            rulesetCharacter.DamageReceived += DamageReceivedHandler;
+        }
+
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             target.DamageReceived += DamageReceivedHandler;
@@ -828,7 +848,8 @@ internal static partial class SpellBuilders
             ulong sourceGuid,
             RollInfo rollInfo)
         {
-            if (target is RulesetCharacter { TemporaryHitPoints: 0 } rulesetCharacter)
+            if (target is RulesetCharacter rulesetCharacter &&
+                rulesetCharacter.TemporaryHitPoints <= damage)
             {
                 rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
                     AttributeDefinitions.TagEffect, "ConditionBlessingOfRime");

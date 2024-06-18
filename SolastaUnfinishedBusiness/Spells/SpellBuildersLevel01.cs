@@ -1823,8 +1823,18 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-    private sealed class OnConditionAddedOrRemovedSkinOfRetribution : IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedSkinOfRetribution
+        : IOnConditionAddedOrRemoved, ICharacterTurnStartListener
     {
+        // required to ensure the behavior will still work after loading a save
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            rulesetCharacter.DamageReceived -= DamageReceivedHandler;
+            rulesetCharacter.DamageReceived += DamageReceivedHandler;
+        }
+
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             target.DamageReceived += DamageReceivedHandler;
@@ -1842,11 +1852,11 @@ internal static partial class SpellBuilders
             ulong sourceGuid,
             RollInfo rollInfo)
         {
-            if (target is RulesetCharacter { TemporaryHitPoints: 0 } rulesetCharacter &&
-                rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, "ConditionSkinOfRetribution", out var activeCondition))
+            if (target is RulesetCharacter rulesetCharacter &&
+                rulesetCharacter.TemporaryHitPoints <= damage)
             {
-                rulesetCharacter.RemoveCondition(activeCondition);
+                rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionSkinOfRetribution");
             }
         }
     }
