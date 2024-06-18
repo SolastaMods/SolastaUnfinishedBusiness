@@ -245,7 +245,6 @@ public sealed class InnovationArmor : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                    .SetNoSavingThrow()
                     .AddEffectForms(EffectFormBuilder.LightSourceForm(LightSourceType.Basic, 0, 1,
                         new Color(0.9f, 0.78f, 0.62f),
                         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.LightSourceForm

@@ -464,10 +464,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
-                        .SetDurationData(DurationType.Irrelevant, 1,
-                            (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
                         .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Individuals)
-                        .SetNoSavingThrow()
                         .UseQuickAnimations()
                         .SetEffectForms(
                             EffectFormBuilder
@@ -597,7 +594,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                                 .Create()
                                 .SetSummonEffectProxyForm(proxyGrowth)
                                 .Build(),
-                            EffectFormBuilder.CreateTopologyForm(TopologyForm.Type.DifficultThrough, false)
+                            EffectFormBuilder
+                                .CreateTopologyForm(TopologyForm.Type.DifficultThrough, false)
                                 .Build())
                         .Build())
                 .AddToDB();
@@ -1315,13 +1313,14 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             .SetUsesFixed(ActivationTime.Reaction)
             .SetReactionContext(ReactionTriggerContext.DamagedWithinRange)
             .SetShowCasting(false)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Individuals)
-                .SetNoSavingThrow()
-                .UseQuickAnimations()
-                .SetDurationData(DurationType.Round)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDummy))
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Individuals)
+                    .UseQuickAnimations()
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDummy))
+                    .Build())
             .AddToDB();
 
         powerUnstableBackslash.AddCustomSubFeatures(
@@ -1347,7 +1346,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Individuals)
-                    .SetNoSavingThrow()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionUnstableBacklash))
                     .Build())

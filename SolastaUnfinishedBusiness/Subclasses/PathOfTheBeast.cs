@@ -200,12 +200,13 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .Create($"Power{Name}FormOfTheBeast{suffixes[i]}")
                 .SetGuiPresentation(Category.Feature)
                 .SetSharedPool(ActivationTime.OnPowerActivatedAuto, powerFormOfTheBeast)
-                .SetEffectDescription(EffectDescriptionBuilder.Create()
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                    .SetNoSavingThrow()
-                    .SetDurationData(DurationType.UntilLongRest)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
-                    .Build())
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                        .SetDurationData(DurationType.UntilLongRest)
+                        .SetEffectForms(EffectFormBuilder.ConditionForm(condition))
+                        .Build())
                 .AddToDB();
 
             powers.Add(power);
@@ -667,14 +668,15 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .Create($"Power{Name}BestialSoul{suffix}")
                 .SetGuiPresentation(Category.Feature, hidden: true)
                 .SetSharedPool(ActivationTime.NoCost, powerBestialSoul)
-                .SetEffectDescription(EffectDescriptionBuilder.Create()
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                    .SetNoSavingThrow()
-                    .SetDurationData(DurationType.UntilAnyRest)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(condition)
-                    )
-                    .Build())
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                        .SetDurationData(DurationType.UntilAnyRest)
+                        .SetEffectForms(
+                            EffectFormBuilder.ConditionForm(condition)
+                        )
+                        .Build())
                 .AddToDB();
             powers.Add(power);
         }
@@ -752,7 +754,6 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder.DamageForm(DamageTypePsychic, 2, DieType.D12),
                     EffectFormBuilder.ConditionForm(conditionInfectiousFury, ConditionForm.ConditionOperation.Remove))
-                .SetNoSavingThrow()
                 .Build())
             .AddToDB();
 
