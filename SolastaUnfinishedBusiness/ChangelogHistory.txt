@@ -1,3 +1,7 @@
+1.5.97.16:
+
+- fixed Patron Hexblade using character level instead of class level on hex received healing
+
 1.5.97.15:
 
 - added a priority order to all features interacting with attack rolls trying to change result or buff/debuff contenders

@@ -286,7 +286,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
                 return;
             }
 
-            var characterLevel = rulesetCaster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var characterLevel = rulesetCaster.GetClassLevel(CharacterClassDefinitions.Warlock);
             var charisma = rulesetCaster.TryGetAttributeValue(AttributeDefinitions.Charisma);
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
             var healingReceived = characterLevel + charismaModifier;
