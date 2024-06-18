@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -498,11 +497,8 @@ internal static partial class SpellBuilders
     private sealed class CustomBehaviorElementalBane(
         string damageType,
         IMagicEffect magicEffect,
-        ConditionDefinition conditionMark)
-        : IModifyDamageAffinity, IOnConditionAddedOrRemoved
+        ConditionDefinition conditionMark) : IModifyDamageAffinity, IOnConditionAddedOrRemoved
     {
-        private readonly string _tag = $"ElementalBane{damageType}";
-
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
             features.RemoveAll(x =>
@@ -791,19 +787,16 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorBlessingOfRime(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellDefinition) : IActionFinishedByContender, IRollSavingThrowInitiated
+        SpellDefinition spellDefinition) : IRollSavingThrowInitiated, IOnConditionAddedOrRemoved
     {
-        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var rulesetCharacter = target.RulesetCharacter;
+            target.DamageReceived += DamageReceivedHandler;
+        }
 
-            if (rulesetCharacter.TemporaryHitPoints == 0)
-            {
-                rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, "ConditionBlessingOfRime");
-            }
-
-            yield break;
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            target.DamageReceived -= DamageReceivedHandler;
         }
 
         public void OnSavingThrowInitiated(
@@ -825,6 +818,20 @@ internal static partial class SpellBuilders
             {
                 advantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.Spell, spellDefinition.Name, spellDefinition));
+            }
+        }
+
+        private static void DamageReceivedHandler(
+            RulesetActor target,
+            int damage,
+            string damageType,
+            ulong sourceGuid,
+            RollInfo rollInfo)
+        {
+            if (target is RulesetCharacter { TemporaryHitPoints: 0 } rulesetCharacter)
+            {
+                rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionBlessingOfRime");
             }
         }
     }
