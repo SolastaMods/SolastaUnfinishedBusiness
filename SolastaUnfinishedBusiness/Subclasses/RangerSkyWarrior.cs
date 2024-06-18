@@ -63,13 +63,13 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
         var movementAffinityGiftOfTheWind = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}GiftOfTheWind")
-            .SetGuiPresentation($"Condition{Name}GiftOfTheWindAttacked", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation($"Condition{Name}GiftOfTheWindAttacked", Category.Condition, Global.Empty)
             .SetBaseSpeedAdditiveModifier(2)
             .AddToDB();
 
         var combatAffinityGiftOfTheWind = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}GiftOfTheWind")
-            .SetGuiPresentation($"Condition{Name}GiftOfTheWindAttacked", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation($"Condition{Name}GiftOfTheWindAttacked", Category.Condition, Global.Empty)
             .SetAttackOfOpportunityImmunity(true)
             .SetSituationalContext(SituationalContext.SourceHasCondition, conditionGiftOfTheWindAttacked)
             .AddToDB();
@@ -77,7 +77,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
         var conditionGiftOfTheWind = ConditionDefinitionBuilder
             .Create($"Condition{Name}GiftOfTheWind")
             .SetGuiPresentation($"Condition{Name}GiftOfTheWindAttacked", Category.Condition,
-                Gui.NoLocalization)
+                Global.Empty)
             .SetPossessive()
             .AddFeatures(movementAffinityGiftOfTheWind, combatAffinityGiftOfTheWind)
             .AddToDB();

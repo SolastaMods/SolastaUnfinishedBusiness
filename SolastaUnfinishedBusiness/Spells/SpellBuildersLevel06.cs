@@ -216,7 +216,7 @@ internal static partial class SpellBuilders
             .SetConditionParticleReference(WardingBond)
             .AddToDB();
 
-        conditionMark.GuiPresentation.description = Gui.NoLocalization;
+        conditionMark.GuiPresentation.description = Global.Empty;
 
         var lightSourceForm = FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
@@ -363,14 +363,14 @@ internal static partial class SpellBuilders
 
         var attackModifierHeroicInfusion = FeatureDefinitionCombatAffinityBuilder
             .Create($"AttackModifier{NAME}")
-            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Global.Empty)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .SetSituationalContext(ExtraSituationalContext.HasSimpleOrMartialWeaponInHands)
             .AddToDB();
 
         var additionalDamageHeroicInfusion = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Global.Empty)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D12, 2)
             .SetSpecificDamageType(DamageTypeForce)
@@ -378,7 +378,7 @@ internal static partial class SpellBuilders
 
         var actionAffinityHeroicInfusion = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{NAME}")
-            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Global.Empty)
             .SetAuthorizedActions()
             .SetForbiddenActions(
                 ActionDefinitions.Id.CastBonus, ActionDefinitions.Id.CastInvocation,
@@ -525,7 +525,7 @@ internal static partial class SpellBuilders
             .CopyParticleReferences(PowerSorcererChildRiftDeflection)
             .AddToDB();
 
-        conditionRingOfBlades.GuiPresentation.description = Gui.NoLocalization;
+        conditionRingOfBlades.GuiPresentation.description = Global.Empty;
 
         var conditionRingOfBladesFree = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Free")

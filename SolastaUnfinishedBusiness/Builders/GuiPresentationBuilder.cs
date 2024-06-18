@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Builders;
 
 internal class GuiPresentationBuilder
 {
-    internal const string EmptyString = "Feature/&Emptystring";
+    internal const string EmptyString = Global.Empty;
     internal static readonly AssetReferenceSprite EmptySprite = new(string.Empty);
     private readonly GuiPresentation _guiPresentation;
 
@@ -27,10 +27,10 @@ internal class GuiPresentationBuilder
     {
     }
 
-    internal static GuiPresentation NoContent { get; } = Build(Gui.NoLocalization, Gui.NoLocalization, EmptySprite);
+    internal static GuiPresentation NoContent { get; } = Build(Global.Empty, Global.Empty, EmptySprite);
 
     internal static GuiPresentation NoContentHidden { get; } =
-        Build(Gui.NoLocalization, Gui.NoLocalization, EmptySprite, 0, true);
+        Build(Global.Empty, Global.Empty, EmptySprite, 0, true);
 
     internal static string CreateTitleKey(string name, Category category)
     {

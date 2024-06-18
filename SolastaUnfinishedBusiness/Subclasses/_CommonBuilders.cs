@@ -111,7 +111,7 @@ internal static class CommonBuilders
                     .AddFeatures(
                         FeatureDefinitionAttackModifierBuilder
                             .Create("PowerCasterFightingWarMagicAttack")
-                            .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature, Gui.NoLocalization)
+                            .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature, Global.Empty)
                             .SetDamageRollModifier(1)
                             .AddCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
                             .AddToDB())
@@ -146,7 +146,7 @@ internal static class CommonBuilders
     [UsedImplicitly] internal static readonly DieTypeDefinition DieTypeD3 =
         DieTypeDefinitionBuilder
             .Create(DatabaseHelper.GetDefinition<DieTypeDefinition>("DieTypeD6"), "DieTypeD3")
-            .SetOrUpdateGuiPresentation("Rules/&DieD3Title", Gui.NoLocalization)
+            .SetOrUpdateGuiPresentation("Rules/&DieD3Title", Global.Empty)
             .SetDieType(DieType.D3)
             .AddToDB();
     //

@@ -279,7 +279,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         var combatAffinityWolfLeadershipPack = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}WolfLeadershipPack")
             .SetGuiPresentation($"Condition{Name}WolfLeadershipPack", Category.Condition,
-                Gui.NoLocalization)
+                Global.Empty)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .SetSituationalContext(ExtraSituationalContext.IsNotConditionSourceNotRanged)
             .AddToDB();
@@ -333,7 +333,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         var combatAffinityHonedAnimalAspectsBear = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}HonedAnimalAspectsBear")
             .SetGuiPresentation($"Condition{Name}HonedAnimalAspectsBear", Category.Condition,
-                Gui.NoLocalization)
+                Global.Empty)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
             .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
             .AddToDB();

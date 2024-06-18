@@ -32,7 +32,7 @@ public sealed class OathOfAncients : AbstractSubclass
         .SetFeatures(
             FeatureDefinitionSavingThrowAffinityBuilder
                 .Create($"SavingThrowAffinity{Name}ElderChampionEnemy")
-                .SetGuiPresentation(ConditionElderChampionName, Category.Condition, Gui.NoLocalization)
+                .SetGuiPresentation(ConditionElderChampionName, Category.Condition, Global.Empty)
                 .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                     AttributeDefinitions.Strength,
                     AttributeDefinitions.Dexterity,

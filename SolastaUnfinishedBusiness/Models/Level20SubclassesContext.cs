@@ -463,7 +463,7 @@ internal static class Level20SubclassesContext
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create("SavingThrowAffinityMartialCommanderPeerlessCommander")
                     .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderSavings", Category.Condition,
-                        Gui.NoLocalization)
+                        Global.Empty)
                     .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,
@@ -483,7 +483,7 @@ internal static class Level20SubclassesContext
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityMartialCommanderPeerlessCommander")
                     .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderMovement", Category.Condition,
-                        Gui.NoLocalization)
+                        Global.Empty)
                     .SetBaseSpeedAdditiveModifier(2)
                     .AddToDB())
             .AddToDB();
@@ -990,7 +990,7 @@ internal static class Level20SubclassesContext
 
         var savingThrowAffinityOathOfTirmarInquisitorZeal = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinityOathOfTirmarInquisitorZeal")
-            .SetGuiPresentation("ConditionOathOfTirmarInquisitorZeal", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation("ConditionOathOfTirmarInquisitorZeal", Category.Condition, Global.Empty)
             .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Wisdom)
             .AddToDB();
 
@@ -1057,7 +1057,7 @@ internal static class Level20SubclassesContext
 
         var movementAffinityRoguishDarkweaverDarkAssault = FeatureDefinitionMovementAffinityBuilder
             .Create("MovementAffinityRoguishDarkweaverDarkAssault")
-            .SetGuiPresentation("ConditionRoguishDarkweaverDarkAssault", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation("ConditionRoguishDarkweaverDarkAssault", Category.Condition, Global.Empty)
             .SetBaseSpeedAdditiveModifier(3)
             .AddToDB();
 

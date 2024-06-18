@@ -41,7 +41,7 @@ internal static partial class SpellBuilders
                 ConditionAffinityDemonicInfluenceImmunity,
                 FeatureDefinitionConditionAffinityBuilder
                     .Create("ConditionAffinityInsaneImmunity")
-                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Global.Empty)
                     .SetConditionAffinityType(ConditionAffinityType.Immunity)
                     .SetConditionType(ConditionInsane)
                     .AddToDB())
@@ -183,19 +183,19 @@ internal static partial class SpellBuilders
 
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionConfused)
+            .SetGuiPresentation(Category.Condition, Global.Empty, ConditionConfused)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                    .SetGuiPresentation(NAME, Category.Spell, Global.Empty)
                     .SetMyAttackModifierSign(AttackModifierSign.Substract)
                     .SetMyAttackModifierDieType(DieType.D6)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                    .SetGuiPresentation(NAME, Category.Spell, Global.Empty)
                     .BuildAndSetAffinityGroups(
                         CharacterAbilityCheckAffinity.None, DieType.D6, 1,
                         AbilityCheckGroupOperation.SubstractDie,
@@ -309,12 +309,12 @@ internal static partial class SpellBuilders
             .AddFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                    .SetGuiPresentation(NAME, Category.Spell, Global.Empty)
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                    .SetGuiPresentation(NAME, Category.Spell, Global.Empty)
                     .BuildAndSetAffinityGroups(
                         CharacterAbilityCheckAffinity.Disadvantage,
                         [
@@ -436,7 +436,7 @@ internal static partial class SpellBuilders
 
             var spell = SpellDefinitionBuilder
                 .Create(NAME + damageType)
-                .SetGuiPresentation(title, Gui.NoLocalization)
+                .SetGuiPresentation(title, Global.Empty)
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
                 .SetSpellLevel(4)
                 .SetCastingTime(ActivationTime.Action)

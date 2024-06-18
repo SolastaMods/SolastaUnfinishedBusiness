@@ -97,7 +97,7 @@ public sealed class SorcerousDivineHeart : AbstractSubclass
 
         var dieRollModifierEmpoweredHealing = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}EmpoweredHealing")
-            .SetGuiPresentation($"Power{Name}EmpoweredHealing", Category.Feature, Gui.NoLocalization)
+            .SetGuiPresentation($"Power{Name}EmpoweredHealing", Category.Feature, Global.Empty)
             .SetModifiers(
                 RollContext.HealValueRoll,
                 1,

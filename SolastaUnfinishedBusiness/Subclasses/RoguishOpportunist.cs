@@ -33,7 +33,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
         var savingThrowAffinityDebilitatingStrike = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}DebilitatingStrike")
-            .SetGuiPresentation($"Condition{Name}Debilitated", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation($"Condition{Name}Debilitated", Category.Condition, Global.Empty)
             .SetModifiers(ModifierType.RemoveDice, DieType.D4, 1, false,
                 Charisma,
                 Constitution,
@@ -97,7 +97,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
         var savingThrowAffinityImprovedDebilitatingStrike = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}ImprovedDebilitatingStrike")
-            .SetGuiPresentation($"Condition{Name}ImprovedDebilitated", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation($"Condition{Name}ImprovedDebilitated", Category.Condition, Global.Empty)
             .SetModifiers(ModifierType.RemoveDice, DieType.D6, 1, false,
                 Charisma,
                 Constitution,

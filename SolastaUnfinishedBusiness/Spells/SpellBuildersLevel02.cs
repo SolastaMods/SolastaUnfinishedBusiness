@@ -241,7 +241,7 @@ internal static partial class SpellBuilders
             .SetConditionParticleReference(ConditionMonkSlowFall)
             .AddToDB();
 
-        condition.GuiPresentation.Description = Gui.NoLocalization;
+        condition.GuiPresentation.Description = Global.Empty;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -577,7 +577,7 @@ internal static partial class SpellBuilders
                             EffectFormBuilder.ConditionForm(
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{NAME}{skill.Name}")
-                                    .SetGuiPresentation(skill.GuiPresentation.Title, Gui.NoLocalization,
+                                    .SetGuiPresentation(skill.GuiPresentation.Title, Global.Empty,
                                         ConditionBullsStrength)
                                     .SetPossessive()
                                     .SetFeatures(
@@ -1300,7 +1300,7 @@ internal static partial class SpellBuilders
                 dieType, roll1, roll2, advantage: advantageType, title: spellWitherAndBloom.GuiPresentation.Title);
 
             character.LogCharacterActivatesAbility(
-                Gui.NoLocalization, BASE_LINE, true,
+                Global.Empty, BASE_LINE, true,
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),

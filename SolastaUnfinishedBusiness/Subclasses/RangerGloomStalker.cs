@@ -86,7 +86,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
         var movementAffinityDreadAmbusher = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}DreadAmbusher")
-            .SetGuiPresentation($"AttributeModifier{Name}DreadAmbusher", Category.Feature, Gui.NoLocalization)
+            .SetGuiPresentation($"AttributeModifier{Name}DreadAmbusher", Category.Feature, Global.Empty)
             .SetBaseSpeedAdditiveModifier(2)
             .AddToDB();
 
@@ -98,7 +98,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
             .SetFeatures(movementAffinityDreadAmbusher)
             .AddToDB();
 
-        conditionDreadAmbusher.GuiPresentation.description = Gui.NoLocalization;
+        conditionDreadAmbusher.GuiPresentation.description = Global.Empty;
 
         var attributeModifierDreadAmbusher = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}DreadAmbusher")

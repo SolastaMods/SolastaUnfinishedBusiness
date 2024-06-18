@@ -307,12 +307,12 @@ internal static partial class SpellBuilders
                             .SetFeatures(
                                 FeatureDefinitionMovementAffinityBuilder
                                     .Create($"MovementAffinity{NAME}")
-                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Global.Empty)
                                     .SetImmunities(true, true)
                                     .AddToDB(),
                                 FeatureDefinitionEquipmentAffinityBuilder
                                     .Create($"EquipmentAffinity{NAME}")
-                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+                                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Global.Empty)
                                     .SetAdditionalCarryingCapacity(20)
                                     .AddToDB())
                             .AddToDB(),
@@ -520,7 +520,7 @@ internal static partial class SpellBuilders
 
         var movementAffinityMagnifyGravity = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{NAME}")
-            .SetGuiPresentation("ConditionGravity", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation("ConditionGravity", Category.Condition, Global.Empty)
             .SetBaseSpeedMultiplicativeModifier(0.5f)
             .AddToDB();
 
@@ -591,7 +591,7 @@ internal static partial class SpellBuilders
             .SetFeatures(actionAffinityVoidGrasp)
             .AddToDB();
 
-        conditionVoidGrasp.GuiPresentation.Description = Gui.NoLocalization;
+        conditionVoidGrasp.GuiPresentation.Description = Global.Empty;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -719,7 +719,7 @@ internal static partial class SpellBuilders
 
         var conditionThunderousSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation($"{NAME}Title".Formatted(Category.Spell), Gui.NoLocalization,
+            .SetGuiPresentation($"{NAME}Title".Formatted(Category.Spell), Global.Empty,
                 ConditionBrandingSmite)
             .SetPossessive()
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
@@ -828,7 +828,7 @@ internal static partial class SpellBuilders
 
         var conditionLeap = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Leap")
-            .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+            .SetGuiPresentation(NAME, Category.Spell, Global.Empty)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetFeatures(powerLeap)
@@ -1642,13 +1642,13 @@ internal static partial class SpellBuilders
 
         var movementAffinityStrikeWithTheWind = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{NAME}")
-            .SetGuiPresentation($"Condition{NAME}Movement", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation($"Condition{NAME}Movement", Category.Condition, Global.Empty)
             .SetBaseSpeedAdditiveModifier(5)
             .AddToDB();
 
         var conditionStrikeWithTheWindAttackMovement = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Movement")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDisengaging)
+            .SetGuiPresentation(Category.Condition, Global.Empty, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetFeatures(movementAffinityStrikeWithTheWind)
             .SetConditionParticleReference(ConditionSpellbladeArcaneEscape)
@@ -1664,7 +1664,7 @@ internal static partial class SpellBuilders
 
         var combatAffinityStrikeWithTheWind = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}")
-            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation($"Condition{NAME}", Category.Condition, Global.Empty)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
 

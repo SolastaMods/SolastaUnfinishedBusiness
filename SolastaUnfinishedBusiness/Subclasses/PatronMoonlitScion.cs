@@ -80,7 +80,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        conditionLunarRadianceEnemy.GuiPresentation.description = Gui.NoLocalization;
+        conditionLunarRadianceEnemy.GuiPresentation.description = Global.Empty;
 
         // Lunar Radiance
 
@@ -113,7 +113,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
-        conditionFullMoon.GuiPresentation.description = Gui.NoLocalization;
+        conditionFullMoon.GuiPresentation.description = Global.Empty;
 
         // Lunar Radiance No Cost
 
@@ -174,7 +174,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .CopyParticleReferences(FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
 
-        conditionLunarChillEnemy.GuiPresentation.description = Gui.NoLocalization;
+        conditionLunarChillEnemy.GuiPresentation.description = Global.Empty;
 
         // Lunar Chill
 
@@ -205,7 +205,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .CopyParticleReferences(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection)
             .AddToDB();
 
-        conditionNewMoon.GuiPresentation.description = Gui.NoLocalization;
+        conditionNewMoon.GuiPresentation.description = Global.Empty;
 
         // Lunar Chill No Cost
 

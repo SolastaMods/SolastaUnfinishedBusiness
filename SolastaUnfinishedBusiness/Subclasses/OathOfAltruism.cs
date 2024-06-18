@@ -49,7 +49,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 MagicAffinityConditionShielded,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}SpiritualShielding")
-                    .SetGuiPresentation($"Condition{Name}SpiritualShielding", Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation($"Condition{Name}SpiritualShielding", Category.Condition, Global.Empty)
                     .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
                     .AddToDB())
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)

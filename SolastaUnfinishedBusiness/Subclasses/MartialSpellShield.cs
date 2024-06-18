@@ -55,7 +55,7 @@ public sealed class MartialSpellShield : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinity{Name}BladeWeaving")
-                    .SetGuiPresentation($"Condition{Name}BladeWeaving", Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation($"Condition{Name}BladeWeaving", Category.Condition, Global.Empty)
                     .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                         Strength,
                         Dexterity,

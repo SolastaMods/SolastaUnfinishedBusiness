@@ -1042,7 +1042,7 @@ internal static class OtherFeats
             .SetFeatures(
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{Name}")
-                    .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                    .SetGuiPresentation(Name, Category.Feat, Global.Empty)
                     .BuildAndSetAffinityGroups(
                         CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
                         AbilityCheckGroupOperation.AddDie,
@@ -1054,7 +1054,7 @@ internal static class OtherFeats
                         new CustomBehaviorDungeonDelver(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{Name}")
-                                .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                                .SetGuiPresentation(Name, Category.Feat, Global.Empty)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetFeatures(
                                     DamageAffinityAcidResistance,
@@ -1079,7 +1079,7 @@ internal static class OtherFeats
                     .Select(terrainType =>
                         FeatureDefinitionTerrainTypeAffinityBuilder
                             .Create($"TerrainTypeAffinity{Name}{terrainType.Name}")
-                            .SetGuiPresentation(Name, Category.Feat, Gui.NoLocalization)
+                            .SetGuiPresentation(Name, Category.Feat, Global.Empty)
                             .IgnoreTravelPacePerceptionMalus(terrainType.Name)
                             .AddToDB())
                     .Cast<FeatureDefinition>()
@@ -1150,7 +1150,7 @@ internal static class OtherFeats
             .SetFeatures(movementAffinity)
             .AddToDB();
 
-        condition.GuiPresentation.Description = Gui.NoLocalization;
+        condition.GuiPresentation.Description = Global.Empty;
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
@@ -1717,7 +1717,7 @@ internal static class OtherFeats
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                 .AddToDB();
 
-            condition.GuiPresentation.description = Gui.NoLocalization;
+            condition.GuiPresentation.description = Global.Empty;
         }
 
         PowerBundle.RegisterPowerBundle(powerChromaticInfusion, false, powersChromaticInfusion);
@@ -2324,7 +2324,7 @@ internal static class OtherFeats
                 .AddCustomSubFeatures(new CustomBehaviorMageSlayer(
                     ConditionDefinitionBuilder
                         .Create($"Condition{FeatMageSlayerName}")
-                        .SetGuiPresentation(FeatMageSlayerName, Category.Feat, Gui.NoLocalization)
+                        .SetGuiPresentation(FeatMageSlayerName, Category.Feat, Global.Empty)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .AddFeatures(
                             FeatureDefinitionMagicAffinityBuilder
@@ -2652,26 +2652,21 @@ internal static class OtherFeats
     private class CustomBehaviorFeatPoisonousSkin(FeatureDefinitionPower powerPoisonousSkin) :
         IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByContender
     {
-        //Poison character that shoves me
+        //Poison character that shove me
         public IEnumerator OnActionFinishedByContender(CharacterAction action, GameLocationCharacter target)
         {
-            if (action.ActionId != ActionDefinitions.Id.Shove &&
-                action.ActionId != ActionDefinitions.Id.ShoveBonus &&
-                action.ActionId != ActionDefinitions.Id.ShoveFree)
+            if (action is not CharacterActionShove)
             {
                 yield break;
             }
 
-            if (action.ActionParams.TargetCharacters == null ||
-                !action.ActionParams.TargetCharacters.Contains(target))
+            if (action.ActionParams.TargetCharacters.Contains(target))
             {
-                yield break;
+                yield return PoisonTarget(target, action.ActingCharacter);
             }
-
-            yield return PoisonTarget(target, action.ActingCharacter);
         }
 
-        //Poison characters that I shove
+        //Poison character that I shove
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionShove)
@@ -2679,11 +2674,9 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var actingCharacter = action.ActingCharacter;
-
             foreach (var target in action.actionParams.TargetCharacters)
             {
-                yield return PoisonTarget(actingCharacter, target);
+                yield return PoisonTarget(action.ActingCharacter, target);
             }
         }
 
@@ -2819,7 +2812,7 @@ internal static class OtherFeats
                 .SetFeatures(
                     FeatureDefinitionCombatAffinityBuilder
                         .Create($"CombatAffinity{NAME}{className}")
-                        .SetGuiPresentation(title, Gui.NoLocalization)
+                        .SetGuiPresentation(title, Global.Empty)
                         .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
                             (OperationType.Set,
                                 mode.sourceDefinition is SpellDefinition &&

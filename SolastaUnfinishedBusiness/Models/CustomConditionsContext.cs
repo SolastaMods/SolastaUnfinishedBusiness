@@ -45,7 +45,7 @@ internal static class CustomConditionsContext
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityDistractedByAlly")
-                    .SetGuiPresentation("ConditionDistractedByAlly", Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation("ConditionDistractedByAlly", Category.Condition, Global.Empty)
                     .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                     .AddToDB())
             .AddToDB();
@@ -92,7 +92,7 @@ internal static class CustomConditionsContext
             .SetFeatures(abilityCheckAffinityLightSensitivity, combatAffinityDarkelfLightSensitivity)
             .AddToDB();
 
-        conditionLightSensitive.GuiPresentation.description = Gui.NoLocalization;
+        conditionLightSensitive.GuiPresentation.description = Global.Empty;
 
         return conditionLightSensitive;
     }
@@ -109,7 +109,7 @@ internal static class CustomConditionsContext
 
         var combatAffinityTaunted = FeatureDefinitionCombatAffinityBuilder
             .Create("CombatAffinityTaunted")
-            .SetGuiPresentation("ConditionTaunted", Category.Condition, Gui.NoLocalization)
+            .SetGuiPresentation("ConditionTaunted", Category.Condition, Global.Empty)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
             .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
             .AddToDB();

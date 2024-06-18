@@ -374,7 +374,7 @@ internal static class MeleeCombatFeats
 
         var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+            .SetGuiPresentation(NAME, Category.Feat, Global.Empty)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .AddToDB();
 
@@ -387,7 +387,7 @@ internal static class MeleeCombatFeats
 
         var movementAffinity = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+            .SetGuiPresentation(NAME, Category.Feat, Global.Empty)
             .SetBaseSpeedAdditiveModifier(3)
             .AddToDB();
 
@@ -1182,7 +1182,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create($"Feature{Name}Finish")
-                    .SetGuiPresentation($"Condition{Name}Finish", Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation($"Condition{Name}Finish", Category.Condition, Global.Empty)
                     .AddCustomSubFeatures(
                         ValidateAdditionalActionAttack.MeleeOnly,
                         new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
@@ -1372,7 +1372,7 @@ internal static class MeleeCombatFeats
                             FeatureDefinitionCombatAffinityBuilder
                                 .Create("CombatAffinityFeatCrusher")
                                 .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition,
-                                    Gui.NoLocalization)
+                                    Global.Empty)
                                 .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                                 .AddToDB())
                         .AddToDB()),
@@ -2000,7 +2000,7 @@ internal static class MeleeCombatFeats
                     .SetFeatures(
                         FeatureDefinitionMovementAffinityBuilder
                             .Create("MovementAffinityFeatSlasher")
-                            .SetGuiPresentation("ConditionFeatSlasherHit", Category.Condition, Gui.NoLocalization)
+                            .SetGuiPresentation("ConditionFeatSlasherHit", Category.Condition, Global.Empty)
                             .SetBaseSpeedAdditiveModifier(-2)
                             .AddToDB())
                     .AddToDB(),
@@ -2013,7 +2013,7 @@ internal static class MeleeCombatFeats
                         FeatureDefinitionCombatAffinityBuilder
                             .Create("CombatAffinityFeatSlasher")
                             .SetGuiPresentation("ConditionFeatSlasherCriticalHit", Category.Condition,
-                                Gui.NoLocalization)
+                                Global.Empty)
                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                             .AddToDB())
                     .AddToDB(),

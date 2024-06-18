@@ -116,7 +116,7 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
-        condition.GuiPresentation.description = Gui.NoLocalization;
+        condition.GuiPresentation.description = Global.Empty;
 
         return SpellDefinitionBuilder
             .Create(NAME)

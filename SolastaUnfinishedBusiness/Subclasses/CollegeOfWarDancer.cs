@@ -35,13 +35,13 @@ public sealed class CollegeOfWarDancer // : AbstractSubclass
         .AddFeatures(
             FeatureDefinitionMovementAffinityBuilder
                 .Create("MovementAffinityConditionWarDanceExtraMovement3")
-                .SetGuiPresentation("ConditionWarDance", Category.Condition, Gui.NoLocalization)
+                .SetGuiPresentation("ConditionWarDance", Category.Condition, Global.Empty)
                 .SetBaseSpeedAdditiveModifier(3)
                 .SetImmunities(difficultTerrainImmunity: true)
                 .AddToDB(),
             FeatureDefinitionAttackModifierBuilder
                 .Create("AttackModifierWarDance")
-                .SetGuiPresentation("ConditionWarDance", Category.Condition, Gui.NoLocalization)
+                .SetGuiPresentation("ConditionWarDance", Category.Condition, Global.Empty)
                 .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
                 .AddToDB())
         .AddCustomSubFeatures(

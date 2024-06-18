@@ -32,19 +32,19 @@ public sealed class WizardGraviturgist : AbstractSubclass
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}DensityIncrease")
-                    .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature, Gui.NoLocalization)
+                    .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature, Global.Empty)
                     .SetBaseSpeedAdditiveModifier(-2)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{Name}DensityIncrease")
-                    .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature, Gui.NoLocalization)
+                    .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature, Global.Empty)
                     .BuildAndSetAffinityGroups(
                         CharacterAbilityCheckAffinity.Advantage,
                         abilityProficiencyPairs: (AttributeDefinitions.Strength, SkillDefinitions.Athletics))
                     .AddToDB(),
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinity{Name}DensityIncrease")
-                    .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature, Gui.NoLocalization)
+                    .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature, Global.Empty)
                     .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Strength)
                     .AddToDB())
             .AddToDB();
@@ -81,19 +81,19 @@ public sealed class WizardGraviturgist : AbstractSubclass
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}DensityDecrease")
-                    .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature, Gui.NoLocalization)
+                    .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature, Global.Empty)
                     .SetBaseSpeedAdditiveModifier(2)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{Name}DensityDecrease")
-                    .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature, Gui.NoLocalization)
+                    .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature, Global.Empty)
                     .BuildAndSetAffinityGroups(
                         CharacterAbilityCheckAffinity.Disadvantage,
                         abilityProficiencyPairs: (AttributeDefinitions.Strength, SkillDefinitions.Athletics))
                     .AddToDB(),
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinity{Name}DensityDecrease")
-                    .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature, Gui.NoLocalization)
+                    .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature, Global.Empty)
                     .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false, AttributeDefinitions.Strength)
                     .AddToDB())
             .AddToDB();
@@ -194,7 +194,7 @@ public sealed class WizardGraviturgist : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}EventHorizon")
-                    .SetGuiPresentation($"Condition{Name}EventHorizon", Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation($"Condition{Name}EventHorizon", Category.Condition, Global.Empty)
                     .SetBaseSpeedMultiplicativeModifier(0)
                     .AddToDB())
             .AddToDB();
@@ -210,7 +210,7 @@ public sealed class WizardGraviturgist : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}EventHorizonSaved")
-                    .SetGuiPresentation($"Condition{Name}EventHorizon", Category.Condition, Gui.NoLocalization)
+                    .SetGuiPresentation($"Condition{Name}EventHorizon", Category.Condition, Global.Empty)
                     .SetBaseSpeedMultiplicativeModifier(0.5f)
                     .AddToDB())
             .AddToDB();

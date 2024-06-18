@@ -66,7 +66,7 @@ internal static class FixesContext
         FixUncannyDodgeForRoguishDuelist();
 
         // fix condition UI
-        FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
+        FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Global.Empty;
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
