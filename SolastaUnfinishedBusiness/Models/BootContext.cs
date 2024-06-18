@@ -1,6 +1,8 @@
 ﻿using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
@@ -149,6 +151,17 @@ internal static class BootContext
             // Log invalid user campaign
             LogMissingReferencesInUserCampaigns();
 
+            // Fix condition UI
+            DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description =
+                Gui.NoLocalization;
+
+            foreach (var conditionDefinition in DatabaseRepository
+                         .GetDatabase<ConditionDefinition>()
+                         .Where(x => x.GuiPresentation.Description == Gui.NoLocalization))
+            {
+                conditionDefinition.GuiPresentation.description = string.Empty;
+            }
+            
             // Enable mod
             Main.Enable();
         };
