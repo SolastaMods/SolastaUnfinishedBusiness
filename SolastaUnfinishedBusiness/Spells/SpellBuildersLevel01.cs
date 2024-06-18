@@ -1786,7 +1786,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetFeatures(damageAffinitySkinOfRetribution)
             .SetTerminateWhenRemoved()
-            .AddCustomSubFeatures(new ActionFinishedByContenderSkinOfRetribution())
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedSkinOfRetribution())
             .CopyParticleReferences(PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
 
@@ -1823,33 +1823,31 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-    internal static void HandleSkinOfRetribution()
+    private sealed class OnConditionAddedOrRemovedSkinOfRetribution : IOnConditionAddedOrRemoved
     {
-        if (Gui.Battle == null)
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            return;
+            target.DamageReceived += DamageReceivedHandler;
         }
 
-        foreach (var rulesetCharacter in Gui.Battle.AllContenders
-                     .Select(gameLocationCharacter => gameLocationCharacter.RulesetCharacter)
-                     .ToList())
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (rulesetCharacter.TemporaryHitPoints == 0 &&
+            target.DamageReceived -= DamageReceivedHandler;
+        }
+
+        private static void DamageReceivedHandler(
+            RulesetActor target,
+            int damage,
+            string damageType,
+            ulong sourceGuid,
+            RollInfo rollInfo)
+        {
+            if (target is RulesetCharacter { TemporaryHitPoints: 0 } rulesetCharacter &&
                 rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, "ConditionSkinOfRetribution", out var activeCondition))
             {
                 rulesetCharacter.RemoveCondition(activeCondition);
             }
-        }
-    }
-
-    private sealed class ActionFinishedByContenderSkinOfRetribution : IActionFinishedByContender
-    {
-        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
-        {
-            HandleSkinOfRetribution();
-
-            yield break;
         }
     }
 
