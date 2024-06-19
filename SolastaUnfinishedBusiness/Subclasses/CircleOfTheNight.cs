@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -184,7 +185,9 @@ public sealed class CircleOfTheNight : AbstractSubclass
                                 ConditionDefinitions.ConditionWildShapeSubstituteForm, shapeOptions)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker)
+            .AddCustomSubFeatures(
+                ForcePowerUseInSpendPowerAction.Marker,
+                new PowerOrSpellFinishedByMeDruidWildShape())
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -386,6 +389,17 @@ public sealed class CircleOfTheNight : AbstractSubclass
         return effectDescription;
     }
 
+    internal static bool IsTwoPointsShape(MonsterDefinition monsterDefinition)
+    {
+        return monsterDefinition.Name is
+            "WildShapeAirElemental" or
+            "WildShapeFireElemental" or
+            "WildShapeEarthElemental" or
+            "WildShapeWaterElemental" or
+            "WildShapeCrimsonSpider" or
+            "WildShapeMinotaurElite";
+    }
+
     private sealed class ModifyAttackActionModifierPrimalStrike : IModifyAttackActionModifier
     {
         public void OnAttackComputeModifier(
@@ -401,6 +415,24 @@ public sealed class CircleOfTheNight : AbstractSubclass
             {
                 attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
             }
+        }
+    }
+
+    private sealed class PowerOrSpellFinishedByMeDruidWildShape : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster ||
+                !IsTwoPointsShape(rulesetCharacterMonster.MonsterDefinition))
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetCharacter);
+
+            rulesetCharacter.UsePower(usablePower);
         }
     }
 }
