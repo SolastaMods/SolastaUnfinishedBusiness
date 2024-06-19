@@ -1642,79 +1642,10 @@ internal static class RaceFeats
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
-            IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByContender
+            IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe,
+            IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMeAny
     {
-        private bool _isValid;
-        private bool _knockOutPrevented;
-
-        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
-        {
-            if (!_isValid)
-            {
-                yield break;
-            }
-
-            _isValid = false;
-
-            if (Gui.Battle != null && !Gui.Battle.InitiativeRollFinished)
-            {
-                yield break;
-            }
-
-            var rulesetTarget = target.RulesetCharacter;
-
-            rulesetTarget.KnockOutPrevented -= KnockOutPreventedHandler;
-
-            if (!_knockOutPrevented)
-            {
-                yield break;
-            }
-
-            _knockOutPrevented = false;
-
-            if (!target.CanReact())
-            {
-                yield break;
-            }
-
-            rulesetTarget.LogCharacterUsedPower(power);
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var attackMode = target.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
-
-            var attackActionParams =
-                new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
-                {
-                    AttackMode = attackModeCopy,
-                    TargetCharacters = { characterAction.ActingCharacter },
-                    ActionModifiers = { new ActionModifier() }
-                };
-
-            actionService.ExecuteAction(attackActionParams, null, true);
-        }
-
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
-            _isValid = true;
-            _knockOutPrevented = false;
-
-            yield break;
-        }
+        #region Additional Damage
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -1753,27 +1684,6 @@ internal static class RaceFeats
                 0);
         }
 
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
-            _isValid = true;
-            _knockOutPrevented = false;
-
-            yield break;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1803,10 +1713,134 @@ internal static class RaceFeats
             rulesetAttacker.UsePower(usablePower);
         }
 
+        #endregion
+
+        #region Knock-Out
+
+        private bool _isValid;
+        private bool _knockOutPrevented;
+
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
+            _isValid = true;
+            _knockOutPrevented = false;
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicEffectFinishedOnMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<GameLocationCharacter> targets)
+        {
+            HandleKnockOutBehavior(action, defender);
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
+            _isValid = true;
+            _knockOutPrevented = false;
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            HandleKnockOutBehavior(action, defender);
+
+            yield break;
+        }
+
         private void KnockOutPreventedHandler(RulesetCharacter character, BaseDefinition source)
         {
             _knockOutPrevented = source == DamageAffinityHalfOrcRelentlessEndurance;
         }
+
+        private void HandleKnockOutBehavior(CharacterAction characterAction, GameLocationCharacter target)
+        {
+            if (!_isValid)
+            {
+                return;
+            }
+
+            _isValid = false;
+
+            var rulesetTarget = target.RulesetCharacter;
+
+            rulesetTarget.KnockOutPrevented -= KnockOutPreventedHandler;
+
+            if (!_knockOutPrevented)
+            {
+                return;
+            }
+
+            _knockOutPrevented = false;
+
+            if (Gui.Battle == null ||
+                !Gui.Battle.InitiativeRollFinished)
+            {
+                return;
+            }
+
+            if (!target.CanReact())
+            {
+                return;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var attackMode = target.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
+
+            var attackActionParams =
+                new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
+                {
+                    AttackMode = attackModeCopy,
+                    TargetCharacters = { characterAction.ActingCharacter },
+                    ActionModifiers = { new ActionModifier() }
+                };
+
+            rulesetTarget.LogCharacterUsedPower(power);
+            actionService.ExecuteAction(attackActionParams, null, true);
+        }
+
+        #endregion
     }
 
     #endregion
