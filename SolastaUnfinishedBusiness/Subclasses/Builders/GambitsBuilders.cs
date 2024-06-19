@@ -1065,7 +1065,7 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class SwiftThrow(ItemDefinition concealedDagger, FeatureDefinitionPower powerSwiftThrow)
-        : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe, IModifyAttackActionModifier
+        : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe, IModifyAttackActionModifier
     {
         private const int DaggerCloseRange = 4;
 
@@ -1148,7 +1148,7 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class TacticalStrike :
-        IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
+        IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => true;
 
@@ -1477,7 +1477,7 @@ internal static class GambitsBuilders
         ConditionDefinition bad,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition self)
-        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -1872,7 +1872,7 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class CoordinatedAttack :
-        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IMagicEffectFinishedByMe
+        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -2011,7 +2011,7 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class OverwhelmingAttack :
-        IFilterTargetingCharacter, IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe
+        IFilterTargetingCharacter, IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => true;
 

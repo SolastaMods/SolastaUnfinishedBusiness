@@ -400,7 +400,7 @@ public sealed class MartialWarlord : AbstractSubclass
     //
 
     private sealed class CustomBehaviorStrategicReposition :
-        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IMagicEffectFinishedByMe
+        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 

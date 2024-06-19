@@ -655,7 +655,7 @@ internal static class OtherFeats
 
     private sealed class CustomBehaviorMenacing(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionMark) : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+        ConditionDefinition conditionMark) : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
 
@@ -1163,7 +1163,7 @@ internal static class OtherFeats
                     .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeAcrobat(condition))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeAcrobat(condition))
             .AddToDB();
 
         var skill = FeatureDefinitionProficiencyBuilder
@@ -1179,9 +1179,9 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private sealed class MagicEffectFinishedByMeAcrobat(
+    private sealed class PowerOrSpellFinishedByMeAcrobat(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionAcrobat) : IMagicEffectFinishedByMe
+        ConditionDefinition conditionAcrobat) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

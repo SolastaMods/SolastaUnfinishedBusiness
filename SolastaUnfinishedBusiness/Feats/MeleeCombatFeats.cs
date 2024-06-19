@@ -2122,7 +2122,7 @@ internal static class MeleeCombatFeats
                 ValidatorsValidatePowerUse.HasMainAttackAvailable,
                 new ValidatorsValidatePowerUse(
                     ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
-                new MagicEffectFinishedByMeWhirlWindAttack())
+                new PowerOrSpellFinishedByMeWhirlWindAttack())
             .AddToDB();
 
         // kept for backward compatibility
@@ -2140,7 +2140,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class MagicEffectFinishedByMeWhirlWindAttack : IMagicEffectFinishedByMe, IValidatePowerUse
+    private sealed class PowerOrSpellFinishedByMeWhirlWindAttack : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

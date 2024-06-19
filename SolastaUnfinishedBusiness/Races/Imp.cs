@@ -195,7 +195,7 @@ internal static class RaceImpBuilder
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
             .AddToDB();
 
-        var powerImpAssistMagicEffect = new PowerImpAssistMagicEffectFinishedByMe(ConditionImpAssistedEnemyName);
+        var powerImpAssistMagicEffect = new PowerOrSpellFinishedByMePowerImpAssist(ConditionImpAssistedEnemyName);
 
         powerImpBadlandAssist.AddCustomSubFeatures(
             new PowerImpAssistTargetFilter(true), powerImpAssistMagicEffect);
@@ -255,7 +255,7 @@ internal static class RaceImpBuilder
 
         powerImpBadlandSpite.AddCustomSubFeatures(
             new PowerImpAssistTargetFilter(true),
-            new PowerImpAssistMagicEffectFinishedByMe(conditionSpite.name));
+            new PowerOrSpellFinishedByMePowerImpAssist(conditionSpite.name));
 
         var raceImpBadland = CharacterRaceDefinitionBuilder
             .Create(raceImp, $"Race{NAME}")
@@ -359,7 +359,7 @@ internal static class RaceImpBuilder
         }
     }
 
-    private class PowerImpAssistMagicEffectFinishedByMe(string enemyCondition) : IMagicEffectFinishedByMe
+    private class PowerOrSpellFinishedByMePowerImpAssist(string enemyCondition) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -409,7 +409,7 @@ internal static class RaceImpBuilder
         }
     }
 
-    private class PowerImpPassageMagic(IMagicEffectFinishedByMe powerImpAssist) : IMagicEffectFinishedByMe
+    private class PowerImpPassageMagic(IPowerOrSpellFinishedByMe powerImpAssist) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -508,7 +508,7 @@ internal static class RaceImpBuilder
         }
     }
 
-    private class PowerImpHospitalityMagic(IMagicEffectFinishedByMe parent) : IMagicEffectFinishedByMe
+    private class PowerImpHospitalityMagic(IPowerOrSpellFinishedByMe parent) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

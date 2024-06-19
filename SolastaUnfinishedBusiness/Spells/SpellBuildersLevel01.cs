@@ -882,7 +882,7 @@ internal static partial class SpellBuilders
     private sealed class PowerOrSpellInitiatedAndFinishedByMeChaosBolt(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionLeap,
-        CustomBehaviorChaosBolt damageDeterminationBehavior) : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe
+        CustomBehaviorChaosBolt damageDeterminationBehavior) : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1266,13 +1266,13 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(ShadowDagger)
                     .SetEffectEffectParameters(ShadowDagger)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeIceBlade())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeIceBlade())
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectFinishedByMeIceBlade : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeIceBlade : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1941,7 +1941,7 @@ internal static partial class SpellBuilders
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSanctuary))
                     .SetParticleEffectParameters(ProtectionFromEvilGood)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeSanctuary(conditionSanctuary))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSanctuary(conditionSanctuary))
             .AddToDB();
 
         return spell;
@@ -1949,8 +1949,8 @@ internal static partial class SpellBuilders
 
     // store the caster Save DC on condition amount
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class MagicEffectFinishedByMeSanctuary(ConditionDefinition conditionSanctuary)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeSanctuary(ConditionDefinition conditionSanctuary)
+        : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

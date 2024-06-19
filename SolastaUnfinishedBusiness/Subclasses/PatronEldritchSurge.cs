@@ -162,7 +162,7 @@ public class PatronEldritchSurge : AbstractSubclass
                && rulesetEffectSpell.SpellDefinition == EldritchBlast;
     }
 
-    private class VersatilitySwitchCustom(string replacedAbilityScore) : IMagicEffectFinishedByMe
+    private class VersatilitySwitchCustom(string replacedAbilityScore) : IPowerOrSpellFinishedByMe
     {
         private string ReplacedAbilityScore { get; } = replacedAbilityScore;
 

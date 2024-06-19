@@ -1030,7 +1030,7 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class CustomBehaviorResonatingStrike : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    private sealed class CustomBehaviorResonatingStrike : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         internal static GameLocationCharacter SecondTarget;
         internal static int SpellCastingModifier;

@@ -105,7 +105,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cone, 9)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeHailOfArrows())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeHailOfArrows())
             .AddToDB();
 
         var actionHailOfArrows = ActionDefinitionBuilder
@@ -239,7 +239,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
     // Hail of Arrows
     //
 
-    private sealed class MagicEffectFinishedByMeHailOfArrows : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeHailOfArrows : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

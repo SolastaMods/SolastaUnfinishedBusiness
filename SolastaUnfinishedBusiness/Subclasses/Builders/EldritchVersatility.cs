@@ -917,7 +917,7 @@ internal static class EldritchVersatilityBuilders
         }
     }
 
-    private sealed class BattlefieldConversionRestoreSlot : IMagicEffectFinishedByMe, IValidatePowerUse
+    private sealed class BattlefieldConversionRestoreSlot : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {

@@ -275,7 +275,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .SetCasterEffectParameters(FeatureDefinitionPowers.PowerPactChainImp)
                     .Build())
             .AddCustomSubFeatures(
-                new MagicEffectFinishedByMeKillCommand(),
+                new PowerOrSpellFinishedByMeKillCommand(),
                 new ValidatorsValidatePowerUse(c =>
                     Gui.Battle != null &&
                     GameLocationCharacter.GetFromActor(c)?.OnceInMyTurnIsValid($"Power{Name}KillCommand") == true &&
@@ -477,7 +477,7 @@ public sealed class RangerWildMaster : AbstractSubclass
         }
     }
 
-    private sealed class MagicEffectFinishedByMeKillCommand : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeKillCommand : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

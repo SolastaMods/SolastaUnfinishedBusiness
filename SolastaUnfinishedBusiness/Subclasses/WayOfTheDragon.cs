@@ -618,7 +618,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
     private sealed class CustomBehaviorElementalBreathProficiency(
         FeatureDefinitionPower powerElementalBreathProficiency) :
-        IValidatePowerUse, IMagicEffectFinishedByMe, IModifyEffectDescription
+        IValidatePowerUse, IPowerOrSpellFinishedByMe, IModifyEffectDescription
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -680,7 +680,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         FeatureDefinitionPower powerElementalBreathPoints,
         FeatureDefinitionPower powerElementalBreathProficiency)
         :
-            IValidatePowerUse, IMagicEffectFinishedByMe, IModifyEffectDescription
+            IValidatePowerUse, IPowerOrSpellFinishedByMe, IModifyEffectDescription
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

@@ -166,7 +166,7 @@ public sealed class RangerLightBearer : AbstractSubclass
         var powerLightEnhanced = FeatureDefinitionPowerBuilder
             .Create(powerLight, $"Power{Name}LightEnhanced")
             .SetOverriddenPower(powerLight)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeBlessedGlow(powerBlessedGlow))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeBlessedGlow(powerBlessedGlow))
             .AddToDB();
 
         var featureSetBlessedGlow = FeatureDefinitionFeatureSetBuilder
@@ -216,7 +216,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                new MagicEffectFinishedByMeAngelicForm(),
+                new PowerOrSpellFinishedByMeAngelicForm(),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
 
@@ -367,8 +367,8 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Glow
     //
 
-    private sealed class MagicEffectFinishedByMeBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
+        : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
@@ -423,7 +423,7 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Angelic Form
     //
 
-    private sealed class MagicEffectFinishedByMeAngelicForm : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeAngelicForm : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {

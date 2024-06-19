@@ -504,7 +504,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class ModifyEffectDescriptionAshardalonStride(params ConditionDefinition[] conditions)
-        : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe
+        : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -698,7 +698,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorBoomingStep(FeatureDefinitionPower powerExplode)
-        : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
+        : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         private readonly List<GameLocationCharacter> _targets = [];
 
@@ -1786,7 +1786,7 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ModifyDiceRollVitalityTransfer : IMagicEffectFinishedByMe
+    private sealed class ModifyDiceRollVitalityTransfer : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

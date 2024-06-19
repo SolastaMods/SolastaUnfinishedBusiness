@@ -804,7 +804,7 @@ internal static class InvocationsBuilders
         FeatureDefinitionPower powerPerniciousCloak,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionPerniciousCloakSelf)
-        : IMagicEffectFinishedByMe, IValidatePowerUse
+        : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1086,7 +1086,7 @@ internal static class InvocationsBuilders
     private sealed class CustomBehaviorChillingHex(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerVexingHex)
-        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -1280,7 +1280,7 @@ internal static class InvocationsBuilders
     private sealed class FilterTargetingCharacterVexingHex(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerVexingHex)
-        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 

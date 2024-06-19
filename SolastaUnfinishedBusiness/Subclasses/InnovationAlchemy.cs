@@ -840,7 +840,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
     }
 
     private sealed class CustomBehaviorRefundAlchemyPool(FeatureDefinitionPower powerAlchemyPool, int slotLevel)
-        : IValidatePowerUse, IMagicEffectFinishedByMe
+        : IValidatePowerUse, IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

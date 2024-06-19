@@ -249,7 +249,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             powerBurstOfDisharmony.AddCustomSubFeatures(
                 ModifyPowerVisibility.Hidden,
-                new MagicEffectFinishedByMeBurstOfDisharmony(
+                new PowerOrSpellFinishedByMeBurstOfDisharmony(
                     conditionDiscordance, powerDiscordance, conditionHadTurmoil, powerTurmoil),
                 new ValidatorsValidatePowerUse(
                     c => c.RemainingKiPoints >= kiNumber &&
@@ -472,13 +472,13 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     // Burst of Disharmony [also handles discordance and turmoil]
     //
 
-    private sealed class MagicEffectFinishedByMeBurstOfDisharmony(
+    private sealed class PowerOrSpellFinishedByMeBurstOfDisharmony(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDiscordance,
         FeatureDefinitionPower powerDiscordance,
         ConditionDefinition conditionHadTurmoil,
         FeatureDefinitionPower powerTurmoil)
-        : IMagicEffectFinishedByMe
+        : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {

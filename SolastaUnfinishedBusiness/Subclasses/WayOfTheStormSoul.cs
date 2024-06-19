@@ -94,7 +94,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.HasBonusAttackAvailable,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlurryOfBlows)),
-                new MagicEffectFinishedByMeTempestFury())
+                new PowerOrSpellFinishedByMeTempestFury())
             .AddToDB();
 
         // LEVEL 17
@@ -161,7 +161,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                     .Build())
             .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.InCombat,
-                new MagicEffectFinishedByMeEyeOfTheStorm(powerEyeOfTheStormLeap, conditionEyeOfTheStorm))
+                new PowerOrSpellFinishedByMeEyeOfTheStorm(powerEyeOfTheStormLeap, conditionEyeOfTheStorm))
             .AddToDB();
 
         var featureSetEyeOfTheStorm = FeatureDefinitionFeatureSetBuilder
@@ -240,7 +240,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
 
     private sealed class CustomBehaviorLightningLure(
         FeatureDefinitionPower powerLightningLure,
-        ConditionDefinition conditionEyeOfTheStorm) : IModifyEffectDescription, IMagicEffectFinishedByMe
+        ConditionDefinition conditionEyeOfTheStorm) : IModifyEffectDescription, IPowerOrSpellFinishedByMe
     {
         private readonly EffectForm _effectFormEyeOfTheStorm = EffectFormBuilder
             .Create()
@@ -285,7 +285,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
     // Tempest Fury
     //
 
-    internal sealed class MagicEffectFinishedByMeTempestFury : IMagicEffectFinishedByMe, IValidatePowerUse
+    internal sealed class PowerOrSpellFinishedByMeTempestFury : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -344,10 +344,10 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
     // Eye of The Storm
     //
 
-    internal sealed class MagicEffectFinishedByMeEyeOfTheStorm(
+    internal sealed class PowerOrSpellFinishedByMeEyeOfTheStorm(
         FeatureDefinitionPower powerEyeOfTheStormLeap,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionEyeOfTheStorm) : IMagicEffectFinishedByMe
+        ConditionDefinition conditionEyeOfTheStorm) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

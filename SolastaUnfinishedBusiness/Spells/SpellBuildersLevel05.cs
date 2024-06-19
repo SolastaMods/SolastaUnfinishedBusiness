@@ -450,7 +450,7 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(GravitySlam)
                     .SetImpactEffectParameters(ArcaneSword)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeSteelWhirlwind())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSteelWhirlwind())
             .AddToDB();
 
         return spell;
@@ -458,7 +458,7 @@ internal static partial class SpellBuilders
 
     // keep a tab of all allowed positions for filtering using ContextualFormation collection
     // ContextualFormation is only used by the game when spawning new locations so it's safe in this context
-    private sealed class MagicEffectFinishedByMeSteelWhirlwind : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeSteelWhirlwind : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -853,7 +853,7 @@ internal static partial class SpellBuilders
         ConditionDefinition conditionTelekinesisNoCost,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellTelekinesis)
-        : IFilterTargetingPosition, IMagicEffectFinishedByMe, ISelectPositionAfterCharacter
+        : IFilterTargetingPosition, IPowerOrSpellFinishedByMe, ISelectPositionAfterCharacter
     {
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {

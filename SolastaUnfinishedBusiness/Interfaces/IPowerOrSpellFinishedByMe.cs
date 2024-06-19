@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
-public interface IMagicEffectFinishedByMe
+public interface IPowerOrSpellFinishedByMe
 {
     [UsedImplicitly]
     public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition);

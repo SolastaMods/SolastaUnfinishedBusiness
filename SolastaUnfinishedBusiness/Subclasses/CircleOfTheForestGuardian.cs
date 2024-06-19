@@ -103,7 +103,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBarkWard))
                     .SetCasterEffectParameters(SpikeGrowth)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeBarkWard(powerSuperiorBarkWard))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeBarkWard(powerSuperiorBarkWard))
             .AddToDB();
 
         var powerImprovedBarkWard = FeatureDefinitionPowerSharedPoolBuilder
@@ -122,7 +122,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddToDB();
 
         powerImprovedBarkWard.AddCustomSubFeatures(
-            new MagicEffectFinishedByMeBarkWard(powerSuperiorBarkWard),
+            new PowerOrSpellFinishedByMeBarkWard(powerSuperiorBarkWard),
             new PhysicalAttackFinishedOnMeBarkWard(powerImprovedBarkWard, conditionBarkWard));
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -192,8 +192,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         }
     }
 
-    private sealed class MagicEffectFinishedByMeBarkWard(FeatureDefinitionPower powerSuperiorBarkWard)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeBarkWard(FeatureDefinitionPower powerSuperiorBarkWard)
+        : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

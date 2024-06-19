@@ -1398,13 +1398,13 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionDamageAffinity DamageAffinityConditionRagingBludgeoning { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityConditionRagingBludgeoning");
-        
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityConditionRagingPiercing { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityConditionRagingPiercing");
-        
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityConditionRagingSlashing { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityConditionRagingSlashing");
-        
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityAcidResistance { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityAcidResistance");
 
@@ -1718,11 +1718,11 @@ internal static partial class DatabaseHelper
     internal static class FeatureDefinitionPowers
     {
         internal static FeatureDefinitionPower PowerDomainSunIndomitableLight { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDomainSunIndomitableLight"); 
-        
+            GetDefinition<FeatureDefinitionPower>("PowerDomainSunIndomitableLight");
+
         internal static FeatureDefinitionPower PowerSorakWordOfDarkness { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerSorakWordOfDarkness"); 
-        
+            GetDefinition<FeatureDefinitionPower>("PowerSorakWordOfDarkness");
+
         internal static FeatureDefinitionPower PowerMagebaneWarcry { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMagebaneWarcry");
 

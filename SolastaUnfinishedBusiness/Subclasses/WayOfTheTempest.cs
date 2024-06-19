@@ -85,7 +85,7 @@ public sealed class WayOfTheTempest // : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerTempestFury.AddCustomSubFeatures(new WayOfTheStormSoul.MagicEffectFinishedByMeTempestFury());
+        powerTempestFury.AddCustomSubFeatures(new WayOfTheStormSoul.PowerOrSpellFinishedByMeTempestFury());
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.FlurryOfBlows, "ActionTempestFury")
@@ -211,7 +211,7 @@ public sealed class WayOfTheTempest // : AbstractSubclass
                     .Build())
             .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.InCombat,
-                new WayOfTheStormSoul.MagicEffectFinishedByMeEyeOfTheStorm(powerEyeOfTheStormLeap,
+                new WayOfTheStormSoul.PowerOrSpellFinishedByMeEyeOfTheStorm(powerEyeOfTheStormLeap,
                     conditionEyeOfTheStorm))
             .AddToDB();
 

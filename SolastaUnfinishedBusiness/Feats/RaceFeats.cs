@@ -1436,7 +1436,7 @@ internal static class RaceFeats
     internal sealed class CustomBehaviorOrcishAggression(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerOrcishAggression)
-        : IModifyEffectDescription, IMagicEffectFinishedByMe, IActionFinishedByMe, IFilterTargetingCharacter
+        : IModifyEffectDescription, IPowerOrSpellFinishedByMe, IActionFinishedByMe, IFilterTargetingCharacter
     {
         private const string UsedTacticalMoves = "UsedTacticalMoves";
         private CharacterActionParams _actionParams;

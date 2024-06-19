@@ -615,15 +615,15 @@ internal static partial class SpellBuilders
                     .SetCasterEffectParameters(TrueSeeing)
                     .SetEffectEffectParameters(PowerPaladinCleansingTouch)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeBorrowedKnowledge(powerPool, [.. powers]))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeBorrowedKnowledge(powerPool, [.. powers]))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectFinishedByMeBorrowedKnowledge(
+    private sealed class PowerOrSpellFinishedByMeBorrowedKnowledge(
         FeatureDefinitionPower powerPool,
-        params FeatureDefinitionPower[] powers) : IMagicEffectFinishedByMe
+        params FeatureDefinitionPower[] powers) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1160,7 +1160,7 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorWitherAndBloom(
         SpellDefinition spellWitherAndBloom,
-        ConditionDefinition conditionWitherAndBloom) : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe
+        ConditionDefinition conditionWitherAndBloom) : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         private int _spellCastingAbilityModifier;
         private readonly List<GameLocationCharacter> _targets = [];

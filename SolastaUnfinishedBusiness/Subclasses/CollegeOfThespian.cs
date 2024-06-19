@@ -130,7 +130,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
                     .Create()
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeFinale())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeFinale())
             .AddToDB();
 
         // LEVEL 14
@@ -235,7 +235,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
     // Finale
     //
 
-    private sealed class MagicEffectFinishedByMeFinale : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeFinale : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

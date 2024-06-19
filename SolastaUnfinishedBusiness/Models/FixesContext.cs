@@ -660,7 +660,7 @@ internal static class FixesContext
     }
 
     private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe,
-        IMagicEffectFinishedByMe
+        IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

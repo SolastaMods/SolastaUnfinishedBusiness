@@ -187,7 +187,7 @@ public class PatronCelestial : AbstractSubclass
                     .Build())
             .AddCustomSubFeatures(
                 ModifyPowerVisibility.Hidden,
-                new MagicEffectFinishedByMeCelestialResistance())
+                new PowerOrSpellFinishedByMeCelestialResistance())
             .AddToDB();
 
         // LEVEL 14
@@ -296,7 +296,7 @@ public class PatronCelestial : AbstractSubclass
     // Celestial Resistance
     //
 
-    private sealed class MagicEffectFinishedByMeCelestialResistance : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeCelestialResistance : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

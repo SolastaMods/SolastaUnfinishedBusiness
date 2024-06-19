@@ -520,7 +520,7 @@ public static class CharacterActionMagicEffectPatcher
             // BEGIN PATCH
 
             //PATCH: supports `IMagicEffectFinishedByMe`
-            var magicEffectFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectFinishedByMe>();
+            var magicEffectFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IPowerOrSpellFinishedByMe>();
 
             if (magicEffectFinishedByMe != null)
             {

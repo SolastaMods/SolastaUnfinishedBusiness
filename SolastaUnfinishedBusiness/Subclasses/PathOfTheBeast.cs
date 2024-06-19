@@ -817,7 +817,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
     }
 
     private class CompelledStrikeHandler(ConditionDefinition condition)
-        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => true;
 

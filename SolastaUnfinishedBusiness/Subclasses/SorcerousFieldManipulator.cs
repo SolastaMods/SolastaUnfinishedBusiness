@@ -151,7 +151,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForcefulStepFixed) > 0),
-            new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
+            new PowerOrSpellFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
             .Create(powerForcefulStepFixed, $"Power{Name}ForcefulStepPoints")
@@ -160,7 +160,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForcefulStepFixed) == 0),
-            new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
+            new PowerOrSpellFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var featureSetForcefulStep = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ForcefulStep")
@@ -225,7 +225,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     // Displacement
     //
 
-    private sealed class CustomBehaviorDisplacement : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorDisplacement : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
@@ -308,8 +308,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     // Forceful Step
     //
 
-    private sealed class MagicEffectFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
+        : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

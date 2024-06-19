@@ -782,7 +782,7 @@ internal static class ClassFeats
     }
 
     private sealed class GainWildShapeCharges(int slotLevel, int wildShapeAmount)
-        : IMagicEffectFinishedByMe, IValidatePowerUse
+        : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
@@ -813,7 +813,7 @@ internal static class ClassFeats
         }
     }
 
-    private sealed class SpendWildShapeUse : IMagicEffectFinishedByMe, IValidatePowerUse
+    private sealed class SpendWildShapeUse : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
@@ -1130,7 +1130,7 @@ internal static class ClassFeats
                 .AddToDB();
     }
 
-    private sealed class ActionFinishedByMeFeatSpiritualFluidityGainSlot : IMagicEffectFinishedByMe
+    private sealed class ActionFinishedByMeFeatSpiritualFluidityGainSlot : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
@@ -1142,7 +1142,7 @@ internal static class ClassFeats
         }
     }
 
-    private sealed class ActionFinishedByMeFeatSpiritualFluidityFromSlot : IMagicEffectFinishedByMe
+    private sealed class ActionFinishedByMeFeatSpiritualFluidityFromSlot : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
@@ -1261,7 +1261,7 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class ActionFinishedByMeFeatSlayTheEnemies : IMagicEffectFinishedByMe
+    private sealed class ActionFinishedByMeFeatSlayTheEnemies : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
