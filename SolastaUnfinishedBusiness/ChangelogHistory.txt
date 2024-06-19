@@ -5,6 +5,7 @@
 - fixed Patron Hexblade using character level instead of class level on hex received healing
 - fixed Wither and Bloom interaction with Twinned metamagic to respect the one target only rule
 - improved mod performance by refactoring some feats, spells, and subclasses custom behaviors
+- improved translations on spider like models setting to avoid people "bearing" with their mistakes
 
 1.5.97.15:
 

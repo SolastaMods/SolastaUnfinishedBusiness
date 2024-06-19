@@ -255,7 +255,7 @@ ModUi/&RecipeCost=<color=white>レシピのコスト</color>
 ModUi/&RecipesInDm=レシピはDMにて
 ModUi/&RelicForgeries=遺物偽造品
 ModUi/&RemoveAttunementRequirements=アチューンメント要件を削除<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
-ModUi/&RemoveBugVisualModels=ゲーム内のクモのようなモデルを別のビジュアルに置き換えます<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
+ModUi/&RemoveBugVisualModels1=<i><color=#F0DAA0>[クモ恐怖症]</color></i> のために、ゲーム内のクモのようなモデルをクマのようなモデルに置き換えます <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>おぞましい笑い</color>の人型フィルターを削除
 ModUi/&RemoveRecurringEffectOnEntangle=<color=#D89555>もつれ</color>効果は詠唱時にのみ適用し、蔓から解放するために強度チェックも強制します
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<color=#D89555>シャドウキャスター</color>から学校の制限を削除する
