@@ -323,18 +323,56 @@ public sealed class DomainTempest : AbstractSubclass
     }
 
     private sealed class CustomBehaviorWrathOfTheStorm(FeatureDefinitionPower powerWrathOfTheStorm)
-        : ITryAlterOutcomeAttack, IActionFinishedByContender
+        : IMagicEffectFinishedOnMeAny, IPhysicalAttackFinishedOnMe
     {
-        private bool _isValid;
-
-        public IEnumerator OnActionFinishedByContender(CharacterAction action, GameLocationCharacter defender)
+        public IEnumerator OnMagicEffectFinishedOnMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<GameLocationCharacter> targets)
         {
-            if (!_isValid)
+            var rulesetEffect = action.ActionParams.RulesetEffect;
+
+            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
             {
                 yield break;
             }
 
-            _isValid = false;
+            yield return HandleReaction(action, defender);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            yield return HandleReaction(action, defender);
+        }
+
+        private IEnumerator HandleReaction(CharacterAction action, GameLocationCharacter defender)
+        {
+            if (action.AttackRoll == 0 ||
+                action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            var attacker = action.ActingCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerWrathOfTheStorm, rulesetDefender);
+            var isValid = defender.IsWithinRange(attacker, 1) &&
+                          defender.CanReact() &&
+                          defender.CanPerceiveTarget(attacker) &&
+                          rulesetDefender.GetRemainingUsesOfPower(usablePower) > 0;
+
+            if (!isValid)
+            {
+                yield break;
+            }
 
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -346,10 +384,6 @@ public sealed class DomainTempest : AbstractSubclass
             {
                 yield break;
             }
-
-            var attacker = action.ActingCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerWrathOfTheStorm, rulesetDefender);
 
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
@@ -379,30 +413,6 @@ public sealed class DomainTempest : AbstractSubclass
             {
                 attacker.SpendActionType(ActionDefinitions.ActionType.Reaction);
             }
-        }
-
-        public int HandlerPriority => 30;
-
-        public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect)
-        {
-            var rulesetHelper = helper.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerWrathOfTheStorm, rulesetHelper);
-
-            _isValid = helper == defender &&
-                       helper.IsWithinRange(attacker, 1) &&
-                       helper.CanReact() &&
-                       helper.CanPerceiveTarget(attacker) &&
-                       rulesetHelper.GetRemainingUsesOfPower(usablePower) > 0;
-
-            yield break;
         }
     }
 
