@@ -51,6 +51,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                 Sprites.GetSprite("PowerLight", Resources.PowerLight, 256, 128))
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(Light.EffectDescription)
+            .AddCustomSubFeatures(new CustomBehaviorLight())
             .AddToDB();
 
         var featureSetLight = FeatureDefinitionFeatureSetBuilder
@@ -300,6 +301,42 @@ public sealed class RangerLightBearer : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    //
+    // Light
+    //
+
+    private sealed class CustomBehaviorLight : ICustomLevelUpLogic, IPowerOrSpellFinishedByMe
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            var repertoire = hero.SpellRepertoires.FirstOrDefault(x =>
+                x.SpellCastingClass == CharacterClassDefinitions.Ranger);
+
+            repertoire?.knownCantrips.Add(Light);
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var rulesetRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
+                x.SpellCastingClass == CharacterClassDefinitions.Ranger);
+            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectSpell(rulesetCharacter, rulesetRepertoire, Light, 0, false);
+            
+            effectSpell.TrackedLightSourceGuids.AddRange(action.ActionParams.RulesetEffect.TrackedLightSourceGuids);
+            action.ActionParams.RulesetEffect.TrackedLightSourceGuids.Clear();
+            rulesetCharacter.SpellsCastByMe.Add(effectSpell);
+            
+            yield break;
+        }
+    }
 
     //
     // Blessed Warrior
