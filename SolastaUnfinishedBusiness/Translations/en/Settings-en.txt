@@ -255,7 +255,7 @@ ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RecipesInDm=Recipes in DM
 ModUi/&RelicForgeries=Relic Forgeries
 ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveBugVisualModels1=Replace spider like models with bear like models in the game for <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveBugVisualModels=Replace spider like models with bear like models in the game for <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time and also force a strength check to break free from the vines
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Remove school restrictions from <color=#D89555>Shadowcaster</color>
