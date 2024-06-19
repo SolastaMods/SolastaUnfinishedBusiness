@@ -248,7 +248,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             .SetConditionForm(conditionEyeOfTheStorm, ConditionForm.ConditionOperation.Add)
             .Build();
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
 
@@ -287,7 +287,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
 
     internal sealed class PowerOrSpellFinishedByMeTempestFury : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {
@@ -349,7 +349,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionEyeOfTheStorm) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {

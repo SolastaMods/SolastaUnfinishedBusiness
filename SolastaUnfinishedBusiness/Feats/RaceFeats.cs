@@ -1473,7 +1473,7 @@ internal static class RaceFeats
             return false;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var targetCharacter = action.ActionParams.TargetCharacters[0];

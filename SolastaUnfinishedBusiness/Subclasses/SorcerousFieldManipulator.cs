@@ -227,7 +227,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
     private sealed class CustomBehaviorDisplacement : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetEffect = action.ActionParams.RulesetEffect;
 
@@ -311,7 +311,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     private sealed class PowerOrSpellFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
         : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {

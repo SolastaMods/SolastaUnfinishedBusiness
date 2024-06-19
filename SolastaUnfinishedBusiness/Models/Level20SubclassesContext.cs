@@ -1341,7 +1341,7 @@ internal static class Level20SubclassesContext
         private const string ConditionSilenced = "ConditionSilenced";
         private static GameLocationCharacter _attacker;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
 
@@ -1504,7 +1504,7 @@ internal static class Level20SubclassesContext
     private sealed class PowerOrSpellFinishedByMeStrikeOfChaos(FeatureDefinitionPower powerFortuneFavorTheBold)
         : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -2017,7 +2017,7 @@ internal static class Level20SubclassesContext
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (action.ActionParams.TargetCharacters.Count == 0)
             {
@@ -2096,7 +2096,7 @@ internal static class Level20SubclassesContext
     private sealed class PowerOrSpellFinishedByMeQuiveringPalm(ConditionDefinition conditionDefinition)
         : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (Gui.Battle == null)
             {
@@ -2130,7 +2130,7 @@ internal static class Level20SubclassesContext
 
     private sealed class PowerOrSpellFinishedByMeDirtyFighting : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {

@@ -806,7 +806,7 @@ internal static class InvocationsBuilders
         ConditionDefinition conditionPerniciousCloakSelf)
         : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var rulesetEffectPower = EffectHelpers.GetAllEffectsBySourceGuid(rulesetCharacter.Guid)
@@ -1115,7 +1115,7 @@ internal static class InvocationsBuilders
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {
@@ -1309,7 +1309,7 @@ internal static class InvocationsBuilders
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {

@@ -6,5 +6,5 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 public interface IPowerOrSpellFinishedByMe
 {
     [UsedImplicitly]
-    public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition);
+    public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition);
 }

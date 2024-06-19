@@ -306,7 +306,7 @@ internal static partial class SpellBuilders
     {
         private int _remainingRounds;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -579,7 +579,7 @@ internal static partial class SpellBuilders
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionRingOfBladesFree) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerRingOfBlades, rulesetCharacter);
@@ -681,7 +681,7 @@ internal static partial class SpellBuilders
     private sealed class PowerOrSpellFinishedByMeSpellRingOfBlades(ConditionDefinition conditionRingOfBlades)
         : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
             {

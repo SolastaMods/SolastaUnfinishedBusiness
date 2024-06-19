@@ -161,7 +161,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
     private sealed class PowerOrSpellFinishedByMeDarkness : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var actingCharacter = action.ActingCharacter;

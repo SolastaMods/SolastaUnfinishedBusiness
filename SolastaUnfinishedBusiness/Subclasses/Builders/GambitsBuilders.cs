@@ -1069,7 +1069,7 @@ internal static class GambitsBuilders
     {
         private const int DaggerCloseRange = 4;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.RangeHit;
 
@@ -1224,7 +1224,7 @@ internal static class GambitsBuilders
             return true;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var targetCharacters = action.ActionParams.TargetCharacters;
             var ally = targetCharacters[0];
@@ -1505,7 +1505,7 @@ internal static class GambitsBuilders
             return true;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var caster = actingCharacter.RulesetCharacter;
@@ -1936,7 +1936,7 @@ internal static class GambitsBuilders
             }
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
 
@@ -2036,7 +2036,7 @@ internal static class GambitsBuilders
             return false;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.MeleeHit;
 

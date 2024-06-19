@@ -860,7 +860,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
             return true;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var targetCharacters = action.ActionParams.TargetCharacters;
             var attacker = targetCharacters[0];

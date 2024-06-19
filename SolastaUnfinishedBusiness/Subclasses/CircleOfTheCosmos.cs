@@ -707,7 +707,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionArcherNoCost) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
@@ -1332,7 +1332,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower magicEffect) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(magicEffect, rulesetCharacter);
@@ -1347,7 +1347,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower magicEffect) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;

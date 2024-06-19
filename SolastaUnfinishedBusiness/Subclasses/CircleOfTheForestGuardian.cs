@@ -195,7 +195,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
     private sealed class PowerOrSpellFinishedByMeBarkWard(FeatureDefinitionPower powerSuperiorBarkWard)
         : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             ApplyTemporaryHitPoints(action.ActingCharacter, powerSuperiorBarkWard);
 

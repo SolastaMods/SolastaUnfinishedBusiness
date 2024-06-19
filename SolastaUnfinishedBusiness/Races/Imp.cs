@@ -361,7 +361,7 @@ internal static class RaceImpBuilder
 
     private class PowerOrSpellFinishedByMePowerImpAssist(string enemyCondition) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -411,9 +411,9 @@ internal static class RaceImpBuilder
 
     private class PowerImpPassageMagic(IPowerOrSpellFinishedByMe powerImpAssist) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            yield return powerImpAssist.OnMagicEffectFinishedByMe(action, baseDefinition);
+            yield return powerImpAssist.OnPowerOrSpellFinishedByMe(action, baseDefinition);
 
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -510,9 +510,9 @@ internal static class RaceImpBuilder
 
     private class PowerImpHospitalityMagic(IPowerOrSpellFinishedByMe parent) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            yield return parent.OnMagicEffectFinishedByMe(action, baseDefinition);
+            yield return parent.OnPowerOrSpellFinishedByMe(action, baseDefinition);
 
             var actingCharacter = action.ActingCharacter;
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;

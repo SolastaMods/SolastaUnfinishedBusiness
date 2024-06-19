@@ -458,7 +458,7 @@ public sealed class MartialWarlord : AbstractSubclass
             }
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
 

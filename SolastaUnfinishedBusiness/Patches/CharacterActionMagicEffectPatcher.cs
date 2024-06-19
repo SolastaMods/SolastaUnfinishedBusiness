@@ -524,7 +524,7 @@ public static class CharacterActionMagicEffectPatcher
 
             if (magicEffectFinishedByMe != null)
             {
-                yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
+                yield return magicEffectFinishedByMe.OnPowerOrSpellFinishedByMe(__instance, baseDefinition);
             }
 
             //PATCH: support for `IMagicEffectFinishedByMeAny`

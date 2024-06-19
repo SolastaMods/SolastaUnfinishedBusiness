@@ -884,7 +884,7 @@ internal static partial class SpellBuilders
         ConditionDefinition conditionLeap,
         CustomBehaviorChaosBolt damageDeterminationBehavior) : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
 
@@ -1274,7 +1274,7 @@ internal static partial class SpellBuilders
 
     private sealed class PowerOrSpellFinishedByMeIceBlade : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {
@@ -1952,7 +1952,7 @@ internal static partial class SpellBuilders
     private sealed class PowerOrSpellFinishedByMeSanctuary(ConditionDefinition conditionSanctuary)
         : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
             {

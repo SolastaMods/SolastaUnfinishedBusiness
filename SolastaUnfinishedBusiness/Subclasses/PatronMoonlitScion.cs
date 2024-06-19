@@ -417,7 +417,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionFree) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
@@ -513,7 +513,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
     private sealed class CustomBehaviorMidnightBlessing(ConditionDefinition conditionMidnightBlessing)
         : IPowerOrSpellFinishedByMe, IPreventRemoveConcentrationOnDamage
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;

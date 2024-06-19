@@ -1012,7 +1012,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     private class CustomBehaviorRefundCannon : IValidatePowerUse, IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
@@ -1062,7 +1062,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
         FeatureDefinitionPower powerEldritchDetonation)
         : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var selectedTarget = action.ActionParams.TargetCharacters[0];
@@ -1105,7 +1105,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
     // can only dismiss the cannon after it fully detonates
     private sealed class PowerOrSpellFinishedByMeEldritchDetonationDismiss : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 

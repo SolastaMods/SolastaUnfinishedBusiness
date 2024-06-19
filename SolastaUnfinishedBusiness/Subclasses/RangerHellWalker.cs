@@ -321,7 +321,7 @@ public sealed class RangerHellWalker : AbstractSubclass
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (Gui.Battle == null)
             {

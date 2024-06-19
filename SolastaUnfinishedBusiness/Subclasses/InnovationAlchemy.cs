@@ -842,7 +842,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
     private sealed class CustomBehaviorRefundAlchemyPool(FeatureDefinitionPower powerAlchemyPool, int slotLevel)
         : IValidatePowerUse, IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);

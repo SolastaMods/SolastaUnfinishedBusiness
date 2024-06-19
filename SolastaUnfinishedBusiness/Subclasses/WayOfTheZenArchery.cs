@@ -241,7 +241,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
     private sealed class PowerOrSpellFinishedByMeHailOfArrows : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {

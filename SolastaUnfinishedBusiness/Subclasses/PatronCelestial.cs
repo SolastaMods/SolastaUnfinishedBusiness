@@ -298,7 +298,7 @@ public class PatronCelestial : AbstractSubclass
 
     private sealed class PowerOrSpellFinishedByMeCelestialResistance : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var allies =

@@ -370,7 +370,7 @@ public sealed class RangerLightBearer : AbstractSubclass
     private sealed class PowerOrSpellFinishedByMeBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
         : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
                 {
@@ -425,7 +425,7 @@ public sealed class RangerLightBearer : AbstractSubclass
 
     private sealed class PowerOrSpellFinishedByMeAngelicForm : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger);

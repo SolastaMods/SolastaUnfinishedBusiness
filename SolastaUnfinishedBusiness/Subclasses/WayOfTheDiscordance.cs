@@ -480,7 +480,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         FeatureDefinitionPower powerTurmoil)
         : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             // Discordance Damage
             var targets = action.actionParams.TargetCharacters

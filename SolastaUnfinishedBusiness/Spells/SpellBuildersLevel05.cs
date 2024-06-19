@@ -460,7 +460,7 @@ internal static partial class SpellBuilders
     // ContextualFormation is only used by the game when spawning new locations so it's safe in this context
     private sealed class PowerOrSpellFinishedByMeSteelWhirlwind : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var visibilityService =
@@ -899,7 +899,7 @@ internal static partial class SpellBuilders
             }
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;

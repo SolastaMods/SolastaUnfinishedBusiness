@@ -1065,7 +1065,7 @@ internal static partial class SpellBuilders
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition spell)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition spell)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
             {

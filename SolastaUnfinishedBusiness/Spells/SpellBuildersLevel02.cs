@@ -625,7 +625,7 @@ internal static partial class SpellBuilders
         FeatureDefinitionPower powerPool,
         params FeatureDefinitionPower[] powers) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -1165,7 +1165,7 @@ internal static partial class SpellBuilders
         private int _spellCastingAbilityModifier;
         private readonly List<GameLocationCharacter> _targets = [];
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;

@@ -2142,7 +2142,7 @@ internal static class MeleeCombatFeats
 
     private sealed class PowerOrSpellFinishedByMeWhirlWindAttack : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {

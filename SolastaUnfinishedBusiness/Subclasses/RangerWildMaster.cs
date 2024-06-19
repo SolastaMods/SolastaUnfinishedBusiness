@@ -479,7 +479,7 @@ public sealed class RangerWildMaster : AbstractSubclass
 
     private sealed class PowerOrSpellFinishedByMeKillCommand : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActingCharacter.UsedSpecialFeatures.TryAdd($"Power{Name}KillCommand", 1);
 

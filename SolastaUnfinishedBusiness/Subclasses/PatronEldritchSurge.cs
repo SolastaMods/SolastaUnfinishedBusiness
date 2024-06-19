@@ -166,7 +166,7 @@ public class PatronEldritchSurge : AbstractSubclass
     {
         private string ReplacedAbilityScore { get; } = replacedAbilityScore;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 

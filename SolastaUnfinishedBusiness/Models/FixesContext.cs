@@ -662,7 +662,7 @@ internal static class FixesContext
     private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe,
         IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action.RolledSaveThrow &&
                 action.SaveOutcome == RollOutcome.Failure)

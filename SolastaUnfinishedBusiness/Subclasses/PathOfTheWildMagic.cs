@@ -1359,7 +1359,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     {
         private const string TagUnstableBacklash = "UnstableBacklash";
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActingCharacter.UsedSpecialFeatures.TryAdd(TagUnstableBacklash, 0);
 

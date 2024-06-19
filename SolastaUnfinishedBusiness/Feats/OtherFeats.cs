@@ -683,7 +683,7 @@ internal static class OtherFeats
             return false;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
@@ -1183,7 +1183,7 @@ internal static class OtherFeats
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionAcrobat) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
