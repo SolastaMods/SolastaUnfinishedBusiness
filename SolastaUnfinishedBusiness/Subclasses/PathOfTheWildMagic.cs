@@ -502,6 +502,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     ConditionInterruption.RageStop)
                 .SetPossessive()
                 .SetFeatures(featureWildSurgeRetributionMelee, featureWildSurgeRetributionRanged)
+                .AddCustomSubFeatures(new WildSurgeRetributionMagicEffectBeforeHitConfirmedOnMe(powerWildSurgeRetribution))
                 .AddToDB();
 
             return new WildSurgeEffect
@@ -691,7 +692,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                                 .Create()
                                 .SetConditionForm(conditionWildSurgeBoltFree,
                                     ConditionForm.ConditionOperation.Remove,
-                                    true)
+                                    true, true)
                                 .HasSavingThrow(EffectSavingThrowType.Negates)
                                 .Build())
                         .UseQuickAnimations()
@@ -751,7 +752,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 dieRoll[0] =
                     rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
             }
-
+            
             var wildSurgeEffect = _wildSurgeEffects.ElementAt(dieRoll[0] - 1);
 
             if (wildSurgeEffect.Condition)
@@ -1146,6 +1147,26 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
                 ServiceRepository.GetService<ICommandService>()?
                     .ExecuteInstantSingleAction(actionParams);
+            }
+        }
+        private sealed class WildSurgeRetributionMagicEffectBeforeHitConfirmedOnMe(FeatureDefinitionPower retaliatePower) : IMagicEffectBeforeHitConfirmedOnMe
+        {
+
+            public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+                GameLocationBattleManager battleManager,
+                GameLocationCharacter attacker,
+                GameLocationCharacter defender,
+                ActionModifier actionModifier,
+                RulesetEffect rulesetEffect,
+                List<EffectForm> actualEffectForms,
+                bool firstTarget,
+                bool criticalHit)
+            {
+                if (attacker.RulesetCharacter.IsDeadOrDying || defender.RulesetCharacter.IsDeadOrDying)
+                {
+                    yield break;
+                }
+                battleManager.PrepareAndExecuteRetaliateAction(defender, attacker, retaliatePower);
             }
         }
     }
