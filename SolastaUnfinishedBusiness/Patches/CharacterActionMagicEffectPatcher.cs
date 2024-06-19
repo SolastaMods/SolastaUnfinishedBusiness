@@ -86,11 +86,11 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             //PATCH: supports `IMagicEffectInitiatedByMe`
-            var magicEffectInitiatedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectInitiatedByMe>();
+            var magicEffectInitiatedByMe = baseDefinition.GetFirstSubFeatureOfType<IPowerOrSpellInitiatedByMe>();
 
             if (magicEffectInitiatedByMe != null)
             {
-                yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(__instance, baseDefinition);
+                yield return magicEffectInitiatedByMe.OnPowerOrSpellInitiatedByMe(__instance, baseDefinition);
             }
 
             // END PATCH

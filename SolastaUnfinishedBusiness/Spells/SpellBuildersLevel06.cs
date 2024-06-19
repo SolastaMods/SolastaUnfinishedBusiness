@@ -601,10 +601,10 @@ internal static partial class SpellBuilders
         FeatureDefinitionPower powerRingOfBlades,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionRingOfBlades)
-        : IMagicEffectInitiatedByMe, IModifyEffectDescription
+        : IPowerOrSpellInitiatedByMe, IModifyEffectDescription
     {
         // STEP 1: change attackRollModifier to use spell casting feature
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 

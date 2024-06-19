@@ -225,7 +225,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     // Displacement
     //
 
-    private sealed class CustomBehaviorDisplacement : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorDisplacement : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
@@ -237,7 +237,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             yield break;
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetEffect = action.ActionParams.RulesetEffect;
             var actionParams = action.ActionParams;

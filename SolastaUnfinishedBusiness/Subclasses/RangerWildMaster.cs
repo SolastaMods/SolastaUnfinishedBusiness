@@ -350,11 +350,11 @@ public sealed class RangerWildMaster : AbstractSubclass
     // Beast Companion Bear
     //
 
-    private sealed class MagicEffectInitiatedByMeBeastCompanionBear(
+    private sealed class PowerOrSpellInitiatedByMeBeastCompanionBear(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionBearHitPoints) : IMagicEffectInitiatedByMe
+        ConditionDefinition conditionBearHitPoints) : IPowerOrSpellInitiatedByMe
     {
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
@@ -596,7 +596,7 @@ public sealed class RangerWildMaster : AbstractSubclass
         power.AddCustomSubFeatures(
             SkipEffectRemovalOnLocationChange.Always,
             new ModifyEffectDescriptionSummonBeastCompanion(power, beastCompanion03, beastCompanion11),
-            new MagicEffectInitiatedByMeBeastCompanionBear(conditionBearHitPoints));
+            new PowerOrSpellInitiatedByMeBeastCompanionBear(conditionBearHitPoints));
 
         return power;
     }

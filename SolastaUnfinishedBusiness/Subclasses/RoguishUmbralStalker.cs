@@ -309,7 +309,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     private sealed class CustomBehaviorShadowStride(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerShadowStride,
-        bool isDashing) : IFilterTargetingPosition, IMagicEffectInitiatedByMe, IModifyEffectDescription
+        bool isDashing) : IFilterTargetingPosition, IPowerOrSpellInitiatedByMe, IModifyEffectDescription
     {
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
@@ -320,7 +320,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 .MyComputeValidPositions(LocationDefinitions.LightingState.Bright, distance);
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
 

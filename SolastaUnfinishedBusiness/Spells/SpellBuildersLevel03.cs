@@ -504,7 +504,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class ModifyEffectDescriptionAshardalonStride(params ConditionDefinition[] conditions)
-        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -514,7 +514,7 @@ internal static partial class SpellBuilders
             yield break;
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition =
                 conditions[action.ActionParams.RulesetEffect.EffectLevel - 3];
@@ -698,7 +698,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorBoomingStep(FeatureDefinitionPower powerExplode)
-        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
+        : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         private readonly List<GameLocationCharacter> _targets = [];
 
@@ -755,7 +755,7 @@ internal static partial class SpellBuilders
             yield break;
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();

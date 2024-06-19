@@ -1028,9 +1028,9 @@ internal static class GambitsBuilders
     //
     // Rally
     //
-    private sealed class Rally(FeatureDefinitionPower powerRallyActivate) : IMagicEffectInitiatedByMe
+    private sealed class Rally(FeatureDefinitionPower powerRallyActivate) : IPowerOrSpellInitiatedByMe
     {
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var character = action.ActingCharacter.RulesetCharacter;
             var intelligence = character.TryGetAttributeValue(AttributeDefinitions.Intelligence);
@@ -1065,7 +1065,7 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class SwiftThrow(ItemDefinition concealedDagger, FeatureDefinitionPower powerSwiftThrow)
-        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IModifyAttackActionModifier
+        : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe, IModifyAttackActionModifier
     {
         private const int DaggerCloseRange = 4;
 
@@ -1110,7 +1110,7 @@ internal static class GambitsBuilders
             Attack(actingCharacter, target, attackModeCopy, action.ActionParams.ActionModifiers[0]);
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.Distance;
 
@@ -1148,7 +1148,7 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class TacticalStrike :
-        IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
+        IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => true;
 
@@ -1250,7 +1250,7 @@ internal static class GambitsBuilders
             actingCharacter.BurnOneMainAttack();
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var targetCharacters = action.ActionParams.TargetCharacters;
 
@@ -2011,7 +2011,7 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class OverwhelmingAttack :
-        IFilterTargetingCharacter, IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        IFilterTargetingCharacter, IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe
     {
         public bool EnforceFullSelection => true;
 
@@ -2080,7 +2080,7 @@ internal static class GambitsBuilders
             actingCharacter.BurnOneMainAttack();
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.Distance;
 

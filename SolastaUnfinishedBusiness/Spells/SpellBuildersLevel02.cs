@@ -1160,7 +1160,7 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorWitherAndBloom(
         SpellDefinition spellWitherAndBloom,
-        ConditionDefinition conditionWitherAndBloom) : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        ConditionDefinition conditionWitherAndBloom) : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe
     {
         private int _spellCastingAbilityModifier;
         private readonly List<GameLocationCharacter> _targets = [];
@@ -1237,7 +1237,7 @@ internal static partial class SpellBuilders
             }
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             _targets.Clear();
 

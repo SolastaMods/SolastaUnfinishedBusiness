@@ -1336,7 +1336,7 @@ internal static class Level20SubclassesContext
 
     #region Cleric
 
-    private sealed class CustomBehaviorWordOfLaw : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorWordOfLaw : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe
     {
         private const string ConditionSilenced = "ConditionSilenced";
         private static GameLocationCharacter _attacker;
@@ -1356,7 +1356,7 @@ internal static class Level20SubclassesContext
             defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
 

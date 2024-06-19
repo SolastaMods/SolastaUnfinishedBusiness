@@ -972,9 +972,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     private sealed class CustomBehaviorForceCasterSpellDC(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerFlamethrower) : IMagicEffectInitiatedByMe, IModifyEffectDescription
+        FeatureDefinitionPower powerFlamethrower) : IPowerOrSpellInitiatedByMe, IModifyEffectDescription
     {
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action.ActionParams.activeEffect is RulesetEffectPower rulesetEffectPower)
             {

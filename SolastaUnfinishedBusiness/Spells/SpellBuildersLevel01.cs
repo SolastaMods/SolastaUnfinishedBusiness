@@ -863,7 +863,7 @@ internal static partial class SpellBuilders
         var damageDeterminationBehavior =
             new CustomBehaviorChaosBolt(spell, powerLeap, conditionLeap, conditionMark, powerPool, [.. powers]);
         var initAndFinishBehavior =
-            new MagicEffectInitiatedAndFinishedByMeChaosBolt(conditionLeap, damageDeterminationBehavior);
+            new PowerOrSpellInitiatedAndFinishedByMeChaosBolt(conditionLeap, damageDeterminationBehavior);
         var filterTargetBehavior =
             new FilterTargetingCharacterChaosBolt(conditionMark);
 
@@ -879,10 +879,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class MagicEffectInitiatedAndFinishedByMeChaosBolt(
+    private sealed class PowerOrSpellInitiatedAndFinishedByMeChaosBolt(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionLeap,
-        CustomBehaviorChaosBolt damageDeterminationBehavior) : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        CustomBehaviorChaosBolt damageDeterminationBehavior) : IPowerOrSpellInitiatedByMe, IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -902,7 +902,7 @@ internal static partial class SpellBuilders
                 "Spell/&ChaosBoltTitle", "Feedback/&ChaosBoltGainLeap");
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
 
