@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
-using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 
@@ -17,6 +16,13 @@ internal enum AttackModeOrder
 {
     Start,
     End
+}
+
+internal interface IAddExtraAttack
+{
+    // sort sub features [used on race claw attacks]
+    public int Priority();
+    public void TryAddExtraAttack(RulesetCharacter character);
 }
 
 internal abstract class AddExtraAttackBase(
