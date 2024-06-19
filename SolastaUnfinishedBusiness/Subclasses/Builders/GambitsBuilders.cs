@@ -1069,6 +1069,31 @@ internal static class GambitsBuilders
     {
         private const int DaggerCloseRange = 4;
 
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            string effectName,
+            ref ActionModifier attackModifier)
+        {
+            if (effectName != powerSwiftThrow.Name)
+            {
+                return;
+            }
+
+            var glcMyself = GameLocationCharacter.GetFromActor(myself);
+            var glcDefender = GameLocationCharacter.GetFromActor(defender);
+
+            if (glcMyself != null &&
+                glcDefender != null &&
+                !glcMyself.IsWithinRange(glcDefender, DaggerCloseRange))
+            {
+                attackModifier.AttackAdvantageTrends.Add(
+                    new TrendInfo(-1, FeatureSourceType.Equipment, "Tooltip/&ProximityLongRangeTitle", null));
+            }
+        }
+
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.RangeHit;
@@ -1115,31 +1140,6 @@ internal static class GambitsBuilders
             action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.Distance;
 
             yield break;
-        }
-
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            string effectName,
-            ref ActionModifier attackModifier)
-        {
-            if (effectName != powerSwiftThrow.Name)
-            {
-                return;
-            }
-
-            var glcMyself = GameLocationCharacter.GetFromActor(myself);
-            var glcDefender = GameLocationCharacter.GetFromActor(defender);
-
-            if (glcMyself != null &&
-                glcDefender != null &&
-                !glcMyself.IsWithinRange(glcDefender, DaggerCloseRange))
-            {
-                attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(-1, FeatureSourceType.Equipment, "Tooltip/&ProximityLongRangeTitle", null));
-            }
         }
     }
 
@@ -1872,7 +1872,8 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class CoordinatedAttack :
-        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IPowerOrSpellFinishedByMe
+        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IPowerOrSpellFinishedByMe,
+        IIgnoreInvisibilityInterruptionCheck
     {
         public bool EnforceFullSelection => false;
 

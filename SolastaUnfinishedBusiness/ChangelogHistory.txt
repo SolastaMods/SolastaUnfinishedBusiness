@@ -1,6 +1,7 @@
 1.5.97.16:
 
 - fixed Circle of the Night not consuming 2 wildshape points with elementals, spider, and minotaur
+- fixed Coordinated Attack gambit, and Strategic Reposition feature to not break invisibility
 - fixed Patron Hexblade using character level instead of class level on hex received healing
 - fixed Wither and Bloom interaction with Twinned metamagic to respect the one target only rule
 - improved mod performance by refactoring some feats, spells, and subclasses custom behaviors
