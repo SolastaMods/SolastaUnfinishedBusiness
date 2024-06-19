@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -232,24 +231,6 @@ public static class CharacterActionPatcher
 
                         break;
                     }
-                }
-            }
-
-            //PATCH: support for `IActionFinishedByContender`
-            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var contenders =
-                (Gui.Battle?.AllContenders ??
-                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .ToList();
-
-            foreach (var target in contenders)
-            {
-                var rulesetTarget = target.RulesetCharacter;
-
-                foreach (var actionFinishedByContender in rulesetTarget
-                             .GetSubFeaturesByType<IActionFinishedByContender>())
-                {
-                    yield return actionFinishedByContender.OnActionFinishedByContender(__instance, target);
                 }
             }
 
