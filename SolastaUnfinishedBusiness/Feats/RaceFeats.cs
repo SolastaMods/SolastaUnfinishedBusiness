@@ -1161,17 +1161,17 @@ internal static class RaceFeats
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
+            if (characterAction is not CharacterActionDodge)
+            {
+                yield break;
+            }
+
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (!actionManager || !battleManager)
-            {
-                yield break;
-            }
-
-            if (characterAction.ActionId is not ActionDefinitions.Id.Dodge)
             {
                 yield break;
             }

@@ -210,15 +210,15 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
 
     private class ActionFinishedByMeRecklessAbandon : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            var character = characterAction.ActingCharacter;
-            var rulesetCharacter = character.RulesetCharacter;
-
-            if (characterAction.ActionId != Id.RecklessAttack)
+            if (action is not CharacterActionRecklessAttack)
             {
                 yield break;
             }
+
+            var character = action.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
 
             if (!rulesetCharacter.HasConditionOfTypeOrSubType(ConditionRaging))
             {
