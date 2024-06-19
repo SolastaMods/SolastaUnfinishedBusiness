@@ -2632,7 +2632,7 @@ internal static class OtherFeats
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
                         .SetConditionForm(ConditionDefinitions.ConditionPoisoned,
                             ConditionForm.ConditionOperation.Add)
                         .Build())
