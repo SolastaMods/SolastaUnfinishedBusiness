@@ -502,7 +502,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     ConditionInterruption.RageStop)
                 .SetPossessive()
                 .SetFeatures(featureWildSurgeRetributionMelee, featureWildSurgeRetributionRanged)
-                .AddCustomSubFeatures(new WildSurgeRetributionMagicEffectBeforeHitConfirmedOnMe(powerWildSurgeRetribution))
+                .AddCustomSubFeatures(
+                    new WildSurgeRetributionMagicEffectBeforeHitConfirmedOnMe(powerWildSurgeRetribution))
                 .AddToDB();
 
             return new WildSurgeEffect
@@ -752,7 +753,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 dieRoll[0] =
                     rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
             }
-            
+
             var wildSurgeEffect = _wildSurgeEffects.ElementAt(dieRoll[0] - 1);
 
             if (wildSurgeEffect.Condition)
@@ -1149,9 +1150,10 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     .ExecuteInstantSingleAction(actionParams);
             }
         }
-        private sealed class WildSurgeRetributionMagicEffectBeforeHitConfirmedOnMe(FeatureDefinitionPower retaliatePower) : IMagicEffectBeforeHitConfirmedOnMe
-        {
 
+        private sealed class WildSurgeRetributionMagicEffectBeforeHitConfirmedOnMe(
+            FeatureDefinitionPower retaliatePower) : IMagicEffectBeforeHitConfirmedOnMe
+        {
             public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
                 GameLocationBattleManager battleManager,
                 GameLocationCharacter attacker,
@@ -1166,6 +1168,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 {
                     yield break;
                 }
+
                 battleManager.PrepareAndExecuteRetaliateAction(defender, attacker, retaliatePower);
             }
         }
@@ -1380,13 +1383,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     {
         private const string TagUnstableBacklash = "UnstableBacklash";
 
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            action.ActingCharacter.UsedSpecialFeatures.TryAdd(TagUnstableBacklash, 0);
-
-            yield break;
-        }
-
         public IEnumerator OnMagicEffectFinishedOnMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
@@ -1420,6 +1416,13 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             defender.UsedSpecialFeatures.Remove(TagUnstableBacklash);
 
             yield return wildSurgeHandler.HandleWildSurge(defender, attacker);
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActingCharacter.UsedSpecialFeatures.TryAdd(TagUnstableBacklash, 0);
+
+            yield break;
         }
     }
 
