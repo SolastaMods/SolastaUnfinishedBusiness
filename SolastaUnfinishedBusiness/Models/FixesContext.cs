@@ -593,8 +593,10 @@ internal static class FixesContext
                 {
                     var effectDescription = spell.SpellDefinition.effectDescription;
 
-                    if (effectDescription.TargetType is not (TargetType.Individuals or TargetType.IndividualsUnique)
-                        || spell.ComputeTargetParameter() == 1)
+                    // handle Wither and Bloom special case
+                    if (spell.Name != "WitherAndBloom" &&
+                        (effectDescription.TargetType is not (TargetType.Individuals or TargetType.IndividualsUnique) ||
+                         spell.ComputeTargetParameter() <= 1))
                     {
                         return;
                     }
