@@ -775,15 +775,13 @@ public static class CharacterActionMagicEffectPatcher
                     __instance.AttackRollOutcome = outcome;
                     __instance.AttackSuccessDelta = successDelta;
 
-                    var rulesetDefender = rulesetTarget;
-
                     //PATCH: process ExtraConditionInterruption.AttackedNotBySource
-                    if (!rulesetDefender.matchingInterruption)
+                    if (!rulesetTarget.matchingInterruption)
                     {
-                        rulesetDefender.matchingInterruption = true;
-                        rulesetDefender.matchingInterruptionConditions.Clear();
+                        rulesetTarget.matchingInterruption = true;
+                        rulesetTarget.matchingInterruptionConditions.Clear();
 
-                        foreach (var rulesetCondition in rulesetDefender.conditionsByCategory
+                        foreach (var rulesetCondition in rulesetTarget.conditionsByCategory
                                      .SelectMany(keyValuePair => keyValuePair.Value
                                          .Where(rulesetCondition =>
                                              rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
@@ -791,16 +789,16 @@ public static class CharacterActionMagicEffectPatcher
                                                      .AttackedNotBySource) &&
                                              rulesetCondition.SourceGuid != actingCharacter.Guid)))
                         {
-                            rulesetDefender.matchingInterruptionConditions.Add(rulesetCondition);
+                            rulesetTarget.matchingInterruptionConditions.Add(rulesetCondition);
                         }
 
-                        for (var index = rulesetDefender.matchingInterruptionConditions.Count - 1; index >= 0; --index)
+                        for (var index = rulesetTarget.matchingInterruptionConditions.Count - 1; index >= 0; --index)
                         {
-                            rulesetDefender.RemoveCondition(rulesetDefender.matchingInterruptionConditions[index]);
+                            rulesetTarget.RemoveCondition(rulesetTarget.matchingInterruptionConditions[index]);
                         }
 
-                        rulesetDefender.matchingInterruptionConditions.Clear();
-                        rulesetDefender.matchingInterruption = false;
+                        rulesetTarget.matchingInterruptionConditions.Clear();
+                        rulesetTarget.matchingInterruption = false;
                     }
                     //END PATCH
 
