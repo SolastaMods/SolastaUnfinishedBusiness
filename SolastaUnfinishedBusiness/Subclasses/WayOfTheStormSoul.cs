@@ -37,7 +37,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
             .SetSpecificDamageType(DamageTypeLightning)
             .SetImpactParticleReference(LightningBolt)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeAnyDiscipleOfStorms())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeDiscipleOfStorms())
             .AddToDB();
 
         // LEVEL 06
@@ -202,9 +202,9 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
     // Disciple of Storms
     //
 
-    private sealed class MagicEffectFinishedByMeAnyDiscipleOfStorms : IMagicEffectFinishedByMeAny
+    private sealed class MagicEffectFinishedByMeDiscipleOfStorms : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

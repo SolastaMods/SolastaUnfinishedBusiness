@@ -1294,7 +1294,7 @@ internal static class RaceFeats
 
         power.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new MagicEffectFinishedByMeAnyFlamesOfPhlegethos(power));
+            new MagicEffectFinishedByMeFlamesOfPhlegethos(power));
 
         var dieRollModifierFire = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}Fire")
@@ -1326,10 +1326,10 @@ internal static class RaceFeats
             "FeatGroupFlamesOfPhlegethos", Name, ValidatorsFeat.IsTiefling, flamesCha, flamesInt);
     }
 
-    private sealed class MagicEffectFinishedByMeAnyFlamesOfPhlegethos(FeatureDefinitionPower power)
-        : IMagicEffectFinishedByMeAny
+    private sealed class MagicEffectFinishedByMeFlamesOfPhlegethos(FeatureDefinitionPower power)
+        : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -1643,7 +1643,7 @@ internal static class RaceFeats
         ConditionDefinition conditionDefinition)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
             IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe,
-            IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMeAny
+            IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe
     {
         #region Additional Damage
 
@@ -1739,7 +1739,7 @@ internal static class RaceFeats
             yield break;
         }
 
-        public IEnumerator OnMagicEffectFinishedOnMeAny(
+        public IEnumerator OnMagicEffectFinishedOnMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

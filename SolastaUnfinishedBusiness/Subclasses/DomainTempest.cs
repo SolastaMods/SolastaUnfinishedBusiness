@@ -323,9 +323,9 @@ public sealed class DomainTempest : AbstractSubclass
     }
 
     private sealed class CustomBehaviorWrathOfTheStorm(FeatureDefinitionPower powerWrathOfTheStorm)
-        : IMagicEffectFinishedOnMeAny, IPhysicalAttackFinishedOnMe
+        : IMagicEffectFinishedOnMe, IPhysicalAttackFinishedOnMe
     {
-        public IEnumerator OnMagicEffectFinishedOnMeAny(
+        public IEnumerator OnMagicEffectFinishedOnMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

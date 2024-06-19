@@ -94,7 +94,7 @@ public sealed class CircleOfTheAncientForest : AbstractSubclass
         var lifeSapFeature = FeatureDefinitionBuilder
             .Create(LifeSapName)
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeAnyAncientForestLifeSap())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeAncientForestLifeSap())
             .AddToDB();
 
         var lightAffinityAncientForest = FeatureDefinitionLightAffinityBuilder
@@ -331,9 +331,9 @@ public sealed class CircleOfTheAncientForest : AbstractSubclass
             .AddToDB();
     }
 
-    private sealed class MagicEffectFinishedByMeAnyAncientForestLifeSap : IMagicEffectFinishedByMeAny
+    private sealed class MagicEffectFinishedByMeAncientForestLifeSap : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

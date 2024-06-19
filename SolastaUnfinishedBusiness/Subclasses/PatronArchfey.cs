@@ -336,7 +336,7 @@ public class PatronArchfey : AbstractSubclass
         FeatureDefinitionPower powerMistyEscape,
         ConditionDefinition conditionMistyEscape)
         : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe,
-            IMagicEffectFinishedOnMeAny, IPhysicalAttackFinishedOnMe,
+            IMagicEffectFinishedOnMe, IPhysicalAttackFinishedOnMe,
             IIgnoreInvisibilityInterruptionCheck
     {
         private const string TagMistyEscape = "MistyEscape";
@@ -354,7 +354,7 @@ public class PatronArchfey : AbstractSubclass
             yield return HandleReaction(battleManager, attacker, defender);
         }
 
-        public IEnumerator OnMagicEffectFinishedOnMeAny(
+        public IEnumerator OnMagicEffectFinishedOnMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

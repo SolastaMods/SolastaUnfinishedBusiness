@@ -1355,7 +1355,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
     }
 
     private sealed class UnstableBackslashHandler(WildSurgeHandler wildSurgeHandler)
-        : IMagicEffectFinishedOnMeAny, IPhysicalAttackFinishedOnMe, IPowerOrSpellFinishedByMe
+        : IMagicEffectFinishedOnMe, IPhysicalAttackFinishedOnMe, IPowerOrSpellFinishedByMe
     {
         private const string TagUnstableBacklash = "UnstableBacklash";
 
@@ -1366,7 +1366,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             yield break;
         }
 
-        public IEnumerator OnMagicEffectFinishedOnMeAny(
+        public IEnumerator OnMagicEffectFinishedOnMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

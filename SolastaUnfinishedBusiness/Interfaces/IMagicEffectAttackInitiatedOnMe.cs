@@ -10,7 +10,8 @@ public interface IMagicEffectAttackInitiatedOnMe
     IEnumerator OnMagicEffectAttackInitiatedOnMe(
         CharacterActionMagicEffect action,
         RulesetEffect activeEffect,
-        GameLocationCharacter target,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
         ActionModifier attackModifier,
         List<EffectForm> actualEffectForms,
         bool firstTarget,

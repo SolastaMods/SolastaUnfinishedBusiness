@@ -82,7 +82,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddToDB();
 
         powerConstellationForm.AddCustomSubFeatures(
-            new MagicEffectFinishedByMeAnyConstellationForm(powerConstellationForm));
+            new MagicEffectFinishedByMeConstellationForm(powerConstellationForm));
 
         var powerArcherConstellationForm = BuildArcher(ActivationTime.BonusAction, powerConstellationForm);
         var powerChaliceConstellationForm = BuildChalice(ActivationTime.BonusAction, powerConstellationForm);
@@ -459,7 +459,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures()
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeAnyChalice(powerChalice, conditionChaliceHealing))
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeChalice(powerChalice, conditionChaliceHealing))
             .AddToDB();
 
         var conditionChalice14 = ConditionDefinitionBuilder
@@ -468,7 +468,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeAnyChalice(powerChalice, conditionChaliceHealing))
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeChalice(powerChalice, conditionChaliceHealing))
             .AddToDB();
 
         // Chalice Main
@@ -614,10 +614,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     // Constellation Form
     //
 
-    private sealed class MagicEffectFinishedByMeAnyConstellationForm(FeatureDefinitionPower pool)
-        : IMagicEffectFinishedByMeAny
+    private sealed class MagicEffectFinishedByMeConstellationForm(FeatureDefinitionPower pool)
+        : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -763,13 +763,13 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     // Chalice
     //
 
-    private sealed class MagicEffectFinishedByMeAnyChalice(
+    private sealed class MagicEffectFinishedByMeChalice(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerChalice,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionChaliceHealing) : IMagicEffectFinishedByMeAny
+        ConditionDefinition conditionChaliceHealing) : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

@@ -299,14 +299,14 @@ public sealed class OathOfAncients : AbstractSubclass
     private sealed class CustomBehaviorElderChampion(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionElderChampionAdditionalAttack)
-        : ICharacterTurnStartListener, IMagicEffectFinishedByMeAny
+        : ICharacterTurnStartListener, IMagicEffectFinishedByMe
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             locationCharacter.RulesetCharacter.ReceiveHealing(10, true, locationCharacter.Guid);
         }
 
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

@@ -463,7 +463,8 @@ internal static partial class CharacterContext
         public IEnumerator OnMagicEffectAttackInitiatedOnMe(
             CharacterActionMagicEffect action,
             RulesetEffect activeEffect,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender, 
             ActionModifier attackModifier,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
@@ -481,7 +482,7 @@ internal static partial class CharacterContext
                 yield break;
             }
 
-            AddBonusAttackAndDamageRoll(action.ActingCharacter.RulesetCharacter, target.RulesetActor, attackModifier);
+            AddBonusAttackAndDamageRoll(attacker.RulesetCharacter, defender.RulesetActor, attackModifier);
         }
 
         public IEnumerator OnPhysicalAttackInitiatedOnMe(
@@ -1002,7 +1003,7 @@ internal static partial class CharacterContext
     private sealed class CustomBehaviorHeightenedMetabolism(
         ConditionDefinition conditionFlurryOfBlowsHeightenedMetabolism,
         ConditionDefinition conditionFlurryOfBlowsFreedomHeightenedMetabolism)
-        : IModifyEffectDescription, IMagicEffectFinishedByMeAny
+        : IModifyEffectDescription, IMagicEffectFinishedByMe
     {
         private readonly EffectForm _effectForm =
             EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsHeightenedMetabolism);
@@ -1010,7 +1011,7 @@ internal static partial class CharacterContext
         private readonly EffectForm _effectFormFreedom =
             EffectFormBuilder.ConditionForm(conditionFlurryOfBlowsFreedomHeightenedMetabolism);
 
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

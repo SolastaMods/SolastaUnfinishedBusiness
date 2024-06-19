@@ -1393,7 +1393,7 @@ internal static class Level20SubclassesContext
 
     private sealed class CustomBehaviorFinalWord :
         IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
-        IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMeAny
+        IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe
     {
         private const string ConditionSilenced = "ConditionSilenced";
         private static GameLocationCharacter _attacker;
@@ -1414,7 +1414,7 @@ internal static class Level20SubclassesContext
             yield break;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

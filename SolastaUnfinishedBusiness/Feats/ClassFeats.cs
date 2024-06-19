@@ -394,9 +394,9 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private class CustomBehaviorFeatExploiter : IMagicEffectFinishedByMeOrAllyAny, IPhysicalAttackFinishedByMeOrAlly
+    private class CustomBehaviorFeatExploiter : IMagicEffectFinishedByMeOrAlly, IPhysicalAttackFinishedByMeOrAlly
     {
-        public IEnumerator OnMagicEffectFinishedByMeOrAllyAny(
+        public IEnumerator OnMagicEffectFinishedByMeOrAlly(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter helper,
@@ -649,9 +649,9 @@ internal static class ClassFeats
             "FeatGroupHardy", Name, ValidatorsFeat.IsFighterLevel4, hardyStr, hardyCon);
     }
 
-    private sealed class UsePowerFinishedByMeFeatHardy : IMagicEffectFinishedByMeAny
+    private sealed class UsePowerFinishedByMeFeatHardy : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

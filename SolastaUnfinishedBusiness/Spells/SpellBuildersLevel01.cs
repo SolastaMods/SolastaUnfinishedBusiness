@@ -1439,9 +1439,9 @@ internal static partial class SpellBuilders
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class CustomBehaviorConditionElementalInfusion(ConditionDefinition conditionElementalInfusion) :
-        IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
+        IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

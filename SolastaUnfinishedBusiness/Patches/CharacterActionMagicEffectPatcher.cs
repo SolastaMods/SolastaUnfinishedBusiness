@@ -529,10 +529,10 @@ public static class CharacterActionMagicEffectPatcher
 
             //PATCH: support for `IMagicEffectFinishedByMeAny`
             foreach (var magicEffectFinishedByMeAny in actingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<IMagicEffectFinishedByMeAny>())
+                         .GetSubFeaturesByType<IMagicEffectFinishedByMe>())
             {
                 yield return
-                    magicEffectFinishedByMeAny.OnMagicEffectFinishedByMeAny(__instance, actingCharacter, targets);
+                    magicEffectFinishedByMeAny.OnMagicEffectFinishedByMe(__instance, actingCharacter, targets);
             }
 
             //PATCH: support for `IMagicEffectFinishedOnMeAny`
@@ -546,9 +546,9 @@ public static class CharacterActionMagicEffectPatcher
                 }
 
                 foreach (var feature in rulesetTarget
-                             .GetSubFeaturesByType<IMagicEffectFinishedOnMeAny>())
+                             .GetSubFeaturesByType<IMagicEffectFinishedOnMe>())
                 {
-                    yield return feature.OnMagicEffectFinishedOnMeAny(
+                    yield return feature.OnMagicEffectFinishedOnMe(
                         __instance, actingCharacter, target, targets);
                 }
             }
@@ -563,10 +563,10 @@ public static class CharacterActionMagicEffectPatcher
                          .ToList())
             {
                 foreach (var magicEffectFinishedByMeOrAllyAny in ally.RulesetCharacter
-                             .GetSubFeaturesByType<IMagicEffectFinishedByMeOrAllyAny>())
+                             .GetSubFeaturesByType<IMagicEffectFinishedByMeOrAlly>())
                 {
                     yield return magicEffectFinishedByMeOrAllyAny
-                        .OnMagicEffectFinishedByMeOrAllyAny(__instance, actingCharacter, ally, targets);
+                        .OnMagicEffectFinishedByMeOrAlly(__instance, actingCharacter, ally, targets);
                 }
             }
 
@@ -657,6 +657,8 @@ public static class CharacterActionMagicEffectPatcher
             var needToRollDie = effectDescription.NeedsToRollDie();
             var hasSavingThrowAnimation = !effectDescription.HideSavingThrowAnimation && !needToRollDie;
 
+            // BEGIN PATCH
+            
             //PATCH: supports `IMagicalAttackInitiatedOnMe`
             foreach (var magicEffectInitiatedOnMe in rulesetTarget
                          .GetSubFeaturesByType<IMagicEffectAttackInitiatedOnMe>())
@@ -664,6 +666,7 @@ public static class CharacterActionMagicEffectPatcher
                 yield return magicEffectInitiatedOnMe.OnMagicEffectAttackInitiatedOnMe(
                     __instance,
                     rulesetEffect,
+                    actingCharacter,
                     target,
                     attackModifier,
                     actualEffectForms,
@@ -676,22 +679,6 @@ public static class CharacterActionMagicEffectPatcher
                          .GetSubFeaturesByType<IMagicEffectAttackInitiatedByMe>())
             {
                 yield return magicEffectInitiatedByMe.OnMagicEffectAttackInitiatedByMe(
-                    __instance,
-                    rulesetEffect,
-                    actingCharacter,
-                    target,
-                    attackModifier,
-                    actualEffectForms,
-                    firstTarget,
-                    checkMagicalAttackDamage);
-            }
-
-            if (rulesetEffect is { SourceDefinition: SpellDefinition spellDefinition })
-            {
-                var magicEffectInitiatedByMe =
-                    spellDefinition.GetFirstSubFeatureOfType<IMagicEffectAttackInitiatedByMe>();
-
-                yield return magicEffectInitiatedByMe?.OnMagicEffectAttackInitiatedByMe(
                     __instance,
                     rulesetEffect,
                     actingCharacter,

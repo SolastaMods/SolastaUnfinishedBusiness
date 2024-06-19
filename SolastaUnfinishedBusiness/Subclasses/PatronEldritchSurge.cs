@@ -261,7 +261,7 @@ public class PatronEldritchSurge : AbstractSubclass
     }
 
     private sealed class BlastReloadCustom :
-        IMagicEffectFinishedByMeAny, ICharacterTurnStartListener, IQualifySpellToRepertoireLine
+        IMagicEffectFinishedByMe, ICharacterTurnStartListener, IQualifySpellToRepertoireLine
     {
         public void OnCharacterTurnStarted(GameLocationCharacter gameLocationCharacter)
         {
@@ -283,7 +283,7 @@ public class PatronEldritchSurge : AbstractSubclass
             supportCondition.CantripsUsedThisTurn.Clear();
         }
 
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
