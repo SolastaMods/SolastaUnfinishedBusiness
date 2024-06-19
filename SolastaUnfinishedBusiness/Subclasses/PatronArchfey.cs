@@ -335,22 +335,11 @@ public class PatronArchfey : AbstractSubclass
     private sealed class CustomBehaviorMistyEscape(
         FeatureDefinitionPower powerMistyEscape,
         ConditionDefinition conditionMistyEscape)
-        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe, IActionFinishedByContender,
+        : IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackBeforeHitConfirmedOnMe,
+            IMagicEffectFinishedOnMeAny, IPhysicalAttackFinishedOnMe,
             IIgnoreInvisibilityInterruptionCheck
     {
         private const string TagMistyEscape = "MistyEscape";
-
-        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
-        {
-            if (!target.UsedSpecialFeatures.ContainsKey(TagMistyEscape))
-            {
-                yield break;
-            }
-
-            target.UsedSpecialFeatures.Remove(TagMistyEscape);
-
-            yield return SelectPositionAndExecutePower(target);
-        }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -363,6 +352,22 @@ public class PatronArchfey : AbstractSubclass
             bool criticalHit)
         {
             yield return HandleReaction(battleManager, attacker, defender);
+        }
+
+        public IEnumerator OnMagicEffectFinishedOnMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<GameLocationCharacter> targets)
+        {
+            if (!defender.UsedSpecialFeatures.ContainsKey(TagMistyEscape))
+            {
+                yield break;
+            }
+
+            defender.UsedSpecialFeatures.Remove(TagMistyEscape);
+
+            yield return SelectPositionAndExecutePower(defender);
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
@@ -378,6 +383,25 @@ public class PatronArchfey : AbstractSubclass
             bool criticalHit)
         {
             yield return HandleReaction(battleManager, attacker, defender);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (!defender.UsedSpecialFeatures.ContainsKey(TagMistyEscape))
+            {
+                yield break;
+            }
+
+            defender.UsedSpecialFeatures.Remove(TagMistyEscape);
+
+            yield return SelectPositionAndExecutePower(defender);
         }
 
         private static void ResetCamera()
