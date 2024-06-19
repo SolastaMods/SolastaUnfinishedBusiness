@@ -1,17 +1,15 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
-public interface IMagicEffectAttackInitiatedOnMe
+public interface IMagicEffectInitiatedByMe
 {
     [UsedImplicitly]
-    IEnumerator OnMagicEffectAttackInitiatedOnMe(
+    IEnumerator OnMagicEffectInitiatedByMe(
         CharacterActionMagicEffect action,
         RulesetEffect activeEffect,
         GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier attackModifier,
-        bool firstTarget,
-        bool checkMagicalAttackDamage);
+        List<GameLocationCharacter> targets);
 }

@@ -464,9 +464,8 @@ internal static partial class CharacterContext
             CharacterActionMagicEffect action,
             RulesetEffect activeEffect,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender, 
+            GameLocationCharacter defender,
             ActionModifier attackModifier,
-            List<EffectForm> actualEffectForms,
             bool firstTarget,
             bool checkMagicalAttackDamage)
         {
