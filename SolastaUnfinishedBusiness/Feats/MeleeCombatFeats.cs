@@ -29,14 +29,25 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MeleeCombatFeats
 {
-    internal static FeatDefinition FeatFencer { get; private set; }
+    #region Fencer
+
+    internal static readonly FeatDefinition FeatFencer = FeatDefinitionBuilder
+        .Create("FeatFencer")
+        .SetGuiPresentation(Category.Feat)
+        .AddCustomSubFeatures(
+            new AddExtraMainHandAttack(
+                ActionDefinitions.ActionType.Bonus,
+                ValidatorsCharacter.HasAttacked,
+                ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
+                ValidatorsCharacter.HasMeleeWeaponInMainHand))
+        .AddToDB();
+
+    #endregion
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         // kept for backward compatibility
         _ = BuildHammerThePoint();
-
-        FeatFencer = BuildFencer();
 
         var featAlwaysReady = BuildAlwaysReady();
         var featBladeMastery = BuildBladeMastery();
@@ -50,8 +61,6 @@ internal static class MeleeCombatFeats
         var featFellHanded = BuildFellHanded();
         var featGreatWeaponDefense = BuildGreatWeaponDefense();
         var featLongSwordFinesse = BuildLongswordFinesse();
-        var featOldTacticsDex = BuildOldTacticsDex();
-        var featOldTacticsStr = BuildOldTacticsStr();
         var featPiercerDex = BuildPiercerDex();
         var featPiercerStr = BuildPiercerStr();
         var featPowerAttack = BuildPowerAttack();
@@ -63,7 +72,6 @@ internal static class MeleeCombatFeats
         var featWhirlwindAttack = BuildWhirlWindAttack();
 
         feats.AddRange(
-            FeatFencer,
             featAlwaysReady,
             featBladeMastery,
             featCharger,
@@ -74,10 +82,11 @@ internal static class MeleeCombatFeats
             featDevastatingStrikesDex,
             featDevastatingStrikesStr,
             featFellHanded,
+            FeatFencer,
             featGreatWeaponDefense,
             featLongSwordFinesse,
-            featOldTacticsDex,
-            featOldTacticsStr,
+            FeatOldTacticsDex,
+            FeatOldTacticsStr,
             featPiercerDex,
             featPiercerStr,
             featPowerAttack,
@@ -89,8 +98,8 @@ internal static class MeleeCombatFeats
             featWhirlwindAttack);
 
         var featGroupOldTactics = GroupFeats.MakeGroup("FeatGroupOldTactics", GroupFeats.OldTactics,
-            featOldTacticsDex,
-            featOldTacticsStr);
+            FeatOldTacticsDex,
+            FeatOldTacticsStr);
 
         var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", GroupFeats.Slasher,
             featSlasherDex,
@@ -335,26 +344,6 @@ internal static class MeleeCombatFeats
                 AttributeModifierCreed_Of_Misaye,
                 attributeModifierArmorClass)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-            .AddToDB();
-    }
-
-    #endregion
-
-    #region Fencer
-
-    private static FeatDefinition BuildFencer()
-    {
-        const string NAME = "FeatFencer";
-
-        return FeatDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Feat)
-            .AddCustomSubFeatures(
-                new AddExtraMainHandAttack(
-                    ActionDefinitions.ActionType.Bonus,
-                    ValidatorsCharacter.HasAttacked,
-                    ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
-                    ValidatorsCharacter.HasMeleeWeaponInMainHand))
             .AddToDB();
     }
 
@@ -934,92 +923,77 @@ internal static class MeleeCombatFeats
 
     #region Old Tactics
 
-    private static FeatDefinition BuildOldTacticsStr()
+    internal static readonly FeatDefinition FeatOldTacticsStr = FeatDefinitionBuilder
+        .Create("FeatOldTacticsStr")
+        .SetGuiPresentation(Category.Feat)
+        .SetFeatures(AttributeModifierCreed_Of_Einar)
+        .SetFeatFamily(GroupFeats.OldTactics)
+        .AddToDB();
+
+    internal static readonly FeatDefinition FeatOldTacticsDex = FeatDefinitionBuilder
+        .Create("FeatOldTacticsDex")
+        .SetGuiPresentation(Category.Feat)
+        .SetFeatures(AttributeModifierCreed_Of_Misaye)
+        .SetFeatFamily(GroupFeats.OldTactics)
+        .AddToDB();
+
+    internal static IEnumerator HandleFeatOldTactics(CharacterAction characterAction, GameLocationCharacter target)
     {
-        const string Name = "FeatOldTacticsStr";
+        var actionManager =
+            ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+        var battleManager =
+            ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-        return FeatDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar)
-            .AddCustomSubFeatures(new ActionFinishedByContenderOldTactics())
-            .SetFeatFamily(GroupFeats.OldTactics)
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildOldTacticsDex()
-    {
-        const string Name = "FeatOldTacticsDex";
-
-        return FeatDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye)
-            .AddCustomSubFeatures(new ActionFinishedByContenderOldTactics())
-            .SetFeatFamily(GroupFeats.OldTactics)
-            .AddToDB();
-    }
-
-    private sealed class ActionFinishedByContenderOldTactics : IActionFinishedByContender
-    {
-        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
+        if (!actionManager || !battleManager)
         {
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            yield break;
+        }
 
-            if (!actionManager || !battleManager)
-            {
-                yield break;
-            }
+        if (characterAction.ActionId != ActionDefinitions.Id.StandUp)
+        {
+            yield break;
+        }
 
-            if (characterAction.ActionId != ActionDefinitions.Id.StandUp)
-            {
-                yield break;
-            }
+        if (target.IsMyTurn() ||
+            !target.CanReact())
+        {
+            yield break;
+        }
 
-            if (target.IsMyTurn() ||
-                !target.CanReact())
-            {
-                yield break;
-            }
+        var enemy = characterAction.ActingCharacter;
 
-            var enemy = characterAction.ActingCharacter;
+        if (!target.IsWithinRange(enemy, 1))
+        {
+            yield break;
+        }
 
-            if (!target.IsWithinRange(enemy, 1))
-            {
-                yield break;
-            }
+        var (retaliationMode, retaliationModifier) = target.GetFirstMeleeModeThatCanAttack(enemy);
 
-            var (retaliationMode, retaliationModifier) = target.GetFirstMeleeModeThatCanAttack(enemy);
+        if (retaliationMode == null)
+        {
+            (retaliationMode, retaliationModifier) = target.GetFirstRangedModeThatCanAttack(enemy);
 
             if (retaliationMode == null)
             {
-                (retaliationMode, retaliationModifier) = target.GetFirstRangedModeThatCanAttack(enemy);
-
-                if (retaliationMode == null)
-                {
-                    yield break;
-                }
+                yield break;
             }
-
-            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
-
-            var actionParams = new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
-            {
-                StringParameter = target.Name,
-                ActionModifiers = { retaliationModifier },
-                AttackMode = retaliationMode,
-                TargetCharacters = { enemy }
-            };
-            var reactionRequest = new ReactionRequestReactionAttack("OldTactics", actionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(enemy, actionManager, count);
         }
+
+        retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+
+        var actionParams = new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
+        {
+            StringParameter = target.Name,
+            ActionModifiers = { retaliationModifier },
+            AttackMode = retaliationMode,
+            TargetCharacters = { enemy }
+        };
+        var reactionRequest = new ReactionRequestReactionAttack("OldTactics", actionParams);
+        var count = actionManager.PendingReactionRequestGroups.Count;
+
+        actionManager.AddInterruptRequest(reactionRequest);
+
+        yield return battleManager.WaitForReactions(enemy, actionManager, count);
     }
 
     #endregion
