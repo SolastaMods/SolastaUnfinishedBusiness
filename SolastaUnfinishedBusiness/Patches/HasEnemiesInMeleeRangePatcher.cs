@@ -46,6 +46,7 @@ public static class HasEnemiesInMeleeRangePatcher
                 }
 
 
+                //PATCH: Add handling of enemies with reach range > 1
                 var attackMode = relevantEnemy.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
                 var reachRange = attackMode?.reachRange ?? 1;
                 if (parameters.situationalInformation.BattleService.IsWithinXCells(relevantEnemy, relevantEnemy.LocationPosition, parameters.character.GameLocationCharacter, defenderPosition, reachRange))
