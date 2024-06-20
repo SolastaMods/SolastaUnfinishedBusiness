@@ -320,26 +320,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 .MyComputeValidPositions(LocationDefinitions.LightingState.Bright, distance);
         }
 
-        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var actingCharacter = action.ActingCharacter;
-
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
-            var sourcePosition = actingCharacter.LocationPosition;
-            var targetPosition = action.ActionParams.Positions[0];
-            var distance = (int)Math.Round(
-                // must use vanilla distance calculation here
-                int3.Distance(sourcePosition, targetPosition) -
-                (isDashing ? actingCharacter.MaxTacticalMoves : 0));
-
-            actingCharacter.UsedSpecialFeatures.TryAdd("ShadowStride", 1);
-            actingCharacter.UsedTacticalMoves += distance;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == powerShadowStride;
@@ -360,6 +340,26 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             }
 
             return effectDescription;
+        }
+
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var sourcePosition = actingCharacter.LocationPosition;
+            var targetPosition = action.ActionParams.Positions[0];
+            var distance = (int)Math.Round(
+                // must use vanilla distance calculation here
+                int3.Distance(sourcePosition, targetPosition) -
+                (isDashing ? actingCharacter.MaxTacticalMoves : 0));
+
+            actingCharacter.UsedSpecialFeatures.TryAdd("ShadowStride", 1);
+            actingCharacter.UsedTacticalMoves += distance;
         }
     }
 

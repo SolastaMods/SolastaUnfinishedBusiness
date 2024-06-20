@@ -620,16 +620,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
         FeatureDefinitionPower powerElementalBreathProficiency) :
         IValidatePowerUse, IPowerOrSpellFinishedByMe, IModifyEffectDescription
     {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var actingCharacter = action.ActingCharacter;
-
-            actingCharacter.BurnOneMainAttack();
-            actingCharacter.UsedSpecialFeatures.TryAdd("ElementalBreath", 1);
-
-            yield break;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == powerElementalBreathProficiency;
@@ -658,6 +648,16 @@ public sealed class WayOfTheDragon : AbstractSubclass
             return effectDescription;
         }
 
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+
+            actingCharacter.BurnOneMainAttack();
+            actingCharacter.UsedSpecialFeatures.TryAdd("ElementalBreath", 1);
+
+            yield break;
+        }
+
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
             var glc = GameLocationCharacter.GetFromActor(character);
@@ -682,16 +682,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
         :
             IValidatePowerUse, IPowerOrSpellFinishedByMe, IModifyEffectDescription
     {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var actingCharacter = action.ActingCharacter;
-
-            actingCharacter.BurnOneMainAttack();
-            actingCharacter.UsedSpecialFeatures.TryAdd("ElementalBreath", 1);
-
-            yield break;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == powerElementalBreathPoints;
@@ -718,6 +708,16 @@ public sealed class WayOfTheDragon : AbstractSubclass
             damageForm.DieType = character.GetMonkDieType();
 
             return effectDescription;
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+
+            actingCharacter.BurnOneMainAttack();
+            actingCharacter.UsedSpecialFeatures.TryAdd("ElementalBreath", 1);
+
+            yield break;
         }
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)

@@ -1473,26 +1473,6 @@ internal static class RaceFeats
             return false;
         }
 
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var actingCharacter = action.ActingCharacter;
-            var targetCharacter = action.ActionParams.TargetCharacters[0];
-
-            _actionParams =
-                new CharacterActionParams(actingCharacter, ActionDefinitions.Id.Charge)
-                {
-                    ActionModifiers = { new ActionModifier() },
-                    TargetCharacters = { targetCharacter },
-                    AttackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain)
-                };
-
-            actingCharacter.UsedSpecialFeatures.TryAdd(UsedTacticalMoves, actingCharacter.UsedTacticalMoves);
-            actingCharacter.UsedTacticalMoves = 0;
-            ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(_actionParams, null, true);
-
-            yield break;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == powerOrcishAggression;
@@ -1514,6 +1494,26 @@ internal static class RaceFeats
             effectDescription.rangeParameter = glc.MaxTacticalMoves;
 
             return effectDescription;
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var targetCharacter = action.ActionParams.TargetCharacters[0];
+
+            _actionParams =
+                new CharacterActionParams(actingCharacter, ActionDefinitions.Id.Charge)
+                {
+                    ActionModifiers = { new ActionModifier() },
+                    TargetCharacters = { targetCharacter },
+                    AttackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain)
+                };
+
+            actingCharacter.UsedSpecialFeatures.TryAdd(UsedTacticalMoves, actingCharacter.UsedTacticalMoves);
+            actingCharacter.UsedTacticalMoves = 0;
+            ServiceRepository.GetService<IGameLocationActionService>()?.ExecuteAction(_actionParams, null, true);
+
+            yield break;
         }
 
         internal static IEnumerator ExecuteImpl(CharacterActionCharge characterActionCharge)

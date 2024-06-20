@@ -248,15 +248,6 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
             .SetConditionForm(conditionEyeOfTheStorm, ConditionForm.ConditionOperation.Add)
             .Build();
 
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var actingCharacter = action.ActingCharacter;
-
-            actingCharacter.BurnOneMainAttack();
-
-            yield break;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == powerLightningLure;
@@ -278,6 +269,15 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                 character.TryGetAttributeValue(AttributeDefinitions.Dexterity));
 
             return effectDescription;
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+
+            actingCharacter.BurnOneMainAttack();
+
+            yield break;
         }
     }
 

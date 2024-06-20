@@ -664,18 +664,6 @@ internal static class FixesContext
     private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe,
         IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (action.RolledSaveThrow &&
-                action.SaveOutcome == RollOutcome.Failure)
-            {
-                action.ActingCharacter.RulesetCharacter.ToggledPowersOn.Remove(
-                    FeatureDefinitionPowers.PowerMonkStunningStrike.AutoActivationPowerTag);
-            }
-
-            yield break;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -747,6 +735,18 @@ internal static class FixesContext
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action.RolledSaveThrow &&
+                action.SaveOutcome == RollOutcome.Failure)
+            {
+                action.ActingCharacter.RulesetCharacter.ToggledPowersOn.Remove(
+                    FeatureDefinitionPowers.PowerMonkStunningStrike.AutoActivationPowerTag);
+            }
+
+            yield break;
         }
     }
 

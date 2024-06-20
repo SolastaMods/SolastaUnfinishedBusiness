@@ -329,11 +329,11 @@ public sealed class RangerLightBearer : AbstractSubclass
                 x.SpellCastingClass == CharacterClassDefinitions.Ranger);
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(rulesetCharacter, rulesetRepertoire, Light, 0, false);
-            
+
             effectSpell.TrackedLightSourceGuids.AddRange(action.ActionParams.RulesetEffect.TrackedLightSourceGuids);
             action.ActionParams.RulesetEffect.TrackedLightSourceGuids.Clear();
             rulesetCharacter.SpellsCastByMe.Add(effectSpell);
-            
+
             yield break;
         }
     }

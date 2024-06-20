@@ -974,16 +974,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerFlamethrower) : IPowerOrSpellInitiatedByMe, IModifyEffectDescription
     {
-        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (action.ActionParams.activeEffect is RulesetEffectPower rulesetEffectPower)
-            {
-                rulesetEffectPower.usablePower.saveDC = GetDC(action.ActingCharacter.RulesetCharacter);
-            }
-
-            yield break;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == powerFlamethrower;
@@ -998,6 +988,16 @@ public sealed class InnovationArtillerist : AbstractSubclass
             effectDescription.fixedSavingThrowDifficultyClass = GetDC(character);
 
             return effectDescription;
+        }
+
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action.ActionParams.activeEffect is RulesetEffectPower rulesetEffectPower)
+            {
+                rulesetEffectPower.usablePower.saveDC = GetDC(action.ActingCharacter.RulesetCharacter);
+            }
+
+            yield break;
         }
 
         private static int GetDC(RulesetCharacter rulesetCharacter)
