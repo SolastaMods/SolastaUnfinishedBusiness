@@ -618,7 +618,6 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
 
         private static WildSurgeEffect BuildWildSurgeBolt()
         {
-
             var powerBolt = FeatureDefinitionPowerBuilder
                 .Create($"Power{Name}Bolt")
                 .SetGuiPresentation(Category.Feature, SpellDefinitions.GuidingBolt)
@@ -684,7 +683,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 .SetFeatures(actionAffinityBoltFree)
                 .AddToDB();
 
-            var actionWildSurgeBolt = ActionDefinitionBuilder.Create("WildSurgeBolt")
+            var actionWildSurgeBolt = ActionDefinitionBuilder
+                .Create("WildSurgeBolt")
                 .SetGuiPresentation(Category.Action, SpellDefinitions.GuidingBolt, 20)
                 .SetActionId(ExtraActionId.WildSurgeBolt)
                 .SetActionType(ActionType.Bonus)

@@ -3,7 +3,7 @@
 - added Empowered Knowledge, Scatter, and Synaptic Static spells
 - fixed Circle of the Night consuming only one wildshape usage with crimson spider, elementals, and minotaur  
 - fixed Coordinated Attack gambit, and Strategic Reposition feature breaking self invisibility
-- fixed Path of the Wild Magic retribution feature not triggering on magic attacks
+- fixed Path of the Wild Magic aura, bolt, retribution, summon, and teleport behaviors
 - fixed Patron Hexblade using character level instead of class level on hex received healing
 - fixed Ranger Lightbearer not interacting with the cast/stop Light cantrip UI shortcut
 - fixed Wither and Bloom Twinned metamagic offering which was disrespecting the one target rule
