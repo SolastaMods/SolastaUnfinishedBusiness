@@ -673,7 +673,7 @@ internal static class RaceImpBuilder
             var count = actionService.PendingReactionRequestGroups.Count;
 
             actionService.ReactToSpendPower(actionParams);
-            yield return battleManager.WaitForReactions(defender, actionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {
