@@ -75,7 +75,7 @@
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": true,
-        "saveOccurence": "EndOfTurn",
+        "saveOccurence": "StartOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionPoisoned",

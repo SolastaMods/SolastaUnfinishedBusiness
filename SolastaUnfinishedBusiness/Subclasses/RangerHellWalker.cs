@@ -300,7 +300,7 @@ public sealed class RangerHellWalker : AbstractSubclass
     private sealed class CustomBehaviorMarkOfTheDammed(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition)
-        : IModifyDamageAffinity, IMagicEffectFinishedByMe, IFilterTargetingCharacter
+        : IModifyDamageAffinity, IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
 
@@ -321,7 +321,7 @@ public sealed class RangerHellWalker : AbstractSubclass
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (Gui.Battle == null)
             {

@@ -51,6 +51,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                 Sprites.GetSprite("PowerLight", Resources.PowerLight, 256, 128))
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(Light.EffectDescription)
+            .AddCustomSubFeatures(new CustomBehaviorLight())
             .AddToDB();
 
         var featureSetLight = FeatureDefinitionFeatureSetBuilder
@@ -166,7 +167,7 @@ public sealed class RangerLightBearer : AbstractSubclass
         var powerLightEnhanced = FeatureDefinitionPowerBuilder
             .Create(powerLight, $"Power{Name}LightEnhanced")
             .SetOverriddenPower(powerLight)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeBlessedGlow(powerBlessedGlow))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeBlessedGlow(powerBlessedGlow))
             .AddToDB();
 
         var featureSetBlessedGlow = FeatureDefinitionFeatureSetBuilder
@@ -216,7 +217,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                new MagicEffectFinishedByMeAngelicForm(),
+                new PowerOrSpellFinishedByMeAngelicForm(),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
 
@@ -302,6 +303,42 @@ public sealed class RangerLightBearer : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
+    // Light
+    //
+
+    private sealed class CustomBehaviorLight : ICustomLevelUpLogic, IPowerOrSpellFinishedByMe
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            var repertoire = hero.SpellRepertoires.FirstOrDefault(x =>
+                x.SpellCastingClass == CharacterClassDefinitions.Ranger);
+
+            repertoire?.knownCantrips.Add(Light);
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var rulesetRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
+                x.SpellCastingClass == CharacterClassDefinitions.Ranger);
+            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectSpell(rulesetCharacter, rulesetRepertoire, Light, 0, false);
+            
+            effectSpell.TrackedLightSourceGuids.AddRange(action.ActionParams.RulesetEffect.TrackedLightSourceGuids);
+            action.ActionParams.RulesetEffect.TrackedLightSourceGuids.Clear();
+            rulesetCharacter.SpellsCastByMe.Add(effectSpell);
+            
+            yield break;
+        }
+    }
+
+    //
     // Blessed Warrior
     //
 
@@ -367,10 +404,10 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Glow
     //
 
-    private sealed class MagicEffectFinishedByMeBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
                 {
@@ -423,9 +460,9 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Angelic Form
     //
 
-    private sealed class MagicEffectFinishedByMeAngelicForm : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeAngelicForm : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger);

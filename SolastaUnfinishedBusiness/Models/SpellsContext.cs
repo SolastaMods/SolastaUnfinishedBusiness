@@ -345,11 +345,13 @@ internal static class SpellsContext
         RegisterSpell(BuildCircleOfMagicalNegation(), 0, SpellListPaladin);
         RegisterSpell(BuildDawn(), 0, SpellListCleric, SpellListWizard);
         RegisterSpell(DivineWrath, 0, SpellListPaladin);
+        RegisterSpell(BuildEmpoweredKnowledge(), 0, SpellListBard, SpellListCleric, SpellListWarlock, SpellListWizard);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildIncineration(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(MantleOfThorns, 0, SpellListDruid);
         RegisterSpell(SteelWhirlwind, 0, SpellListRanger, SpellListWizard);
         RegisterSpell(SonicBoom, 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildSynapticStatic(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(Telekinesis, 0, SpellListSorcerer, SpellListWizard);
 
         // 6th level

@@ -151,7 +151,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForcefulStepFixed) > 0),
-            new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
+            new PowerOrSpellFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
             .Create(powerForcefulStepFixed, $"Power{Name}ForcefulStepPoints")
@@ -160,7 +160,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForcefulStepFixed) == 0),
-            new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
+            new PowerOrSpellFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var featureSetForcefulStep = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ForcefulStep")
@@ -225,9 +225,9 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     // Displacement
     //
 
-    private sealed class CustomBehaviorDisplacement : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorDisplacement : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetEffect = action.ActionParams.RulesetEffect;
 
@@ -237,7 +237,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             yield break;
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetEffect = action.ActionParams.RulesetEffect;
             var actionParams = action.ActionParams;
@@ -308,10 +308,10 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     // Forceful Step
     //
 
-    private sealed class MagicEffectFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {

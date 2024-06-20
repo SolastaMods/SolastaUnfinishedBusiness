@@ -379,9 +379,9 @@ public sealed class InnovationVitriolist : AbstractSubclass
     //
 
     private sealed class CustomBehaviorRefundMixture(FeatureDefinitionPower powerMixture)
-        : IMagicEffectFinishedByMe
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 

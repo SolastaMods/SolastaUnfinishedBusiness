@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -17,6 +18,7 @@ using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
@@ -97,6 +99,52 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.DamageForm(DamageTypePiercing, 2, DieType.D8),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false))
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Psionic Blast
+
+    internal static SpellDefinition BuildSynapticStatic()
+    {
+        const string NAME = "SynapticStatic";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SynapticStatic, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
+                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 8, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(Fear)
+                    .SetCasterEffectParameters(ViciousMockery)
+                    .SetImpactEffectParameters(PowerMagebaneWarcry)
                     .Build())
             .AddToDB();
 
@@ -394,6 +442,179 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Empowered Knowledge
+
+    internal static SpellDefinition BuildEmpoweredKnowledge()
+    {
+        const string NAME = "EmpoweredKnowledge";
+
+        var skillsDb = DatabaseRepository.GetDatabase<SkillDefinition>();
+        var powers = new List<FeatureDefinitionPower>();
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .AddToDB();
+
+        foreach (var skill in skillsDb)
+        {
+            var power = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{NAME}{skill.Name}")
+                .SetGuiPresentation(skill.GuiPresentation.Title, skill.GuiPresentation.Description)
+                .SetSharedPool(ActivationTime.NoCost, powerPool)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Hour, 1)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetEffectForms(
+                            EffectFormBuilder.ConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{NAME}{skill.Name}")
+                                    .SetGuiPresentation(skill.GuiPresentation.Title, Gui.NoLocalization,
+                                        ConditionBullsStrength)
+                                    .SetPossessive()
+                                    .SetFeatures(
+                                        FeatureDefinitionProficiencyBuilder
+                                            .Create($"Proficiency{NAME}{skill.Name}")
+                                            .SetGuiPresentation(skill.GuiPresentation)
+                                            .SetProficiencies(ProficiencyType.SkillOrExpertise, skill.Name)
+                                            .AddToDB())
+                                    .AddToDB()))
+                        .Build())
+                .AddToDB();
+
+            power.GuiPresentation.hidden = true;
+
+            powers.Add(power);
+        }
+
+        PowerBundle.RegisterPowerBundle(powerPool, false, powers);
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.EmpoweredKnowledge, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolDivination)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetCasterEffectParameters(TrueSeeing)
+                    .SetEffectEffectParameters(PowerPaladinCleansingTouch)
+                    .Build())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeEmpoweredKnowledge(powerPool, [.. powers]))
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class PowerOrSpellFinishedByMeEmpoweredKnowledge(
+        FeatureDefinitionPower powerPool,
+        params FeatureDefinitionPower[] powers) : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!actionManager || !battleManager)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var hero = rulesetCharacter.GetOriginalHero();
+
+            if (hero == null)
+            {
+                yield break;
+            }
+
+            var usablePowers = new List<RulesetUsablePower>();
+            var skillsDb = DatabaseRepository.GetDatabase<SkillDefinition>();
+
+            foreach (var power in powers)
+            {
+                var skillName = power.Name.Replace("PowerEmpoweredKnowledge", string.Empty);
+
+                if (!skillsDb.TryGetElement(skillName, out var skill) ||
+                    !hero.TrainedSkills.Contains(skill) ||
+                    hero.TrainedExpertises.Contains(skill.name) ||
+                    hero.BackgroundDefinition.Features
+                        .OfType<FeatureDefinitionProficiency>()
+                        .Any(x =>
+                            x.ProficiencyType is ProficiencyType.Skill or ProficiencyType.SkillOrExpertise &&
+                            x.Proficiencies.Contains(skillName)))
+                {
+                    continue;
+                }
+
+                var up = PowerProvider.Get(power, rulesetCharacter);
+
+                usablePowers.Add(up);
+                rulesetCharacter.UsablePowers.Add(up);
+            }
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPool, rulesetCharacter);
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "EmpoweredKnowledge",
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { actingCharacter }
+            };
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
+
+            rulesetCharacter.UsablePowers.Remove(usablePower);
+            usablePowers.ForEach(x => rulesetCharacter.UsablePowers.Remove(x));
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var selectedPower = powers[reactionRequest.SelectedSubOption];
+
+            action.ActionParams.RulesetEffect.TrackedConditionGuids.SetRange(
+                rulesetCharacter.PowersUsedByMe
+                    .Where(x => x.PowerDefinition == selectedPower)
+                    .SelectMany(y => y.TrackedConditionGuids));
+
+            foreach (var skill in skillsDb)
+            {
+                var conditionName = $"ConditionEmpoweredKnowledge{skill.Name}";
+
+                if (!selectedPower.Name.Contains(skill.Name) &&
+                    rulesetCharacter.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionName, out var activeCondition))
+                {
+                    rulesetCharacter.RemoveCondition(activeCondition);
+                }
+            }
+        }
+    }
+
+    #endregion
+
     #region Steel Whirlwind
 
     internal static SpellDefinition BuildSteelWhirlwind()
@@ -402,7 +623,7 @@ internal static partial class SpellBuilders
 
         var powerTeleport = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Teleport")
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerMelekTeleport)
+            .SetGuiPresentation(Category.Feature, PowerMelekTeleport)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -413,7 +634,7 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                             .Build())
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMelekTeleport)
+                    .SetParticleEffectParameters(PowerMelekTeleport)
                     .Build())
             .AddCustomSubFeatures(new FilterTargetingPositionSteelWhirlwind())
             .AddToDB();
@@ -450,7 +671,7 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(GravitySlam)
                     .SetImpactEffectParameters(ArcaneSword)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeSteelWhirlwind())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSteelWhirlwind())
             .AddToDB();
 
         return spell;
@@ -458,9 +679,9 @@ internal static partial class SpellBuilders
 
     // keep a tab of all allowed positions for filtering using ContextualFormation collection
     // ContextualFormation is only used by the game when spawning new locations so it's safe in this context
-    private sealed class MagicEffectFinishedByMeSteelWhirlwind : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeSteelWhirlwind : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var visibilityService =
@@ -853,7 +1074,7 @@ internal static partial class SpellBuilders
         ConditionDefinition conditionTelekinesisNoCost,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellTelekinesis)
-        : IFilterTargetingPosition, IMagicEffectFinishedByMe, ISelectPositionAfterCharacter
+        : IFilterTargetingPosition, IPowerOrSpellFinishedByMe, ISelectPositionAfterCharacter
     {
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
@@ -899,7 +1120,7 @@ internal static partial class SpellBuilders
             }
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
@@ -10,9 +9,9 @@ public interface IMagicEffectAttackInitiatedOnMe
     IEnumerator OnMagicEffectAttackInitiatedOnMe(
         CharacterActionMagicEffect action,
         RulesetEffect activeEffect,
-        GameLocationCharacter target,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
         ActionModifier attackModifier,
-        List<EffectForm> actualEffectForms,
         bool firstTarget,
         bool checkMagicalAttackDamage);
 }

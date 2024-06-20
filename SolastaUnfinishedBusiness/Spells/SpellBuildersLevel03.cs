@@ -504,9 +504,9 @@ internal static partial class SpellBuilders
     }
 
     private sealed class ModifyEffectDescriptionAshardalonStride(params ConditionDefinition[] conditions)
-        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition =
                 conditions[0];
@@ -514,7 +514,7 @@ internal static partial class SpellBuilders
             yield break;
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition =
                 conditions[action.ActionParams.RulesetEffect.EffectLevel - 3];
@@ -698,7 +698,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorBoomingStep(FeatureDefinitionPower powerExplode)
-        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
+        : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         private readonly List<GameLocationCharacter> _targets = [];
 
@@ -723,7 +723,7 @@ internal static partial class SpellBuilders
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -755,7 +755,7 @@ internal static partial class SpellBuilders
             yield break;
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
@@ -1786,9 +1786,9 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ModifyDiceRollVitalityTransfer : IMagicEffectFinishedByMe
+    private sealed class ModifyDiceRollVitalityTransfer : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
             {

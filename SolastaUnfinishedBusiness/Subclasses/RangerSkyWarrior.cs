@@ -363,9 +363,9 @@ public sealed class RangerSkyWarrior : AbstractSubclass
         FeatureDefinitionPower powerDeathFromAbove,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionGiftOfTheWind,
-        ConditionDefinition conditionGiftOfTheWindAttacked) : IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
+        ConditionDefinition conditionGiftOfTheWindAttacked) : IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

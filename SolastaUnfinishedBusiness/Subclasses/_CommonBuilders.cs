@@ -171,9 +171,9 @@ internal static class CommonBuilders
 
     private sealed class CustomBehaviorCasterFightingWarMagic(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition) : IMagicEffectFinishedByMeAny
+        ConditionDefinition conditionDefinition) : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

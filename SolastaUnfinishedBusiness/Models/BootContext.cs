@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Api;
@@ -155,13 +154,13 @@ internal static class BootContext
             DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description =
                 Gui.NoLocalization;
 
-            foreach (var conditionDefinition in DatabaseRepository
-                         .GetDatabase<ConditionDefinition>()
-                         .Where(x => x.GuiPresentation.Description == Gui.NoLocalization))
-            {
-                conditionDefinition.GuiPresentation.description = string.Empty;
-            }
-            
+            // foreach (var conditionDefinition in DatabaseRepository
+            //              .GetDatabase<ConditionDefinition>()
+            //              .Where(x => x.GuiPresentation.Description == Gui.NoLocalization))
+            // {
+            //     conditionDefinition.GuiPresentation.description = GuiPresentationBuilder.EmptyString;
+            // }
+
             // Enable mod
             Main.Enable();
         };

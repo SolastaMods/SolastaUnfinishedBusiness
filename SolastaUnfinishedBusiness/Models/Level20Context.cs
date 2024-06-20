@@ -866,9 +866,9 @@ internal static class Level20Context
 
     private sealed class ActionFinishedByMeArchDruid(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition) : IMagicEffectFinishedByMeAny
+        FeatureDefinition featureDefinition) : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

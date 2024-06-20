@@ -255,7 +255,7 @@ ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RecipesInDm=Ricette in DM
 ModUi/&RelicForgeries=Falsificazioni di reliquie
 ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di attivazione <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con elementi visivi alternativi nel gioco <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con modelli simili a orsi nel gioco per <i><color=#F0DAA0>[aracnofobia]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</ colore></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi il filtro umanoide su <color=#D89555>Risate Orribili</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555> Intralcia</color> solo al momento del lancio e forza anche un controllo di forza per liberarsi dai rampicanti
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Rimuovi le restrizioni scolastiche da <color=#D89555>Incantatrice</color>

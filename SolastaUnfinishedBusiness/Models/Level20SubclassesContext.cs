@@ -319,7 +319,7 @@ internal static class Level20SubclassesContext
         var powerDomainMischiefStrikeOfChaos17 = FeatureDefinitionPowerBuilder
             .Create(PowerDomainMischiefStrikeOfChaos14, "PowerDomainMischiefStrikeOfChaos17")
             .SetOverriddenPower(PowerDomainMischiefStrikeOfChaos14)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeStrikeOfChaos(powerFortuneFavorTheBold))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeStrikeOfChaos(powerFortuneFavorTheBold))
             .AddToDB();
 
         powerDomainMischiefStrikeOfChaos17.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 6;
@@ -327,7 +327,7 @@ internal static class Level20SubclassesContext
         var powerDomainMischiefStrikeOfChaos20 = FeatureDefinitionPowerBuilder
             .Create(PowerDomainMischiefStrikeOfChaos14, "PowerDomainMischiefStrikeOfChaos20")
             .SetOverriddenPower(powerDomainMischiefStrikeOfChaos17)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeStrikeOfChaos(powerFortuneFavorTheBold))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeStrikeOfChaos(powerFortuneFavorTheBold))
             .AddToDB();
 
         powerDomainMischiefStrikeOfChaos20.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 7;
@@ -696,7 +696,7 @@ internal static class Level20SubclassesContext
                     .Build())
             .AddCustomSubFeatures(
                 ForcePowerUseInSpendPowerAction.Marker,
-                new MagicEffectFinishedByMeQuiveringPalm(conditionTraditionOpenHandQuiveringPalm))
+                new PowerOrSpellFinishedByMeQuiveringPalm(conditionTraditionOpenHandQuiveringPalm))
             .AddToDB();
 
         _ = ActionDefinitionBuilder
@@ -1080,7 +1080,7 @@ internal static class Level20SubclassesContext
         // Hoodlum
         //
 
-        PowerRoguishHoodlumDirtyFighting.AddCustomSubFeatures(new MagicEffectFinishedByMeDirtyFighting());
+        PowerRoguishHoodlumDirtyFighting.AddCustomSubFeatures(new PowerOrSpellFinishedByMeDirtyFighting());
 
         var featureRoguishHoodlumBrutalAssault = FeatureDefinitionBuilder
             .Create("FeatureRoguishHoodlumBrutalAssault")
@@ -1336,12 +1336,12 @@ internal static class Level20SubclassesContext
 
     #region Cleric
 
-    private sealed class CustomBehaviorWordOfLaw : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorWordOfLaw : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         private const string ConditionSilenced = "ConditionSilenced";
         private static GameLocationCharacter _attacker;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
 
@@ -1356,7 +1356,7 @@ internal static class Level20SubclassesContext
             defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
 
@@ -1393,7 +1393,7 @@ internal static class Level20SubclassesContext
 
     private sealed class CustomBehaviorFinalWord :
         IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
-        IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMeAny
+        IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe
     {
         private const string ConditionSilenced = "ConditionSilenced";
         private static GameLocationCharacter _attacker;
@@ -1414,7 +1414,7 @@ internal static class Level20SubclassesContext
             yield break;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -1501,10 +1501,10 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class MagicEffectFinishedByMeStrikeOfChaos(FeatureDefinitionPower powerFortuneFavorTheBold)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeStrikeOfChaos(FeatureDefinitionPower powerFortuneFavorTheBold)
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -1996,7 +1996,7 @@ internal static class Level20SubclassesContext
     private sealed class CustomBehaviorQuiveringPalmTrigger(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition)
-        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -2017,7 +2017,7 @@ internal static class Level20SubclassesContext
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (action.ActionParams.TargetCharacters.Count == 0)
             {
@@ -2093,10 +2093,10 @@ internal static class Level20SubclassesContext
     }
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class MagicEffectFinishedByMeQuiveringPalm(ConditionDefinition conditionDefinition)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeQuiveringPalm(ConditionDefinition conditionDefinition)
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (Gui.Battle == null)
             {
@@ -2128,9 +2128,9 @@ internal static class Level20SubclassesContext
     // Brutal Assault
     //
 
-    private sealed class MagicEffectFinishedByMeDirtyFighting : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeDirtyFighting : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {

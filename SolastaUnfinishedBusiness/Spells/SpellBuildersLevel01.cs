@@ -863,7 +863,7 @@ internal static partial class SpellBuilders
         var damageDeterminationBehavior =
             new CustomBehaviorChaosBolt(spell, powerLeap, conditionLeap, conditionMark, powerPool, [.. powers]);
         var initAndFinishBehavior =
-            new MagicEffectInitiatedAndFinishedByMeChaosBolt(conditionLeap, damageDeterminationBehavior);
+            new PowerOrSpellInitiatedAndFinishedByMeChaosBolt(conditionLeap, damageDeterminationBehavior);
         var filterTargetBehavior =
             new FilterTargetingCharacterChaosBolt(conditionMark);
 
@@ -879,12 +879,12 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class MagicEffectInitiatedAndFinishedByMeChaosBolt(
+    private sealed class PowerOrSpellInitiatedAndFinishedByMeChaosBolt(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionLeap,
-        CustomBehaviorChaosBolt damageDeterminationBehavior) : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        CustomBehaviorChaosBolt damageDeterminationBehavior) : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
 
@@ -902,7 +902,7 @@ internal static partial class SpellBuilders
                 "Spell/&ChaosBoltTitle", "Feedback/&ChaosBoltGainLeap");
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
 
@@ -1266,15 +1266,15 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(ShadowDagger)
                     .SetEffectEffectParameters(ShadowDagger)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeIceBlade())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeIceBlade())
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectFinishedByMeIceBlade : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeIceBlade : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {
@@ -1439,9 +1439,9 @@ internal static partial class SpellBuilders
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class CustomBehaviorConditionElementalInfusion(ConditionDefinition conditionElementalInfusion) :
-        IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
+        IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -1941,7 +1941,7 @@ internal static partial class SpellBuilders
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSanctuary))
                     .SetParticleEffectParameters(ProtectionFromEvilGood)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeSanctuary(conditionSanctuary))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSanctuary(conditionSanctuary))
             .AddToDB();
 
         return spell;
@@ -1949,10 +1949,10 @@ internal static partial class SpellBuilders
 
     // store the caster Save DC on condition amount
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class MagicEffectFinishedByMeSanctuary(ConditionDefinition conditionSanctuary)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeSanctuary(ConditionDefinition conditionSanctuary)
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
             {

@@ -1161,17 +1161,17 @@ internal static class RaceFeats
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
+            if (characterAction is not CharacterActionDodge)
+            {
+                yield break;
+            }
+
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (!actionManager || !battleManager)
-            {
-                yield break;
-            }
-
-            if (characterAction.ActionId is not ActionDefinitions.Id.Dodge)
             {
                 yield break;
             }
@@ -1294,7 +1294,7 @@ internal static class RaceFeats
 
         power.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new MagicEffectFinishedByMeAnyFlamesOfPhlegethos(power));
+            new MagicEffectFinishedByMeFlamesOfPhlegethos(power));
 
         var dieRollModifierFire = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}Fire")
@@ -1326,10 +1326,10 @@ internal static class RaceFeats
             "FeatGroupFlamesOfPhlegethos", Name, ValidatorsFeat.IsTiefling, flamesCha, flamesInt);
     }
 
-    private sealed class MagicEffectFinishedByMeAnyFlamesOfPhlegethos(FeatureDefinitionPower power)
-        : IMagicEffectFinishedByMeAny
+    private sealed class MagicEffectFinishedByMeFlamesOfPhlegethos(FeatureDefinitionPower power)
+        : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -1436,7 +1436,7 @@ internal static class RaceFeats
     internal sealed class CustomBehaviorOrcishAggression(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerOrcishAggression)
-        : IModifyEffectDescription, IMagicEffectFinishedByMe, IActionFinishedByMe, IFilterTargetingCharacter
+        : IModifyEffectDescription, IPowerOrSpellFinishedByMe, IActionFinishedByMe, IFilterTargetingCharacter
     {
         private const string UsedTacticalMoves = "UsedTacticalMoves";
         private CharacterActionParams _actionParams;
@@ -1473,7 +1473,7 @@ internal static class RaceFeats
             return false;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var targetCharacter = action.ActionParams.TargetCharacters[0];
@@ -1642,79 +1642,10 @@ internal static class RaceFeats
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
-            IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByContender
+            IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe,
+            IPhysicalAttackFinishedOnMe, IMagicEffectFinishedOnMe
     {
-        private bool _isValid;
-        private bool _knockOutPrevented;
-
-        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
-        {
-            if (!_isValid)
-            {
-                yield break;
-            }
-
-            _isValid = false;
-
-            if (Gui.Battle != null && !Gui.Battle.InitiativeRollFinished)
-            {
-                yield break;
-            }
-
-            var rulesetTarget = target.RulesetCharacter;
-
-            rulesetTarget.KnockOutPrevented -= KnockOutPreventedHandler;
-
-            if (!_knockOutPrevented)
-            {
-                yield break;
-            }
-
-            _knockOutPrevented = false;
-
-            if (!target.CanReact())
-            {
-                yield break;
-            }
-
-            rulesetTarget.LogCharacterUsedPower(power);
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var attackMode = target.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            attackModeCopy.Copy(attackMode);
-            attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
-
-            var attackActionParams =
-                new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
-                {
-                    AttackMode = attackModeCopy,
-                    TargetCharacters = { characterAction.ActingCharacter },
-                    ActionModifiers = { new ActionModifier() }
-                };
-
-            actionService.ExecuteAction(attackActionParams, null, true);
-        }
-
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
-            _isValid = true;
-            _knockOutPrevented = false;
-
-            yield break;
-        }
+        #region Additional Damage
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -1753,27 +1684,6 @@ internal static class RaceFeats
                 0);
         }
 
-        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
-            _isValid = true;
-            _knockOutPrevented = false;
-
-            yield break;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1803,10 +1713,134 @@ internal static class RaceFeats
             rulesetAttacker.UsePower(usablePower);
         }
 
+        #endregion
+
+        #region Knock-Out
+
+        private bool _isValid;
+        private bool _knockOutPrevented;
+
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
+            _isValid = true;
+            _knockOutPrevented = false;
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicEffectFinishedOnMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<GameLocationCharacter> targets)
+        {
+            HandleKnockOutBehavior(action, defender);
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
+            _isValid = true;
+            _knockOutPrevented = false;
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            HandleKnockOutBehavior(action, defender);
+
+            yield break;
+        }
+
         private void KnockOutPreventedHandler(RulesetCharacter character, BaseDefinition source)
         {
             _knockOutPrevented = source == DamageAffinityHalfOrcRelentlessEndurance;
         }
+
+        private void HandleKnockOutBehavior(CharacterAction characterAction, GameLocationCharacter target)
+        {
+            if (!_isValid)
+            {
+                return;
+            }
+
+            _isValid = false;
+
+            var rulesetTarget = target.RulesetCharacter;
+
+            rulesetTarget.KnockOutPrevented -= KnockOutPreventedHandler;
+
+            if (!_knockOutPrevented)
+            {
+                return;
+            }
+
+            _knockOutPrevented = false;
+
+            if (Gui.Battle == null ||
+                !Gui.Battle.InitiativeRollFinished)
+            {
+                return;
+            }
+
+            if (!target.CanReact())
+            {
+                return;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var attackMode = target.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
+
+            var attackActionParams =
+                new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
+                {
+                    AttackMode = attackModeCopy,
+                    TargetCharacters = { characterAction.ActingCharacter },
+                    ActionModifiers = { new ActionModifier() }
+                };
+
+            rulesetTarget.LogCharacterUsedPower(power);
+            actionService.ExecuteAction(attackActionParams, null, true);
+        }
+
+        #endregion
     }
 
     #endregion

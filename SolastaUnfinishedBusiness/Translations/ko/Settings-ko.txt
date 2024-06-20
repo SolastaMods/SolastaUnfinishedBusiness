@@ -255,7 +255,7 @@ ModUi/&RecipeCost=<color=white>레시피 비용</color>
 ModUi/&RecipesInDm=DM의 레시피
 ModUi/&RelicForgeries=유물 위조품
 ModUi/&RemoveAttunementRequirements=조율 요구 사항 제거 <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
-ModUi/&RemoveBugVisualModels=거미 같은 모델을 게임의 대체 시각적 요소로 교체하세요. <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
+ModUi/&RemoveBugVisualModels=<i><color=#F0DAA0>[거미공포증]</color></i> <b><i><color=#C04040E0>[다시 시작해야 함]</에 대한 게임에서 거미 같은 모델을 곰 같은 모델로 교체하세요. 색상></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>끔찍한 웃음</color>에서 인간형 필터 제거
 ModUi/&RemoveRecurringEffectOnEntangle=시전 시에만 <color=#D89555>얽힘</color> 효과를 적용하고 덩굴에서 벗어나기 위해 강도 검사를 강제 적용합니다.
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<color=#D89555>Shadowcaster</color>에서 학교 제한을 제거하세요.

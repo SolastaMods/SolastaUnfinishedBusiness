@@ -164,7 +164,7 @@ internal static class RaceImpBuilder
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
             .AddToDB();
 
-        conditionAssistedAlly.AddCustomSubFeatures(new ImpAssistedAllyAttackInitiatedByMe(conditionAssistedAlly));
+        conditionAssistedAlly.AddCustomSubFeatures(new CustomBehaviorAssistAlly(conditionAssistedAlly));
 
         var conditionSpite = ConditionDefinitionBuilder.Create(ConditionImpSpiteName)
             .SetConditionType(ConditionType.Detrimental)
@@ -195,7 +195,7 @@ internal static class RaceImpBuilder
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
             .AddToDB();
 
-        var powerImpAssistMagicEffect = new PowerImpAssistMagicEffectFinishedByMe(ConditionImpAssistedEnemyName);
+        var powerImpAssistMagicEffect = new PowerOrSpellFinishedByMePowerImpAssist(ConditionImpAssistedEnemyName);
 
         powerImpBadlandAssist.AddCustomSubFeatures(
             new PowerImpAssistTargetFilter(true), powerImpAssistMagicEffect);
@@ -255,7 +255,7 @@ internal static class RaceImpBuilder
 
         powerImpBadlandSpite.AddCustomSubFeatures(
             new PowerImpAssistTargetFilter(true),
-            new PowerImpAssistMagicEffectFinishedByMe(conditionSpite.name));
+            new PowerOrSpellFinishedByMePowerImpAssist(conditionSpite.name));
 
         var raceImpBadland = CharacterRaceDefinitionBuilder
             .Create(raceImp, $"Race{NAME}")
@@ -277,22 +277,24 @@ internal static class RaceImpBuilder
         return raceImpBadland;
     }
 
-    private class ImpAssistedAllyAttackInitiatedByMe(
+    private class CustomBehaviorAssistAlly(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition condition)
-        : IPhysicalAttackInitiatedByMe, IMagicEffectAttackInitiatedByMe, IModifyAttackActionModifier
+        : IPhysicalAttackInitiatedByMe, IMagicEffectInitiatedByMe, IModifyAttackActionModifier
     {
-        public IEnumerator OnMagicEffectAttackInitiatedByMe(
+        public IEnumerator OnMagicEffectInitiatedByMe(
             CharacterActionMagicEffect action,
             RulesetEffect activeEffect,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool checkMagicalAttackDamage)
+            List<GameLocationCharacter> targets)
         {
-            yield return HandleAssist(attacker, defender);
+            if (activeEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit) ||
+                targets.Count == 0)
+            {
+                yield break;
+            }
+
+            yield return HandleAssist(attacker, targets[0]);
         }
 
         public void OnAttackComputeModifier(RulesetCharacter myself,
@@ -359,9 +361,9 @@ internal static class RaceImpBuilder
         }
     }
 
-    private class PowerImpAssistMagicEffectFinishedByMe(string enemyCondition) : IMagicEffectFinishedByMe
+    private class PowerOrSpellFinishedByMePowerImpAssist(string enemyCondition) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -409,11 +411,11 @@ internal static class RaceImpBuilder
         }
     }
 
-    private class PowerImpPassageMagic(IMagicEffectFinishedByMe powerImpAssist) : IMagicEffectFinishedByMe
+    private class PowerImpPassageMagic(IPowerOrSpellFinishedByMe powerImpAssist) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            yield return powerImpAssist.OnMagicEffectFinishedByMe(action, baseDefinition);
+            yield return powerImpAssist.OnPowerOrSpellFinishedByMe(action, baseDefinition);
 
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -508,11 +510,11 @@ internal static class RaceImpBuilder
         }
     }
 
-    private class PowerImpHospitalityMagic(IMagicEffectFinishedByMe parent) : IMagicEffectFinishedByMe
+    private class PowerImpHospitalityMagic(IPowerOrSpellFinishedByMe parent) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            yield return parent.OnMagicEffectFinishedByMe(action, baseDefinition);
+            yield return parent.OnPowerOrSpellFinishedByMe(action, baseDefinition);
 
             var actingCharacter = action.ActingCharacter;
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;

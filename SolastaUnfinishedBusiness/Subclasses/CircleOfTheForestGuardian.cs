@@ -57,11 +57,20 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEnchanted))
             .AddToDB();
 
+        // kept name for backward compatibility
+        var powerSuperiorBarkWard = FeatureDefinitionPowerBuilder
+            .Create($"PowerSharedPool{Name}SuperiorBarkWard")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
         var conditionBarkWard = ConditionDefinitionBuilder
             .Create($"Condition{Name}BarkWard")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
             .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard))
             .CopyParticleReferences(PowerRangerSwiftBladeBattleFocus)
             .AddToDB();
 
@@ -78,6 +87,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetDamageAffinityType(DamageAffinityType.Immunity)
                     .SetDamageType(DamageTypePoison)
                     .AddToDB())
+            .AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard))
             .CopyParticleReferences(PowerRangerSwiftBladeBattleFocus)
             .AddToDB();
 
@@ -93,6 +103,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBarkWard))
                     .SetCasterEffectParameters(SpikeGrowth)
                     .Build())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeBarkWard(powerSuperiorBarkWard))
             .AddToDB();
 
         var powerImprovedBarkWard = FeatureDefinitionPowerSharedPoolBuilder
@@ -110,25 +121,9 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetOverriddenPower(powerBarkWard)
             .AddToDB();
 
-        // kept name for backward compatibility
-        var powerSuperiorBarkWard = FeatureDefinitionPowerBuilder
-            .Create($"PowerSharedPool{Name}SuperiorBarkWard")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
-            .AddToDB();
-
-        // connect them all together
-
-        powerBarkWard.AddCustomSubFeatures(
-            new MagicEffectFinishedByMeBarkWard(powerSuperiorBarkWard));
-
         powerImprovedBarkWard.AddCustomSubFeatures(
-            new MagicEffectFinishedByMeBarkWard(powerSuperiorBarkWard),
-            new CustomBehaviorBarkWard(powerImprovedBarkWard));
-
-        conditionBarkWard.AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard));
-        conditionImprovedBarkWard.AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard));
+            new PowerOrSpellFinishedByMeBarkWard(powerSuperiorBarkWard),
+            new PhysicalAttackFinishedOnMeBarkWard(powerImprovedBarkWard, conditionBarkWard));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"CircleOfThe{Name}")
@@ -188,10 +183,19 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         }
     }
 
-    private sealed class MagicEffectFinishedByMeBarkWard(FeatureDefinitionPower powerSuperiorBarkWard)
-        : IMagicEffectFinishedByMe
+    private sealed class CharacterTurnStartListenerBarkWard(FeatureDefinitionPower powerSuperiorBarkWard)
+        : ICharacterTurnStartListener
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            ApplyTemporaryHitPoints(locationCharacter, powerSuperiorBarkWard);
+        }
+    }
+
+    private sealed class PowerOrSpellFinishedByMeBarkWard(FeatureDefinitionPower powerSuperiorBarkWard)
+        : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             ApplyTemporaryHitPoints(action.ActingCharacter, powerSuperiorBarkWard);
 
@@ -199,72 +203,47 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorBarkWard(FeatureDefinitionPower powerBarkOrImprovedBarkWard)
-        : ITryAlterOutcomeAttack, IActionFinishedByContender
+    private sealed class PhysicalAttackFinishedOnMeBarkWard(
+        FeatureDefinitionPower powerBarkOrImprovedBarkWard,
+        ConditionDefinition conditionBarkWard) : IPhysicalAttackFinishedOnMe
     {
-        private bool _isValid;
-
-        public IEnumerator OnActionFinishedByContender(CharacterAction action, GameLocationCharacter target)
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
         {
-            if (!_isValid)
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (action.AttackRoll == 0 ||
+                action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                rulesetDefender.TemporaryHitPoints <= 0 ||
+                !rulesetDefender.HasConditionOfTypeOrSubType(conditionBarkWard.Name) ||
+                !defender.IsWithinRange(attacker, 1))
             {
                 yield break;
             }
 
-            _isValid = false;
-
-            var actingCharacter = action.ActingCharacter;
-            var rulesetAttacker = actingCharacter.RulesetCharacter;
-
-            if (Gui.Battle != null &&
-                Gui.Battle.InitiativeRollFinished &&
-                rulesetAttacker is { IsDeadOrDyingOrUnconscious: false } &&
-                target.IsWithinRange(actingCharacter, 1))
-            {
-                InflictDamage(actingCharacter, target);
-            }
-        }
-
-        public int HandlerPriority => 30;
-
-        public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect)
-        {
-            _isValid =
-                helper == defender &&
-                defender.RulesetCharacter.TemporaryHitPoints > 0 &&
-                defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
-                ValidatorsWeapon.IsMelee(attackMode);
-
-            yield break;
-        }
-
-        // ReSharper disable once SuggestBaseTypeForParameter
-        private void InflictDamage(GameLocationCharacter attacker, GameLocationCharacter me)
-        {
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetMe = me.RulesetCharacter;
             var rolls = new List<int>();
             var damageForm = new DamageForm
             {
                 DamageType = DamageTypePiercing, DieType = DieType.D8, DiceNumber = 2, BonusDamage = 0
             };
             var damageRoll =
-                rulesetMe.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                rulesetDefender.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
             var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
             {
-                sourceCharacter = rulesetMe, targetCharacter = rulesetAttacker, position = attacker.LocationPosition
+                sourceCharacter = rulesetDefender,
+                targetCharacter = rulesetAttacker,
+                position = attacker.LocationPosition
             };
 
-            rulesetMe.LogCharacterUsedPower(powerBarkOrImprovedBarkWard);
-            EffectHelpers.StartVisualEffect(me, me, PowerPatronTreeExplosiveGrowth);
+            rulesetDefender.LogCharacterUsedPower(powerBarkOrImprovedBarkWard);
+            EffectHelpers.StartVisualEffect(defender, defender, PowerPatronTreeExplosiveGrowth);
             RulesetActor.InflictDamage(
                 damageRoll,
                 damageForm,
@@ -272,21 +251,12 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                 applyFormsParams,
                 rulesetAttacker,
                 false,
-                rulesetMe.Guid,
+                rulesetDefender.Guid,
                 false,
                 [],
                 new RollInfo(damageForm.DieType, rolls, 0),
                 true,
                 out _);
-        }
-    }
-
-    private sealed class CharacterTurnStartListenerBarkWard(FeatureDefinitionPower powerSuperiorBarkWard)
-        : ICharacterTurnStartListener
-    {
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            ApplyTemporaryHitPoints(locationCharacter, powerSuperiorBarkWard);
         }
     }
 }

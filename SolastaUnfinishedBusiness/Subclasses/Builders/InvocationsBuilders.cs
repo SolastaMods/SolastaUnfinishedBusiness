@@ -804,9 +804,9 @@ internal static class InvocationsBuilders
         FeatureDefinitionPower powerPerniciousCloak,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionPerniciousCloakSelf)
-        : IMagicEffectFinishedByMe, IValidatePowerUse
+        : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var rulesetEffectPower = EffectHelpers.GetAllEffectsBySourceGuid(rulesetCharacter.Guid)
@@ -1086,7 +1086,7 @@ internal static class InvocationsBuilders
     private sealed class CustomBehaviorChillingHex(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerVexingHex)
-        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -1115,7 +1115,7 @@ internal static class InvocationsBuilders
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {
@@ -1280,7 +1280,7 @@ internal static class InvocationsBuilders
     private sealed class FilterTargetingCharacterVexingHex(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerVexingHex)
-        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -1309,7 +1309,7 @@ internal static class InvocationsBuilders
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {

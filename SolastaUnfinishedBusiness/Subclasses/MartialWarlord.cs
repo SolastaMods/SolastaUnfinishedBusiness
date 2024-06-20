@@ -400,7 +400,8 @@ public sealed class MartialWarlord : AbstractSubclass
     //
 
     private sealed class CustomBehaviorStrategicReposition :
-        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IMagicEffectFinishedByMe
+        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IPowerOrSpellFinishedByMe,
+        IIgnoreInvisibilityInterruptionCheck
     {
         public bool EnforceFullSelection => false;
 
@@ -458,7 +459,7 @@ public sealed class MartialWarlord : AbstractSubclass
             }
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
 

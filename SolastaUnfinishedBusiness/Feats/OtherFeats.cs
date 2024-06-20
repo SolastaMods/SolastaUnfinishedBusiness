@@ -64,7 +64,6 @@ internal static class OtherFeats
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
-        var featPoisonousSkin = BuildPoisonousSkin();
         var featTough = BuildTough();
         var featVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var featWarCaster = BuildWarcaster();
@@ -107,7 +106,7 @@ internal static class OtherFeats
             featMobile,
             featMonkInitiate,
             featPickPocket,
-            featPoisonousSkin,
+            FeatPoisonousSkin,
             featPolearmExpert,
             featRopeIpUp,
             featSentinel,
@@ -161,7 +160,7 @@ internal static class OtherFeats
             weaponMasterGroup);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
-            featPoisonousSkin);
+            FeatPoisonousSkin);
 
         GroupFeats.FeatGroupSkills.AddFeats(
             athleteGroup,
@@ -656,7 +655,7 @@ internal static class OtherFeats
 
     private sealed class CustomBehaviorMenacing(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionMark) : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+        ConditionDefinition conditionMark) : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
 
@@ -684,7 +683,7 @@ internal static class OtherFeats
             return false;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
@@ -1164,7 +1163,7 @@ internal static class OtherFeats
                     .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeAcrobat(condition))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeAcrobat(condition))
             .AddToDB();
 
         var skill = FeatureDefinitionProficiencyBuilder
@@ -1180,11 +1179,11 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private sealed class MagicEffectFinishedByMeAcrobat(
+    private sealed class PowerOrSpellFinishedByMeAcrobat(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionAcrobat) : IMagicEffectFinishedByMe
+        ConditionDefinition conditionAcrobat) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -2544,55 +2543,58 @@ internal static class OtherFeats
         {
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
-            if (action is CharacterActionAttack &&
-                ValidatorsWeapon.IsMelee(action.ActionParams.AttackMode))
+            switch (action)
             {
-                rulesetAttacker.InflictCondition(
-                    conditionImmuneAoO.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionImmuneAoO.Name,
-                    0,
-                    0,
-                    0);
+                case CharacterActionAttack when
+                    ValidatorsWeapon.IsMelee(action.ActionParams.AttackMode):
+                {
+                    rulesetAttacker.InflictCondition(
+                        conditionImmuneAoO.Name,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetAttacker.guid,
+                        rulesetAttacker.CurrentFaction.Name,
+                        1,
+                        conditionImmuneAoO.Name,
+                        0,
+                        0,
+                        0);
 
-                var defender = action.ActionParams.TargetCharacters[0];
-                var rulesetDefender = defender.RulesetCharacter;
+                    var defender = action.ActionParams.TargetCharacters[0];
+                    var rulesetDefender = defender.RulesetCharacter;
 
-                rulesetDefender.InflictCondition(
-                    conditionMark.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfSourceTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionMark.Name,
-                    0,
-                    0,
-                    0);
-            }
-            else if (action.ActionId is ActionDefinitions.Id.DashBonus or ActionDefinitions.Id.DashMain)
-            {
-                rulesetAttacker.InflictCondition(
-                    conditionMovement.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionMovement.Name,
-                    0,
-                    0,
-                    0);
+                    rulesetDefender.InflictCondition(
+                        conditionMark.Name,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfSourceTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetAttacker.guid,
+                        rulesetAttacker.CurrentFaction.Name,
+                        1,
+                        conditionMark.Name,
+                        0,
+                        0,
+                        0);
+                    break;
+                }
+                case CharacterActionDash:
+                    rulesetAttacker.InflictCondition(
+                        conditionMovement.Name,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetAttacker.guid,
+                        rulesetAttacker.CurrentFaction.Name,
+                        1,
+                        conditionMovement.Name,
+                        0,
+                        0,
+                        0);
+                    break;
             }
 
             yield break;
@@ -2612,65 +2614,87 @@ internal static class OtherFeats
 
     #region Poisonous Skin
 
-    private static FeatDefinition BuildPoisonousSkin()
+    private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
+        .Create("PowerFeatPoisonousSkin")
+        .SetGuiPresentation(Category.Feature, hidden: true)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                .ExcludeCaster()
+                .SetSavingThrowData(false,
+                    AttributeDefinitions.Constitution, false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Constitution)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                        .SetConditionForm(ConditionDefinitions.ConditionPoisoned,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+        .AddCustomSubFeatures(new CustomBehaviorFeatPoisonousSkin())
+        .AddToDB();
+
+    internal static readonly FeatDefinition FeatPoisonousSkin = FeatDefinitionBuilder
+        .Create("FeatPoisonousSkin")
+        .SetGuiPresentation(Category.Feat)
+        .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
+        .SetFeatures(PowerFeatPoisonousSkin)
+        .AddToDB();
+
+    private static IEnumerator PoisonTarget(GameLocationCharacter me, GameLocationCharacter target)
     {
-        var powerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatPoisonousSkin")
-            .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                    .ExcludeCaster()
-                    .SetSavingThrowData(false,
-                        AttributeDefinitions.Constitution, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Constitution)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                            .SetConditionForm(ConditionDefinitions.ConditionPoisoned,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
-            .AddToDB();
+        var rulesetMe = me.RulesetCharacter;
+        var rulesetTarget = target.RulesetCharacter;
 
-        powerFeatPoisonousSkin.AddCustomSubFeatures(new CustomBehaviorFeatPoisonousSkin(powerFeatPoisonousSkin));
-
-        return FeatDefinitionBuilder
-            .Create("FeatPoisonousSkin")
-            .SetGuiPresentation(Category.Feat)
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
-            .SetFeatures(powerFeatPoisonousSkin)
-            .AddToDB();
-    }
-
-    private class CustomBehaviorFeatPoisonousSkin(FeatureDefinitionPower powerPoisonousSkin) :
-        IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByContender
-    {
-        //Poison character that shoves me
-        public IEnumerator OnActionFinishedByContender(CharacterAction action, GameLocationCharacter target)
+        if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
         {
-            if (action.ActionId != ActionDefinitions.Id.Shove &&
-                action.ActionId != ActionDefinitions.Id.ShoveBonus &&
-                action.ActionId != ActionDefinitions.Id.ShoveFree)
-            {
-                yield break;
-            }
-
-            if (action.ActionParams.TargetCharacters == null ||
-                !action.ActionParams.TargetCharacters.Contains(target))
-            {
-                yield break;
-            }
-
-            yield return PoisonTarget(target, action.ActingCharacter);
+            yield break;
         }
 
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        var usablePower = PowerProvider.Get(PowerFeatPoisonousSkin, rulesetMe);
+        var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
+        {
+            ActionModifiers = { new ActionModifier() },
+            RulesetEffect = implementationManager
+                .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+            UsablePower = usablePower,
+            TargetCharacters = { target }
+        };
+
+        // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+        ServiceRepository.GetService<IGameLocationActionService>()?
+            .ExecuteAction(actionParams, null, true);
+    }
+
+    //Poison character that shoves me
+    internal static IEnumerator HandleFeatPoisonousSkin(CharacterAction action, GameLocationCharacter target)
+    {
+        if (action is not CharacterActionShove)
+        {
+            yield break;
+        }
+
+        if (action.ActionParams.TargetCharacters == null ||
+            !action.ActionParams.TargetCharacters.Contains(target))
+        {
+            yield break;
+        }
+
+        yield return PoisonTarget(target, action.ActingCharacter);
+    }
+
+    private class CustomBehaviorFeatPoisonousSkin
+        : IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe
+    {
         //Poison characters that I shove
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
@@ -2735,34 +2759,6 @@ internal static class OtherFeats
             }
 
             yield return PoisonTarget(me, attacker);
-        }
-
-        private IEnumerator PoisonTarget(GameLocationCharacter me, GameLocationCharacter target)
-        {
-            var rulesetMe = me.RulesetCharacter;
-            var rulesetTarget = target.RulesetCharacter;
-
-            if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerPoisonousSkin, rulesetMe);
-            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetMe, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { target }
-            };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
         }
     }
 

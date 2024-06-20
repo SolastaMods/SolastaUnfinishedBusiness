@@ -1,7 +1,15 @@
 1.5.97.16:
 
+- added Empowered Knowledge, and Synaptic Static spells
+- fixed Circle of the Night consuming only one wildshape usage with crimson spider, elementals, and minotaur  
+- fixed Coordinated Attack gambit, and Strategic Reposition feature breaking self invisibility
+- fixed Path of the Wild Magic retribution feature not triggering on magic attacks
 - fixed Patron Hexblade using character level instead of class level on hex received healing
-- fixed Wither and Bloom spell interaction with Twinned metamagic
+- fixed Poisonous Skin recurring save to trigger at the start instead of end of enemy turn
+- fixed Ranger Lightbearer not interacting with the cast/stop Light cantrip UI shortcut
+- fixed Wither and Bloom Twinned metamagic offering which was disrespecting the one target rule
+- improved mod performance by refactoring some feats, spells, and subclasses custom behaviors
+- improved translations on spider like models setting description to avoid people bear with consequences
 
 1.5.97.15:
 

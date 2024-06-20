@@ -586,7 +586,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .AddToDB();
 
         powerDetonateCannon.AddCustomSubFeatures(
-            new MagicEffectFinishedByMeEldritchDetonationDismiss(),
+            new PowerOrSpellFinishedByMeEldritchDetonationDismiss(),
             new CustomBehaviorForceCasterSpellDC(powerDetonateCannon));
 
         var powerDetonate = FeatureDefinitionPowerBuilder
@@ -602,7 +602,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                     .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(HasCannon),
-                new MagicEffectFinishedByMeEldritchDetonationDetonate(powerDetonateCannon))
+                new PowerOrSpellFinishedByMeEldritchDetonationDetonate(powerDetonateCannon))
             .AddToDB();
 
         // Explosive Cannon
@@ -972,9 +972,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     private sealed class CustomBehaviorForceCasterSpellDC(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerFlamethrower) : IMagicEffectInitiatedByMe, IModifyEffectDescription
+        FeatureDefinitionPower powerFlamethrower) : IPowerOrSpellInitiatedByMe, IModifyEffectDescription
     {
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action.ActionParams.activeEffect is RulesetEffectPower rulesetEffectPower)
             {
@@ -1010,9 +1010,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     // Refund Cannon
 
-    private class CustomBehaviorRefundCannon : IValidatePowerUse, IMagicEffectFinishedByMe
+    private class CustomBehaviorRefundCannon : IValidatePowerUse, IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
@@ -1058,11 +1058,11 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     // Eldritch Detonation
 
-    private sealed class MagicEffectFinishedByMeEldritchDetonationDetonate(
+    private sealed class PowerOrSpellFinishedByMeEldritchDetonationDetonate(
         FeatureDefinitionPower powerEldritchDetonation)
-        : IMagicEffectFinishedByMe
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var selectedTarget = action.ActionParams.TargetCharacters[0];
@@ -1103,9 +1103,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
     }
 
     // can only dismiss the cannon after it fully detonates
-    private sealed class MagicEffectFinishedByMeEldritchDetonationDismiss : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeEldritchDetonationDismiss : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 

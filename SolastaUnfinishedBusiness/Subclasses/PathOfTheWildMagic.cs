@@ -495,7 +495,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     ConditionInterruption.RageStop)
                 .SetPossessive()
                 .SetFeatures(featureWildSurgeRetributionMelee, featureWildSurgeRetributionRanged)
-                .AddCustomSubFeatures(new WildSurgeRetributionMagicEffectBeforeHitConfirmedOnMe(powerWildSurgeRetribution))
+                .AddCustomSubFeatures(
+                    new WildSurgeRetributionMagicEffectBeforeHitConfirmedOnMe(powerWildSurgeRetribution))
                 .AddToDB();
 
             return new WildSurgeEffect
@@ -1132,9 +1133,10 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     .ExecuteInstantSingleAction(actionParams);
             }
         }
-        private sealed class WildSurgeRetributionMagicEffectBeforeHitConfirmedOnMe(FeatureDefinitionPower retaliatePower) : IMagicEffectBeforeHitConfirmedOnMe
-        {
 
+        private sealed class WildSurgeRetributionMagicEffectBeforeHitConfirmedOnMe(
+            FeatureDefinitionPower retaliatePower) : IMagicEffectBeforeHitConfirmedOnMe
+        {
             public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
                 GameLocationBattleManager battleManager,
                 GameLocationCharacter attacker,
@@ -1149,6 +1151,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 {
                     yield break;
                 }
+
                 battleManager.PrepareAndExecuteRetaliateAction(defender, attacker, retaliatePower);
             }
         }
@@ -1325,19 +1328,19 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                     .SetDurationData(DurationType.Round)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDummy))
                     .Build())
+            .AddCustomSubFeatures(new UnstableBackslashHandler(wildSurgeHandler))
             .AddToDB();
-
-        powerUnstableBackslash.AddCustomSubFeatures(
-            new UnstableBackslashHandler(wildSurgeHandler, powerUnstableBackslash));
 
         var conditionUnstableBacklash = ConditionDefinitionBuilder
             .Create($"Condition{Name}UnstableBacklash")
             .SetGuiPresentationNoContent(true)
-            .SetFeatures(powerUnstableBackslash)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powerUnstableBackslash)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .SetSpecialDuration(DurationType.UntilLongRest)
-            .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.NoAttackOrDamagedInTurn,
+            .SetSpecialInterruptions(
+                ConditionInterruption.BattleEnd,
+                ConditionInterruption.NoAttackOrDamagedInTurn,
                 ConditionInterruption.RageStop)
             .AddToDB();
 
@@ -1358,49 +1361,51 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         return featureUnstableBacklash;
     }
 
-    private sealed class UnstableBackslashHandler(
-        WildSurgeHandler wildSurgeHandler,
-        FeatureDefinitionPower powerUnstableBackslash) : 
-        IActionFinishedByContender, 
-        IActionFinishedByMe
+    private sealed class UnstableBackslashHandler(WildSurgeHandler wildSurgeHandler)
+        : IMagicEffectFinishedOnMe, IPhysicalAttackFinishedOnMe, IPowerOrSpellFinishedByMe
     {
         private const string TagUnstableBacklash = "UnstableBacklash";
 
-        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
+        public IEnumerator OnMagicEffectFinishedOnMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<GameLocationCharacter> targets)
         {
-            if (target == characterAction.ActingCharacter)
+            if (!defender.UsedSpecialFeatures.ContainsKey(TagUnstableBacklash))
             {
                 yield break;
             }
 
-            if (!target.UsedSpecialFeatures.ContainsKey(TagUnstableBacklash))
-            {
-                yield break;
-            }
+            defender.UsedSpecialFeatures.Remove(TagUnstableBacklash);
 
-            target.UsedSpecialFeatures.Remove(TagUnstableBacklash);
-
-            yield return wildSurgeHandler.HandleWildSurge(target, characterAction.ActingCharacter);
+            yield return wildSurgeHandler.HandleWildSurge(defender, attacker);
         }
 
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
         {
-            if (characterAction.ActionType != ActionType.Reaction)
+            if (!defender.UsedSpecialFeatures.ContainsKey(TagUnstableBacklash))
             {
                 yield break;
             }
 
-            if (characterAction is not CharacterActionUsePower characterPowerAction)
-            {
-                yield break;
-            }
+            defender.UsedSpecialFeatures.Remove(TagUnstableBacklash);
 
-            if (characterPowerAction.activePower.PowerDefinition != powerUnstableBackslash)
-            {
-                yield break;
-            }
+            yield return wildSurgeHandler.HandleWildSurge(defender, attacker);
+        }
 
-            characterAction.ActingCharacter.UsedSpecialFeatures.TryAdd(TagUnstableBacklash, 0);
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActingCharacter.UsedSpecialFeatures.TryAdd(TagUnstableBacklash, 0);
+
+            yield break;
         }
     }
 

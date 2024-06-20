@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -169,8 +168,9 @@ public static class CharacterActionPatcher
                 yield return values.Current;
             }
 
-            //PATCH: clear flanking rules determination cache on every action end
-            if (Main.Settings.UseOfficialFlankingRules && Gui.Battle != null)
+            //PATCH: support for Official Flanking Rules
+            if (Gui.Battle != null &&
+                Main.Settings.UseOfficialFlankingRules)
             {
                 FlankingAndHigherGround.ClearFlankingDeterminationCache();
             }
@@ -189,24 +189,52 @@ public static class CharacterActionPatcher
                 }
             }
 
-            //PATCH: support for `IActionFinishedByContender`
-            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var contenders =
-                (Gui.Battle?.AllContenders ??
-                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .ToList();
-
-            foreach (var target in contenders)
+            if (Gui.Battle != null &&
+                actingCharacter.Side != Side.Ally)
             {
-                var rulesetTarget = target.RulesetCharacter;
-
-                foreach (var actionFinishedByContender in rulesetTarget
-                             .GetSubFeaturesByType<IActionFinishedByContender>())
+                switch (__instance)
                 {
-                    yield return actionFinishedByContender.OnActionFinishedByContender(__instance, target);
+                    //PATCH: support for Old Tactics feat
+                    case CharacterActionStandUp:
+                    {
+                        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                        foreach (var ally in Gui.Battle.GetOpposingContenders(__instance.ActingCharacter.Side))
+                        {
+                            var rulesetAlly = ally.RulesetCharacter;
+                            var rulesetAllyHero = rulesetAlly.GetOriginalHero();
+
+                            if (rulesetAllyHero != null &&
+                                (rulesetAllyHero.TrainedFeats.Contains(MeleeCombatFeats.FeatOldTacticsDex) ||
+                                 rulesetAllyHero.TrainedFeats.Contains(MeleeCombatFeats.FeatOldTacticsStr)))
+                            {
+                                yield return MeleeCombatFeats.HandleFeatOldTactics(__instance, ally);
+                            }
+                        }
+
+                        break;
+                    }
+                    //PATCH: support for Poisonous feat
+                    case CharacterActionShove:
+                    {
+                        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                        foreach (var ally in Gui.Battle.GetOpposingContenders(__instance.ActingCharacter.Side))
+                        {
+                            var rulesetAlly = ally.RulesetCharacter;
+                            var rulesetAllyHero = rulesetAlly.GetOriginalHero();
+
+                            if (rulesetAllyHero != null &&
+                                rulesetAllyHero.TrainedFeats.Contains(OtherFeats.FeatPoisonousSkin))
+                            {
+                                yield return OtherFeats.HandleFeatPoisonousSkin(__instance, ally);
+                            }
+                        }
+
+                        break;
+                    }
                 }
             }
 
+            //PATCH: support for `ExtraConditionInterruption.UsesBonusAction`
             if (__instance.ActionType == ActionDefinitions.ActionType.Bonus)
             {
                 rulesetCharacter.ProcessConditionsMatchingInterruption(

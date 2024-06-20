@@ -209,7 +209,7 @@ public sealed class OathOfThunder : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(DimensionDoor)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeBifrost(powerBifrostDamage))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeBifrost(powerBifrostDamage))
             .AddToDB();
 
         // LEVEL 20
@@ -362,10 +362,10 @@ public sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class MagicEffectFinishedByMeBifrost(FeatureDefinitionPower powerBifrostDamage)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeBifrost(FeatureDefinitionPower powerBifrostDamage)
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (Gui.Battle == null)
             {

@@ -253,7 +253,7 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        var behavior = new MagicEffectFinishedByMeFizbanPlatinumShield(spell, conditionMark);
+        var behavior = new PowerOrSpellFinishedByMeFizbanPlatinumShield(spell, conditionMark);
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
@@ -299,14 +299,14 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class MagicEffectFinishedByMeFizbanPlatinumShield(
+    private sealed class PowerOrSpellFinishedByMeFizbanPlatinumShield(
         SpellDefinition spell,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition condition) : IMagicEffectFinishedByMe
+        ConditionDefinition condition) : IPowerOrSpellFinishedByMe
     {
         private int _remainingRounds;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -541,7 +541,7 @@ internal static partial class SpellBuilders
         powerRingOfBladesFree.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.InCombat,
             // it's indeed powerRingOfBlades here
-            new MagicEffectFinishedByMeRingOfBladesFree(powerRingOfBlades, conditionRingOfBladesFree),
+            new PowerOrSpellFinishedByMeRingOfBladesFree(powerRingOfBlades, conditionRingOfBladesFree),
             new CustomBehaviorPowerRingOfBlades(powerRingOfBladesFree, conditionRingOfBlades));
 
         var spell = SpellDefinitionBuilder
@@ -568,18 +568,18 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(HypnoticPattern)
                     .SetEffectEffectParameters(PowerMagebaneSpellCrusher)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeSpellRingOfBlades(conditionRingOfBlades))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSpellRingOfBlades(conditionRingOfBlades))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectFinishedByMeRingOfBladesFree(
+    private sealed class PowerOrSpellFinishedByMeRingOfBladesFree(
         FeatureDefinitionPower powerRingOfBlades,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionRingOfBladesFree) : IMagicEffectFinishedByMe
+        ConditionDefinition conditionRingOfBladesFree) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerRingOfBlades, rulesetCharacter);
@@ -601,10 +601,10 @@ internal static partial class SpellBuilders
         FeatureDefinitionPower powerRingOfBlades,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionRingOfBlades)
-        : IMagicEffectInitiatedByMe, IModifyEffectDescription
+        : IPowerOrSpellInitiatedByMe, IModifyEffectDescription
     {
         // STEP 1: change attackRollModifier to use spell casting feature
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
@@ -678,10 +678,10 @@ internal static partial class SpellBuilders
     }
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class MagicEffectFinishedByMeSpellRingOfBlades(ConditionDefinition conditionRingOfBlades)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeSpellRingOfBlades(ConditionDefinition conditionRingOfBlades)
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
             {

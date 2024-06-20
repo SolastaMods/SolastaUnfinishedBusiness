@@ -673,17 +673,17 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         private RollOutcome SaveOutcome { get; set; } = RollOutcome.Success;
 
         // collect the spent power and save outcome
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (characterAction is not CharacterActionSpendPower action)
+            if (action is not CharacterActionSpendPower actionSpendPower)
             {
                 PowerSpent = null;
 
                 yield break;
             }
 
-            PowerSpent = action.activePower.PowerDefinition;
-            SaveOutcome = action.SaveOutcome;
+            PowerSpent = actionSpendPower.activePower.PowerDefinition;
+            SaveOutcome = actionSpendPower.SaveOutcome;
         }
 
         // apply arrow behavior after attack finishes

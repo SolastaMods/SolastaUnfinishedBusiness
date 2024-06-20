@@ -516,7 +516,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             new ValidatorsValidatePowerUse(
                 c => c.GetRemainingPowerUses(powerTelekineticGraspOncePerLong) > 0,
                 ValidatorsCharacter.HasNoneOfConditions(conditionTelekinesis.Name)),
-            new MagicEffectFinishedByMeTelekineticGrasp(spell));
+            new PowerOrSpellFinishedByMeTelekineticGrasp(spell));
 
         var powerTelekineticGrasp = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}TelekineticGrasp")
@@ -527,7 +527,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 new ValidatorsValidatePowerUse(
                     c => c.GetRemainingPowerUses(powerTelekineticGraspOncePerLong) == 0,
                     ValidatorsCharacter.HasNoneOfConditions(conditionTelekinesis.Name)),
-                new MagicEffectFinishedByMeTelekineticGrasp(spell))
+                new PowerOrSpellFinishedByMeTelekineticGrasp(spell))
             .AddToDB();
 
         var featureSetTelekineticGrasp = FeatureDefinitionFeatureSetBuilder
@@ -1025,10 +1025,10 @@ public sealed class MartialForceKnight : AbstractSubclass
     // Telekinetic Grasp
     //
 
-    private sealed class MagicEffectFinishedByMeTelekineticGrasp(SpellDefinition spellTelekineticGrasp)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeTelekineticGrasp(SpellDefinition spellTelekineticGrasp)
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var actingCharacter = action.ActingCharacter;

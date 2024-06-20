@@ -4,16 +4,12 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
-public interface IMagicEffectAttackInitiatedByMe
+public interface IMagicEffectFinishedOnMe
 {
     [UsedImplicitly]
-    IEnumerator OnMagicEffectAttackInitiatedByMe(
+    IEnumerator OnMagicEffectFinishedOnMe(
         CharacterActionMagicEffect action,
-        RulesetEffect activeEffect,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        ActionModifier attackModifier,
-        List<EffectForm> actualEffectForms,
-        bool firstTarget,
-        bool checkMagicalAttackDamage);
+        List<GameLocationCharacter> targets);
 }
