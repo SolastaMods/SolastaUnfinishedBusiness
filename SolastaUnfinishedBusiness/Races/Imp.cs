@@ -663,7 +663,7 @@ internal static class RaceImpBuilder
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerImpBadlandDrawInspiration, rulesetDefender);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "DrawInspiration",
                 RulesetEffect = implementationManager
@@ -673,7 +673,7 @@ internal static class RaceImpBuilder
             var count = actionService.PendingReactionRequestGroups.Count;
 
             actionService.ReactToSpendPower(actionParams);
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
+            yield return battleManager.WaitForReactions(defender, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {
