@@ -44,7 +44,6 @@ public static class HasEnemiesInMeleeRangePatcher
                     continue;
                 }
 
-
                 //PATCH: Add handling of enemies with reach range > 1
                 var attackMode = relevantEnemy.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
                 var reachRange = attackMode?.reachRange ?? 1;
@@ -52,26 +51,25 @@ public static class HasEnemiesInMeleeRangePatcher
                         relevantEnemy.LocationPosition, parameters.character.GameLocationCharacter, defenderPosition,
                         reachRange))
                 {
-                    var flag = true;
+                    var isEnemyWithinMeleeReachRange = true;
+
                     if (boolSecParameter)
                     {
-                        var flag2 = false;
-                        flag2 = !boolParameter
+                        isEnemyWithinMeleeReachRange = !boolParameter
                             ? relevantEnemy.PerceivedFoes.Contains(parameters.character.GameLocationCharacter)
                             : parameters.situationalInformation.BattleService.CanAttackerSeeCharacterFromPosition(
                                 defenderPosition, relevantEnemy.LocationPosition,
                                 parameters.character.GameLocationCharacter, relevantEnemy);
-                        flag = flag && flag2;
                     }
 
                     if (boolTerParameter)
                     {
-                        flag &= parameters.situationalInformation.BattleService
+                        isEnemyWithinMeleeReachRange &= parameters.situationalInformation.BattleService
                             .IsValidAttackerForOpportunityAttackOnCharacter(relevantEnemy,
                                 parameters.character.GameLocationCharacter);
                     }
 
-                    if (flag)
+                    if (isEnemyWithinMeleeReachRange)
                     {
                         num--;
                     }

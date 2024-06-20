@@ -318,7 +318,7 @@ internal static partial class SpellBuilders
 
     private const string PsionicBlastName = "PsionicBlast";
 
-    internal static readonly ConditionDefinition ConditionMuddled = ConditionDefinitionBuilder
+    private static readonly ConditionDefinition ConditionMuddled = ConditionDefinitionBuilder
         .Create($"Condition{PsionicBlastName}")
         .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionConfused)
         .SetPossessive()

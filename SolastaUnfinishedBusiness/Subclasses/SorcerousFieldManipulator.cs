@@ -46,7 +46,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         // Displacement
 
-        PowerSorcerousFieldManipulatorDisplacement = FeatureDefinitionPowerBuilder
+        var powerSorcerousFieldManipulatorDisplacement = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Displacement")
             .SetGuiPresentation(Category.Feature, MistyStep)
             .SetUsesProficiencyBonus(ActivationTime.Action)
@@ -176,7 +176,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.SorcererFieldManipulator, 256))
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsFieldManipulator,
-                PowerSorcerousFieldManipulatorDisplacement)
+                powerSorcerousFieldManipulatorDisplacement)
             .AddFeaturesAtLevel(6,
                 MagicAffinityHeightened)
             .AddFeaturesAtLevel(14,
@@ -187,8 +187,6 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Sorcerer;
-
-    internal static FeatureDefinitionPower PowerSorcerousFieldManipulatorDisplacement { get; private set; }
 
     private static FeatureDefinitionMagicAffinity MagicAffinityHeightened { get; set; }
 
