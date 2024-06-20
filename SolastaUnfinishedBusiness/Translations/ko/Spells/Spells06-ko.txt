@@ -20,5 +20,7 @@ Spell/&PoisonWaveDescription=당신에게서 맹독의 파도가 분출되어 �
 Spell/&PoisonWaveTitle=포이즌 웨이브
 Spell/&RingOfBladesDescription=보너스 액션으로 주변에 6개의 투명한 칼날을 불러일으키면서 양손을 듭니다. 당신이 이 주문을 시전할 때, 그리고 각 후속 턴의 보너스 행동으로 당신은 이 칼날 중 하나를 당신으로부터 60피트 내의 생물에게 던질 수 있습니다. 원거리 주문 공격을 가합니다. 적중 시 대상은 4d10의 강제 피해를 입습니다. 7레벨 이상의 주문 슬롯을 사용하여 이 주문을 시전하면 각 칼날의 피해는 6레벨 이상의 슬롯 레벨마다 1d10씩 증가합니다.
 Spell/&RingOfBladesTitle=칼날의 반지
+Spell/&ScatterDescription=범위 내에서 볼 수 있는 최대 5개의 생물을 선택하면 공기가 진동합니다. 이 주문에 저항하려면 의지가 없는 생명체는 지혜 내성 굴림에 성공해야 합니다. 영향을 받은 각 대상을 120피트 이내에서 볼 수 있는 비어 있는 공간으로 순간이동시킵니다. 그 공간은 지상이나 바닥에 있어야 합니다.
+Spell/&ScatterTitle=흩어지게하다
 Tooltip/&MustBeLargeOrSmaller=크기가 크거나 작아야 조준할 수 있습니다.
 Tooltip/&MustNotHaveFizbanPlatinumShield=Fizban의 백금 방패가 없어야 합니다.

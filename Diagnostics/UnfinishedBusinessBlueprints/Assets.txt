@@ -12103,6 +12103,7 @@ ResonatingStrike	SpellDefinition	SpellDefinition	c8ecadb8-8b2a-57dd-93dd-41f6557
 ReverseGravity	SpellDefinition	SpellDefinition	8589da03-628b-5f85-84fd-9198418e2b8f
 RingOfBlades	SpellDefinition	SpellDefinition	8786acc5-1f99-5d2c-9cd5-dcd58942132d
 Sanctuary	SpellDefinition	SpellDefinition	c26b716e-d3ef-5478-9036-95a40e053d10
+Scatter	SpellDefinition	SpellDefinition	a40711d2-ff33-5dea-b593-77409d01ed4b
 SearingSmite	SpellDefinition	SpellDefinition	0a2bc8fc-9062-58d3-b7eb-8a775e5c62de
 ShadowBlade	SpellDefinition	SpellDefinition	dc2aa74d-d731-50b9-81ab-ccc69d24440d
 Shapechange	SpellDefinition	SpellDefinition	92b23a62-e155-5ae0-8c2a-808403d61440

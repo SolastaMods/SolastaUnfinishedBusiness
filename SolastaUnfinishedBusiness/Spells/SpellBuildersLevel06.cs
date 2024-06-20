@@ -184,6 +184,53 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Poison Wave
+
+    internal static SpellDefinition BuildScatter()
+    {
+        const string NAME = "Scatter";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, MistyStep)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Detection)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position)
+                    .InviteOptionalAlly()
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                            .Build())
+                    .SetParticleEffectParameters(PowerMelekTeleport)
+                    .Build())
+            .AddCustomSubFeatures(new ModifySelectionMaxTargetsScatter())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class ModifySelectionMaxTargetsScatter : IModifySelectionMaxTargets
+    {
+        public int MaxTargets(CursorLocationSelectTarget cursorLocationSelectTarget)
+        {
+            return 5;
+        }
+    }
+
+    #endregion
+
     #region Fizban Platinum Shield
 
     internal static SpellDefinition BuildFizbanPlatinumShield()
@@ -603,6 +650,38 @@ internal static partial class SpellBuilders
         ConditionDefinition conditionRingOfBlades)
         : IPowerOrSpellInitiatedByMe, IModifyEffectDescription
     {
+        // STEP 2: add additional dice if required
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerRingOfBlades;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            if (damageForm == null)
+            {
+                return effectDescription;
+            }
+
+            if (!character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    conditionRingOfBlades.Name,
+                    out var activeCondition))
+            {
+                return effectDescription;
+            }
+
+            damageForm.diceNumber = 4 + activeCondition.EffectLevel - 6;
+
+            return effectDescription;
+        }
+
         // STEP 1: change attackRollModifier to use spell casting feature
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -642,38 +721,6 @@ internal static partial class SpellBuilders
             rulesetCaster.ComputeSpellAttackBonus(rulesetCaster.SpellRepertoires[spellRepertoireIndex]);
             actionModifier.AttacktoHitTrends.SetRange(rulesetCaster.magicAttackTrends);
             actionModifier.AttackRollModifier = rulesetCaster.magicAttackTrends.Sum(x => x.value);
-        }
-
-        // STEP 2: add additional dice if required
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerRingOfBlades;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
-            if (!character.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionRingOfBlades.Name,
-                    out var activeCondition))
-            {
-                return effectDescription;
-            }
-
-            damageForm.diceNumber = 4 + activeCondition.EffectLevel - 6;
-
-            return effectDescription;
         }
     }
 

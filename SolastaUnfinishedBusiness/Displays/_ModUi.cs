@@ -241,6 +241,7 @@ internal static class ModUi
         "ReverseGravity",
         "RoguishSlayer",
         "Sanctuary",
+        "Scatter",
         "SearingSmite",
         "ShadowBlade",
         "Shapechange",

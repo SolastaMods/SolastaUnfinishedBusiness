@@ -361,6 +361,7 @@ internal static class SpellsContext
         RegisterSpell(BuildPoisonWave(), 0, SpellListWizard);
         RegisterSpell(BuildFizbanPlatinumShield(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildRingOfBlades(), 0, SpellListWizard);
+        RegisterSpell(BuildScatter(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
 
         // 7th level
         RegisterSpell(BuildDraconicTransformation(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);

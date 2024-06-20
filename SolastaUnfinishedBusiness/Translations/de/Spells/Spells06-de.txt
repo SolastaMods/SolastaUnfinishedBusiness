@@ -20,5 +20,7 @@ Spell/&PoisonWaveDescription=Eine giftige Welle bricht von dir aus und verschlin
 Spell/&PoisonWaveTitle=Giftwelle
 Spell/&RingOfBladesDescription=Als Bonusaktion heben Sie beide Hände, während Sie sechs transparente Klingen um sich herum hervorrufen. Wenn du diesen Zauber wirkst, kannst du als Bonusaktion in jeder weiteren Runde eine dieser Klingen auf eine Kreatur in einem Umkreis von 60 Fuß um dich werfen. Führen Sie einen Fernkampfangriff durch. Bei einem Treffer erleidet das Ziel 4W10 Kraftschaden. Wenn Sie diesen Zauber mit einem Zauberslot der 7. Stufe oder höher wirken, erhöht sich der Schaden an jeder Klinge um 1W10 für jede Slotstufe über der 6. Stufe.
 Spell/&RingOfBladesTitle=Ring der Klingen
+Spell/&ScatterDescription=Die Luft zittert um bis zu fünf Kreaturen deiner Wahl, die du in Reichweite sehen kannst. Eine unwillige Kreatur muss einen Weisheitsrettungswurf bestehen, um diesem Zauber zu widerstehen. Du teleportierst jedes betroffene Ziel an einen freien Ort, den du innerhalb von 120 Fuß von dir aus sehen kannst. Dieser Ort muss auf dem Boden oder auf einem Fußboden sein.
+Spell/&ScatterTitle=Streuen
 Tooltip/&MustBeLargeOrSmaller=Muss groß oder kleiner sein, um gezielt ausgerichtet zu werden
 Tooltip/&MustNotHaveFizbanPlatinumShield=Darf nicht über Fizbans Platinschild verfügen

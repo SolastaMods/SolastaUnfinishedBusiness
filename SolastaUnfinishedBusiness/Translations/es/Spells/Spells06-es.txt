@@ -20,5 +20,7 @@ Spell/&PoisonWaveDescription=Una ola venenosa surge de ti y envuelve a quienes e
 Spell/&PoisonWaveTitle=Ola venenosa
 Spell/&RingOfBladesDescription=Levantas ambas manos mientras evocas seis espadas transparentes a tu alrededor como acción adicional. Cuando lanzas este hechizo, y como acción adicional en cada turno posterior, puedes lanzar una de estas espadas a una criatura que se encuentre a 60 pies de ti. Realiza un ataque con hechizo a distancia. Con un impacto, el objetivo sufre 4d10 de daño de fuerza. Cuando lanzas este hechizo usando un espacio de hechizo de 7º nivel o superior, el daño a cada hoja aumenta en 1d10 por cada nivel de espacio por encima del 6º.
 Spell/&RingOfBladesTitle=Anillo de espadas
+Spell/&ScatterDescription=El aire vibra alrededor de hasta cinco criaturas de tu elección que puedes ver dentro del alcance. Una criatura que no lo desee debe superar una tirada de salvación de Sabiduría para resistir este hechizo. Teletransportas a cada objetivo afectado a un espacio desocupado que puedes ver a 120 pies de ti. Ese espacio debe estar en el suelo o en un suelo.
+Spell/&ScatterTitle=Dispersión
 Tooltip/&MustBeLargeOrSmaller=Debe ser de tamaño grande o más pequeño para apuntar
 Tooltip/&MustNotHaveFizbanPlatinumShield=No debe tener el Escudo de Platino de Fizban.
