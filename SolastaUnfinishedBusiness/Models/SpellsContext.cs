@@ -351,6 +351,7 @@ internal static class SpellsContext
         RegisterSpell(MantleOfThorns, 0, SpellListDruid);
         RegisterSpell(SteelWhirlwind, 0, SpellListRanger, SpellListWizard);
         RegisterSpell(SonicBoom, 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildSynapticStatic(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(Telekinesis, 0, SpellListSorcerer, SpellListWizard);
 
         // 6th level

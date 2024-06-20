@@ -12439,6 +12439,7 @@ SteelWhirlwind	SpellDefinition	SpellDefinition	ab7f50cb-6f73-57c6-b96b-f06ac4ed1
 StrikeWithTheWind	SpellDefinition	SpellDefinition	d641e4ac-7291-5516-a07c-f45b6444dcfe
 SunlightBlade	SpellDefinition	SpellDefinition	62effe92-a4c1-58ed-a9a0-06f1a64e8c8e
 SwordStorm	SpellDefinition	SpellDefinition	d3b6df03-2c2c-524a-a160-e988006a5fd8
+SynapticStatic	SpellDefinition	SpellDefinition	5e75eeec-87bb-5e81-918a-03171bfea6a6
 Telekinesis	SpellDefinition	SpellDefinition	4a9561ac-ffb6-5b44-b94a-24f69e41fd4c
 TelekinesisMartialForceKnight	SpellDefinition	SpellDefinition	e79e6aa6-e2a4-5c48-a244-69f91d85d57c
 ThornyVines	SpellDefinition	SpellDefinition	821729fd-5a81-5fcc-bb24-5a715e7a34c0

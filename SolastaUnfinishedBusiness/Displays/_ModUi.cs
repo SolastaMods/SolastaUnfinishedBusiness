@@ -255,6 +255,7 @@ internal static class ModUi
         "SteelWhirlwind",
         "StrikeWithTheWind",
         "SwordStorm",
+        "SynapticStatic",
         "Telekinesis",
         "ThornyVines",
         "ThunderousSmite",

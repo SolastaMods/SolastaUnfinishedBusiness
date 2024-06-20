@@ -107,6 +107,52 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Psionic Blast
+
+    internal static SpellDefinition BuildSynapticStatic()
+    {
+        const string NAME = "SynapticStatic";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SynapticStatic, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
+                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 8, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(Fear)
+                    .SetCasterEffectParameters(ViciousMockery)
+                    .SetImpactEffectParameters(PowerMagebaneWarcry)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Sonic Boom
 
     internal static SpellDefinition BuildSonicBoom()

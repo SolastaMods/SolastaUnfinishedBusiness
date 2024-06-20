@@ -175,82 +175,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Psionic Blast
-
-    internal static SpellDefinition BuildPsionicBlast()
-    {
-        const string NAME = "PsionicBlast";
-
-        var condition = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionConfused)
-            .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
-                    .SetMyAttackModifierSign(AttackModifierSign.Substract)
-                    .SetMyAttackModifierDieType(DieType.D6)
-                    .AddToDB(),
-                FeatureDefinitionAbilityCheckAffinityBuilder
-                    .Create($"AbilityCheckAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
-                    .BuildAndSetAffinityGroups(
-                        CharacterAbilityCheckAffinity.None, DieType.D6, 1,
-                        AbilityCheckGroupOperation.SubstractDie,
-                        (AttributeDefinitions.Strength, string.Empty),
-                        (AttributeDefinitions.Strength, string.Empty),
-                        (AttributeDefinitions.Dexterity, string.Empty),
-                        (AttributeDefinitions.Constitution, string.Empty),
-                        (AttributeDefinitions.Intelligence, string.Empty),
-                        (AttributeDefinitions.Wisdom, string.Empty),
-                        (AttributeDefinitions.Charisma, string.Empty))
-                    .AddToDB())
-            .SetConditionParticleReference(ConditionFeebleMinded)
-            .AddToDB();
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsionicBlast, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(4)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(false)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .ExcludeCaster()
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetParticleEffectParameters(Fear)
-                    .SetCasterEffectParameters(ViciousMockery)
-                    .SetImpactEffectParameters(PowerMagebaneWarcry)
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    #endregion
-
     #region Psychic Lance
 
     internal static SpellDefinition BuildPsychicLance()
@@ -382,6 +306,82 @@ internal static partial class SpellBuilders
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionStaggeringSmite))
                     .SetParticleEffectParameters(Maze)
                     .SetEffectEffectParameters(new AssetReference())
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Psionic Blast
+
+    private const string PsionicBlastName = "PsionicBlast";
+
+    internal static readonly ConditionDefinition ConditionMuddled = ConditionDefinitionBuilder
+        .Create($"Condition{PsionicBlastName}")
+        .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionConfused)
+        .SetPossessive()
+        .SetConditionType(ConditionType.Detrimental)
+        .SetFeatures(
+            FeatureDefinitionCombatAffinityBuilder
+                .Create($"CombatAffinity{PsionicBlastName}")
+                .SetGuiPresentation(PsionicBlastName, Category.Spell, Gui.NoLocalization)
+                .SetMyAttackModifierSign(AttackModifierSign.Substract)
+                .SetMyAttackModifierDieType(DieType.D6)
+                .AddToDB(),
+            FeatureDefinitionAbilityCheckAffinityBuilder
+                .Create($"AbilityCheckAffinity{PsionicBlastName}")
+                .SetGuiPresentation(PsionicBlastName, Category.Spell, Gui.NoLocalization)
+                .BuildAndSetAffinityGroups(
+                    CharacterAbilityCheckAffinity.None, DieType.D6, 1,
+                    AbilityCheckGroupOperation.SubstractDie,
+                    (AttributeDefinitions.Strength, string.Empty),
+                    (AttributeDefinitions.Strength, string.Empty),
+                    (AttributeDefinitions.Dexterity, string.Empty),
+                    (AttributeDefinitions.Constitution, string.Empty),
+                    (AttributeDefinitions.Intelligence, string.Empty),
+                    (AttributeDefinitions.Wisdom, string.Empty),
+                    (AttributeDefinitions.Charisma, string.Empty))
+                .AddToDB())
+        .SetConditionParticleReference(ConditionFeebleMinded)
+        .AddToDB();
+
+    internal static SpellDefinition BuildPsionicBlast()
+    {
+        var spell = SpellDefinitionBuilder
+            .Create(PsionicBlastName)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(PsionicBlastName, Resources.PsionicBlast, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(Fear)
+                    .SetCasterEffectParameters(ViciousMockery)
+                    .SetImpactEffectParameters(PowerMagebaneWarcry)
                     .Build())
             .AddToDB();
 
