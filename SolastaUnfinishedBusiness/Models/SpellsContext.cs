@@ -345,6 +345,7 @@ internal static class SpellsContext
         RegisterSpell(BuildCircleOfMagicalNegation(), 0, SpellListPaladin);
         RegisterSpell(BuildDawn(), 0, SpellListCleric, SpellListWizard);
         RegisterSpell(DivineWrath, 0, SpellListPaladin);
+        RegisterSpell(BuildEmpoweredKnowledge(), 0, SpellListBard, SpellListCleric, SpellListWarlock, SpellListWizard);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildIncineration(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(MantleOfThorns, 0, SpellListDruid);
