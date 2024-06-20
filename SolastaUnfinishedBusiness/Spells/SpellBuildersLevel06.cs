@@ -203,7 +203,8 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Position)
+                    .ExcludeCaster()
                     .InviteOptionalAlly()
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -211,18 +212,20 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 6)
                             .Build())
                     .SetParticleEffectParameters(PowerMelekTeleport)
                     .Build())
-            .AddCustomSubFeatures(new ModifySelectionMaxTargetsScatter())
+            .AddCustomSubFeatures(new ModifyTeleportEffectBehaviorScatter())
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class ModifySelectionMaxTargetsScatter : IModifySelectionMaxTargets
+    private sealed class ModifyTeleportEffectBehaviorScatter : IModifyTeleportEffectBehavior
     {
+        public bool AllyOnly => false;
+
         public int MaxTargets(CursorLocationSelectTarget cursorLocationSelectTarget)
         {
             return 5;

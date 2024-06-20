@@ -54,8 +54,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Position)
+                    .ExcludeCaster()
                     .InviteOptionalAlly()
-                    .SetParticleEffectParameters(Banishment)
                     .SetSavingThrowData(
                         true,
                         AttributeDefinitions.Charisma,
@@ -67,8 +67,9 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
+                    .SetParticleEffectParameters(Banishment)
                     .Build())
-            .AddCustomSubFeatures(new CustomBehaviorDisplacement(), ForcePushOrDragFromEffectPoint.Marker)
+            .AddCustomSubFeatures(new CustomBehaviorDisplacement())
             .AddToDB();
 
         // LEVEL 06
@@ -225,8 +226,16 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     // Displacement
     //
 
-    private sealed class CustomBehaviorDisplacement : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
+    private sealed class CustomBehaviorDisplacement
+        : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe, IModifyTeleportEffectBehavior
     {
+        public bool AllyOnly => false;
+
+        public int MaxTargets(CursorLocationSelectTarget cursorLocationSelectTarget)
+        {
+            return 1;
+        }
+
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetEffect = action.ActionParams.RulesetEffect;
