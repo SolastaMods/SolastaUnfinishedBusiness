@@ -113,6 +113,25 @@ public static class CursorLocationSelectTargetPatcher
             // allows any target to be selected as well as automatically presents a better UI description
             rulesetEffectPower.EffectDescription.inviteOptionalAlly = false;
         }
+
+        //PATCH: supports `IModifySelectionMaxTargets`
+        [UsedImplicitly]
+        public static void Postfix(CursorLocationSelectTarget __instance, params object[] parameters)
+        {
+            if (parameters.Length <= 0 ||
+                parameters[0] is not CharacterActionParams actionParams)
+            {
+                return;
+            }
+
+            var source = actionParams.RulesetEffect.SourceDefinition;
+
+            foreach (var modifySelectionMaxTargets in source.GetAllSubFeaturesOfType<IModifySelectionMaxTargets>())
+            {
+                __instance.maxTargets = modifySelectionMaxTargets.MaxTargets(__instance);
+                __instance.remainingTargets = __instance.maxTargets;
+            }
+        }
     }
 
     [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.Deactivate))]
