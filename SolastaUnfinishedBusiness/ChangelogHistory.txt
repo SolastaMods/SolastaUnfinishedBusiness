@@ -1,6 +1,6 @@
 1.5.97.16:
 
-- added Empowered Knowledge, Scatter, and Synaptic Static spells
+- added Crown of Stars, Empowered Knowledge, Scatter, and Synaptic Static spells
 - fixed Circle of the Night consuming only one wildshape usage with crimson spider, elementals, and minotaur  
 - fixed Coordinated Attack gambit, and Strategic Reposition warlord feature breaking self invisibility
 - fixed Path of the Wild Magic aura, bolt, retribution, summon, and teleport behaviors

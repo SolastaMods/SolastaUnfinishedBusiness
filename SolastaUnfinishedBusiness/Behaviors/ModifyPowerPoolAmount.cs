@@ -27,6 +27,11 @@ public class ModifyPowerPoolAmount : IModifyPowerPoolAmount
             case PowerPoolBonusCalculationType.AttributeMod:
                 var attribute = character.TryGetAttributeValue(Attribute);
                 return Value * AttributeDefinitions.ComputeAbilityScoreModifier(attribute);
+            case PowerPoolBonusCalculationType.ConditionEffectLevel:
+                return Value * (character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, Attribute, out var activeCondition)
+                    ? activeCondition.EffectLevel
+                    : 0);
         }
 
         return Value;
@@ -48,5 +53,6 @@ public enum PowerPoolBonusCalculationType
     CharacterLevel,
     ClassLevel,
     Attribute,
-    AttributeMod
+    AttributeMod,
+    ConditionEffectLevel
 }

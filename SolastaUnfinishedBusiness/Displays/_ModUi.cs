@@ -58,6 +58,7 @@ internal static class ModUi
         "CollegeOfGuts",
         "CollegeOfLife",
         "CollegeOfValiance",
+        "CrownOfStars",
         "CrusadersMantle",
         "Dawn",
         "DivineWrath",
