@@ -174,12 +174,12 @@ internal static partial class SpellBuilders
     {
         const string NAME = "CrownOfStars";
 
-        var powerSprite = Sprites.GetSprite($"Power{NAME}", Resources.RingOfBlades, 128);
-
+        var sprite = Sprites.GetSprite($"Power{NAME}", Resources.CrownOfStars, 128);
         var powerCrownOfStars = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
-            .SetGuiPresentation(Category.Feature, powerSprite)
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None, 1, 7)
+            .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -202,26 +202,15 @@ internal static partial class SpellBuilders
 
         conditionCrownOfStars.GuiPresentation.description = Gui.NoLocalization;
 
-        powerCrownOfStars.AddCustomSubFeatures(
-            HasModifiedUses.Marker,
-            new ModifyPowerPoolAmount
-            {
-                Value = 2,
-                PowerPool = powerCrownOfStars,
-                Type = PowerPoolBonusCalculationType.ConditionEffectLevel,
-                Attribute = conditionCrownOfStars.Name
-            },
-            new CustomBehaviorPowerCrownOfStars(conditionCrownOfStars));
-
         var lightSourceForm = FaerieFire.EffectDescription
             .GetFirstFormOfType(EffectForm.EffectFormType.LightSource).LightSourceForm;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RingOfBlades, 128))
+            .SetGuiPresentation(Category.Spell, sprite)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(7)
-            .SetCastingTime(ActivationTime.BonusAction)
+            .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
@@ -246,12 +235,23 @@ internal static partial class SpellBuilders
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSpellCrownOfStars(conditionCrownOfStars))
             .AddToDB();
-
+        
+        powerCrownOfStars.AddCustomSubFeatures(
+            HasModifiedUses.Marker,
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = powerCrownOfStars,
+                Type = PowerPoolBonusCalculationType.ConditionEffectLevel,
+                Attribute = conditionCrownOfStars.Name
+            },
+            new CustomBehaviorPowerCrownOfStars(spell, conditionCrownOfStars));
+        
         return spell;
     }
 
-    private sealed class CustomBehaviorPowerCrownOfStars(ConditionDefinition conditionCrownOfStars)
-        : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
+    private sealed class CustomBehaviorPowerCrownOfStars(
+        SpellDefinition spellCrownOfStars,
+        ConditionDefinition conditionCrownOfStars) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -273,45 +273,16 @@ internal static partial class SpellBuilders
             }
             else if (remainingUses < 4)
             {
-                //TODO: check this and improve code to validate if same guid as tracked light source in powers used by me
-                rulesetCharacter.PersonalLightSource.brightRange = 0;
+                var usablePower =
+                    rulesetCharacter.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellCrownOfStars);
+
+                if (usablePower != null &&
+                    usablePower.TrackedLightSourceGuids.Count > 0 &&
+                    usablePower.TrackedLightSourceGuids[0] == rulesetCharacter.PersonalLightSource.Guid)
+                {
+                    rulesetCharacter.PersonalLightSource.brightRange = 0;
+                }
             }
-        }
-
-        // change attackRollModifier to use spell casting feature
-        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-
-            if (action.ActionParams.actionModifiers.Count == 0)
-            {
-                yield break;
-            }
-
-            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionCrownOfStars.Name,
-                    out var activeCondition))
-            {
-                yield break;
-            }
-
-            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
-            var spellRepertoireIndex = activeCondition.Amount;
-
-            if (activeCondition.Amount < 0 ||
-                rulesetCaster.SpellRepertoires.Count <= spellRepertoireIndex)
-            {
-                yield break;
-            }
-
-            var actionModifier = action.ActionParams.actionModifiers[0];
-
-            rulesetCaster.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
-                rulesetCaster.FeaturesToBrowse, rulesetCaster.FeaturesOrigin);
-            rulesetCaster.ComputeSpellAttackBonus(rulesetCaster.SpellRepertoires[spellRepertoireIndex]);
-            actionModifier.AttacktoHitTrends.SetRange(rulesetCaster.magicAttackTrends);
-            actionModifier.AttackRollModifier = rulesetCaster.magicAttackTrends.Sum(x => x.value);
         }
     }
 

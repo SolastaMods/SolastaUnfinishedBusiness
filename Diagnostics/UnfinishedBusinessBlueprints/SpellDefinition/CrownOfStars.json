@@ -8,7 +8,7 @@
   "spellLevel": 7,
   "ritual": false,
   "uniqueInstance": false,
-  "castingTime": "BonusAction",
+  "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
   "requiresConcentration": false,
@@ -94,6 +94,45 @@
           "conditionDefinition": "Definition:ConditionCrownOfStars:2d6f7c70-16fc-550b-83ff-f2e945b43449",
           "operation": "Add",
           "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "LightSource",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "lightSourceForm": {
+          "$type": "LightSourceForm, Assembly-CSharp",
+          "lightSourceType": "Basic",
+          "brightRange": 6,
+          "dimAdditionalRange": 6,
+          "color": {
+            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+            "r": 1.0,
+            "g": 0.9778601,
+            "b": 0.78039217,
+            "a": 1.0
+          },
+          "graphicsPrefabReference": {
+            "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+            "m_AssetGUID": "3e4cdebecc6e0db469720619529e3dc2",
+            "m_SubObjectName": "",
+            "m_SubObjectType": ""
+          },
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -323,7 +362,7 @@
     "description": "Spell/&CrownOfStarsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ea468cd2-4666-5bd7-bd3b-352e359df874",
+      "m_AssetGUID": "816ca094-e5f5-518e-8f1d-ebf0a707b5e7",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
