@@ -554,6 +554,8 @@ internal static partial class SpellBuilders
     {
         const string NAME = "BorrowedKnowledge";
 
+        LimitEffectInstances limiter = new("BorrowedKnowledge", _ => 1);
+
         var skillsDb = DatabaseRepository.GetDatabase<SkillDefinition>();
         var powers = new List<FeatureDefinitionPower>();
         var powerPool = FeatureDefinitionPowerBuilder
@@ -588,6 +590,7 @@ internal static partial class SpellBuilders
                                             .AddToDB())
                                     .AddToDB()))
                         .Build())
+                .AddCustomSubFeatures(limiter)
                 .AddToDB();
 
             power.GuiPresentation.hidden = true;
