@@ -196,7 +196,10 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerCrownOfStars)
-            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddCustomSubFeatures(
+                // order matters
+                new ConditionAddedOrRemovedCrownOfStars(),
+                AddUsablePowersFromCondition.Marker)
             .CopyParticleReferences(DeathWard)
             .AddToDB();
 
@@ -234,7 +237,6 @@ internal static partial class SpellBuilders
                     .SetCasterEffectParameters(Sparkle)
                     .SetEffectEffectParameters(PowerOathOfJugementPurgeCorruption)
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSpellCrownOfStars(conditionCrownOfStars))
             .AddToDB();
 
         powerCrownOfStars.AddCustomSubFeatures(
@@ -247,6 +249,19 @@ internal static partial class SpellBuilders
             new CustomBehaviorPowerCrownOfStars(spell, conditionCrownOfStars));
 
         return spell;
+    }
+
+    private sealed class ConditionAddedOrRemovedCrownOfStars : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            rulesetCondition.Amount = (rulesetCondition.EffectLevel - 7) * 2;
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
     }
 
     private sealed class CustomBehaviorPowerCrownOfStars(
@@ -281,31 +296,6 @@ internal static partial class SpellBuilders
                     usablePower.TrackedLightSourceGuids[0] == rulesetCharacter.PersonalLightSource.Guid)
                 {
                     rulesetCharacter.PersonalLightSource.brightRange = 0;
-                }
-            }
-        }
-    }
-
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class PowerOrSpellFinishedByMeSpellCrownOfStars(ConditionDefinition conditionCrownOfStars)
-        : IPowerOrSpellFinishedByMe
-    {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (action is not CharacterActionCastSpell actionCastSpell)
-            {
-                yield break;
-            }
-
-            foreach (var rulesetTarget in action.ActionParams.TargetCharacters
-                         .Select(targetCharacter => targetCharacter.RulesetCharacter))
-            {
-                if (rulesetTarget.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect,
-                        conditionCrownOfStars.Name,
-                        out var activeCondition))
-                {
-                    activeCondition.Amount = (actionCastSpell.ActiveSpell.EffectLevel - 7) * 2;
                 }
             }
         }
