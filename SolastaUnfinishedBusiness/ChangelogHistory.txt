@@ -10,6 +10,7 @@
 - improved enemies' AI to take reach weapons into consideration on movement, and AoO avoidance decisions
 - improved mod performance by refactoring some feats, spells, and subclasses custom behaviors
 - improved translations on spider like models setting description to prevent people bear with consequences
+- improved Wizard Deadmaster summons to be 1 hour duration across all levels
 
 KNOWN ISSUES:
 

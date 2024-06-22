@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -12,7 +11,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
-using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -224,90 +222,13 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     // Displacement
     //
 
-    private sealed class CustomBehaviorDisplacement
-        : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe, IModifyTeleportEffectBehavior
+    private sealed class CustomBehaviorDisplacement : IModifyTeleportEffectBehavior
     {
         public bool AllyOnly => false;
 
         public bool TeleportSelf => true;
 
         public int MaxTargets => 1;
-
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
-        {
-            var rulesetEffect = action.ActionParams.RulesetEffect;
-
-            // bring back power target type to position
-            rulesetEffect.EffectDescription.targetType = TargetType.Position;
-
-            yield break;
-        }
-
-        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition power)
-        {
-            var rulesetEffect = action.ActionParams.RulesetEffect;
-            var actionParams = action.ActionParams;
-
-            actionParams.Positions.SetRange(
-                GetFinalPosition(actionParams.TargetCharacters[0], actionParams.Positions[0]));
-
-            // make target type individuals unique to trigger the game and only teleport targets
-            rulesetEffect.EffectDescription.targetType = TargetType.IndividualsUnique;
-
-            yield break;
-        }
-
-        private static int3 GetFinalPosition(GameLocationCharacter target, int3 position)
-        {
-            const string ERROR = "DISPLACEMENT: aborted as cannot place character on destination";
-
-            var positioningManager =
-                ServiceRepository.GetService<IGameLocationPositioningService>() as GameLocationPositioningManager;
-
-            //fall back to target original position
-            if (!positioningManager)
-            {
-                return target.LocationPosition;
-            }
-
-            var xCoordinates = new[] { 0, -1, 1, -2, 2 };
-            var yCoordinates = new[] { 0, -1, 1, -2, 2 };
-            var canPlaceCharacter = false;
-            var finalPosition = int3.zero;
-
-            foreach (var x in xCoordinates)
-            {
-                foreach (var y in yCoordinates)
-                {
-                    finalPosition = position + new int3(x, 0, y);
-
-                    canPlaceCharacter = positioningManager.CanPlaceCharacterImpl(
-                        target, target.RulesetActor.SizeParams, finalPosition, CellHelpers.PlacementMode.Station);
-
-                    if (canPlaceCharacter)
-                    {
-                        break;
-                    }
-                }
-
-                if (canPlaceCharacter)
-                {
-                    break;
-                }
-            }
-
-            if (canPlaceCharacter)
-            {
-                return finalPosition;
-            }
-
-            //fall back to target original position
-            finalPosition = target.LocationPosition;
-
-            Gui.GuiService.ShowAlert(ERROR, Gui.ColorFailure);
-
-            return finalPosition;
-        }
     }
 
     //

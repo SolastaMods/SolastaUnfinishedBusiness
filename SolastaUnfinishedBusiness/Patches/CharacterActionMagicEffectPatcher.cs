@@ -83,6 +83,38 @@ public static class CharacterActionMagicEffectPatcher
 
                 actionMagicEffect.ActionParams.TargetCharacters[0].LocationPosition = locationPosition;
 #endif
+                if (modifyTeleportEffectBehavior != null &&
+                    rulesetActiveEffect.EffectDescription.HasSavingThrow)
+                {
+                    var attacker = actionMagicEffect.ActingCharacter;
+                    var actionParams = actionMagicEffect.ActionParams;
+                    var currentTargets = actionParams.TargetCharacters.ToList();
+
+                    for (var i = 0; i < currentTargets.Count; i++)
+                    {
+                        var currentTarget = currentTargets[i];
+                        var actionModifier = actionParams.ActionModifiers[i];
+
+                        if (!currentTarget.IsOppositeSide(attacker.Side))
+                        {
+                            continue;
+                        }
+
+                        rulesetActiveEffect.TryRollSavingThrow(
+                            attacker.RulesetCharacter,
+                            attacker.Side,
+                            currentTarget.RulesetActor,
+                            actionModifier, actionMagicEffect.ActionParams.RulesetEffect.EffectDescription.EffectForms,
+                            true,
+                            out var saveOutcome, out _);
+
+                        if (saveOutcome is RollOutcome.Success)
+                        {
+                            actionParams.TargetCharacters.Remove(currentTarget);
+                        }
+                    }
+                }
+
                 foreach (var target in actionMagicEffect.ActionParams.TargetCharacters)
                 {
                     var coroutine = new Coroutine();
@@ -101,6 +133,15 @@ public static class CharacterActionMagicEffectPatcher
 
                     target.LocationPosition = locationPosition;
                 }
+
+                if (modifyTeleportEffectBehavior is { TeleportSelf: false })
+                {
+                    for (var i = positions.Count - 1; i > 0; i--)
+                    {
+                        positions[i] = positions[i - 1];
+                    }
+                }
+
                 //END PATCH
             }
 
@@ -152,10 +193,7 @@ public static class CharacterActionMagicEffectPatcher
                 for (var index = 0; index < actionMagicEffect.ActionParams.Positions.Count; ++index)
                 {
                     if (!actionMagicEffect.ShowVFX ||
-                        actionService.MagicEffectPreparingOnTarget == null ||
-                        //BEGIN PATCH
-                        (index == 0 && modifyTeleportEffectBehavior is { TeleportSelf: false }))
-                        //END PATCH
+                        actionService.MagicEffectPreparingOnTarget == null)
                     {
                         continue;
                     }

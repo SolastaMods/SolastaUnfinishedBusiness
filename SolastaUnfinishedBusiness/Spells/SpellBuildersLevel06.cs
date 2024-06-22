@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -740,7 +741,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Position)
                     .InviteOptionalAlly()
-                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                    .SetSavingThrowData(true, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -752,6 +753,8 @@ internal static partial class SpellBuilders
                     .Build())
             .AddCustomSubFeatures(new ModifyTeleportEffectBehaviorScatter())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.targetParticleReference = new AssetReference();
 
         return spell;
     }
