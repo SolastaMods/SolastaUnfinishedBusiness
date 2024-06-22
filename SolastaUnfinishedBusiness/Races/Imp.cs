@@ -141,7 +141,7 @@ internal static class RaceImpBuilder
         var powerImpBadlandAssistPool = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}AssistPool")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(HasModifiedUses.Marker, IsModifyPowerPool.Marker)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
             .AddToDB();
 
