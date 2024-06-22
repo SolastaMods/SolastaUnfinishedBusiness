@@ -255,7 +255,7 @@ ModUi/&RecipeCost=<color=white>Стоимость рецепта</color>
 ModUi/&RecipesInDm=Рецепты в СП
 ModUi/&RelicForgeries=Поддельные реликвии
 ModUi/&RemoveAttunementRequirements=Убрать требования настройки <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
-ModUi/&RemoveBugVisualModels=Заменить паукообразные модельки альтернативными в игре <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
+ModUi/&RemoveBugVisualModels=Заменить паукообразные модельки на медведеобразные в игре для <i><color=#F0DAA0>[арахнофобов]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Убрать гуманоидный фильтр на <color=#D89555>Жуткий смех</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Применять эффект <color=#D89555>Опутывания</color> только на время действия заклинания, а также принудительно совершать проверку Силы, чтобы вырваться из лоз
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Снять ограничения по школе заклинаний с <color=#D89555>Заклинателя теней</color>
