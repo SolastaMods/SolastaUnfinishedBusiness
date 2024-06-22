@@ -225,14 +225,14 @@ public sealed class WizardDeadMaster : AbstractSubclass
                     monster.FormatTitle(),
                     monster.FormatDescription());
 
-                var duration = clazz switch
-                {
-                    >= 15 => 24 * 60,
-                    >= 13 => 8 * 60,
-                    >= 9 => 60,
-                    >= 5 => 10,
-                    _ => 1
-                };
+                // var duration = clazz switch
+                // {
+                //     >= 15 => 24 * 60,
+                //     >= 13 => 8 * 60,
+                //     >= 9 => 60,
+                //     >= 5 => 10,
+                //     _ => 1
+                // };
 
                 var createDeadSpell = SpellDefinitionBuilder
                     .Create($"CreateDead{monster.name}")
@@ -249,7 +249,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
                         EffectDescriptionBuilder
                             .Create()
                             .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position, count)
-                            .SetDurationData(DurationType.Minute, duration)
+                            .SetDurationData(DurationType.Hour, 1)
                             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
                                 additionalSummonsPerIncrement: 1)
                             .SetParticleEffectParameters(VampiricTouch)
