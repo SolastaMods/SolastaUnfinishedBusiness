@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -186,6 +185,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeRadiant, 4, DieType.D12))
                     .SetParticleEffectParameters(ShadowDagger)
+                    .SetParticleEffectParameters(GuidingBolt)
                     .SetCasterEffectParameters(PowerPaladinAuraOfCourage)
                     .Build())
             .AddToDB();
@@ -197,7 +197,7 @@ internal static partial class SpellBuilders
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerCrownOfStars)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
-            .CopyParticleReferences(PowerSorcererChildRiftDeflection)
+            .CopyParticleReferences(DeathWard)
             .AddToDB();
 
         conditionCrownOfStars.GuiPresentation.description = Gui.NoLocalization;
@@ -231,21 +231,23 @@ internal static partial class SpellBuilders
                                 LightSourceType.Basic, 6, 6, lightSourceForm.Color,
                                 lightSourceForm.graphicsPrefabReference)
                             .Build())
-                    .SetCasterEffectParameters(PowerPaladinAuraOfCourage)
+                    .SetCasterEffectParameters(Sparkle)
+                    .SetEffectEffectParameters(PowerOathOfJugementPurgeCorruption)
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSpellCrownOfStars(conditionCrownOfStars))
             .AddToDB();
-        
+
         powerCrownOfStars.AddCustomSubFeatures(
             HasModifiedUses.Marker,
             new ModifyPowerPoolAmount
             {
                 PowerPool = powerCrownOfStars,
-                Type = PowerPoolBonusCalculationType.ConditionEffectLevel,
-                Attribute = conditionCrownOfStars.Name
+                Type = PowerPoolBonusCalculationType.Fixed,
+                Attribute = conditionCrownOfStars.Name,
+                Value = 2
             },
             new CustomBehaviorPowerCrownOfStars(spell, conditionCrownOfStars));
-        
+
         return spell;
     }
 
@@ -297,8 +299,6 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
-
             foreach (var rulesetTarget in action.ActionParams.TargetCharacters
                          .Select(targetCharacter => targetCharacter.RulesetCharacter))
             {
@@ -307,8 +307,7 @@ internal static partial class SpellBuilders
                         conditionCrownOfStars.Name,
                         out var activeCondition))
                 {
-                    activeCondition.Amount =
-                        rulesetCaster.SpellRepertoires.IndexOf(actionCastSpell.activeSpell.SpellRepertoire);
+                    activeCondition.Amount = actionCastSpell.ActiveSpell.EffectLevel;
                 }
             }
         }
