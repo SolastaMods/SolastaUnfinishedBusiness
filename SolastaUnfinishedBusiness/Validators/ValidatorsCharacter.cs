@@ -196,7 +196,7 @@ internal static class ValidatorsCharacter
         {
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
 
-            return gameLocationCharacter != null &&
+            return gameLocationCharacter is { HasAttackedSinceLastTurn: true } &&
                    !gameLocationCharacter.OncePerTurnIsValid(weaponTypeDefinition.Name);
         };
     }

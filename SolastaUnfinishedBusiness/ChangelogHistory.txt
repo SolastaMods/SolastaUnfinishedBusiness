@@ -1,12 +1,13 @@
 1.5.97.16:
 
 - added Crown of Stars, Scatter, Skill Empowerment, and Synaptic Static spells
+- fixed attack cantrips interaction with Followup Strike and Polearm Expert feats
 - fixed Circle of the Night consuming only one wildshape usage with crimson spider, elementals, and minotaur  
 - fixed Coordinated Attack gambit, and Strategic Reposition warlord feature breaking self invisibility
 - fixed Path of the Wild Magic aura, bolt, retribution, summon, and teleport behaviors
 - fixed Patron Hexblade using character level instead of class level on hex received healing
 - fixed Ranger Lightbearer not interacting with the cast/stop Light cantrip UI shortcut
-- fixed Wither and Bloom Twinned metamagic offering which was disrespecting the one target rule
+- fixed Wither and Bloom twinned metamagic offering which was disrespecting the one target rule
 - improved enemies' AI to take reach weapons into consideration on movement, and AoO avoidance decisions
 - improved mod performance by refactoring some feats, spells, and subclasses custom behaviors
 - improved translations on spider like models setting description to prevent people bear with consequences

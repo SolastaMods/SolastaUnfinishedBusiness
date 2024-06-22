@@ -45,7 +45,10 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
             return;
         }
 
-        character.UsedMainCantrip = true;
+        // by now Followup Strike or Polearm already triggered. below fixes stats so bonus attack isn't offered
+        character.HasAttackedSinceLastTurn = false;
+        character.RulesetCharacter.ExecutedAttacks--;
+        character.RulesetCharacter.RefreshAttackModes();
 
         if (attackTags.Contains(QuickenedAttackCantrip))
         {
