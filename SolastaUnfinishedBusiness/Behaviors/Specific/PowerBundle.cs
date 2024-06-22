@@ -165,10 +165,6 @@ internal static class PowerBundle
 
             usablePower = PowerProvider.Get(pointPoolPower, character);
         }
-        else if (modifiedPower.PowerDefinition.HasSubFeatureOfType<IsModifyPowerPool>())
-        {
-            usablePower = modifiedPower;
-        }
 
         if (usablePower != null)
         {
@@ -800,13 +796,4 @@ internal static class PowerBundle
 
         private RulesetSpellRepertoire Repertoire { get; }
     }
-}
-
-internal class IsModifyPowerPool : ModifyPowerVisibility
-{
-    private IsModifyPowerPool() : base((_, _, _) => false)
-    {
-    }
-
-    public static IsModifyPowerPool Marker { get; } = new();
 }

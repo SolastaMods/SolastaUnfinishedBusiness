@@ -238,13 +238,11 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         powerCrownOfStars.AddCustomSubFeatures(
-            HasModifiedUses.Marker,
             new ModifyPowerPoolAmount
             {
                 PowerPool = powerCrownOfStars,
-                Type = PowerPoolBonusCalculationType.Fixed,
-                Attribute = conditionCrownOfStars.Name,
-                Value = 2
+                Type = PowerPoolBonusCalculationType.ConditionAmount,
+                Attribute = conditionCrownOfStars.Name
             },
             new CustomBehaviorPowerCrownOfStars(spell, conditionCrownOfStars));
 
@@ -307,7 +305,7 @@ internal static partial class SpellBuilders
                         conditionCrownOfStars.Name,
                         out var activeCondition))
                 {
-                    activeCondition.Amount = actionCastSpell.ActiveSpell.EffectLevel;
+                    activeCondition.Amount = (actionCastSpell.ActiveSpell.EffectLevel - 7) * 2;
                 }
             }
         }

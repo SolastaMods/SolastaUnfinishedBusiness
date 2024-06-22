@@ -62,7 +62,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             new ModifyPowerPoolAmount
             {
                 PowerPool = powerMixture,
-                Type = PowerPoolBonusCalculationType.AttributeMod,
+                Type = PowerPoolBonusCalculationType.AttributeModifier,
                 Attribute = AttributeDefinitions.Intelligence
             },
             new ModifyPowerPoolAmount
