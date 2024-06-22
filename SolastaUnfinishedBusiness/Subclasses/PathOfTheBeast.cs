@@ -155,10 +155,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
                 EffectDescriptionBuilder.Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .AddEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionCallTheHunt),
-                        EffectFormBuilder.ConditionForm(conditionCallTheHunt,
-                            ConditionForm.ConditionOperation.Add, true, true))
+                    .AddEffectForms(EffectFormBuilder.ConditionForm(conditionCallTheHunt))
                     .Build())
             .AddToDB();
         // need to handle custom because OnRageStartChoice doesn't seem to affect allies
@@ -223,7 +220,7 @@ public sealed class PathOfTheBeast : AbstractSubclass
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            if (characterAction is not CharacterActionRageStart)
+            if (characterAction is not CharacterActionCombatRageStart)
             {
                 yield break;
             }
@@ -934,8 +931,8 @@ internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFi
 {
     public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
     {
-        if (characterAction is not CharacterActionRageStart)
-        {
+        if (characterAction is not CharacterActionCombatRageStart)
+            {
             yield break;
         }
 
@@ -963,8 +960,8 @@ internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFi
             RulesetEffect = implementationManager
                 .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
             UsablePower = usablePower,
-            targetCharacters = [character],
-            actionModifiers = [new ActionModifier()]
+            targetCharacters = [],
+            actionModifiers = []
         };
 
         foreach (var ally in locationCharacterService.AllValidEntities
