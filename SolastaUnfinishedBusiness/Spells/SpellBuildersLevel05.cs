@@ -143,12 +143,10 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetParticleEffectParameters(PowerSymbolOfDeath)
                     .SetCasterEffectParameters(Counterspell)
-                    .SetImpactEffectParameters(PowerSymbolOfDeath)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.zoneParticleReference = new AssetReference();
 
         return spell;
     }
