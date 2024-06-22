@@ -1969,6 +1969,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerOathOfJugementPurgeCorruption { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementPurgeCorruption");
 
+        internal static FeatureDefinitionPower PowerSymbolOfDeath { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSymbolOfDeath");
+
         internal static FeatureDefinitionPower PowerOathOfJugementWeightOfJustice { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementWeightOfJustice");
 
