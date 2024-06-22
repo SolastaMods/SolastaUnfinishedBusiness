@@ -1250,6 +1250,34 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
         {
+            if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
+            {
+                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                switch (usablePower.PowerDefinition.RechargeRate)
+                {
+                    //PATCH: ensures that original character rage pool is in sync with substitute (Multiclass)
+                    case RechargeRate.RagePoints:
+                        hero.UsedRagePoints -= usablePower.PowerDefinition.CostPerUse;
+
+                        if (hero.UsedRagePoints < 0)
+                        {
+                            hero.UsedRagePoints = 0;
+                        }
+
+                        break;
+                    //PATCH: ensures that original character ki pool is in sync with substitute (Multiclass)
+                    case RechargeRate.KiPoints:
+                        hero.UsedKiPoints -= usablePower.PowerDefinition.CostPerUse;
+
+                        if (hero.UsedKiPoints < 0)
+                        {
+                            hero.UsedKiPoints = 0;
+                        }
+
+                        break;
+                }
+            }
+            
             //PATCH: update usage for power pools
             __instance.UpdateUsageForPower(usablePower, -usablePower.PowerDefinition.CostPerUse);
         }
