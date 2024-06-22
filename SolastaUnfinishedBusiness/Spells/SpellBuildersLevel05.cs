@@ -107,7 +107,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Psionic Blast
+    #region Synaptic Static
 
     internal static SpellDefinition BuildSynapticStatic()
     {
@@ -131,6 +131,7 @@ internal static partial class SpellBuilders
                     .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .ExcludeCaster()
+                    .UseQuickAnimations()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -142,11 +143,12 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetParticleEffectParameters(Fear)
-                    .SetCasterEffectParameters(ViciousMockery)
-                    .SetImpactEffectParameters(PowerMagebaneWarcry)
+                    .SetCasterEffectParameters(Counterspell)
+                    .SetImpactEffectParameters(PowerSymbolOfDeath)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.zoneParticleReference = new AssetReference();
 
         return spell;
     }
@@ -466,7 +468,7 @@ internal static partial class SpellBuilders
                     EffectDescriptionBuilder
                         .Create()
                         .SetDurationData(DurationType.Hour, 1)
-                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Self)
                         .SetEffectForms(
                             EffectFormBuilder.ConditionForm(
                                 ConditionDefinitionBuilder
