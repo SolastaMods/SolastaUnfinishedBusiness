@@ -1,8 +1,5 @@
 ﻿using System.Collections;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -627,13 +624,10 @@ internal static partial class SpellBuilders
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
-        powerRingOfBlades.AddCustomSubFeatures(
-            new CustomBehaviorPowerRingOfBlades(powerRingOfBlades, conditionRingOfBlades));
         powerRingOfBladesFree.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.InCombat,
             // it's indeed powerRingOfBlades here
-            new PowerOrSpellFinishedByMeRingOfBladesFree(powerRingOfBlades, conditionRingOfBladesFree),
-            new CustomBehaviorPowerRingOfBlades(powerRingOfBladesFree, conditionRingOfBlades));
+            new PowerOrSpellFinishedByMeRingOfBladesFree(powerRingOfBlades, conditionRingOfBladesFree));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -659,7 +653,7 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(HypnoticPattern)
                     .SetEffectEffectParameters(PowerMagebaneSpellCrusher)
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSpellRingOfBlades(conditionRingOfBlades))
+            .AddCustomSubFeatures(new ModifyEffectDescriptionRingOfBlades(powerRingOfBlades, conditionRingOfBlades))
             .AddToDB();
 
         return spell;
@@ -687,14 +681,10 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class CustomBehaviorPowerRingOfBlades(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class ModifyEffectDescriptionRingOfBlades(
         FeatureDefinitionPower powerRingOfBlades,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionRingOfBlades)
-        : IPowerOrSpellInitiatedByMe, IModifyEffectDescription
+        ConditionDefinition conditionRingOfBlades) : IModifyEffectDescription
     {
-        // STEP 2: add additional dice if required
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == powerRingOfBlades;
@@ -725,75 +715,6 @@ internal static partial class SpellBuilders
 
             return effectDescription;
         }
-
-        // STEP 1: change attackRollModifier to use spell casting feature
-        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-
-            if (action.ActionParams.actionModifiers.Count == 0)
-            {
-                yield break;
-            }
-
-            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionRingOfBlades.Name,
-                    out var activeCondition))
-            {
-                yield break;
-            }
-
-            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.sourceGuid);
-
-            if (rulesetCaster == null)
-            {
-                yield break;
-            }
-
-            var spellRepertoireIndex = activeCondition.Amount;
-
-            if (activeCondition.Amount < 0 || rulesetCaster.SpellRepertoires.Count <= spellRepertoireIndex)
-            {
-                yield break;
-            }
-
-            var actionModifier = action.ActionParams.actionModifiers[0];
-
-            rulesetCaster.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
-                rulesetCaster.FeaturesToBrowse, rulesetCaster.FeaturesOrigin);
-            rulesetCaster.ComputeSpellAttackBonus(rulesetCaster.SpellRepertoires[spellRepertoireIndex]);
-            actionModifier.AttacktoHitTrends.SetRange(rulesetCaster.magicAttackTrends);
-            actionModifier.AttackRollModifier = rulesetCaster.magicAttackTrends.Sum(x => x.value);
-        }
-    }
-
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class PowerOrSpellFinishedByMeSpellRingOfBlades(ConditionDefinition conditionRingOfBlades)
-        : IPowerOrSpellFinishedByMe
-    {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (action is not CharacterActionCastSpell actionCastSpell)
-            {
-                yield break;
-            }
-
-            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
-
-            foreach (var rulesetTarget in action.ActionParams.TargetCharacters
-                         .Select(targetCharacter => targetCharacter.RulesetCharacter))
-            {
-                if (rulesetTarget.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect,
-                        conditionRingOfBlades.Name,
-                        out var activeCondition))
-                {
-                    activeCondition.Amount =
-                        rulesetCaster.SpellRepertoires.IndexOf(actionCastSpell.activeSpell.SpellRepertoire);
-                }
-            }
-        }
     }
 
     #endregion
@@ -806,7 +727,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, MistyStep)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite($"Power{NAME}", Resources.Scatter, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(6)
             .SetCastingTime(ActivationTime.Action)
@@ -818,7 +739,6 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Position)
-                    .ExcludeCaster()
                     .InviteOptionalAlly()
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -828,7 +748,7 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 6)
                             .Build())
-                    .SetParticleEffectParameters(PowerMelekTeleport)
+                    .SetParticleEffectParameters(DimensionDoor)
                     .Build())
             .AddCustomSubFeatures(new ModifyTeleportEffectBehaviorScatter())
             .AddToDB();
@@ -840,10 +760,9 @@ internal static partial class SpellBuilders
     {
         public bool AllyOnly => false;
 
-        public int MaxTargets(CursorLocationSelectTarget cursorLocationSelectTarget)
-        {
-            return 5;
-        }
+        public bool TeleportSelf => false;
+
+        public int MaxTargets => 5;
     }
 
     #endregion

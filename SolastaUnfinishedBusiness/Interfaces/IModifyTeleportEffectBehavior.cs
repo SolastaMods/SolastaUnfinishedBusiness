@@ -1,11 +1,10 @@
-﻿using JetBrains.Annotations;
-
-namespace SolastaUnfinishedBusiness.Interfaces;
+﻿namespace SolastaUnfinishedBusiness.Interfaces;
 
 public interface IModifyTeleportEffectBehavior
 {
     bool AllyOnly { get; }
 
-    [UsedImplicitly]
-    int MaxTargets(CursorLocationSelectTarget cursorLocationSelectTarget);
+    bool TeleportSelf { get; }
+
+    int MaxTargets { get; }
 }

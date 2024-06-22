@@ -117,6 +117,7 @@ public static class CursorLocationSelectTargetPatcher
                 return;
             }
 
+            rulesetEffect.EffectDescription.TargetType = TargetType.IndividualsUnique;
             rulesetEffect.EffectDescription.inviteOptionalAlly = modifyTeleportEffectBehavior.AllyOnly;
         }
 
@@ -138,7 +139,7 @@ public static class CursorLocationSelectTargetPatcher
                 return;
             }
 
-            __instance.maxTargets = modifyTeleportEffectBehavior.MaxTargets(__instance);
+            __instance.maxTargets = modifyTeleportEffectBehavior.MaxTargets;
             __instance.remainingTargets = __instance.maxTargets;
             __instance.RefreshCaption();
         }
@@ -168,6 +169,7 @@ public static class CursorLocationSelectTargetPatcher
                 return;
             }
 
+            rulesetEffect.EffectDescription.TargetType = TargetType.Position;
             rulesetEffect.EffectDescription.inviteOptionalAlly = true;
         }
     }

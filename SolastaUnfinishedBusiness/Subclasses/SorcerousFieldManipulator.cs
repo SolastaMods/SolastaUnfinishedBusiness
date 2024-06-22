@@ -229,10 +229,9 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     {
         public bool AllyOnly => false;
 
-        public int MaxTargets(CursorLocationSelectTarget cursorLocationSelectTarget)
-        {
-            return 1;
-        }
+        public bool TeleportSelf => true;
+
+        public int MaxTargets => 1;
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {

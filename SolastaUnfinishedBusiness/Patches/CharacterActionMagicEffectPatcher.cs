@@ -52,6 +52,11 @@ public static class CharacterActionMagicEffectPatcher
             var rulesetActiveEffect = actionMagicEffect.ActionParams.RulesetEffect;
             var effectDescription = rulesetActiveEffect.EffectDescription;
 
+            //BEGIN PATCH
+            var source = rulesetActiveEffect.SourceDefinition;
+            var modifyTeleportEffectBehavior = source.GetFirstSubFeatureOfType<IModifyTeleportEffectBehavior>();
+            //END PATCH
+
             if (effectDescription.InviteOptionalAlly &&
                 actionMagicEffect.ActionParams.TargetCharacters != null &&
                 !actionMagicEffect.ActionParams.TargetCharacters.Empty())
@@ -147,7 +152,10 @@ public static class CharacterActionMagicEffectPatcher
                 for (var index = 0; index < actionMagicEffect.ActionParams.Positions.Count; ++index)
                 {
                     if (!actionMagicEffect.ShowVFX ||
-                        actionService.MagicEffectPreparingOnTarget == null)
+                        actionService.MagicEffectPreparingOnTarget == null ||
+                        //BEGIN PATCH
+                        (index == 0 && modifyTeleportEffectBehavior is { TeleportSelf: false }))
+                        //END PATCH
                     {
                         continue;
                     }
@@ -231,7 +239,11 @@ public static class CharacterActionMagicEffectPatcher
                     continue;
                 }
 
-                if (actionMagicEffect.ShowVFX && effectDescription.TargetType != TargetType.WallLine)
+                if (actionMagicEffect.ShowVFX &&
+                    effectDescription.TargetType != TargetType.WallLine &&
+                    //BEGIN PATCH
+                    modifyTeleportEffectBehavior is not { TeleportSelf: false })
+                    //END PATCH
                 {
                     magicEffectCastData1 = new ActionDefinitions.MagicEffectCastData
                     {
@@ -259,7 +271,8 @@ public static class CharacterActionMagicEffectPatcher
                     actionMagicEffect.ApplyMagicEffect(position,
                         actionMagicEffect.ActionParams.TargetCharacters[index - 1]);
                 }
-                else
+                //BEGIN PATCH: added this IF check
+                else if (modifyTeleportEffectBehavior is not { TeleportSelf: false })
                 {
                     actionMagicEffect.ApplyMagicEffect(position, null);
                 }
@@ -286,7 +299,6 @@ public static class CharacterActionMagicEffectPatcher
                     var magicEffectHitTarget = actionService.MagicEffectHitTarget;
 
                     magicEffectHitTarget?.Invoke(ref data);
-
 
                     // ReSharper disable once InvertIf
                     if (actionMagicEffect.ShowCasting && positions.Count > 0 &&
