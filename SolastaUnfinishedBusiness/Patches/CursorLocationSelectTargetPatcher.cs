@@ -108,33 +108,21 @@ public static class CursorLocationSelectTargetPatcher
                 return;
             }
 
-            var rulesetEffect = actionParams.RulesetEffect;
-            var source = rulesetEffect.SourceDefinition;
-            var modifyTeleportEffectBehavior = source.GetFirstSubFeatureOfType<IModifyTeleportEffectBehavior>();
-
-            if (modifyTeleportEffectBehavior == null)
+            if (!TryGetModifyTeleportEffectBehavior(actionParams, out var modifyTeleportEffectBehavior))
             {
                 return;
             }
+
+            var rulesetEffect = actionParams.RulesetEffect;
 
             rulesetEffect.EffectDescription.TargetType = TargetType.IndividualsUnique;
             rulesetEffect.EffectDescription.inviteOptionalAlly = modifyTeleportEffectBehavior.AllyOnly;
         }
 
         [UsedImplicitly]
-        public static void Postfix(CursorLocationSelectTarget __instance, params object[] parameters)
+        public static void Postfix(CursorLocationSelectTarget __instance)
         {
-            var rulesetEffect = __instance.ActionParams?.RulesetEffect;
-
-            if (rulesetEffect == null)
-            {
-                return;
-            }
-
-            var source = rulesetEffect.SourceDefinition;
-            var modifyTeleportEffectBehavior = source.GetFirstSubFeatureOfType<IModifyTeleportEffectBehavior>();
-
-            if (modifyTeleportEffectBehavior == null)
+            if (!TryGetModifyTeleportEffectBehavior(__instance.ActionParams, out var modifyTeleportEffectBehavior))
             {
                 return;
             }
@@ -154,26 +142,29 @@ public static class CursorLocationSelectTargetPatcher
         [UsedImplicitly]
         public static void Prefix(CursorLocationSelectTarget __instance)
         {
-            var rulesetEffect = __instance.ActionParams?.RulesetEffect;
-
-            if (rulesetEffect == null)
+            if (!TryGetModifyTeleportEffectBehavior(__instance.ActionParams, out var _))
             {
                 return;
             }
 
-            var source = rulesetEffect.SourceDefinition;
-            var modifyTeleportEffectBehavior = source.GetFirstSubFeatureOfType<IModifyTeleportEffectBehavior>();
-
-            if (modifyTeleportEffectBehavior == null)
-            {
-                return;
-            }
-
+            var rulesetEffect = __instance.ActionParams.RulesetEffect;
+            
             rulesetEffect.EffectDescription.TargetType = TargetType.Position;
             rulesetEffect.EffectDescription.inviteOptionalAlly = true;
         }
     }
 
+    private static bool TryGetModifyTeleportEffectBehavior(
+        CharacterActionParams actionParams, out IModifyTeleportEffectBehavior modifyTeleportEffectBehavior)
+    {
+        var rulesetEffect = actionParams?.RulesetEffect;
+        var source = rulesetEffect?.SourceDefinition;
+
+        modifyTeleportEffectBehavior = source?.GetFirstSubFeatureOfType<IModifyTeleportEffectBehavior>();
+
+        return modifyTeleportEffectBehavior != null;
+    }
+    
     //PATCH: support EnforceFullSelection on IFilterTargetingCharacter (vanilla code except for patch block)
     [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.RefreshCaption))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
