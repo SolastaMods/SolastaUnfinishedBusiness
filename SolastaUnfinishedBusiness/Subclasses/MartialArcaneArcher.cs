@@ -87,7 +87,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .Build())
             .AddCustomSubFeatures(
-                HasModifiedUses.Marker,
                 ReactionResourceArcaneShot.Instance,
                 new SpendPowerFinishedByMeArcaneShot(),
                 new RestrictReactionAttackMode((_, attacker, _, _, _) =>

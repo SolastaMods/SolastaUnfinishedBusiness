@@ -38,9 +38,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         .Create($"Power{Name}PsionicInitiate")
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 3)
-        .AddCustomSubFeatures(
-            HasModifiedUses.Marker,
-            ModifyPowerVisibility.Hidden)
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
     public MartialForceKnight()
