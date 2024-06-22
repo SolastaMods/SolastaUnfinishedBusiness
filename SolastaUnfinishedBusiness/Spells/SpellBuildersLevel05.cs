@@ -470,7 +470,7 @@ internal static partial class SpellBuilders
                     EffectDescriptionBuilder
                         .Create()
                         .SetDurationData(DurationType.Hour, 1)
-                        .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Self)
+                        .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
                         .SetEffectForms(
                             EffectFormBuilder.ConditionForm(
                                 ConditionDefinitionBuilder
