@@ -992,49 +992,49 @@ Celestial, elementals, feys, fiends, and undead have disadvantage on attacks aga
 
 Grants you control over an enemy creature.
 
-# 242. - *Empowered Knowledge* © (V,S) level 5 Divination [Concentration] [UB]
-
-Your magic deepens a creature's understanding of its own talent. You touch one willing creature and give it expertise in one skill of your choice; until the spell ends, the creature doubles its proficiency bonus for ability checks it makes that use the chosen skill. For 1 hour, you have proficiency in the chosen skill. The spell ends early if you cast it again.
-
-# 243. - *Far Step* © (V) level 5 Conjuration [Concentration] [UB]
+# 242. - *Far Step* © (V) level 5 Conjuration [Concentration] [UB]
 
 You teleport up to 60 ft to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 
-# 244. - Flame Strike (V,S) level 5 Evocation [SOL]
+# 243. - Flame Strike (V,S) level 5 Evocation [SOL]
 
 Conjures a burning column of fire and radiance affecting all creatures inside.
 
-# 245. - Greater Restoration (V,S) level 5 Abjuration [SOL]
+# 244. - Greater Restoration (V,S) level 5 Abjuration [SOL]
 
 Removes one detrimental condition, such as a charm or curse, or an effect that reduces an ability score or hit points.
 
-# 246. - Hold Monster (V,S) level 5 Enchantment [Concentration] [SOL]
+# 245. - Hold Monster (V,S) level 5 Enchantment [Concentration] [SOL]
 
 Paralyzes a creature unless it succeeds a WIS saving throw. No effect on undead.
 
-# 247. - *Immolation* © (V) level 5 Evocation [Concentration] [UB]
+# 246. - *Immolation* © (V) level 5 Evocation [Concentration] [UB]
 
 Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 8d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet and takes 8d6 fire damage at the start of each of its turns.
 
-# 248. - Insect Plague (V,S) level 5 Conjuration [Concentration] [SOL]
+# 247. - Insect Plague (V,S) level 5 Conjuration [Concentration] [SOL]
 
 Summons a sphere of biting insects.
 
-# 249. - Mantle of Thorns (V,S) level 5 Transmutation [Concentration] [UB]
+# 248. - Mantle of Thorns (V,S) level 5 Transmutation [Concentration] [UB]
 
 Surround yourself with an aura of thorns. Those that start or walk through take 2d8 piercing damage. This damage scales at higher levels by 1d8 per slot.
 
-# 250. - Mass Cure Wounds (V,S) level 5 Evocation [SOL]
+# 249. - Mass Cure Wounds (V,S) level 5 Evocation [SOL]
 
 Heals up to 6 creatures.
 
-# 251. - Mind Twist (V,S) level 5 Enchantment [SOL]
+# 250. - Mind Twist (V,S) level 5 Enchantment [SOL]
 
 Causes massive psychic damage to all creatures around you, and incapacitates them if they fail their INT saving throw.
 
-# 252. - Raise Dead (M,V,S) level 5 Necromancy [SOL]
+# 251. - Raise Dead (M,V,S) level 5 Necromancy [SOL]
 
 Brings one creature back to life, up to 10 days after death.
+
+# 252. - *Skill Empowerment* © (V,S) level 5 Divination [Concentration] [UB]
+
+Your magic deepens a creature's understanding of its own talent. You touch one willing creature and give it expertise in one skill of your choice; until the spell ends, the creature doubles its proficiency bonus for ability checks it makes that use the chosen skill. For 1 hour, you have proficiency in the chosen skill. The spell ends early if you cast it again.
 
 # 253. - Sonic Boom (V,S) level 5 Evocation [UB]
 
