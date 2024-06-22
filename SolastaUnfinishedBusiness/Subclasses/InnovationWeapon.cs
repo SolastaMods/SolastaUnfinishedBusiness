@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
@@ -113,9 +112,8 @@ public sealed class InnovationWeapon : AbstractSubclass
             .Create(NAME)
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
-                HasModifiedUses.Marker,
-                IsModifyPowerPool.Marker,
                 ModifyPowerVisibility.Hidden,
+                new HasModifiedUses(), // required for short rest integration
                 new ValidatorsValidatePowerUse(HasInjuredDefender),
                 new ModifyRestPowerTitleHandler(GetRestPowerTitle),
                 new TargetDefendingBlade())
@@ -133,10 +131,13 @@ public sealed class InnovationWeapon : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        power.AddCustomSubFeatures(new ModifyPowerPoolAmount
-        {
-            PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
-        });
+        power.AddCustomSubFeatures(
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = power,
+                Type = PowerPoolBonusCalculationType.ClassLevel,
+                Attribute = InventorClass.ClassName
+            });
 
         return power;
     }

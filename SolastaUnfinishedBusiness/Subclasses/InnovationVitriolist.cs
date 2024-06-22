@@ -56,20 +56,21 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .Build())
-            .AddCustomSubFeatures(HasModifiedUses.Marker)
             .AddToDB();
 
-        var powerUseModifierMixtureIntelligenceModifier = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifier{Name}MixtureIntelligenceModifier")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(powerMixture, PowerPoolBonusCalculationType.AttributeMod, AttributeDefinitions.Intelligence)
-            .AddToDB();
-
-        var powerUseModifierMixtureProficiencyBonus = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifier{Name}MixtureProficiencyBonus")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(powerMixture, PowerPoolBonusCalculationType.Attribute, AttributeDefinitions.ProficiencyBonus)
-            .AddToDB();
+        powerMixture.AddCustomSubFeatures(
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = powerMixture,
+                Type = PowerPoolBonusCalculationType.AttributeMod,
+                Attribute = AttributeDefinitions.Intelligence
+            },
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = powerMixture,
+                Type = PowerPoolBonusCalculationType.Attribute,
+                Attribute = AttributeDefinitions.ProficiencyBonus
+            });
 
         // Corrosion
 
@@ -216,8 +217,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
         var featureSetMixture = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Mixture")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                powerMixture, powerUseModifierMixtureIntelligenceModifier, powerUseModifierMixtureProficiencyBonus)
+            .SetFeatureSet(powerMixture)
             .AddFeatureSet(mixturePowers)
             .AddToDB();
 

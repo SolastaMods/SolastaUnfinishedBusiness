@@ -772,14 +772,17 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyPool")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(HasModifiedUses.Marker, IsModifyPowerPool.Marker, ModifyPowerVisibility.Hidden)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 3)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 0)
             .AddToDB();
 
-        power.AddCustomSubFeatures(new ModifyPowerPoolAmount
-        {
-            PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
-        });
+        power.AddCustomSubFeatures(
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = power,
+                Type = PowerPoolBonusCalculationType.ClassLevel,
+                Attribute = InventorClass.ClassName
+            });
         return power;
     }
 
