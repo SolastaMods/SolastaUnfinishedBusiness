@@ -932,7 +932,7 @@ internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFi
     public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
     {
         if (characterAction is not CharacterActionCombatRageStart)
-            {
+        {
             yield break;
         }
 

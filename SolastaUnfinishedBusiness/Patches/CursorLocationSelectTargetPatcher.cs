@@ -14,6 +14,17 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CursorLocationSelectTargetPatcher
 {
+    private static bool TryGetModifyTeleportEffectBehavior(
+        CharacterActionParams actionParams, out IModifyTeleportEffectBehavior modifyTeleportEffectBehavior)
+    {
+        var rulesetEffect = actionParams?.RulesetEffect;
+        var source = rulesetEffect?.SourceDefinition;
+
+        modifyTeleportEffectBehavior = source?.GetFirstSubFeatureOfType<IModifyTeleportEffectBehavior>();
+
+        return modifyTeleportEffectBehavior != null;
+    }
+
     [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.IsFilteringValid))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -142,29 +153,18 @@ public static class CursorLocationSelectTargetPatcher
         [UsedImplicitly]
         public static void Prefix(CursorLocationSelectTarget __instance)
         {
-            if (!TryGetModifyTeleportEffectBehavior(__instance.ActionParams, out var _))
+            if (!TryGetModifyTeleportEffectBehavior(__instance.ActionParams, out _))
             {
                 return;
             }
 
             var rulesetEffect = __instance.ActionParams.RulesetEffect;
-            
+
             rulesetEffect.EffectDescription.TargetType = TargetType.Position;
             rulesetEffect.EffectDescription.inviteOptionalAlly = true;
         }
     }
 
-    private static bool TryGetModifyTeleportEffectBehavior(
-        CharacterActionParams actionParams, out IModifyTeleportEffectBehavior modifyTeleportEffectBehavior)
-    {
-        var rulesetEffect = actionParams?.RulesetEffect;
-        var source = rulesetEffect?.SourceDefinition;
-
-        modifyTeleportEffectBehavior = source?.GetFirstSubFeatureOfType<IModifyTeleportEffectBehavior>();
-
-        return modifyTeleportEffectBehavior != null;
-    }
-    
     //PATCH: support EnforceFullSelection on IFilterTargetingCharacter (vanilla code except for patch block)
     [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.RefreshCaption))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

@@ -113,7 +113,6 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
                 ModifyPowerVisibility.Hidden,
-                new HasModifiedUses(), // required for short rest integration
                 new ValidatorsValidatePowerUse(HasInjuredDefender),
                 new ModifyRestPowerTitleHandler(GetRestPowerTitle),
                 new TargetDefendingBlade())
@@ -591,7 +590,7 @@ public sealed class InnovationWeapon : AbstractSubclass
         }
     }
 
-    private class TargetDefendingBlade : IRetargetCustomRestPower
+    private class TargetDefendingBlade : IRetargetCustomRestPower, IHasModifiedUses
     {
         public GameLocationCharacter GetTarget(RulesetCharacter user)
         {
