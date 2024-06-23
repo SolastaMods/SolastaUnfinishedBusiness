@@ -4,6 +4,7 @@
 - fixed attack cantrips interaction with Follow Up Strike, and Polearm Expert feats
 - fixed Circle of the Night consuming only one wildshape usage with crimson spider, elementals, and minotaur  
 - fixed Coordinated Attack gambit, and Strategic Reposition warlord feature breaking self invisibility
+- fixed Innovation Vitriolist vitriolic infusion to trigger on any acid damage dealt
 - fixed Path of the Wild Magic aura, bolt, retribution, summon, and teleport behaviors
 - fixed Patron Hexblade using character level instead of class level on hex received healing
 - fixed Ranger Lightbearer not interacting with the cast/stop Light cantrip UI shortcut
