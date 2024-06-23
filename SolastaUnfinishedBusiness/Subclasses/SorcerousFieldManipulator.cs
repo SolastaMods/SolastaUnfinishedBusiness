@@ -52,7 +52,6 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Position)
-                    .ExcludeCaster()
                     .InviteOptionalAlly()
                     .SetSavingThrowData(
                         true,
@@ -226,7 +225,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     {
         public bool AllyOnly => false;
 
-        public bool TeleportSelf => true;
+        public bool TeleportSelf => false;
 
         public int MaxTargets => 1;
     }
