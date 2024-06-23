@@ -1336,6 +1336,8 @@
                     <string>BrainBulwark</string>
                     <string>IrresistiblePerformance</string>
                     <string>PsychicLance</string>
+                    <string>EmpoweredKnowledge</string>
+                    <string>SynapticStatic</string>
                     <string>MindBlank</string>
                     <string>Foresight</string>
                     <string>PowerWordHeal</string>
@@ -1363,6 +1365,7 @@
                     <string>AuraOfVitality</string>
                     <string>AuraOfPerseverance</string>
                     <string>Dawn</string>
+                    <string>EmpoweredKnowledge</string>
                     <string>MassHeal</string>
                     <string>PowerWordHeal</string>
                 </ArrayOfString>
@@ -1536,10 +1539,13 @@
                     <string>FarStep</string>
                     <string>Incineration</string>
                     <string>SonicBoom</string>
+                    <string>SynapticStatic</string>
                     <string>Telekinesis</string>
                     <string>FizbanPlatinumShield</string>
                     <string>FlashFreeze</string>
+                    <string>Scatter</string>
                     <string>MysticalCloak</string>
+                    <string>CrownOfStars</string>
                     <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
                     <string>MeteorSwarmSingleTarget</string>
@@ -1585,8 +1591,12 @@
                     <string>PsionicBlast</string>
                     <string>PsychicLance</string>
                     <string>FarStep</string>
+                    <string>EmpoweredKnowledge</string>
+                    <string>SynapticStatic</string>
                     <string>FlashFreeze</string>
+                    <string>Scatter</string>
                     <string>MysticalCloak</string>
+                    <string>CrownOfStars</string>
                     <string>MaddeningDarkness</string>
                     <string>Foresight</string>
                     <string>PowerWordKill</string>
@@ -1665,14 +1675,18 @@
                     <string>Dawn</string>
                     <string>FarStep</string>
                     <string>Incineration</string>
+                    <string>EmpoweredKnowledge</string>
                     <string>SonicBoom</string>
                     <string>SteelWhirlwind</string>
+                    <string>SynapticStatic</string>
                     <string>Telekinesis</string>
                     <string>FizbanPlatinumShield</string>
                     <string>PoisonWave</string>
                     <string>RingOfBlades</string>
+                    <string>Scatter</string>
                     <string>MysticalCloak</string>
                     <string>HeroicInfusion</string>
+                    <string>CrownOfStars</string>
                     <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
                     <string>MaddeningDarkness</string>

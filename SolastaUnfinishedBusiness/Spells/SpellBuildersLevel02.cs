@@ -655,13 +655,26 @@ internal static partial class SpellBuilders
             {
                 var skillName = power.Name.Replace("PowerBorrowedKnowledge", string.Empty);
 
-                if (!skillsDb.TryGetElement(skillName, out var skill) ||
+                if (!skillsDb.TryGetElement(skillName, out var skill))
+                {
+                    continue;
+                }
+
+                var hasSkill =
                     hero.TrainedSkills.Contains(skill) ||
+                    hero.RaceDefinition.FeatureUnlocks
+                        .Select(x => x.FeatureDefinition)
+                        .OfType<FeatureDefinitionProficiency>()
+                        .Any(x =>
+                            x.ProficiencyType == ProficiencyType.Skill &&
+                            x.Proficiencies.Contains(skillName)) ||
                     hero.BackgroundDefinition.Features
                         .OfType<FeatureDefinitionProficiency>()
                         .Any(x =>
-                            x.ProficiencyType is ProficiencyType.Skill or ProficiencyType.SkillOrExpertise &&
-                            x.Proficiencies.Contains(skillName)))
+                            x.ProficiencyType == ProficiencyType.Skill &&
+                            x.Proficiencies.Contains(skillName));
+
+                if (hasSkill)
                 {
                     continue;
                 }
@@ -700,14 +713,22 @@ internal static partial class SpellBuilders
             }
 
             var selectedPower = powers[reactionRequest.SelectedSubOption];
+            var usedPower = rulesetCharacter.PowersUsedByMe
+                .FirstOrDefault(x => x.PowerDefinition == selectedPower);
+
+            if (usedPower != null)
+            {
+                action.ActionParams.RulesetEffect.TrackedConditionGuids.SetRange(usedPower.TrackedConditionGuids);
+
+            }
 
             foreach (var skill in skillsDb)
             {
                 var conditionName = $"ConditionBorrowedKnowledge{skill.Name}";
 
-                if (!selectedPower.Name.Contains(skill.Name) &&
-                    rulesetCharacter.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, conditionName, out var activeCondition))
+                if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
+                    !selectedPower.Name.Contains(skill.Name))
                 {
                     rulesetCharacter.RemoveCondition(activeCondition);
                 }

@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "SkillOrExpertise",
+  "proficiencyType": "Expertise",
   "proficiencies": [
     "Survival"
   ],

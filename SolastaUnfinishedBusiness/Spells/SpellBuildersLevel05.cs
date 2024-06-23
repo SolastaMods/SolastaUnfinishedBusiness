@@ -480,7 +480,7 @@ internal static partial class SpellBuilders
                                         FeatureDefinitionProficiencyBuilder
                                             .Create($"Proficiency{NAME}{skill.Name}")
                                             .SetGuiPresentation(skill.GuiPresentation)
-                                            .SetProficiencies(ProficiencyType.SkillOrExpertise, skill.Name)
+                                            .SetProficiencies(ProficiencyType.Expertise, skill.Name)
                                             .AddToDB())
                                     .AddToDB()))
                         .Build())
@@ -509,7 +509,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Hour, 1)
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetTargetingData(Side.All, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetCasterEffectParameters(TrueSeeing)
                     .SetEffectEffectParameters(PowerPaladinCleansingTouch)
                     .Build())
@@ -536,7 +536,9 @@ internal static partial class SpellBuilders
 
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var hero = rulesetCharacter.GetOriginalHero();
+            var target = action.ActionParams.TargetCharacters[0];
+            var rulesetTarget = target.RulesetCharacter;
+            var hero = rulesetTarget.GetOriginalHero();
 
             if (hero == null)
             {
@@ -550,14 +552,28 @@ internal static partial class SpellBuilders
             {
                 var skillName = power.Name.Replace("PowerEmpoweredKnowledge", string.Empty);
 
-                if (!skillsDb.TryGetElement(skillName, out var skill) ||
-                    !hero.TrainedSkills.Contains(skill) ||
-                    hero.TrainedExpertises.Contains(skill.name) ||
+                if (!skillsDb.TryGetElement(skillName, out var skill))
+                {
+                    continue;
+                }
+
+                var hasSkill =
+                    hero.TrainedSkills.Contains(skill) ||
+                    hero.RaceDefinition.FeatureUnlocks
+                        .Select(x => x.FeatureDefinition)
+                        .OfType<FeatureDefinitionProficiency>()
+                        .Any(x =>
+                            x.ProficiencyType == ProficiencyType.Skill &&
+                            x.Proficiencies.Contains(skillName)) ||
                     hero.BackgroundDefinition.Features
                         .OfType<FeatureDefinitionProficiency>()
                         .Any(x =>
-                            x.ProficiencyType is ProficiencyType.Skill or ProficiencyType.SkillOrExpertise &&
-                            x.Proficiencies.Contains(skillName)))
+                            x.ProficiencyType == ProficiencyType.Skill &&
+                            x.Proficiencies.Contains(skillName));
+
+                var hasExpertise = hero.TrainedExpertises.Contains(skill.name);
+
+                if (!hasSkill || hasExpertise)
                 {
                     continue;
                 }
@@ -578,7 +594,7 @@ internal static partial class SpellBuilders
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
-                TargetCharacters = { actingCharacter }
+                TargetCharacters = { target }
             };
             var count = actionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
@@ -596,21 +612,33 @@ internal static partial class SpellBuilders
             }
 
             var selectedPower = powers[reactionRequest.SelectedSubOption];
+            var usedPower = rulesetCharacter.PowersUsedByMe
+                .FirstOrDefault(x => x.PowerDefinition == selectedPower);
 
-            action.ActionParams.RulesetEffect.TrackedConditionGuids.SetRange(
-                rulesetCharacter.PowersUsedByMe
-                    .Where(x => x.PowerDefinition == selectedPower)
-                    .SelectMany(y => y.TrackedConditionGuids));
+            if (usedPower != null)
+            {
+                action.ActionParams.RulesetEffect.TrackedConditionGuids.SetRange(usedPower.TrackedConditionGuids);
+
+            }
+
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var allies =
+                locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters).ToList();
 
             foreach (var skill in skillsDb)
             {
                 var conditionName = $"ConditionEmpoweredKnowledge{skill.Name}";
 
-                if (!selectedPower.Name.Contains(skill.Name) &&
-                    rulesetCharacter.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, conditionName, out var activeCondition))
+                foreach (var rulesetAlly in allies
+                             .Select(ally => ally.RulesetCharacter))
                 {
-                    rulesetCharacter.RemoveCondition(activeCondition);
+                    if (rulesetAlly.TryGetConditionOfCategoryAndType(
+                            AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
+                        activeCondition.SourceGuid == rulesetCharacter.Guid &&
+                        (!selectedPower.Name.Contains(skill.Name) || activeCondition.TargetGuid != rulesetTarget.Guid))
+                    {
+                        rulesetAlly.RemoveCondition(activeCondition);
+                    }
                 }
             }
         }

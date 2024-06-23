@@ -1,7 +1,7 @@
 1.5.97.16:
 
 - added Crown of Stars, Scatter, Skill Empowerment, and Synaptic Static spells
-- fixed attack cantrips interaction with Followup Strike and Polearm Expert feats
+- fixed attack cantrips interaction with Follow Up Strike, and Polearm Expert feats
 - fixed Circle of the Night consuming only one wildshape usage with crimson spider, elementals, and minotaur  
 - fixed Coordinated Attack gambit, and Strategic Reposition warlord feature breaking self invisibility
 - fixed Path of the Wild Magic aura, bolt, retribution, summon, and teleport behaviors
