@@ -154,7 +154,7 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedParameter": -1.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -162,7 +162,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "1a0e4cd675c85894a9c2c6085b632939",
+        "m_AssetGUID": "2987ab28a75b4b9488822c04bf2c7833",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -198,7 +198,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b295854ad38bcdb4faa4a2e09bdb30dd",
+        "m_AssetGUID": "5dcc4b5d7d59f4a479abfc43a59db232",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -210,7 +210,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "1ac0728c7c36d2046b9494d3adb7ecf1",
+        "m_AssetGUID": "bd4f9cc727987f64a9cb4bed1de53464",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -312,7 +312,7 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "forceApplyZoneParticle": false,
+      "forceApplyZoneParticle": true,
       "applyEmissionColorOnWeapons": false,
       "emissionColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
