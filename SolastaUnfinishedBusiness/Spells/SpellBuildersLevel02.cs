@@ -662,14 +662,7 @@ internal static partial class SpellBuilders
 
                 var hasSkill =
                     hero.TrainedSkills.Contains(skill) ||
-                    hero.RaceDefinition.FeatureUnlocks
-                        .Select(x => x.FeatureDefinition)
-                        .OfType<FeatureDefinitionProficiency>()
-                        .Any(x =>
-                            x.ProficiencyType == ProficiencyType.Skill &&
-                            x.Proficiencies.Contains(skillName)) ||
-                    hero.BackgroundDefinition.Features
-                        .OfType<FeatureDefinitionProficiency>()
+                    hero.GetFeaturesByType<FeatureDefinitionProficiency>()
                         .Any(x =>
                             x.ProficiencyType == ProficiencyType.Skill &&
                             x.Proficiencies.Contains(skillName));
@@ -713,14 +706,6 @@ internal static partial class SpellBuilders
             }
 
             var selectedPower = powers[reactionRequest.SelectedSubOption];
-            var usedPower = rulesetCharacter.PowersUsedByMe
-                .FirstOrDefault(x => x.PowerDefinition == selectedPower);
-
-            if (usedPower != null)
-            {
-                action.ActionParams.RulesetEffect.TrackedConditionGuids.SetRange(usedPower.TrackedConditionGuids);
-
-            }
 
             foreach (var skill in skillsDb)
             {

@@ -512,6 +512,10 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetCasterEffectParameters(TrueSeeing)
                     .SetEffectEffectParameters(PowerPaladinCleansingTouch)
+                    // required to kick concentration
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(
+                        ConditionDummy,
+                        ConditionForm.ConditionOperation.Add, true))
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeEmpoweredKnowledge(powerPool, [.. powers]))
             .AddToDB();
@@ -559,14 +563,7 @@ internal static partial class SpellBuilders
 
                 var hasSkill =
                     hero.TrainedSkills.Contains(skill) ||
-                    hero.RaceDefinition.FeatureUnlocks
-                        .Select(x => x.FeatureDefinition)
-                        .OfType<FeatureDefinitionProficiency>()
-                        .Any(x =>
-                            x.ProficiencyType == ProficiencyType.Skill &&
-                            x.Proficiencies.Contains(skillName)) ||
-                    hero.BackgroundDefinition.Features
-                        .OfType<FeatureDefinitionProficiency>()
+                    hero.GetFeaturesByType<FeatureDefinitionProficiency>()
                         .Any(x =>
                             x.ProficiencyType == ProficiencyType.Skill &&
                             x.Proficiencies.Contains(skillName));
@@ -618,28 +615,6 @@ internal static partial class SpellBuilders
             if (usedPower != null)
             {
                 action.ActionParams.RulesetEffect.TrackedConditionGuids.SetRange(usedPower.TrackedConditionGuids);
-
-            }
-
-            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var allies =
-                locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters).ToList();
-
-            foreach (var skill in skillsDb)
-            {
-                var conditionName = $"ConditionEmpoweredKnowledge{skill.Name}";
-
-                foreach (var rulesetAlly in allies
-                             .Select(ally => ally.RulesetCharacter))
-                {
-                    if (rulesetAlly.TryGetConditionOfCategoryAndType(
-                            AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
-                        activeCondition.SourceGuid == rulesetCharacter.Guid &&
-                        (!selectedPower.Name.Contains(skill.Name) || activeCondition.TargetGuid != rulesetTarget.Guid))
-                    {
-                        rulesetAlly.RemoveCondition(activeCondition);
-                    }
-                }
             }
         }
     }
