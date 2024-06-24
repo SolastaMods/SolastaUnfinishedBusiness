@@ -1587,6 +1587,12 @@ internal static partial class SpellBuilders
             var slotLevel = rulesetDefender.GetLowestSlotLevelAndRepertoireToCastSpell(
                 spellDefinition, out var spellRepertoire);
 
+            if (slotLevel < 1 ||
+                spellRepertoire == null)
+            {
+                yield break;
+            }
+
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
             {
