@@ -367,7 +367,7 @@ internal static class SpellsContext
         // 7th level
         RegisterSpell(BuildCrownOfStars(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildDraconicTransformation(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
-        RegisterSpell(BuildRescueTheDying(), 0, SpellListCleric, SpellListDruid);
+        //RegisterSpell(BuildRescueTheDying(), 0, SpellListCleric, SpellListDruid);
         RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
 
         // 8th level

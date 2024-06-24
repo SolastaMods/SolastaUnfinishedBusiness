@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Spells;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -65,12 +64,11 @@ public static class BattleState_TurnReady_ExecuteDeathSavingThrow
 
         if (activeContender is not { RulesetCharacter: not null })
         {
-            yield break;
         }
 
-        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+        //var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-        yield return SpellBuilders.HandleRescueTheDyingReaction(battleManager, activeContender, activeContender);
+        //yield return SpellBuilders.HandleRescueTheDyingReaction(battleManager, activeContender, activeContender);
     }
 }
 

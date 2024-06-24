@@ -199,9 +199,15 @@ internal static partial class SpellBuilders
             yield break;
         }
 
-        var rulesetDefender = defender.RulesetCharacter;
-        var slotLevel = rulesetDefender.GetLowestSlotLevelAndRepertoireToCastSpell(
+        var rulesetHelper = helper.RulesetCharacter;
+        var slotLevel = rulesetHelper.GetLowestSlotLevelAndRepertoireToCastSpell(
             _rescueTheDying, out var spellRepertoire);
+
+        if (slotLevel < 7 ||
+            spellRepertoire == null)
+        {
+            yield break;
+        }
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
