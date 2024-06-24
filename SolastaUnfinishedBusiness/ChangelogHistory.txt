@@ -1,6 +1,6 @@
 1.5.97.16:
 
-- added Crown of Stars, Rescue the Dying, Scatter, Shelter from Energy, Skill Empowerment, and Synaptic Static spells
+- added Crown of Stars, Scatter, Shelter from Energy, Skill Empowerment, and Synaptic Static spells
 - fixed attack cantrips interaction with Follow Up Strike, and Polearm Expert feats
 - fixed Circle of the Night consuming only one wildshape usage with crimson spider, elementals, and minotaur  
 - fixed Coordinated Attack gambit, and Strategic Reposition warlord feature breaking self invisibility
@@ -18,8 +18,8 @@
 
 KNOWN ISSUES:
 
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft [won't fix]
-- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [won't fix]
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [cannot fix]
 
 1.5.97.15:
 

@@ -1,7 +1,15 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
-  "spellsBundle": false,
-  "subspellsList": [],
+  "spellsBundle": true,
+  "subspellsList": [
+    "Definition:PowerShelterFromEnergyDamageAcid:6fe05a51-b78a-549d-b9f1-3fc16b015fa6",
+    "Definition:PowerShelterFromEnergyDamageCold:678c4bbd-cd01-5d95-8361-a0582e0c357a",
+    "Definition:PowerShelterFromEnergyDamageFire:2b8ce219-6a5f-5386-947c-404fb99d86bd",
+    "Definition:PowerShelterFromEnergyDamageLightning:e0c68a11-b29b-5543-a946-1b36a5483c24",
+    "Definition:PowerShelterFromEnergyDamageNecrotic:4bc65514-db01-5886-97aa-5ab0fa6164c3",
+    "Definition:PowerShelterFromEnergyDamageRadiant:39c31754-7b54-5135-bdbf-2fa7fbb48a63",
+    "Definition:PowerShelterFromEnergyDamageThunder:2ecfb27e-d37c-538f-af0b-21adf57d5f99"
+  ],
   "compactSubspellsTooltip": false,
   "implemented": true,
   "schoolOfMagic": "SchoolAbjuration",
@@ -287,7 +295,7 @@
   "specificMaterialComponentConsumed": true,
   "terminateOnItemUnequip": false,
   "displayConditionDuration": false,
-  "vocalSpellSemeType": "Attack",
+  "vocalSpellSemeType": "Buff",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>0</DisplayModMessage>
+    <DisplayModMessage>1</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -1352,7 +1352,6 @@
             <value>
                 <ArrayOfString>
                     <string>AirBlast</string>
-                    <string>ElementalWeapon</string>
                     <string>TollTheDead</string>
                     <string>BurstOfRadiance</string>
                     <string>Wrack</string>
@@ -1366,6 +1365,8 @@
                     <string>AuraOfPerseverance</string>
                     <string>Dawn</string>
                     <string>EmpoweredKnowledge</string>
+                    <string>ShelterFromEnergy</string>
+                    <string>RescueTheDying</string>
                     <string>MassHeal</string>
                     <string>PowerWordHeal</string>
                 </ArrayOfString>
@@ -1401,7 +1402,9 @@
                     <string>ForestGuardian</string>
                     <string>MantleOfThorns</string>
                     <string>FlashFreeze</string>
+                    <string>ShelterFromEnergy</string>
                     <string>DraconicTransformation</string>
+                    <string>RescueTheDying</string>
                     <string>ReverseGravity</string>
                     <string>Foresight</string>
                     <string>Shapechange</string>
@@ -1544,6 +1547,7 @@
                     <string>FizbanPlatinumShield</string>
                     <string>FlashFreeze</string>
                     <string>Scatter</string>
+                    <string>ShelterFromEnergy</string>
                     <string>MysticalCloak</string>
                     <string>CrownOfStars</string>
                     <string>DraconicTransformation</string>
@@ -1684,6 +1688,7 @@
                     <string>PoisonWave</string>
                     <string>RingOfBlades</string>
                     <string>Scatter</string>
+                    <string>ShelterFromEnergy</string>
                     <string>MysticalCloak</string>
                     <string>HeroicInfusion</string>
                     <string>CrownOfStars</string>
