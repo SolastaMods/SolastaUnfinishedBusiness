@@ -1785,7 +1785,6 @@ internal static partial class SpellBuilders
             .SetSilent(Silent.WhenAdded)
             .SetPossessive()
             .SetFeatures(damageAffinitySkinOfRetribution)
-            .SetTerminateWhenRemoved()
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedSkinOfRetribution())
             .CopyParticleReferences(PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
@@ -1807,8 +1806,8 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

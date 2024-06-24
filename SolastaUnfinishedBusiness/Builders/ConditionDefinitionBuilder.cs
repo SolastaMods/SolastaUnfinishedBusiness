@@ -211,12 +211,6 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetTerminateWhenRemoved()
-    {
-        Definition.terminateWhenRemoved = true;
-        return this;
-    }
-
     internal ConditionDefinitionBuilder SetSilent(Silent silent)
     {
         Definition.silentWhenAdded = silent.HasFlag(Silent.WhenAdded);

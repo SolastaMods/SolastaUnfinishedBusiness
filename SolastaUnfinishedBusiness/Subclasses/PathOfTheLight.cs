@@ -123,7 +123,6 @@ public sealed class PathOfTheLight : AbstractSubclass
                                         ConditionDefinitionBuilder
                                             .Create("ConditionPathOfTheLightIlluminatingStrikeInitiator")
                                             .SetGuiPresentationNoContent(true)
-                                            .SetTerminateWhenRemoved()
                                             .SetSilent(Silent.WhenAddedOrRemoved)
                                             .SetSpecialInterruptions(ConditionInterruption.RageStop)
                                             .SetFeatures(additionalDamagePathOfTheLightIlluminatingStrike)
