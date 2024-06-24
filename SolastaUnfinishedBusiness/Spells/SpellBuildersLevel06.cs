@@ -1,6 +1,9 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -178,6 +181,153 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Shelter From Energy
+
+    private static readonly List<string> ShelterDamageTypes =
+    [
+        DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning,
+        DamageTypeNecrotic, DamageTypeRadiant, DamageTypeThunder
+    ];
+
+    internal static SpellDefinition BuildShelterFromEnergy()
+    {
+        const string NAME = "ShelterFromEnergy";
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .AddToDB();
+
+        var powers = (from damageType in ShelterDamageTypes
+                let title = Gui.Localize($"Tooltip/&Tag{damageType}Title")
+                let description = Gui.Format($"Feedback/&{NAME}Description", title)
+                select FeatureDefinitionPowerSharedPoolBuilder
+                    .Create($"Power{NAME}{damageType}")
+                    .SetGuiPresentation(title, description)
+                    .SetSharedPool(ActivationTime.NoCost, powerPool)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create()
+                            .SetEffectForms(EffectFormBuilder.ConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{NAME}{damageType}")
+                                    .SetGuiPresentation(
+                                        Gui.Format($"Condition/&Condition{NAME}Title", title),
+                                        Gui.NoLocalization, ConditionAuraOfProtection)
+                                    .SetSilent(Silent.WhenAdded)
+                                    .SetFeatures(
+                                        FeatureDefinitionDamageAffinityBuilder
+                                            .Create($"DamageAffinity{NAME}{damageType}")
+                                            .SetGuiPresentationNoContent(true)
+                                            .SetDamageType(damageType)
+                                            .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                            .AddToDB())
+                                    .AddToDB()))
+                            .Build())
+                    .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+                    .AddToDB())
+            .ToList();
+
+        PowerBundle.RegisterPowerBundle(powerPool, false, powers);
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powers)
+            .AddFeatures(powerPool)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ShelterFromEnergy, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetCasterEffectParameters(MageArmor)
+                    .Build())
+            .AddCustomSubFeatures(new MagicEffectInitiatedByMeShelterFromEnergy(condition, powerPool))
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class MagicEffectInitiatedByMeShelterFromEnergy(
+        ConditionDefinition condition,
+        FeatureDefinitionPower powerPool)
+        : IMagicEffectInitiatedByMe
+    {
+        public IEnumerator OnMagicEffectInitiatedByMe(
+            CharacterActionMagicEffect action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (!actionManager || !battleManager)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var activeCondition = rulesetAttacker.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                condition.Name,
+                0,
+                0,
+                0);
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "ShelterFromEnergy",
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
+            };
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            rulesetAttacker.RemoveCondition(activeCondition);
+        }
     }
 
     #endregion
@@ -415,7 +565,7 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+// ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class FilterTargetingCharacterFlashFreeze : IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
