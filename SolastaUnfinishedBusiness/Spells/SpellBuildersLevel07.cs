@@ -8,16 +8,77 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    #region Reverse Gravity
+
+    internal static SpellDefinition BuildRescueTheDying()
+    {
+        const string NAME = "RescueTheDying";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityPsychicResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .AddToDB();
+
+        return SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RescueTheDying, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(7)
+            .SetCastingTime(ActivationTime.Reaction)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(HealingComputation.Dice, 30, DieType.D10, 4, false,
+                                HealingCap.MaximumHitPoints)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(15, DieType.D10, 2)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(condition))
+                    .Build())
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Reverse Gravity
 
     internal static SpellDefinition BuildReverseGravity()
