@@ -39,7 +39,6 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             .AddPreparedSpellGroup(5, Haste)
             .AddPreparedSpellGroup(7, FireShield)
             .AddPreparedSpellGroup(9, MindTwist)
-            .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
         // Enchant Weapon

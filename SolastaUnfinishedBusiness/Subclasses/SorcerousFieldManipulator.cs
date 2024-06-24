@@ -39,7 +39,6 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddPreparedSpellGroup(5, Counterspell)
             .AddPreparedSpellGroup(7, Banishment)
             .AddPreparedSpellGroup(9, HoldMonster)
-            .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
         // Displacement

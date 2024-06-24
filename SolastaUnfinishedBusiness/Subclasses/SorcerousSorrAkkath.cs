@@ -38,7 +38,6 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .AddPreparedSpellGroup(5, Fear)
             .AddPreparedSpellGroup(7, GreaterInvisibility)
             .AddPreparedSpellGroup(9, DominatePerson)
-            .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
         // Deceptive Heritage
