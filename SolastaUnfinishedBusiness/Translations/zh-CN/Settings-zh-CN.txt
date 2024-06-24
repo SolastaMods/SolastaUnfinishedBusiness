@@ -255,7 +255,7 @@ ModUi/&RecipeCost=<color=white>配方成本</color>
 ModUi/&RecipesInDm=地城中的配方
 ModUi/&RelicForgeries=文物伪造品
 ModUi/&RemoveAttunementRequirements=删除同调要求<b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&RemoveBugVisualModels=用游戏中的替代视觉效果替换蜘蛛类模型<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&RemoveBugVisualModels=在游戏中将蜘蛛类模型替换为熊类模型<i><color=#F0DAA0>[蜘蛛恐惧症]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=移除<color=#D89555>狂笑术</color>的类人敌人限制
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>缠绕</color>效果，并强制进行力量检定以挣脱藤蔓
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=移除<color=#D89555>暗影法师</color>的学派限制

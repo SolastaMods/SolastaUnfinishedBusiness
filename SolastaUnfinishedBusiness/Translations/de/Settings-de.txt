@@ -255,7 +255,7 @@ ModUi/&RecipeCost=<color=white>Kosten des Rezepts</color>
 ModUi/&RecipesInDm=Rezepte in DM
 ModUi/&RelicForgeries=Reliktfälschungen
 ModUi/&RemoveAttunementRequirements=Einstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&RemoveBugVisualModels=Ersetzen Sie im Spiel spinnenähnliche Modelle durch bärenähnliche Modelle für <i><color=#F0DAA0>[Spinnenphobie]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&RemoveBugVisualModels=Ersetzen Sie im Spiel spinnenähnliche Modelle durch bärenähnliche Modelle <i><color=#F0DAA0>[Spinnenphobie]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Entferne den Humanoidenfilter für <color=#D89555>Abscheuliches Lachen</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Wenden Sie beim Wirken nur den Effekt <color=#D89555>Verwickeln</color> an und erzwingen Sie außerdem eine Stärkeprüfung, um sich von den Ranken zu befreien
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Schulbeschränkungen aus <color=#D89555>Shadowcaster</color> entfernen

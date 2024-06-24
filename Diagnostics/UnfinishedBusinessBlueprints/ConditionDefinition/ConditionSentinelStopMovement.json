@@ -5,6 +5,7 @@
   "conditionType": "Detrimental",
   "features": [
     "Definition:ActionAffinityConditionRestrained:0a11d859909c2624086506f327824de8",
+    "Definition:ActionAffinitySentinelStopMovement:93efd630-5ffb-5ef9-ac9a-46a6f05e3bc0",
     "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc"
   ],
   "allowMultipleInstances": false,
@@ -287,7 +288,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5b0a8f7d-5c20-5161-a345-be9f73e176a2",
+  "guid": "17339c35-b4e5-5de8-86e0-17f37d6d4a71",
   "contentPack": 9999,
-  "name": "ConditionStopMovementSentinel"
+  "name": "ConditionSentinelStopMovement"
 }

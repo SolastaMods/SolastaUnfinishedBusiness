@@ -255,7 +255,7 @@ ModUi/&RecipeCost=<color=white>Costo de la receta</color>
 ModUi/&RecipesInDm=Recetas en DM
 ModUi/&RelicForgeries=Falsificaciones de reliquias
 ModUi/&RemoveAttunementRequirements=Eliminar los requisitos de sintonía <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&RemoveBugVisualModels=Reemplaza los modelos tipo araña por modelos tipo oso en el juego para <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&RemoveBugVisualModels=Reemplace modelos con forma de araña con modelos con forma de oso en el juego <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color </i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Elimina el filtro humanoide en <color=#D89555>Risa horrible</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Solo aplica el efecto <color=#D89555>Enredar</color> en el momento del lanzamiento y también fuerza una prueba de fuerza para liberarte de las enredaderas.
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Eliminar las restricciones escolares de <color=#D89555>Shadowcaster</color>
