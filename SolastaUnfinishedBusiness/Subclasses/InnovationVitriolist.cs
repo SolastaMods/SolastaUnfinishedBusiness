@@ -444,6 +444,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
     private sealed class CustomBehaviorVitriolicInfusion
         : IMagicEffectInitiatedByMe, IPhysicalAttackInitiatedByMe, IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe
     {
+        private readonly HashSet<GameLocationCharacter> _isValid = [];
+
         public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
@@ -452,7 +454,14 @@ public sealed class InnovationVitriolist : AbstractSubclass
             foreach (var target in targets)
             {
                 target.RulesetActor.DamageReceived -= DamageReceivedHandler;
+
+                if (_isValid.Contains(target))
+                {
+                    InflictDamage(attacker, target);
+                }
             }
+
+            _isValid.Clear();
 
             yield break;
         }
@@ -468,6 +477,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
                 target.RulesetActor.DamageReceived += DamageReceivedHandler;
             }
 
+            _isValid.Clear();
+
             yield break;
         }
 
@@ -482,6 +493,13 @@ public sealed class InnovationVitriolist : AbstractSubclass
         {
             defender.RulesetActor.DamageReceived += DamageReceivedHandler;
 
+            if (_isValid.Contains(defender))
+            {
+                InflictDamage(attacker, defender);
+            }
+
+            _isValid.Clear();
+
             yield break;
         }
 
@@ -495,6 +513,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
         {
             defender.RulesetActor.DamageReceived += DamageReceivedHandler;
 
+            _isValid.Clear();
+
             yield break;
         }
 
@@ -505,15 +525,25 @@ public sealed class InnovationVitriolist : AbstractSubclass
             ulong sourceGuid,
             RollInfo rollInfo)
         {
-            if (receivedDamageType != DamageTypeAcid ||
-                rollInfo.DieType == DieType.D20)
+            if (receivedDamageType != DamageTypeAcid)
             {
                 return;
             }
 
-            var defender = GameLocationCharacter.GetFromActor(rulesetDefender);
-            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(sourceGuid);
-            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
+            var glc = GameLocationCharacter.GetFromActor(rulesetDefender);
+
+            if (glc != null)
+            {
+                _isValid.Add(glc);
+            }
+        }
+
+        private static void InflictDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
             var pb = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var rolls = new List<int>();
             var damageForm = new DamageForm
