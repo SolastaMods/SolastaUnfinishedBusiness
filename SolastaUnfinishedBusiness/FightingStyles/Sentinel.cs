@@ -27,7 +27,21 @@ internal sealed class Sentinel : AbstractFightingStyle
                     AttacksOfOpportunity.SentinelFeatMarker,
                     new PhysicalAttackFinishedByMeFeatSentinel(
                         ConditionDefinitionBuilder
-                            .Create(CustomConditionsContext.StopMovement, "ConditionStopMovementSentinel")
+                            .Create(CustomConditionsContext.StopMovement, $"Condition{SentinelName}StopMovement")
+                            .AddFeatures(
+                                // this is a hack to ensure game engine won't execute the attack even at reach
+                                // given that game AI will only run an enemy towards an ally with an attack intention
+                                // this should be good enough as enemy won't run next to other allies
+                                FeatureDefinitionActionAffinityBuilder
+                                    .Create($"ActionAffinity{SentinelName}StopMovement")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetForbiddenActions(
+                                        ActionDefinitions.Id.Shove,
+                                        ActionDefinitions.Id.ShoveBonus,
+                                        ActionDefinitions.Id.AttackMain,
+                                        ActionDefinitions.Id.AttackOff,
+                                        ActionDefinitions.Id.AttackFree)
+                                    .AddToDB())
                             .AddToDB()))
                 .AddToDB())
         .AddToDB();
@@ -36,23 +50,21 @@ internal sealed class Sentinel : AbstractFightingStyle
 
     private sealed class PhysicalAttackFinishedByMeFeatSentinel(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionSentinelStopMovement) : IPhysicalAttackFinishedByMe
+        ConditionDefinition conditionSentinelStopMovement) : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnPhysicalAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            if (action.ActionType is not ActionDefinitions.ActionType.Reaction ||
+            if (attackMode.ActionType != ActionDefinitions.ActionType.Reaction ||
                 attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
             {
                 yield break;
@@ -60,12 +72,6 @@ internal sealed class Sentinel : AbstractFightingStyle
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetActor;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
 
             rulesetDefender.InflictCondition(
                 conditionSentinelStopMovement.Name,
