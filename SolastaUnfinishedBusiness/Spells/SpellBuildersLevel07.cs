@@ -21,66 +21,6 @@ internal static partial class SpellBuilders
 {
     #region Reverse Gravity
 
-    internal static SpellDefinition BuildRescueTheDying()
-    {
-        const string NAME = "RescueTheDying";
-
-        var condition = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityColdResistance,
-                DamageAffinityFireResistance,
-                DamageAffinityForceDamageResistance,
-                DamageAffinityLightningResistance,
-                DamageAffinityNecroticResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinityPoisonResistance,
-                DamageAffinityPsychicResistance,
-                DamageAffinityRadiantResistance,
-                DamageAffinitySlashingResistance,
-                DamageAffinityThunderResistance)
-            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-            .AddToDB();
-
-        return SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RescueTheDying, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(7)
-            .SetCastingTime(ActivationTime.Reaction)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetSomaticComponent(false)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.IndividualsUnique)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetHealingForm(HealingComputation.Dice, 30, DieType.D10, 4, false,
-                                HealingCap.MaximumHitPoints)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetTempHpForm(15, DieType.D10, 2)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(condition))
-                    .Build())
-            .AddToDB();
-    }
-
-    #endregion
-
-    #region Reverse Gravity
-
     internal static SpellDefinition BuildReverseGravity()
     {
         const string NAME = "ReverseGravity";
@@ -224,6 +164,123 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(EldritchBlast)
                     .Build())
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Rescue the Dying
+
+    private static SpellDefinition _rescueTheDying;
+
+    internal static IEnumerator HandleRescueTheDyingReaction(
+        GameLocationBattleManager battleManager,
+        GameLocationCharacter waiter,
+        GameLocationCharacter defender)
+    {
+        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var contenders = locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters)
+            .Where(x => x.RulesetCharacter.UsableSpells.Contains(_rescueTheDying))
+            .ToList();
+
+        foreach (var contender in contenders)
+        {
+            yield return HandleReaction(battleManager, waiter, defender, contender);
+        }
+    }
+
+    private static IEnumerator HandleReaction(
+        GameLocationBattleManager battleManager,
+        GameLocationCharacter waiter,
+        GameLocationCharacter defender,
+        GameLocationCharacter helper)
+    {
+        if (!helper.CanReact())
+        {
+            yield break;
+        }
+
+        var rulesetDefender = defender.RulesetCharacter;
+        var slotLevel = rulesetDefender.GetLowestSlotLevelAndRepertoireToCastSpell(
+            _rescueTheDying, out var spellRepertoire);
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
+        {
+            IntParameter = slotLevel, StringParameter = _rescueTheDying.Name, SpellRepertoire = spellRepertoire
+        };
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        actionService.ReactToSpendSpellSlot(reactionParams);
+
+        yield return battleManager.WaitForReactions(waiter, actionService, count);
+
+        if (!reactionParams.ReactionValidated)
+        {
+            yield break;
+        }
+
+        var slotUsed = reactionParams.IntParameter;
+
+        spellRepertoire.SpendSpellSlot(slotUsed);
+        defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
+    }
+
+    internal static SpellDefinition BuildRescueTheDying()
+    {
+        const string NAME = "RescueTheDying";
+
+        _rescueTheDying = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RescueTheDying, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(7)
+            .SetCastingTime(ActivationTime.Reaction)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(HealingComputation.Dice, 30, DieType.D10, 4, false,
+                                HealingCap.MaximumHitPoints)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(15, DieType.D10, 2)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{NAME}")
+                                .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetFeatures(
+                                    DamageAffinityAcidResistance,
+                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityColdResistance,
+                                    DamageAffinityFireResistance,
+                                    DamageAffinityForceDamageResistance,
+                                    DamageAffinityLightningResistance,
+                                    DamageAffinityNecroticResistance,
+                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPoisonResistance,
+                                    DamageAffinityPsychicResistance,
+                                    DamageAffinityRadiantResistance,
+                                    DamageAffinitySlashingResistance,
+                                    DamageAffinityThunderResistance)
+                                .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+                                .AddToDB()))
+                    .SetParticleEffectParameters(Resurrection)
+                    .Build())
+            .AddToDB();
+
+        return _rescueTheDying;
     }
 
     #endregion

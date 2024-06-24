@@ -1,7 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Spells;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -41,6 +43,34 @@ public static class BattleState_Victory_Begin
     {
         //PATCH: EnableHeroesControlledByComputer and EnableEnemiesControlledByPlayer
         PlayerControllerContext.Stop(__instance.Battle);
+    }
+}
+
+//PATCH: Support Spare the Dying spell reaction
+[HarmonyPatch(typeof(BattleState_Victory), nameof(BattleState_TurnReady.ExecuteDeathSavingThrow))]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+[UsedImplicitly]
+public static class BattleState_TurnReady_ExecuteDeathSavingThrow
+{
+    public static IEnumerator Postfix(
+        IEnumerator values,
+        BattleState_TurnReady __instance)
+    {
+        while (values.MoveNext())
+        {
+            yield return values.Current;
+        }
+
+        var activeContender = __instance.Battle.ActiveContender;
+
+        if (activeContender is not { RulesetCharacter: not null })
+        {
+            yield break;
+        }
+
+        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        yield return SpellBuilders.HandleRescueTheDyingReaction(battleManager, activeContender, activeContender);
     }
 }
 
