@@ -1277,7 +1277,7 @@ public static class RulesetCharacterPatcher
                         break;
                 }
             }
-            
+
             //PATCH: update usage for power pools
             __instance.UpdateUsageForPower(usablePower, -usablePower.PowerDefinition.CostPerUse);
         }

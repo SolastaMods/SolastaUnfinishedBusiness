@@ -49,7 +49,7 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
         character.UsedMainCantrip = true;
 
         var isReplaceAttackWithCantrip = attackTags.Contains(ReplaceAttackCantrip);
-        
+
         if (attackTags.Contains(QuickenedAttackCantrip))
         {
             character.UsedMainSpell = true;

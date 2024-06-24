@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 internal sealed class Sentinel : AbstractFightingStyle
 {
     internal const string SentinelName = "Sentinel";
-    
+
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(SentinelName)
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Sentinel", Resources.Sentinel, 256))
@@ -26,26 +26,26 @@ internal sealed class Sentinel : AbstractFightingStyle
                     AttacksOfOpportunity.IgnoreDisengage,
                     AttacksOfOpportunity.SentinelFeatMarker,
                     new PhysicalAttackFinishedByMeFeatSentinel(
-                            CustomConditionsContext.StopMovement,
-                            ConditionDefinitionBuilder
-                                .Create("ConditionPreventAttackAtReach")
-                                .SetGuiPresentationNoContent(true)
-                                .SetSilent(Silent.WhenAddedOrRemoved)
-                                .SetFeatures(
-                                    // this is a hack to ensure game engine won't execute the attack even at reach
-                                    // given that game AI will only run an enemy towards an ally with an attack intention
-                                    // this should be good enough as enemy won't run next to other allies
-                                    FeatureDefinitionActionAffinityBuilder
-                                        .Create($"ActionAffinity{SentinelName}StopMovement")
-                                        .SetGuiPresentationNoContent(true)
-                                        .SetForbiddenActions(
-                                            ActionDefinitions.Id.Shove,
-                                            ActionDefinitions.Id.ShoveBonus,
-                                            ActionDefinitions.Id.AttackMain,
-                                            ActionDefinitions.Id.AttackOff,
-                                            ActionDefinitions.Id.AttackFree)
-                                        .AddToDB())
-                                .AddToDB()))
+                        CustomConditionsContext.StopMovement,
+                        ConditionDefinitionBuilder
+                            .Create("ConditionPreventAttackAtReach")
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetFeatures(
+                                // this is a hack to ensure game engine won't execute the attack even at reach
+                                // given that game AI will only run an enemy towards an ally with an attack intention
+                                // this should be good enough as enemy won't run next to other allies
+                                FeatureDefinitionActionAffinityBuilder
+                                    .Create($"ActionAffinity{SentinelName}StopMovement")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetForbiddenActions(
+                                        ActionDefinitions.Id.Shove,
+                                        ActionDefinitions.Id.ShoveBonus,
+                                        ActionDefinitions.Id.AttackMain,
+                                        ActionDefinitions.Id.AttackOff,
+                                        ActionDefinitions.Id.AttackFree)
+                                    .AddToDB())
+                            .AddToDB()))
                 .AddToDB())
         .AddToDB();
 
@@ -104,7 +104,7 @@ internal sealed class Sentinel : AbstractFightingStyle
                     conditionPreventAttackAtReach.Name,
                     0,
                     0,
-                    0); 
+                    0);
             }
         }
     }
