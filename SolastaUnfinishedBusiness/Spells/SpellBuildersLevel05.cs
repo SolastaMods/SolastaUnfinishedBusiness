@@ -143,8 +143,9 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetParticleEffectParameters(PowerSymbolOfDeath)
-                    .SetCasterEffectParameters(Counterspell)
+                    .SetParticleEffectParameters(Fear)
+                    .SetCasterEffectParameters(ViciousMockery)
+                    .SetImpactEffectParameters(PowerMagebaneWarcry)
                     .Build())
             .AddToDB();
 
@@ -473,8 +474,8 @@ internal static partial class SpellBuilders
                             EffectFormBuilder.ConditionForm(
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{NAME}{skill.Name}")
-                                    .SetGuiPresentation(skill.GuiPresentation.Title, Gui.NoLocalization,
-                                        ConditionBullsStrength)
+                                    .SetGuiPresentation(
+                                        skill.GuiPresentation.Title, Gui.NoLocalization, ConditionBullsStrength)
                                     .SetPossessive()
                                     .SetFeatures(
                                         FeatureDefinitionProficiencyBuilder
@@ -482,6 +483,7 @@ internal static partial class SpellBuilders
                                             .SetGuiPresentation(skill.GuiPresentation)
                                             .SetProficiencies(ProficiencyType.Expertise, skill.Name)
                                             .AddToDB())
+                                    .AddCustomSubFeatures(new OnConditionAddedOrRemovedEmpoweredKnowledge(skill.Name))
                                     .AddToDB()))
                         .Build())
                 .AddCustomSubFeatures(limiter)
@@ -504,7 +506,6 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -512,15 +513,26 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetCasterEffectParameters(TrueSeeing)
                     .SetEffectEffectParameters(PowerPaladinCleansingTouch)
-                    // required to kick concentration
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(
-                        ConditionDummy,
-                        ConditionForm.ConditionOperation.Add, true))
                     .Build())
             .AddCustomSubFeatures(new PowerOrSpellFinishedByMeEmpoweredKnowledge(powerPool, [.. powers]))
             .AddToDB();
 
         return spell;
+    }
+
+    private sealed class OnConditionAddedOrRemovedEmpoweredKnowledge(string skillName) : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var hero = target.GetOriginalHero();
+
+            hero?.ExpertiseProficiencies.Remove(skillName);
+        }
     }
 
     private sealed class PowerOrSpellFinishedByMeEmpoweredKnowledge(
@@ -562,13 +574,16 @@ internal static partial class SpellBuilders
                 }
 
                 var hasSkill =
+                    hero.SkillProficiencies.Contains(skill.Name) ||
                     hero.TrainedSkills.Contains(skill) ||
                     hero.GetFeaturesByType<FeatureDefinitionProficiency>()
                         .Any(x =>
                             x.ProficiencyType == ProficiencyType.Skill &&
                             x.Proficiencies.Contains(skillName));
 
-                var hasExpertise = hero.TrainedExpertises.Contains(skill.name);
+                var hasExpertise =
+                    hero.TrainedExpertises.Contains(skill.name) ||
+                    hero.ExpertiseProficiencies.Contains(skill.Name);
 
                 if (!hasSkill || hasExpertise)
                 {
@@ -609,12 +624,27 @@ internal static partial class SpellBuilders
             }
 
             var selectedPower = powers[reactionRequest.SelectedSubOption];
-            var usedPower = rulesetCharacter.PowersUsedByMe
-                .FirstOrDefault(x => x.PowerDefinition == selectedPower);
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters)
+                    .ToList();
 
-            if (usedPower != null)
+            foreach (var contender in contenders)
             {
-                action.ActionParams.RulesetEffect.TrackedConditionGuids.SetRange(usedPower.TrackedConditionGuids);
+                var rulesetContender = contender.RulesetCharacter;
+
+                foreach (var skill in skillsDb)
+                {
+                    var conditionName = $"ConditionEmpoweredKnowledge{skill.Name}";
+
+                    if (rulesetContender.TryGetConditionOfCategoryAndType(
+                            AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
+                        activeCondition.SourceGuid == rulesetCharacter.Guid &&
+                        (activeCondition.TargetGuid != rulesetTarget.Guid || !selectedPower.Name.Contains(skill.Name)))
+                    {
+                        rulesetContender.RemoveCondition(activeCondition);
+                    }
+                }
             }
         }
     }
@@ -684,7 +714,7 @@ internal static partial class SpellBuilders
     }
 
     // keep a tab of all allowed positions for filtering using ContextualFormation collection
-    // ContextualFormation is only used by the game when spawning new locations so it's safe in this context
+    // ContextualFormation is only used by the game when spawning new locations, so it's safe in this context
     private sealed class PowerOrSpellFinishedByMeSteelWhirlwind : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
