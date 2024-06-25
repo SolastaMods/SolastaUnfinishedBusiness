@@ -264,10 +264,12 @@ internal static partial class SpellBuilders
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders = locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters)
                 .Where(x =>
+                    x.CanReact() &&
                     x.IsWithinRange(defender, 18) &&
-                    x.RulesetCharacter.UsableSpells.Contains(_rescueTheDying))
+                    x.CanPerceiveTarget(defender) &&
+                    x.RulesetCharacter.UsableSpells.Contains(_rescueTheDying) &&
+                    x.RulesetCharacter.AreSpellComponentsValid(_rescueTheDying))
                 .ToList();
-
 
             foreach (var contender in contenders)
             {
@@ -281,11 +283,6 @@ internal static partial class SpellBuilders
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
-            if (!helper.CanReact())
-            {
-                yield break;
-            }
-
             var rulesetHelper = helper.RulesetCharacter;
             var slotLevel = rulesetHelper.GetLowestSlotLevelAndRepertoireToCastSpell(
                 _rescueTheDying, out var spellRepertoire);

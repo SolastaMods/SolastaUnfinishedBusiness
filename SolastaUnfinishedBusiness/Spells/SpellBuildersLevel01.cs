@@ -1548,7 +1548,9 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (!battleManager ||
-                helper != defender)
+                helper != defender ||
+                !helper.CanReact() ||
+                !helper.RulesetCharacter.AreSpellComponentsValid(spellDefinition))
             {
                 yield break;
             }
@@ -1556,20 +1558,15 @@ internal static partial class SpellBuilders
             var actualEffectForms =
                 attackMode?.EffectDescription.EffectForms ?? rulesetEffect?.EffectDescription.EffectForms ?? [];
 
-            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+            yield return HandleReaction(battleManager, attacker, helper, actualEffectForms);
         }
 
         private IEnumerator HandleReaction(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             IEnumerable<EffectForm> actualEffectForms)
         {
-            if (!defender.CanReact())
-            {
-                yield break;
-            }
-
             var attackDamageTypes = actualEffectForms
                 .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
                 .Select(x => x.DamageForm.DamageType)
@@ -1583,8 +1580,8 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
-            var slotLevel = rulesetDefender.GetLowestSlotLevelAndRepertoireToCastSpell(
+            var rulesetHelper = helper.RulesetCharacter;
+            var slotLevel = rulesetHelper.GetLowestSlotLevelAndRepertoireToCastSpell(
                 spellDefinition, out var spellRepertoire);
 
             if (slotLevel < 1 ||
@@ -1594,7 +1591,7 @@ internal static partial class SpellBuilders
             }
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
+            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.CastReaction)
             {
                 IntParameter = slotLevel, StringParameter = spellDefinition.Name, SpellRepertoire = spellRepertoire
             };
@@ -1611,24 +1608,22 @@ internal static partial class SpellBuilders
 
             var slotUsed = reactionParams.IntParameter;
 
-            spellRepertoire.SpendSpellSlot(slotUsed);
-            defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
-            EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Caster);
-            EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Effect);
+            EffectHelpers.StartVisualEffect(helper, helper, ShadowArmor, EffectHelpers.EffectType.Caster);
+            EffectHelpers.StartVisualEffect(helper, helper, ShadowArmor, EffectHelpers.EffectType.Effect);
 
             foreach (var condition in resistanceDamageTypes
                          .Select(damageType =>
                              GetDefinition<ConditionDefinition>(
                                  $"Condition{spellDefinition.Name}{damageType.Substring(6)}Resistance")))
             {
-                rulesetDefender.InflictCondition(
+                rulesetHelper.InflictCondition(
                     condition.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
                     AttributeDefinitions.TagEffect,
-                    rulesetDefender.guid,
-                    rulesetDefender.CurrentFaction.Name,
+                    rulesetHelper.guid,
+                    rulesetHelper.CurrentFaction.Name,
                     1,
                     condition.Name,
                     slotUsed,
