@@ -108,7 +108,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MindBlank, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AbiDalzimHorridWilting, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetSpellLevel(8)
             .SetCastingTime(ActivationTime.Action)
@@ -123,12 +123,8 @@ internal static partial class SpellBuilders
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetRestrictedCreatureFamilies(
-                        DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
-                            .Select(x => x.Name)
-                            .Where(x =>
-                                x != CharacterFamilyDefinitions.Construct.Name &&
-                                x != CharacterFamilyDefinitions.Undead.Name)
-                            .ToArray())
+                        CharacterFamilyDefinitions.Construct.Name,
+                        CharacterFamilyDefinitions.Undead.Name)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -221,13 +217,15 @@ internal static partial class SpellBuilders
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(false, AttributeDefinitions.Charisma, false,
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -239,7 +237,6 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionCombatAffinity, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetCasterEffectParameters(Sunburst)
                     .SetImpactEffectParameters(Sunburst)
                     .Build())
             .AddToDB();
@@ -261,6 +258,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Charisma, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
