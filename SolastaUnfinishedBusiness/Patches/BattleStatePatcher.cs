@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Spells;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -45,7 +46,6 @@ public static class BattleState_Victory_Begin
     }
 }
 
-#if false
 //PATCH: Support Spare the Dying spell reaction
 [HarmonyPatch(typeof(BattleState_TurnReady), nameof(BattleState_TurnReady.ExecuteDeathSavingThrow))]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -57,24 +57,23 @@ public static class BattleState_TurnReady_ExecuteDeathSavingThrow
         IEnumerator values,
         BattleState_TurnReady __instance)
     {
-        while (values.MoveNext())
-        {
-            yield return values.Current;
-        }
-
         var activeContender = __instance.Battle.ActiveContender;
 
-        if (activeContender is not { RulesetCharacter: not null })
+        yield return SpellBuilders.CustomBehaviorRescueTheDying.HandleRescueTheDyingReaction(
+            ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager,
+            activeContender, activeContender);
+
+        if (activeContender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
         {
             yield break;
         }
 
-        yield return SpellBuilders.HandleRescueTheDyingReaction(
-        ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager,
-        activeContender, activeContender);
+        while (values.MoveNext())
+        {
+            yield return values.Current;
+        }
     }
 }
-#endif
 
 #if false
 [HarmonyPatch(typeof(BattleState_Victory), nameof(BattleState_Victory.Update))]

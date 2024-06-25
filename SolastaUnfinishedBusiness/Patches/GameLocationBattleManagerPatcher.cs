@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
@@ -720,7 +721,8 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: Support Rescue the Dying spell
-            //yield return SpellBuilders.HandleRescueTheDyingReaction(__instance, attacker, downedCreature);
+            yield return SpellBuilders.CustomBehaviorRescueTheDying.HandleRescueTheDyingReaction(
+                __instance, attacker, downedCreature);
 
             //PATCH: Support for `IOnReducedToZeroHpByMe` feature
             foreach (var onReducedToZeroHpByMe in

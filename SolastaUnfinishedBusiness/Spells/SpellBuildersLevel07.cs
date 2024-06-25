@@ -170,74 +170,36 @@ internal static partial class SpellBuilders
 
     #region Rescue the Dying
 
-    private static SpellDefinition _rescueTheDying;
-
-    internal static IEnumerator HandleRescueTheDyingReaction(
-        GameLocationBattleManager battleManager,
-        GameLocationCharacter waiter,
-        GameLocationCharacter defender)
-    {
-        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-        var contenders = locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters)
-            .Where(x => x.RulesetCharacter.UsableSpells.Contains(_rescueTheDying))
-            .ToList();
-
-        foreach (var contender in contenders)
-        {
-            yield return HandleReaction(battleManager, waiter, defender, contender);
-        }
-    }
-
-    private static IEnumerator HandleReaction(
-        GameLocationBattleManager battleManager,
-        GameLocationCharacter waiter,
-        GameLocationCharacter defender,
-        GameLocationCharacter helper)
-    {
-        if (!helper.CanReact())
-        {
-            yield break;
-        }
-
-        var rulesetHelper = helper.RulesetCharacter;
-        var slotLevel = rulesetHelper.GetLowestSlotLevelAndRepertoireToCastSpell(
-            _rescueTheDying, out var spellRepertoire);
-
-        if (slotLevel < 7 ||
-            spellRepertoire == null)
-        {
-            yield break;
-        }
-
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
-        {
-            IntParameter = slotLevel, StringParameter = _rescueTheDying.Name, SpellRepertoire = spellRepertoire
-        };
-        var count = actionService.PendingReactionRequestGroups.Count;
-
-        actionService.ReactToSpendSpellSlot(reactionParams);
-
-        yield return battleManager.WaitForReactions(waiter, actionService, count);
-
-        if (!reactionParams.ReactionValidated)
-        {
-            yield break;
-        }
-
-        var slotUsed = reactionParams.IntParameter;
-
-        spellRepertoire.SpendSpellSlot(slotUsed);
-        defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
-    }
+    internal const string RescueTheDyingName = "RescueTheDying";
 
     internal static SpellDefinition BuildRescueTheDying()
     {
-        const string NAME = "RescueTheDying";
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{RescueTheDyingName}")
+            .SetGuiPresentation(RescueTheDyingName, Category.Spell, ConditionDefinitions.ConditionMagicallyArmored)
+            .SetPossessive()
+            .SetFeatures(
+                DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityPsychicResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .AddToDB();
 
-        _rescueTheDying = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RescueTheDying, 128))
+        condition.GuiPresentation.description = Gui.NoLocalization;
+
+        var spell = SpellDefinitionBuilder
+            .Create(RescueTheDyingName)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(RescueTheDyingName, Resources.RescueTheDying, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(7)
             .SetCastingTime(ActivationTime.Reaction)
@@ -257,36 +219,128 @@ internal static partial class SpellBuilders
                             .SetHealingForm(HealingComputation.Dice, 30, DieType.D10, 4, false,
                                 HealingCap.MaximumHitPoints)
                             .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetTempHpForm(15, DieType.D10, 2)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create($"Condition{NAME}")
-                                .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
-                                .SetSilent(Silent.WhenAddedOrRemoved)
-                                .SetFeatures(
-                                    DamageAffinityAcidResistance,
-                                    DamageAffinityBludgeoningResistance,
-                                    DamageAffinityColdResistance,
-                                    DamageAffinityFireResistance,
-                                    DamageAffinityForceDamageResistance,
-                                    DamageAffinityLightningResistance,
-                                    DamageAffinityNecroticResistance,
-                                    DamageAffinityPiercingResistance,
-                                    DamageAffinityPoisonResistance,
-                                    DamageAffinityPsychicResistance,
-                                    DamageAffinityRadiantResistance,
-                                    DamageAffinitySlashingResistance,
-                                    DamageAffinityThunderResistance)
-                                .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-                                .AddToDB()))
+                        EffectFormBuilder.ConditionForm(condition))
                     .SetParticleEffectParameters(Resurrection)
                     .Build())
             .AddToDB();
 
-        return _rescueTheDying;
+        spell.AddCustomSubFeatures(new CustomBehaviorRescueTheDying(spell));
+
+        return spell;
+    }
+
+    internal sealed class CustomBehaviorRescueTheDying : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
+    {
+        private static SpellDefinition _rescueTheDying;
+
+        internal CustomBehaviorRescueTheDying(SpellDefinition rescueTheDying)
+        {
+            _rescueTheDying = rescueTheDying;
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetTarget = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+
+            rulesetTarget.HealingReceived += HealingReceivedHandler;
+
+            yield break;
+        }
+
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetTarget = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+
+            rulesetTarget.HealingReceived += HealingReceivedHandler;
+
+            yield break;
+        }
+
+        internal static IEnumerator HandleRescueTheDyingReaction(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter waiter,
+            GameLocationCharacter defender)
+        {
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders = locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters)
+                .Where(x =>
+                    x.IsWithinRange(defender, 18) &&
+                    x.RulesetCharacter.UsableSpells.Contains(_rescueTheDying))
+                .ToList();
+
+
+            foreach (var contender in contenders)
+            {
+                yield return HandleReaction(battleManager, waiter, defender, contender);
+            }
+        }
+
+        private static IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter waiter,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            if (!helper.CanReact())
+            {
+                yield break;
+            }
+
+            var rulesetHelper = helper.RulesetCharacter;
+            var slotLevel = rulesetHelper.GetLowestSlotLevelAndRepertoireToCastSpell(
+                _rescueTheDying, out var spellRepertoire);
+
+            if (slotLevel < 7 ||
+                spellRepertoire == null)
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendSpellSlot)
+            {
+                IntParameter = slotLevel, StringParameter = _rescueTheDying.Name, SpellRepertoire = spellRepertoire
+            };
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToSpendSpellSlot(reactionParams);
+
+            yield return battleManager.WaitForReactions(waiter, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var slotUsed = reactionParams.IntParameter;
+
+            //TODO: improve this so UI doesn't offer slots lower than 7
+            if (slotUsed < 7)
+            {
+                yield break;
+            }
+
+            var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.CastReaction)
+            {
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    .InstantiateEffectSpell(rulesetHelper, spellRepertoire, _rescueTheDying, slotUsed, false),
+                TargetCharacters = { defender }
+            };
+
+            actionService.ExecuteAction(actionParams, null, true);
+        }
+
+        private static void HealingReceivedHandler(
+            RulesetCharacter character,
+            int healing,
+            ulong sourceGuid,
+            HealingCap healingCaps,
+            IHealingModificationProvider healingModificationProvider)
+        {
+            character.ReceiveTemporaryHitPoints(healing / 2, DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn,
+                sourceGuid);
+        }
     }
 
     #endregion

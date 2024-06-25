@@ -1073,6 +1073,7 @@ ConditionRangerWildMasterTrueExpertise	ConditionDefinition	ConditionDefinition	d
 ConditionRavenScionHeartSeekingShot	ConditionDefinition	ConditionDefinition	1d011c4b-04e8-5aad-a4ed-f5feece0b10b
 ConditionRavenScionKillingSpree	ConditionDefinition	ConditionDefinition	366b5d16-020b-5f61-bb27-3b3177551bd1
 ConditionReduceSneakDice	ConditionDefinition	ConditionDefinition	a6e2eedf-e951-5faa-b743-061d407f4f7f
+ConditionRescueTheDying	ConditionDefinition	ConditionDefinition	9626531d-2948-5281-8a96-c5bbd4c858cf
 ConditionResonatingStrike	ConditionDefinition	ConditionDefinition	fee957a4-e400-5b35-980f-a481680512f7
 ConditionReverseGravity	ConditionDefinition	ConditionDefinition	185248e1-0e90-560e-978c-86218a4747d9
 ConditionRiftWalkerRiftCloak	ConditionDefinition	ConditionDefinition	28dfbdc5-0ecd-5825-a646-e914d5171c19
@@ -12137,6 +12138,7 @@ PulseWave	SpellDefinition	SpellDefinition	71a547b1-f108-54be-95ee-56263814b30b
 PulseWavePull	SpellDefinition	SpellDefinition	d73ffef6-a447-5003-b21e-ba2115a2fc51
 PulseWavePush	SpellDefinition	SpellDefinition	244c87d2-5dfc-53fa-8603-fb3635bd38e5
 RadiantMotes	SpellDefinition	SpellDefinition	ff59b2b4-3fd1-55c2-a7ab-7c6c5b004633
+RescueTheDying	SpellDefinition	SpellDefinition	ec3bd2f2-6dd9-52df-8f82-c8e369938c3a
 ResonatingStrike	SpellDefinition	SpellDefinition	c8ecadb8-8b2a-57dd-93dd-41f6557ef52d
 ReverseGravity	SpellDefinition	SpellDefinition	8589da03-628b-5f85-84fd-9198418e2b8f
 RingOfBlades	SpellDefinition	SpellDefinition	8786acc5-1f99-5d2c-9cd5-dcd58942132d

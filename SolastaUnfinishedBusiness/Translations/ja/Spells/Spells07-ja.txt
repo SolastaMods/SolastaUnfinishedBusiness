@@ -8,6 +8,7 @@ Reaction/&SpendSpellSlotRescueTheDyingDescription=味方に 4d10 + 30 に等し�
 Reaction/&SpendSpellSlotRescueTheDyingReactDescription=ヒットポイントと一時ポイントを付与する
 Reaction/&SpendSpellSlotRescueTheDyingReactTitle=死にゆく人を救う
 Reaction/&SpendSpellSlotRescueTheDyingTitle=死にゆく人を救う
+Reaction/&SubitemSelectRescueTheDyingTitle=スロットを選択します。
 Spell/&CrownOfStarsDescription=7 つの星のような光の粒子が現れ、呪文が終了するまで術者の頭の周りを回ります。ボーナス アクションを使用して、粒子の 1 つを 120 フィート以内のクリーチャーまたはオブジェクト 1 体に向かって飛ばすことができます。これを行うと、遠隔呪文攻撃を行います。命中すると、ターゲットは 4d12 の光ダメージを受けます。命中しても外れても、粒子は消費されます。最後の粒子を消費すると、呪文は早く終了します。粒子が 4 つ以上残っている場合、粒子は半径 30 フィートに明るい光を放ち、さらに 30 フィートに薄暗い光を放ちます。粒子が 1 ～ 3 つ残っている場合、粒子は半径 30 フィートに薄暗い光を放ちます。この呪文を 8 レベル以上の呪文スロットを使用して発動すると、作成される粒子の数は 7 レベルを超えるスロット レベルごとに 2 ずつ増加します。
 Spell/&CrownOfStarsTitle=星の冠
 Spell/&DraconicTransformationDescription=咆哮とともにドラゴンの魔法を利用して変身し、ドラゴンの特徴を身につける。呪文が終了するまで、次の利点が得られます。\n• 30 フィートの範囲で盲目になります。\n• この呪文を唱えると、継続中のその後のターンのボーナス アクションとして、きらめきを吐き出すことができます。 60フィートの円錐内のエネルギー。そのエリアにいる各クリーチャーは器用さセーヴィング・スローを行わなければならず、セーブに失敗すると6d8のフォース・ダメージを受けるか、成功すると半分のダメージを受ける。\n・背中からは非物質的な翼が生え、60フィートの飛行速度が得られる。 。

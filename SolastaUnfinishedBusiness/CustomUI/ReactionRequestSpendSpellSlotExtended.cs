@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -19,16 +20,23 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
         var spellRepertoire = ReactionParams.SpellRepertoire;
         int selected;
 
-        if (actionParams.StringParameter == InvocationsBuilders.EldritchSmiteTag)
+        switch (actionParams.StringParameter)
         {
-            var minLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+            case InvocationsBuilders.EldritchSmiteTag:
+            {
+                var minLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
-            selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
-                minLevel, minLevel);
-        }
-        else
-        {
-            selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire);
+                selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
+                    minLevel, minLevel);
+                break;
+            }
+            case SpellBuilders.RescueTheDyingName:
+                selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
+                    actionParams.IntParameter);
+                break;
+            default:
+                selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire);
+                break;
         }
 
         if (selected >= 0)
