@@ -170,10 +170,10 @@ internal static partial class SpellBuilders
 
     #region Rescue the Dying
 
-    internal const string RescueTheDyingName = "RescueTheDying";
-
     internal static SpellDefinition BuildRescueTheDying()
     {
+        const string RescueTheDyingName = "RescueTheDying";
+        
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{RescueTheDyingName}")
             .SetGuiPresentation(RescueTheDyingName, Category.Spell, ConditionDefinitions.ConditionMagicallyArmored)
@@ -310,13 +310,6 @@ internal static partial class SpellBuilders
             }
 
             var slotUsed = reactionParams.IntParameter;
-
-            //TODO: improve this so UI doesn't offer slots lower than 7
-            if (slotUsed < 7)
-            {
-                yield break;
-            }
-
             var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.CastReaction)
             {
                 ActionModifiers = { new ActionModifier() },
