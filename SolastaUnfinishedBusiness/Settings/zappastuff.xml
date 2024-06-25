@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>1</DisplayModMessage>
+    <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -1552,6 +1552,7 @@
                     <string>CrownOfStars</string>
                     <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
+                    <string>AbiDalzimHorridWilting</string>
                     <string>MeteorSwarmSingleTarget</string>
                     <string>PowerWordKill</string>
                     <string>TimeStop</string>
@@ -1694,6 +1695,7 @@
                     <string>CrownOfStars</string>
                     <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
+                    <string>AbiDalzimHorridWilting</string>
                     <string>MaddeningDarkness</string>
                     <string>MindBlank</string>
                     <string>Foresight</string>

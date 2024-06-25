@@ -1,5 +1,9 @@
+
+=VUOTO
 Condition/&ConditionMindBlankDescription=Immune ai danni psichici e alla condizione affascinato.
 Condition/&ConditionMindBlankTitle=Mente vuota
+Spell/&AbiDalzimHorridWiltingDescription=Attingi l'umidità da ogni creatura in un cubo di 9 metri centrato su un punto a tua scelta entro la gittata. Ogni creatura in quell'area deve effettuare un tiro salvezza su Costituzione. I costrutti e i non morti non vengono influenzati, e le piante e gli elementali del ghiaccio effettuano questo tiro salvezza con svantaggio. Una creatura subisce 10d8 danni necrotici se fallisce il tiro salvezza, o la metà di questi danni se lo supera.
+Spell/&AbiDalzimHorridWiltingTitle=L'Orrido Avvizzimento di Abi-Dalzim
 Spell/&MaddeningDarknessDescription=L'oscurità magica si diffonde da un punto a gittata scelto dall'incantatore per riempire una sfera del raggio di 18 metri finché l'incantesimo non termina. All'interno della sfera si possono sentire grida, borbottii e risate folli. All'attivazione, e ogni volta che una creatura termina il suo turno nella sfera, deve effettuare un tiro salvezza su Saggezza, subendo 6d8 danni psichici se fallisce il tiro salvezza, o la metà di questi danni se lo riesce.
 Spell/&MaddeningDarknessTitle=Oscurità esasperante
 Spell/&MindBlankDescription=Fino al termine dell'incantesimo, una creatura consenziente toccata dall'incantatore è immune ai danni psichici, a qualsiasi effetto in grado di percepirne le emozioni o leggerne i pensieri, agli incantesimi di divinazione e alla condizione affascinato.

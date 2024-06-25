@@ -1,5 +1,11 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -27,7 +33,6 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.None)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Healing)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -77,6 +82,103 @@ internal static partial class SpellBuilders
                             .Build())
                     .Build())
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Abi-Dalzim's Horrid Wilting
+
+    internal static SpellDefinition BuildAbiDalzimHorridWilting()
+    {
+        const string NAME = "AbiDalzimHorridWilting";
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create($"SavingThrowAffinity{NAME}")
+                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                    .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false, AttributeDefinitions.Constitution)
+                    .AddToDB())
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .AddToDB();
+
+        return SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MindBlank, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(8)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cube, 6)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetRestrictedCreatureFamilies(
+                        DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
+                            .Select(x => x.Name)
+                            .Where(x =>
+                                x != CharacterFamilyDefinitions.Construct.Name &&
+                                x != CharacterFamilyDefinitions.Undead.Name)
+                            .ToArray())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeNecrotic, 10, DieType.D8)
+                            .Build())
+                    .SetParticleEffectParameters(CircleOfDeath)
+                    .Build())
+            .AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemy(condition))
+            .AddToDB();
+    }
+
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemy(
+        ConditionDefinition condition) : IMagicEffectBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender is not RulesetCharacterMonster rulesetCharacterMonster ||
+                (rulesetCharacterMonster.MonsterDefinition != MonsterDefinitions.Ice_Elemental &&
+                 rulesetCharacterMonster.MonsterDefinition.Name != "WildShapeWaterElemental" &&
+                 rulesetCharacterMonster.CharacterFamily != "Plant"))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetDefender.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                condition.Name,
+                0,
+                0,
+                0);
+        }
     }
 
     #endregion

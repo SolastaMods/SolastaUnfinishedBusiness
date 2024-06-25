@@ -25,6 +25,6 @@ Spell/&RingOfBladesTitle=Anneau de lames
 Spell/&ScatterDescription=L'air frémit autour de cinq créatures de votre choix que vous pouvez voir à portée. Une créature réticente doit réussir un jet de sauvegarde de Sagesse pour résister à ce sort. Vous téléportez chaque cible affectée vers un espace inoccupé que vous pouvez voir à moins de 120 pieds de vous. Cet espace doit être au sol ou sur un étage.
 Spell/&ScatterTitle=Dispersion
 Spell/&ShelterFromEnergyDescription=Choisissez l'un des types de dégâts suivants : acide, froid, feu, foudre, nécrotique, radiant ou tonnerre, puis choisissez jusqu'à six créatures volontaires que vous pouvez voir à portée. Pendant 1 heure, les cibles ont une résistance à ce type de dégâts. Lorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 7 ou supérieur, vous pouvez cibler jusqu'à une créature volontaire supplémentaire pour chaque niveau d'emplacement supérieur au 6.
-Spell/&ShelterFromEnergyTitle=À l’abri de l’énergie
+Spell/&ShelterFromEnergyTitle=À l'abri de l'énergie
 Tooltip/&MustBeLargeOrSmaller=Doit être de grande taille ou plus petit pour être ciblé
 Tooltip/&MustNotHaveFizbanPlatinumShield=Ne doit pas avoir le Bouclier de Platine de Fizban
