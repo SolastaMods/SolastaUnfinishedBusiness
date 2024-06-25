@@ -108,8 +108,7 @@ internal enum ExtraAdditionalDamageTriggerCondition
 
 internal enum ExtraAdditionalDamageValueDetermination
 {
-    CharacterLevel = 9000,
-    CustomModifier,
+    CustomModifier = 9001,
     FlatWithProgression
 }
 

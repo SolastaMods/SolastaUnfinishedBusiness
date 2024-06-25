@@ -234,15 +234,7 @@ internal static class GLBM
          * ######################################
          * [CE] EDIT START
          * Support for ExtraAdditionalDamageValueDetermination.FlatWithProgress
-         * and ExtraAdditionalDamageValueDetermination.CharacterLevel
          */
-        else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
-                 ExtraAdditionalDamageValueDetermination.CharacterLevel)
-        {
-            additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
-            additionalDamageForm.DiceNumber = 0;
-            additionalDamageForm.BonusDamage = hero!.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-        }
         else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
                  ExtraAdditionalDamageValueDetermination.FlatWithProgression)
         {

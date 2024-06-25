@@ -8,6 +8,7 @@
 - fixed Path of the Wild Magic aura, bolt, retribution, summon, and teleport behaviors
 - fixed Patron Hexblade using character level instead of class level on hex received healing
 - fixed Ranger Lightbearer not interacting with the cast/stop Light cantrip UI shortcut
+- fixed Roguish Raven sniper's aim feature scaling with character level instead of class level
 - fixed Sentinel feat interaction with reach to ensure enemy is stopped and attack is prevented at reach distance
 - fixed Sorcerer Field Manipulator, Sorr-Akkath, and Spellblade getting autoprepared spells above class level 9
 - fixed Wither and Bloom twinned metamagic offering which was disrespecting the one target rule

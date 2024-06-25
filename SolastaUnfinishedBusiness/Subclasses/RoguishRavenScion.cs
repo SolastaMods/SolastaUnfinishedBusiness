@@ -56,7 +56,8 @@ public sealed class RoguishRavenScion : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("SniperAim")
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.CharacterLevel)
+            .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(
                 ModifyAdditionalDamageClassLevelRogue.Instance,
