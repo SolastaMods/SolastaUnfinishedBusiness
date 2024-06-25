@@ -1,5 +1,3 @@
-
-=VACÍO
 Condition/&ConditionMindBlankDescription=Inmune al daño psíquico y a la condición de encantado.
 Condition/&ConditionMindBlankTitle=Mente en blanco
 Spell/&AbiDalzimHorridWiltingDescription=Extraes la humedad de cada criatura en un cubo de 30 pies centrado en un punto que eliges dentro del alcance. Cada criatura en esa área debe realizar una tirada de salvación de Constitución. Los constructos y los muertos vivientes no se ven afectados, y las plantas y los elementales de hielo hacen esta tirada de salvación con desventaja. Una criatura sufre 10d8 de daño necrótico si falla una salvación, o la mitad de daño si tiene éxito.
@@ -8,3 +6,5 @@ Spell/&MaddeningDarknessDescription=La oscuridad mágica se extiende desde un pu
 Spell/&MaddeningDarknessTitle=Oscuridad enloquecedora
 Spell/&MindBlankDescription=Hasta que finalice el hechizo, una criatura voluntaria que tocas es inmune al daño psíquico, a cualquier efecto que pueda sentir sus emociones o leer sus pensamientos, hechizos de adivinación y la condición de hechizo.
 Spell/&MindBlankTitle=Mente en blanco
+Spell/&SoulExpulsionDescription=Explotas el alma de un enemigo con poder mágico, haciendo que brille con una luz sobrenatural. Elige una criatura que puedas ver dentro del alcance, que debe realizar una tirada de salvación de Carisma. En una tirada de salvación fallida, el objetivo sufre 11d8 de daño necrótico y queda aturdido hasta el comienzo de tu siguiente turno. Con una tirada de salvación exitosa, el objetivo sufre la mitad del daño y no queda aturdido. Cada criatura de tu elección que no sea el objetivo y que esté a 60 pies del objetivo debe realizar una tirada de salvación de Sabiduría. En una salvación fallida, una criatura sufre 7d8 de daño radiante y tiene desventaja en las tiradas de ataque hasta el final de tu siguiente turno. Con una tirada de salvación exitosa, una criatura sufre la mitad del daño y nada más. Cuando este hechizo tiene como objetivo a los muertos vivientes, ignora cualquier resistencia o inmunidad al daño necrótico y el objetivo tiene desventaja en la tirada de salvación. En niveles superiores. Cuando lanzas este hechizo usando un espacio de hechizo de nivel 9, tanto el daño necrótico como el daño radiante aumentan en 2d8.
+Spell/&SoulExpulsionTitle=Expulsión del alma

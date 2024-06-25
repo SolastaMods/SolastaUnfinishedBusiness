@@ -1,5 +1,3 @@
-
-=空的
 Condition/&ConditionMindBlankDescription=免疫心灵伤害和魅惑状态。
 Condition/&ConditionMindBlankTitle=心灵屏障
 Spell/&AbiDalzimHorridWiltingDescription=你从范围内以你选择的点为中心的 30 英尺立方体中的每个生物身上吸取水分。该区域内的每个生物都必须进行体质豁免检定。构造体和不死生物不受影响，植物和冰元素进行此豁免检定时处于劣势。豁免失败时生物会受到 10d8 坏死伤害，豁免成功时伤害减半。
@@ -8,3 +6,5 @@ Spell/&MaddeningDarknessDescription=魔法黑暗从你在范围内选择的一�
 Spell/&MaddeningDarknessTitle=疯狂之暗
 Spell/&MindBlankDescription=在法术结束之前，你接触的一个自愿生物免疫心灵伤害、任何能感知其情绪或阅读其思想的效果、预言法术和魅惑状态。
 Spell/&MindBlankTitle=心灵屏障
+Spell/&SoulExpulsionDescription=你用魔法力量摧毁敌人的灵魂，使其散发出超凡的光芒。选择一个你能在范围内看到的生物，该生物必须进行魅力豁免检定。如果豁免检定失败，目标将受到 11d8 点坏死伤害并被击晕，直到你的下一回合开始。如果豁免检定成功，目标将受到一半伤害并且不会被击晕。除目标外，你选择的每个距离目标 60 英尺内的生物都必须进行感知豁免检定。如果豁免检定失败，生物将受到 7d8 点辐射伤害，并且在你的下一回合结束前攻击检定处于劣势。如果豁免检定成功，生物将受到一半伤害，而不会受到其他伤害。当此法术以不死生物为目标时，此法术将忽略对坏死伤害的任何抵抗或免疫，并且目标在豁免检定中处于劣势。在更高等级。当你使用 9 级法术位施放此法术时，坏死伤害和辐射伤害都会增加 2d8。
+Spell/&SoulExpulsionTitle=灵魂驱逐

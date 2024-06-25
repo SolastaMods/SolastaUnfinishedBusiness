@@ -3,7 +3,7 @@
 - added Skill Empowerment, and Synaptic Static 5th level spells
 - added Scatter, and Shelter from Energy [dnd unleashed] 6th level spells
 - added Crown of Stars, and Rescue the Dying [dnd unleashed] 7th level spells
-- added Abi Dalzim's Horrid Wilting 8th level spell
+- added Abi Dalzim's Horrid Wilting, and Soul Expulsion [dnd unleashed] 8th level spells
 - fixed attack cantrips interaction with Follow Up Strike, and Polearm Expert feats
 - fixed Circle of the Night consuming only one wildshape usage with crimson spider, elementals, and minotaur  
 - fixed Coordinated Attack gambit, and Strategic Reposition warlord feature breaking self invisibility

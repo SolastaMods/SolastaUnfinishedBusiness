@@ -1,0 +1,52 @@
+{
+  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
+  "useControllerSavingThrows": false,
+  "priorityAbilityScore": "",
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "affinity": "Disadvantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    }
+  ],
+  "indomitableSavingThrows": 0,
+  "canBorrowLuck": false,
+  "canUseDiamondSoul": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Spell/&SoulExpulsionTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "76748aa6-df93-5909-8f20-1f7577272aa7",
+  "contentPack": 9999,
+  "name": "SavingThrowAffinitySoulExpulsion"
+}

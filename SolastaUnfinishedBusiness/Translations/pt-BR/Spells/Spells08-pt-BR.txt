@@ -1,5 +1,3 @@
-
-=VAZIO
 Condition/&ConditionMindBlankDescription=Imune a danos psíquicos e à condição encantado.
 Condition/&ConditionMindBlankTitle=Mente em branco
 Spell/&AbiDalzimHorridWiltingDescription=Você extrai a umidade de cada criatura em um cubo de 30 pés centralizado em um ponto que você escolher dentro do alcance. Cada criatura naquela área deve fazer um teste de resistência de Constituição. Construtos e mortos-vivos não são afetados, e plantas e elementais de gelo fazem esse teste de resistência com desvantagem. Uma criatura sofre 10d8 de dano necrótico em um teste de resistência falho, ou metade do dano em um teste bem-sucedido.
@@ -8,3 +6,5 @@ Spell/&MaddeningDarknessDescription=A escuridão mágica se espalha a partir de 
 Spell/&MaddeningDarknessTitle=Escuridão Enlouquecedora
 Spell/&MindBlankDescription=Até a magia terminar, uma criatura voluntária que você tocar é imune a dano psíquico, qualquer efeito que possa sentir suas emoções ou ler seus pensamentos, magias de adivinhação e a condição enfeitiçado.
 Spell/&MindBlankTitle=Mente em branco
+Spell/&SoulExpulsionDescription=Você ataca a alma de um inimigo com poder mágico, fazendo-a brilhar com uma luz sobrenatural. Escolha uma criatura que você possa ver dentro do alcance, que deve realizar um teste de resistência de Carisma. Se falhar no teste de resistência, o alvo sofre 11d8 de dano necrótico e fica atordoado até o início do seu próximo turno. Em um teste de resistência bem-sucedido, o alvo sofre metade do dano e não fica atordoado. Cada criatura à sua escolha, exceto o alvo, que esteja a até 18 metros do alvo, deve realizar um teste de resistência de Sabedoria. Se falhar na resistência, uma criatura sofre 7d8 de dano radiante e tem desvantagem nas jogadas de ataque até o final do seu próximo turno. Em um teste de resistência bem-sucedido, a criatura sofre metade do dano e nada mais. Quando esta magia tem como alvo mortos-vivos, a magia ignora qualquer resistência ou imunidade a dano necrótico, e o alvo tem desvantagem no teste de resistência. Em níveis superiores. Quando você lança esta magia usando um espaço de magia de 9º nível, tanto o dano necrótico quanto o dano radiante aumentam em 2d8.
+Spell/&SoulExpulsionTitle=Expulsão de Alma

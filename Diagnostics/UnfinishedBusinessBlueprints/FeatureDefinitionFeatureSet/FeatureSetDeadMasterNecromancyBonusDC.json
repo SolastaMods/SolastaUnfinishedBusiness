@@ -54,7 +54,8 @@
     "Definition:MagicAffinityDeadMasterWitherAndBloom:ea3e5b73-29ed-576c-905b-d74c8196f8a3",
     "Definition:MagicAffinityDeadMasterSpiritShroud:c51bd406-91f3-5124-9b07-a63fc43d0ae9",
     "Definition:MagicAffinityDeadMasterVitalityTransfer:5ea8c3b3-5e67-5814-bdf8-5f091e76235f",
-    "Definition:MagicAffinityDeadMasterAbiDalzimHorridWilting:85ccfb3d-56bc-59bc-acfb-0edc305286fa"
+    "Definition:MagicAffinityDeadMasterAbiDalzimHorridWilting:85ccfb3d-56bc-59bc-acfb-0edc305286fa",
+    "Definition:MagicAffinityDeadMasterSoulExpulsion:2d45c095-9279-5484-af4d-2043198bda14"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

@@ -1,5 +1,3 @@
-
-=VUOTO
 Condition/&ConditionMindBlankDescription=Immune ai danni psichici e alla condizione affascinato.
 Condition/&ConditionMindBlankTitle=Mente vuota
 Spell/&AbiDalzimHorridWiltingDescription=Attingi l'umidità da ogni creatura in un cubo di 9 metri centrato su un punto a tua scelta entro la gittata. Ogni creatura in quell'area deve effettuare un tiro salvezza su Costituzione. I costrutti e i non morti non vengono influenzati, e le piante e gli elementali del ghiaccio effettuano questo tiro salvezza con svantaggio. Una creatura subisce 10d8 danni necrotici se fallisce il tiro salvezza, o la metà di questi danni se lo supera.
@@ -8,3 +6,5 @@ Spell/&MaddeningDarknessDescription=L'oscurità magica si diffonde da un punto a
 Spell/&MaddeningDarknessTitle=Oscurità esasperante
 Spell/&MindBlankDescription=Fino al termine dell'incantesimo, una creatura consenziente toccata dall'incantatore è immune ai danni psichici, a qualsiasi effetto in grado di percepirne le emozioni o leggerne i pensieri, agli incantesimi di divinazione e alla condizione affascinato.
 Spell/&MindBlankTitle=Mente vuota
+Spell/&SoulExpulsionDescription=Colpisci l'anima di un nemico con un potere magico, facendola brillare di una luce ultraterrena. Scegli una creatura che puoi vedere entro il raggio d'azione, che deve effettuare un tiro salvezza su Carisma. Se fallisce il tiro salvezza, il bersaglio subisce 11d8 danni necrotici e rimane stordito fino all'inizio del tuo turno successivo. Se supera il tiro salvezza, il bersaglio subisce metà dei danni e non rimane stordito. Ogni creatura a tua scelta, diversa dal bersaglio, che si trovi entro 60 piedi dal bersaglio, deve effettuare un tiro salvezza su Saggezza. Se fallisce il tiro salvezza, una creatura subisce 7d8 danni radianti e ha svantaggio sui tiri per colpire fino alla fine del tuo turno successivo. Se supera il tiro salvezza, una creatura subisce metà dei danni e nient'altro. Quando questo incantesimo ha come bersaglio i non morti, l'incantesimo ignora qualsiasi resistenza o immunità ai danni necrotici e il bersaglio ha svantaggio sul tiro salvezza. Ai Livelli Superiori. Quando lanci questo incantesimo usando uno slot incantesimo di 9° livello, sia i danni necrotici che quelli radianti aumentano di 2d8.
+Spell/&SoulExpulsionTitle=Espulsione dell'anima

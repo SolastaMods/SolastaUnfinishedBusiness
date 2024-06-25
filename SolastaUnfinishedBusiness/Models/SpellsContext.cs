@@ -374,6 +374,7 @@ internal static class SpellsContext
         RegisterSpell(BuildAbiDalzimHorridWilting(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMindBlank(), 0, SpellListBard, SpellListWizard);
         RegisterSpell(MaddeningDarkness, 0, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildSoulExpulsion(), 0, SpellListCleric, SpellListSorcerer, SpellListWizard);
 
         // 9th level
         RegisterSpell(BuildForesight(), 0, SpellListBard, SpellListDruid, SpellListWarlock, SpellListWizard);

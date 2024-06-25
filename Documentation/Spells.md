@@ -1261,51 +1261,55 @@ Until the spell ends, one willing creature you touch is immune to psychic damage
 
 Overwhelm the mind of a creature that has 150 hit points or fewer, leaving it stunned.
 
-# 306. - Spell Ward (V,S) level 8 Abjuration [Concentration] [SOL]
+# 306. - Soul Expulsion (V,S) level 8 Necromancy [Concentration] [UB]
+
+You blast a foe's soul with magical power, causing it to glow with otherwordly light. Choose one creature that you can see within range, which must make a Charisma saving throw. On a failed saving throw, the target takes 11d8 necrotic damage and is stunned until the start of your next turn. On a successful saving throw, the target takes half damage and isn't stunned. Each enemy other than the target that is within 60 feet of the target must make a Wisdom saving throw. On a failed save, a creature takes 7d8 radiant damage and has disadvantage on attack rolls until the end of your next turn. On a successful saving throw a creature takes half damage and nothing else. When this spell targets undead, the spell ignores any resistance or immunity to necrotic damage, and the target has disadvantage on the saving throw. At Higher Levels. When you cast this spell using a spell slot of 9th level, both the necrotic damage and radiant damage increase by 2d8.
+
+# 307. - Spell Ward (V,S) level 8 Abjuration [Concentration] [SOL]
 
 Creates a mobile globe that is impenetrable to enemy spells cast from outside it.
 
-# 307. - Sunburst (V,S) level 8 Evocation [SOL]
+# 308. - Sunburst (V,S) level 8 Evocation [SOL]
 
 Brilliant sunlight blazes in a sphere with a 12-cell radius. Each creature that fails a Constitution saving throw takes radiant damage and is blinded for 1 minute. Any darkness created by a spell in the area is dispelled.
 
-# 308. - Thunderstorm (V,S) level 8 Transmutation [SOL]
+# 309. - Thunderstorm (V,S) level 8 Transmutation [SOL]
 
 You create a blast of thunder in a sphere that causes thunder and lightning damage to everyone, and can blind or stun those who fail a CON saving throw.
 
-# 309. - Wild Shapes (V,S) level 8 Transmutation [Concentration] [SOL]
+# 310. - Wild Shapes (V,S) level 8 Transmutation [Concentration] [SOL]
 
 Turns other creatures in to beasts for one day.
 
-# 310. - *Foresight* © (V,S) level 9 Transmutation [UB]
+# 311. - *Foresight* © (V,S) level 9 Transmutation [UB]
 
 You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 
-# 311. - *Mass Heal* © (V,S) level 9 Transmutation [UB]
+# 312. - *Mass Heal* © (V,S) level 9 Transmutation [UB]
 
 A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 
-# 312. - *Meteor Swarm* © (V,S) level 9 Transmutation [UB]
+# 313. - *Meteor Swarm* © (V,S) level 9 Transmutation [UB]
 
 Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 
-# 313. - *Power Word Heal* © (V,S) level 9 Enchantment [UB]
+# 314. - *Power Word Heal* © (V,S) level 9 Enchantment [UB]
 
 A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
 
-# 314. - *Power Word Kill* © (V,S) level 9 Transmutation [UB]
+# 315. - *Power Word Kill* © (V,S) level 9 Transmutation [UB]
 
 You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
 
-# 315. - *Shapechange* © (M,V,S) level 9 Transmutation [Concentration] [UB]
+# 316. - *Shapechange* © (M,V,S) level 9 Transmutation [Concentration] [UB]
 
 You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
 
-# 316. - *Time Stop* © (V) level 9 Transmutation [UB]
+# 317. - *Time Stop* © (V) level 9 Transmutation [UB]
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 
-# 317. - *Weird* © (V,S) level 9 Illusion [Concentration] [UB]
+# 318. - *Weird* © (V,S) level 9 Illusion [Concentration] [UB]
 
 Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each enemy in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 
