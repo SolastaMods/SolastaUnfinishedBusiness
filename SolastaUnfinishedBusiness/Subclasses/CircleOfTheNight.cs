@@ -26,6 +26,12 @@ public sealed class CircleOfTheNight : AbstractSubclass
     private static readonly ValidatorsValidatePowerUse CanUseCombatHealing = new(
         ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm.name));
 
+    internal static readonly MonsterDefinition WildShapeWaterElemental = MonsterDefinitionBuilder
+        .Create(Ice_Elemental, "WildShapeWaterElemental")
+        .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+        .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
+        .AddToDB();
+
     public CircleOfTheNight()
     {
         // 2nd level
@@ -161,7 +167,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             ShapeBuilder(10, HbWildShapeAirElemental()),
             ShapeBuilder(10, HbWildShapeFireElemental()),
             ShapeBuilder(10, HbWildShapeEarthElemental()),
-            ShapeBuilder(10, HbWildShapeWaterElemental()),
+            ShapeBuilder(10, WildShapeWaterElemental),
             ShapeBuilder(14, HbWildShapeCrimsonSpider()),
             ShapeBuilder(14, HbWildShapeMinotaurElite())
         };
@@ -268,17 +274,6 @@ public sealed class CircleOfTheNight : AbstractSubclass
     {
         var shape = MonsterDefinitionBuilder
             .Create(Earth_Elemental, "WildShapeEarthElemental")
-            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
-            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
-            .AddToDB();
-
-        return shape;
-    }
-
-    private static MonsterDefinition HbWildShapeWaterElemental()
-    {
-        var shape = MonsterDefinitionBuilder
-            .Create(Ice_Elemental, "WildShapeWaterElemental")
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
             .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .AddToDB();

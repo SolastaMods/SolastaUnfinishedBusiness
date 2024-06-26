@@ -126,6 +126,8 @@ internal static partial class DatabaseHelper
 
     internal static class CharacterFamilyDefinitions
     {
+        internal static CharacterFamilyDefinition Beast { get; } = GetDefinition<CharacterFamilyDefinition>("Beast");
+
         internal static CharacterFamilyDefinition Construct { get; } =
             GetDefinition<CharacterFamilyDefinition>("Construct");
 
@@ -134,6 +136,8 @@ internal static partial class DatabaseHelper
 
         internal static CharacterFamilyDefinition Humanoid { get; } =
             GetDefinition<CharacterFamilyDefinition>("Humanoid");
+
+        internal static CharacterFamilyDefinition Plant { get; } = GetDefinition<CharacterFamilyDefinition>("Plant");
 
         internal static CharacterFamilyDefinition Undead { get; } = GetDefinition<CharacterFamilyDefinition>("Undead");
     }
@@ -667,9 +671,6 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionShielded { get; } =
             GetDefinition<ConditionDefinition>("ConditionShielded");
-
-        internal static ConditionDefinition ConditionShieldedByFaith { get; } =
-            GetDefinition<ConditionDefinition>("ConditionShieldedByFaith");
 
         internal static ConditionDefinition ConditionShine { get; } =
             GetDefinition<ConditionDefinition>("ConditionShine");
@@ -3710,10 +3711,6 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition FreezingSphere { get; } = GetDefinition<SpellDefinition>("FreezingSphere");
         internal static SpellDefinition GiantInsect { get; } = GetDefinition<SpellDefinition>("GiantInsect");
-
-        internal static SpellDefinition GlobeOfInvulnerability { get; } =
-            GetDefinition<SpellDefinition>("GlobeOfInvulnerability");
-
         internal static SpellDefinition Goodberry { get; } = GetDefinition<SpellDefinition>("Goodberry");
         internal static SpellDefinition GravitySlam { get; } = GetDefinition<SpellDefinition>("GravitySlam");
         internal static SpellDefinition Grease { get; } = GetDefinition<SpellDefinition>("Grease");
