@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -187,20 +185,37 @@ internal static partial class SpellBuilders
 
     #region Shelter From Energy
 
-    private static readonly List<string> ShelterDamageTypes =
+    private static readonly List<(string, IMagicEffect, AssetReference)> ShelterDamageTypes =
     [
-        DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning,
-        DamageTypeNecrotic, DamageTypeRadiant, DamageTypeThunder
+        (DamageTypeAcid, AcidArrow,
+            PowerDragonbornBreathWeaponBlack.EffectDescription.EffectParticleParameters.impactParticleReference),
+        (DamageTypeCold, SleetStorm,
+            PowerBulette_Snow_Leap.EffectDescription.EffectParticleParameters.impactParticleReference),
+        (DamageTypeFire, HeatMetal,
+            FireStorm.EffectDescription.EffectParticleParameters.impactParticleReference),
+        (DamageTypeLightning, LightningBolt,
+            Thunderstorm.EffectDescription.EffectParticleParameters.impactParticleReference),
+        (DamageTypeNecrotic, Thunderwave,
+            Thunderwave.EffectDescription.EffectParticleParameters.impactParticleReference),
+        (DamageTypeRadiant, FingerOfDeath,
+            PowerPatronFiendDarkOnesOwnLuck.EffectDescription.EffectParticleParameters.effectParticleReference),
+        (DamageTypeThunder, GuardianOfFaith,
+            PowerOathOfJugementPurgeCorruption.EffectDescription.EffectParticleParameters.effectParticleReference)
     ];
 
     internal static SpellDefinition BuildShelterFromEnergy()
     {
         const string NAME = "ShelterFromEnergy";
 
-        var spells = (from damageType in ShelterDamageTypes
-                let title = Gui.Localize($"Tooltip/&Tag{damageType}Title")
-                let description = Gui.Format($"Feedback/&{NAME}Description", title)
-                select SpellDefinitionBuilder
+        var subSpells = new List<SpellDefinition>();
+
+        foreach (var (damageType, casterEffect, impactEffect) in ShelterDamageTypes)
+        {
+            var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+            var description = Gui.Format($"Feedback/&{NAME}Description", title);
+
+            subSpells.Add(
+                SpellDefinitionBuilder
                     .Create($"Power{NAME}{damageType}")
                     .SetGuiPresentation(title, description)
                     .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
@@ -210,31 +225,30 @@ internal static partial class SpellBuilders
                     .SetVerboseComponent(true)
                     .SetSomaticComponent(true)
                     .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-                    .SetEffectDescription(
-                        EffectDescriptionBuilder
-                            .Create()
-                            .SetDurationData(DurationType.Hour, 1)
-                            .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
-                            .SetEffectForms(EffectFormBuilder.ConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create($"Condition{NAME}{damageType}")
-                                    .SetGuiPresentation(
-                                        Gui.Format($"Condition/&Condition{NAME}Title", title),
-                                        Gui.NoLocalization, ConditionDivineFavor)
-                                    .SetPossessive()
-                                    .SetFeatures(
-                                        FeatureDefinitionDamageAffinityBuilder
-                                            .Create($"DamageAffinity{NAME}{damageType}")
-                                            .SetGuiPresentationNoContent(true)
-                                            .SetDamageType(damageType)
-                                            .SetDamageAffinityType(DamageAffinityType.Resistance)
-                                            .AddToDB())
-                                    .AddToDB()))
-                            .SetImpactEffectParameters(MageArmor)
-                            .Build())
+                    .SetEffectDescription(EffectDescriptionBuilder.Create()
+                        .SetDurationData(DurationType.Hour, 1)
+                        .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
+                        .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
+                            .Create($"Condition{NAME}{damageType}")
+                            .SetGuiPresentation(
+                                Gui.Format($"Condition/&Condition{NAME}Title", title),
+                                Gui.NoLocalization,
+                                ConditionShieldedByFaith)
+                            .SetPossessive()
+                            .SetFeatures(
+                                FeatureDefinitionDamageAffinityBuilder
+                                    .Create($"DamageAffinity{NAME}{damageType}")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetDamageType(damageType)
+                                    .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                    .AddToDB())
+                            .AddToDB()))
+                        .SetCasterEffectParameters(casterEffect)
+                        .SetImpactEffectParameters(impactEffect)
+                        .Build())
                     .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
-                    .AddToDB())
-            .ToArray();
+                    .AddToDB());
+        }
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -255,7 +269,7 @@ internal static partial class SpellBuilders
                         additionalTargetsPerIncrement: 1)
                     .SetCasterEffectParameters(MageArmor)
                     .Build())
-            .SetSubSpells(spells)
+            .SetSubSpells([.. subSpells])
             .AddToDB();
 
         return spell;

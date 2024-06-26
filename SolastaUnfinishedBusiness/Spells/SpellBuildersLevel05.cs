@@ -131,7 +131,6 @@ internal static partial class SpellBuilders
                     .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .ExcludeCaster()
-                    .UseQuickAnimations()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -143,9 +142,10 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetParticleEffectParameters(Fear)
-                    .SetCasterEffectParameters(ViciousMockery)
-                    .SetImpactEffectParameters(PowerMagebaneWarcry)
+                    .SetParticleEffectParameters(MindTwist)
+                    .SetCasterEffectParameters(Feeblemind)
+                    .SetImpactEffectParameters(Counterspell
+                        .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 

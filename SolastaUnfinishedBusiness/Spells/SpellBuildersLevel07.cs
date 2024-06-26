@@ -242,7 +242,7 @@ internal static partial class SpellBuilders
         {
             var rulesetTarget = action.ActionParams.TargetCharacters[0].RulesetCharacter;
 
-            rulesetTarget.HealingReceived += HealingReceivedHandler;
+            rulesetTarget.HealingReceived -= HealingReceivedHandler;
 
             yield break;
         }

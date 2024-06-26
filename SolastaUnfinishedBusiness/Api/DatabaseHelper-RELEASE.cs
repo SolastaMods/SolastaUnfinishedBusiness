@@ -668,6 +668,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionShielded { get; } =
             GetDefinition<ConditionDefinition>("ConditionShielded");
 
+        internal static ConditionDefinition ConditionShieldedByFaith { get; } =
+            GetDefinition<ConditionDefinition>("ConditionShieldedByFaith");
+
         internal static ConditionDefinition ConditionShine { get; } =
             GetDefinition<ConditionDefinition>("ConditionShine");
 
@@ -1717,6 +1720,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerBulette_Snow_Leap { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerBulette_Snow_Leap");
+
         internal static FeatureDefinitionPower PowerDomainSunIndomitableLight { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainSunIndomitableLight");
 
@@ -3684,12 +3690,15 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition FalseLife { get; } = GetDefinition<SpellDefinition>("FalseLife");
         internal static SpellDefinition Fear { get; } = GetDefinition<SpellDefinition>("Fear");
         internal static SpellDefinition FeatherFall { get; } = GetDefinition<SpellDefinition>("FeatherFall");
+        internal static SpellDefinition Feeblemind { get; } = GetDefinition<SpellDefinition>("Feeblemind");
         internal static SpellDefinition FingerOfDeath { get; } = GetDefinition<SpellDefinition>("FingerOfDeath");
         internal static SpellDefinition FindTraps { get; } = GetDefinition<SpellDefinition>("FindTraps");
         internal static SpellDefinition Fireball { get; } = GetDefinition<SpellDefinition>("Fireball");
         internal static SpellDefinition FireBolt { get; } = GetDefinition<SpellDefinition>("FireBolt");
         internal static SpellDefinition FireShield { get; } = GetDefinition<SpellDefinition>("FireShield");
         internal static SpellDefinition FireShieldWarm { get; } = GetDefinition<SpellDefinition>("FireShieldWarm");
+        internal static SpellDefinition FireStorm { get; } = GetDefinition<SpellDefinition>("FireStorm");
+
         internal static SpellDefinition FlameBlade { get; } = GetDefinition<SpellDefinition>("FlameBlade");
         internal static SpellDefinition FlameStrike { get; } = GetDefinition<SpellDefinition>("FlameStrike");
         internal static SpellDefinition FlamingSphere { get; } = GetDefinition<SpellDefinition>("FlamingSphere");
@@ -3833,6 +3842,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Sunbeam { get; } = GetDefinition<SpellDefinition>("Sunbeam");
         internal static SpellDefinition Sunburst { get; } = GetDefinition<SpellDefinition>("Sunburst");
         internal static SpellDefinition Tongues { get; } = GetDefinition<SpellDefinition>("Tongues");
+        internal static SpellDefinition Thunderstorm { get; } = GetDefinition<SpellDefinition>("Thunderstorm");
         internal static SpellDefinition Thunderwave { get; } = GetDefinition<SpellDefinition>("Thunderwave");
         internal static SpellDefinition TrueSeeing { get; } = GetDefinition<SpellDefinition>("TrueSeeing");
         internal static SpellDefinition TrueStrike { get; } = GetDefinition<SpellDefinition>("TrueStrike");

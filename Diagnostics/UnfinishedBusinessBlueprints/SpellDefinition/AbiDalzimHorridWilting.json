@@ -65,10 +65,7 @@
     "hasVelocity": false,
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
-    "restrictedCreatureFamilies": [
-      "Construct",
-      "Undead"
-    ],
+    "restrictedCreatureFamilies": [],
     "immuneCreatureFamilies": [],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
@@ -94,7 +91,7 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 10,
+          "diceNumber": 12,
           "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
@@ -138,7 +135,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "36d5d555454acc244851481824b85f49",
+        "m_AssetGUID": "7a652c1ac2bfeef4eb00645e6ef50212",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -174,7 +171,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e9cc70c4dfb7ea94192252a891186eb4",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -186,7 +183,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "0d4c28fc9cd5af24189e20a623e96d3a",
+        "m_AssetGUID": "c561f5ceb3013594fbcd8b722b431a39",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

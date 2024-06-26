@@ -1,5 +1,6 @@
 Condition/&ConditionMindBlankDescription=Immune to psychic damage and the charmed condition.
 Condition/&ConditionMindBlankTitle=Mind Blank
+Condition/&ConditionSoulExpulsionCombatAffinityTitle=Unsettled
 Spell/&AbiDalzimHorridWiltingDescription=You draw the moisture from every creature in a 30-foot cube centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. Constructs and undead aren't affected, and plants and ice elementals make this saving throw with disadvantage. A creature takes 10d8 necrotic damage on a failed save, or half as much damage on a successful one.
 Spell/&AbiDalzimHorridWiltingTitle=Abi-Dalzim's Horrid Wilting
 Spell/&MaddeningDarknessDescription=Magical darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the spell ends. Shrieks, gibbering, and mad laughter can be heard within the sphere. On activation, and whenever a creature ends its turn in the sphere, it must make a Wisdom saving throw, taking 6d8 psychic damage on a failed save, or half as much damage on a successful one.

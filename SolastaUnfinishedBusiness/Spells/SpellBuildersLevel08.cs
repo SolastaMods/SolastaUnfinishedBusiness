@@ -8,12 +8,13 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -103,10 +104,10 @@ internal static partial class SpellBuilders
                     .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
                     .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false, AttributeDefinitions.Constitution)
                     .AddToDB())
-            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
             .AddToDB();
 
-        return SpellDefinitionBuilder
+        var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.AbiDalzimHorridWilting, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
@@ -122,22 +123,24 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cube, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetRestrictedCreatureFamilies(
-                        CharacterFamilyDefinitions.Construct.Name,
-                        CharacterFamilyDefinitions.Undead.Name)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeNecrotic, 10, DieType.D8)
+                            .SetDamageForm(DamageTypeNecrotic, 12, DieType.D8)
                             .Build())
-                    .SetParticleEffectParameters(CircleOfDeath)
+                    .SetCasterEffectParameters(FingerOfDeath)
+                    .SetImpactEffectParameters(FingerOfDeath)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemy(condition))
             .AddToDB();
+
+        spell.AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemyAbiDalzimHorridWilting(spell, condition));
+
+        return spell;
     }
 
-    private sealed class MagicEffectBeforeHitConfirmedOnEnemy(
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemyAbiDalzimHorridWilting(
+        SpellDefinition spellAbiDalzimHorridWilting,
         ConditionDefinition condition) : IMagicEffectBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
@@ -150,6 +153,12 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
+            if (rulesetEffect == null ||
+                rulesetEffect.SourceDefinition != spellAbiDalzimHorridWilting)
+            {
+                yield break;
+            }
+
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not RulesetCharacterMonster rulesetCharacterMonster ||
@@ -201,7 +210,8 @@ internal static partial class SpellBuilders
 
         var conditionCombatAffinity = ConditionDefinitionBuilder
             .Create($"Condition{NAME}CombatAffinity")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionDistracted)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDoomLaughter)
+            .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{NAME}")
@@ -211,8 +221,6 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .AddToDB();
 
-        conditionCombatAffinity.GuiPresentation.description = Gui.NoLocalization;
-
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
@@ -221,7 +229,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -237,7 +245,7 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionCombatAffinity, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetImpactEffectParameters(Sunburst)
+                    .SetImpactEffectParameters(GuidingBolt)
                     .Build())
             .AddToDB();
 
@@ -271,13 +279,16 @@ internal static partial class SpellBuilders
                             .SetConditionForm(ConditionDefinitions.ConditionStunned,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetParticleEffectParameters(CircleOfDeath)
+                    .SetParticleEffectParameters(Sunburst)
+                    .SetCasterEffectParameters(DivineWord)
+                    .SetImpactEffectParameters(PowerPatronFiendDarkOnesOwnLuck
+                        .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMe(power, conditionSavingThrowAffinity))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSoulExpulsion(power, conditionSavingThrowAffinity))
             .AddToDB();
     }
 
-    private sealed class PowerOrSpellFinishedByMe(
+    private sealed class PowerOrSpellFinishedByMeSoulExpulsion(
         FeatureDefinitionPower power,
         ConditionDefinition conditionSavingThrowAffinity) : IPowerOrSpellFinishedByMe
     {

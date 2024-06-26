@@ -23,7 +23,7 @@
 KNOWN ISSUES:
 
 - Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt damage will be of wrong type under multiplayer sessions if twinned and one bolt misses [cannot fix]
+- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses [cannot fix]
 
 1.5.97.15:
 
