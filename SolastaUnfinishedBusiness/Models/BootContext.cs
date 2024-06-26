@@ -1,4 +1,7 @@
 ﻿using System.IO;
+#if !DEBUG
+using System.Linq;
+#endif
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Api;
@@ -154,12 +157,20 @@ internal static class BootContext
             DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description =
                 Gui.NoLocalization;
 
-            // foreach (var conditionDefinition in DatabaseRepository
-            //              .GetDatabase<ConditionDefinition>()
-            //              .Where(x => x.GuiPresentation.Description == Gui.NoLocalization))
-            // {
-            //     conditionDefinition.GuiPresentation.description = GuiPresentationBuilder.EmptyString;
-            // }
+            // EXPERIMENTAL: looking to remove None from powers or spell tooltips as too much work to refactor them all
+            // these will certainly bleed into features that leverage the condition gui presentation
+            // need to assess the impact over the next releases reason why protected with a hidden set for now
+#if !DEBUG
+            if (!Main.Settings.DisableExperimentalUIFix)
+            {
+                foreach (var conditionDefinition in DatabaseRepository
+                             .GetDatabase<ConditionDefinition>()
+                             .Where(x => x.GuiPresentation.Description == Gui.NoLocalization))
+                {
+                    conditionDefinition.GuiPresentation.description = GuiPresentationBuilder.EmptyString;
+                }
+            }
+#endif
 
             // Enable mod
             Main.Enable();

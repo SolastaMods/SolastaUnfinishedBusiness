@@ -47,6 +47,7 @@ public class Settings : UnityModManager.ModSettings
     // SETTINGS HIDDEN ON UI
     //
 
+    public bool DisableExperimentalUIFix { get; set; }
     public bool EnableCtrlClickOnlySwapsMainHand { get; set; } = true;
     public bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
