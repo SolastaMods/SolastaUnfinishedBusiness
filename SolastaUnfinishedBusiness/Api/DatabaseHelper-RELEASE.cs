@@ -1733,6 +1733,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerMagebaneWarcry { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMagebaneWarcry");
 
+        internal static FeatureDefinitionPower PowerCallLightning { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerCallLightning");
+        
         internal static FeatureDefinitionPower PowerDelayedBlastFireballDetonate { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDelayedBlastFireballDetonate");
 

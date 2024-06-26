@@ -103,7 +103,8 @@ internal enum ExtraAdditionalDamageTriggerCondition
     FlurryOfBlows = 9000,
     TargetIsDuelingWithYou,
     TargetIsWithin10Ft,
-    SourceAndTargetAreNotBrightAndWithin5Ft
+    SourceAndTargetAreNotBrightAndWithin5Ft,
+    SourceIsSneakingAttack
 }
 
 internal enum ExtraAdditionalDamageValueDetermination
