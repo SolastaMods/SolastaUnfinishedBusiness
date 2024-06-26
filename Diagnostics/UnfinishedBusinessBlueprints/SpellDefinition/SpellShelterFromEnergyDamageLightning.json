@@ -90,8 +90,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionShelterFromEnergyDamageFire",
-          "conditionDefinition": "Definition:ConditionShelterFromEnergyDamageFire:bb72bb6b-4549-54a5-a72f-f0e82e4bf86f",
+          "conditionDefinitionName": "ConditionShelterFromEnergyDamageLightning",
+          "conditionDefinition": "Definition:ConditionShelterFromEnergyDamageLightning:4373f811-c528-551c-a09f-521909e47e63",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -104,9 +104,9 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 0,
+      "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
@@ -127,7 +127,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ea52dedc30230da4d99266cefdf1fbde",
+        "m_AssetGUID": "44e6449335f642743a6c8d5fda526cfd",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -175,7 +175,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "0337980aa6d17aa499baa006ca4dea96",
+        "m_AssetGUID": "270b455ea6bb6a54da991d85e813d3b4",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -319,8 +319,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Fire Damage",
-    "description": "Grant resistance against Fire Damage.",
+    "title": "Lightning Damage",
+    "description": "Grant resistance against Lightning Damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -340,7 +340,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2b8ce219-6a5f-5386-947c-404fb99d86bd",
+  "guid": "c7affca5-7fd9-5d13-89d8-6907f2b99351",
   "contentPack": 9999,
-  "name": "PowerShelterFromEnergyDamageFire"
+  "name": "SpellShelterFromEnergyDamageLightning"
 }

@@ -90,8 +90,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionShelterFromEnergyDamageNecrotic",
-          "conditionDefinition": "Definition:ConditionShelterFromEnergyDamageNecrotic:3ed7e389-052e-5f56-affb-ea8ee3c22646",
+          "conditionDefinitionName": "ConditionShelterFromEnergyDamageFire",
+          "conditionDefinition": "Definition:ConditionShelterFromEnergyDamageFire:bb72bb6b-4549-54a5-a72f-f0e82e4bf86f",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -104,9 +104,9 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 0,
+      "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
@@ -127,7 +127,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "d26797bf421dbc2448872162f23d8fd3",
+        "m_AssetGUID": "ea52dedc30230da4d99266cefdf1fbde",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -175,7 +175,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3e25fca5d3585174f9b7e20aca6ef3d9",
+        "m_AssetGUID": "0337980aa6d17aa499baa006ca4dea96",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -319,8 +319,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Necrotic Damage",
-    "description": "Grant resistance against Necrotic Damage.",
+    "title": "Fire Damage",
+    "description": "Grant resistance against Fire Damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -340,7 +340,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4bc65514-db01-5886-97aa-5ab0fa6164c3",
+  "guid": "d0ade296-862e-5df1-bfc7-9efab6888395",
   "contentPack": 9999,
-  "name": "PowerShelterFromEnergyDamageNecrotic"
+  "name": "SpellShelterFromEnergyDamageFire"
 }

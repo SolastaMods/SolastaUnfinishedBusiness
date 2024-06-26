@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -8,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
@@ -123,6 +125,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cube, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Undead)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -132,58 +135,48 @@ internal static partial class SpellBuilders
                     .SetCasterEffectParameters(FingerOfDeath)
                     .SetImpactEffectParameters(FingerOfDeath)
                     .Build())
+            .AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemyAbiDalzimHorridWilting(condition))
             .AddToDB();
-
-        spell.AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemyAbiDalzimHorridWilting(spell, condition));
 
         return spell;
     }
 
     private sealed class MagicEffectBeforeHitConfirmedOnEnemyAbiDalzimHorridWilting(
-        SpellDefinition spellAbiDalzimHorridWilting,
-        ConditionDefinition condition) : IMagicEffectBeforeHitConfirmedOnEnemy
+        ConditionDefinition condition) : IPowerOrSpellInitiatedByMe
     {
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (rulesetEffect == null ||
-                rulesetEffect.SourceDefinition != spellAbiDalzimHorridWilting)
+            var targets = action.ActionParams.TargetCharacters.ToList();
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            foreach (var target in targets)
             {
-                yield break;
+                if (target.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
+                {
+                    continue;
+                }
+
+                if (rulesetCharacterMonster.CharacterFamily == CharacterFamilyDefinitions.Plant.Name ||
+                    rulesetCharacterMonster.MonsterDefinition == MonsterDefinitions.Ice_Elemental ||
+                    rulesetCharacterMonster.MonsterDefinition == CircleOfTheNight.WildShapeWaterElemental)
+                {
+                    rulesetCharacterMonster.InflictCondition(
+                        condition.Name,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfSourceTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetAttacker.guid,
+                        rulesetAttacker.CurrentFaction.Name,
+                        1,
+                        condition.Name,
+                        0,
+                        0,
+                        0);
+                }
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not RulesetCharacterMonster rulesetCharacterMonster ||
-                (rulesetCharacterMonster.MonsterDefinition != MonsterDefinitions.Ice_Elemental &&
-                 rulesetCharacterMonster.MonsterDefinition.Name != "WildShapeWaterElemental" &&
-                 rulesetCharacterMonster.CharacterFamily != "Plant"))
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            rulesetDefender.InflictCondition(
-                condition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfSourceTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                condition.Name,
-                0,
-                0,
-                0);
+            yield break;
         }
     }
 
@@ -197,7 +190,7 @@ internal static partial class SpellBuilders
 
         var conditionSavingThrowAffinity = ConditionDefinitionBuilder
             .Create($"Condition{NAME}SavingThrowAffinity")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionSavingThrowAffinityBuilder
@@ -205,7 +198,8 @@ internal static partial class SpellBuilders
                     .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
                     .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false, AttributeDefinitions.Charisma)
                     .AddToDB())
-            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddCustomSubFeatures(new ModifyDamageAffinitySoulExpulsion())
             .AddToDB();
 
         var conditionCombatAffinity = ConditionDefinitionBuilder
@@ -218,7 +212,6 @@ internal static partial class SpellBuilders
                     .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .AddToDB())
-            .SetPossessive()
             .AddToDB();
 
         var power = FeatureDefinitionPowerBuilder
@@ -249,8 +242,10 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        power.AddCustomSubFeatures(new ModifyEffectDescriptionSoulExpulsion(power));
+
         return SpellDefinitionBuilder
-            .Create(Darkness, NAME)
+            .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SoulExpulsion, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .SetSpellLevel(8)
@@ -284,13 +279,44 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(PowerPatronFiendDarkOnesOwnLuck
                         .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSoulExpulsion(power, conditionSavingThrowAffinity))
+            .AddCustomSubFeatures(new CustomBehaviorSoulExpulsion(power, conditionSavingThrowAffinity))
             .AddToDB();
     }
 
-    private sealed class PowerOrSpellFinishedByMeSoulExpulsion(
+    private sealed class ModifyEffectDescriptionSoulExpulsion(FeatureDefinitionPower power)
+        : IModifyEffectDescription, IModifyDamageAffinity
+    {
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == power;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var glc = GameLocationCharacter.GetFromActor(character);
+
+            if (glc != null &&
+                glc.UsedSpecialFeatures.TryGetValue("SoulExpulsion", out var effectLevel))
+            {
+                effectDescription.EffectForms[0].DamageForm.DiceNumber = 7 + (2 * (effectLevel - 8));
+            }
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class CustomBehaviorSoulExpulsion(
         FeatureDefinitionPower power,
-        ConditionDefinition conditionSavingThrowAffinity) : IPowerOrSpellFinishedByMe
+        ConditionDefinition conditionSavingThrowAffinity) : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -306,27 +332,8 @@ internal static partial class SpellBuilders
                 target, actingCharacter, isOppositeSide: false, hasToPerceiveTarget: true, withinRange: 12);
             var actionModifiers = new List<ActionModifier>();
 
-            foreach (var glc in targets
-                         .Where(x => x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
-                                     rulesetCharacterMonster.CharacterFamily == CharacterFamilyDefinitions.Undead.Name))
-            {
-                var rulesetDefender = glc.RulesetCharacter;
-
-                rulesetDefender.InflictCondition(
-                    conditionSavingThrowAffinity.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfSourceTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    conditionSavingThrowAffinity.Name,
-                    0,
-                    0,
-                    0);
-            }
-
+            actingCharacter.UsedSpecialFeatures.TryAdd("SoulExpulsion", action.ActionParams.RulesetEffect.EffectLevel);
+                
             for (var i = 0; i < targets.Count; i++)
             {
                 actionModifiers.Add(new ActionModifier());
@@ -347,6 +354,52 @@ internal static partial class SpellBuilders
 
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(actionParams, null, true);
+        }
+
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var targets = action.ActionParams.TargetCharacters.ToList();
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            foreach (var target in targets)
+            {
+                if (target.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
+                    rulesetCharacterMonster.CharacterFamily == CharacterFamilyDefinitions.Undead.Name)
+                {
+                    rulesetCharacterMonster.InflictCondition(
+                        conditionSavingThrowAffinity.Name,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfSourceTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetAttacker.guid,
+                        rulesetAttacker.CurrentFaction.Name,
+                        1,
+                        conditionSavingThrowAffinity.Name,
+                        0,
+                        0,
+                        0);
+                }
+            }
+
+            yield break;
+        }
+    }
+
+    private sealed class ModifyDamageAffinitySoulExpulsion : IModifyDamageAffinity
+    {
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            if (defender is RulesetCharacterMonster rulesetCharacterMonster &&
+                rulesetCharacterMonster.CharacterFamily == CharacterFamilyDefinitions.Undead.Name)
+            {
+                features.RemoveAll(x =>
+                    x is IDamageAffinityProvider
+                    {
+                        DamageAffinityType: DamageAffinityType.Resistance or DamageAffinityType.Immunity,
+                        DamageType: DamageTypeNecrotic
+                    });
+            }
         }
     }
 

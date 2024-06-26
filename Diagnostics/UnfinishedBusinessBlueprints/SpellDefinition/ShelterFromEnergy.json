@@ -2,13 +2,13 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": true,
   "subspellsList": [
-    "Definition:PowerShelterFromEnergyDamageAcid:6fe05a51-b78a-549d-b9f1-3fc16b015fa6",
-    "Definition:PowerShelterFromEnergyDamageCold:678c4bbd-cd01-5d95-8361-a0582e0c357a",
-    "Definition:PowerShelterFromEnergyDamageFire:2b8ce219-6a5f-5386-947c-404fb99d86bd",
-    "Definition:PowerShelterFromEnergyDamageLightning:e0c68a11-b29b-5543-a946-1b36a5483c24",
-    "Definition:PowerShelterFromEnergyDamageNecrotic:4bc65514-db01-5886-97aa-5ab0fa6164c3",
-    "Definition:PowerShelterFromEnergyDamageRadiant:39c31754-7b54-5135-bdbf-2fa7fbb48a63",
-    "Definition:PowerShelterFromEnergyDamageThunder:2ecfb27e-d37c-538f-af0b-21adf57d5f99"
+    "Definition:SpellShelterFromEnergyDamageAcid:035af182-8422-5147-ac5e-357276f90519",
+    "Definition:SpellShelterFromEnergyDamageCold:ca796322-0089-5cf5-b14d-d94bf395c3dc",
+    "Definition:SpellShelterFromEnergyDamageFire:d0ade296-862e-5df1-bfc7-9efab6888395",
+    "Definition:SpellShelterFromEnergyDamageLightning:c7affca5-7fd9-5d13-89d8-6907f2b99351",
+    "Definition:SpellShelterFromEnergyDamageNecrotic:834ece59-c9a8-5e27-ab3f-8bd0332ec67c",
+    "Definition:SpellShelterFromEnergyDamageRadiant:3cb52949-39e9-51f3-9472-f7ddc350e280",
+    "Definition:SpellShelterFromEnergyDamageThunder:73216f9a-0382-53ad-bb61-7cfde4a6aed4"
   ],
   "compactSubspellsTooltip": false,
   "implemented": true,
@@ -107,19 +107,19 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a6ca7038401125c4096926082f9acb33",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6a8b8119774067740a6895a72319a60d",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "68726c9b0b4ffc7499d07d4b4c4f4ec1",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

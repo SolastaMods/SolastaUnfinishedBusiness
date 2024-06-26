@@ -90,8 +90,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionShelterFromEnergyDamageCold",
-          "conditionDefinition": "Definition:ConditionShelterFromEnergyDamageCold:7d18b040-0136-5ce9-8844-28b2ef19ff05",
+          "conditionDefinitionName": "ConditionShelterFromEnergyDamageNecrotic",
+          "conditionDefinition": "Definition:ConditionShelterFromEnergyDamageNecrotic:3ed7e389-052e-5f56-affb-ea8ee3c22646",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -104,9 +104,9 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 0,
+      "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
@@ -127,7 +127,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e22e4f85dac1bd046bd02889cd94f0af",
+        "m_AssetGUID": "d26797bf421dbc2448872162f23d8fd3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -175,7 +175,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "22aadb68bb052994f9d2d713f0107a84",
+        "m_AssetGUID": "3e25fca5d3585174f9b7e20aca6ef3d9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -319,8 +319,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Cold Damage",
-    "description": "Grant resistance against Cold Damage.",
+    "title": "Necrotic Damage",
+    "description": "Grant resistance against Necrotic Damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -340,7 +340,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "678c4bbd-cd01-5d95-8361-a0582e0c357a",
+  "guid": "834ece59-c9a8-5e27-ab3f-8bd0332ec67c",
   "contentPack": 9999,
-  "name": "PowerShelterFromEnergyDamageCold"
+  "name": "SpellShelterFromEnergyDamageNecrotic"
 }

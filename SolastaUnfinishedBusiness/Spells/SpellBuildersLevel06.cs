@@ -216,7 +216,7 @@ internal static partial class SpellBuilders
 
             subSpells.Add(
                 SpellDefinitionBuilder
-                    .Create($"Power{NAME}{damageType}")
+                    .Create($"Spell{NAME}{damageType}")
                     .SetGuiPresentation(title, description)
                     .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
                     .SetSpellLevel(6)
@@ -235,7 +235,7 @@ internal static partial class SpellBuilders
                             .SetGuiPresentation(
                                 Gui.Format($"Condition/&Condition{NAME}Title", title),
                                 Gui.NoLocalization,
-                                ConditionShieldedByFaith)
+                                ConditionAuraOfProtection)
                             .SetPossessive()
                             .SetFeatures(
                                 FeatureDefinitionDamageAffinityBuilder

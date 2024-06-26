@@ -104,9 +104,9 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 0,
+      "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
@@ -340,7 +340,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2ecfb27e-d37c-538f-af0b-21adf57d5f99",
+  "guid": "73216f9a-0382-53ad-bb61-7cfde4a6aed4",
   "contentPack": 9999,
-  "name": "PowerShelterFromEnergyDamageThunder"
+  "name": "SpellShelterFromEnergyDamageThunder"
 }

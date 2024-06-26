@@ -90,8 +90,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionShelterFromEnergyDamageLightning",
-          "conditionDefinition": "Definition:ConditionShelterFromEnergyDamageLightning:4373f811-c528-551c-a09f-521909e47e63",
+          "conditionDefinitionName": "ConditionShelterFromEnergyDamageCold",
+          "conditionDefinition": "Definition:ConditionShelterFromEnergyDamageCold:7d18b040-0136-5ce9-8844-28b2ef19ff05",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -104,9 +104,9 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 0,
+      "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
@@ -127,7 +127,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "44e6449335f642743a6c8d5fda526cfd",
+        "m_AssetGUID": "e22e4f85dac1bd046bd02889cd94f0af",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -175,7 +175,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "270b455ea6bb6a54da991d85e813d3b4",
+        "m_AssetGUID": "22aadb68bb052994f9d2d713f0107a84",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -319,8 +319,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Lightning Damage",
-    "description": "Grant resistance against Lightning Damage.",
+    "title": "Cold Damage",
+    "description": "Grant resistance against Cold Damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -340,7 +340,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e0c68a11-b29b-5543-a946-1b36a5483c24",
+  "guid": "ca796322-0089-5cf5-b14d-d94bf395c3dc",
   "contentPack": 9999,
-  "name": "PowerShelterFromEnergyDamageLightning"
+  "name": "SpellShelterFromEnergyDamageCold"
 }

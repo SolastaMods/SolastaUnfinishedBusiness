@@ -90,8 +90,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionShelterFromEnergyDamageAcid",
-          "conditionDefinition": "Definition:ConditionShelterFromEnergyDamageAcid:a318f99a-fad8-5602-a538-c13de0881f2c",
+          "conditionDefinitionName": "ConditionShelterFromEnergyDamageRadiant",
+          "conditionDefinition": "Definition:ConditionShelterFromEnergyDamageRadiant:b526fa38-0a7e-50ea-a5f2-41de5a744caf",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -104,9 +104,9 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 0,
+      "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
@@ -127,7 +127,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "10b278a52d3bb7448ad2a168d36e4ae3",
+        "m_AssetGUID": "7a652c1ac2bfeef4eb00645e6ef50212",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -175,7 +175,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e7fb95caaa738254483c66eb3766e73f",
+        "m_AssetGUID": "5b12de026b470aa48af9a1e329151135",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -319,8 +319,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Acid Damage",
-    "description": "Grant resistance against Acid Damage.",
+    "title": "Radiant Damage",
+    "description": "Grant resistance against Radiant Damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -340,7 +340,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6fe05a51-b78a-549d-b9f1-3fc16b015fa6",
+  "guid": "3cb52949-39e9-51f3-9472-f7ddc350e280",
   "contentPack": 9999,
-  "name": "PowerShelterFromEnergyDamageAcid"
+  "name": "SpellShelterFromEnergyDamageRadiant"
 }

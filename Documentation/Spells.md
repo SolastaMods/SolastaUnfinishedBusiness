@@ -1261,9 +1261,9 @@ Until the spell ends, one willing creature you touch is immune to psychic damage
 
 Overwhelm the mind of a creature that has 150 hit points or fewer, leaving it stunned.
 
-# 306. - Soul Expulsion (V,S) level 8 Necromancy [Concentration] [UB]
+# 306. - Soul Expulsion (V,S) level 8 Necromancy [UB]
 
-You blast a foe's soul with magical power, causing it to glow with otherwordly light. Choose one creature that you can see within range, which must make a Charisma saving throw. On a failed saving throw, the target takes 11d8 necrotic damage and is stunned until the start of your next turn. On a successful saving throw, the target takes half damage and isn't stunned. Each enemy other than the target that is within 60 feet of the target must make a Wisdom saving throw. On a failed save, a creature takes 7d8 radiant damage and has disadvantage on attack rolls until the end of your next turn. On a successful saving throw a creature takes half damage and nothing else. When this spell targets undead, the spell ignores any resistance or immunity to necrotic damage, and the target has disadvantage on the saving throw. At Higher Levels. When you cast this spell using a spell slot of 9th level, both the necrotic damage and radiant damage increase by 2d8.
+You blast a foe's soul with magical power, causing it to glow with otherwordly light. Choose one creature that you can see within range, which must make a Charisma saving throw. On a failed saving throw, the target takes 11d8 necrotic damage and is stunned until the start of your next turn. On a successful saving throw, the target takes half damage and isn't stunned. Each enemy other than the target that is within 60 feet of the target must make a Wisdom saving throw. On a failed save, a creature takes 7d8 radiant damage and has disadvantage on attack rolls until the end of your next turn. On a successful saving throw a creature takes half damage and nothing else. When this spell targets undead, the spell ignores any resistance or immunity to necrotic damage, and the target has disadvantage on the saving throw. When you cast this spell using a spell slot of 9th level, both the necrotic damage and radiant damage increase by 2d8.
 
 # 307. - Spell Ward (V,S) level 8 Abjuration [Concentration] [SOL]
 
