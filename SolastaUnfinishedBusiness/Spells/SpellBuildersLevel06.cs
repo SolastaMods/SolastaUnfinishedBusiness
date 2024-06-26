@@ -228,6 +228,8 @@ internal static partial class SpellBuilders
                     .SetEffectDescription(EffectDescriptionBuilder.Create()
                         .SetDurationData(DurationType.Hour, 1)
                         .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                            additionalTargetsPerIncrement: 1)
                         .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
                             .Create($"Condition{NAME}{damageType}")
                             .SetGuiPresentation(
@@ -267,7 +269,6 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTargetsPerIncrement: 1)
-                    .SetCasterEffectParameters(MageArmor)
                     .Build())
             .SetSubSpells([.. subSpells])
             .AddToDB();
