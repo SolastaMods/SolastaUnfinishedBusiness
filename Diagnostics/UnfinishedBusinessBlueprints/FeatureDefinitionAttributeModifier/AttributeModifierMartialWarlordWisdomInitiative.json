@@ -3,9 +3,9 @@
   "modifiedAttribute": "Initiative",
   "modifierOperation": "AddConditionAmount",
   "modifierValue": 1,
-  "modifierAbilityScore": "Wisdom",
+  "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
-  "minimum1": true,
+  "minimum1": false,
   "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

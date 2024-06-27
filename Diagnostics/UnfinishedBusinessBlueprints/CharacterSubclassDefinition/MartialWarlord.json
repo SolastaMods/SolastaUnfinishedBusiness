@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureMartialWarlordBattlefieldExperience:bd4f0449-cba1-57e6-b73d-01899f8027f3",
+      "featureDefinition": "Definition:FeatureSetMartialWarlordPressTheAdvantage:6baeb18a-023b-58c6-96f1-537427dea48b",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetMartialWarlordPressTheAdvantage:6baeb18a-023b-58c6-96f1-537427dea48b",
+      "featureDefinition": "Definition:FeatureMartialWarlordBattlefieldExperience:bd4f0449-cba1-57e6-b73d-01899f8027f3",
       "level": 3
     },
     {

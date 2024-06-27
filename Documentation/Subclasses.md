@@ -3349,16 +3349,16 @@ Whether they are loved, respected or feared, warlords are primarily known for on
 
 ### Level 3
 
-* Battlefield Experience
-
-You gain a bonus to initiative rolls equal to your Wisdom modifier (minimum +1).
-
 * Press the Advantage
 
 As you strike, you call out sharp commands to your allies, spurring them to action and allowing them to take advantage of the opening. Once during your turn when you hit a creature with a melee weapon attack, you can immediately initiate one of the following maneuvers:
 • Exploit Opening - The next attack roll made by an attacker other than yourself against this creature is made with advantage. The attack must be made before the start of your next turn.
 • Predict Attack - The creature has disadvantage on the next attack roll it makes before the start of your next turn.
 • Covering Strike - All allies other than yourself don't provoke opportunity attacks from this creature. This effect lasts until the start of your next turn.
+
+* Relentlessness
+
+You gain a bonus to initiative rolls equal to your Strength modifier (minimum +1).
 
 
 ### Level 7
@@ -3372,14 +3372,14 @@ You can use your bonus action to order an ally other than yourself that you can 
 
 * Coordinated Assault
 
-Once during your turn when you hit a creature with a melee weapon attack, you can issue an order to assault the creature, allowing all allies to use their reaction to make an attack of opportunity against it. You can use this feature three times per long rest.
+Once during your turn when you hit a creature with a melee weapon attack, you can issue an order to assault the creature, allowing all allies to use their reaction to make an attack of opportunity against it. You can use this feature a number of times per long rest equal to your proficiency bonus.
 
 
 ### Level 15
 
-* Battle Plan
+* Commanding Presence
 
-Your Battlefield Experience now extends to all allied creatures within 30 feet of you.
+You add half your Strength modifier (rounded up) as initiative bonus to all allied creatures (other than you) within 30 feet of you. In addition, you and all allied creatures within 30 feet of you roll all saving throws against charm and frighten effects with advantage.
 
 
 ### Level 18

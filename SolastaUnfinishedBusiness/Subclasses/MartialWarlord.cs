@@ -41,7 +41,7 @@ public sealed class MartialWarlord : AbstractSubclass
         // LEVEL 03
         //
 
-        var conditionWisdomInitiative = ConditionDefinitionBuilder
+        var conditionStrengthInitiative = ConditionDefinitionBuilder
             .Create($"Condition{Name}WisdomInitiative")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -50,12 +50,11 @@ public sealed class MartialWarlord : AbstractSubclass
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}WisdomInitiative")
                     .SetGuiPresentationNoContent(true)
-                    .SetModifierAbilityScore(AttributeDefinitions.Initiative, AttributeDefinitions.Wisdom)
                     .SetAddConditionAmount(AttributeDefinitions.Initiative)
                     .AddToDB())
             .AddToDB();
 
-        // Battlefield Experience
+        // Relentlessness
 
         var featureBattlefieldExperience = FeatureDefinitionBuilder
             .Create($"Feature{Name}BattlefieldExperience")
@@ -230,7 +229,7 @@ public sealed class MartialWarlord : AbstractSubclass
         var powerCoordinatedAssault = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CoordinatedAssault")
             .SetGuiPresentation($"FeatureSet{Name}CoordinatedAssault", Category.Feature)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
             .DelegatedToAction()
             .AddToDB();
 
@@ -274,7 +273,7 @@ public sealed class MartialWarlord : AbstractSubclass
 
         featureBattlefieldExperience.AddCustomSubFeatures(
             new CharacterBattleStartedListenerBattlefieldExperienceBattlePlan(
-                conditionWisdomInitiative, featureBattlefieldExperience, featureBattlePlan));
+                conditionStrengthInitiative, featureBattlefieldExperience, featureBattlePlan));
 
         //
         // LEVEL 18
@@ -663,12 +662,12 @@ public sealed class MartialWarlord : AbstractSubclass
 
     private sealed class CharacterBattleStartedListenerBattlefieldExperienceBattlePlan(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionWisdomInitiative,
+        ConditionDefinition conditionStrengthInitiative,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureBattlefieldExperience,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureBattlePlan)
-        : ICharacterBattleStartedListener
+        : ICharacterBattleStartedListener, IRollSavingThrowInitiated
     {
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
@@ -679,35 +678,33 @@ public sealed class MartialWarlord : AbstractSubclass
 
             var rulesetCharacter = locationCharacter.RulesetCharacter;
             var levels = rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Fighter, Name);
-            var wisdomModifier = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Wisdom)), 1);
+            var strengthModifier = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength)), 1);
+
+            rulesetCharacter.InflictCondition(
+                conditionStrengthInitiative.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionStrengthInitiative.Name,
+                strengthModifier,
+                0,
+                0);
 
             if (levels < 15)
             {
-                rulesetCharacter.InflictCondition(
-                    conditionWisdomInitiative.Name,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetCharacter.Guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    conditionWisdomInitiative.Name,
-                    wisdomModifier,
-                    0,
-                    0);
-
                 rulesetCharacter.LogCharacterUsedFeature(featureBattlefieldExperience);
-
-                return;
             }
 
             foreach (var player in Gui.Battle
-                         .GetContenders(locationCharacter, isOppositeSide: false, excludeSelf: false, withinRange: 6))
+                         .GetContenders(locationCharacter, isOppositeSide: false, withinRange: 6))
             {
                 player.RulesetCharacter.InflictCondition(
-                    conditionWisdomInitiative.Name,
+                    conditionStrengthInitiative.Name,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.EndOfTurn,
@@ -715,13 +712,46 @@ public sealed class MartialWarlord : AbstractSubclass
                     rulesetCharacter.Guid,
                     rulesetCharacter.CurrentFaction.Name,
                     1,
-                    conditionWisdomInitiative.Name,
-                    wisdomModifier,
+                    conditionStrengthInitiative.Name,
+                    (strengthModifier + 1) / 2,
                     0,
                     0);
             }
 
             rulesetCharacter.LogCharacterUsedFeature(featureBattlePlan);
+        }
+
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            var hasCharmedOrFrightened = effectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Condition)
+                .Select(effectForm => effectForm.ConditionForm.ConditionDefinition)
+                .Any(condition => 
+                    condition == ConditionDefinitions.ConditionCharmed ||
+                    condition.parentCondition == ConditionDefinitions.ConditionCharmed ||
+                    condition == ConditionDefinitions.ConditionFrightened ||
+                    condition.parentCondition == ConditionDefinitions.ConditionFrightened);
+
+            if (!hasCharmedOrFrightened)
+            {
+                return;
+            }
+
+            advantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureBattlePlan.Name, featureBattlePlan));
         }
     }
 

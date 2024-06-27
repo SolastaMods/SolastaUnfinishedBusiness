@@ -1,3 +1,7 @@
+1.5.97.17:
+
+- improved Martial Warlord battlefield experience, coordinated assault, and battle plan features
+
 1.5.97.16:
 
 - added Skill Empowerment, and Synaptic Static 5th level spells
