@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
@@ -148,6 +149,10 @@ internal static class BootContext
 
             // Log invalid user campaign
             LogMissingReferencesInUserCampaigns();
+
+            // Fix condition UI
+            DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description =
+                Gui.NoLocalization;
 
             // Enable mod
             Main.Enable();

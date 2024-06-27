@@ -69,7 +69,7 @@ internal static class RaceLizardfolkBuilder
             .AddToDB();
 
         powerLizardfolkHungryJaws.AddCustomSubFeatures(
-            new MagicEffectFinishedByMeHungryJaws(),
+            new PowerOrSpellFinishedByMeHungryJaws(),
             new PhysicalAttackFinishedByMeHungryJaws(powerLizardfolkHungryJaws));
 
         var racePresentation = Dragonborn.RacePresentation.DeepCopy();
@@ -101,9 +101,9 @@ internal static class RaceLizardfolkBuilder
     }
 
 
-    private sealed class MagicEffectFinishedByMeHungryJaws : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeHungryJaws : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {

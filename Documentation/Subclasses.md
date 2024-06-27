@@ -5695,8 +5695,6 @@ Starting at 1st level, you can use your action to teleport a creature within 60 
 
 	V	Hold Monster
 
-	VI	Globe Of Invulnerability
-
 
 
 
@@ -5745,8 +5743,6 @@ Your non-two-handed weapon attacks count as magical, and you use your spell cast
 	IV	Fire Shield
 
 	V	Mind Twist
-
-	VI	Globe Of Invulnerability
 
 
 
@@ -5973,8 +5969,6 @@ You become proficient in Stealth and Deception skills, learn Venomous Spike cant
 	IV	Greater Invisibility
 
 	V	Dominate Person
-
-	VI	Globe Of Invulnerability
 
 
 

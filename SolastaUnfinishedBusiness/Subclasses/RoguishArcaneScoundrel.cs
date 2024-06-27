@@ -294,9 +294,9 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
     private sealed class ActionFinishedByMeArcaneBackslash(
         FeatureDefinitionPower powerArcaneBackslash,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerCounterSpell) : IMagicEffectFinishedByMeAny
+        FeatureDefinitionPower powerCounterSpell) : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

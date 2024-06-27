@@ -8,14 +8,9 @@ namespace SolastaUnfinishedBusiness.Validators;
 public static class ValidatorsRestrictedContext
 {
     public static readonly IValidateContextInsteadOfRestrictedProperty IsMeleeOrUnarmedAttack =
-        new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, rulesetEffect) => (OperationType.Set,
-            mode is
-            {
-                Ranged: false, Thrown: false
-            }
-            || rulesetEffect?.EffectDescription.RangeType
-                is RuleDefinitions.RangeType.Touch
-                or RuleDefinitions.RangeType.MeleeHit));
+        new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, effect) =>
+            (OperationType.Set, mode is { Ranged: false, Thrown: false } ||
+                                effect is { EffectDescription.RangeType: RuleDefinitions.RangeType.MeleeHit }));
 
     public static readonly IValidateContextInsteadOfRestrictedProperty IsWeaponOrUnarmedAttack =
         new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>

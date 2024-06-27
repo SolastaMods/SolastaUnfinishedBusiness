@@ -108,7 +108,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Distance, 5,
                         TargetType.IndividualsUnique)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeTakeThePain())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeTakeThePain())
             .AddToDB();
 
         var powerAuraOfTheGuardian18 = FeatureDefinitionPowerBuilder
@@ -183,9 +183,9 @@ public sealed class OathOfAltruism : AbstractSubclass
         return chaMod;
     }
 
-    private sealed class MagicEffectFinishedByMeTakeThePain : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeTakeThePain : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;

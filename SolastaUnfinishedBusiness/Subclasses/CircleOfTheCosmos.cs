@@ -82,7 +82,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddToDB();
 
         powerConstellationForm.AddCustomSubFeatures(
-            new MagicEffectFinishedByMeAnyConstellationForm(powerConstellationForm));
+            new MagicEffectFinishedByMeConstellationForm(powerConstellationForm));
 
         var powerArcherConstellationForm = BuildArcher(ActivationTime.BonusAction, powerConstellationForm);
         var powerChaliceConstellationForm = BuildChalice(ActivationTime.BonusAction, powerConstellationForm);
@@ -244,7 +244,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddToDB();
 
         powerSwitchConstellationForm.AddCustomSubFeatures(
-            new MagicEffectFinishedByMeTwinklingStarsRefund(powerSwitchConstellationForm));
+            new PowerOrSpellFinishedByMeTwinklingStarsRefund(powerSwitchConstellationForm));
 
         var powerSwitchConstellationFormAtWill = FeatureDefinitionPowerBuilder
             .Create(powerSwitchConstellationForm, $"Power{Name}SwitchConstellationFormAtWill")
@@ -258,21 +258,21 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}SwitchConstellationFormArcher")
             .SetGuiPresentation($"Power{Name}ArcherConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeTwinklingStars(powerArcherConstellationForm))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeTwinklingStars(powerArcherConstellationForm))
             .AddToDB();
 
         var powerSwitchConstellationFormChalice = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}SwitchConstellationFormChalice")
             .SetGuiPresentation($"Power{Name}ChaliceConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeTwinklingStars(powerChaliceConstellationForm))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeTwinklingStars(powerChaliceConstellationForm))
             .AddToDB();
 
         var powerSwitchConstellationFormDragon = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}SwitchConstellationFormDragon")
             .SetGuiPresentation($"Power{Name}DragonConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeTwinklingStars(powerDragonConstellationForm))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeTwinklingStars(powerDragonConstellationForm))
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(
@@ -362,7 +362,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         powerArcherNoCost.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.InCombat,
             new ModifyEffectDescriptionArcher(powerArcherNoCost),
-            new MagicEffectFinishedByMeArcherNoCost(conditionArcherNoCost));
+            new PowerOrSpellFinishedByMeArcherNoCost(conditionArcherNoCost));
 
         var conditionArcher = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionSunbeam, $"Condition{Name}Archer")
@@ -459,7 +459,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures()
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeAnyChalice(powerChalice, conditionChaliceHealing))
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeChalice(powerChalice, conditionChaliceHealing))
             .AddToDB();
 
         var conditionChalice14 = ConditionDefinitionBuilder
@@ -468,7 +468,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeAnyChalice(powerChalice, conditionChaliceHealing))
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeChalice(powerChalice, conditionChaliceHealing))
             .AddToDB();
 
         // Chalice Main
@@ -614,10 +614,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     // Constellation Form
     //
 
-    private sealed class MagicEffectFinishedByMeAnyConstellationForm(FeatureDefinitionPower pool)
-        : IMagicEffectFinishedByMeAny
+    private sealed class MagicEffectFinishedByMeConstellationForm(FeatureDefinitionPower pool)
+        : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -703,11 +703,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     // Archer
     //
 
-    private sealed class MagicEffectFinishedByMeArcherNoCost(
+    private sealed class PowerOrSpellFinishedByMeArcherNoCost(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionArcherNoCost) : IMagicEffectFinishedByMe
+        ConditionDefinition conditionArcherNoCost) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
@@ -763,13 +763,13 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     // Chalice
     //
 
-    private sealed class MagicEffectFinishedByMeAnyChalice(
+    private sealed class MagicEffectFinishedByMeChalice(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerChalice,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionChaliceHealing) : IMagicEffectFinishedByMeAny
+        ConditionDefinition conditionChaliceHealing) : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -1328,11 +1328,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     // Twinkling Stars
     //
 
-    private sealed class MagicEffectFinishedByMeTwinklingStarsRefund(
+    private sealed class PowerOrSpellFinishedByMeTwinklingStarsRefund(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower magicEffect) : IMagicEffectFinishedByMe
+        FeatureDefinitionPower magicEffect) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(magicEffect, rulesetCharacter);
@@ -1343,11 +1343,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         }
     }
 
-    private sealed class MagicEffectFinishedByMeTwinklingStars(
+    private sealed class PowerOrSpellFinishedByMeTwinklingStars(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower magicEffect) : IMagicEffectFinishedByMe
+        FeatureDefinitionPower magicEffect) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;

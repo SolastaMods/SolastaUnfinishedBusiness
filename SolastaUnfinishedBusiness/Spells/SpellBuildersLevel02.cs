@@ -554,6 +554,8 @@ internal static partial class SpellBuilders
     {
         const string NAME = "BorrowedKnowledge";
 
+        LimitEffectInstances limiter = new("BorrowedKnowledge", _ => 1);
+
         var skillsDb = DatabaseRepository.GetDatabase<SkillDefinition>();
         var powers = new List<FeatureDefinitionPower>();
         var powerPool = FeatureDefinitionPowerBuilder
@@ -588,6 +590,7 @@ internal static partial class SpellBuilders
                                             .AddToDB())
                                     .AddToDB()))
                         .Build())
+                .AddCustomSubFeatures(limiter)
                 .AddToDB();
 
             power.GuiPresentation.hidden = true;
@@ -615,17 +618,17 @@ internal static partial class SpellBuilders
                     .SetCasterEffectParameters(TrueSeeing)
                     .SetEffectEffectParameters(PowerPaladinCleansingTouch)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeBorrowedKnowledge(powerPool, [.. powers]))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeBorrowedKnowledge(powerPool, [.. powers]))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectFinishedByMeBorrowedKnowledge(
+    private sealed class PowerOrSpellFinishedByMeBorrowedKnowledge(
         FeatureDefinitionPower powerPool,
-        params FeatureDefinitionPower[] powers) : IMagicEffectFinishedByMe
+        params FeatureDefinitionPower[] powers) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -652,13 +655,20 @@ internal static partial class SpellBuilders
             {
                 var skillName = power.Name.Replace("PowerBorrowedKnowledge", string.Empty);
 
-                if (!skillsDb.TryGetElement(skillName, out var skill) ||
+                if (!skillsDb.TryGetElement(skillName, out var skill))
+                {
+                    continue;
+                }
+
+                var hasSkill =
+                    hero.SkillProficiencies.Contains(skill.Name) ||
                     hero.TrainedSkills.Contains(skill) ||
-                    hero.BackgroundDefinition.Features
-                        .OfType<FeatureDefinitionProficiency>()
+                    hero.GetFeaturesByType<FeatureDefinitionProficiency>()
                         .Any(x =>
-                            x.ProficiencyType is ProficiencyType.Skill or ProficiencyType.SkillOrExpertise &&
-                            x.Proficiencies.Contains(skillName)))
+                            x.ProficiencyType == ProficiencyType.Skill &&
+                            x.Proficiencies.Contains(skillName));
+
+                if (hasSkill)
                 {
                     continue;
                 }
@@ -702,9 +712,9 @@ internal static partial class SpellBuilders
             {
                 var conditionName = $"ConditionBorrowedKnowledge{skill.Name}";
 
-                if (!selectedPower.Name.Contains(skill.Name) &&
-                    rulesetCharacter.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, conditionName, out var activeCondition))
+                if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
+                    !selectedPower.Name.Contains(skill.Name))
                 {
                     rulesetCharacter.RemoveCondition(activeCondition);
                 }
@@ -1160,12 +1170,12 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorWitherAndBloom(
         SpellDefinition spellWitherAndBloom,
-        ConditionDefinition conditionWitherAndBloom) : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        ConditionDefinition conditionWitherAndBloom) : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         private int _spellCastingAbilityModifier;
         private GameLocationCharacter _target;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -1234,7 +1244,7 @@ internal static partial class SpellBuilders
             }
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             _target = null;
 

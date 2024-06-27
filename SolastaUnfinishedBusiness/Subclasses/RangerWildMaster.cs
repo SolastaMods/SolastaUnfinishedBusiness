@@ -275,7 +275,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .SetCasterEffectParameters(FeatureDefinitionPowers.PowerPactChainImp)
                     .Build())
             .AddCustomSubFeatures(
-                new MagicEffectFinishedByMeKillCommand(),
+                new PowerOrSpellFinishedByMeKillCommand(),
                 new ValidatorsValidatePowerUse(c =>
                     Gui.Battle != null &&
                     GameLocationCharacter.GetFromActor(c)?.OnceInMyTurnIsValid($"Power{Name}KillCommand") == true &&
@@ -350,11 +350,11 @@ public sealed class RangerWildMaster : AbstractSubclass
     // Beast Companion Bear
     //
 
-    private sealed class MagicEffectInitiatedByMeBeastCompanionBear(
+    private sealed class PowerOrSpellInitiatedByMeBeastCompanionBear(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionBearHitPoints) : IMagicEffectInitiatedByMe
+        ConditionDefinition conditionBearHitPoints) : IPowerOrSpellInitiatedByMe
     {
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
@@ -477,9 +477,9 @@ public sealed class RangerWildMaster : AbstractSubclass
         }
     }
 
-    private sealed class MagicEffectFinishedByMeKillCommand : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeKillCommand : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActingCharacter.UsedSpecialFeatures.TryAdd($"Power{Name}KillCommand", 1);
 
@@ -596,7 +596,7 @@ public sealed class RangerWildMaster : AbstractSubclass
         power.AddCustomSubFeatures(
             SkipEffectRemovalOnLocationChange.Always,
             new ModifyEffectDescriptionSummonBeastCompanion(power, beastCompanion03, beastCompanion11),
-            new MagicEffectInitiatedByMeBeastCompanionBear(conditionBearHitPoints));
+            new PowerOrSpellInitiatedByMeBeastCompanionBear(conditionBearHitPoints));
 
         return power;
     }

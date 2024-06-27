@@ -27,7 +27,7 @@ internal static class GambitsBuilders
     internal static FeatureDefinitionPower GambitPool { get; } = FeatureDefinitionPowerBuilder
         .Create("PowerPoolTacticianGambit")
         .SetGuiPresentation(Category.Feature)
-        .AddCustomSubFeatures(HasModifiedUses.Marker, IsModifyPowerPool.Marker)
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         // force to zero here and add 4 on same level for better integration with tactician adept feat
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
         .AddToDB();
@@ -1028,9 +1028,9 @@ internal static class GambitsBuilders
     //
     // Rally
     //
-    private sealed class Rally(FeatureDefinitionPower powerRallyActivate) : IMagicEffectInitiatedByMe
+    private sealed class Rally(FeatureDefinitionPower powerRallyActivate) : IPowerOrSpellInitiatedByMe
     {
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var character = action.ActingCharacter.RulesetCharacter;
             var intelligence = character.TryGetAttributeValue(AttributeDefinitions.Intelligence);
@@ -1065,11 +1065,36 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class SwiftThrow(ItemDefinition concealedDagger, FeatureDefinitionPower powerSwiftThrow)
-        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IModifyAttackActionModifier
+        : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe, IModifyAttackActionModifier
     {
         private const int DaggerCloseRange = 4;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            string effectName,
+            ref ActionModifier attackModifier)
+        {
+            if (effectName != powerSwiftThrow.Name)
+            {
+                return;
+            }
+
+            var glcMyself = GameLocationCharacter.GetFromActor(myself);
+            var glcDefender = GameLocationCharacter.GetFromActor(defender);
+
+            if (glcMyself != null &&
+                glcDefender != null &&
+                !glcMyself.IsWithinRange(glcDefender, DaggerCloseRange))
+            {
+                attackModifier.AttackAdvantageTrends.Add(
+                    new TrendInfo(-1, FeatureSourceType.Equipment, "Tooltip/&ProximityLongRangeTitle", null));
+            }
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.RangeHit;
 
@@ -1110,36 +1135,11 @@ internal static class GambitsBuilders
             Attack(actingCharacter, target, attackModeCopy, action.ActionParams.ActionModifiers[0]);
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.Distance;
 
             yield break;
-        }
-
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            string effectName,
-            ref ActionModifier attackModifier)
-        {
-            if (effectName != powerSwiftThrow.Name)
-            {
-                return;
-            }
-
-            var glcMyself = GameLocationCharacter.GetFromActor(myself);
-            var glcDefender = GameLocationCharacter.GetFromActor(defender);
-
-            if (glcMyself != null &&
-                glcDefender != null &&
-                !glcMyself.IsWithinRange(glcDefender, DaggerCloseRange))
-            {
-                attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(-1, FeatureSourceType.Equipment, "Tooltip/&ProximityLongRangeTitle", null));
-            }
         }
     }
 
@@ -1148,7 +1148,7 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class TacticalStrike :
-        IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
+        IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => true;
 
@@ -1224,7 +1224,7 @@ internal static class GambitsBuilders
             return true;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var targetCharacters = action.ActionParams.TargetCharacters;
             var ally = targetCharacters[0];
@@ -1250,7 +1250,7 @@ internal static class GambitsBuilders
             actingCharacter.BurnOneMainAttack();
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var targetCharacters = action.ActionParams.TargetCharacters;
 
@@ -1477,7 +1477,7 @@ internal static class GambitsBuilders
         ConditionDefinition bad,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition self)
-        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -1505,7 +1505,7 @@ internal static class GambitsBuilders
             return true;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var caster = actingCharacter.RulesetCharacter;
@@ -1872,7 +1872,8 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class CoordinatedAttack :
-        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IMagicEffectFinishedByMe
+        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IPowerOrSpellFinishedByMe,
+        IIgnoreInvisibilityInterruptionCheck
     {
         public bool EnforceFullSelection => false;
 
@@ -1936,7 +1937,7 @@ internal static class GambitsBuilders
             }
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
 
@@ -2011,7 +2012,7 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class OverwhelmingAttack :
-        IFilterTargetingCharacter, IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        IFilterTargetingCharacter, IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => true;
 
@@ -2036,7 +2037,7 @@ internal static class GambitsBuilders
             return false;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.MeleeHit;
 
@@ -2080,7 +2081,7 @@ internal static class GambitsBuilders
             actingCharacter.BurnOneMainAttack();
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.Distance;
 

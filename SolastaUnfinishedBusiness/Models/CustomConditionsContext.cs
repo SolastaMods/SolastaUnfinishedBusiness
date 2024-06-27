@@ -467,7 +467,7 @@ internal static class CustomConditionsContext
                 yield break;
             }
 
-            if (characterAction.ActionType != ActionType.Move &&
+            if (characterAction is not CharacterActionMove &&
                 // also checking attack action to handle reach > 1 scenarios or throw or ranged
                 characterAction.ActionId is not (
                     Id.AttackMain or
@@ -511,7 +511,7 @@ internal static class CustomConditionsContext
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            if (characterAction.ActionType != ActionType.Move)
+            if (characterAction is not CharacterActionMove)
             {
                 yield break;
             }

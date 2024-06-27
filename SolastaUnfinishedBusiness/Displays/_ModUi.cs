@@ -33,6 +33,7 @@ internal static class ModUi
 
     internal static readonly HashSet<string> TabletopDefinitionNames =
     [
+        "AbiDalzimHorridWilting",
         "AganazzarScorcher",
         "AirBlast",
         "AshardalonStride",
@@ -58,6 +59,7 @@ internal static class ModUi
         "CollegeOfGuts",
         "CollegeOfLife",
         "CollegeOfValiance",
+        "CrownOfStars",
         "CrusadersMantle",
         "Dawn",
         "DivineWrath",
@@ -69,6 +71,7 @@ internal static class ModUi
         "ElementalBane",
         "ElementalInfusion",
         "ElementalWeapon",
+        "EmpoweredKnowledge",
         "EnduringSting",
         "EnsnaringStrike",
         "FaithfulHound",
@@ -200,6 +203,7 @@ internal static class ModUi
         "MirrorImage",
         "MysticalCloak",
         "OathOfAncients",
+        "PathOfTheBattlerager",
         "PathOfTheBeast",
         "PathOfTheRavager",
         "PathOfTheSpirits",
@@ -239,6 +243,7 @@ internal static class ModUi
         "ReverseGravity",
         "RoguishSlayer",
         "Sanctuary",
+        "Scatter",
         "SearingSmite",
         "ShadowBlade",
         "Shapechange",
@@ -253,6 +258,7 @@ internal static class ModUi
         "SteelWhirlwind",
         "StrikeWithTheWind",
         "SwordStorm",
+        "SynapticStatic",
         "Telekinesis",
         "ThornyVines",
         "ThunderousSmite",

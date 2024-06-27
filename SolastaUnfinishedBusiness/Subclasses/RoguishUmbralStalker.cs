@@ -309,7 +309,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     private sealed class CustomBehaviorShadowStride(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerShadowStride,
-        bool isDashing) : IFilterTargetingPosition, IMagicEffectInitiatedByMe, IModifyEffectDescription
+        bool isDashing) : IFilterTargetingPosition, IPowerOrSpellInitiatedByMe, IModifyEffectDescription
     {
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
@@ -318,26 +318,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             yield return cursorLocationSelectPosition
                 .MyComputeValidPositions(LocationDefinitions.LightingState.Bright, distance);
-        }
-
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var actingCharacter = action.ActingCharacter;
-
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
-            var sourcePosition = actingCharacter.LocationPosition;
-            var targetPosition = action.ActionParams.Positions[0];
-            var distance = (int)Math.Round(
-                // must use vanilla distance calculation here
-                int3.Distance(sourcePosition, targetPosition) -
-                (isDashing ? actingCharacter.MaxTacticalMoves : 0));
-
-            actingCharacter.UsedSpecialFeatures.TryAdd("ShadowStride", 1);
-            actingCharacter.UsedTacticalMoves += distance;
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -360,6 +340,26 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             }
 
             return effectDescription;
+        }
+
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var sourcePosition = actingCharacter.LocationPosition;
+            var targetPosition = action.ActionParams.Positions[0];
+            var distance = (int)Math.Round(
+                // must use vanilla distance calculation here
+                int3.Distance(sourcePosition, targetPosition) -
+                (isDashing ? actingCharacter.MaxTacticalMoves : 0));
+
+            actingCharacter.UsedSpecialFeatures.TryAdd("ShadowStride", 1);
+            actingCharacter.UsedTacticalMoves += distance;
         }
     }
 

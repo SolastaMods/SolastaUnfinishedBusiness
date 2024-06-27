@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityPathOfTheWildMagicSummon:6e503d92-dcc4-53df-8b67-a8ee02e5fd0b"
+    "Definition:ActionAffinityPathOfTheWildMagicSummon:6e503d92-dcc4-53df-8b67-a8ee02e5fd0b",
+    "Definition:PowerPathOfTheWildMagicSummon:72fc941e-2078-53c7-b1f0-83705ac2e84b"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

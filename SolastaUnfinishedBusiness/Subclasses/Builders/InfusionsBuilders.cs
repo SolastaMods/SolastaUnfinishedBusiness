@@ -194,8 +194,8 @@ internal static class InventorInfusions
                 .AddCustomSubFeatures(MagicalDamage)
                 .SetNotificationTag(name)
                 .SetDamageDice(DieType.D6, 2)
-                .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
-                .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+                .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+                .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceIsSneakingAttack)
                 .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
                 .AddToDB());
 

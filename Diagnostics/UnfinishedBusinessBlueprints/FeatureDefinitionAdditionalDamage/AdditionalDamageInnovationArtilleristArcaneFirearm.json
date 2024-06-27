@@ -6,7 +6,7 @@
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "SpellDamagesTarget",
-  "requiredProperty": "SpellWithAttackRoll",
+  "requiredProperty": "None",
   "attackModeOnly": false,
   "attackOnly": false,
   "requiredTargetCondition": null,

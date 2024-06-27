@@ -103,13 +103,13 @@ internal enum ExtraAdditionalDamageTriggerCondition
     FlurryOfBlows = 9000,
     TargetIsDuelingWithYou,
     TargetIsWithin10Ft,
-    SourceAndTargetAreNotBrightAndWithin5Ft
+    SourceAndTargetAreNotBrightAndWithin5Ft,
+    SourceIsSneakingAttack
 }
 
 internal enum ExtraAdditionalDamageValueDetermination
 {
-    CharacterLevel = 9000,
-    CustomModifier,
+    CustomModifier = 9001,
     FlatWithProgression
 }
 
@@ -132,7 +132,8 @@ public enum ExtraConditionInterruption
     AttackedNotBySource,
     AttacksWithWeaponOrUnarmed,
     SourceRageStop,
-    UsesBonusAction
+    UsesBonusAction,
+    AfterWasHit
 }
 
 internal enum ExtraMotionType

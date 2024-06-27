@@ -10,7 +10,7 @@
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
-  "terminateWhenRemoved": true,
+  "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
   "durationParameterDie": "D4",

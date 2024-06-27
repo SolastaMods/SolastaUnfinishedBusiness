@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using System.Linq;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -11,6 +9,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -184,6 +183,101 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Shelter From Energy
+
+    private static readonly List<(string, IMagicEffect, AssetReference)> ShelterDamageTypes =
+    [
+        (DamageTypeAcid, AcidArrow,
+            PowerDragonbornBreathWeaponBlack.EffectDescription.EffectParticleParameters.impactParticleReference),
+        (DamageTypeCold, SleetStorm,
+            PowerBulette_Snow_Leap.EffectDescription.EffectParticleParameters.impactParticleReference),
+        (DamageTypeFire, HeatMetal,
+            FireStorm.EffectDescription.EffectParticleParameters.impactParticleReference),
+        (DamageTypeLightning, LightningBolt,
+            Thunderstorm.EffectDescription.EffectParticleParameters.impactParticleReference),
+        (DamageTypeNecrotic, Thunderwave,
+            PowerPatronFiendDarkOnesOwnLuck.EffectDescription.EffectParticleParameters.effectParticleReference),
+        (DamageTypeRadiant, FingerOfDeath,
+            PowerOathOfJugementPurgeCorruption.EffectDescription.EffectParticleParameters.effectParticleReference),
+        (DamageTypeThunder, GuardianOfFaith,
+            Thunderwave.EffectDescription.EffectParticleParameters.impactParticleReference)
+    ];
+
+    internal static SpellDefinition BuildShelterFromEnergy()
+    {
+        const string NAME = "ShelterFromEnergy";
+
+        var subSpells = new List<SpellDefinition>();
+
+        foreach (var (damageType, casterEffect, impactEffect) in ShelterDamageTypes)
+        {
+            var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+            var description = Gui.Format($"Feedback/&{NAME}Description", title);
+
+            subSpells.Add(
+                SpellDefinitionBuilder
+                    .Create($"Spell{NAME}{damageType}")
+                    .SetGuiPresentation(title, description)
+                    .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+                    .SetSpellLevel(6)
+                    .SetCastingTime(ActivationTime.Action)
+                    .SetMaterialComponent(MaterialComponentType.Mundane)
+                    .SetVerboseComponent(true)
+                    .SetSomaticComponent(true)
+                    .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+                    .SetEffectDescription(EffectDescriptionBuilder.Create()
+                        .SetDurationData(DurationType.Hour, 1)
+                        .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                            additionalTargetsPerIncrement: 1)
+                        .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
+                            .Create($"Condition{NAME}{damageType}")
+                            .SetGuiPresentation(
+                                Gui.Format($"Condition/&Condition{NAME}Title", title),
+                                Gui.NoLocalization,
+                                ConditionAuraOfProtection)
+                            .SetPossessive()
+                            .SetFeatures(
+                                FeatureDefinitionDamageAffinityBuilder
+                                    .Create($"DamageAffinity{NAME}{damageType}")
+                                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                                    .SetDamageType(damageType)
+                                    .SetDamageAffinityType(DamageAffinityType.Resistance)
+                                    .AddToDB())
+                            .AddToDB()))
+                        .SetCasterEffectParameters(casterEffect)
+                        .SetImpactEffectParameters(impactEffect)
+                        .Build())
+                    .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+                    .AddToDB());
+        }
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ShelterFromEnergy, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .Build())
+            .SetSubSpells([.. subSpells])
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Fizban Platinum Shield
 
     internal static SpellDefinition BuildFizbanPlatinumShield()
@@ -253,7 +347,7 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        var behavior = new MagicEffectFinishedByMeFizbanPlatinumShield(spell, conditionMark);
+        var behavior = new PowerOrSpellFinishedByMeFizbanPlatinumShield(spell, conditionMark);
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
@@ -299,14 +393,14 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class MagicEffectFinishedByMeFizbanPlatinumShield(
+    private sealed class PowerOrSpellFinishedByMeFizbanPlatinumShield(
         SpellDefinition spell,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition condition) : IMagicEffectFinishedByMe
+        ConditionDefinition condition) : IPowerOrSpellFinishedByMe
     {
         private int _remainingRounds;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -350,6 +444,97 @@ internal static partial class SpellBuilders
                     _remainingRounds = 0;
                     break;
             }
+        }
+    }
+
+    #endregion
+
+    #region Flash Freeze
+
+    internal static SpellDefinition BuildFlashFreeze()
+    {
+        const string NAME = "FlashFreeze";
+
+        var conditionFlashFreeze = ConditionDefinitionBuilder
+            .Create(ConditionGrappledRestrainedRemorhaz, $"Condition{NAME}")
+            .SetGuiPresentation(
+                RuleDefinitions.ConditionRestrained, Category.Rules, ConditionDefinitions.ConditionChilled)
+            .SetPossessive()
+            .SetParentCondition(ConditionRestrainedByWeb)
+            .AddToDB();
+
+        conditionFlashFreeze.specialDuration = false;
+        conditionFlashFreeze.specialInterruptions.Clear();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.FLashFreeze, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeCold, 10, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionFlashFreeze, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
+                    .SetCasterEffectParameters(SleetStorm)
+                    .Build())
+            .AddCustomSubFeatures(new FilterTargetingCharacterFlashFreeze())
+            .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionRestrained.conditionStartParticleReference;
+        spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionRestrained.conditionParticleReference;
+        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            ConditionDefinitions.ConditionRestrained.conditionEndParticleReference;
+
+        return spell;
+    }
+
+// ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class FilterTargetingCharacterFlashFreeze : IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var rulesetCharacter = target.RulesetCharacter;
+            var isValid = rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.DragonSize
+                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.Gargantuan
+                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.Huge
+                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize;
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeLargeOrSmaller");
+            }
+
+            return isValid;
         }
     }
 
@@ -536,13 +721,10 @@ internal static partial class SpellBuilders
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
-        powerRingOfBlades.AddCustomSubFeatures(
-            new CustomBehaviorPowerRingOfBlades(powerRingOfBlades, conditionRingOfBlades));
         powerRingOfBladesFree.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.InCombat,
             // it's indeed powerRingOfBlades here
-            new MagicEffectFinishedByMeRingOfBladesFree(powerRingOfBlades, conditionRingOfBladesFree),
-            new CustomBehaviorPowerRingOfBlades(powerRingOfBladesFree, conditionRingOfBlades));
+            new PowerOrSpellFinishedByMeRingOfBladesFree(powerRingOfBlades, conditionRingOfBladesFree));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -568,18 +750,18 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(HypnoticPattern)
                     .SetEffectEffectParameters(PowerMagebaneSpellCrusher)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeSpellRingOfBlades(conditionRingOfBlades))
+            .AddCustomSubFeatures(new ModifyEffectDescriptionRingOfBlades(powerRingOfBlades, conditionRingOfBlades))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectFinishedByMeRingOfBladesFree(
+    private sealed class PowerOrSpellFinishedByMeRingOfBladesFree(
         FeatureDefinitionPower powerRingOfBlades,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionRingOfBladesFree) : IMagicEffectFinishedByMe
+        ConditionDefinition conditionRingOfBladesFree) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerRingOfBlades, rulesetCharacter);
@@ -596,55 +778,10 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class CustomBehaviorPowerRingOfBlades(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class ModifyEffectDescriptionRingOfBlades(
         FeatureDefinitionPower powerRingOfBlades,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionRingOfBlades)
-        : IMagicEffectInitiatedByMe, IModifyEffectDescription
+        ConditionDefinition conditionRingOfBlades) : IModifyEffectDescription
     {
-        // STEP 1: change attackRollModifier to use spell casting feature
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-
-            if (action.ActionParams.actionModifiers.Count == 0)
-            {
-                yield break;
-            }
-
-            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionRingOfBlades.Name,
-                    out var activeCondition))
-            {
-                yield break;
-            }
-
-            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.sourceGuid);
-
-            if (rulesetCaster == null)
-            {
-                yield break;
-            }
-
-            var spellRepertoireIndex = activeCondition.Amount;
-
-            if (activeCondition.Amount < 0 || rulesetCaster.SpellRepertoires.Count <= spellRepertoireIndex)
-            {
-                yield break;
-            }
-
-            var actionModifier = action.ActionParams.actionModifiers[0];
-
-            rulesetCaster.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
-                rulesetCaster.FeaturesToBrowse, rulesetCaster.FeaturesOrigin);
-            rulesetCaster.ComputeSpellAttackBonus(rulesetCaster.SpellRepertoires[spellRepertoireIndex]);
-            actionModifier.AttacktoHitTrends.SetRange(rulesetCaster.magicAttackTrends);
-            actionModifier.AttackRollModifier = rulesetCaster.magicAttackTrends.Sum(x => x.value);
-        }
-
-        // STEP 2: add additional dice if required
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == powerRingOfBlades;
@@ -677,123 +814,54 @@ internal static partial class SpellBuilders
         }
     }
 
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class MagicEffectFinishedByMeSpellRingOfBlades(ConditionDefinition conditionRingOfBlades)
-        : IMagicEffectFinishedByMe
-    {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (action is not CharacterActionCastSpell actionCastSpell)
-            {
-                yield break;
-            }
-
-            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
-
-            foreach (var rulesetTarget in action.ActionParams.TargetCharacters
-                         .Select(targetCharacter => targetCharacter.RulesetCharacter))
-            {
-                if (rulesetTarget.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect,
-                        conditionRingOfBlades.Name,
-                        out var activeCondition))
-                {
-                    activeCondition.Amount =
-                        rulesetCaster.SpellRepertoires.IndexOf(actionCastSpell.activeSpell.SpellRepertoire);
-                }
-            }
-        }
-    }
-
     #endregion
 
-    #region Flash Freeze
+    #region Scatter
 
-    internal static SpellDefinition BuildFlashFreeze()
+    internal static SpellDefinition BuildScatter()
     {
-        const string NAME = "FlashFreeze";
-
-        var conditionFlashFreeze = ConditionDefinitionBuilder
-            .Create(ConditionGrappledRestrainedRemorhaz, $"Condition{NAME}")
-            .SetGuiPresentation(
-                RuleDefinitions.ConditionRestrained, Category.Rules, ConditionDefinitions.ConditionChilled)
-            .SetPossessive()
-            .SetParentCondition(ConditionRestrainedByWeb)
-            .AddToDB();
-
-        conditionFlashFreeze.specialDuration = false;
-        conditionFlashFreeze.specialInterruptions.Clear();
+        const string NAME = "Scatter";
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.FLashFreeze, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite($"Power{NAME}", Resources.Scatter, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(6)
             .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Detection)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
-                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Position)
+                    .InviteOptionalAlly()
+                    .SetSavingThrowData(true, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeCold, 10, DieType.D6)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(conditionFlashFreeze, ConditionForm.ConditionOperation.Add)
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 6)
                             .Build())
-                    .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
-                    .SetCasterEffectParameters(SleetStorm)
+                    .SetParticleEffectParameters(DimensionDoor)
                     .Build())
-            .AddCustomSubFeatures(new FilterTargetingCharacterFlashFreeze())
+            .AddCustomSubFeatures(new ModifyTeleportEffectBehaviorScatter())
             .AddToDB();
 
-        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            ConditionDefinitions.ConditionRestrained.conditionStartParticleReference;
-        spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            ConditionDefinitions.ConditionRestrained.conditionParticleReference;
-        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            ConditionDefinitions.ConditionRestrained.conditionEndParticleReference;
+        spell.EffectDescription.EffectParticleParameters.targetParticleReference = new AssetReference();
 
         return spell;
     }
 
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class FilterTargetingCharacterFlashFreeze : IFilterTargetingCharacter
+    private sealed class ModifyTeleportEffectBehaviorScatter : IModifyTeleportEffectBehavior
     {
-        public bool EnforceFullSelection => false;
+        public bool AllyOnly => false;
 
-        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
-        {
-            if (target.RulesetCharacter == null)
-            {
-                return false;
-            }
+        public bool TeleportSelf => false;
 
-            var rulesetCharacter = target.RulesetCharacter;
-            var isValid = rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.DragonSize
-                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.Gargantuan
-                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.Huge
-                          && rulesetCharacter.SizeDefinition != CharacterSizeDefinitions.SpiderQueenSize;
-
-            if (!isValid)
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeLargeOrSmaller");
-            }
-
-            return isValid;
-        }
+        public int MaxTargets => 5;
     }
 
     #endregion

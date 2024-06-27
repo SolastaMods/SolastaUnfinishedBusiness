@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Expertise",
+  "proficiencies": [
+    "SleightOfHand"
+  ],
+  "forbiddenItemTags": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Skill/&SleightOfHandTitle",
+    "description": "Skill/&SleightOfHandDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 15,
+    "unusedInSolastaCOTM": true,
+    "usedInValleyDLC": true
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f30fce1d-9f49-5bf2-b4a2-e96276f4128f",
+  "contentPack": 9999,
+  "name": "ProficiencyEmpoweredKnowledgeSleightOfHand"
+}

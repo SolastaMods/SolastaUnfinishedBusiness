@@ -267,7 +267,7 @@ public sealed class SorcerousPsion : AbstractSubclass
     // Mind Sculpt
     //
 
-    private sealed class CustomBehaviorMindSculpt : IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMeAny
+    private sealed class CustomBehaviorMindSculpt : IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe
     {
         private bool _hasDamageChanged;
 
@@ -313,7 +313,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             }
         }
 
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -410,11 +410,11 @@ public sealed class SorcerousPsion : AbstractSubclass
     //
 
     private sealed class CustomBehaviorSupremeWill(FeatureDefinitionPower powerSupremeWill)
-        : IModifyConcentrationRequirement, IMagicEffectFinishedByMeAny
+        : IModifyConcentrationRequirement, IMagicEffectFinishedByMe
     {
         private bool _hasConcentrationChanged;
 
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

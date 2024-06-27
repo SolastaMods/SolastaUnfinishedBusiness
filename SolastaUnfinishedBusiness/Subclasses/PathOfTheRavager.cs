@@ -87,7 +87,7 @@ public sealed class PathOfTheRavager : AbstractSubclass
             new ValidatorsValidatePowerUse(c =>
                 c.HasConditionOfTypeOrSubType(ConditionRaging) &&
                 c.GetRemainingPowerUses(powerIntimidatingPresence) == 0),
-            new MagicEffectFinishedByMeAnyIntimidatingPresence(
+            new MagicEffectFinishedByMeIntimidatingPresence(
                 powerIntimidatingPresence, powerIntimidatingPresenceRageCost));
 
         var featureSetIntimidatingPresence = FeatureDefinitionFeatureSetBuilder
@@ -119,11 +119,11 @@ public sealed class PathOfTheRavager : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class MagicEffectFinishedByMeAnyIntimidatingPresence(
+    private sealed class MagicEffectFinishedByMeIntimidatingPresence(
         FeatureDefinitionPower powerLongRest,
-        FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMeAny
+        FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             // ReSharper disable once InconsistentNaming

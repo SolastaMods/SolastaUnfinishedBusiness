@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -176,82 +175,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Psionic Blast
-
-    internal static SpellDefinition BuildPsionicBlast()
-    {
-        const string NAME = "PsionicBlast";
-
-        var condition = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionConfused)
-            .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
-            .SetFeatures(
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
-                    .SetMyAttackModifierSign(AttackModifierSign.Substract)
-                    .SetMyAttackModifierDieType(DieType.D6)
-                    .AddToDB(),
-                FeatureDefinitionAbilityCheckAffinityBuilder
-                    .Create($"AbilityCheckAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
-                    .BuildAndSetAffinityGroups(
-                        CharacterAbilityCheckAffinity.None, DieType.D6, 1,
-                        AbilityCheckGroupOperation.SubstractDie,
-                        (AttributeDefinitions.Strength, string.Empty),
-                        (AttributeDefinitions.Strength, string.Empty),
-                        (AttributeDefinitions.Dexterity, string.Empty),
-                        (AttributeDefinitions.Constitution, string.Empty),
-                        (AttributeDefinitions.Intelligence, string.Empty),
-                        (AttributeDefinitions.Wisdom, string.Empty),
-                        (AttributeDefinitions.Charisma, string.Empty))
-                    .AddToDB())
-            .SetConditionParticleReference(ConditionFeebleMinded)
-            .AddToDB();
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PsionicBlast, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(4)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(false)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .ExcludeCaster()
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetParticleEffectParameters(Fear)
-                    .SetCasterEffectParameters(ViciousMockery)
-                    .SetImpactEffectParameters(PowerMagebaneWarcry)
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    #endregion
-
     #region Psychic Lance
 
     internal static SpellDefinition BuildPsychicLance()
@@ -391,6 +314,82 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Psionic Blast
+
+    private const string PsionicBlastName = "PsionicBlast";
+
+    private static readonly ConditionDefinition ConditionMuddled = ConditionDefinitionBuilder
+        .Create($"Condition{PsionicBlastName}")
+        .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionConfused)
+        .SetPossessive()
+        .SetConditionType(ConditionType.Detrimental)
+        .SetFeatures(
+            FeatureDefinitionCombatAffinityBuilder
+                .Create($"CombatAffinity{PsionicBlastName}")
+                .SetGuiPresentation(PsionicBlastName, Category.Spell, Gui.NoLocalization)
+                .SetMyAttackModifierSign(AttackModifierSign.Substract)
+                .SetMyAttackModifierDieType(DieType.D6)
+                .AddToDB(),
+            FeatureDefinitionAbilityCheckAffinityBuilder
+                .Create($"AbilityCheckAffinity{PsionicBlastName}")
+                .SetGuiPresentation(PsionicBlastName, Category.Spell, Gui.NoLocalization)
+                .BuildAndSetAffinityGroups(
+                    CharacterAbilityCheckAffinity.None, DieType.D6, 1,
+                    AbilityCheckGroupOperation.SubstractDie,
+                    (AttributeDefinitions.Strength, string.Empty),
+                    (AttributeDefinitions.Strength, string.Empty),
+                    (AttributeDefinitions.Dexterity, string.Empty),
+                    (AttributeDefinitions.Constitution, string.Empty),
+                    (AttributeDefinitions.Intelligence, string.Empty),
+                    (AttributeDefinitions.Wisdom, string.Empty),
+                    (AttributeDefinitions.Charisma, string.Empty))
+                .AddToDB())
+        .SetConditionParticleReference(ConditionFeebleMinded)
+        .AddToDB();
+
+    internal static SpellDefinition BuildPsionicBlast()
+    {
+        var spell = SpellDefinitionBuilder
+            .Create(PsionicBlastName)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(PsionicBlastName, Resources.PsionicBlast, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(Fear)
+                    .SetCasterEffectParameters(ViciousMockery)
+                    .SetImpactEffectParameters(PowerMagebaneWarcry)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Elemental Bane
 
     internal static SpellDefinition BuildElementalBane()
@@ -499,9 +498,16 @@ internal static partial class SpellBuilders
         string damageType,
         IMagicEffect magicEffect,
         ConditionDefinition conditionMark)
-        : IModifyDamageAffinity, IOnConditionAddedOrRemoved
+        : IModifyDamageAffinity, IOnConditionAddedOrRemoved, ICharacterTurnStartListener
     {
-        private readonly string _tag = $"ElementalBane{damageType}";
+        // required to ensure the behavior will still work after loading a save
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            rulesetCharacter.DamageReceived -= DamageReceivedHandler;
+            rulesetCharacter.DamageReceived += DamageReceivedHandler;
+        }
 
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
@@ -791,19 +797,26 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorBlessingOfRime(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellDefinition) : IActionFinishedByContender, IRollSavingThrowInitiated
+        SpellDefinition spellDefinition)
+        : IRollSavingThrowInitiated, IOnConditionAddedOrRemoved, ICharacterTurnStartListener
     {
-        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
+        // required to ensure the behavior will still work after loading a save
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            var rulesetCharacter = target.RulesetCharacter;
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter.TemporaryHitPoints == 0)
-            {
-                rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, "ConditionBlessingOfRime");
-            }
+            rulesetCharacter.DamageReceived -= DamageReceivedHandler;
+            rulesetCharacter.DamageReceived += DamageReceivedHandler;
+        }
 
-            yield break;
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            target.DamageReceived += DamageReceivedHandler;
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            target.DamageReceived -= DamageReceivedHandler;
         }
 
         public void OnSavingThrowInitiated(
@@ -825,6 +838,21 @@ internal static partial class SpellBuilders
             {
                 advantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.Spell, spellDefinition.Name, spellDefinition));
+            }
+        }
+
+        private static void DamageReceivedHandler(
+            RulesetActor target,
+            int damage,
+            string damageType,
+            ulong sourceGuid,
+            RollInfo rollInfo)
+        {
+            if (target is RulesetCharacter rulesetCharacter &&
+                rulesetCharacter.TemporaryHitPoints <= damage)
+            {
+                rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionBlessingOfRime");
             }
         }
     }

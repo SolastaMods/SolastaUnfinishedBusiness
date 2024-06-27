@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -24,6 +25,12 @@ public sealed class CircleOfTheNight : AbstractSubclass
 
     private static readonly ValidatorsValidatePowerUse CanUseCombatHealing = new(
         ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm.name));
+
+    internal static readonly MonsterDefinition WildShapeWaterElemental = MonsterDefinitionBuilder
+        .Create(Ice_Elemental, "WildShapeWaterElemental")
+        .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+        .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
+        .AddToDB();
 
     public CircleOfTheNight()
     {
@@ -160,7 +167,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             ShapeBuilder(10, HbWildShapeAirElemental()),
             ShapeBuilder(10, HbWildShapeFireElemental()),
             ShapeBuilder(10, HbWildShapeEarthElemental()),
-            ShapeBuilder(10, HbWildShapeWaterElemental()),
+            ShapeBuilder(10, WildShapeWaterElemental),
             ShapeBuilder(14, HbWildShapeCrimsonSpider()),
             ShapeBuilder(14, HbWildShapeMinotaurElite())
         };
@@ -184,7 +191,9 @@ public sealed class CircleOfTheNight : AbstractSubclass
                                 ConditionDefinitions.ConditionWildShapeSubstituteForm, shapeOptions)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker)
+            .AddCustomSubFeatures(
+                ForcePowerUseInSpendPowerAction.Marker,
+                new PowerOrSpellFinishedByMeDruidWildShape())
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -265,17 +274,6 @@ public sealed class CircleOfTheNight : AbstractSubclass
     {
         var shape = MonsterDefinitionBuilder
             .Create(Earth_Elemental, "WildShapeEarthElemental")
-            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
-            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
-            .AddToDB();
-
-        return shape;
-    }
-
-    private static MonsterDefinition HbWildShapeWaterElemental()
-    {
-        var shape = MonsterDefinitionBuilder
-            .Create(Ice_Elemental, "WildShapeWaterElemental")
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
             .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .AddToDB();
@@ -386,6 +384,17 @@ public sealed class CircleOfTheNight : AbstractSubclass
         return effectDescription;
     }
 
+    internal static bool IsTwoPointsShape(MonsterDefinition monsterDefinition)
+    {
+        return monsterDefinition.Name is
+            "WildShapeAirElemental" or
+            "WildShapeFireElemental" or
+            "WildShapeEarthElemental" or
+            "WildShapeWaterElemental" or
+            "WildShapeCrimsonSpider" or
+            "WildShapeMinotaurElite";
+    }
+
     private sealed class ModifyAttackActionModifierPrimalStrike : IModifyAttackActionModifier
     {
         public void OnAttackComputeModifier(
@@ -401,6 +410,24 @@ public sealed class CircleOfTheNight : AbstractSubclass
             {
                 attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
             }
+        }
+    }
+
+    private sealed class PowerOrSpellFinishedByMeDruidWildShape : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster ||
+                !IsTwoPointsShape(rulesetCharacterMonster.MonsterDefinition))
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetCharacter);
+
+            rulesetCharacter.UsePower(usablePower);
         }
     }
 }

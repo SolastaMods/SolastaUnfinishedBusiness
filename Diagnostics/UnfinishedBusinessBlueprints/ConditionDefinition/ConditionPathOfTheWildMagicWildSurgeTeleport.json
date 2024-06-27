@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityPathOfTheWildMagicTeleport:4e317955-9e8c-59cb-b1e6-a579feed847f"
+    "Definition:ActionAffinityPathOfTheWildMagicTeleport:4e317955-9e8c-59cb-b1e6-a579feed847f",
+    "Definition:PowerPathOfTheWildMagicTeleport:bbd47537-4116-502b-946b-d75bd1d56523"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

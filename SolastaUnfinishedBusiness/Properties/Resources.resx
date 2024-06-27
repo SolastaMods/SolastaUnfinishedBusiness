@@ -152,6 +152,11 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="ShelterFromEnergy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/ShelterFromEnergy.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="AshardalonStride" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/AshardalonStride.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -167,8 +172,33 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="EmpoweredKnowledge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/EmpoweredKnowledge.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="SoulExpulsion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/SoulExpulsion.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="AbiDalzimHorridWilting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/AbiDalzimHorridWilting.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="RescueTheDying" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/RescueTheDying.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="KineticJaunt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/KineticJaunt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="SynapticStatic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/SynapticStatic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -192,6 +222,11 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="CrownOfStars" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/CrownOfStars.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="ChaosBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ChaosBolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -209,6 +244,11 @@
   </data>
   <data name="PrimordialWard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/PrimordialWard.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="Scatter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/Scatter.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>

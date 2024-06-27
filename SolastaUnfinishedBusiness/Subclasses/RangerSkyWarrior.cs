@@ -363,9 +363,9 @@ public sealed class RangerSkyWarrior : AbstractSubclass
         FeatureDefinitionPower powerDeathFromAbove,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionGiftOfTheWind,
-        ConditionDefinition conditionGiftOfTheWindAttacked) : IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
+        ConditionDefinition conditionGiftOfTheWindAttacked) : IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -374,7 +374,8 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
             if (action.AttackRoll == 0 ||
                 action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                rulesetEffect?.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+                (rulesetEffect != null &&
+                 rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit)))
             {
                 yield break;
             }

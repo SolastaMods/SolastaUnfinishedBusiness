@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
@@ -234,15 +235,7 @@ internal static class GLBM
          * ######################################
          * [CE] EDIT START
          * Support for ExtraAdditionalDamageValueDetermination.FlatWithProgress
-         * and ExtraAdditionalDamageValueDetermination.CharacterLevel
          */
-        else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
-                 ExtraAdditionalDamageValueDetermination.CharacterLevel)
-        {
-            additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
-            additionalDamageForm.DiceNumber = 0;
-            additionalDamageForm.BonusDamage = hero!.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-        }
         else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
                  ExtraAdditionalDamageValueDetermination.FlatWithProgression)
         {
@@ -1147,6 +1140,27 @@ internal static class GLBM
                      * Support for extra types of trigger conditions
                      */
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
+                        ExtraAdditionalDamageTriggerCondition.SourceIsSneakingAttack:
+                    {
+                        var isVanillaSneakAttack =
+                            (attackMode != null
+                             || (rulesetEffect != null
+                                 && provider.RequiredProperty == RuleDefinitions.RestrictedContextRequiredProperty
+                                     .SpellWithAttackRoll)) &&
+                            (advantageType == RuleDefinitions.AdvantageType.Advantage ||
+                             (advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
+                              instance.IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side,
+                                  attacker)));
+
+                        validTrigger =
+                            isVanillaSneakAttack ||
+                            RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType) ||
+                            RoguishUmbralStalker.SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender,
+                                advantageType);
+                        break;
+                    }
+
+                    case (RuleDefinitions.AdditionalDamageTriggerCondition)
                         ExtraAdditionalDamageTriggerCondition.FlurryOfBlows:
                     {
                         validTrigger =
@@ -1294,6 +1308,19 @@ internal static class GLBM
 
                         break;
                     }
+
+                    //BEGIN PATCH: supports chain lightning and delayed fireball here
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget
+                        when (firstTarget || !provider.FirstTargetOnly) &&
+                             rulesetEffect is RulesetEffectPower power &&
+                             (power.PowerDefinition == PowerCallLightning ||
+                              power.PowerDefinition == PowerDelayedBlastFireballDetonate):
+                    {
+                        validTrigger = true;
+
+                        break;
+                    }
+                    //END PATCH
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.NotWearingHeavyArmor:
                     {

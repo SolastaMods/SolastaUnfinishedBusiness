@@ -12,7 +12,6 @@ Feature/&PowerBladeDancerBladeDanceDescription=你可以用一个附赠动作开
 Feature/&PowerBladeDancerBladeDanceTitle=剑舞
 Feature/&ReduceDamageBladeDancerDanceOfDefenseDescription=的剑舞激活期间，你可以引导你的魔法吸收伤害。当你受到伤害时，你可以使用你的反应来消耗一个法术位，并将对你造成的伤害减少等同于该法术位等级的五倍。
 Feature/&ReduceDamageBladeDancerDanceOfDefenseTitle=防御之舞
-Feedback/&DanceOfDefenseLine=防御之舞减少来自目标的伤害！
 Reaction/&SpendSpellSlotDanceOfDefenseDescription=你可以减少等于该法术位等级五倍的伤害。
 Reaction/&SpendSpellSlotDanceOfDefenseReactDescription=使用反应来减少伤害。
 Reaction/&SpendSpellSlotDanceOfDefenseReactTitle=防御之舞

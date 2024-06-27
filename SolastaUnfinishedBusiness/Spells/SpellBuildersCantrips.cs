@@ -1030,7 +1030,7 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class CustomBehaviorResonatingStrike : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    private sealed class CustomBehaviorResonatingStrike : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         internal static GameLocationCharacter SecondTarget;
         internal static int SpellCastingModifier;
@@ -1065,7 +1065,7 @@ internal static partial class SpellBuilders
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition spell)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition spell)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
             {

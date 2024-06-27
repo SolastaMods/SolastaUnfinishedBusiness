@@ -40,7 +40,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 3)
                     .SetEffectForms()
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeDarkness())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeDarkness())
             .AddToDB();
 
         var featureSetWayOfSilhouetteSilhouetteArts = FeatureDefinitionFeatureSetBuilder
@@ -159,9 +159,9 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     // Darkness
     //
 
-    private sealed class MagicEffectFinishedByMeDarkness : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeDarkness : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var actingCharacter = action.ActingCharacter;

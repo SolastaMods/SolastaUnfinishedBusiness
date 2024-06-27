@@ -36,12 +36,12 @@ public static class ShapeOptionItemPatcher
             var power = isCircleOfTheNight
                 ? CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat
                 : PowerDruidWildShape;
-
             var rulesetUsablePower = PowerProvider.Get(power, rulesetCharacterHero);
-            var hasAtLeastTwoShapes = shifter.GetRemainingUsesOfPower(rulesetUsablePower) > 1;
             var isShapeOptionAvailable =
                 requiredLevel <= levels &&
-                (!isCircleOfTheNight || !shapeDefinition.Name.EndsWith("Elemental") || hasAtLeastTwoShapes);
+                (!isCircleOfTheNight ||
+                 !CircleOfTheNight.IsTwoPointsShape(shapeDefinition) ||
+                 shifter.GetRemainingUsesOfPower(rulesetUsablePower) > 1);
 
             __instance.levelLabel.TMP_Text.color = isShapeOptionAvailable
                 ? __instance.validLevelColor

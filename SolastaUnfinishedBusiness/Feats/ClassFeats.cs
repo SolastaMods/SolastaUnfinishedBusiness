@@ -394,9 +394,9 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private class CustomBehaviorFeatExploiter : IMagicEffectFinishedByMeOrAllyAny, IPhysicalAttackFinishedByMeOrAlly
+    private class CustomBehaviorFeatExploiter : IMagicEffectFinishedByMeOrAlly, IPhysicalAttackFinishedByMeOrAlly
     {
-        public IEnumerator OnMagicEffectFinishedByMeOrAllyAny(
+        public IEnumerator OnMagicEffectFinishedByMeOrAlly(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter helper,
@@ -649,9 +649,9 @@ internal static class ClassFeats
             "FeatGroupHardy", Name, ValidatorsFeat.IsFighterLevel4, hardyStr, hardyCon);
     }
 
-    private sealed class UsePowerFinishedByMeFeatHardy : IMagicEffectFinishedByMeAny
+    private sealed class UsePowerFinishedByMeFeatHardy : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
@@ -782,9 +782,9 @@ internal static class ClassFeats
     }
 
     private sealed class GainWildShapeCharges(int slotLevel, int wildShapeAmount)
-        : IMagicEffectFinishedByMe, IValidatePowerUse
+        : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
             var repertoire = character.GetClassSpellRepertoire(Druid);
@@ -813,9 +813,9 @@ internal static class ClassFeats
         }
     }
 
-    private sealed class SpendWildShapeUse : IMagicEffectFinishedByMe, IValidatePowerUse
+    private sealed class SpendWildShapeUse : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
             var rulesetUsablePower = PowerProvider.Get(PowerDruidWildShape, character);
@@ -1130,9 +1130,9 @@ internal static class ClassFeats
                 .AddToDB();
     }
 
-    private sealed class ActionFinishedByMeFeatSpiritualFluidityGainSlot : IMagicEffectFinishedByMe
+    private sealed class ActionFinishedByMeFeatSpiritualFluidityGainSlot : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
 
@@ -1142,9 +1142,9 @@ internal static class ClassFeats
         }
     }
 
-    private sealed class ActionFinishedByMeFeatSpiritualFluidityFromSlot : IMagicEffectFinishedByMe
+    private sealed class ActionFinishedByMeFeatSpiritualFluidityFromSlot : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
             var name = power.Name;
@@ -1261,9 +1261,9 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class ActionFinishedByMeFeatSlayTheEnemies : IMagicEffectFinishedByMe
+    private sealed class ActionFinishedByMeFeatSlayTheEnemies : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (!power.Name.StartsWith("PowerFeatSlayTheEnemies"))
             {

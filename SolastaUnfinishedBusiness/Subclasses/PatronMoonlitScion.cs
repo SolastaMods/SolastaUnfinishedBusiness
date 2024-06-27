@@ -133,7 +133,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
         powerLunarRadianceNoCost.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.InCombat,
-            new MagicEffectFinishedByMeNoCost(conditionFullMoonNoCost));
+            new PowerOrSpellFinishedByMeNoCost(conditionFullMoonNoCost));
 
         // Full Moon
 
@@ -225,7 +225,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
         powerLunarChillNoCost.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.InCombat,
-            new MagicEffectFinishedByMeNoCost(conditionNewMoonNoCost));
+            new PowerOrSpellFinishedByMeNoCost(conditionNewMoonNoCost));
 
         // New Moon
 
@@ -413,11 +413,11 @@ public sealed class PatronMoonlitScion : AbstractSubclass
     }
 
     // remove the No Cost condition if the no cost power is used
-    private sealed class MagicEffectFinishedByMeNoCost(
+    private sealed class PowerOrSpellFinishedByMeNoCost(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionFree) : IMagicEffectFinishedByMe
+        ConditionDefinition conditionFree) : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
@@ -511,9 +511,9 @@ public sealed class PatronMoonlitScion : AbstractSubclass
     }
 
     private sealed class CustomBehaviorMidnightBlessing(ConditionDefinition conditionMidnightBlessing)
-        : IMagicEffectFinishedByMe, IPreventRemoveConcentrationOnDamage
+        : IPowerOrSpellFinishedByMe, IPreventRemoveConcentrationOnDamage
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;

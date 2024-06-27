@@ -300,7 +300,7 @@ public sealed class RangerHellWalker : AbstractSubclass
     private sealed class CustomBehaviorMarkOfTheDammed(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition)
-        : IModifyDamageAffinity, IMagicEffectFinishedByMe, IFilterTargetingCharacter
+        : IModifyDamageAffinity, IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => false;
 
@@ -321,7 +321,21 @@ public sealed class RangerHellWalker : AbstractSubclass
             return isValid;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            if (!attacker.HasConditionOfType(conditionDefinition.Name))
+            {
+                return;
+            }
+
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider
+                {
+                    DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeFire
+                });
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (Gui.Battle == null)
             {
@@ -343,20 +357,6 @@ public sealed class RangerHellWalker : AbstractSubclass
                     rulesetDefender.RemoveCondition(rulesetCondition);
                 }
             }
-        }
-
-        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
-        {
-            if (!attacker.HasConditionOfType(conditionDefinition.Name))
-            {
-                return;
-            }
-
-            features.RemoveAll(x =>
-                x is IDamageAffinityProvider
-                {
-                    DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeFire
-                });
         }
     }
 }

@@ -2,7 +2,6 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Spells;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
@@ -78,8 +77,6 @@ public static class CharacterBattleListenersPatch
         {
             return;
         }
-
-        SpellBuilders.HandleSkinOfRetribution();
 
         //PATCH: supports EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack
         if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&

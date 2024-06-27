@@ -863,7 +863,7 @@ internal static partial class SpellBuilders
         var damageDeterminationBehavior =
             new CustomBehaviorChaosBolt(spell, powerLeap, conditionLeap, conditionMark, powerPool, [.. powers]);
         var initAndFinishBehavior =
-            new MagicEffectInitiatedAndFinishedByMeChaosBolt(conditionLeap, damageDeterminationBehavior);
+            new PowerOrSpellInitiatedAndFinishedByMeChaosBolt(conditionLeap, damageDeterminationBehavior);
         var filterTargetBehavior =
             new FilterTargetingCharacterChaosBolt(conditionMark);
 
@@ -879,12 +879,12 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class MagicEffectInitiatedAndFinishedByMeChaosBolt(
+    private sealed class PowerOrSpellInitiatedAndFinishedByMeChaosBolt(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionLeap,
-        CustomBehaviorChaosBolt damageDeterminationBehavior) : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+        CustomBehaviorChaosBolt damageDeterminationBehavior) : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
 
@@ -902,7 +902,7 @@ internal static partial class SpellBuilders
                 "Spell/&ChaosBoltTitle", "Feedback/&ChaosBoltGainLeap");
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
 
@@ -1266,15 +1266,15 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(ShadowDagger)
                     .SetEffectEffectParameters(ShadowDagger)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeIceBlade())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeIceBlade())
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectFinishedByMeIceBlade : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeIceBlade : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {
@@ -1439,15 +1439,15 @@ internal static partial class SpellBuilders
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class CustomBehaviorConditionElementalInfusion(ConditionDefinition conditionElementalInfusion) :
-        IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
+        IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action.ActionParams.activeEffect.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit
-                && action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
+                action.ActionParams.RulesetEffect.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit)
             {
                 attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionElementalInfusion.Name);
@@ -1548,7 +1548,9 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (!battleManager ||
-                helper != defender)
+                helper != defender ||
+                !helper.CanReact() ||
+                !helper.RulesetCharacter.AreSpellComponentsValid(spellDefinition))
             {
                 yield break;
             }
@@ -1556,20 +1558,15 @@ internal static partial class SpellBuilders
             var actualEffectForms =
                 attackMode?.EffectDescription.EffectForms ?? rulesetEffect?.EffectDescription.EffectForms ?? [];
 
-            yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
+            yield return HandleReaction(battleManager, attacker, helper, actualEffectForms);
         }
 
         private IEnumerator HandleReaction(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             IEnumerable<EffectForm> actualEffectForms)
         {
-            if (!defender.CanReact())
-            {
-                yield break;
-            }
-
             var attackDamageTypes = actualEffectForms
                 .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
                 .Select(x => x.DamageForm.DamageType)
@@ -1583,12 +1580,18 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
-            var slotLevel = rulesetDefender.GetLowestSlotLevelAndRepertoireToCastSpell(
+            var rulesetHelper = helper.RulesetCharacter;
+            var slotLevel = rulesetHelper.GetLowestSlotLevelAndRepertoireToCastSpell(
                 spellDefinition, out var spellRepertoire);
 
+            if (slotLevel < 1 ||
+                spellRepertoire == null)
+            {
+                yield break;
+            }
+
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
+            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.CastReaction)
             {
                 IntParameter = slotLevel, StringParameter = spellDefinition.Name, SpellRepertoire = spellRepertoire
             };
@@ -1605,24 +1608,22 @@ internal static partial class SpellBuilders
 
             var slotUsed = reactionParams.IntParameter;
 
-            spellRepertoire.SpendSpellSlot(slotUsed);
-            defender.SpendActionType(ActionDefinitions.ActionType.Reaction);
-            EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Caster);
-            EffectHelpers.StartVisualEffect(defender, defender, ShadowArmor, EffectHelpers.EffectType.Effect);
+            EffectHelpers.StartVisualEffect(helper, helper, ShadowArmor, EffectHelpers.EffectType.Caster);
+            EffectHelpers.StartVisualEffect(helper, helper, ShadowArmor, EffectHelpers.EffectType.Effect);
 
             foreach (var condition in resistanceDamageTypes
                          .Select(damageType =>
                              GetDefinition<ConditionDefinition>(
                                  $"Condition{spellDefinition.Name}{damageType.Substring(6)}Resistance")))
             {
-                rulesetDefender.InflictCondition(
+                rulesetHelper.InflictCondition(
                     condition.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
                     AttributeDefinitions.TagEffect,
-                    rulesetDefender.guid,
-                    rulesetDefender.CurrentFaction.Name,
+                    rulesetHelper.guid,
+                    rulesetHelper.CurrentFaction.Name,
                     1,
                     condition.Name,
                     slotUsed,
@@ -1785,8 +1786,7 @@ internal static partial class SpellBuilders
             .SetSilent(Silent.WhenAdded)
             .SetPossessive()
             .SetFeatures(damageAffinitySkinOfRetribution)
-            .SetTerminateWhenRemoved()
-            .AddCustomSubFeatures(new ActionFinishedByContenderSkinOfRetribution())
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedSkinOfRetribution())
             .CopyParticleReferences(PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
 
@@ -1807,8 +1807,8 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1823,33 +1823,41 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-    internal static void HandleSkinOfRetribution()
+    private sealed class OnConditionAddedOrRemovedSkinOfRetribution
+        : IOnConditionAddedOrRemoved, ICharacterTurnStartListener
     {
-        if (Gui.Battle == null)
+        // required to ensure the behavior will still work after loading a save
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            return;
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            rulesetCharacter.DamageReceived -= DamageReceivedHandler;
+            rulesetCharacter.DamageReceived += DamageReceivedHandler;
         }
 
-        foreach (var rulesetCharacter in Gui.Battle.AllContenders
-                     .Select(gameLocationCharacter => gameLocationCharacter.RulesetCharacter)
-                     .ToList())
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (rulesetCharacter.TemporaryHitPoints == 0 &&
-                rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, "ConditionSkinOfRetribution", out var activeCondition))
+            target.DamageReceived += DamageReceivedHandler;
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            target.DamageReceived -= DamageReceivedHandler;
+        }
+
+        private static void DamageReceivedHandler(
+            RulesetActor target,
+            int damage,
+            string damageType,
+            ulong sourceGuid,
+            RollInfo rollInfo)
+        {
+            if (target is RulesetCharacter rulesetCharacter &&
+                rulesetCharacter.TemporaryHitPoints <= damage)
             {
-                rulesetCharacter.RemoveCondition(activeCondition);
+                rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionSkinOfRetribution");
             }
-        }
-    }
-
-    private sealed class ActionFinishedByContenderSkinOfRetribution : IActionFinishedByContender
-    {
-        public IEnumerator OnActionFinishedByContender(CharacterAction characterAction, GameLocationCharacter target)
-        {
-            HandleSkinOfRetribution();
-
-            yield break;
         }
     }
 
@@ -1933,7 +1941,7 @@ internal static partial class SpellBuilders
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSanctuary))
                     .SetParticleEffectParameters(ProtectionFromEvilGood)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeSanctuary(conditionSanctuary))
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSanctuary(conditionSanctuary))
             .AddToDB();
 
         return spell;
@@ -1941,10 +1949,10 @@ internal static partial class SpellBuilders
 
     // store the caster Save DC on condition amount
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class MagicEffectFinishedByMeSanctuary(ConditionDefinition conditionSanctuary)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeSanctuary(ConditionDefinition conditionSanctuary)
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
             {

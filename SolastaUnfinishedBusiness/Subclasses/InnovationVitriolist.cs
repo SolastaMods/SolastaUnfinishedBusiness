@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -10,7 +11,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -56,20 +56,21 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .Build())
-            .AddCustomSubFeatures(HasModifiedUses.Marker)
             .AddToDB();
 
-        var powerUseModifierMixtureIntelligenceModifier = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifier{Name}MixtureIntelligenceModifier")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(powerMixture, PowerPoolBonusCalculationType.AttributeMod, AttributeDefinitions.Intelligence)
-            .AddToDB();
-
-        var powerUseModifierMixtureProficiencyBonus = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifier{Name}MixtureProficiencyBonus")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(powerMixture, PowerPoolBonusCalculationType.Attribute, AttributeDefinitions.ProficiencyBonus)
-            .AddToDB();
+        powerMixture.AddCustomSubFeatures(
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = powerMixture,
+                Type = PowerPoolBonusCalculationType.AttributeModifier,
+                Attribute = AttributeDefinitions.Intelligence
+            },
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = powerMixture,
+                Type = PowerPoolBonusCalculationType.Attribute,
+                Attribute = AttributeDefinitions.ProficiencyBonus
+            });
 
         // Corrosion
 
@@ -216,8 +217,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
         var featureSetMixture = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Mixture")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                powerMixture, powerUseModifierMixtureIntelligenceModifier, powerUseModifierMixtureProficiencyBonus)
+            .SetFeatureSet(powerMixture)
             .AddFeatureSet(mixturePowers)
             .AddToDB();
 
@@ -227,28 +227,17 @@ public sealed class InnovationVitriolist : AbstractSubclass
 
         // Vitriolic Infusion
 
-        var additionalDamageInfusion = FeatureDefinitionAdditionalDamageBuilder
+        // kept name for backward compatibility
+        var featureDamageInfusion = FeatureDefinitionBuilder
             .Create($"AdditionalDamage{Name}Infusion")
             .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("Infusion")
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-            .SetSpecificDamageType(DamageTypeAcid)
-            .AddCustomSubFeatures(new ValidateContextInsteadOfRestrictedProperty(
-                (_, _, _, _, _, mode, effect) =>
-                    (OperationType.Set,
-                        (mode != null && mode.EffectDescription.EffectForms.Any(x =>
-                            x.FormType == EffectForm.EffectFormType.Damage &&
-                            x.DamageForm.DamageType is DamageTypeAcid)) ||
-                        (effect != null && effect.EffectDescription.EffectForms.Any(x =>
-                            x.FormType == EffectForm.EffectFormType.Damage &&
-                            x.DamageForm.DamageType is DamageTypeAcid)))))
-            .SetImpactParticleReference(AcidSplash)
+            .AddCustomSubFeatures(new CustomBehaviorVitriolicInfusion())
             .AddToDB();
 
         var featureSetVitriolicInfusion = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Infusion")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(additionalDamageInfusion, DamageAffinityAcidResistance)
+            .AddFeatureSet(featureDamageInfusion, DamageAffinityAcidResistance)
             .AddToDB();
 
         // LEVEL 09
@@ -379,9 +368,9 @@ public sealed class InnovationVitriolist : AbstractSubclass
     //
 
     private sealed class CustomBehaviorRefundMixture(FeatureDefinitionPower powerMixture)
-        : IMagicEffectFinishedByMe
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
@@ -445,6 +434,146 @@ public sealed class InnovationVitriolist : AbstractSubclass
             {
                 features.Add(DamageAffinityAcidResistance);
             }
+        }
+    }
+
+    //
+    // Vitriolic Infusion
+    //
+
+    private sealed class CustomBehaviorVitriolicInfusion
+        : IMagicEffectInitiatedByMe, IPhysicalAttackInitiatedByMe, IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe
+    {
+        private readonly HashSet<GameLocationCharacter> _isValid = [];
+
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            foreach (var target in targets)
+            {
+                target.RulesetActor.DamageReceived -= DamageReceivedHandler;
+
+                if (_isValid.Contains(target))
+                {
+                    InflictDamage(attacker, target);
+                }
+            }
+
+            _isValid.Clear();
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(
+            CharacterActionMagicEffect action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            foreach (var target in targets)
+            {
+                target.RulesetActor.DamageReceived += DamageReceivedHandler;
+            }
+
+            _isValid.Clear();
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            defender.RulesetActor.DamageReceived += DamageReceivedHandler;
+
+            if (_isValid.Contains(defender))
+            {
+                InflictDamage(attacker, defender);
+            }
+
+            _isValid.Clear();
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            defender.RulesetActor.DamageReceived += DamageReceivedHandler;
+
+            _isValid.Clear();
+
+            yield break;
+        }
+
+        private void DamageReceivedHandler(
+            RulesetActor rulesetDefender,
+            int damage,
+            string receivedDamageType,
+            ulong sourceGuid,
+            RollInfo rollInfo)
+        {
+            if (receivedDamageType != DamageTypeAcid)
+            {
+                return;
+            }
+
+            var glc = GameLocationCharacter.GetFromActor(rulesetDefender);
+
+            if (glc != null)
+            {
+                _isValid.Add(glc);
+            }
+        }
+
+        private static void InflictDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
+            var pb = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var rolls = new List<int>();
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypeAcid, DieType = DieType.D20, DiceNumber = 0, BonusDamage = pb
+            };
+            var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetDefender,
+                position = defender.LocationPosition
+            };
+
+            rulesetAttacker.LogCharacterActivatesAbility(string.Empty, "Feedback/&AdditionalDamageInfusionLine");
+            EffectHelpers.StartVisualEffect(attacker, defender, AcidSplash);
+            RulesetActor.InflictDamage(
+                damageRoll,
+                damageForm,
+                damageForm.DamageType,
+                applyFormsParams,
+                rulesetDefender,
+                false,
+                rulesetAttacker.Guid,
+                false,
+                [],
+                new RollInfo(damageForm.DieType, rolls, damageForm.BonusDamage),
+                false,
+                out _);
         }
     }
 }

@@ -150,7 +150,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
         powerSpiritGuardiansRageCost.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new MagicEffectFinishedByMeAnySpiritWalker(powerSpiritGuardians, powerSpiritGuardiansRageCost));
+            new MagicEffectFinishedByMeSpiritWalker(powerSpiritGuardians, powerSpiritGuardiansRageCost));
 
         #endregion
 
@@ -435,11 +435,11 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         return powerHonedAnimalAspectsWolf;
     }
 
-    private sealed class MagicEffectFinishedByMeAnySpiritWalker(
+    private sealed class MagicEffectFinishedByMeSpiritWalker(
         FeatureDefinitionPower powerLongRest,
-        FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMeAny
+        FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

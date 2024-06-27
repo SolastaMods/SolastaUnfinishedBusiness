@@ -8,13 +8,23 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Subclasses.SorcerousFieldManipulator;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
 [UsedImplicitly]
 public static class CursorLocationSelectTargetPatcher
 {
+    private static bool TryGetModifyTeleportEffectBehavior(
+        CharacterActionParams actionParams, out IModifyTeleportEffectBehavior modifyTeleportEffectBehavior)
+    {
+        var rulesetEffect = actionParams?.RulesetEffect;
+        var source = rulesetEffect?.SourceDefinition;
+
+        modifyTeleportEffectBehavior = source?.GetFirstSubFeatureOfType<IModifyTeleportEffectBehavior>();
+
+        return modifyTeleportEffectBehavior != null;
+    }
+
     [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.IsFilteringValid))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -94,6 +104,7 @@ public static class CursorLocationSelectTargetPatcher
         }
     }
 
+    //PATCH: supports `IModifyTeleportEffectBehavior`
     [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.Activate))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -102,19 +113,38 @@ public static class CursorLocationSelectTargetPatcher
         [UsedImplicitly]
         public static void Prefix(params object[] parameters)
         {
-            //PATCH: allows Sorcerous Field Manipulator displacement to select any character
             if (parameters.Length <= 0 ||
-                parameters[0] is not CharacterActionParams { RulesetEffect: RulesetEffectPower rulesetEffectPower } ||
-                rulesetEffectPower.PowerDefinition != PowerSorcerousFieldManipulatorDisplacement)
+                parameters[0] is not CharacterActionParams actionParams)
             {
                 return;
             }
 
-            // allows any target to be selected as well as automatically presents a better UI description
-            rulesetEffectPower.EffectDescription.inviteOptionalAlly = false;
+            if (!TryGetModifyTeleportEffectBehavior(actionParams, out var modifyTeleportEffectBehavior))
+            {
+                return;
+            }
+
+            var rulesetEffect = actionParams.RulesetEffect;
+
+            rulesetEffect.EffectDescription.TargetType = TargetType.IndividualsUnique;
+            rulesetEffect.EffectDescription.inviteOptionalAlly = modifyTeleportEffectBehavior.AllyOnly;
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(CursorLocationSelectTarget __instance)
+        {
+            if (!TryGetModifyTeleportEffectBehavior(__instance.ActionParams, out var modifyTeleportEffectBehavior))
+            {
+                return;
+            }
+
+            __instance.maxTargets = modifyTeleportEffectBehavior.MaxTargets;
+            __instance.remainingTargets = __instance.maxTargets;
+            __instance.RefreshCaption();
         }
     }
 
+    //PATCH: supports `IModifyTeleportEffectBehavior`
     [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.Deactivate))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -123,15 +153,15 @@ public static class CursorLocationSelectTargetPatcher
         [UsedImplicitly]
         public static void Prefix(CursorLocationSelectTarget __instance)
         {
-            //PATCH: allows Sorcerous Field Manipulator displacement to select any character
-            if (__instance.actionParams is not { RulesetEffect: RulesetEffectPower rulesetEffectPower } ||
-                rulesetEffectPower.PowerDefinition != PowerSorcerousFieldManipulatorDisplacement)
+            if (!TryGetModifyTeleportEffectBehavior(__instance.ActionParams, out _))
             {
                 return;
             }
 
-            // brings back power effect to its original definition
-            rulesetEffectPower.EffectDescription.inviteOptionalAlly = true;
+            var rulesetEffect = __instance.ActionParams.RulesetEffect;
+
+            rulesetEffect.EffectDescription.TargetType = TargetType.Position;
+            rulesetEffect.EffectDescription.inviteOptionalAlly = true;
         }
     }
 

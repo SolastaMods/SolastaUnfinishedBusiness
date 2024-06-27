@@ -12,35 +12,29 @@ public class ModifyPowerPoolAmount : IModifyPowerPoolAmount
 
     public int PoolChangeAmount(RulesetCharacter character)
     {
-        // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
-        switch (Type)
+        return Type switch
         {
-            case PowerPoolBonusCalculationType.Fixed:
-                return Value;
-            case PowerPoolBonusCalculationType.CharacterLevel:
-                return Value * character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-            case PowerPoolBonusCalculationType.ClassLevel:
-                var classLevel = character.GetClassLevel(Attribute);
-                return Value * classLevel;
-            case PowerPoolBonusCalculationType.Attribute:
-                return Value * character.TryGetAttributeValue(Attribute);
-            case PowerPoolBonusCalculationType.AttributeMod:
-                var attribute = character.TryGetAttributeValue(Attribute);
-                return Value * AttributeDefinitions.ComputeAbilityScoreModifier(attribute);
-        }
-
-        return Value;
+            PowerPoolBonusCalculationType.Fixed => Value,
+            PowerPoolBonusCalculationType.CharacterLevel =>
+                Value * character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel),
+            PowerPoolBonusCalculationType.ClassLevel =>
+                Value * character.GetClassLevel(Attribute),
+            PowerPoolBonusCalculationType.Attribute =>
+                Value * character.TryGetAttributeValue(Attribute),
+            PowerPoolBonusCalculationType.AttributeModifier =>
+                Value * AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(Attribute)),
+            PowerPoolBonusCalculationType.ConditionAmount =>
+                Value * (character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, Attribute, out var activeCondition)
+                    ? activeCondition.Amount
+                    : 0),
+            _ => Value
+        };
     }
 }
 
-internal class HasModifiedUses
-{
-    private HasModifiedUses()
-    {
-    }
-
-    public static HasModifiedUses Marker { get; } = new();
-}
+// required for short rest integration
+internal interface IHasModifiedUses;
 
 public enum PowerPoolBonusCalculationType
 {
@@ -48,5 +42,6 @@ public enum PowerPoolBonusCalculationType
     CharacterLevel,
     ClassLevel,
     Attribute,
-    AttributeMod
+    AttributeModifier,
+    ConditionAmount
 }

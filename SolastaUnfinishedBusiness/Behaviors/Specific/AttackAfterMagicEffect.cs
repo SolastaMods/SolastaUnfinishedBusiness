@@ -45,17 +45,30 @@ internal sealed class AttackAfterMagicEffect : IFilterTargetingCharacter
             return;
         }
 
+        // this is required with replace cantrip scenarios
         character.UsedMainCantrip = true;
+
+        var isReplaceAttackWithCantrip = attackTags.Contains(ReplaceAttackCantrip);
 
         if (attackTags.Contains(QuickenedAttackCantrip))
         {
             character.UsedMainSpell = true;
             character.SpendActionType(ActionDefinitions.ActionType.Bonus);
         }
-        else if (!attackTags.Contains(ReplaceAttackCantrip))
+        else if (!isReplaceAttackWithCantrip)
         {
             character.SpendActionType(ActionDefinitions.ActionType.Main);
         }
+
+        if (isReplaceAttackWithCantrip)
+        {
+            return;
+        }
+
+        // by now Followup Strike or Polearm already triggered. below fixes stats so bonus attack isn't offered
+        character.HasAttackedSinceLastTurn = false;
+        character.RulesetCharacter.ExecutedAttacks--;
+        character.RulesetCharacter.RefreshAttackModes();
     }
 
     internal static bool CanAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)

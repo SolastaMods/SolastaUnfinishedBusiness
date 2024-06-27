@@ -162,11 +162,11 @@ public class PatronEldritchSurge : AbstractSubclass
                && rulesetEffectSpell.SpellDefinition == EldritchBlast;
     }
 
-    private class VersatilitySwitchCustom(string replacedAbilityScore) : IMagicEffectFinishedByMe
+    private class VersatilitySwitchCustom(string replacedAbilityScore) : IPowerOrSpellFinishedByMe
     {
         private string ReplacedAbilityScore { get; } = replacedAbilityScore;
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
@@ -261,7 +261,7 @@ public class PatronEldritchSurge : AbstractSubclass
     }
 
     private sealed class BlastReloadCustom :
-        IMagicEffectFinishedByMeAny, ICharacterTurnStartListener, IQualifySpellToRepertoireLine
+        IMagicEffectFinishedByMe, ICharacterTurnStartListener, IQualifySpellToRepertoireLine
     {
         public void OnCharacterTurnStarted(GameLocationCharacter gameLocationCharacter)
         {
@@ -283,7 +283,7 @@ public class PatronEldritchSurge : AbstractSubclass
             supportCondition.CantripsUsedThisTurn.Clear();
         }
 
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

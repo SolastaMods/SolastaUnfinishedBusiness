@@ -772,14 +772,17 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyPool")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(HasModifiedUses.Marker, IsModifyPowerPool.Marker, ModifyPowerVisibility.Hidden)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 3)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 0)
             .AddToDB();
 
-        power.AddCustomSubFeatures(new ModifyPowerPoolAmount
-        {
-            PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = InventorClass.ClassName
-        });
+        power.AddCustomSubFeatures(
+            new ModifyPowerPoolAmount
+            {
+                PowerPool = power,
+                Type = PowerPoolBonusCalculationType.ClassLevel,
+                Attribute = InventorClass.ClassName
+            });
         return power;
     }
 
@@ -840,9 +843,9 @@ public sealed class InnovationAlchemy : AbstractSubclass
     }
 
     private sealed class CustomBehaviorRefundAlchemyPool(FeatureDefinitionPower powerAlchemyPool, int slotLevel)
-        : IValidatePowerUse, IMagicEffectFinishedByMe
+        : IValidatePowerUse, IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);

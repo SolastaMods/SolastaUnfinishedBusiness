@@ -917,9 +917,9 @@ internal static class EldritchVersatilityBuilders
         }
     }
 
-    private sealed class BattlefieldConversionRestoreSlot : IMagicEffectFinishedByMe, IValidatePowerUse
+    private sealed class BattlefieldConversionRestoreSlot : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var gameLocationCharacter = action.ActingCharacter;
             var featureOwner = gameLocationCharacter.RulesetCharacter;

@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -147,8 +146,6 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Irrelevant, 1,
-                        (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Individuals)
                     .UseQuickAnimations()
                     .SetEffectForms(
@@ -213,15 +210,15 @@ public sealed class PathOfTheBattlerager : AbstractSubclass
 
     private class ActionFinishedByMeRecklessAbandon : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            var character = characterAction.ActingCharacter;
-            var rulesetCharacter = character.RulesetCharacter;
-
-            if (characterAction.ActionId != Id.RecklessAttack)
+            if (action is not CharacterActionRecklessAttack)
             {
                 yield break;
             }
+
+            var character = action.ActingCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
 
             if (!rulesetCharacter.HasConditionOfTypeOrSubType(ConditionRaging))
             {

@@ -14,12 +14,343 @@ using SolastaUnfinishedBusiness.Interfaces;
 using TA;
 using UnityEngine;
 using static RuleDefinitions;
+using Coroutine = TA.Coroutine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
 [UsedImplicitly]
 public static class CharacterActionMagicEffectPatcher
 {
+    [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.MagicEffectExecuteOnPositions))]
+    [UsedImplicitly]
+    public static class MagicEffectExecuteOnPositions_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            out IEnumerator __result,
+            CharacterActionMagicEffect __instance,
+            List<int3> positions,
+            Vector3 castingPoint,
+            Vector3 impactPoint,
+            Vector3 impactPlanePoint)
+        {
+            __result = MagicEffectExecuteOnPositions(
+                __instance, positions, castingPoint, impactPoint, impactPlanePoint);
+
+            return false;
+        }
+
+        private static IEnumerator MagicEffectExecuteOnPositions(
+            CharacterActionMagicEffect actionMagicEffect,
+            List<int3> positions,
+            Vector3 castingPoint,
+            Vector3 impactPoint,
+            Vector3 impactPlanePoint)
+        {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var service = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var rulesetActiveEffect = actionMagicEffect.ActionParams.RulesetEffect;
+            var effectDescription = rulesetActiveEffect.EffectDescription;
+
+            //BEGIN PATCH
+            var source = rulesetActiveEffect.SourceDefinition;
+            var modifyTeleportEffectBehavior = source.GetFirstSubFeatureOfType<IModifyTeleportEffectBehavior>();
+            //END PATCH
+
+            if (effectDescription.InviteOptionalAlly &&
+                actionMagicEffect.ActionParams.TargetCharacters != null &&
+                !actionMagicEffect.ActionParams.TargetCharacters.Empty())
+            {
+                var occupiedPositions = new List<int3>();
+                var foundPositions = new Dictionary<GameLocationCharacter, int3>();
+
+                occupiedPositions.Add(positions[0]);
+
+                //BEGIN PATCH
+#if false
+                var coroutine = new Coroutine();
+                var locationPosition = actionMagicEffect.ActionParams.TargetCharacters[0].LocationPosition;
+
+                actionMagicEffect.ActionParams.TargetCharacters[0].LocationPosition = positions[0];
+
+                service.ComputeUnstackedPlacementPositionsForCharacter(
+                    actionMagicEffect.ActionParams.TargetCharacters[0], coroutine,
+                    ServiceRepository.GetService<IGameLocationPathfindingService>(), occupiedPositions, foundPositions);
+
+                positions.Add(foundPositions.Count > 0
+                    ? foundPositions[actionMagicEffect.ActionParams.TargetCharacters[0]]
+                    : positions[0]);
+
+                actionMagicEffect.ActionParams.TargetCharacters[0].LocationPosition = locationPosition;
+#endif
+                if (modifyTeleportEffectBehavior != null &&
+                    rulesetActiveEffect.EffectDescription.HasSavingThrow)
+                {
+                    var attacker = actionMagicEffect.ActingCharacter;
+                    var actionParams = actionMagicEffect.ActionParams;
+                    var currentTargets = actionParams.TargetCharacters.ToList();
+
+                    for (var i = 0; i < currentTargets.Count; i++)
+                    {
+                        var currentTarget = currentTargets[i];
+                        var actionModifier = actionParams.ActionModifiers[i];
+
+                        if (!currentTarget.IsOppositeSide(attacker.Side))
+                        {
+                            continue;
+                        }
+
+                        rulesetActiveEffect.TryRollSavingThrow(
+                            attacker.RulesetCharacter,
+                            attacker.Side,
+                            currentTarget.RulesetActor,
+                            actionModifier, actionMagicEffect.ActionParams.RulesetEffect.EffectDescription.EffectForms,
+                            true,
+                            out var saveOutcome, out _);
+
+                        if (saveOutcome is RollOutcome.Success)
+                        {
+                            actionParams.TargetCharacters.Remove(currentTarget);
+                        }
+                    }
+                }
+
+                foreach (var target in actionMagicEffect.ActionParams.TargetCharacters)
+                {
+                    var coroutine = new Coroutine();
+                    var locationPosition = target.LocationPosition;
+
+                    target.LocationPosition = positions[0];
+
+                    service.ComputeUnstackedPlacementPositionsForCharacter(
+                        target, coroutine,
+                        ServiceRepository.GetService<IGameLocationPathfindingService>(), occupiedPositions,
+                        foundPositions);
+
+                    positions.Add(foundPositions.Count > 0
+                        ? foundPositions[target]
+                        : positions[0]);
+
+                    target.LocationPosition = locationPosition;
+                }
+
+                if (modifyTeleportEffectBehavior is { TeleportSelf: false })
+                {
+                    for (var i = positions.Count - 1; i > 0; i--)
+                    {
+                        positions[i] = positions[i - 1];
+                    }
+                }
+
+                //END PATCH
+            }
+
+            actionMagicEffect.impactPositionPoints.Clear();
+
+            foreach (var position in positions)
+            {
+                actionMagicEffect.impactPositionPoints.Add(service.GetWorldPositionFromGridPosition(position));
+            }
+
+            ActionDefinitions.MagicEffectCastData magicEffectCastData1;
+
+            if (actionMagicEffect.ShowCasting)
+            {
+                if (positions.Count > 0 && actionMagicEffect.ActingCharacter.LocationPosition != positions[0])
+                {
+                    actionMagicEffect.ActingCharacter.TurnTowards(actionMagicEffect.impactPositionPoints[0], false);
+
+                    yield return actionMagicEffect.ActingCharacter.EventSystem.UpdateMotionsAndWaitForEvent(
+                        GameLocationCharacterEventSystem.Event.RotationEnd);
+                }
+
+                var magicEffectCastData2 = new ActionDefinitions.MagicEffectCastData
+                {
+                    Source = rulesetActiveEffect.Name,
+                    EffectDescription = effectDescription,
+                    Caster = actionMagicEffect.ActingCharacter,
+                    Targets = effectDescription.InviteOptionalAlly
+                        ? actionMagicEffect.ActionParams.TargetCharacters
+                        : null,
+                    TargetIndex = 0,
+                    ActionType = actionMagicEffect.ActionType,
+                    ActionId = actionMagicEffect.ActionId,
+                    ImpactPoint = impactPoint,
+                    ComputedTargetParameter = actionMagicEffect.computedTargetParameter,
+                    Subtle = rulesetActiveEffect.MetamagicOption &&
+                             rulesetActiveEffect.MetamagicOption.Type == MetamagicType.SubtleSpell
+                };
+                var magicEffectCastData3 = magicEffectCastData2;
+
+                actionMagicEffect.ActingCharacter.Cast(ref magicEffectCastData3);
+                actionMagicEffect.needToWaitCastAnimation = true;
+
+                if (actionMagicEffect.ShowVFX && actionService.MagicEffectPreparing != null)
+                {
+                    actionService.MagicEffectPreparing(ref magicEffectCastData3);
+                }
+
+                for (var index = 0; index < actionMagicEffect.ActionParams.Positions.Count; ++index)
+                {
+                    if (!actionMagicEffect.ShowVFX ||
+                        actionService.MagicEffectPreparingOnTarget == null)
+                    {
+                        continue;
+                    }
+
+                    magicEffectCastData2 = new ActionDefinitions.MagicEffectCastData
+                    {
+                        Source = rulesetActiveEffect.Name,
+                        EffectDescription = effectDescription,
+                        Caster = actionMagicEffect.ActingCharacter,
+                        ImpactPoint = actionMagicEffect.impactPositionPoints[index],
+                        ImpactRotation = Quaternion.identity,
+                        ActionType = actionMagicEffect.ActionType,
+                        ActionId = actionMagicEffect.ActionId,
+                        ComputedTargetParameter = actionMagicEffect.computedTargetParameter
+                    };
+
+                    var data = magicEffectCastData2;
+
+                    actionService.MagicEffectPreparingOnTarget(ref data);
+                }
+
+                yield return actionMagicEffect.ActingCharacter.EventSystem.WaitForEvent(
+                    GameLocationCharacterEventSystem.Event.MagicEffectLaunchPoint);
+
+                if (!IsTargeted(effectDescription.TargetType) && actionMagicEffect.ShowVFX)
+                {
+                    var impactTime = actionMagicEffect.GetImpactTime(effectDescription, castingPoint, impactPoint);
+
+                    magicEffectCastData1 = new ActionDefinitions.MagicEffectCastData
+                    {
+                        Source = rulesetActiveEffect.Name,
+                        EffectDescription = effectDescription,
+                        Caster = actionMagicEffect.ActingCharacter,
+                        ImpactPoint = impactPoint,
+                        ImpactPlanePoint = impactPlanePoint,
+                        ImpactTime = impactTime,
+                        ActionType = actionMagicEffect.ActionType,
+                        ActionId = actionMagicEffect.ActionId,
+                        ComputedTargetParameter = actionMagicEffect.computedTargetParameter
+                    };
+
+                    var data1 = magicEffectCastData1;
+                    var magicEffectLaunch = actionService.MagicEffectLaunch;
+
+                    magicEffectLaunch?.Invoke(ref data1);
+
+                    if (impactTime.IsReallySuperior(0.0f))
+                    {
+                        yield return Coroutine.WaitForSeconds(impactTime);
+                    }
+
+                    magicEffectCastData1 = new ActionDefinitions.MagicEffectCastData
+                    {
+                        Source = rulesetActiveEffect.Name,
+                        EffectDescription = effectDescription,
+                        Caster = actionMagicEffect.ActingCharacter,
+                        ImpactPoint = impactPoint,
+                        ImpactPlanePoint = impactPlanePoint,
+                        ImpactTime = impactTime,
+                        ActionType = actionMagicEffect.ActionType,
+                        ActionId = actionMagicEffect.ActionId,
+                        ComputedTargetParameter = actionMagicEffect.computedTargetParameter
+                    };
+
+                    var data2 = magicEffectCastData1;
+                    var effectCastOnZone = actionService.MagicEffectCastOnZone;
+
+                    effectCastOnZone?.Invoke(ref data2);
+                }
+            }
+
+            actionMagicEffect.ForceApplyConditionOrLightOnSelf();
+
+            for (var index = 0; index < actionMagicEffect.ActionParams.Positions.Count; ++index)
+            {
+                var position = actionMagicEffect.ActionParams.Positions[index];
+
+                if (actionMagicEffect.IsPositionAffectedBySpellImmunity(position,
+                        actionMagicEffect.ActingCharacter.LocationPosition))
+                {
+                    continue;
+                }
+
+                if (actionMagicEffect.ShowVFX &&
+                    effectDescription.TargetType != TargetType.WallLine &&
+                    //BEGIN PATCH
+                    modifyTeleportEffectBehavior is not { TeleportSelf: false })
+                    //END PATCH
+                {
+                    magicEffectCastData1 = new ActionDefinitions.MagicEffectCastData
+                    {
+                        Source = rulesetActiveEffect.Name,
+                        EffectDescription = effectDescription,
+                        Caster = actionMagicEffect.ActingCharacter,
+                        ImpactPoint = actionMagicEffect.impactPositionPoints[index],
+                        ImpactRotation = Quaternion.identity,
+                        ImpactPlanePoint = actionMagicEffect.impactPositionPoints[index],
+                        ActionType = actionMagicEffect.ActionType,
+                        ActionId = actionMagicEffect.ActionId,
+                        IsDivertHit = false,
+                        ComputedTargetParameter = actionMagicEffect.computedTargetParameter
+                    };
+                    var data = magicEffectCastData1;
+
+                    actionService.MagicEffectBeforeHitTarget(ref data);
+                }
+
+                //BEGIN PATCH: changed index == 1 to index >= 1
+                if (effectDescription.InviteOptionalAlly && index >= 1 &&
+                    actionMagicEffect.ActionParams.TargetCharacters != null &&
+                    !actionMagicEffect.ActionParams.TargetCharacters.Empty())
+                {
+                    actionMagicEffect.ApplyMagicEffect(position,
+                        actionMagicEffect.ActionParams.TargetCharacters[index - 1]);
+                }
+                //BEGIN PATCH: added this IF check
+                else if (modifyTeleportEffectBehavior is not { TeleportSelf: false })
+                {
+                    actionMagicEffect.ApplyMagicEffect(position, null);
+                }
+
+                // ReSharper disable once InvertIf
+                if (actionMagicEffect.ShowVFX &&
+                    effectDescription.TargetType != TargetType.WallLine)
+                {
+                    magicEffectCastData1 = new ActionDefinitions.MagicEffectCastData
+                    {
+                        Source = rulesetActiveEffect.Name,
+                        EffectDescription = effectDescription,
+                        Caster = actionMagicEffect.ActingCharacter,
+                        ImpactPoint = actionMagicEffect.impactPositionPoints[index],
+                        ImpactRotation = Quaternion.identity,
+                        ImpactPlanePoint = actionMagicEffect.impactPositionPoints[index],
+                        ActionType = actionMagicEffect.ActionType,
+                        ActionId = actionMagicEffect.ActionId,
+                        IsDivertHit = false,
+                        ComputedTargetParameter = actionMagicEffect.computedTargetParameter
+                    };
+
+                    var data = magicEffectCastData1;
+                    var magicEffectHitTarget = actionService.MagicEffectHitTarget;
+
+                    magicEffectHitTarget?.Invoke(ref data);
+
+                    // ReSharper disable once InvertIf
+                    if (actionMagicEffect.ShowCasting && positions.Count > 0 &&
+                        actionMagicEffect.ActingCharacter.LocationPosition != positions[0])
+                    {
+                        actionMagicEffect.ActingCharacter.TurnTowards(actionMagicEffect.impactPositionPoints[0]);
+                        yield return actionMagicEffect.ActingCharacter.EventSystem.UpdateMotionsAndWaitForEvent(
+                            GameLocationCharacterEventSystem.Event.RotationEnd);
+                    }
+                }
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ExecuteImpl))]
     [UsedImplicitly]
     public static class ExecuteImpl_Patch
@@ -85,12 +416,23 @@ public static class CharacterActionMagicEffectPatcher
                 actionParams.ActionModifiers.Insert(0, actionParams.ActionModifiers[0]);
             }
 
-            //PATCH: supports `IMagicEffectInitiatedByMe`
-            var magicEffectInitiatedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectInitiatedByMe>();
+            //PATCH: supports `IPowerOrSpellInitiatedByMe`
+            var powerOrSpellInitiatedByMe = baseDefinition.GetFirstSubFeatureOfType<IPowerOrSpellInitiatedByMe>();
 
-            if (magicEffectInitiatedByMe != null)
+            if (powerOrSpellInitiatedByMe != null)
             {
-                yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(__instance, baseDefinition);
+                yield return powerOrSpellInitiatedByMe.OnPowerOrSpellInitiatedByMe(__instance, baseDefinition);
+            }
+
+            //PATCH: supports `IMagicEffectAttackInitiatedByMe`
+            foreach (var magicEffectInitiatedByMe in actingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicEffectInitiatedByMe>())
+            {
+                yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(
+                    __instance,
+                    rulesetEffect,
+                    actingCharacter,
+                    targets);
             }
 
             // END PATCH
@@ -120,7 +462,8 @@ public static class CharacterActionMagicEffectPatcher
             __instance.showCasting = !actionParams.SkipAnimationsAndVFX;
             __instance.needToWaitCastAnimation = false;
 
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (!battleManager)
             {
@@ -200,7 +543,8 @@ public static class CharacterActionMagicEffectPatcher
                 ref origin,
                 ref direction);
 
-            if (effectDescription.TargetType == TargetType.Cube && effectDescription.RangeType == RangeType.Distance)
+            if (effectDescription.TargetType == TargetType.Cube &&
+                effectDescription.RangeType == RangeType.Distance)
             {
                 var offset = new Vector3();
                 var edgeSize = actionParams.RulesetEffect.EffectDescription.TargetParameter;
@@ -383,7 +727,8 @@ public static class CharacterActionMagicEffectPatcher
                              target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              !target.Prone))
                 {
-                    if (!__instance.isResultingActionSpendPowerWithMotionForm && !target.RulesetCharacter.IsDeadOrDying)
+                    if (!__instance.isResultingActionSpendPowerWithMotionForm &&
+                        !target.RulesetCharacter.IsDeadOrDying)
                     {
                         yield return target.WaitForHitAnimation();
                     }
@@ -403,13 +748,13 @@ public static class CharacterActionMagicEffectPatcher
 
                 // Handle specific reactions after the attack has been executed
                 yield return battleManager.HandleCharacterAttackFinished(
-                    __instance, actingCharacter, target, null, actionParams.RulesetEffect, __instance.AttackRollOutcome,
+                    __instance, actingCharacter, target, null, actionParams.RulesetEffect,
+                    __instance.AttackRollOutcome,
                     damageReceived);
 
                 // BEGIN PATCH
 
-                if (actionParams.RulesetEffect.EffectDescription.RangeType is not
-                    (RangeType.MeleeHit or RangeType.RangeHit))
+                if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
                 {
                     continue;
                 }
@@ -520,12 +865,56 @@ public static class CharacterActionMagicEffectPatcher
 
             // BEGIN PATCH
 
-            //PATCH: supports `IMagicEffectFinishedByMe`
-            var magicEffectFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectFinishedByMe>();
+            //PATCH: supports `IPowerOrSpellFinishedByMe`
+            var powerOrSpellFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IPowerOrSpellFinishedByMe>();
 
-            if (magicEffectFinishedByMe != null)
+            if (powerOrSpellFinishedByMe != null)
             {
-                yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
+                yield return powerOrSpellFinishedByMe.OnPowerOrSpellFinishedByMe(__instance, baseDefinition);
+            }
+
+            //PATCH: support for `IMagicEffectFinishedByMeAny`
+            foreach (var magicEffectFinishedByMe in actingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicEffectFinishedByMe>())
+            {
+                yield return
+                    magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, actingCharacter, targets);
+            }
+
+            //PATCH: support for `IMagicEffectFinishedOnMeAny`
+            foreach (var target in targets)
+            {
+                var rulesetTarget = target.RulesetCharacter;
+
+                if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
+                {
+                    continue;
+                }
+
+                foreach (var magicEffectFinishedOnMe in rulesetTarget
+                             .GetSubFeaturesByType<IMagicEffectFinishedOnMe>())
+                {
+                    yield return magicEffectFinishedOnMe.OnMagicEffectFinishedOnMe(
+                        __instance, actingCharacter, target, targets);
+                }
+            }
+
+            //PATCH: support for `IMagicEffectFinishedByMeOrAlly`
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
+
+            foreach (var ally in contenders
+                         .Where(x => x.Side == actingCharacter.Side
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                         .ToList())
+            {
+                foreach (var magicEffectFinishedByMeOrAlly in ally.RulesetCharacter
+                             .GetSubFeaturesByType<IMagicEffectFinishedByMeOrAlly>())
+                {
+                    yield return magicEffectFinishedByMeOrAlly
+                        .OnMagicEffectFinishedByMeOrAlly(__instance, actingCharacter, ally, targets);
+                }
             }
 
             //PATCH: supports `AttackAfterMagicEffect`
@@ -588,12 +977,18 @@ public static class CharacterActionMagicEffectPatcher
             bool firstTarget,
             bool checkMagicalAttackDamage)
         {
+            // BEGIN PATCH
+
+            //BUGFIX: avoid effect proxies interacting with each other
             if (target.RulesetCharacter is RulesetCharacterEffectProxy)
             {
                 yield break;
             }
 
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            // END PATCH
+
+            var battleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (!battleManager)
             {
@@ -601,6 +996,8 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             var actingCharacter = __instance.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetActor;
+            var rulesetTarget = target.RulesetActor;
             var effectDescription = rulesetEffect.EffectDescription;
 
             __instance.AttackRollOutcome = RollOutcome.Success;
@@ -608,59 +1005,30 @@ public static class CharacterActionMagicEffectPatcher
             var needToRollDie = effectDescription.NeedsToRollDie();
             var hasSavingThrowAnimation = !effectDescription.HideSavingThrowAnimation && !needToRollDie;
 
+            // BEGIN PATCH
+
+            //PATCH: supports `IMagicalAttackInitiatedOnMe`
+            foreach (var magicEffectInitiatedOnMe in rulesetTarget
+                         .GetSubFeaturesByType<IMagicEffectAttackInitiatedOnMe>())
+            {
+                yield return magicEffectInitiatedOnMe.OnMagicEffectAttackInitiatedOnMe(
+                    __instance,
+                    rulesetEffect,
+                    actingCharacter,
+                    target,
+                    attackModifier,
+                    firstTarget,
+                    checkMagicalAttackDamage);
+            }
+
+            // END PATCH
+
             if (needToRollDie)
             {
-                //PATCH: supports `IMagicalAttackInitiatedOnMe`
-                foreach (var magicEffectInitiatedOnMe in target.RulesetActor
-                             .GetSubFeaturesByType<IMagicEffectAttackInitiatedOnMe>())
-                {
-                    yield return magicEffectInitiatedOnMe.OnMagicEffectAttackInitiatedOnMe(
-                        __instance,
-                        rulesetEffect,
-                        target,
-                        attackModifier,
-                        actualEffectForms,
-                        firstTarget,
-                        checkMagicalAttackDamage);
-                }
-
-                //PATCH: supports `IMagicEffectAttackInitiatedByMe`
-                foreach (var magicEffectInitiatedByMe in actingCharacter.RulesetActor
-                             .GetSubFeaturesByType<IMagicEffectAttackInitiatedByMe>())
-                {
-                    yield return magicEffectInitiatedByMe.OnMagicEffectAttackInitiatedByMe(
-                        __instance,
-                        rulesetEffect,
-                        actingCharacter,
-                        target,
-                        attackModifier,
-                        actualEffectForms,
-                        firstTarget,
-                        checkMagicalAttackDamage);
-                }
-
-                if (rulesetEffect is { SourceDefinition: SpellDefinition spellDefinition })
-                {
-                    var magicEffectInitiatedByMe =
-                        spellDefinition.GetFirstSubFeatureOfType<IMagicEffectAttackInitiatedByMe>();
-
-                    yield return magicEffectInitiatedByMe?.OnMagicEffectAttackInitiatedByMe(
-                        __instance,
-                        rulesetEffect,
-                        actingCharacter,
-                        target,
-                        attackModifier,
-                        actualEffectForms,
-                        firstTarget,
-                        checkMagicalAttackDamage);
-                }
-
-                // END PATCH
-
                 // Roll dice + handle target reaction
                 __instance.AttackRoll = actingCharacter.RulesetCharacter.RollMagicAttack(
                     rulesetEffect,
-                    target.RulesetActor,
+                    rulesetTarget,
                     rulesetEffect.GetEffectSource(),
                     attackModifier.AttacktoHitTrends,
                     attackModifier.AttackAdvantageTrends,
@@ -695,7 +1063,8 @@ public static class CharacterActionMagicEffectPatcher
 
                 //PATCH: support for `ITryAlterOutcomeAttack`
                 foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack.HandlerNegativePriority(
-                             battleManager, __instance, actingCharacter, target, attackModifier, null, rulesetEffect))
+                             battleManager, __instance, actingCharacter, target, attackModifier, null,
+                             rulesetEffect))
                 {
                     yield return tryAlterOutcomeAttack;
                 }
@@ -731,7 +1100,7 @@ public static class CharacterActionMagicEffectPatcher
                     // Execute the final step of the attack
                     actingCharacter.RulesetCharacter.RollMagicAttack(
                         rulesetEffect,
-                        target.RulesetActor,
+                        rulesetTarget,
                         rulesetEffect.GetEffectSource(),
                         attackModifier.AttacktoHitTrends,
                         attackModifier.AttackAdvantageTrends,
@@ -744,15 +1113,13 @@ public static class CharacterActionMagicEffectPatcher
                     __instance.AttackRollOutcome = outcome;
                     __instance.AttackSuccessDelta = successDelta;
 
-                    var rulesetDefender = target.RulesetActor;
-
                     //PATCH: process ExtraConditionInterruption.AttackedNotBySource
-                    if (!rulesetDefender.matchingInterruption)
+                    if (!rulesetTarget.matchingInterruption)
                     {
-                        rulesetDefender.matchingInterruption = true;
-                        rulesetDefender.matchingInterruptionConditions.Clear();
+                        rulesetTarget.matchingInterruption = true;
+                        rulesetTarget.matchingInterruptionConditions.Clear();
 
-                        foreach (var rulesetCondition in rulesetDefender.conditionsByCategory
+                        foreach (var rulesetCondition in rulesetTarget.conditionsByCategory
                                      .SelectMany(keyValuePair => keyValuePair.Value
                                          .Where(rulesetCondition =>
                                              rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
@@ -760,16 +1127,18 @@ public static class CharacterActionMagicEffectPatcher
                                                      .AttackedNotBySource) &&
                                              rulesetCondition.SourceGuid != actingCharacter.Guid)))
                         {
-                            rulesetDefender.matchingInterruptionConditions.Add(rulesetCondition);
+                            rulesetTarget.matchingInterruptionConditions.Add(rulesetCondition);
                         }
 
-                        for (var index = rulesetDefender.matchingInterruptionConditions.Count - 1; index >= 0; --index)
+                        for (var index = rulesetTarget.matchingInterruptionConditions.Count - 1;
+                             index >= 0;
+                             --index)
                         {
-                            rulesetDefender.RemoveCondition(rulesetDefender.matchingInterruptionConditions[index]);
+                            rulesetTarget.RemoveCondition(rulesetTarget.matchingInterruptionConditions[index]);
                         }
 
-                        rulesetDefender.matchingInterruptionConditions.Clear();
-                        rulesetDefender.matchingInterruption = false;
+                        rulesetTarget.matchingInterruptionConditions.Clear();
+                        rulesetTarget.matchingInterruption = false;
                     }
                     //END PATCH
 
@@ -795,7 +1164,7 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     actingCharacter.RulesetCharacter.RollMagicAttack(
                         rulesetEffect,
-                        target.RulesetActor,
+                        rulesetTarget,
                         rulesetEffect.GetEffectSource(),
                         attackModifier.AttacktoHitTrends,
                         attackModifier.AttackAdvantageTrends,
@@ -839,13 +1208,12 @@ public static class CharacterActionMagicEffectPatcher
                 if (rulesetEffect.EffectDescription.RecurrentEffect == RecurrentEffect.No ||
                     (rulesetEffect.EffectDescription.RecurrentEffect & RecurrentEffect.OnActivation) != 0)
                 {
-                    var hasBorrowedLuck = target.RulesetActor.HasConditionOfTypeOrSubType(ConditionBorrowedLuck);
-                    var side = actingCharacter?.Side ?? Side.Neutral;
+                    var hasBorrowedLuck = rulesetTarget.HasConditionOfTypeOrSubType(ConditionBorrowedLuck);
 
                     __instance.RolledSaveThrow = rulesetEffect.TryRollSavingThrow(
-                        actingCharacter?.RulesetCharacter,
-                        side,
-                        target.RulesetActor,
+                        actingCharacter.RulesetCharacter,
+                        actingCharacter.Side,
+                        rulesetTarget,
                         attackModifier,
                         actualEffectForms,
                         hasSavingThrowAnimation,
@@ -854,7 +1222,7 @@ public static class CharacterActionMagicEffectPatcher
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
-                    target.RulesetActor?.GrantConditionOnSavingThrowOutcome(
+                    rulesetTarget.GrantConditionOnSavingThrowOutcome(
                         rulesetEffect.EffectDescription, saveOutcome, false);
 
                     // Legendary Resistance or Indomitable?
@@ -877,6 +1245,17 @@ public static class CharacterActionMagicEffectPatcher
                         yield return tryAlterOutcomeSavingThrow;
                     }
                 }
+            }
+
+            //PATCH: Allows condition interruption after target was attacked
+            rulesetCharacter.ProcessConditionsMatchingInterruption(
+                (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
+
+            //PATCH: Allows condition interruption after target was attacked
+            if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                rulesetCharacter.ProcessConditionsMatchingInterruption(
+                    (ConditionInterruption)ExtraConditionInterruption.AfterWasHit);
             }
 
             if (!__instance.RolledSaveThrow && rulesetEffect.EffectDescription.HasShoveRoll)
@@ -1014,96 +1393,6 @@ public static class CharacterActionMagicEffectPatcher
                 terminateEffectOnTarget: out _);
 
             return false;
-        }
-    }
-
-    [HarmonyPatch(typeof(CharacterActionMagicEffect),
-        nameof(CharacterActionMagicEffect.MagicEffectExecuteOnTargets))]
-    [UsedImplicitly]
-    public static class MagicEffectExecuteOnTargets_Patch
-    {
-        [UsedImplicitly]
-        public static IEnumerator Postfix(
-            [NotNull] IEnumerator values,
-            CharacterActionMagicEffect __instance,
-            List<GameLocationCharacter> targets)
-        {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
-            var actingCharacter = __instance.ActingCharacter;
-
-            //PATCH: support for `IMagicalAttackFinishedByMe`
-            foreach (var magicalAttackFinishedByMe in actingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<IMagicEffectFinishedByMeAny>())
-            {
-                yield return
-                    magicalAttackFinishedByMe.OnMagicEffectFinishedByMeAny(__instance, actingCharacter, targets);
-            }
-
-            //PATCH: support for `IMagicalAttackFinishedByMeOrAlly`
-            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var contenders = locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
-
-            foreach (var ally in contenders
-                         .Where(x => x.Side == actingCharacter.Side
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList())
-            {
-                foreach (var magicalAttackFinishedByMeOrAlly in ally.RulesetCharacter
-                             .GetSubFeaturesByType<IMagicEffectFinishedByMeOrAllyAny>())
-                {
-                    yield return magicalAttackFinishedByMeOrAlly
-                        .OnMagicEffectFinishedByMeOrAllyAny(__instance, actingCharacter, ally, targets);
-                }
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(CharacterActionMagicEffect),
-        nameof(CharacterActionMagicEffect.MagicEffectExecuteOnZone))]
-    [UsedImplicitly]
-    public static class MagicEffectExecuteOnZone_Patch
-    {
-        [UsedImplicitly]
-        public static IEnumerator Postfix(
-            [NotNull] IEnumerator values,
-            CharacterActionMagicEffect __instance,
-            List<GameLocationCharacter> targets)
-        {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
-            var actingCharacter = __instance.ActingCharacter;
-
-            //PATCH: support for `IMagicalAttackFinishedByMe`
-            foreach (var magicalAttackFinishedByMe in actingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<IMagicEffectFinishedByMeAny>())
-            {
-                yield return
-                    magicalAttackFinishedByMe.OnMagicEffectFinishedByMeAny(__instance, actingCharacter, targets);
-            }
-
-            //PATCH: support for `IMagicalAttackFinishedByMeOrAlly`
-            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var contenders = locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
-
-            foreach (var ally in contenders
-                         .Where(x => x.Side == actingCharacter.Side
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList())
-            {
-                foreach (var magicalAttackFinishedByMeOrAlly in ally.RulesetCharacter
-                             .GetSubFeaturesByType<IMagicEffectFinishedByMeOrAllyAny>())
-                {
-                    yield return magicalAttackFinishedByMeOrAlly
-                        .OnMagicEffectFinishedByMeOrAllyAny(__instance, actingCharacter, ally, targets);
-                }
-            }
         }
     }
 }

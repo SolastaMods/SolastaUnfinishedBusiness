@@ -65,9 +65,7 @@ internal static class FixesContext
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
 
-        // fix condition UI
-        FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
-
+        // avoid breaking mod if anyone changes settings file manually
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
 
@@ -595,8 +593,10 @@ internal static class FixesContext
                 {
                     var effectDescription = spell.SpellDefinition.effectDescription;
 
-                    if (effectDescription.TargetType is not (TargetType.Individuals or TargetType.IndividualsUnique)
-                        || spell.ComputeTargetParameter() == 1)
+                    // handle Wither and Bloom special case
+                    if (spell.Name != "WitherAndBloom" &&
+                        (effectDescription.TargetType is not (TargetType.Individuals or TargetType.IndividualsUnique) ||
+                         spell.ComputeTargetParameter() <= 1))
                     {
                         return;
                     }
@@ -662,20 +662,8 @@ internal static class FixesContext
     }
 
     private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe,
-        IMagicEffectFinishedByMe
+        IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            if (action.RolledSaveThrow &&
-                action.SaveOutcome == RollOutcome.Failure)
-            {
-                action.ActingCharacter.RulesetCharacter.ToggledPowersOn.Remove(
-                    FeatureDefinitionPowers.PowerMonkStunningStrike.AutoActivationPowerTag);
-            }
-
-            yield break;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -747,6 +735,18 @@ internal static class FixesContext
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+        }
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (action.RolledSaveThrow &&
+                action.SaveOutcome == RollOutcome.Failure)
+            {
+                action.ActingCharacter.RulesetCharacter.ToggledPowersOn.Remove(
+                    FeatureDefinitionPowers.PowerMonkStunningStrike.AutoActivationPowerTag);
+            }
+
+            yield break;
         }
     }
 

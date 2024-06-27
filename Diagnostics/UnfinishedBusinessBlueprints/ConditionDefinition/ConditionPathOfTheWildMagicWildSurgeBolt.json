@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ActionAffinityPathOfTheWildMagicBolt:37e40dc0-40ad-5d10-8bfb-ea01beda1532"
+    "Definition:ActionAffinityPathOfTheWildMagicBolt:37e40dc0-40ad-5d10-8bfb-ea01beda1532",
+    "Definition:PowerPathOfTheWildMagicBolt:2643deef-1f30-5a4c-9c4b-ebb9ee2e65a4"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

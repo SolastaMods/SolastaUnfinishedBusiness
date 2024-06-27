@@ -36,13 +36,6 @@
       "spellsList": [
         "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5"
       ]
-    },
-    {
-      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 11,
-      "spellsList": [
-        "Definition:GlobeOfInvulnerability:eb567aec38beff84d87040cb9a006177"
-      ]
     }
   ],
   "spellcastingClass": "Definition:Sorcerer:7214644869e323444b7817d1804eb985",

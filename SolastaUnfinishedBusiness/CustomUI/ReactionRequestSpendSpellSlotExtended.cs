@@ -28,7 +28,8 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
         }
         else
         {
-            selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire);
+            selected = MulticlassGameUiContext.AddAvailableSubLevels(SubOptionsAvailability, hero, spellRepertoire,
+                actionParams.IntParameter);
         }
 
         if (selected >= 0)

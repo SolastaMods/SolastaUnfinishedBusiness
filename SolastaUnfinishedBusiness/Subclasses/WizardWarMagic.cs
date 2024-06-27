@@ -360,7 +360,7 @@ public sealed class WizardWarMagic : AbstractSubclass
 
     private sealed class CustomBehaviorPowerSurge(
         FeatureDefinitionPower powerSurge,
-        ConditionDefinition conditionSurgeMark) : IMagicEffectFinishedByMeAny, IMagicEffectBeforeHitConfirmedOnEnemy
+        ConditionDefinition conditionSurgeMark) : IMagicEffectFinishedByMe, IMagicEffectBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -387,7 +387,7 @@ public sealed class WizardWarMagic : AbstractSubclass
             yield break;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMeAny(
+        public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -12,7 +11,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
-using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -41,12 +39,11 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddPreparedSpellGroup(5, Counterspell)
             .AddPreparedSpellGroup(7, Banishment)
             .AddPreparedSpellGroup(9, HoldMonster)
-            .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
         // Displacement
 
-        PowerSorcerousFieldManipulatorDisplacement = FeatureDefinitionPowerBuilder
+        var powerSorcerousFieldManipulatorDisplacement = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Displacement")
             .SetGuiPresentation(Category.Feature, MistyStep)
             .SetUsesProficiencyBonus(ActivationTime.Action)
@@ -55,7 +52,6 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Position)
                     .InviteOptionalAlly()
-                    .SetParticleEffectParameters(Banishment)
                     .SetSavingThrowData(
                         true,
                         AttributeDefinitions.Charisma,
@@ -67,8 +63,9 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
+                    .SetParticleEffectParameters(Banishment)
                     .Build())
-            .AddCustomSubFeatures(new CustomBehaviorDisplacement(), ForcePushOrDragFromEffectPoint.Marker)
+            .AddCustomSubFeatures(new CustomBehaviorDisplacement())
             .AddToDB();
 
         // LEVEL 06
@@ -151,7 +148,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForcefulStepFixed) > 0),
-            new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
+            new PowerOrSpellFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
             .Create(powerForcefulStepFixed, $"Power{Name}ForcefulStepPoints")
@@ -160,7 +157,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForcefulStepFixed) == 0),
-            new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
+            new PowerOrSpellFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var featureSetForcefulStep = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ForcefulStep")
@@ -175,7 +172,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.SorcererFieldManipulator, 256))
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsFieldManipulator,
-                PowerSorcerousFieldManipulatorDisplacement)
+                powerSorcerousFieldManipulatorDisplacement)
             .AddFeaturesAtLevel(6,
                 MagicAffinityHeightened)
             .AddFeaturesAtLevel(14,
@@ -186,8 +183,6 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Sorcerer;
-
-    internal static FeatureDefinitionPower PowerSorcerousFieldManipulatorDisplacement { get; private set; }
 
     private static FeatureDefinitionMagicAffinity MagicAffinityHeightened { get; set; }
 
@@ -225,93 +220,23 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     // Displacement
     //
 
-    private sealed class CustomBehaviorDisplacement : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorDisplacement : IModifyTeleportEffectBehavior
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
-        {
-            var rulesetEffect = action.ActionParams.RulesetEffect;
+        public bool AllyOnly => false;
 
-            // bring back power target type to position
-            rulesetEffect.EffectDescription.targetType = TargetType.Position;
+        public bool TeleportSelf => false;
 
-            yield break;
-        }
-
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition power)
-        {
-            var rulesetEffect = action.ActionParams.RulesetEffect;
-            var actionParams = action.ActionParams;
-
-            actionParams.Positions.SetRange(
-                GetFinalPosition(actionParams.TargetCharacters[0], actionParams.Positions[0]));
-
-            // make target type individuals unique to trigger the game and only teleport targets
-            rulesetEffect.EffectDescription.targetType = TargetType.IndividualsUnique;
-
-            yield break;
-        }
-
-        private static int3 GetFinalPosition(GameLocationCharacter target, int3 position)
-        {
-            const string ERROR = "DISPLACEMENT: aborted as cannot place character on destination";
-
-            var positioningManager =
-                ServiceRepository.GetService<IGameLocationPositioningService>() as GameLocationPositioningManager;
-
-            //fall back to target original position
-            if (!positioningManager)
-            {
-                return target.LocationPosition;
-            }
-
-            var xCoordinates = new[] { 0, -1, 1, -2, 2 };
-            var yCoordinates = new[] { 0, -1, 1, -2, 2 };
-            var canPlaceCharacter = false;
-            var finalPosition = int3.zero;
-
-            foreach (var x in xCoordinates)
-            {
-                foreach (var y in yCoordinates)
-                {
-                    finalPosition = position + new int3(x, 0, y);
-
-                    canPlaceCharacter = positioningManager.CanPlaceCharacterImpl(
-                        target, target.RulesetActor.SizeParams, finalPosition, CellHelpers.PlacementMode.Station);
-
-                    if (canPlaceCharacter)
-                    {
-                        break;
-                    }
-                }
-
-                if (canPlaceCharacter)
-                {
-                    break;
-                }
-            }
-
-            if (canPlaceCharacter)
-            {
-                return finalPosition;
-            }
-
-            //fall back to target original position
-            finalPosition = target.LocationPosition;
-
-            Gui.GuiService.ShowAlert(ERROR, Gui.ColorFailure);
-
-            return finalPosition;
-        }
+        public int MaxTargets => 1;
     }
 
     //
     // Forceful Step
     //
 
-    private sealed class MagicEffectFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
-        : IMagicEffectFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
+        : IPowerOrSpellFinishedByMe
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {

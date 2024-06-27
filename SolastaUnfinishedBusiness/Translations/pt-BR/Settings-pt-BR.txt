@@ -255,7 +255,7 @@ ModUi/&RecipeCost=<color=white>Custo da receita</color>
 ModUi/&RecipesInDm=Receitas em DM
 ModUi/&RelicForgeries=Falsificações de relíquias
 ModUi/&RemoveAttunementRequirements=Remover requisitos de sintonização <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a aranhas por visuais alternativos no jogo <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a aranhas por modelos semelhantes a ursos no jogo <i><color=#F0DAA0>[arachnophobia]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color </i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remover filtro humanóide em <color=#D89555>Hideous Laughter</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Aplique apenas o efeito <color=#D89555>Entangle</color> no momento do lançamento e também force um teste de força para se libertar das vinhas.
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Remover restrições escolares do <color=#D89555>Shadowcaster</color>
