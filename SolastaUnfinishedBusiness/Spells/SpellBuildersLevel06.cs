@@ -196,11 +196,11 @@ internal static partial class SpellBuilders
         (DamageTypeLightning, LightningBolt,
             Thunderstorm.EffectDescription.EffectParticleParameters.impactParticleReference),
         (DamageTypeNecrotic, Thunderwave,
-            Thunderwave.EffectDescription.EffectParticleParameters.impactParticleReference),
-        (DamageTypeRadiant, FingerOfDeath,
             PowerPatronFiendDarkOnesOwnLuck.EffectDescription.EffectParticleParameters.effectParticleReference),
+        (DamageTypeRadiant, FingerOfDeath,
+            PowerOathOfJugementPurgeCorruption.EffectDescription.EffectParticleParameters.effectParticleReference),
         (DamageTypeThunder, GuardianOfFaith,
-            PowerOathOfJugementPurgeCorruption.EffectDescription.EffectParticleParameters.effectParticleReference)
+            Thunderwave.EffectDescription.EffectParticleParameters.impactParticleReference)
     ];
 
     internal static SpellDefinition BuildShelterFromEnergy()
@@ -240,7 +240,7 @@ internal static partial class SpellBuilders
                             .SetFeatures(
                                 FeatureDefinitionDamageAffinityBuilder
                                     .Create($"DamageAffinity{NAME}{damageType}")
-                                    .SetGuiPresentationNoContent(true)
+                                    .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
                                     .SetDamageType(damageType)
                                     .SetDamageAffinityType(DamageAffinityType.Resistance)
                                     .AddToDB())

@@ -509,7 +509,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetNotificationTag(ArcaneFirearm)
             .SetDamageDice(DieType.D8, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10, 5)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
             .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelInventor.Instance)
             .AddToDB();

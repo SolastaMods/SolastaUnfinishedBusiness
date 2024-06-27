@@ -142,10 +142,7 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetParticleEffectParameters(MindTwist)
-                    .SetCasterEffectParameters(Feeblemind)
-                    .SetImpactEffectParameters(Counterspell
-                        .EffectDescription.EffectParticleParameters.effectParticleReference)
+                    .SetParticleEffectParameters(Feeblemind)
                     .Build())
             .AddToDB();
 

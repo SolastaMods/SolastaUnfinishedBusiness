@@ -135,13 +135,13 @@ internal static partial class SpellBuilders
                     .SetCasterEffectParameters(FingerOfDeath)
                     .SetImpactEffectParameters(FingerOfDeath)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemyAbiDalzimHorridWilting(condition))
+            .AddCustomSubFeatures(new PowerOrSpellInitiatedByMeAbiDalzimHorridWilting(condition))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectBeforeHitConfirmedOnEnemyAbiDalzimHorridWilting(
+    private sealed class PowerOrSpellInitiatedByMeAbiDalzimHorridWilting(
         ConditionDefinition condition) : IPowerOrSpellInitiatedByMe
     {
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -275,7 +275,7 @@ internal static partial class SpellBuilders
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(Sunburst)
-                    .SetCasterEffectParameters(DivineWord)
+                    .SetCasterEffectParameters(Blindness)
                     .SetImpactEffectParameters(PowerPatronFiendDarkOnesOwnLuck
                         .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
@@ -333,7 +333,7 @@ internal static partial class SpellBuilders
             var actionModifiers = new List<ActionModifier>();
 
             actingCharacter.UsedSpecialFeatures.TryAdd("SoulExpulsion", action.ActionParams.RulesetEffect.EffectLevel);
-                
+
             for (var i = 0; i < targets.Count; i++)
             {
                 actionModifiers.Add(new ActionModifier());

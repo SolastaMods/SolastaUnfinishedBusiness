@@ -8,6 +8,7 @@
 - fixed Bloody infusion interaction with Duelist, Hoodlum, and Umbral Stalker sneak attack triggers
 - fixed Circle of the Night consuming only one wildshape usage with crimson spider, elementals, and minotaur  
 - fixed Coordinated Attack gambit, and Strategic Reposition warlord feature breaking self invisibility
+- fixed Innovation Artillerist arcane firearm to trigger on any spell instead of ones with attack rolls
 - fixed Innovation Vitriolist vitriolic infusion to trigger once per attack if any acid damage is present
 - fixed Path of the Wild Magic aura, bolt, retribution, summon, and teleport behaviors
 - fixed Patron Hexblade using character level instead of class level on hex received healing
@@ -16,7 +17,7 @@
 - fixed Sentinel feat interaction with reach to ensure enemy is stopped and attack is prevented at reach distance
 - fixed Sorcerer Field Manipulator, Sorr-Akkath, and Spellblade getting autoprepared spells above class level 9
 - fixed Wither and Bloom twinned metamagic offering which was disrespecting the one target rule
-- improved effects that rely on spell damages target to also consider 
+- improved effects that rely on spell damages target to also trigger on Call Lightning, and Delayed Fireball
 - improved enemies' AI to take reach weapons into consideration on movement, and AoO avoidance decisions
 - improved mod performance by refactoring some feats, spells, and subclasses custom behaviors
 - improved translations on spider like models setting description to prevent people bear with consequences
