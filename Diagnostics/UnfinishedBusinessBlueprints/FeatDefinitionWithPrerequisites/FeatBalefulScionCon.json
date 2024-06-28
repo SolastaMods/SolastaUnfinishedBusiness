@@ -13,7 +13,6 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ActionAffinityBalefulScionToggle:4ce964a3-ea9f-5085-a741-efd362098a5d",
-    "Definition:AdditionalDamageFeatBalefulScion:3d0e1aa3-2e86-59ea-a2fa-866313231851",
     "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0",
     "Definition:PowerFeatBalefulScion:0a12985a-a6ea-5aa3-b6b8-56f848838149"
   ],
