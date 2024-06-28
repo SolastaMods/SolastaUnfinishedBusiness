@@ -206,6 +206,107 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Ego Shock
+
+    internal static SpellDefinition BuildEgoShock()
+    {
+        const string NAME = "EgoShock";
+
+        var attributes = new List<string>
+        {
+            AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma
+        };
+
+        var subSpells = new List<SpellDefinition>();
+
+        foreach (var attribute in attributes)
+        {
+            var condition = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{attribute}")
+                .SetGuiPresentation(NAME, Category.Spell, ConditionDoomLaughter)
+                .SetPossessive()
+                .SetConditionType(ConditionType.Detrimental)
+                .SetFeatures(
+                    FeatureDefinitionSavingThrowAffinityBuilder
+                        .Create($"SavingThrowAffinity{NAME}{attribute}")
+                        .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                        .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false, attribute)
+                        .AddToDB())
+                .AddToDB();
+
+            condition.GuiPresentation.description = Gui.NoLocalization;
+
+            var attributeTitle = $"Attribute/&{attribute}TitleLong";
+            var title = Gui.Format("Spell/&EgoShockSubspellTitle", attributeTitle);
+            var description = Gui.Format("Spell/&EgoShockSubspellDescription", attributeTitle);
+
+            subSpells.Add(SpellDefinitionBuilder
+                .Create($"{NAME}{attribute}")
+                .SetGuiPresentation(title, description)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+                .SetSpellLevel(0)
+                .SetCastingTime(ActivationTime.Action)
+                .SetMaterialComponent(MaterialComponentType.Mundane)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(true)
+                .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                        .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                        .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                        .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                            EffectDifficultyClassComputation.SpellCastingFeature)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetDamageForm(DamageTypePsychic, 1, DieType.D8)
+                                .HasSavingThrow(EffectSavingThrowType.Negates)
+                                .Build(),
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                                .Build())
+                        .SetParticleEffectParameters(ShadowDagger)
+                        .Build())
+                .AddToDB());
+        }
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.EgoShock, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    // UI Only from here
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypePsychic, 1, DieType.D8)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .SetSubSpells([..subSpells])
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Enduring Sting
 
     internal static SpellDefinition BuildEnduringSting()

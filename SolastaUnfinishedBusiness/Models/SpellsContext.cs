@@ -238,6 +238,7 @@ internal static class SpellsContext
         RegisterSpell(BuildBoomingBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
+        RegisterSpell(BuildEgoShock(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(EnduringSting, 0, SpellListWizard);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildInfestation(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);

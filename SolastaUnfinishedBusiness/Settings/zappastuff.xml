@@ -1321,6 +1321,7 @@
                     <string>ResonatingStrike</string>
                     <string>SunlightBlade</string>
                     <string>BladeWard</string>
+                    <string>EgoShock</string>
                     <string>IlluminatingSphere</string>
                     <string>MinorLifesteal</string>
                     <string>StarryWisp</string>
@@ -1367,6 +1368,7 @@
                     <string>EmpoweredKnowledge</string>
                     <string>ShelterFromEnergy</string>
                     <string>RescueTheDying</string>
+                    <string>SoulExpulsion</string>
                     <string>MassHeal</string>
                     <string>PowerWordHeal</string>
                 </ArrayOfString>
@@ -1498,6 +1500,7 @@
                     <string>Foresight</string>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
+                    <string>EgoShock</string>
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
@@ -1553,6 +1556,7 @@
                     <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
                     <string>AbiDalzimHorridWilting</string>
+                    <string>SoulExpulsion</string>
                     <string>MeteorSwarmSingleTarget</string>
                     <string>PowerWordKill</string>
                     <string>TimeStop</string>
@@ -1567,6 +1571,7 @@
                 <ArrayOfString>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
+                    <string>EgoShock</string>
                     <string>ResonatingStrike</string>
                     <string>Infestation</string>
                     <string>LightningLure</string>
@@ -1625,6 +1630,7 @@
                 <ArrayOfString>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
+                    <string>EgoShock</string>
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
@@ -1698,6 +1704,7 @@
                     <string>AbiDalzimHorridWilting</string>
                     <string>MaddeningDarkness</string>
                     <string>MindBlank</string>
+                    <string>SoulExpulsion</string>
                     <string>Foresight</string>
                     <string>MeteorSwarmSingleTarget</string>
                     <string>PowerWordKill</string>
