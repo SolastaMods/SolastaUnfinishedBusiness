@@ -447,6 +447,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionExhausted { get; } =
             GetDefinition<ConditionDefinition>("ConditionExhausted");
 
+        internal static ConditionDefinition ConditionEyebitePanicked { get; } =
+            GetDefinition<ConditionDefinition>("ConditionEyebitePanicked");
+
         internal static ConditionDefinition ConditionEyebiteSickened { get; } =
             GetDefinition<ConditionDefinition>("ConditionEyebiteSickened");
 
@@ -1735,7 +1738,7 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerCallLightning { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerCallLightning");
-        
+
         internal static FeatureDefinitionPower PowerDelayedBlastFireballDetonate { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDelayedBlastFireballDetonate");
 

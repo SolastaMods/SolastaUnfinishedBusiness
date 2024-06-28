@@ -212,6 +212,7 @@ internal static partial class SpellBuilders
                     .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .AddToDB())
+            .SetConditionParticleReference(ConditionEyebitePanicked)
             .AddToDB();
 
         var power = FeatureDefinitionPowerBuilder
