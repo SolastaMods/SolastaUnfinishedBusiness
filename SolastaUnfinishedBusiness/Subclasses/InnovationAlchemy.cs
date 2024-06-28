@@ -777,6 +777,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .AddToDB();
 
         power.AddCustomSubFeatures(
+            HasModifiedUses.Marker,
             new ModifyPowerPoolAmount
             {
                 PowerPool = power,

@@ -131,6 +131,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddToDB();
 
         power.AddCustomSubFeatures(
+            HasModifiedUses.Marker,
             new ModifyPowerPoolAmount
             {
                 PowerPool = power,
@@ -590,7 +591,7 @@ public sealed class InnovationWeapon : AbstractSubclass
         }
     }
 
-    private class TargetDefendingBlade : IRetargetCustomRestPower, IHasModifiedUses
+    private class TargetDefendingBlade : IRetargetCustomRestPower
     {
         public GameLocationCharacter GetTarget(RulesetCharacter user)
         {

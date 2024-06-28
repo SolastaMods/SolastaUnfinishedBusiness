@@ -76,6 +76,7 @@ public class PatronCelestial : AbstractSubclass
             .AddToDB();
 
         powerHealingLight.AddCustomSubFeatures(
+            HasModifiedUses.Marker,
             new ModifyPowerPoolAmount
             {
                 PowerPool = powerHealingLight,

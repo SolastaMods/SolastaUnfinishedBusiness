@@ -33,8 +33,15 @@ public class ModifyPowerPoolAmount : IModifyPowerPoolAmount
     }
 }
 
-// required for short rest integration
-internal interface IHasModifiedUses;
+// required for short/long rest integration
+internal class HasModifiedUses
+{
+    private HasModifiedUses()
+    {
+    }
+
+    public static HasModifiedUses Marker { get; } = new();
+}
 
 public enum PowerPoolBonusCalculationType
 {
