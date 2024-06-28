@@ -699,26 +699,28 @@ public sealed class MartialWarlord : AbstractSubclass
             {
                 rulesetCharacter.LogCharacterUsedFeature(featureBattlefieldExperience);
             }
-
-            foreach (var player in Gui.Battle
-                         .GetContenders(locationCharacter, isOppositeSide: false, withinRange: 6))
+            else
             {
-                player.RulesetCharacter.InflictCondition(
-                    conditionStrengthInitiative.Name,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetCharacter.Guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    conditionStrengthInitiative.Name,
-                    (strengthModifier + 1) / 2,
-                    0,
-                    0);
-            }
+                foreach (var player in Gui.Battle
+                             .GetContenders(locationCharacter, isOppositeSide: false, withinRange: 6))
+                {
+                    player.RulesetCharacter.InflictCondition(
+                        conditionStrengthInitiative.Name,
+                        DurationType.Round,
+                        1,
+                        TurnOccurenceType.EndOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetCharacter.Guid,
+                        rulesetCharacter.CurrentFaction.Name,
+                        1,
+                        conditionStrengthInitiative.Name,
+                        (strengthModifier + 1) / 2,
+                        0,
+                        0);
+                }
 
-            rulesetCharacter.LogCharacterUsedFeature(featureBattlePlan);
+                rulesetCharacter.LogCharacterUsedFeature(featureBattlePlan); 
+            }
         }
 
         public void OnSavingThrowInitiated(
@@ -739,7 +741,7 @@ public sealed class MartialWarlord : AbstractSubclass
             var hasCharmedOrFrightened = effectForms
                 .Where(x => x.FormType == EffectForm.EffectFormType.Condition)
                 .Select(effectForm => effectForm.ConditionForm.ConditionDefinition)
-                .Any(condition => 
+                .Any(condition =>
                     condition == ConditionDefinitions.ConditionCharmed ||
                     condition.parentCondition == ConditionDefinitions.ConditionCharmed ||
                     condition == ConditionDefinitions.ConditionFrightened ||
