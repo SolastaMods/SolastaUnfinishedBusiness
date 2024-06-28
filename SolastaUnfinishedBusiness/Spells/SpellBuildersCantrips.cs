@@ -1266,6 +1266,92 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Force Strike
+
+    internal static SpellDefinition BuildForceStrike()
+    {
+        const string NAME = "ForceStrike";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ForceStrike, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetIgnoreCover()
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 1, 4)
+                            .SetDamageForm(DamageTypeForce, 0, DieType.D8)
+                            .Build())
+                    .SetParticleEffectParameters(EldritchBlast)
+                    .Build())
+            .AddToDB();
+
+        spell.AddCustomSubFeatures(new ModifyEffectDescription(spell));
+
+        return spell;
+    }
+
+    private sealed class ModifyEffectDescription(SpellDefinition spellForceStrike) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == spellForceStrike;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter rulesetCharacter,
+            RulesetEffect rulesetEffect)
+        {
+            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+            if (character == null)
+            {
+                return effectDescription;
+            }
+
+            var attackMode = character.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode == null)
+            {
+                return effectDescription;
+            }
+
+            var damageForms = attackMode.EffectDescription.EffectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .ToList();
+
+            if (damageForms.Count == 0)
+            {
+                return effectDescription;
+            }
+
+            var firstDamageForm = damageForms[0].DamageForm;
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            damageForm.DieType = firstDamageForm.DieType;
+            damageForm.DiceNumber = firstDamageForm.DiceNumber;
+
+            return effectDescription;
+        }
+    }
+
+    #endregion
+
     #region Toll the Dead
 
     internal static SpellDefinition BuildTollTheDead()

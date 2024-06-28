@@ -12126,6 +12126,7 @@ FindFamiliar	SpellDefinition	SpellDefinition	bb9f406d-0011-5248-9df9-aed0cba9594
 FizbanPlatinumShield	SpellDefinition	SpellDefinition	88cce58b-f58c-57d1-80ed-7a6317d2c6de
 FlameArrows	SpellDefinition	SpellDefinition	a1cdc677-6c15-557d-8c80-3e485e878e01
 FlashFreeze	SpellDefinition	SpellDefinition	c7bca121-71cb-5243-ad33-de4f547dd73b
+ForceStrike	SpellDefinition	SpellDefinition	a04aa6f2-dfe9-5cd1-a499-32bd9eac7bdd
 Foresight	SpellDefinition	SpellDefinition	7e0b6dac-dd42-59de-8216-2a15d6b05693
 ForestGuardian	SpellDefinition	SpellDefinition	e84a5167-a3d0-5e96-b978-60039654e3bb
 GiftOfAlacrity	SpellDefinition	SpellDefinition	cfc1affd-8762-5031-b552-4a48251d784c

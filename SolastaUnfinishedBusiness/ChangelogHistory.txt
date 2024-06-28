@@ -1,6 +1,6 @@
 1.5.97.17:
 
-- added Ego Shock [dnd unleashed] cantrip
+- added Ego Shock [unleashed], and Force Strike [unleashed] cantrips
 - fixed Baleful Scion feat doing additional damage regardless of the action toggle state
 - improved Martial Warlord battlefield experience, coordinated assault, and battle plan features
 
