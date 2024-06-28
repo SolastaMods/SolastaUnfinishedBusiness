@@ -1462,6 +1462,7 @@ internal static class MeleeCombatFeats
             .Create(NAME)
             .SetGuiPresentation($"{NAME}Dex", Category.Feat)
             .AddFeatures(AttributeModifierCreed_Of_Misaye, AdditionalDamageFeatDevastatingStrikes)
+            .SetFeatFamily(GroupFeats.DevastatingStrikes)
             .AddToDB();
 
         return feat;
@@ -1475,6 +1476,7 @@ internal static class MeleeCombatFeats
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .AddFeatures(AttributeModifierCreed_Of_Einar, AdditionalDamageFeatDevastatingStrikes)
+            .SetFeatFamily(GroupFeats.DevastatingStrikes)
             .AddToDB();
 
         return feat;
