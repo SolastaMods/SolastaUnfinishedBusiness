@@ -876,19 +876,11 @@ internal static partial class CharacterContext
                 "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
             FeatureSetMonkFlurryOfBlows.GuiPresentation.title =
                 "Feature/&FeatureSetAlternateMonkFlurryOfBlowsTitle";
-            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.description =
-                "Feature/&FeatureSetWayOfTheTempestAlternateTempestFuryDescription";
-            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.title =
-                "Feature/&FeatureSetWayOfTheTempestAlternateTempestFuryTitle";
         }
         else
         {
             FeatureSetMonkFlurryOfBlows.GuiPresentation.description = "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
             FeatureSetMonkFlurryOfBlows.GuiPresentation.title = "Feature/&FeatureSetMonkFlurryOfBlowsTitle";
-            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.description =
-                "Feature/&FeatureSetWayOfTheTempestTempestFuryDescription";
-            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.title =
-                "Feature/&FeatureSetWayOfTheTempestTempestFuryTitle";
         }
     }
 

@@ -41,7 +41,6 @@ internal static class SubclassesContext
 
         // keep backward compatibility
         _ = new CollegeOfWarDancer();
-        _ = new WayOfTheTempest();
 
         // settings paring
         var subclasses = Main.Settings.KlassListSubclassEnabled
