@@ -47,7 +47,7 @@ internal enum ExtraActionId
     TacticianGambitBonus,
     TacticianGambitMain,
     TacticianGambitNoCost,
-    TempestFury,
+    TempestFury, // not used
     UseHeroicInspiration,
     WildlingFeralAgility,
     Withdraw,

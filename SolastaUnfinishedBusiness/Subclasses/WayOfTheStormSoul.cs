@@ -285,7 +285,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
     // Tempest Fury
     //
 
-    internal sealed class PowerOrSpellFinishedByMeTempestFury : IPowerOrSpellFinishedByMe, IValidatePowerUse
+    private sealed class PowerOrSpellFinishedByMeTempestFury : IPowerOrSpellFinishedByMe, IValidatePowerUse
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -344,7 +344,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
     // Eye of The Storm
     //
 
-    internal sealed class PowerOrSpellFinishedByMeEyeOfTheStorm(
+    private sealed class PowerOrSpellFinishedByMeEyeOfTheStorm(
         FeatureDefinitionPower powerEyeOfTheStormLeap,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionEyeOfTheStorm) : IPowerOrSpellFinishedByMe

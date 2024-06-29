@@ -7,7 +7,7 @@
     "Definition:AttributeModifierMartialWarlordBattlefieldExperience:fdeee3db-181f-586d-9381-76b0d10c8dcd"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
+  "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
@@ -129,9 +129,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionMartialWarlordBattlefieldExperienceTitle",
-    "description": "Condition/&ConditionMartialWarlordBattlefieldExperienceDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

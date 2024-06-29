@@ -9,7 +9,6 @@ using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Subclasses.Builders;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
@@ -1308,19 +1307,6 @@ internal static class GLBM
 
                         break;
                     }
-
-                    //BEGIN PATCH: supports chain lightning and delayed fireball here
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget
-                        when (firstTarget || !provider.FirstTargetOnly) &&
-                             rulesetEffect is RulesetEffectPower power &&
-                             (power.PowerDefinition == PowerCallLightning ||
-                              power.PowerDefinition == PowerDelayedBlastFireballDetonate):
-                    {
-                        validTrigger = true;
-
-                        break;
-                    }
-                    //END PATCH
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.NotWearingHeavyArmor:
                     {

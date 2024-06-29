@@ -1,8 +1,9 @@
 1.5.97.17:
 
-- fixed `After was attacked not by source` condition interruption only triggering on success
+- fixed 'After was attacked not by source' condition interruption only triggering on success
 - fixed Baleful Scion feat doing additional damage regardless of the action toggle state
 - fixed Devastating Strike feat allowing both DEX and STR flavors to be selected on same hero
+- fixed powers with custom usages not recharging over short or long rests [i.e.: gambits, infusions, etc.]
 - improved Martial Warlord battlefield experience, coordinated assault, and battle plan features
 
 1.5.97.16:

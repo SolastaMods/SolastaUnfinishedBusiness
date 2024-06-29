@@ -45,8 +45,8 @@ public sealed class MartialWarlord : AbstractSubclass
 
         var conditionStrengthInitiative = ConditionDefinitionBuilder
             .Create($"Condition{Name}BattlefieldExperience")
-            .SetGuiPresentation(Category.Condition)
-            .SetSilent(Silent.WhenRemoved)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
@@ -60,9 +60,6 @@ public sealed class MartialWarlord : AbstractSubclass
             .Create($"Feature{Name}BattlefieldExperience")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
-
-        featureBattlefieldExperience.AddCustomSubFeatures(
-            new CharacterBattleStartedListenerBattlefieldExperience(conditionStrengthInitiative));
 
         // Press the Advantage
 
@@ -291,7 +288,13 @@ public sealed class MartialWarlord : AbstractSubclass
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBattlePlan))
                     .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
+
+
+        featureBattlefieldExperience.AddCustomSubFeatures(
+            new CharacterBattleStartedListenerBattlefieldExperience(
+                conditionStrengthInitiative, featureBattlefieldExperience, powerBattlePlan));
 
         //
         // LEVEL 18
@@ -679,7 +682,9 @@ public sealed class MartialWarlord : AbstractSubclass
     //
 
     private sealed class CharacterBattleStartedListenerBattlefieldExperience(
-        ConditionDefinition conditionStrengthInitiative) : ICharacterBattleStartedListener
+        ConditionDefinition conditionStrengthInitiative,
+        FeatureDefinition featureBattlefieldExperience,
+        FeatureDefinition featureBattlePlan) : ICharacterBattleStartedListener
     {
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
@@ -700,6 +705,10 @@ public sealed class MartialWarlord : AbstractSubclass
                 strengthModifier,
                 0,
                 0);
+
+            var levels = rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Fighter, Name);
+
+            rulesetCharacter.LogCharacterUsedFeature(levels < 15 ? featureBattlefieldExperience : featureBattlePlan);
         }
     }
 

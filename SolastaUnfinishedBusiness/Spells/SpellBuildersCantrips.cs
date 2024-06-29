@@ -206,6 +206,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
+#if false
     #region Ego Shock
 
     internal static SpellDefinition BuildEgoShock()
@@ -306,6 +307,7 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+#endif
 
     #region Enduring Sting
 
@@ -1266,6 +1268,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
+#if false
     #region Force Strike
 
     internal static SpellDefinition BuildForceStrike()
@@ -1351,6 +1354,7 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+#endif
 
     #region Toll the Dead
 

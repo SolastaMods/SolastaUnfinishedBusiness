@@ -1218,44 +1218,47 @@ public static class CharacterActionMagicEffectPatcher
                 }
             }
 
-            //PATCH: process ExtraConditionInterruption.AttackedNotBySource
-            if (!rulesetTarget.matchingInterruption)
+            if (rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.RangeHit)
             {
-                rulesetTarget.matchingInterruption = true;
-                rulesetTarget.matchingInterruptionConditions.Clear();
-
-                foreach (var rulesetCondition in rulesetTarget.conditionsByCategory
-                             .SelectMany(keyValuePair => keyValuePair.Value
-                                 .Where(rulesetCondition =>
-                                     rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
-                                         (ConditionInterruption)ExtraConditionInterruption
-                                             .AfterWasAttackedNotBySource) &&
-                                     rulesetCondition.SourceGuid != actingCharacter.Guid)))
+                //PATCH: process ExtraConditionInterruption.AttackedNotBySource
+                if (!rulesetTarget.matchingInterruption)
                 {
-                    rulesetTarget.matchingInterruptionConditions.Add(rulesetCondition);
+                    rulesetTarget.matchingInterruption = true;
+                    rulesetTarget.matchingInterruptionConditions.Clear();
+
+                    foreach (var rulesetCondition in rulesetTarget.conditionsByCategory
+                                 .SelectMany(keyValuePair => keyValuePair.Value
+                                     .Where(rulesetCondition =>
+                                         rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
+                                             (ConditionInterruption)ExtraConditionInterruption
+                                                 .AfterWasAttackedNotBySource) &&
+                                         rulesetCondition.SourceGuid != actingCharacter.Guid)))
+                    {
+                        rulesetTarget.matchingInterruptionConditions.Add(rulesetCondition);
+                    }
+
+                    for (var index = rulesetTarget.matchingInterruptionConditions.Count - 1;
+                         index >= 0;
+                         --index)
+                    {
+                        rulesetTarget.RemoveCondition(rulesetTarget.matchingInterruptionConditions[index]);
+                    }
+
+                    rulesetTarget.matchingInterruptionConditions.Clear();
+                    rulesetTarget.matchingInterruption = false;
                 }
+                //END PATCH
 
-                for (var index = rulesetTarget.matchingInterruptionConditions.Count - 1;
-                     index >= 0;
-                     --index)
-                {
-                    rulesetTarget.RemoveCondition(rulesetTarget.matchingInterruptionConditions[index]);
-                }
-
-                rulesetTarget.matchingInterruptionConditions.Clear();
-                rulesetTarget.matchingInterruption = false;
-            }
-            //END PATCH
-
-            //PATCH: Allows condition interruption after target was attacked
-            rulesetCharacter.ProcessConditionsMatchingInterruption(
-                (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
-
-            //PATCH: Allows condition interruption after target was attacked
-            if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-            {
+                //PATCH: Allows condition interruption after target was attacked
                 rulesetCharacter.ProcessConditionsMatchingInterruption(
-                    (ConditionInterruption)ExtraConditionInterruption.AfterWasHit);
+                    (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
+
+                //PATCH: Allows condition interruption after target was attacked
+                if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+                {
+                    rulesetCharacter.ProcessConditionsMatchingInterruption(
+                        (ConditionInterruption)ExtraConditionInterruption.AfterWasHit);
+                }
             }
 
             if (!__instance.RolledSaveThrow && rulesetEffect.EffectDescription.HasShoveRoll)
