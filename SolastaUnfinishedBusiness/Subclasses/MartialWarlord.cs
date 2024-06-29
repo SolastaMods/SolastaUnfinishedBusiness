@@ -41,25 +41,28 @@ public sealed class MartialWarlord : AbstractSubclass
         // LEVEL 03
         //
 
+        // Relentlessness
+
         var conditionStrengthInitiative = ConditionDefinitionBuilder
-            .Create($"Condition{Name}WisdomInitiative")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .Create($"Condition{Name}BattlefieldExperience")
+            .SetGuiPresentation(Category.Condition)
+            .SetSilent(Silent.WhenRemoved)
             .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create($"AttributeModifier{Name}WisdomInitiative")
+                    .Create($"AttributeModifier{Name}BattlefieldExperience")
                     .SetGuiPresentationNoContent(true)
                     .SetAddConditionAmount(AttributeDefinitions.Initiative)
                     .AddToDB())
             .AddToDB();
 
-        // Relentlessness
-
         var featureBattlefieldExperience = FeatureDefinitionBuilder
             .Create($"Feature{Name}BattlefieldExperience")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+
+        featureBattlefieldExperience.AddCustomSubFeatures(
+            new CharacterBattleStartedListenerBattlefieldExperience(conditionStrengthInitiative));
 
         // Press the Advantage
 
@@ -266,14 +269,28 @@ public sealed class MartialWarlord : AbstractSubclass
 
         // Battle Plan
 
-        var featureBattlePlan = FeatureDefinitionBuilder
-            .Create($"Feature{Name}BattlePlan")
-            .SetGuiPresentation(Category.Feature)
+        var conditionBattlePlan = ConditionDefinitionBuilder
+            .Create($"Condition{Name}BattlePlan")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        featureBattlefieldExperience.AddCustomSubFeatures(
-            new CharacterBattleStartedListenerBattlefieldExperienceBattlePlan(
-                conditionStrengthInitiative, featureBattlefieldExperience, featureBattlePlan));
+        conditionBattlePlan.AddCustomSubFeatures(new RollSavingThrowInitiatedBattlePlan(conditionBattlePlan));
+
+        var powerBattlePlan = FeatureDefinitionPowerBuilder
+            .Create($"Feature{Name}BattlePlan")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Permanent)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cylinder, 6)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBattlePlan))
+                    .Build())
+            .AddToDB();
 
         //
         // LEVEL 18
@@ -310,7 +327,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .AddFeaturesAtLevel(3, featureBattlefieldExperience, featureSetPressTheAdvantage)
             .AddFeaturesAtLevel(7, powerStrategicRepositioning)
             .AddFeaturesAtLevel(10, featureSetCoordinatedAssault)
-            .AddFeaturesAtLevel(15, featureBattlePlan)
+            .AddFeaturesAtLevel(15, powerBattlePlan)
             .AddFeaturesAtLevel(18, featureSetControlTheField)
             .AddToDB();
     }
@@ -657,17 +674,11 @@ public sealed class MartialWarlord : AbstractSubclass
     }
 
     //
-    // Battlefield Experience / Battle Plan
+    // Battlefield Experience
     //
 
-    private sealed class CharacterBattleStartedListenerBattlefieldExperienceBattlePlan(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionStrengthInitiative,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureBattlefieldExperience,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureBattlePlan)
-        : ICharacterBattleStartedListener, IRollSavingThrowInitiated
+    private sealed class CharacterBattleStartedListenerBattlefieldExperience(
+        ConditionDefinition conditionStrengthInitiative) : ICharacterBattleStartedListener
     {
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
@@ -697,32 +708,36 @@ public sealed class MartialWarlord : AbstractSubclass
 
             if (levels < 15)
             {
-                rulesetCharacter.LogCharacterUsedFeature(featureBattlefieldExperience);
+                return;
             }
-            else
-            {
-                foreach (var player in Gui.Battle
-                             .GetContenders(locationCharacter, isOppositeSide: false, withinRange: 6))
-                {
-                    player.RulesetCharacter.InflictCondition(
-                        conditionStrengthInitiative.Name,
-                        DurationType.Round,
-                        1,
-                        TurnOccurenceType.EndOfTurn,
-                        AttributeDefinitions.TagEffect,
-                        rulesetCharacter.Guid,
-                        rulesetCharacter.CurrentFaction.Name,
-                        1,
-                        conditionStrengthInitiative.Name,
-                        (strengthModifier + 1) / 2,
-                        0,
-                        0);
-                }
 
-                rulesetCharacter.LogCharacterUsedFeature(featureBattlePlan); 
+            foreach (var player in Gui.Battle
+                         .GetContenders(locationCharacter, isOppositeSide: false, withinRange: 6))
+            {
+                player.RulesetCharacter.InflictCondition(
+                    conditionStrengthInitiative.Name,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetCharacter.Guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    conditionStrengthInitiative.Name,
+                    (strengthModifier + 1) / 2,
+                    0,
+                    0);
             }
         }
+    }
 
+    //
+    // Battle Plan
+    //
+
+    private sealed class RollSavingThrowInitiatedBattlePlan(ConditionDefinition conditionBattlePlan)
+        : IRollSavingThrowInitiated
+    {
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
@@ -753,7 +768,7 @@ public sealed class MartialWarlord : AbstractSubclass
             }
 
             advantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureBattlePlan.Name, featureBattlePlan));
+                new TrendInfo(1, FeatureSourceType.Condition, conditionBattlePlan.Name, conditionBattlePlan));
         }
     }
 

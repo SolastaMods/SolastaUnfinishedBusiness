@@ -1,10 +1,14 @@
+Condition/&ConditionMartialWarlordBattlePlanDescription=Sie würfeln alle Rettungswürfe gegen Charme- und Angsteffekte mit Vorteil.
+Condition/&ConditionMartialWarlordBattlePlanTitle=Beeindruckende Präsenz
+Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=Sie erhalten einen Bonus auf Initiativewürfe in Höhe Ihres Stärkemodifikators (mindestens +1), wenn die Quelle der Bedingung ist, oder in Höhe des halben Stärkemodifikators (aufgerundet, mindestens +1).
+Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=Unerbittlichkeit
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=Alle Verbündeten außer der Quelle provozieren keine Gelegenheitsangriffe Ihrerseits.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Umgeleitet
 Condition/&ConditionMartialWarlordExploitOpeningDescription=Der nächste Angriffswurf eines anderen Angreifers als der Quelle gegen Sie erfolgt mit Vorteil.
 Condition/&ConditionMartialWarlordExploitOpeningTitle=Ausgenutzt
 Condition/&ConditionMartialWarlordPredictAttackDescription=Du hast bei deinem nächsten Angriffswurf einen Nachteil.
 Condition/&ConditionMartialWarlordPredictAttackTitle=Vorhersagbar
-Feature/&FeatureMartialWarlordBattlePlanDescription=Du addierst die Hälfte deines Stärkemodifikators (aufgerundet) als Initiativebonus zu allen verbündeten Kreaturen (außer dir) innerhalb von 30 Fuß um dich herum. Außerdem würfelst du und alle verbündeten Kreaturen innerhalb von 30 Fuß um dich herum alle Rettungswürfe gegen Zauber- und Angsteffekte mit Vorteil.
+Feature/&FeatureMartialWarlordBattlePlanDescription=Du addierst die Hälfte deines Stärkemodifikators (aufgerundet, mindestens +1) als Initiativebonus zu allen verbündeten Kreaturen (außer dir) innerhalb von 30 Fuß um dich herum. Außerdem würfelst du und alle verbündeten Kreaturen innerhalb von 30 Fuß um dich herum alle Rettungswürfe gegen Charme- und Angsteffekte mit Vorteil.
 Feature/&FeatureMartialWarlordBattlePlanTitle=Beeindruckende Präsenz
 Feature/&FeatureMartialWarlordBattlefieldExperienceDescription=Sie erhalten einen Bonus auf Initiativewürfe in Höhe Ihres Stärkemodifikators (mindestens +1).
 Feature/&FeatureMartialWarlordBattlefieldExperienceTitle=Unerbittlichkeit

@@ -1,10 +1,14 @@
+Condition/&ConditionMartialWarlordBattlePlanDescription=Vous lancez tous les jets de sauvegarde contre les effets de charme et de peur avec avantage.
+Condition/&ConditionMartialWarlordBattlePlanTitle=Présence imposante
+Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=Vous gagnez un bonus aux jets d'initiative égal à votre modificateur de Force (minimum +1) si la condition est la source, ou à la moitié du modificateur de Force source (arrondi au supérieur, minimum +1).
+Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=Acharnement
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=Tous les alliés autres que la source ne provoquent pas d'attaques d'opportunité de votre part.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Redirigé
 Condition/&ConditionMartialWarlordExploitOpeningDescription=Le prochain jet d'attaque effectué par un attaquant autre que la source contre vous est effectué avec avantage.
 Condition/&ConditionMartialWarlordExploitOpeningTitle=Exploité
 Condition/&ConditionMartialWarlordPredictAttackDescription=Vous êtes désavantagé lors de votre prochain jet d'attaque.
 Condition/&ConditionMartialWarlordPredictAttackTitle=Prévisible
-Feature/&FeatureMartialWarlordBattlePlanDescription=Vous ajoutez la moitié de votre modificateur de Force (arrondi au supérieur) comme bonus d'initiative à toutes les créatures alliées (autres que vous) à moins de 9 mètres de vous. De plus, vous et toutes les créatures alliées dans un rayon de 9 mètres autour de vous lancez avec avantage tous les jets de sauvegarde contre les effets de charme et d'effroi.
+Feature/&FeatureMartialWarlordBattlePlanDescription=Vous ajoutez la moitié de votre modificateur de Force (arrondi au supérieur, minimum +1) comme bonus d'initiative à toutes les créatures alliées (autres que vous) à moins de 9 mètres de vous. De plus, vous et toutes les créatures alliées dans un rayon de 9 mètres autour de vous lancez avec avantage tous les jets de sauvegarde contre les effets de charme et d'effroi.
 Feature/&FeatureMartialWarlordBattlePlanTitle=Présence imposante
 Feature/&FeatureMartialWarlordBattlefieldExperienceDescription=Vous gagnez un bonus aux jets dinitiative égal à votre modificateur de Force (minimum +1).
 Feature/&FeatureMartialWarlordBattlefieldExperienceTitle=L'acharnement

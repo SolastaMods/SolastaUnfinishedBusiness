@@ -1,10 +1,14 @@
+Condition/&ConditionMartialWarlordBattlePlanDescription=あなたは魅了と恐怖効果に対するすべてのセーヴィング スローを有利にロールします。
+Condition/&ConditionMartialWarlordBattlePlanTitle=威厳ある存在感
+Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=状態の原因があなたの筋力修正値（最小 +1）である場合、または原因が筋力修正値の半分（切り上げ、最小 +1）である場合、イニシアチブ ロールに等しいボーナスを獲得します。
+Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=執拗さ
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=ソース以外のすべての味方はあなたからの機会攻撃を引き起こしません。
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=リダイレクトされました
 Condition/&ConditionMartialWarlordExploitOpeningDescription=ソース以外の攻撃者があなたに対して行う次の攻撃ロールは有利に行われます。
 Condition/&ConditionMartialWarlordExploitOpeningTitle=搾取された
 Condition/&ConditionMartialWarlordPredictAttackDescription=次の攻撃ロールでは不利になります。
 Condition/&ConditionMartialWarlordPredictAttackTitle=予測可能な
-Feature/&FeatureMartialWarlordBattlePlanDescription=あなた以外の、30 フィート以内の味方クリーチャー全員に、あなたの【筋力】修正値の半分 (切り上げ) をイニシアチブ ボーナスとして加えます。さらに、あなたと、あなた以外の 30 フィート以内の味方クリーチャー全員は、魅了効果と恐怖効果に対するセーヴィング スローを有利にロールします。
+Feature/&FeatureMartialWarlordBattlePlanDescription=あなたから 30 フィート以内にいる味方クリーチャー (あなた以外) 全員に、あなたの筋力修正値の半分 (切り上げ、最小 +1) をイニシアチブ ボーナスとして加えます。さらに、あなたとあなたの 30 フィート以内にいる味方クリーチャー全員は、魅了効果と恐怖効果に対するセーヴィング スローを有利にロールします。
 Feature/&FeatureMartialWarlordBattlePlanTitle=威厳ある存在感
 Feature/&FeatureMartialWarlordBattlefieldExperienceDescription=イニシアチブ ロールに、あなたの筋力修正値 (最小 +1) に等しいボーナスを獲得します。
 Feature/&FeatureMartialWarlordBattlefieldExperienceTitle=執拗さ

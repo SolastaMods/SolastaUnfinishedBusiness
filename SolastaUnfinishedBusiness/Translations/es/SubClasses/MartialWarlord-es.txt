@@ -1,10 +1,14 @@
+Condition/&ConditionMartialWarlordBattlePlanDescription=Realizas todas las tiradas de salvación contra efectos de encanto y miedo con ventaja.
+Condition/&ConditionMartialWarlordBattlePlanTitle=Presencia imponente
+Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=Obtienes una bonificación a las tiradas de iniciativa igual a tu modificador de Fuerza (mínimo +1) si la condición es la fuente, o la mitad del modificador de Fuerza de la fuente (redondeado hacia arriba, mínimo +1).
+Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=Implacabilidad
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=Todos los aliados que no sean la fuente no provocan ataques de oportunidad por tu parte.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Redirigido
 Condition/&ConditionMartialWarlordExploitOpeningDescription=La siguiente tirada de ataque realizada por un atacante que no sea la fuente contra ti se realiza con ventaja.
 Condition/&ConditionMartialWarlordExploitOpeningTitle=Explotado
 Condition/&ConditionMartialWarlordPredictAttackDescription=Tienes desventaja en tu próxima tirada de ataque.
 Condition/&ConditionMartialWarlordPredictAttackTitle=Previsible
-Feature/&FeatureMartialWarlordBattlePlanDescription=Agregas la mitad de tu modificador de Fuerza (redondeado hacia arriba) como bonificación de iniciativa a todas las criaturas aliadas (excepto tú) que se encuentren a 30 pies de ti. Además, tú y todas las criaturas aliadas que se encuentren a 30 pies de ti realizan todas las tiradas de salvación contra efectos de encantamiento y atemorización con ventaja.
+Feature/&FeatureMartialWarlordBattlePlanDescription=Añades la mitad de tu modificador de Fuerza (redondeado hacia arriba, mínimo +1) como bonificación de iniciativa a todas las criaturas aliadas (excepto tú) que se encuentren a 30 pies de ti. Además, tú y todas las criaturas aliadas que se encuentren a 30 pies de ti realizan todas las tiradas de salvación contra efectos de encantamiento y miedo con ventaja.
 Feature/&FeatureMartialWarlordBattlePlanTitle=Presencia imponente
 Feature/&FeatureMartialWarlordBattlefieldExperienceDescription=Obtienes una bonificación a las tiradas de iniciativa igual a tu modificador de Fuerza (mínimo +1).
 Feature/&FeatureMartialWarlordBattlefieldExperienceTitle=Implacabilidad

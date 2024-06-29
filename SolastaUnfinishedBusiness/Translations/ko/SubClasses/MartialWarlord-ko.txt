@@ -1,10 +1,14 @@
+Condition/&ConditionMartialWarlordBattlePlanDescription=당신은 매력과 겁에 질린 효과에 대해 모든 내성 굴림을 유리하게 굴립니다.
+Condition/&ConditionMartialWarlordBattlePlanTitle=압도적인 존재감
+Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=조건의 소스인 경우 힘 수정치(최소 +1) 또는 소스 절반의 힘 수정치(반올림, 최소 +1)와 동일한 주도권 굴림에 보너스를 얻습니다.
+Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=냉혹함
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=소스 이외의 모든 아군은 당신의 기회 공격을 유발하지 않습니다.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=리디렉션됨
 Condition/&ConditionMartialWarlordExploitOpeningDescription=당신에 대한 소스가 아닌 공격자가 행하는 다음 공격 굴림은 이점을 가지고 만들어집니다.
 Condition/&ConditionMartialWarlordExploitOpeningTitle=악용됨
 Condition/&ConditionMartialWarlordPredictAttackDescription=당신은 다음 공격 굴림에서 불이익을 받습니다.
 Condition/&ConditionMartialWarlordPredictAttackTitle=예측 가능
-Feature/&FeatureMartialWarlordBattlePlanDescription=당신은 당신으로부터 30피트 이내에 있는 모든 동맹 생물(당신 제외)에 대한 주도권 보너스로 힘 수정치의 절반(반올림)을 추가합니다. 또한, 당신과 당신으로부터 30피트 내의 모든 동맹 생물은 매력과 공포 효과에 대한 모든 내성 굴림을 유리하게 굴립니다.
+Feature/&FeatureMartialWarlordBattlePlanDescription=당신은 힘 수정치의 절반(반올림, 최소 +1)을 30피트 이내의 모든 아군 생물(당신 제외)에게 주도권 보너스로 추가합니다. 추가로, 당신과 30피트 이내의 모든 아군 생물은 매력과 공포 효과에 대한 모든 세이빙 스로우를 유리하게 굴립니다.
 Feature/&FeatureMartialWarlordBattlePlanTitle=압도적인 존재감
 Feature/&FeatureMartialWarlordBattlefieldExperienceDescription=당신은 힘 수정치(최소 +1)만큼 주도권 굴림에 보너스를 얻습니다.
 Feature/&FeatureMartialWarlordBattlefieldExperienceTitle=냉혹함

@@ -1,10 +1,14 @@
+Condition/&ConditionMartialWarlordBattlePlanDescription=Esegui con vantaggio tutti i tiri salvezza contro gli effetti di fascino e paura.
+Condition/&ConditionMartialWarlordBattlePlanTitle=Presenza dominante
+Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=Ottieni un bonus ai tiri di iniziativa pari al tuo modificatore di Forza (minimo +1) se la fonte della condizione, o la fonte metà del modificatore di Forza (arrotondato per eccesso, minimo +1).
+Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=Implacabilità
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=Tutti gli alleati diversi dalla fonte non provocano attacchi di opportunità da parte tua.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Reindirizzato
 Condition/&ConditionMartialWarlordExploitOpeningDescription=Il successivo tiro per colpire effettuato da un attaccante diverso dalla fonte contro di te viene effettuato con vantaggio.
 Condition/&ConditionMartialWarlordExploitOpeningTitle=Sfruttati
 Condition/&ConditionMartialWarlordPredictAttackDescription=Hai svantaggio al tuo prossimo tiro per colpire.
 Condition/&ConditionMartialWarlordPredictAttackTitle=Prevedibile
-Feature/&FeatureMartialWarlordBattlePlanDescription=Aggiungi metà del tuo modificatore di Forza (arrotondato per eccesso) come bonus di iniziativa a tutte le creature alleate (eccetto te) entro 9 metri da te. Inoltre, tu e tutte le creature alleate entro 9 metri da te effettuate tutti i tiri salvezza contro gli effetti di charme e spaventare con vantaggio.
+Feature/&FeatureMartialWarlordBattlePlanDescription=Aggiungi metà del tuo modificatore di Forza (arrotondato per eccesso, minimo +1) come bonus di iniziativa a tutte le creature alleate (diverse da te) entro 30 piedi da te. Inoltre, tu e tutte le creature alleate entro 30 piedi da te tirate tutti i tiri salvezza contro gli effetti di fascino e paura con vantaggio.
 Feature/&FeatureMartialWarlordBattlePlanTitle=Presenza dominante
 Feature/&FeatureMartialWarlordBattlefieldExperienceDescription=Ottieni un bonus ai tiri per l'iniziativa pari al tuo modificatore di Forza (minimo +1).
 Feature/&FeatureMartialWarlordBattlefieldExperienceTitle=Implacabilità

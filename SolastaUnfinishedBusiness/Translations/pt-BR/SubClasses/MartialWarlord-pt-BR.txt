@@ -1,10 +1,14 @@
+Condition/&ConditionMartialWarlordBattlePlanDescription=Você rola todos os testes de resistência contra efeitos de encanto e medo com vantagem.
+Condition/&ConditionMartialWarlordBattlePlanTitle=Presença Comandante
+Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=Você ganha um bônus nas jogadas de iniciativa igual ao seu modificador de Força (mínimo +1) se for a fonte da condição, ou metade do modificador de Força da fonte (arredondado para cima, mínimo +1).
+Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=Implacável
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=Todos os aliados, exceto a fonte, não provocam ataques de oportunidade de sua parte.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Redirecionado
 Condition/&ConditionMartialWarlordExploitOpeningDescription=A próxima jogada de ataque feita por um atacante que não seja a fonte contra você é feita com vantagem.
 Condition/&ConditionMartialWarlordExploitOpeningTitle=Explorado
 Condition/&ConditionMartialWarlordPredictAttackDescription=Você tem desvantagem em sua próxima jogada de ataque.
 Condition/&ConditionMartialWarlordPredictAttackTitle=Previsível
-Feature/&FeatureMartialWarlordBattlePlanDescription=Você adiciona metade do seu modificador de Força (arredondado para cima) como bônus de iniciativa a todas as criaturas aliadas (exceto você) a até 9 metros de você. Além disso, você e todas as criaturas aliadas a até 9 metros de você realizam todos os testes de resistência contra efeitos de encantar e assustar com vantagem.
+Feature/&FeatureMartialWarlordBattlePlanDescription=Você adiciona metade do seu modificador de Força (arredondado para cima, mínimo +1) como bônus de iniciativa a todas as criaturas aliadas (exceto você) a até 9 metros de você. Além disso, você e todas as criaturas aliadas a até 9 metros de você realizam todos os testes de resistência contra efeitos de encanto e amedrontamento com vantagem.
 Feature/&FeatureMartialWarlordBattlePlanTitle=Presença de comando
 Feature/&FeatureMartialWarlordBattlefieldExperienceDescription=Você ganha um bônus nas jogadas de iniciativa igual ao seu modificador de Força (mínimo +1).
 Feature/&FeatureMartialWarlordBattlefieldExperienceTitle=Implacabilidade

@@ -1,10 +1,14 @@
+Condition/&ConditionMartialWarlordBattlePlanDescription=Вы бросаете все спасброски против эффектов очарования и испуга с преимуществом.
+Condition/&ConditionMartialWarlordBattlePlanTitle=Командирское присутствие
+Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=Вы получаете бонус к броскам инициативы, равный вашему модификатору Силы (минимум +1), если источник состояния, или источнику половины модификатора Силы (округляется вверх, минимум +1).
+Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=Неустанность
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=Все союзные существа, отличные от источника состояния, не провоцируют с вашей стороны атаки по возможности.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Перенацелен
 Condition/&ConditionMartialWarlordExploitOpeningDescription=Следующий бросок атаки по вам будет совершён с преимуществом, если атакующий не является источником состояния.
 Condition/&ConditionMartialWarlordExploitOpeningTitle=Уязвим
 Condition/&ConditionMartialWarlordPredictAttackDescription=Вы совершаете с помехой следующий бросок атаки.
 Condition/&ConditionMartialWarlordPredictAttackTitle=Просчитан
-Feature/&FeatureMartialWarlordBattlePlanDescription=Вы добавляете половину своего модификатора Силы (с округлением вверх) ко всем броскам инициативы союзных существ (отличных от вас) в пределах 30 футов. Кроме того, вы и все союзные существа в радиусе 30 футов совершают все спасброски против эффектов очарования и испуга с преимуществом.
+Feature/&FeatureMartialWarlordBattlePlanDescription=Вы добавляете половину своего модификатора Силы (с округлением вверх, минимум +1) ко всем броскам инициативы союзных существ (отличных от вас) в пределах 30 футов. Кроме того, вы и все союзные существа в радиусе 30 футов совершают все спасброски против эффектов очарования и испуга с преимуществом.
 Feature/&FeatureMartialWarlordBattlePlanTitle=Командирское присутствие
 Feature/&FeatureMartialWarlordBattlefieldExperienceDescription=Вы получаете бонус к броскам инициативы, равный вашему модификатору Силы (минимум +1).
 Feature/&FeatureMartialWarlordBattlefieldExperienceTitle=Жестокость

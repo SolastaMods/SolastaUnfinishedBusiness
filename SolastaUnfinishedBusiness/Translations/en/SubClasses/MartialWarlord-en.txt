@@ -1,10 +1,14 @@
+Condition/&ConditionMartialWarlordBattlePlanDescription=You roll all saving throws against charm and frightened effects with advantage.
+Condition/&ConditionMartialWarlordBattlePlanTitle=Commanding Presence
+Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=If condition's source, you gain a bonus to initiative rolls equal to your Strength modifier (minimum +1), otherwise the bonus equals to condition's source half Strength modifier (rounded up, minimum +1).
+Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=Relentlessness
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=All allies other than the source don't provoke opportunity attacks from you.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Redirected
 Condition/&ConditionMartialWarlordExploitOpeningDescription=The next attack roll made by an attacker other than the source against you is made with advantage.
 Condition/&ConditionMartialWarlordExploitOpeningTitle=Exploited
 Condition/&ConditionMartialWarlordPredictAttackDescription=You have disadvantage on your next attack roll.
 Condition/&ConditionMartialWarlordPredictAttackTitle=Predictable
-Feature/&FeatureMartialWarlordBattlePlanDescription=You add half your Strength modifier (rounded up) as initiative bonus to all allied creatures (other than you) within 30 feet of you. In addition, you and all allied creatures within 30 feet of you roll all saving throws against charm and frightened effects with advantage.
+Feature/&FeatureMartialWarlordBattlePlanDescription=You add half your Strength modifier (rounded up, minimum +1) as initiative bonus to all allied creatures (other than you) within 30 feet of you. In addition, you and all allied creatures within 30 feet of you roll all saving throws against charm and frightened effects with advantage.
 Feature/&FeatureMartialWarlordBattlePlanTitle=Commanding Presence
 Feature/&FeatureMartialWarlordBattlefieldExperienceDescription=You gain a bonus to initiative rolls equal to your Strength modifier (minimum +1).
 Feature/&FeatureMartialWarlordBattlefieldExperienceTitle=Relentlessness

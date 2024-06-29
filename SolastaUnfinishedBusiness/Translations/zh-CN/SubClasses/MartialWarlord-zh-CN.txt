@@ -1,10 +1,14 @@
+Condition/&ConditionMartialWarlordBattlePlanDescription=你对所有对抗魅惑和恐惧效果的豁免检定都具有优势。
+Condition/&ConditionMartialWarlordBattlePlanTitle=威风凛凛
+Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=如果条件的来源是力量调整值（最小 +1），则您将获得等于力量调整值一半的主动性掷骰奖励（向上舍入，最小 +1）。
+Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=坚持不懈
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=除来源外的生物都不会引发你的借机攻击。
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=被迫转向
 Condition/&ConditionMartialWarlordExploitOpeningDescription=除来源外的生物对你进行的下一次攻击检定具有优势。
 Condition/&ConditionMartialWarlordExploitOpeningTitle=受到利用
 Condition/&ConditionMartialWarlordPredictAttackDescription=你在下一次攻击检定中具有劣势。
 Condition/&ConditionMartialWarlordPredictAttackTitle=可以预判
-Feature/&FeatureMartialWarlordBattlePlanDescription=您将力量调整值的一半（向上取整）作为主动奖励加到您周围 30 英尺内的所有盟军生物（您除外）。此外，您和您周围 30 英尺内的所有盟军生物在对抗魅惑和恐吓效果时，将获得优势。
+Feature/&FeatureMartialWarlordBattlePlanDescription=您将力量调整值的一半（向上取整，最小 +1）作为主动奖励加到您周围 30 英尺内的所有盟军生物（您除外）。此外，您和您周围 30 英尺内的所有盟军生物在对抗魅惑和恐惧效果时，将获得优势豁免检定。
 Feature/&FeatureMartialWarlordBattlePlanTitle=威风凛凛
 Feature/&FeatureMartialWarlordBattlefieldExperienceDescription=您将获得等于您的力量调整值的主动性掷骰奖励（最低 +1）。
 Feature/&FeatureMartialWarlordBattlefieldExperienceTitle=坚持不懈
