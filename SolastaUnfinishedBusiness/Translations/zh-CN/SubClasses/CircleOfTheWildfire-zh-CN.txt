@@ -1,0 +1,10 @@
+Feature/&PowerCircleOfTheWildfireCommandSpiritDescription=为你的野火精灵发出命令，这样直到你的下一回合开始之前，它可以采取的行动类型不受限制。如果你在未花费奖励行动的情况下结束回合，你将自动命令它。
+Feature/&PowerCircleOfTheWildfireCommandSpiritTitle=命令野火精灵特征/&PowerCircleOfTheWildfireSpiritTeleportDescription=精灵及其 5 英尺范围内每个自愿生物传送至您能看到的 15 英尺范围内的未占用空间。然后，精灵离开的空间 5 英尺范围内的每个生物必须成功通过敏捷豁免检定，以对抗您的法术豁免 DC，否则将受到 1d6 + PB 火焰伤害。
+Feature/&PowerCircleOfTheWildfireSpiritTeleportDescription=灵魂和其 5 英尺范围内每个自愿生物将传送至您能看到的 15 英尺范围内的未占用空间。然后灵魂离开的空间 5 英尺范围内的每个生物必须成功通过敏捷豁免检定，以对抗您的法术豁免 DC，否则将受到 1d6 + PB 火焰伤害。
+Feature/&PowerCircleOfTheWildfireSpiritTeleportTitle=火焰传送
+Feature/&PowerSharedPoolCircleOfTheWildfireSummonSpiritDescription=你可以召唤与你的灵魂绑定的原始灵魂。作为一个动作，你可以花费一次野性变身功能来召唤你的野火灵魂，而不是变成野兽形态。灵魂会出现在你选择的 30 英尺范围内可见的未占用空间中。灵魂出现时，距离灵魂 10 英尺范围内的每个生物（你除外）都必须成功进行敏捷豁免检定，以对抗你的法术豁免 DC，否则将受到 2d6 火焰伤害。
+Feature/&PowerSharedPoolCircleOfTheWildfireSummonSpiritTitle=召唤野火精灵
+Monster/&WildfireSpiritDescription=野火德鲁伊之圈召唤的小元素。
+Monster/&WildfireSpiritTitle=野火精神
+Subclass/&CircleOfTheWildfireDescription=野火之环内的德鲁伊明白，毁灭有时是创造的先兆，例如森林大火会促进后来的生长。这些德鲁伊与一种兼具破坏力和创造力的原始精神紧密相连，这使得德鲁伊能够创造出可控的火焰，烧毁一物，却赋予另一物生命。
+Subclass/&CircleOfTheWildfireTitle=野火之圈
