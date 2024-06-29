@@ -2,7 +2,7 @@
 <Settings>
     <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
-    <SelectedTab>0</SelectedTab>
+    <SelectedTab>1</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
@@ -1321,7 +1321,6 @@
                     <string>ResonatingStrike</string>
                     <string>SunlightBlade</string>
                     <string>BladeWard</string>
-                    <string>EgoShock</string>
                     <string>IlluminatingSphere</string>
                     <string>MinorLifesteal</string>
                     <string>StarryWisp</string>
@@ -1500,7 +1499,6 @@
                     <string>Foresight</string>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
-                    <string>EgoShock</string>
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>
@@ -1571,7 +1569,6 @@
                 <ArrayOfString>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
-                    <string>EgoShock</string>
                     <string>ResonatingStrike</string>
                     <string>Infestation</string>
                     <string>LightningLure</string>
@@ -1630,7 +1627,6 @@
                 <ArrayOfString>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
-                    <string>EgoShock</string>
                     <string>ResonatingStrike</string>
                     <string>AirBlast</string>
                     <string>IlluminatingSphere</string>

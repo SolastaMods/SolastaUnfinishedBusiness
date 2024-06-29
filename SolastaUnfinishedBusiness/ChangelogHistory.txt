@@ -1,10 +1,17 @@
 1.5.97.17:
 
-- fixed 'After was attacked not by source' condition interruption only triggering on success
+- fixed 'After was attacked' condition interruption also triggering on non attack roll magic effects
+- fixed 'After was attacked not by source' condition interruption also triggering on non attack roll magic effects
+- fixed 'After was attacked not by source' condition interruption only triggering on success rolls
 - fixed Baleful Scion feat doing additional damage regardless of the action toggle state
 - fixed Devastating Strike feat allowing both DEX and STR flavors to be selected on same hero
 - fixed powers with custom usages not recharging over short or long rests [i.e.: gambits, infusions, etc.]
 - improved Martial Warlord battlefield experience, coordinated assault, and battle plan features
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses [cannot fix]
 
 1.5.97.16:
 
@@ -30,11 +37,6 @@
 - improved mod performance by refactoring some feats, spells, and subclasses custom behaviors
 - improved translations on spider like models setting description to prevent people bear with consequences
 - improved Wizard Deadmaster summons to be 1 hour duration across all spell levels
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses [cannot fix]
 
 1.5.97.15:
 
