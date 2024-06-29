@@ -1,7 +1,5 @@
 Condition/&ConditionMartialWarlordBattlePlanDescription=Vous lancez tous les jets de sauvegarde contre les effets de charme et de peur avec avantage.
 Condition/&ConditionMartialWarlordBattlePlanTitle=Présence imposante
-Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=Vous gagnez un bonus aux jets d'initiative égal à votre modificateur de Force (minimum +1) si la condition est la source, ou à la moitié du modificateur de Force source (arrondi au supérieur, minimum +1).
-Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=Acharnement
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=Tous les alliés autres que la source ne provoquent pas d'attaques d'opportunité de votre part.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Redirigé
 Condition/&ConditionMartialWarlordExploitOpeningDescription=Le prochain jet d'attaque effectué par un attaquant autre que la source contre vous est effectué avec avantage.

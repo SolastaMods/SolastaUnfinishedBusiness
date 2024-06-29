@@ -1,7 +1,5 @@
 Condition/&ConditionMartialWarlordBattlePlanDescription=당신은 매력과 겁에 질린 효과에 대해 모든 내성 굴림을 유리하게 굴립니다.
 Condition/&ConditionMartialWarlordBattlePlanTitle=압도적인 존재감
-Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=조건의 소스인 경우 힘 수정치(최소 +1) 또는 소스 절반의 힘 수정치(반올림, 최소 +1)와 동일한 주도권 굴림에 보너스를 얻습니다.
-Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=냉혹함
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=소스 이외의 모든 아군은 당신의 기회 공격을 유발하지 않습니다.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=리디렉션됨
 Condition/&ConditionMartialWarlordExploitOpeningDescription=당신에 대한 소스가 아닌 공격자가 행하는 다음 공격 굴림은 이점을 가지고 만들어집니다.

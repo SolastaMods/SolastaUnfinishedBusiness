@@ -1,7 +1,5 @@
 Condition/&ConditionMartialWarlordBattlePlanDescription=Вы бросаете все спасброски против эффектов очарования и испуга с преимуществом.
 Condition/&ConditionMartialWarlordBattlePlanTitle=Командирское присутствие
-Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=Вы получаете бонус к броскам инициативы, равный вашему модификатору Силы (минимум +1), если источник состояния, или источнику половины модификатора Силы (округляется вверх, минимум +1).
-Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=Неустанность
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=Все союзные существа, отличные от источника состояния, не провоцируют с вашей стороны атаки по возможности.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Перенацелен
 Condition/&ConditionMartialWarlordExploitOpeningDescription=Следующий бросок атаки по вам будет совершён с преимуществом, если атакующий не является источником состояния.

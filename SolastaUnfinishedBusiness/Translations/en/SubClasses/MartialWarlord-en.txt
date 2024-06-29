@@ -1,7 +1,5 @@
 Condition/&ConditionMartialWarlordBattlePlanDescription=You roll all saving throws against charm and frightened effects with advantage.
 Condition/&ConditionMartialWarlordBattlePlanTitle=Commanding Presence
-Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=If condition's source, you gain a bonus to initiative rolls equal to your Strength modifier (minimum +1), otherwise the bonus equals to condition's source half Strength modifier (rounded up, minimum +1).
-Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=Relentlessness
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=All allies other than the source don't provoke opportunity attacks from you.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Redirected
 Condition/&ConditionMartialWarlordExploitOpeningDescription=The next attack roll made by an attacker other than the source against you is made with advantage.

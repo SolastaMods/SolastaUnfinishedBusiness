@@ -1,7 +1,5 @@
 Condition/&ConditionMartialWarlordBattlePlanDescription=Você rola todos os testes de resistência contra efeitos de encanto e medo com vantagem.
 Condition/&ConditionMartialWarlordBattlePlanTitle=Presença Comandante
-Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=Você ganha um bônus nas jogadas de iniciativa igual ao seu modificador de Força (mínimo +1) se for a fonte da condição, ou metade do modificador de Força da fonte (arredondado para cima, mínimo +1).
-Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=Implacável
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=Todos os aliados, exceto a fonte, não provocam ataques de oportunidade de sua parte.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Redirecionado
 Condition/&ConditionMartialWarlordExploitOpeningDescription=A próxima jogada de ataque feita por um atacante que não seja a fonte contra você é feita com vantagem.

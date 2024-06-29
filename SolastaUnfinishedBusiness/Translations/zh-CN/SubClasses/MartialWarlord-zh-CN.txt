@@ -1,7 +1,5 @@
 Condition/&ConditionMartialWarlordBattlePlanDescription=你对所有对抗魅惑和恐惧效果的豁免检定都具有优势。
 Condition/&ConditionMartialWarlordBattlePlanTitle=威风凛凛
-Condition/&ConditionMartialWarlordBattlefieldExperienceDescription=如果条件的来源是力量调整值（最小 +1），则您将获得等于力量调整值一半的主动性掷骰奖励（向上舍入，最小 +1）。
-Condition/&ConditionMartialWarlordBattlefieldExperienceTitle=坚持不懈
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=除来源外的生物都不会引发你的借机攻击。
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=被迫转向
 Condition/&ConditionMartialWarlordExploitOpeningDescription=除来源外的生物对你进行的下一次攻击检定具有优势。
