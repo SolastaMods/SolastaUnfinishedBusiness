@@ -1113,35 +1113,6 @@ public static class CharacterActionMagicEffectPatcher
                     __instance.AttackRollOutcome = outcome;
                     __instance.AttackSuccessDelta = successDelta;
 
-                    //PATCH: process ExtraConditionInterruption.AttackedNotBySource
-                    if (!rulesetTarget.matchingInterruption)
-                    {
-                        rulesetTarget.matchingInterruption = true;
-                        rulesetTarget.matchingInterruptionConditions.Clear();
-
-                        foreach (var rulesetCondition in rulesetTarget.conditionsByCategory
-                                     .SelectMany(keyValuePair => keyValuePair.Value
-                                         .Where(rulesetCondition =>
-                                             rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
-                                                 (ConditionInterruption)ExtraConditionInterruption
-                                                     .AttackedNotBySource) &&
-                                             rulesetCondition.SourceGuid != actingCharacter.Guid)))
-                        {
-                            rulesetTarget.matchingInterruptionConditions.Add(rulesetCondition);
-                        }
-
-                        for (var index = rulesetTarget.matchingInterruptionConditions.Count - 1;
-                             index >= 0;
-                             --index)
-                        {
-                            rulesetTarget.RemoveCondition(rulesetTarget.matchingInterruptionConditions[index]);
-                        }
-
-                        rulesetTarget.matchingInterruptionConditions.Clear();
-                        rulesetTarget.matchingInterruption = false;
-                    }
-                    //END PATCH
-
                     // Is this still a success?
                     if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
@@ -1246,6 +1217,35 @@ public static class CharacterActionMagicEffectPatcher
                     }
                 }
             }
+
+            //PATCH: process ExtraConditionInterruption.AttackedNotBySource
+            if (!rulesetTarget.matchingInterruption)
+            {
+                rulesetTarget.matchingInterruption = true;
+                rulesetTarget.matchingInterruptionConditions.Clear();
+
+                foreach (var rulesetCondition in rulesetTarget.conditionsByCategory
+                             .SelectMany(keyValuePair => keyValuePair.Value
+                                 .Where(rulesetCondition =>
+                                     rulesetCondition.ConditionDefinition.HasSpecialInterruptionOfType(
+                                         (ConditionInterruption)ExtraConditionInterruption
+                                             .AfterWasAttackedNotBySource) &&
+                                     rulesetCondition.SourceGuid != actingCharacter.Guid)))
+                {
+                    rulesetTarget.matchingInterruptionConditions.Add(rulesetCondition);
+                }
+
+                for (var index = rulesetTarget.matchingInterruptionConditions.Count - 1;
+                     index >= 0;
+                     --index)
+                {
+                    rulesetTarget.RemoveCondition(rulesetTarget.matchingInterruptionConditions[index]);
+                }
+
+                rulesetTarget.matchingInterruptionConditions.Clear();
+                rulesetTarget.matchingInterruption = false;
+            }
+            //END PATCH
 
             //PATCH: Allows condition interruption after target was attacked
             rulesetCharacter.ProcessConditionsMatchingInterruption(
