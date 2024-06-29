@@ -756,15 +756,6 @@ DieRollModifierDamageTypeDependentFeatElementalMasterDamagePoison	Title='Element
 DieRollModifierDamageTypeDependentFeatElementalMasterDamagePoison	Description='Poison damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.'.
 DieRollModifierDamageTypeDependentFeatElementalMasterDamageThunder	Title='Elemental Master [Thunder]'.
 DieRollModifierDamageTypeDependentFeatElementalMasterDamageThunder	Description='Thunder damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.'.
-EgoShockCharisma	Title='Ego Shock: Charisma'.
-EgoShockCharisma	Description='You attempt to suppress the personality of a creature you can see within range. If the target can hear you, it must succeed on a Charisma saving throw or take 1d8 psychic damage and suffer disadvantage on the next Charisma check it makes before the end of your next turn.
-This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).'.
-EgoShockIntelligence	Title='Ego Shock: Intelligence'.
-EgoShockIntelligence	Description='You attempt to suppress the personality of a creature you can see within range. If the target can hear you, it must succeed on a Charisma saving throw or take 1d8 psychic damage and suffer disadvantage on the next Intelligence check it makes before the end of your next turn.
-This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).'.
-EgoShockWisdom	Title='Ego Shock: Wisdom'.
-EgoShockWisdom	Description='You attempt to suppress the personality of a creature you can see within range. If the target can hear you, it must succeed on a Charisma saving throw or take 1d8 psychic damage and suffer disadvantage on the next Wisdom check it makes before the end of your next turn.
-This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).'.
 ElementalBaneDamageAcid	Title='Elemental Bane: Acid Damage'.
 ElementalBaneDamageCold	Title='Elemental Bane: Cold Damage'.
 ElementalBaneDamageFire	Title='Elemental Bane: Fire Damage'.

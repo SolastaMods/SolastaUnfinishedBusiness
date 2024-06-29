@@ -29,6 +29,7 @@ internal static class SpellsContext
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = [];
 
     internal static readonly SpellDefinition AirBlast = BuildAirBlast();
+    internal static readonly SpellDefinition AshardalonStride = BuildAshardalonStride();
     internal static readonly SpellDefinition AuraOfLife = BuildAuraOfLife();
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
     internal static readonly SpellDefinition BindingIce = BuildBindingIce();
@@ -238,10 +239,9 @@ internal static class SpellsContext
         RegisterSpell(BuildBoomingBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
-        RegisterSpell(BuildEgoShock(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        // RegisterSpell(BuildEgoShock(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(EnduringSting, 0, SpellListWizard);
-        RegisterSpell(BuildForceStrike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
-            spellListInventorClass);
+        // RegisterSpell(BuildForceStrike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildInfestation(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildLightningLure(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
@@ -308,7 +308,7 @@ internal static class SpellsContext
 
         // 3rd level
         RegisterSpell(BuildAdderFangs(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWarlock);
-        RegisterSpell(BuildAshardalonStride(), 0, SpellListRanger, SpellListSorcerer, SpellListWizard,
+        RegisterSpell(AshardalonStride, 0, SpellListRanger, SpellListSorcerer, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildAuraOfVitality(), 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);

@@ -1,6 +1,5 @@
 1.5.97.17:
 
-- added Ego Shock [unleashed], and Force Strike [unleashed] cantrips
 - fixed `After was attacked not by source` condition interruption only triggering on success
 - fixed Baleful Scion feat doing additional damage regardless of the action toggle state
 - fixed Devastating Strike feat allowing both DEX and STR flavors to be selected on same hero
