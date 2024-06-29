@@ -276,7 +276,7 @@ internal static partial class CharacterContext
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .AddCustomSubFeatures(new CustomBehaviorSunderingBlow(powerSunderingBlow, conditionSunderingBlowAlly))
-            .SetSpecialInterruptions(ExtraConditionInterruption.AttackedNotBySource)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttackedNotBySource)
             .CopyParticleReferences(ConditionDefinitions.ConditionLeadByExampleMarked)
             .AddToDB();
 

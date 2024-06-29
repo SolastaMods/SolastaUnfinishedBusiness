@@ -98,7 +98,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(combatAffinityExploitOpening)
-            .SetSpecialInterruptions(ExtraConditionInterruption.AttackedNotBySource)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttackedNotBySource)
             .CopyParticleReferences(ConditionDefinitions.ConditionLeadByExampleMarked)
             .AddToDB();
 
@@ -275,7 +275,8 @@ public sealed class MartialWarlord : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        conditionBattlePlan.AddCustomSubFeatures(new RollSavingThrowInitiatedBattlePlan(conditionBattlePlan));
+        conditionBattlePlan.AddCustomSubFeatures(
+            new RollSavingThrowInitiatedBattlePlan(conditionStrengthInitiative, conditionBattlePlan));
 
         var powerBattlePlan = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}BattlePlan")
@@ -682,13 +683,7 @@ public sealed class MartialWarlord : AbstractSubclass
     {
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
-            if (Gui.Battle == null)
-            {
-                return;
-            }
-
             var rulesetCharacter = locationCharacter.RulesetCharacter;
-            var levels = rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Fighter, Name);
             var strengthModifier = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(
                 rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength)), 1);
 
@@ -705,29 +700,6 @@ public sealed class MartialWarlord : AbstractSubclass
                 strengthModifier,
                 0,
                 0);
-
-            if (levels < 15)
-            {
-                return;
-            }
-
-            foreach (var player in Gui.Battle
-                         .GetContenders(locationCharacter, isOppositeSide: false, withinRange: 6))
-            {
-                player.RulesetCharacter.InflictCondition(
-                    conditionStrengthInitiative.Name,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetCharacter.Guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    conditionStrengthInitiative.Name,
-                    (strengthModifier + 1) / 2,
-                    0,
-                    0);
-            }
         }
     }
 
@@ -735,9 +707,41 @@ public sealed class MartialWarlord : AbstractSubclass
     // Battle Plan
     //
 
-    private sealed class RollSavingThrowInitiatedBattlePlan(ConditionDefinition conditionBattlePlan)
-        : IRollSavingThrowInitiated
+    private sealed class RollSavingThrowInitiatedBattlePlan(
+        ConditionDefinition conditionStrengthInitiative,
+        ConditionDefinition conditionBattlePlan)
+        : IRollSavingThrowInitiated, ICharacterBattleStartedListener
     {
+        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionBattlePlan.Name, out var activeCondition) ||
+                rulesetCharacter.Guid == activeCondition.SourceGuid)
+            {
+                return;
+            }
+
+            var rulesetSource = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var strengthModifier = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetSource.TryGetAttributeValue(AttributeDefinitions.Strength)), 1);
+
+            rulesetCharacter.InflictCondition(
+                conditionStrengthInitiative.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionStrengthInitiative.Name,
+                (strengthModifier + 1) / 2,
+                0,
+                0);
+        }
+
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,

@@ -129,7 +129,7 @@ internal static class GambitsBuilders
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(combatAffinityDistracted)
-            .SetSpecialInterruptions(ExtraConditionInterruption.AttackedNotBySource)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttackedNotBySource)
             .AddToDB();
 
         combatAffinityDistracted.requiredCondition = conditionDistracted;

@@ -129,7 +129,7 @@ internal enum ExtraCombatAffinityValueDetermination
 public enum ExtraConditionInterruption
 {
     AfterWasAttacked = 9000,
-    AttackedNotBySource,
+    AfterWasAttackedNotBySource,
     AttacksWithWeaponOrUnarmed,
     SourceRageStop,
     UsesBonusAction,
