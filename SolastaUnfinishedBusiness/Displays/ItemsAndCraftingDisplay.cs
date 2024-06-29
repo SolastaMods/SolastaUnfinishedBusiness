@@ -91,17 +91,6 @@ internal static class ItemsAndCraftingDisplay
         if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
-            Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
-        }
-
-        if (Main.Settings.AddNewWeaponsAndRecipesToShops)
-        {
-            toggle = Main.Settings.AddNewWeaponsAndRecipesToEditor;
-            if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableAdditionalItemsInDungeonMaker")), ref toggle,
-                    UI.AutoWidth()))
-            {
-                Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
-            }
         }
 
         toggle = Main.Settings.AddPickPocketableLoot;

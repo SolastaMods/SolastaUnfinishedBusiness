@@ -1,0 +1,10 @@
+Feature/&PowerCircleOfTheWildfireCommandSpiritDescription=Issue command for your Wildfire Spirit so until the start of your next turn it is not limited in types of action it can take. You will command it automatically if you end your turn without spending a bonus action.
+Feature/&PowerCircleOfTheWildfireCommandSpiritTitle=Command Wildfire Spirit
+Feature/&PowerCircleOfTheWildfireSpiritTeleportDescription=The spirit and each willing creature of your choice within 5 feet of it teleport up to 15 feet to unoccupied spaces you can see. Then each creature within 5 feet of the space that the spirit left must succeed on a Dexterity saving throw against your spell save DC or take 1d6 + PB fire damage.
+Feature/&PowerCircleOfTheWildfireSpiritTeleportTitle=Fiery Teleportation
+Feature/&PowerSharedPoolCircleOfTheWildfireSummonSpiritDescription=You can summon the primal spirit bound to your soul. As an action, you can expend one use of your Wild Shape feature to summon your wildfire spirit, rather than assuming a beast form. The spirit appears in an unoccupied space of your choice that you can see within 30 feet of you. Each creature within 10 feet of the spirit (other than you) when it appears must succeed on a Dexterity saving throw against your spell save DC or take 2d6 fire damage.
+Feature/&PowerSharedPoolCircleOfTheWildfireSummonSpiritTitle=Summon Wildfire Spirit
+Monster/&WildfireSpiritDescription=A small elemental summoned by a Circle of the Wildfire Druid.
+Monster/&WildfireSpiritTitle=Wildfire Spirit
+Subclass/&CircleOfTheWildfireDescription=Druids within the Circle of Wildfire understand that destruction is sometimes the precursor of creation, such as when a forest fire promotes later growth. These druids bond with a primal spirit that harbors both destructive and creative power, allowing the druids to create controlled flames that burn away one thing but give life to another.
+Subclass/&CircleOfTheWildfireTitle=Circle of the Wildfire

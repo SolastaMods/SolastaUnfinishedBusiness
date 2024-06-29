@@ -1,0 +1,10 @@
+Feature/&PowerCircleOfTheWildfireCommandSpiritDescription=Wildfire Spirit에 명령을 내려 다음 턴이 시작될 때까지 취할 수 있는 행동 유형이 제한되지 않도록 하세요. 보너스 액션을 사용하지 않고 턴을 마치면 자동으로 명령을 내리게 됩니다.
+Feature/&PowerCircleOfTheWildfireCommandSpiritTitle=Command Wildfire SpiritFeature/&PowerCircleOfTheWildfireSpiritTeleportDescription=5피트 이내에 있는 영혼과 원하는 각 생물은 볼 수 있는 비어 있는 공간으로 최대 15피트까지 순간이동합니다. 그런 다음 영혼이 남긴 공간에서 5피트 내의 각 생물은 주문 내성 DC에 대한 민첩 내성 굴림에 성공해야 하며 그렇지 않으면 1d6 + PB 화염 피해를 입어야 합니다.
+Feature/&PowerCircleOfTheWildfireSpiritTeleportDescription=5피트 이내에 있는 영혼과 각 의지가 있는 생물은 당신이 볼 수 있는 비어 있는 공간으로 최대 15피트까지 순간이동합니다. 그런 다음 영혼이 남긴 공간에서 5피트 내의 각 생물은 주문 내성 DC에 대한 민첩 내성 굴림에 성공해야 하며 그렇지 않으면 1d6 + PB 화염 피해를 입어야 합니다.
+Feature/&PowerCircleOfTheWildfireSpiritTeleportTitle=불타는 순간이동
+Feature/&PowerSharedPoolCircleOfTheWildfireSummonSpiritDescription=영혼에 결속된 원시 정령을 소환할 수 있습니다. 행동으로, 당신은 야수 형태를 취하는 대신 Wild Shape 기능을 한 번 사용하여 산불 정신을 소환할 수 있습니다. 영혼은 당신이 선택한 빈 공간에 나타나며, 당신으로부터 30피트 이내에서 볼 수 있습니다. 영혼이 나타날 때 (당신 제외) 10피트 이내에 있는 각 생물은 당신의 주문 내성 DC에 대한 민첩 내성 굴림에 성공해야 하며 그렇지 않으면 2d6 화염 피해를 입어야 합니다.
+Feature/&PowerSharedPoolCircleOfTheWildfireSummonSpiritTitle=들불 정령 소환
+Monster/&WildfireSpiritDescription=Wildfire Druid의 모임이 소환하는 작은 정령입니다.
+Monster/&WildfireSpiritTitle=들불의 정령
+Subclass/&CircleOfTheWildfireDescription=Wildfire Circle 내의 드루이드는 산불이 나중에 성장을 촉진하는 경우와 같이 파괴가 때때로 창조의 전조라는 것을 이해합니다. 이 드루이드는 파괴적인 힘과 창조적인 힘을 모두 품은 원시 정신과 결속되어 한 가지를 불태우고 다른 것에 생명을 주는 통제된 불꽃을 만들 수 있습니다.
+Subclass/&CircleOfTheWildfireTitle=들불의 원

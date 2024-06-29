@@ -3,9 +3,9 @@
   "modifiedAttribute": "Initiative",
   "modifierOperation": "AddConditionAmount",
   "modifierValue": 1,
-  "modifierAbilityScore": "Wisdom",
+  "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
-  "minimum1": true,
+  "minimum1": false,
   "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "202cec08-c66c-55fe-a920-34dc1ab2340e",
+  "guid": "fdeee3db-181f-586d-9381-76b0d10c8dcd",
   "contentPack": 9999,
-  "name": "AttributeModifierMartialWarlordWisdomInitiative"
+  "name": "AttributeModifierMartialWarlordBattlefieldExperience"
 }

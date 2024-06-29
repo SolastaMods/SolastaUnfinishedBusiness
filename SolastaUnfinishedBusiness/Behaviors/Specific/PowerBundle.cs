@@ -36,7 +36,7 @@ internal static class PowerBundle
             {
                 rechargedPower = pool.GetUsagePoolPower();
             }
-            else if (usablePower.PowerDefinition.HasSubFeatureOfType<IHasModifiedUses>())
+            else if (usablePower.PowerDefinition.HasSubFeatureOfType<HasModifiedUses>())
             {
                 rechargedPower = usablePower.PowerDefinition;
             }

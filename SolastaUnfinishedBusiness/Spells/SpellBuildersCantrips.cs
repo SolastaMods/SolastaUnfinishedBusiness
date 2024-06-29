@@ -206,6 +206,109 @@ internal static partial class SpellBuilders
 
     #endregion
 
+#if false
+    #region Ego Shock
+
+    internal static SpellDefinition BuildEgoShock()
+    {
+        const string NAME = "EgoShock";
+
+        var attributes = new List<string>
+        {
+            AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma
+        };
+
+        var subSpells = new List<SpellDefinition>();
+
+        foreach (var attribute in attributes)
+        {
+            var condition = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{attribute}")
+                .SetGuiPresentation(NAME, Category.Spell, ConditionDoomLaughter)
+                .SetPossessive()
+                .SetConditionType(ConditionType.Detrimental)
+                .SetFeatures(
+                    FeatureDefinitionSavingThrowAffinityBuilder
+                        .Create($"SavingThrowAffinity{NAME}{attribute}")
+                        .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+                        .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false, attribute)
+                        .AddToDB())
+                .AddToDB();
+
+            condition.GuiPresentation.description = Gui.NoLocalization;
+
+            var attributeTitle = $"Attribute/&{attribute}TitleLong";
+            var title = Gui.Format("Spell/&EgoShockSubspellTitle", attributeTitle);
+            var description = Gui.Format("Spell/&EgoShockSubspellDescription", attributeTitle);
+
+            subSpells.Add(SpellDefinitionBuilder
+                .Create($"{NAME}{attribute}")
+                .SetGuiPresentation(title, description)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+                .SetSpellLevel(0)
+                .SetCastingTime(ActivationTime.Action)
+                .SetMaterialComponent(MaterialComponentType.Mundane)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(true)
+                .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                        .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                        .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                        .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                            EffectDifficultyClassComputation.SpellCastingFeature)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetDamageForm(DamageTypePsychic, 1, DieType.D8)
+                                .HasSavingThrow(EffectSavingThrowType.Negates)
+                                .Build(),
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                                .Build())
+                        .SetParticleEffectParameters(ShadowDagger)
+                        .Build())
+                .AddToDB());
+        }
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.EgoShock, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    // UI Only from here
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypePsychic, 1, DieType.D8)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .SetSubSpells([..subSpells])
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+#endif
+
     #region Enduring Sting
 
     internal static SpellDefinition BuildEnduringSting()
@@ -1164,6 +1267,94 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+
+#if false
+    #region Force Strike
+
+    internal static SpellDefinition BuildForceStrike()
+    {
+        const string NAME = "ForceStrike";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ForceStrike, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(0)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetIgnoreCover()
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 1, 4)
+                            .SetDamageForm(DamageTypeForce, 0, DieType.D8)
+                            .Build())
+                    .SetParticleEffectParameters(EldritchBlast)
+                    .Build())
+            .AddToDB();
+
+        spell.AddCustomSubFeatures(new ModifyEffectDescription(spell));
+
+        return spell;
+    }
+
+    private sealed class ModifyEffectDescription(SpellDefinition spellForceStrike) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == spellForceStrike;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter rulesetCharacter,
+            RulesetEffect rulesetEffect)
+        {
+            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+            if (character == null)
+            {
+                return effectDescription;
+            }
+
+            var attackMode = character.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode == null)
+            {
+                return effectDescription;
+            }
+
+            var damageForms = attackMode.EffectDescription.EffectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .ToList();
+
+            if (damageForms.Count == 0)
+            {
+                return effectDescription;
+            }
+
+            var firstDamageForm = damageForms[0].DamageForm;
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            damageForm.DieType = firstDamageForm.DieType;
+            damageForm.DiceNumber = firstDamageForm.DiceNumber;
+
+            return effectDescription;
+        }
+    }
+
+    #endregion
+#endif
 
     #region Toll the Dead
 

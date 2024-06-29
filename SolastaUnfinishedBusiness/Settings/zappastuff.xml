@@ -2,7 +2,7 @@
 <Settings>
     <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
-    <SelectedTab>0</SelectedTab>
+    <SelectedTab>1</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
@@ -1367,6 +1367,7 @@
                     <string>EmpoweredKnowledge</string>
                     <string>ShelterFromEnergy</string>
                     <string>RescueTheDying</string>
+                    <string>SoulExpulsion</string>
                     <string>MassHeal</string>
                     <string>PowerWordHeal</string>
                 </ArrayOfString>
@@ -1553,6 +1554,7 @@
                     <string>DraconicTransformation</string>
                     <string>ReverseGravity</string>
                     <string>AbiDalzimHorridWilting</string>
+                    <string>SoulExpulsion</string>
                     <string>MeteorSwarmSingleTarget</string>
                     <string>PowerWordKill</string>
                     <string>TimeStop</string>
@@ -1698,6 +1700,7 @@
                     <string>AbiDalzimHorridWilting</string>
                     <string>MaddeningDarkness</string>
                     <string>MindBlank</string>
+                    <string>SoulExpulsion</string>
                     <string>Foresight</string>
                     <string>MeteorSwarmSingleTarget</string>
                     <string>PowerWordKill</string>

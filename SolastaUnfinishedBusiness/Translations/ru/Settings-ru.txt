@@ -99,7 +99,7 @@ ModUi/&EmpressGarbAppearance=Внешний вид <color=#D89555>Кольчуж
 ModUi/&EnableActionSwitching=Включить панель переключения действий <i><color=#F0DAA0>[полезно при ускорении, чтобы использовать дополнительное действие перед основным]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Включить отображение дополнительной предыстории при просмотре происхождения
 ModUi/&EnableAdditionalIconsOnLevelMap=Включить дополнительные значки для лагерей, выходов и телепортов на карте уровня
-ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Добавить новые предметы в Создатель Подземелий</i>
+ModUi/&EnableAdditionalItemsInDungeonMaker=Добавить модифицированные элементы в редактор
 ModUi/&EnableAlternateHuman=Включить альтернативное происхождение <color=#D89555>Человека</color> <i><color=#F0DAA0>[+1 черта / +2 очка характеристик / +1 навык]</color></i>
 ModUi/&EnableAlternateVotingSystem=Включить альтернативную систему голосования <i><color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя]</color></i>
 ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Включить возможность использования <color=#D89555>Бардовского вдохновения</color> при проверках характеристик в бою

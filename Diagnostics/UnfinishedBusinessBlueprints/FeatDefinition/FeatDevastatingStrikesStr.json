@@ -8,8 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "DevastatingStrikes",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AdditionalDamageFeatDevastatingStrikes:784aeecc-2d96-5f0b-ba89-935e4432fa2d",

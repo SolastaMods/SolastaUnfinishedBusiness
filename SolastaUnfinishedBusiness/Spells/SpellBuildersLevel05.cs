@@ -143,6 +143,7 @@ internal static partial class SpellBuilders
                             .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(Feeblemind)
+                    .SetImpactEffectParameters(PowerSorakDreadLaughter)
                     .Build())
             .AddToDB();
 

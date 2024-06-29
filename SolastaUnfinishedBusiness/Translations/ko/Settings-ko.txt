@@ -99,7 +99,7 @@ ModUi/&EmpressGarbAppearance=<color=#D89555>복 황후</color> 등장
 ModUi/&EnableActionSwitching=동작 전환 막대 활성화 <i><color=#F0DAA0>[주 동작 전에 서둘러 동작을 사용해야 할 때 유용함]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=배경 검사 시 추가 배경 스토리 표시 활성화
 ModUi/&EnableAdditionalIconsOnLevelMap=레벨 맵에서 캠프, 출구 및 텔레포터에 대한 추가 아이콘을 활성화합니다.
-ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Dungeon Maker에 새 아이템 추가</i>
+ModUi/&EnableAdditionalItemsInDungeonMaker=편집기에 수정된 항목 추가
 ModUi/&EnableAlternateHuman=대체 <color=#D89555>인간</color> <i><color=#F0DAA0>[+1 재주 / +2 속성 선택 / +1 기술]</color></i> 활성화
 ModUi/&EnableAlternateVotingSystem=대체 투표 시스템 활성화 <i><color=#F0DAA0>[선택 가중치 = 투표 * 영웅 카리스마 수정자]</color></i>
 ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=<color=#D89555>음유시인의 영감</color>을 활성화하면 전투 외 속성 확인도 실행됩니다.

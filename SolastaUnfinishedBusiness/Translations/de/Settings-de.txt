@@ -99,7 +99,7 @@ ModUi/&EmpressGarbAppearance=<color=#D89555>Kaiserin-Gewand</color> Aussehen
 ModUi/&EnableActionSwitching=Aktivieren Sie die Aktionswechselleiste <i><color=#F0DAA0>[nützlich, wenn Sie die Eile-Aktion vor der Hauptaktion schnell verwenden möchten]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Aktivieren Sie die zusätzliche Anzeige von Hintergrundgeschichten bei der Hintergrundinspektion
 ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
-ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Neue Gegenstände zu Dungeon Maker hinzufügen</i>
+ModUi/&EnableAdditionalItemsInDungeonMaker=Modifizierte Elemente zum Editor hinzufügen
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen <color=#D89555>Mensch</color> <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
 ModUi/&EnableAlternateVotingSystem=Aktivieren Sie das alternative Abstimmungssystem <i><color=#F0DAA0>[choiceweight = votes * hero Charisma modifier]</color></i>
 ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Aktivieren Sie <color=#D89555>Bardische Inspiration</color>, um auch Attributprüfungen außerhalb des Kampfes auszulösen

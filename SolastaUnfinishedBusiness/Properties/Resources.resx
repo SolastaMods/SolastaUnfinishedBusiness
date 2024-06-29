@@ -1013,6 +1013,16 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="EgoShock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/EgoShock.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="ForceStrike" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/ForceStrike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="EnhanceArmor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Infusions/EnhanceArmor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
@@ -2292,11 +2302,6 @@
   </data>
   <data name="WayOfTheSilhouette" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WayOfTheSilhouette.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
-  </data>
-  <data name="WayOfTheTempest" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Subclasses\WayOfTheTempest.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>

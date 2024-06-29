@@ -47,7 +47,7 @@ internal enum ExtraActionId
     TacticianGambitBonus,
     TacticianGambitMain,
     TacticianGambitNoCost,
-    TempestFury,
+    TempestFury, // not used
     UseHeroicInspiration,
     WildlingFeralAgility,
     Withdraw,
@@ -129,7 +129,7 @@ internal enum ExtraCombatAffinityValueDetermination
 public enum ExtraConditionInterruption
 {
     AfterWasAttacked = 9000,
-    AttackedNotBySource,
+    AfterWasAttackedNotBySource,
     AttacksWithWeaponOrUnarmed,
     SourceRageStop,
     UsesBonusAction,

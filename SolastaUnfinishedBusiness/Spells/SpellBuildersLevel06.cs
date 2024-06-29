@@ -195,11 +195,11 @@ internal static partial class SpellBuilders
             FireStorm.EffectDescription.EffectParticleParameters.impactParticleReference),
         (DamageTypeLightning, LightningBolt,
             Thunderstorm.EffectDescription.EffectParticleParameters.impactParticleReference),
-        (DamageTypeNecrotic, Thunderwave,
+        (DamageTypeNecrotic, FingerOfDeath,
             PowerPatronFiendDarkOnesOwnLuck.EffectDescription.EffectParticleParameters.effectParticleReference),
-        (DamageTypeRadiant, FingerOfDeath,
+        (DamageTypeRadiant, GuardianOfFaith,
             PowerOathOfJugementPurgeCorruption.EffectDescription.EffectParticleParameters.effectParticleReference),
-        (DamageTypeThunder, GuardianOfFaith,
+        (DamageTypeThunder, Thunderwave,
             Thunderwave.EffectDescription.EffectParticleParameters.impactParticleReference)
     ];
 

@@ -59,6 +59,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .AddToDB();
 
         powerMixture.AddCustomSubFeatures(
+            HasModifiedUses.Marker,
             new ModifyPowerPoolAmount
             {
                 PowerPool = powerMixture,

@@ -99,7 +99,7 @@ ModUi/&EmpressGarbAppearance=<color=#D89555>皇后服</color>外观
 ModUi/&EnableActionSwitching=启用动作切换栏<i><color=#F0DAA0>[在主要动作之前急于使用加速动作时有用]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=在背景检查中启用额外的背景故事显示
 ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和传送器启用额外的图标
-ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+向地城编辑器添加新物品</i>
+ModUi/&EnableAdditionalItemsInDungeonMaker=将经过修改的物品添加到编辑器
 ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属性选择/+1技能]</color></i>
 ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用英雄魅力调整值来确定选择权重]</color></i>
 ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=启用<color=#D89555>诗人激励</color>还可以触发战斗属性检定
