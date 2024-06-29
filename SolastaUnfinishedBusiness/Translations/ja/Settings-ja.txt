@@ -99,7 +99,7 @@ ModUi/&EmpressGarbAppearance=<color=#D89555>皇后の衣装</color>の外観
 ModUi/&EnableActionSwitching=アクション切り替えバーを有効にする <i><color=#F0DAA0>[メイン アクションの前に急いでアクションを使用する場合に便利]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=バックグラウンド検査で追加のバックストーリー表示を有効にする
 ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、出口、テレポーターの追加アイコンを有効にする
-ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ ダンジョンメーカーに新しいアイテムを追加</i>
+ModUi/&EnableAdditionalItemsInDungeonMaker=エディターに改造アイテムを追加する
 ModUi/&EnableAlternateHuman=代替の<color=#D89555>人間</color><i><color=#F0DAA0>[特技+1 / 属性選択+2 / スキル+1]</color></i>を有効にする
 ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする <i><color=#F0DAA0>[選択の重み = 投票数 * ヒーローのカリスマ修飾子]</color></i>
 ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=<color=#D89555>吟遊詩人のインスピレーション</color>を有効にして、戦闘属性チェック以外でもトリガーできるようにします

@@ -95,6 +95,13 @@ internal static class DungeonMakerDisplay
 
         UI.Label(Gui.Localize("ModUi/&AdvancedHelp"));
         UI.Label();
+        
+        toggle = Main.Settings.AddNewWeaponsAndRecipesToEditor;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableAdditionalItemsInDungeonMaker")), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
+        }
 
         toggle = Main.Settings.UnleashNpcAsEnemy;
         if (UI.Toggle(Gui.Localize("ModUi/&UnleashNpcAsEnemy"), ref toggle))

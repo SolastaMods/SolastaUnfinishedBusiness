@@ -99,7 +99,7 @@ ModUi/&EmpressGarbAppearance=<color=#D89555>Traje de emperatriz</color> aparienc
 ModUi/&EnableActionSwitching=Habilitar la barra de cambio de acción <i><color=#F0DAA0>[útil cuando se tiene prisa por usar la acción de prisa antes de la acción principal]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=Habilitar la visualización de antecedentes adicionales en la inspección de antecedentes
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite íconos adicionales para campamentos, salidas y teletransportadores en el mapa de niveles
-ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Agregar nuevos elementos a Dungeon Maker</i>
+ModUi/&EnableAdditionalItemsInDungeonMaker=Agregar elementos modificados al Editor
 ModUi/&EnableAlternateHuman=Habilite el <color=#D89555>Humano</color> <i><color=#F0DAA0>[+1 hazaña / +2 opciones de atributos / +1 habilidad]</color></i>
 ModUi/&EnableAlternateVotingSystem=Habilitar sistema de votación alternativo <i><color=#F0DAA0>[peso de elección = votos * modificador de carisma del héroe]</color></i>
 ModUi/&EnableAttributeCheckHelpersToWorkOffCombat=Habilite <color=#D89555>Bardic Inspiration</color> para activar también comprobaciones de atributos fuera de combate.
