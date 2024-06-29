@@ -41,14 +41,6 @@ public class CustomInvocationSubPanel : MonoBehaviour
         }
         else
         {
-            var selectedClass = LevelUpContext.GetSelectedClass(hero);
-
-            if (selectedClass != DatabaseHelper.CharacterClassDefinitions.Warlock
-                && !hero.TrainedFeats.Exists(x => x.Name == OtherFeats.FeatEldritchAdept))
-            {
-                return [];
-            }
-
             var customInvocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
                 .OfType<InvocationDefinitionCustom>()
                 .Select(i => i.Name);

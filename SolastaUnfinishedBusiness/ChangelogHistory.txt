@@ -1,3 +1,7 @@
+1.5.97.18:
+
+- fixed invocations display under hero inspection proficiencies panel
+
 1.5.97.17:
 
 - fixed 'After was attacked' condition interruption also triggering on non attack roll magic effects
