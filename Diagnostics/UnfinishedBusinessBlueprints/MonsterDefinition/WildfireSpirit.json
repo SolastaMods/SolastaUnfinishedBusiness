@@ -104,7 +104,13 @@
     "Definition:PowerCircleOfTheWildfireSpiritTeleport:c005e3c9-ba39-58dd-9098-edbaff342698",
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
   ],
-  "attackIterations": [],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:AttackWildfireSpirit:755fb58c-ae0b-5f11-b1b1-c2943822edcc"
+    }
+  ],
   "sneakStance": "Stealth",
   "patrolStance": "SlowWalk",
   "interceptStance": "Run",

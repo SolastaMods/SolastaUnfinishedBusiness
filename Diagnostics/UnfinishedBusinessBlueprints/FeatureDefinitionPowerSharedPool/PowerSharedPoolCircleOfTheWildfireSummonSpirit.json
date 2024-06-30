@@ -335,7 +335,7 @@
     "description": "Feature/&PowerSharedPoolCircleOfTheWildfireSummonSpiritDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "bae574c2-3a95-5cbb-a429-1b619e2050b1",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

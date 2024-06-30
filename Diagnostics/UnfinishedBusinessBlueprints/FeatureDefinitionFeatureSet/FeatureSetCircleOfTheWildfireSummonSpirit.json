@@ -3,7 +3,8 @@
   "featureSet": [
     "Definition:PowerCircleOfTheWildfireCommandSpirit:23009473-e91f-58d2-8ba9-66a94ba9accb",
     "Definition:SummoningAffinityCircleOfTheWildfireSpirit:029aa1a0-af7a-5dbc-85cb-6da83416c8d2",
-    "Definition:PowerSharedPoolCircleOfTheWildfireSummonSpirit:b69606c9-9a6c-52cb-a069-8f958e088d04"
+    "Definition:PowerSharedPoolCircleOfTheWildfireSummonSpirit:b69606c9-9a6c-52cb-a069-8f958e088d04",
+    "Definition:PowerCircleOfTheWildfireSummonSpiritDamage:c3370b30-7846-5517-ac30-4db71b40b087"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
