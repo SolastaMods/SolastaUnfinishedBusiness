@@ -1,6 +1,7 @@
 1.5.97.18:
 
 - added Circle of the Wildfire subclass
+- added Shadows of Moil, and Vitriolic Sphere spells
 - fixed invocations display under proficiencies panel
 
 1.5.97.17:

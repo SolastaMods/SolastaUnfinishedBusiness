@@ -78,39 +78,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Shadow of Moil
-
-    internal static SpellDefinition BuildShadowOfMoil()
-    {
-        const string NAME = "ShadowOfMoil";
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BrainBulwark, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .SetSpellLevel(4)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 150, false)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetRequiresConcentration(true)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(Darkness)
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter |
-                                        RecurrentEffect.OnTurnStart)
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    #endregion
-
     #region Faithful Hound
 
     internal static SpellDefinition BuildFaithfulHound()
@@ -253,6 +220,67 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Shadow of Moil
+
+    internal static SpellDefinition BuildShadowOfMoil()
+    {
+        const string NAME = "ShadowOfMoil";
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeNecrotic, 2, DieType.D8))
+                    .Build())
+            .AddToDB();
+
+        var damageAffinity = FeatureDefinitionDamageAffinityBuilder
+            .Create($"CombatAffinity{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell)
+            .SetRetaliate(power, 1)
+            .AddToDB();
+
+        var conditionSelf = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Self")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(damageAffinity, DamageAffinityRadiantResistance)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ShadowsOfMoil, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 150, false)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Darkness)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter |
+                                        RecurrentEffect.OnTurnStart)
+                    .AddEffectForms(EffectFormBuilder.ConditionForm(
+                        conditionSelf,
+                        ConditionForm.ConditionOperation.Add, true))
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Staggering Smite
 
     internal static SpellDefinition BuildStaggeringSmite()
@@ -362,7 +390,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BrainBulwark, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.VitriolicSphere, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(4)
             .SetCastingTime(ActivationTime.Action)
@@ -387,6 +415,8 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionVitriolicSphere, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetCasterEffectParameters(VenomousSpike)
+                    .SetImpactEffectParameters(AcidArrow)
                     .Build())
             .AddToDB();
 
@@ -424,287 +454,6 @@ internal static partial class SpellBuilders
                 rulesetCharacter,
                 false,
                 attacker.Guid,
-                false,
-                [],
-                new RollInfo(damageForm.DieType, rolls, damageForm.BonusDamage),
-                false,
-                out _);
-        }
-    }
-
-    #endregion
-
-    #region Psionic Blast
-
-    private const string PsionicBlastName = "PsionicBlast";
-
-    private static readonly ConditionDefinition ConditionMuddled = ConditionDefinitionBuilder
-        .Create($"Condition{PsionicBlastName}")
-        .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionConfused)
-        .SetPossessive()
-        .SetConditionType(ConditionType.Detrimental)
-        .SetFeatures(
-            FeatureDefinitionCombatAffinityBuilder
-                .Create($"CombatAffinity{PsionicBlastName}")
-                .SetGuiPresentation(PsionicBlastName, Category.Spell, Gui.NoLocalization)
-                .SetMyAttackModifierSign(AttackModifierSign.Substract)
-                .SetMyAttackModifierDieType(DieType.D6)
-                .AddToDB(),
-            FeatureDefinitionAbilityCheckAffinityBuilder
-                .Create($"AbilityCheckAffinity{PsionicBlastName}")
-                .SetGuiPresentation(PsionicBlastName, Category.Spell, Gui.NoLocalization)
-                .BuildAndSetAffinityGroups(
-                    CharacterAbilityCheckAffinity.None, DieType.D6, 1,
-                    AbilityCheckGroupOperation.SubstractDie,
-                    (AttributeDefinitions.Strength, string.Empty),
-                    (AttributeDefinitions.Strength, string.Empty),
-                    (AttributeDefinitions.Dexterity, string.Empty),
-                    (AttributeDefinitions.Constitution, string.Empty),
-                    (AttributeDefinitions.Intelligence, string.Empty),
-                    (AttributeDefinitions.Wisdom, string.Empty),
-                    (AttributeDefinitions.Charisma, string.Empty))
-                .AddToDB())
-        .SetConditionParticleReference(ConditionFeebleMinded)
-        .AddToDB();
-
-    internal static SpellDefinition BuildPsionicBlast()
-    {
-        var spell = SpellDefinitionBuilder
-            .Create(PsionicBlastName)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(PsionicBlastName, Resources.PsionicBlast, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(4)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSomaticComponent(false)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .ExcludeCaster()
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetParticleEffectParameters(Fear)
-                    .SetCasterEffectParameters(ViciousMockery)
-                    .SetImpactEffectParameters(PowerMagebaneWarcry)
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    #endregion
-
-    #region Elemental Bane
-
-    internal static SpellDefinition BuildElementalBane()
-    {
-        const string NAME = "ElementalBane";
-
-        var conditionMark = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Mark")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        var sprite = Sprites.GetSprite(NAME, Resources.ElementalBane, 128);
-        var subSpells = new List<SpellDefinition>();
-        var conditionEffects = new List<BaseDefinition>
-        {
-            ConditionOnAcidPilgrim,
-            PowerDomainElementalHeraldOfTheElementsCold,
-            ConditionOnFire,
-            ConditionDefinitions.ConditionParalyzed,
-            PowerDomainElementalHeraldOfTheElementsThunder
-        };
-        var current = 0;
-
-        foreach (var (damageType, magicEffect) in DamagesAndEffects)
-        {
-            if (damageType == DamageTypePoison)
-            {
-                continue;
-            }
-
-            var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
-            var title = Gui.Format("Condition/&ConditionElementalBaneTitle", damageTitle);
-            var description = Gui.Format("Condition/&ConditionElementalBaneDescription", damageTitle);
-
-            var condition = ConditionDefinitionBuilder
-                .Create($"Condition{NAME}{damageType}")
-                .SetGuiPresentation(title, description, ConditionRestrictedInsideMagicCircle)
-                .SetPossessive()
-                .SetConditionType(ConditionType.Detrimental)
-                .AddCustomSubFeatures(new CustomBehaviorElementalBane(damageType, magicEffect, conditionMark))
-                .SetConditionParticleReference(conditionEffects[current++])
-                .AddToDB();
-
-            var spell = SpellDefinitionBuilder
-                .Create(NAME + damageType)
-                .SetGuiPresentation(title, Gui.NoLocalization)
-                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-                .SetSpellLevel(4)
-                .SetCastingTime(ActivationTime.Action)
-                .SetMaterialComponent(MaterialComponentType.Mundane)
-                .SetVerboseComponent(true)
-                .SetSomaticComponent(true)
-                .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-                .SetRequiresConcentration(true)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetDurationData(DurationType.Minute, 1)
-                        .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
-                        .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
-                            EffectDifficultyClassComputation.SpellCastingFeature)
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .HasSavingThrow(EffectSavingThrowType.Negates)
-                                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
-                                .Build())
-                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                            additionalTargetsPerIncrement: 1)
-                        .SetCasterEffectParameters(magicEffect)
-                        .SetEffectEffectParameters(magicEffect)
-                        .Build())
-                .AddToDB();
-
-            subSpells.Add(spell);
-        }
-
-        return SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(NAME, Category.Spell, sprite)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(4)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetRequiresConcentration(true)
-            .SetSubSpells([..subSpells])
-            // UI Only
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                        additionalTargetsPerIncrement: 1)
-                    .Build())
-            .AddToDB();
-    }
-
-    private sealed class CustomBehaviorElementalBane(
-        string damageType,
-        IMagicEffect magicEffect,
-        ConditionDefinition conditionMark)
-        : IModifyDamageAffinity, IOnConditionAddedOrRemoved, ICharacterTurnStartListener
-    {
-        // required to ensure the behavior will still work after loading a save
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-
-            rulesetCharacter.DamageReceived -= DamageReceivedHandler;
-            rulesetCharacter.DamageReceived += DamageReceivedHandler;
-        }
-
-        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
-        {
-            features.RemoveAll(x =>
-                x is IDamageAffinityProvider damageAffinityProvider &&
-                damageAffinityProvider.DamageType == damageType &&
-                damageAffinityProvider.DamageAffinityType is DamageAffinityType.Resistance);
-        }
-
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            target.DamageReceived += DamageReceivedHandler;
-        }
-
-        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            target.DamageReceived -= DamageReceivedHandler;
-        }
-
-        private void DamageReceivedHandler(
-            RulesetActor rulesetDefender,
-            int damage,
-            string receivedDamageType,
-            ulong sourceGuid,
-            RollInfo rollInfo)
-        {
-            if (receivedDamageType != damageType)
-            {
-                return;
-            }
-
-            var defender = GameLocationCharacter.GetFromActor(rulesetDefender);
-
-            if (defender == null ||
-                rulesetDefender.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, conditionMark.Name))
-            {
-                return;
-            }
-
-            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(sourceGuid);
-
-            rulesetDefender.InflictCondition(
-                conditionMark.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfSourceTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                conditionMark.Name,
-                0,
-                0,
-                0);
-
-            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
-            var rolls = new List<int>();
-            var damageForm = new DamageForm { DamageType = damageType, DieType = DieType.D6, DiceNumber = 2 };
-            var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetDefender,
-                position = defender.LocationPosition
-            };
-
-            rulesetAttacker.LogCharacterActivatesAbility(string.Empty, "Feedback/&AdditionalDamageElementalBaneLine");
-            EffectHelpers.StartVisualEffect(attacker, defender, magicEffect);
-            RulesetActor.InflictDamage(
-                damageRoll,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetDefender,
-                false,
-                rulesetAttacker.Guid,
                 false,
                 [],
                 new RollInfo(damageForm.DieType, rolls, damageForm.BonusDamage),
@@ -974,6 +723,211 @@ internal static partial class SpellBuilders
                 rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
                     AttributeDefinitions.TagEffect, "ConditionBlessingOfRime");
             }
+        }
+    }
+
+    #endregion
+
+    #region Elemental Bane
+
+    internal static SpellDefinition BuildElementalBane()
+    {
+        const string NAME = "ElementalBane";
+
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var sprite = Sprites.GetSprite(NAME, Resources.ElementalBane, 128);
+        var subSpells = new List<SpellDefinition>();
+        var conditionEffects = new List<BaseDefinition>
+        {
+            ConditionOnAcidPilgrim,
+            PowerDomainElementalHeraldOfTheElementsCold,
+            ConditionOnFire,
+            ConditionDefinitions.ConditionParalyzed,
+            PowerDomainElementalHeraldOfTheElementsThunder
+        };
+        var current = 0;
+
+        foreach (var (damageType, magicEffect) in DamagesAndEffects)
+        {
+            if (damageType == DamageTypePoison)
+            {
+                continue;
+            }
+
+            var damageTitle = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+            var title = Gui.Format("Condition/&ConditionElementalBaneTitle", damageTitle);
+            var description = Gui.Format("Condition/&ConditionElementalBaneDescription", damageTitle);
+
+            var condition = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{damageType}")
+                .SetGuiPresentation(title, description, ConditionRestrictedInsideMagicCircle)
+                .SetPossessive()
+                .SetConditionType(ConditionType.Detrimental)
+                .AddCustomSubFeatures(new CustomBehaviorElementalBane(damageType, magicEffect, conditionMark))
+                .SetConditionParticleReference(conditionEffects[current++])
+                .AddToDB();
+
+            var spell = SpellDefinitionBuilder
+                .Create(NAME + damageType)
+                .SetGuiPresentation(title, Gui.NoLocalization)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+                .SetSpellLevel(4)
+                .SetCastingTime(ActivationTime.Action)
+                .SetMaterialComponent(MaterialComponentType.Mundane)
+                .SetVerboseComponent(true)
+                .SetSomaticComponent(true)
+                .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+                .SetRequiresConcentration(true)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Minute, 1)
+                        .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
+                        .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                            EffectDifficultyClassComputation.SpellCastingFeature)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .HasSavingThrow(EffectSavingThrowType.Negates)
+                                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                                .Build())
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                            additionalTargetsPerIncrement: 1)
+                        .SetCasterEffectParameters(magicEffect)
+                        .SetEffectEffectParameters(magicEffect)
+                        .Build())
+                .AddToDB();
+
+            subSpells.Add(spell);
+        }
+
+        return SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(NAME, Category.Spell, sprite)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetSubSpells([..subSpells])
+            // UI Only
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 18, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .Build())
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorElementalBane(
+        string damageType,
+        IMagicEffect magicEffect,
+        ConditionDefinition conditionMark)
+        : IModifyDamageAffinity, IOnConditionAddedOrRemoved, ICharacterTurnStartListener
+    {
+        // required to ensure the behavior will still work after loading a save
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            rulesetCharacter.DamageReceived -= DamageReceivedHandler;
+            rulesetCharacter.DamageReceived += DamageReceivedHandler;
+        }
+
+        public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            features.RemoveAll(x =>
+                x is IDamageAffinityProvider damageAffinityProvider &&
+                damageAffinityProvider.DamageType == damageType &&
+                damageAffinityProvider.DamageAffinityType is DamageAffinityType.Resistance);
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            target.DamageReceived += DamageReceivedHandler;
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            target.DamageReceived -= DamageReceivedHandler;
+        }
+
+        private void DamageReceivedHandler(
+            RulesetActor rulesetDefender,
+            int damage,
+            string receivedDamageType,
+            ulong sourceGuid,
+            RollInfo rollInfo)
+        {
+            if (receivedDamageType != damageType)
+            {
+                return;
+            }
+
+            var defender = GameLocationCharacter.GetFromActor(rulesetDefender);
+
+            if (defender == null ||
+                rulesetDefender.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, conditionMark.Name))
+            {
+                return;
+            }
+
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(sourceGuid);
+
+            rulesetDefender.InflictCondition(
+                conditionMark.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionMark.Name,
+                0,
+                0,
+                0);
+
+            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
+            var rolls = new List<int>();
+            var damageForm = new DamageForm { DamageType = damageType, DieType = DieType.D6, DiceNumber = 2 };
+            var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetDefender,
+                position = defender.LocationPosition
+            };
+
+            rulesetAttacker.LogCharacterActivatesAbility(string.Empty, "Feedback/&AdditionalDamageElementalBaneLine");
+            EffectHelpers.StartVisualEffect(attacker, defender, magicEffect);
+            RulesetActor.InflictDamage(
+                damageRoll,
+                damageForm,
+                damageForm.DamageType,
+                applyFormsParams,
+                rulesetDefender,
+                false,
+                rulesetAttacker.Guid,
+                false,
+                [],
+                new RollInfo(damageForm.DieType, rolls, damageForm.BonusDamage),
+                false,
+                out _);
         }
     }
 
@@ -1284,6 +1238,82 @@ internal static partial class SpellBuilders
             outcome = RollOutcome.Failure;
             outcomeDelta = -1;
         }
+    }
+
+    #endregion
+
+    #region Psionic Blast
+
+    private const string PsionicBlastName = "PsionicBlast";
+
+    private static readonly ConditionDefinition ConditionMuddled = ConditionDefinitionBuilder
+        .Create($"Condition{PsionicBlastName}")
+        .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionConfused)
+        .SetPossessive()
+        .SetConditionType(ConditionType.Detrimental)
+        .SetFeatures(
+            FeatureDefinitionCombatAffinityBuilder
+                .Create($"CombatAffinity{PsionicBlastName}")
+                .SetGuiPresentation(PsionicBlastName, Category.Spell, Gui.NoLocalization)
+                .SetMyAttackModifierSign(AttackModifierSign.Substract)
+                .SetMyAttackModifierDieType(DieType.D6)
+                .AddToDB(),
+            FeatureDefinitionAbilityCheckAffinityBuilder
+                .Create($"AbilityCheckAffinity{PsionicBlastName}")
+                .SetGuiPresentation(PsionicBlastName, Category.Spell, Gui.NoLocalization)
+                .BuildAndSetAffinityGroups(
+                    CharacterAbilityCheckAffinity.None, DieType.D6, 1,
+                    AbilityCheckGroupOperation.SubstractDie,
+                    (AttributeDefinitions.Strength, string.Empty),
+                    (AttributeDefinitions.Strength, string.Empty),
+                    (AttributeDefinitions.Dexterity, string.Empty),
+                    (AttributeDefinitions.Constitution, string.Empty),
+                    (AttributeDefinitions.Intelligence, string.Empty),
+                    (AttributeDefinitions.Wisdom, string.Empty),
+                    (AttributeDefinitions.Charisma, string.Empty))
+                .AddToDB())
+        .SetConditionParticleReference(ConditionFeebleMinded)
+        .AddToDB();
+
+    internal static SpellDefinition BuildPsionicBlast()
+    {
+        var spell = SpellDefinitionBuilder
+            .Create(PsionicBlastName)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(PsionicBlastName, Resources.PsionicBlast, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSomaticComponent(false)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.All, RangeType.Self, 6, TargetType.Cone, 6)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 5, DieType.D8)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(Fear)
+                    .SetCasterEffectParameters(ViciousMockery)
+                    .SetImpactEffectParameters(PowerMagebaneWarcry)
+                    .Build())
+            .AddToDB();
+
+        return spell;
     }
 
     #endregion
