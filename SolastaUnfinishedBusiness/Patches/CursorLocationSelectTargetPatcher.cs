@@ -127,7 +127,8 @@ public static class CursorLocationSelectTargetPatcher
             var rulesetEffect = actionParams.RulesetEffect;
 
             rulesetEffect.EffectDescription.TargetType = TargetType.IndividualsUnique;
-            rulesetEffect.EffectDescription.inviteOptionalAlly = modifyTeleportEffectBehavior.AllyOnly;
+            rulesetEffect.EffectDescription.TargetSide = modifyTeleportEffectBehavior.AllyOnly ? Side.Ally : Side.All;
+            rulesetEffect.EffectDescription.targetExcludeCaster = modifyTeleportEffectBehavior.TeleportSelf;
         }
 
         [UsedImplicitly]
@@ -161,7 +162,8 @@ public static class CursorLocationSelectTargetPatcher
             var rulesetEffect = __instance.ActionParams.RulesetEffect;
 
             rulesetEffect.EffectDescription.TargetType = TargetType.Position;
-            rulesetEffect.EffectDescription.inviteOptionalAlly = true;
+            rulesetEffect.EffectDescription.TargetSide = Side.Ally;
+            rulesetEffect.EffectDescription.targetExcludeCaster = false;
         }
     }
 
