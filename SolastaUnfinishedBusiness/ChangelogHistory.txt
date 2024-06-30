@@ -1,6 +1,7 @@
 1.5.97.18:
 
-- fixed invocations display under hero inspection proficiencies panel
+- added Circle of the Wildfire subclass
+- fixed invocations display under proficiencies panel
 
 1.5.97.17:
 

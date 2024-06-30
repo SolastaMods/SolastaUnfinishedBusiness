@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -65,9 +67,29 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         // Summon Spirit
         //
 
+        var powerSpiritTeleportDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}SpiritTeleportDamage")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube, 3)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeFire, 1, DieType.D6)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
         var powerSpiritTeleport = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SpiritTeleport")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerSpiritTeleport", Resources.PowerSpiritTeleport, 256, 128))
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -84,7 +106,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(DimensionDoor)
                     .Build())
-            .AddCustomSubFeatures(new ModifyTeleportEffectBehaviorSpiritTeleport())
+            .AddCustomSubFeatures(new CustomBehaviorSpiritTeleport(powerSpiritTeleportDamage))
             .AddToDB();
 
         powerSpiritTeleport.EffectDescription.EffectParticleParameters.targetParticleReference = new AssetReference();
@@ -163,6 +185,23 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
+        var attackWildfireSpirit = MonsterAttackDefinitionBuilder
+            .Create("AttackWildfireSpirit")
+            .SetGuiPresentation(Category.Monster, DatabaseHelper.ActionDefinitions.SpiritRage)
+            .SetToHitBonus(8)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 1, DieType.D6))
+                    .Build())
+            .AddToDB();
+
+        attackWildfireSpirit.actionType = ActionType.Main;
+        attackWildfireSpirit.proximity = AttackProximity.Range;
+        attackWildfireSpirit.maxRange = 12;
+        attackWildfireSpirit.closeRange = 12;
+
         var monsterDefinitionSpirit = MonsterDefinitionBuilder
             .Create(MonsterDefinitions.Fire_Elemental, "WildfireSpirit")
             .SetOrUpdateGuiPresentation(Category.Monster)
@@ -188,7 +227,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
             .SetFullyControlledWhenAllied(true)
             .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
-            .ClearAttackIterations()
+            .SetAttackIterations(new MonsterAttackIteration(attackWildfireSpirit, 1))
             .SetFeatures(
                 actionAffinityEldritchCannon,
                 powerSpiritTeleport,
@@ -234,11 +273,33 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 conditionCommandSpirit,
                 powerCommandSpirit));
 
+        // Summon Spirit Damage
+
+        var powerSummonSpiritDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}SummonSpiritDamage")
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Cube, 5)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeFire, 2, DieType.D6)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
         // Summon Spirit
 
         var powerSummonSpirit = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}SummonSpirit")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerSummonSpirit", Resources.PowerSummonSpirit, 256, 128))
             .SetSharedPool(ActivationTime.Action, PowerDruidWildShape)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -252,6 +313,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(PowerDruidWildShape)
                     .Build())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeSummonSpirit(powerSummonSpiritDamage))
             .AddToDB();
 
         var featureSetSummonSpirit = FeatureDefinitionFeatureSetBuilder
@@ -260,7 +322,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .SetFeatureSet(
                 summoningAffinitySpirit,
                 powerCommandSpirit,
-                powerSummonSpirit)
+                powerSummonSpirit,
+                powerSummonSpiritDamage)
             .AddToDB();
 
         //
@@ -313,13 +376,15 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         // LEVEL 14 - Blazing Revival
         //
 
-        var featureBlazingRevival = FeatureDefinitionBuilder
-            .Create($"Feature{Name}BlazingRevival")
+        var powerBlazingRevival = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}BlazingRevival")
             .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
             .AddToDB();
 
-        featureBlazingRevival.AddCustomSubFeatures(
-            new OnReducedToZeroHpByEnemyBlazingRevival());
+        powerBlazingRevival.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new OnReducedToZeroHpByEnemyBlazingRevival(powerBlazingRevival));
 
         //
         // MAIN
@@ -331,7 +396,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .AddFeaturesAtLevel(2, autoPreparedSpellsWildfire, featureSetSummonSpirit)
             .AddFeaturesAtLevel(6, featureEnhancedBond)
             .AddFeaturesAtLevel(10, featureSetCauterizingFlames)
-            .AddFeaturesAtLevel(14, featureBlazingRevival)
+            .AddFeaturesAtLevel(14, powerBlazingRevival)
             .AddToDB();
     }
 
@@ -459,7 +524,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     rulesetSource.Guid,
                     false,
                     [],
-                    new RollInfo(damageForm.DieType, [], damageForm.BonusDamage),
+                    new RollInfo(damageForm.DieType, rolls, damageForm.BonusDamage),
                     true,
                     out _);
             }
@@ -555,15 +620,139 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         }
     }
 
+    // Summon Spirit
+
+    private sealed class PowerOrSpellFinishedByMeSummonSpirit(FeatureDefinitionPower powerSummonSpirit)
+        : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var spirit = GetMySpirit(attacker.Guid);
+
+            var contenders =
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
+
+            var targets = contenders
+                .Where(x => spirit.IsWithinRange(x, 2))
+                .ToList();
+
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
+            var usablePower = PowerProvider.Get(powerSummonSpirit, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
+            {
+                ActionModifiers = actionModifiers,
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+
+            yield break;
+        }
+    }
+
     // Spirit Teleport
 
-    private sealed class ModifyTeleportEffectBehaviorSpiritTeleport : IModifyTeleportEffectBehavior
+    private sealed class CustomBehaviorSpiritTeleport(FeatureDefinitionPower powerExplode)
+        : IModifyTeleportEffectBehavior, IFilterTargetingCharacter, IPowerOrSpellInitiatedByMe,
+            IPowerOrSpellFinishedByMe
     {
+        private readonly List<GameLocationCharacter> _targets = [];
+
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (target.RulesetCharacter == null)
+            {
+                return false;
+            }
+
+            var isValid =
+                target.RulesetCharacter is not RulesetCharacterEffectProxy &&
+                __instance.ActionParams.ActingCharacter.IsWithinRange(target, 1);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustBeWithin5ft");
+            }
+
+            return isValid;
+        }
+
         public bool AllyOnly => true;
 
         public bool TeleportSelf => true;
 
         public int MaxTargets => 8;
+
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < _targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
+            // don't use PowerNoCost here as it breaks the spell under MP
+            var actionParams = new CharacterActionParams(attacker, Id.SpendPower)
+            {
+                ActionModifiers = actionModifiers,
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = _targets
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+
+            yield break;
+        }
+
+        public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var attacker = action.ActingCharacter;
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
+
+            _targets.SetRange(contenders
+                .Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    x != attacker &&
+                    !action.ActionParams.TargetCharacters.Contains(x) &&
+                    attacker.IsWithinRange(x, 1)));
+
+            yield break;
+        }
     }
 
     // Enhanced Bond
@@ -592,7 +781,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            var firstDamageForm = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
+            var firstDamageForm = actualEffectForms.FirstOrDefault(x =>
+                x.FormType == EffectForm.EffectFormType.Damage &&
+                x.DamageForm.DamageType == DamageTypeFire);
 
             if (firstDamageForm != null)
             {
@@ -664,7 +855,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
 
     // Blazing Revival
 
-    private sealed class OnReducedToZeroHpByEnemyBlazingRevival : IOnReducedToZeroHpByEnemy
+    private sealed class OnReducedToZeroHpByEnemyBlazingRevival(FeatureDefinitionPower powerBlazingRevival)
+        : IOnReducedToZeroHpByEnemy
     {
         public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
@@ -672,13 +864,57 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var spirit = GetMySpirit(attacker.Guid);
-
-            if (spirit == null ||
-                !defender.IsWithinRange(spirit, 12))
+            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
+                {
+                    IsBattleInProgress: true
+                } battleManager)
             {
                 yield break;
             }
+
+            var spirit = GetMySpirit(attacker.Guid);
+            var rulesetCharacter = defender.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerBlazingRevival, rulesetCharacter);
+
+            if (spirit == null ||
+                !defender.IsWithinRange(spirit, 12) ||
+                rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var reactionParams = new CharacterActionParams(defender, Id.PowerNoCost)
+            {
+                StringParameter = "BlazingRevival",
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToUsePower(reactionParams, "UsePower", defender);
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var hitPoints = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.HitPoints) / 2;
+
+            rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
+
+            EffectHelpers.StartVisualEffect(
+                defender, defender, PowerDefilerMistyFormEscape, EffectHelpers.EffectType.Caster);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(new CharacterActionParams(defender, Id.StandUp), null, true);
         }
     }
 }
