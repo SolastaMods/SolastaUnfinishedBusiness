@@ -78,6 +78,39 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Shadow of Moil
+
+    internal static SpellDefinition BuildShadowOfMoil()
+    {
+        const string NAME = "ShadowOfMoil";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BrainBulwark, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 150, false)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Darkness)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter |
+                                        RecurrentEffect.OnTurnStart)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Faithful Hound
 
     internal static SpellDefinition BuildFaithfulHound()
@@ -310,6 +343,93 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Vitriolic Sphere
+
+    internal static SpellDefinition BuildVitriolicSphere()
+    {
+        const string NAME = "VitriolicSphere";
+
+        var conditionVitriolicSphere = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedVitriolicSphere())
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BrainBulwark, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeAcid, 10, DieType.D4)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionVitriolicSphere, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class OnConditionAddedOrRemovedVitriolicSphere : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter rulesetCharacter, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter rulesetCharacter, RulesetCondition rulesetCondition)
+        {
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var rolls = new List<int>();
+            var damageForm = new DamageForm { DamageType = DamageTypeAcid, DiceNumber = 5, DieType = DieType.D4 };
+            var totalDamage = rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+
+            var attacker = GameLocationCharacter.GetFromActor(rulesetCaster);
+            var defender = GameLocationCharacter.GetFromActor(rulesetCharacter);
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetCaster,
+                targetCharacter = rulesetCharacter,
+                position = defender.LocationPosition
+            };
+
+            RulesetActor.InflictDamage(
+                totalDamage,
+                damageForm,
+                damageForm.DamageType,
+                applyFormsParams,
+                rulesetCharacter,
+                false,
+                attacker.Guid,
+                false,
+                [],
+                new RollInfo(damageForm.DieType, rolls, damageForm.BonusDamage),
+                false,
+                out _);
+        }
     }
 
     #endregion
