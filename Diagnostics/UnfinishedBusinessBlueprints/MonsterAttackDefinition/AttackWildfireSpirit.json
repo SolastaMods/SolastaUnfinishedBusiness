@@ -3,7 +3,7 @@
   "displayedInEditor": true,
   "methodName": "",
   "actionType": "Main",
-  "toHitBonus": 8,
+  "toHitBonus": 0,
   "afterChargeOnly": false,
   "limitedUse": false,
   "maxUses": -1,
@@ -183,7 +183,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "e446eddf529bfc94c9b972fc384b9986",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
