@@ -173,7 +173,7 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildRescueTheDying()
     {
         const string RescueTheDyingName = "RescueTheDying";
-        
+
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{RescueTheDyingName}")
             .SetGuiPresentation(RescueTheDyingName, Category.Spell, ConditionDefinitions.ConditionMagicallyArmored)

@@ -31,6 +31,7 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition DisengageMain { get; } = GetDefinition<ActionDefinition>("DisengageMain");
         internal static ActionDefinition FlurryOfBlows { get; } = GetDefinition<ActionDefinition>("FlurryOfBlows");
+        internal static ActionDefinition SpiritRage { get; } = GetDefinition<ActionDefinition>("SpiritRage");
 
         internal static ActionDefinition GrantBardicInspiration { get; } =
             GetDefinition<ActionDefinition>("GrantBardicInspiration");
