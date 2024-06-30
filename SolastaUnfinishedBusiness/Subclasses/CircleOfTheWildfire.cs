@@ -1,7 +1,10 @@
-﻿#if false
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -23,10 +26,28 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class CircleOfTheWildfire : AbstractSubclass
 {
     private const string Name = "CircleOfTheWildfire";
-    private const string ConditionCommandCannon = $"Condition{Name}Command";
+    private const string SpiritName = "WildfireSpirit";
+    private const string ConditionCommandSpirit = $"Condition{Name}Command";
+
+    private static readonly EffectProxyDefinition EffectProxyCauterizingFlames = EffectProxyDefinitionBuilder
+        .Create(EffectProxyDefinitions.ProxyDancingLights, $"Proxy{Name}CauterizingFlames")
+        .SetOrUpdateGuiPresentation($"Power{Name}SummonCauterizingFlames", Category.Feature)
+        .SetCanMove(false, false)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerCauterizingFlames =
+        FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}CauterizingFlames")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .AddToDB();
 
     public CircleOfTheWildfire()
     {
+        //
+        // LEVEL 03
+        //
+
         var autoPreparedSpellsWildfire = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
             .SetGuiPresentation("ExpandedSpells", Category.Feature)
@@ -43,8 +64,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         //
         // Summon Spirit
         //
-
-        const string SpiritName = "WildfireSpirit";
 
         var powerSpiritTeleport = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SpiritTeleport")
@@ -77,66 +96,66 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 .SetForbiddenActions(
                     Id.AttackMain, Id.AttackOff, Id.AttackFree, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
                     Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower, Id.Shove, Id.ShoveBonus, Id.ShoveFree)
-                .AddCustomSubFeatures(new SummonerHasConditionOrKOd())
+                .AddCustomSubFeatures(new SummonerHasConditionOrKOd(), ForceInitiativeToSummoner.Mark)
                 .AddToDB();
 
         var acBonus = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}ArmorClass")
-            .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+            .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
             .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
             .AddToDB();
 
         var toHit = FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{Name}AttackRoll")
-            .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+            .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
             .SetAttackRollModifier(1, AttackModifierMethod.SourceConditionAmount)
             .AddToDB();
 
         var toDamage = FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{Name}DamageRoll")
-            .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+            .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
             .SetDamageRollModifier(1, AttackModifierMethod.SourceConditionAmount)
             .AddToDB();
 
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}HitPoints")
-            .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+            .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
                 AttributeDefinitions.HitPoints)
             .AddToDB();
 
-        var summoningAffinityBeastCompanion = FeatureDefinitionSummoningAffinityBuilder
-            .Create($"SummoningAffinity{Name}BeastCompanion")
+        var summoningAffinitySpirit = FeatureDefinitionSummoningAffinityBuilder
+            .Create($"SummoningAffinity{Name}Spirit")
             .SetGuiPresentationNoContent(true)
             .SetRequiredMonsterTag(SpiritName)
             .SetAddedConditions(
                 ConditionDefinitionBuilder
-                    .Create($"Condition{Name}BeastCompanionArmorClass")
-                    .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+                    .Create($"Condition{Name}SpiritArmorClass")
+                    .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
                     .SetFeatures(acBonus)
                     .AddToDB(),
                 ConditionDefinitionBuilder
-                    .Create($"Condition{Name}BeastCompanionAttackRoll")
-                    .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+                    .Create($"Condition{Name}SpiritAttackRoll")
+                    .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
                     .SetFeatures(toHit)
                     .AddToDB(),
                 ConditionDefinitionBuilder
-                    .Create($"Condition{Name}BeastCompanionDamageRoll")
-                    .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+                    .Create($"Condition{Name}SpiritDamageRoll")
+                    .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
                     .SetFeatures(toDamage)
                     .AddToDB(),
                 ConditionDefinitionBuilder
-                    .Create($"Condition{Name}BeastCompanionHitPoints")
-                    .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+                    .Create($"Condition{Name}SpiritHitPoints")
+                    .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, DruidClass)
@@ -153,13 +172,13 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     .Create()
                     .SetAllPrefab(MonsterDefinitions.Fire_Elemental.MonsterPresentation)
                     .SetPhantom()
-                    .SetModelScale(0.5f)
+                    .SetModelScale(0.3f)
                     .SetHasMonsterPortraitBackground(true)
                     .SetCanGeneratePortrait(true)
                     .Build())
             .SetCreatureTags(SpiritName)
             .SetStandardHitPoints(1)
-            .SetHeight(4)
+            .SetHeight(2)
             .NoExperienceGain()
             .SetArmorClass(13)
             .SetChallengeRating(0)
@@ -186,7 +205,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         // Command Spirit
 
         var conditionCommandSpirit = ConditionDefinitionBuilder
-            .Create(ConditionCommandCannon)
+            .Create(ConditionCommandSpirit)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
@@ -206,7 +225,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             .SetConditionForm(conditionCommandSpirit, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ValidatorsValidatePowerUse.InCombat, new ValidatorsValidatePowerUse(HasSpirit))
+            .AddCustomSubFeatures(ValidatorsValidatePowerUse.InCombat,
+                new ValidatorsValidatePowerUse(x => HasSpirit(x.Guid)))
             .AddToDB();
 
         powerCommandSpirit.AddCustomSubFeatures(
@@ -223,8 +243,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
                     .SetDurationData(DurationType.HalfClassLevelHours)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -234,13 +254,84 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        var featureSetSummonSpirit = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}SummonSpirit")
+            .SetGuiPresentation($"PowerSharedPool{Name}SummonSpirit", Category.Feature)
+            .SetFeatureSet(
+                summoningAffinitySpirit,
+                powerCommandSpirit,
+                powerSummonSpirit)
+            .AddToDB();
+
+        //
+        // LEVEL 06 - Enhanced Bond
+        //
+
+        var featureEnhancedBond = FeatureDefinitionBuilder
+            .Create($"Feature{Name}EnhancedBond")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureEnhancedBond.AddCustomSubFeatures(
+            new MagicEffectBeforeHitConfirmedOnEnemyEnhancedBond(featureEnhancedBond));
+
+        //
+        // LEVEL 10 - Cauterizing Flames
+        //
+
+        EffectProxyCauterizingFlames.actionId = Id.NoAction;
+        EffectProxyCauterizingFlames.addLightSource = false;
+
+        var powerSummonCauterizingFlames = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}SummonCauterizingFlames")
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(EffectProxyCauterizingFlames)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerSummonCauterizingFlames.AddCustomSubFeatures(
+            new OnReducedToZeroHpByMeOrAllySummonCauterizingFlames(powerSummonCauterizingFlames));
+
+        var featureSetCauterizingFlames = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}CauterizingFlames")
+            .SetGuiPresentation($"Power{Name}SummonCauterizingFlames", Category.Feature)
+            .SetFeatureSet(powerSummonCauterizingFlames, PowerCauterizingFlames)
+            .AddToDB();
+
+        //
+        // LEVEL 14 - Blazing Revival
+        //
+
+        var featureBlazingRevival = FeatureDefinitionBuilder
+            .Create($"Feature{Name}BlazingRevival")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureBlazingRevival.AddCustomSubFeatures(
+            new OnReducedToZeroHpByEnemyBlazingRevival());
+
+        //
+        // MAIN
+        //
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronElementalist, 256))
-            .AddFeaturesAtLevel(2, autoPreparedSpellsWildfire, powerSummonSpirit, summoningAffinityBeastCompanion)
-            .AddFeaturesAtLevel(6)
-            .AddFeaturesAtLevel(10)
-            .AddFeaturesAtLevel(14)
+            .AddFeaturesAtLevel(2, autoPreparedSpellsWildfire, featureSetSummonSpirit)
+            .AddFeaturesAtLevel(6, featureEnhancedBond)
+            .AddFeaturesAtLevel(10, featureSetCauterizingFlames)
+            .AddFeaturesAtLevel(14, featureBlazingRevival)
             .AddToDB();
     }
 
@@ -254,9 +345,132 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static bool HasSpirit(RulesetCharacter character)
+    private static GameLocationCharacter GetMySpirit(ulong guid)
     {
-        return ValidatorsCharacter.HasAnyOfConditions($"Condition{Name}SpiritSelf")(character);
+        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var mySpirit = locationCharacterService.GuestCharacters
+            .FirstOrDefault(x =>
+                x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
+                rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains(SpiritName) &&
+                rulesetCharacterMonster.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagConjure, ConditionConjuredCreature, out var conjured) &&
+                conjured.SourceGuid == guid);
+
+        return mySpirit;
+    }
+
+    private static bool HasSpirit(ulong guid)
+    {
+        return GetMySpirit(guid) != null;
+    }
+
+    //
+    // called from GLBM when a character's move ends. handles spirit flames behavior
+    //
+
+    internal static IEnumerator ProcessOnCharacterMoveEnd(
+        GameLocationBattleManager battleManager,
+        GameLocationCharacter mover)
+    {
+        var power = PowerCauterizingFlames;
+        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        var cauterizingFlamesProxies = locationCharacterService.AllProxyCharacters
+            .Where(u =>
+                mover.IsWithinRange(u, 1) &&
+                u.RulesetActor is RulesetCharacterEffectProxy rulesetCharacterEffectProxy &&
+                rulesetCharacterEffectProxy.EffectProxyDefinition == EffectProxyCauterizingFlames)
+            .ToList(); // avoid changing enumerator
+
+        foreach (var cauterizingFlamesProxy in cauterizingFlamesProxies)
+        {
+            var rulesetProxy = cauterizingFlamesProxy.RulesetActor as RulesetCharacterEffectProxy;
+            var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetProxy!.ControllerGuid);
+            var usablePower = PowerProvider.Get(power, rulesetSource);
+            var source = GameLocationCharacter.GetFromActor(rulesetSource);
+
+            if (source == null ||
+                !source.CanReact() ||
+                rulesetSource.GetRemainingUsesOfPower(usablePower) == 0)
+            {
+                continue;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var actionParams = new CharacterActionParams(source, Id.PowerReaction)
+            {
+                StringParameter = mover.Side == Side.Enemy ? "CauterizingFlamesDamage" : "CauterizingFlamesHeal",
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetSource, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { mover }
+            };
+
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactToUsePower(actionParams, "UsePower", source);
+
+            yield return battleManager.WaitForReactions(mover, actionService, count);
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var powerToTerminate = rulesetSource.PowersUsedByMe.FirstOrDefault(x =>
+                x.Guid == rulesetProxy.EffectGuid);
+
+            if (powerToTerminate != null)
+            {
+                rulesetSource.TerminatePower(powerToTerminate);
+            }
+
+            var wisdom = rulesetSource.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+            var rulesetMover = mover.RulesetCharacter;
+
+            if (mover.Side == Side.Enemy)
+            {
+                var rolls = new List<int>();
+                var damageForm = new DamageForm
+                {
+                    DamageType = DamageTypeFire, DieType = DieType.D10, DiceNumber = 2, BonusDamage = wisMod
+                };
+                var damageRoll = rulesetSource.RollDamage(
+                    damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = rulesetSource,
+                    targetCharacter = rulesetMover,
+                    position = mover.LocationPosition
+                };
+
+                RulesetActor.InflictDamage(
+                    damageRoll,
+                    damageForm,
+                    damageForm.DamageType,
+                    applyFormsParams,
+                    rulesetMover,
+                    false,
+                    rulesetSource.Guid,
+                    false,
+                    [],
+                    new RollInfo(damageForm.DieType, [], damageForm.BonusDamage),
+                    true,
+                    out _);
+            }
+            else
+            {
+                var dieRoll =
+                    rulesetSource.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _, out _);
+
+                rulesetMover.ReceiveHealing(dieRoll + wisMod, true, rulesetSource.Guid);
+            }
+        }
     }
 
     private sealed class SummonerHasConditionOrKOd : IValidateDefinitionApplication, ICharacterTurnStartListener
@@ -302,14 +516,13 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             //can act if summoner is KO
             return summoner.IsUnconscious ||
                    //can act if summoner commanded
-                   summoner.HasConditionOfType(ConditionCommandCannon);
+                   summoner.HasConditionOfType(ConditionCommandSpirit);
         }
     }
 
     // Command Spirit
 
     private sealed class CharacterBeforeTurnEndListenerCommandSpirit(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionEldritchCannonCommand,
         FeatureDefinitionPower power) : ICharacterBeforeTurnEndListener
     {
@@ -318,7 +531,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
 
             if (status != ActionStatus.Available ||
-                !HasSpirit(locationCharacter.RulesetCharacter))
+                !HasSpirit(locationCharacter.Guid))
             {
                 return;
             }
@@ -342,6 +555,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         }
     }
 
+    // Spirit Teleport
+
     private sealed class ModifyTeleportEffectBehaviorSpiritTeleport : IModifyTeleportEffectBehavior
     {
         public bool AllyOnly => true;
@@ -350,5 +565,120 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
 
         public int MaxTargets => 8;
     }
+
+    // Enhanced Bond
+
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemyEnhancedBond(FeatureDefinition featureEnhancedBond)
+        : IMagicEffectBeforeHitConfirmedOnEnemy
+    {
+        private static readonly EffectForm HealingEffectForm = EffectFormBuilder
+            .Create()
+            .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
+            .Build();
+
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!firstTarget ||
+                !HasSpirit(attacker.Guid))
+            {
+                yield break;
+            }
+
+            var firstDamageForm = actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
+
+            if (firstDamageForm != null)
+            {
+                attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
+                actualEffectForms.Add(
+                    EffectFormBuilder.DamageForm(firstDamageForm.DamageForm.DamageType, 1, DieType.D8));
+
+                yield break;
+            }
+
+            var firstHealingForm = actualEffectForms.FirstOrDefault(x =>
+                x.FormType == EffectForm.EffectFormType.Healing &&
+                x.HealingForm.HealingComputation == HealingComputation.Dice);
+
+            if (firstHealingForm == null)
+            {
+                yield break;
+            }
+
+            attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
+            actualEffectForms.Add(HealingEffectForm);
+        }
+    }
+
+    // Summon Cauterizing Flames
+
+    private sealed class OnReducedToZeroHpByMeOrAllySummonCauterizingFlames(
+        FeatureDefinitionPower powerSummonCauterizingFlames) : IOnReducedToZeroHpByMeOrAlly
+    {
+        public IEnumerator HandleReducedToZeroHpByMeOrAlly(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            GameLocationCharacter ally,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            if (downedCreature.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster ||
+                (rulesetCharacterMonster.MonsterDefinition.SizeDefinition != CharacterSizeDefinitions.Small &&
+                 rulesetCharacterMonster.MonsterDefinition.SizeDefinition != CharacterSizeDefinitions.Medium))
+            {
+                yield break;
+            }
+
+            var spirit = GetMySpirit(attacker.Guid);
+
+            if (!ally.IsWithinRange(downedCreature, 6) &&
+                (spirit == null || !spirit.IsWithinRange(downedCreature, 6)))
+            {
+                yield break;
+            }
+
+            var rulesetAlly = ally.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerSummonCauterizingFlames, rulesetAlly);
+            var actionParams = new CharacterActionParams(ally, Id.PowerNoCost)
+            {
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAlly, usablePower, false),
+                UsablePower = usablePower,
+                Positions = { downedCreature.LocationPosition }
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    // Blazing Revival
+
+    private sealed class OnReducedToZeroHpByEnemyBlazingRevival : IOnReducedToZeroHpByEnemy
+    {
+        public IEnumerator HandleReducedToZeroHpByEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            var spirit = GetMySpirit(attacker.Guid);
+
+            if (spirit == null ||
+                !defender.IsWithinRange(spirit, 12))
+            {
+                yield break;
+            }
+        }
+    }
 }
-#endif
