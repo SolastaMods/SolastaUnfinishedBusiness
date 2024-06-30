@@ -3,10 +3,8 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:AdditionalActionWarDanceMomentum:a006baff-03c1-5aff-bee2-bb67bbe36642"
-  ],
-  "allowMultipleInstances": true,
+  "features": [],
+  "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8c20ffc8-55d6-5052-8919-5aa4c5cd6d0c",
+  "guid": "91941437-a832-54c5-b0b5-b1ee0e9716dd",
   "contentPack": 9999,
-  "name": "ConditionWarDanceExtraAttack"
+  "name": "ConditionVitriolicSphere"
 }
