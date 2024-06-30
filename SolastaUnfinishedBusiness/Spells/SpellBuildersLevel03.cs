@@ -760,9 +760,8 @@ internal static partial class SpellBuilders
             var attacker = action.ActingCharacter;
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
-                (Gui.Battle?.AllContenders ??
-                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .ToList();
+                Gui.Battle?.AllContenders ??
+                locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
 
             _targets.SetRange(contenders
                 .Where(x =>
