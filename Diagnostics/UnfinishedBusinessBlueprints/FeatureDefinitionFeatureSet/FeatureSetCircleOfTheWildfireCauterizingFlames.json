@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerCircleOfTheWildfireSummonCauterizingFlames:c24a3d1b-6147-53e2-b1d0-2f7b8e140f8f",
+    "Definition:PowerCircleOfTheWildfireCauterizingFlames:d4c16e99-443e-5af9-874b-dcdbd197323c"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerCircleOfTheWildfireSummonCauterizingFlamesTitle",
+    "description": "Feature/&PowerCircleOfTheWildfireSummonCauterizingFlamesDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "bb3d8057-32a0-5b5f-a6f1-9224c2f87822",
+  "contentPack": 9999,
+  "name": "FeatureSetCircleOfTheWildfireCauterizingFlames"
+}

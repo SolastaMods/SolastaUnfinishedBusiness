@@ -2783,7 +2783,56 @@ While in your Starry Form, you become partially incorporeal, giving you resistan
 
 
 
-## 9. Circle of Winds [SOL]
+## 9. Circle of the Wildfire [UB]
+
+Druids within the Circle of Wildfire understand that destruction is sometimes the precursor of creation, such as when a forest fire promotes later growth. These druids bond with a primal spirit that harbors both destructive and creative power, allowing the druids to create controlled flames that burn away one thing but give life to another.
+
+
+### Level 2
+
+* Expanded Spells
+
+
+	I	Burning Hands, Cure Wounds
+
+	II	Flaming Sphere, Scorching Ray
+
+	III	Ashardalon's Stride, Revivify
+
+	IV	Aura of Life, Fire Shield
+
+	V	Flame Strike, Mass Cure Wounds
+
+
+
+* Summon Wildfire Spirit
+
+You can summon the primal spirit bound to your soul. As an action, you can expend one use of your Wild Shape feature to summon your wildfire spirit, rather than assuming a beast form. The spirit appears in an unoccupied space of your choice that you can see within 30 feet of you. Each creature within 10 feet of the spirit (other than you) when it appears must succeed on a Dexterity saving throw against your spell save DC or take 2d6 fire damage.
+
+
+### Level 6
+
+* Enhanced Bond
+
+The bond with your wildfire spirit enhances your destructive and restorative spells. Whenever you cast a spell that deals fire damage or restores hit points while your wildfire spirit is summoned, roll a d8, and you gain a bonus equal to the number rolled to one damage or healing roll of the spell.
+
+
+### Level 10
+
+* Cauterizing Flames
+
+You gain the ability to turn death into magical light that can heal or incinerate. When a Small or larger creature dies within 30 feet of you or your wildfire spirit, a harmless spectral light springs forth in the dead creature's space and flickers there for 1 minute. When a creature you can see enters that space, you can use your reaction to extinguish the spectral flame there and either heal the creature or deal fire damage to it. The healing or damage equals 2d10 + your Wisdom modifier. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+
+
+### Level 14
+
+* Blazing Revival
+
+The bond with your wildfire spirit can save you from death. If the spirit is within 120 feet of you when you are reduced to 0 hit points and thereby fall unconscious, you can cause the spirit to drop to 0 hit points. You then regain half your hit points and immediately rise to your feet. Once you use this feature, you can't use it again until you finish a long rest.
+
+
+
+## 10. Circle of Winds [SOL]
 
 Druids from this circle draw their strength from the winds. As the Cataclysm raged, the connection druids felt to nature frayed. But not so for the Circle of the Winds. They felt the mana currents carried by the winds and through them a connection to nature. Through this, they were able to protect nature from the worst of the cataclysm-born depredations.
 
@@ -3379,7 +3428,7 @@ Once during your turn when you hit a creature with a melee weapon attack, you ca
 
 * Commanding Presence
 
-You add half your Strength modifier (rounded up) as initiative bonus to all allied creatures (other than you) within 30 feet of you. In addition, you and all allied creatures within 30 feet of you roll all saving throws against charm and frighten effects with advantage.
+You add half your Strength modifier (rounded up, minimum +1) as initiative bonus to all allied creatures (other than you) within 30 feet of you. In addition, you and all allied creatures within 30 feet of you roll all saving throws against charm and frightened effects with advantage.
 
 
 ### Level 18
