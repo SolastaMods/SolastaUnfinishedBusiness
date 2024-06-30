@@ -1,10 +1,25 @@
+Feature/&FeatureCircleOfTheWildfireBlazingRevivalDescription=당신의 들불 정신과의 유대가 당신을 죽음에서 구할 수 있습니다. 체력이 0으로 감소하여 의식을 잃었을 때 영혼이 당신으로부터 120피트 이내에 있으면 영혼의 체력이 0으로 떨어질 수 있습니다. 그런 다음 체력의 절반을 회복하고 즉시 일어납니다. 이 기능을 한 번 사용하면 긴 휴식을 마칠 때까지 다시 사용할 수 없습니다.
+Feature/&FeatureCircleOfTheWildfireBlazingRevivalTitle=타오르는 부흥
+Feature/&FeatureCircleOfTheWildfireEnhancedBondDescription=들불 정신과의 유대감은 파괴적이고 회복적인 주문을 강화합니다. 산불 영혼이 소환되는 동안 화염 피해를 입히거나 체력을 회복하는 주문을 시전할 때마다 d8을 굴리고 주문의 피해 또는 치유 굴림 1개에 굴린 숫자와 동일한 보너스를 얻습니다.
+Feature/&FeatureCircleOfTheWildfireEnhancedBondTitle=강화된 유대감
 Feature/&PowerCircleOfTheWildfireCommandSpiritDescription=Wildfire Spirit에 명령을 내려 다음 턴이 시작될 때까지 취할 수 있는 행동 유형이 제한되지 않도록 하세요. 보너스 액션을 사용하지 않고 턴을 마치면 자동으로 명령을 내리게 됩니다.
 Feature/&PowerCircleOfTheWildfireCommandSpiritTitle=Command Wildfire SpiritFeature/&PowerCircleOfTheWildfireSpiritTeleportDescription=5피트 이내에 있는 영혼과 원하는 각 생물은 볼 수 있는 비어 있는 공간으로 최대 15피트까지 순간이동합니다. 그런 다음 영혼이 남긴 공간에서 5피트 내의 각 생물은 주문 내성 DC에 대한 민첩 내성 굴림에 성공해야 하며 그렇지 않으면 1d6 + PB 화염 피해를 입어야 합니다.
 Feature/&PowerCircleOfTheWildfireSpiritTeleportDescription=5피트 이내에 있는 영혼과 각 의지가 있는 생물은 당신이 볼 수 있는 비어 있는 공간으로 최대 15피트까지 순간이동합니다. 그런 다음 영혼이 남긴 공간에서 5피트 내의 각 생물은 주문 내성 DC에 대한 민첩 내성 굴림에 성공해야 하며 그렇지 않으면 1d6 + PB 화염 피해를 입어야 합니다.
 Feature/&PowerCircleOfTheWildfireSpiritTeleportTitle=불타는 순간이동
+Feature/&PowerCircleOfTheWildfireSummonCauterizingFlamesDescription=당신은 죽음을 치유하거나 소각할 수 있는 마법의 불꽃으로 바꾸는 능력을 얻습니다. 작거나 큰 생명체가 당신이나 당신의 산불 영혼으로부터 30피트 이내에서 죽으면, 죽은 생명체의 공간에서 무해한 유령 불꽃이 솟아나와 1분 동안 깜박입니다. 당신이 볼 수 있는 생물이 그 공간에 들어오면, 당신은 반응을 이용해 그곳의 스펙트럼 불꽃을 끄고 생물을 치유하거나 화염 피해를 입힐 수 있습니다. 치유 또는 피해는 2d10 + 지혜 수정치와 같습니다. 이 반응은 숙련도 보너스만큼 여러 번 사용할 수 있으며 긴 휴식을 마치면 소모한 사용 횟수를 모두 회복합니다.
+Feature/&PowerCircleOfTheWildfireSummonCauterizingFlamesTitle=소작 불꽃
 Feature/&PowerSharedPoolCircleOfTheWildfireSummonSpiritDescription=영혼에 결속된 원시 정령을 소환할 수 있습니다. 행동으로, 당신은 야수 형태를 취하는 대신 Wild Shape 기능을 한 번 사용하여 산불 정신을 소환할 수 있습니다. 영혼은 당신이 선택한 빈 공간에 나타나며, 당신으로부터 30피트 이내에서 볼 수 있습니다. 영혼이 나타날 때 (당신 제외) 10피트 이내에 있는 각 생물은 당신의 주문 내성 DC에 대한 민첩 내성 굴림에 성공해야 하며 그렇지 않으면 2d6 화염 피해를 입어야 합니다.
 Feature/&PowerSharedPoolCircleOfTheWildfireSummonSpiritTitle=들불 정령 소환
+Feedback/&SpiritBonusTitle=산불 보너스
 Monster/&WildfireSpiritDescription=Wildfire Druid의 모임이 소환하는 작은 정령입니다.
 Monster/&WildfireSpiritTitle=들불의 정령
+Reaction/&UseCauterizingFlamesDamageDescription=소작 불꽃을 사용하여 적에게 2d10 + 지혜 수정치 화염 피해를 입힙니다.
+Reaction/&UseCauterizingFlamesDamageReactDescription=2d10 + 지혜 수정치 화염 피해를 입힙니다.
+Reaction/&UseCauterizingFlamesDamageReactTitle=소작 화염: 피해
+Reaction/&UseCauterizingFlamesDamageTitle=소작 화염: 피해
+Reaction/&UseCauterizingFlamesHealDescription=소작 불꽃을 사용하여 2d10 + 지혜 수정치 동안 아군을 치료하십시오.
+Reaction/&UseCauterizingFlamesHealReactDescription=2d10 + 지혜 수정치를 위한 치유.
+Reaction/&UseCauterizingFlamesHealReactTitle=소작 화염: 치유
+Reaction/&UseCauterizingFlamesHealTitle=소작 화염: 치유
 Subclass/&CircleOfTheWildfireDescription=Wildfire Circle 내의 드루이드는 산불이 나중에 성장을 촉진하는 경우와 같이 파괴가 때때로 창조의 전조라는 것을 이해합니다. 이 드루이드는 파괴적인 힘과 창조적인 힘을 모두 품은 원시 정신과 결속되어 한 가지를 불태우고 다른 것에 생명을 주는 통제된 불꽃을 만들 수 있습니다.
 Subclass/&CircleOfTheWildfireTitle=들불의 원
