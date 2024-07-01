@@ -78,7 +78,7 @@ internal static class CommonBuilders
                         EquipmentDefinitions.MartialWeaponCategory)
                     .AddToDB())
             .AddToDB();
-
+#if false
     internal static readonly FeatureDefinitionMagicAffinity MagicAffinityCasterFightingCombatMagic =
         FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityCasterFightingCombatMagic")
@@ -86,7 +86,7 @@ internal static class CommonBuilders
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
             .SetHandsFullCastingModifiers(true, true, true)
             .AddToDB();
-
+#endif
     internal static readonly FeatureDefinitionMagicAffinity MagicAffinityCasterFightingCombatMagicImproved =
         FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityCasterFightingCombatMagicImproved")
