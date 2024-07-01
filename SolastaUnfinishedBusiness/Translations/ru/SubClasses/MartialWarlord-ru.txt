@@ -1,4 +1,4 @@
-Condition/&ConditionMartialWarlordBattlePlanDescription=Вы бросаете все спасброски против эффектов очарования и испуга с преимуществом.
+Condition/&ConditionMartialWarlordBattlePlanDescription=Вы совершаете все спасброски против эффектов очарования и испуга с преимуществом.
 Condition/&ConditionMartialWarlordBattlePlanTitle=Командирское присутствие
 Condition/&ConditionMartialWarlordCoveringStrikeDescription=Все союзные существа, отличные от источника состояния, не провоцируют с вашей стороны атаки по возможности.
 Condition/&ConditionMartialWarlordCoveringStrikeTitle=Перенацелен
