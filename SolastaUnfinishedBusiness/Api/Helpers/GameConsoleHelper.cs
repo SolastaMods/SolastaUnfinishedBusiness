@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
@@ -90,6 +89,7 @@ internal static class GameConsoleHelper
         console.AddEntry(entry);
     }
 
+#if false
     internal static void LogConcentrationCheckRoll(this RulesetCharacter character,
         RulesetEffect effect,
         RollOutcome outcome,
@@ -151,4 +151,5 @@ internal static class GameConsoleHelper
 
         console.AddEntry(entry);
     }
+#endif
 }

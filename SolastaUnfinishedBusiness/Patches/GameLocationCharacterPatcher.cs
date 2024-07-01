@@ -570,6 +570,7 @@ public static class GameLocationCharacterPatcher
             return !shouldKeepConcentration;
         }
 
+#if false
         [UsedImplicitly]
         public static void Postfix(
             GameLocationCharacter __instance,
@@ -580,6 +581,7 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for EffectWithConcentrationCheck
             ForceConcentrationCheck.ProcessConcentratedEffects(__instance, damage, damageType, stillConscious);
         }
+#endif
     }
 
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.GenerateCharacterDescription))]
