@@ -2,7 +2,7 @@
 <Settings>
     <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
-    <SelectedTab>1</SelectedTab>
+    <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
@@ -1540,6 +1540,7 @@
                     <string>BrainBulwark</string>
                     <string>PsionicBlast</string>
                     <string>PsychicLance</string>
+                    <string>VitriolicSphere</string>
                     <string>FarStep</string>
                     <string>Incineration</string>
                     <string>SonicBoom</string>
@@ -1597,6 +1598,7 @@
                     <string>ElementalBane</string>
                     <string>PsionicBlast</string>
                     <string>PsychicLance</string>
+                    <string>ShadowOfMoil</string>
                     <string>FarStep</string>
                     <string>EmpoweredKnowledge</string>
                     <string>SynapticStatic</string>
@@ -1679,6 +1681,7 @@
                     <string>FaithfulHound</string>
                     <string>PsionicBlast</string>
                     <string>PsychicLance</string>
+                    <string>VitriolicSphere</string>
                     <string>Dawn</string>
                     <string>FarStep</string>
                     <string>Incineration</string>

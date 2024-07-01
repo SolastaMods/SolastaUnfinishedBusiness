@@ -940,7 +940,7 @@ You unleash a debilitating wave of mental power in a 30-foot cone. Each creature
 
 You unleash a shimmering lance of psychic power from your forehead at a creature that you can see within range. It must succeed on an Intelligence saving throw or take 7d6 psychic damage and be incapacitated until the end of your next turn. On a successful save, the creature takes half damage and isn't incapacitated. At Higher Levels. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 4th.
 
-# 229. - Shadow of Moil (M,V,S) level 4 Necromancy [Concentration] [UB]
+# 229. - *Shadow of Moil* © (M,V,S) level 4 Necromancy [Concentration] [UB]
 
 Flame-like shadows wreathe your body until the spell ends, causing you to become heavily obscured to others. The shadows turn all area within 10 feet of you into darkness. Until the spell ends, you have resistance to radiant damage. In addition, whenever a creature within 10 feet of you hits you with an attack, the shadows lash out at that creature, dealing it 2d8 necrotic damage.
 
@@ -952,7 +952,7 @@ The next time you hit a creature with a weapon attack during this spell's durati
 
 Grants resistance to non-magical bludgeoning, slashing, and piercing damage.
 
-# 232. - Vitriolic Sphere (V,S) level 4 Evocation [UB]
+# 232. - *Vitriolic Sphere* © (V,S) level 4 Evocation [UB]
 
 You point at a place within range, and a glowing 1-foot ball of emerald acid streaks there and explodes in a 20-foot radius. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 10d4 acid damage and 5d4 acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage and no damage at the end of its next turn. When you cast this spell using a spell slot of 5th level or higher, the initial damage increases by 2d4 for each slot level above 4th.
 
