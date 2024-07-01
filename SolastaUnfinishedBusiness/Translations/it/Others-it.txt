@@ -49,6 +49,7 @@ Condition/&ConditionBlindedByDarknessTitle=Accecato dall'oscurità
 Condition/&ConditionBlindedByFogCloudTitle=Accecato dalla nuvola di nebbia
 Condition/&ConditionBlindedByIncendiaryCloudTitle=Accecato dalla Nube Incendiaria
 Condition/&ConditionBlindedByPetalStormTitle=Accecato da Petal Storm
+Condition/&ConditionBlindedByShadowOfMoilTitle=Accecato dall'ombra di Moil
 Condition/&ConditionBlindedBySleetStormTitle=Accecato dalla tempesta di nevischio
 Condition/&ConditionBlindedByStinkingCloudTitle=Accecato dalla nuvola puzzolente
 Condition/&ConditionBlindedExtendedDescription=La vista è accecata. I tiri per colpire contro la creatura hanno vantaggio, mentre i tiri per colpire della creatura hanno svantaggio.

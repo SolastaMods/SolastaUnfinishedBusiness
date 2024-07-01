@@ -49,6 +49,7 @@ Condition/&ConditionBlindedByDarknessTitle=被黑暗遮蔽双眼
 Condition/&ConditionBlindedByFogCloudTitle=被雾云遮蔽了双眼
 Condition/&ConditionBlindedByIncendiaryCloudTitle=被焚云致盲
 Condition/&ConditionBlindedByPetalStormTitle=被花瓣风暴致盲
+Condition/&ConditionBlindedByShadowOfMoilTitle=被 Moil 的阴影蒙蔽了双眼
 Condition/&ConditionBlindedBySleetStormTitle=被雪雨暴遮蔽双眼
 Condition/&ConditionBlindedByStinkingCloudTitle=被臭云遮蔽了双眼
 Condition/&ConditionBlindedExtendedDescription=视线被遮蔽了。针对该生物的攻击检定具有优势，而该生物的攻击检定则具有劣势。

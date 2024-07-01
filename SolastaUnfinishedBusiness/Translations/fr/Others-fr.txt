@@ -49,6 +49,7 @@ Condition/&ConditionBlindedByDarknessTitle=Aveuglé par les ténèbres
 Condition/&ConditionBlindedByFogCloudTitle=Aveuglé par un nuage de brouillard
 Condition/&ConditionBlindedByIncendiaryCloudTitle=Aveuglé par un nuage incendiaire
 Condition/&ConditionBlindedByPetalStormTitle=Aveuglé par la tempête de pétales
+Condition/&ConditionBlindedByShadowOfMoilTitle=Aveuglé par l'Ombre de Moil
 Condition/&ConditionBlindedBySleetStormTitle=Aveuglé par une tempête de neige fondue
 Condition/&ConditionBlindedByStinkingCloudTitle=Aveuglé par un nuage puant
 Condition/&ConditionBlindedExtendedDescription=La vision est aveuglée. Les jets d'attaque contre la créature ont un avantage, et les jets d'attaque de la créature ont un désavantage.

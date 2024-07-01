@@ -233,7 +233,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeNecrotic, 2, DieType.D8))
                     .Build())
             .AddToDB();
@@ -241,7 +241,7 @@ internal static partial class SpellBuilders
         var damageAffinity = FeatureDefinitionDamageAffinityBuilder
             .Create($"CombatAffinity{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
-            .SetRetaliate(power, 1)
+            .SetRetaliate(power, 2)
             .AddToDB();
 
         var conditionSelf = ConditionDefinitionBuilder
@@ -265,14 +265,17 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(Darkness)
+                    .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 2)
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter |
-                                        RecurrentEffect.OnTurnStart)
-                    .AddEffectForms(EffectFormBuilder.ConditionForm(
-                        conditionSelf,
-                        ConditionForm.ConditionOperation.Add, true))
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDarkness),
+                        EffectFormBuilder.ConditionForm(
+                            conditionSelf,
+                            ConditionForm.ConditionOperation.Add, true))
+                    .SetParticleEffectParameters(Darkness)
                     .Build())
             .AddToDB();
 

@@ -49,6 +49,7 @@ Condition/&ConditionBlindedByDarknessTitle=어둠에 눈이 멀다
 Condition/&ConditionBlindedByFogCloudTitle=안개구름에 눈이 멀다
 Condition/&ConditionBlindedByIncendiaryCloudTitle=발화구름에 눈이 멀다
 Condition/&ConditionBlindedByPetalStormTitle=꽃잎 폭풍에 눈이 멀다
+Condition/&ConditionBlindedByShadowOfMoilTitle=Shadow of Moil에 의해 눈이 멀다
 Condition/&ConditionBlindedBySleetStormTitle=진눈깨비 폭풍에 눈이 멀다
 Condition/&ConditionBlindedByStinkingCloudTitle=악취나는 구름에 눈이 멀다
 Condition/&ConditionBlindedExtendedDescription=시력이 흐려졌습니다. 생물에 대한 공격 굴림에는 이점이 있고 생물의 공격 굴림에는 불리한 점이 있습니다.

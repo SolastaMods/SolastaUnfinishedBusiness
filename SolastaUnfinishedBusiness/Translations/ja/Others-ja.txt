@@ -49,6 +49,7 @@ Condition/&ConditionBlindedByDarknessTitle=闇に目がくらんだ
 Condition/&ConditionBlindedByFogCloudTitle=霧雲に目がくらんだ
 Condition/&ConditionBlindedByIncendiaryCloudTitle=焼夷雲に目がくらむ
 Condition/&ConditionBlindedByPetalStormTitle=花びらの嵐に目がくらんだ
+Condition/&ConditionBlindedByShadowOfMoilTitle=モイルの影に目がくらむ
 Condition/&ConditionBlindedBySleetStormTitle=みぞれ嵐で目が見えなくなる
 Condition/&ConditionBlindedByStinkingCloudTitle=臭い雲に目がくらんだ
 Condition/&ConditionBlindedExtendedDescription=視界が遮られます。クリーチャーに対する攻撃ロールは有利であり、クリーチャーの攻撃ロールは不利です。
