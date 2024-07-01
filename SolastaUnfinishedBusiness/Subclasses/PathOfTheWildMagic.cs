@@ -747,7 +747,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                 {
                     if (existingCondition)
                     {
-                        rulesetCharacter.RemoveAllConditionsOfType(existingCondition.Name);
+                        rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                            AttributeDefinitions.TagEffect, existingCondition.Name);
                     }
 
                     rulesetCharacter.InflictCondition(

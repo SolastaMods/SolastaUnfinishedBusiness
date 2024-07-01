@@ -876,7 +876,8 @@ public sealed class PathOfTheBeast : AbstractSubclass
 
             attackModeCopy.Copy(attackMode);
             attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
-            attacker.RulesetCharacter.RemoveAllConditionsOfType(condition.name);
+            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, condition.name);
             Attack(attacker, defender, attackModeCopy, attackModifier, ActionDefinitions.Id.AttackOpportunity);
         }
 

@@ -334,8 +334,10 @@ internal static class RaceImpBuilder
             {
                 var isSpite = defender.RulesetActor.HasConditionOfType(ConditionImpSpiteName);
 
-                defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpAssistedEnemyName);
-                defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpSpiteName);
+                defender.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionImpAssistedEnemyName);
+                defender.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionImpSpiteName);
 
                 if (isSpite)
                 {

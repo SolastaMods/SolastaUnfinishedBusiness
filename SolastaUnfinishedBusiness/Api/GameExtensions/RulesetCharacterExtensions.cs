@@ -545,7 +545,7 @@ internal static class RulesetCharacterExtensions
             .Intersect(me.GetFeaturesByType<FeatureDefinitionAdditionalDamage>())
             .Any(x => x.RequiredCharacterFamily.Name == enemy.CharacterFamily);
     }
-
+#if false
     /**
      * Removes all matching conditions and returns true if any was removed, false otherwise
      */
@@ -587,7 +587,7 @@ internal static class RulesetCharacterExtensions
 
         label.EnqueueCaption(new CharacterLabel.CaptionInfo { caption = text, colorString = color });
     }
-
+#endif
     [CanBeNull]
     internal static RulesetCharacterHero GetOriginalHero(this RulesetCharacter character)
     {
