@@ -4,6 +4,8 @@
 - added Shadows of Moil, and Vitriolic Sphere spells
 - fixed invocations display under proficiencies panel
 - fixed Focused Metamagic crashing with certain spells [i.e.: sunbeam]
+- fixed Rescue the Dying spell triggering on enemy death
+- fixed Mire the Mind, and Spark of Kinesis invocations min. required level
 
 1.5.97.17:
 
