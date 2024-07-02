@@ -390,7 +390,7 @@ internal static class ClassFeats
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .AddFeatures(featureExploiter)
-            .SetValidators(ValidatorsFeat.IsRogueLevel5)
+            .SetValidators(ValidatorsFeat.IsRogueLevel4)
             .AddToDB();
     }
 
@@ -577,7 +577,7 @@ internal static class ClassFeats
             .Create("FeatCunningEscape")
             .SetGuiPresentation(Category.Feat)
             .AddCustomSubFeatures(new ActionFinishedByMeFeatCunningEscape())
-            .SetValidators(ValidatorsFeat.IsRogueLevel3)
+            .SetValidators(ValidatorsFeat.IsRogueLevel4)
             .AddToDB();
     }
 
