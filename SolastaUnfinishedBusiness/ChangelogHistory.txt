@@ -3,6 +3,7 @@
 - added Circle of the Wildfire subclass
 - added Shadows of Moil, and Vitriolic Sphere spells
 - fixed invocations display under proficiencies panel
+- fixed Focused Metamagic crashing with certain spells [i.e.: sunbeam]
 
 1.5.97.17:
 
