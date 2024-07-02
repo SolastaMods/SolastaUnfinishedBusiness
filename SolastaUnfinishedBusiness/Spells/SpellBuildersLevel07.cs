@@ -288,7 +288,8 @@ internal static partial class SpellBuilders
                 _rescueTheDying, out var spellRepertoire);
 
             if (slotLevel < 7 ||
-                spellRepertoire == null)
+                spellRepertoire == null ||
+                helper.Side != defender.Side)
             {
                 yield break;
             }
