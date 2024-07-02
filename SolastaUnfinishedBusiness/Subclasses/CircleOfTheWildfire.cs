@@ -83,7 +83,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetDamageForm(DamageTypeFire, 1, DieType.D6)
                             .Build())
-                    .SetImpactEffectParameters(FireBolt)
+                    .SetImpactEffectParameters(PowerDomainElementalFireBurst)
                     .Build())
             .AddToDB();
 
@@ -109,6 +109,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 1)
                             .Build())
                     .SetParticleEffectParameters(DimensionDoor)
+                    .SetCasterEffectParameters(HeatMetal)
                     .Build())
             .AddCustomSubFeatures(new CustomBehaviorSpiritTeleport(powerSpiritTeleportDamage))
             .AddToDB();
@@ -124,12 +125,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower, Id.Shove, Id.ShoveBonus, Id.ShoveFree)
                 .AddCustomSubFeatures(new SummonerHasConditionOrKOd(), ForceInitiativeToSummoner.Mark)
                 .AddToDB();
-
-        var acBonus = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}ArmorClass")
-            .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
-            .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
-            .AddToDB();
 
         var toHit = FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{Name}AttackRoll")
@@ -155,14 +150,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetRequiredMonsterTag(SpiritName)
             .SetAddedConditions(
-                ConditionDefinitionBuilder
-                    .Create($"Condition{Name}SpiritArmorClass")
-                    .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
-                    .SetPossessive()
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
-                    .SetFeatures(acBonus)
-                    .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create($"Condition{Name}SpiritAttackRoll")
                     .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
@@ -197,6 +184,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 1, DieType.D6))
+                    .SetCasterEffectParameters(new AssetReference())
                     .SetImpactEffectParameters(FireBolt)
                     .Build())
             .AddToDB();
@@ -220,7 +208,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     .SetCanGeneratePortrait(true)
                     .Build())
             .SetCreatureTags(SpiritName)
-            .SetStandardHitPoints(1)
+            .SetStandardHitPoints(5)
             .SetHeight(2)
             .NoExperienceGain()
             .SetArmorClass(13)
@@ -522,6 +510,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                     position = mover.LocationPosition
                 };
 
+                EffectHelpers.StartVisualEffect(source, mover, HeatMetal, EffectHelpers.EffectType.Caster);
                 EffectHelpers.StartVisualEffect(source, mover, FireBolt);
                 RulesetActor.InflictDamage(
                     damageRoll,
@@ -542,6 +531,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 var dieRoll =
                     rulesetSource.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _, out _);
 
+                EffectHelpers.StartVisualEffect(source, mover, HeatMetal, EffectHelpers.EffectType.Caster);
+                EffectHelpers.StartVisualEffect(source, mover, CureWounds, EffectHelpers.EffectType.Effect);
                 rulesetMover.ReceiveHealing(dieRoll + wisMod, true, rulesetSource.Guid);
             }
         }
@@ -815,8 +806,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (!firstTarget ||
-                rulesetEffect is not RulesetEffectSpell ||
+            if (rulesetEffect is not RulesetEffectSpell ||
                 !HasSpirit(attacker.Guid))
             {
                 yield break;
@@ -836,8 +826,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             }
 
             var firstHealingForm = actualEffectForms.FirstOrDefault(x =>
-                x.FormType == EffectForm.EffectFormType.Healing &&
-                x.HealingForm.HealingComputation == HealingComputation.Dice);
+                x.FormType == EffectForm.EffectFormType.Healing);
 
             if (firstHealingForm == null)
             {
