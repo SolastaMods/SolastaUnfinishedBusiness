@@ -406,6 +406,8 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -418,7 +420,7 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionVitriolicSphere, ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetCasterEffectParameters(VenomousSpike)
+                    .SetCasterEffectParameters(AcidSplash)
                     .SetImpactEffectParameters(AcidArrow)
                     .Build())
             .AddToDB();
