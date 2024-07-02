@@ -368,7 +368,7 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, Haste)
-            .SetRequirements(7)
+            .SetRequirements(5)
             .SetGrantedSpell(Haste, false, true)
             .AddToDB();
     }
@@ -380,7 +380,7 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, Slow)
-            .SetRequirements(7)
+            .SetRequirements(5)
             .SetGrantedSpell(Slow, false, true)
             .AddToDB();
     }

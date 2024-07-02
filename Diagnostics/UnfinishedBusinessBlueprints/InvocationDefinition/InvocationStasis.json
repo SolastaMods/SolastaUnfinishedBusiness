@@ -1,7 +1,7 @@
 {
   "$type": "InvocationDefinition, Assembly-CSharp",
   "requiredKnownSpell": null,
-  "requiredLevel": 7,
+  "requiredLevel": 5,
   "requiredPact": null,
   "grantedFeature": null,
   "grantedSpell": "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4",
