@@ -31,6 +31,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     private const string SpiritName = "WildfireSpirit";
     private const string ConditionCommandSpirit = $"Condition{Name}Command";
 
+    internal const string PowerSummonCauterizingFlamesName = $"Power{Name}SummonCauterizingFlames";
+
     private static readonly EffectProxyDefinition EffectProxyCauterizingFlames = EffectProxyDefinitionBuilder
         .Create(EffectProxyDefinitions.ProxyDancingLights, $"Proxy{Name}CauterizingFlames")
         .SetOrUpdateGuiPresentation($"Power{Name}SummonCauterizingFlames", Category.Feature)
@@ -342,7 +344,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         EffectProxyCauterizingFlames.addLightSource = false;
 
         var powerSummonCauterizingFlames = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}SummonCauterizingFlames")
+            .Create(PowerSummonCauterizingFlamesName)
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
@@ -426,7 +428,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     }
 
     //
-    // called from GLBM when a character's move ends. handles spirit flames behavior
+    // called from GLBM when a character's move ends. handles cauterizing flames behavior
     //
 
     internal static IEnumerator ProcessOnCharacterMoveEnd(
@@ -860,7 +862,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            var spirit = GetMySpirit(attacker.Guid);
+            var spirit = GetMySpirit(ally.Guid);
 
             if (!ally.IsWithinRange(downedCreature, 6) &&
                 (spirit == null || !spirit.IsWithinRange(downedCreature, 6)))
