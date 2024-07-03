@@ -1252,30 +1252,16 @@ internal static partial class SpellBuilders
     private const string PsionicBlastName = "PsionicBlast";
 
     private static readonly ConditionDefinition ConditionMuddled = ConditionDefinitionBuilder
-        .Create($"Condition{PsionicBlastName}")
+        .Create(ConditionDazzled, $"Condition{PsionicBlastName}")
         .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionConfused)
         .SetPossessive()
         .SetConditionType(ConditionType.Detrimental)
+        .SetParentCondition(ConditionDazzled)
         .SetFeatures(
-            FeatureDefinitionCombatAffinityBuilder
-                .Create($"CombatAffinity{PsionicBlastName}")
-                .SetGuiPresentation(PsionicBlastName, Category.Spell, Gui.NoLocalization)
-                .SetMyAttackModifierSign(AttackModifierSign.Substract)
-                .SetMyAttackModifierDieType(DieType.D6)
-                .AddToDB(),
-            FeatureDefinitionAbilityCheckAffinityBuilder
-                .Create($"AbilityCheckAffinity{PsionicBlastName}")
-                .SetGuiPresentation(PsionicBlastName, Category.Spell, Gui.NoLocalization)
-                .BuildAndSetAffinityGroups(
-                    CharacterAbilityCheckAffinity.None, DieType.D6, 1,
-                    AbilityCheckGroupOperation.SubstractDie,
-                    (AttributeDefinitions.Strength, string.Empty),
-                    (AttributeDefinitions.Strength, string.Empty),
-                    (AttributeDefinitions.Dexterity, string.Empty),
-                    (AttributeDefinitions.Constitution, string.Empty),
-                    (AttributeDefinitions.Intelligence, string.Empty),
-                    (AttributeDefinitions.Wisdom, string.Empty),
-                    (AttributeDefinitions.Charisma, string.Empty))
+            FeatureDefinitionMovementAffinityBuilder
+                .Create($"MovementAffinity{PsionicBlastName}")
+                .SetGuiPresentationNoContent(true)
+                .SetBaseSpeedMultiplicativeModifier(0.5f)
                 .AddToDB())
         .SetConditionParticleReference(ConditionFeebleMinded)
         .AddToDB();

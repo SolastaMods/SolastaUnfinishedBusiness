@@ -934,7 +934,7 @@ Causes psychic damage to the target creature with each turn, unless a saving thr
 
 # 227. - Psionic Blast (V) level 4 Evocation [UB]
 
-You unleash a debilitating wave of mental power in a 30-foot cone. Each creature in the area must make an Intelligence saving throw. On a failed save, a target takes 5d8 psychic damage, and subtracts d6 from all of its attack rolls and ability checks until the end of your next turn. On a successful save, a target only takes half as much damage. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.
+You unleash a debilitating wave of mental power in a 30-foot cone. Each creature in the area must make an Intelligence saving throw. On a failed save, a target takes 5d8 psychic damage, becomes dazzled and has its movement speed halved until the end of your next turn. On a successful save, a target only takes half as much damage. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 4th.
 
 # 228. - *Raulothim's Psychic Lance* © (V) level 4 Enchantment [UB]
 
