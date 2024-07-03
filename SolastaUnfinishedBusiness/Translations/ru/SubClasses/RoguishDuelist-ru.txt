@@ -1,6 +1,4 @@
-
-=EMPTY
-Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Когда существо промахивается по вам при броске атаки в ближнем бою, когда вы держите оружие ближнего боя, вы можете использовать свою реакцию, чтобы немедленно совершить атаку по возможности против этого существа.
+Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Когда существо промахивается по вам рукопашной атакой, вы можете использовать свою реакцию, чтобы совершить мгновенную атаку по возможности против этого существа.
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Кружащийся танец
 Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Вам не нужно преимущество на бросок атаки, чтобы использовать свою Скрытую атаку против существа, если вы находитесь в пределах 5 футов от него, никакие другие существа не находятся в пределах 5 футов от вас, и у вас нет помехи на бросок атаки. Все остальные правила скрытой атаки остаются в силе.
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Дерзкий поединок
@@ -8,7 +6,7 @@ Feature/&FeatureRoguishDuelistReflexiveParryDescription=Раз в ход, пок
 Feature/&FeatureRoguishDuelistReflexiveParryTitle=Рефлекторное парирование
 Feature/&FeatureSetRoguishDuelistMasterDuelistDescription=Сразу после использования Скрытой атаки вы можете совершить повторную атаку по той же цели своим оружием в основной руке, если вы находитесь в пределах 5 футов от неё и в пределах 5 футов от вас нет других существ.
 Feature/&FeatureSetRoguishDuelistMasterDuelistTitle=Мастер дуэлянт
-Feature/&FeatureSetRoguishDuelistSureFootedDescription=Каждый раз, когда вы скрытно атакуете существо рукопашным оружием, если вы находитесь в пределах 5 футов от него и в пределах 5 футов от вас нет других существ, вы получаете несуммируемый бонус 1d6 к вашему КД до начала вашего следующего хода.
+Feature/&FeatureSetRoguishDuelistSureFootedDescription=Когда вы совершаете скрытую атаку по существу рукопашным оружием, находясь в 5 футах от него, и при этом в пределах 5 футов от вас нет других существ, вы получаете бонус 1d6 к вашему КД до начала вашего следующего хода.
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Бравада
 Subclass/&RoguishDuelistDescription=Дуэлисты отличаются заносчивой бравадой. Они быстро соображают, независимы и опасны для одиночных противников.
 Subclass/&RoguishDuelistTitle=Дуэлянт
