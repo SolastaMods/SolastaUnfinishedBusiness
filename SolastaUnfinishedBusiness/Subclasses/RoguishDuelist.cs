@@ -52,29 +52,36 @@ public sealed class RoguishDuelist : AbstractSubclass
             ModifyAdditionalDamageClassLevelRogue.Instance,
             new ClassFeats.ModifyAdditionalDamageCloseQuarters(additionalDamageDaringDuel));
 
-        // Sure Footed
-
-        var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}{SureFooted}")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
-            .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
-            .AddToDB();
-
-        var featureSetSureFooted = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}{SureFooted}")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle, attributeModifierSureFooted)
-            .AddToDB();
-
-        // LEVEL 09
-
-        // Swirling Dance
+        // Riposte
 
         var actionAffinitySwirlingDance = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}SwirlingDance")
             .SetGuiPresentation(Category.Feature)
             .SetAuthorizedActions(ActionDefinitions.Id.SwirlingDance)
+            .AddToDB();
+
+        // LEVEL 09
+
+        // Bravado
+
+        var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}{SureFooted}")
+            .SetGuiPresentation($"FeatureSet{Name}{SureFooted}", Category.Feature)
+            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass)
+            .AddToDB();
+
+        var conditionSureFooted = ConditionDefinitionBuilder
+            .Create($"Condition{Name}{SureFooted}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFixedAmount(1)
+            .SetFeatures(attributeModifierSureFooted)
+            .AddToDB();
+
+        var featureSureFooted = FeatureDefinitionBuilder
+            .Create($"FeatureSet{Name}{SureFooted}")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(new PhysicalAttackFinishedByMeSureFooted(conditionDaringDuel, conditionSureFooted))
             .AddToDB();
 
         // LEVEL 13
@@ -117,8 +124,8 @@ public sealed class RoguishDuelist : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishDuelist, 256))
-            .AddFeaturesAtLevel(3, additionalDamageDaringDuel, featureSetSureFooted)
-            .AddFeaturesAtLevel(9, actionAffinitySwirlingDance)
+            .AddFeaturesAtLevel(3, additionalDamageDaringDuel, actionAffinitySwirlingDance)
+            .AddFeaturesAtLevel(9, featureSureFooted)
             .AddFeaturesAtLevel(13, featureReflexiveParry)
             .AddFeaturesAtLevel(17, featureSetMasterDuelist)
             .AddToDB();
@@ -181,6 +188,8 @@ public sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
+            actionModifier.DefenderDamageMultiplier *= 0.5f;
+            rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParry);
             rulesetDefender.InflictCondition(
                 conditionReflexiveParty.Name,
                 DurationType.Round,
@@ -194,8 +203,6 @@ public sealed class RoguishDuelist : AbstractSubclass
                 0,
                 0,
                 0);
-            actionModifier.DefenderDamageMultiplier *= 0.5f;
-            rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParry);
         }
     }
 
@@ -240,6 +247,52 @@ public sealed class RoguishDuelist : AbstractSubclass
 
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    //
+    // Sure Footed
+    //
+
+    private sealed class PhysicalAttackFinishedByMeSureFooted(
+        ConditionDefinition conditionDaringDuel,
+        ConditionDefinition conditionSureFooted)
+        : IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionDaringDuel.Name) ||
+                rulesetAttacker.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionSureFooted.Name))
+            {
+                yield break;
+            }
+
+            var roll = rulesetAttacker.RollDie(DieType.D6, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            rulesetAttacker.InflictCondition(
+                conditionSureFooted.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionSureFooted.Name,
+                roll,
+                0,
+                0);
         }
     }
 }

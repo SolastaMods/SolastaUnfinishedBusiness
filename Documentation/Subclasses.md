@@ -5259,30 +5259,30 @@ Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, a
 
 You don't need advantage on the attack roll to use your Sneak Attack against a creature if you are within 5 ft of it, no other creatures are within 5 ft of you, and you don't have disadvantage on the attack roll. All the other Sneak Attack rules still apply.
 
-* Sure Footed
+* Swirling Dance
 
-While unarmored or wearing light armor with no shield, gain additional +2 AC and advantage on initiative rolls.
+When a creature misses you with a melee attack roll while you are wielding a melee weapon, you can use your reaction to make an immediate attack of opportunity against that creature.
 
 
 ### Level 9
 
-* Swirling Dance
+* Bravado
 
-Starting at 9th level, when a creature misses you with a melee attack roll, you can use your reaction to make an immediate attack of opportunity against that creature.
+Whenever you Sneak Attack a creature with a melee weapon, you are within 5 ft of it and there are no other creatures within 5 ft of you, you gain non-stacking 1d6 bonus to your AC until the start of your next turn.
 
 
 ### Level 13
 
 * Reflexive Parry
 
-Starting at 13th level, once per turn while you aren't dazzled, incapacitated, shocked or slowed and get hit by a melee weapon attack, you immediately use your Uncanny Dodge feature without needing or consuming your reaction.
+Once per turn while you aren't dazzled, incapacitated, shocked or slowed and get hit by a melee weapon attack, you immediately use your Uncanny Dodge feature without needing or consuming your reaction.
 
 
 ### Level 17
 
 * Master Duelist
 
-Starting at 17th level, immediately after you use your Sneak Attack, you make another attack against the same target using your main hand weapon, provided you are within 5 ft of it and no other creatures are within 5 ft of you.
+Immediately after you use your Sneak Attack, you make another attack against the same target using your main hand weapon, provided you are within 5 ft of it and no other creatures are within 5 ft of you.
 
 
 

@@ -1,17 +1,17 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "Additive",
-  "modifierValue": 2,
+  "modifierOperation": "AddConditionAmount",
+  "modifierValue": 0,
   "modifierAbilityScore": "Constitution",
-  "situationalContext": 9014,
+  "situationalContext": "None",
   "minimum1": false,
   "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierRoguishDuelistSureFootedTitle",
-    "description": "Feature/&AttributeModifierRoguishDuelistSureFootedDescription",
+    "title": "Feature/&FeatureSetRoguishDuelistSureFootedTitle",
+    "description": "Feature/&FeatureSetRoguishDuelistSureFootedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

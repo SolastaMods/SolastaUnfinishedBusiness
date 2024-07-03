@@ -1,16 +1,5 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:CombatAffinityEagerForBattle:0e1d36f6967e55444a8c7dabb91a8aee",
-    "Definition:AttributeModifierRoguishDuelistSureFooted:909eb80e-64aa-55b2-8460-778554872e7f"
-  ],
-  "mode": "Union",
-  "ancestryDamageTypeMap": [],
-  "ancestryType": "Sorcerer",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

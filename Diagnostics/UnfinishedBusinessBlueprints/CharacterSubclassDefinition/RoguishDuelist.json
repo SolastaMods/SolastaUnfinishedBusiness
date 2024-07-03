@@ -8,12 +8,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRoguishDuelistSureFooted:9f77aa71-a7ae-575d-a501-dc3886422c51",
+      "featureDefinition": "Definition:ActionAffinityRoguishDuelistSwirlingDance:2fc02396-1a32-57a7-a7bd-63a427dd840a",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ActionAffinityRoguishDuelistSwirlingDance:2fc02396-1a32-57a7-a7bd-63a427dd840a",
+      "featureDefinition": "Definition:FeatureSetRoguishDuelistSureFooted:9f77aa71-a7ae-575d-a501-dc3886422c51",
       "level": 9
     },
     {
