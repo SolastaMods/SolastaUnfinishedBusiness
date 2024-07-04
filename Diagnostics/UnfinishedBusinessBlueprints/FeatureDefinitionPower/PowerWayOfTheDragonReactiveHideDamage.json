@@ -2,11 +2,11 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -30,9 +30,9 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Round",
-    "durationParameter": 0,
+    "targetSide": "Enemy",
+    "durationType": "Instantaneous",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Damage",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -76,14 +76,22 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionWayOfTheDragonReactiveHide",
-          "conditionDefinition": "Definition:ConditionWayOfTheDragonReactiveHide:136e2214-b261-52cc-8792-451d1b3de94d",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "damageForm": {
+          "$type": "DamageForm, Assembly-CSharp",
+          "versatile": false,
+          "diceNumber": 1,
+          "dieType": "D1",
+          "overrideWithBardicInspirationDie": false,
+          "versatileDieType": "D1",
+          "bonusDamage": 0,
+          "damageType": "DamageAcid",
+          "ancestryType": "Sorcerer",
+          "healFromInflictedDamage": "Never",
+          "hitPointsFloor": 0,
+          "forceKillOnZeroHp": false,
+          "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
+          "ignoreCriticalDoubleDice": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -115,7 +123,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -139,7 +147,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "030381d56a1c63c46bcb079d9d1fdfd9",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -308,7 +316,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "KiPoints",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -321,7 +329,7 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": true,
+  "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
@@ -349,7 +357,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "11b6a890-5119-5799-8e5e-72f6eb7a24b3",
+  "guid": "616d68b9-aa4b-5b80-af6b-838d4de1b841",
   "contentPack": 9999,
-  "name": "PowerWayOfTheDragonReactiveHide"
+  "name": "PowerWayOfTheDragonReactiveHideDamage"
 }

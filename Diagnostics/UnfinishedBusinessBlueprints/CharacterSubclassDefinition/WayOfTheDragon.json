@@ -23,6 +23,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDragonReactiveHideDamage:616d68b9-aa4b-5b80-af6b-838d4de1b841",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetWayOfTheDragonFury:af962ee3-be8a-5109-9c75-8b3e5b32ebac",
       "level": 11
     },

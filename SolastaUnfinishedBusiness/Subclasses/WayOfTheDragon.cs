@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -305,7 +304,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
     }
 
 
-    private static FeatureDefinitionPower BuildReactiveHidePower()
+    private static FeatureDefinitionPower[] BuildReactiveHidePower()
     {
         var conditionReactiveHide = ConditionDefinitionBuilder
             .Create($"Condition{Name}ReactiveHide")
@@ -328,9 +327,25 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
+        var powerReactiveHideDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ReactiveHideDamage")
+            .SetGuiPresentation($"Power{Name}ReactiveHide", Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeAcid, 1))
+                    .Build())
+            .AddToDB();
+
+        powerReactiveHideDamage.AddCustomSubFeatures(
+            new ModifyEffectDescriptionReactiveHideDamage(powerReactiveHideDamage));
+
         var powerReactiveHide = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ReactiveHide")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -343,10 +358,9 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         powerReactiveHide.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
-            new CustomBehaviorReactiveHide(powerReactiveHide, conditionReactiveHide));
+            new CustomBehaviorReactiveHide(powerReactiveHide, powerReactiveHideDamage, conditionReactiveHide));
 
-        return powerReactiveHide;
+        return [powerReactiveHide, powerReactiveHideDamage];
     }
 
     private static FeatureDefinitionFeatureSet BuildDragonFuryFeatureSet()
@@ -737,8 +751,54 @@ public sealed class WayOfTheDragon : AbstractSubclass
     // Reactive Hide
     //
 
+    private sealed class ModifyEffectDescriptionReactiveHideDamage(FeatureDefinitionPower powerReactiveHideDamage)
+        : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerReactiveHideDamage;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (!TryGetAncestryDamageTypeFromCharacter(
+                    character.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon, out var damageType))
+            {
+                return effectDescription;
+            }
+
+            var damageForm = effectDescription.EffectForms[0].DamageForm;
+            var dieType = character.GetMonkDieType();
+
+            damageForm.DamageType = damageType;
+            damageForm.DieType = dieType;
+
+            effectDescription.EffectParticleParameters.impactParticleReference = damageType switch
+            {
+                DamageTypeAcid => PowerDragonbornBreathWeaponBlack.EffectDescription.EffectParticleParameters
+                    .impactParticleReference,
+                DamageTypeLightning => PowerDragonbornBreathWeaponBlue.EffectDescription.EffectParticleParameters
+                    .impactParticleReference,
+                DamageTypeFire => PowerDragonbornBreathWeaponGold.EffectDescription.EffectParticleParameters
+                    .impactParticleReference,
+                DamageTypePoison => PowerDragonbornBreathWeaponGreen.EffectDescription.EffectParticleParameters
+                    .impactParticleReference,
+                DamageTypeCold => PowerDragonbornBreathWeaponSilver.EffectDescription.EffectParticleParameters
+                    .impactParticleReference,
+                _ => effectDescription.EffectParticleParameters.impactParticleReference
+            };
+
+            return effectDescription;
+        }
+    }
+
     private sealed class CustomBehaviorReactiveHide(
         FeatureDefinitionPower powerReactiveHide,
+        FeatureDefinitionPower powerReactiveHideDamage,
         ConditionDefinition conditionReactiveHide) : ITryAlterOutcomeAttack, IPhysicalAttackFinishedOnMe
     {
         public IEnumerator OnPhysicalAttackFinishedOnMe(
@@ -750,165 +810,33 @@ public sealed class WayOfTheDragon : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                yield break;
-            }
-
-            if (!defender.CanAct())
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = defender.RulesetCharacter;
-
-            if (rulesetCharacter.RemainingKiPoints == 0)
-            {
-                yield break;
-            }
-
-            if (!rulesetCharacter.HasConditionOfType(conditionReactiveHide))
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+                !defender.CanAct() ||
+                rulesetDefender.RemainingKiPoints == 0 ||
+                !rulesetDefender.HasConditionOfType(conditionReactiveHide) ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            if (!TryGetAncestryDamageTypeFromCharacter(
-                    defender.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon, out var damageType))
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerReactiveHideDamage, rulesetDefender);
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
-                yield break;
-            }
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { attacker }
+            };
 
-            var dieType = rulesetCharacter.GetMonkDieType();
-            var rolls = new List<int>();
-            DamageForm damageForm;
-            int damageRoll;
-
-            switch (damageType)
-            {
-                //
-                // ACID
-                //
-
-                case DamageTypeAcid:
-                {
-                    damageForm = new DamageForm
-                    {
-                        DamageType = DamageTypeAcid, DieType = dieType, DiceNumber = 1, BonusDamage = 0
-                    };
-                    damageRoll =
-                        rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-
-                    InflictDamage(PowerDragonbornBreathWeaponBlack);
-
-                    yield break;
-                }
-
-                //
-                // LIGHTNING
-                //
-
-                case DamageTypeLightning:
-                {
-                    damageForm = new DamageForm
-                    {
-                        DamageType = DamageTypeLightning, DieType = dieType, DiceNumber = 1, BonusDamage = 0
-                    };
-                    damageRoll =
-                        rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-
-                    InflictDamage(PowerDragonbornBreathWeaponBlue);
-
-                    yield break;
-                }
-
-                //
-                // FIRE
-                //
-
-                case DamageTypeFire:
-                {
-                    damageForm = new DamageForm
-                    {
-                        DamageType = DamageTypeFire, DieType = dieType, DiceNumber = 1, BonusDamage = 0
-                    };
-                    damageRoll =
-                        rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-
-                    InflictDamage(PowerDragonbornBreathWeaponGold);
-
-                    yield break;
-                }
-
-                //
-                // POISON
-                //
-
-                case DamageTypePoison:
-                {
-                    damageForm = new DamageForm
-                    {
-                        DamageType = DamageTypePoison, DieType = dieType, DiceNumber = 1, BonusDamage = 0
-                    };
-                    damageRoll =
-                        rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-
-                    InflictDamage(PowerDragonbornBreathWeaponGreen);
-
-                    yield break;
-                }
-
-                //
-                // COLD
-                //
-
-                case DamageTypeCold:
-                {
-                    damageForm = new DamageForm
-                    {
-                        DamageType = DamageTypeCold, DieType = dieType, DiceNumber = 1, BonusDamage = 0
-                    };
-                    damageRoll =
-                        rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-
-                    InflictDamage(PowerDragonbornBreathWeaponSilver);
-
-                    yield break;
-                }
-            }
-
-            yield break;
-
-            void InflictDamage(IMagicEffect magicEffect)
-            {
-                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                {
-                    sourceCharacter = rulesetCharacter,
-                    targetCharacter = rulesetAttacker,
-                    position = attacker.LocationPosition
-                };
-
-                RulesetActor.InflictDamage(
-                    damageRoll,
-                    damageForm,
-                    damageForm.DamageType,
-                    applyFormsParams,
-                    rulesetAttacker,
-                    false,
-                    rulesetCharacter.Guid,
-                    false,
-                    [],
-                    new RollInfo(dieType, rolls, 0),
-                    false,
-                    out _);
-                EffectHelpers.StartVisualEffect(attacker, defender, magicEffect);
-            }
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
 
         public int HandlerPriority => 10;
