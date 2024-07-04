@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -229,16 +228,26 @@ public sealed class InnovationVitriolist : AbstractSubclass
         // Vitriolic Infusion
 
         // kept name for backward compatibility
-        var featureDamageInfusion = FeatureDefinitionBuilder
+        var powerDamageInfusion = FeatureDefinitionPowerBuilder
             .Create($"AdditionalDamage{Name}Infusion")
-            .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(new CustomBehaviorVitriolicInfusion())
+            .SetGuiPresentation($"FeatureSet{Name}Infusion", Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 2, DieType.D10))
+                    .SetImpactEffectParameters(AcidSplash)
+                    .Build())
             .AddToDB();
+
+        powerDamageInfusion.AddCustomSubFeatures(new CustomBehaviorVitriolicInfusion(powerDamageInfusion));
 
         var featureSetVitriolicInfusion = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Infusion")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(featureDamageInfusion, DamageAffinityAcidResistance)
+            .AddFeatureSet(powerDamageInfusion, DamageAffinityAcidResistance)
             .AddToDB();
 
         // LEVEL 09
@@ -442,8 +451,10 @@ public sealed class InnovationVitriolist : AbstractSubclass
     // Vitriolic Infusion
     //
 
-    private sealed class CustomBehaviorVitriolicInfusion
-        : IMagicEffectInitiatedByMe, IPhysicalAttackInitiatedByMe, IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorVitriolicInfusion(FeatureDefinitionPower powerVitriolicInfusion)
+        : IMagicEffectInitiatedByMe, IPhysicalAttackInitiatedByMe,
+            IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe,
+            IModifyEffectDescription
     {
         private readonly HashSet<GameLocationCharacter> _isValid = [];
 
@@ -481,6 +492,24 @@ public sealed class InnovationVitriolist : AbstractSubclass
             _isValid.Clear();
 
             yield break;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerVitriolicInfusion;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var pb = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            effectDescription.EffectForms[0].DamageForm.BonusDamage = pb;
+
+            return effectDescription;
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -539,42 +568,25 @@ public sealed class InnovationVitriolist : AbstractSubclass
             }
         }
 
-        private static void InflictDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+        private void InflictDamage(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetActor;
-            var pb = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var rolls = new List<int>();
-            var damageForm = new DamageForm
-            {
-                DamageType = DamageTypeAcid, DieType = DieType.D20, DiceNumber = 0, BonusDamage = pb
-            };
-            var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerVitriolicInfusion, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetDefender,
-                position = defender.LocationPosition
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
             };
 
-            rulesetAttacker.LogCharacterActivatesAbility(string.Empty, "Feedback/&AdditionalDamageInfusionLine");
-            EffectHelpers.StartVisualEffect(attacker, defender, AcidSplash);
-            RulesetActor.InflictDamage(
-                damageRoll,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetDefender,
-                false,
-                rulesetAttacker.Guid,
-                false,
-                [],
-                new RollInfo(damageForm.DieType, rolls, damageForm.BonusDamage),
-                false,
-                out _);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 }

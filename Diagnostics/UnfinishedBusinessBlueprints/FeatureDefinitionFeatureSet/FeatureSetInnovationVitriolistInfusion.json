@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AdditionalDamageInnovationVitriolistInfusion:b8c3a8ca-90d2-5c4d-b323-6d425f2c00ea",
-    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d"
+    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
+    "Definition:AdditionalDamageInnovationVitriolistInfusion:b8c3a8ca-90d2-5c4d-b323-6d425f2c00ea"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
