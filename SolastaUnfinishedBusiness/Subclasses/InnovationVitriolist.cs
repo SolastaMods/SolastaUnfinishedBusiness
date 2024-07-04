@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -227,6 +228,16 @@ public sealed class InnovationVitriolist : AbstractSubclass
 
         // Vitriolic Infusion
 
+        var conditionInfusionMark = ConditionDefinitionBuilder
+            .Create($"Condition{Name}InfusionMark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(
+                ConditionInterruption.Attacks,
+                ConditionInterruption.CastSpellExecuted,
+                ConditionInterruption.UsePowerExecuted)
+            .AddToDB();
+
         // kept name for backward compatibility
         var powerDamageInfusion = FeatureDefinitionPowerBuilder
             .Create($"AdditionalDamage{Name}Infusion")
@@ -236,13 +247,19 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position)
-                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 2, DieType.D10))
-                    .SetImpactEffectParameters(AcidSplash)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.Proficiency)
+                            .SetDamageForm(DamageTypeAcid)
+                            .Build())
+                    .SetImpactEffectParameters(PowerDragonbornBreathWeaponBlack)
                     .Build())
             .AddToDB();
 
-        powerDamageInfusion.AddCustomSubFeatures(new CustomBehaviorVitriolicInfusion(powerDamageInfusion));
+        powerDamageInfusion.AddCustomSubFeatures(
+            new CustomBehaviorVitriolicInfusion(powerDamageInfusion, conditionInfusionMark));
 
         var featureSetVitriolicInfusion = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Infusion")
@@ -451,29 +468,34 @@ public sealed class InnovationVitriolist : AbstractSubclass
     // Vitriolic Infusion
     //
 
-    private sealed class CustomBehaviorVitriolicInfusion(FeatureDefinitionPower powerVitriolicInfusion)
-        : IMagicEffectInitiatedByMe, IPhysicalAttackInitiatedByMe,
-            IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe,
-            IModifyEffectDescription
+    private sealed class CustomBehaviorVitriolicInfusion(
+        FeatureDefinitionPower powerVitriolicInfusion, ConditionDefinition conditionVitriolicInfusionMark)
+        : IMagicEffectInitiatedByMe, IPhysicalAttackInitiatedByMe, IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe
     {
-        private readonly HashSet<GameLocationCharacter> _isValid = [];
-
         public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
+            var damagedTargets = new List<GameLocationCharacter>();
+
             foreach (var target in targets)
             {
-                target.RulesetActor.DamageReceived -= DamageReceivedHandler;
+                var rulesetTarget = target.RulesetActor;
 
-                if (_isValid.Contains(target))
+                rulesetTarget.DamageReceived -= DamageReceivedHandler;
+
+                if (rulesetTarget.HasConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionVitriolicInfusionMark.Name))
                 {
-                    InflictDamage(attacker, target);
+                    damagedTargets.Add(target);
                 }
             }
 
-            _isValid.Clear();
+            if (damagedTargets.Count > 0)
+            {
+                InflictDamage(attacker, damagedTargets);
+            }
 
             yield break;
         }
@@ -489,27 +511,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                 target.RulesetActor.DamageReceived += DamageReceivedHandler;
             }
 
-            _isValid.Clear();
-
             yield break;
-        }
-
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerVitriolicInfusion;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var pb = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-            effectDescription.EffectForms[0].DamageForm.BonusDamage = pb;
-
-            return effectDescription;
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -521,14 +523,15 @@ public sealed class InnovationVitriolist : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            defender.RulesetActor.DamageReceived += DamageReceivedHandler;
+            var rulesetDefender = defender.RulesetActor;
 
-            if (_isValid.Contains(defender))
+            rulesetDefender.DamageReceived -= DamageReceivedHandler;
+
+            if (rulesetDefender.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionVitriolicInfusionMark.Name))
             {
-                InflictDamage(attacker, defender);
+                InflictDamage(attacker, [defender]);
             }
-
-            _isValid.Clear();
 
             yield break;
         }
@@ -542,8 +545,6 @@ public sealed class InnovationVitriolist : AbstractSubclass
             RulesetAttackMode attackMode)
         {
             defender.RulesetActor.DamageReceived += DamageReceivedHandler;
-
-            _isValid.Clear();
 
             yield break;
         }
@@ -560,29 +561,52 @@ public sealed class InnovationVitriolist : AbstractSubclass
                 return;
             }
 
-            var glc = GameLocationCharacter.GetFromActor(rulesetDefender);
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(sourceGuid);
 
-            if (glc != null)
+            if (rulesetAttacker == null ||
+                rulesetAttacker.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionVitriolicInfusionMark.Name))
             {
-                _isValid.Add(glc);
+                return;
             }
+
+            rulesetDefender.InflictCondition(
+                conditionVitriolicInfusionMark.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionVitriolicInfusionMark.Name,
+                0,
+                0,
+                0);
         }
 
-        private void InflictDamage(GameLocationCharacter attacker, GameLocationCharacter defender)
+        private void InflictDamage(GameLocationCharacter attacker, List<GameLocationCharacter> targets)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
             var usablePower = PowerProvider.Get(powerVitriolicInfusion, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = { new ActionModifier() },
+                ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                TargetCharacters = { defender }
+                targetCharacters = targets
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?
