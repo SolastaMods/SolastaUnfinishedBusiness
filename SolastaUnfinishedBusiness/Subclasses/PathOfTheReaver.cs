@@ -87,7 +87,12 @@ public sealed class PathOfTheReaver : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeNecrotic))
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDamageForm(DamageTypeNecrotic)
+                            .Build())
                     .SetImpactEffectParameters(PowerSorcererChildRiftOffering)
                     .Build())
             .AddToDB();
