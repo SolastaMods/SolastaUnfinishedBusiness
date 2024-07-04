@@ -75,8 +75,8 @@ Feature/&AncestryLevelUpDraconicDescription=Votre ascendance draconique vous con
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=Vous pouvez effectuer une frappe à mains nues comme action bonus.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Arts martiaux – Bonus de frappe à mains nues
 Feature/&AttributeModifierDazzledDescription=-2 de pénalité de classe d'armure.
-Feature/&AttributeModifierDazzledTitle=AC PenaltyFeature/&AttributeModifierMonkAbundantKiDescription=Ajoutez la moitié de votre bonus de compétence (arrondi à l'inférieur) à votre pool de points Ki.
-Feature/&AttributeModifierMonkAbundantKiDescription=Ajoutez la moitié de votre bonus de compétence (arrondi à l'inférieur) à votre pool de Ki Points.
+Feature/&AttributeModifierDazzledTitle=AC Penalty
+Feature/&AttributeModifierMonkAbundantKiDescription=Ajoutez la moitié de votre bonus de compétence (arrondi à l'inférieur) à votre pool de points Ki.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abondant
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&EnhancedIndomitableResistanceDescription=Si vous échouez à un jet de sauvegarde, vous pouvez le relancer avec un bonus égal à votre niveau de Combattant. Si vous le faites, vous devez utiliser le nouveau jet et vous ne pourrez plus utiliser cette fonctionnalité tant que vous n'aurez pas terminé un repos long.

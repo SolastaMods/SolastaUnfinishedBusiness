@@ -75,7 +75,7 @@ Feature/&AncestryLevelUpDraconicDescription=La tua stirpe draconica ti dà un'af
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=Puoi effettuare un colpo senz'armi come azione bonus.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Arti Marziali: Colpo Senz'Armi Bonus
 Feature/&AttributeModifierDazzledDescription=-2 Penalità alla Classe Armatura.
-Feature/&AttributeModifierDazzledTitle=AC PenaltyFeature/&AttributeModifierMonkAbundantKiDescription=Aggiungi metà del tuo bonus di competenza (arrotondato per difetto) alla tua riserva di punti Ki.
+Feature/&AttributeModifierDazzledTitle=AC Penalty
 Feature/&AttributeModifierMonkAbundantKiDescription=Aggiungi metà del tuo bonus di competenza (arrotondato per difetto) alla tua riserva di punti Ki.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abbondante
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n

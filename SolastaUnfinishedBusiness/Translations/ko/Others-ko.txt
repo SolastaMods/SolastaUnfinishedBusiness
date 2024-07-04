@@ -75,8 +75,8 @@ Feature/&AncestryLevelUpDraconicDescription=귀하의 용족 조상은 귀하에
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=보너스 행동으로 비무장 공격을 1회 할 수 있습니다.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=무술 - 보너스 비무장 공격
 Feature/&AttributeModifierDazzledDescription=-2 방어구 등급 페널티.
-Feature/&AttributeModifierDazzledTitle=AC PenaltyFeature/&AttributeModifierMonkAbundantKiDescription=당신의 숙련도 보너스 절반(반올림)을 Ki 포인트 풀에 추가하십시오.
-Feature/&AttributeModifierMonkAbundantKiDescription=Ki 포인트 풀에 숙련도 보너스의 절반(반내림)을 추가하세요.
+Feature/&AttributeModifierDazzledTitle=AC Penalty
+Feature/&AttributeModifierMonkAbundantKiDescription=당신의 숙련도 보너스 절반(반올림)을 Ki 포인트 풀에 추가하십시오.
 Feature/&AttributeModifierMonkAbundantKiTitle=풍부한 기
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&EnhancedIndomitableResistanceDescription=내성 굴림에 실패하면 파이터 레벨과 동일한 보너스를 받아 다시 굴릴 수 있습니다. 그럴 경우 새 롤을 사용해야 하며, 긴 휴식을 마칠 때까지 이 기능을 다시 사용할 수 없습니다.

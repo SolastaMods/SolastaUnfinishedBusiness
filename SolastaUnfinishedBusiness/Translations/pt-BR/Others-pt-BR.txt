@@ -75,8 +75,8 @@ Feature/&AncestryLevelUpDraconicDescription=Sua ancestralidade dracônica lhe d�
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=Você pode realizar um ataque desarmado como uma ação bônus.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Artes Marciais - Ataque Desarmado Bônus
 Feature/&AttributeModifierDazzledDescription=-2 de penalidade na Classe de Armadura.
-Feature/&AttributeModifierDazzledTitle=AC PenaltyFeature/&AttributeModifierMonkAbundantKiDescription=Adicione metade do seu bônus de proficiência (arredondado para baixo) à sua reserva de Pontos Ki.
-Feature/&AttributeModifierMonkAbundantKiDescription=Adicione metade do seu bônus de proficiência (arredondado para baixo) ao seu conjunto de Pontos Ki.
+Feature/&AttributeModifierDazzledTitle=AC Penalty
+Feature/&AttributeModifierMonkAbundantKiDescription=Adicione metade do seu bônus de proficiência (arredondado para baixo) à sua reserva de Pontos Ki.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abundante
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&EnhancedIndomitableResistanceDescription=Se você falhar em um teste de resistência, poderá jogá-lo novamente com um bônus igual ao seu nível de Lutador. Se fizer isso, você deverá usar o novo teste e não poderá usar esse recurso novamente até terminar um descanso longo.

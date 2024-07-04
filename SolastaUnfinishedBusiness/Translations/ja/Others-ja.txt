@@ -75,7 +75,7 @@ Feature/&AncestryLevelUpDraconicDescription=あなたの竜族の祖先は、あ
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=ボーナスアクションとして素手攻撃を 1 回行うことができます。
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=マーシャルアーツ - ボーナス素手打撃
 Feature/&AttributeModifierDazzledDescription=アーマークラスペナルティ -2。
-Feature/&AttributeModifierDazzledTitle=AC PenaltyFeature/&AttributeModifierMonkAbundantKiDescription=熟練度ボーナスの半分（切り捨て）を Ki ポイント プールに追加します。
+Feature/&AttributeModifierDazzledTitle=AC Penalty
 Feature/&AttributeModifierMonkAbundantKiDescription=熟練度ボーナスの半分（切り捨て）を Ki ポイント プールに追加します。
 Feature/&AttributeModifierMonkAbundantKiTitle=豊かな気
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n

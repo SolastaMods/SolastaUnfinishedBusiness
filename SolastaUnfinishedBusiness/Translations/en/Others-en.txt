@@ -75,7 +75,8 @@ Feature/&AncestryLevelUpDraconicDescription=Your draconic ancestry gives you an 
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=You can make one unarmed strike as a bonus action.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Martial Arts - Bonus Unarmed Strike
 Feature/&AttributeModifierDazzledDescription=-2 Armor Class penalty.
-Feature/&AttributeModifierDazzledTitle=AC PenaltyFeature/&AttributeModifierMonkAbundantKiDescription=Add half your proficiency bonus (rounded down) to your Ki Points pool.
+Feature/&AttributeModifierDazzledTitle=AC Penalty
+Feature/&AttributeModifierMonkAbundantKiDescription=Add half your proficiency bonus (rounded down) to your Ki Points pool.
 Feature/&AttributeModifierMonkAbundantKiTitle=Abundant Ki
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&EnhancedIndomitableResistanceDescription=If you fail a saving throw, you can reroll it with a bonus equal to your Fighter level. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest.

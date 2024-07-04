@@ -75,8 +75,8 @@ Feature/&AncestryLevelUpDraconicDescription=你的龙类血统赋予你对 {0} �
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=你可以以附赠动作进行一次徒手攻击。
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=武术 - 额外徒手打击
 Feature/&AttributeModifierDazzledDescription=-2 护甲等级惩罚。
-Feature/&AttributeModifierDazzledTitle=AC PenaltyFeature/&AttributeModifierMonkAbundantKiDescription=将你的一半熟练度奖励（向下舍入）添加到你的 Ki 点数池中。
-Feature/&AttributeModifierMonkAbundantKiDescription=将一半的熟练加值（向下取整）添加到你的气池中。
+Feature/&AttributeModifierDazzledTitle=AC Penalty
+Feature/&AttributeModifierMonkAbundantKiDescription=将你的一半熟练度奖励（向下舍入）添加到你的 Ki 点数池中。
 Feature/&AttributeModifierMonkAbundantKiTitle=气量充沛
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&EnhancedIndomitableResistanceDescription=如果你的豁免检定失败，你可以重骰该豁免并获得等于你的战士等级的加值。不过你必须采用重掷的结果。你必须完成一次长休才能再次使用该特性。
