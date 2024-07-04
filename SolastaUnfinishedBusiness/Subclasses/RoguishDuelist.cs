@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -81,7 +82,7 @@ public sealed class RoguishDuelist : AbstractSubclass
         var featureSureFooted = FeatureDefinitionBuilder
             .Create($"FeatureSet{Name}{SureFooted}")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new PhysicalAttackFinishedByMeSureFooted(conditionDaringDuel, conditionSureFooted))
+            .AddCustomSubFeatures(new CustomBehaviorSureFooted(conditionSureFooted))
             .AddToDB();
 
         // LEVEL 13
@@ -254,10 +255,8 @@ public sealed class RoguishDuelist : AbstractSubclass
     // Sure Footed
     //
 
-    private sealed class PhysicalAttackFinishedByMeSureFooted(
-        ConditionDefinition conditionDaringDuel,
-        ConditionDefinition conditionSureFooted)
-        : IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorSureFooted(ConditionDefinition conditionSureFooted)
+        : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
@@ -268,31 +267,54 @@ public sealed class RoguishDuelist : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (!rulesetAttacker.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionDaringDuel.Name) ||
-                rulesetAttacker.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionSureFooted.Name))
+            if (attacker.UsedSpecialFeatures.ContainsKey("SureFooted"))
             {
                 yield break;
             }
 
+            var rulesetAttacker = attacker.RulesetCharacter;
             var roll = rulesetAttacker.RollDie(DieType.D6, RollContext.None, false, AdvantageType.None, out _, out _);
 
-            rulesetAttacker.InflictCondition(
-                conditionSureFooted.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                conditionSureFooted.Name,
-                roll,
-                0,
-                0);
+            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionSureFooted.Name, out var activeCondition) ||
+                roll > activeCondition.Amount)
+            {
+                rulesetAttacker.InflictCondition(
+                    conditionSureFooted.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionSureFooted.Name,
+                    roll,
+                    0,
+                    0);
+            }
+        }
+
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            var isSneakAttackValid = CharacterContext.IsSneakAttackValid(attackModifier, attacker, defender);
+
+            if (isSneakAttackValid)
+            {
+                attacker.UsedSpecialFeatures.TryAdd("SureFooted", 0);
+            }
+            else
+            {
+                attacker.UsedSpecialFeatures.Remove("SureFooted");
+            }
+
+            yield break;
         }
     }
 }
