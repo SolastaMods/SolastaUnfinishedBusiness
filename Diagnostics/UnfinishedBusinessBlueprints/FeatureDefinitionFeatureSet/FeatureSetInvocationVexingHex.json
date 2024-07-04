@@ -1,9 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerInvocationPerniciousCloak:d703fd29-edaf-5fa2-b750-7ed67699cf2f",
-    "Definition:PowerInvocationPerniciousCloakDamage:42b818ee-0cb0-552e-8b5d-3662d8c89300",
-    "Definition:PowerInvocationPerniciousCloakRemove:f968d22a-b5a4-5f53-a2cb-6c154653170f"
+    "Definition:PowerInvocationVexingHex:7f1c83a5-1539-5d8c-98ea-90c3c18c7fa7",
+    "Definition:PowerInvocationVexingHexDamage:34cdf1c3-9859-58f1-8fef-a8e4bef10cf2"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -36,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9adbf458-44d8-59d7-ae6f-bf837effcd34",
+  "guid": "580a9166-f58b-544f-b237-b52f6b4c8865",
   "contentPack": 9999,
-  "name": "FeatureSetInvocationPerniciousCloak"
+  "name": "FeatureSetInvocationVexingHex"
 }
