@@ -46,6 +46,21 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
             .AddToDB();
 
+    private static readonly FeatureDefinitionPower PowerCauterizingFlamesDamage = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}CauterizingFlamesDamage")
+        .SetGuiPresentation(PowerSummonCauterizingFlamesName, Category.Feature, hidden: true)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position)
+                .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 2, DieType.D10))
+                .SetCasterEffectParameters(HeatMetal)
+                .SetImpactEffectParameters(FireBolt)
+                .Build())
+        .AddCustomSubFeatures(new ModifyEffectDescriptionCauterizingFlamesDamage())
+        .AddToDB();
+
     public CircleOfTheWildfire()
     {
         //
@@ -427,10 +442,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         return GetMySpirit(guid) != null;
     }
 
-    //
-    // called from GLBM when a character's move ends. handles cauterizing flames behavior
-    //
-
+    // called from GLBM when a character's move ends to handle cauterizing flames behavior
     internal static IEnumerator ProcessOnCharacterMoveEnd(
         GameLocationBattleManager battleManager,
         GameLocationCharacter mover)
@@ -497,36 +509,18 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
 
             if (mover.Side == Side.Enemy)
             {
-                var rolls = new List<int>();
-                var damageForm = new DamageForm
+                var usablePowerDamage = PowerProvider.Get(PowerCauterizingFlamesDamage, rulesetSource);
+                var actionParamsDamage = new CharacterActionParams(source, Id.PowerNoCost)
                 {
-                    DamageType = DamageTypeFire, DieType = DieType.D10, DiceNumber = 2, BonusDamage = wisMod
-                };
-                var damageRoll = rulesetSource.RollDamage(
-                    damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-
-                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                {
-                    sourceCharacter = rulesetSource,
-                    targetCharacter = rulesetMover,
-                    position = mover.LocationPosition
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetSource, usablePowerDamage, false),
+                    UsablePower = usablePowerDamage,
+                    TargetCharacters = { mover }
                 };
 
-                EffectHelpers.StartVisualEffect(source, mover, HeatMetal, EffectHelpers.EffectType.Caster);
-                EffectHelpers.StartVisualEffect(source, mover, FireBolt);
-                RulesetActor.InflictDamage(
-                    damageRoll,
-                    damageForm,
-                    damageForm.DamageType,
-                    applyFormsParams,
-                    rulesetMover,
-                    false,
-                    rulesetSource.Guid,
-                    false,
-                    [],
-                    new RollInfo(damageForm.DieType, rolls, damageForm.BonusDamage),
-                    true,
-                    out _);
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParamsDamage, null, true);
             }
             else
             {
@@ -589,7 +583,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         }
     }
 
+    //
     // Command Spirit
+    //
 
     private sealed class CharacterBeforeTurnEndListenerCommandSpirit(
         ConditionDefinition conditionEldritchCannonCommand,
@@ -624,7 +620,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         }
     }
 
+    //
     // Summon Spirit
+    //
 
     private sealed class PowerOrSpellFinishedByMeSummonSpirit(FeatureDefinitionPower powerSummonSpirit)
         : IPowerOrSpellFinishedByMe
@@ -674,7 +672,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         }
     }
 
+    //
     // Spirit Teleport
+    //
 
     private sealed class ModifyEffectDescriptionSpiritTeleportDamage(FeatureDefinitionPower powerSpiritTeleportDamage)
         : IModifyEffectDescription
@@ -788,7 +788,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         }
     }
 
+    //
     // Enhanced Bond
+    //
 
     private sealed class MagicEffectBeforeHitConfirmedOnEnemyEnhancedBond(FeatureDefinition featureEnhancedBond)
         : IMagicEffectBeforeHitConfirmedOnEnemy
@@ -840,7 +842,28 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         }
     }
 
-    // Summon Cauterizing Flames
+    //
+    // Cauterizing Flames
+    //
+
+    private sealed class ModifyEffectDescriptionCauterizingFlamesDamage : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == PowerCauterizingFlamesDamage;
+        }
+
+        public EffectDescription GetEffectDescription(BaseDefinition definition, EffectDescription effectDescription,
+            RulesetCharacter character, RulesetEffect rulesetEffect)
+        {
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+
+            effectDescription.EffectForms[0].DamageForm.BonusDamage = wisMod;
+
+            return effectDescription;
+        }
+    }
 
     private sealed class OnReducedToZeroHpByMeOrAllySummonCauterizingFlames(
         FeatureDefinitionPower powerSummonCauterizingFlames) : IOnReducedToZeroHpByMeOrAlly
@@ -885,7 +908,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         }
     }
 
+    //
     // Blazing Revival
+    //
 
     private sealed class OnReducedToZeroHpByEnemyBlazingRevival(FeatureDefinitionPower powerBlazingRevival)
         : IOnReducedToZeroHpByEnemy, IPhysicalAttackInitiatedOnMe, IMagicEffectAttackInitiatedOnMe
