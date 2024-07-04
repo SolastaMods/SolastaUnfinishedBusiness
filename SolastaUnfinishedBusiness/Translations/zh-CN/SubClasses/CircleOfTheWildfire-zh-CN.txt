@@ -1,6 +1,6 @@
 Feature/&FeatureCircleOfTheWildfireEnhancedBondDescription=与野火精灵的联系增强了你的破坏性和恢复性法术。每当你在召唤野火精灵期间施放造成火焰伤害或恢复生命值的法术时，掷一个 d8，你将获得等于该法术的一次伤害或治疗掷骰结果的奖励。
 Feature/&FeatureCircleOfTheWildfireEnhancedBondTitle=增强债券
-Feature/&PowerCircleOfTheWildfireBlazingRevivalDescription=与野火精灵的联系可以让你免于死亡。如果当你的生命值降至 0 时，精灵距离你不到 120 英尺，从而失去意识，你可以让精灵的生命值降至 0。然后，你恢复一半的生命值并立即站起来。一旦你使用此功能，你就不能再次使用它，直到你完成长时间的休息。
+Feature/&PowerCircleOfTheWildfireBlazingRevivalDescription=当你的生命值降至 0 并因此失去意识时，你可以恢复一半的生命值并立即站起来。一旦使用此功能，你就不能再次使用它，直到你完成长时间休息。
 Feature/&PowerCircleOfTheWildfireBlazingRevivalTitle=炽热复兴
 Feature/&PowerCircleOfTheWildfireCommandSpiritDescription=为你的野火精灵发出命令，这样直到你的下一回合开始之前，它可以采取的行动类型不受限制。如果你在未花费奖励行动的情况下结束回合，你将自动命令它。
 Feature/&PowerCircleOfTheWildfireCommandSpiritTitle=命令野火精灵特征/&PowerCircleOfTheWildfireSpiritTeleportDescription=精灵及其 5 英尺范围内每个自愿生物传送至您能看到的 15 英尺范围内的未占用空间。然后，精灵离开的空间 5 英尺范围内的每个生物必须成功通过敏捷豁免检定，以对抗您的法术豁免 DC，否则将受到 1d6 + PB 火焰伤害。

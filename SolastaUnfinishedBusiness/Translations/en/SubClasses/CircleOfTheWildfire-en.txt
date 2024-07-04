@@ -1,6 +1,6 @@
 Feature/&FeatureCircleOfTheWildfireEnhancedBondDescription=The bond with your wildfire spirit enhances your destructive and restorative spells. Whenever you cast a spell that deals fire damage or restores hit points while your wildfire spirit is summoned, roll a d8, and you gain a bonus equal to the number rolled to one damage or healing roll of the spell.
 Feature/&FeatureCircleOfTheWildfireEnhancedBondTitle=Enhanced Bond
-Feature/&PowerCircleOfTheWildfireBlazingRevivalDescription=The bond with your wildfire spirit can save you from death. If the spirit is within 120 feet of you when you are reduced to 0 hit points and thereby fall unconscious, you can cause the spirit to drop to 0 hit points. You then regain half your hit points and immediately rise to your feet. Once you use this feature, you can't use it again until you finish a long rest.
+Feature/&PowerCircleOfTheWildfireBlazingRevivalDescription=When you are reduced to 0 hit points and thereby fall unconscious, you can regain half your hit points and immediately rise to your feet. Once you use this feature, you can't use it again until you finish a long rest.
 Feature/&PowerCircleOfTheWildfireBlazingRevivalTitle=Blazing Revival
 Feature/&PowerCircleOfTheWildfireCommandSpiritDescription=Issue command for your Wildfire Spirit so until the start of your next turn it is not limited in types of action it can take. You will command it automatically if you end your turn without spending a bonus action.
 Feature/&PowerCircleOfTheWildfireCommandSpiritTitle=Command Wildfire Spirit

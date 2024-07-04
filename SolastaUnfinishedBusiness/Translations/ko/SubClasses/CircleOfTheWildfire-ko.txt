@@ -1,6 +1,6 @@
 Feature/&FeatureCircleOfTheWildfireEnhancedBondDescription=들불 정신과의 유대감은 파괴적이고 회복적인 주문을 강화합니다. 산불 영혼이 소환되는 동안 화염 피해를 입히거나 체력을 회복하는 주문을 시전할 때마다 d8을 굴리고 주문의 피해 또는 치유 굴림 1개에 굴린 숫자와 동일한 보너스를 얻습니다.
 Feature/&FeatureCircleOfTheWildfireEnhancedBondTitle=강화된 유대감
-Feature/&PowerCircleOfTheWildfireBlazingRevivalDescription=당신의 들불 정신과의 유대가 당신을 죽음에서 구할 수 있습니다. 체력이 0으로 감소하여 의식을 잃었을 때 영혼이 당신으로부터 120피트 이내에 있으면 영혼의 체력이 0으로 떨어질 수 있습니다. 그런 다음 체력의 절반을 회복하고 즉시 일어납니다. 이 기능을 한 번 사용하면 긴 휴식을 마칠 때까지 다시 사용할 수 없습니다.
+Feature/&PowerCircleOfTheWildfireBlazingRevivalDescription=체력이 0으로 감소하여 의식을 잃으면 체력의 절반을 회복하고 즉시 일어설 수 있습니다. 이 기능을 한 번 사용하면 긴 휴식을 마칠 때까지 다시 사용할 수 없습니다.
 Feature/&PowerCircleOfTheWildfireBlazingRevivalTitle=타오르는 부흥
 Feature/&PowerCircleOfTheWildfireCommandSpiritDescription=Wildfire Spirit에 명령을 내려 다음 턴이 시작될 때까지 취할 수 있는 행동 유형이 제한되지 않도록 하세요. 보너스 액션을 사용하지 않고 턴을 마치면 자동으로 명령을 내리게 됩니다.
 Feature/&PowerCircleOfTheWildfireCommandSpiritTitle=Command Wildfire SpiritFeature/&PowerCircleOfTheWildfireSpiritTeleportDescription=5피트 이내에 있는 영혼과 원하는 각 생물은 볼 수 있는 비어 있는 공간으로 최대 15피트까지 순간이동합니다. 그런 다음 영혼이 남긴 공간에서 5피트 내의 각 생물은 주문 내성 DC에 대한 민첩 내성 굴림에 성공해야 하며 그렇지 않으면 1d6 + PB 화염 피해를 입어야 합니다.
