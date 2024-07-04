@@ -74,6 +74,8 @@ Feature/&AlwaysBeardDescription=멋진 수염이 자랄 확률은 {0}%입니다!
 Feature/&AncestryLevelUpDraconicDescription=귀하의 용족 조상은 귀하에게 {0} 피해 유형과의 친화성을 부여합니다.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=보너스 행동으로 비무장 공격을 1회 할 수 있습니다.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=무술 - 보너스 비무장 공격
+Feature/&AttributeModifierDazzledDescription=-2 방어구 등급 페널티.
+Feature/&AttributeModifierDazzledTitle=AC PenaltyFeature/&AttributeModifierMonkAbundantKiDescription=당신의 숙련도 보너스 절반(반올림)을 Ki 포인트 풀에 추가하십시오.
 Feature/&AttributeModifierMonkAbundantKiDescription=Ki 포인트 풀에 숙련도 보너스의 절반(반내림)을 추가하세요.
 Feature/&AttributeModifierMonkAbundantKiTitle=풍부한 기
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n

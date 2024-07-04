@@ -74,6 +74,8 @@ Feature/&AlwaysBeardDescription={0}% 的机会长出漂亮的胡子！
 Feature/&AncestryLevelUpDraconicDescription=你的龙类血统赋予你对 {0} 伤害类型的亲和。
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=你可以以附赠动作进行一次徒手攻击。
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=武术 - 额外徒手打击
+Feature/&AttributeModifierDazzledDescription=-2 护甲等级惩罚。
+Feature/&AttributeModifierDazzledTitle=AC PenaltyFeature/&AttributeModifierMonkAbundantKiDescription=将你的一半熟练度奖励（向下舍入）添加到你的 Ki 点数池中。
 Feature/&AttributeModifierMonkAbundantKiDescription=将一半的熟练加值（向下取整）添加到你的气池中。
 Feature/&AttributeModifierMonkAbundantKiTitle=气量充沛
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n

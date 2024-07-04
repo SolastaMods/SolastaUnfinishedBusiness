@@ -1253,7 +1253,7 @@ internal static partial class SpellBuilders
 
     private static readonly ConditionDefinition ConditionMuddled = ConditionDefinitionBuilder
         .Create(ConditionDazzled, $"Condition{PsionicBlastName}")
-        .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionConfused)
+        .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDazzled)
         .SetPossessive()
         .SetConditionType(ConditionType.Detrimental)
         .SetParentCondition(ConditionDazzled)
@@ -1263,7 +1263,6 @@ internal static partial class SpellBuilders
                 .SetGuiPresentationNoContent(true)
                 .SetBaseSpeedMultiplicativeModifier(0.5f)
                 .AddToDB())
-        .SetConditionParticleReference(ConditionFeebleMinded)
         .AddToDB();
 
     internal static SpellDefinition BuildPsionicBlast()

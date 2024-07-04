@@ -74,6 +74,8 @@ Feature/&AlwaysBeardDescription={0}% de chances de deixar crescer uma barba glor
 Feature/&AncestryLevelUpDraconicDescription=Sua ancestralidade dracônica lhe dá afinidade com o tipo de dano {0}.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription=Você pode realizar um ataque desarmado como uma ação bônus.
 Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Artes Marciais - Ataque Desarmado Bônus
+Feature/&AttributeModifierDazzledDescription=-2 de penalidade na Classe de Armadura.
+Feature/&AttributeModifierDazzledTitle=AC PenaltyFeature/&AttributeModifierMonkAbundantKiDescription=Adicione metade do seu bônus de proficiência (arredondado para baixo) à sua reserva de Pontos Ki.
 Feature/&AttributeModifierMonkAbundantKiDescription=Adicione metade do seu bônus de proficiência (arredondado para baixo) ao seu conjunto de Pontos Ki.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abundante
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
