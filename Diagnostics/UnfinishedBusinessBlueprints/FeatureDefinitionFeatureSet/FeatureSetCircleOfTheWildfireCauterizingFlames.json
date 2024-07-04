@@ -2,6 +2,8 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:PowerCircleOfTheWildfireSummonCauterizingFlames:c24a3d1b-6147-53e2-b1d0-2f7b8e140f8f",
+    "Definition:PowerCircleOfTheWildfireCauterizingFlamesDamage:47dd920b-3819-5b6a-867b-045e70c334d6",
+    "Definition:PowerCircleOfTheWildfireCauterizingFlamesHeal:39739481-93f2-590d-98a4-80a0996af75b",
     "Definition:PowerCircleOfTheWildfireCauterizingFlames:d4c16e99-443e-5af9-874b-dcdbd197323c"
   ],
   "mode": "Union",

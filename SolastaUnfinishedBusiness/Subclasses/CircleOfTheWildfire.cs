@@ -44,6 +44,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .Create($"Power{Name}CauterizingFlames")
             .SetGuiPresentationNoContent(true)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .AddCustomSubFeatures(new ModifyEffectDescriptionCauterizingFlamesDamageOrHeal())
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerCauterizingFlamesDamage = FeatureDefinitionPowerBuilder
@@ -53,12 +54,30 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position)
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                 .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 2, DieType.D10))
                 .SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(FireBolt)
                 .Build())
-        .AddCustomSubFeatures(new ModifyEffectDescriptionCauterizingFlamesDamage())
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerCauterizingFlamesHeal = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}CauterizingFlamesHeal")
+        .SetGuiPresentation(PowerSummonCauterizingFlamesName, Category.Feature, hidden: true)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetHealingForm(HealingComputation.Dice, 0, DieType.D10, 1, false,
+                            HealingCap.HalfMaximumHitPoints)
+                        .Build())
+                .SetCasterEffectParameters(HeatMetal)
+                .SetImpactEffectParameters(CureWounds)
+                .Build())
         .AddToDB();
 
     public CircleOfTheWildfire()
@@ -382,7 +401,11 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         var featureSetCauterizingFlames = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}CauterizingFlames")
             .SetGuiPresentation($"Power{Name}SummonCauterizingFlames", Category.Feature)
-            .SetFeatureSet(powerSummonCauterizingFlames, PowerCauterizingFlames)
+            .SetFeatureSet(
+                powerSummonCauterizingFlames,
+                PowerCauterizingFlames,
+                PowerCauterizingFlamesDamage,
+                PowerCauterizingFlamesHeal)
             .AddToDB();
 
         //
@@ -443,11 +466,10 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     }
 
     // called from GLBM when a character's move ends to handle cauterizing flames behavior
-    internal static IEnumerator ProcessOnCharacterMoveEnd(
+    internal static IEnumerator HandleCauterizingFlamesBehavior(
         GameLocationBattleManager battleManager,
         GameLocationCharacter mover)
     {
-        var power = PowerCauterizingFlames;
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var cauterizingFlamesProxies = locationCharacterService.AllProxyCharacters
             .Where(u =>
@@ -460,7 +482,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         {
             var rulesetProxy = cauterizingFlamesProxy.RulesetActor as RulesetCharacterEffectProxy;
             var rulesetSource = EffectHelpers.GetCharacterByGuid(rulesetProxy!.ControllerGuid);
-            var usablePower = PowerProvider.Get(power, rulesetSource);
+            var usablePower = PowerProvider.Get(PowerCauterizingFlames, rulesetSource);
             var source = GameLocationCharacter.GetFromActor(rulesetSource);
 
             if (source == null ||
@@ -503,34 +525,23 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 rulesetSource.TerminatePower(powerToTerminate);
             }
 
-            var wisdom = rulesetSource.TryGetAttributeValue(AttributeDefinitions.Wisdom);
-            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
-            var rulesetMover = mover.RulesetCharacter;
+            usablePower = PowerProvider.Get(
+                mover.Side == Side.Enemy
+                    ? PowerCauterizingFlamesDamage
+                    : PowerCauterizingFlamesHeal,
+                rulesetSource);
 
-            if (mover.Side == Side.Enemy)
+            actionParams = new CharacterActionParams(source, Id.PowerNoCost)
             {
-                var usablePowerDamage = PowerProvider.Get(PowerCauterizingFlamesDamage, rulesetSource);
-                var actionParamsDamage = new CharacterActionParams(source, Id.PowerNoCost)
-                {
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetSource, usablePowerDamage, false),
-                    UsablePower = usablePowerDamage,
-                    TargetCharacters = { mover }
-                };
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetSource, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { mover }
+            };
 
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParamsDamage, null, true);
-            }
-            else
-            {
-                var dieRoll =
-                    rulesetSource.RollDie(DieType.D10, RollContext.None, false, AdvantageType.None, out _, out _);
-
-                EffectHelpers.StartVisualEffect(source, mover, HeatMetal, EffectHelpers.EffectType.Caster);
-                EffectHelpers.StartVisualEffect(source, mover, CureWounds, EffectHelpers.EffectType.Effect);
-                rulesetMover.ReceiveHealing(dieRoll + wisMod, true, rulesetSource.Guid);
-            }
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
@@ -846,20 +857,30 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     // Cauterizing Flames
     //
 
-    private sealed class ModifyEffectDescriptionCauterizingFlamesDamage : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionCauterizingFlamesDamageOrHeal : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == PowerCauterizingFlamesDamage;
+            return definition == PowerCauterizingFlamesDamage || definition == PowerCauterizingFlamesHeal;
         }
 
-        public EffectDescription GetEffectDescription(BaseDefinition definition, EffectDescription effectDescription,
-            RulesetCharacter character, RulesetEffect rulesetEffect)
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
             var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
-            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+            var wisdomModifier = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
 
-            effectDescription.EffectForms[0].DamageForm.BonusDamage = wisMod;
+            if (definition == PowerCauterizingFlamesDamage)
+            {
+                effectDescription.EffectForms[0].DamageForm.BonusDamage = wisdomModifier;
+            }
+            else if (definition == PowerCauterizingFlamesHeal)
+            {
+                effectDescription.EffectForms[0].HealingForm.BonusHealing = wisdomModifier;
+            }
 
             return effectDescription;
         }

@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -231,6 +232,19 @@ public static class CharacterActionPatcher
 
                         break;
                     }
+                }
+            }
+
+            //PATCH: support for Circle of the Wildfire cauterizing flames
+            if (Gui.Battle != null &&
+                __instance is CharacterActionShove)
+            {
+                var battleManager =
+                    ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+                foreach (var targetCharacter in __instance.ActionParams.TargetCharacters)
+                {
+                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(battleManager, targetCharacter);
                 }
             }
 

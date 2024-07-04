@@ -303,7 +303,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: support for Circle of Wildfire proxies
-            var circleExtraEvents = CircleOfTheWildfire.ProcessOnCharacterMoveEnd(__instance, mover);
+            var circleExtraEvents = CircleOfTheWildfire.HandleCauterizingFlamesBehavior(__instance, mover);
 
             while (circleExtraEvents.MoveNext())
             {

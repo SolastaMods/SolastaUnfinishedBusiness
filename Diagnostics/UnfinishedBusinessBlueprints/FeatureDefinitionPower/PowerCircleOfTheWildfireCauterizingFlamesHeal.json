@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Damage",
+        "formType": "Healing",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -76,22 +76,14 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "damageForm": {
-          "$type": "DamageForm, Assembly-CSharp",
-          "versatile": false,
-          "diceNumber": 2,
+        "healingForm": {
+          "$type": "HealingForm, Assembly-CSharp",
+          "healingComputation": "Dice",
+          "diceNumber": 1,
           "dieType": "D10",
-          "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D1",
-          "bonusDamage": 0,
-          "damageType": "DamageFire",
-          "ancestryType": "Sorcerer",
-          "healFromInflictedDamage": "Never",
-          "hitPointsFloor": 0,
-          "forceKillOnZeroHp": false,
-          "specialDeathCondition": null,
-          "ignoreFlyingCharacters": false,
-          "ignoreCriticalDoubleDice": false
+          "bonusHealing": 0,
+          "variablePool": false,
+          "healingCap": "HalfMaximumHitPoints"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -171,7 +163,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e446eddf529bfc94c9b972fc384b9986",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -357,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "47dd920b-3819-5b6a-867b-045e70c334d6",
+  "guid": "39739481-93f2-590d-98a4-80a0996af75b",
   "contentPack": 9999,
-  "name": "PowerCircleOfTheWildfireCauterizingFlamesDamage"
+  "name": "PowerCircleOfTheWildfireCauterizingFlamesHeal"
 }
