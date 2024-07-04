@@ -666,11 +666,11 @@ internal static partial class SpellBuilders
                     .SetNotificationTag("SunlightBlade")
                     .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                     .SetAttackModeOnly()
-                    .SetDamageDice(DieType.D8, 1)
+                    .SetDamageDice(DieType.D8, 0)
                     .SetSpecificDamageType(DamageTypeRadiant)
                     .SetAdvancement(
                         ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 2), (11, 3), (17, 4)))
+                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
                     .AddConditionOperation(
                         ConditionOperationDescription.ConditionOperation.Add,
@@ -935,11 +935,11 @@ internal static partial class SpellBuilders
                     .SetNotificationTag("BoomingBlade")
                     .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                     .SetAttackModeOnly()
-                    .SetDamageDice(DieType.D8, 1)
+                    .SetDamageDice(DieType.D8, 0)
                     .SetSpecificDamageType(DamageTypeThunder)
                     .SetAdvancement(
                         ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 2), (11, 3), (17, 4)))
+                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
                     .AddConditionOperation(
                         ConditionOperationDescription.ConditionOperation.Add, conditionBoomingBladeSheathed)
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
@@ -1077,11 +1077,11 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("ResonatingStrike")
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-            .SetDamageDice(DieType.D8, 1)
+            .SetDamageDice(DieType.D8, 0)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(
                 ExtraAdditionalDamageAdvancement.CharacterLevel,
-                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 2), (11, 3), (17, 4)))
+                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
             .SetImpactParticleReference(BurningHands_B)
             .SetAttackModeOnly()
             .AddToDB();

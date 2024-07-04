@@ -2,13 +2,14 @@
 
 - added Circle of the Wildfire subclass
 - added Shadows of Moil, and Vitriolic Sphere spells
-- changed Cunning Escape, and Exploiter feats level restriction to 4th
+- changed Cunning Escape, and Exploiter feats min. required level to 4th
 - changed Psionic Blast spell to differentiate it a bit from Synaptic Static
 - changed Roguish Duelist subclass making it more useful before higher levels
 - fixed invocations display under proficiencies panel
 - fixed Focused Metamagic crashing with certain spells [i.e.: sunbeam]
+- fixed melee attack cantrips damage progression using one additional die
 - fixed Rescue the Dying spell triggering on enemy death
-- fixed Mire the Mind, and Spark of Kinesis invocations min. required level
+- fixed Mire the Mind, and Spark of Kinesis invocations min. required level to 5th
 
 1.5.97.17:
 
