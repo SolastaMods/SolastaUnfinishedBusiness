@@ -130,8 +130,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypePiercing, 2, DieType.D8))
+                    .SetImpactEffectParameters(PowerPatronTreeExplosiveGrowth)
                     .Build())
-            .SetOverriddenPower(powerBarkWard)
             .AddToDB();
 
         powerImprovedBarkWard.AddCustomSubFeatures(
@@ -144,7 +144,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                 Sprites.GetSprite(Name, Resources.CircleOfTheForestGuardian, 256))
             .AddFeaturesAtLevel(2, autoPreparedSpellsForestGuardian, attackModifierSylvanMagic, powerBarkWard)
             .AddFeaturesAtLevel(6, AttributeModifierCasterFightingExtraAttack, AttackReplaceWithCantripCasterFighting)
-            .AddFeaturesAtLevel(10, powerImprovedBarkWard)
+            .AddFeaturesAtLevel(10, powerImprovedBarkWard, powerImprovedBarkWardDamage)
             .AddFeaturesAtLevel(14, powerSuperiorBarkWard)
             .AddToDB();
     }

@@ -171,7 +171,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b3ed2acac3124c04ca65d90abfb89588",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -331,7 +331,7 @@
   "uniqueInstance": false,
   "showCasting": false,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerSharedPoolForestGuardianBarkWard:9e840509-63ba-5093-863a-aacb24745e79",
+  "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
