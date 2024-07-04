@@ -60,7 +60,7 @@ internal static class ValidatorsFeat
         ValidateIsClass(Ranger.FormatTitle(), 4, Ranger);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel4 =
-        ValidateIsClass(Rogue.FormatTitle(), 3, Rogue);
+        ValidateIsClass(Rogue.FormatTitle(), 4, Rogue);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSorcererLevel4 =
         ValidateIsClass(Sorcerer.FormatTitle(), 4, Sorcerer);
