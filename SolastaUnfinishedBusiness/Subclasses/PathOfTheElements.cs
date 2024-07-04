@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -362,13 +363,30 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         // Wildfire
 
-        var featureElementalConduitWildfire = FeatureDefinitionBuilder
+        // kept name for backward compatibility
+        var powerElementalConduitWildfire = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}{ElementalConduit}Wildfire")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Constitution)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeFire)
+                            .Build())
+                    .SetImpactEffectParameters(SpellDefinitions.HellishRebuke)
+                    .Build())
             .AddToDB();
 
-        featureElementalConduitWildfire.AddCustomSubFeatures(
-            new ReactToAttackOnMeFinishedElementalConduitWildfire(featureElementalConduitWildfire));
+        powerElementalConduitWildfire.AddCustomSubFeatures(
+            new CustomBehaviorElementalConduitWildfire(powerElementalConduitWildfire));
 
         // Elemental Conduit
 
@@ -386,7 +404,7 @@ public sealed class PathOfTheElements : AbstractSubclass
         // keep sorted
         featureSetElementalConduit.FeatureSet.Add(featureElementalConduitBlizzard);
         featureSetElementalConduit.FeatureSet.Add(powerElementalConduitStorm);
-        featureSetElementalConduit.FeatureSet.Add(featureElementalConduitWildfire);
+        featureSetElementalConduit.FeatureSet.Add(powerElementalConduitWildfire);
 
         #endregion
 
@@ -563,10 +581,28 @@ public sealed class PathOfTheElements : AbstractSubclass
     // Elemental Conduit - Wildfire
     //
 
-    private sealed class ReactToAttackOnMeFinishedElementalConduitWildfire(
+    private sealed class CustomBehaviorElementalConduitWildfire(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition) : IPhysicalAttackFinishedOnMe
+        FeatureDefinitionPower powerElementalConduitWildfire) : IPhysicalAttackFinishedOnMe, IModifyEffectDescription
     {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerElementalConduitWildfire;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var classLevel = character.GetClassLevel(CharacterClassDefinitions.Barbarian);
+
+            effectDescription.EffectForms[0].DamageForm.BonusDamage = classLevel;
+
+            return effectDescription;
+        }
+
         public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -576,100 +612,39 @@ public sealed class PathOfTheElements : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                yield break;
-            }
-
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (defender.IsMyTurn())
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (!defender.CanReact() ||
-                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!rulesetDefender.HasConditionOfTypeOrSubType(ConditionRaging))
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+                defender.IsMyTurn() ||
+                !defender.CanReact() ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetDefender.HasConditionOfTypeOrSubType(ConditionRaging))
             {
                 yield break;
             }
 
-            var actionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            if (!actionManager)
-            {
-                yield break;
-            }
+            var usablePower = PowerProvider.Get(powerElementalConduitWildfire, rulesetDefender);
+            var actionParams =
+                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
+                {
+                    StringParameter = "ElementalConduitWildfire",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { attacker }
+                };
 
-            var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction);
-            var reactionRequest = new ReactionRequestCustom("ElementalConduitWildfire", reactionParams);
-            var count = actionManager.PendingReactionRequestGroups.Count;
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            actionManager.AddInterruptRequest(reactionRequest);
+            actionService.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            var modifierTrend = rulesetAttacker.actionModifier.savingThrowModifierTrends;
-            var advantageTrends = rulesetAttacker.actionModifier.savingThrowAdvantageTrends;
-            var attackerConModifier =
-                AttributeDefinitions.ComputeAbilityScoreModifier(
-                    rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Constitution));
-            var profBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var defenderDexModifier =
-                AttributeDefinitions.ComputeAbilityScoreModifier(
-                    rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Dexterity));
-
-            rulesetAttacker.RollSavingThrow(0, AttributeDefinitions.Dexterity, featureDefinition, modifierTrend,
-                advantageTrends, defenderDexModifier, 8 + profBonus + attackerConModifier, false,
-                out var savingOutcome,
-                out _);
-
-            if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-            {
-                yield break;
-            }
-
-            var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Barbarian);
-            var damageForm = new DamageForm
-            {
-                DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = classLevel
-            };
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetDefender,
-                position = defender.LocationPosition
-            };
-
-            EffectHelpers.StartVisualEffect(defender, attacker, SpellDefinitions.HellishRebuke);
-            RulesetActor.InflictDamage(
-                classLevel,
-                damageForm,
-                DamageTypeFire,
-                applyFormsParams,
-                rulesetDefender,
-                false,
-                rulesetAttacker.Guid,
-                false,
-                attackMode.AttackTags,
-                new RollInfo(DieType.D1, [], classLevel),
-                false,
-                out _);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 }
