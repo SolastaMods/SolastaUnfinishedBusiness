@@ -3556,13 +3556,6 @@ You choose one type of dragon as your ancestor. The damage type associated with 
 Once during your turn, you can forgo one of your main action attacks to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive three martial arts dice as damage type of your Dragon Ancestry feature (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and you can spend 2 ki instead if you are out of uses. At 17th level, the damage of your breath increases to four martial arts dice.
 
 
-### Level 6
-
-* Reactive Skin
-
-When you are attacked, you can use your reaction and pay 1 Ki to gain resistance to all damage until the end of attacker's turn. If the attacker uses melee attacks against you, they receive one martial arts die as damage type of your Dragon Ancestry feature each time they hit you.
-
-
 ### Level 11
 
 * Dragon's Fury
@@ -3816,20 +3809,6 @@ After you make an attack roll with a monk weapon or an unarmed attack, and criti
 * Propelled Weal
 
 After you make an attack roll with a monk weapon or an unarmed attack, and critically hit, you refund 1 Ki point.
-
-
-### Level 11
-
-* Brutal Weal
-
-After you make an attack roll with a monk weapon or an unarmed attack, and critically hit, you deal additional damage equal to one roll of your martial arts die.
-
-
-### Level 17
-
-* Their Woe
-
-After you make an attack roll with a monk weapon or an unarmed attack, and critically miss, you instead deal the Woe damage to the target instead of yourself.
 
 
 

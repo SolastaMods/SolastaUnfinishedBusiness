@@ -47,7 +47,9 @@ internal enum ExtraActionId
     TacticianGambitBonus,
     TacticianGambitMain,
     TacticianGambitNoCost,
-    TempestFury, // not used
+
+    // ReSharper disable once UnusedMember.Global
+    TempestFury,
     UseHeroicInspiration,
     WildlingFeralAgility,
     Withdraw,

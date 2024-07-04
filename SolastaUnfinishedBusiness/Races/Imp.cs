@@ -775,7 +775,8 @@ internal static class RaceImpBuilder
     }
 
     private class CustomBehaviorImpishWrath(
-        FeatureDefinitionPower powerImpForestImpishWrath, ConditionDefinition conditionImpForestImpishWrathMark)
+        FeatureDefinitionPower powerImpForestImpishWrath,
+        ConditionDefinition conditionImpForestImpishWrathMark)
         : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(

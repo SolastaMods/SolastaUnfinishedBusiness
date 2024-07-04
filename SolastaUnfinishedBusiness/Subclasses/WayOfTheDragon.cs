@@ -304,7 +304,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
     }
 
 
-    private static FeatureDefinitionPower[] BuildReactiveHidePower()
+    private static FeatureDefinition[] BuildReactiveHidePower()
     {
         var conditionReactiveHide = ConditionDefinitionBuilder
             .Create($"Condition{Name}ReactiveHide")

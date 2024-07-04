@@ -469,7 +469,8 @@ public sealed class InnovationVitriolist : AbstractSubclass
     //
 
     private sealed class CustomBehaviorVitriolicInfusion(
-        FeatureDefinitionPower powerVitriolicInfusion, ConditionDefinition conditionVitriolicInfusionMark)
+        FeatureDefinitionPower powerVitriolicInfusion,
+        ConditionDefinition conditionVitriolicInfusionMark)
         : IMagicEffectInitiatedByMe, IPhysicalAttackInitiatedByMe, IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
