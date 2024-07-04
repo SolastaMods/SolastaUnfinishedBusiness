@@ -6,7 +6,7 @@
     "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Position",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -64,7 +64,7 @@
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Damage",
-        "addBonusMode": "None",
+        "addBonusMode": "Proficiency",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
@@ -79,12 +79,12 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 2,
-          "dieType": "D10",
+          "diceNumber": 0,
+          "dieType": "D1",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
-          "damageType": "DamageFire",
+          "damageType": "DamageAcid",
           "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
@@ -171,7 +171,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a6e8f7ab481608046a0a955556089c5f",
+        "m_AssetGUID": "e7fb95caaa738254483c66eb3766e73f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

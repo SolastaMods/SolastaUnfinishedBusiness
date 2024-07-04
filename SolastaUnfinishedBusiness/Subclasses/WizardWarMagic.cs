@@ -436,7 +436,7 @@ public sealed class WizardWarMagic : AbstractSubclass
                     conditionSurgeMark.Name,
                     DurationType.Round,
                     0,
-                    TurnOccurenceType.EndOfTurn,
+                    TurnOccurenceType.EndOfSourceTurn,
                     AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,

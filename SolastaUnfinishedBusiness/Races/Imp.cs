@@ -829,11 +829,14 @@ internal static class RaceImpBuilder
 
             if (shouldTrigger && !alreadyTriggered)
             {
+                var usablePower = PowerProvider.Get(powerImpForestImpishWrath, rulesetAttacker);
+
+                rulesetAttacker.UsePower(usablePower);
                 rulesetAttacker.InflictCondition(
                     conditionImpForestImpishWrathMark.Name,
                     DurationType.Round,
                     0,
-                    TurnOccurenceType.EndOfTurn,
+                    TurnOccurenceType.EndOfSourceTurn,
                     AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
@@ -848,13 +851,6 @@ internal static class RaceImpBuilder
             {
                 case false when !shouldTrigger:
                     return;
-                case false:
-                {
-                    var usablePower = PowerProvider.Get(powerImpForestImpishWrath, rulesetAttacker);
-
-                    rulesetAttacker.UsePower(usablePower);
-                    break;
-                }
                 case true:
                     rulesetAttacker.LogCharacterUsedPower(powerImpForestImpishWrath);
                     break;
