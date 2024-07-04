@@ -934,39 +934,14 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     //
 
     private sealed class OnReducedToZeroHpByEnemyBlazingRevival(FeatureDefinitionPower powerBlazingRevival)
-        : IOnReducedToZeroHpByEnemy, IPhysicalAttackInitiatedOnMe, IMagicEffectAttackInitiatedOnMe
+        : IOnReducedToZeroHpByEnemy
     {
-        private bool _isValid;
-
-        public IEnumerator OnMagicEffectAttackInitiatedOnMe(
-            CharacterActionMagicEffect action,
-            RulesetEffect activeEffect,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            bool firstTarget,
-            bool checkMagicalAttackDamage)
-        {
-            var spirit = GetMySpirit(defender.Guid);
-
-            _isValid = spirit != null && defender.IsWithinRange(spirit, 12);
-
-            yield break;
-        }
-
         public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (!_isValid)
-            {
-                yield break;
-            }
-
-            _isValid = false;
-
             if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
                 {
                     IsBattleInProgress: true
@@ -1015,21 +990,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 defender, defender, PowerDefilerMistyFormEscape, EffectHelpers.EffectType.Caster);
             ServiceRepository.GetService<ICommandService>()?
                 .ExecuteAction(new CharacterActionParams(defender, Id.StandUp), null, true);
-        }
-
-        public IEnumerator OnPhysicalAttackInitiatedOnMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
-        {
-            var spirit = GetMySpirit(defender.Guid);
-
-            _isValid = spirit != null && defender.IsWithinRange(spirit, 12);
-
-            yield break;
         }
     }
 }
