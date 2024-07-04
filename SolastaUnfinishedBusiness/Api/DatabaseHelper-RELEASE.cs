@@ -1132,6 +1132,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Solasta { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Solasta");
 
+        internal static FeatureDefinitionAttributeModifier AttributeModifierDazzled { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDazzled");
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierDragonbornAbilityScoreIncreaseCha { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDragonbornAbilityScoreIncreaseCha");
 
