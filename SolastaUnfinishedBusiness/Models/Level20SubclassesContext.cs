@@ -663,6 +663,20 @@ internal static class Level20SubclassesContext
             .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
             .AddToDB();
 
+        var powerTraditionOpenHandQuiveringPalmDamage = FeatureDefinitionPowerBuilder
+            .Create("PowerTraditionOpenHandQuiveringPalmDamage")
+            .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeNecrotic, 10, DieType.D10))
+                    .SetImpactEffectParameters(PowerPatronTreeExplosiveGrowth)
+                    .Build())
+            .AddToDB();
+
         var powerTraditionOpenHandQuiveringPalmTrigger = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalmTrigger")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature,
@@ -677,8 +691,8 @@ internal static class Level20SubclassesContext
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)
                     .SetParticleEffectParameters(DreadfulOmen)
                     .Build())
-            .AddCustomSubFeatures(
-                new CustomBehaviorQuiveringPalmTrigger(conditionTraditionOpenHandQuiveringPalm))
+            .AddCustomSubFeatures(new CustomBehaviorQuiveringPalmTrigger(
+                powerTraditionOpenHandQuiveringPalmDamage, conditionTraditionOpenHandQuiveringPalm))
             .AddToDB();
 
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
@@ -1994,7 +2008,7 @@ internal static class Level20SubclassesContext
     //
 
     private sealed class CustomBehaviorQuiveringPalmTrigger(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerQuiveringPalmDamage,
         ConditionDefinition conditionDefinition)
         : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
@@ -2041,32 +2055,21 @@ internal static class Level20SubclassesContext
             // takes 10d10 Necrotic
             if (action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                var damageForm = new DamageForm
+                var implementationManager =
+                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+                var usablePower = PowerProvider.Get(powerQuiveringPalmDamage, rulesetAttacker);
+                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
                 {
-                    DamageType = DamageTypeNecrotic, DieType = DieType.D10, DiceNumber = 10, BonusDamage = 0
-                };
-                var rolls = new List<int>();
-                var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                {
-                    sourceCharacter = rulesetAttacker,
-                    targetCharacter = rulesetTarget,
-                    position = target.LocationPosition
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { target }
                 };
 
-                RulesetActor.InflictDamage(
-                    damageRoll,
-                    damageForm,
-                    damageForm.DamageType,
-                    applyFormsParams,
-                    rulesetTarget,
-                    false,
-                    rulesetAttacker.Guid,
-                    false,
-                    [],
-                    new RollInfo(damageForm.DieType, rolls, 0),
-                    false,
-                    out _);
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParams, null, true);
 
                 yield break;
             }
