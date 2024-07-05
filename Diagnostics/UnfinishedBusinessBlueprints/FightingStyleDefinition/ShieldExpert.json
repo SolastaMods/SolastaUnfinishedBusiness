@@ -1,7 +1,6 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:ActionAffinityShieldExpertShove:68cd4447-8c35-5497-9711-003697b5e118",
     "Definition:AddExtraAttackShieldExpert:4c494f10-3661-54c4-a7bd-1de696250ba4"
   ],
   "condition": "RangedWeaponAttack",
