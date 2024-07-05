@@ -88,6 +88,7 @@ internal static class CreditsDisplay
         ("Narria", "modKit, Party Editor"),
         ("Artyoan", "pre-gen heroes portraits, sample portraits"),
         ("Thaladar", "sample portraits"),
+        ("Zeke", "sample portraits"),
 
         ("team-waldo", "korean translations"),
         ("Dovel", "russian translations"),
