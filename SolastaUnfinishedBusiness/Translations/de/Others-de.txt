@@ -1,5 +1,5 @@
-Action/&ArcaneArcherToggleDescription=Arkane Bogenschütze aktivieren/deaktivieren
-Action/&ArcaneArcherToggleTitle=Arkaner Bogenschütze
+Action/&ArcaneArcherToggleDescription=Arkaner Schuss aktivieren/deaktivieren
+Action/&ArcaneArcherToggleTitle=Arkaner Schuss
 Action/&BrutalStrikeToggleDescription=Brutaler Schlag aktivieren/deaktivieren
 Action/&BrutalStrikeToggleTitle=Brutaler Schlag
 Action/&CastPlaneMagicDescription=Wirke einen der Zaubersprüche, die du durch „Plane Touched“-Talente erhalten hast

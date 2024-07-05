@@ -1,5 +1,5 @@
-Action/&ArcaneArcherToggleDescription=Ativar/desativar Arqueiro Arcano
-Action/&ArcaneArcherToggleTitle=Arqueiro Arcano
+Action/&ArcaneArcherToggleDescription=Ativar/desativar Tiro Arcano
+Action/&ArcaneArcherToggleTitle=Tiro Arcano
 Action/&BrutalStrikeToggleDescription=Ativar/desativar Ataque Brutal
 Action/&BrutalStrikeToggleTitle=Golpe Brutal
 Action/&CastPlaneMagicDescription=Lance um dos feitiços que você obteve com os talentos Plane Touched

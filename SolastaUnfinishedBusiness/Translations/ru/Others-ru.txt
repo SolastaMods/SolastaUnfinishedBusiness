@@ -1,5 +1,5 @@
-Action/&ArcaneArcherToggleDescription=Активировать/деактивировать Мистического лучника
-Action/&ArcaneArcherToggleTitle=Мистический лучник
+Action/&ArcaneArcherToggleDescription=Активировать/деактивировать Чародейский выстрел
+Action/&ArcaneArcherToggleTitle=Чародейский выстрел
 Action/&BrutalStrikeToggleDescription=Активировать/деактивировать Жестокий удар
 Action/&BrutalStrikeToggleTitle=Жестокий удар
 Action/&CastPlaneMagicDescription=Произнесите заклинание, полученное от одно из черт "Затронутый тем или иным Планом"

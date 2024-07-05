@@ -1,5 +1,5 @@
-Action/&ArcaneArcherToggleDescription=Activer/désactiver Arcane Archer
-Action/&ArcaneArcherToggleTitle=Archer arcanique
+Action/&ArcaneArcherToggleDescription=Activer/désactiver Arcane Shot
+Action/&ArcaneArcherToggleTitle=Tir arcanique
 Action/&BrutalStrikeToggleDescription=Activer/désactiver Brutal Strike
 Action/&BrutalStrikeToggleTitle=Frappe brutale
 Action/&CastPlaneMagicDescription=Lancez l'un des sorts que vous avez obtenus grâce aux exploits Plane Touched

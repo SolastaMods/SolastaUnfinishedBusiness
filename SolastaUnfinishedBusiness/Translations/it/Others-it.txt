@@ -1,5 +1,5 @@
-Action/&ArcaneArcherToggleDescription=Attiva/disattiva l'Arciere Arcano
-Action/&ArcaneArcherToggleTitle=Arciere Arcano
+Action/&ArcaneArcherToggleDescription=Attiva/disattiva Tiro Arcano
+Action/&ArcaneArcherToggleTitle=Tiro Arcano
 Action/&BrutalStrikeToggleDescription=Attiva/disattiva Colpo Brutale
 Action/&BrutalStrikeToggleTitle=Colpo Brutale
 Action/&CastPlaneMagicDescription=Lancia uno degli incantesimi che hai ottenuto dai talenti Plane Touched

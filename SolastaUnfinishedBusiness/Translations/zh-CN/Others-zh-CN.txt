@@ -1,5 +1,5 @@
-Action/&ArcaneArcherToggleDescription=激活/停用魔射手
-Action/&ArcaneArcherToggleTitle=魔射手
+Action/&ArcaneArcherToggleDescription=激活/停用奥术射击
+Action/&ArcaneArcherToggleTitle=奥术射击
 Action/&BrutalStrikeToggleDescription=激活/停用凶蛮打击
 Action/&BrutalStrikeToggleTitle=凶蛮打击
 Action/&CastPlaneMagicDescription=施展你从位面之触专长中获得的法术之一

@@ -1,5 +1,5 @@
-Action/&ArcaneArcherToggleDescription=아케인 궁수 활성화/비활성화
-Action/&ArcaneArcherToggleTitle=비전 궁수
+Action/&ArcaneArcherToggleDescription=신비한 사격 활성화/비활성화
+Action/&ArcaneArcherToggleTitle=신비한 사격
 Action/&BrutalStrikeToggleDescription=잔혹한 일격 활성화/비활성화
 Action/&BrutalStrikeToggleTitle=잔인한 일격
 Action/&CastPlaneMagicDescription=Plane Touched feats에서 얻은 주문 중 하나를 시전하세요.

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -665,8 +666,9 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 var implementationManager =
                     ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-                var targets = Gui.Battle
-                    .GetContenders(defender, isOppositeSide: false, withinRange: 3);
+                var targets = Gui.Battle.AllContenders
+                    .Where(x => x.IsWithinRange(defender, 3) && x != defender)
+                    .ToList();
 
                 var actionModifiers = new List<ActionModifier>();
 
@@ -676,7 +678,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 }
 
                 var usablePower = PowerProvider.Get(_powerBurstingArrow, rulesetAttacker);
-                var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
                 {
                     ActionModifiers = actionModifiers,
                     RulesetEffect = implementationManager

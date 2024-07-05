@@ -1,5 +1,5 @@
-Action/&ArcaneArcherToggleDescription=Activate/deactivate Arcane Archer
-Action/&ArcaneArcherToggleTitle=Arcane Archer
+Action/&ArcaneArcherToggleDescription=Activate/deactivate Arcane Shot
+Action/&ArcaneArcherToggleTitle=Arcane Shot
 Action/&BrutalStrikeToggleDescription=Activate/deactivate Brutal Strike
 Action/&BrutalStrikeToggleTitle=Brutal Strike
 Action/&CastPlaneMagicDescription=Cast one of the spells you got from Plane Touched feats

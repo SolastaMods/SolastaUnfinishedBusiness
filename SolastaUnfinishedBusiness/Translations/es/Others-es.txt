@@ -1,5 +1,5 @@
-Action/&ArcaneArcherToggleDescription=Activar/desactivar Arquero Arcano
-Action/&ArcaneArcherToggleTitle=Arquero arcano
+Action/&ArcaneArcherToggleDescription=Activar/desactivar Disparo Arcano
+Action/&ArcaneArcherToggleTitle=Disparo arcano
 Action/&BrutalStrikeToggleDescription=Activar/desactivar Golpe Brutal
 Action/&BrutalStrikeToggleTitle=Golpe brutal
 Action/&CastPlaneMagicDescription=Lanza uno de los hechizos que obtuviste de las hazañas de Plane Touched
