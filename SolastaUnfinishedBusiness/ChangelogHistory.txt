@@ -1,6 +1,7 @@
 1.5.97.18:
 
 - added Circle of the Wildfire subclass
+- added sample portraits [by Zeke, and Digital Primus]
 - added Shadows of Moil, and Vitriolic Sphere spells
 - changed Cunning Escape, and Exploiter feats min. required level to 4th
 - changed Psionic Blast spell to differentiate it a bit from Synaptic Static

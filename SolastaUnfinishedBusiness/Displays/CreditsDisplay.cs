@@ -89,6 +89,7 @@ internal static class CreditsDisplay
         ("Artyoan", "pre-gen heroes portraits, sample portraits"),
         ("Thaladar", "sample portraits"),
         ("Zeke", "sample portraits"),
+        ("Digital Primus", "sample portraits"),
 
         ("team-waldo", "korean translations"),
         ("Dovel", "russian translations"),
