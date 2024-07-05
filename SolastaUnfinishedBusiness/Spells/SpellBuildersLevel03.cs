@@ -401,8 +401,6 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        powerDamage.AddCustomSubFeatures(new ModifyEffectDescriptionAshardalonStride(powerDamage));
-
         var conditions = new List<ConditionDefinition>();
 
         for (var effectLevel = 3; effectLevel <= 9; effectLevel++)
@@ -452,12 +450,15 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
+        powerDamage.AddCustomSubFeatures(new ModifyEffectDescriptionAshardalonStride(powerDamage, spell));
         spell.AddCustomSubFeatures(new CustomBehaviorAshardalonStride([.. conditions]));
 
         return spell;
     }
 
-    private sealed class ModifyEffectDescriptionAshardalonStride(FeatureDefinitionPower powerDamage)
+    private sealed class ModifyEffectDescriptionAshardalonStride(
+        FeatureDefinitionPower powerDamage,
+        SpellDefinition spell)
         : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -471,6 +472,12 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
+            if (character.ConcentratedSpell == null ||
+                character.ConcentratedSpell.SpellDefinition != spell)
+            {
+                return effectDescription;
+            }
+
             effectDescription.EffectForms[0].DamageForm.DiceNumber = character.ConcentratedSpell.EffectLevel - 2;
 
             return effectDescription;
@@ -1134,9 +1141,6 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        powerHungerOfTheVoidDamageAcid.AddCustomSubFeatures(
-            new ModifyEffectDescriptionHungerOfTheVoid(powerHungerOfTheVoidDamageAcid));
-
         var powerHungerOfTheVoidDamageCold = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Cold")
             .SetGuiPresentation(Name, Category.Spell, hidden: true)
@@ -1150,9 +1154,6 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(ConeOfCold)
                     .Build())
             .AddToDB();
-
-        powerHungerOfTheVoidDamageCold.AddCustomSubFeatures(
-            new ModifyEffectDescriptionHungerOfTheVoid(powerHungerOfTheVoidDamageCold));
 
         var conditionHungerOfTheVoid = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionBlinded, $"ConditionBlindedBy{Name}")
@@ -1201,8 +1202,6 @@ internal static partial class SpellBuilders
         FeatureDefinitionPower powerHungerOfTheVoidDamageCold,
         ConditionDefinition conditionHungerOfTheVoid) : ICharacterTurnStartListener, ICharacterBeforeTurnEndListener
     {
-        internal static int EffectLevel;
-
         public void OnCharacterBeforeTurnEnded(GameLocationCharacter character)
         {
             var rulesetCharacter = character.RulesetCharacter;
@@ -1212,8 +1211,6 @@ internal static partial class SpellBuilders
             {
                 return;
             }
-
-            EffectLevel = activeCondition.EffectLevel;
 
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
@@ -1248,8 +1245,6 @@ internal static partial class SpellBuilders
                 return;
             }
 
-            EffectLevel = activeCondition.EffectLevel;
-
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
 
@@ -1271,30 +1266,6 @@ internal static partial class SpellBuilders
 
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
-        }
-    }
-
-    private sealed class ModifyEffectDescriptionHungerOfTheVoid(FeatureDefinitionPower power) : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == power;
-        }
-
-        public EffectDescription GetEffectDescription(BaseDefinition definition, EffectDescription effectDescription,
-            RulesetCharacter character, RulesetEffect rulesetEffect)
-        {
-            var diceNumber = CustomBehaviorHungerOfTheVoid.EffectLevel switch
-            {
-                >= 9 => 5,
-                >= 7 => 4,
-                >= 5 => 3,
-                _ => 2
-            };
-
-            effectDescription.EffectForms[0].DamageForm.DiceNumber = diceNumber;
-
-            return effectDescription;
         }
     }
 

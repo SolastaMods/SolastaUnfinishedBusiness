@@ -1092,7 +1092,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionWithPrerequisitesBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, FireBolt)
+            .SetGuiPresentation(Category.Invocation, RayOfFrost)
             .SetValidators(ValidateHex)
             .SetGrantedFeature(featureSetChillingHex)
             .AddToDB();

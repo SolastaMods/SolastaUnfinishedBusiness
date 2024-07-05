@@ -1011,7 +1011,7 @@ internal static partial class SpellBuilders
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetDefender.TryGetConditionOfCategoryAndType(
+                !rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, "ConditionBoomingBladeSheathed", out var activeCondition))
             {
                 yield break;

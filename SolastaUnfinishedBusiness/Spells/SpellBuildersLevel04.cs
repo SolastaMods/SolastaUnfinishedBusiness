@@ -383,7 +383,7 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildVitriolicSphere()
     {
         const string NAME = "VitriolicSphere";
-        
+
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, hidden: true)
@@ -404,14 +404,14 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(VenomousSpike)
                     .Build())
             .AddToDB();
-        
+
         var conditionVitriolicSphere = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedVitriolicSphere(power))
             .AddToDB();
-        
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.VitriolicSphere, 128))
@@ -425,7 +425,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -462,13 +462,15 @@ internal static partial class SpellBuilders
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
             var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
             var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
-            
+
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetCaster);
 
-            var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
+            usablePower.SaveDC = 8 + rulesetCondition.SourceAbilityBonus + rulesetCondition.SourceProficiencyBonus;
+
+            var actionParams = new CharacterActionParams(caster, Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManager

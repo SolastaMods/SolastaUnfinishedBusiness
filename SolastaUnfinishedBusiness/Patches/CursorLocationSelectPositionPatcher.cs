@@ -257,7 +257,11 @@ public static class CursorLocationSelectPositionPatcher
         {
             actionResult = CursorDefinitions.CursorActionResult.None;
 
-            return __instance.validPositionsCache.Count == 0 ||
+            var sourceDefinition = __instance.ActionParams.RulesetEffect?.SourceDefinition;
+            var shouldForcePosition =
+                sourceDefinition && sourceDefinition.HasSubFeatureOfType<IFilterTargetingPosition>();
+
+            return (!shouldForcePosition && __instance.validPositionsCache.Count == 0) ||
                    __instance.validPositionsCache.Contains(__instance.HoveredLocation);
         }
     }

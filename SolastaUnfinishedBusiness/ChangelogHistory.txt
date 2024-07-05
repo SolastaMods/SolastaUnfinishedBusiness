@@ -12,6 +12,11 @@
 - fixed Rescue the Dying spell triggering on enemy death
 - fixed Skill Empowerment spell suggested list [Artificer, Bard, Sorcerer, Wizard]
 
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses [cannot fix]
+
 1.5.97.17:
 
 - fixed 'After was attacked' condition interruption also triggering on non attack roll magic effects
@@ -21,11 +26,6 @@
 - fixed Devastating Strike feat allowing both DEX and STR flavors to be selected on same hero
 - fixed powers with custom usages not recharging over short or long rests [i.e.: gambits, infusions, etc.]
 - improved Martial Warlord battlefield experience, coordinated assault, and battle plan features
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses [cannot fix]
 
 1.5.97.16:
 
