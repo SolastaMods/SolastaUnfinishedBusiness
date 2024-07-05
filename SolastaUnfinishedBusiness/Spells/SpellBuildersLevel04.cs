@@ -409,6 +409,8 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            // don't know why but setting end of turn on spell make it finish at end of source turn instead
+            .SetSpecialDuration()
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedVitriolicSphere(power))
             .AddToDB();
 
@@ -425,7 +427,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
