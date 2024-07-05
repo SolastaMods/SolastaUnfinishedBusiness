@@ -385,6 +385,25 @@ internal static partial class SpellBuilders
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
+        var powerDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeFire, 1, DieType.D6),
+                        EffectFormBuilder.ConditionForm(conditionMark))
+                    .SetImpactEffectParameters(Fireball)
+                    .Build())
+            .AddToDB();
+
+        powerDamage.AddCustomSubFeatures(new ModifyEffectDescriptionAshardalonStride(powerDamage));
+
         var conditions = new List<ConditionDefinition>();
 
         for (var effectLevel = 3; effectLevel <= 9; effectLevel++)
@@ -400,7 +419,7 @@ internal static partial class SpellBuilders
                 .SetGuiPresentation(Name, Category.Spell, ConditionFreedomOfMovement)
                 .SetPossessive()
                 .AddFeatures(movementAffinity, combatAffinity)
-                .AddCustomSubFeatures(new ActionFinishedByMeAshardalonStride(conditionMark))
+                .AddCustomSubFeatures(new MoveStepFinishedAshardalonStride(powerDamage, conditionMark))
                 .SetConditionParticleReference(ConditionOnFire)
                 .AddToDB();
 
@@ -434,12 +453,34 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        spell.AddCustomSubFeatures(new ModifyEffectDescriptionAshardalonStride([.. conditions]));
+        spell.AddCustomSubFeatures(new CustomBehaviorAshardalonStride([.. conditions]));
 
         return spell;
     }
 
-    private sealed class ActionFinishedByMeAshardalonStride(ConditionDefinition conditionMark) : IMoveStepFinished
+    private sealed class ModifyEffectDescriptionAshardalonStride(FeatureDefinitionPower powerDamage)
+        : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerDamage;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.EffectForms[0].DamageForm.DiceNumber = character.ConcentratedSpell.EffectLevel - 2;
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class MoveStepFinishedAshardalonStride(
+        FeatureDefinitionPower powerDamage,
+        ConditionDefinition conditionMark) : IMoveStepFinished
     {
         public void MoveStepFinished(GameLocationCharacter mover)
         {
@@ -452,58 +493,35 @@ internal static partial class SpellBuilders
                             !x.RulesetCharacter.HasConditionOfCategoryAndType(
                                 AttributeDefinitions.TagEffect, conditionMark.Name))
                 .ToList();
+
             var rulesetAttacker = mover.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
 
-            foreach (var contender in contenders)
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < contenders.Count; i++)
             {
-                var rulesetDefender = contender.RulesetCharacter;
-                var rolls = new List<int>();
-                var diceNumber = rulesetAttacker.ConcentratedSpell.EffectLevel - 2;
-                var damageForm = new DamageForm
-                {
-                    DamageType = DamageTypeFire, DieType = DieType.D6, DiceNumber = diceNumber, BonusDamage = 0
-                };
-                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                {
-                    sourceCharacter = rulesetAttacker,
-                    targetCharacter = rulesetDefender,
-                    position = contender.LocationPosition
-                };
-                var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-
-                EffectHelpers.StartVisualEffect(mover, contender, Fireball);
-                RulesetActor.InflictDamage(
-                    damageRoll,
-                    damageForm,
-                    damageForm.DamageType,
-                    applyFormsParams,
-                    rulesetDefender,
-                    false,
-                    rulesetAttacker.Guid,
-                    false,
-                    [],
-                    new RollInfo(damageForm.DieType, rolls, 0),
-                    false,
-                    out _);
-
-                rulesetDefender.InflictCondition(
-                    conditionMark.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfSourceTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionMark.Name,
-                    0,
-                    0,
-                    0);
+                actionModifiers.Add(new ActionModifier());
             }
+
+            var actionParams = new CharacterActionParams(mover, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = actionModifiers,
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = contenders
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
-    private sealed class ModifyEffectDescriptionAshardalonStride(params ConditionDefinition[] conditions)
+    private sealed class CustomBehaviorAshardalonStride(params ConditionDefinition[] conditions)
         : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)

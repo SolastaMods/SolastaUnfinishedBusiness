@@ -1242,6 +1242,29 @@ internal static partial class SpellBuilders
     {
         const string NAME = "IceBlade";
 
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.FixedValue)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeCold, 1, DieType.D6)
+                            .Build())
+                    .SetImpactEffectParameters(ConeOfCold)
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new ModifyEffectDescriptionIceBlade(power));
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.IceBlade, 128))
@@ -1266,14 +1289,38 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(ShadowDagger)
                     .SetEffectEffectParameters(ShadowDagger)
                     .Build())
-            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeIceBlade())
+            .AddCustomSubFeatures(new PowerOrSpellFinishedByMeIceBlade(power))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class PowerOrSpellFinishedByMeIceBlade : IPowerOrSpellFinishedByMe
+    private sealed class ModifyEffectDescriptionIceBlade(FeatureDefinitionPower powerDamage)
+        : IModifyEffectDescription
     {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerDamage;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.EffectForms[0].DamageForm.DiceNumber =
+                2 + (PowerOrSpellFinishedByMeIceBlade.EffectLevel - 1);
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class PowerOrSpellFinishedByMeIceBlade(FeatureDefinitionPower powerIceBlade)
+        : IPowerOrSpellFinishedByMe
+    {
+        internal static int EffectLevel;
+
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
@@ -1288,68 +1335,43 @@ internal static partial class SpellBuilders
 
             var caster = actionCastSpell.ActingCharacter;
             var rulesetCaster = caster.RulesetCharacter;
-            var effectLevel = actionCastSpell.ActionParams.activeEffect.EffectLevel;
-            var isCritical = actionCastSpell.AttackRollOutcome == RollOutcome.CriticalSuccess;
+
+            EffectLevel = actionCastSpell.ActionParams.activeEffect.EffectLevel;
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             // need to loop over target characters to support twinned metamagic scenarios
             foreach (var target in actionCastSpell.ActionParams.TargetCharacters)
             {
-                foreach (var contender in Gui.Battle.AllContenders
-                             .Where(x =>
-                                 x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                 x.IsWithinRange(target, 1))
-                             .ToList())
+                var contenders = Gui.Battle.AllContenders
+                    .Where(x =>
+                        x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                        x.IsWithinRange(target, 1))
+                    .ToList();
+
+                var usablePower = PowerProvider.Get(powerIceBlade, rulesetCaster);
+
+                usablePower.saveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
+
+                var actionModifiers = new List<ActionModifier>();
+
+                for (var i = 0; i < contenders.Count; i++)
                 {
-                    var rulesetEnemy = contender.RulesetCharacter;
-                    var casterSaveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
-                    var modifierTrend = rulesetEnemy.actionModifier.savingThrowModifierTrends;
-                    var advantageTrends = rulesetEnemy.actionModifier.savingThrowAdvantageTrends;
-                    var enemyDexModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                        rulesetEnemy.TryGetAttributeValue(AttributeDefinitions.Dexterity));
-
-                    rulesetEnemy.RollSavingThrow(
-                        0, AttributeDefinitions.Dexterity, baseDefinition, modifierTrend, advantageTrends,
-                        enemyDexModifier,
-                        casterSaveDC,
-                        false, out var savingOutcome, out _);
-
-                    if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-                    {
-                        continue;
-                    }
-
-                    var rolls = new List<int>();
-                    var damageForm = new DamageForm
-                    {
-                        DamageType = DamageTypeCold,
-                        DieType = DieType.D6,
-                        DiceNumber = 2 + (effectLevel - 1),
-                        BonusDamage = 0
-                    };
-                    var damageRoll =
-                        rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-                    var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                    {
-                        sourceCharacter = rulesetCaster,
-                        targetCharacter = rulesetEnemy,
-                        position = contender.LocationPosition
-                    };
-
-                    EffectHelpers.StartVisualEffect(caster, target, ConeOfCold);
-                    RulesetActor.InflictDamage(
-                        damageRoll,
-                        damageForm,
-                        damageForm.DamageType,
-                        applyFormsParams,
-                        rulesetEnemy,
-                        isCritical,
-                        rulesetCaster.Guid,
-                        false,
-                        [],
-                        new RollInfo(damageForm.DieType, rolls, 0),
-                        false,
-                        out _);
+                    actionModifiers.Add(new ActionModifier());
                 }
+
+                var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
+                {
+                    ActionModifiers = actionModifiers,
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
+                    UsablePower = usablePower,
+                    targetCharacters = contenders
+                };
+
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParams, null, true);
             }
         }
     }
