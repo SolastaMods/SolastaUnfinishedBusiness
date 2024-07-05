@@ -698,9 +698,9 @@ internal static class InvocationsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.UntilAnyRest)
+                    .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
-                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
+                    .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnActivation)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionPerniciousCloak),
                         EffectFormBuilder.ConditionForm(conditionPerniciousCloakSelf,

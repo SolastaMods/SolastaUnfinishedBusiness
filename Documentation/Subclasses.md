@@ -2828,7 +2828,7 @@ You gain the ability to turn death into magical light that can heal or incinerat
 
 * Blazing Revival
 
-The bond with your wildfire spirit can save you from death. If the spirit is within 120 feet of you when you are reduced to 0 hit points and thereby fall unconscious, you can cause the spirit to drop to 0 hit points. You then regain half your hit points and immediately rise to your feet. Once you use this feature, you can't use it again until you finish a long rest.
+When you are reduced to 0 hit points and thereby fall unconscious, you can regain half your hit points and immediately rise to your feet. Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
@@ -5247,7 +5247,7 @@ When a creature misses you with a melee attack roll while you are wielding a mel
 
 * Bravado
 
-Whenever you Sneak Attack a creature with a melee weapon, you are within 5 ft of it and there are no other creatures within 5 ft of you, you gain non-stacking 1d6 bonus to your AC until the start of your next turn.
+Whenever you Sneak Attack a creature with a melee weapon, you gain non-stacking 1d6 bonus to your AC until the start of your next turn.
 
 
 ### Level 13
