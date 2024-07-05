@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Não é possível realizar ataques de oportunidade contra a fonte.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Presente do Vento
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Ganhe um bônus em suas jogadas de iniciativa igual ao seu modificador de Sabedoria (mínimo 1).
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Ataque Rápido
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=Você ganha feitiços bônus que são considerados feitiços de Ranger para você. Eles estão sempre preparados e não contam no número de feitiços de Ranger que você conhece:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Feitiços bônus do Sky Warrior
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Ganhe resistência a danos de concussão.

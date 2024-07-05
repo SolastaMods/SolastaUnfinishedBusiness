@@ -34,22 +34,6 @@ public sealed class PathOfTheElements : AbstractSubclass
 
     public PathOfTheElements()
     {
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Storm")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Blizzard")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Wildfire")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         #region LEVEL 03
 
         // Elemental Fury

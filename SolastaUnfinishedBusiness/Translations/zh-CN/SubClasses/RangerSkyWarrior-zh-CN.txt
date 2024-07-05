@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=无法对伤害来源进行借机攻击。
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=风之礼赠
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=你的先攻检定获得等同于你感知调整值的加值（至少 1）。
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=迅捷打击
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=你获得的额外法术被视为游侠法术，它们始终视为准备，并且不计入你所知道的游侠法术数量：\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=天之勇士奖励法术
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=获得钝击伤害抗性。

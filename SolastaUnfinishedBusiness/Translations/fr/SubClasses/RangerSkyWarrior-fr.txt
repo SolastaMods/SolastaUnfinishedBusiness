@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Impossible de lancer des attaques d'opportunité contre la source.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Cadeau du vent
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Bénéficiez d'un bonus à vos jets d'initiative égal à votre modificateur de Sagesse (minimum 1).
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Frappe rapide
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=Vous gagnez des sorts bonus qui sont considérés comme des sorts de Rôdeur pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de Rôdeur que vous connaissez :\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Sorts bonus du Guerrier céleste
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Gagnez en résistance aux dégâts contondants.

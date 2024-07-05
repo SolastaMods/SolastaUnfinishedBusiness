@@ -53,12 +53,6 @@ internal static class TwoWeaponCombatFeats
     {
         const string NAME = "FeatDualFlurry";
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionBuilder
-            .Create($"OnAttackDamageEffect{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)

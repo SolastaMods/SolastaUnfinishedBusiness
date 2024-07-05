@@ -355,12 +355,6 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatGreatWeaponDefense";
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create("PowerGreatWeaponDefense")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{NAME}")
             .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
@@ -2125,13 +2119,6 @@ internal static class MeleeCombatFeats
                 new ValidatorsValidatePowerUse(
                     ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
                 new PowerOrSpellFinishedByMeWhirlWindAttack())
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatDefinitionBuilder
-            .Create($"Feat{NAME}Str")
-            .SetGuiPresentation($"Feat{NAME}", Category.Feat, hidden: true)
-            .SetFeatures(powerWhirlWindAttack)
             .AddToDB();
 
         // name kept for backward compatibility
