@@ -24,7 +24,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     private const string ArcaneShotMarker = "ArcaneShot";
     private const ActionDefinitions.Id ArcaneArcherToggle = (ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle;
 
-    private static readonly Dictionary<FeatureDefinitionPower, ArcaneArcherData> ArcaneShotPowers = new();
+    private static readonly Dictionary<FeatureDefinitionPower, ArcaneArcherData> ArcaneShotPowers = [];
     private static FeatureDefinitionPowerSharedPool _powerBurstingArrow;
 
     internal static FeatureDefinitionPower PowerArcaneShot;
@@ -310,19 +310,25 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .Create($"Power{Name}BurstingArrow")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.EldritchBlast)
             .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeForce, 2, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
+                    .SetImpactEffectParameters(FeatureDefinitionPowers.PowerSymbolOfSleep
+                        .EffectDescription.EffectParticleParameters.zoneParticleReference)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
+
+        _powerBurstingArrow.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new ModifyEffectDescriptionBurstingArrow(_powerBurstingArrow));
 
         ArcaneShotPowers.Add(_powerBurstingArrow,
             new ArcaneArcherData
@@ -597,65 +603,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             0);
     }
 
-    private static void InflictBurstingArrowAreaDamage(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        RulesetAttackMode attackerAttackMode,
-        ArcaneArcherData arcaneArcherData,
-        CharacterAction action)
-    {
-        if (Gui.Battle == null)
-        {
-            return;
-        }
-
-        var criticalSuccess = action.AttackRollOutcome == RollOutcome.CriticalSuccess;
-        var rulesetAttacker = attacker.RulesetCharacter;
-        var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Fighter);
-        var diceNumber = classLevel switch
-        {
-            >= 17 => 4,
-            >= 11 => 3,
-            _ => 2
-        };
-
-        // apply damage to all targets
-        foreach (var target in Gui.Battle
-                     .GetContenders(defender, isOppositeSide: false, withinRange: 3))
-        {
-            var rulesetTarget = target.RulesetCharacter;
-            var damageForm = new DamageForm
-            {
-                DamageType = DamageTypeForce, DieType = DieType.D6, DiceNumber = diceNumber, BonusDamage = 0
-            };
-            var rolls = new List<int>();
-            var damageRoll = rulesetAttacker.RollDamage(
-                damageForm, 0, criticalSuccess, 0, 0, 1, false, false, false, rolls);
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetTarget,
-                position = target.LocationPosition
-            };
-
-            EffectHelpers.StartVisualEffect(
-                attacker, defender, arcaneArcherData.EffectSpell, arcaneArcherData.EffectType);
-            RulesetActor.InflictDamage(
-                damageRoll,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetTarget,
-                false,
-                attacker.Guid,
-                false,
-                attackerAttackMode.AttackTags,
-                new RollInfo(damageForm.DieType, rolls, 0),
-                false,
-                out _);
-        }
-    }
-
     private struct ArcaneArcherData
     {
         public ConditionDefinition DebuffCondition;
@@ -711,9 +658,35 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             }
 
             // apply arrow behaviors after attack is complete
-            if (PowerSpent == _powerBurstingArrow)
+            if (Gui.Battle != null &&
+                PowerSpent == _powerBurstingArrow)
             {
-                InflictBurstingArrowAreaDamage(attacker, defender, attackMode, arcaneArcherData, action);
+                var rulesetAttacker = attacker.RulesetCharacter;
+                var implementationManager =
+                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+                var targets = Gui.Battle
+                    .GetContenders(defender, isOppositeSide: false, withinRange: 3);
+
+                var actionModifiers = new List<ActionModifier>();
+
+                for (var i = 0; i < targets.Count; i++)
+                {
+                    actionModifiers.Add(new ActionModifier());
+                }
+
+                var usablePower = PowerProvider.Get(_powerBurstingArrow, rulesetAttacker);
+                var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+                {
+                    ActionModifiers = actionModifiers,
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                    UsablePower = usablePower,
+                    targetCharacters = targets
+                };
+
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParams, null, true);
             }
             else
             {
@@ -722,6 +695,34 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             PowerSpent = null;
             SaveOutcome = RollOutcome.Success;
+        }
+    }
+
+    private sealed class ModifyEffectDescriptionBurstingArrow(FeatureDefinitionPower powerBurstingArrow)
+        : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerBurstingArrow;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var classLevel = character.GetClassLevel(CharacterClassDefinitions.Fighter);
+            var diceNumber = classLevel switch
+            {
+                >= 17 => 4,
+                >= 11 => 3,
+                _ => 2
+            };
+
+            effectDescription.EffectForms[0].DamageForm.DiceNumber = diceNumber;
+
+            return effectDescription;
         }
     }
 
