@@ -14,7 +14,5 @@ Feature/&FeatureSetRangerSurvivalistBlessingWildernessDescription=你免疫目�
 Feature/&FeatureSetRangerSurvivalistBlessingWildernessTitle=荒野祝福
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=获得求生技能的熟练项。
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=漫游流浪者
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=获得感知豁免熟练项。
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=无与伦比的经验
 Subclass/&RangerSurvivalistDescription=生活在远离文明范围之外的游侠明白，最成功的狩猎是将那些猎物逼至既无法逃跑也无法反击的境地。求生专家能够分析潜在目标的每一个弱点，并借助自然的力量阻碍他们的敌人，同时通过精确的攻击粉碎他们的防御。
 Subclass/&RangerSurvivalistTitle=求生专家

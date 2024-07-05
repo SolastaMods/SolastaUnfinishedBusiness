@@ -14,7 +14,5 @@ Feature/&FeatureSetRangerSurvivalistBlessingWildernessDescription=Você é imune
 Feature/&FeatureSetRangerSurvivalistBlessingWildernessTitle=Bênção do deserto
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Você ganha proficiência na habilidade de sobrevivência.
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Pária Errante
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=Ganhe proficiência em testes de resistência de Sabedoria.
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=Experiência Inigualável
 Subclass/&RangerSurvivalistDescription=Os Rangers que vivem muito além dos limites da civilização entendem que as caçadas mais bem-sucedidas são aquelas em que a presa não consegue fugir nem revidar. Os sobreviventes são capazes de analisar cada fraqueza em alvos potenciais e invocar o mundo natural para impedir seus inimigos enquanto destroem suas defesas com ataques precisos.
 Subclass/&RangerSurvivalistTitle=Sobrevivencialista

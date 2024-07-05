@@ -14,7 +14,5 @@ Feature/&FeatureSetRangerSurvivalistBlessingWildernessDescription=You are immune
 Feature/&FeatureSetRangerSurvivalistBlessingWildernessTitle=Blessing of The Wilderness
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=You gain proficiency in the survival skill.
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Wandering Outcast
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=Gain proficiency in Wisdom saving throws.
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=Unmatched Experience
 Subclass/&RangerSurvivalistDescription=Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 Subclass/&RangerSurvivalistTitle=Survivalist

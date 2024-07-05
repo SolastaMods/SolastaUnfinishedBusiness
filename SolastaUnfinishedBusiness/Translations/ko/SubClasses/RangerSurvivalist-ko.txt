@@ -14,7 +14,5 @@ Feature/&FeatureSetRangerSurvivalistBlessingWildernessDescription=당신은 눈�
 Feature/&FeatureSetRangerSurvivalistBlessingWildernessTitle=광야의 축복
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=생존 스킬에 숙련도를 얻게 됩니다.
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=방황하는 추방자
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=지혜 내성 굴림에 능숙해집니다.
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=비교할 수 없는 경험
 Subclass/&RangerSurvivalistDescription=문명의 손길이 닿지 않는 먼 곳에 사는 레인저들은 먹이가 도망칠 수도 반격할 수도 없는 사냥이 가장 성공적인 사냥이라는 것을 알고 있습니다. 생존주의자는 잠재적인 목표의 모든 약점을 분석하고 자연계에 적을 방해하는 동시에 정확한 공격으로 방어를 무너뜨릴 수 있습니다.
 Subclass/&RangerSurvivalistTitle=생존주의자

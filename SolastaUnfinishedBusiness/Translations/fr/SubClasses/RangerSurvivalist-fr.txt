@@ -14,7 +14,5 @@ Feature/&FeatureSetRangerSurvivalistBlessingWildernessDescription=Vous êtes imm
 Feature/&FeatureSetRangerSurvivalistBlessingWildernessTitle=Bénédiction du désert
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Vous maîtrisez la compétence de survie.
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Paria errant
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=Maîtrisez les jets de sauvegarde de Sagesse.
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=Expérience inégalée
 Subclass/&RangerSurvivalistDescription=Les rangers qui vivent bien au-delà des limites de la civilisation comprennent que les chasses les plus réussies sont celles où la proie ne peut ni fuir ni riposter. Les survivalistes sont capables d'analyser toutes les faiblesses des cibles potentielles et de faire appel au monde naturel pour gêner leurs ennemis tout en détruisant leurs défenses avec des attaques précises.
 Subclass/&RangerSurvivalistTitle=Survivaliste

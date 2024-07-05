@@ -14,7 +14,5 @@ Feature/&FeatureSetRangerSurvivalistBlessingWildernessDescription=Du bist immun 
 Feature/&FeatureSetRangerSurvivalistBlessingWildernessTitle=Segen der Wildnis
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Sie erwerben Kenntnisse in der Überlebensfähigkeit.
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Wandernder Ausgestoßener
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=Erlangen Sie Kompetenz in Weisheitsrettungswürfen.
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=Unübertroffene Erfahrung
 Subclass/&RangerSurvivalistDescription=Ranger, die weit außerhalb der Grenzen der Zivilisation leben, wissen, dass die Jagd am erfolgreichsten ist, wenn die Beute weder fliehen noch sich wehren kann. Überlebenskünstler sind in der Lage, jede Schwachstelle potenzieller Ziele zu analysieren und die natürliche Welt dazu zu rufen, ihre Feinde zu behindern und gleichzeitig ihre Verteidigung mit präzisen Angriffen zu zerstören.
 Subclass/&RangerSurvivalistTitle=Überlebenskünstler
