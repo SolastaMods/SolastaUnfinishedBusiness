@@ -107,6 +107,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .Create($"Power{Name}SpiritTeleportDamage")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -117,14 +118,12 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetBonusMode(AddBonusMode.Proficiency)
                             .SetDamageForm(DamageTypeFire, 1, DieType.D6)
                             .Build())
-                    .SetImpactEffectParameters(PowerDomainElementalFireBurst)
+                    .SetParticleEffectParameters(PowerDomainElementalFireBurst)
                     .Build())
             .AddToDB();
-
-        powerSpiritTeleportDamage.AddCustomSubFeatures(
-            new ModifyEffectDescriptionSpiritTeleportDamage(powerSpiritTeleportDamage));
 
         var powerSpiritTeleport = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SpiritTeleport")
@@ -298,9 +297,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .AddToDB();
 
         powerCommandSpirit.AddCustomSubFeatures(
-            new CharacterBeforeTurnEndListenerCommandSpirit(
-                conditionCommandSpirit,
-                powerCommandSpirit));
+            new CharacterBeforeTurnEndListenerCommandSpirit(conditionCommandSpirit, powerCommandSpirit));
 
         // Summon Spirit Damage
 
@@ -687,38 +684,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     // Spirit Teleport
     //
 
-    private sealed class ModifyEffectDescriptionSpiritTeleportDamage(FeatureDefinitionPower powerSpiritTeleportDamage)
-        : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerSpiritTeleportDamage;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var summoner = character.GetMySummoner();
-
-            if (summoner == null)
-            {
-                return effectDescription;
-            }
-
-            var pb = summoner.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-            effectDescription.EffectForms[0].DamageForm.BonusDamage = pb;
-
-            return effectDescription;
-        }
-    }
-
     private sealed class CustomBehaviorSpiritTeleport(FeatureDefinitionPower powerExplode)
-        : IModifyTeleportEffectBehavior, IFilterTargetingCharacter, IPowerOrSpellInitiatedByMe,
-            IPowerOrSpellFinishedByMe
+        : IModifyTeleportEffectBehavior, IFilterTargetingCharacter,
+            IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         private readonly List<GameLocationCharacter> _targets = [];
 
@@ -804,13 +772,8 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     //
 
     private sealed class MagicEffectBeforeHitConfirmedOnEnemyEnhancedBond(FeatureDefinition featureEnhancedBond)
-        : IMagicEffectBeforeHitConfirmedOnEnemy
+        : IMagicEffectInitiatedByMe, IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe
     {
-        private static readonly EffectForm HealingEffectForm = EffectFormBuilder
-            .Create()
-            .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
-            .Build();
-
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -821,8 +784,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect is not RulesetEffectSpell ||
-                !HasSpirit(attacker.Guid))
+            if (!HasSpirit(attacker.Guid))
             {
                 yield break;
             }
@@ -831,22 +793,91 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 x.FormType == EffectForm.EffectFormType.Damage &&
                 x.DamageForm.DamageType == DamageTypeFire);
 
-            if (firstDamageForm != null)
+            if (firstDamageForm == null)
             {
-                attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
-                actualEffectForms.Add(
-                    EffectFormBuilder.DamageForm(firstDamageForm.DamageForm.DamageType, 1, DieType.D8));
+                yield break;
             }
 
-            var firstHealingForm = actualEffectForms.FirstOrDefault(x =>
+            var index = actualEffectForms.IndexOf(firstDamageForm);
+
+            actualEffectForms.Insert(index + 1,
+                EffectFormBuilder.DamageForm(firstDamageForm.DamageForm.DamageType, 1, DieType.D8));
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            if (action is not CharacterActionCastSpell)
+            {
+                yield break;
+            }
+
+            foreach (var rulesetTarget in targets.Select(target => target.RulesetActor))
+            {
+                if (rulesetTarget is not RulesetCharacter rulesetCharacter)
+                {
+                    continue;
+                }
+
+                rulesetCharacter.HealingReceived -= HealingReceived;
+            }
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(
+            CharacterActionMagicEffect action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            if (action is not CharacterActionCastSpell)
+            {
+                yield break;
+            }
+
+            var effectForms = activeEffect.EffectDescription.EffectForms;
+            var hasFireDamageForm = effectForms.Any(x =>
+                x.FormType == EffectForm.EffectFormType.Damage &&
+                x.DamageForm.DamageType == DamageTypeFire);
+            var hasHealingForm = effectForms.Any(x =>
                 x.FormType == EffectForm.EffectFormType.Healing);
 
-            // ReSharper disable once InvertIf
-            if (firstHealingForm != null)
+            if (HasSpirit(attacker.Guid) &&
+                (hasFireDamageForm || hasHealingForm))
             {
                 attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
-                actualEffectForms.Add(HealingEffectForm);
             }
+
+            foreach (var rulesetTarget in targets.Select(target => target.RulesetActor))
+            {
+                if (rulesetTarget is not RulesetCharacter rulesetCharacter)
+                {
+                    continue;
+                }
+
+                rulesetCharacter.HealingReceived += HealingReceived;
+            }
+        }
+
+        private static void HealingReceived(
+            RulesetCharacter character,
+            int healing,
+            ulong sourceGuid,
+            HealingCap healingCaps,
+            IHealingModificationProvider healingModificationProvider)
+        {
+            if (!HasSpirit(sourceGuid))
+            {
+                return;
+            }
+
+            character.HealingReceived -= HealingReceived;
+
+            var healingRoll = character.RollDie(
+                DieType.D8, RollContext.HealValueRoll, false, AdvantageType.None, out _, out _);
+
+            character.ReceiveHealing(healingRoll, true, sourceGuid);
         }
     }
 
