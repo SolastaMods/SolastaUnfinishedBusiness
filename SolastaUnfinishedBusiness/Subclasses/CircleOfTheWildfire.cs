@@ -836,20 +836,17 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
                 actualEffectForms.Add(
                     EffectFormBuilder.DamageForm(firstDamageForm.DamageForm.DamageType, 1, DieType.D8));
-
-                yield break;
             }
 
             var firstHealingForm = actualEffectForms.FirstOrDefault(x =>
                 x.FormType == EffectForm.EffectFormType.Healing);
 
-            if (firstHealingForm == null)
+            // ReSharper disable once InvertIf
+            if (firstHealingForm != null)
             {
-                yield break;
+                attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
+                actualEffectForms.Add(HealingEffectForm);
             }
-
-            attacker.RulesetCharacter.LogCharacterUsedFeature(featureEnhancedBond);
-            actualEffectForms.Add(HealingEffectForm);
         }
     }
 

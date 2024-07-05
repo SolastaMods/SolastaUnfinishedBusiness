@@ -363,7 +363,7 @@ public static class CursorLocationSelectTargetPatcher
             else
             {
                 canProceed = __instance.maxTargets < 0 ||
-                             (__instance.maxTargets > 1 && __instance.remainingTargets < __instance.maxTargets);
+                             (__instance.maxTargets > 1 && __instance.remainingTargets <= __instance.maxTargets);
             }
             // END PATCH
 
