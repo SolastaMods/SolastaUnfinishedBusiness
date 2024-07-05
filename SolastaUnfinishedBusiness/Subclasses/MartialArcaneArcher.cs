@@ -322,11 +322,12 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDamageForm(DamageTypeForce, 2, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
-                    .SetImpactEffectParameters(FeatureDefinitionPowers.PowerSymbolOfSleep
-                        .EffectDescription.EffectParticleParameters.zoneParticleReference)
+                    .SetImpactEffectParameters(SpellDefinitions.BurningHands_B)
                     .Build())
             .AddToDB();
 
+        _powerBurstingArrow.EffectDescription.EffectParticleParameters.zoneParticleReference = SpellDefinitions.Shatter
+            .EffectDescription.EffectParticleParameters.zoneParticleReference;
         _powerBurstingArrow.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
             new ModifyEffectDescriptionBurstingArrow(_powerBurstingArrow));
