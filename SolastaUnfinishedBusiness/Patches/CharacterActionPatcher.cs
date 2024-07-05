@@ -239,12 +239,9 @@ public static class CharacterActionPatcher
             if (Gui.Battle != null &&
                 __instance is CharacterActionShove)
             {
-                var battleManager =
-                    ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
                 foreach (var targetCharacter in __instance.ActionParams.TargetCharacters)
                 {
-                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(battleManager, targetCharacter);
+                    yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(targetCharacter);
                 }
             }
 

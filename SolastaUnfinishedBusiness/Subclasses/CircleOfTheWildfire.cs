@@ -462,15 +462,13 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         return GetMySpirit(guid) != null;
     }
 
-    // called from GLBM when a character's move ends to handle cauterizing flames behavior
-    internal static IEnumerator HandleCauterizingFlamesBehavior(
-        GameLocationBattleManager battleManager,
-        GameLocationCharacter mover)
+    internal static IEnumerator HandleCauterizingFlamesBehavior(GameLocationCharacter character)
     {
+        var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var cauterizingFlamesProxies = locationCharacterService.AllProxyCharacters
             .Where(u =>
-                mover.LocationPosition == u.LocationPosition &&
+                character.LocationPosition == u.LocationPosition &&
                 u.RulesetActor is RulesetCharacterEffectProxy rulesetCharacterEffectProxy &&
                 rulesetCharacterEffectProxy.EffectProxyDefinition == EffectProxyCauterizingFlames)
             .ToList(); // avoid changing enumerator
@@ -495,19 +493,19 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
 
             var actionParams = new CharacterActionParams(source, Id.PowerReaction)
             {
-                StringParameter = mover.Side == Side.Enemy ? "CauterizingFlamesDamage" : "CauterizingFlamesHeal",
+                StringParameter = character.Side == Side.Enemy ? "CauterizingFlamesDamage" : "CauterizingFlamesHeal",
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetSource, usablePower, false),
                 UsablePower = usablePower,
-                TargetCharacters = { mover }
+                TargetCharacters = { character }
             };
 
             var count = actionService.PendingReactionRequestGroups.Count;
 
             actionService.ReactToUsePower(actionParams, "UsePower", source);
 
-            yield return battleManager.WaitForReactions(mover, actionService, count);
+            yield return battleManager.WaitForReactions(character, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {
@@ -523,7 +521,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             }
 
             usablePower = PowerProvider.Get(
-                mover.Side == Side.Enemy
+                character.Side == Side.Enemy
                     ? PowerCauterizingFlamesDamage
                     : PowerCauterizingFlamesHeal,
                 rulesetSource);
@@ -534,7 +532,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 RulesetEffect = implementationManager
                     .MyInstantiateEffectPower(rulesetSource, usablePower, false),
                 UsablePower = usablePower,
-                TargetCharacters = { mover }
+                TargetCharacters = { character }
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?
