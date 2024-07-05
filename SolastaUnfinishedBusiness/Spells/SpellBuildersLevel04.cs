@@ -383,14 +383,35 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildVitriolicSphere()
     {
         const string NAME = "VitriolicSphere";
-
+        
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.FixedValue)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeAcid, 5, DieType.D4)
+                            .Build())
+                    .SetImpactEffectParameters(VenomousSpike)
+                    .Build())
+            .AddToDB();
+        
         var conditionVitriolicSphere = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new OnConditionAddedOrRemovedVitriolicSphere())
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedVitriolicSphere(power))
             .AddToDB();
-
+        
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.VitriolicSphere, 128))
@@ -428,7 +449,8 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class OnConditionAddedOrRemovedVitriolicSphere : IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedVitriolicSphere(FeatureDefinitionPower power)
+        : IOnConditionAddedOrRemoved
     {
         public void OnConditionAdded(RulesetCharacter rulesetCharacter, RulesetCondition rulesetCondition)
         {
@@ -438,32 +460,25 @@ internal static partial class SpellBuilders
         public void OnConditionRemoved(RulesetCharacter rulesetCharacter, RulesetCondition rulesetCondition)
         {
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
-            var rolls = new List<int>();
-            var damageForm = new DamageForm { DamageType = DamageTypeAcid, DiceNumber = 5, DieType = DieType.D4 };
-            var totalDamage = rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+            
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var attacker = GameLocationCharacter.GetFromActor(rulesetCaster);
-            var defender = GameLocationCharacter.GetFromActor(rulesetCharacter);
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            var usablePower = PowerProvider.Get(power, rulesetCaster);
+
+            var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
             {
-                sourceCharacter = rulesetCaster,
-                targetCharacter = rulesetCharacter,
-                position = defender.LocationPosition
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { character }
             };
 
-            RulesetActor.InflictDamage(
-                totalDamage,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetCharacter,
-                false,
-                attacker.Guid,
-                false,
-                [],
-                new RollInfo(damageForm.DieType, rolls, damageForm.BonusDamage),
-                false,
-                out _);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
