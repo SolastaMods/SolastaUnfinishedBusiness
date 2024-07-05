@@ -1548,7 +1548,8 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            if (rulesetEffect is RulesetEffectSpell &&
+                rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
             {
                 yield return HandleReaction(battleManager, attacker, defender, actualEffectForms);
             }
@@ -1613,9 +1614,15 @@ internal static partial class SpellBuilders
             }
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectSpell(rulesetHelper, spellRepertoire, SpellsContext.ElementalInfusion, slotLevel,
+                    false);
             var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.CastReaction)
             {
-                IntParameter = slotLevel, StringParameter = spellDefinition.Name, SpellRepertoire = spellRepertoire
+                IntParameter = slotLevel,
+                StringParameter = spellDefinition.Name,
+                SpellRepertoire = spellRepertoire,
+                RulesetEffect = effectSpell
             };
             var count = actionService.PendingReactionRequestGroups.Count;
 
