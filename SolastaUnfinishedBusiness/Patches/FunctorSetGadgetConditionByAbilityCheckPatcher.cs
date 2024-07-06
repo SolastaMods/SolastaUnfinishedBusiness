@@ -38,7 +38,7 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
 
             if (functorParameters.AbilityCheck.ProficiencyName == SkillDefinitions.Perception)
             {
-                foreach (var actingCharacter in functorParameters.ActingCharacters)
+                foreach (var actingCharacter in functorParameters.ActingCharacters.Distinct().ToList())
                 {
                     if (actingCharacter.RulesetCharacter.CanRevealHiddenObjects())
                     {

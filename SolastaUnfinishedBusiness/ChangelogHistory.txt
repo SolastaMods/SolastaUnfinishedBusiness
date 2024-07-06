@@ -5,6 +5,7 @@
 - changed Psionic Blast spell to differentiate it a bit from Synaptic Static
 - changed Roguish Duelist subclass making it more useful before higher levels
 - fixed Absorb Elements crashing with certain spells [i.e.: vitriolic sphere]
+- fixed attribute checks interaction with features that try to alter them
 - fixed Focused Metamagic crashing with certain spells [i.e.: sunbeam]
 - fixed invocations display under proficiencies panel
 - fixed melee attack cantrips damage dice progression
