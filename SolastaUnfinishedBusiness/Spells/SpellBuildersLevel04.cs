@@ -722,12 +722,28 @@ internal static partial class SpellBuilders
             var title = Gui.Format("Condition/&ConditionElementalBaneTitle", damageTitle);
             var description = Gui.Format("Condition/&ConditionElementalBaneDescription", damageTitle);
 
+            var power = FeatureDefinitionPowerBuilder
+                .Create($"Power{NAME}{damageType}")
+                .SetGuiPresentation(title, Gui.NoLocalization)
+                .SetUsesFixed(ActivationTime.NoCost)
+                .SetShowCasting(false)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                        .SetEffectForms(EffectFormBuilder.DamageForm(damageType, 2, DieType.D6))
+                        .SetImpactEffectParameters(magicEffect)
+                        .Build())
+                .AddToDB();
+
+            power.GuiPresentation.hidden = true;
+
             var condition = ConditionDefinitionBuilder
                 .Create($"Condition{NAME}{damageType}")
                 .SetGuiPresentation(title, description, ConditionRestrictedInsideMagicCircle)
                 .SetPossessive()
                 .SetConditionType(ConditionType.Detrimental)
-                .AddCustomSubFeatures(new CustomBehaviorElementalBane(damageType, magicEffect, conditionMark))
+                .AddCustomSubFeatures(new CustomBehaviorElementalBane(damageType, power, conditionMark))
                 .SetConditionParticleReference(conditionEffects[current++])
                 .AddToDB();
 
@@ -793,7 +809,7 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorElementalBane(
         string damageType,
-        IMagicEffect magicEffect,
+        FeatureDefinitionPower powerElementalBane,
         ConditionDefinition conditionMark)
         : IModifyDamageAffinity, IOnConditionAddedOrRemoved, ICharacterTurnStartListener
     {
@@ -845,7 +861,9 @@ internal static partial class SpellBuilders
             }
 
             var rulesetAttacker = EffectHelpers.GetCharacterByGuid(sourceGuid);
+            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
 
+            rulesetAttacker.LogCharacterActivatesAbility(string.Empty, "Feedback/&AdditionalDamageElementalBaneLine");
             rulesetDefender.InflictCondition(
                 conditionMark.Name,
                 DurationType.Round,
@@ -860,33 +878,21 @@ internal static partial class SpellBuilders
                 0,
                 0);
 
-            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
-            var rolls = new List<int>();
-            var damageForm = new DamageForm { DamageType = damageType, DieType = DieType.D6, DiceNumber = 2 };
-            var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            var usablePower = PowerProvider.Get(powerElementalBane, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
             {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetDefender,
-                position = defender.LocationPosition
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
             };
 
-            rulesetAttacker.LogCharacterActivatesAbility(string.Empty, "Feedback/&AdditionalDamageElementalBaneLine");
-            EffectHelpers.StartVisualEffect(attacker, defender, magicEffect);
-            RulesetActor.InflictDamage(
-                damageRoll,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetDefender,
-                false,
-                rulesetAttacker.Guid,
-                false,
-                [],
-                new RollInfo(damageForm.DieType, rolls, damageForm.BonusDamage),
-                false,
-                out _);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
