@@ -40,7 +40,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
             .AddPreparedSpellGroup(3, SpellsContext.CausticZap, Shield)
             .AddPreparedSpellGroup(5, AcidArrow, Blindness)
             .AddPreparedSpellGroup(9, ProtectionFromEnergy, StinkingCloud)
-            .AddPreparedSpellGroup(13, Blight, Stoneskin)
+            .AddPreparedSpellGroup(13, Blight, SpellsContext.VitriolicSphere)
             .AddPreparedSpellGroup(17, CloudKill, Contagion)
             .AddToDB();
 

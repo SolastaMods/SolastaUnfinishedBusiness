@@ -60,6 +60,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
     internal static readonly SpellDefinition Telekinesis = BuildTelekinesis();
     internal static readonly SpellDefinition ThunderousSmite = BuildThunderousSmite();
+    internal static readonly SpellDefinition VitriolicSphere = BuildVitriolicSphere();
     internal static readonly SpellDefinition Web = BuildWeb();
     internal static readonly SpellDefinition Wrack = BuildWrack();
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
@@ -344,7 +345,7 @@ internal static class SpellsContext
         RegisterSpell(BuildPsychicLance(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPsionicBlast(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(StaggeringSmite, 0, SpellListPaladin);
-        RegisterSpell(BuildVitriolicSphere(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(VitriolicSphere, 0, SpellListSorcerer, SpellListWizard);
 
         //5th level
         RegisterSpell(BanishingSmite, 0, SpellListPaladin);

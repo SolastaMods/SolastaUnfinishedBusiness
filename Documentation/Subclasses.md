@@ -269,7 +269,7 @@ Learn and have always prepared:
 
 	III	Protection from Energy, Stinking Cloud
 
-	IV	Blight, Stoneskin
+	IV	Blight, Vitriolic Sphere
 
 	V	Cloudkill, Contagion
 
