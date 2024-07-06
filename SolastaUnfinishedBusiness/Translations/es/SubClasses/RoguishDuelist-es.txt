@@ -1,3 +1,5 @@
+Condition/&ConditionRoguishDuelistSureFootedDescription=Obtén una bonificación no acumulable de 1d6 a tu CA hasta el comienzo de tu próximo turno.
+Condition/&ConditionRoguishDuelistSureFootedTitle=Bravata
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Cuando una criatura falla en una tirada de ataque cuerpo a cuerpo mientras empuñas un arma cuerpo a cuerpo, puedes usar tu reacción para realizar un ataque de oportunidad inmediato contra esa criatura.
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Danza arremolinada
 Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=No necesitas ventaja en la tirada de ataque para usar tu ataque furtivo contra una criatura si estás a 5 pies de ella, no hay otras criaturas a 5 pies de ti y no tienes desventaja en la tirada de ataque. Todas las demás reglas de ataque furtivo siguen aplicándose.

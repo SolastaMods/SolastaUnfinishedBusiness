@@ -68,13 +68,12 @@ public sealed class RoguishDuelist : AbstractSubclass
         var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}{SureFooted}")
             .SetGuiPresentation($"FeatureSet{Name}{SureFooted}", Category.Feature)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass)
+            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass, 1)
             .AddToDB();
 
         var conditionSureFooted = ConditionDefinitionBuilder
             .Create($"Condition{Name}{SureFooted}")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetFixedAmount(1)
             .SetFeatures(attributeModifierSureFooted)
             .AddToDB();
@@ -267,7 +266,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attacker.UsedSpecialFeatures.ContainsKey("SureFooted"))
+            if (!attacker.UsedSpecialFeatures.ContainsKey("SureFooted"))
             {
                 yield break;
             }

@@ -1,3 +1,5 @@
+Condition/&ConditionRoguishDuelistSureFootedDescription=Gain non-stacking 1d6 bonus to your AC until the start of your next turn.
+Condition/&ConditionRoguishDuelistSureFootedTitle=Bravado
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=When a creature misses you with a melee attack roll while you are wielding a melee weapon, you can use your reaction to make an immediate attack of opportunity against that creature.
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Swirling Dance
 Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=You don't need advantage on the attack roll to use your Sneak Attack against a creature if you are within 5 ft of it, no other creatures are within 5 ft of you, and you don't have disadvantage on the attack roll. All the other Sneak Attack rules still apply.

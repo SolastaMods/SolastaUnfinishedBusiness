@@ -1,3 +1,5 @@
+Condition/&ConditionRoguishDuelistSureFootedDescription=Ottieni un bonus non cumulabile di 1d6 alla tua CA fino all'inizio del tuo turno successivo.
+Condition/&ConditionRoguishDuelistSureFootedTitle=Bravanza
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Quando una creatura ti manca con un tiro per colpire in mischia mentre stai impugnando un'arma da mischia, puoi usare la tua reazione per effettuare un attacco di opportunità immediato contro quella creatura.
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Danza vorticosa
 Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Non hai bisogno di vantaggio sul tiro per colpire per usare il tuo Attacco Furtivo contro una creatura se ti trovi entro 5 piedi da essa, se non ci sono altre creature entro 5 piedi da te e non hai svantaggio sul tiro per colpire. Si applicano ancora tutte le altre regole dell'Attacco Furtivo.

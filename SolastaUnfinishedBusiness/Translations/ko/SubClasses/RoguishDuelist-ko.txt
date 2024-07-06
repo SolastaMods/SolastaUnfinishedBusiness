@@ -1,3 +1,5 @@
+Condition/&ConditionRoguishDuelistSureFootedDescription=다음 턴이 시작될 때까지 AC에 1d6의 비중첩 보너스를 얻습니다.
+Condition/&ConditionRoguishDuelistSureFootedTitle=허세
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=당신이 근접 무기를 휘두르는 동안 생물이 근접 공격 굴림으로 당신을 놓치면, 당신은 반응을 사용하여 그 생물에 대해 즉각적인 기회 공격을 할 수 있습니다.
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=소용돌이치는 춤
 Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=당신이 생물로부터 5피트 이내에 있고, 다른 생물이 당신으로부터 5피트 이내에 없고, 공격 굴림에 불이익이 없다면 생물에 대해 몰래 공격을 사용하기 위해 공격 굴림에 이점이 필요하지 않습니다. 다른 모든 몰래 공격 규칙은 여전히 적용됩니다.

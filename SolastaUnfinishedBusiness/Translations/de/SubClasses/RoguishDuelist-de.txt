@@ -1,3 +1,5 @@
+Condition/&ConditionRoguishDuelistSureFootedDescription=Erhalten Sie bis zum Beginn Ihres nächsten Zuges einen nicht stapelbaren Bonus von 1W6 auf Ihre AC.
+Condition/&ConditionRoguishDuelistSureFootedTitle=Tapferkeit
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Wenn eine Kreatur Sie mit einem Nahkampfangriffswurf verfehlt, während Sie eine Nahkampfwaffe tragen, können Sie Ihre Reaktion nutzen, um einen sofortigen Gelegenheitsangriff gegen diese Kreatur auszuführen.
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Wirbelnder Tanz
 Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Du brauchst keinen Vorteil beim Angriffswurf, um deinen Schleichangriff gegen eine Kreatur einzusetzen, wenn du dich in einem Umkreis von 5 Fuß um sie befindest, keine anderen Kreaturen in einem Umkreis von 5 Fuß um dich sind und du keinen Nachteil beim Angriffswurf hast. Alle anderen Sneak Attack-Regeln gelten weiterhin.

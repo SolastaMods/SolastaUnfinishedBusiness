@@ -1,3 +1,5 @@
+Condition/&ConditionRoguishDuelistSureFootedDescription=Gagnez un bonus non cumulable de 1d6 à votre CA jusqu'au début de votre prochain tour.
+Condition/&ConditionRoguishDuelistSureFootedTitle=Bravade
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Lorsqu'une créature vous manque avec un jet d'attaque de mêlée alors que vous brandissez une arme de mêlée, vous pouvez utiliser votre réaction pour lancer une attaque d'opportunité immédiate contre cette créature.
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Danse tourbillonnante
 Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Vous n'avez pas besoin d'un avantage au jet d'attaque pour utiliser votre attaque sournoise contre une créature si vous êtes à moins de 1,50 mètre d'elle, qu'aucune autre créature n'est à moins de 1,50 mètre de vous et que vous n'avez pas de désavantage au jet d'attaque. Toutes les autres règles d'attaque sournoise s'appliquent toujours.

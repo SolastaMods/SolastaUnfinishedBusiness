@@ -1,3 +1,5 @@
+Condition/&ConditionRoguishDuelistSureFootedDescription=在你的下一回合开始前，获得不叠加的 1d6 AC 奖励。
+Condition/&ConditionRoguishDuelistSureFootedTitle=虚张声势
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=当您手持近战武器时，如果某个生物的近战攻击掷骰没有击中您，您可以利用自己的反应立即对该生物发起机会攻击。
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=漩涡之舞
 Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=如果你在一个生物 5 尺以内，你不需要在攻击检定上获得优势来对它使用偷袭；5 尺内没有其他生物，你在攻击检定上没有劣势。所有其他偷袭规则仍然适用。

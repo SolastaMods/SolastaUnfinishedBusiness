@@ -1,3 +1,5 @@
+Condition/&ConditionRoguishDuelistSureFootedDescription=Получите несуммируемый бонус 1d6 к вашему КД до начала вашего следующего хода.
+Condition/&ConditionRoguishDuelistSureFootedTitle=Бравада
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Когда существо промахивается по вам рукопашной атакой, вы можете использовать свою реакцию, чтобы совершить мгновенную атаку по возможности против этого существа.
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Кружащийся танец
 Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Вам не нужно преимущество на бросок атаки, чтобы использовать свою Скрытую атаку против существа, если вы находитесь в пределах 5 футов от него, никакие другие существа не находятся в пределах 5 футов от вас, и у вас нет помехи на бросок атаки. Все остальные правила скрытой атаки остаются в силе.

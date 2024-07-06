@@ -1,3 +1,5 @@
+Condition/&ConditionRoguishDuelistSureFootedDescription=Ganhe um bônus não acumulável de 1d6 em sua CA até o início do seu próximo turno.
+Condition/&ConditionRoguishDuelistSureFootedTitle=Bravata
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Quando uma criatura erra você em uma jogada de ataque corpo a corpo enquanto você está empunhando uma arma corpo a corpo, você pode usar sua reação para fazer um ataque de oportunidade imediato contra aquela criatura.
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Dança rodopiante
 Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Você não precisa de vantagem na jogada de ataque para usar seu Ataque Furtivo contra uma criatura se você estiver a 1,5 metro dela, nenhuma outra criatura estiver a 1,5 metro de você e você não tiver desvantagem na jogada de ataque. Todas as outras regras do Ataque Furtivo ainda se aplicam.
