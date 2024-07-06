@@ -44,18 +44,23 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .Create($"Power{Name}CauterizingFlames")
             .SetGuiPresentationNoContent(true)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
-            .AddCustomSubFeatures(new ModifyEffectDescriptionCauterizingFlamesDamageOrHeal())
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerCauterizingFlamesDamage = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}CauterizingFlamesDamage")
         .SetGuiPresentation(PowerSummonCauterizingFlamesName, Category.Feature, hidden: true)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 2, DieType.D10))
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetBonusMode(AddBonusMode.AbilityBonus)
+                        .SetDamageForm(DamageTypeFire, 2, DieType.D10)
+                        .Build())
                 .SetCasterEffectParameters(HeatMetal)
                 .SetImpactEffectParameters(FireBolt)
                 .Build())
@@ -65,6 +70,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
         .Create($"Power{Name}CauterizingFlamesHeal")
         .SetGuiPresentation(PowerSummonCauterizingFlamesName, Category.Feature, hidden: true)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
@@ -72,7 +78,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetHealingForm(HealingComputation.Dice, 0, DieType.D10, 1, false,
+                        .SetBonusMode(AddBonusMode.AbilityBonus)
+                        .SetHealingForm(
+                            HealingComputation.Dice, 0, DieType.D10, 1, false,
                             HealingCap.HalfMaximumHitPoints)
                         .Build())
                 .SetCasterEffectParameters(HeatMetal)
@@ -888,35 +896,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     //
     // Cauterizing Flames
     //
-
-    private sealed class ModifyEffectDescriptionCauterizingFlamesDamageOrHeal : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == PowerCauterizingFlamesDamage || definition == PowerCauterizingFlamesHeal;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
-            var wisdomModifier = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
-
-            if (definition == PowerCauterizingFlamesDamage)
-            {
-                effectDescription.EffectForms[0].DamageForm.BonusDamage = wisdomModifier;
-            }
-            else if (definition == PowerCauterizingFlamesHeal)
-            {
-                effectDescription.EffectForms[0].HealingForm.BonusHealing = wisdomModifier;
-            }
-
-            return effectDescription;
-        }
-    }
 
     private sealed class OnReducedToZeroHpByMeOrAllySummonCauterizingFlames(
         FeatureDefinitionPower powerSummonCauterizingFlames) : IOnReducedToZeroHpByMeOrAlly

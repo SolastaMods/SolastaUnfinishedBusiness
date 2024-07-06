@@ -64,7 +64,7 @@
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Damage",
-        "addBonusMode": "None",
+        "addBonusMode": "Proficiency",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,

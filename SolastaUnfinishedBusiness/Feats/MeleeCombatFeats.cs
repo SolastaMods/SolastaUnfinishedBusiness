@@ -1572,16 +1572,19 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}DisadvantageDescription", hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
+            .SetExplicitAbilityScore(AttributeDefinitions.Strength)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.DamageForm())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDamageForm()
+                            .Build())
                     .Build())
             .AddToDB();
-
-        fellHandedDisadvantage.AddCustomSubFeatures(
-            new ModifyEffectDescriptionPowerDisadvantage(fellHandedDisadvantage));
 
         var feat = FeatDefinitionBuilder
             .Create(NAME)
@@ -1699,31 +1702,6 @@ internal static class MeleeCombatFeats
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
-        }
-    }
-
-    private sealed class ModifyEffectDescriptionPowerDisadvantage(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition powerDisadvantage) : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerDisadvantage;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
-            var strMod = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(strength));
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            damageForm.BonusDamage = strMod;
-
-            return effectDescription;
         }
     }
 

@@ -654,6 +654,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.None)
+                            .SetBonusMode(AddBonusMode.Proficiency)
                             .SetDamageForm(damageType, 3, dieType)
                             .Build())
                     .AddEffectForms(effects)
@@ -665,7 +666,6 @@ public sealed class InnovationAlchemy : AbstractSubclass
 
         power.AddCustomSubFeatures(
             ModifyPowerVisibility.Visible,
-            new AddPBToDamage(power),
             new Overcharge(),
             validator,
             ModifyAdditionalDamageClassLevelInventor.Instance);
@@ -704,6 +704,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetBonusMode(AddBonusMode.Proficiency)
                             .SetDamageForm(damageType, 2, dieType)
                             .Build())
                     .AddEffectForms(effects)
@@ -712,7 +713,6 @@ public sealed class InnovationAlchemy : AbstractSubclass
 
         power.AddCustomSubFeatures(
             ModifyPowerVisibility.Visible,
-            new AddPBToDamage(power),
             new Overcharge(),
             validator,
             ModifyAdditionalDamageClassLevelInventor.Instance);
@@ -750,6 +750,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetBonusMode(AddBonusMode.Proficiency)
                             .SetDamageForm(damageType, 2, dieType)
                             .Build())
                     .AddEffectForms(effects)
@@ -759,7 +760,6 @@ public sealed class InnovationAlchemy : AbstractSubclass
 
         power.AddCustomSubFeatures(
             ModifyPowerVisibility.Visible,
-            new AddPBToDamage(power),
             new Overcharge(),
             validator,
             ModifyAdditionalDamageClassLevelInventor.Instance);
@@ -907,33 +907,5 @@ public sealed class InnovationAlchemy : AbstractSubclass
                 _ => overcharges >= 1 ? Once : None
             };
         }
-    }
-}
-
-// ReSharper disable once SuggestBaseTypeForParameterInConstructor
-internal sealed class AddPBToDamage(FeatureDefinitionPower baseDefinition) : IModifyEffectDescription
-{
-    public bool IsValid(
-        BaseDefinition definition,
-        RulesetCharacter character,
-        EffectDescription effectDescription)
-    {
-        return definition == baseDefinition;
-    }
-
-    public EffectDescription GetEffectDescription(
-        BaseDefinition definition,
-        EffectDescription effectDescription,
-        RulesetCharacter character,
-        RulesetEffect rulesetEffect)
-    {
-        var damage = effectDescription.FindFirstDamageForm();
-
-        if (damage != null)
-        {
-            damage.bonusDamage += character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-        }
-
-        return effectDescription;
     }
 }
