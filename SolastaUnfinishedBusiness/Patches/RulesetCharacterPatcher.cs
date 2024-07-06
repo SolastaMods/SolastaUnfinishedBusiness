@@ -78,9 +78,152 @@ public static class RulesetCharacterPatcher
             !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
     }
 
+    //PATCH: supports Prone condition to correctly interact with reach attacks
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeAttackModifier))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeAttackModifier_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            RulesetCharacter __instance,
+            RulesetCharacter defender,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier,
+            bool isWithin5Feet,
+            bool isAllyWithin5Feet,
+            bool rangedAttack,
+            int defenderSustainedAttacks,
+            bool defenderAlreadyAttackedByAttackerThisTurn,
+            float distance)
+        {
+            ComputeAttackModifier(__instance, defender, attackMode, attackModifier, isWithin5Feet, isAllyWithin5Feet,
+                rangedAttack, defenderSustainedAttacks, defenderAlreadyAttackedByAttackerThisTurn, distance);
+
+            return false;
+        }
+
+        private static void ComputeAttackModifier(
+            RulesetCharacter __instance,
+            RulesetCharacter defender,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier,
+            bool isWithin5Feet,
+            bool isAllyWithin5Feet,
+            bool rangedAttack,
+            int defenderSustainedAttacks,
+            bool defenderAlreadyAttackedByAttackerThisTurn,
+            float distance)
+        {
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            
+            __instance.EnumerateFeaturesToBrowse<ICombatAffinityProvider>(
+                __instance.FeaturesToBrowse, __instance.FeaturesOrigin);
+            
+            foreach (var featureDefinition in __instance.FeaturesToBrowse)
+            {
+                var affinityProvider = featureDefinition as ICombatAffinityProvider;
+                
+                var contextParams = new RulesetImplementationDefinitions.SituationalContextParams(
+                    affinityProvider!.SituationalContext,
+                    __instance, 
+                    defender,
+                    implementationService.FindSourceIdOfFeature(__instance, featureDefinition), 
+                    affinityProvider.RequiredCondition,
+                    attackModifier.Proximity == AttackProximity.Range,
+                    null);
+                
+                if (implementationService.IsSituationalContextValid(contextParams))
+                {
+                    affinityProvider.ComputeAttackModifier(__instance, defender, attackMode, attackModifier,
+                        __instance.FeaturesOrigin[featureDefinition], 0, distance);
+                }
+            }
+
+            __instance.GetAllConditions(__instance.AllConditionsForEnumeration);
+            
+            foreach (var rulesetCondition in __instance.AllConditionsForEnumeration)
+            {
+                if (!rulesetCondition.ConditionDefinition.UsesBardicInspirationDie())
+                {
+                    continue;
+                }
+
+                foreach (var feature in rulesetCondition.ConditionDefinition.Features)
+                {
+                    if (feature is ICombatAffinityProvider affinityProvider)
+                    {
+                        affinityProvider.ComputeAttackModifier(__instance, defender, attackMode, attackModifier,
+                            __instance.FeaturesOrigin[feature], rulesetCondition.BardicInspirationRoll, distance);
+                    }
+                }
+            }
+
+            defender.EnumerateFeaturesToBrowse<ICombatAffinityProvider>(
+                __instance.FeaturesToBrowse, __instance.FeaturesOrigin);
+            
+            foreach (var featureDefinition in __instance.FeaturesToBrowse)
+            {
+                var affinityProvider = featureDefinition as ICombatAffinityProvider;
+                
+                // BEGIN PATCH: replace rangedAttack with !isWithin5Feet
+                if (!((affinityProvider!.SituationalContext == SituationalContext.AttackerAwayFromTarget) &
+                      !isWithin5Feet) &&
+                    affinityProvider.SituationalContext == SituationalContext.AttackerAwayFromTarget)
+                {
+                    continue;
+                }
+
+                var contextParams = new RulesetImplementationDefinitions.SituationalContextParams(
+                    affinityProvider.SituationalContext, __instance, defender,
+                    implementationService.FindSourceIdOfFeature(__instance, featureDefinition),
+                    affinityProvider.RequiredCondition, rangedAttack, null);
+                
+                if (implementationService.IsSituationalContextValid(contextParams) ||
+                    (affinityProvider.SituationalContext == SituationalContext.AttackerNextToTarget) &
+                    isWithin5Feet)
+                {
+                    affinityProvider.ComputeDefenseModifier(defender, __instance, defenderSustainedAttacks,
+                        defenderAlreadyAttackedByAttackerThisTurn, attackModifier,
+                        __instance.FeaturesOrigin[featureDefinition], distance);
+                }
+            }
+
+            var flag = attackModifier.AttacktoHitTrends.Any(attackToHitTrend => attackToHitTrend.sourceType == FeatureSourceType.Difficulty);
+
+            if (flag)
+            {
+                return;
+            }
+
+            var gameSettingsService = ServiceRepository.GetService<IGameSettingsService>();
+            
+            if (gameSettingsService != null && 
+                gameSettingsService.AttackRollAllyModifier != 0 &&
+                __instance.Side == Side.Ally)
+            {
+                attackModifier.AttackRollModifier += gameSettingsService.AttackRollAllyModifier;
+                attackModifier.AttacktoHitTrends.Add(
+                    new TrendInfo(gameSettingsService.AttackRollAllyModifier, FeatureSourceType.Difficulty, string.Empty, null));
+            }
+            else
+            {
+                if (gameSettingsService == null || 
+                    gameSettingsService.AttackRollEnemyModifier == 0 || 
+                    __instance.Side != Side.Enemy)
+                {
+                    return;
+                }
+
+                attackModifier.AttackRollModifier += gameSettingsService.AttackRollEnemyModifier;
+                attackModifier.AttacktoHitTrends.Add(
+                    new TrendInfo(gameSettingsService.AttackRollEnemyModifier, FeatureSourceType.Difficulty, string.Empty, null));
+            }
+        }
+    }
+
     //PATCH: supports `AddFighterLevelToIndomitableSavingReroll`
-    [HarmonyPatch(typeof(RulesetCharacter),
-        nameof(RulesetCharacter.UseIndomitableResistance))]
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.UseIndomitableResistance))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class UseIndomitableResistance_Patch
@@ -287,7 +430,7 @@ public static class RulesetCharacterPatcher
 
             var user = __instance;
 
-            // this is required by Artillerist which has powers tied to caster
+            // __instance is required by Artillerist which has powers tied to caster
             var summoner = user.GetMySummoner();
 
             if (summoner != null)
@@ -318,8 +461,8 @@ public static class RulesetCharacterPatcher
             ref RulesetSpellRepertoire matchingRepertoire)
         {
             //PATCH: game doesn't consider cantrips gained from BonusCantrips feature
-            //because of this issue Inventor can't use Light cantrip from quick-cast button on UI
-            //this patch tries to find requested cantrip in repertoire's ExtraSpellsByTag
+            //because of __instance issue Inventor can't use Light cantrip from quick-cast button on UI
+            //__instance patch tries to find requested cantrip in repertoire's ExtraSpellsByTag
             if (spellDefinitionToCast.spellLevel != 0 || matchingRepertoire != null)
             {
                 return;
@@ -723,7 +866,7 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Ldarg_2),
                     new CodeInstruction(OpCodes.Ldarg, 4),
                     new CodeInstruction(OpCodes.Call, mirrorImageLogicGetACMethod))
-                //technically second occurence of this getter, but first one is replaced on previous call
+                //technically second occurence of __instance getter, but first one is replaced on previous call
                 .ReplaceCall(currentValueMethod, 1, "RulesetCharacter.RollAttack.CritThreshold",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldarg_2),
@@ -913,10 +1056,10 @@ public static class RulesetCharacterPatcher
             List<TrendInfo> toHitTrends,
             bool testMode)
         {
-            //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
+            //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark __instance roll
             MirrorImage.AttackRollPrefix(__instance, target, toHitTrends, testMode);
 
-            //PATCH: support Elven Precision - sets up flag if this physical attack is valid 
+            //PATCH: support Elven Precision - sets up flag if __instance physical attack is valid 
             ElvenPrecision.PhysicalAttackRollPrefix(__instance, attackMode);
         }
 
@@ -957,10 +1100,10 @@ public static class RulesetCharacterPatcher
         {
             CurrentMagicEffect = activeEffect;
 
-            //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
+            //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark __instance roll
             MirrorImage.AttackRollPrefix(__instance, target, toHitTrends, testMode);
 
-            //PATCH: support Elven Precision - sets up flag if this physical attack is valid 
+            //PATCH: support Elven Precision - sets up flag if __instance physical attack is valid 
             ElvenPrecision.MagicAttackRollPrefix(__instance, activeEffect);
         }
 
@@ -1049,7 +1192,7 @@ public static class RulesetCharacterPatcher
         }
 
         //
-        // there are 2 calls to RollDie on this method
+        // there are 2 calls to RollDie on __instance method
         // we replace them to allow us to compare the die result vs. the minRoll value from any IModifyAbilityCheck feature
         //
         [UsedImplicitly]
@@ -1071,7 +1214,7 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Call, extendedRollDieMethod))
                 // second call to roll die checks the opponent
                 .ReplaceCall(
-                    rollDieMethod, // in fact this is 2nd occurence on game code but as we replaced on previous step we set to 1
+                    rollDieMethod, // in fact __instance is 2nd occurence on game code but as we replaced on previous step we set to 1
                     1, "RulesetCharacter.ResolveContestCheck.RollDie2",
                     new CodeInstruction(OpCodes.Ldarg, 7), // opponentBaseBonus
                     new CodeInstruction(OpCodes.Ldarg, 8), // opponentRollModifier
@@ -1430,7 +1573,7 @@ public static class RulesetCharacterPatcher
             }
             //END PATCH
 
-            // this includes all the logic for the base function
+            // __instance includes all the logic for the base function
             spellRepertoire.AutoPreparedSpells.Clear();
             __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(__instance.FeaturesToBrowse);
 
@@ -1929,13 +2072,13 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: Support College of Valiance level 6 feature that won't spend a dice on a failure
+    //PATCH: Support College of Valiance level 6 feature that won't spend a die on a failure
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RollBardicInspirationDie))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RollBardicInspirationDie_Patch
     {
-        // this is standard game code except for the BEGIN/END patch area
+        // __instance is standard game code except for the BEGIN/END patch area
         [UsedImplicitly]
         public static bool Prefix(
             RulesetCharacter __instance,

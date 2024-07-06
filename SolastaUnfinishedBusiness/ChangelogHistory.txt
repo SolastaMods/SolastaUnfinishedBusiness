@@ -15,6 +15,7 @@
 - fixed Innovation Vitriolist refund mixture slots consuming logic
 - fixed melee attack cantrips damage dice progression
 - fixed proficiencies panel invocations display
+- fixed Prone condition interaction with reach attacks
 - fixed Rescue the Dying spell triggering logic
 - fixed Skill Empowerment spell suggested list
 
