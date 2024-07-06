@@ -786,7 +786,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            if (rulesetEffect.EffectDescription.EffectForms.All(x =>
+            if (rulesetEffect is not RulesetEffectSpell ||
+                rulesetEffect.EffectDescription.EffectForms.All(x =>
                     x.FormType != EffectForm.EffectFormType.Healing))
             {
                 yield break;

@@ -1,16 +1,17 @@
 1.5.97.18:
 
-- added Circle of the Wildfire subclass, and Vitriolic Sphere spell
+- added Circle of the Wildfire, and Vitriolic Sphere spell
 - changed Cunning Escape, and Exploiter feats min. required level to 4th
-- changed Psionic Blast spell to differentiate it a bit from Synaptic Static
-- changed Roguish Duelist subclass making it more useful before higher levels
-- fixed Absorb Elements crashing with certain spells [i.e.: vitriolic sphere]
-- fixed attribute checks interaction with features that try to alter them
-- fixed Focused Metamagic crashing with certain spells [i.e.: sunbeam]
-- fixed invocations display under proficiencies panel
+- changed Psionic Blast spell to differentiate it from Synaptic Static
+- changed Roguish Duelist making it more useful before higher levels
+- fixed Absorb Elements crashing after slot selection
+- fixed attribute checks interaction with reactions
+- fixed Circle of the Stars chalice triggering logic
+- fixed Focused Metamagic crashing with certain spells
+- fixed Innovation Artillerist force ballista range
 - fixed melee attack cantrips damage dice progression
-- fixed Mire the Mind, and Spark of Kinesis invocations min. required level
-- fixed Rescue the Dying spell triggering on enemy
+- fixed proficiencies panel invocations display
+- fixed Rescue the Dying spell triggering logic
 - fixed Skill Empowerment spell suggested list
 
 KNOWN ISSUES:
