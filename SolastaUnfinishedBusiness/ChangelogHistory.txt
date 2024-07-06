@@ -1,8 +1,11 @@
 1.5.97.18:
 
 - added Circle of the Wildfire, and Vitriolic Sphere spell
+- added Wizard Deadmaster summons custom portraits [by Thaladar]
+- added sample heroes portraits [by Zeke and Digitus Primus]
 - changed Cunning Escape, and Exploiter feats min. required level to 4
 - changed Innovation Vitriolist level 13 auto prepared spells
+- changed Monsters portraits behavior to use unique technical name
 - changed Psionic Blast spell to differentiate it from Synaptic Static
 - changed Rogue Devil Strike knock out and obscure cost to 5 and 2
 - changed Roguish Duelist making it more useful before higher levels

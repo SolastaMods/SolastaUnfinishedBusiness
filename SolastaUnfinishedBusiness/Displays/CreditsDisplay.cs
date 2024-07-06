@@ -87,7 +87,7 @@ internal static class CreditsDisplay
 
         ("Narria", "modKit, Party Editor"),
         ("Artyoan", "pre-gen heroes portraits, sample portraits"),
-        ("Thaladar", "sample portraits"),
+        ("Thaladar", "QA, monster portraits, sample portraits"),
         ("Zeke", "sample portraits"),
         ("Digital Primus", "sample portraits"),
 
