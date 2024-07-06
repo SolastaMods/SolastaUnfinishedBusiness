@@ -329,22 +329,16 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                        EffectDifficultyClassComputation.FixedValue)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetDamageForm(DamageTypeAcid, 5, DieType.D4)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeAcid, 5, DieType.D4))
                     .SetImpactEffectParameters(VenomousSpike)
                     .Build())
             .AddToDB();
 
         var conditionVitriolicSphere = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentation(Category.Condition, ConditionAcidArrowed)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
             // don't know why but setting end of turn on spell make it finish at end of source turn instead
             .SetSpecialDuration()
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedVitriolicSphere(power))
@@ -382,6 +376,9 @@ internal static partial class SpellBuilders
                     .SetImpactEffectParameters(AcidArrow)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.zoneParticleReference =
+            Shatter.EffectDescription.EffectParticleParameters.zoneParticleReference;
 
         return spell;
     }
