@@ -54,7 +54,6 @@ internal static class SpellsContext
     internal static readonly SpellDefinition PulseWave = BuildPulseWave();
     internal static readonly SpellDefinition RescueTheDying = BuildRescueTheDying();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
-    internal static readonly SpellDefinition ShadowOfMoil = BuildShadowOfMoil();
     internal static readonly SpellDefinition SonicBoom = BuildSonicBoom();
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
     internal static readonly SpellDefinition SteelWhirlwind = BuildSteelWhirlwind();
@@ -344,7 +343,6 @@ internal static class SpellsContext
         RegisterSpell(BuildIrresistiblePerformance(), 0, SpellListBard);
         RegisterSpell(BuildPsychicLance(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPsionicBlast(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
-        RegisterSpell(ShadowOfMoil, 0, SpellListWarlock);
         RegisterSpell(StaggeringSmite, 0, SpellListPaladin);
         RegisterSpell(BuildVitriolicSphere(), 0, SpellListSorcerer, SpellListWizard);
 

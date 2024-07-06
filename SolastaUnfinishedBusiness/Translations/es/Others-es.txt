@@ -49,7 +49,6 @@ Condition/&ConditionBlindedByDarknessTitle=Cegado por la oscuridad
 Condition/&ConditionBlindedByFogCloudTitle=Cegado por la nube de niebla
 Condition/&ConditionBlindedByIncendiaryCloudTitle=Cegado por una nube incendiaria
 Condition/&ConditionBlindedByPetalStormTitle=Cegado por la tormenta de pétalos
-Condition/&ConditionBlindedByShadowOfMoilTitle=Cegado por la sombra de Moil
 Condition/&ConditionBlindedBySleetStormTitle=Cegado por la tormenta de aguanieve
 Condition/&ConditionBlindedByStinkingCloudTitle=Cegado por una nube apestosa
 Condition/&ConditionBlindedExtendedDescription=La visión está ciega. Las tiradas de ataque contra la criatura tienen ventaja y las tiradas de ataque de la criatura tienen desventaja.

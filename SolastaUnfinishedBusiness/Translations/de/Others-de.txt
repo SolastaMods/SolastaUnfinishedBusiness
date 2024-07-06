@@ -49,7 +49,6 @@ Condition/&ConditionBlindedByDarknessTitle=Geblendet von der Dunkelheit
 Condition/&ConditionBlindedByFogCloudTitle=Von Nebelwolke geblendet
 Condition/&ConditionBlindedByIncendiaryCloudTitle=Von der Brandwolke geblendet
 Condition/&ConditionBlindedByPetalStormTitle=Geblendet von Petal Storm
-Condition/&ConditionBlindedByShadowOfMoilTitle=Geblendet durch den Schatten von Moil
 Condition/&ConditionBlindedBySleetStormTitle=Vom Schneeregen geblendet
 Condition/&ConditionBlindedByStinkingCloudTitle=Geblendet von Stinking Cloud
 Condition/&ConditionBlindedExtendedDescription=Das Sehen ist geblendet. Angriffswürfe gegen die Kreatur haben einen Vorteil, und die Angriffswürfe der Kreatur haben einen Nachteil.

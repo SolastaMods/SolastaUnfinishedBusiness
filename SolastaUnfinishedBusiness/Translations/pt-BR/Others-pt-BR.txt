@@ -49,7 +49,6 @@ Condition/&ConditionBlindedByDarknessTitle=Cegado pela escuridão
 Condition/&ConditionBlindedByFogCloudTitle=Cegado pela Nuvem de Nevoeiro
 Condition/&ConditionBlindedByIncendiaryCloudTitle=Cegado pela Nuvem Incendiária
 Condition/&ConditionBlindedByPetalStormTitle=Cegado pela Tempestade de Pétalas
-Condition/&ConditionBlindedByShadowOfMoilTitle=Cegado pela Sombra de Moil
 Condition/&ConditionBlindedBySleetStormTitle=Cegado pela tempestade de granizo
 Condition/&ConditionBlindedByStinkingCloudTitle=Cegado pela nuvem fedorenta
 Condition/&ConditionBlindedExtendedDescription=A visão está cega. As jogadas de ataque contra a criatura têm vantagem e as jogadas de ataque da criatura têm desvantagem.

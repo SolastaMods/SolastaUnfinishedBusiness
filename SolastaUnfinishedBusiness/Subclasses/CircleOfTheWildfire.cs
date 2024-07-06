@@ -465,6 +465,12 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
     internal static IEnumerator HandleCauterizingFlamesBehavior(GameLocationCharacter character)
     {
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+        if (!battleManager)
+        {
+            yield break;
+        }
+
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var cauterizingFlamesProxies = locationCharacterService.AllProxyCharacters
             .Where(u =>

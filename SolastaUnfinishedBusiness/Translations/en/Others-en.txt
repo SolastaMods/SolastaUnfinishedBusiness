@@ -49,7 +49,6 @@ Condition/&ConditionBlindedByDarknessTitle=Blinded by Darkness
 Condition/&ConditionBlindedByFogCloudTitle=Blinded by Fog Cloud
 Condition/&ConditionBlindedByIncendiaryCloudTitle=Blinded by Incendiary Cloud
 Condition/&ConditionBlindedByPetalStormTitle=Blinded by Petal Storm
-Condition/&ConditionBlindedByShadowOfMoilTitle=Blinded by Shadow of Moil
 Condition/&ConditionBlindedBySleetStormTitle=Blinded by Sleet Storm
 Condition/&ConditionBlindedByStinkingCloudTitle=Blinded by Stinking Cloud
 Condition/&ConditionBlindedExtendedDescription=Vision is blinded. Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage.

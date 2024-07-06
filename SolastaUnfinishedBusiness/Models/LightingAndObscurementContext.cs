@@ -669,13 +669,6 @@ internal static class LightingAndObscurementContext
         .SetFeatures()
         .AddToDB();
 
-    private static readonly ConditionDefinition ConditionBlindedByShadowOfMoil = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByShadowOfMoil")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
-        .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
-        .AddToDB();
-
     private static readonly ConditionDefinition ConditionBlindedByStinkingCloud = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByStinkingCloud")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
@@ -787,12 +780,6 @@ internal static class LightingAndObscurementContext
             SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
                 ConditionBlindedBySleetStorm;
 
-            // >> ConditionDarkness
-            // ShadowOfMoil
-
-            SpellsContext.ShadowOfMoil.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
-                ConditionBlindedByShadowOfMoil;
-
             // Cloud Kill / Incendiary Cloud need same debuff as other heavily obscured
             CloudKill.EffectDescription.EffectForms.TryAdd(FormBlindedByCloudKill);
             IncendiaryCloud.EffectDescription.EffectForms.TryAdd(FormBlindedByIncendiaryCloud);
@@ -855,12 +842,6 @@ internal static class LightingAndObscurementContext
             // SleetStorm
 
             SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionSleetStorm;
-
-            // >> ConditionDarkness
-            // ShadowOfMoil
-
-            SpellsContext.ShadowOfMoil.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
-                ConditionDarkness;
 
             // Cloud Kill / Incendiary Cloud need same debuff as other heavily obscured
             CloudKill.EffectDescription.EffectForms.Remove(FormBlindedByCloudKill);
