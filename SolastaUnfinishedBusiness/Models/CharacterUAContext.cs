@@ -1392,7 +1392,7 @@ internal static partial class CharacterContext
         var powerKnockOut = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Devious}KnockOut")
             .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.NoCost, powerPool, 6)
+            .SetSharedPool(ActivationTime.NoCost, powerPool, 5)
             .SetShowCasting(false)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
@@ -1423,7 +1423,7 @@ internal static partial class CharacterContext
         var powerObscure = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Devious}Obscure")
             .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.NoCost, powerPool, 3)
+            .SetSharedPool(ActivationTime.NoCost, powerPool, 2)
             .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
