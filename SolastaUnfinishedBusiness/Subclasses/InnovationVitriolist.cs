@@ -413,7 +413,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
 
             for (var spellLevel = 1; spellLevel <= spellRepertoire!.MaxSpellLevelOfSpellCastingLevel; spellLevel++)
             {
-                spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out var dummy);
+                spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out _);
 
                 if (remaining <= 0)
                 {

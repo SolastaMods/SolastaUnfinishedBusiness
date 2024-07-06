@@ -97,7 +97,7 @@ public static class RulesetCharacterPatcher
             bool defenderAlreadyAttackedByAttackerThisTurn,
             float distance)
         {
-            ComputeAttackModifier(__instance, defender, attackMode, attackModifier, isWithin5Feet, isAllyWithin5Feet,
+            ComputeAttackModifier(__instance, defender, attackMode, attackModifier, isWithin5Feet,
                 rangedAttack, defenderSustainedAttacks, defenderAlreadyAttackedByAttackerThisTurn, distance);
 
             return false;
@@ -109,30 +109,30 @@ public static class RulesetCharacterPatcher
             RulesetAttackMode attackMode,
             ActionModifier attackModifier,
             bool isWithin5Feet,
-            bool isAllyWithin5Feet,
+            // bool isAllyWithin5Feet,
             bool rangedAttack,
             int defenderSustainedAttacks,
             bool defenderAlreadyAttackedByAttackerThisTurn,
             float distance)
         {
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            
+
             __instance.EnumerateFeaturesToBrowse<ICombatAffinityProvider>(
                 __instance.FeaturesToBrowse, __instance.FeaturesOrigin);
-            
+
             foreach (var featureDefinition in __instance.FeaturesToBrowse)
             {
                 var affinityProvider = featureDefinition as ICombatAffinityProvider;
-                
+
                 var contextParams = new RulesetImplementationDefinitions.SituationalContextParams(
                     affinityProvider!.SituationalContext,
-                    __instance, 
+                    __instance,
                     defender,
-                    implementationService.FindSourceIdOfFeature(__instance, featureDefinition), 
+                    implementationService.FindSourceIdOfFeature(__instance, featureDefinition),
                     affinityProvider.RequiredCondition,
                     attackModifier.Proximity == AttackProximity.Range,
                     null);
-                
+
                 if (implementationService.IsSituationalContextValid(contextParams))
                 {
                     affinityProvider.ComputeAttackModifier(__instance, defender, attackMode, attackModifier,
@@ -141,7 +141,7 @@ public static class RulesetCharacterPatcher
             }
 
             __instance.GetAllConditions(__instance.AllConditionsForEnumeration);
-            
+
             foreach (var rulesetCondition in __instance.AllConditionsForEnumeration)
             {
                 if (!rulesetCondition.ConditionDefinition.UsesBardicInspirationDie())
@@ -161,11 +161,11 @@ public static class RulesetCharacterPatcher
 
             defender.EnumerateFeaturesToBrowse<ICombatAffinityProvider>(
                 __instance.FeaturesToBrowse, __instance.FeaturesOrigin);
-            
+
             foreach (var featureDefinition in __instance.FeaturesToBrowse)
             {
                 var affinityProvider = featureDefinition as ICombatAffinityProvider;
-                
+
                 // BEGIN PATCH: replace rangedAttack with !isWithin5Feet
                 if (!((affinityProvider!.SituationalContext == SituationalContext.AttackerAwayFromTarget) &
                       !isWithin5Feet) &&
@@ -178,7 +178,7 @@ public static class RulesetCharacterPatcher
                     affinityProvider.SituationalContext, __instance, defender,
                     implementationService.FindSourceIdOfFeature(__instance, featureDefinition),
                     affinityProvider.RequiredCondition, rangedAttack, null);
-                
+
                 if (implementationService.IsSituationalContextValid(contextParams) ||
                     (affinityProvider.SituationalContext == SituationalContext.AttackerNextToTarget) &
                     isWithin5Feet)
@@ -189,7 +189,8 @@ public static class RulesetCharacterPatcher
                 }
             }
 
-            var flag = attackModifier.AttacktoHitTrends.Any(attackToHitTrend => attackToHitTrend.sourceType == FeatureSourceType.Difficulty);
+            var flag = attackModifier.AttacktoHitTrends.Any(attackToHitTrend =>
+                attackToHitTrend.sourceType == FeatureSourceType.Difficulty);
 
             if (flag)
             {
@@ -197,19 +198,20 @@ public static class RulesetCharacterPatcher
             }
 
             var gameSettingsService = ServiceRepository.GetService<IGameSettingsService>();
-            
-            if (gameSettingsService != null && 
+
+            if (gameSettingsService != null &&
                 gameSettingsService.AttackRollAllyModifier != 0 &&
                 __instance.Side == Side.Ally)
             {
                 attackModifier.AttackRollModifier += gameSettingsService.AttackRollAllyModifier;
                 attackModifier.AttacktoHitTrends.Add(
-                    new TrendInfo(gameSettingsService.AttackRollAllyModifier, FeatureSourceType.Difficulty, string.Empty, null));
+                    new TrendInfo(gameSettingsService.AttackRollAllyModifier, FeatureSourceType.Difficulty,
+                        string.Empty, null));
             }
             else
             {
-                if (gameSettingsService == null || 
-                    gameSettingsService.AttackRollEnemyModifier == 0 || 
+                if (gameSettingsService == null ||
+                    gameSettingsService.AttackRollEnemyModifier == 0 ||
                     __instance.Side != Side.Enemy)
                 {
                     return;
@@ -217,7 +219,8 @@ public static class RulesetCharacterPatcher
 
                 attackModifier.AttackRollModifier += gameSettingsService.AttackRollEnemyModifier;
                 attackModifier.AttacktoHitTrends.Add(
-                    new TrendInfo(gameSettingsService.AttackRollEnemyModifier, FeatureSourceType.Difficulty, string.Empty, null));
+                    new TrendInfo(gameSettingsService.AttackRollEnemyModifier, FeatureSourceType.Difficulty,
+                        string.Empty, null));
             }
         }
     }
