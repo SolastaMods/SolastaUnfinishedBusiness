@@ -169,6 +169,7 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                     !functorParameters.AbilityCheck.Silent);
 
                 //BEGIN PATCH
+                var actionService = ServiceRepository.GetService<IGameLocationActionService>();
                 var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
                     as GameLocationBattleManager;
 
@@ -197,7 +198,7 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                                     IntParameter2 = (int)RuleDefinitions.BardicInspirationUsageType.AbilityCheck
                                 };
 
-                            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
                             var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
 
                             actionService.ReactToUseBardicInspiration(reactionParams);
@@ -231,6 +232,16 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                              .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                              .ToList())
                 {
+                    var hasUnit =
+                        actionService.PendingReactionRequestGroups.Count > 0 &&
+                        actionService.PendingReactionRequestGroups.Peek().Requests
+                            .Any(x => x.Character == unit);
+
+                    if (hasUnit)
+                    {
+                        continue;
+                    }
+
                     foreach (var feature in unit.RulesetCharacter
                                  .GetSubFeaturesByType<ITryAlterOutcomeAttributeCheck>())
                     {
