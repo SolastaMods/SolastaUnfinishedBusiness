@@ -406,20 +406,37 @@ public sealed class InnovationVitriolist : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var atLeastOneSpellSlotAvailable = false;
             var spellRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
-            var slotLevel = spellRepertoire!.GetLowestAvailableSlotLevel();
+
+            for (var spellLevel = 1; spellLevel <= spellRepertoire!.MaxSpellLevelOfSpellCastingLevel; spellLevel++)
+            {
+                spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out var dummy);
+
+                if (remaining <= 0)
+                {
+                    continue;
+                }
+
+                atLeastOneSpellSlotAvailable = true;
+
+                break;
+            }
+
+            if (!atLeastOneSpellSlotAvailable)
+            {
+                yield break;
+            }
+
             var reactionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendSpellSlot)
             {
-                IntParameter = slotLevel, StringParameter = "RefundMixture", SpellRepertoire = spellRepertoire
+                ActionModifiers = { new ActionModifier() }
             };
-            var count = actionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToSpendSpellSlot(reactionParams);
-
-            yield return battleManager.WaitForReactions(actingCharacter, actionService, count);
+            yield return battleManager.PrepareAndReactWithSpellUsingSpellSlot(
+                actingCharacter, spellRepertoire, "RefundMixture", reactionParams);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -430,7 +447,6 @@ public sealed class InnovationVitriolist : AbstractSubclass
             var usablePower = PowerProvider.Get(powerMixture, rulesetCharacter);
 
             rulesetCharacter.UpdateUsageForPowerPool(-slotUsed, usablePower);
-            spellRepertoire.SpendSpellSlot(slotUsed);
         }
     }
 

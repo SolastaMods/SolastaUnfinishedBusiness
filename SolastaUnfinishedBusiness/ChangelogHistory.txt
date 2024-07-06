@@ -2,14 +2,17 @@
 
 - added Circle of the Wildfire, and Vitriolic Sphere spell
 - changed Cunning Escape, and Exploiter feats min. required level to 4
+- changed Innovation Vitriolist level 13 auto prepared spells
 - changed Psionic Blast spell to differentiate it from Synaptic Static
 - changed Rogue Devil Strike knock out and obscure cost to 5 and 2
 - changed Roguish Duelist making it more useful before higher levels
 - fixed Absorb Elements crashing after slot selection
-- fixed attribute checks interaction with reactions
+- fixed attribute checks crashing on moving heroes
 - fixed Circle of the Stars chalice triggering logic
-- fixed Focused Metamagic crashing with certain spells
-- fixed Innovation Artillerist force ballista range
+- fixed Eldritch Versatilities crashing on gadgets hit
+- fixed Focused Metamagic crashing with spells forcing self condition
+- fixed Innovation Artillerist force ballista range to 120 ft
+- fixed Innovation Vitriolist refund mixture slots consuming logic
 - fixed melee attack cantrips damage dice progression
 - fixed proficiencies panel invocations display
 - fixed Rescue the Dying spell triggering logic
