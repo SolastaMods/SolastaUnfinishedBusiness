@@ -1032,6 +1032,12 @@ internal static class EldritchVersatilityBuilders
 
             var helperCharacter = helper.RulesetCharacter;
             var defenderCharacter = defender.RulesetCharacter;
+
+            if (defenderCharacter == null)
+            {
+                yield break;
+            }
+
             var alreadyBlocked = EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
                 defenderCharacter, out var eldritchAegisSupportCondition);
 
@@ -1049,7 +1055,7 @@ internal static class EldritchVersatilityBuilders
                 yield break;
             }
 
-            var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+            var armorClass = defenderCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
             var attackRoll = action.AttackRoll;
             var totalAttack =
                 attackRoll
