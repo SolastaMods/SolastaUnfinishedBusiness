@@ -1165,6 +1165,7 @@ internal static partial class CharacterContext
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetConditionType(ConditionType.Detrimental)
         .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
+        .SetSpecialInterruptions(ConditionInterruption.Attacks)
         .AddToDB();
 
     private static FeatureDefinitionFeatureSet _featureSetRogueCunningStrike;

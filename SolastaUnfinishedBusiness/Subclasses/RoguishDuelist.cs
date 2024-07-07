@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -48,11 +47,8 @@ public sealed class RoguishDuelist : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionDaringDuel)
+            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
             .AddToDB();
-
-        additionalDamageDaringDuel.AddCustomSubFeatures(
-            ModifyAdditionalDamageClassLevelRogue.Instance,
-            new ClassFeats.ModifyAdditionalDamageCloseQuarters(additionalDamageDaringDuel));
 
         // Riposte
 
@@ -275,43 +271,39 @@ public sealed class RoguishDuelist : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var roll = rulesetAttacker.RollDie(DieType.D6, RollContext.None, false, AdvantageType.None, out var firstRoll, out var secondRoll);
-            
+            var roll = rulesetAttacker.RollDie(
+                DieType.D6, RollContext.None, false, AdvantageType.None, out var firstRoll, out var secondRoll);
+
             rulesetAttacker.ShowDieRoll(
                 DieType.D6, firstRoll, secondRoll, advantage: AdvantageType.None,
                 title: conditionSureFooted.GuiPresentation.Title);
 
             var hasBravado = rulesetAttacker.TryGetConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect, conditionSureFooted.Name, out var activeCondition);
-            
+
             if (hasBravado &&
                 roll <= activeCondition.Amount)
-            {
-                yield break;
-            }
-
-            if (hasBravado)
             {
                 rulesetAttacker.LogCharacterActivatesAbility(
                     Gui.NoLocalization, "Feedback/&RoguishDuelistBravadoReroll", true,
                     extra:
                     [
                         (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D6)),
-                        (ConsoleStyleDuplet.ParameterType.Positive, roll.ToString())
+                        (ConsoleStyleDuplet.ParameterType.Negative, roll.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Positive, activeCondition.Amount.ToString())
                     ]);
-            }
-            else
-            {
-                rulesetAttacker.LogCharacterActivatesAbility(
-                    Gui.NoLocalization, "Feedback/&RoguishDuelistBravado", true,
-                    extra:
-                    [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D6)),
-                        (ConsoleStyleDuplet.ParameterType.Positive, roll.ToString())
-                    ]);
+
+                yield break;
             }
 
-                
+            rulesetAttacker.LogCharacterActivatesAbility(
+                Gui.NoLocalization, "Feedback/&RoguishDuelistBravado", true,
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D6)),
+                    (ConsoleStyleDuplet.ParameterType.Positive, roll.ToString())
+                ]);
+
             rulesetAttacker.InflictCondition(
                 conditionSureFooted.Name,
                 DurationType.Round,

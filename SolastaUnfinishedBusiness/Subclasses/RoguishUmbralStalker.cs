@@ -50,11 +50,8 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBrightAndWithin5Ft)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
             .AddToDB();
-
-        additionalDamageDeadlyShadows.AddCustomSubFeatures(
-            ModifyAdditionalDamageClassLevelRogue.Instance,
-            new ClassFeats.ModifyAdditionalDamageCloseQuarters(additionalDamageDeadlyShadows));
 
         var featureSetDeadlyShadows = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}DeadlyShadows")
@@ -80,15 +77,13 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetImpactParticleReference(Power_HornOfBlasting)
             .AddToDB();
 
-        additionalDamageGloomBlade.AddCustomSubFeatures(
-            new ClassFeats.ModifyAdditionalDamageCloseQuarters(additionalDamageGloomBlade));
+        additionalDamageGloomBlade.AddCustomSubFeatures(new CustomBehaviorGloomBlade(additionalDamageGloomBlade));
 
         var conditionGloomBlade = ConditionDefinitionBuilder
             .Create($"Condition{Name}GloomBlade")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(dieRollModifierDieRollModifier, additionalDamageGloomBlade)
-            .AddCustomSubFeatures(new AllowRerollDiceOnAllDamageFormsGloomBlade())
             .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
 
@@ -260,10 +255,35 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // Gloom Blade
     //
 
-    private sealed class AllowRerollDiceOnAllDamageFormsGloomBlade : IAllowRerollDiceOnAllDamageForms;
+    private sealed class CustomBehaviorGloomBlade(
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage, IAllowRerollDiceOnAllDamageForms
+    {
+        public void ModifyAdditionalDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            List<EffectForm> actualEffectForms,
+            ref DamageForm damageForm)
+        {
+            if (featureDefinitionAdditionalDamage != additionalDamage)
+            {
+                return;
+            }
+
+            var rulesetHero = attacker.RulesetCharacter.GetOriginalHero();
+
+            if (rulesetHero == null)
+            {
+                return;
+            }
+
+            ClassFeats.HandleCloseQuarters(
+                attacker, rulesetHero, defender, ref damageForm, "Feedback/&ChangeGloombladeDieType");
+        }
+    }
 
     private sealed class PhysicalAttackBeforeHitConfirmedOnEnemyGloomBlade(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionGloomBlade) : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(

@@ -308,39 +308,12 @@ internal static class ClassFeats
         .SetValidators(HasSneakAttack)
         .AddToDB();
 
-    internal sealed class ModifyAdditionalDamageCloseQuarters(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
-    {
-        public void ModifyAdditionalDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            List<EffectForm> actualEffectForms,
-            ref DamageForm damageForm)
-        {
-            if (featureDefinitionAdditionalDamage != additionalDamage)
-            {
-                return;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter.GetOriginalHero();
-
-            if (rulesetAttacker == null)
-            {
-                return;
-            }
-
-            HandleCloseQuarters(attacker, rulesetAttacker, defender, ref damageForm);
-        }
-    }
-
     internal static void HandleCloseQuarters(
         GameLocationCharacter attacker,
         RulesetCharacterHero rulesetAttacker,
         GameLocationCharacter defender,
-        ref DamageForm damageForm)
+        ref DamageForm damageForm,
+        string text = "Feedback/&ChangeSneakDiceDieType")
     {
         if (!attacker.IsWithinRange(defender, 1) ||
             (!rulesetAttacker.TrainedFeats.Contains(CloseQuartersDex) &&
@@ -353,7 +326,7 @@ internal static class ClassFeats
         var description = Gui.Format("Feature/&FeatureCloseQuartersDescription");
 
         rulesetAttacker.LogCharacterActivatesAbility(
-            title, "Feedback/&ChangeSneakDiceDieType",
+            title, text,
             tooltipContent: description, indent: true,
             extra:
             [
@@ -456,22 +429,23 @@ internal static class ClassFeats
                 yield break;
             }
 
-            foreach (var defender in targets.Where(helper.CanPerceiveTarget))
+            foreach (var defender in targets)
             {
-                var (retaliationMode, retaliationModifier) = helper.GetFirstMeleeModeThatCanAttack(defender);
+                var (opportunityAttackMode, actionModifier) =
+                    helper.GetFirstMeleeModeThatCanAttack(defender, battleManager);
 
-                if (retaliationMode == null)
+                if (opportunityAttackMode == null || actionModifier == null)
                 {
-                    continue;
+                    yield break;
                 }
 
-                retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+                opportunityAttackMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
                 var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.AttackOpportunity)
                 {
-                    StringParameter = attacker.Name,
-                    ActionModifiers = { retaliationModifier },
-                    AttackMode = retaliationMode,
+                    StringParameter = helper.Name,
+                    ActionModifiers = { actionModifier },
+                    AttackMode = opportunityAttackMode,
                     TargetCharacters = { defender }
                 };
                 var reactionRequest = new ReactionRequestReactionAttack("Exploiter", actionParams);
@@ -480,11 +454,6 @@ internal static class ClassFeats
                 actionManager.AddInterruptRequest(reactionRequest);
 
                 yield return battleManager.WaitForReactions(attacker, actionManager, count);
-
-                if (actionParams.ReactionValidated)
-                {
-                    yield break;
-                }
             }
         }
     }
