@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -914,10 +915,10 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var implementationManager =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            var rulesetAlly = ally.RulesetCharacter;
 
             if (downedCreature.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster ||
+                rulesetAlly.GetRemainingPowerUses(PowerCauterizingFlames) == 0 ||
                 (rulesetCharacterMonster.MonsterDefinition.SizeDefinition != CharacterSizeDefinitions.Small &&
                  rulesetCharacterMonster.MonsterDefinition.SizeDefinition != CharacterSizeDefinitions.Medium))
             {
@@ -932,7 +933,9 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                 yield break;
             }
 
-            var rulesetAlly = ally.RulesetCharacter;
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var usablePower = PowerProvider.Get(powerSummonCauterizingFlames, rulesetAlly);
             var actionParams = new CharacterActionParams(ally, Id.PowerNoCost)
             {
