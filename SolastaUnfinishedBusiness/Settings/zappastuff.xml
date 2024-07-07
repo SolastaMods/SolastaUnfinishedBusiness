@@ -2,7 +2,7 @@
 <Settings>
     <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
-    <SelectedTab>1</SelectedTab>
+    <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
     <DisplaySubracesToggle>false</DisplaySubracesToggle>
     <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
@@ -878,6 +878,7 @@
                     <string>CircleOfTheForestGuardian</string>
                     <string>CircleOfTheLife</string>
                     <string>CircleOfTheNight</string>
+                    <string>CircleOfTheWildfire</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -1352,6 +1353,7 @@
             <value>
                 <ArrayOfString>
                     <string>AirBlast</string>
+                    <string>EmpoweredKnowledge</string>
                     <string>TollTheDead</string>
                     <string>BurstOfRadiance</string>
                     <string>Wrack</string>
@@ -1364,7 +1366,6 @@
                     <string>AuraOfVitality</string>
                     <string>AuraOfPerseverance</string>
                     <string>Dawn</string>
-                    <string>EmpoweredKnowledge</string>
                     <string>ShelterFromEnergy</string>
                     <string>RescueTheDying</string>
                     <string>SoulExpulsion</string>
@@ -1439,6 +1440,7 @@
                     <string>BrainBulwark</string>
                     <string>ElementalBane</string>
                     <string>FaithfulHound</string>
+                    <string>EmpoweredKnowledge</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -1540,8 +1542,10 @@
                     <string>BrainBulwark</string>
                     <string>PsionicBlast</string>
                     <string>PsychicLance</string>
+                    <string>VitriolicSphere</string>
                     <string>FarStep</string>
                     <string>Incineration</string>
+                    <string>EmpoweredKnowledge</string>
                     <string>SonicBoom</string>
                     <string>SynapticStatic</string>
                     <string>Telekinesis</string>
@@ -1567,6 +1571,7 @@
             </key>
             <value>
                 <ArrayOfString>
+                    <string>EmpoweredKnowledge</string>
                     <string>BladeWard</string>
                     <string>BoomingBlade</string>
                     <string>ResonatingStrike</string>
@@ -1598,7 +1603,6 @@
                     <string>PsionicBlast</string>
                     <string>PsychicLance</string>
                     <string>FarStep</string>
-                    <string>EmpoweredKnowledge</string>
                     <string>SynapticStatic</string>
                     <string>FlashFreeze</string>
                     <string>Scatter</string>
@@ -1679,6 +1683,7 @@
                     <string>FaithfulHound</string>
                     <string>PsionicBlast</string>
                     <string>PsychicLance</string>
+                    <string>VitriolicSphere</string>
                     <string>Dawn</string>
                     <string>FarStep</string>
                     <string>Incineration</string>

@@ -8,7 +8,7 @@ Your enchantment magic causes this arrow to temporarily beguile its target. The 
 
 # 3. - Bursting Arrow [UB]
 
-You imbue your arrow with force energy drawn from the school of evocation. The energy detonates after your attack. Immediately after the arrow hits the creature, the target and all other enemy creatures within 15 feet of it take extra 2d6 force damage. This damage increases to 3d6 at 11th level, and 4d6 at 17th level.
+You imbue your arrow with force energy drawn from the school of evocation. The energy detonates after your attack. Immediately after the arrow hits the creature, the target and all other creatures within 15 feet of it take extra 2d6 force damage. This damage increases to 3d6 at 11th level, and 4d6 at 17th level.
 
 # 4. - Enfeebling Arrow [UB]
 

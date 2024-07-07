@@ -92,7 +92,7 @@
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 5,
-            "diceNumber": 0
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
@@ -147,7 +147,7 @@
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 16,
-            "diceNumber": 3
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",

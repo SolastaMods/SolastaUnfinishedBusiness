@@ -196,6 +196,33 @@
         },
         "hasFilterId": false,
         "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionMartialArcaneArcherEnfeeblingArrow",
+          "conditionDefinition": "Definition:ConditionMartialArcaneArcherEnfeeblingArrow:325b81d1-96ef-5ff5-8b7b-d14c870d3acf",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
     "specialFormsDescription": "",
@@ -272,7 +299,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "20d5c243b97cd214689a24b6280bec2c",
+        "m_AssetGUID": "611366fbd864e644daa01e13e380c4b9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -436,7 +463,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&PowerMartialArcaneArcherEnfeeblingArrowTitle",
     "description": "Feature/&PowerMartialArcaneArcherEnfeeblingArrowDescription",
     "spriteReference": {

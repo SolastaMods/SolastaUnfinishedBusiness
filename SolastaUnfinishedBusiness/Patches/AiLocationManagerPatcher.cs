@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Subclasses;
 using TA.AI;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -12,6 +14,24 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class AiLocationManagerPatcher
 {
+    //PATCH: support for Circle of the Wildfire cauterizing flames
+    [HarmonyPatch(typeof(AiLocationManager), nameof(AiLocationManager.ProcessBattleTurn))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ProcessBattleTurn_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(IEnumerator values, AiLocationManager __instance)
+        {
+            yield return CircleOfTheWildfire.HandleCauterizingFlamesBehavior(__instance.battle.ActiveContender);
+
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(AiLocationManager), nameof(AiLocationManager.BuildActivitiesMaps))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

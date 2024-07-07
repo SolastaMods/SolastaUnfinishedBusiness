@@ -1,4 +1,5 @@
-﻿namespace SolastaUnfinishedBusiness.Behaviors;
+﻿#if false
+namespace SolastaUnfinishedBusiness.Behaviors;
 
 public sealed class AllowFreeWeaponSwitching
 {
@@ -8,3 +9,4 @@ public sealed class AllowFreeWeaponSwitching
 
     public static AllowFreeWeaponSwitching Mark { get; } = new();
 }
+#endif

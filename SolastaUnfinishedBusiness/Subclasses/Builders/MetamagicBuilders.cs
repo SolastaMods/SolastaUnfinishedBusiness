@@ -175,29 +175,34 @@ internal static class MetamagicBuilders
     }
 
     private sealed class ModifyEffectDescriptionMetamagicFocused(ConditionDefinition conditionFocused)
-        : IModifyEffectDescription
+        : IMagicEffectInitiatedByMe
     {
-        public bool IsValid(
-            BaseDefinition definition,
-            RulesetCharacter character,
-            EffectDescription effectDescription)
+        public IEnumerator OnMagicEffectInitiatedByMe(
+            CharacterActionMagicEffect action,
+            RulesetEffect rulesetEffect,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
         {
-            return true;
-        }
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            effectDescription.EffectForms.Add(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionFocused, ConditionForm.ConditionOperation.Add, true)
-                    .Build());
+            if (rulesetEffect.MetamagicOption.Name != MetamagicFocused)
+            {
+                yield break;
+            }
 
-            return effectDescription;
+            rulesetCharacter.InflictCondition(
+                conditionFocused.Name,
+                rulesetEffect.EffectDescription.DurationType,
+                rulesetEffect.EffectDescription.DurationParameter,
+                rulesetEffect.EffectDescription.EndOfEffect,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionFocused.Name,
+                0,
+                0,
+                0);
         }
     }
 

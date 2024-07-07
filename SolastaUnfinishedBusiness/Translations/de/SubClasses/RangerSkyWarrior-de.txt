@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Gelegenheitsangriffe gegen die Quelle sind nicht möglich.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Geschenk des Windes
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Erhalten Sie einen Bonus auf Ihre Initiativewürfe in Höhe Ihres Weisheitsmodifikators (mindestens 1).
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Schneller Schlag
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=Du erhältst Bonuszauber, die für dich als Ranger-Zauber gelten. Sie sind immer vorbereitet und zählen nicht zu der Anzahl der Ranger-Zauber, die du kennst:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Himmelskrieger-Bonuszauber
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Erhalten Sie Widerstand gegen Wuchtschaden.

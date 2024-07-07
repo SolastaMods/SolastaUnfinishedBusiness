@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 5,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerInvocationVexingHex:7f1c83a5-1539-5d8c-98ea-90c3c18c7fa7",
+  "grantedFeature": "Definition:FeatureSetInvocationVexingHex:580a9166-f58b-544f-b237-b52f6b4c8865",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,

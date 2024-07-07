@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -173,7 +174,7 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildRescueTheDying()
     {
         const string RescueTheDyingName = "RescueTheDying";
-        
+
         var condition = ConditionDefinitionBuilder
             .Create($"Condition{RescueTheDyingName}")
             .SetGuiPresentation(RescueTheDyingName, Category.Spell, ConditionDefinitions.ConditionMagicallyArmored)
@@ -288,15 +289,21 @@ internal static partial class SpellBuilders
                 _rescueTheDying, out var spellRepertoire);
 
             if (slotLevel < 7 ||
-                spellRepertoire == null)
+                spellRepertoire == null ||
+                helper.Side != defender.Side)
             {
                 yield break;
             }
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectSpell(rulesetHelper, spellRepertoire, SpellsContext.RescueTheDying, slotLevel, false);
             var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendSpellSlot)
             {
-                IntParameter = slotLevel, StringParameter = _rescueTheDying.Name, SpellRepertoire = spellRepertoire
+                IntParameter = slotLevel,
+                StringParameter = _rescueTheDying.Name,
+                SpellRepertoire = spellRepertoire,
+                RulesetEffect = effectSpell
             };
             var count = actionService.PendingReactionRequestGroups.Count;
 

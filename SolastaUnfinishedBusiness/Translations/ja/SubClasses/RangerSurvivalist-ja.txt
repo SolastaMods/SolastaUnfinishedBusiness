@@ -14,7 +14,5 @@ Feature/&FeatureSetRangerSurvivalistBlessingWildernessDescription=あなたは�
 Feature/&FeatureSetRangerSurvivalistBlessingWildernessTitle=荒野の祝福
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=サバイバルスキルの熟練度を獲得します。
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=放浪の追放者
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=知恵のセービングスローの習熟度を高めます。
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=比類のない体験
 Subclass/&RangerSurvivalistDescription=文明の及ばないところに住むレンジャーは、獲物が逃げたり反撃したりできない狩猟が最も成功することを理解しています。サバイバリストは、潜在的なターゲットのあらゆる弱点を分析し、正確な攻撃で防御を粉砕しながら、敵を妨害するよう自然界に呼びかけることができます。
 Subclass/&RangerSurvivalistTitle=サバイバリスト

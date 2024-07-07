@@ -41,8 +41,8 @@ internal static class ValidatorsFeat
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDruidLevel4 =
         ValidateIsClass(Druid.FormatTitle(), 4, Druid);
 
-    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
-        IsFighterLevel4 = ValidateIsClass(Fighter.FormatTitle(), 4, Fighter);
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsFighterLevel4 =
+        ValidateIsClass(Fighter.FormatTitle(), 4, Fighter);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsInventorLevel4 =
         ValidateIsClass(InventorClass.Class.FormatTitle(), 4, InventorClass.Class);
@@ -59,11 +59,8 @@ internal static class ValidatorsFeat
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRangerLevel4 =
         ValidateIsClass(Ranger.FormatTitle(), 4, Ranger);
 
-    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel3 =
-        ValidateIsClass(Rogue.FormatTitle(), 3, Rogue);
-
-    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel5 =
-        ValidateIsClass(Rogue.FormatTitle(), 5, Rogue);
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel4 =
+        ValidateIsClass(Rogue.FormatTitle(), 4, Rogue);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSorcererLevel4 =
         ValidateIsClass(Sorcerer.FormatTitle(), 4, Sorcerer);

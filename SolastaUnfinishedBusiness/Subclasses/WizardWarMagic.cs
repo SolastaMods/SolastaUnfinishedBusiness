@@ -61,6 +61,10 @@ public sealed class WizardWarMagic : AbstractSubclass
             .Create($"Condition{Name}SurgeMark")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(
+                ConditionInterruption.Attacks,
+                ConditionInterruption.CastSpellExecuted,
+                ConditionInterruption.UsePowerExecuted)
             .AddToDB();
 
         var powerSurge = FeatureDefinitionPowerBuilder
@@ -78,15 +82,15 @@ public sealed class WizardWarMagic : AbstractSubclass
             .SetActivatedPower(powerSurge)
             .AddToDB();
 
+        powerSurge.AddCustomSubFeatures(new CustomBehaviorPowerSurge(powerSurge, conditionSurgeMark));
+
         var actionAffinityPowerSurgeToggle = FeatureDefinitionActionAffinityBuilder
             .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
                 "ActionAffinityPowerSurgeToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.PowerSurgeToggle)
             .AddCustomSubFeatures(
-                new CustomBehaviorPowerSurge(powerSurge, conditionSurgeMark),
-                new ValidateDefinitionApplication(
-                    ValidatorsCharacter.HasAvailablePowerUsage(powerSurge)))
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerSurge)))
             .AddToDB();
 
         var featureSetPowerSurge = FeatureDefinitionFeatureSetBuilder
@@ -376,12 +380,12 @@ public sealed class WizardWarMagic : AbstractSubclass
             {
                 if (firstTarget)
                 {
-                    defender.RulesetActor.DamageReceived += DamageReceived;
+                    HandlePowerSurge(attacker, actualEffectForms);
                 }
             }
             else
             {
-                defender.RulesetActor.DamageReceived += DamageReceived;
+                HandlePowerSurge(attacker, actualEffectForms);
             }
 
             yield break;
@@ -392,24 +396,8 @@ public sealed class WizardWarMagic : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            var targetsThatTookDamage = new List<GameLocationCharacter>();
-
-            foreach (var target in targets)
-            {
-                var rulesetTarget = target.RulesetActor;
-
-                if (!rulesetTarget.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, conditionSurgeMark.Name, out var activeCondition))
-                {
-                    continue;
-                }
-
-                rulesetTarget.RemoveCondition(activeCondition);
-                rulesetTarget.DamageReceived -= DamageReceived;
-                targetsThatTookDamage.Add(target);
-            }
-
-            if (action is not CharacterActionCastSpell actionCastSpell)
+            if (action is not CharacterActionCastSpell actionCastSpell ||
+                actionCastSpell.ActiveSpell.SpellDefinition != SpellDefinitions.Counterspell)
             {
                 yield break;
             }
@@ -417,85 +405,63 @@ public sealed class WizardWarMagic : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSurge, rulesetAttacker);
 
-            if (actionCastSpell.ActiveSpell.SpellDefinition == SpellDefinitions.Counterspell)
-            {
-                usablePower.RepayUse();
-            }
-
-            if (targetsThatTookDamage.Count == 0 ||
-                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PowerSurgeToggle) ||
-                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
-            {
-                yield break;
-            }
-
-            if (!attacker.OncePerTurnIsValid(powerSurge.Name))
-            {
-                yield break;
-            }
-
-            attacker.UsedSpecialFeatures.TryAdd(powerSurge.Name, 0);
-            rulesetAttacker.UsePower(usablePower);
-
-            var bonusDamage = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Wizard);
-
-            foreach (var target in targetsThatTookDamage)
-            {
-                var rulesetTarget = target.RulesetActor;
-
-                if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
-                {
-                    continue;
-                }
-
-                var damageForm = new DamageForm
-                {
-                    DamageType = DamageTypeForce, DieType = DieType.D1, DiceNumber = 0, BonusDamage = bonusDamage
-                };
-                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                {
-                    sourceCharacter = rulesetAttacker,
-                    targetCharacter = rulesetTarget,
-                    position = target.LocationPosition
-                };
-
-                EffectHelpers.StartVisualEffect(attacker, target, SpellDefinitions.EldritchBlast);
-                RulesetActor.InflictDamage(
-                    bonusDamage,
-                    damageForm,
-                    DamageTypeForce,
-                    applyFormsParams,
-                    rulesetTarget,
-                    false,
-                    rulesetAttacker.Guid,
-                    false,
-                    [],
-                    new RollInfo(DieType.D1, [], bonusDamage),
-                    false,
-                    out _);
-            }
+            usablePower.RepayUse();
         }
 
-        private void DamageReceived(RulesetActor target, int damage, string type, ulong guid, RollInfo info)
+        private void HandlePowerSurge(GameLocationCharacter attacker, List<EffectForm> actualEffectForms)
         {
-            var source = EffectHelpers.GetCharacterByGuid(guid);
+            var damageForm =
+                actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
 
-            if (source != null)
+            if (damageForm == null)
             {
-                target.InflictCondition(
+                return;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var alreadyTriggered = rulesetAttacker.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionSurgeMark.Name);
+            var shouldTrigger =
+                attacker.OncePerTurnIsValid(powerSurge.Name) &&
+                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PowerSurgeToggle) &&
+                rulesetAttacker.GetRemainingPowerUses(powerSurge) > 0;
+
+            if (shouldTrigger && !alreadyTriggered)
+            {
+                var usablePower = PowerProvider.Get(powerSurge, rulesetAttacker);
+
+                attacker.UsedSpecialFeatures.TryAdd(powerSurge.Name, 0);
+                rulesetAttacker.UsePower(usablePower);
+                rulesetAttacker.InflictCondition(
                     conditionSurgeMark.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfSourceTurn,
                     AttributeDefinitions.TagEffect,
-                    source.guid,
-                    source.CurrentFaction.Name,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
                     1,
                     conditionSurgeMark.Name,
                     0,
                     0,
                     0);
             }
+
+            switch (alreadyTriggered)
+            {
+                case false when !shouldTrigger:
+                    return;
+                case true:
+                    rulesetAttacker.LogCharacterUsedPower(powerSurge);
+                    break;
+            }
+
+            var index = actualEffectForms.IndexOf(damageForm);
+            var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Wizard);
+            var effectForm =
+                EffectFormBuilder.DamageForm(DamageTypeForce, 0, DieType.D1, classLevel);
+
+            actualEffectForms.Insert(index + 1, effectForm);
         }
     }
 

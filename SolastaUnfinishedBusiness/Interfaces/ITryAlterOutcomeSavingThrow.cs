@@ -31,12 +31,12 @@ internal static class TryAlterOutcomeSavingThrow
     {
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var contenders =
-            (Gui.Battle?.AllContenders ??
-             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-            .ToList();
+            Gui.Battle?.AllContenders ??
+            locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
 
         foreach (var unit in contenders
-                     .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
+                     .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                     .ToList())
         {
             foreach (var feature in unit.RulesetCharacter
                          .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())

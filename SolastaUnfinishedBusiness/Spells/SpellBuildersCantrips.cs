@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -666,11 +665,11 @@ internal static partial class SpellBuilders
                     .SetNotificationTag("SunlightBlade")
                     .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                     .SetAttackModeOnly()
-                    .SetDamageDice(DieType.D8, 1)
+                    .SetDamageDice(DieType.D8, 0)
                     .SetSpecificDamageType(DamageTypeRadiant)
                     .SetAdvancement(
                         ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 2), (11, 3), (17, 4)))
+                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
                     .AddConditionOperation(
                         ConditionOperationDescription.ConditionOperation.Add,
@@ -910,6 +909,23 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildBoomingBlade()
     {
+        var powerBoomingBladeDamage = FeatureDefinitionPowerBuilder
+            .Create("PowerBoomingBladeDamage")
+            .SetGuiPresentation("BoomingBlade", Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeThunder, 0, DieType.D8))
+                    .SetImpactEffectParameters(Shatter)
+                    .Build())
+            .AddToDB();
+
+        powerBoomingBladeDamage.AddCustomSubFeatures(
+            new ModifyEffectDescriptionBoomingBladeDamage(powerBoomingBladeDamage));
+
         var conditionMarked = ConditionDefinitionBuilder
             .Create("ConditionBoomingBladeMarked")
             .SetGuiPresentationNoContent(true)
@@ -921,7 +937,7 @@ internal static partial class SpellBuilders
             .Create(ConditionShine, "ConditionBoomingBladeSheathed")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .AddCustomSubFeatures(new ActionFinishedByMeBoomingBladeSheathed())
+            .AddCustomSubFeatures(new ActionFinishedByMeBoomingBladeSheathed(powerBoomingBladeDamage))
             .AddToDB();
 
         var conditionBoomingBlade = ConditionDefinitionBuilder
@@ -935,11 +951,11 @@ internal static partial class SpellBuilders
                     .SetNotificationTag("BoomingBlade")
                     .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                     .SetAttackModeOnly()
-                    .SetDamageDice(DieType.D8, 1)
+                    .SetDamageDice(DieType.D8, 0)
                     .SetSpecificDamageType(DamageTypeThunder)
                     .SetAdvancement(
                         ExtraAdditionalDamageAdvancement.CharacterLevel,
-                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 2), (11, 3), (17, 4)))
+                        DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
                     .AddConditionOperation(
                         ConditionOperationDescription.ConditionOperation.Add, conditionBoomingBladeSheathed)
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
@@ -981,89 +997,88 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ActionFinishedByMeBoomingBladeSheathed : IActionFinishedByMe
+    private sealed class ActionFinishedByMeBoomingBladeSheathed(FeatureDefinitionPower powerBoomingBladeDamage)
+        : IActionFinishedByMe
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (characterAction.ActionId != ActionDefinitions.Id.TacticalMove)
+            if (action.ActionId != ActionDefinitions.Id.TacticalMove)
             {
                 yield break;
             }
 
-            HandleBoomingBladeSheathedDamage(characterAction.ActingCharacter);
+            var defender = action.ActingCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionBoomingBladeSheathed", out var activeCondition))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
+
+            if (attacker == null)
+            {
+                yield break;
+            }
+
+            rulesetDefender.RemoveCondition(activeCondition);
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerBoomingBladeDamage, rulesetAttacker);
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
-    private static void HandleBoomingBladeSheathedDamage(GameLocationCharacter defender)
+    private sealed class ModifyEffectDescriptionBoomingBladeDamage(
+        FeatureDefinitionPower powerResonatingStrikeDamage) : IModifyEffectDescription
     {
-        var rulesetDefender = defender.RulesetCharacter;
-
-        if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return;
+            return definition == powerResonatingStrikeDamage;
         }
 
-        var usableCondition =
-            rulesetDefender.AllConditions.FirstOrDefault(x =>
-                x.ConditionDefinition.Name == "ConditionBoomingBladeSheathed");
-
-        if (usableCondition == null)
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            return;
+            var diceNumber = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel) switch
+            {
+                >= 17 => 4,
+                >= 11 => 3,
+                >= 5 => 2,
+                _ => 1
+            };
+
+            var damageForm = effectDescription.EffectForms[0].DamageForm;
+
+            damageForm.DiceNumber = diceNumber;
+
+            return effectDescription;
         }
-
-        var rulesetAttacker = EffectHelpers.GetCharacterByGuid(usableCondition.SourceGuid);
-
-        if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
-        {
-            return;
-        }
-
-        var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
-
-        if (attacker == null)
-        {
-            return;
-        }
-
-        // deal damage
-        var characterLevel = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-        var diceNumber = characterLevel switch
-        {
-            >= 17 => 4,
-            >= 11 => 3,
-            >= 5 => 2,
-            _ => 1
-        };
-        var damageForm = new DamageForm
-        {
-            DamageType = DamageTypeThunder, DieType = DieType.D8, DiceNumber = diceNumber, BonusDamage = 0
-        };
-        var rolls = new List<int>();
-        var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-        var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-        {
-            sourceCharacter = rulesetAttacker,
-            targetCharacter = rulesetDefender,
-            position = defender.LocationPosition
-        };
-
-        EffectHelpers.StartVisualEffect(attacker, defender, Shatter);
-        RulesetActor.InflictDamage(
-            damageRoll,
-            damageForm,
-            damageForm.DamageType,
-            applyFormsParams,
-            rulesetDefender,
-            false,
-            rulesetAttacker.Guid,
-            false,
-            attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? [],
-            new RollInfo(damageForm.DieType, rolls, 0),
-            false,
-            out _);
-
-        rulesetDefender.RemoveCondition(usableCondition);
     }
 
     #endregion
@@ -1072,16 +1087,33 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildResonatingStrike()
     {
+        var powerResonatingStrike = FeatureDefinitionPowerBuilder
+            .Create("PowerResonatingStrike")
+            .SetGuiPresentation("ResonatingStrike", Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 0, DieType.D8))
+                    .SetImpactEffectParameters(BurningHands_B)
+                    .Build())
+            .AddToDB();
+
+        powerResonatingStrike.AddCustomSubFeatures(
+            new ModifyEffectDescriptionResonatingStrikeDamage(powerResonatingStrike));
+
         var additionalDamageResonatingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageResonatingStrike")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("ResonatingStrike")
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-            .SetDamageDice(DieType.D8, 1)
+            .SetDamageDice(DieType.D8, 0)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(
                 ExtraAdditionalDamageAdvancement.CharacterLevel,
-                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 2), (11, 3), (17, 4)))
+                DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
             .SetImpactParticleReference(BurningHands_B)
             .SetAttackModeOnly()
             .AddToDB();
@@ -1094,7 +1126,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         additionalDamageResonatingStrike.AddCustomSubFeatures(
-            new PhysicalAttackFinishedByMeResonatingStrike(conditionResonatingStrike));
+            new PhysicalAttackFinishedByMeResonatingStrike(powerResonatingStrike, conditionResonatingStrike));
 
         var spell = SpellDefinitionBuilder
             .Create("ResonatingStrike")
@@ -1135,8 +1167,8 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorResonatingStrike : IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
-        internal static GameLocationCharacter SecondTarget;
         internal static int SpellCastingModifier;
+        internal static GameLocationCharacter SecondTarget;
 
         public bool EnforceFullSelection => false;
 
@@ -1193,8 +1225,39 @@ internal static partial class SpellBuilders
         }
     }
 
+    private sealed class ModifyEffectDescriptionResonatingStrikeDamage(
+        FeatureDefinitionPower powerResonatingStrikeDamage) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerResonatingStrikeDamage;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var diceNumber = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel) switch
+            {
+                >= 17 => 3,
+                >= 11 => 2,
+                >= 5 => 1,
+                _ => 0
+            };
+
+            var damageForm = effectDescription.EffectForms[0].DamageForm;
+
+            damageForm.DiceNumber = diceNumber;
+            damageForm.BonusDamage = CustomBehaviorResonatingStrike.SpellCastingModifier;
+
+            return effectDescription;
+        }
+    }
+
     private sealed class PhysicalAttackFinishedByMeResonatingStrike(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerResonatingStrikeDamage,
         ConditionDefinition conditionResonatingStrike) : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -1206,63 +1269,37 @@ internal static partial class SpellBuilders
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            var rulesetCharacter = attacker.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionResonatingStrike.Name,
-                    out var activeCondition))
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionResonatingStrike.Name, out var activeCondition))
             {
-                rulesetCharacter.RemoveCondition(activeCondition);
+                rulesetAttacker.RemoveCondition(activeCondition);
             }
 
             var secondDefender = CustomBehaviorResonatingStrike.SecondTarget;
 
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess)
-                || CustomBehaviorResonatingStrike.SecondTarget is null)
+            if (secondDefender == null ||
+                rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
 
-            var rolls = new List<int>();
-            var diceNumber = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel) switch
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerResonatingStrikeDamage, rulesetAttacker);
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
-                >= 17 => 3,
-                >= 11 => 2,
-                >= 5 => 1,
-                _ => 0
-            };
-            var damageForm = new DamageForm
-            {
-                DamageType = DamageTypeFire,
-                DieType = DieType.D8,
-                DiceNumber = diceNumber,
-                BonusDamage = CustomBehaviorResonatingStrike.SpellCastingModifier
-            };
-            var damageRoll = rulesetCharacter.RollDamage(damageForm, 0, rollOutcome == RollOutcome.CriticalSuccess, 0,
-                0, 1, false, false, false, rolls);
-            var rulesetDefender = secondDefender.RulesetActor;
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetCharacter,
-                targetCharacter = rulesetDefender,
-                position = secondDefender.LocationPosition
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { secondDefender }
             };
 
-            EffectHelpers.StartVisualEffect(attacker, secondDefender, BurningHands_B);
-            RulesetActor.InflictDamage(
-                damageRoll,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetDefender,
-                false,
-                rulesetCharacter.Guid,
-                false,
-                attackMode.AttackTags,
-                new RollInfo(damageForm.DieType, rolls, damageForm.BonusDamage),
-                false,
-                out _);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 

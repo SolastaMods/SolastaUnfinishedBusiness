@@ -31,15 +31,26 @@ internal static class TryAlterOutcomeAttributeCheck
         GameLocationCharacter defender,
         ActionModifier abilityCheckModifier)
     {
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var contenders =
-            (Gui.Battle?.AllContenders ??
-             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-            .ToList();
+            Gui.Battle?.AllContenders ??
+            locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
 
         foreach (var unit in contenders
-                     .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
+                     .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                     .ToList())
         {
+            var hasUnit =
+                actionService.PendingReactionRequestGroups.Count > 0 &&
+                actionService.PendingReactionRequestGroups.Peek().Requests
+                    .Any(x => x.Character == unit);
+
+            if (hasUnit)
+            {
+                continue;
+            }
+
             foreach (var feature in unit.RulesetCharacter
                          .GetSubFeaturesByType<ITryAlterOutcomeAttributeCheck>())
             {

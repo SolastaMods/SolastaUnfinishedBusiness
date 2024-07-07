@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Не может совершать атаки по возможности против источника.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Дар ветра
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Получите бонус к вашим броскам инициативы, равный вашему модификатору Мудрости (минимум 1).
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Стремительный удар
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=Вы получаете бонусные заклинания, считающиеся для вас заклинаниями Следопыта и не учитывающиеся при определении количества заклинаний, которые вы знаете:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Бонусные заклинания Небесного воина
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Вы получаете сопротивление дробящему урону.

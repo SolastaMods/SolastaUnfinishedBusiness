@@ -93,7 +93,9 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                     .Build())
             .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.HasBonusAttackAvailable,
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionFlurryOfBlows)),
+                new ValidatorsValidatePowerUse(
+                    c => GameLocationCharacter.GetFromActor(c)?.OncePerTurnIsValid("PowerTempestFury") == true,
+                    ValidatorsCharacter.HasAnyOfConditions(ConditionFlurryOfBlows)),
                 new PowerOrSpellFinishedByMeTempestFury())
             .AddToDB();
 
@@ -285,7 +287,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
     // Tempest Fury
     //
 
-    private sealed class PowerOrSpellFinishedByMeTempestFury : IPowerOrSpellFinishedByMe, IValidatePowerUse
+    private sealed class PowerOrSpellFinishedByMeTempestFury : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -330,13 +332,6 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
                 ServiceRepository.GetService<IGameLocationActionService>()?
                     .ExecuteAction(actionParams, null, true);
             }
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            var glc = GameLocationCharacter.GetFromActor(character);
-
-            return glc != null && glc.OncePerTurnIsValid("PowerTempestFury");
         }
     }
 

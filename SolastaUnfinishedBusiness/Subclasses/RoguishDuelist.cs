@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -46,35 +47,40 @@ public sealed class RoguishDuelist : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionDaringDuel)
+            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
             .AddToDB();
 
-        additionalDamageDaringDuel.AddCustomSubFeatures(
-            ModifyAdditionalDamageClassLevelRogue.Instance,
-            new ClassFeats.ModifyAdditionalDamageCloseQuarters(additionalDamageDaringDuel));
-
-        // Sure Footed
-
-        var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}{SureFooted}")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
-            .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
-            .AddToDB();
-
-        var featureSetSureFooted = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}{SureFooted}")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle, attributeModifierSureFooted)
-            .AddToDB();
-
-        // LEVEL 09
-
-        // Swirling Dance
+        // Riposte
 
         var actionAffinitySwirlingDance = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}SwirlingDance")
             .SetGuiPresentation(Category.Feature)
             .SetAuthorizedActions(ActionDefinitions.Id.SwirlingDance)
+            .AddToDB();
+
+        // LEVEL 09
+
+        // Bravado
+
+        var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}{SureFooted}")
+            .SetGuiPresentation($"FeatureSet{Name}{SureFooted}", Category.Feature)
+            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass, 1)
+            .AddToDB();
+
+        var conditionSureFooted = ConditionDefinitionBuilder
+            .Create($"Condition{Name}{SureFooted}")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
+            .SetPossessive()
+            .SetSilent(Silent.WhenAdded)
+            .SetFixedAmount(1)
+            .SetFeatures(attributeModifierSureFooted)
+            .AddToDB();
+
+        var featureSureFooted = FeatureDefinitionBuilder
+            .Create($"FeatureSet{Name}{SureFooted}")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(new CustomBehaviorSureFooted(conditionSureFooted))
             .AddToDB();
 
         // LEVEL 13
@@ -117,8 +123,8 @@ public sealed class RoguishDuelist : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishDuelist, 256))
-            .AddFeaturesAtLevel(3, additionalDamageDaringDuel, featureSetSureFooted)
-            .AddFeaturesAtLevel(9, actionAffinitySwirlingDance)
+            .AddFeaturesAtLevel(3, additionalDamageDaringDuel, actionAffinitySwirlingDance)
+            .AddFeaturesAtLevel(9, featureSureFooted)
             .AddFeaturesAtLevel(13, featureReflexiveParry)
             .AddFeaturesAtLevel(17, featureSetMasterDuelist)
             .AddToDB();
@@ -181,6 +187,8 @@ public sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
+            actionModifier.DefenderDamageMultiplier *= 0.5f;
+            rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParry);
             rulesetDefender.InflictCondition(
                 conditionReflexiveParty.Name,
                 DurationType.Round,
@@ -194,8 +202,6 @@ public sealed class RoguishDuelist : AbstractSubclass
                 0,
                 0,
                 0);
-            actionModifier.DefenderDamageMultiplier *= 0.5f;
-            rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParry);
         }
     }
 
@@ -240,6 +246,99 @@ public sealed class RoguishDuelist : AbstractSubclass
 
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    //
+    // Sure Footed
+    //
+
+    private sealed class CustomBehaviorSureFooted(ConditionDefinition conditionSureFooted)
+        : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (!attacker.UsedSpecialFeatures.ContainsKey("SureFooted"))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var roll = rulesetAttacker.RollDie(
+                DieType.D6, RollContext.None, false, AdvantageType.None, out var firstRoll, out var secondRoll);
+
+            rulesetAttacker.ShowDieRoll(
+                DieType.D6, firstRoll, secondRoll, advantage: AdvantageType.None,
+                title: conditionSureFooted.GuiPresentation.Title);
+
+            var hasBravado = rulesetAttacker.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionSureFooted.Name, out var activeCondition);
+
+            if (hasBravado &&
+                roll <= activeCondition.Amount)
+            {
+                rulesetAttacker.LogCharacterActivatesAbility(
+                    Gui.NoLocalization, "Feedback/&RoguishDuelistBravadoReroll", true,
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D6)),
+                        (ConsoleStyleDuplet.ParameterType.Negative, roll.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Positive, activeCondition.Amount.ToString())
+                    ]);
+
+                yield break;
+            }
+
+            rulesetAttacker.LogCharacterActivatesAbility(
+                Gui.NoLocalization, "Feedback/&RoguishDuelistBravado", true,
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D6)),
+                    (ConsoleStyleDuplet.ParameterType.Positive, roll.ToString())
+                ]);
+
+            rulesetAttacker.InflictCondition(
+                conditionSureFooted.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionSureFooted.Name,
+                roll,
+                0,
+                0);
+        }
+
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            var isSneakAttackValid = CharacterContext.IsSneakAttackValid(attackModifier, attacker, defender);
+
+            if (isSneakAttackValid)
+            {
+                attacker.UsedSpecialFeatures.TryAdd("SureFooted", 0);
+            }
+            else
+            {
+                attacker.UsedSpecialFeatures.Remove("SureFooted");
+            }
+
+            yield break;
         }
     }
 }

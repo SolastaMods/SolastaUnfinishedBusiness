@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿#if false
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 
@@ -80,3 +81,4 @@ public class ForceConcentrationCheck
         effect.DoTerminate(rulesetCharacter);
     }
 }
+#endif

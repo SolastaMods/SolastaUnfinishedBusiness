@@ -65,6 +65,10 @@ internal static class FixesContext
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
 
+        // fix Dazzled attribute modifier UI previously displaying Daaaaal on attribute modifier
+        AttributeModifierDazzled.GuiPresentation.title = "Feature/&AttributeModifierDazzledTitle";
+        AttributeModifierDazzled.GuiPresentation.description = "Feature/&AttributeModifierDazzledDescription";
+
         // avoid breaking mod if anyone changes settings file manually
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -617,9 +621,11 @@ internal static class FixesContext
     private static void FixAdditionalDamageRogueSneakAttack()
     {
         AdditionalDamageRogueSneakAttack.AddCustomSubFeatures(
-            new ModifyAdditionalDamageRogueSneakAttack(AdditionalDamageRogueSneakAttack));
-        AdditionalDamageRoguishHoodlumNonFinesseSneakAttack.AddCustomSubFeatures(
-            new ClassFeats.ModifyAdditionalDamageCloseQuarters(AdditionalDamageRoguishHoodlumNonFinesseSneakAttack));
+            new ModifyAdditionalDamageRogueSneakAttack(
+                "AdditionalDamageRogueSneakAttack",
+                "AdditionalDamageRoguishHoodlumNonFinesseSneakAttack",
+                "AdditionalDamageRoguishDuelistDaringDuel",
+                "AdditionalDamageRoguishUmbralStalkerDeadlyShadows"));
     }
 
     private static void FixCriticalThresholdModifiers()
@@ -635,7 +641,7 @@ internal static class FixesContext
         //Changes critical threshold of Sudden Death dagger to set
         modifier = AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3;
 
-        //v1.5.92 set it to ForceIfWorse 19 to fix stacking issues. in UB we fixed those original issues, so making it to SET to not break stacking
+        //v1.5.92 set it to ForceIfWorse 19 to fix stacking issues. in UB, we fixed those original issues, so making it to SET to not break stacking
         modifier.modifierOperation = AttributeModifierOperation.Set;
         modifier.modifierValue = 18;
     }
@@ -754,9 +760,8 @@ internal static class FixesContext
     // CONSOLIDATED SNEAK ATTACK DAMAGE FORM MODIFIER
     //
 
-    private sealed class ModifyAdditionalDamageRogueSneakAttack(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
+    private sealed class ModifyAdditionalDamageRogueSneakAttack(params string[] additionalDamages)
+        : IModifyAdditionalDamage
     {
         public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
@@ -766,7 +771,7 @@ internal static class FixesContext
             List<EffectForm> actualEffectForms,
             ref DamageForm damageForm)
         {
-            if (featureDefinitionAdditionalDamage != additionalDamage)
+            if (!additionalDamages.Contains(featureDefinitionAdditionalDamage.Name))
             {
                 return;
             }

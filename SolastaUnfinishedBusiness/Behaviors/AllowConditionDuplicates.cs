@@ -1,4 +1,5 @@
-﻿namespace SolastaUnfinishedBusiness.Behaviors;
+﻿#if false
+namespace SolastaUnfinishedBusiness.Behaviors;
 
 public class AllowConditionDuplicates
 {
@@ -8,3 +9,4 @@ public class AllowConditionDuplicates
 
     public static AllowConditionDuplicates Mark { get; } = new();
 }
+#endif

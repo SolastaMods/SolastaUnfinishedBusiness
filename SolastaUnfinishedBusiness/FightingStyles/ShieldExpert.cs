@@ -21,11 +21,6 @@ internal class ShieldExpert : AbstractFightingStyle
                 .Create("AddExtraAttackShieldExpert")
                 .SetGuiPresentationNoContent(true)
                 .AddCustomSubFeatures(new AddBonusShieldAttack())
-                .AddToDB(),
-            // kept for backward compatibility
-            FeatureDefinitionActionAffinityBuilder
-                .Create("ActionAffinityShieldExpertShove")
-                .SetGuiPresentationNoContent(true)
                 .AddToDB())
         .AddToDB();
 

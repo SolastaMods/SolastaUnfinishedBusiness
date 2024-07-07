@@ -196,6 +196,33 @@
         },
         "hasFilterId": false,
         "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionBlinded",
+          "conditionDefinition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
       }
     ],
     "specialFormsDescription": "",
@@ -272,7 +299,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b730c0933efd80d4e810a986f3fa156d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -436,7 +463,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&PowerMartialArcaneArcherShadowArrowTitle",
     "description": "Feature/&PowerMartialArcaneArcherShadowArrowDescription",
     "spriteReference": {

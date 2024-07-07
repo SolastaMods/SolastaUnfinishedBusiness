@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerCircleOfTheWildfireCommandSpirit:23009473-e91f-58d2-8ba9-66a94ba9accb",
+    "Definition:SummoningAffinityCircleOfTheWildfireSpirit:029aa1a0-af7a-5dbc-85cb-6da83416c8d2",
+    "Definition:PowerSharedPoolCircleOfTheWildfireSummonSpirit:b69606c9-9a6c-52cb-a069-8f958e088d04",
+    "Definition:PowerCircleOfTheWildfireSummonSpiritDamage:c3370b30-7846-5517-ac30-4db71b40b087"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerSharedPoolCircleOfTheWildfireSummonSpiritTitle",
+    "description": "Feature/&PowerSharedPoolCircleOfTheWildfireSummonSpiritDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "dec1968e-1879-5c1d-b8a5-52425ce251bd",
+  "contentPack": 9999,
+  "name": "FeatureSetCircleOfTheWildfireSummonSpirit"
+}

@@ -355,12 +355,6 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatGreatWeaponDefense";
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create("PowerGreatWeaponDefense")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{NAME}")
             .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
@@ -967,11 +961,11 @@ internal static class MeleeCombatFeats
             yield break;
         }
 
-        var (retaliationMode, retaliationModifier) = target.GetFirstMeleeModeThatCanAttack(enemy);
+        var (retaliationMode, retaliationModifier) = target.GetFirstMeleeModeThatCanAttack(enemy, battleManager);
 
         if (retaliationMode == null)
         {
-            (retaliationMode, retaliationModifier) = target.GetFirstRangedModeThatCanAttack(enemy);
+            (retaliationMode, retaliationModifier) = target.GetFirstRangedModeThatCanAttack(enemy, battleManager);
 
             if (retaliationMode == null)
             {
@@ -1578,16 +1572,19 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}DisadvantageDescription", hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
+            .SetExplicitAbilityScore(AttributeDefinitions.Strength)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.DamageForm())
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDamageForm()
+                            .Build())
                     .Build())
             .AddToDB();
-
-        fellHandedDisadvantage.AddCustomSubFeatures(
-            new ModifyEffectDescriptionPowerDisadvantage(fellHandedDisadvantage));
 
         var feat = FeatDefinitionBuilder
             .Create(NAME)
@@ -1705,31 +1702,6 @@ internal static class MeleeCombatFeats
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
-        }
-    }
-
-    private sealed class ModifyEffectDescriptionPowerDisadvantage(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition powerDisadvantage) : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerDisadvantage;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
-            var strMod = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(strength));
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            damageForm.BonusDamage = strMod;
-
-            return effectDescription;
         }
     }
 
@@ -2123,15 +2095,9 @@ internal static class MeleeCombatFeats
             .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.HasMainAttackAvailable,
                 new ValidatorsValidatePowerUse(
+                    c => GameLocationCharacter.GetFromActor(c)?.OncePerTurnIsValid("PowerWhirlWindAttack") == true,
                     ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
                 new PowerOrSpellFinishedByMeWhirlWindAttack())
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatDefinitionBuilder
-            .Create($"Feat{NAME}Str")
-            .SetGuiPresentation($"Feat{NAME}", Category.Feat, hidden: true)
-            .SetFeatures(powerWhirlWindAttack)
             .AddToDB();
 
         // name kept for backward compatibility
@@ -2142,7 +2108,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PowerOrSpellFinishedByMeWhirlWindAttack : IPowerOrSpellFinishedByMe, IValidatePowerUse
+    private sealed class PowerOrSpellFinishedByMeWhirlWindAttack : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -2197,13 +2163,6 @@ internal static class MeleeCombatFeats
                 ServiceRepository.GetService<IGameLocationActionService>()?
                     .ExecuteAction(actionParams, null, true);
             }
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            var glc = GameLocationCharacter.GetFromActor(character);
-
-            return glc != null && glc.OncePerTurnIsValid("PowerWhirlWindAttack");
         }
     }
 

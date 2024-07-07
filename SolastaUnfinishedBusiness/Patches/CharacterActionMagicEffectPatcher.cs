@@ -397,7 +397,7 @@ public static class CharacterActionMagicEffectPatcher
                 actingCharacter.UsedSpecialFeatures.TryAdd("BonusSpell", 0);
             }
 
-            //PATCH: skip spell animation if this is "attack after cast" spell
+            //PATCH: skip spell animation if this is an AttackAfterMagicEffect spell
             if (baseDefinition.HasSubFeatureOfType<AttackAfterMagicEffect>())
             {
                 actionParams.SkipAnimationsAndVFX = true;
@@ -414,25 +414,6 @@ public static class CharacterActionMagicEffectPatcher
             {
                 targets.Insert(0, actingCharacter);
                 actionParams.ActionModifiers.Insert(0, actionParams.ActionModifiers[0]);
-            }
-
-            //PATCH: supports `IPowerOrSpellInitiatedByMe`
-            var powerOrSpellInitiatedByMe = baseDefinition.GetFirstSubFeatureOfType<IPowerOrSpellInitiatedByMe>();
-
-            if (powerOrSpellInitiatedByMe != null)
-            {
-                yield return powerOrSpellInitiatedByMe.OnPowerOrSpellInitiatedByMe(__instance, baseDefinition);
-            }
-
-            //PATCH: supports `IMagicEffectAttackInitiatedByMe`
-            foreach (var magicEffectInitiatedByMe in actingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<IMagicEffectInitiatedByMe>())
-            {
-                yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(
-                    __instance,
-                    rulesetEffect,
-                    actingCharacter,
-                    targets);
             }
 
             // END PATCH
@@ -523,10 +504,11 @@ public static class CharacterActionMagicEffectPatcher
             var shapeType = effectDescription.ShapeType;
 
             // Spend inventory action as needed
-            if (actingCharacter is { RulesetActor: RulesetCharacterHero hero } &&
+            if (actingCharacter is { RulesetActor: RulesetCharacterHero } &&
                 actionParams.RulesetEffect.OriginItem != null)
             {
-                var slot = hero.CharacterInventory.FindSlotHoldingItem(actionParams.RulesetEffect.OriginItem);
+                var slot = actingCharacter.RulesetCharacter.CharacterInventory
+                    .FindSlotHoldingItem(actionParams.RulesetEffect.OriginItem);
 
                 if (slot != null && !slot.SlotTypeDefinition.BodySlot)
                 {
@@ -626,6 +608,46 @@ public static class CharacterActionMagicEffectPatcher
 
             // This is used to remove invisibility (for example) when casting a spell
             __instance.CheckInterruptionBefore();
+
+            // BEGIN PATCH
+
+            //PATCH: supports `IPowerOrSpellInitiatedByMe`
+            var powerOrSpellInitiatedByMe = baseDefinition.GetFirstSubFeatureOfType<IPowerOrSpellInitiatedByMe>();
+
+            if (powerOrSpellInitiatedByMe != null)
+            {
+                yield return powerOrSpellInitiatedByMe.OnPowerOrSpellInitiatedByMe(__instance, baseDefinition);
+            }
+
+            //PATCH: supports `IMagicEffectInitiatedByMe`
+            foreach (var magicEffectInitiatedByMe in actingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicEffectInitiatedByMe>())
+            {
+                yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(
+                    __instance,
+                    rulesetEffect,
+                    actingCharacter,
+                    targets);
+            }
+
+            //PATCH: supports `IMagicEffectInitiatedByMe` on metamagic
+            var hero = actingCharacter.RulesetCharacter.GetOriginalHero();
+
+            if (hero != null)
+            {
+                foreach (var magicEffectInitiatedByMe in hero.TrainedMetamagicOptions
+                             .SelectMany(metamagic =>
+                                 metamagic.GetAllSubFeaturesOfType<IMagicEffectInitiatedByMe>()))
+                {
+                    yield return magicEffectInitiatedByMe.OnMagicEffectInitiatedByMe(
+                        __instance,
+                        rulesetEffect,
+                        actingCharacter,
+                        targets);
+                }
+            }
+
+            // END PATCH
 
             // Handle spell countering
             yield return __instance.WaitSpellCastAction(battleManager);
@@ -873,7 +895,7 @@ public static class CharacterActionMagicEffectPatcher
                 yield return powerOrSpellFinishedByMe.OnPowerOrSpellFinishedByMe(__instance, baseDefinition);
             }
 
-            //PATCH: support for `IMagicEffectFinishedByMeAny`
+            //PATCH: support for `IMagicEffectFinishedByMe`
             foreach (var magicEffectFinishedByMe in actingCharacter.RulesetCharacter
                          .GetSubFeaturesByType<IMagicEffectFinishedByMe>())
             {
@@ -881,7 +903,7 @@ public static class CharacterActionMagicEffectPatcher
                     magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, actingCharacter, targets);
             }
 
-            //PATCH: support for `IMagicEffectFinishedOnMeAny`
+            //PATCH: support for `IMagicEffectFinishedOnMe`
             foreach (var target in targets)
             {
                 var rulesetTarget = target.RulesetCharacter;
@@ -942,7 +964,6 @@ public static class CharacterActionMagicEffectPatcher
             // END PATCH
 
             yield return __instance.HandlePostExecution();
-
             yield return battleManager.HandleCharacterAttackOrMagicEffectFinishedLate(__instance, actingCharacter);
         }
     }
@@ -1350,7 +1371,8 @@ public static class CharacterActionMagicEffectPatcher
             var actionParams = __instance.ActionParams;
             var effectDescription = actionParams.RulesetEffect.EffectDescription;
 
-            if (!effectDescription.HasForceSelfCondition)
+            if (!effectDescription.HasForceSelfCondition ||
+                effectDescription.EffectAdvancement.EffectIncrementMethod == EffectIncrementMethod.None)
             {
                 return true;
             }

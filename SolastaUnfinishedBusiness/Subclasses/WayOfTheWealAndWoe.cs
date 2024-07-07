@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -42,32 +42,65 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var featureWoe = FeatureDefinitionBuilder
+        // kept name for backward compatibility
+        var featureWoe = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}Woe")
             .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1))
+                    .Build())
             .AddToDB();
+
+        featureWoe.AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new ModifyEffectDescription(featureWoe));
 
         var featureSelfPropelledWeal = FeatureDefinitionBuilder
             .Create($"Feature{Name}SelfPropelledWeal")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var featureBrutalWeal = FeatureDefinitionBuilder
+        // kept name for backward compatibility
+        var featureBrutalWeal = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}BrutalWeal")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1))
+                    .Build())
             .AddToDB();
 
-        var featureTheirWoe = FeatureDefinitionBuilder
+        featureBrutalWeal.AddCustomSubFeatures(new ModifyEffectDescription(featureBrutalWeal));
+
+        // kept name for backward compatibility
+        var featureTheirWoe = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}TheirWoe")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeBludgeoning, 1))
+                    .Build())
             .AddToDB();
+
+        featureTheirWoe.AddCustomSubFeatures(new ModifyEffectDescription(featureTheirWoe));
 
         featureWeal.AddCustomSubFeatures(new CustomBehaviorWealAndWoe(
             conditionWeal,
             featureWeal,
-            featureWoe,
             featureSelfPropelledWeal,
             featureBrutalWeal,
+            featureWoe,
             featureTheirWoe));
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -90,31 +123,14 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomBehaviorWealAndWoe : IPhysicalAttackFinishedByMe, IModifyDiceRoll
+    private sealed class CustomBehaviorWealAndWoe(
+        ConditionDefinition conditionWeal,
+        FeatureDefinition featureWeal,
+        FeatureDefinition featureSelfPropelledWeal,
+        FeatureDefinitionPower featureBrutalWeal,
+        FeatureDefinitionPower featureWoe,
+        FeatureDefinitionPower featureTheirWoe) : IPhysicalAttackFinishedByMe, IModifyDiceRoll
     {
-        private readonly ConditionDefinition _conditionWeal;
-        private readonly FeatureDefinition _featureBrutalWeal;
-        private readonly FeatureDefinition _featureSelfPropelledWeal;
-        private readonly FeatureDefinition _featureTheirWoe;
-        private readonly FeatureDefinition _featureWeal;
-        private readonly FeatureDefinition _featureWoe;
-
-        internal CustomBehaviorWealAndWoe(
-            ConditionDefinition conditionWeal,
-            FeatureDefinition featureWeal,
-            FeatureDefinition featureWoe,
-            FeatureDefinition featureSelfPropelledWeal,
-            FeatureDefinition featureBrutalWeal,
-            FeatureDefinition featureTheirWoe)
-        {
-            _conditionWeal = conditionWeal;
-            _featureWeal = featureWeal;
-            _featureWoe = featureWoe;
-            _featureSelfPropelledWeal = featureSelfPropelledWeal;
-            _featureBrutalWeal = featureBrutalWeal;
-            _featureTheirWoe = featureTheirWoe;
-        }
-
         public void BeforeRoll(
             RollContext rollContext,
             RulesetCharacter rulesetCharacter,
@@ -139,14 +155,14 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             }
 
             var conditionWealCount =
-                rulesetCharacter.AllConditions.Count(x => x.ConditionDefinition == _conditionWeal);
+                rulesetCharacter.AllConditions.Count(x => x.ConditionDefinition == conditionWeal);
 
             if (result == 1 || result - conditionWealCount > 1)
             {
                 return;
             }
 
-            rulesetCharacter.LogCharacterUsedFeature(_featureWeal, "Feedback/&WoeReroll", false,
+            rulesetCharacter.LogCharacterUsedFeature(featureWeal, "Feedback/&WoeReroll", false,
                 (ConsoleStyleDuplet.ParameterType.Player, rulesetCharacter.Name),
                 (ConsoleStyleDuplet.ParameterType.SuccessfulRoll, result.ToString()),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, 1.ToString()));
@@ -189,7 +205,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                 case RollOutcome.Success:
                     // Weal
                     rulesetAttacker.InflictCondition(
-                        _conditionWeal.Name,
+                        conditionWeal.Name,
                         DurationType.UntilAnyRest,
                         0,
                         TurnOccurenceType.EndOfTurn,
@@ -197,7 +213,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,
                         1,
-                        _conditionWeal.Name,
+                        conditionWeal.Name,
                         0,
                         0,
                         0);
@@ -209,26 +225,24 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     {
                         if (rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
                         {
-                            rulesetAttacker.LogCharacterUsedFeature(_featureTheirWoe);
-                            InflictMartialArtDieDamage(attacker, defender, attackMode, rollOutcome);
+                            InflictMartialArtDieDamage(featureTheirWoe, attacker, defender, attackMode);
                         }
                     }
                     else
                     {
-                        rulesetAttacker.LogCharacterUsedFeature(_featureWoe);
-                        InflictMartialArtDieDamage(attacker, attacker, attackMode, rollOutcome);
+                        InflictMartialArtDieDamage(featureWoe, attacker, attacker, attackMode);
                     }
 
                     // Weal (RESET)
                     rulesetAttacker.RemoveAllConditionsOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, _conditionWeal.Name);
+                        AttributeDefinitions.TagEffect, conditionWeal.Name);
                     break;
 
                 case RollOutcome.CriticalSuccess:
                     // Self Propelled Weal
                     if (level >= 6 && rulesetAttacker.UsedKiPoints > 0)
                     {
-                        rulesetAttacker.LogCharacterUsedFeature(_featureSelfPropelledWeal);
+                        rulesetAttacker.LogCharacterUsedFeature(featureSelfPropelledWeal);
                         rulesetAttacker.ForceKiPointConsumption(-1);
                         rulesetAttacker.KiPointsAltered?.Invoke(rulesetAttacker, rulesetAttacker.RemainingKiPoints);
                     }
@@ -236,23 +250,21 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     // Brutal Weal
                     if (level >= 11 && rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
                     {
-                        rulesetAttacker.LogCharacterUsedFeature(_featureBrutalWeal);
-                        InflictMartialArtDieDamage(attacker, defender, attackMode, rollOutcome);
+                        InflictMartialArtDieDamage(featureBrutalWeal, attacker, defender, attackMode);
                     }
 
                     // Weal (RESET)
                     rulesetAttacker.RemoveAllConditionsOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, _conditionWeal.Name);
+                        AttributeDefinitions.TagEffect, conditionWeal.Name);
                     break;
             }
         }
 
         private static void InflictMartialArtDieDamage(
-            // ReSharper disable once SuggestBaseTypeForParameter
+            FeatureDefinitionPower power,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome outcome)
+            RulesetAttackMode attackMode)
         {
             var originalDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
 
@@ -262,39 +274,46 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetActor;
-            var criticalSuccess = outcome == RollOutcome.CriticalSuccess;
-            var monkLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    private sealed class ModifyEffectDescription(FeatureDefinitionPower power) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == power;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var monkLevel = character.GetClassLevel(CharacterClassDefinitions.Monk);
             var dieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
                 .DieTypeByRankTable
                 .Find(x => x.Rank == monkLevel).DieType;
-            var rolls = new List<int>();
-            var damageForm = new DamageForm
-            {
-                DamageType = originalDamageForm.DamageType, DieType = dieType, DiceNumber = 1, BonusDamage = 0
-            };
-            var damageRoll =
-                rulesetAttacker.RollDamage(damageForm, 0, criticalSuccess, 0, 0, 1, false, false, false, rolls);
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetDefender,
-                position = defender.LocationPosition
-            };
 
-            RulesetActor.InflictDamage(
-                damageRoll,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetDefender,
-                false,
-                rulesetAttacker.Guid,
-                false,
-                attackMode.AttackTags,
-                new RollInfo(damageForm.DieType, rolls, 0),
-                false,
-                out _);
+            effectDescription.EffectForms[0].DamageForm.DieType = dieType;
+
+            return effectDescription;
         }
     }
 }

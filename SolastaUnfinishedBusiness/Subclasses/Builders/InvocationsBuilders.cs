@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -368,7 +367,7 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, Haste)
-            .SetRequirements(7)
+            .SetRequirements(5)
             .SetGrantedSpell(Haste, false, true)
             .AddToDB();
     }
@@ -380,7 +379,7 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, Slow)
-            .SetRequirements(7)
+            .SetRequirements(5)
             .SetGrantedSpell(Slow, false, true)
             .AddToDB();
     }
@@ -662,7 +661,25 @@ internal static class InvocationsBuilders
             .CopyParticleReferences(ConditionDefinitions.ConditionOnAcidPilgrim)
             .AddToDB();
 
-        conditionPerniciousCloakSelf.specialDuration = false;
+        var powerPerniciousCloakDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Damage")
+            .SetGuiPresentation(Name, Category.Invocation, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDamageForm(DamageTypePoison)
+                            .Build())
+                    .SetImpactEffectParameters(AcidArrow)
+                    .Build())
+            .AddToDB();
 
         var conditionPerniciousCloak = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
@@ -671,7 +688,7 @@ internal static class InvocationsBuilders
             .AddToDB();
 
         conditionPerniciousCloak.AddCustomSubFeatures(
-            new CharacterTurnStartListenerPerniciousCloak(conditionPerniciousCloak));
+            new CharacterTurnStartListenerPerniciousCloak(powerPerniciousCloakDamage, conditionPerniciousCloak));
 
         var powerPerniciousCloak = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
@@ -681,9 +698,9 @@ internal static class InvocationsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.UntilAnyRest)
+                    .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
-                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
+                    .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnActivation)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionPerniciousCloak),
                         EffectFormBuilder.ConditionForm(conditionPerniciousCloakSelf,
@@ -716,7 +733,7 @@ internal static class InvocationsBuilders
         var featureSetPerniciousCloak = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}")
             .SetGuiPresentationNoContent(true)
-            .AddFeatureSet(powerPerniciousCloak, powerPerniciousCloakRemove)
+            .AddFeatureSet(powerPerniciousCloak, powerPerniciousCloakDamage, powerPerniciousCloakRemove)
             .AddToDB();
 
         return InvocationDefinitionBuilder
@@ -728,74 +745,45 @@ internal static class InvocationsBuilders
     }
 
     private sealed class CharacterTurnStartListenerPerniciousCloak(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerPerniciousCloakDamage,
         ConditionDefinition conditionPerniciousCloak) : ICharacterTurnStartListener
     {
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        public void OnCharacterTurnStarted(GameLocationCharacter character)
         {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            var rulesetCharacter = character.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionPerniciousCloak.Name, out var activeCondition))
             {
                 return;
             }
 
-            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionPerniciousCloak.Name,
-                    out var activeCondition))
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+
+            if (rulesetCaster is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetCharacter == rulesetCaster)
             {
                 return;
             }
 
-            var caster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
 
-            if (caster is not { IsDeadOrDyingOrUnconscious: false })
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPerniciousCloakDamage, rulesetCaster);
+            var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
             {
-                return;
-            }
-
-            if (rulesetCharacter == caster)
-            {
-                return;
-            }
-
-            var charismaModifier = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(
-                caster.TryGetAttributeValue(AttributeDefinitions.Charisma)));
-
-            var damageForm = new DamageForm
-            {
-                DamageType = DamageTypePoison, DieType = DieType.D1, DiceNumber = 0, BonusDamage = charismaModifier
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { character }
             };
 
-            var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
-
-            if (gameLocationCaster != null)
-            {
-                EffectHelpers.StartVisualEffect(
-                    gameLocationCaster, locationCharacter, PoisonSpray, EffectHelpers.EffectType.Effect);
-            }
-
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = caster,
-                targetCharacter = rulesetCharacter,
-                position = locationCharacter.LocationPosition
-            };
-
-            RulesetActor.InflictDamage(
-                damageForm.BonusDamage,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetCharacter,
-                false,
-                caster.Guid,
-                false,
-                [],
-                new RollInfo(damageForm.DieType, [], damageForm.BonusDamage),
-                true,
-                out _);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
@@ -1054,6 +1042,26 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationChillingHex";
 
+        var powerInvocationChillingHexDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Damage")
+            .SetGuiPresentation(NAME, Category.Invocation, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDamageForm(DamageTypeCold)
+                            .Build())
+                    .SetImpactEffectParameters(PowerDomainElementalIceLance)
+                    .Build())
+            .AddToDB();
+
         var powerInvocationChillingHex = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Invocation, RayOfFrost)
@@ -1073,27 +1081,33 @@ internal static class InvocationsBuilders
                     .Build())
             .AddToDB();
 
-        powerInvocationChillingHex.AddCustomSubFeatures(new CustomBehaviorChillingHex(powerInvocationChillingHex));
+        powerInvocationChillingHex.AddCustomSubFeatures(
+            new CustomBehaviorChillingHex(powerInvocationChillingHex, powerInvocationChillingHexDamage));
+
+        var featureSetChillingHex = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerInvocationChillingHex, powerInvocationChillingHexDamage)
+            .AddToDB();
 
         return InvocationDefinitionWithPrerequisitesBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, FireBolt)
+            .SetGuiPresentation(Category.Invocation, RayOfFrost)
             .SetValidators(ValidateHex)
-            .SetGrantedFeature(powerInvocationChillingHex)
+            .SetGrantedFeature(featureSetChillingHex)
             .AddToDB();
     }
 
     private sealed class CustomBehaviorChillingHex(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerVexingHex)
-        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
+        FeatureDefinitionPower powerChillingHex,
+        FeatureDefinitionPower powerChillingHexDamage) : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.ActionParams.activeEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != powerVexingHex)
+                rulesetEffectPower.PowerDefinition != powerChillingHex)
             {
                 return true;
             }
@@ -1125,44 +1139,30 @@ internal static class InvocationsBuilders
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
             var rulesetAttacker = attacker.RulesetCharacter;
-            var charismaModifier = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Charisma)));
+            var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1);
 
-            // apply damage to all targets
-            foreach (var target in Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1))
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
             {
-                var rulesetTarget = target.RulesetCharacter;
-                var damageForm = new DamageForm
-                {
-                    DamageType = DamageTypeCold,
-                    DieType = DieType.D1,
-                    DiceNumber = 0,
-                    BonusDamage = charismaModifier
-                };
-
-                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                {
-                    sourceCharacter = rulesetAttacker,
-                    targetCharacter = rulesetTarget,
-                    position = target.LocationPosition
-                };
-
-                EffectHelpers.StartVisualEffect(attacker, defender, PowerDomainElementalIceLance,
-                    EffectHelpers.EffectType.Effect);
-                RulesetActor.InflictDamage(
-                    damageForm.BonusDamage,
-                    damageForm,
-                    damageForm.DamageType,
-                    applyFormsParams,
-                    rulesetTarget,
-                    false,
-                    rulesetAttacker.Guid,
-                    false,
-                    [],
-                    new RollInfo(damageForm.DieType, [], damageForm.BonusDamage),
-                    false,
-                    out _);
+                actionModifiers.Add(new ActionModifier());
             }
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerChillingHexDamage, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = actionModifiers,
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
@@ -1247,6 +1247,26 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationVexingHex";
 
+        var powerInvocationVexingHexDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Damage")
+            .SetGuiPresentation(NAME, Category.Invocation, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDamageForm(DamageTypePsychic)
+                            .Build())
+                    .SetImpactEffectParameters(PowerSorakDreadLaughter)
+                    .Build())
+            .AddToDB();
+
         var powerInvocationVexingHex = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Invocation, Blindness)
@@ -1266,21 +1286,27 @@ internal static class InvocationsBuilders
                     .Build())
             .AddToDB();
 
-        powerInvocationVexingHex.AddCustomSubFeatures(new FilterTargetingCharacterVexingHex(powerInvocationVexingHex));
+        powerInvocationVexingHex.AddCustomSubFeatures(
+            new FilterTargetingCharacterVexingHex(powerInvocationVexingHex, powerInvocationVexingHexDamage));
+
+        var featureSetVexingHex = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerInvocationVexingHex, powerInvocationVexingHexDamage)
+            .AddToDB();
 
         return InvocationDefinitionWithPrerequisitesBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, Blindness)
             .SetRequirements(5)
             .SetValidators(ValidateHex)
-            .SetGrantedFeature(powerInvocationVexingHex)
+            .SetGrantedFeature(featureSetVexingHex)
             .AddToDB();
     }
 
     private sealed class FilterTargetingCharacterVexingHex(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerVexingHex)
-        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
+        FeatureDefinitionPower powerVexingHex,
+        FeatureDefinitionPower powerVexingHexDamage) : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -1318,44 +1344,31 @@ internal static class InvocationsBuilders
 
             var attacker = action.ActingCharacter;
             var defender = action.ActionParams.TargetCharacters[0];
-
             var rulesetAttacker = attacker.RulesetCharacter;
-            var charismaModifier = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Charisma)));
+            var targets = Gui.Battle.GetContenders(defender, isOppositeSide: false, withinRange: 1);
 
-            // apply damage to all targets
-            foreach (var target in Gui.Battle.GetContenders(defender, excludeSelf: false, withinRange: 1))
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
             {
-                var rulesetTarget = target.RulesetCharacter;
-                var damageForm = new DamageForm
-                {
-                    DamageType = DamageTypePsychic,
-                    DieType = DieType.D6,
-                    DiceNumber = 0,
-                    BonusDamage = charismaModifier
-                };
-                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                {
-                    sourceCharacter = rulesetAttacker,
-                    targetCharacter = rulesetTarget,
-                    position = target.LocationPosition
-                };
-
-                EffectHelpers.StartVisualEffect(attacker, defender, PowerSorakDreadLaughter);
-                RulesetActor.InflictDamage(
-                    damageForm.BonusDamage,
-                    damageForm,
-                    damageForm.DamageType,
-                    applyFormsParams,
-                    rulesetTarget,
-                    false,
-                    rulesetAttacker.Guid,
-                    false,
-                    [],
-                    new RollInfo(damageForm.DieType, [], damageForm.BonusDamage),
-                    false,
-                    out _);
+                actionModifiers.Add(new ActionModifier());
             }
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerVexingHexDamage, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = actionModifiers,
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 

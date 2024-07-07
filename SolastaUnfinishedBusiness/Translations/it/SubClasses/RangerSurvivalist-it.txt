@@ -14,7 +14,5 @@ Feature/&FeatureSetRangerSurvivalistBlessingWildernessDescription=Sei immune all
 Feature/&FeatureSetRangerSurvivalistBlessingWildernessTitle=Benedizione del deserto
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Ottieni competenza nell'abilità di sopravvivenza.
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Emarginato errante
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=Acquisisci competenza nei tiri salvezza su Saggezza.
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=Esperienza senza pari
 Subclass/&RangerSurvivalistDescription=I ranger che vivono ben oltre i confini della civiltà capiscono che le cacce di maggior successo sono quelle in cui la preda non può né fuggire né reagire. I sopravvissuti sono in grado di analizzare ogni debolezza dei potenziali bersagli e fanno appello al mondo naturale per ostacolare i loro nemici mentre distruggono le loro difese con attacchi precisi.
 Subclass/&RangerSurvivalistTitle=Sopravvissuto

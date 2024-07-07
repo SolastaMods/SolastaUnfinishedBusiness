@@ -33,6 +33,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerForestGuardianImprovedBarkWardDamage:5fed25b7-fdee-5c8b-89f4-fdbb06484d8f",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSharedPoolForestGuardianSuperiorBarkWard:2d08f18e-8164-522e-8748-8033e9a1bad1",
       "level": 14
     }

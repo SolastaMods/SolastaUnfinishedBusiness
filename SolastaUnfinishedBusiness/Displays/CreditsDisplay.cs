@@ -21,7 +21,7 @@ internal static class CreditsDisplay
             "gameplay, infrastructure, maintenance, mod UI, quality of life, rules, " +
             "backgrounds, feats, fighting styles, maneuvers, invocations, metamagic, spells, " +
             "Fairy, Half-elf, Shadar-Kai, Tiefling, " +
-            "Circle of the Ancient Forest, Circle of the Eternal Grove, Circle of the Stars, " +
+            "Circle of the Ancient Forest, Circle of the Eternal Grove, Circle of the Stars, Circle of the Wildfire, " +
             "College of Elegance, College of Eloquence, College of Life, College of Swords, College of Thespian, College of Valor, " +
             "Domain Nature, Domain Tempest, " +
             "Innovation Artillerist, Innovation Vitriolist, Innovation Vivisectionist, " +
@@ -87,7 +87,9 @@ internal static class CreditsDisplay
 
         ("Narria", "modKit, Party Editor"),
         ("Artyoan", "pre-gen heroes portraits, sample portraits"),
-        ("Thaladar", "sample portraits"),
+        ("Thaladar", "QA, monster portraits, sample portraits"),
+        ("Zeke", "sample portraits"),
+        ("Digital Primus", "sample portraits"),
 
         ("team-waldo", "korean translations"),
         ("Dovel", "russian translations"),

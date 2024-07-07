@@ -64,7 +64,7 @@
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Damage",
-        "addBonusMode": "None",
+        "addBonusMode": "AbilityBonus",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
@@ -323,7 +323,7 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
+  "abilityScore": "Strength",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -121,9 +120,23 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetOverriddenPower(powerBarkWard)
             .AddToDB();
 
+        var powerImprovedBarkWardDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ImprovedBarkWardDamage")
+            .SetGuiPresentation($"PowerSharedPool{Name}ImprovedBarkWard", Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypePiercing, 2, DieType.D8))
+                    .SetImpactEffectParameters(PowerPatronTreeExplosiveGrowth)
+                    .Build())
+            .AddToDB();
+
         powerImprovedBarkWard.AddCustomSubFeatures(
             new PowerOrSpellFinishedByMeBarkWard(powerSuperiorBarkWard),
-            new PhysicalAttackFinishedOnMeBarkWard(powerImprovedBarkWard, conditionBarkWard));
+            new PhysicalAttackFinishedOnMeImprovedBarkWard(powerImprovedBarkWardDamage, conditionBarkWard));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"CircleOfThe{Name}")
@@ -131,7 +144,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                 Sprites.GetSprite(Name, Resources.CircleOfTheForestGuardian, 256))
             .AddFeaturesAtLevel(2, autoPreparedSpellsForestGuardian, attackModifierSylvanMagic, powerBarkWard)
             .AddFeaturesAtLevel(6, AttributeModifierCasterFightingExtraAttack, AttackReplaceWithCantripCasterFighting)
-            .AddFeaturesAtLevel(10, powerImprovedBarkWard)
+            .AddFeaturesAtLevel(10, powerImprovedBarkWard, powerImprovedBarkWardDamage)
             .AddFeaturesAtLevel(14, powerSuperiorBarkWard)
             .AddToDB();
     }
@@ -203,8 +216,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         }
     }
 
-    private sealed class PhysicalAttackFinishedOnMeBarkWard(
-        FeatureDefinitionPower powerBarkOrImprovedBarkWard,
+    private sealed class PhysicalAttackFinishedOnMeImprovedBarkWard(
+        FeatureDefinitionPower powerImprovedBarkWardDamage,
         ConditionDefinition conditionBarkWard) : IPhysicalAttackFinishedOnMe
     {
         public IEnumerator OnPhysicalAttackFinishedOnMe(
@@ -227,36 +240,21 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rolls = new List<int>();
-            var damageForm = new DamageForm
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerImprovedBarkWardDamage, rulesetDefender);
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
-                DamageType = DamageTypePiercing, DieType = DieType.D8, DiceNumber = 2, BonusDamage = 0
-            };
-            var damageRoll =
-                rulesetDefender.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetDefender,
-                targetCharacter = rulesetAttacker,
-                position = attacker.LocationPosition
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { attacker }
             };
 
-            rulesetDefender.LogCharacterUsedPower(powerBarkOrImprovedBarkWard);
-            EffectHelpers.StartVisualEffect(defender, defender, PowerPatronTreeExplosiveGrowth);
-            RulesetActor.InflictDamage(
-                damageRoll,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetAttacker,
-                false,
-                rulesetDefender.Guid,
-                false,
-                [],
-                new RollInfo(damageForm.DieType, rolls, 0),
-                true,
-                out _);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 }

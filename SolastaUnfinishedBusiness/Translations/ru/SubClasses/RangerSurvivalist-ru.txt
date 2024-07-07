@@ -14,7 +14,5 @@ Feature/&FeatureSetRangerSurvivalistBlessingWildernessDescription=Вы нево�
 Feature/&FeatureSetRangerSurvivalistBlessingWildernessTitle=Благословение пустоши
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Вы получаете владение навыком Выживания.
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Странствующий изгой
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=Вы получаете владение спасбросками Мудрости.
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=Непревзойдённый опыт
 Subclass/&RangerSurvivalistDescription=Следопыты, живущие далеко за пределами цивилизации, понимают, что самая успешная охота - это та, во время которой добыча не может ни убежать, ни дать отпор. Специалисты по выживанию способны проанализировать все слабые места потенциальной цели и обратиться к естественному окружению, чтобы обезвредить противника, одновременно разрушая его защиту точными атаками.
 Subclass/&RangerSurvivalistTitle=Специалист по выживанию

@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorTypeDefinitions;
@@ -104,15 +103,10 @@ internal static class ValidatorsWeapon
             return true;
         }
 
-        if (attackMode == null
-            || attackMode.Ranged
-            || attackMode.SourceDefinition is not ItemDefinition itemDefinition
-            || !IsMelee(itemDefinition))
-        {
-            return false;
-        }
-
-        return IsWithinReach(attackMode.ReachRange);
+        return
+            attackMode is { SourceDefinition: ItemDefinition itemDefinition, Ranged: false } &&
+            attackMode.AttackTags.Contains(TagsDefinitions.WeaponTagMelee) &&
+            IsMelee(itemDefinition);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -157,9 +151,7 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsUnarmed(
-        [CanBeNull] ItemDefinition itemDefinition,
-        [CanBeNull] RulesetAttackMode attackMode)
+    internal static bool IsUnarmed([CanBeNull] ItemDefinition itemDefinition, [CanBeNull] RulesetAttackMode attackMode)
     {
         if (attackMode is { SourceDefinition: MonsterAttackDefinition { proximity: AttackProximity.Melee } })
         {
@@ -168,11 +160,15 @@ internal static class ValidatorsWeapon
 
         itemDefinition = attackMode?.SourceDefinition as ItemDefinition ?? itemDefinition;
 
-        return itemDefinition
-               && itemDefinition.IsWeapon
-               && itemDefinition.WeaponDescription != null
-               && itemDefinition.WeaponDescription.WeaponTypeDefinition.Name == UnarmedStrikeType.Name
-               && IsWithinReach(attackMode?.ReachRange ?? 1);
+        if (!itemDefinition)
+        {
+            return false;
+        }
+
+        return
+            itemDefinition.IsWeapon &&
+            itemDefinition.WeaponDescription != null &&
+            itemDefinition.WeaponDescription.WeaponTypeDefinition.Name == UnarmedStrikeType.Name;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -194,23 +190,5 @@ internal static class ValidatorsWeapon
     internal static bool HasAnyWeaponTag([CanBeNull] RulesetItem rulesetItem, [NotNull] params string[] tags)
     {
         return rulesetItem != null && HasAnyWeaponTag(rulesetItem.ItemDefinition, tags);
-    }
-
-    private static bool IsWithinReach(int reach)
-    {
-        // unfortunately game sets thrown true even when attack is at melee distance
-        // even worse, on thrown attacks, game will at some point consider melee as hero becomes unarmed
-        // this will handle thrown melee weapons like daggers, javelins, spears, etc.
-        // assume it's within range if not in combat so any off combat stats / tooltips work correctly
-        if (Global.CurrentAttackAction.Count == 0)
-        {
-            return true;
-        }
-
-        var currentAttack = Global.CurrentAttackAction.Peek();
-
-        // handle combat situations and ensure we don't validate if attack not within range
-        return currentAttack.ActionParams.TargetCharacters.Count == 0 ||
-               currentAttack.ActingCharacter.IsWithinRange(currentAttack.ActionParams.TargetCharacters[0], reach);
     }
 }

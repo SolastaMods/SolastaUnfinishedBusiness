@@ -14,7 +14,5 @@ Feature/&FeatureSetRangerSurvivalistBlessingWildernessDescription=Eres inmune a 
 Feature/&FeatureSetRangerSurvivalistBlessingWildernessTitle=Bendición del desierto
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Obtienes competencia en la habilidad de supervivencia.
 Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Paria errante
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceDescription=Adquiere competencia en las tiradas de salvación de Sabiduría.
-Feature/&SavingThrowAffinityRangerSurvivalistUnmatchedExperienceTitle=Experiencia inigualable
 Subclass/&RangerSurvivalistDescription=Los guardabosques que viven mucho más allá de los alcances de la civilización entienden que las cacerías más exitosas son aquellas en las que la presa no puede huir ni defenderse. Los supervivientes son capaces de analizar cada debilidad de objetivos potenciales y recurrir al mundo natural para obstaculizar a sus enemigos mientras destrozan sus defensas con ataques precisos.
 Subclass/&RangerSurvivalistTitle=Superviviente

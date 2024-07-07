@@ -328,6 +328,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 Sprites.GetSprite("PowerArcher", Resources.PowerArcher, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetUseSpellAttack()
+            .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -336,14 +337,14 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 0, 10, 10)
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
                             .Build())
                     .SetCasterEffectParameters(PowerOathOfTirmarGoldenSpeech)
                     .SetImpactEffectParameters(Sunbeam)
                     .Build())
             .AddToDB();
-
-        powerArcher.AddCustomSubFeatures(new ModifyEffectDescriptionArcher(powerArcher));
 
         var powerArcherNoCost = FeatureDefinitionPowerBuilder
             .Create(powerArcher, $"Power{Name}ArcherNoCost")
@@ -361,7 +362,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
         powerArcherNoCost.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.InCombat,
-            new ModifyEffectDescriptionArcher(powerArcherNoCost),
             new PowerOrSpellFinishedByMeArcherNoCost(conditionArcherNoCost));
 
         var conditionArcher = ConditionDefinitionBuilder
@@ -427,6 +427,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}Chalice")
             .SetGuiPresentation(Category.Feature, PowerPaladinLayOnHands)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetExplicitAbilityScore(AttributeDefinitions.Wisdom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -435,14 +436,14 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 0, 10, 10)
                             .SetHealingForm(HealingComputation.Dice,
                                 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
                             .Build())
                     .SetParticleEffectParameters(CureWounds)
                     .Build())
             .AddToDB();
-
-        powerChalice.AddCustomSubFeatures(new ModifyEffectDescriptionChalice(powerChalice));
 
         var conditionChaliceHealing = ConditionDefinitionBuilder
             .Create($"Condition{Name}ChaliceHealing")
@@ -721,44 +722,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         }
     }
 
-    private sealed class ModifyEffectDescriptionArcher(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerArcher) : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerArcher;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
-            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
-            var damageForm = effectDescription.EffectForms.FirstOrDefault(x =>
-                x.FormType == EffectForm.EffectFormType.Damage);
-
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
-            damageForm.damageForm.BonusDamage = wisMod;
-
-            var levels = character.GetClassLevel(Druid);
-
-            if (levels >= 10)
-            {
-                damageForm.damageForm.DiceNumber = 2;
-            }
-
-            return effectDescription;
-        }
-    }
-
     //
     // Chalice
     //
@@ -786,7 +749,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            if (rulesetEffect.EffectDescription.EffectForms.All(x =>
+            if (rulesetEffect is not RulesetEffectSpell ||
+                rulesetEffect.EffectDescription.EffectForms.All(x =>
                     x.FormType != EffectForm.EffectFormType.Healing))
             {
                 yield break;
@@ -805,44 +769,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-    }
-
-    private sealed class ModifyEffectDescriptionChalice(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerChalice) : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerChalice;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
-            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
-            var healingForm = effectDescription.EffectForms.FirstOrDefault(x =>
-                x.FormType == EffectForm.EffectFormType.Healing);
-
-            if (healingForm == null)
-            {
-                return effectDescription;
-            }
-
-            healingForm.healingForm.BonusHealing = wisMod;
-
-            var levels = character.GetClassLevel(Druid);
-
-            if (levels >= 10)
-            {
-                healingForm.healingForm.DiceNumber = 2;
-            }
-
-            return effectDescription;
         }
     }
 

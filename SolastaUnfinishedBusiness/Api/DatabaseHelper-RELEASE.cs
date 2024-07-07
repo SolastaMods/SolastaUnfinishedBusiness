@@ -30,7 +30,7 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition DisengageMain { get; } = GetDefinition<ActionDefinition>("DisengageMain");
-        internal static ActionDefinition FlurryOfBlows { get; } = GetDefinition<ActionDefinition>("FlurryOfBlows");
+        internal static ActionDefinition SpiritRage { get; } = GetDefinition<ActionDefinition>("SpiritRage");
 
         internal static ActionDefinition GrantBardicInspiration { get; } =
             GetDefinition<ActionDefinition>("GrantBardicInspiration");
@@ -339,9 +339,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionBanished { get; } =
             GetDefinition<ConditionDefinition>("ConditionBanished");
 
-        internal static ConditionDefinition ConditionBardicInspiration { get; } =
-            GetDefinition<ConditionDefinition>("ConditionBardicInspiration");
-
         internal static ConditionDefinition ConditionBarkskin { get; } =
             GetDefinition<ConditionDefinition>("ConditionBarkskin");
 
@@ -572,9 +569,6 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionMindDominatedByCaster { get; } =
             GetDefinition<ConditionDefinition>("ConditionMindDominatedByCaster");
-
-        internal static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } =
-            GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus");
 
         internal static ConditionDefinition Condition_MummyLord_ChannelNegativeEnergy { get; } =
             GetDefinition<ConditionDefinition>("Condition_MummyLord_ChannelNegativeEnergy");
@@ -1137,6 +1131,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Solasta { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Solasta");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierDazzled { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDazzled");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierDragonbornAbilityScoreIncreaseCha { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDragonbornAbilityScoreIncreaseCha");
@@ -1738,9 +1735,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMagebaneWarcry { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMagebaneWarcry");
-
-        internal static FeatureDefinitionPower PowerCallLightning { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerCallLightning");
 
         internal static FeatureDefinitionPower PowerDelayedBlastFireballDetonate { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDelayedBlastFireballDetonate");

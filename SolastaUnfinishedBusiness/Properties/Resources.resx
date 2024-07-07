@@ -297,6 +297,16 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerSpiritTeleport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerSpiritTeleport.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PowerSummonSpirit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerSummonSpirit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="PowerStormborn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerStormborn.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -1013,13 +1023,8 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
-  <data name="EgoShock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Spells/EgoShock.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
-  </data>
-  <data name="ForceStrike" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Spells/ForceStrike.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+  <data name="VitriolicSphere" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/VitriolicSphere.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>

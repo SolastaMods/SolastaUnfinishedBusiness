@@ -2,6 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:PowerInvocationPerniciousCloak:d703fd29-edaf-5fa2-b750-7ed67699cf2f",
+    "Definition:PowerInvocationPerniciousCloakDamage:42b818ee-0cb0-552e-8b5d-3662d8c89300",
     "Definition:PowerInvocationPerniciousCloakRemove:f968d22a-b5a4-5f53-a2cb-6c154653170f"
   ],
   "mode": "Union",

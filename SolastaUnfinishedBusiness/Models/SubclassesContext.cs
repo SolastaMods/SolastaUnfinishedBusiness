@@ -39,9 +39,6 @@ internal static class SubclassesContext
             LoadSubclass(abstractSubClassInstance);
         }
 
-        // keep backward compatibility
-        _ = new CollegeOfWarDancer();
-
         // settings paring
         var subclasses = Main.Settings.KlassListSubclassEnabled
             .SelectMany(x => x.Value)

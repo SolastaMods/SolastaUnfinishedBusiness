@@ -75,10 +75,8 @@ public static class GameLocationCharacterExtensions
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstMeleeModeThatCanAttack(
         this GameLocationCharacter instance,
         GameLocationCharacter target,
-        IGameLocationBattleService service = null)
+        IGameLocationBattleService service)
     {
-        service ??= ServiceRepository.GetService<IGameLocationBattleService>();
-
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
             if (!ValidatorsWeapon.IsMelee(mode))
@@ -106,10 +104,8 @@ public static class GameLocationCharacterExtensions
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstRangedModeThatCanAttack(
         this GameLocationCharacter instance,
         GameLocationCharacter target,
-        IGameLocationBattleService service = null)
+        IGameLocationBattleService service)
     {
-        service ??= ServiceRepository.GetService<IGameLocationBattleService>();
-
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
             if (mode.Reach)

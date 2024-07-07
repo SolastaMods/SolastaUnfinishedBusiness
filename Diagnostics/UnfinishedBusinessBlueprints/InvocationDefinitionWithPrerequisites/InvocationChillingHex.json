@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerInvocationChillingHex:7c38ed4a-2196-5c69-b08e-35bee1324744",
+  "grantedFeature": "Definition:FeatureSetInvocationChillingHex:56ba928e-c0a3-5076-a248-f63079db0de9",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -15,8 +15,8 @@
     "description": "Invocation/&InvocationChillingHexDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d3669f2feab940740b9941e9ca86925a",
-      "m_SubObjectName": "Firebolt",
+      "m_AssetGUID": "efaa412a510b8b448a811c645bcbd8fa",
+      "m_SubObjectName": "RayOfFrost",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

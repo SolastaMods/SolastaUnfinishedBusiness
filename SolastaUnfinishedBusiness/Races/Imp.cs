@@ -334,8 +334,10 @@ internal static class RaceImpBuilder
             {
                 var isSpite = defender.RulesetActor.HasConditionOfType(ConditionImpSpiteName);
 
-                defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpAssistedEnemyName);
-                defender.RulesetCharacter.RemoveAllConditionsOfType(ConditionImpSpiteName);
+                defender.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionImpAssistedEnemyName);
+                defender.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionImpSpiteName);
 
                 if (isSpite)
                 {
@@ -713,6 +715,16 @@ internal static class RaceImpBuilder
                 ActionDefinitions.Id.HideBonus)
             .AddToDB();
 
+        var conditionImpishWrathMark = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ImpishWrathMark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(
+                ConditionInterruption.Attacks,
+                ConditionInterruption.CastSpellExecuted,
+                ConditionInterruption.UsePowerExecuted)
+            .AddToDB();
+
         var powerImpForestImpishWrath = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}ImpishWrath")
             .SetGuiPresentation(Category.Feature)
@@ -720,7 +732,8 @@ internal static class RaceImpBuilder
             .DelegatedToAction()
             .AddToDB();
 
-        powerImpForestImpishWrath.AddCustomSubFeatures(new CustomBehaviorImpishWrath(powerImpForestImpishWrath));
+        powerImpForestImpishWrath.AddCustomSubFeatures(
+            new CustomBehaviorImpishWrath(powerImpForestImpishWrath, conditionImpishWrathMark));
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "ImpishWrathToggle")
@@ -761,7 +774,9 @@ internal static class RaceImpBuilder
         return raceImpForest;
     }
 
-    private class CustomBehaviorImpishWrath(FeatureDefinitionPower powerImpForestImpishWrath)
+    private class CustomBehaviorImpishWrath(
+        FeatureDefinitionPower powerImpForestImpishWrath,
+        ConditionDefinition conditionImpForestImpishWrathMark)
         : IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
@@ -774,15 +789,9 @@ internal static class RaceImpBuilder
             bool firstTarget,
             bool criticalHit)
         {
-            if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
-            {
-                yield break;
-            }
+            HandleImpishWrath(attacker, actualEffectForms);
 
-            yield return HandleImpishWrath(attacker,
-                defender,
-                rulesetEffect.SourceTags,
-                rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
+            yield break;
         }
 
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
@@ -797,73 +806,63 @@ internal static class RaceImpBuilder
             bool firstTarget,
             bool criticalHit)
         {
-            if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
-            {
-                yield break;
-            }
+            HandleImpishWrath(attacker, actualEffectForms);
 
-            yield return HandleImpishWrath(
-                attacker,
-                defender,
-                attackMode.AttackTags,
-                attackMode.EffectDescription.FindFirstDamageForm()?.damageType);
+            yield break;
         }
 
-        private IEnumerator HandleImpishWrath(
-            // ReSharper disable once SuggestBaseTypeForParameter
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            List<string> attackTags,
-            string damageType = DamageTypeBludgeoning)
+        private void HandleImpishWrath(GameLocationCharacter attacker, List<EffectForm> actualEffectForms)
         {
+            var damageForm =
+                actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
+
+            if (damageForm == null)
+            {
+                return;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
+            var alreadyTriggered = rulesetAttacker.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionImpForestImpishWrathMark.Name);
+            var shouldTrigger =
+                rulesetAttacker.IsToggleEnabled(ImpishWrathToggle) &&
+                rulesetAttacker.GetRemainingPowerUses(powerImpForestImpishWrath) > 0;
 
-            if (!rulesetAttacker.IsToggleEnabled(ImpishWrathToggle))
+            if (shouldTrigger && !alreadyTriggered)
             {
-                yield break;
+                var usablePower = PowerProvider.Get(powerImpForestImpishWrath, rulesetAttacker);
+
+                rulesetAttacker.UsePower(usablePower);
+                rulesetAttacker.InflictCondition(
+                    conditionImpForestImpishWrathMark.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfSourceTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionImpForestImpishWrathMark.Name,
+                    0,
+                    0,
+                    0);
             }
 
-            var rulesetDefender = defender.RulesetActor;
-
-            if (rulesetDefender is not { IsDeadOrUnconscious: false })
+            switch (alreadyTriggered)
             {
-                yield break;
+                case false when !shouldTrigger:
+                    return;
+                case true:
+                    rulesetAttacker.LogCharacterUsedPower(powerImpForestImpishWrath);
+                    break;
             }
 
-            if (rulesetAttacker.GetRemainingPowerUses(powerImpForestImpishWrath) == 0)
-            {
-                yield break;
-            }
+            var index = actualEffectForms.IndexOf(damageForm);
+            var bonusDamage = attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var effectForm =
+                EffectFormBuilder.DamageForm(damageForm.DamageForm.DamageType, 0, DieType.D1, bonusDamage);
 
-            var usablePower = PowerProvider.Get(powerImpForestImpishWrath, rulesetAttacker);
-
-            rulesetAttacker.UsePower(usablePower);
-
-            var bonusDamage = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var damageForm = new DamageForm
-            {
-                DamageType = damageType, DieType = DieType.D1, DiceNumber = 0, BonusDamage = bonusDamage
-            };
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetDefender,
-                position = defender.LocationPosition
-            };
-
-            RulesetActor.InflictDamage(
-                bonusDamage,
-                damageForm,
-                damageType,
-                applyFormsParams,
-                rulesetDefender,
-                false,
-                rulesetAttacker.Guid,
-                false,
-                attackTags,
-                new RollInfo(DieType.D1, [], bonusDamage),
-                false,
-                out _);
+            actualEffectForms.Insert(index + 1, effectForm);
         }
     }
 

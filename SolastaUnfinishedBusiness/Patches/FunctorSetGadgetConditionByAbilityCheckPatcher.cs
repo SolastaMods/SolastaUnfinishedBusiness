@@ -38,7 +38,7 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
 
             if (functorParameters.AbilityCheck.ProficiencyName == SkillDefinitions.Perception)
             {
-                foreach (var actingCharacter in functorParameters.ActingCharacters)
+                foreach (var actingCharacter in functorParameters.ActingCharacters.Distinct().ToList())
                 {
                     if (actingCharacter.RulesetCharacter.CanRevealHiddenObjects())
                     {
@@ -169,6 +169,7 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                     !functorParameters.AbilityCheck.Silent);
 
                 //BEGIN PATCH
+                var actionService = ServiceRepository.GetService<IGameLocationActionService>();
                 var battleManager = ServiceRepository.GetService<IGameLocationBattleService>()
                     as GameLocationBattleManager;
 
@@ -197,7 +198,7 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                                     IntParameter2 = (int)RuleDefinitions.BardicInspirationUsageType.AbilityCheck
                                 };
 
-                            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
                             var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
 
                             actionService.ReactToUseBardicInspiration(reactionParams);
@@ -224,14 +225,23 @@ public static class FunctorSetGadgetConditionByAbilityCheckPatcher
                 //PATCH: support for `ITryAlterOutcomeAttributeCheck`
                 var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
                 var contenders =
-                    (Gui.Battle?.AllContenders ??
-                     locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                    .ToList();
+                    Gui.Battle?.AllContenders ??
+                    locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
 
                 foreach (var unit in contenders
                              .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                              .ToList())
                 {
+                    var hasUnit =
+                        actionService.PendingReactionRequestGroups.Count > 0 &&
+                        actionService.PendingReactionRequestGroups.Peek().Requests
+                            .Any(x => x.Character == unit);
+
+                    if (hasUnit)
+                    {
+                        continue;
+                    }
+
                     foreach (var feature in unit.RulesetCharacter
                                  .GetSubFeaturesByType<ITryAlterOutcomeAttributeCheck>())
                     {

@@ -121,7 +121,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create(EldritchBlast)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 24, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(EldritchBlast)
                     .SetEffectForms(
                         EffectFormBuilder

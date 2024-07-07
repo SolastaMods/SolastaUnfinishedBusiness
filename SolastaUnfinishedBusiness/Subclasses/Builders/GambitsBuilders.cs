@@ -28,7 +28,7 @@ internal static class GambitsBuilders
         .Create("PowerPoolTacticianGambit")
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(HasModifiedUses.Marker, ModifyPowerVisibility.Hidden)
-        // force to zero here and add 4 on same level for better integration with tactician adept feat
+        // force to zero here and add 3 on same level for better integration with tactician adept feat
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
         .AddToDB();
 
@@ -51,8 +51,6 @@ internal static class GambitsBuilders
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitLearn4")
             .SetGuiPresentation(Category.Feature)
-            //adding base pool here instead of the pool power to make it properly work on pre-existing characters and not interfere with new feat
-            .AddCustomSubFeatures(InitialPool.Instance)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit, 3)
             .AddToDB();
 
@@ -938,9 +936,7 @@ internal static class GambitsBuilders
     }
 
     private sealed class ModifyEffectDescriptionSavingThrow(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower baseDefinition)
-        : IModifyEffectDescription
+        FeatureDefinitionPower baseDefinition) : IModifyEffectDescription
     {
         public bool IsValid(
             BaseDefinition definition,
@@ -973,7 +969,6 @@ internal static class GambitsBuilders
     }
 
     private sealed class ModifyAdditionalDamageGambitDieSize(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage
     {
         public void ModifyAdditionalDamage(
@@ -1010,24 +1005,10 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class InitialPool : IModifyPowerPoolAmount
-    {
-        private InitialPool()
-        {
-        }
-
-        public static IModifyPowerPoolAmount Instance { get; } = new InitialPool();
-        public FeatureDefinitionPower PowerPool => GambitPool;
-
-        public int PoolChangeAmount(RulesetCharacter character)
-        {
-            return 4;
-        }
-    }
-
     //
     // Rally
     //
+
     private sealed class Rally(FeatureDefinitionPower powerRallyActivate) : IPowerOrSpellInitiatedByMe
     {
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1063,7 +1044,7 @@ internal static class GambitsBuilders
     //
     // Swift Throw
     //
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+
     private sealed class SwiftThrow(ItemDefinition concealedDagger, FeatureDefinitionPower powerSwiftThrow)
         : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe, IModifyAttackActionModifier
     {
@@ -1146,9 +1127,9 @@ internal static class GambitsBuilders
     //
     // Tactical Strike
     //
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class TacticalStrike :
-        IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
+
+    private sealed class TacticalStrike
+        : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe, IFilterTargetingCharacter
     {
         public bool EnforceFullSelection => true;
 
@@ -1297,8 +1278,9 @@ internal static class GambitsBuilders
     //
     // Feint
     //
-    private sealed class Feint(FeatureDefinitionPower pool) :
-        IModifyAttackActionModifier, IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
+
+    private sealed class Feint(FeatureDefinitionPower pool)
+        : IModifyAttackActionModifier, IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
     {
         private const string ConditionGambitFeint = "ConditionGambitFeint";
 
@@ -1362,7 +1344,7 @@ internal static class GambitsBuilders
     //
     // Retaliate
     //
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+
     private sealed class Retaliate(FeatureDefinitionPower pool, ConditionDefinition condition, bool melee)
         : IPhysicalAttackFinishedOnMe
     {
@@ -1413,8 +1395,8 @@ internal static class GambitsBuilders
             }
 
             var (retaliationMode, retaliationModifier) = melee
-                ? defender.GetFirstMeleeModeThatCanAttack(attacker)
-                : defender.GetFirstRangedModeThatCanAttack(attacker);
+                ? defender.GetFirstMeleeModeThatCanAttack(attacker, battleManager)
+                : defender.GetFirstRangedModeThatCanAttack(attacker, battleManager);
 
             if (retaliationMode == null)
             {
@@ -1469,15 +1451,12 @@ internal static class GambitsBuilders
     //
     // Switch
     //
+
     private sealed class Switch(
         FeatureDefinitionPower powerSwitchActivate,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition good,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition bad,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition self)
-        : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
+        ConditionDefinition self) : IFilterTargetingCharacter, IPowerOrSpellFinishedByMe
     {
         public bool EnforceFullSelection => false;
 
@@ -1603,6 +1582,7 @@ internal static class GambitsBuilders
     //
     // Brace
     //
+
     private sealed class Brace : CanMakeAoOOnReachEntered
     {
         private readonly ConditionDefinition _condition;
@@ -1676,7 +1656,7 @@ internal static class GambitsBuilders
     //
     // Precise
     //
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+
     private sealed class Precise(FeatureDefinitionPower pool, FeatureDefinition feature)
         : ITryAlterOutcomeAttack
     {
@@ -1780,7 +1760,7 @@ internal static class GambitsBuilders
     //
     // Parry
     //
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+
     private sealed class Parry(FeatureDefinitionPower pool, FeatureDefinition feature) : ITryAlterOutcomeAttack
     {
         private const string Line = "Feedback/&GambitParryDamageReduction";
@@ -1870,7 +1850,7 @@ internal static class GambitsBuilders
     //
     // Coordinated Attack
     //
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+
     private sealed class CoordinatedAttack :
         IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IPowerOrSpellFinishedByMe,
         IIgnoreInvisibilityInterruptionCheck
@@ -1989,6 +1969,7 @@ internal static class GambitsBuilders
     //
     // Elusive Movement
     //
+
     private sealed class ElusiveMovement(FeatureDefinitionPower powerElusiveMovement) : IOnConditionAddedOrRemoved
     {
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -2010,7 +1991,7 @@ internal static class GambitsBuilders
     //
     // Overwhelming Attack
     //
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+
     private sealed class OverwhelmingAttack :
         IFilterTargetingCharacter, IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {

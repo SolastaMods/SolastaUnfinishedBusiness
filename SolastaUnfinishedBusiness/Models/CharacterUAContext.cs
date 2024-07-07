@@ -454,11 +454,8 @@ internal static partial class CharacterContext
     }
 
     private sealed class CustomBehaviorSunderingBlow(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerSunderingBlow,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionSunderingBlowAlly)
-        : IPhysicalAttackInitiatedOnMe, IMagicEffectAttackInitiatedOnMe
+        ConditionDefinition conditionSunderingBlowAlly) : IPhysicalAttackInitiatedOnMe, IMagicEffectAttackInitiatedOnMe
     {
         public IEnumerator OnMagicEffectAttackInitiatedOnMe(
             CharacterActionMagicEffect action,
@@ -469,11 +466,6 @@ internal static partial class CharacterContext
             bool firstTarget,
             bool checkMagicalAttackDamage)
         {
-            if (activeEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
-            {
-                yield break;
-            }
-
             var damageType = activeEffect.EffectDescription.FindFirstDamageForm()?.DamageType;
 
             if (damageType == null)
@@ -1173,6 +1165,7 @@ internal static partial class CharacterContext
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetConditionType(ConditionType.Detrimental)
         .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
+        .SetSpecialInterruptions(ConditionInterruption.Attacks)
         .AddToDB();
 
     private static FeatureDefinitionFeatureSet _featureSetRogueCunningStrike;
@@ -1392,7 +1385,7 @@ internal static partial class CharacterContext
         var powerKnockOut = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Devious}KnockOut")
             .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.NoCost, powerPool, 6)
+            .SetSharedPool(ActivationTime.NoCost, powerPool, 5)
             .SetShowCasting(false)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();

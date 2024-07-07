@@ -113,13 +113,6 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
         // Swift Strike
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}SwiftStrike")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifierAbilityScore(AttributeDefinitions.Initiative, AttributeDefinitions.Wisdom)
-            .AddToDB();
-
         var powerGhostlyHowl = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}GhostlyHowl")
             .SetGuiPresentation(Category.Feature)

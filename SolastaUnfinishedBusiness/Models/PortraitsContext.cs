@@ -42,10 +42,10 @@ public static class PortraitsContext
 
     internal static bool HasCustomPortrait(RulesetCharacter rulesetCharacter)
     {
-        var name = rulesetCharacter.Name;
-
-        return (rulesetCharacter is RulesetCharacterHero && CustomHeroPortraits.ContainsKey(name))
-               || (rulesetCharacter is RulesetCharacterMonster && CustomMonsterPortraits.ContainsKey(name));
+        return (rulesetCharacter is RulesetCharacterHero &&
+                CustomHeroPortraits.ContainsKey(rulesetCharacter.Name)) ||
+               (rulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
+                CustomMonsterPortraits.ContainsKey(rulesetCharacterMonster.MonsterDefinition.Name));
     }
 
     internal static void ChangePortrait(GuiCharacter __instance, RawImage rawImage)
@@ -57,7 +57,8 @@ public static class PortraitsContext
 
         if (__instance.RulesetCharacterMonster != null)
         {
-            if (TryGetMonsterPortrait(__instance.Name, rawImage, out var texture))
+            if (TryGetMonsterPortrait(__instance.RulesetCharacterMonster.MonsterDefinition.Name, rawImage,
+                    out var texture))
             {
                 rawImage.texture = texture;
             }

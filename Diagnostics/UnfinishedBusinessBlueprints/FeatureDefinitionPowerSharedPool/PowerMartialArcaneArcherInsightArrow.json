@@ -207,8 +207,8 @@
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
@@ -230,6 +230,33 @@
             "m_SubObjectName": "",
             "m_SubObjectType": ""
           },
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionMartialArcaneArcherInsightArrow",
+          "conditionDefinition": "Definition:ConditionMartialArcaneArcherInsightArrow:79ce0a55-1536-52c3-9068-cd4be8dab5e9",
+          "operation": "Add",
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -311,7 +338,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "dc52f8444fa49f24ca22b361d63dbb15",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -475,7 +502,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&PowerMartialArcaneArcherInsightArrowTitle",
     "description": "Feature/&PowerMartialArcaneArcherInsightArrowDescription",
     "spriteReference": {

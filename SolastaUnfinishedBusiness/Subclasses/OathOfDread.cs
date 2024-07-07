@@ -3,6 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -144,9 +145,21 @@ public sealed class OathOfDread : AbstractSubclass
 
         const string AURA_DOMINATION = "AuraOfDomination";
 
-        var featureAuraOfDomination = FeatureDefinitionBuilder
+        var powerAuraOfDominationDamage = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}{AURA_DOMINATION}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"Power{Name}{AURA_DOMINATION}", Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeNecrotic),
+                        EffectFormBuilder.ConditionForm(CustomConditionsContext.StopMovement))
+                    .SetImpactEffectParameters(DreadfulOmen)
+                    .Build())
             .AddToDB();
 
         var conditionAuraOfDomination = ConditionDefinitionBuilder
@@ -155,12 +168,12 @@ public sealed class OathOfDread : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive()
-            .SetFeatures(featureAuraOfDomination)
+            .SetFeatures(powerAuraOfDominationDamage)
             .SetConditionParticleReference(ConditionBaned)
             .AddToDB();
 
-        featureAuraOfDomination.AddCustomSubFeatures(
-            new CharacterTurnStartListenerAuraOfDomination(conditionAuraOfDomination));
+        powerAuraOfDominationDamage.AddCustomSubFeatures(
+            new CharacterTurnStartListenerAuraOfDomination(powerAuraOfDominationDamage, conditionAuraOfDomination));
 
         var powerAuraOfDomination = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfProtection, $"Power{Name}{AURA_DOMINATION}")
@@ -268,18 +281,11 @@ public sealed class OathOfDread : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfDread, 256))
-            .AddFeaturesAtLevel(3,
-                autoPreparedSpells,
-                featureSetMarkOfTheSubmission,
-                powerDreadfulPresence)
-            .AddFeaturesAtLevel(7,
-                powerAuraOfDomination)
-            .AddFeaturesAtLevel(15,
-                featureHarrowingCrusade)
-            .AddFeaturesAtLevel(18,
-                powerAuraOfDomination18)
-            .AddFeaturesAtLevel(20,
-                powerAspectOfDread)
+            .AddFeaturesAtLevel(3, autoPreparedSpells, featureSetMarkOfTheSubmission, powerDreadfulPresence)
+            .AddFeaturesAtLevel(7, powerAuraOfDomination)
+            .AddFeaturesAtLevel(15, featureHarrowingCrusade)
+            .AddFeaturesAtLevel(18, powerAuraOfDomination18)
+            .AddFeaturesAtLevel(20, powerAspectOfDread)
             .AddToDB();
     }
 
@@ -298,80 +304,71 @@ public sealed class OathOfDread : AbstractSubclass
     //
 
     private sealed class CharacterTurnStartListenerAuraOfDomination(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionAuraOfDomination) : ICharacterTurnStartListener
+        FeatureDefinitionPower powerAuraOfDominationDamage,
+        ConditionDefinition conditionAuraOfDomination) : ICharacterTurnStartListener, IModifyEffectDescription
     {
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        public void OnCharacterTurnStarted(GameLocationCharacter character)
         {
-            var rulesetDefender = locationCharacter.RulesetActor;
-            var rulesetCondition = rulesetDefender.AllConditions.FirstOrDefault(x =>
-                x.ConditionDefinition == conditionAuraOfDomination);
+            var rulesetCharacter = character.RulesetActor;
 
-            if (rulesetCondition == null)
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionAuraOfDomination.Name, out var activeCondition))
             {
                 return;
             }
 
-            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
-            var hasFrightenedFromSource = rulesetDefender.AllConditions.Any(x =>
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var hasFrightenedFromSource = rulesetCharacter.AllConditions.Any(x =>
                 x.SourceGuid == rulesetAttacker.Guid &&
                 (x.ConditionDefinition == ConditionDefinitions.ConditionFrightened ||
                  x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened)));
 
-            if (!hasFrightenedFromSource)
+            if (!hasFrightenedFromSource ||
+                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
 
-            rulesetDefender.InflictCondition(
-                CustomConditionsContext.StopMovement.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.EndOfSourceTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                CustomConditionsContext.StopMovement.Name,
-                0,
-                0,
-                0);
+            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
 
-            var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Paladin);
-            var totalDamage = classLevel / 2;
-            var damageForm = new DamageForm
+            if (attacker == null)
             {
-                DamageType = DamageTypePsychic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
-            };
-
-
-            var locationCharacterAttacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
-
-            if (locationCharacterAttacker != null)
-            {
-                EffectHelpers.StartVisualEffect(locationCharacterAttacker, locationCharacter, DreadfulOmen);
+                return;
             }
 
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerAuraOfDominationDamage, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetDefender,
-                position = locationCharacter.LocationPosition
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { character }
             };
 
-            RulesetActor.InflictDamage(
-                totalDamage,
-                damageForm,
-                DamageTypePsychic,
-                applyFormsParams,
-                rulesetDefender,
-                false,
-                rulesetAttacker.Guid,
-                false,
-                [],
-                new RollInfo(DieType.D1, [], totalDamage),
-                true,
-                out _);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerAuraOfDominationDamage;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var bonusDamage = character.GetClassLevel(CharacterClassDefinitions.Paladin) / 2;
+
+            effectDescription.EffectForms[0].DamageForm.BonusDamage = bonusDamage;
+
+            return effectDescription;
         }
     }
 
@@ -426,11 +423,12 @@ public sealed class OathOfDread : AbstractSubclass
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = helper.GetFirstMeleeModeThatCanAttack(attacker);
+            var (retaliationMode, retaliationModifier) = helper.GetFirstMeleeModeThatCanAttack(attacker, battleManager);
 
             if (retaliationMode == null)
             {
-                (retaliationMode, retaliationModifier) = helper.GetFirstRangedModeThatCanAttack(attacker);
+                (retaliationMode, retaliationModifier) =
+                    helper.GetFirstRangedModeThatCanAttack(attacker, battleManager);
 
                 if (retaliationMode == null)
                 {

@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
+  "requiredMonsterTag": "WildfireSpirit",
+  "addedConditions": [
+    "Definition:ConditionCircleOfTheWildfireCopyProficiencyBonus:3838eff6-01bc-5b0a-9c2c-b0a5938db2eb",
+    "Definition:ConditionCircleOfTheWildfireSpiritAttackRoll:719ca5b7-b4fb-5a16-a640-9d4a8767eca0",
+    "Definition:ConditionCircleOfTheWildfireSpiritDamageRoll:6ff40305-fd0b-5d52-8822-9f43bc935e85",
+    "Definition:ConditionCircleOfTheWildfireSpiritHitPoints:57e507e7-5781-5c04-a11c-c407b124f1fa"
+  ],
+  "effectOnConjuredDeath": false,
+  "effectForms": [],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "029aa1a0-af7a-5dbc-85cb-6da83416c8d2",
+  "contentPack": 9999,
+  "name": "SummoningAffinityCircleOfTheWildfireSpirit"
+}

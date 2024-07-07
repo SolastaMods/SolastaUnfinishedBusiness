@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -385,6 +384,23 @@ internal static partial class SpellBuilders
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
+        var powerDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeFire, 1, DieType.D6),
+                        EffectFormBuilder.ConditionForm(conditionMark))
+                    .SetImpactEffectParameters(Fireball)
+                    .Build())
+            .AddToDB();
+
         var conditions = new List<ConditionDefinition>();
 
         for (var effectLevel = 3; effectLevel <= 9; effectLevel++)
@@ -400,7 +416,7 @@ internal static partial class SpellBuilders
                 .SetGuiPresentation(Name, Category.Spell, ConditionFreedomOfMovement)
                 .SetPossessive()
                 .AddFeatures(movementAffinity, combatAffinity)
-                .AddCustomSubFeatures(new ActionFinishedByMeAshardalonStride(conditionMark))
+                .AddCustomSubFeatures(new MoveStepFinishedAshardalonStride(powerDamage, conditionMark))
                 .SetConditionParticleReference(ConditionOnFire)
                 .AddToDB();
 
@@ -434,12 +450,43 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        spell.AddCustomSubFeatures(new ModifyEffectDescriptionAshardalonStride([.. conditions]));
+        powerDamage.AddCustomSubFeatures(new ModifyEffectDescriptionAshardalonStride(powerDamage, spell));
+        spell.AddCustomSubFeatures(new CustomBehaviorAshardalonStride([.. conditions]));
 
         return spell;
     }
 
-    private sealed class ActionFinishedByMeAshardalonStride(ConditionDefinition conditionMark) : IMoveStepFinished
+    private sealed class ModifyEffectDescriptionAshardalonStride(
+        FeatureDefinitionPower powerDamage,
+        SpellDefinition spell)
+        : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerDamage;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (character.ConcentratedSpell == null ||
+                character.ConcentratedSpell.SpellDefinition != spell)
+            {
+                return effectDescription;
+            }
+
+            effectDescription.EffectForms[0].DamageForm.DiceNumber = character.ConcentratedSpell.EffectLevel - 2;
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class MoveStepFinishedAshardalonStride(
+        FeatureDefinitionPower powerDamage,
+        ConditionDefinition conditionMark) : IMoveStepFinished
     {
         public void MoveStepFinished(GameLocationCharacter mover)
         {
@@ -452,58 +499,35 @@ internal static partial class SpellBuilders
                             !x.RulesetCharacter.HasConditionOfCategoryAndType(
                                 AttributeDefinitions.TagEffect, conditionMark.Name))
                 .ToList();
+
             var rulesetAttacker = mover.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
 
-            foreach (var contender in contenders)
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < contenders.Count; i++)
             {
-                var rulesetDefender = contender.RulesetCharacter;
-                var rolls = new List<int>();
-                var diceNumber = rulesetAttacker.ConcentratedSpell.EffectLevel - 2;
-                var damageForm = new DamageForm
-                {
-                    DamageType = DamageTypeFire, DieType = DieType.D6, DiceNumber = diceNumber, BonusDamage = 0
-                };
-                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                {
-                    sourceCharacter = rulesetAttacker,
-                    targetCharacter = rulesetDefender,
-                    position = contender.LocationPosition
-                };
-                var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-
-                EffectHelpers.StartVisualEffect(mover, contender, Fireball);
-                RulesetActor.InflictDamage(
-                    damageRoll,
-                    damageForm,
-                    damageForm.DamageType,
-                    applyFormsParams,
-                    rulesetDefender,
-                    false,
-                    rulesetAttacker.Guid,
-                    false,
-                    [],
-                    new RollInfo(damageForm.DieType, rolls, 0),
-                    false,
-                    out _);
-
-                rulesetDefender.InflictCondition(
-                    conditionMark.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfSourceTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionMark.Name,
-                    0,
-                    0,
-                    0);
+                actionModifiers.Add(new ActionModifier());
             }
+
+            var actionParams = new CharacterActionParams(mover, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = actionModifiers,
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = contenders
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
-    private sealed class ModifyEffectDescriptionAshardalonStride(params ConditionDefinition[] conditions)
+    private sealed class CustomBehaviorAshardalonStride(params ConditionDefinition[] conditions)
         : IPowerOrSpellInitiatedByMe, IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -760,9 +784,8 @@ internal static partial class SpellBuilders
             var attacker = action.ActingCharacter;
             var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
-                (Gui.Battle?.AllContenders ??
-                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .ToList();
+                Gui.Battle?.AllContenders ??
+                locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
 
             _targets.SetRange(contenders
                 .Where(x =>
@@ -1097,6 +1120,41 @@ internal static partial class SpellBuilders
     {
         const string Name = "HungerOfTheVoid";
 
+        var powerHungerOfTheVoidDamageAcid = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Acid")
+            .SetGuiPresentation(Name, Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.FixedValue)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeAcid, 2, DieType.D6)
+                            .Build())
+                    .SetImpactEffectParameters(VenomousSpike)
+                    .Build())
+            .AddToDB();
+
+        var powerHungerOfTheVoidDamageCold = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Cold")
+            .SetGuiPresentation(Name, Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeCold, 2, DieType.D6))
+                    .SetImpactEffectParameters(ConeOfCold)
+                    .Build())
+            .AddToDB();
+
         var conditionHungerOfTheVoid = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionBlinded, $"ConditionBlindedBy{Name}")
             .SetOrUpdateGuiPresentation(Category.Condition)
@@ -1105,8 +1163,9 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionHungerOfTheVoid.GuiPresentation.description = "Rules/&ConditionBlindedDescription";
-
-        conditionHungerOfTheVoid.AddCustomSubFeatures(new CustomBehaviorHungerOfTheVoid(conditionHungerOfTheVoid));
+        conditionHungerOfTheVoid.AddCustomSubFeatures(
+            new CustomBehaviorHungerOfTheVoid(
+                powerHungerOfTheVoidDamageAcid, powerHungerOfTheVoidDamageCold, conditionHungerOfTheVoid));
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
@@ -1139,102 +1198,74 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorHungerOfTheVoid(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerHungerOfTheVoidDamageAcid,
+        FeatureDefinitionPower powerHungerOfTheVoidDamageCold,
         ConditionDefinition conditionHungerOfTheVoid) : ICharacterTurnStartListener, ICharacterBeforeTurnEndListener
     {
-        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter character)
         {
-            InflictDamage(DamageTypeAcid, locationCharacter.RulesetCharacter, VenomousSpike, true);
-        }
-
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            InflictDamage(DamageTypeCold, locationCharacter.RulesetCharacter, ConeOfCold);
-        }
-
-        // ReSharper disable once SuggestBaseTypeForParameter
-        private void InflictDamage(
-            string damageType, RulesetCharacter rulesetCharacter, IMagicEffect magicEffect, bool rollSaving = false)
-        {
-            if (rulesetCharacter == null)
-            {
-                return;
-            }
+            var rulesetCharacter = character.RulesetCharacter;
 
             if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionHungerOfTheVoid.Name,
-                    out var activeCondition))
+                    AttributeDefinitions.TagEffect, conditionHungerOfTheVoid.Name, out var activeCondition))
             {
                 return;
             }
 
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
 
-            if (rulesetCaster == null)
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageAcid, rulesetCaster);
+
+            usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
+
+            var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { character }
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter character)
+        {
+            var rulesetCharacter = character.RulesetCharacter;
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionHungerOfTheVoid.Name, out var activeCondition))
             {
                 return;
             }
 
-            if (rollSaving)
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerHungerOfTheVoidDamageCold, rulesetCaster);
+
+            usablePower.SaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
+
+            var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
             {
-                var casterSaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
-                var modifierTrend = rulesetCharacter.actionModifier.savingThrowModifierTrends;
-                var advantageTrends = rulesetCharacter.actionModifier.savingThrowAdvantageTrends;
-                var dexterityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                    rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Dexterity));
-
-                rulesetCharacter.RollSavingThrow(
-                    0, AttributeDefinitions.Dexterity, null, modifierTrend, advantageTrends, dexterityModifier,
-                    casterSaveDC,
-                    false, out var savingOutcome, out _);
-
-                if (savingOutcome == RollOutcome.Success)
-                {
-                    return;
-                }
-            }
-
-            var diceNumber = activeCondition.EffectLevel switch
-            {
-                >= 9 => 5,
-                >= 7 => 4,
-                >= 5 => 3,
-                _ => 2
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { character }
             };
 
-            var rolls = new List<int>();
-            var damageForm = new DamageForm { DamageType = damageType, DiceNumber = diceNumber, DieType = DieType.D6 };
-            var totalDamage = rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-
-            var attacker = GameLocationCharacter.GetFromActor(rulesetCaster);
-            var defender = GameLocationCharacter.GetFromActor(rulesetCharacter);
-
-            if (attacker != null && defender != null)
-            {
-                EffectHelpers.StartVisualEffect(attacker, defender, magicEffect);
-            }
-
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetCaster,
-                targetCharacter = rulesetCharacter,
-                position = defender?.LocationPosition ?? int3.zero
-            };
-
-            RulesetActor.InflictDamage(
-                totalDamage,
-                damageForm,
-                damageForm.DamageType,
-                applyFormsParams,
-                rulesetCharacter,
-                false,
-                activeCondition.SourceGuid,
-                false,
-                [],
-                new RollInfo(damageForm.DieType, rolls, 0),
-                false,
-                out _);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 

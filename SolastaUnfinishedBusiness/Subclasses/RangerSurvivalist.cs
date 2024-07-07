@@ -150,14 +150,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
         // LEVEL 15
         //
 
-        // Unmatched Experience
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create($"SavingThrowAffinity{Name}UnmatchedExperience")
-            .SetGuiPresentation(Category.Feature)
-            .SetAffinities(CharacterSavingThrowAffinity.ProficiencyBonusOrPlus1, false, AttributeDefinitions.Wisdom)
-            .AddToDB();
+        // Blessing Wilderness
 
         var featureSetBlessingWilderness = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}BlessingWilderness")

@@ -269,7 +269,7 @@ Learn and have always prepared:
 
 	III	Protection from Energy, Stinking Cloud
 
-	IV	Blight, Stoneskin
+	IV	Blight, Vitriolic Sphere
 
 	V	Cloudkill, Contagion
 
@@ -2783,7 +2783,56 @@ While in your Starry Form, you become partially incorporeal, giving you resistan
 
 
 
-## 9. Circle of Winds [SOL]
+## 9. Circle of the Wildfire [UB]
+
+Druids within the Circle of Wildfire understand that destruction is sometimes the precursor of creation, such as when a forest fire promotes later growth. These druids bond with a primal spirit that harbors both destructive and creative power, allowing the druids to create controlled flames that burn away one thing but give life to another.
+
+
+### Level 2
+
+* Expanded Spells
+
+
+	I	Burning Hands, Cure Wounds
+
+	II	Flaming Sphere, Scorching Ray
+
+	III	Ashardalon's Stride, Revivify
+
+	IV	Aura of Life, Fire Shield
+
+	V	Flame Strike, Mass Cure Wounds
+
+
+
+* Summon Wildfire Spirit
+
+You can summon the primal spirit bound to your soul. As an action, you can expend one use of your Wild Shape feature to summon your wildfire spirit, rather than assuming a beast form. The spirit appears in an unoccupied space of your choice that you can see within 30 feet of you. Each creature within 10 feet of the spirit (other than you) when it appears must succeed on a Dexterity saving throw against your spell save DC or take 2d6 fire damage.
+
+
+### Level 6
+
+* Enhanced Bond
+
+The bond with your wildfire spirit enhances your destructive and restorative spells. Whenever you cast a spell that deals fire damage or restores hit points while your wildfire spirit is summoned, roll a d8, and you gain a bonus equal to the number rolled to one damage or healing roll of the spell.
+
+
+### Level 10
+
+* Cauterizing Flames
+
+You gain the ability to turn death into magical light that can heal or incinerate. When a Small or larger creature dies within 30 feet of you or your wildfire spirit, a harmless spectral light springs forth in the dead creature's space and flickers there for 1 minute. When a creature you can see enters that space, you can use your reaction to extinguish the spectral flame there and either heal the creature or deal fire damage to it. The healing or damage equals 2d10 + your Wisdom modifier. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+
+
+### Level 14
+
+* Blazing Revival
+
+When you are reduced to 0 hit points and thereby fall unconscious, you can regain half your hit points and immediately rise to your feet. Once you use this feature, you can't use it again until you finish a long rest.
+
+
+
+## 10. Circle of Winds [SOL]
 
 Druids from this circle draw their strength from the winds. As the Cataclysm raged, the connection druids felt to nature frayed. But not so for the Circle of the Winds. They felt the mana currents carried by the winds and through them a connection to nature. Through this, they were able to protect nature from the worst of the cataclysm-born depredations.
 
@@ -3379,7 +3428,7 @@ Once during your turn when you hit a creature with a melee weapon attack, you ca
 
 * Commanding Presence
 
-You add half your Strength modifier (rounded up) as initiative bonus to all allied creatures (other than you) within 30 feet of you. In addition, you and all allied creatures within 30 feet of you roll all saving throws against charm and frighten effects with advantage.
+You add half your Strength modifier (rounded up, minimum +1) as initiative bonus to all allied creatures (other than you) within 30 feet of you. In addition, you and all allied creatures within 30 feet of you roll all saving throws against charm and frightened effects with advantage.
 
 
 ### Level 18
@@ -3505,13 +3554,6 @@ You choose one type of dragon as your ancestor. The damage type associated with 
 * Elemental Breath
 
 Once during your turn, you can forgo one of your main action attacks to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive three martial arts dice as damage type of your Dragon Ancestry feature (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and you can spend 2 ki instead if you are out of uses. At 17th level, the damage of your breath increases to four martial arts dice.
-
-
-### Level 6
-
-* Reactive Skin
-
-When you are attacked, you can use your reaction and pay 1 Ki to gain resistance to all damage until the end of attacker's turn. If the attacker uses melee attacks against you, they receive one martial arts die as damage type of your Dragon Ancestry feature each time they hit you.
 
 
 ### Level 11
@@ -3767,20 +3809,6 @@ After you make an attack roll with a monk weapon or an unarmed attack, and criti
 * Propelled Weal
 
 After you make an attack roll with a monk weapon or an unarmed attack, and critically hit, you refund 1 Ki point.
-
-
-### Level 11
-
-* Brutal Weal
-
-After you make an attack roll with a monk weapon or an unarmed attack, and critically hit, you deal additional damage equal to one roll of your martial arts die.
-
-
-### Level 17
-
-* Their Woe
-
-After you make an attack roll with a monk weapon or an unarmed attack, and critically miss, you instead deal the Woe damage to the target instead of yourself.
 
 
 
@@ -5210,30 +5238,30 @@ Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, a
 
 You don't need advantage on the attack roll to use your Sneak Attack against a creature if you are within 5 ft of it, no other creatures are within 5 ft of you, and you don't have disadvantage on the attack roll. All the other Sneak Attack rules still apply.
 
-* Sure Footed
+* Swirling Dance
 
-While unarmored or wearing light armor with no shield, gain additional +2 AC and advantage on initiative rolls.
+When a creature misses you with a melee attack roll while you are wielding a melee weapon, you can use your reaction to make an immediate attack of opportunity against that creature.
 
 
 ### Level 9
 
-* Swirling Dance
+* Bravado
 
-Starting at 9th level, when a creature misses you with a melee attack roll, you can use your reaction to make an immediate attack of opportunity against that creature.
+Whenever you Sneak Attack a creature with a melee weapon, you gain non-stacking 1d6 bonus to your AC until the start of your next turn.
 
 
 ### Level 13
 
 * Reflexive Parry
 
-Starting at 13th level, once per turn while you aren't dazzled, incapacitated, shocked or slowed and get hit by a melee weapon attack, you immediately use your Uncanny Dodge feature without needing or consuming your reaction.
+Once per turn while you aren't dazzled, incapacitated, shocked or slowed and get hit by a melee weapon attack, you immediately use your Uncanny Dodge feature without needing or consuming your reaction.
 
 
 ### Level 17
 
 * Master Duelist
 
-Starting at 17th level, immediately after you use your Sneak Attack, you make another attack against the same target using your main hand weapon, provided you are within 5 ft of it and no other creatures are within 5 ft of you.
+Immediately after you use your Sneak Attack, you make another attack against the same target using your main hand weapon, provided you are within 5 ft of it and no other creatures are within 5 ft of you.
 
 
 

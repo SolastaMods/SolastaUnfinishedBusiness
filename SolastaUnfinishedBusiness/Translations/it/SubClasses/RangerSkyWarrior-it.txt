@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=Non è possibile effettuare attacchi di opportunità contro la fonte.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Dono del vento
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Ottieni un bonus ai tuoi tiri di iniziativa pari al tuo modificatore di Saggezza (minimo 1).
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Colpo Rapido
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=Ottieni incantesimi bonus che per te sono considerati incantesimi da Ranger, sono sempre preparati e non contano nel numero di incantesimi da Ranger che conosci:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Incantesimi bonus del Guerriero del Cielo
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Ottieni resistenza ai danni contundenti.

@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=소스에 대해 기회 공격을 할 수 없습니다.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=바람의 선물
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=당신의 지혜 수정치(최소 1)와 동일한 이니셔티브 굴림에 보너스를 얻습니다.
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=신속한 일격
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=당신은 레인저 주문으로 간주되는 보너스 주문을 얻습니다. 이 주문은 항상 준비되어 있으며 귀하가 알고 있는 레인저 주문 수에 포함되지 않습니다.\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=하늘 전사 보너스 주문
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=타격 피해에 대한 저항력을 얻습니다.

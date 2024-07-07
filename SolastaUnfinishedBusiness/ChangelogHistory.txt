@@ -1,3 +1,34 @@
+1.5.97.18:
+
+- added Circle of the Wildfire, and Vitriolic Sphere spell
+- added Ranger Wildmaster summons custom portraits [by Thaladar]
+- added Wizard Deadmaster summons custom portraits [by Thaladar]
+- added sample heroes portraits [by Digitus Primus, and Zeke]
+- changed Cunning Escape, and Exploiter feats min. required level to 4
+- changed Innovation Vitriolist auto prepared spells list at level 13
+- changed Monsters portraits behavior to use unique technical name
+- changed Psionic Blast spell to differentiate it from Synaptic Static
+- changed Rogue Devious Strike knock out cost to 5
+- changed Roguish Duelist making it more useful before higher levels
+- fixed Absorb Elements crashing after slot selection
+- fixed attribute checks crashing on reacting moving heroes
+- fixed Circle of the Stars triggering logic on chalice
+- fixed Eldritch Versatilities crashing on gadgets hit
+- fixed Focused Metamagic crashing with spells forcing self condition
+- fixed Innovation Artillerist force ballista range to 120 ft
+- fixed Innovation Vitriolist slots consuming logic on refund mixture
+- fixed IsMelee attack validator logic [i.e.: exploiter feat]
+- fixed melee attack cantrips damage dice progression
+- fixed proficiencies panel invocations display
+- fixed Prone condition interaction with reach attacks
+- fixed Rescue the Dying spell triggering logic
+- fixed Skill Empowerment spell suggested list
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses [cannot fix]
+
 1.5.97.17:
 
 - fixed 'After was attacked' condition interruption also triggering on non attack roll magic effects
@@ -7,11 +38,6 @@
 - fixed Devastating Strike feat allowing both DEX and STR flavors to be selected on same hero
 - fixed powers with custom usages not recharging over short or long rests [i.e.: gambits, infusions, etc.]
 - improved Martial Warlord battlefield experience, coordinated assault, and battle plan features
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses [cannot fix]
 
 1.5.97.16:
 

@@ -3,10 +3,10 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 1,
+    "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -60,144 +60,7 @@
     "effectPoolAmount": 60,
     "effectApplication": "All",
     "effectFormFilters": [],
-    "effectForms": [
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Damage",
-        "addBonusMode": "None",
-        "applyLevel": "DiceNumberByLevelTable",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 1,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 2,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 3,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 4,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 5,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 6,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 7,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 8,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 9,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 10,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 11,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 12,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 13,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 14,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 15,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 16,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 17,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 18,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 19,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 20,
-            "diceNumber": 2
-          }
-        ],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "damageForm": {
-          "$type": "DamageForm, Assembly-CSharp",
-          "versatile": false,
-          "diceNumber": 2,
-          "dieType": "D6",
-          "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D1",
-          "bonusDamage": 0,
-          "damageType": "DamageForce",
-          "ancestryType": "Sorcerer",
-          "healFromInflictedDamage": "Never",
-          "hitPointsFloor": 0,
-          "forceKillOnZeroHp": false,
-          "specialDeathCondition": null,
-          "ignoreFlyingCharacters": false,
-          "ignoreCriticalDoubleDice": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      }
-    ],
+    "effectForms": [],
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
@@ -430,13 +293,13 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": true,
+  "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&PowerMartialArcaneArcherBurstingArrowTitle",
     "description": "Feature/&PowerMartialArcaneArcherBurstingArrowDescription",
     "spriteReference": {

@@ -1,7 +1,5 @@
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedDescription=No se pueden realizar ataques de oportunidad contra la fuente.
 Condition/&ConditionRangerSkyWarriorGiftOfTheWindAttackedTitle=Regalo del viento
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeDescription=Obtén una bonificación a tus tiradas de iniciativa igual a tu modificador de Sabiduría (mínimo 1).
-Feature/&AttributeModifierRangerSkyWarriorSwiftStrikeTitle=Golpe rápido
 Feature/&AutoPreparedSpellsRangerSkyWarriorDescription=Obtienes hechizos adicionales que para ti se consideran hechizos de Ranger, siempre están preparados y no cuentan para el número de hechizos de Ranger que conoces:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSkyWarriorTitle=Hechizos de bonificación de Sky Warrior
 Feature/&DamageAffinityRangerSkyWarriorIntangibleFormDescription=Gana resistencia al daño contundente.
