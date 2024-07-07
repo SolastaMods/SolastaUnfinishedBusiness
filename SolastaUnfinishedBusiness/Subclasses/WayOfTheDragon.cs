@@ -693,8 +693,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerElementalBreathPoints,
         FeatureDefinitionPower powerElementalBreathProficiency)
-        :
-            IValidatePowerUse, IPowerOrSpellFinishedByMe, IModifyEffectDescription
+        : IValidatePowerUse, IPowerOrSpellFinishedByMe, IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {

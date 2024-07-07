@@ -2095,6 +2095,7 @@ internal static class MeleeCombatFeats
             .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.HasMainAttackAvailable,
                 new ValidatorsValidatePowerUse(
+                    c => GameLocationCharacter.GetFromActor(c)?.OncePerTurnIsValid("PowerWhirlWindAttack") == true,
                     ValidatorsCharacter.HasMainHandWeaponType(GreatswordType, MaulType, GreataxeType)),
                 new PowerOrSpellFinishedByMeWhirlWindAttack())
             .AddToDB();
@@ -2107,7 +2108,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PowerOrSpellFinishedByMeWhirlWindAttack : IPowerOrSpellFinishedByMe, IValidatePowerUse
+    private sealed class PowerOrSpellFinishedByMeWhirlWindAttack : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -2162,13 +2163,6 @@ internal static class MeleeCombatFeats
                 ServiceRepository.GetService<IGameLocationActionService>()?
                     .ExecuteAction(actionParams, null, true);
             }
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            var glc = GameLocationCharacter.GetFromActor(character);
-
-            return glc != null && glc.OncePerTurnIsValid("PowerWhirlWindAttack");
         }
     }
 
