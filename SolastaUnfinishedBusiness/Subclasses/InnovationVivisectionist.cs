@@ -66,6 +66,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerEmergencySurgery", Resources.PowerEmergencySurgery, 256, 128))
             .SetUsesProficiencyBonus(ActivationTime.Action)
+            .SetExplicitAbilityScore(AttributeDefinitions.Intelligence)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -73,6 +74,8 @@ public sealed class InnovationVivisectionist : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 4, 7)
                             .SetHealingForm(
                                 HealingComputation.Dice, 0, DieType.D6, 1, false, HealingCap.MaximumHitPoints)
                             .Build())
@@ -81,8 +84,6 @@ public sealed class InnovationVivisectionist : AbstractSubclass
                         .EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
-
-        powerEmergencySurgery.AddCustomSubFeatures(new ModifyEffectDescriptionEmergencySurgery(powerEmergencySurgery));
 
         // LEVEL 05
 
@@ -151,9 +152,6 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .SetOverriddenPower(powerEmergencySurgery)
             .AddToDB();
 
-        powerMasterEmergencySurgery.AddCustomSubFeatures(
-            new ModifyEffectDescriptionEmergencySurgery(powerMasterEmergencySurgery));
-
         // Master Emergency Cure
 
         var powerMasterEmergencyCure = FeatureDefinitionPowerBuilder
@@ -203,51 +201,6 @@ public sealed class InnovationVivisectionist : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    private sealed class ModifyEffectDescriptionEmergencySurgery(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower baseDefinition)
-        : IModifyEffectDescription
-    {
-        public bool IsValid(
-            BaseDefinition definition,
-            RulesetCharacter character,
-            EffectDescription effectDescription)
-        {
-            return definition == baseDefinition;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var intelligence = character.TryGetAttributeValue(AttributeDefinitions.Intelligence);
-            var intelligenceModifier = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
-            var levels = character.GetClassLevel(InventorClass.Class);
-            var diceNumber = levels switch
-            {
-                >= 19 => 5,
-                >= 15 => 4,
-                >= 11 => 3,
-                >= 7 => 2,
-                _ => 1
-            };
-
-            var healingForm = effectDescription.EffectForms[0].HealingForm;
-
-            if (healingForm == null)
-            {
-                return effectDescription;
-            }
-
-            healingForm.diceNumber = diceNumber;
-            healingForm.bonusHealing = intelligenceModifier;
-
-            return effectDescription;
-        }
-    }
 
     private class OnReducedToZeroHpByMeOrganDonation(
         FeatureDefinitionPower powerOrganDonation,

@@ -186,7 +186,7 @@ internal static class RaceWyrmkinBuilder
                     .Create()
                     .SetDamageForm(DamageTypePsychic, 2, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                    .SetDiceAdvancement(LevelSourceType.CharacterLevel, 1, 1, 5, 6)
+                    .SetDiceAdvancement(LevelSourceType.CharacterLevel, 1, 1, 6, 5)
                     .Build())
             .Build();
 

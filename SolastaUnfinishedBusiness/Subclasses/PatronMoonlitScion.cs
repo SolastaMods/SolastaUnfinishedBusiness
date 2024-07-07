@@ -96,7 +96,11 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D8),
+                        EffectFormBuilder
+                            .Create()
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 0, 10, 10)
+                            .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
+                            .Build(),
                         EffectFormBuilder.ConditionForm(conditionLunarRadianceEnemy))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionLightBlindingFlash)
                     .SetEffectEffectParameters(new AssetReference())
@@ -189,7 +193,11 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeCold, 1, DieType.D8),
+                        EffectFormBuilder
+                            .Create()
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 0, 10, 10)
+                            .SetDamageForm(DamageTypeCold, 1, DieType.D8)
+                            .Build(),
                         EffectFormBuilder.ConditionForm(conditionLunarChillEnemy))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDomainElementalIceLance)
                     .Build())
@@ -365,17 +373,10 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         ForceGlobalUniqueEffects.AddToGroup(
             ForceGlobalUniqueEffects.Group.MoonlitNewAndFullMoon, powerFullMoon, powerNewMoon);
 
-        powerLunarRadianceNoCost.AddCustomSubFeatures(
-            new ModifyEffectDescriptionLunarRadianceOrLunarChill(powerLunarRadianceNoCost));
-        powerLunarRadiance.AddCustomSubFeatures(
-            new ModifyEffectDescriptionLunarRadianceOrLunarChill(powerLunarRadiance));
         powerFullMoon.AddCustomSubFeatures(
             new ModifyEffectDescriptionMidnightBlessingOrLunarEmbrace(
                 powerFullMoon, conditionFullMoon, conditionFullMoonMidnightBlessing, conditionFullMoonLunarEmbrace));
-        powerLunarChillNoCost.AddCustomSubFeatures(
-            new ModifyEffectDescriptionLunarRadianceOrLunarChill(powerLunarChillNoCost));
-        powerLunarChill.AddCustomSubFeatures(
-            new ModifyEffectDescriptionLunarRadianceOrLunarChill(powerLunarChill));
+
         powerNewMoon.AddCustomSubFeatures(
             new ModifyEffectDescriptionMidnightBlessingOrLunarEmbrace(
                 powerNewMoon, conditionNewMoon, conditionNewMoonMidnightBlessing, conditionNewMoonLunarEmbrace));
@@ -413,9 +414,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
     }
 
     // remove the No Cost condition if the no cost power is used
-    private sealed class PowerOrSpellFinishedByMeNoCost(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionFree) : IPowerOrSpellFinishedByMe
+    private sealed class PowerOrSpellFinishedByMeNoCost(ConditionDefinition conditionFree) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -433,9 +432,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
     // replace lunar cloak conditions with midnight blessing or lunar embrace ones depending on hero level
     private sealed class ModifyEffectDescriptionMidnightBlessingOrLunarEmbrace(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower power,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionToReplace,
         ConditionDefinition conditionMidnightBlessing,
         ConditionDefinition conditionLunarEmbrace) : IModifyEffectDescription
@@ -468,43 +465,6 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     ? conditionMidnightBlessing
                     : conditionLunarEmbrace;
             }
-
-            return effectDescription;
-        }
-    }
-
-    // extend dice number on Lunar Radiance or Lunar Chill at level 10 onwards
-    private sealed class ModifyEffectDescriptionLunarRadianceOrLunarChill(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower power) : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == power;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var levels = character.GetClassLevel(CharacterClassDefinitions.Warlock);
-
-            // lunar embrace
-            if (levels < 10)
-            {
-                return effectDescription;
-            }
-
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
-            damageForm.diceNumber = 2;
 
             return effectDescription;
         }

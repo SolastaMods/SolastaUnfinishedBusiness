@@ -46,10 +46,29 @@ public sealed class RangerHellWalker : AbstractSubclass
             .Create($"Power{Name}Firebolt")
             .SetGuiPresentation(SpellsContext.EnduringSting.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(SpellsContext.EnduringSting.EffectDescription)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 5)
+                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D4)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetParticleEffectParameters(SpellsContext.EnduringSting)
+                    .Build())
             .AddToDB();
-
-        powerFirebolt.AddCustomSubFeatures(new ModifyEffectDescriptionFireBolt(powerFirebolt));
 
         var featureSetFirebolt = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Firebolt")
@@ -231,44 +250,6 @@ public sealed class RangerHellWalker : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    //
-    // FireBolt
-    //
-
-    private sealed class ModifyEffectDescriptionFireBolt(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerFireBolt)
-        : IModifyEffectDescription
-    {
-        public bool IsValid(
-            BaseDefinition definition,
-            RulesetCharacter character,
-            EffectDescription effectDescription)
-        {
-            return definition == powerFireBolt;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var damageForm = effectDescription.FindFirstDamageForm();
-            var levels = character.GetClassLevel(CharacterClassDefinitions.Ranger);
-            var diceNumber = levels switch
-            {
-                >= 17 => 4,
-                >= 11 => 3,
-                >= 5 => 2,
-                _ => 1
-            };
-
-            damageForm.diceNumber = diceNumber;
-
-            return effectDescription;
-        }
-    }
     //
     // DammingStrike
     //

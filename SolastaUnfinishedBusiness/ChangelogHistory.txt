@@ -4,18 +4,18 @@
 - added Wizard Deadmaster summons custom portraits [by Thaladar]
 - added sample heroes portraits [by Zeke and Digitus Primus]
 - changed Cunning Escape, and Exploiter feats min. required level to 4
-- changed Innovation Vitriolist level 13 auto prepared spells
+- changed Innovation Vitriolist auto prepared spells list at level 13
 - changed Monsters portraits behavior to use unique technical name
 - changed Psionic Blast spell to differentiate it from Synaptic Static
-- changed Rogue Devil Strike knock out and obscure cost to 5 and 2
+- changed Rogue Devious Strike knock out and obscure cost to 5 and 2
 - changed Roguish Duelist making it more useful before higher levels
 - fixed Absorb Elements crashing after slot selection
-- fixed attribute checks crashing on moving heroes
-- fixed Circle of the Stars chalice triggering logic
+- fixed attribute checks crashing on reacting moving heroes
+- fixed Circle of the Stars triggering logic on chalice
 - fixed Eldritch Versatilities crashing on gadgets hit
 - fixed Focused Metamagic crashing with spells forcing self condition
 - fixed Innovation Artillerist force ballista range to 120 ft
-- fixed Innovation Vitriolist refund mixture slots consuming logic
+- fixed Innovation Vitriolist slots consuming logic on refund mixture
 - fixed melee attack cantrips damage dice progression
 - fixed proficiencies panel invocations display
 - fixed Prone condition interaction with reach attacks
