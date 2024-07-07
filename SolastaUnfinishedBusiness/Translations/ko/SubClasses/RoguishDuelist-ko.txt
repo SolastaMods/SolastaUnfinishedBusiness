@@ -10,5 +10,7 @@ Feature/&FeatureSetRoguishDuelistMasterDuelistDescription=은밀한 공격을 �
 Feature/&FeatureSetRoguishDuelistMasterDuelistTitle=마스터 듀얼리스트
 Feature/&FeatureSetRoguishDuelistSureFootedDescription=근접 무기로 생물을 몰래 공격할 때마다 다음 턴이 시작될 때까지 AC에 중첩되지 않는 1d6 보너스를 얻습니다.
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=허세
+Feedback/&RoguishDuelistBravado={0}은 {2} 주사위를 굴리고 AC에 {3}을 추가하며 이제 Bravado를 갖습니다.
+Feedback/&RoguishDuelistBravadoReroll={0}은 {2} 주사위를 굴리고 Bravado의 AC를 {3}으로 갱신합니다.
 Subclass/&RoguishDuelistDescription=결투사는 엄청난 허세를 가지고 있습니다. 그들은 재치가 빠르고 자급자족하며 고립된 적에게는 위험합니다.
 Subclass/&RoguishDuelistTitle=결투사

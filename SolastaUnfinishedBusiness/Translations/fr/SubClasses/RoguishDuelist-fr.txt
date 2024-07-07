@@ -10,5 +10,7 @@ Feature/&FeatureSetRoguishDuelistMasterDuelistDescription=Immédiatement après 
 Feature/&FeatureSetRoguishDuelistMasterDuelistTitle=Maître duelliste
 Feature/&FeatureSetRoguishDuelistSureFootedDescription=Chaque fois que vous attaquez sournoisement une créature avec une arme de mêlée, vous gagnez un bonus non cumulable de 1d6 à votre CA jusqu'au début de votre prochain tour.
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Bravade
+Feedback/&RoguishDuelistBravado={0} lance un dé {2}, ajoute {3} à la CA et possède désormais Bravade.
+Feedback/&RoguishDuelistBravadoReroll={0} lance un dé {2} et rafraîchit Bravado avec un {3} à la CA.
 Subclass/&RoguishDuelistDescription=Les duellistes possèdent une bravade fanfaronne. Ils sont vifs d'esprit, autonomes et dangereux pour les ennemis isolés.
 Subclass/&RoguishDuelistTitle=Duelliste
