@@ -1091,8 +1091,7 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             }
         }
 
-        private sealed class WildSurgeWeaponModifyAttackMode :
-            IModifyWeaponAttackMode
+        private sealed class WildSurgeWeaponModifyAttackMode : IModifyWeaponAttackMode
         {
             public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
             {
