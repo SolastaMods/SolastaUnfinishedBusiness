@@ -1,4 +1,7 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -156,31 +159,41 @@ internal static class SubraceGrayDwarfBuilder
         return raceGrayDwarf;
     }
 
-    private sealed class AdditionalDamageGrayDwarfStoneStrength : IModifyWeaponAttackMode
+    private sealed class AdditionalDamageGrayDwarfStoneStrength : IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget, bool criticalHit)
         {
-            if (attackMode?.abilityScore != AttributeDefinitions.Strength ||
+            if (attackMode.abilityScore != AttributeDefinitions.Strength ||
                 (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode)))
             {
-                return;
+                yield break;
             }
 
-            var effectDescription = attackMode.EffectDescription;
-            var damage = effectDescription.FindFirstDamageForm();
-            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
+            var damageEffectForm =
+                actualEffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Damage);
 
-            if (k < 0 || damage == null)
+            if (damageEffectForm == null)
             {
-                return;
+                yield break;
             }
+
+            var index = actualEffectForms.FindIndex(x => x == damageEffectForm);
 
             var additionalDice = EffectFormBuilder
                 .Create()
-                .SetDamageForm(damage.damageType, 1, DieType.D4)
+                .SetDamageForm(damageEffectForm.DamageForm.DamageType, 1, DieType.D4)
                 .Build();
 
-            effectDescription.EffectForms.Insert(k + 1, additionalDice);
+            actualEffectForms.Insert(index + 1, additionalDice);
         }
     }
 }
