@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -78,15 +77,7 @@ internal static class CommonBuilders
                         EquipmentDefinitions.MartialWeaponCategory)
                     .AddToDB())
             .AddToDB();
-#if false
-    internal static readonly FeatureDefinitionMagicAffinity MagicAffinityCasterFightingCombatMagic =
-        FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityCasterFightingCombatMagic")
-            .SetGuiPresentation(Category.Feature)
-            .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
-            .SetHandsFullCastingModifiers(true, true, true)
-            .AddToDB();
-#endif
+
     internal static readonly FeatureDefinitionMagicAffinity MagicAffinityCasterFightingCombatMagicImproved =
         FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityCasterFightingCombatMagicImproved")
@@ -96,12 +87,10 @@ internal static class CommonBuilders
             .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
             .AddToDB();
 
-    // kept as power for backward compatibility
-    internal static readonly FeatureDefinitionPower PowerCasterFightingWarMagic = FeatureDefinitionPowerBuilder
+    internal static readonly FeatureDefinition PowerCasterFightingWarMagic = FeatureDefinitionBuilder
         .Create("PowerCasterFightingWarMagic")
-        .SetGuiPresentation(Category.Feature)
+        .SetGuiPresentation(Category.Feature, hidden: true)
         .AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
             new CustomBehaviorCasterFightingWarMagic(
                 ConditionDefinitionBuilder
                     .Create("ConditionCasterFightingWarMagic")
@@ -143,12 +132,13 @@ internal static class CommonBuilders
             .AddCustomSubFeatures(new AttackReplaceWithCantrip())
             .AddToDB();
 
-    [UsedImplicitly] internal static readonly DieTypeDefinition DieTypeD3 =
+    internal static readonly DieTypeDefinition DieTypeD3 =
         DieTypeDefinitionBuilder
             .Create(DatabaseHelper.GetDefinition<DieTypeDefinition>("DieTypeD6"), "DieTypeD3")
             .SetOrUpdateGuiPresentation("Rules/&DieD3Title", Gui.NoLocalization)
             .SetDieType(DieType.D3)
             .AddToDB();
+
     //
     // Enchant Weapon
     //

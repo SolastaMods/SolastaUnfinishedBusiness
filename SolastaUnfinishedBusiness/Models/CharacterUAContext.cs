@@ -454,11 +454,8 @@ internal static partial class CharacterContext
     }
 
     private sealed class CustomBehaviorSunderingBlow(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerSunderingBlow,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionSunderingBlowAlly)
-        : IPhysicalAttackInitiatedOnMe, IMagicEffectAttackInitiatedOnMe
+        ConditionDefinition conditionSunderingBlowAlly) : IPhysicalAttackInitiatedOnMe, IMagicEffectAttackInitiatedOnMe
     {
         public IEnumerator OnMagicEffectAttackInitiatedOnMe(
             CharacterActionMagicEffect action,
@@ -469,11 +466,6 @@ internal static partial class CharacterContext
             bool firstTarget,
             bool checkMagicalAttackDamage)
         {
-            if (activeEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
-            {
-                yield break;
-            }
-
             var damageType = activeEffect.EffectDescription.FindFirstDamageForm()?.DamageType;
 
             if (damageType == null)
