@@ -607,8 +607,9 @@ public sealed class MartialWarlord : AbstractSubclass
                     ValidatorsWeapon.IsMelee(partyCharacter.RulesetCharacter.GetMainWeapon()) ||
                     partyCharacter.IsWithinRange(defender, 1);
 
-                var (meleeMode, meleeModifier) = partyCharacter.GetFirstMeleeModeThatCanAttack(defender);
-                var (rangedMode, rangedModifier) = partyCharacter.GetFirstRangedModeThatCanAttack(defender);
+                var (meleeMode, meleeModifier) = partyCharacter.GetFirstMeleeModeThatCanAttack(defender, battleManager);
+                var (rangedMode, rangedModifier) =
+                    partyCharacter.GetFirstRangedModeThatCanAttack(defender, battleManager);
 
                 if (preferMelee)
                 {

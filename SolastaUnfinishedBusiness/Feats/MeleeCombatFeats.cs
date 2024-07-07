@@ -961,11 +961,11 @@ internal static class MeleeCombatFeats
             yield break;
         }
 
-        var (retaliationMode, retaliationModifier) = target.GetFirstMeleeModeThatCanAttack(enemy);
+        var (retaliationMode, retaliationModifier) = target.GetFirstMeleeModeThatCanAttack(enemy, battleManager);
 
         if (retaliationMode == null)
         {
-            (retaliationMode, retaliationModifier) = target.GetFirstRangedModeThatCanAttack(enemy);
+            (retaliationMode, retaliationModifier) = target.GetFirstRangedModeThatCanAttack(enemy, battleManager);
 
             if (retaliationMode == null)
             {

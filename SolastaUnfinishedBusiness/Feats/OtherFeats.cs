@@ -2421,7 +2421,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var (attackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(caster);
+            var (attackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(caster, battleManager);
 
             if (attackMode == null ||
                 !defender.CanReact())

@@ -1395,8 +1395,8 @@ internal static class GambitsBuilders
             }
 
             var (retaliationMode, retaliationModifier) = melee
-                ? defender.GetFirstMeleeModeThatCanAttack(attacker)
-                : defender.GetFirstRangedModeThatCanAttack(attacker);
+                ? defender.GetFirstMeleeModeThatCanAttack(attacker, battleManager)
+                : defender.GetFirstRangedModeThatCanAttack(attacker, battleManager);
 
             if (retaliationMode == null)
             {

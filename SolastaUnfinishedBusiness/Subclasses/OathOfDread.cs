@@ -423,11 +423,12 @@ public sealed class OathOfDread : AbstractSubclass
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = helper.GetFirstMeleeModeThatCanAttack(attacker);
+            var (retaliationMode, retaliationModifier) = helper.GetFirstMeleeModeThatCanAttack(attacker, battleManager);
 
             if (retaliationMode == null)
             {
-                (retaliationMode, retaliationModifier) = helper.GetFirstRangedModeThatCanAttack(attacker);
+                (retaliationMode, retaliationModifier) =
+                    helper.GetFirstRangedModeThatCanAttack(attacker, battleManager);
 
                 if (retaliationMode == null)
                 {

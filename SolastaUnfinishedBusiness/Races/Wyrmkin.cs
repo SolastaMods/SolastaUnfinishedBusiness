@@ -346,11 +346,13 @@ internal static class RaceWyrmkinBuilder
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = defender.GetFirstMeleeModeThatCanAttack(attacker);
+            var (retaliationMode, retaliationModifier) =
+                defender.GetFirstMeleeModeThatCanAttack(attacker, battleManager);
 
             if (retaliationMode == null)
             {
-                (retaliationMode, retaliationModifier) = defender.GetFirstRangedModeThatCanAttack(attacker);
+                (retaliationMode, retaliationModifier) =
+                    defender.GetFirstRangedModeThatCanAttack(attacker, battleManager);
             }
 
             if (retaliationMode == null)
