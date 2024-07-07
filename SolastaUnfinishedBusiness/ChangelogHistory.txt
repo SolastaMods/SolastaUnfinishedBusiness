@@ -17,6 +17,7 @@
 - fixed Focused Metamagic crashing with spells forcing self condition
 - fixed Innovation Artillerist force ballista range to 120 ft
 - fixed Innovation Vitriolist slots consuming logic on refund mixture
+- fixed IsMelee attack validator logic [i.e.: exploiter feat]
 - fixed melee attack cantrips damage dice progression
 - fixed proficiencies panel invocations display
 - fixed Prone condition interaction with reach attacks
