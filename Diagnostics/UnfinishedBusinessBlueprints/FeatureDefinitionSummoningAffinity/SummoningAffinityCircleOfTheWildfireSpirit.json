@@ -2,6 +2,7 @@
   "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
   "requiredMonsterTag": "WildfireSpirit",
   "addedConditions": [
+    "Definition:ConditionCircleOfTheWildfireCopyProficiencyBonus:3838eff6-01bc-5b0a-9c2c-b0a5938db2eb",
     "Definition:ConditionCircleOfTheWildfireSpiritAttackRoll:719ca5b7-b4fb-5a16-a640-9d4a8767eca0",
     "Definition:ConditionCircleOfTheWildfireSpiritDamageRoll:6ff40305-fd0b-5d52-8822-9f43bc935e85",
     "Definition:ConditionCircleOfTheWildfireSpiritHitPoints:57e507e7-5781-5c04-a11c-c407b124f1fa"

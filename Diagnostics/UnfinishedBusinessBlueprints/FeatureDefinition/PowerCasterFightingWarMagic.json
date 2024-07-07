@@ -2,7 +2,7 @@
   "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&PowerCasterFightingWarMagicTitle",
     "description": "Feature/&PowerCasterFightingWarMagicDescription",
     "spriteReference": {
