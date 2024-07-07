@@ -74,8 +74,10 @@ public sealed class RoguishDuelist : AbstractSubclass
         var conditionSureFooted = ConditionDefinitionBuilder
             .Create($"Condition{Name}{SureFooted}")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
+            .SetPossessive()
             .SetFixedAmount(1)
             .SetFeatures(attributeModifierSureFooted)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionMagicallyArmored)
             .AddToDB();
 
         var featureSureFooted = FeatureDefinitionBuilder

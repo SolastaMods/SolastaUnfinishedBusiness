@@ -337,11 +337,11 @@ internal static partial class SpellBuilders
         var conditionVitriolicSphere = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionAcidArrowed)
-            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             // don't know why but setting end of turn on spell make it finish at end of source turn instead
             .SetSpecialDuration()
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedVitriolicSphere(power))
+            .SetConditionParticleReference(ConditionOnAcidPilgrim)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
