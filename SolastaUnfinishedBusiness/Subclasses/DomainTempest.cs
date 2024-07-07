@@ -4,7 +4,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -419,18 +418,15 @@ public sealed class DomainTempest : AbstractSubclass
     private sealed class CustomBehaviorDestructiveWrath(FeatureDefinitionPower powerDestructiveWrath)
         : IForceMaxDamageTypeDependent, IActionFinishedByMe
     {
-        private bool _isValid;
-
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (!_isValid)
-            {
-                yield break;
-            }
+            var actingCharacter = action.ActingCharacter;
+            var hasTag = actingCharacter.UsedSpecialFeatures.TryGetValue(powerDestructiveWrath.Name, out var value);
 
-            _isValid = false;
+            actingCharacter.UsedSpecialFeatures.TryAdd(powerDestructiveWrath.Name, 0);
 
-            if (action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower))
+            if (action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower) ||
+                !hasTag || value == 0)
             {
                 yield break;
             }
@@ -438,7 +434,6 @@ public sealed class DomainTempest : AbstractSubclass
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter.GetEffectControllerOrSelf();
             var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
 
-            rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
             rulesetAttacker.UsePower(usablePower);
         }
 
@@ -450,12 +445,15 @@ public sealed class DomainTempest : AbstractSubclass
             }
 
             var rulesetAttacker = rulesetCharacter.GetEffectControllerOrSelf();
+            var attacker = GameLocationCharacter.GetFromActor(rulesetActor);
             var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
-            var isValid = rulesetAttacker!.GetRemainingUsesOfPower(usablePower) > 0 &&
-                          rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
-                          damageForm.DamageType is DamageTypeLightning or DamageTypeThunder;
+            var isValid =
+                rulesetAttacker!.GetRemainingUsesOfPower(usablePower) > 0 &&
+                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                damageForm.DamageType is DamageTypeLightning or DamageTypeThunder;
 
-            _isValid = _isValid || isValid;
+            attacker.UsedSpecialFeatures.TryAdd(powerDestructiveWrath.Name, 0);
+            attacker.UsedSpecialFeatures[powerDestructiveWrath.Name] = 1;
 
             return isValid;
         }

@@ -1638,8 +1638,7 @@ internal static class RaceFeats
     }
 
     private sealed class CustomBehaviorOrcishFury(
-        FeatureDefinitionPower power,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerOrcishFury,
         ConditionDefinition conditionDefinition)
         : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
             IPhysicalAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe,
@@ -1664,7 +1663,7 @@ internal static class RaceFeats
             if (!ValidatorsWeapon.IsOfWeaponType(CustomSituationalContext.SimpleOrMartialWeapons)
                     (attackMode, null, null) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle) ||
-                rulesetAttacker.GetRemainingPowerUses(power) == 0)
+                rulesetAttacker.GetRemainingPowerUses(powerOrcishFury) == 0)
             {
                 yield break;
             }
@@ -1703,12 +1702,12 @@ internal static class RaceFeats
             if (!ValidatorsWeapon.IsOfWeaponType(CustomSituationalContext.SimpleOrMartialWeapons)
                     (attackMode, null, null) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.OrcishFuryToggle) ||
-                rulesetAttacker.GetRemainingPowerUses(power) == 0)
+                rulesetAttacker.GetRemainingPowerUses(powerOrcishFury) == 0)
             {
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerOrcishFury, rulesetAttacker);
 
             rulesetAttacker.UsePower(usablePower);
         }
@@ -1717,8 +1716,7 @@ internal static class RaceFeats
 
         #region Knock-Out
 
-        private bool _isValid;
-        private bool _knockOutPrevented;
+        private readonly string KnockOutPreventedTag = powerOrcishFury.Name + "KnockoutPrevented";
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -1733,8 +1731,10 @@ internal static class RaceFeats
             var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
-            _isValid = true;
-            _knockOutPrevented = false;
+            attacker.UsedSpecialFeatures.TryAdd(powerOrcishFury.Name, 0);
+            attacker.UsedSpecialFeatures[powerOrcishFury.Name] = 1;
+            attacker.UsedSpecialFeatures.TryAdd(KnockOutPreventedTag, 0);
+            attacker.UsedSpecialFeatures[KnockOutPreventedTag] = 0;
 
             yield break;
         }
@@ -1765,8 +1765,10 @@ internal static class RaceFeats
             var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
-            _isValid = true;
-            _knockOutPrevented = false;
+            attacker.UsedSpecialFeatures.TryAdd(powerOrcishFury.Name, 0);
+            attacker.UsedSpecialFeatures[powerOrcishFury.Name] = 1;
+            attacker.UsedSpecialFeatures.TryAdd(KnockOutPreventedTag, 0);
+            attacker.UsedSpecialFeatures[KnockOutPreventedTag] = 0;
 
             yield break;
         }
@@ -1785,30 +1787,38 @@ internal static class RaceFeats
             yield break;
         }
 
-        private void KnockOutPreventedHandler(RulesetCharacter character, BaseDefinition source)
+        private void KnockOutPreventedHandler(RulesetCharacter rulesetCharacter, BaseDefinition source)
         {
-            _knockOutPrevented = source == DamageAffinityHalfOrcRelentlessEndurance;
+            var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+
+            character.UsedSpecialFeatures.TryAdd(KnockOutPreventedTag, 0);
+            character.UsedSpecialFeatures[KnockOutPreventedTag] =
+                source == DamageAffinityHalfOrcRelentlessEndurance ? 1 : 0;
         }
 
-        private void HandleKnockOutBehavior(CharacterAction characterAction, GameLocationCharacter target)
+        private void HandleKnockOutBehavior(CharacterAction action, GameLocationCharacter target)
         {
-            if (!_isValid)
+            var actingCharacter = action.ActingCharacter;
+
+            if (!actingCharacter.UsedSpecialFeatures.TryGetValue(powerOrcishFury.Name, out var value) ||
+                value == 0)
             {
                 return;
             }
 
-            _isValid = false;
+            actingCharacter.UsedSpecialFeatures.TryAdd(powerOrcishFury.Name, 0);
 
             var rulesetTarget = target.RulesetCharacter;
 
             rulesetTarget.KnockOutPrevented -= KnockOutPreventedHandler;
 
-            if (!_knockOutPrevented)
+            if (!actingCharacter.UsedSpecialFeatures.TryGetValue(KnockOutPreventedTag, out var knockOutPrevented) ||
+                knockOutPrevented == 0)
             {
                 return;
             }
 
-            _knockOutPrevented = false;
+            actingCharacter.UsedSpecialFeatures.TryAdd(KnockOutPreventedTag, 0);
 
             if (Gui.Battle == null ||
                 !Gui.Battle.InitiativeRollFinished)
@@ -1832,11 +1842,11 @@ internal static class RaceFeats
                 new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
                 {
                     AttackMode = attackModeCopy,
-                    TargetCharacters = { characterAction.ActingCharacter },
+                    TargetCharacters = { action.ActingCharacter },
                     ActionModifiers = { new ActionModifier() }
                 };
 
-            rulesetTarget.LogCharacterUsedPower(power);
+            rulesetTarget.LogCharacterUsedPower(powerOrcishFury);
             actionService.ExecuteAction(attackActionParams, null, true);
         }
 
