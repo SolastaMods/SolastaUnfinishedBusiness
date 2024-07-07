@@ -15,6 +15,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -24,9 +25,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     private const string Name = "MartialArcaneArcher";
     private const string ArcaneShotMarker = "ArcaneShot";
     private const ActionDefinitions.Id ArcaneArcherToggle = (ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle;
-
-    private static readonly Dictionary<FeatureDefinitionPower, ArcaneArcherData> ArcaneShotPowers = [];
-    private static FeatureDefinitionPowerSharedPool _powerBurstingArrow;
 
     internal static FeatureDefinitionPower PowerArcaneShot;
     internal static FeatureDefinitionPowerUseModifier ModifyPowerArcaneShotAdditionalUse1;
@@ -81,19 +79,23 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         PowerArcaneShot = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArcaneShot")
             .SetGuiPresentation($"FeatureSet{Name}ArcaneShot", Category.Feature)
-            .SetUsesFixed(ActivationTime.OnAttackHitWithBow, RechargeRate.ShortRest, 1, 0)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                    .Build())
-            .AddCustomSubFeatures(
-                HasModifiedUses.Marker,
-                ReactionResourceArcaneShot.Instance,
-                new SpendPowerFinishedByMeArcaneShot(),
-                new RestrictReactionAttackMode((_, attacker, _, _, _) =>
-                    attacker.OnceInMyTurnIsValid(ArcaneShotMarker) &&
-                    attacker.RulesetCharacter.IsToggleEnabled(ArcaneArcherToggle)))
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
+            .DelegatedToAction()
+            .AddToDB();
+
+        var arcaneShotPowers =
+            BuildArcaneShotPowers(PowerArcaneShot, out var powerBurstingArrow, out var powerBurstingArrowDamage);
+
+        PowerArcaneShot.AddCustomSubFeatures(
+            HasModifiedUses.Marker,
+            new PhysicalAttackFinishedByMeArcaneShot(powerBurstingArrow, powerBurstingArrowDamage));
+
+        _ = ActionDefinitionBuilder
+            .Create(MetamagicToggle, "ArcaneArcherToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.ArcaneArcherToggle)
+            .SetActivatedPower(PowerArcaneShot)
             .AddToDB();
 
         ActionAffinityArcaneArcherToggle = FeatureDefinitionActionAffinityBuilder
@@ -104,9 +106,9 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerArcaneShot)))
             .AddToDB();
 
-        BuildArcaneShotPowers(PowerArcaneShot);
-        CreateArcaneArcherChoices(ArcaneShotPowers.Keys);
-        PowerBundle.RegisterPowerBundle(PowerArcaneShot, true, ArcaneShotPowers.Keys);
+        CreateArcaneArcherChoices(arcaneShotPowers);
+
+        PowerBundle.RegisterPowerBundle(PowerArcaneShot, false, arcaneShotPowers);
 
         ModifyPowerArcaneShotAdditionalUse1 = FeatureDefinitionPowerUseModifierBuilder
             .Create($"PowerUseModifier{Name}ArcaneShotUse1")
@@ -235,13 +237,18 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     private static IsWeaponValidHandler IsBow =>
         ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.LongbowType, WeaponTypeDefinitions.ShortbowType);
 
-    private static void BuildArcaneShotPowers(FeatureDefinitionPower pool)
+    private static List<FeatureDefinitionPower> BuildArcaneShotPowers(
+        FeatureDefinitionPower pool,
+        out FeatureDefinitionPower powerBurstingArrow,
+        out FeatureDefinitionPower powerBurstingArrowDamage)
     {
+        var result = new List<FeatureDefinitionPower>();
+
         // Banishing Arrow
 
         var powerBanishingArrow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}BanishingArrow")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Banishment)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Banishment, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -258,24 +265,25 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeForce, 2, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionBanished, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetImpactEffectParameters(
+                        SpellDefinitions.Banishment.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerBanishingArrow,
-            new ArcaneArcherData
-            {
-                DebuffCondition = ConditionDefinitions.ConditionBanished,
-                EffectSpell = SpellDefinitions.Banishment,
-                EffectType = EffectHelpers.EffectType.Effect
-            });
+        result.Add(powerBanishingArrow);
 
         // Beguiling Arrow
 
         var powerBeguilingArrow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}BeguilingArrow")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.CharmPerson)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.CharmPerson, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -292,25 +300,39 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypePsychic, 2, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionCharmed, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetImpactEffectParameters(
+                        SpellDefinitions.CharmPerson.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerBeguilingArrow,
-            new ArcaneArcherData
-            {
-                DebuffCondition = ConditionDefinitions.ConditionCharmed,
-                EffectSpell = SpellDefinitions.CharmPerson,
-                EffectType = EffectHelpers.EffectType.Effect
-            });
+        result.Add(powerBeguilingArrow);
 
         // Bursting Arrow
 
-        _powerBurstingArrow = FeatureDefinitionPowerSharedPoolBuilder
+        powerBurstingArrow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}BurstingArrow")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.EldritchBlast)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.EldritchBlast, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .Build())
+            .AddToDB();
+
+        powerBurstingArrowDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}BurstingArrowDamage")
+            .SetGuiPresentation($"Power{Name}BurstingArrow", Category.Feature, SpellDefinitions.EldritchBlast,
+                hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -326,43 +348,9 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        _powerBurstingArrow.EffectDescription.EffectParticleParameters.zoneParticleReference = SpellDefinitions.Shatter
-            .EffectDescription.EffectParticleParameters.zoneParticleReference;
-        _powerBurstingArrow.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
-            new ModifyEffectDescriptionBurstingArrow(_powerBurstingArrow));
-
-        ArcaneShotPowers.Add(_powerBurstingArrow,
-            new ArcaneArcherData
-            {
-                EffectSpell = FeatureDefinitionPowers.PowerSymbolOfSleep, EffectType = EffectHelpers.EffectType.Zone
-            });
+        result.Add(powerBurstingArrow);
 
         // Enfeebling Arrow
-
-        var powerEnfeeblingArrow = FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"Power{Name}EnfeeblingArrow")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.RayOfEnfeeblement)
-            .SetSharedPool(ActivationTime.NoCost, pool)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetParticleEffectParameters(SpellDefinitions.RayOfEnfeeblement)
-                    .SetSavingThrowData(
-                        false, AttributeDefinitions.Constitution, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence,
-                        8)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 2, DieType.D6)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
-                            .Build())
-                    .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
-            .AddToDB();
 
         var abilityCheckAffinityEnfeeblingArrow = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}EnfeeblingArrow")
@@ -391,19 +379,52 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 savingThrowAffinityEnfeeblingArrow)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerEnfeeblingArrow,
-            new ArcaneArcherData
-            {
-                DebuffCondition = conditionEnfeeblingArrow,
-                EffectSpell = SpellDefinitions.RayOfEnfeeblement,
-                EffectType = EffectHelpers.EffectType.Effect
-            });
+        var powerEnfeeblingArrow = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}EnfeeblingArrow")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.RayOfEnfeeblement, hidden: true)
+            .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetParticleEffectParameters(SpellDefinitions.RayOfEnfeeblement)
+                    .SetSavingThrowData(
+                        false, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence,
+                        8)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeNecrotic, 2, DieType.D6)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(
+                                conditionEnfeeblingArrow, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetImpactEffectParameters(
+                        SpellDefinitions.RayOfEnfeeblement.EffectDescription.EffectParticleParameters
+                            .effectParticleReference)
+                    .Build())
+            .AddToDB();
+
+        result.Add(powerEnfeeblingArrow);
 
         // Grasping Arrow
 
+        var conditionGraspingArrow = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionRestrained, $"Condition{Name}GraspingArrow")
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
+            .SetFeatures()
+            .SetConditionParticleReference(ConditionDefinitions.ConditionRestrainedByMagicalArrow)
+            .AddToDB();
+
         var powerGraspingArrow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}GraspingArrow")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Entangle)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Entangle, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -420,25 +441,19 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeSlashing, 2, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(
+                                conditionGraspingArrow, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetImpactEffectParameters(
+                        SpellDefinitions.Entangle.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        var conditionGraspingArrow = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionRestrained, $"Condition{Name}GraspingArrow")
-            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFeatures()
-            .SetConditionParticleReference(ConditionDefinitions.ConditionRestrainedByMagicalArrow)
-            .AddToDB();
-
-        ArcaneShotPowers.Add(powerGraspingArrow,
-            new ArcaneArcherData
-            {
-                DebuffCondition = conditionGraspingArrow,
-                EffectSpell = SpellDefinitions.Entangle,
-                EffectType = EffectHelpers.EffectType.Effect
-            });
+        result.Add(powerGraspingArrow);
 
         // Insight Arrow
 
@@ -453,7 +468,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         var powerInsightArrow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}InsightArrow")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.TrueStrike)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.TrueStrike, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -473,27 +488,29 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetLightSourceForm(
                                 LightSourceType.Basic, 2, 2, lightSourceForm.Color,
                                 lightSourceForm.graphicsPrefabReference)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(
+                                conditionInsightArrow, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetImpactEffectParameters(
+                        SpellDefinitions.Shine.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerInsightArrow,
-            new ArcaneArcherData
-            {
-                DebuffCondition = conditionInsightArrow,
-                EffectSpell = SpellDefinitions.Shine,
-                EffectType = EffectHelpers.EffectType.Effect
-            });
+        result.Add(powerInsightArrow);
 
         // Shadow Arrow
 
         var powerShadowArrow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ShadowArrow")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Blindness)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Blindness, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -510,24 +527,25 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypePsychic, 2, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionBlinded, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetImpactEffectParameters(
+                        SpellDefinitions.Blindness.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerShadowArrow,
-            new ArcaneArcherData
-            {
-                DebuffCondition = ConditionDefinitions.ConditionBlinded,
-                EffectSpell = SpellDefinitions.Blindness,
-                EffectType = EffectHelpers.EffectType.Effect
-            });
+        result.Add(powerShadowArrow);
 
         // Slowing Arrow
 
         var powerSlowingArrow = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}SlowingArrow")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Slow)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Slow, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, pool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -544,18 +562,21 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeForce, 2, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionSlowed, ConditionForm.ConditionOperation.Add)
                             .Build())
+                    .SetImpactEffectParameters(
+                        SpellDefinitions.Slow.EffectDescription.EffectParticleParameters.effectParticleReference)
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        ArcaneShotPowers.Add(powerSlowingArrow,
-            new ArcaneArcherData
-            {
-                DebuffCondition = ConditionDefinitions.ConditionSlowed,
-                EffectSpell = SpellDefinitions.Slow,
-                EffectType = EffectHelpers.EffectType.Effect
-            });
+        result.Add(powerSlowingArrow);
+
+        return result;
     }
 
     private static void CreateArcaneArcherChoices(IEnumerable<FeatureDefinitionPower> powers)
@@ -575,67 +596,14 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         }
     }
 
-    private static void TryInflictArcaneShotCondition(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ArcaneArcherData arcaneArcherData)
-    {
-        var rulesetAttacker = attacker.RulesetCharacter;
-        var rulesetDefender = defender.RulesetActor;
-
-        if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-            rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-        {
-            return;
-        }
-
-        EffectHelpers.StartVisualEffect(attacker, defender, arcaneArcherData.EffectSpell, arcaneArcherData.EffectType);
-        rulesetDefender.InflictCondition(
-            arcaneArcherData.DebuffCondition.Name,
-            DurationType.Round,
-            1,
-            TurnOccurenceType.EndOfSourceTurn,
-            AttributeDefinitions.TagEffect,
-            rulesetAttacker.guid,
-            rulesetAttacker.CurrentFaction.Name,
-            1,
-            arcaneArcherData.DebuffCondition.Name,
-            0,
-            0,
-            0);
-    }
-
-    private struct ArcaneArcherData
-    {
-        public ConditionDefinition DebuffCondition;
-        public IMagicEffect EffectSpell;
-        public EffectHelpers.EffectType EffectType;
-    }
-
     //
     // Arcane Shot
     //
 
-    private sealed class SpendPowerFinishedByMeArcaneShot : IActionFinishedByMe, IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeArcaneShot(
+        FeatureDefinitionPower powerBurstingArrow,
+        FeatureDefinitionPower powerBurstingArrowDamage) : IPhysicalAttackFinishedByMe
     {
-        private FeatureDefinitionPower PowerSpent { get; set; }
-        private RollOutcome SaveOutcome { get; set; } = RollOutcome.Success;
-
-        // collect the spent power and save outcome
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (action is not CharacterActionSpendPower actionSpendPower)
-            {
-                PowerSpent = null;
-
-                yield break;
-            }
-
-            PowerSpent = actionSpendPower.activePower.PowerDefinition;
-            SaveOutcome = actionSpendPower.SaveOutcome;
-        }
-
-        // apply arrow behavior after attack finishes
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -645,87 +613,93 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (!PowerSpent || !ArcaneShotPowers.TryGetValue(PowerSpent, out var arcaneArcherData))
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !attacker.OnceInMyTurnIsValid(ArcaneShotMarker) ||
+                !attacker.RulesetCharacter.IsToggleEnabled(ArcaneArcherToggle))
+            {
+                yield break;
+            }
+
+            var actionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (!actionManager)
+            {
+                yield break;
+            }
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerArcaneShot, rulesetAttacker);
+
+            var actionParams =
+                new CharacterActionParams(GameLocationCharacter.GetFromActor(rulesetAttacker),
+                    ActionDefinitions.Id.SpendPower)
+                {
+                    ActionModifiers = { new ActionModifier() },
+                    StringParameter = "ArcaneShot",
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
+                };
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
+
+            if (!actionParams.ReactionValidated)
             {
                 yield break;
             }
 
             attacker.UsedSpecialFeatures.TryAdd(ArcaneShotMarker, 1);
 
-            if (SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            var option = reactionRequest.SelectedSubOption;
+            var subPowers = PowerArcaneShot.GetBundle()?.SubPowers;
+
+            if (subPowers != null &&
+                subPowers[option] == powerBurstingArrow)
             {
-                PowerSpent = null;
-
-                yield break;
+                HandleBurstingArrow(attacker, defender);
             }
-
-            // apply arrow behaviors after attack is complete
-            if (Gui.Battle != null &&
-                PowerSpent == _powerBurstingArrow)
-            {
-                var rulesetAttacker = attacker.RulesetCharacter;
-                var implementationManager =
-                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-                var targets = Gui.Battle.AllContenders
-                    .Where(x => x.IsWithinRange(defender, 3) && x != defender)
-                    .ToList();
-
-                var actionModifiers = new List<ActionModifier>();
-
-                for (var i = 0; i < targets.Count; i++)
-                {
-                    actionModifiers.Add(new ActionModifier());
-                }
-
-                var usablePower = PowerProvider.Get(_powerBurstingArrow, rulesetAttacker);
-                var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-                {
-                    ActionModifiers = actionModifiers,
-                    RulesetEffect = implementationManager
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    targetCharacters = targets
-                };
-
-                ServiceRepository.GetService<IGameLocationActionService>()?
-                    .ExecuteAction(actionParams, null, true);
-            }
-            else
-            {
-                TryInflictArcaneShotCondition(attacker, defender, arcaneArcherData);
-            }
-
-            PowerSpent = null;
-            SaveOutcome = RollOutcome.Success;
-        }
-    }
-
-    private sealed class ModifyEffectDescriptionBurstingArrow(FeatureDefinitionPower powerBurstingArrow)
-        : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerBurstingArrow;
         }
 
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
+        private void HandleBurstingArrow(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
-            var classLevel = character.GetClassLevel(CharacterClassDefinitions.Fighter);
-            var diceNumber = classLevel switch
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var targets = Gui.Battle.AllContenders
+                .Where(x => x.IsWithinRange(defender, 3) && x != defender)
+                .ToList();
+
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
             {
-                >= 17 => 4,
-                >= 11 => 3,
-                _ => 2
+                actionModifiers.Add(new ActionModifier());
+            }
+
+            var usablePower = PowerProvider.Get(powerBurstingArrowDamage, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = actionModifiers,
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
             };
 
-            effectDescription.EffectForms[0].DamageForm.DiceNumber = diceNumber;
-
-            return effectDescription;
+            EffectHelpers
+                .StartVisualEffect(attacker, defender, SpellDefinitions.Shatter, EffectHelpers.EffectType.Zone);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
@@ -733,7 +707,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     // Guided Shot
     //
 
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private class TryAlterOutcomeAttackGuidedShot(FeatureDefinition featureDefinition) : ITryAlterOutcomeAttack
     {
         public int HandlerPriority => -10;
@@ -816,7 +789,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     // Ready Shot
     //
 
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class BattleStartedListenerEverReadyShot(FeatureDefinition featureDefinition)
         : ICharacterBattleStartedListener
     {

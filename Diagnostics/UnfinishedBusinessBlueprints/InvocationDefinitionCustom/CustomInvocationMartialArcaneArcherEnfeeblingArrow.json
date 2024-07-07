@@ -10,7 +10,7 @@
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&PowerMartialArcaneArcherEnfeeblingArrowTitle",
     "description": "Feature/&PowerMartialArcaneArcherEnfeeblingArrowDescription",
     "spriteReference": {
