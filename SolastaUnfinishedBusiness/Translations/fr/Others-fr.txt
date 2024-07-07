@@ -175,6 +175,7 @@ Feedback/&AdditionalDamageBrutalStrikeFormat=Frappe brutale
 Feedback/&AdditionalDamageBrutalStrikeLine=Brutal Strike inflige +{2} dégâts supplémentaires !
 Feedback/&AdditionalDamageSunderingBlowFormat=Coup déchirant
 Feedback/&AdditionalDamageSunderingBlowLine=Sundering Blow inflige +{2} dégâts supplémentaires !
+Feedback/&ChangeGloombladeDieType={1} change le type de dé Gloomblade de {2} à {3}
 Feedback/&ChangeSneakDiceDamageType={1} modifie les dégâts des dés sournois en {2}
 Feedback/&ChangeSneakDiceDieType={1} change le type de dé furtif de {2} à {3}
 Feedback/&ChangeSneakDiceNumber={1} change le nombre de dés furtifs de {2} à {3}
