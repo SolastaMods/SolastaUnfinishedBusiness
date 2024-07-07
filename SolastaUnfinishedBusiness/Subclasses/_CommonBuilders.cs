@@ -89,8 +89,9 @@ internal static class CommonBuilders
 
     internal static readonly FeatureDefinition PowerCasterFightingWarMagic = FeatureDefinitionBuilder
         .Create("PowerCasterFightingWarMagic")
-        .SetGuiPresentation(Category.Feature, hidden: true)
+        .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new CustomBehaviorCasterFightingWarMagic(
                 ConditionDefinitionBuilder
                     .Create("ConditionCasterFightingWarMagic")
