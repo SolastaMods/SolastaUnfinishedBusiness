@@ -7,7 +7,7 @@
 - changed Innovation Vitriolist auto prepared spells list at level 13
 - changed Monsters portraits behavior to use unique technical name
 - changed Psionic Blast spell to differentiate it from Synaptic Static
-- changed Rogue Devious Strike knock out and obscure cost to 5 and 2
+- changed Rogue Devious Strike knock out cost to 5
 - changed Roguish Duelist making it more useful before higher levels
 - fixed Absorb Elements crashing after slot selection
 - fixed attribute checks crashing on reacting moving heroes

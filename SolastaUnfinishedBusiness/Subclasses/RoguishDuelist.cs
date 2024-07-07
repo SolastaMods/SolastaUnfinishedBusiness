@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -75,9 +76,9 @@ public sealed class RoguishDuelist : AbstractSubclass
             .Create($"Condition{Name}{SureFooted}")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
+            .SetSilent(Silent.WhenAdded)
             .SetFixedAmount(1)
             .SetFeatures(attributeModifierSureFooted)
-            .SetConditionParticleReference(ConditionDefinitions.ConditionMagicallyArmored)
             .AddToDB();
 
         var featureSureFooted = FeatureDefinitionBuilder
@@ -274,26 +275,56 @@ public sealed class RoguishDuelist : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var roll = rulesetAttacker.RollDie(DieType.D6, RollContext.None, false, AdvantageType.None, out _, out _);
+            var roll = rulesetAttacker.RollDie(DieType.D6, RollContext.None, false, AdvantageType.None, out var firstRoll, out var secondRoll);
+            
+            rulesetAttacker.ShowDieRoll(
+                DieType.D6, firstRoll, secondRoll, advantage: AdvantageType.None,
+                title: conditionSureFooted.GuiPresentation.Title);
 
-            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionSureFooted.Name, out var activeCondition) ||
-                roll > activeCondition.Amount)
+            var hasBravado = rulesetAttacker.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionSureFooted.Name, out var activeCondition);
+            
+            if (hasBravado &&
+                roll <= activeCondition.Amount)
             {
-                rulesetAttacker.InflictCondition(
-                    conditionSureFooted.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionSureFooted.Name,
-                    roll,
-                    0,
-                    0);
+                yield break;
             }
+
+            if (hasBravado)
+            {
+                rulesetAttacker.LogCharacterActivatesAbility(
+                    Gui.NoLocalization, "Feedback/&RoguishDuelistBravadoReroll", true,
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D6)),
+                        (ConsoleStyleDuplet.ParameterType.Positive, roll.ToString())
+                    ]);
+            }
+            else
+            {
+                rulesetAttacker.LogCharacterActivatesAbility(
+                    Gui.NoLocalization, "Feedback/&RoguishDuelistBravado", true,
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D6)),
+                        (ConsoleStyleDuplet.ParameterType.Positive, roll.ToString())
+                    ]);
+            }
+
+                
+            rulesetAttacker.InflictCondition(
+                conditionSureFooted.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionSureFooted.Name,
+                roll,
+                0,
+                0);
         }
 
         public IEnumerator OnPhysicalAttackInitiatedByMe(

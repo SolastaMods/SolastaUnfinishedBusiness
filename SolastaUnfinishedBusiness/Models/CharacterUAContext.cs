@@ -1415,7 +1415,7 @@ internal static partial class CharacterContext
         var powerObscure = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Devious}Obscure")
             .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.NoCost, powerPool, 2)
+            .SetSharedPool(ActivationTime.NoCost, powerPool, 3)
             .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder

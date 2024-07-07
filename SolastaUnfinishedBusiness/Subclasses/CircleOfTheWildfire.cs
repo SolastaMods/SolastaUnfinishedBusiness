@@ -44,6 +44,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .Create($"Power{Name}CauterizingFlames")
             .SetGuiPresentationNoContent(true)
             .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .AddToDB();
 
     private static readonly FeatureDefinitionPower PowerCauterizingFlamesDamage = FeatureDefinitionPowerBuilder
@@ -151,7 +152,6 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 1)
                             .Build())
-                    .SetParticleEffectParameters(DimensionDoor)
                     .SetCasterEffectParameters(HeatMetal)
                     .Build())
             .AddCustomSubFeatures(new CustomBehaviorSpiritTeleport(powerSpiritTeleportDamage))
@@ -193,6 +193,13 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetRequiredMonsterTag(SpiritName)
             .SetAddedConditions(
+                ConditionDefinitionBuilder
+                    .Create($"Condition{Name}CopyProficiencyBonus")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceCopyAttributeFromSummoner,
+                        AttributeDefinitions.ProficiencyBonus)
+                    .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create($"Condition{Name}SpiritAttackRoll")
                     .SetGuiPresentation("Feedback/&SpiritBonusTitle", Gui.NoLocalization)
