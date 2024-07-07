@@ -1,8 +1,9 @@
 1.5.97.18:
 
 - added Circle of the Wildfire, and Vitriolic Sphere spell
+- added Ranger Wildmaster summons custom portraits [by Thaladar]
 - added Wizard Deadmaster summons custom portraits [by Thaladar]
-- added sample heroes portraits [by Zeke and Digitus Primus]
+- added sample heroes portraits [by Digitus Primus, and Zeke]
 - changed Cunning Escape, and Exploiter feats min. required level to 4
 - changed Innovation Vitriolist auto prepared spells list at level 13
 - changed Monsters portraits behavior to use unique technical name
