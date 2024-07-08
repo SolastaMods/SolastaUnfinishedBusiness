@@ -692,17 +692,18 @@ internal static class FixesContext
             }
 
             // ensure Zen Archer Hail of Arrows won't trigger stunning strike without ki points
-            if (attackMode.AttackTags.Contains(WayOfZenArchery.HailOfArrows))
+            if (attacker.UsedSpecialFeatures.ContainsKey(WayOfZenArchery.HailOfArrowsAttack))
             {
-                var hasTab = attacker.UsedSpecialFeatures.TryGetValue(WayOfZenArchery.HailOfArrows, out var attacks);
+                var hasTab =
+                    attacker.UsedSpecialFeatures.TryGetValue(WayOfZenArchery.HailOfArrowsAttacksTab, out var attacks);
 
                 if (hasTab)
                 {
-                    attacker.UsedSpecialFeatures[WayOfZenArchery.HailOfArrows] += 1;
+                    attacker.UsedSpecialFeatures[WayOfZenArchery.HailOfArrowsAttacksTab] += 1;
                 }
                 else
                 {
-                    attacker.UsedSpecialFeatures.Add(WayOfZenArchery.HailOfArrows, 1);
+                    attacker.UsedSpecialFeatures.Add(WayOfZenArchery.HailOfArrowsAttacksTab, 1);
                 }
 
                 if (rulesetAttacker.RemainingKiPoints - attacks <= 0)

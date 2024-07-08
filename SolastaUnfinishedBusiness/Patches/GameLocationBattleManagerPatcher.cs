@@ -40,11 +40,9 @@ public static class GameLocationBattleManagerPatcher
             if (__result &&
                 usablePower.PowerDefinition == DatabaseHelper.FeatureDefinitionPowers.PowerMonkMartialArts)
             {
-                var currentAttackAction = Global.CurrentAttackAction;
+                var character = GameLocationCharacter.GetFromActor(caster);
 
-                if (currentAttackAction.Count > 0 &&
-                    currentAttackAction.Peek().ActionParams.AttackMode.AttackTags
-                        .Contains(WayOfZenArchery.HailOfArrows))
+                if (character.UsedSpecialFeatures.Remove(WayOfZenArchery.HailOfArrowsAttack))
                 {
                     __result = false;
                 }

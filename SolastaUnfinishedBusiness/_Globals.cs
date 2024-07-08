@@ -1,13 +1,9 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness;
 
 internal static class Global
 {
-    // required to correctly determine isMelee validation and ensure Zen Archer Hail of Arrows won't trigger PowerMonkMartialArts
-    internal static readonly Stack<CharacterActionAttack> CurrentAttackAction = new();
-
     // true if in a multiplayer game
     internal static bool IsMultiplayer =>
         IsSettingUpMultiplayer

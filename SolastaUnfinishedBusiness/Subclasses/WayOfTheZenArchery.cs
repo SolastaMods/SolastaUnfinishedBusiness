@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -20,7 +21,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class WayOfZenArchery : AbstractSubclass
 {
     internal const string Name = "WayOfZenArchery";
-    internal const string HailOfArrows = "HailOfArrows";
+    internal const string HailOfArrowsAttack = "HailOfArrowsAttack";
+    internal const string HailOfArrowsAttacksTab = "HailOfArrowsAttacksTab";
     internal const int StunningStrikeWithBowAllowedLevel = 6;
 
     public WayOfZenArchery()
@@ -270,7 +272,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
             attackMode.Copy(attackModeMain);
             attackMode.ActionType = ActionDefinitions.ActionType.NoCost;
-            attackMode.AttackTags.Add(HailOfArrows);
+            actingCharacter.UsedSpecialFeatures.TryAdd(HailOfArrowsAttack, 0);
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var target in targets)
