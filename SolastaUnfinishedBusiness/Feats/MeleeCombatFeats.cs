@@ -1282,9 +1282,7 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class ModifyWeaponAttackModeFeatCleavingAttack(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatDefinition featDefinition)
-        : IModifyWeaponAttackMode
+        FeatDefinition featDefinition) : IModifyWeaponAttackMode
     {
         private const int ToHit = -5;
         private const int ToDamage = +10;
@@ -1314,7 +1312,8 @@ internal static class MeleeCombatFeats
 
     private static bool ValidateCleavingAttack(RulesetAttackMode attackMode, bool validateHeavy = false)
     {
-        return ValidatorsWeapon.IsMelee(attackMode) &&
+        // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
+        return ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
                (!validateHeavy ||
                 ValidatorsWeapon.HasAnyWeaponTag(
                     attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagHeavy));
@@ -1857,17 +1856,15 @@ internal static class MeleeCombatFeats
         return featPowerAttack;
     }
 
-    private sealed class ModifyWeaponAttackModeFeatPowerAttack(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatDefinition featDefinition) : IModifyWeaponAttackMode
-    // thrown is allowed on power attack
-    //, IPhysicalAttackInitiatedByMe
+    private sealed class ModifyWeaponAttackModeFeatPowerAttack(FeatDefinition featDefinition) : IModifyWeaponAttackMode
     {
         private const int ToHit = 3;
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
+            // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
+            if (!ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
+                !ValidatorsWeapon.IsUnarmed(attackMode)) 
             {
                 return;
             }
@@ -1890,45 +1887,6 @@ internal static class MeleeCombatFeats
             damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Feat, featDefinition.Name,
                 featDefinition));
         }
-
-// thrown is allowed on power attack
-#if false
-        // this is required to handle thrown scenarios
-        public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
-        {
-            var isMelee = ValidatorsWeapon.IsMelee(attackMode);
-            var isUnarmed = ValidatorsWeapon.IsUnarmed(attackMode);
-            var isPowerAttackValid = isMelee || isUnarmed;
-
-            if (isPowerAttackValid)
-            {
-                yield break;
-            }
-
-            attackModifier.AttacktoHitTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
-            attackMode.ToHitBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
-            attackMode.ToHitBonus += ToHit;
-
-            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
-            {
-                yield break;
-            }
-
-            var proficiency = attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var toDamage = ToHit + proficiency;
-
-            damageForm.DamageBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
-            damageForm.BonusDamage -= toDamage;
-        }
-#endif
     }
 
     #endregion
