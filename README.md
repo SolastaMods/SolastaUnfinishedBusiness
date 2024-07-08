@@ -30,7 +30,7 @@ Do you have a mod you want to see included here? We are happy to take new contri
 # How to compile
 
 0. Install all required development pre-requisites:
-    - [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/downloads/)
+    - [Visual Studio 2022 Community Edition 17.8+](https://visualstudio.microsoft.com/downloads/)
     - [.NET x64 6.00.300 SDK](https://dotnet.microsoft.com/download/visual-studio-sdks)
 1. Download and install [Unity Mod Manager (UMM)](https://www.nexusmods.com/site/mods/21)
 2. Execute UMM, Select Solasta, and Install
@@ -53,10 +53,10 @@ NOTE Unity Mod Manager and this mod template make use of [Harmony](https://go.mi
 2. Download and install [7zip](https://www.7-zip.org/a/7z1900-x64.exe)
 3. Download [Unity Editor 2019.4.37](https://download.unity3d.com/download_unity/019e31cfdb15/Windows64EditorInstaller/UnitySetup64-2019.4.37f1.exe)
 4. Open Downloads folder
-	* Right-click UnitySetup64-2019.4.32f1.exe, 7Zip -> Extract Here
+	* Right-click UnitySetup64-2019.4.37f1.exe, 7Zip -> Extract Here
 	* Navigate to Editor\Data\PlaybackEngines\windowsstandalonesupport\Variations\win64_development_mono
 		* Copy *UnityPlayer.dll* and *WinPixEventRuntime.dll* to clipboard
 	* Navigate to the Solasta game folder
 		* Rename *UnityPlayer.dll* to *UnityPlayer.dll.original*
 		* Paste *UnityPlayer.dll* and *WinPixEventRuntime.dll* from clipboard
-5. You can now attach the Unity Debugger from Visual Studio 2019, Debug -> Attach Unity Debug
+5. You can now attach the Unity Debugger from Visual Studio 2022, Debug -> Attach Unity Debug
