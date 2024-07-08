@@ -494,12 +494,13 @@ public sealed class DomainDefiler : AbstractSubclass
                     x.FormType == EffectForm.EffectFormType.Damage &&
                     x.DamageForm.DamageType is DamageTypeNecrotic);
 
+            attacker.UsedSpecialFeatures.TryAdd(powerDyingLight.Name, 0);
+
             if (!isValid)
             {
                 return;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(powerDyingLight.Name, 0);
             attacker.UsedSpecialFeatures[powerDyingLight.Name] = 1;
             rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }

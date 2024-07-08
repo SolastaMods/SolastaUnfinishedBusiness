@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -434,6 +435,7 @@ public sealed class DomainTempest : AbstractSubclass
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter.GetEffectControllerOrSelf();
             var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
 
+            rulesetAttacker.LogCharacterUsedPower(powerDestructiveWrath);
             rulesetAttacker.UsePower(usablePower);
         }
 
@@ -452,8 +454,13 @@ public sealed class DomainTempest : AbstractSubclass
                 rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
                 damageForm.DamageType is DamageTypeLightning or DamageTypeThunder;
 
+            if (attacker.UsedSpecialFeatures.TryGetValue(powerDestructiveWrath.Name, out var value) && value == 1)
+            {
+                return isValid;
+            }
+
             attacker.UsedSpecialFeatures.TryAdd(powerDestructiveWrath.Name, 0);
-            attacker.UsedSpecialFeatures[powerDestructiveWrath.Name] = 1;
+            attacker.UsedSpecialFeatures[powerDestructiveWrath.Name] = isValid ? 1 : 0;
 
             return isValid;
         }
