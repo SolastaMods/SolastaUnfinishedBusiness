@@ -602,8 +602,6 @@ public sealed class MartialForceKnight : AbstractSubclass
         FeatureDefinitionPower powerPsionicAdept)
         : IPhysicalAttackInitiatedByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
-        private bool _considerTriggerPsionicAdept;
-
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -625,7 +623,8 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            _considerTriggerPsionicAdept = true;
+            attacker.UsedSpecialFeatures.TryAdd(powerPsionicAdept.Name, 0);
+            attacker.UsedSpecialFeatures[powerPsionicAdept.Name] = 1;
 
             attacker.UsedSpecialFeatures.TryAdd("ForcePoweredStrike", 0);
             rulesetAttacker.UpdateUsageForPower(PowerPsionicInitiate, 1);
@@ -654,7 +653,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (!_considerTriggerPsionicAdept)
+            if (!attacker.UsedSpecialFeatures.TryGetValue(powerPsionicAdept.Name, out var value) || value == 0)
             {
                 yield break;
             }
@@ -710,7 +709,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
         {
-            _considerTriggerPsionicAdept = false;
+            attacker.UsedSpecialFeatures.TryAdd(powerPsionicAdept.Name, 0);
 
             yield break;
         }
