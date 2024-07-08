@@ -113,6 +113,85 @@ internal static class EffectHelpers
         return def;
     }
 
+    /// <summary>
+    /// Utility to replace a saving throw score with a different one.
+    /// If useNewBonuses = false, then only the ability modifier will be replaced.
+    /// If useNewBonuses = true, then the replacement will include all bonuses of the replacement (e.g. proficiency).
+    /// For example, if useNewBonuses = true, and you are replacing a WIS save with INT and you are proficient in INT, you will roll as though it were an INT save.
+    /// 
+    /// Note that this functions differently from Vanilla.
+    /// Vanilla Solasta has the Mana Painter Sorcerer, and its Mana Absorption feature will override the source saving throw be Charisma entirely, if the Charisma mod is higher.
+    /// This has interesting consequences. For example, if you are hit with Fireball...
+    ///    1) you get the Charisma proficiency bonus included for being a sorcerer, and
+    ///    2) you benefit from features that give you bonuses to Charisma (e.g. Gnome advantage for INT/WIS/CHA)
+    /// </summary>
+    internal static bool ReplaceSavingThrowSourceIfHigher(RulesetCharacter defender, string replacementAbilityScoreName, bool useNewBonuses, ref string abilityScoreName, ref int saveBonus, List<RuleDefinitions.TrendInfo> savingThrowModifierTrends)
+    {
+        if (useNewBonuses)
+        {
+            List<RuleDefinitions.TrendInfo> oldTrends = new List<RuleDefinitions.TrendInfo>();
+            List<RuleDefinitions.TrendInfo> newTrends = new List<RuleDefinitions.TrendInfo>();
+            int origMod = defender.ComputeBaseSavingThrowBonus(abilityScoreName, oldTrends);
+            int replacementMod = defender.ComputeBaseSavingThrowBonus(replacementAbilityScoreName, newTrends); // Expected to return proficiency bonuses included.
+            if (replacementMod < origMod)
+            {
+                return false;
+            }
+
+            // Other bonuses (e.g. from items) might have entries in the existing Trends list.
+            // Remove only the items related to the old ability, and replace them with the new bonuses.
+            // This code assumes that trends actually include the original ability score.
+            foreach (RuleDefinitions.TrendInfo info in oldTrends)
+            {
+                for (int i = 0; i < savingThrowModifierTrends.Count; ++i)
+                {
+                    RuleDefinitions.TrendInfo t = savingThrowModifierTrends[i];
+                    if (info.sourceName == t.sourceName && info.value == t.value && info.sourceType == t.sourceType)
+                    {
+                        savingThrowModifierTrends.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+
+            savingThrowModifierTrends.InsertRange(0, newTrends);
+
+            // Don't directly set the save bonus, since we don't know what else could be accumulated in there. Use the delta instead.
+            saveBonus += replacementMod - origMod;
+            abilityScoreName = replacementAbilityScoreName;
+            return true;
+        }
+        else
+        {
+            int origMod = AttributeDefinitions.ComputeAbilityScoreModifier(defender.TryGetAttributeValue(abilityScoreName));
+            int replacementMod = AttributeDefinitions.ComputeAbilityScoreModifier(defender.TryGetAttributeValue(replacementAbilityScoreName));
+            if (replacementMod < origMod)
+            {
+                return false;
+            }
+
+            // Search for the original ability and replace it.
+            for (int i = 0; i < savingThrowModifierTrends.Count; ++i)
+            {
+                RuleDefinitions.TrendInfo info = savingThrowModifierTrends[i];
+
+                if (info.sourceType == RuleDefinitions.FeatureSourceType.AbilityScore && info.sourceName == abilityScoreName)
+                {
+                    saveBonus += replacementMod - info.value;
+                    abilityScoreName = replacementAbilityScoreName;
+
+                    info.value = replacementMod;
+                    info.sourceName = replacementAbilityScoreName;
+
+                    return true; // Assumes only one ability score source
+                }
+            }
+
+            // Unexpected for the ability score to not be in the trends.
+            return false;
+        }
+    }
+
     internal static RulesetCharacter GetSummoner(RulesetCharacter summon)
     {
         return summon.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,

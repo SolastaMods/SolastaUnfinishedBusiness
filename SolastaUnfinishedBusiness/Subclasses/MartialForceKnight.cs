@@ -937,12 +937,8 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             if (abilityScoreName == AttributeDefinitions.Wisdom)
             {
-                var wisdom = defender.TryGetAttributeValue(AttributeDefinitions.Wisdom);
-
-                if (intelligence > wisdom)
+                if (EffectHelpers.ReplaceSavingThrowSourceIfHigher(defender, AttributeDefinitions.Intelligence, true, ref abilityScoreName, ref saveBonus, modifierTrends))
                 {
-                    abilityScoreName = AttributeDefinitions.Intelligence;
-
                     defender.LogCharacterUsedFeature(featureForceOfWill);
                 }
             }
@@ -950,13 +946,9 @@ public sealed class MartialForceKnight : AbstractSubclass
             // ReSharper disable once InvertIf
             if (abilityScoreName == AttributeDefinitions.Charisma)
             {
-                var charisma = defender.TryGetAttributeValue(AttributeDefinitions.Charisma);
-
                 // ReSharper disable once InvertIf
-                if (intelligence > charisma)
+                if (EffectHelpers.ReplaceSavingThrowSourceIfHigher(defender, AttributeDefinitions.Intelligence, true, ref abilityScoreName, ref saveBonus, modifierTrends))
                 {
-                    abilityScoreName = AttributeDefinitions.Intelligence;
-
                     defender.LogCharacterUsedFeature(featureForceOfWill);
                 }
             }
