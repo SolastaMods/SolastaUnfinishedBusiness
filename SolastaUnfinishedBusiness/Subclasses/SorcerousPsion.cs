@@ -415,24 +415,20 @@ public sealed class SorcerousPsion : AbstractSubclass
     private sealed class CustomBehaviorSupremeWill(FeatureDefinitionPower powerSupremeWill)
         : IModifyConcentrationRequirement, IMagicEffectFinishedByMe
     {
-        private bool _hasConcentrationChanged;
-
         public IEnumerator OnMagicEffectFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (action is not CharacterActionCastSpell actionCastSpell)
+            var hasTag = attacker.UsedSpecialFeatures.TryGetValue(powerSupremeWill.Name, out var value);
+
+            attacker.UsedSpecialFeatures.TryAdd(powerSupremeWill.Name, 0);
+
+            if (action is not CharacterActionCastSpell actionCastSpell ||
+                !hasTag || value == 0)
             {
                 yield break;
             }
-
-            if (!_hasConcentrationChanged)
-            {
-                yield break;
-            }
-
-            _hasConcentrationChanged = false;
 
             var rulesetCharacter = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSupremeWill, rulesetCharacter);
@@ -459,11 +455,14 @@ public sealed class SorcerousPsion : AbstractSubclass
                 return rulesetEffectSpell.SpellDefinition.RequiresConcentration;
             }
 
+            var attacker = GameLocationCharacter.GetFromActor(rulesetCharacter);
             var requiredPoints = rulesetEffectSpell.EffectLevel * 2;
+            var hasConcentrationChanged = rulesetCharacter.RemainingSorceryPoints >= requiredPoints;
 
-            _hasConcentrationChanged = rulesetCharacter.RemainingSorceryPoints >= requiredPoints;
+            attacker.UsedSpecialFeatures.TryAdd(powerSupremeWill.Name, 0);
+            attacker.UsedSpecialFeatures[powerSupremeWill.Name] = hasConcentrationChanged ? 1 : 0;
 
-            return !_hasConcentrationChanged;
+            return !hasConcentrationChanged;
         }
     }
 }
