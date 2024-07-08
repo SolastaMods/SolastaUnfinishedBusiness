@@ -543,7 +543,7 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager || !battleManager)
+            if (!actionManager || !battleManager || action.Countered)
             {
                 yield break;
             }
@@ -1156,6 +1156,11 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            if (action.Countered)
+            {
+                yield break;
+            }
+
             var actingCharacter = action.ActingCharacter;
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;
 

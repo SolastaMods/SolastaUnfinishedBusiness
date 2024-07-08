@@ -321,7 +321,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (Gui.Battle == null)
+            if (Gui.Battle == null || action.Countered)
             {
                 yield break;
             }
