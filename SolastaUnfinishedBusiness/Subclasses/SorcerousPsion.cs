@@ -269,7 +269,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
     private sealed class CustomBehaviorMindSculpt : IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMe
     {
-        private bool _hasDamageChanged;
+        private const string MindSculptTag = "MindSculptTag";
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -281,8 +281,9 @@ public sealed class SorcerousPsion : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            _hasDamageChanged = false;
+            attacker.UsedSpecialFeatures.TryAdd(MindSculptTag, 0);
 
+            var hasDamageChanged = false;
             var rulesetCharacter = attacker.RulesetCharacter;
 
             if (rulesetCharacter.RemainingSorceryPoints > 0 &&
@@ -291,10 +292,12 @@ public sealed class SorcerousPsion : AbstractSubclass
                 foreach (var effectForm in actualEffectForms
                              .Where(x => x.FormType == EffectForm.EffectFormType.Damage))
                 {
-                    _hasDamageChanged = _hasDamageChanged || effectForm.DamageForm.DamageType != DamageTypePsychic;
+                    hasDamageChanged = hasDamageChanged || effectForm.DamageForm.DamageType != DamageTypePsychic;
                     effectForm.DamageForm.DamageType = DamageTypePsychic;
                 }
             }
+
+            attacker.UsedSpecialFeatures[MindSculptTag] = hasDamageChanged ? 1 : 0;
 
             if (!firstTarget)
             {
@@ -318,12 +321,12 @@ public sealed class SorcerousPsion : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (!_hasDamageChanged)
+            if (attacker.UsedSpecialFeatures.TryGetValue(MindSculptTag, out var value) || value == 0)
             {
                 yield break;
             }
 
-            _hasDamageChanged = false;
+            attacker.UsedSpecialFeatures.TryAdd(MindSculptTag, 0);
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
