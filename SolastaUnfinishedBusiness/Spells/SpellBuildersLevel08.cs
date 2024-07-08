@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -289,7 +288,18 @@ internal static partial class SpellBuilders
     {
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
-            throw new NotImplementedException();
+            if (defender is RulesetCharacterMonster rulesetCharacterMonster &&
+                rulesetCharacterMonster.CharacterFamily == CharacterFamilyDefinitions.Undead.Name)
+            {
+                features.RemoveAll(x =>
+                    x is IDamageAffinityProvider
+                    {
+                        DamageAffinityType: DamageAffinityType.Resistance, DamageType: DamageTypeNecrotic
+                    } or IDamageAffinityProvider
+                    {
+                        DamageAffinityType: DamageAffinityType.Immunity, DamageType: DamageTypeNecrotic
+                    });
+            }
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
