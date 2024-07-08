@@ -395,10 +395,9 @@ internal static partial class SpellBuilders
 
     private sealed class PowerOrSpellFinishedByMeFizbanPlatinumShield(
         SpellDefinition spell,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition condition) : IPowerOrSpellFinishedByMe
     {
-        private int _remainingRounds;
+        private const string FizbanPlatinumShieldTag = "FizbanPlatinumShieldTag";
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -416,7 +415,8 @@ internal static partial class SpellBuilders
             {
                 case CharacterActionUsePower:
                 {
-                    _remainingRounds = rulesetSpell.RemainingRounds;
+                    actingCharacter.UsedSpecialFeatures.TryAdd(FizbanPlatinumShieldTag, 0);
+                    actingCharacter.UsedSpecialFeatures.TryAdd(FizbanPlatinumShieldTag, rulesetSpell.RemainingRounds);
 
                     var spellRepertoire = rulesetSpell.SpellRepertoire;
                     var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -432,16 +432,18 @@ internal static partial class SpellBuilders
                     actionService.ExecuteAction(actionParams, null, true);
                     break;
                 }
-                case CharacterActionCastSpell when _remainingRounds > 0:
-                    rulesetSpell.RemainingRounds = _remainingRounds;
+                case CharacterActionCastSpell
+                    when actingCharacter.UsedSpecialFeatures.TryGetValue(FizbanPlatinumShieldTag, out var value) &&
+                         value > 0:
+                    rulesetSpell.RemainingRounds = value;
 
                     if (action.ActionParams.TargetCharacters[0].RulesetActor.TryGetConditionOfCategoryAndType(
                             AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
                     {
-                        activeCondition.RemainingRounds = _remainingRounds;
+                        activeCondition.RemainingRounds = value;
                     }
 
-                    _remainingRounds = 0;
+                    actingCharacter.UsedSpecialFeatures.TryAdd(FizbanPlatinumShieldTag, 0);
                     break;
             }
         }
