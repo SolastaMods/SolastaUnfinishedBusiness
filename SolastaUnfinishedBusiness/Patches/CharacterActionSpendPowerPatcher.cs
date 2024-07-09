@@ -168,18 +168,18 @@ public static class CharacterActionSpendPowerPatcher
 
                         var hero = controller.RulesetCharacter.GetOriginalHero();
 
-                        if (hero == null)
+                        if (hero != null)
                         {
-                            continue;
-                        }
-
-                        foreach (var magicalAttackBeforeHitConfirmedOnEnemy in hero.TrainedMetamagicOptions
-                                     .SelectMany(metamagic =>
-                                         metamagic.GetAllSubFeaturesOfType<IMagicEffectBeforeHitConfirmedOnEnemy>()))
-                        {
-                            yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
-                                battleManager, controller, target, actionModifier,
-                                rulesetEffect, effectForms, i == 0, false);
+                            foreach (var magicalAttackBeforeHitConfirmedOnEnemy in hero.TrainedMetamagicOptions
+                                         .SelectMany(metamagic =>
+                                             metamagic
+                                                 .GetAllSubFeaturesOfType<IMagicEffectBeforeHitConfirmedOnEnemy>()))
+                            {
+                                yield return magicalAttackBeforeHitConfirmedOnEnemy
+                                    .OnMagicEffectBeforeHitConfirmedOnEnemy(
+                                        battleManager, controller, target, actionModifier,
+                                        rulesetEffect, effectForms, i == 0, false);
+                            }
                         }
                     }
 

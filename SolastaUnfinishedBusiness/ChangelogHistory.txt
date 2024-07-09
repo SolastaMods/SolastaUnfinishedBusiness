@@ -5,6 +5,7 @@
 - fixed Martial Arcane Archer arcane shots validator
 - fixed Martial Battle Master missing maneuvers initial pool amount
 - fixed Martial Psi Warrior force of will saving throw behavior
+- fixed monster reaction powers effect forms application
 - fixed Power Attack attack mode modifier
 - fixed Powerful metamagic interaction with Sunbeam spell
 - fixed Path of the Wild Magic wild surge attack mode validator
