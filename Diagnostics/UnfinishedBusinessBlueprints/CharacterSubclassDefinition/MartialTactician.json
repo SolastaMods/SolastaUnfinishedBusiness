@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerUseModifierTacticianGambitPoolMartialTactician:142dbc79-602e-5057-aa01-646c3e046e07",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolGambitLearn4:bf787818-378a-5206-b5ea-3669089af63d",
       "level": 3
     },

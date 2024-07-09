@@ -1,3 +1,14 @@
+1.5.97.19:
+
+- fixed Great Weapon Master attack mode modifier, and additional attack validator
+- fixed Lunging Attack maneuver increase weapon reach validator
+- fixed Martial Battle Master maneuvers pool amount at 3rd
+- fixed Martial Psi Warrior force of will saving throw behavior
+- fixed Power Attack attack mode modifier
+- fixed Powerful metamagic interaction with Sunbeam spell
+- fixed Path of the Wild Magic wild surge attack mode validator
+- fixed Wendigo natural lunger increase weapon reach validator
+
 1.5.97.18:
 
 - added Circle of the Wildfire, and Vitriolic Sphere spell
