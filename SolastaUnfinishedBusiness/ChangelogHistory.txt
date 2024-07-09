@@ -9,6 +9,7 @@
 - fixed Powerful metamagic interaction with Sunbeam spell
 - fixed Path of the Wild Magic wild surge attack mode validator
 - fixed Reverse Gravity spell granting flying to creatures
+- fixed Shapechange spell to delegate concentration to shape
 - fixed Wendigo natural lunger increase weapon reach validator
 
 1.5.97.18:

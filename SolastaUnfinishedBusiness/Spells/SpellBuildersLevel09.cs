@@ -219,11 +219,13 @@ internal static partial class SpellBuilders
 
     #region Shapechange
 
+    internal const string ShapechangeName = "Shapechange";
+    
     internal static SpellDefinition BuildShapechange()
     {
         return SpellDefinitionBuilder
-            .Create("Shapechange")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Shapechange", Resources.ShapeChange, 128))
+            .Create(ShapechangeName)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(ShapechangeName, Resources.ShapeChange, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)

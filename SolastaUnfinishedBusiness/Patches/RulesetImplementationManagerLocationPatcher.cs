@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -218,6 +219,7 @@ public static class RulesetImplementationManagerLocationPatcher
 
             PowersUsedByMe.SetRange(source.PowersUsedByMe);
             source.PowersUsedByMe.Clear();
+            //END BUGFIX
         }
 
         [UsedImplicitly]
@@ -230,13 +232,20 @@ public static class RulesetImplementationManagerLocationPatcher
             __instance.TryFindSubstituteOfCharacter(source, out var characterMonster);
 
             //BUGFIX: allow Druids to keep concentration on spells / powers with proxy summon forms
-
             //TODO: do I need to add them back to source?
             source.SpellsCastByMe.SetRange(SpellsCastByMe);
             source.PowersUsedByMe.SetRange(PowersUsedByMe);
 
             characterMonster.SpellsCastByMe.SetRange(SpellsCastByMe);
             characterMonster.PowersUsedByMe.SetRange(PowersUsedByMe);
+            //END BUGFIX
+            
+            //PATCH: enforces concentration on shape change spell
+            if (formsParams.activeEffect is RulesetEffectSpell rulesetEffectSpell &&
+                rulesetEffectSpell.SpellDefinition.Name == SpellBuilders.ShapechangeName)
+            {
+                characterMonster.concentratedSpell = rulesetEffectSpell;
+            }
 
             //PATCH: allows shape changers to get bonuses effects defined in features / feats / etc.
             var sourceAbilityBonus = formsParams.activeEffect.ComputeSourceAbilityBonus(source);
