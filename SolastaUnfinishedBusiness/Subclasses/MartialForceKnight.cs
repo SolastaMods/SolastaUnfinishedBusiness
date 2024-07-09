@@ -933,33 +933,70 @@ public sealed class MartialForceKnight : AbstractSubclass
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            var intelligence = defender.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var changed = false;
+            var intelligence = ComputeBaseBonus(defender, AttributeDefinitions.Intelligence, out var intModifier);
 
             if (abilityScoreName == AttributeDefinitions.Wisdom)
             {
-                var wisdom = defender.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+                var wisdom = ComputeBaseBonus(defender, AttributeDefinitions.Wisdom, out _);
 
                 if (intelligence > wisdom)
                 {
                     abilityScoreName = AttributeDefinitions.Intelligence;
-
-                    defender.LogCharacterUsedFeature(featureForceOfWill);
+                    changed = true;
                 }
             }
 
-            // ReSharper disable once InvertIf
             if (abilityScoreName == AttributeDefinitions.Charisma)
             {
-                var charisma = defender.TryGetAttributeValue(AttributeDefinitions.Charisma);
+                var charisma = ComputeBaseBonus(defender, AttributeDefinitions.Charisma, out _);
 
-                // ReSharper disable once InvertIf
                 if (intelligence > charisma)
                 {
                     abilityScoreName = AttributeDefinitions.Intelligence;
-
-                    defender.LogCharacterUsedFeature(featureForceOfWill);
+                    changed = true;
                 }
             }
+
+            if (!changed)
+            {
+                return;
+            }
+
+            modifierTrends.RemoveAll(x =>
+                x.sourceType is FeatureSourceType.AbilityScore or FeatureSourceType.Proficiency);
+            modifierTrends.AddRange(intModifier);
+            defender.LogCharacterUsedFeature(featureForceOfWill);
+        }
+
+        private static int ComputeBaseBonus(
+            RulesetCharacter defender,
+            string abilityScoreName,
+            out List<TrendInfo> savingThrowModifierTrends)
+        {
+            savingThrowModifierTrends = [];
+
+            var bonus =
+                AttributeDefinitions.ComputeAbilityScoreModifier(defender.TryGetAttributeValue(abilityScoreName));
+
+            savingThrowModifierTrends.Add(new TrendInfo(bonus, FeatureSourceType.AbilityScore, abilityScoreName, null));
+
+            var proficiency = defender.GetFeaturesByType<FeatureDefinitionProficiency>()
+                .FirstOrDefault(x =>
+                    x.ProficiencyType == ProficiencyType.SavingThrow &&
+                    x.Proficiencies.Contains(abilityScoreName));
+
+            if (!proficiency)
+            {
+                return bonus;
+            }
+
+            var pb = defender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            bonus += pb;
+            savingThrowModifierTrends.Add(new TrendInfo(pb, FeatureSourceType.Proficiency, string.Empty, null));
+
+            return bonus;
         }
     }
 
