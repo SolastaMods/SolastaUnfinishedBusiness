@@ -619,12 +619,12 @@ internal static class RaceFeats
         ConditionDefinition conditionBountifulLuck)
         : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow, IRollSavingThrowFinished
     {
-        private int _modifier;
-        private int _saveDC;
+        private const string BountifulLuckModifierTag = "BountifulLuckModifierTag";
+        private const string BountifulLuckSaveTag = "BountifulLuckSaveTag";
 
         public void OnSavingThrowFinished(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetCharacter rulesetCaster,
+            RulesetCharacter rulesetDefender,
             int saveBonus,
             string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -637,8 +637,12 @@ internal static class RaceFeats
             ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            _saveDC = saveDC;
-            _modifier = saveBonus + rollModifier;
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+
+            caster.UsedSpecialFeatures.TryAdd(BountifulLuckModifierTag, 0);
+            caster.UsedSpecialFeatures.TryAdd(BountifulLuckSaveTag, 0);
+            caster.UsedSpecialFeatures[BountifulLuckModifierTag] = saveBonus + rollModifier;
+            caster.UsedSpecialFeatures[BountifulLuckSaveTag] = saveDC;
         }
 
         public int HandlerPriority => -10;
@@ -855,7 +859,9 @@ internal static class RaceFeats
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact() ||
                 !helper.IsWithinRange(defender, 6) ||
-                !helper.CanPerceiveTarget(defender))
+                !helper.CanPerceiveTarget(defender) ||
+                !defender.UsedSpecialFeatures.TryGetValue(BountifulLuckModifierTag, out var modifier) ||
+                !defender.UsedSpecialFeatures.TryGetValue(BountifulLuckSaveTag, out var saveDC))
             {
                 yield break;
             }
@@ -884,7 +890,7 @@ internal static class RaceFeats
 
             var rulesetHelper = helper.RulesetCharacter;
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-            var savingRoll = action.SaveOutcomeDelta - _modifier + _saveDC;
+            var savingRoll = action.SaveOutcomeDelta - modifier + saveDC;
 
             if (dieRoll <= savingRoll)
             {
@@ -1716,7 +1722,7 @@ internal static class RaceFeats
 
         #region Knock-Out
 
-        private readonly string KnockOutPreventedTag = powerOrcishFury.Name + "KnockoutPrevented";
+        private readonly string _knockOutPreventedTag = powerOrcishFury.Name + "KnockoutPrevented";
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -1733,8 +1739,8 @@ internal static class RaceFeats
             rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
             attacker.UsedSpecialFeatures.TryAdd(powerOrcishFury.Name, 0);
             attacker.UsedSpecialFeatures[powerOrcishFury.Name] = 1;
-            attacker.UsedSpecialFeatures.TryAdd(KnockOutPreventedTag, 0);
-            attacker.UsedSpecialFeatures[KnockOutPreventedTag] = 0;
+            attacker.UsedSpecialFeatures.TryAdd(_knockOutPreventedTag, 0);
+            attacker.UsedSpecialFeatures[_knockOutPreventedTag] = 0;
 
             yield break;
         }
@@ -1767,8 +1773,8 @@ internal static class RaceFeats
             rulesetDefender.KnockOutPrevented += KnockOutPreventedHandler;
             attacker.UsedSpecialFeatures.TryAdd(powerOrcishFury.Name, 0);
             attacker.UsedSpecialFeatures[powerOrcishFury.Name] = 1;
-            attacker.UsedSpecialFeatures.TryAdd(KnockOutPreventedTag, 0);
-            attacker.UsedSpecialFeatures[KnockOutPreventedTag] = 0;
+            attacker.UsedSpecialFeatures.TryAdd(_knockOutPreventedTag, 0);
+            attacker.UsedSpecialFeatures[_knockOutPreventedTag] = 0;
 
             yield break;
         }
@@ -1791,8 +1797,8 @@ internal static class RaceFeats
         {
             var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
-            character.UsedSpecialFeatures.TryAdd(KnockOutPreventedTag, 0);
-            character.UsedSpecialFeatures[KnockOutPreventedTag] =
+            character.UsedSpecialFeatures.TryAdd(_knockOutPreventedTag, 0);
+            character.UsedSpecialFeatures[_knockOutPreventedTag] =
                 source == DamageAffinityHalfOrcRelentlessEndurance ? 1 : 0;
         }
 
@@ -1812,13 +1818,13 @@ internal static class RaceFeats
 
             rulesetTarget.KnockOutPrevented -= KnockOutPreventedHandler;
 
-            if (!actingCharacter.UsedSpecialFeatures.TryGetValue(KnockOutPreventedTag, out var knockOutPrevented) ||
+            if (!actingCharacter.UsedSpecialFeatures.TryGetValue(_knockOutPreventedTag, out var knockOutPrevented) ||
                 knockOutPrevented == 0)
             {
                 return;
             }
 
-            actingCharacter.UsedSpecialFeatures.TryAdd(KnockOutPreventedTag, 0);
+            actingCharacter.UsedSpecialFeatures.TryAdd(_knockOutPreventedTag, 0);
 
             if (Gui.Battle == null ||
                 !Gui.Battle.InitiativeRollFinished)
