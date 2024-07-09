@@ -452,7 +452,7 @@ public sealed class DomainDefiler : AbstractSubclass
             var usablePower = PowerProvider.Get(powerDyingLight, rulesetAttacker);
             var isValid =
                 rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
-                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DyingLightToggle) &&
                 damageType is DamageTypeNecrotic;
 
             if (!isValid)
@@ -489,7 +489,7 @@ public sealed class DomainDefiler : AbstractSubclass
 
             var isValid =
                 rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
-                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DyingLightToggle) &&
                 actualEffectForms.Any(x =>
                     x.FormType == EffectForm.EffectFormType.Damage &&
                     x.DamageForm.DamageType is DamageTypeNecrotic);
