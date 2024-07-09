@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorTypeDefinitions;
@@ -90,7 +91,7 @@ internal static class ValidatorsWeapon
         [UsedImplicitly] RulesetCharacter rulesetCharacter)
     {
         // don't use IsMelee(attackMode) in here as these are used before an attack initiates
-        return IsMelee(rulesetItem);
+        return IsMelee(attackMode?.SourceObject as RulesetItem ?? rulesetItem ?? rulesetCharacter?.GetMainWeapon());
     }
 #pragma warning restore IDE0060
 
