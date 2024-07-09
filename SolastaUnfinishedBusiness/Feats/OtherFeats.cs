@@ -192,7 +192,11 @@ internal static class OtherFeats
             .SetFeatures(
                 MartialArcaneArcher.PowerArcaneShot,
                 MartialArcaneArcher.InvocationPoolArcaneShotChoice2,
-                MartialArcaneArcher.ModifyPowerArcaneShotAdditionalUse1,
+                FeatureDefinitionPowerUseModifierBuilder
+                    .Create("PowerUseModifierMartialArcaneArcherArcaneShotUse1")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetFixedValue(MartialArcaneArcher.PowerArcaneShot, 1)
+                    .AddToDB(),
                 MartialArcaneArcher.ActionAffinityArcaneArcherToggle)
             .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();

@@ -23,11 +23,10 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class MartialArcaneArcher : AbstractSubclass
 {
     private const string Name = "MartialArcaneArcher";
-    private const string ArcaneShotMarker = "ArcaneShot";
     private const ActionDefinitions.Id ArcaneArcherToggle = (ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle;
 
+    // referenced by feat Arcane Archer Adept
     internal static FeatureDefinitionPower PowerArcaneShot;
-    internal static FeatureDefinitionPowerUseModifier ModifyPowerArcaneShotAdditionalUse1;
     internal static FeatureDefinitionActionAffinity ActionAffinityArcaneArcherToggle;
     internal static FeatureDefinitionCustomInvocationPool InvocationPoolArcaneShotChoice2;
 
@@ -90,6 +89,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             HasModifiedUses.Marker,
             new PhysicalAttackFinishedByMeArcaneShot(powerBurstingArrow, powerBurstingArrowDamage));
 
+        PowerBundle.RegisterPowerBundle(PowerArcaneShot, false, arcaneShotPowers);
+
         _ = ActionDefinitionBuilder
             .Create(MetamagicToggle, "ArcaneArcherToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
@@ -104,16 +105,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetAuthorizedActions(ArcaneArcherToggle)
             .AddCustomSubFeatures(
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerArcaneShot)))
-            .AddToDB();
-
-        CreateArcaneArcherChoices(arcaneShotPowers);
-
-        PowerBundle.RegisterPowerBundle(PowerArcaneShot, false, arcaneShotPowers);
-
-        ModifyPowerArcaneShotAdditionalUse1 = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifier{Name}ArcaneShotUse1")
-            .SetGuiPresentation(Category.Feature)
-            .SetFixedValue(PowerArcaneShot, 1)
             .AddToDB();
 
         var powerArcaneShotAdditionalUse2 = FeatureDefinitionPowerUseModifierBuilder
@@ -242,7 +233,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         out FeatureDefinitionPower powerBurstingArrow,
         out FeatureDefinitionPower powerBurstingArrowDamage)
     {
-        var result = new List<FeatureDefinitionPower>();
+        var powers = new List<FeatureDefinitionPower>();
 
         // Banishing Arrow
 
@@ -277,7 +268,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        result.Add(powerBanishingArrow);
+        powers.Add(powerBanishingArrow);
 
         // Beguiling Arrow
 
@@ -312,7 +303,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        result.Add(powerBeguilingArrow);
+        powers.Add(powerBeguilingArrow);
 
         // Bursting Arrow
 
@@ -348,7 +339,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        result.Add(powerBurstingArrow);
+        powers.Add(powerBurstingArrow);
 
         // Enfeebling Arrow
 
@@ -411,7 +402,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        result.Add(powerEnfeeblingArrow);
+        powers.Add(powerEnfeeblingArrow);
 
         // Grasping Arrow
 
@@ -453,7 +444,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        result.Add(powerGraspingArrow);
+        powers.Add(powerGraspingArrow);
 
         // Insight Arrow
 
@@ -504,7 +495,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        result.Add(powerInsightArrow);
+        powers.Add(powerInsightArrow);
 
         // Shadow Arrow
 
@@ -539,7 +530,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        result.Add(powerShadowArrow);
+        powers.Add(powerShadowArrow);
 
         // Slowing Arrow
 
@@ -574,13 +565,10 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        result.Add(powerSlowingArrow);
+        powers.Add(powerSlowingArrow);
 
-        return result;
-    }
+        // create UI choices
 
-    private static void CreateArcaneArcherChoices(IEnumerable<FeatureDefinitionPower> powers)
-    {
         foreach (var power in powers)
         {
             var name = power.Name.Replace("Power", string.Empty);
@@ -594,6 +582,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
         }
+
+        return powers;
     }
 
     //
@@ -604,6 +594,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         FeatureDefinitionPower powerBurstingArrow,
         FeatureDefinitionPower powerBurstingArrowDamage) : IPhysicalAttackFinishedByMe
     {
+        private const string ArcaneShotMarker = "ArcaneShot";
+
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -615,7 +607,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         {
             if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 !attacker.OnceInMyTurnIsValid(ArcaneShotMarker) ||
-                !attacker.RulesetCharacter.IsToggleEnabled(ArcaneArcherToggle))
+                !attacker.RulesetCharacter.IsToggleEnabled(ArcaneArcherToggle) ||
+                !IsBow(attackMode, null, null))
             {
                 yield break;
             }

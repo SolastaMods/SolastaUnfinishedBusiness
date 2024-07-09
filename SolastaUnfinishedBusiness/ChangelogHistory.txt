@@ -1,12 +1,14 @@
 1.5.97.19:
 
-- fixed Great Weapon Master attack mode modifier, and additional attack validator
+- fixed GWM attack mode modifier, and additional attack validator
 - fixed Lunging Attack maneuver increase weapon reach validator
-- fixed Martial Battle Master maneuvers pool amount at 3rd
+- fixed Martial Arcane Archer arcane shots validator
+- fixed Martial Battle Master missing maneuvers initial pool amount
 - fixed Martial Psi Warrior force of will saving throw behavior
 - fixed Power Attack attack mode modifier
 - fixed Powerful metamagic interaction with Sunbeam spell
 - fixed Path of the Wild Magic wild surge attack mode validator
+- fixed Reverse Gravity spell granting flying to creatures
 - fixed Wendigo natural lunger increase weapon reach validator
 
 1.5.97.18:
