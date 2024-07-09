@@ -217,74 +217,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Shapechange
-
-    internal const string ShapechangeName = "Shapechange";
-    
-    internal static SpellDefinition BuildShapechange()
-    {
-        return SpellDefinitionBuilder
-            .Create(ShapechangeName)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(ShapechangeName, Resources.ShapeChange, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-            .SetSpellLevel(9)
-            .SetCastingTime(ActivationTime.Action)
-            .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetSpecificMaterialComponent("Diamond", 1500, false)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetParticleEffectParameters(PowerDruidWildShape)
-                    .SetDurationData(DurationType.Hour, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetShapeChangeForm(
-                                ShapeChangeForm.Type.FreeListSelection,
-                                true,
-                                ConditionDefinitions.ConditionWildShapeSubstituteForm,
-                                [
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy
-                                    },
-                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Divine_Avatar },
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = Emperor_Laethar
-                                    },
-                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Giant_Ape },
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = GoldDragon_AerElai
-                                    },
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
-                                    },
-                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Remorhaz },
-                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Spider_Queen },
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath
-                                    },
-                                    new ShapeOptionDescription
-                                    {
-                                        requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss
-                                    }
-                                ])
-                            .Build())
-                    .Build())
-            .SetRequiresConcentration(true)
-            .AddToDB();
-    }
-
-    #endregion
-
     #region Time Stop
 
     internal static SpellDefinition BuildTimeStop()
@@ -366,6 +298,74 @@ internal static partial class SpellBuilders
                     .SetCasterEffectParameters(PhantasmalKiller)
                     .SetImpactEffectParameters(
                         PhantasmalKiller.EffectDescription.EffectParticleParameters.effectParticleReference)
+                    .Build())
+            .SetRequiresConcentration(true)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Shapechange
+
+    internal const string ShapechangeName = "Shapechange";
+
+    internal static SpellDefinition BuildShapechange()
+    {
+        return SpellDefinitionBuilder
+            .Create(ShapechangeName)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(ShapechangeName, Resources.ShapeChange, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(9)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent("Diamond", 1500, false)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetParticleEffectParameters(PowerDruidWildShape)
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetShapeChangeForm(
+                                ShapeChangeForm.Type.FreeListSelection,
+                                true,
+                                ConditionDefinitions.ConditionWildShapeSubstituteForm,
+                                [
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy
+                                    },
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Divine_Avatar },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = Emperor_Laethar
+                                    },
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Giant_Ape },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = GoldDragon_AerElai
+                                    },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
+                                    },
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Remorhaz },
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Spider_Queen },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath
+                                    },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss
+                                    }
+                                ])
+                            .Build())
                     .Build())
             .SetRequiresConcentration(true)
             .AddToDB();

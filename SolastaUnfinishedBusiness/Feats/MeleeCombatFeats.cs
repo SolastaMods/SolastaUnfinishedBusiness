@@ -1281,8 +1281,8 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class ModifyWeaponAttackModeFeatCleavingAttack(
-        FeatDefinition featDefinition) : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeFeatCleavingAttack(FeatDefinition featDefinition)
+        : IModifyWeaponAttackMode
     {
         private const int ToHit = -5;
         private const int ToDamage = +10;

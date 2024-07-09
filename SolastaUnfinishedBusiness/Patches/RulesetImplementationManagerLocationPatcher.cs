@@ -239,7 +239,7 @@ public static class RulesetImplementationManagerLocationPatcher
             characterMonster.SpellsCastByMe.SetRange(SpellsCastByMe);
             characterMonster.PowersUsedByMe.SetRange(PowersUsedByMe);
             //END BUGFIX
-            
+
             //PATCH: enforces concentration on shape change spell
             if (formsParams.activeEffect is RulesetEffectSpell rulesetEffectSpell &&
                 rulesetEffectSpell.SpellDefinition.Name == SpellBuilders.ShapechangeName)

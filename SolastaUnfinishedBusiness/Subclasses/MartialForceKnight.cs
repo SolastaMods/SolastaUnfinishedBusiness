@@ -615,7 +615,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             bool criticalHit)
         {
             attacker.UsedSpecialFeatures.TryAdd(powerPsionicAdept.Name, 0);
-            
+
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!attacker.OnceInMyTurnIsValid(conditionForcePoweredStrike.Name) ||

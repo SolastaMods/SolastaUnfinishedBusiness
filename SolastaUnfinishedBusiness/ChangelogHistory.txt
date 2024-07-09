@@ -7,8 +7,8 @@
 - fixed Martial Arcane Archer arcane shots weapon type validator
 - fixed Martial Battle Master missing maneuvers initial pool amount
 - fixed Martial Psi Warrior force of will saving throw behavior
+- fixed Martial Psi Warrior psionic adept once per turn validator
 - fixed Martial Warlord coordinated assault attack mode validator
-- fixed Martial Warlord psionic adept once per turn validator
 - fixed monster reaction powers effect forms application
 - fixed Old Tactics feat attack mode validator
 - fixed Power Attack feat attack mode modifier
@@ -20,7 +20,6 @@
 - fixed Shapechange spell to delegate concentration to shape
 - fixed Wendigo natural lunger increase weapon reach validator
 - fixed Wyrmkin reactive retribution attack mode validator
-
 
 1.5.97.18:
 
