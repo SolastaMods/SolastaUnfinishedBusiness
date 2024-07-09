@@ -79,7 +79,7 @@ public static class GameLocationCharacterExtensions
     {
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
-            if (!ValidatorsWeapon.IsMelee(mode))
+            if (!ValidatorsWeapon.IsMelee(mode.SourceObject as RulesetItem))
             {
                 continue;
             }

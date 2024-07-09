@@ -205,7 +205,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .SetParticleEffectParameters(PowerDomainSunHeraldOfTheSun)
-                    .SetCasterEffectParameters(PowerPatronFiendDarkOnesBlessing)
+                    .SetCasterEffectParameters(PowerDomainBattleDecisiveStrike)
                     .Build())
             .AddToDB();
 

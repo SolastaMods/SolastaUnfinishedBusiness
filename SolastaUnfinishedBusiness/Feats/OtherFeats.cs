@@ -1416,26 +1416,20 @@ internal static class OtherFeats
         return elementalAdeptGroup;
     }
 
-    private sealed class ModifyDamageResistanceElementalAdept : IModifyDamageAffinity, IValidateDieRollModifier
+    private sealed class ModifyDamageResistanceElementalAdept(params string[] damageTypes)
+        : IModifyDamageAffinity, IValidateDieRollModifier
     {
-        private readonly List<string> _damageTypes = [];
-
-        public ModifyDamageResistanceElementalAdept(params string[] damageTypes)
-        {
-            _damageTypes.AddRange(damageTypes);
-        }
-
         public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
         {
             features.RemoveAll(x =>
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance } y &&
-                _damageTypes.Contains(y.DamageType));
+                damageTypes.Contains(y.DamageType));
         }
 
-        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
-            List<string> damageTypes)
+        public bool CanModifyRoll(
+            RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypesRoll)
         {
-            return _damageTypes.Intersect(damageTypes).Any();
+            return damageTypes.Intersect(damageTypesRoll).Any();
         }
     }
 
@@ -1496,26 +1490,20 @@ internal static class OtherFeats
         return elementalAdeptGroup;
     }
 
-    private sealed class ModifyDamageResistanceElementalMaster : IModifyDamageAffinity, IValidateDieRollModifier
+    private sealed class ModifyDamageResistanceElementalMaster(params string[] damageTypes)
+        : IModifyDamageAffinity, IValidateDieRollModifier
     {
-        private readonly List<string> _damageTypes = [];
-
-        public ModifyDamageResistanceElementalMaster(params string[] damageTypes)
-        {
-            _damageTypes.AddRange(damageTypes);
-        }
-
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
             features.RemoveAll(x =>
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Immunity } y &&
-                _damageTypes.Contains(y.DamageType));
+                damageTypes.Contains(y.DamageType));
         }
 
         public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
             List<string> damageTypes)
         {
-            return _damageTypes.Intersect(damageTypes).Any();
+            return damageTypes.Intersect(damageTypes).Any();
         }
     }
 
@@ -1960,8 +1948,7 @@ internal static class OtherFeats
         : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow, IRollSavingThrowFinished
     {
         private int _modifier;
-
-        private int _saveDC;
+         private int _saveDC;
 
         public void OnSavingThrowFinished(
             RulesetCharacter caster,

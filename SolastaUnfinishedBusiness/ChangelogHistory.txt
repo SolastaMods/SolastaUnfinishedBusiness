@@ -1,17 +1,26 @@
 1.5.97.19:
 
-- fixed GWM attack mode modifier, and additional attack validator
+- fixed Exploiter feat attack mode validator
+- fixed GWM feat attack mode modifier, and additional attack validator
 - fixed Lunging Attack maneuver increase weapon reach validator
-- fixed Martial Arcane Archer arcane shots validator
+- fixed Mage Slayer feat attack mode validator
+- fixed Martial Arcane Archer arcane shots weapon type validator
 - fixed Martial Battle Master missing maneuvers initial pool amount
 - fixed Martial Psi Warrior force of will saving throw behavior
+- fixed Martial Warlord coordinated assault attack mode validator
+- fixed Martial Warlord psionic adept once per turn validator
 - fixed monster reaction powers effect forms application
-- fixed Power Attack attack mode modifier
+- fixed Old Tactics feat attack mode validator
+- fixed Power Attack feat attack mode modifier
 - fixed Powerful metamagic interaction with Sunbeam spell
 - fixed Path of the Wild Magic wild surge attack mode validator
+- fixed Oath of Dread harrowing crusade attack mode validator
+- fixed Retaliate maneuver attack mode validator
 - fixed Reverse Gravity spell granting flying to creatures
 - fixed Shapechange spell to delegate concentration to shape
 - fixed Wendigo natural lunger increase weapon reach validator
+- fixed Wyrmkin reactive retribution attack mode validator
+
 
 1.5.97.18:
 
