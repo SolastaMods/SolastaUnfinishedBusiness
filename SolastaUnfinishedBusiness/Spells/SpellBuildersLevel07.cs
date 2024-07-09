@@ -53,7 +53,7 @@ internal static partial class SpellBuilders
                                     .SetOrUpdateGuiPresentation(Category.Condition)
                                     .SetConditionType(ConditionType.Neutral)
                                     .SetParentCondition(ConditionDefinitions.ConditionFlying)
-                                    .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly2)
+                                    .SetFeatures()
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
