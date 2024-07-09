@@ -321,7 +321,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            if (attacker.UsedSpecialFeatures.TryGetValue(MindSculptTag, out var value) || value == 0)
+            if (!attacker.UsedSpecialFeatures.TryGetValue(MindSculptTag, out var value) || value == 0)
             {
                 yield break;
             }
