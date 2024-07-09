@@ -68,10 +68,9 @@ internal sealed class Merciless : AbstractFightingStyle
         FightingStyleRanger
     ];
 
-    private sealed class OnReducedToZeroHpByMeMerciless : IOnReducedToZeroHpByMe, IPhysicalAttackFinishedByMe
+    private sealed class OnReducedToZeroHpByMeMerciless
+        : IOnReducedToZeroHpByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
-        private bool _criticalHit;
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -90,7 +89,9 @@ internal sealed class Merciless : AbstractFightingStyle
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var distance = _criticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
+            var distance = attacker.UsedSpecialFeatures.TryGetValue(MercilessName, out var value) && value == 1
+                ? proficiencyBonus
+                : (proficiencyBonus + 1) / 2;
 
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
@@ -119,6 +120,23 @@ internal sealed class Merciless : AbstractFightingStyle
                 .ExecuteAction(actionParams, null, true);
         }
 
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            attacker.UsedSpecialFeatures.TryAdd(MercilessName, criticalHit ? 1 : 0);
+
+            yield break;
+        }
+
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -128,7 +146,7 @@ internal sealed class Merciless : AbstractFightingStyle
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            _criticalHit = rollOutcome == RollOutcome.CriticalSuccess;
+            attacker.UsedSpecialFeatures.Remove(MercilessName);
 
             yield break;
         }
