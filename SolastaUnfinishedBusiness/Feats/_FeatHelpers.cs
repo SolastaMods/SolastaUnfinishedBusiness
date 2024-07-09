@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
@@ -7,29 +7,20 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class FeatHelpers
 {
-    internal sealed class ModifyWeaponAttackModeTypeFilter : IModifyWeaponAttackMode
+    internal sealed class ModifyWeaponAttackModeTypeFilter(
+        FeatDefinition source,
+        params WeaponTypeDefinition[] weaponTypeDefinition) : IModifyWeaponAttackMode
     {
-        private readonly FeatDefinition _source;
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
-
-        public ModifyWeaponAttackModeTypeFilter(
-            FeatDefinition source,
-            params WeaponTypeDefinition[] weaponTypeDefinition)
-        {
-            _source = source;
-            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
-        }
-
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
             if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+                !weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 return;
             }
 
             attackMode.ToHitBonus += 1;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.Feat, _source.Name, _source));
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.Feat, source.Name, source));
         }
     }
 

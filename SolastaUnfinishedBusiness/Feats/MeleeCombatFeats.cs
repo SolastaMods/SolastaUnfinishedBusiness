@@ -1598,22 +1598,11 @@ internal static class MeleeCombatFeats
         return feat;
     }
 
-    private sealed class PhysicalAttackFinishedByMeFeatFellHanded : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeFeatFellHanded(
+        FeatureDefinitionPower powerAdvantage,
+        FeatureDefinitionPower powerDisadvantage,
+        params WeaponTypeDefinition[] weaponTypeDefinition) : IPhysicalAttackFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerAdvantage;
-        private readonly FeatureDefinitionPower _powerDisadvantage;
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
-
-        public PhysicalAttackFinishedByMeFeatFellHanded(
-            FeatureDefinitionPower powerAdvantage,
-            FeatureDefinitionPower powerDisadvantage,
-            params WeaponTypeDefinition[] weaponTypeDefinition)
-        {
-            _powerAdvantage = powerAdvantage;
-            _powerDisadvantage = powerDisadvantage;
-            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1624,7 +1613,7 @@ internal static class MeleeCombatFeats
             int damageAmount)
         {
             if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+                weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 yield break;
             }
@@ -1652,12 +1641,12 @@ internal static class MeleeCombatFeats
             {
                 case AdvantageType.Advantage when rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
                     attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out attackRoll);
-                    power = _powerAdvantage;
+                    power = powerAdvantage;
 
                     break;
                 case AdvantageType.Disadvantage when rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
                     attacker.UsedSpecialFeatures.TryGetValue("HighestAttackRoll", out attackRoll);
-                    power = _powerDisadvantage;
+                    power = powerDisadvantage;
 
                     break;
                 case AdvantageType.None:
@@ -1675,7 +1664,7 @@ internal static class MeleeCombatFeats
             Gui.Game.GameConsole.AttackRolled(
                 rulesetAttacker,
                 rulesetDefender,
-                _powerAdvantage,
+                powerAdvantage,
                 outcome,
                 attackRoll + modifier,
                 attackRoll,
@@ -1864,7 +1853,7 @@ internal static class MeleeCombatFeats
         {
             // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
             if (!ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
-                !ValidatorsWeapon.IsUnarmed(attackMode)) 
+                !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;
             }
@@ -1952,22 +1941,11 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackAfterDamageFeatSlasher : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackAfterDamageFeatSlasher(
+        ConditionDefinition conditionDefinition,
+        ConditionDefinition criticalConditionDefinition,
+        string damageType) : IPhysicalAttackFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly ConditionDefinition _criticalConditionDefinition;
-        private readonly string _damageType;
-
-        internal PhysicalAttackAfterDamageFeatSlasher(
-            ConditionDefinition conditionDefinition,
-            ConditionDefinition criticalConditionDefinition,
-            string damageType)
-        {
-            _conditionDefinition = conditionDefinition;
-            _criticalConditionDefinition = criticalConditionDefinition;
-            _damageType = damageType;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1979,7 +1957,7 @@ internal static class MeleeCombatFeats
         {
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
-            if (damage == null || damage.DamageType != _damageType)
+            if (damage == null || damage.DamageType != damageType)
             {
                 yield break;
             }
@@ -1996,7 +1974,7 @@ internal static class MeleeCombatFeats
             if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 rulesetDefender.InflictCondition(
-                    _conditionDefinition.Name,
+                    conditionDefinition.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
@@ -2004,7 +1982,7 @@ internal static class MeleeCombatFeats
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    _conditionDefinition.Name,
+                    conditionDefinition.Name,
                     0,
                     0,
                     0);
@@ -2016,7 +1994,7 @@ internal static class MeleeCombatFeats
             }
 
             rulesetDefender.InflictCondition(
-                _criticalConditionDefinition.Name,
+                criticalConditionDefinition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -2024,7 +2002,7 @@ internal static class MeleeCombatFeats
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _criticalConditionDefinition.Name,
+                criticalConditionDefinition.Name,
                 0,
                 0,
                 0);

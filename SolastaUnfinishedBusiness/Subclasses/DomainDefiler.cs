@@ -332,21 +332,15 @@ public sealed class DomainDefiler : AbstractSubclass
     // Defile Life
     //
 
-    private sealed class ModifyEffectDescriptionDefileLife : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionDefileLife(FeatureDefinitionPower baseDefinition)
+        : IModifyEffectDescription
     {
-        private readonly BaseDefinition _baseDefinition;
-
-        internal ModifyEffectDescriptionDefileLife(BaseDefinition baseDefinition)
-        {
-            _baseDefinition = baseDefinition;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == _baseDefinition;
+            return definition == baseDefinition;
         }
 
         public EffectDescription GetEffectDescription(

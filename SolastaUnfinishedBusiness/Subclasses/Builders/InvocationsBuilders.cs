@@ -926,26 +926,12 @@ internal static class InvocationsBuilders
         }
     }
 
-    private sealed class AfterActionFinishedByMeAbilitiesChain : IActionFinishedByMe
+    private sealed class AfterActionFinishedByMeAbilitiesChain(
+        ConditionDefinition conditionSpriteAbility,
+        ConditionDefinition conditionImpAbility,
+        ConditionDefinition conditionQuasitAbility,
+        ConditionDefinition conditionPseudoAbility) : IActionFinishedByMe
     {
-        private readonly ConditionDefinition _conditionImpAbility;
-
-        private readonly ConditionDefinition _conditionPseudoAbility;
-
-        private readonly ConditionDefinition _conditionQuasitAbility;
-        private readonly ConditionDefinition _conditionSpriteAbility;
-
-        internal AfterActionFinishedByMeAbilitiesChain(ConditionDefinition conditionSpriteAbility,
-            ConditionDefinition conditionImpAbility,
-            ConditionDefinition conditionQuasitAbility,
-            ConditionDefinition conditionPseudoAbility)
-        {
-            _conditionSpriteAbility = conditionSpriteAbility;
-            _conditionImpAbility = conditionImpAbility;
-            _conditionQuasitAbility = conditionQuasitAbility;
-            _conditionPseudoAbility = conditionPseudoAbility;
-        }
-
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             var actingCharacter = action.ActingCharacter;
@@ -970,24 +956,24 @@ internal static class InvocationsBuilders
                 if (rulesetCharacter.IsPowerActive(power))
                 {
                     if (power.PowerDefinition == PowerPactChainImp &&
-                        !rulesetCharacter.HasConditionOfType(_conditionImpAbility.name))
+                        !rulesetCharacter.HasConditionOfType(conditionImpAbility.name))
                     {
-                        SetChainBuff(rulesetCharacter, _conditionImpAbility);
+                        SetChainBuff(rulesetCharacter, conditionImpAbility);
                     }
                     else if (power.PowerDefinition == PowerPactChainQuasit &&
-                             !rulesetCharacter.HasConditionOfType(_conditionQuasitAbility.name))
+                             !rulesetCharacter.HasConditionOfType(conditionQuasitAbility.name))
                     {
-                        SetChainBuff(rulesetCharacter, _conditionQuasitAbility);
+                        SetChainBuff(rulesetCharacter, conditionQuasitAbility);
                     }
                     else if (power.PowerDefinition == PowerPactChainSprite &&
-                             !rulesetCharacter.HasConditionOfType(_conditionSpriteAbility.name))
+                             !rulesetCharacter.HasConditionOfType(conditionSpriteAbility.name))
                     {
-                        SetChainBuff(rulesetCharacter, _conditionSpriteAbility);
+                        SetChainBuff(rulesetCharacter, conditionSpriteAbility);
                     }
                     else if (power.PowerDefinition == PowerPactChainPseudodragon &&
-                             !rulesetCharacter.HasConditionOfType(_conditionPseudoAbility.name))
+                             !rulesetCharacter.HasConditionOfType(conditionPseudoAbility.name))
                     {
-                        SetChainBuff(rulesetCharacter, _conditionPseudoAbility);
+                        SetChainBuff(rulesetCharacter, conditionPseudoAbility);
                     }
                 }
                 else
@@ -995,22 +981,22 @@ internal static class InvocationsBuilders
                     if (power.PowerDefinition == PowerPactChainImp)
                     {
                         rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
-                            _conditionImpAbility.name);
+                            conditionImpAbility.name);
                     }
                     else if (power.PowerDefinition == PowerPactChainQuasit)
                     {
                         rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
-                            _conditionQuasitAbility.name);
+                            conditionQuasitAbility.name);
                     }
                     else if (power.PowerDefinition == PowerPactChainSprite)
                     {
                         rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
-                            _conditionSpriteAbility.name);
+                            conditionSpriteAbility.name);
                     }
                     else if (power.PowerDefinition == PowerPactChainPseudodragon)
                     {
                         rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
-                            _conditionPseudoAbility.name);
+                            conditionPseudoAbility.name);
                     }
                 }
             }
