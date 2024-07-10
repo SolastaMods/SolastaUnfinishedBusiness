@@ -255,7 +255,7 @@ public sealed class DomainNature : AbstractSubclass
 
         _domainNature = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.TraditionGreenmage)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.DomainNature, 256))
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsDomainNature, featureSetAcolyteOfNature, featureSetBonusProficiency)
             .AddFeaturesAtLevel(2, featureSetCharmAnimalsAndPlants)
