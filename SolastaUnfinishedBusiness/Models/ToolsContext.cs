@@ -272,7 +272,7 @@ internal static class ToolsContext
             {
                 return;
             }
-            
+
             newHero.AddConditionCategoryAsNeeded(category);
             newHero.conditionsByCategory[category].AddRange(conditions);
             newHero.allConditions.AddRange(conditions);
@@ -282,7 +282,7 @@ internal static class ToolsContext
         {
             //Unregister all conditions that are not present in new hero
             oldHero.allConditions
-                .Where(c=>!newHero.AllConditions.Contains(c))
+                .Where(c => !newHero.AllConditions.Contains(c))
                 .Do(c => c.Unregister());
             oldHero.allConditions.Clear();
             oldHero.conditionsByCategory.Clear();

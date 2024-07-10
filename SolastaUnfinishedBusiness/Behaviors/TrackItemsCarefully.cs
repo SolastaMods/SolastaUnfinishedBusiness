@@ -104,7 +104,8 @@ internal class TrackItemsCarefully
         activeEffect.TrackedSummonedItemGuids.Clear();
     }
 
-    private static void ProcessItemProperties(RulesetEffect activeEffect, [CanBeNull] IEnumerable<RulesetEntity> allEntities)
+    private static void ProcessItemProperties(
+        RulesetEffect activeEffect, [CanBeNull] IEnumerable<RulesetEntity> allEntities)
     {
         if (allEntities == null || activeEffect.TrackedItemPropertyGuids.Count == 0)
         {
