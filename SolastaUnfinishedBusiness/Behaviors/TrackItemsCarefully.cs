@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 
@@ -19,7 +20,8 @@ internal class TrackItemsCarefully
         }
 
         var entityService = ServiceRepository.GetService<IRulesetEntityService>();
-        var allEntities = entityService.RulesetEntities.Values;
+        Main.Log2($"entityService: <{entityService}>");
+        var allEntities = entityService?.RulesetEntities.Values;
 
         ProcessSummonedItems(activeEffect, allEntities);
         ProcessItemProperties(activeEffect, allEntities);
@@ -55,16 +57,14 @@ internal class TrackItemsCarefully
     }
 
     private static void ProcessSummonedItems(RulesetEffect activeEffect,
-        Dictionary<ulong, RulesetEntity>.ValueCollection allEntities)
+        [CanBeNull] Dictionary<ulong, RulesetEntity>.ValueCollection allEntities)
     {
-        var characters = allEntities
-            .Select(e => e as RulesetCharacter)
-            .Where(e => e != null)
+        var characters = allEntities?
+            .OfType<RulesetCharacter>()
             .ToList();
 
-        var containers = allEntities
-            .Select(e => e as RulesetContainer)
-            .Where(e => e != null)
+        var containers = allEntities?
+            .OfType<RulesetContainer>()
             .ToList();
 
         var itemService = ServiceRepository.GetService<IGameLocationItemService>();
@@ -81,14 +81,20 @@ internal class TrackItemsCarefully
                 continue;
             }
 
-            foreach (var character in characters)
+            if (characters != null)
             {
-                character.LoseItem(trackedItem);
+                foreach (var character in characters)
+                {
+                    character.LoseItem(trackedItem);
+                }
             }
 
-            foreach (var slot in containers.Select(container => container.FindSlotHoldingItem(trackedItem)))
+            if (containers != null)
             {
-                slot?.UnequipItem(true, true);
+                foreach (var slot in containers.Select(container => container.FindSlotHoldingItem(trackedItem)))
+                {
+                    slot?.UnequipItem(true, true);
+                }
             }
 
             itemService?.LootItem(trackedItem);
@@ -99,9 +105,9 @@ internal class TrackItemsCarefully
         activeEffect.TrackedSummonedItemGuids.Clear();
     }
 
-    private static void ProcessItemProperties(RulesetEffect activeEffect, IEnumerable<RulesetEntity> allEntities)
+    private static void ProcessItemProperties(RulesetEffect activeEffect, [CanBeNull] IEnumerable<RulesetEntity> allEntities)
     {
-        if (activeEffect.TrackedItemPropertyGuids.Count == 0)
+        if (allEntities == null || activeEffect.TrackedItemPropertyGuids.Count == 0)
         {
             return;
         }
