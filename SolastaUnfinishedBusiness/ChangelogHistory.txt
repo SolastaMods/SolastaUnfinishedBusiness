@@ -1,5 +1,6 @@
 1.5.97.19:
 
+- added subclasses unique sprites [by otearaisu]
 - fixed Exploiter feat attack mode validator
 - fixed GWM feat attack mode modifier, and additional attack validator
 - fixed Lunging Attack maneuver increase weapon reach validator
@@ -7,7 +8,7 @@
 - fixed Martial Arcane Archer arcane shots weapon type validator
 - fixed Martial Battle Master missing maneuvers initial pool amount
 - fixed Martial Psi Warrior force of will saving throw behavior
-- fixed Martial Psi Warrior psionic adept once per turn validator
+- fixed Martial Psi Warrior psionic adept once in my turn validator
 - fixed Martial Warlord coordinated assault attack mode validator
 - fixed monster reaction powers effect forms application
 - fixed Old Tactics feat attack mode validator

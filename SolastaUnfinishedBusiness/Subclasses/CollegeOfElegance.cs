@@ -225,7 +225,7 @@ public sealed class CollegeOfElegance : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CollegeOfWarDancer, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CollegeOfElegance, 256))
             .AddFeaturesAtLevel(3, dieRollModifierGrace, featureSetElegantFighting)
             .AddFeaturesAtLevel(6, featureEvasiveFootwork, AttributeModifierCasterFightingExtraAttack)
             .AddFeaturesAtLevel(14, featureSetAmazingDisplay)

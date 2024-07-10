@@ -2025,6 +2025,21 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="CircleOfTheWildfire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\CircleOfTheWildfire.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="CollegeOfElegance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\CollegeOfElegance.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="CollegeOfValiance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\CollegeOfValiance.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="CollegeOfGuts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CollegeOfGuts.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
