@@ -33,7 +33,7 @@ public sealed class MartialTactician : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite(Name, Resources.MartialTactician, 256))
-            .AddFeaturesAtLevel(3, BuildSharpMind(), BuildGambitPoolIncrease(3, Name),
+            .AddFeaturesAtLevel(3, BuildSharpMind(), BuildGambitPoolIncrease(4, Name),
                 GambitsBuilders.Learn3Gambit,
                 GambitsBuilders.GambitPool)
             .AddFeaturesAtLevel(7, BuildHonedCraft(), BuildGambitPoolIncrease(),
