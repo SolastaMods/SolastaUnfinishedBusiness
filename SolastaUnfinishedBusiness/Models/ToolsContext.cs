@@ -232,6 +232,8 @@ internal static class ToolsContext
                 newHero.usedMagicAndPowers = oldHero.usedMagicAndPowers;
                 newHero.knockOuts = oldHero.knockOuts;
 
+                TransferConditionsOfCategory(oldHero, newHero, AttributeDefinitions.TagEffect);
+
                 CopyInventoryOver(oldHero, gameLocationCharacter.LocationPosition);
 
                 gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
@@ -260,6 +262,18 @@ internal static class ToolsContext
                 null, null);
 
             IsRespecing = false;
+        }
+
+        private static void TransferConditionsOfCategory(RulesetActor oldHero, RulesetActor newHero, string category)
+        {
+            if (!oldHero.conditionsByCategory.TryGetValue(category, out var conditions))
+            {
+                return;
+            }
+            
+            newHero.AddConditionCategoryAsNeeded(category);
+            newHero.conditionsByCategory[category].AddRange(conditions);
+            newHero.allConditions.AddRange(conditions);
         }
 
         private static void CopyInventoryOver([NotNull] RulesetCharacter oldHero, int3 position)
