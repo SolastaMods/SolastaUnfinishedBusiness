@@ -441,7 +441,7 @@ public sealed class CircleOfTheWildfire : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronElementalist, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CircleOfTheWildfire, 256))
             .AddFeaturesAtLevel(2, autoPreparedSpellsWildfire, featureSetSummonSpirit)
             .AddFeaturesAtLevel(6, featureEnhancedBond)
             .AddFeaturesAtLevel(10, featureSetCauterizingFlames)

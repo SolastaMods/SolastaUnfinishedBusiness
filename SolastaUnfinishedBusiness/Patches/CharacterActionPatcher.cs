@@ -151,10 +151,6 @@ public static class CharacterActionPatcher
                     PowerBundle.SpendBundledPowerIfNeeded(spendPower);
                     break;
 
-                case CharacterActionAttack characterActionAttack:
-                    Global.CurrentAttackAction.Push(characterActionAttack);
-                    break;
-
                 case CharacterActionMoveStepBase characterActionMoveStepBase:
                     OtherFeats.NotifyFeatStealth(characterActionMoveStepBase);
                     break;
@@ -255,8 +251,6 @@ public static class CharacterActionPatcher
             // ReSharper disable once InvertIf
             if (__instance is CharacterActionAttack actionAttack)
             {
-                Global.CurrentAttackAction.Pop();
-
                 if (actionAttack.ActionParams.AttackMode != null)
                 {
                     rulesetCharacter.ProcessConditionsMatchingInterruption(

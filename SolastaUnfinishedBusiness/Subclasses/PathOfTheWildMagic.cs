@@ -537,12 +537,10 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
                         .SetRecurrentEffect(
                             RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                         .SetEffectForms(
-                            //TODO: why adding double condition to self?
                             EffectFormBuilder
                                 .Create()
                                 .SetConditionForm(conditionAuraBonus, ConditionForm.ConditionOperation.Add)
-                                .Build()
-                        )
+                                .Build())
                         .Build())
                 .AddToDB();
 
@@ -1095,7 +1093,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         {
             public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
             {
-                if (ValidatorsWeapon.IsMelee(attackMode))
+                // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
+                if (ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem))
                 {
                     attackMode.AddAttackTagAsNeeded(TagsDefinitions.WeaponTagThrown);
                     attackMode.thrown = true;

@@ -61,8 +61,11 @@ public static class CharacterActionSpendPowerPatcher
             if (__instance.activePower is { OriginItem: null })
             {
                 // Fire shield retaliation has no class or race origin
-                if (__instance.activePower.UsablePower.OriginClass ||
-                    __instance.activePower.UsablePower.OriginRace)
+                if (__instance.activePower.UsablePower.OriginClass)
+                {
+                    actingCharacter.RulesetCharacter.UsePower(__instance.activePower.UsablePower);
+                }
+                else if (__instance.activePower.UsablePower.OriginRace)
                 {
                     actingCharacter.RulesetCharacter.UsePower(__instance.activePower.UsablePower);
                 }
@@ -165,18 +168,18 @@ public static class CharacterActionSpendPowerPatcher
 
                         var hero = controller.RulesetCharacter.GetOriginalHero();
 
-                        if (hero == null)
+                        if (hero != null)
                         {
-                            continue;
-                        }
-
-                        foreach (var magicalAttackBeforeHitConfirmedOnEnemy in hero.TrainedMetamagicOptions
-                                     .SelectMany(metamagic =>
-                                         metamagic.GetAllSubFeaturesOfType<IMagicEffectBeforeHitConfirmedOnEnemy>()))
-                        {
-                            yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
-                                battleManager, controller, target, actionModifier,
-                                rulesetEffect, effectForms, i == 0, false);
+                            foreach (var magicalAttackBeforeHitConfirmedOnEnemy in hero.TrainedMetamagicOptions
+                                         .SelectMany(metamagic =>
+                                             metamagic
+                                                 .GetAllSubFeaturesOfType<IMagicEffectBeforeHitConfirmedOnEnemy>()))
+                            {
+                                yield return magicalAttackBeforeHitConfirmedOnEnemy
+                                    .OnMagicEffectBeforeHitConfirmedOnEnemy(
+                                        battleManager, controller, target, actionModifier,
+                                        rulesetEffect, effectForms, i == 0, false);
+                            }
                         }
                     }
 

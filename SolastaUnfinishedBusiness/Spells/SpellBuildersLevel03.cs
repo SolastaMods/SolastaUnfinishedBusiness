@@ -749,6 +749,11 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            if (action.Countered)
+            {
+                yield break;
+            }
+
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -775,8 +780,6 @@ internal static partial class SpellBuilders
 
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
-
-            yield break;
         }
 
         public IEnumerator OnPowerOrSpellInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1821,7 +1824,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (action is not CharacterActionCastSpell actionCastSpell)
+            if (action is not CharacterActionCastSpell actionCastSpell || action.Countered)
             {
                 yield break;
             }

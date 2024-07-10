@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorTypeDefinitions;
@@ -82,12 +83,17 @@ internal static class ValidatorsWeapon
                    || itemDefinition.IsArmor /* for shields */);
     }
 
+#pragma warning disable IDE0060
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMelee(
-        [CanBeNull] RulesetAttackMode attackMode, [CanBeNull] RulesetItem rulesetItem, RulesetCharacter _)
+        [UsedImplicitly] [CanBeNull] RulesetAttackMode attackMode,
+        [CanBeNull] RulesetItem rulesetItem,
+        [UsedImplicitly] RulesetCharacter rulesetCharacter)
     {
-        return attackMode != null ? IsMelee(attackMode) : IsMelee(rulesetItem);
+        // don't use IsMelee(attackMode) in here as these are used before an attack initiates
+        return IsMelee(attackMode?.SourceObject as RulesetItem ?? rulesetItem ?? rulesetCharacter?.GetMainWeapon());
     }
+#pragma warning restore IDE0060
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMelee([CanBeNull] RulesetItem rulesetItem)

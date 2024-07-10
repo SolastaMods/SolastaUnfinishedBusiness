@@ -209,15 +209,9 @@ public sealed class OathOfHatred : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class PhysicalAttackFinishedByMeDauntlessPursuer : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeDauntlessPursuer(
+        ConditionDefinition conditionDauntlessPursuerAfterAttack) : IPhysicalAttackFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDauntlessPursuerAfterAttack;
-
-        internal PhysicalAttackFinishedByMeDauntlessPursuer(ConditionDefinition conditionDauntlessPursuerAfterAttack)
-        {
-            _conditionDauntlessPursuerAfterAttack = conditionDauntlessPursuerAfterAttack;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -241,7 +235,7 @@ public sealed class OathOfHatred : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             rulesetAttacker.InflictCondition(
-                _conditionDauntlessPursuerAfterAttack.Name,
+                conditionDauntlessPursuerAfterAttack.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -249,7 +243,7 @@ public sealed class OathOfHatred : AbstractSubclass
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionDauntlessPursuerAfterAttack.Name,
+                conditionDauntlessPursuerAfterAttack.Name,
                 0,
                 0,
                 0);

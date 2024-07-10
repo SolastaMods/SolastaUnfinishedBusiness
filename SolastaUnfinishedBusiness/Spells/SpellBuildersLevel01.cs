@@ -1328,7 +1328,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            if (action is not CharacterActionCastSpell actionCastSpell)
+            if (action is not CharacterActionCastSpell actionCastSpell || action.Countered)
             {
                 yield break;
             }
@@ -1999,7 +1999,7 @@ internal static partial class SpellBuilders
                         conditionSanctuary.Name,
                         out var activeCondition))
                 {
-                    yield break;
+                    continue;
                 }
 
                 rulesetTarget.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(

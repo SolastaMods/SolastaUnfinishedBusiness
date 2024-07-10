@@ -942,6 +942,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] CircleOfTheWildfire {
+            get {
+                object obj = ResourceManager.GetObject("CircleOfTheWildfire", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] CloudOfDaggers {
             get {
                 object obj = ResourceManager.GetObject("CloudOfDaggers", resourceCulture);
@@ -955,6 +965,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] collapsed {
             get {
                 object obj = ResourceManager.GetObject("collapsed", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] CollegeOfElegance {
+            get {
+                object obj = ResourceManager.GetObject("CollegeOfElegance", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -985,6 +1005,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] CollegeOfLife {
             get {
                 object obj = ResourceManager.GetObject("CollegeOfLife", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] CollegeOfValiance {
+            get {
+                object obj = ResourceManager.GetObject("CollegeOfValiance", resourceCulture);
                 return ((byte[])(obj));
             }
         }

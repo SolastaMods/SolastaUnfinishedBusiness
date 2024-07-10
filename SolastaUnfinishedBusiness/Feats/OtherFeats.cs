@@ -192,7 +192,11 @@ internal static class OtherFeats
             .SetFeatures(
                 MartialArcaneArcher.PowerArcaneShot,
                 MartialArcaneArcher.InvocationPoolArcaneShotChoice2,
-                MartialArcaneArcher.ModifyPowerArcaneShotAdditionalUse1,
+                FeatureDefinitionPowerUseModifierBuilder
+                    .Create("PowerUseModifierMartialArcaneArcherArcaneShotUse1")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetFixedValue(MartialArcaneArcher.PowerArcaneShot, 1)
+                    .AddToDB(),
                 MartialArcaneArcher.ActionAffinityArcaneArcherToggle)
             .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
@@ -1412,26 +1416,20 @@ internal static class OtherFeats
         return elementalAdeptGroup;
     }
 
-    private sealed class ModifyDamageResistanceElementalAdept : IModifyDamageAffinity, IValidateDieRollModifier
+    private sealed class ModifyDamageResistanceElementalAdept(params string[] damageTypes)
+        : IModifyDamageAffinity, IValidateDieRollModifier
     {
-        private readonly List<string> _damageTypes = [];
-
-        public ModifyDamageResistanceElementalAdept(params string[] damageTypes)
-        {
-            _damageTypes.AddRange(damageTypes);
-        }
-
         public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
         {
             features.RemoveAll(x =>
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance } y &&
-                _damageTypes.Contains(y.DamageType));
+                damageTypes.Contains(y.DamageType));
         }
 
-        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
-            List<string> damageTypes)
+        public bool CanModifyRoll(
+            RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypesRoll)
         {
-            return _damageTypes.Intersect(damageTypes).Any();
+            return damageTypes.Intersect(damageTypesRoll).Any();
         }
     }
 
@@ -1492,26 +1490,20 @@ internal static class OtherFeats
         return elementalAdeptGroup;
     }
 
-    private sealed class ModifyDamageResistanceElementalMaster : IModifyDamageAffinity, IValidateDieRollModifier
+    private sealed class ModifyDamageResistanceElementalMaster(params string[] damageTypes)
+        : IModifyDamageAffinity, IValidateDieRollModifier
     {
-        private readonly List<string> _damageTypes = [];
-
-        public ModifyDamageResistanceElementalMaster(params string[] damageTypes)
-        {
-            _damageTypes.AddRange(damageTypes);
-        }
-
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
             features.RemoveAll(x =>
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Immunity } y &&
-                _damageTypes.Contains(y.DamageType));
+                damageTypes.Contains(y.DamageType));
         }
 
-        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
-            List<string> damageTypes)
+        public bool CanModifyRoll(
+            RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypesRoll)
         {
-            return _damageTypes.Intersect(damageTypes).Any();
+            return damageTypes.Intersect(damageTypesRoll).Any();
         }
     }
 
@@ -1955,13 +1947,12 @@ internal static class OtherFeats
         FeatureDefinitionPower powerLucky)
         : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow, IRollSavingThrowFinished
     {
-        private int _modifier;
-
-        private int _saveDC;
+        private const string LuckyModifierTag = "LuckyModifierTag";
+        private const string LuckySaveTag = "LuckySaveTag";
 
         public void OnSavingThrowFinished(
-            RulesetCharacter caster,
-            RulesetCharacter defender,
+            RulesetCharacter rulesetCaster,
+            RulesetCharacter rulesetDefender,
             int saveBonus,
             string abilityScoreName,
             BaseDefinition sourceDefinition,
@@ -1974,8 +1965,12 @@ internal static class OtherFeats
             ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            _saveDC = saveDC;
-            _modifier = saveBonus + rollModifier;
+            var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+
+            caster.UsedSpecialFeatures.TryAdd(LuckyModifierTag, 0);
+            caster.UsedSpecialFeatures.TryAdd(LuckySaveTag, 0);
+            caster.UsedSpecialFeatures[LuckyModifierTag] = saveBonus + rollModifier;
+            caster.UsedSpecialFeatures[LuckySaveTag] = saveDC;
         }
 
         public int HandlerPriority => -10;
@@ -2187,7 +2182,9 @@ internal static class OtherFeats
             if (!action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 helper != defender ||
-                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0)
+                rulesetHelper.GetRemainingUsesOfPower(usablePower) == 0 ||
+                !defender.UsedSpecialFeatures.TryGetValue(LuckyModifierTag, out var modifier) ||
+                !defender.UsedSpecialFeatures.TryGetValue(LuckySaveTag, out var saveDC))
             {
                 yield break;
             }
@@ -2220,7 +2217,7 @@ internal static class OtherFeats
             }
 
             var dieRoll = rulesetHelper.RollDie(DieType.D20, RollContext.None, false, AdvantageType.None, out _, out _);
-            var savingRoll = action.SaveOutcomeDelta - _modifier + _saveDC;
+            var savingRoll = action.SaveOutcomeDelta - modifier + saveDC;
 
             if (dieRoll <= savingRoll)
             {

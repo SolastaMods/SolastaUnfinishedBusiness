@@ -332,21 +332,15 @@ public sealed class DomainDefiler : AbstractSubclass
     // Defile Life
     //
 
-    private sealed class ModifyEffectDescriptionDefileLife : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionDefileLife(FeatureDefinitionPower baseDefinition)
+        : IModifyEffectDescription
     {
-        private readonly BaseDefinition _baseDefinition;
-
-        internal ModifyEffectDescriptionDefileLife(BaseDefinition baseDefinition)
-        {
-            _baseDefinition = baseDefinition;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == _baseDefinition;
+            return definition == baseDefinition;
         }
 
         public EffectDescription GetEffectDescription(
@@ -394,18 +388,15 @@ public sealed class DomainDefiler : AbstractSubclass
         : IForceMaxDamageTypeDependent, IModifyAdditionalDamage, IActionFinishedByMe,
             IMagicEffectBeforeHitConfirmedOnEnemy, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
-        private bool _isValid;
-
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (!_isValid)
-            {
-                yield break;
-            }
+            var actingCharacter = action.ActingCharacter;
+            var hasTag = actingCharacter.UsedSpecialFeatures.TryGetValue(powerDyingLight.Name, out var value);
 
-            _isValid = false;
+            actingCharacter.UsedSpecialFeatures.TryAdd(powerDyingLight.Name, 0);
 
-            if (action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower))
+            if (action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower) ||
+                !hasTag || value == 0)
             {
                 yield break;
             }
@@ -418,7 +409,13 @@ public sealed class DomainDefiler : AbstractSubclass
 
         public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
         {
-            return _isValid && damageForm.DamageType is DamageTypeNecrotic;
+            var character = GameLocationCharacter.GetFromActor(rulesetActor);
+
+            return
+                character != null &&
+                character.UsedSpecialFeatures.TryGetValue(powerDyingLight.Name, out var value) &&
+                value == 1 &&
+                damageForm.DamageType is DamageTypeNecrotic;
         }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
@@ -431,7 +428,7 @@ public sealed class DomainDefiler : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            Validate(attacker.RulesetCharacter, actualEffectForms);
+            Validate(attacker, actualEffectForms);
 
             yield break;
         }
@@ -447,16 +444,18 @@ public sealed class DomainDefiler : AbstractSubclass
             var damageType = GetAdditionalDamageType(attacker, additionalDamageForm, featureDefinitionAdditionalDamage);
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDyingLight, rulesetAttacker);
-            var isValid = rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
-                          rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
-                          damageType is DamageTypeNecrotic;
+            var isValid =
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
+                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DyingLightToggle) &&
+                damageType is DamageTypeNecrotic;
 
             if (!isValid)
             {
                 return;
             }
 
-            _isValid = true;
+            attacker.UsedSpecialFeatures.TryAdd(powerDyingLight.Name, 0);
+            attacker.UsedSpecialFeatures[powerDyingLight.Name] = 1;
             rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
 
@@ -472,29 +471,32 @@ public sealed class DomainDefiler : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            Validate(attacker.RulesetCharacter, actualEffectForms);
+            Validate(attacker, actualEffectForms);
 
             yield break;
         }
 
-        private void Validate(
-            RulesetCharacter rulesetAttacker,
-            // ReSharper disable once ParameterTypeCanBeEnumerable.Local
-            List<EffectForm> actualEffectForms)
+        private void Validate(GameLocationCharacter attacker, List<EffectForm> actualEffectForms)
         {
+            var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerDyingLight, rulesetAttacker);
 
-            _isValid =
+            var isValid =
                 rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0 &&
-                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DyingLightToggle) &&
                 actualEffectForms.Any(x =>
                     x.FormType == EffectForm.EffectFormType.Damage &&
                     x.DamageForm.DamageType is DamageTypeNecrotic);
 
-            if (_isValid)
+            attacker.UsedSpecialFeatures.TryAdd(powerDyingLight.Name, 0);
+
+            if (!isValid)
             {
-                rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
+                return;
             }
+
+            attacker.UsedSpecialFeatures[powerDyingLight.Name] = 1;
+            rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
     }
 }

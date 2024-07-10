@@ -634,7 +634,7 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager || !battleManager)
+            if (!actionManager || !battleManager || action.Countered)
             {
                 yield break;
             }
@@ -1182,7 +1182,7 @@ internal static partial class SpellBuilders
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager || !battleManager)
+            if (!actionManager || !battleManager || action.Countered)
             {
                 yield break;
             }

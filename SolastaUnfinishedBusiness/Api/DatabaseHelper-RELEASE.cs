@@ -29,7 +29,6 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
-        internal static ActionDefinition DisengageMain { get; } = GetDefinition<ActionDefinition>("DisengageMain");
         internal static ActionDefinition SpiritRage { get; } = GetDefinition<ActionDefinition>("SpiritRage");
 
         internal static ActionDefinition GrantBardicInspiration { get; } =
@@ -1037,9 +1036,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRogueSneakAttack { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRogueSneakAttack");
 
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRoguishHoodlumNonFinesseSneakAttack { get; } =
-            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRoguishHoodlumNonFinesseSneakAttack");
-
         internal static FeatureDefinitionAdditionalDamage
             AdditionalDamageTraditionLightRadiantStrikesLuminousKi { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionLightRadiantStrikesLuminousKi");
@@ -2018,9 +2014,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerPaladinNeutralizePoison { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPaladinNeutralizePoison");
 
-        internal static FeatureDefinitionPower PowerPatronFiendDarkOnesBlessing { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerPatronFiendDarkOnesBlessing");
-
         internal static FeatureDefinitionPower PowerPatronFiendDarkOnesOwnLuck { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPatronFiendDarkOnesOwnLuck");
 
@@ -2101,9 +2094,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerSpiderQueenPoisonCloud { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSpiderQueenPoisonCloud");
-
-        internal static FeatureDefinitionPower PowerSymbolOfSleep { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerSymbolOfSleep");
 
         internal static FeatureDefinitionPower PowerTraditionCourtMageSpellShield { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionCourtMageSpellShield");

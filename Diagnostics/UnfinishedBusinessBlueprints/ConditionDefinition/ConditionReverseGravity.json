@@ -3,9 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionFlying:ec82fae48f9a55a41a49fd96d93b49b5",
   "conditionType": "Neutral",
-  "features": [
-    "Definition:MoveModeFly2:0196408f7a256674d8272106dfa74a0a"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,

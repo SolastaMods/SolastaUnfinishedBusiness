@@ -600,10 +600,8 @@ public sealed class MartialForceKnight : AbstractSubclass
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionForcePoweredStrike,
         FeatureDefinitionPower powerPsionicAdept)
-        : IPhysicalAttackInitiatedByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
-        private bool _considerTriggerPsionicAdept;
-
         public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -616,20 +614,20 @@ public sealed class MartialForceKnight : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
+            attacker.UsedSpecialFeatures.TryAdd(powerPsionicAdept.Name, 0);
+
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!attacker.OnceInMyTurnIsValid("ForcePoweredStrike") ||
+            if (!attacker.OnceInMyTurnIsValid(conditionForcePoweredStrike.Name) ||
                 rulesetAttacker.GetRemainingPowerUses(PowerPsionicInitiate) == 0 ||
                 !rulesetAttacker.IsToggleEnabled(ForcePoweredStrikeToggle))
             {
                 yield break;
             }
 
-            _considerTriggerPsionicAdept = true;
-
-            attacker.UsedSpecialFeatures.TryAdd("ForcePoweredStrike", 0);
+            attacker.UsedSpecialFeatures.TryAdd(conditionForcePoweredStrike.Name, 0);
+            attacker.UsedSpecialFeatures[powerPsionicAdept.Name] = 1;
             rulesetAttacker.UpdateUsageForPower(PowerPsionicInitiate, 1);
-
             rulesetAttacker.InflictCondition(
                 conditionForcePoweredStrike.Name,
                 DurationType.Round,
@@ -654,42 +652,30 @@ public sealed class MartialForceKnight : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (!_considerTriggerPsionicAdept)
-            {
-                yield break;
-            }
-
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var levels = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Fighter);
 
-            if (!actionManager)
+            if (!actionManager ||
+                !attacker.UsedSpecialFeatures.TryGetValue(powerPsionicAdept.Name, out var value) || value == 0 ||
+                defender.RulesetActor is not { IsDeadOrDyingOrUnconscious: false } ||
+                levels < 7)
             {
                 yield break;
             }
 
-            if (defender.RulesetActor is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            var levels = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Fighter);
-
-            if (levels < 7)
-            {
-                yield break;
-            }
+            attacker.UsedSpecialFeatures[powerPsionicAdept.Name] = 0;
 
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerPsionicAdept, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerPsionicAdept, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
                 StringParameter = "PsionicAdept",
                 RulesetEffect = implementationManager
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
             };
@@ -700,19 +686,6 @@ public sealed class MartialForceKnight : AbstractSubclass
             actionManager.AddInterruptRequest(reactionRequest);
 
             yield return battleManager.WaitForReactions(attacker, actionManager, count);
-        }
-
-        public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
-        {
-            _considerTriggerPsionicAdept = false;
-
-            yield break;
         }
     }
 
@@ -934,33 +907,71 @@ public sealed class MartialForceKnight : AbstractSubclass
             int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            var intelligence = defender.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var changed = false;
+            var intelligence = ComputeBaseBonus(defender, AttributeDefinitions.Intelligence, out var intModifier);
 
             if (abilityScoreName == AttributeDefinitions.Wisdom)
             {
-                var wisdom = defender.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+                var wisdom = ComputeBaseBonus(defender, AttributeDefinitions.Wisdom, out _);
 
                 if (intelligence > wisdom)
                 {
                     abilityScoreName = AttributeDefinitions.Intelligence;
-
-                    defender.LogCharacterUsedFeature(featureForceOfWill);
+                    changed = true;
                 }
             }
 
-            // ReSharper disable once InvertIf
             if (abilityScoreName == AttributeDefinitions.Charisma)
             {
-                var charisma = defender.TryGetAttributeValue(AttributeDefinitions.Charisma);
+                var charisma = ComputeBaseBonus(defender, AttributeDefinitions.Charisma, out _);
 
-                // ReSharper disable once InvertIf
                 if (intelligence > charisma)
                 {
                     abilityScoreName = AttributeDefinitions.Intelligence;
-
-                    defender.LogCharacterUsedFeature(featureForceOfWill);
+                    changed = true;
                 }
             }
+
+            if (!changed)
+            {
+                return;
+            }
+
+            saveBonus = intelligence;
+            modifierTrends.RemoveAll(x =>
+                x.sourceType is FeatureSourceType.AbilityScore or FeatureSourceType.Proficiency);
+            modifierTrends.AddRange(intModifier);
+            defender.LogCharacterUsedFeature(featureForceOfWill);
+        }
+
+        private static int ComputeBaseBonus(
+            RulesetCharacter defender,
+            string abilityScoreName,
+            out List<TrendInfo> savingThrowModifierTrends)
+        {
+            savingThrowModifierTrends = [];
+
+            var bonus =
+                AttributeDefinitions.ComputeAbilityScoreModifier(defender.TryGetAttributeValue(abilityScoreName));
+
+            savingThrowModifierTrends.Add(new TrendInfo(bonus, FeatureSourceType.AbilityScore, abilityScoreName, null));
+
+            var proficiency = defender.GetFeaturesByType<FeatureDefinitionProficiency>()
+                .FirstOrDefault(x =>
+                    x.ProficiencyType == ProficiencyType.SavingThrow &&
+                    x.Proficiencies.Contains(abilityScoreName));
+
+            if (!proficiency)
+            {
+                return bonus;
+            }
+
+            var pb = defender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            bonus += pb;
+            savingThrowModifierTrends.Add(new TrendInfo(pb, FeatureSourceType.Proficiency, string.Empty, null));
+
+            return bonus;
         }
     }
 

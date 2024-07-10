@@ -1,3 +1,34 @@
+1.5.97.19:
+
+all fixes marked with * were introduced with the IsMelee change on v18
+
+- added subclasses unique sprites [by otearaisu]
+- fixed Martial Arcane Archer arcane shots weapon type validator
+- fixed Martial Battle Master missing maneuvers initial pool amount
+- fixed Martial Psi Warrior force of will saving throw behavior
+- fixed Martial Psi Warrior psionic adept once in my turn validator
+- fixed monster reaction powers effect forms application
+- fixed Powerful metamagic interaction with Sunbeam spell
+- fixed Reverse Gravity spell granting flying to creatures
+- fixed Shapechange spell to delegate concentration to shape
+* fixed Exploiter feat attack mode validator
+* fixed GWM feat attack mode modifier, and additional attack validator
+* fixed Lunging Attack maneuver increase weapon reach validator
+* fixed Mage Slayer feat attack mode validator
+* fixed Martial Warlord coordinated assault attack mode validator
+* fixed Oath of Dread harrowing crusade attack mode validator
+* fixed Old Tactics feat attack mode validator
+* fixed Path of the Wild Magic wild surge attack mode validator
+* fixed Power Attack feat attack mode modifier
+* fixed Retaliate maneuver attack mode validator
+* fixed Wendigo natural lunger increase weapon reach validator
+* fixed Wyrmkin reactive retribution attack mode validator
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses
+
 1.5.97.18:
 
 - added Circle of the Wildfire, and Vitriolic Sphere spell
@@ -23,11 +54,6 @@
 - fixed Prone condition interaction with reach attacks
 - fixed Rescue the Dying spell triggering logic
 - fixed Skill Empowerment spell suggested list
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses [cannot fix]
 
 1.5.97.17:
 

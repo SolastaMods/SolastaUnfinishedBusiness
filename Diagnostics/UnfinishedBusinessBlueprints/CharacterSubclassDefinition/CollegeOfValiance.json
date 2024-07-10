@@ -41,9 +41,9 @@
     "description": "Subclass/&CollegeOfValianceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a9f6675a067f5c74890a2acf2201e5a8",
-      "m_SubObjectName": "Monk_Light",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "c7be297a-7045-558e-b4d7-fda31d77a17d",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

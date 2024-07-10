@@ -58,7 +58,7 @@ internal static class CreditsDisplay
             "feats, fighting styles, items & crafting, Martial Eldritch Knight, Wizard Arcane Fighter, Wizard Spellmaster"),
 
         ("Otearaisu",
-            "Aasimar, Goliath, Imp, Lizardfolk, Oni, Warforged, Wendigo, Wildling, Wyrmkin, Path of the Battlerager, Path of the Beast, Path of the Wild Magic"),
+            "sprites, Aasimar, Goliath, Imp, Lizardfolk, Oni, Warforged, Wendigo, Wildling, Wyrmkin, Path of the Battlerager, Path of the Beast, Path of the Wild Magic"),
         ("Haxermn", "spells, Domain Defiler, Domain Forge, Oath of Ancients, Oath of Hatred, Way of Dragon"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Grey Dwarf, Kobold, Sorcerous Divine Soul"),
         ("tivie", "Circle of the Moon, Path of the Totem Warrior"),

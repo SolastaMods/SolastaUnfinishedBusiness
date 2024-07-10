@@ -543,7 +543,7 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager || !battleManager)
+            if (!actionManager || !battleManager || action.Countered)
             {
                 yield break;
             }
@@ -923,7 +923,7 @@ internal static partial class SpellBuilders
         ConditionDefinition conditionCircleOfMagicalNegation)
         : IMagicEffectBeforeHitConfirmedOnMe, IRollSavingThrowFinished
     {
-        private RollOutcome _saveOutcome;
+        private const string CircleOfMagicalNegationSavedTag = "CircleOfMagicalNegationSaved";
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -935,7 +935,7 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (_saveOutcome != RollOutcome.Success)
+            if (!defender.UsedSpecialFeatures.Remove(CircleOfMagicalNegationSavedTag))
             {
                 yield break;
             }
@@ -963,7 +963,11 @@ internal static partial class SpellBuilders
             ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            _saveOutcome = outcome;
+            if (outcome == RollOutcome.Success)
+            {
+                GameLocationCharacter.GetFromActor(defender).UsedSpecialFeatures
+                    .TryAdd(CircleOfMagicalNegationSavedTag, 0);
+            }
         }
     }
 
@@ -1156,6 +1160,11 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            if (action.Countered)
+            {
+                yield break;
+            }
+
             var actingCharacter = action.ActingCharacter;
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;
 

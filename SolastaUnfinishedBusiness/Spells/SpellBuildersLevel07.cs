@@ -53,7 +53,7 @@ internal static partial class SpellBuilders
                                     .SetOrUpdateGuiPresentation(Category.Condition)
                                     .SetConditionType(ConditionType.Neutral)
                                     .SetParentCondition(ConditionDefinitions.ConditionFlying)
-                                    .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly2)
+                                    .SetFeatures()
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -421,7 +421,7 @@ internal static partial class SpellBuilders
                 Type = PowerPoolBonusCalculationType.ConditionAmount,
                 Attribute = conditionCrownOfStars.Name
             },
-            new CustomBehaviorPowerCrownOfStars(spell, conditionCrownOfStars));
+            new CustomBehaviorPowerCrownOfStars(spell, powerCrownOfStars, conditionCrownOfStars));
 
         return spell;
     }
@@ -441,17 +441,12 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorPowerCrownOfStars(
         SpellDefinition spellCrownOfStars,
+        FeatureDefinitionPower powerMotes,
         ConditionDefinition conditionCrownOfStars) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-
-            if (baseDefinition is not FeatureDefinitionPower powerMotes)
-            {
-                yield break;
-            }
-
             var remainingUses = action.ActingCharacter.RulesetCharacter.GetRemainingPowerUses(powerMotes);
 
             // ReSharper disable once ConvertIfStatementToSwitchStatement
@@ -473,6 +468,8 @@ internal static partial class SpellBuilders
                     rulesetCharacter.PersonalLightSource.brightRange = 0;
                 }
             }
+
+            yield break;
         }
     }
 

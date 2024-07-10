@@ -1281,9 +1281,7 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class ModifyWeaponAttackModeFeatCleavingAttack(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatDefinition featDefinition)
+    private sealed class ModifyWeaponAttackModeFeatCleavingAttack(FeatDefinition featDefinition)
         : IModifyWeaponAttackMode
     {
         private const int ToHit = -5;
@@ -1314,7 +1312,8 @@ internal static class MeleeCombatFeats
 
     private static bool ValidateCleavingAttack(RulesetAttackMode attackMode, bool validateHeavy = false)
     {
-        return ValidatorsWeapon.IsMelee(attackMode) &&
+        // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
+        return ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
                (!validateHeavy ||
                 ValidatorsWeapon.HasAnyWeaponTag(
                     attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagHeavy));
@@ -1599,22 +1598,11 @@ internal static class MeleeCombatFeats
         return feat;
     }
 
-    private sealed class PhysicalAttackFinishedByMeFeatFellHanded : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeFeatFellHanded(
+        FeatureDefinitionPower powerAdvantage,
+        FeatureDefinitionPower powerDisadvantage,
+        params WeaponTypeDefinition[] weaponTypeDefinition) : IPhysicalAttackFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerAdvantage;
-        private readonly FeatureDefinitionPower _powerDisadvantage;
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
-
-        public PhysicalAttackFinishedByMeFeatFellHanded(
-            FeatureDefinitionPower powerAdvantage,
-            FeatureDefinitionPower powerDisadvantage,
-            params WeaponTypeDefinition[] weaponTypeDefinition)
-        {
-            _powerAdvantage = powerAdvantage;
-            _powerDisadvantage = powerDisadvantage;
-            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1625,7 +1613,7 @@ internal static class MeleeCombatFeats
             int damageAmount)
         {
             if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+                weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 yield break;
             }
@@ -1653,12 +1641,12 @@ internal static class MeleeCombatFeats
             {
                 case AdvantageType.Advantage when rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
                     attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out attackRoll);
-                    power = _powerAdvantage;
+                    power = powerAdvantage;
 
                     break;
                 case AdvantageType.Disadvantage when rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
                     attacker.UsedSpecialFeatures.TryGetValue("HighestAttackRoll", out attackRoll);
-                    power = _powerDisadvantage;
+                    power = powerDisadvantage;
 
                     break;
                 case AdvantageType.None:
@@ -1676,7 +1664,7 @@ internal static class MeleeCombatFeats
             Gui.Game.GameConsole.AttackRolled(
                 rulesetAttacker,
                 rulesetDefender,
-                _powerAdvantage,
+                powerAdvantage,
                 outcome,
                 attackRoll + modifier,
                 attackRoll,
@@ -1857,17 +1845,15 @@ internal static class MeleeCombatFeats
         return featPowerAttack;
     }
 
-    private sealed class ModifyWeaponAttackModeFeatPowerAttack(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatDefinition featDefinition) : IModifyWeaponAttackMode
-    // thrown is allowed on power attack
-    //, IPhysicalAttackInitiatedByMe
+    private sealed class ModifyWeaponAttackModeFeatPowerAttack(FeatDefinition featDefinition) : IModifyWeaponAttackMode
     {
         private const int ToHit = 3;
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
+            // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
+            if (!ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
+                !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;
             }
@@ -1890,45 +1876,6 @@ internal static class MeleeCombatFeats
             damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Feat, featDefinition.Name,
                 featDefinition));
         }
-
-// thrown is allowed on power attack
-#if false
-        // this is required to handle thrown scenarios
-        public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
-        {
-            var isMelee = ValidatorsWeapon.IsMelee(attackMode);
-            var isUnarmed = ValidatorsWeapon.IsUnarmed(attackMode);
-            var isPowerAttackValid = isMelee || isUnarmed;
-
-            if (isPowerAttackValid)
-            {
-                yield break;
-            }
-
-            attackModifier.AttacktoHitTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
-            attackMode.ToHitBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
-            attackMode.ToHitBonus += ToHit;
-
-            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
-            {
-                yield break;
-            }
-
-            var proficiency = attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var toDamage = ToHit + proficiency;
-
-            damageForm.DamageBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
-            damageForm.BonusDamage -= toDamage;
-        }
-#endif
     }
 
     #endregion
@@ -1994,22 +1941,11 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackAfterDamageFeatSlasher : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackAfterDamageFeatSlasher(
+        ConditionDefinition conditionDefinition,
+        ConditionDefinition criticalConditionDefinition,
+        string damageType) : IPhysicalAttackFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly ConditionDefinition _criticalConditionDefinition;
-        private readonly string _damageType;
-
-        internal PhysicalAttackAfterDamageFeatSlasher(
-            ConditionDefinition conditionDefinition,
-            ConditionDefinition criticalConditionDefinition,
-            string damageType)
-        {
-            _conditionDefinition = conditionDefinition;
-            _criticalConditionDefinition = criticalConditionDefinition;
-            _damageType = damageType;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -2021,7 +1957,7 @@ internal static class MeleeCombatFeats
         {
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
-            if (damage == null || damage.DamageType != _damageType)
+            if (damage == null || damage.DamageType != damageType)
             {
                 yield break;
             }
@@ -2038,7 +1974,7 @@ internal static class MeleeCombatFeats
             if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 rulesetDefender.InflictCondition(
-                    _conditionDefinition.Name,
+                    conditionDefinition.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
@@ -2046,7 +1982,7 @@ internal static class MeleeCombatFeats
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    _conditionDefinition.Name,
+                    conditionDefinition.Name,
                     0,
                     0,
                     0);
@@ -2058,7 +1994,7 @@ internal static class MeleeCombatFeats
             }
 
             rulesetDefender.InflictCondition(
-                _criticalConditionDefinition.Name,
+                criticalConditionDefinition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -2066,7 +2002,7 @@ internal static class MeleeCombatFeats
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _criticalConditionDefinition.Name,
+                criticalConditionDefinition.Name,
                 0,
                 0,
                 0);

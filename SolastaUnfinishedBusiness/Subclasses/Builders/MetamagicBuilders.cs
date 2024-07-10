@@ -214,12 +214,15 @@ internal static class MetamagicBuilders
     {
         var validator = new ValidateMetamagicApplication(IsMetamagicPowerfulSpellValid);
 
-        return MetamagicOptionDefinitionBuilder
+        var metamagic = MetamagicOptionDefinitionBuilder
             .Create(MetamagicPowerful)
             .SetGuiPresentation(Category.Feature)
             .SetCost()
-            .AddCustomSubFeatures(new ModifyEffectDescriptionMetamagicPowerful(), validator)
             .AddToDB();
+
+        metamagic.AddCustomSubFeatures(new ModifyEffectDescriptionMetamagicPowerful(metamagic), validator);
+
+        return metamagic;
     }
 
     private static void IsMetamagicPowerfulSpellValid(
@@ -241,26 +244,29 @@ internal static class MetamagicBuilders
         result = false;
     }
 
-    private sealed class ModifyEffectDescriptionMetamagicPowerful : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionMetamagicPowerful(
+        MetamagicOptionDefinition metamagicOptionDefinition) : IMagicEffectBeforeHitConfirmedOnEnemy
     {
-        public bool IsValid(
-            BaseDefinition definition,
-            RulesetCharacter character,
-            EffectDescription effectDescription)
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            return true;
-        }
+            if (rulesetEffect.MetamagicOption != metamagicOptionDefinition)
+            {
+                yield break;
+            }
 
-        public EffectDescription GetEffectDescription(BaseDefinition definition, EffectDescription effectDescription,
-            RulesetCharacter character, RulesetEffect rulesetEffect)
-        {
-            foreach (var effectForm in effectDescription.EffectForms
+            foreach (var effectForm in actualEffectForms
                          .Where(x => x.FormType == EffectForm.EffectFormType.Damage))
             {
                 effectForm.DamageForm.diceNumber += 1;
             }
-
-            return effectDescription;
         }
     }
 

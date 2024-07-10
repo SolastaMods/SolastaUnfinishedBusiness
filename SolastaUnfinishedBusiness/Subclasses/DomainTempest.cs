@@ -419,18 +419,15 @@ public sealed class DomainTempest : AbstractSubclass
     private sealed class CustomBehaviorDestructiveWrath(FeatureDefinitionPower powerDestructiveWrath)
         : IForceMaxDamageTypeDependent, IActionFinishedByMe
     {
-        private bool _isValid;
-
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (!_isValid)
-            {
-                yield break;
-            }
+            var actingCharacter = action.ActingCharacter;
+            var hasTag = actingCharacter.UsedSpecialFeatures.TryGetValue(powerDestructiveWrath.Name, out var value);
 
-            _isValid = false;
+            actingCharacter.UsedSpecialFeatures.TryAdd(powerDestructiveWrath.Name, 0);
 
-            if (action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower))
+            if (action is not (CharacterActionAttack or CharacterActionMagicEffect or CharacterActionSpendPower) ||
+                !hasTag || value == 0)
             {
                 yield break;
             }
@@ -450,12 +447,20 @@ public sealed class DomainTempest : AbstractSubclass
             }
 
             var rulesetAttacker = rulesetCharacter.GetEffectControllerOrSelf();
+            var attacker = GameLocationCharacter.GetFromActor(rulesetActor);
             var usablePower = PowerProvider.Get(powerDestructiveWrath, rulesetAttacker);
-            var isValid = rulesetAttacker!.GetRemainingUsesOfPower(usablePower) > 0 &&
-                          rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
-                          damageForm.DamageType is DamageTypeLightning or DamageTypeThunder;
+            var isValid =
+                rulesetAttacker!.GetRemainingUsesOfPower(usablePower) > 0 &&
+                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DestructiveWrathToggle) &&
+                damageForm.DamageType is DamageTypeLightning or DamageTypeThunder;
 
-            _isValid = _isValid || isValid;
+            if (attacker.UsedSpecialFeatures.TryGetValue(powerDestructiveWrath.Name, out var value) && value == 1)
+            {
+                return isValid;
+            }
+
+            attacker.UsedSpecialFeatures.TryAdd(powerDestructiveWrath.Name, 0);
+            attacker.UsedSpecialFeatures[powerDestructiveWrath.Name] = isValid ? 1 : 0;
 
             return isValid;
         }
