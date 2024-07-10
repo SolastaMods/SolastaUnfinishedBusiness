@@ -17,8 +17,6 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class ArmorFeats
 {
-    internal const string ConditionShieldTechniquesResistanceName = "ConditionShieldTechniquesResistance";
-
     // this is entirely implemented on rulesetCharacterHero transpiler using context validations below
     // they change max dexterity to 3 and remove any instance of Stealth Disadvantage checks
     private static readonly FeatDefinition FeatMediumArmorMaster = FeatDefinitionBuilder
