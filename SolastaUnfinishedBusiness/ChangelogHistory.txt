@@ -1,3 +1,7 @@
+1.5.97.20:
+
+- fixed Ring of Knifes missing spell casting modifiers on bonus power
+
 1.5.97.19:
 
 all fixes marked with * were introduced with the IsMelee change on v18
