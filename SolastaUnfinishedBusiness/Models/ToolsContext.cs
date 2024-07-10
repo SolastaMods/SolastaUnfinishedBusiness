@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -233,6 +234,7 @@ internal static class ToolsContext
                 newHero.knockOuts = oldHero.knockOuts;
 
                 TransferConditionsOfCategory(oldHero, newHero, AttributeDefinitions.TagEffect);
+                CleanupOldHeroConditions(oldHero, newHero);
 
                 CopyInventoryOver(oldHero, gameLocationCharacter.LocationPosition);
 
@@ -274,6 +276,16 @@ internal static class ToolsContext
             newHero.AddConditionCategoryAsNeeded(category);
             newHero.conditionsByCategory[category].AddRange(conditions);
             newHero.allConditions.AddRange(conditions);
+        }
+
+        private static void CleanupOldHeroConditions(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
+        {
+            //Unregister all conditions that are not present in new hero
+            oldHero.allConditions
+                .Where(c=>!newHero.AllConditions.Contains(c))
+                .Do(c => c.Unregister());
+            oldHero.allConditions.Clear();
+            oldHero.conditionsByCategory.Clear();
         }
 
         private static void CopyInventoryOver([NotNull] RulesetCharacter oldHero, int3 position)
