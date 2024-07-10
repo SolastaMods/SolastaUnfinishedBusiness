@@ -222,7 +222,7 @@ public class PatronEldritchSurge : AbstractSubclass
 
         public static int ComputeAdditionalBeamCount(int totalLevel, int warlockClassLevel)
         {
-            var determinantLevel = warlockClassLevel - (2 * (totalLevel - warlockClassLevel));
+            var determinantLevel = (warlockClassLevel - 2) * (totalLevel - warlockClassLevel);
             var increaseLevels = new[] { 3, 8, 13, 18 };
 
             return increaseLevels.Count(level => determinantLevel >= level);
