@@ -11,8 +11,10 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
@@ -180,6 +182,15 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             powerSlashingWhirl,
             powerMobileWhirl);
 
+        _ = ActionDefinitionBuilder
+            .Create(MetamagicToggle, "AudaciousWhirlToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.AudaciousWhirlToggle)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerAudaciousWhirl)))
+            .AddToDB();
+
         var featureSetAudaciousWhirl = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}AudaciousWhirl")
             .SetGuiPresentation(Category.Feature)
@@ -345,19 +356,18 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerAudaciousWhirl, rulesetAttacker);
             var isAudaciousWhirl = rulesetAttacker.IsToggleEnabled(AudaciousWhirlToggle);
+            var hasAvailablePowerUses = rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
             var isMasterfulWhirl = rulesetAttacker.IsToggleEnabled(MasterfulWhirlToggle);
 
             if (!actionManager ||
                 !attacker.OnceInMyTurnIsValid(WhirlMarker) ||
-                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0 ||
-                !(isAudaciousWhirl || isMasterfulWhirl))
+                !((isAudaciousWhirl && hasAvailablePowerUses) || isMasterfulWhirl))
             {
                 yield break;
             }
 
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
 
             var actionParams =
                 new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
