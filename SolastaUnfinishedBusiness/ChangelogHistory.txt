@@ -1,6 +1,9 @@
 1.5.97.20:
 
-- fixed Ring of Knifes missing spell casting modifiers on bonus power
+- added subclasses unique sprites [by otearaisu]
+- fixed 'Export Hero' and RESPEC effects termination logic [auras, infusions, etc.]
+- fixed Martial Battle Master initial pool set to 3 instead of 4
+- fixed Ring of Knifes spell missing to-hit casting modifiers on power
 
 1.5.97.19:
 
