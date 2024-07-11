@@ -25,10 +25,28 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     private const string Name = "MartialArcaneArcher";
     private const ActionDefinitions.Id ArcaneArcherToggle = (ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle;
 
-    // referenced by feat Arcane Archer Adept
-    internal static FeatureDefinitionPower PowerArcaneShot;
-    internal static FeatureDefinitionActionAffinity ActionAffinityArcaneArcherToggle;
-    internal static FeatureDefinitionCustomInvocationPool InvocationPoolArcaneShotChoice2;
+    internal static readonly FeatureDefinitionPower PowerArcaneShot = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}ArcaneShot")
+        .SetGuiPresentation($"FeatureSet{Name}ArcaneShot", Category.Feature)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
+        .DelegatedToAction()
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionActionAffinity ActionAffinityArcaneArcherToggle =
+        FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityArcaneArcherToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions(ArcaneArcherToggle)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerArcaneShot)))
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolArcaneShotChoice2 =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolArcaneShotChoice2")
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.ArcaneShotChoice, 2)
+            .AddToDB();
 
     public MartialArcaneArcher()
     {
@@ -75,19 +93,12 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         // Arcane Shot
 
-        PowerArcaneShot = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ArcaneShot")
-            .SetGuiPresentation($"FeatureSet{Name}ArcaneShot", Category.Feature)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
-            .DelegatedToAction()
-            .AddToDB();
-
         var arcaneShotPowers =
             BuildArcaneShotPowers(PowerArcaneShot, out var powerBurstingArrow, out var powerBurstingArrowDamage);
 
         PowerArcaneShot.AddCustomSubFeatures(
             HasModifiedUses.Marker,
-            new PhysicalAttackFinishedByMeArcaneShot(powerBurstingArrow, powerBurstingArrowDamage));
+            new CustomBehaviorArcaneShot(powerBurstingArrow, powerBurstingArrowDamage));
 
         PowerBundle.RegisterPowerBundle(PowerArcaneShot, false, arcaneShotPowers);
 
@@ -97,14 +108,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ArcaneArcherToggle)
             .SetActivatedPower(PowerArcaneShot)
-            .AddToDB();
-
-        ActionAffinityArcaneArcherToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityArcaneArcherToggle")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions(ArcaneArcherToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerArcaneShot)))
             .AddToDB();
 
         var powerArcaneShotAdditionalUse2 = FeatureDefinitionPowerUseModifierBuilder
@@ -118,13 +121,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 .Create("InvocationPoolArcaneShotChoice1")
                 .SetGuiPresentation(Category.Feature)
                 .Setup(InvocationPoolTypeCustom.Pools.ArcaneShotChoice)
-                .AddToDB();
-
-        InvocationPoolArcaneShotChoice2 =
-            CustomInvocationPoolDefinitionBuilder
-                .Create("InvocationPoolArcaneShotChoice2")
-                .SetGuiPresentation(Category.Feature)
-                .Setup(InvocationPoolTypeCustom.Pools.ArcaneShotChoice, 2)
                 .AddToDB();
 
         var featureSetArcaneShot = FeatureDefinitionFeatureSetBuilder
@@ -590,25 +586,32 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     // Arcane Shot
     //
 
-    private sealed class PhysicalAttackFinishedByMeArcaneShot(
+    private sealed class CustomBehaviorArcaneShot(
         FeatureDefinitionPower powerBurstingArrow,
-        FeatureDefinitionPower powerBurstingArrowDamage) : IPhysicalAttackFinishedByMe
+        FeatureDefinitionPower powerBurstingArrowDamage)
+        : IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private const string ArcaneShotMarker = "ArcaneShot";
 
-        public IEnumerator OnPhysicalAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
-                !attacker.OnceInMyTurnIsValid(ArcaneShotMarker) ||
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(PowerArcaneShot, rulesetAttacker);
+
+            if (!attacker.OnceInMyTurnIsValid(ArcaneShotMarker) ||
                 !attacker.RulesetCharacter.IsToggleEnabled(ArcaneArcherToggle) ||
-                !IsBow(attackMode, null, null))
+                !IsBow(attackMode, null, null) ||
+                rulesetAttacker.GetRemainingUsesOfPower(usablePower) == 0)
             {
                 yield break;
             }
@@ -623,9 +626,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = PowerProvider.Get(PowerArcaneShot, rulesetAttacker);
 
             var actionParams =
                 new CharacterActionParams(GameLocationCharacter.GetFromActor(rulesetAttacker),
@@ -645,6 +645,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
+            attacker.UsedSpecialFeatures.TryAdd(powerBurstingArrow.Name, -1);
+
             if (!actionParams.ReactionValidated)
             {
                 yield break;
@@ -658,8 +660,25 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             if (subPowers != null &&
                 subPowers[option] == powerBurstingArrow)
             {
-                HandleBurstingArrow(attacker, defender);
+                attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = 0;
             }
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (!attacker.UsedSpecialFeatures.TryGetValue(powerBurstingArrow.Name, out var value) || value < 0)
+            {
+                yield break;
+            }
+
+            HandleBurstingArrow(attacker, defender);
         }
 
         private void HandleBurstingArrow(GameLocationCharacter attacker, GameLocationCharacter defender)
@@ -680,7 +699,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             }
 
             var usablePower = PowerProvider.Get(powerBurstingArrowDamage, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager
