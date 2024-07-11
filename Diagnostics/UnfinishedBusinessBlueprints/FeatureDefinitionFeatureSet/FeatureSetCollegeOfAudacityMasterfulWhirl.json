@@ -1,8 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ActionAffinityMasterfulWhirlToggle:1aa8d4ea-4e03-589b-91ef-4c6b8adaa679",
-    "Definition:PowerCollegeOfAudacityMasterfulWhirl:28130938-f181-5e81-a4b1-6dada78c7f2d"
+    "Definition:ActionAffinityMasterfulWhirlToggle:1aa8d4ea-4e03-589b-91ef-4c6b8adaa679"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

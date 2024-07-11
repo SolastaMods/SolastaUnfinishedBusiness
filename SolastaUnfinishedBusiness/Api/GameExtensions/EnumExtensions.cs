@@ -118,7 +118,8 @@ internal enum ExtraAdditionalDamageValueDetermination
 internal enum ExtraAncestryType
 {
     PathOfTheElements = 9000,
-    WayOfTheDragon
+    WayOfTheDragon,
+    CollegeOfAudacityDefensiveWhirl
 }
 
 internal enum ExtraCombatAffinityValueDetermination
