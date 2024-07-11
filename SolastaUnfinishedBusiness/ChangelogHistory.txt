@@ -1,9 +1,12 @@
 1.5.97.20:
 
+- added sample heroes portraits [by Artyoan]
 - added subclasses unique sprites [by otearaisu]
 - fixed 'Export Hero' and RESPEC effects termination logic [auras, infusions, etc.]
+- fixed Martial Arcane Archer arcane shot to trigger just after attack hits
 - fixed Martial Battle Master initial pool set to 3 instead of 4
 - fixed Ring of Knifes spell missing to-hit casting modifiers on power
+- fixed Scatter spell not allowing enemies selection 
 
 1.5.97.19:
 
