@@ -317,6 +317,7 @@ ModUi/&UnlockGlowingEyeColors=Ajoutez des couleurs d'yeux éclatantes
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Débloquez les marques et tatouages d'origine <color=#D89555>Sorcier</color> pour tous les personnages.
 ModUi/&UnlockSkinColors=Débloquez les couleurs de peau
 ModUi/&Update=<b><color=#D89555>Mise à jour</color></b>
+ModUi/&UseAlternateSpellPointsSystem=Utilisez la variante du système <color=#D89555>Spell Points</color> <i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Utilisez des modèles de visage <color=#D89555>Elfe</color> sur les <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, enchevêtrement, graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Pic de croissance</color> <i><color=#F0DAA0>[rond]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Utilisez des calculs précis pour déterminer le contournement <color=#F0DAA0>[peut avoir un impact sur les performances sur les machines lentes]</color></i>

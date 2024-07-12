@@ -317,6 +317,7 @@ ModUi/&UnlockGlowingEyeColors=Fügen Sie leuchtende Augenfarben hinzu
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Schalte <color=#D89555>Zauberer</color>-Ursprungsmarkierungen und Tätowierungen für alle Charaktere frei
 ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&Update=<b><color=#D89555>Aktualisieren</color></b>
+ModUi/&UseAlternateSpellPointsSystem=Verwenden Sie das alternative <color=#D89555>Zauberpunkte</color>-System <i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Verwenden Sie <color=#D89555>Elfen</color>-Gesichtsmodelle für <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> oder <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Verwenden Sie präzise Mathematik, um flankierende <color=#F0DAA0>[kann sich auf langsamen Maschinen auf die Leistung auswirken]</color></i> zu bestimmen

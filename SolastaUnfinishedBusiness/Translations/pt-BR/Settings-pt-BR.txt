@@ -317,6 +317,7 @@ ModUi/&UnlockGlowingEyeColors=Adicione cores de olhos brilhantes
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloqueie marcas de origem e tatuagens do <color=#D89555>Feiticeiro</color> para todos os personagens
 ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&Update=<b><color=#D89555>Atualização</color></b>
+ModUi/&UseAlternateSpellPointsSystem=Use o sistema variante de <color=#D89555>pontos de feitiço</color> <i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Use modelos de rosto de <color=#D89555>Elfo</color> em <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de cilindro de altura 1 ao lançar <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> ou <color=#D89555>Pico de crescimento</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use matemática precisa para determinar o flanqueamento <color=#F0DAA0>[pode ter um impacto no desempenho em máquinas lentas]</color></i>

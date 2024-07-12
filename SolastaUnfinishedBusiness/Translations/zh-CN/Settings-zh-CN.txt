@@ -317,6 +317,7 @@ ModUi/&UnlockGlowingEyeColors=添加亮色的眼睛
 ModUi/&UnlockMarkAndTattoosForAllCharacters=解锁所有角色的<color=#D89555>术士</color>起源标记和纹身
 ModUi/&UnlockSkinColors=解锁肤色
 ModUi/&Update=<b><color=#D89555>更新</color></b>
+ModUi/&UseAlternateSpellPointsSystem=使用变体<color=#D89555>法术点数</color>系统<i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=在<color=#D89555>提夫林</color>上使用<color=#D89555>精灵</color>的面部模型
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>黑色触手、纠缠、油腻</color><i><color=#F0DAA0>[方形]</color></i>或<color=#D89555>荆棘丛生</color><i><color=#F0DAA0>[圆形]</color></i>时使用高度为1的立体效果
 ModUi/&UseMathFlankingRules=<i>+ 使用精确的数学来确定侧翼 <color=#F0DAA0>[可能会对慢速机器产生性能影响]</color></i>

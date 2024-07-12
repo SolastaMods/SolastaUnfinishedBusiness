@@ -317,6 +317,7 @@ ModUi/&UnlockGlowingEyeColors=Aggiungi colori luminosi per gli occhi
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Sblocca i segni di origine e i tatuaggi <color=#D89555>Stregone</color> per tutti i personaggi
 ModUi/&UnlockSkinColors=Sblocca i colori della pelle
 ModUi/&Update=<b><color=#D89555>Aggiorna</color></b>
+ModUi/&UseAlternateSpellPointsSystem=Utilizza la variante <color=#D89555>Punti incantesimo</color> del sistema <i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Usa i modelli del volto di <color=#D89555>Elfo</color> su <color=#D89555>Tiefling</color>
 ModUi/&UseHeightOneCylinderEffect=Usa un effetto del cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralciare, Ungere</color> <i><color=#F0DAA0>[quadrato]</color></i> o <color=#D89555>Picco di crescita</color> <i><color=#F0DAA0>[turno]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Utilizza calcoli precisi per determinare il fiancheggiamento <color=#F0DAA0>[potrebbe avere un impatto sulle prestazioni sulle macchine lente]</color></i>

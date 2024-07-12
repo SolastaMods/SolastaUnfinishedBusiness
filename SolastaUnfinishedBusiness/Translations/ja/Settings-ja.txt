@@ -317,6 +317,7 @@ ModUi/&UnlockGlowingEyeColors=輝く目の色を追加する
 ModUi/&UnlockMarkAndTattoosForAllCharacters=すべてのキャラクターの<color=#D89555>ソーサラー</color>のオリジンマークとタトゥーをロック解除する
 ModUi/&UnlockSkinColors=肌の色のロックを解除する
 ModUi/&Update=<b><color=#D89555>更新</color></b>
+ModUi/&UseAlternateSpellPointsSystem=バリアント <color=#D89555>スペルポイント</color> システム <i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i> を使用します。
 ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>ティーフリング</color>で<color=#D89555>エルフ</color>の顔モデルを使用する
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>黒い触手、絡まり、グリース</color> <i><color=#F0DAA0>[square]</color></i> または <color=#D89555 をキャストするときに高さ 1 のシリンダー効果を使用します>スパイク成長</color> <i><color=#F0DAA0>[ラウンド]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ 正確な計算を使用して側面攻撃を決定します<color=#F0DAA0>[遅いマシンではパフォーマンスに影響を与える可能性があります]</color></i>

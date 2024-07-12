@@ -317,6 +317,7 @@ ModUi/&UnlockGlowingEyeColors=빛나는 눈 색깔 추가
 ModUi/&UnlockMarkAndTattoosForAllCharacters=모든 캐릭터의 <color=#D89555>소서러</color> 원산지 표시와 문신을 잠금 해제하세요.
 ModUi/&UnlockSkinColors=피부색 잠금 해제
 ModUi/&Update=<b><color=#D89555>업데이트</color></b>
+ModUi/&UseAlternateSpellPointsSystem=변형 <color=#D89555>주문 포인트</color> 시스템 사용 <i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color>에서 <color=#D89555>엘프</color> 얼굴 모델을 사용하세요.
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> 또는 <color=#D89555>를 시전할 때 높이 1 원통 효과를 사용하세요. 급상승</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ 정확한 수학을 사용하여 측면 공격 결정 <color=#F0DAA0>[느린 시스템에서는 성능에 영향을 미칠 수 있음]</color></i>

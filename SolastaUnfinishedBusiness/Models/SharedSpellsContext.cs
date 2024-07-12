@@ -54,7 +54,7 @@ internal static class SharedSpellsContext
     };
 
     // supports auto prepared spells scenarios on subs
-    private static CasterProgression GetCasterTypeForClassOrSubclass(
+    internal static CasterProgression GetCasterTypeForClassOrSubclass(
         [CanBeNull] string characterClassDefinition,
         string characterSubclassDefinition)
     {

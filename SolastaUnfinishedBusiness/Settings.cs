@@ -237,6 +237,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // SRD
+    public bool UseAlternateSpellPointsSystem { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
     public bool UseMathFlankingRules { get; set; }
