@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -241,7 +240,8 @@ internal static class RaceMalakhBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D4))
-                    .SetImpactEffectParameters(FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.impactParticleReference)
+                    .SetImpactEffectParameters(FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite
+                        .impactParticleReference)
                     .Build())
             .AddToDB();
 
@@ -252,12 +252,12 @@ internal static class RaceMalakhBuilder
             .Create($"Condition{Name}AngelicRadiance")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDivineFavor)
             .SetConditionType(ConditionType.Beneficial)
+            .SetPossessive()
             .AddFeatures(additionalDamageMalakhAngelicForm, powerMalakhAngelicRadianceDamage)
+            .AddCustomSubFeatures(
+                AddUsablePowersFromCondition.Marker,
+                new CharacterTurnEndListenerAngelicRadiance(powerMalakhAngelicRadianceDamage))
             .AddToDB();
-
-        conditionAngelicRadiance.AddCustomSubFeatures(
-            AddUsablePowersFromCondition.Marker,
-            new CharacterTurnEndListenerAngelicRadiance(conditionAngelicRadiance, powerMalakhAngelicRadianceDamage));
 
         var faerieFireLightSource =
             SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
@@ -280,6 +280,7 @@ internal static class RaceMalakhBuilder
                                 faerieFireLightSource.lightSourceForm.color,
                                 faerieFireLightSource.lightSourceForm.graphicsPrefabReference)
                             .Build())
+                    .SetCasterEffectParameters(SpellDefinitions.BrandingSmite)
                     .Build())
             .AddToDB();
 
@@ -317,7 +318,6 @@ internal static class RaceMalakhBuilder
     }
 
     private sealed class CharacterTurnEndListenerAngelicRadiance(
-        ConditionDefinition conditionAngelicRadiance,
         FeatureDefinitionPower powerAngelicRadianceDamage) : ICharacterBeforeTurnEndListener
     {
         public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
@@ -327,17 +327,8 @@ internal static class RaceMalakhBuilder
                 return;
             }
 
-            var rulesetDefender = locationCharacter.RulesetCharacter;
+            var rulesetAttacker = locationCharacter.RulesetCharacter;
 
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionAngelicRadiance.Name, out var activeCondition))
-            {
-                return;
-            }
-
-            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
-            var attacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
@@ -351,7 +342,7 @@ internal static class RaceMalakhBuilder
             }
 
             var usablePower = PowerProvider.Get(powerAngelicRadianceDamage, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.SpendPower)
             {
                 ActionModifiers = actionModifiers,
                 RulesetEffect = implementationManager

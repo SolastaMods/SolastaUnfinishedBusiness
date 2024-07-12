@@ -448,6 +448,8 @@ Once per rest as a free action, you can choose one benefit which will last until
 
 When you hit a creature with your natural weapons while you are raging, the beast within you can curse your target with rabid fury. The target must succeed on a Wisdom saving throw (DC equal to 8 + your Constitution modifier + your proficiency bonus) or suffer one of the following effects (your choice).
 
+You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+
 * Infectious Fury: Compelled Strike
 
 Target attacks another creature of your choice within the target's reach.
@@ -2984,6 +2986,10 @@ For battle masters, a battle is a test of wit as much as a test of might. They e
 
 
 ### Level 3
+
+* Additional Superiority Die
+
+You gain an additional superiority die.
 
 * Maneuvers
 
