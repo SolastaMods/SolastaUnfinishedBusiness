@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -38,6 +39,24 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         // Elemental Fury
 
+        var powerStorm = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Storm")
+            .SetGuiPresentation($"Ancestry{Name}Wildfire", Category.Feature,
+                Gui.Format($"Feature/&Ancestry{Name}AllDescription", Gui.Localize("Rules/&DamageLightningTitle")),
+                hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeLightning, 1, DieType.D6))
+                    .SetImpactEffectParameters(SpellDefinitions.LightningBolt)
+                    .Build())
+            .AddToDB();
+
+        powerStorm.AddCustomSubFeatures(new ModifyEffectDescriptionElementalFuryDamage(powerStorm));
+
         var ancestryStorm = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Storm")
             .SetGuiPresentation(Category.Feature,
@@ -46,8 +65,25 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetDamageType(DamageTypeLightning)
             .AddToDB();
 
-        ancestryStorm.AddCustomSubFeatures(
-            new CharacterTurnEndedElementalFury(ancestryStorm, SpellDefinitions.LightningBolt));
+        ancestryStorm.AddCustomSubFeatures(new CharacterTurnEndedElementalFury(powerStorm));
+
+        var powerBlizzard = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Blizzard")
+            .SetGuiPresentation($"Ancestry{Name}Wildfire", Category.Feature,
+                Gui.Format($"Feature/&Ancestry{Name}AllDescription", Gui.Localize("Rules/&DamageColdTitle")),
+                hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeCold, 1, DieType.D6))
+                    .SetImpactEffectParameters(SpellDefinitions.RayOfFrost)
+                    .Build())
+            .AddToDB();
+
+        powerBlizzard.AddCustomSubFeatures(new ModifyEffectDescriptionElementalFuryDamage(powerBlizzard));
 
         var ancestryBlizzard = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Blizzard")
@@ -57,8 +93,25 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetDamageType(DamageTypeCold)
             .AddToDB();
 
-        ancestryBlizzard.AddCustomSubFeatures(
-            new CharacterTurnEndedElementalFury(ancestryBlizzard, SpellDefinitions.RayOfFrost));
+        ancestryBlizzard.AddCustomSubFeatures(new CharacterTurnEndedElementalFury(powerBlizzard));
+
+        var powerWildfire = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Wildfire")
+            .SetGuiPresentation($"Ancestry{Name}Wildfire", Category.Feature,
+                Gui.Format($"Feature/&Ancestry{Name}AllDescription", Gui.Localize("Rules/&DamageFireTitle")),
+                hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 1, DieType.D6))
+                    .SetImpactEffectParameters(SpellDefinitions.FireBolt)
+                    .Build())
+            .AddToDB();
+
+        powerWildfire.AddCustomSubFeatures(new ModifyEffectDescriptionElementalFuryDamage(powerWildfire));
 
         var ancestryWildfire = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Wildfire")
@@ -68,8 +121,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetDamageType(DamageTypeFire)
             .AddToDB();
 
-        ancestryWildfire.AddCustomSubFeatures(
-            new CharacterTurnEndedElementalFury(ancestryWildfire, SpellDefinitions.FireBolt));
+        ancestryWildfire.AddCustomSubFeatures(new CharacterTurnEndedElementalFury(powerWildfire));
 
         // keep sorted
         FeatureSetElementalFury.FeatureSet.Add(ancestryBlizzard);
@@ -418,9 +470,52 @@ public sealed class PathOfTheElements : AbstractSubclass
     // Elemental Fury
     //
 
-    private sealed class CharacterTurnEndedElementalFury(
-        FeatureDefinitionAncestry ancestry,
-        IMagicEffect magicEffect)
+    private sealed class ModifyEffectDescriptionElementalFuryDamage(FeatureDefinitionPower powerDamage)
+        : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerDamage;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var classLevel = character.GetClassLevel(CharacterClassDefinitions.Barbarian);
+            int diceNumber;
+            DieType dieType;
+
+            switch (classLevel)
+            {
+                case < 6:
+                    diceNumber = 1;
+                    dieType = DieType.D6;
+                    break;
+                case < 10:
+                    diceNumber = 1;
+                    dieType = DieType.D10;
+                    break;
+                case < 14:
+                    diceNumber = 2;
+                    dieType = DieType.D6;
+                    break;
+                default:
+                    diceNumber = 2;
+                    dieType = DieType.D10;
+                    break;
+            }
+
+            effectDescription.EffectForms[0].DamageForm.DiceNumber = diceNumber;
+            effectDescription.EffectForms[0].DamageForm.DieType = dieType;
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class CharacterTurnEndedElementalFury(FeatureDefinitionPower powerDamage)
         : ICharacterBeforeTurnEndListener
     {
         public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
@@ -437,63 +532,31 @@ public sealed class PathOfTheElements : AbstractSubclass
                 return;
             }
 
-            foreach (var targetLocationCharacter in Gui.Battle
-                         .GetContenders(locationCharacter, withinRange: 1))
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var targets = Gui.Battle.GetContenders(locationCharacter, withinRange: 1);
+
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
             {
-                var rulesetDefender = targetLocationCharacter.RulesetCharacter;
-                var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
-                int diceNumber;
-                DieType dieType;
-
-                switch (classLevel)
-                {
-                    case < 6:
-                        diceNumber = 1;
-                        dieType = DieType.D6;
-                        break;
-                    case < 10:
-                        diceNumber = 1;
-                        dieType = DieType.D10;
-                        break;
-                    case < 14:
-                        diceNumber = 2;
-                        dieType = DieType.D6;
-                        break;
-                    default:
-                        diceNumber = 2;
-                        dieType = DieType.D10;
-                        break;
-                }
-
-                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                {
-                    sourceCharacter = rulesetAttacker,
-                    targetCharacter = rulesetDefender,
-                    position = targetLocationCharacter.LocationPosition
-                };
-
-                var damageForm = new DamageForm
-                {
-                    DamageType = ancestry.damageType,
-                    DieType = dieType,
-                    DiceNumber = diceNumber,
-                    BonusDamage = 0,
-                    IgnoreCriticalDoubleDice = true
-                };
-
-                EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, magicEffect);
-
-                var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
-                implementationService.ApplyEffectForms(
-                    [new EffectForm { damageForm = damageForm }],
-                    applyFormsParams,
-                    [ancestry.damageType],
-                    out _,
-                    out _);
-
-                rulesetAttacker.LogCharacterUsedFeature(ancestry);
+                actionModifiers.Add(new ActionModifier());
             }
+
+            var usablePower = PowerProvider.Get(powerDamage, rulesetAttacker);
+            var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.SpendPower)
+            {
+                ActionModifiers = actionModifiers,
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
+            };
+
+            rulesetAttacker.LogCharacterUsedPower(powerDamage);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
