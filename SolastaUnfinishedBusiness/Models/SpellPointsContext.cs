@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpellPointsContext
 {
-    private static readonly List<int> SpellCostByLevel = [0, 2, 3, 5, 6, 7, 9, 10, 11, 13];
+    internal static readonly List<int> SpellCostByLevel = [0, 2, 3, 5, 6, 7, 9, 10, 11, 13];
     private static readonly List<SlotsByLevelDuplet> FullCastingSlots = [];
     private static readonly List<SlotsByLevelDuplet> HalfCastingSlots = [];
     private static readonly List<SlotsByLevelDuplet> HalfRoundUpCastingSlots = [];
@@ -116,11 +116,6 @@ internal static class SpellPointsContext
 
     internal static void RefreshSpellRepertoire(RulesetCharacterHero hero)
     {
-        if (hero == null)
-        {
-            return;
-        }
-
         var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
         var activeConditions = hero.AllConditions.ToList();
 
@@ -148,6 +143,50 @@ internal static class SpellPointsContext
             if (removeCondition)
             {
                 hero.RemoveCondition(activeCondition);
+            }
+        }
+    }
+
+    internal static void RefreshActionPanel()
+    {
+        var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
+
+        if (gameLocationScreenExploration.Visible)
+        {
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var panel in gameLocationScreenExploration.CharacterControlPanel.ActionPanels)
+            {
+                foreach (var characterActionItem in
+                         panel.actionItems.Where(x =>
+                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
+                             DatabaseHelper.ActionDefinitions.CastMain ||
+                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
+                             DatabaseHelper.ActionDefinitions.CastBonus))
+                {
+                    characterActionItem.CurrentItemForm.Refresh();
+                }
+            }
+
+            return;
+        }
+
+        var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
+
+        // ReSharper disable once InvertIf
+        if (gameLocationScreenBattle.Visible)
+        {
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var panel in gameLocationScreenBattle.CharacterControlPanel.ActionPanels)
+            {
+                foreach (var characterActionItem in
+                         panel.actionItems.Where(x =>
+                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
+                             DatabaseHelper.ActionDefinitions.CastMain ||
+                             x.CurrentItemForm.GuiCharacterAction.ActionDefinition ==
+                             DatabaseHelper.ActionDefinitions.CastBonus))
+                {
+                    characterActionItem.CurrentItemForm.Refresh();
+                }
             }
         }
     }

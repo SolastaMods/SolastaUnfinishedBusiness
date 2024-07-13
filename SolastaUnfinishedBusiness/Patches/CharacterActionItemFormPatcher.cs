@@ -52,7 +52,8 @@ public static class CharacterActionItemFormPatcher
             highSlotNumber.gameObject.SetActive(true);
             useSlotsTable.gameObject.SetActive(false);
             highSlotNumber.Text = remainingUsesOfPower.ToString();
-            highSlotNumber.GuiTooltip.Content = "Screen/&SpellAlternatePointsTooltip";
+            highSlotNumber.GuiTooltip.Content =
+                Gui.Format("Screen/&SpellAlternatePointsTooltip", remainingUsesOfPower.ToString());
         }
 
         [UsedImplicitly]

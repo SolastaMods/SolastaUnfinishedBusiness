@@ -62,6 +62,12 @@ public static class FlexibleCastingItemPatcher
         [UsedImplicitly]
         public static void Prefix(FlexibleCastingItem __instance)
         {
+            //PATCH: support alternate spell system to ensure points display is refreshed (SPELL_POINTS)
+            if (Main.Settings.UseAlternateSpellPointsSystem)
+            {
+                SpellPointsContext.RefreshActionPanel();
+            }
+
             //PATCH: ensures slot colors are white before getting back to pool (MULTICLASS)
             MulticlassGameUiContext.PaintSlotsWhite(__instance.slotStatusTable);
         }

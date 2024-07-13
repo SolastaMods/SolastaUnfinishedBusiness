@@ -139,9 +139,10 @@ internal static class MulticlassGameUiContext
         int totalSlotsCount,
         int totalSlotsRemainingCount,
         int slotLevel,
-        [NotNull] RectTransform rectTransform,
+        SlotStatusTable slotStatusTable,
         bool ignorePactSlots = false)
     {
+        var rectTransform = slotStatusTable.table;
         var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
         var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
@@ -198,6 +199,11 @@ internal static class MulticlassGameUiContext
                 {
                     component.Used.gameObject.SetActive(false);
                     component.Available.gameObject.SetActive(false);
+
+                    var cost = SpellPointsContext.SpellCostByLevel[slotLevel].ToString();
+
+                    slotStatusTable.slotsText.gameObject.SetActive(true);
+                    slotStatusTable.slotsText.Text = Gui.Format("Screen/&SpellAlternatePointsCostTooltip", cost);
                 }
                 else
                 {

@@ -1248,7 +1248,10 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Prefix(RulesetCharacter __instance)
         {
-            if (Main.Settings.UseAlternateSpellPointsSystem)
+            var hero = __instance.GetOriginalHero();
+
+            if (hero != null &&
+                Main.Settings.UseAlternateSpellPointsSystem)
             {
                 SpellPointsContext.RefreshSpellRepertoire(__instance.GetOriginalHero());
             }

@@ -21,6 +21,11 @@ internal static class RulesDisplay
             SpellPointsContext.SwitchFeatureDefinitionCastSpellSlots();
         }
 
+        UI.Label();
+        UI.Label();
+        UI.Label();
+        UI.Label();
+
         toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
         {

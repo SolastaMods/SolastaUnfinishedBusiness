@@ -63,7 +63,7 @@ public static class SlotStatusTablePatcher
 
             if (!SharedSpellsContext.IsMulticaster(hero))
             {
-                if (!Main.Settings.UseAlternateSpellPointsSystem || spellRepertoire?.spellCastingClass == Warlock)
+                if (!Main.Settings.UseAlternateSpellPointsSystem || spellRepertoire.spellCastingClass == Warlock)
                 {
                     return;
                 }
@@ -75,6 +75,11 @@ public static class SlotStatusTablePatcher
 
                     component.Used.gameObject.SetActive(false);
                     component.Available.gameObject.SetActive(false);
+
+                    var cost = SpellPointsContext.SpellCostByLevel[spellLevel].ToString();
+
+                    __instance.slotsText.gameObject.SetActive(true);
+                    __instance.slotsText.Text = Gui.Format("Screen/&SpellAlternatePointsCostTooltip", cost);
                 }
 
                 return;
@@ -87,7 +92,7 @@ public static class SlotStatusTablePatcher
                 totalSlotsCount,
                 totalSlotsRemainingCount,
                 spellLevel,
-                __instance.table,
+                __instance,
                 (Global.InspectedHero != null && spellRepertoire.spellCastingClass == Warlock)
                 || (Global.InspectedHero == null && !Main.Settings.DisplayPactSlotsOnSpellSelectionPanel));
         }
