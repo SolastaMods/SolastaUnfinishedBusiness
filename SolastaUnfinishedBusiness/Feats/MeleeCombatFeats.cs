@@ -46,9 +46,6 @@ internal static class MeleeCombatFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        // kept for backward compatibility
-        _ = BuildHammerThePoint();
-
         var featAlwaysReady = BuildAlwaysReady();
         var featBladeMastery = BuildBladeMastery();
         var featCharger = BuildCharger();
@@ -827,89 +824,6 @@ internal static class MeleeCombatFeats
             actionService.ReactToUsePower(actionParams, "UsePower", helper);
 
             yield return battleManager.WaitForReactions(attacker, actionService, count);
-        }
-    }
-
-    #endregion
-
-    #region Hammer the Point
-
-    private static FeatDefinition BuildHammerThePoint()
-    {
-        const string Name = "FeatHammerThePoint";
-
-        var conditionHammerThePoint = ConditionDefinitionBuilder
-            .Create($"Condition{Name}HammerThePoint")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
-            .AllowMultipleInstances()
-            .AddToDB();
-
-        var additionalDamageHammerThePoint = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}HammerThePoint")
-            .SetGuiPresentationNoContent(true)
-            .SetAttackModeOnly()
-            .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionHammerThePoint)
-            .AddToDB();
-
-        var featHammerThePoint = FeatDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Feat, hidden: true)
-            .SetFeatures(additionalDamageHammerThePoint)
-            .AddToDB();
-
-        additionalDamageHammerThePoint.AddCustomSubFeatures(
-            new PhysicalAttackInitiatedByMeFeatHammerThePoint(conditionHammerThePoint, featHammerThePoint));
-
-        return featHammerThePoint;
-    }
-
-    private sealed class PhysicalAttackInitiatedByMeFeatHammerThePoint(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionHammerThePoint,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatDefinition featHammerThePoint)
-        : IPhysicalAttackInitiatedByMe
-    {
-        public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
-        {
-            var rulesetDefender = defender.RulesetActor;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var attackedThisTurnCount = rulesetDefender.AllConditions
-                .Count(x => x.ConditionDefinition == conditionHammerThePoint);
-
-            if (attackedThisTurnCount == 0)
-            {
-                yield break;
-            }
-
-            var trendInfo = new TrendInfo(
-                attackedThisTurnCount, FeatureSourceType.Feat, featHammerThePoint.Name, featHammerThePoint);
-
-            attackModifier.AttackRollModifier += attackedThisTurnCount;
-            attackModifier.AttacktoHitTrends.Add(trendInfo);
-
-            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                yield break;
-            }
-
-            damage.BonusDamage += attackedThisTurnCount;
-            damage.DamageBonusTrends.Add(trendInfo);
         }
     }
 

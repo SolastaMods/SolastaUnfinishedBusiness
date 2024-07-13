@@ -43,9 +43,6 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        // kept for backward compatibility
-        _ = BuildAstralArms();
-
         var featAcrobat = BuildAcrobat();
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featDungeonDelver = BuildDungeonDelver();
@@ -200,28 +197,6 @@ internal static class OtherFeats
                 MartialArcaneArcher.ActionAffinityArcaneArcherToggle)
             .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
-    }
-
-    #endregion
-
-    #region Astral Arms
-
-    private static FeatDefinition BuildAstralArms()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatAstralArms")
-            .SetGuiPresentation(Category.Feat, hidden: true)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Maraike)
-            .AddCustomSubFeatures(
-                new CanMakeAoOOnReachEntered { AllowRange = false, WeaponValidator = ValidWeapon },
-                new IncreaseWeaponReach(1, ValidWeapon))
-            .AddToDB();
-
-        static bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
-        {
-            return ValidatorsWeapon.IsUnarmed(attackMode);
-        }
     }
 
     #endregion
