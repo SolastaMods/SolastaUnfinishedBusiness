@@ -90,6 +90,7 @@ internal static class CreditsDisplay
         ("Thaladar", "QA, monster portraits, sample portraits"),
         ("Zeke", "sample portraits"),
         ("Digital Primus", "sample portraits"),
+        ("sunny_d", "sample portraits"),
 
         ("team-waldo", "korean translations"),
         ("Dovel", "russian translations"),

@@ -14,19 +14,7 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&SRD"));
         UI.Label();
 
-        var toggle = Main.Settings.UseAlternateSpellPointsSystem;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseAlternateSpellPointsSystem"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseAlternateSpellPointsSystem = toggle;
-            SpellPointsContext.SwitchFeatureDefinitionCastSpellSlots();
-        }
-
-        UI.Label();
-        UI.Label();
-        UI.Label();
-        UI.Label();
-
-        toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
+        var toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
@@ -90,12 +78,6 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchOfficialFoodRationsWeight();
         }
 
-        toggle = Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
-        }
-
         toggle = Main.Settings.UseOfficialLightingObscurementAndVisionRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
         {
@@ -108,11 +90,10 @@ internal static class RulesDisplay
             LightingAndObscurementContext.SwitchOfficialObscurementRules();
         }
 
-        UI.Label();
-        UI.Label();
-
         if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
+            UI.Label(Gui.Localize("ModUi/&UseOfficialObscurementRulesHelp"));
+
             toggle = Main.Settings.OfficialObscurementRulesInvisibleCreaturesCanBeTarget;
             if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget"), ref toggle,
                     UI.AutoWidth()))
@@ -149,6 +130,29 @@ internal static class RulesDisplay
                 Main.Settings.OfficialObscurementRulesTweakMonsters = toggle;
                 LightingAndObscurementContext.SwitchMonstersOnObscurementRules();
             }
+
+            if (Main.Settings.OfficialObscurementRulesTweakMonsters)
+            {
+                UI.Label(Gui.Localize("ModUi/&OfficialObscurementRulesTweakMonstersHelp"));
+            }
+        }
+
+        toggle = Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
+        }
+
+        toggle = Main.Settings.UseAlternateSpellPointsSystem;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseAlternateSpellPointsSystem"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseAlternateSpellPointsSystem = toggle;
+            SpellPointsContext.SwitchFeatureDefinitionCastSpellSlots();
+        }
+
+        if (Main.Settings.UseAlternateSpellPointsSystem)
+        {
+            UI.Label(Gui.Localize("ModUi/&UseAlternateSpellPointsSystemHelp"));
         }
 
         UI.Label();
