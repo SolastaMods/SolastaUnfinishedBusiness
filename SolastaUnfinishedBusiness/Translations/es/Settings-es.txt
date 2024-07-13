@@ -317,7 +317,7 @@ ModUi/&UnlockGlowingEyeColors=Añade colores de ojos brillantes
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloquea marcas de origen y tatuajes de <color=#D89555>Hechicero</color> para todos los personajes.
 ModUi/&UnlockSkinColors=Desbloquear colores de piel
 ModUi/&Update=<b><color=#D89555>Actualizar</color></b>
-ModUi/&UseAlternateSpellPointsSystem=Utilice la variante <color=#D89555>Spell Points</color> del sistema <i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i>
+ModUi/&UseAlternateSpellPointsSystem=Usa la variante del sistema <color=#D89555>Puntos de hechizo</color>\n<i><color=#F0DAA0>[Tienes una reserva de puntos de hechizo que aumenta con el nivel del lanzador\nL01: 04, L02: 06 , L03: 14, L04: 17, L05: 27, L06: 32, L07: 38, L08: 44, L09: 57, L10: 64\nL11: 73, L12: 73, L13: 83, L14: 83 , L15: 94, L16: 94, L17: 107, L18: 114, L19: 123, L20: 133\nEl coste de lanzar hechizos usando este grupo es L1: 2, L2: 3, L3: 5, L4: 6 , L5: 7, L6: 9, L7: 10, L8: 11, L9: 13\nLas funciones de recuperación de espacios de descanso breves no se activarán en este sistema]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Utilice modelos de cara de <color=#D89555>Elfo</color> en <color=#D89555>Teflings</color>
 ModUi/&UseHeightOneCylinderEffect=Utilice un efecto de cilindro de altura 1 al lanzar <color=#D89555>Tentáculos negros, Enredar, Grasa</color> <i><color=#F0DAA0>[cuadrado]</color></i> o <color=#D89555>Crecimiento máximo</color> <i><color=#F0DAA0>[ronda]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Utilice matemáticas precisas para determinar el flanqueo <color=#F0DAA0>[puede tener un impacto en el rendimiento en máquinas lentas]</color></i>

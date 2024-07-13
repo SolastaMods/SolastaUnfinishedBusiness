@@ -317,7 +317,7 @@ ModUi/&UnlockGlowingEyeColors=添加亮色的眼睛
 ModUi/&UnlockMarkAndTattoosForAllCharacters=解锁所有角色的<color=#D89555>术士</color>起源标记和纹身
 ModUi/&UnlockSkinColors=解锁肤色
 ModUi/&Update=<b><color=#D89555>更新</color></b>
-ModUi/&UseAlternateSpellPointsSystem=使用变体<color=#D89555>法术点数</color>系统<i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i>
+ModUi/&UseAlternateSpellPointsSystem=使用变体<color=#D89555>法术点</color>系统{99><i><color=#F0DAA0>[你拥有一个随施法者等级增加的法术点池\nL01：04、L02：06、L03：14、L04：17、L05：27、L06：32、L07：38、L08：44、L09：57、L10：64\nL11：73、L12：73、L13：83、L14：83、L15：94、L16：94、L17：107、L18：114、L19：123、L20：133\n使用此池施放法术所需的成本为 L1：2、L2：3， L3：5、L4：6、L5：7、L6：9、L7：10、L8：11、L9：13\n在此系统下不会触发短暂休息时段恢复功能]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=在<color=#D89555>提夫林</color>上使用<color=#D89555>精灵</color>的面部模型
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>黑色触手、纠缠、油腻</color><i><color=#F0DAA0>[方形]</color></i>或<color=#D89555>荆棘丛生</color><i><color=#F0DAA0>[圆形]</color></i>时使用高度为1的立体效果
 ModUi/&UseMathFlankingRules=<i>+ 使用精确的数学来确定侧翼 <color=#F0DAA0>[可能会对慢速机器产生性能影响]</color></i>

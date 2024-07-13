@@ -317,7 +317,7 @@ ModUi/&UnlockGlowingEyeColors=빛나는 눈 색깔 추가
 ModUi/&UnlockMarkAndTattoosForAllCharacters=모든 캐릭터의 <color=#D89555>소서러</color> 원산지 표시와 문신을 잠금 해제하세요.
 ModUi/&UnlockSkinColors=피부색 잠금 해제
 ModUi/&Update=<b><color=#D89555>업데이트</color></b>
-ModUi/&UseAlternateSpellPointsSystem=변형 <color=#D89555>주문 포인트</color> 시스템 사용 <i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i>
+ModUi/&UseAlternateSpellPointsSystem=변형 <color=#D89555>주문 포인트</color> 시스템 사용\n<i><color=#F0DAA0>[시전자 레벨에 따라 증가하는 주문 포인트 풀이 있습니다.\nL01: 04, L02: 06 , L03: 14, L04: 17, L05: 27, L06: 32, L07: 38, L08: 44, L09: 57, L10: 64\nL11: 73, L12: 73, L13: 83, L14: 83 , L15: 94, L16: 94, L17: 107, L18: 114, L19: 123, L20: 133\n이 풀을 사용하여 주문을 시전하는 데 드는 비용은 L1: 2, L2: 3, L3: 5, L4: 6입니다. , L5: 7, L6: 9, L7: 10, L8: 11, L9: 13\n이 시스템에서는 짧은 휴식 슬롯 복구 기능이 실행되지 않습니다.]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color>에서 <color=#D89555>엘프</color> 얼굴 모델을 사용하세요.
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> 또는 <color=#D89555>를 시전할 때 높이 1 원통 효과를 사용하세요. 급상승</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ 정확한 수학을 사용하여 측면 공격 결정 <color=#F0DAA0>[느린 시스템에서는 성능에 영향을 미칠 수 있음]</color></i>

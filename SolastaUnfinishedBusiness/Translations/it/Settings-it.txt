@@ -317,7 +317,7 @@ ModUi/&UnlockGlowingEyeColors=Aggiungi colori luminosi per gli occhi
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Sblocca i segni di origine e i tatuaggi <color=#D89555>Stregone</color> per tutti i personaggi
 ModUi/&UnlockSkinColors=Sblocca i colori della pelle
 ModUi/&Update=<b><color=#D89555>Aggiorna</color></b>
-ModUi/&UseAlternateSpellPointsSystem=Utilizza la variante <color=#D89555>Punti incantesimo</color> del sistema <i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i>
+ModUi/&UseAlternateSpellPointsSystem=Usa la variante <color=#D89555>Punti incantesimo</color> del sistema\n<i><color=#F0DAA0>[Hai una riserva di punti incantesimo che aumenta con il livello dell'incantatore\nL01: 04, L02: 06 , L03: 14, L04: 17, L05: 27, L06: 32, L07: 38, L08: 44, L09: 57, L10: 64\nL11: 73, L12: 73, L13: 83, L14: 83 , L15: 94, L16: 94, L17: 107, L18: 114, L19: 123, L20: 133\nIl costo per lanciare incantesimi usando questa riserva è L1: 2, L2: 3, L3: 5, L4: 6 , L5: 7, L6: 9, L7: 10, L8: 11, L9: 13\nLe funzionalità di recupero degli slot di riposo brevi non verranno attivate con questo sistema]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Usa i modelli del volto di <color=#D89555>Elfo</color> su <color=#D89555>Tiefling</color>
 ModUi/&UseHeightOneCylinderEffect=Usa un effetto del cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralciare, Ungere</color> <i><color=#F0DAA0>[quadrato]</color></i> o <color=#D89555>Picco di crescita</color> <i><color=#F0DAA0>[turno]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Utilizza calcoli precisi per determinare il fiancheggiamento <color=#F0DAA0>[potrebbe avere un impatto sulle prestazioni sulle macchine lente]</color></i>

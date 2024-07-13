@@ -317,7 +317,7 @@ ModUi/&UnlockGlowingEyeColors=Fügen Sie leuchtende Augenfarben hinzu
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Schalte <color=#D89555>Zauberer</color>-Ursprungsmarkierungen und Tätowierungen für alle Charaktere frei
 ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&Update=<b><color=#D89555>Aktualisieren</color></b>
-ModUi/&UseAlternateSpellPointsSystem=Verwenden Sie das alternative <color=#D89555>Zauberpunkte</color>-System <i><color=#F0DAA0>[http://dnd5e.wikidot.com/spell-points]</color></i>
+ModUi/&UseAlternateSpellPointsSystem=Benutze das System mit den <color=#D89555>Zauberpunkten</color>\n<i><color=#F0DAA0>[Du hast einen Pool an Zauberpunkten, der mit der Stufe des Zauberers steigt\nL01: 04, L02: 06, L03: 14, L04: 17, L05: 27, L06: 32, L07: 38, L08: 44, L09: 57, L10: 64\nL11: 73, L12: 73, L13: 83, L14: 83, L15: 94, L16: 94, L17: 107, L18: 114, L19: 123, L20: 133\nDie Kosten zum Wirken von Zaubern mit diesem Pool betragen L1: 2, L2: 3, L3: 5, L4: 6, L5: 7, L6: 9, L7: 10, L8: 11, L9: 13\nDie Wiederherstellungsfunktionen für kurze Ruhezeiten werden unter diesem System nicht ausgelöst]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Verwenden Sie <color=#D89555>Elfen</color>-Gesichtsmodelle für <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> oder <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Verwenden Sie präzise Mathematik, um flankierende <color=#F0DAA0>[kann sich auf langsamen Maschinen auf die Leistung auswirken]</color></i> zu bestimmen
