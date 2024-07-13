@@ -117,18 +117,24 @@ internal static class SpellPointsContext
 
     internal static void RefreshSpellRepertoire(RulesetCharacterHero hero)
     {
+        var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
+        
         foreach (var spellRepertoire in hero.SpellRepertoires
                      .Where(x =>
                          x.SpellCastingFeature.SpellCastingOrigin is CastingOrigin.Class or CastingOrigin.Subclass))
         {
-            if (spellRepertoire.spellsSlotCapacities.ContainsKey(1))
+            for (var i = 1; i <= 9; i++)
             {
-                spellRepertoire.spellsSlotCapacities[1] = 1;
-            }
+                if (!spellRepertoire.spellsSlotCapacities.ContainsKey(i))
+                {
+                    continue;
+                }
 
-            for (var i = 2; i <= 9; i++)
-            {
-                spellRepertoire.spellsSlotCapacities.Remove(i);
+                while (spellRepertoire.spellsSlotCapacities[i] > 1)
+                {
+                    spellRepertoire.spellsSlotCapacities[i] -= 1;
+                    usablePower.remainingUses++;
+                }
             }
         }
     }
@@ -166,26 +172,9 @@ internal static class SpellPointsContext
         public int PoolChangeAmount(RulesetCharacter character)
         {
             var hero = character.GetOriginalHero();
-
-            if (hero == null)
-            {
-                return 0;
-            }
-
-            var bonusPoints = 0;
             var casterLevel = GetCasterLevel(hero);
 
-            foreach (var additionalSlot in hero.FeaturesToBrowse
-                         .OfType<FeatureDefinitionMagicAffinity>()
-                         // special Warlock case so we should discard it here
-                         .Where(x => x != MagicAffinityChitinousBoonAdditionalSpellSlot)
-                         .OfType<ISpellCastingAffinityProvider>()
-                         .SelectMany(x => x.AdditionalSlots))
-            {
-                bonusPoints += SpellPointsByLevel[additionalSlot.SlotLevel];
-            }
-
-            return SpellPointsByLevel[casterLevel] + bonusPoints;
+            return SpellPointsByLevel[casterLevel];
         }
 
         private static int GetCasterLevel(RulesetCharacterHero hero)
