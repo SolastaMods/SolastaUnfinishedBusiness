@@ -7,6 +7,13 @@
 - fixed Ring of Knifes spell missing to-hit modifiers on power
 - fixed Scatter spell not allowing enemies selection
 
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses
+- Lightning Arrow won't trigger custom behaviors if target dies from damage on a miss
+- Guardian Aura won't trigger custom behaviors if self dies on swapped damage taken
+
 1.5.97.19:
 
 all fixes marked with * were introduced with the IsMelee change on v18
@@ -33,10 +40,6 @@ all fixes marked with * were introduced with the IsMelee change on v18
 * fixed Wendigo natural lunger increase weapon reach validator
 * fixed Wyrmkin reactive retribution attack mode validator
 
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses
 
 1.5.97.18:
 
