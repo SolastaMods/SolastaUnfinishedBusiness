@@ -116,24 +116,38 @@ internal static class SpellPointsContext
 
     internal static void RefreshSpellRepertoire(RulesetCharacterHero hero)
     {
-        var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
-        
-        foreach (var spellRepertoire in hero.SpellRepertoires
-                     .Where(x =>
-                         x.SpellCastingFeature.SpellCastingOrigin is CastingOrigin.Class or CastingOrigin.Subclass))
+        if (hero == null)
         {
-            for (var i = 1; i <= 9; i++)
-            {
-                if (!spellRepertoire.spellsSlotCapacities.ContainsKey(i))
-                {
-                    continue;
-                }
+            return;
+        }
 
-                while (spellRepertoire.spellsSlotCapacities[i] > 1)
+        var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
+        var activeConditions = hero.AllConditions.ToList();
+
+        foreach (var activeCondition in activeConditions)
+        {
+            var removeCondition = false;
+
+            foreach (var magicAffinity in activeCondition.ConditionDefinition.Features
+                         .OfType<FeatureDefinitionMagicAffinity>()
+                         .Where(x => x.AdditionalSlots.Count > 0))
+            {
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var additionalSlot in magicAffinity.AdditionalSlots)
                 {
-                    spellRepertoire.spellsSlotCapacities[i] -= 1;
-                    usablePower.remainingUses++;
+                    var slotCount = additionalSlot.SlotsNumber;
+                    var slotLevel = additionalSlot.SlotLevel;
+                    var totalPoints = slotCount * SpellCostByLevel[slotLevel];
+
+                    usablePower.remainingUses += totalPoints;
+
+                    removeCondition = true;
                 }
+            }
+
+            if (removeCondition)
+            {
+                hero.RemoveCondition(activeCondition);
             }
         }
     }
