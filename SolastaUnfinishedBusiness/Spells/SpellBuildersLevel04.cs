@@ -7,7 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Properties;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -17,6 +17,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -310,6 +311,149 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Sickening Radiance
+
+    internal static SpellDefinition BuildSickeningRadiance()
+    {
+        const string NAME = "SickeningRadiance";
+
+        var proxy = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyIndomitableLight, $"Proxy{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+            .AddToDB();
+
+        proxy.addLightSource = true;
+        proxy.lightSourceForm.brightRange = 0;
+        proxy.lightSourceForm.dimAdditionalRange = 6;
+        proxy.lightSourceForm.color = new Color(0.5f, 0.7f, 0.3f, 1.0f);
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionBaned)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Minute, 10)
+            .SetFeatures(
+                FeatureDefinitionConditionAffinityBuilder
+                    .Create($"ConditionAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetConditionType(ConditionInvisibleBase)
+                    .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                    .AddToDB(),
+                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionExhausted)
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedSickeningRadiance())
+            .AddToDB();
+
+        condition.silentWhenRefreshed = true;
+
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedSickeningRadianceSelf(condition))
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SickeningRadiance, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 6)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeRadiant, 4, DieType.D10)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxy)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(conditionMark, ConditionForm.ConditionOperation.Add, true,
+                            true))
+                    .SetCasterEffectParameters(GuardianOfFaith)
+                    .SetEffectEffectParameters(Sunburst)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class OnConditionAddedOrRemovedSickeningRadianceSelf(ConditionDefinition conditionSickenedRadiance)
+        : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                Gui.Battle?.AllContenders ??
+                locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
+
+            foreach (var contender in contenders)
+            {
+                var rulesetContender = contender.RulesetActor;
+
+                if (contender.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionSickenedRadiance.Name, out var activeCondition))
+                {
+                    rulesetContender.RemoveCondition(activeCondition);
+                }
+            }
+        }
+    }
+
+    private sealed class OnConditionAddedOrRemovedSickeningRadiance : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            rulesetCondition.RemainingRounds = caster.ConcentratedSpell.RemainingRounds;
+
+            var lightSourceForm = FaerieFire.EffectDescription
+                .GetFirstFormOfType(EffectForm.EffectFormType.LightSource).LightSourceForm;
+
+            var rulesetLightSource = new RulesetLightSource(new Color(0, 0.6f, 0), 0, 1,
+                lightSourceForm.GraphicsPrefabAssetGUID,
+                LightSourceType.Basic, rulesetCondition.effectDefinitionName, target.Guid);
+
+            caster.ConcentratedSpell.TrackedLightSourceGuids.Add(rulesetLightSource.Guid);
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
     }
 
     #endregion

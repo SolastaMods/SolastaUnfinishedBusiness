@@ -344,6 +344,7 @@ internal static class SpellsContext
         RegisterSpell(BuildIrresistiblePerformance(), 0, SpellListBard);
         RegisterSpell(BuildPsychicLance(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPsionicBlast(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildSickeningRadiance(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(StaggeringSmite, 0, SpellListPaladin);
         RegisterSpell(VitriolicSphere, 0, SpellListSorcerer, SpellListWizard);
 

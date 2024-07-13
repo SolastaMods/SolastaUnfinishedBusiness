@@ -752,6 +752,8 @@ internal static partial class DatabaseHelper
 
     internal static class EffectProxyDefinitions
     {
+        internal static EffectProxyDefinition ProxyIndomitableLight { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyIndomitableLight");
         internal static EffectProxyDefinition ProxyDelayedBlastFireball { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyDelayedBlastFireball");
 
