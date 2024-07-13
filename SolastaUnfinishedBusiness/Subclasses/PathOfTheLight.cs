@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -29,10 +28,6 @@ public sealed class PathOfTheLight : AbstractSubclass
         var faerieFireLightSource =
             FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
-        var invisibleConditions = DatabaseRepository.GetDatabase<ConditionDefinition>()
-            .Where(x => x.IsSubtypeOf(ConditionInvisibleBase.Name))
-            .ToList();
-
         var attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated =
             FeatureDefinitionCombatAffinityBuilder
                 .Create("AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminated")
@@ -46,16 +41,12 @@ public sealed class PathOfTheLight : AbstractSubclass
             .Create("FeatureSetPathOfTheLightIlluminatedPreventInvisibility")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                invisibleConditions.Select(x =>
-                        FeatureDefinitionConditionAffinityBuilder
-                            .Create("ConditionAffinityPathOfTheLightIlluminatedPrevent" +
-                                    x.Name.Replace("Condition", string.Empty))
-                            .SetGuiPresentationNoContent(true)
-                            .SetConditionAffinityType(ConditionAffinityType.Immunity)
-                            .SetConditionType(x)
-                            .AddToDB())
-                    .OfType<FeatureDefinition>()
-                    .ToArray())
+                FeatureDefinitionConditionAffinityBuilder
+                    .Create("ConditionAffinityPathOfTheLightIlluminatedPrevent")
+                    .SetGuiPresentationNoContent(true)
+                    .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                    .SetConditionType(ConditionInvisibleBase)
+                    .AddToDB())
             .AddToDB();
 
         var conditionPathOfTheLightIlluminated = ConditionDefinitionBuilder
@@ -89,11 +80,11 @@ public sealed class PathOfTheLight : AbstractSubclass
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetConditionOperations(
-                invisibleConditions.Select(x =>
-                    new ConditionOperationDescription
-                    {
-                        Operation = ConditionOperationDescription.ConditionOperation.Remove, ConditionDefinition = x
-                    }).ToArray())
+                new ConditionOperationDescription
+                {
+                    Operation = ConditionOperationDescription.ConditionOperation.Remove,
+                    ConditionDefinition = ConditionInvisibleBase
+                })
             .AddConditionOperation(
                 ConditionOperationDescription.ConditionOperation.Add, conditionPathOfTheLightIlluminated)
             .SetAddLightSource(true)

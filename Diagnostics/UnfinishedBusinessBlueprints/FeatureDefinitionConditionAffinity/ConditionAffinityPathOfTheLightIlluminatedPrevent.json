@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionConditionAffinity, Assembly-CSharp",
-  "conditionType": "ConditionInvisible",
+  "conditionType": "ConditionInvisibleBase",
   "savingThrowAdvantageType": "None",
   "savingThrowModifier": 0,
   "conditionAffinityType": "Immunity",
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4f245846-3fab-593a-aa14-45c19f8edb84",
+  "guid": "c815cc55-499c-5563-ac65-644765780373",
   "contentPack": 9999,
-  "name": "ConditionAffinityPathOfTheLightIlluminatedPreventInvisible"
+  "name": "ConditionAffinityPathOfTheLightIlluminatedPrevent"
 }
