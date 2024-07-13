@@ -1248,8 +1248,18 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance)
         {
-            if (__instance is not RulesetCharacterHero hero || !SharedSpellsContext.IsMulticaster(hero))
+            if (__instance is not RulesetCharacterHero hero)
             {
+                return;
+            }
+
+            if (!SharedSpellsContext.IsMulticaster(hero))
+            {
+                if (Main.Settings.UseAlternateSpellPointsSystem)
+                {
+                    SpellPointsContext.RefreshSpellRepertoire(hero);
+                }
+
                 return;
             }
 
@@ -1293,6 +1303,11 @@ public static class RulesetCharacterPatcher
             {
                 spellRepertoire.spellsSlotCapacities = slots.DeepCopy();
                 spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
+            }
+
+            if (Main.Settings.UseAlternateSpellPointsSystem)
+            {
+                SpellPointsContext.RefreshSpellRepertoire(hero);
             }
         }
     }

@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static FeatureDefinitionCastSpell;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -114,6 +115,24 @@ internal static class SpellPointsContext
         repertoire.RepertoireRefreshed?.Invoke(repertoire);
     }
 
+    internal static void RefreshSpellRepertoire(RulesetCharacterHero hero)
+    {
+        foreach (var spellRepertoire in hero.SpellRepertoires
+                     .Where(x =>
+                         x.SpellCastingFeature.SpellCastingOrigin is CastingOrigin.Class or CastingOrigin.Subclass))
+        {
+            if (spellRepertoire.spellsSlotCapacities.ContainsKey(1))
+            {
+                spellRepertoire.spellsSlotCapacities[1] = 1;
+            }
+
+            for (var i = 2; i <= 9; i++)
+            {
+                spellRepertoire.spellsSlotCapacities.Remove(i);
+            }
+        }
+    }
+
     internal static void SwitchFeatureDefinitionCastSpellSlots()
     {
         var db = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
@@ -147,9 +166,26 @@ internal static class SpellPointsContext
         public int PoolChangeAmount(RulesetCharacter character)
         {
             var hero = character.GetOriginalHero();
+
+            if (hero == null)
+            {
+                return 0;
+            }
+
+            var bonusPoints = 0;
             var casterLevel = GetCasterLevel(hero);
 
-            return SpellPointsByLevel[casterLevel];
+            foreach (var additionalSlot in hero.FeaturesToBrowse
+                         .OfType<FeatureDefinitionMagicAffinity>()
+                         // special Warlock case so we should discard it here
+                         .Where(x => x != MagicAffinityChitinousBoonAdditionalSpellSlot)
+                         .OfType<ISpellCastingAffinityProvider>()
+                         .SelectMany(x => x.AdditionalSlots))
+            {
+                bonusPoints += SpellPointsByLevel[additionalSlot.SlotLevel];
+            }
+
+            return SpellPointsByLevel[casterLevel] + bonusPoints;
         }
 
         private static int GetCasterLevel(RulesetCharacterHero hero)
