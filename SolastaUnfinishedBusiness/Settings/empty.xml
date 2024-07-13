@@ -359,6 +359,7 @@
     <UnlockGlowingColorsForAllMarksAndTattoos>false</UnlockGlowingColorsForAllMarksAndTattoos>
     <UnlockSkinColors>false</UnlockSkinColors>
     <AllowBeardlessDwarves>false</AllowBeardlessDwarves>
+    <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
     <UseMathFlankingRules>false</UseMathFlankingRules>

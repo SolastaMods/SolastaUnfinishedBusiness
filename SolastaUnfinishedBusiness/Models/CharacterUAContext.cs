@@ -1184,7 +1184,8 @@ internal static partial class CharacterContext
                                 .AddFeatures(
                                     FeatureDefinitionCombatAffinityBuilder
                                         .Create($"CombatAffinity{FeatSteadyAim}")
-                                        .SetGuiPresentation(FeatSteadyAim, Category.Feat, Gui.NoLocalization)
+                                        .SetGuiPresentation($"Power{FeatSteadyAim}", Category.Feature,
+                                            Gui.NoLocalization)
                                         .SetMyAttackAdvantage(AdvantageType.Advantage)
                                         .AddToDB())
                                 .AddToDB(),
