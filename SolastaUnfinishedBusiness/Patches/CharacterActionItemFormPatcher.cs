@@ -1,8 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using TA.AddressableAssets;
 using UnityEngine;
 
@@ -36,9 +39,35 @@ public static class CharacterActionItemFormPatcher
     [UsedImplicitly]
     public static class Refresh_Patch
     {
+        private static void SetupUseSlots(
+            GuiCharacterAction __instance,
+            RectTransform useSlotsTable,
+            GuiLabel highSlotNumber)
+        {
+            var activatedPower = SpellPointsContext.PowerSpellPoints;
+            var rulesetCharacter = __instance.actingCharacter.RulesetCharacter;
+            var usablePower = rulesetCharacter.UsablePowers.FirstOrDefault(x => x.PowerDefinition == activatedPower);
+            var remainingUsesOfPower = rulesetCharacter.GetRemainingUsesOfPower(usablePower);
+
+            highSlotNumber.gameObject.SetActive(true);
+            useSlotsTable.gameObject.SetActive(false);
+            highSlotNumber.Text = remainingUsesOfPower.ToString();
+            highSlotNumber.GuiTooltip.Content = "Screen/&SpellAlternatePointsTooltip";
+        }
+
         [UsedImplicitly]
         public static void Postfix(CharacterActionItemForm __instance)
         {
+            //PATCH: support display remaining spell points usage (SPELL_POINTS)
+            if (Main.Settings.UseAlternateSpellPointsSystem &&
+                (__instance.GuiCharacterAction.ActionDefinition == DatabaseHelper.ActionDefinitions.CastMain ||
+                 __instance.GuiCharacterAction.ActionDefinition == DatabaseHelper.ActionDefinitions.CastBonus))
+            {
+                SetupUseSlots(__instance.GuiCharacterAction, __instance.useSlotsTable, __instance.highSlotNumber);
+
+                return;
+            }
+
             //PATCH: support for `IActionItemDiceBox` showing custom dice number/size
             var action = __instance.guiCharacterAction.ActionDefinition;
             var provider = action.GetFirstSubFeatureOfType<IActionItemDiceBox>();

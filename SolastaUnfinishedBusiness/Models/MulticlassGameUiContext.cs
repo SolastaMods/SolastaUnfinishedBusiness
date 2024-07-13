@@ -193,7 +193,16 @@ internal static class MulticlassGameUiContext
             // paint spell slots white
             if (index >= pactSlotsCount || slotLevel > warlockSpellLevel)
             {
-                SetRegularSlotImage(component.Available.GetComponent<Image>());
+                //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
+                if (Main.Settings.UseAlternateSpellPointsSystem)
+                {
+                    component.Used.gameObject.SetActive(false);
+                    component.Available.gameObject.SetActive(false);
+                }
+                else
+                {
+                    SetRegularSlotImage(component.Available.GetComponent<Image>());
+                }
             }
             else
             {

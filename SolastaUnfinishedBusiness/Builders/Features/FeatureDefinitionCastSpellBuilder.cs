@@ -130,7 +130,7 @@ internal class FeatureDefinitionCastSpellBuilder
                     {
                         Level = level,
                         Slots = SlotsByCasterLevel[level - startingLevel + 1]
-                            .Select(x => forceOnes ? 1 : x)
+                            .Select(x => x == 0 ? 0 : forceOnes ? 1 : x)
                             .ToList()
                     };
 
@@ -146,7 +146,7 @@ internal class FeatureDefinitionCastSpellBuilder
                     {
                         Level = level,
                         Slots = SlotsByCasterLevel[((level - startingLevel + 1) / 2) + 1]
-                            .Select(x => forceOnes ? 1 : x)
+                            .Select(x => x == 0 ? 0 : forceOnes ? 1 : x)
                             .ToList()
                     };
 
@@ -161,7 +161,7 @@ internal class FeatureDefinitionCastSpellBuilder
                     {
                         Level = level,
                         Slots = SlotsByCasterLevel[((level - startingLevel + 2) / 3) + 1]
-                            .Select(x => forceOnes ? 1 : x)
+                            .Select(x => x == 0 ? 0 : forceOnes ? 1 : x)
                             .ToList()
                     };
 

@@ -73,56 +73,92 @@ public static class RulesetSpellRepertoirePatcher
         [UsedImplicitly]
         public static bool Prefix(RulesetSpellRepertoire __instance, int slotLevel)
         {
-            if (__instance.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
-                or FeatureDefinitionCastSpell.CastingOrigin.Monster)
-            {
-                return true;
-            }
-
-            if (slotLevel == 0)
-            {
-                return true;
-            }
-
-            var heroWithSpellRepertoire = __instance.GetCasterHero();
-
-            if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
-            {
-                return true;
-            }
-
-            var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);
-
-            // handles MC non-Warlock
-            if (warlockSpellRepertoire == null)
-            {
-                foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                             .Where(x => x.SpellCastingFeature.SpellCastingOrigin !=
-                                         FeatureDefinitionCastSpell.CastingOrigin.Race))
-                {
-                    var usedSpellsSlots = spellRepertoire.usedSpellsSlots;
-
-                    usedSpellsSlots.TryAdd(slotLevel, 0);
-                    usedSpellsSlots[slotLevel]++;
-                    spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
-                }
-            }
-
-            // handles MC Warlock
-            else
-            {
-                SpendMulticasterWarlockSlots(__instance, heroWithSpellRepertoire, slotLevel);
-            }
+            SpendSpellSlot(__instance, slotLevel);
 
             return false;
         }
 
-        private static void SpendWarlockSlots(RulesetSpellRepertoire rulesetSpellRepertoire,
-            RulesetCharacterHero heroWithSpellRepertoire)
+        private static void ConsumeSlot(RulesetSpellRepertoire repertoire, int slotLevel)
+        {
+            var usedSpellsSlots = repertoire.usedSpellsSlots;
+
+            usedSpellsSlots.TryAdd(slotLevel, 0);
+            usedSpellsSlots[slotLevel]++;
+            repertoire.RepertoireRefreshed?.Invoke(repertoire);
+        }
+
+        private static void SpendSpellSlot(RulesetSpellRepertoire __instance, int slotLevel)
+        {
+            // cantrips don't have usage
+            if (slotLevel == 0)
+            {
+                return;
+            }
+
+            var hero = __instance.GetCasterHero();
+
+            // vanilla behavior if a race or monster origin
+            if (__instance.SpellCastingFeature.SpellCastingOrigin
+                is FeatureDefinitionCastSpell.CastingOrigin.Race
+                or FeatureDefinitionCastSpell.CastingOrigin.Monster)
+            {
+                ConsumeSlot(__instance, slotLevel);
+
+                return;
+            }
+
+            // consume points if alternate system is on
+            if (Main.Settings.UseAlternateSpellPointsSystem)
+            {
+                SpellPointsContext.ConsumeSpellPoints(hero, __instance, slotLevel);
+            }
+
+            // handle single caster scenarios both alternate system and vanilla
+            if (!SharedSpellsContext.IsMulticaster(hero))
+            {
+                if (Main.Settings.UseAlternateSpellPointsSystem)
+                {
+                    SpellPointsContext.ConsumeSlots(hero, __instance);
+                }
+                else
+                {
+                    ConsumeSlot(__instance, slotLevel);
+                }
+
+                return;
+            }
+
+            var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
+
+            // handles MC non-Warlock
+            if (warlockSpellRepertoire == null)
+            {
+                foreach (var spellRepertoire in hero.SpellRepertoires
+                             .Where(x => x.SpellCastingFeature.SpellCastingOrigin !=
+                                         FeatureDefinitionCastSpell.CastingOrigin.Race))
+                {
+                    if (Main.Settings.UseAlternateSpellPointsSystem)
+                    {
+                        SpellPointsContext.ConsumeSlots(hero, spellRepertoire);
+                    }
+                    else
+                    {
+                        ConsumeSlot(spellRepertoire, slotLevel);
+                    }
+                }
+            }
+            // handles MC Warlock
+            else
+            {
+                SpendMulticasterWarlockSlots(__instance, hero, slotLevel);
+            }
+        }
+
+        private static void SpendWarlockSlots(
+            RulesetSpellRepertoire rulesetSpellRepertoire, RulesetCharacterHero heroWithSpellRepertoire)
         {
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
-            var usedSpellsSlots =
-                rulesetSpellRepertoire.usedSpellsSlots;
+            var usedSpellsSlots = rulesetSpellRepertoire.usedSpellsSlots;
 
             for (var i = SharedSpellsContext.PactMagicSlotsTab; i <= warlockSpellLevel; i++)
             {
@@ -140,14 +176,12 @@ public static class RulesetSpellRepertoirePatcher
         }
 
         private static void SpendMulticasterWarlockSlots(
-            RulesetSpellRepertoire __instance,
-            RulesetCharacterHero heroWithSpellRepertoire,
-            int slotLevel)
+            RulesetSpellRepertoire __instance, RulesetCharacterHero hero, int slotLevel)
         {
-            var pactMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
-            var pactUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
+            var pactMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            var pactUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
 
-            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
             var canConsumePactSlot = pactMaxSlots - pactUsedSlots > 0 && slotLevel <= warlockSpellLevel;
 
             __instance.GetSlotsNumber(slotLevel, out var totalRemainingSlots, out var totalMaxSlots);
@@ -158,11 +192,7 @@ public static class RulesetSpellRepertoirePatcher
 
             var isShiftPressed = !Global.IsMultiplayer
                                  && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
-#if false
-            var isShiftPressed = (Global.CurrentAction is CharacterActionCastSpell or CharacterActionSpendSpellSlot
-                                  && Global.CurrentAction.actionParams.BoolParameter5) ||
-                                 (Global.CurrentAction is null && isShiftPressedForSlotsPointsConversion);
-#endif
+
             var forceConsumePactSlot = sharedUsedSlots == sharedMaxSlots ||
                                        (__instance.SpellCastingClass !=
                                            DatabaseHelper.CharacterClassDefinitions.Warlock && isShiftPressed) ||
@@ -172,26 +202,29 @@ public static class RulesetSpellRepertoirePatcher
             // uses short rest slots across all non race repertoires
             if (canConsumePactSlot && forceConsumePactSlot)
             {
-                foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
+                foreach (var spellRepertoire in hero.SpellRepertoires
                              .Where(x => x.SpellCastingFeature.SpellCastingOrigin !=
                                          FeatureDefinitionCastSpell.CastingOrigin.Race))
                 {
-                    SpendWarlockSlots(spellRepertoire, heroWithSpellRepertoire);
+                    SpendWarlockSlots(spellRepertoire, hero);
                 }
             }
 
             // otherwise uses long rest slots across all non race repertoires
             else
             {
-                foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
+                foreach (var spellRepertoire in hero.SpellRepertoires
                              .Where(x => x.SpellCastingFeature.SpellCastingOrigin !=
                                          FeatureDefinitionCastSpell.CastingOrigin.Race))
                 {
-                    var usedSpellsSlots = spellRepertoire.usedSpellsSlots;
-
-                    usedSpellsSlots.TryAdd(slotLevel, 0);
-                    usedSpellsSlots[slotLevel]++;
-                    spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
+                    if (Main.Settings.UseAlternateSpellPointsSystem)
+                    {
+                        SpellPointsContext.ConsumeSlots(hero, spellRepertoire);
+                    }
+                    else
+                    {
+                        ConsumeSlot(spellRepertoire, slotLevel);
+                    }
                 }
             }
         }

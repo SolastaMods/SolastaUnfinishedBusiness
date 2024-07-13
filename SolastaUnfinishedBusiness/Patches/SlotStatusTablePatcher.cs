@@ -54,6 +54,20 @@ public static class SlotStatusTablePatcher
             if (heroWithSpellRepertoire == null || spellLevel == 0 ||
                 !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) || spellRepertoire.SpellCastingRace)
             {
+                if (!Main.Settings.UseAlternateSpellPointsSystem || spellRepertoire?.spellCastingClass == Warlock)
+                {
+                    return;
+                }
+
+                //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
+                for (var index = 0; index < __instance.table.childCount; ++index)
+                {
+                    var component = __instance.table.GetChild(index).GetComponent<SlotStatus>();
+
+                    component.Used.gameObject.SetActive(false);
+                    component.Available.gameObject.SetActive(false);
+                }
+
                 return;
             }
 

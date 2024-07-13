@@ -1820,7 +1820,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: support adding required action affinities to classes that can use toggles
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.PostLoad))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1834,6 +1833,32 @@ public static class RulesetCharacterPatcher
                 return;
             }
 
+            //PATCH: support adding required power to keep a tab on spell points (SPELL_POINTS)
+            switch (Main.Settings.UseAlternateSpellPointsSystem)
+            {
+                case true when
+                    !hero.HasAnyFeature(SpellPointsContext.PowerSpellPoints):
+                {
+                    hero.ActiveFeatures[AttributeDefinitions.TagRace].Add(SpellPointsContext.PowerSpellPoints);
+                    var usablePower = PowerProvider.Get(SpellPointsContext.PowerSpellPoints, hero);
+                    var poolSize = hero.GetMaxUsesOfPower(usablePower);
+
+                    usablePower.remainingUses = poolSize;
+                    hero.UsablePowers.Add(usablePower);
+                    break;
+                }
+                case false when
+                    hero.HasAnyFeature(SpellPointsContext.PowerSpellPoints):
+                {
+                    var usablePower = PowerProvider.Get(SpellPointsContext.PowerSpellPoints, hero);
+
+                    hero.UsablePowers.Remove(usablePower);
+                    hero.ActiveFeatures[AttributeDefinitions.TagRace].Remove(SpellPointsContext.PowerSpellPoints);
+                    break;
+                }
+            }
+
+            //PATCH: support adding required action affinities to classes that can use toggles
             if (hero.ClassesHistory.Contains(Paladin))
             {
                 var tag = AttributeDefinitions.GetClassTag(Paladin, 1);
@@ -1859,6 +1884,7 @@ public static class RulesetCharacterPatcher
                 }
             }
 
+            //PATCH: fix scenarios where hero doesn't have an instance of a usable power
             if (hero.ActiveFeatures
                 .SelectMany(k => k.Value)
                 .OfType<FeatureDefinitionPower>()

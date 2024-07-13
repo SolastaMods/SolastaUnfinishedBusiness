@@ -281,6 +281,7 @@ Screen/&RangerSpellTitle=Guarda-florestal
 Screen/&RepertoireHeaderFormat={0}
 Screen/&RoguishSpellDescription=Este feitiço foi concedido pelo seu arquétipo Ladino e é considerado conhecido por você.
 Screen/&RoguishSpellTitle=Malandro
+Screen/&SpellAlternatePointsTooltip=Seu custo para lançar feitiços é:\n1º - 2 pontos\n2º - 3 pontos\n3º - 5 pontos\n4º - 6 pontos\n5º - 7 pontos\n6º - 9 pontos{ 99}7º ano - 10 pontos\n8º ano - 11 pontos\n9º ano - 13 pontos
 Screen/&SpellSlotsUsedLongDescription=Você gastou {0} espaços de magia neste nível.
 Screen/&SpellSlotsUsedShortDescription=Você gastou {0} espaço(s) mágico(s) do pacto.
 Screen/&SpellSlotsUsedShortLongDescription=Você gastou {0} espaço(s) de magia de pacto e {1} espaço(s) de feitiço neste nível.

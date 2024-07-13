@@ -15,12 +15,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpellPointsContext
 {
-    private const string ConditionUsedSpellLevel = "ConditionUsedSpellLevel";
-    internal const string ConditionUsedSpellLevel6 = $"{ConditionUsedSpellLevel}6";
-    internal const string ConditionUsedSpellLevel7 = $"{ConditionUsedSpellLevel}7";
-    internal const string ConditionUsedSpellLevel8 = $"{ConditionUsedSpellLevel}8";
-    internal const string ConditionUsedSpellLevel9 = $"{ConditionUsedSpellLevel}9";
-
     private static readonly List<int> SpellCostByLevel = [0, 2, 3, 5, 6, 7, 9, 10, 11, 13];
     private static readonly List<SlotsByLevelDuplet> FullCastingSlots = [];
     private static readonly List<SlotsByLevelDuplet> HalfCastingSlots = [];
@@ -57,10 +51,10 @@ internal static class SpellPointsContext
             (MartialSpellShield.CastSpellName, OneThirdCastingSlots, SpellPointsOneThirdCastingSlots)
         ];
 
-    private static readonly FeatureDefinitionPower PowerSpellPoints = FeatureDefinitionPowerBuilder
+    internal static readonly FeatureDefinitionPower PowerSpellPoints = FeatureDefinitionPowerBuilder
         .Create("PowerSpellPoints")
         .SetGuiPresentationNoContent(true)
-        .SetUsesFixed(RuleDefinitions.ActivationTime.NoCost)
+        .SetUsesFixed(RuleDefinitions.ActivationTime.NoCost, RuleDefinitions.RechargeRate.LongRest)
         .AddCustomSubFeatures(
             HasModifiedUses.Marker,
             new ModifyPowerPoolAmountPowerSpellPoints())
@@ -68,16 +62,6 @@ internal static class SpellPointsContext
 
     internal static void LateLoad()
     {
-        // create conditions used to ensure only one spell per level above level 6 can be cast
-        for (var i = 6; i <= 9; i++)
-        {
-            _ = ConditionDefinitionBuilder
-                .Create($"{ConditionUsedSpellLevel}{i}")
-                .SetGuiPresentationNoContent(true)
-                .SetSilent(Silent.WhenAddedOrRemoved)
-                .AddToDB();
-        }
-
         EnumerateSlotsPerLevel(CasterProgression.Full, FullCastingSlots);
         EnumerateSlotsPerLevel(CasterProgression.Half, HalfCastingSlots);
         EnumerateSlotsPerLevel(CasterProgression.HalfRoundUp, HalfRoundUpCastingSlots);
@@ -86,8 +70,48 @@ internal static class SpellPointsContext
         EnumerateSlotsPerLevel(CasterProgression.Half, SpellPointsHalfCastingSlots, true);
         EnumerateSlotsPerLevel(CasterProgression.HalfRoundUp, SpellPointsHalfRoundUpCastingSlots, true);
         EnumerateSlotsPerLevel(CasterProgression.OneThird, SpellPointsOneThirdCastingSlots, true);
-
         SwitchFeatureDefinitionCastSpellSlots();
+    }
+
+    internal static void ConsumeSpellPoints(RulesetCharacterHero hero, RulesetSpellRepertoire repertoire, int slotLevel)
+    {
+        var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
+        var cost = SpellCostByLevel[slotLevel];
+
+        usablePower.remainingUses -= cost;
+
+        if (slotLevel <= 5)
+        {
+            return;
+        }
+
+        var usedSpellsSlots = repertoire.usedSpellsSlots;
+
+        usedSpellsSlots.TryAdd(slotLevel, 0);
+        usedSpellsSlots[slotLevel] = 1;
+
+        // no need to RepertoireRefreshed here as ConsumeSlots will end up doing it
+    }
+
+    internal static void ConsumeSlots(RulesetCharacterHero hero, RulesetSpellRepertoire repertoire)
+    {
+        var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
+        var level = repertoire.MaxSpellLevelOfSpellCastingLevel;
+
+        for (var i = level; i > 0; i--)
+        {
+            if (usablePower.RemainingUses >= SpellCostByLevel[i])
+            {
+                continue;
+            }
+
+            var usedSpellsSlots = repertoire.usedSpellsSlots;
+
+            usedSpellsSlots.TryAdd(i, 0);
+            usedSpellsSlots[i] = 1;
+        }
+
+        repertoire.RepertoireRefreshed?.Invoke(repertoire);
     }
 
     internal static void SwitchFeatureDefinitionCastSpellSlots()

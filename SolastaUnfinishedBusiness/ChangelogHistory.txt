@@ -1,6 +1,5 @@
 1.5.97.20:
 
-- added subclasses unique sprites [by otearaisu]
 - added variant spell points system
 - fixed 'Export Hero' and RESPEC effects termination [auras, infusions, etc.]
 - fixed Martial Arcane Archer arcane shot to trigger just after attack hits
