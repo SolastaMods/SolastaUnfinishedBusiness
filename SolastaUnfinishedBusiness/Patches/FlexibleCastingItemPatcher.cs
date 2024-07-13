@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -22,19 +23,35 @@ public static class FlexibleCastingItemPatcher
         {
             //PATCH: creates different slots colors and pop up messages depending on slot types (MULTICLASS)
             var flexibleCastingModal = __instance.GetComponentInParent<FlexibleCastingModal>();
+            var hero = flexibleCastingModal.caster.GetOriginalHero();
 
-            if (flexibleCastingModal.caster is not RulesetCharacterHero caster)
+            if (hero == null)
             {
                 return;
             }
 
-            if (!SharedSpellsContext.IsMulticaster(caster))
+            if (!SharedSpellsContext.IsMulticaster(hero))
             {
+                // no way a Warlock would get here so no need to check for Warlock
+                if (!Main.Settings.UseAlternateSpellPointsSystem)
+                {
+                    return;
+                }
+
+                //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
+                for (var index = 0; index < __instance.slotStatusTable.childCount; ++index)
+                {
+                    var component = __instance.slotStatusTable.GetChild(index).GetComponent<SlotStatus>();
+
+                    component.Used.gameObject.SetActive(false);
+                    component.Available.gameObject.SetActive(false);
+                }
+
                 return;
             }
 
             MulticlassGameUiContext.PaintPactSlotsAlternate(
-                caster, maxSlots, remainingSlots, slotLevel, __instance.slotStatusTable);
+                hero, maxSlots, remainingSlots, slotLevel, __instance.slotStatusTable);
         }
     }
 

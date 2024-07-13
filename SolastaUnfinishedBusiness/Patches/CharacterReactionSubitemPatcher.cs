@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -22,18 +23,41 @@ public static class CharacterReactionSubitemPatcher
             RulesetSpellRepertoire spellRepertoire,
             int slotLevel)
         {
-            var heroWithSpellRepertoire = spellRepertoire?.GetCasterHero();
+            var hero = spellRepertoire?.GetCasterHero();
 
-            if (heroWithSpellRepertoire == null ||
-                !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) || spellRepertoire.SpellCastingRace)
+            if (hero == null)
             {
+                return;
+            }
+
+            if (spellRepertoire.SpellCastingRace)
+            {
+                return;
+            }
+
+            if (!SharedSpellsContext.IsMulticaster(hero))
+            {
+                if (!Main.Settings.UseAlternateSpellPointsSystem || spellRepertoire?.spellCastingClass == Warlock)
+                {
+                    return;
+                }
+
+                //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
+                for (var index = 0; index < __instance.slotStatusTable.childCount; ++index)
+                {
+                    var component = __instance.slotStatusTable.GetChild(index).GetComponent<SlotStatus>();
+
+                    component.Used.gameObject.SetActive(false);
+                    component.Available.gameObject.SetActive(false);
+                }
+
                 return;
             }
 
             spellRepertoire.GetSlotsNumber(slotLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
             MulticlassGameUiContext.PaintPactSlotsAlternate(
-                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, slotLevel,
+                hero, totalSlotsCount, totalSlotsRemainingCount, slotLevel,
                 __instance.slotStatusTable);
         }
     }

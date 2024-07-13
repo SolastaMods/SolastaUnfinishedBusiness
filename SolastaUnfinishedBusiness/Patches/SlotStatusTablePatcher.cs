@@ -48,11 +48,20 @@ public static class SlotStatusTablePatcher
             RulesetSpellRepertoire spellRepertoire,
             int spellLevel)
         {
-            var heroWithSpellRepertoire = spellRepertoire?.GetCasterHero();
+            var hero = spellRepertoire?.GetCasterHero();
 
             // spellRepertoire is null during level up...
-            if (heroWithSpellRepertoire == null || spellLevel == 0 ||
-                !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) || spellRepertoire.SpellCastingRace)
+            if (spellLevel == 0 || hero == null)
+            {
+                return;
+            }
+
+            if (spellRepertoire.SpellCastingRace)
+            {
+                return;
+            }
+
+            if (!SharedSpellsContext.IsMulticaster(hero))
             {
                 if (!Main.Settings.UseAlternateSpellPointsSystem || spellRepertoire?.spellCastingClass == Warlock)
                 {
@@ -74,7 +83,7 @@ public static class SlotStatusTablePatcher
             spellRepertoire.GetSlotsNumber(spellLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
             MulticlassGameUiContext.PaintPactSlots(
-                heroWithSpellRepertoire,
+                hero,
                 totalSlotsCount,
                 totalSlotsRemainingCount,
                 spellLevel,

@@ -1862,15 +1862,6 @@ public static class RulesetCharacterPatcher
                     hero.UsablePowers.Add(usablePower);
                     break;
                 }
-                case false when
-                    hero.HasAnyFeature(SpellPointsContext.PowerSpellPoints):
-                {
-                    var usablePower = PowerProvider.Get(SpellPointsContext.PowerSpellPoints, hero);
-
-                    hero.UsablePowers.Remove(usablePower);
-                    hero.ActiveFeatures[AttributeDefinitions.TagRace].Remove(SpellPointsContext.PowerSpellPoints);
-                    break;
-                }
             }
 
             //PATCH: support adding required action affinities to classes that can use toggles

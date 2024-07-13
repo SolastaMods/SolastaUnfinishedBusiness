@@ -9,7 +9,6 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static FeatureDefinitionCastSpell;
 
 namespace SolastaUnfinishedBusiness.Models;
