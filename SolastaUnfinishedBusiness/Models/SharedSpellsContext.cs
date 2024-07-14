@@ -25,7 +25,7 @@ internal static class SharedSpellsContext
     // supports custom MaxSpellLevelOfSpellCastLevel behaviors
     internal static bool UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior { get; private set; }
 
-    internal static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new()
+    internal static readonly Dictionary<string, BaseDefinition> RecoverySlots = new()
     {
         { PowerCircleLandNaturalRecovery.Name, Druid },
         { PowerWizardArcaneRecovery.Name, Wizard },
@@ -33,7 +33,7 @@ internal static class SharedSpellsContext
         { WizardSpellMaster.PowerSpellMasterBonusRecoveryName, Wizard }
     };
 
-    private static Dictionary<string, CasterProgression> ClassCasterType { get; } = new()
+    private static readonly Dictionary<string, CasterProgression> ClassCasterType = new()
     {
         { Bard.Name, CasterProgression.Full },
         { Cleric.Name, CasterProgression.Full },
@@ -45,7 +45,7 @@ internal static class SharedSpellsContext
         { InventorClass.ClassName, CasterProgression.HalfRoundUp }
     };
 
-    private static Dictionary<string, CasterProgression> SubclassCasterType { get; } = new()
+    private static readonly Dictionary<string, CasterProgression> SubclassCasterType = new()
     {
         { MartialSpellblade.Name, CasterProgression.OneThird },
         { RoguishArcaneScoundrel.Name, CasterProgression.OneThird },
@@ -213,6 +213,9 @@ internal static class SharedSpellsContext
     {
         PatchMaxSpellLevelOfSpellCastingLevel();
         EnumerateSlotsPerLevel(CasterProgression.Full, FullCastingSlots);
+        EnumerateSlotsPerLevel(CasterProgression.Half, HalfCastingSlots);
+        EnumerateSlotsPerLevel(CasterProgression.HalfRoundUp, HalfRoundUpCastingSlots);
+        EnumerateSlotsPerLevel(CasterProgression.OneThird, OneThirdCastingSlots);
     }
 
     private static void PatchMaxSpellLevelOfSpellCastingLevel()
@@ -346,56 +349,55 @@ internal static class SharedSpellsContext
 
     #region Slots Definitions
 
-    internal static IEnumerable<SlotsByLevelDuplet> InitiateCastingSlots { get; } = new List<SlotsByLevelDuplet>
-    {
-        new() { Slots = [1], Level = 01 },
-        new() { Slots = [1], Level = 02 },
-        new() { Slots = [1], Level = 03 },
-        new() { Slots = [1], Level = 04 },
-        new() { Slots = [1], Level = 05 },
-        new() { Slots = [1], Level = 06 },
-        new() { Slots = [1], Level = 07 },
-        new() { Slots = [1], Level = 08 },
-        new() { Slots = [1], Level = 09 },
-        new() { Slots = [1], Level = 10 },
-        new() { Slots = [1], Level = 11 },
-        new() { Slots = [1], Level = 12 },
-        new() { Slots = [1], Level = 13 },
-        new() { Slots = [1], Level = 14 },
-        new() { Slots = [1], Level = 15 },
-        new() { Slots = [1], Level = 16 },
-        new() { Slots = [1], Level = 17 },
-        new() { Slots = [1], Level = 18 },
-        new() { Slots = [1], Level = 19 },
-        new() { Slots = [1], Level = 20 }
-    };
+    internal static readonly List<SlotsByLevelDuplet> InitiateCastingSlots =
+    [
+        new SlotsByLevelDuplet { Slots = [1], Level = 01 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 02 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 03 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 04 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 05 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 06 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 07 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 08 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 09 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 10 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 11 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 12 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 13 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 14 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 15 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 16 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 17 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 18 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 19 },
+        new SlotsByLevelDuplet { Slots = [1], Level = 20 }
+    ];
 
-    internal static IEnumerable<SlotsByLevelDuplet> RaceCastingSlots { get; } = new List<SlotsByLevelDuplet>
-    {
-        new() { Slots = [0, 0], Level = 01 },
-        new() { Slots = [0, 0], Level = 02 },
-        new() { Slots = [1, 0], Level = 03 },
-        new() { Slots = [1, 0], Level = 04 },
-        new() { Slots = [1, 1], Level = 05 },
-        new() { Slots = [1, 1], Level = 06 },
-        new() { Slots = [1, 1], Level = 07 },
-        new() { Slots = [1, 1], Level = 08 },
-        new() { Slots = [1, 1], Level = 09 },
-        new() { Slots = [1, 1], Level = 10 },
-        new() { Slots = [1, 1], Level = 11 },
-        new() { Slots = [1, 1], Level = 12 },
-        new() { Slots = [1, 1], Level = 13 },
-        new() { Slots = [1, 1], Level = 14 },
-        new() { Slots = [1, 1], Level = 15 },
-        new() { Slots = [1, 1], Level = 16 },
-        new() { Slots = [1, 1], Level = 17 },
-        new() { Slots = [1, 1], Level = 18 },
-        new() { Slots = [1, 1], Level = 19 },
-        new() { Slots = [1, 1], Level = 20 }
-    };
+    internal static readonly List<SlotsByLevelDuplet> RaceCastingSlots =
+    [
+        new SlotsByLevelDuplet { Slots = [0, 0], Level = 01 },
+        new SlotsByLevelDuplet { Slots = [0, 0], Level = 02 },
+        new SlotsByLevelDuplet { Slots = [1, 0], Level = 03 },
+        new SlotsByLevelDuplet { Slots = [1, 0], Level = 04 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 05 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 06 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 07 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 08 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 09 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 10 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 11 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 12 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 13 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 14 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 15 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 16 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 17 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 18 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 19 },
+        new SlotsByLevelDuplet { Slots = [1, 1], Level = 20 }
+    ];
 
-    // ReSharper disable once ReturnTypeCanBeEnumerable.Global
-    internal static List<SlotsByLevelDuplet> RaceEmptyCastingSlots { get; } =
+    internal static readonly List<SlotsByLevelDuplet> RaceEmptyCastingSlots =
     [
         new SlotsByLevelDuplet { Slots = [0], Level = 01 },
         new SlotsByLevelDuplet { Slots = [0], Level = 02 },
@@ -420,7 +422,7 @@ internal static class SharedSpellsContext
     ];
 
     // game uses IndexOf(0) on these sub lists reason why the last 0 there
-    private static List<SlotsByLevelDuplet> WarlockCastingSlots { get; } =
+    private static readonly List<SlotsByLevelDuplet> WarlockCastingSlots =
     [
         new SlotsByLevelDuplet
         {
@@ -703,12 +705,14 @@ internal static class SharedSpellsContext
         }
     ];
 
-    // game uses IndexOf(0) on these sub lists reason why the last 0 there
-    internal static List<SlotsByLevelDuplet> FullCastingSlots { get; } = [];
+    internal static readonly List<SlotsByLevelDuplet> FullCastingSlots = [];
+    internal static readonly List<SlotsByLevelDuplet> HalfCastingSlots = [];
+    internal static readonly List<SlotsByLevelDuplet> HalfRoundUpCastingSlots = [];
+    internal static readonly List<SlotsByLevelDuplet> OneThirdCastingSlots = [];
 
     // additional spells supporting collections
-    internal static IEnumerable<int> WarlockKnownSpells { get; } = new List<int>
-    {
+    internal static readonly List<int> WarlockKnownSpells =
+    [
         2,
         3,
         4,
@@ -729,7 +733,7 @@ internal static class SharedSpellsContext
         14,
         15,
         15
-    };
+    ];
 
     #endregion
 }

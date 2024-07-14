@@ -38,9 +38,12 @@ public static class CharacterInspectionScreenPatcher
             {
                 var child = __instance.toggleGroup.transform.GetChild(index);
 
-                if (index <= 3 && Gui.Game)
+                if (index <= 3)
                 {
-                    continue;
+                    if (Gui.Game)
+                    {
+                        continue;
+                    }
                 }
 
                 var repertoire = heroCharacter.SpellRepertoires[index - __instance.staticTogglesNumber];

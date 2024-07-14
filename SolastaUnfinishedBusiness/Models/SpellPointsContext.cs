@@ -19,10 +19,7 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class SpellPointsContext
 {
     private static readonly List<int> SpellCostByLevel = [0, 2, 3, 5, 6, 7, 9, 10, 11, 13];
-    private static readonly List<SlotsByLevelDuplet> FullCastingSlots = [];
-    private static readonly List<SlotsByLevelDuplet> HalfCastingSlots = [];
-    private static readonly List<SlotsByLevelDuplet> HalfRoundUpCastingSlots = [];
-    private static readonly List<SlotsByLevelDuplet> OneThirdCastingSlots = [];
+
     internal static readonly List<SlotsByLevelDuplet> SpellPointsFullCastingSlots = [];
     private static readonly List<SlotsByLevelDuplet> SpellPointsHalfCastingSlots = [];
     private static readonly List<SlotsByLevelDuplet> SpellPointsHalfRoundUpCastingSlots = [];
@@ -31,33 +28,38 @@ internal static class SpellPointsContext
     private static readonly List<(string, List<SlotsByLevelDuplet>, List<SlotsByLevelDuplet>)>
         FeatureDefinitionCastSpellTab =
         [
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellBard.Name, FullCastingSlots,
+            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellBard.Name, SharedSpellsContext.FullCastingSlots,
                 SpellPointsFullCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellCleric.Name, FullCastingSlots,
+            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellCleric.Name, SharedSpellsContext.FullCastingSlots,
                 SpellPointsFullCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDruid.Name, FullCastingSlots,
+            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDruid.Name, SharedSpellsContext.FullCastingSlots,
                 SpellPointsFullCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellPaladin.Name, HalfCastingSlots,
+            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellPaladin.Name, SharedSpellsContext.HalfCastingSlots,
                 SpellPointsHalfCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellRanger.Name, HalfCastingSlots,
+            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellRanger.Name, SharedSpellsContext.HalfCastingSlots,
                 SpellPointsHalfCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellSorcerer.Name, FullCastingSlots,
+            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellSorcerer.Name, SharedSpellsContext.FullCastingSlots,
                 SpellPointsFullCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellWizard.Name, FullCastingSlots,
+            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellWizard.Name, SharedSpellsContext.FullCastingSlots,
                 SpellPointsFullCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMartialSpellBlade.Name, OneThirdCastingSlots,
+            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMartialSpellBlade.Name,
+                SharedSpellsContext.OneThirdCastingSlots,
                 SpellPointsOneThirdCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellShadowcaster.Name, OneThirdCastingSlots,
+            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellShadowcaster.Name,
+                SharedSpellsContext.OneThirdCastingSlots,
                 SpellPointsOneThirdCastingSlots),
-            (InventorClass.SpellCasting.Name, HalfRoundUpCastingSlots, SpellPointsHalfRoundUpCastingSlots),
-            (RoguishArcaneScoundrel.CastSpellName, OneThirdCastingSlots, SpellPointsOneThirdCastingSlots),
-            (MartialSpellShield.CastSpellName, OneThirdCastingSlots, SpellPointsOneThirdCastingSlots)
+            (InventorClass.SpellCasting.Name, SharedSpellsContext.HalfRoundUpCastingSlots,
+                SpellPointsHalfRoundUpCastingSlots),
+            (RoguishArcaneScoundrel.CastSpellName, SharedSpellsContext.OneThirdCastingSlots,
+                SpellPointsOneThirdCastingSlots),
+            (MartialSpellShield.CastSpellName, SharedSpellsContext.OneThirdCastingSlots,
+                SpellPointsOneThirdCastingSlots)
         ];
 
     private static readonly FeatureDefinitionPower PowerSpellPoints = FeatureDefinitionPowerBuilder
         .Create("PowerSpellPoints")
         .SetGuiPresentationNoContent(true)
-        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 0)
         .AddCustomSubFeatures(
             HasModifiedUses.Marker,
             new ModifyPowerPoolAmountPowerSpellPoints())
@@ -65,10 +67,6 @@ internal static class SpellPointsContext
 
     internal static void LateLoad()
     {
-        EnumerateSlotsPerLevel(CasterProgression.Full, FullCastingSlots);
-        EnumerateSlotsPerLevel(CasterProgression.Half, HalfCastingSlots);
-        EnumerateSlotsPerLevel(CasterProgression.HalfRoundUp, HalfRoundUpCastingSlots);
-        EnumerateSlotsPerLevel(CasterProgression.OneThird, OneThirdCastingSlots);
         EnumerateSlotsPerLevel(CasterProgression.Full, SpellPointsFullCastingSlots, true);
         EnumerateSlotsPerLevel(CasterProgression.Half, SpellPointsHalfCastingSlots, true);
         EnumerateSlotsPerLevel(CasterProgression.HalfRoundUp, SpellPointsHalfRoundUpCastingSlots, true);
@@ -151,11 +149,14 @@ internal static class SpellPointsContext
         {
             var child = __instance.spellPanelsContainer.GetChild(i);
             var repertoireTitle = child.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>();
+            var spellRepertoire = __instance.InspectedCharacter.RulesetCharacterHero.SpellRepertoires[i];
 
             if (Main.Settings.UseAlternateSpellPointsSystem &&
                 (SharedSpellsContext.IsMulticaster(heroCharacter) ||
-                 SharedSpellsContext.GetWarlockSpellRepertoire(heroCharacter) == null))
-
+                 SharedSpellsContext.GetWarlockSpellRepertoire(heroCharacter) == null) &&
+                spellRepertoire.SpellCastingFeature.SpellCastingOrigin
+                    is CastingOrigin.Class
+                    or CastingOrigin.Subclass)
             {
                 var maxSpellPoints = GetMaxSpellPoints(heroCharacter).ToString();
                 var postfix = Gui.Format("Screen/&SpellAlternatePointsCostTooltip", maxSpellPoints);
