@@ -319,7 +319,6 @@ ModUi/&UnlockMarkAndTattoosForAllCharacters=すべてのキャラクターの<co
 ModUi/&UnlockSkinColors=肌の色のロックを解除する
 ModUi/&Update=<b><color=#D89555>更新</color></b>
 ModUi/&UseAlternateSpellPointsSystem=公式の<color=#D89555>バリアントスペルポイント</color>ルールを使用する
-ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[呪文ポイントのプールがあり、術者レベルに応じて増加します\nL01: 04、L02: 06、L03: 14、L04: 17、L05: 27、L06: 32、L07: 38、L08: 44、L09: 57、L10: 64\nL11: 73、L12: 73、L13: 83、L14: 83、L15: 94、L16: 94、L17: 107、L18: 114、L19: 123、L20: 133\nこのプールを使用して呪文を唱えるコストは、L1: 2、L2: 3、L3: 5、L4: 6、L5: 7、L6: 9、L7: 10、L8: 11、L9: 13\nこのシステムでは、短い休憩スロットの回復機能はトリガーされません]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>ティーフリング</color>で<color=#D89555>エルフ</color>の顔モデルを使用する
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>黒い触手、絡まり、グリース</color> <i><color=#F0DAA0>[square]</color></i> または <color=#D89555 をキャストするときに高さ 1 のシリンダー効果を使用します>スパイク成長</color> <i><color=#F0DAA0>[ラウンド]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ 正確な計算を使用して側面攻撃を決定します<color=#F0DAA0>[遅いマシンではパフォーマンスに影響を与える可能性があります]</color></i>

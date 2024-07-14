@@ -319,7 +319,6 @@ ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloqueie marcas de origem e tatua
 ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&Update=<b><color=#D89555>Atualização</color></b>
 ModUi/&UseAlternateSpellPointsSystem=Use regras oficiais de <color=#D89555>pontos de feitiço variantes</color>
-ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[Você tem um conjunto de pontos de feitiço que aumenta com o nível do lançador\nL01: 04, L02: 06, L03: 14, L04: 17, L05: 27, L06: 32, L07 : 38, L08: 44, L09: 57, L10: 64\nL11: 73, L12: 73, L13: 83, L14: 83, L15: 94, L16: 94, L17: 107, L18: 114, L19 : 123, L20: 133\nO custo para lançar feitiços usando este conjunto é L1: 2, L2: 3, L3: 5, L4: 6, L5: 7, L6: 9, L7: 10, L8: 11, L9 : 13\nOs recursos de recuperação de intervalos de descanso curtos não serão acionados neste sistema]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Use modelos de rosto de <color=#D89555>Elfo</color> em <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de cilindro de altura 1 ao lançar <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> ou <color=#D89555>Pico de crescimento</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use matemática precisa para determinar o flanqueamento <color=#F0DAA0>[pode ter um impacto no desempenho em máquinas lentas]</color></i>
