@@ -5,7 +5,7 @@
 - fixed Martial Arcane Archer arcane shot soft lock if enemy already dead
 - fixed Martial Battle Master initial pool amount to 4
 - fixed Ring of Knifes spell to-hit modifiers on power
-- fixed Scatter spell, and Sorcerous Field Manipulator displacement targets selection
+- fixed targets selection on Scatter spell, and Field Manipulator displacement
 
 KNOWN ISSUES:
 

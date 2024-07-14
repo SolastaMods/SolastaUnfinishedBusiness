@@ -139,6 +139,7 @@ internal static class MulticlassGameUiContext
         int totalSlotsCount,
         int totalSlotsRemainingCount,
         int slotLevel,
+        int spellsAtLevel,
         SlotStatusTable slotStatusTable,
         bool ignorePactSlots = false)
     {
@@ -203,7 +204,8 @@ internal static class MulticlassGameUiContext
                     var cost = SpellPointsContext.SpellCostByLevel[slotLevel].ToString();
 
                     slotStatusTable.slotsText.gameObject.SetActive(true);
-                    slotStatusTable.slotsText.Text = Gui.Format("Screen/&SpellAlternatePointsCostTooltip", cost);
+                    slotStatusTable.slotsText.Text =
+                        spellsAtLevel < 2 ? cost : Gui.Format("Screen/&SpellAlternatePointsCostTooltip", cost);
                 }
                 else
                 {

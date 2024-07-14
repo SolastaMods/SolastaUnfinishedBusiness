@@ -46,6 +46,7 @@ public static class SlotStatusTablePatcher
         public static void Postfix(
             SlotStatusTable __instance,
             RulesetSpellRepertoire spellRepertoire,
+            List<SpellDefinition> spells,
             int spellLevel)
         {
             var hero = spellRepertoire?.GetCasterHero();
@@ -79,7 +80,8 @@ public static class SlotStatusTablePatcher
                     var cost = SpellPointsContext.SpellCostByLevel[spellLevel].ToString();
 
                     __instance.slotsText.gameObject.SetActive(true);
-                    __instance.slotsText.Text = Gui.Format("Screen/&SpellAlternatePointsCostTooltip", cost);
+                    __instance.slotsText.Text =
+                        spells.Count < 2 ? cost : Gui.Format("Screen/&SpellAlternatePointsCostTooltip", cost);
                 }
 
                 return;
@@ -92,6 +94,7 @@ public static class SlotStatusTablePatcher
                 totalSlotsCount,
                 totalSlotsRemainingCount,
                 spellLevel,
+                spells.Count,
                 __instance,
                 (Global.InspectedHero != null && spellRepertoire.spellCastingClass == Warlock)
                 || (Global.InspectedHero == null && !Main.Settings.DisplayPactSlotsOnSpellSelectionPanel));

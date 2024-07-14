@@ -8,8 +8,9 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
-using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
 using static FeatureDefinitionCastSpell;
+using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -54,7 +55,7 @@ internal static class SpellPointsContext
     internal static readonly FeatureDefinitionPower PowerSpellPoints = FeatureDefinitionPowerBuilder
         .Create("PowerSpellPoints")
         .SetGuiPresentationNoContent(true)
-        .SetUsesFixed(RuleDefinitions.ActivationTime.NoCost, RuleDefinitions.RechargeRate.LongRest)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
         .AddCustomSubFeatures(
             HasModifiedUses.Marker,
             new ModifyPowerPoolAmountPowerSpellPoints())
