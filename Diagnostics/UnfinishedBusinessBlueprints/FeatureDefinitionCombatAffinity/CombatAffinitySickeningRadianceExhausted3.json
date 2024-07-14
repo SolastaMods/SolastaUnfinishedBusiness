@@ -3,13 +3,13 @@
   "initiativeAffinity": "None",
   "canRageToOvercomeSurprise": false,
   "attackOfOpportunityImmunity": false,
-  "attackOfOpportunityOnMeAdvantageType": "Disadvantage",
+  "attackOfOpportunityOnMeAdvantageType": "None",
   "attackOnMeAdvantage": "None",
   "attackOnMeCountLimit": -1,
   "autoCritical": false,
   "criticalHitImmunity": false,
   "myAttackAffinityFilter": "Always",
-  "myAttackAdvantage": "None",
+  "myAttackAdvantage": "Disadvantage",
   "ignoreCover": false,
   "permanentCover": "None",
   "ignoreRangeAdvantage": false,
@@ -35,8 +35,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetTacticianTacticalAwarenessTitle",
-    "description": "Feature/&FeatureSetTacticianTacticalAwarenessDescription",
+    "title": "Condition/&ConditionSickeningRadianceExhausted3Title",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -56,7 +56,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9f8adbd8-c957-518c-a49d-c8679f32983b",
+  "guid": "ed0bba01-a7af-58ff-b7e1-96650ddf5d76",
   "contentPack": 9999,
-  "name": "CombatAffinityTacticianTacticalAwareness"
+  "name": "CombatAffinitySickeningRadianceExhausted3"
 }

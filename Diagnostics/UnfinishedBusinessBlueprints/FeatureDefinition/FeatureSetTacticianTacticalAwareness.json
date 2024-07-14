@@ -1,16 +1,5 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:AdditionalDamageTacticianTacticalAwareness:8578c41d-ae85-5346-9f89-020167d17c71",
-    "Definition:CombatAffinityTacticianTacticalAwareness:9f8adbd8-c957-518c-a49d-c8679f32983b"
-  ],
-  "mode": "Union",
-  "ancestryDamageTypeMap": [],
-  "ancestryType": "Sorcerer",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

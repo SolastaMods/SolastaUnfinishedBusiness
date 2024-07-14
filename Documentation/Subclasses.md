@@ -1166,12 +1166,12 @@ Bards of the College of Swords entertain through daring feats of weapon prowess.
 
 ### Level 3
 
-* Audacious Whirl
+* Blade Flourish
 
 Whenever you take the Attack action on your turn, your walking speed increases by 10 feet until the end of the turn, and if a melee weapon attack that you make as part of this action hits a creature, you can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also choose a particular maneuver:
-• Defensive Whirl: You add the Bardic Inspiration die roll to your AC until the start of your next turn.
-• Slashing Whirl: You deal the extra damage to all other enemy creatures within 5 feet of you.
-• Mobile Whirl: You gain benefits of disengage until the end of your turn.
+• Defensive Flourish: You add the Bardic Inspiration die roll to your AC until the start of your next turn.
+• Slashing Flourish: You deal the extra damage to all other enemy creatures within 5 feet of you.
+• Mobile Flourish: You gain benefits of disengage until the end of your turn.
 
 * Bonus Proficiencies
 
@@ -1195,9 +1195,9 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 ### Level 14
 
-* Masterful Whirl
+* Master's Flourish
 
-Whenever you use an Audacious Whirl option, you can roll a D6 and use it instead of expending a Bardic Inspiration die.
+Whenever you use a Blade Flourish option, you can roll a D6 and use it instead of expending a Bardic Inspiration die.
 
 
 
@@ -3059,6 +3059,10 @@ You can replace one maneuver you know with a new one.
 
 ### Level 18
 
+* Master of Warfare
+
+During combat, you regain a superiority die at the start of each of your turns.
+
 * Replace Maneuver
 
 You can replace one maneuver you know with a new one.
@@ -3066,13 +3070,6 @@ You can replace one maneuver you know with a new one.
 * Superiority Die Size (d12)
 
 Your superiority die is upgraded to D12.
-
-* Tactical Awareness
-
-While you are not incapacitated, you gain the following benefits:
-• Once per turn, your weapon attack deals extra damage equal to your proficiency bonus.
-• Attacks of Opportunity you make are done with advantage.
-• Attacks of Opportunity against you are done with disadvantage.
 
 
 

@@ -4,12 +4,15 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:ConditionAffinitySickeningRadiance:fc61f40d-38f7-5a41-b8fb-d6e4464a3135"
+    "Definition:AbilityCheckAffinityConditionExhausted:addbff861499fbc47a0c9505f58a5404",
+    "Definition:CombatAffinitySickeningRadianceExhausted3:ed0bba01-a7af-58ff-b7e1-96650ddf5d76",
+    "Definition:MovementAffinityConditionSlowed:d1cc31d667617454e9751c34328770d4",
+    "Definition:SavingThrowAffinitySickeningRadianceExhausted3:bb2186f4-5847-5e4a-a3dc-f613ad953662"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
-  "silentWhenRefreshed": true,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Minute",
@@ -40,21 +43,21 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "4b0997de69b577c41a5016decc0f4a07",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "4758c4ccb17a08a43a638c9e8c7b5060",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "d7cb33f68cae01844a5aed6064f61fdc",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
@@ -130,12 +133,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionSickeningRadianceTitle",
-    "description": "Condition/&ConditionSickeningRadianceDescription",
+    "title": "Condition/&ConditionSickeningRadianceExhausted3Title",
+    "description": "Condition/&ConditionSickeningRadianceExhausted3Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",
-      "m_SubObjectName": "ConditionNegative",
+      "m_AssetGUID": "c361725f0a278ea4bbef108455b7029d",
+      "m_SubObjectName": "ConditionProne",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -151,7 +154,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8e8f5489-4e47-5457-9038-7e3193e4686e",
+  "guid": "509fb040-ddec-56b5-95c4-71b80fb9f314",
   "contentPack": 9999,
-  "name": "ConditionSickeningRadiance"
+  "name": "ConditionSickeningRadianceExhausted3"
 }
