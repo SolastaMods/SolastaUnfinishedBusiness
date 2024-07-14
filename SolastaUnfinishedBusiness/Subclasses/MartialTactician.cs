@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -205,30 +206,16 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionFeatureSet BuildTacticalAwareness()
+    private static FeatureDefinition BuildTacticalAwareness()
     {
-        var additionalDamageTacticalAwareness = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageTacticianTacticalAwareness")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("TacticalAwareness")
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddToDB();
-
-        var combatAffinityTacticalAwareness = FeatureDefinitionCombatAffinityBuilder
-            .Create("CombatAffinityTacticianTacticalAwareness")
-            .SetGuiPresentation("FeatureSetTacticianTacticalAwareness", Category.Feature)
-            .SetAttackOfOpportunityOnMeAdvantage(AdvantageType.Disadvantage)
-            .AddToDB();
-
-        combatAffinityTacticalAwareness.AddCustomSubFeatures(
-            new PhysicalAttackInitiatedByMeTacticalAwareness(combatAffinityTacticalAwareness));
-
-        return FeatureDefinitionFeatureSetBuilder
+        var feature = FeatureDefinitionBuilder
             .Create("FeatureSetTacticianTacticalAwareness")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(additionalDamageTacticalAwareness, combatAffinityTacticalAwareness)
             .AddToDB();
+
+        feature.AddCustomSubFeatures(new CharacterTurnStartListenerTacticalAwareness(feature));
+
+        return feature;
     }
 
     private class PhysicalAttackFinishedByMeAdaptiveStrategy(
@@ -330,27 +317,16 @@ public sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    private sealed class PhysicalAttackInitiatedByMeTacticalAwareness(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition) : IPhysicalAttackInitiatedByMe
+    private sealed class CharacterTurnStartListenerTacticalAwareness(FeatureDefinition featureDefinition)
+        : ICharacterTurnStartListener
     {
-        public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
+        public void OnCharacterTurnStarted(GameLocationCharacter character)
         {
-            if ((action.ActionType is not ActionDefinitions.ActionType.Reaction ||
-                 attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag)) &&
-                !attackMode.attackTags.Contains(TacticalAwareness))
-            {
-                yield break;
-            }
+            var rulesetCharacter = character.RulesetCharacter;
+            var usablePower = PowerProvider.Get(GambitsBuilders.GambitPool, rulesetCharacter);
 
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
+            usablePower.RepayUse();
+            rulesetCharacter.LogCharacterUsedFeature(featureDefinition);
         }
     }
 }

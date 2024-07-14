@@ -516,7 +516,17 @@ internal static class GambitsBuilders
                     .Build())
             .AddToDB();
 
-        reactionPower.AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker);
+        var conditionReaction = ConditionDefinitionBuilder
+            .Create($"Condition{name}")
+            .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+            .SetPossessive()
+            .SetFeatures(reactionPower)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddToDB();
+
+        reactionPower.AddCustomSubFeatures(
+            ForcePowerUseInSpendPowerAction.Marker,
+            new CoordinatedAttackReaction(conditionReaction));
 
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -532,14 +542,7 @@ internal static class GambitsBuilders
                     .SetDurationData(DurationType.Round)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionGambitDieDamage),
-                        EffectFormBuilder.ConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                .SetPossessive()
-                                .SetFeatures(reactionPower)
-                                .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
-                                .AddToDB()))
+                        EffectFormBuilder.ConditionForm(conditionReaction))
                     .Build())
             .AddToDB();
 
@@ -1850,6 +1853,22 @@ internal static class GambitsBuilders
     //
     // Coordinated Attack
     //
+
+    private sealed class CoordinatedAttackReaction(ConditionDefinition conditionReaction) : IPowerOrSpellFinishedByMe
+    {
+        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionReaction.Name, out var activeCondition))
+            {
+                rulesetAttacker.RemoveCondition(activeCondition);
+            }
+
+            yield break;
+        }
+    }
 
     private sealed class CoordinatedAttack :
         IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IPowerOrSpellFinishedByMe,
