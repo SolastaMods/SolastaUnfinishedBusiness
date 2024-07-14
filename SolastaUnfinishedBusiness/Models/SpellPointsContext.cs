@@ -18,12 +18,12 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpellPointsContext
 {
-    internal static readonly List<int> SpellCostByLevel = [0, 2, 3, 5, 6, 7, 9, 10, 11, 13];
+    private static readonly List<int> SpellCostByLevel = [0, 2, 3, 5, 6, 7, 9, 10, 11, 13];
     private static readonly List<SlotsByLevelDuplet> FullCastingSlots = [];
     private static readonly List<SlotsByLevelDuplet> HalfCastingSlots = [];
     private static readonly List<SlotsByLevelDuplet> HalfRoundUpCastingSlots = [];
     private static readonly List<SlotsByLevelDuplet> OneThirdCastingSlots = [];
-    private static readonly List<SlotsByLevelDuplet> SpellPointsFullCastingSlots = [];
+    internal static readonly List<SlotsByLevelDuplet> SpellPointsFullCastingSlots = [];
     private static readonly List<SlotsByLevelDuplet> SpellPointsHalfCastingSlots = [];
     private static readonly List<SlotsByLevelDuplet> SpellPointsHalfRoundUpCastingSlots = [];
     private static readonly List<SlotsByLevelDuplet> SpellPointsOneThirdCastingSlots = [];
@@ -150,10 +150,12 @@ internal static class SpellPointsContext
         for (var i = 0; i < __instance.spellPanelsContainer.childCount; i++)
         {
             var child = __instance.spellPanelsContainer.GetChild(i);
-
             var repertoireTitle = child.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>();
 
-            if (Main.Settings.UseAlternateSpellPointsSystem)
+            if (Main.Settings.UseAlternateSpellPointsSystem &&
+                (SharedSpellsContext.IsMulticaster(heroCharacter) ||
+                 SharedSpellsContext.GetWarlockSpellRepertoire(heroCharacter) == null))
+
             {
                 var maxSpellPoints = GetMaxSpellPoints(heroCharacter).ToString();
                 var postfix = Gui.Format("Screen/&SpellAlternatePointsCostTooltip", maxSpellPoints);
