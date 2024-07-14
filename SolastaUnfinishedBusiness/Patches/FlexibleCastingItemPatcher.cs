@@ -32,20 +32,8 @@ public static class FlexibleCastingItemPatcher
 
             if (!SharedSpellsContext.IsMulticaster(hero))
             {
-                // no way a Warlock would get here so no need to check for Warlock
-                if (!Main.Settings.UseAlternateSpellPointsSystem)
-                {
-                    return;
-                }
-
                 //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
-                for (var index = 0; index < __instance.slotStatusTable.childCount; ++index)
-                {
-                    var component = __instance.slotStatusTable.GetChild(index).GetComponent<SlotStatus>();
-
-                    component.Used.gameObject.SetActive(false);
-                    component.Available.gameObject.SetActive(false);
-                }
+                SpellPointsContext.HideSpellSlots(hero, __instance.slotStatusTable);
 
                 return;
             }
@@ -63,10 +51,7 @@ public static class FlexibleCastingItemPatcher
         public static void Prefix(FlexibleCastingItem __instance)
         {
             //PATCH: support alternate spell system to ensure points display is refreshed (SPELL_POINTS)
-            if (Main.Settings.UseAlternateSpellPointsSystem)
-            {
-                SpellPointsContext.RefreshActionPanel();
-            }
+            SpellPointsContext.RefreshActionPanelAfterFlexibleCastingItem();
 
             //PATCH: ensures slot colors are white before getting back to pool (MULTICLASS)
             MulticlassGameUiContext.PaintSlotsWhite(__instance.slotStatusTable);

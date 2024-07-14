@@ -456,6 +456,7 @@
     <UnlockGlowingColorsForAllMarksAndTattoos>true</UnlockGlowingColorsForAllMarksAndTattoos>
     <UnlockSkinColors>true</UnlockSkinColors>
     <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
+    <UseAlternateSpellPointsSystem>false</UseAlternateSpellPointsSystem>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
@@ -1542,6 +1543,7 @@
                     <string>BrainBulwark</string>
                     <string>PsionicBlast</string>
                     <string>PsychicLance</string>
+                    <string>SickeningRadiance</string>
                     <string>VitriolicSphere</string>
                     <string>FarStep</string>
                     <string>Incineration</string>
@@ -1602,6 +1604,7 @@
                     <string>ElementalBane</string>
                     <string>PsionicBlast</string>
                     <string>PsychicLance</string>
+                    <string>SickeningRadiance</string>
                     <string>FarStep</string>
                     <string>SynapticStatic</string>
                     <string>FlashFreeze</string>
@@ -1683,6 +1686,7 @@
                     <string>FaithfulHound</string>
                     <string>PsionicBlast</string>
                     <string>PsychicLance</string>
+                    <string>SickeningRadiance</string>
                     <string>VitriolicSphere</string>
                     <string>Dawn</string>
                     <string>FarStep</string>

@@ -107,18 +107,15 @@ public static class RulesetSpellRepertoirePatcher
                 return;
             }
 
-            // consume points if alternate system is on
-            if (Main.Settings.UseAlternateSpellPointsSystem)
-            {
-                SpellPointsContext.ConsumeSpellPoints(hero, __instance, slotLevel);
-            }
+            var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
 
             // handle single caster scenarios both alternate system and vanilla
             if (!SharedSpellsContext.IsMulticaster(hero))
             {
-                if (Main.Settings.UseAlternateSpellPointsSystem)
+                if (Main.Settings.UseAlternateSpellPointsSystem &&
+                    warlockSpellRepertoire == null)
                 {
-                    SpellPointsContext.ConsumeSlots(hero, __instance);
+                    SpellPointsContext.ConsumeSlotsAtLevelsPointsCannotCastAnymore(hero, __instance, slotLevel);
                 }
                 else
                 {
@@ -127,8 +124,6 @@ public static class RulesetSpellRepertoirePatcher
 
                 return;
             }
-
-            var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
 
             // handles MC non-Warlock
             if (warlockSpellRepertoire == null)
@@ -139,7 +134,8 @@ public static class RulesetSpellRepertoirePatcher
                 {
                     if (Main.Settings.UseAlternateSpellPointsSystem)
                     {
-                        SpellPointsContext.ConsumeSlots(hero, spellRepertoire);
+                        SpellPointsContext.ConsumeSlotsAtLevelsPointsCannotCastAnymore(
+                            hero, spellRepertoire, slotLevel);
                     }
                     else
                     {
@@ -210,7 +206,7 @@ public static class RulesetSpellRepertoirePatcher
                 }
             }
 
-            // otherwise uses long rest slots across all non race repertoires
+            // otherwise uses long rest slots across all non-race repertoires
             else
             {
                 foreach (var spellRepertoire in hero.SpellRepertoires
@@ -219,7 +215,8 @@ public static class RulesetSpellRepertoirePatcher
                 {
                     if (Main.Settings.UseAlternateSpellPointsSystem)
                     {
-                        SpellPointsContext.ConsumeSlots(hero, spellRepertoire);
+                        SpellPointsContext.ConsumeSlotsAtLevelsPointsCannotCastAnymore(
+                            hero, spellRepertoire, slotLevel);
                     }
                     else
                     {
@@ -402,7 +399,7 @@ public static class RulesetSpellRepertoirePatcher
 
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
-            // get off here if doesn't have any Warlock level
+            // get off here if it doesn't have any Warlock level
             if (warlockSpellLevel == 0)
             {
                 return true;

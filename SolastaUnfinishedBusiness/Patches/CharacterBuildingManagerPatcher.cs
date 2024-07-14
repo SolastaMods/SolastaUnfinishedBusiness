@@ -165,6 +165,9 @@ public static class CharacterBuildingManagerPatcher
                     __instance.GrantCantripsAndSpellsByTag(buildingData, AttributeDefinitions.TagBackground,
                         featureDefinitionCastSpell);
                 }
+
+                //PATCH: grants the power spell points to any created hero including pre-gen ones (SPELL_POINTS)
+                SpellPointsContext.GrantPowerSpellPoints(hero);
             }
 
             //PATCH: grants custom features

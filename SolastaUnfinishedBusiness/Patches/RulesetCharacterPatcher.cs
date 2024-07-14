@@ -1253,7 +1253,8 @@ public static class RulesetCharacterPatcher
             if (hero != null &&
                 Main.Settings.UseAlternateSpellPointsSystem)
             {
-                SpellPointsContext.RefreshSpellRepertoire(__instance.GetOriginalHero());
+                SpellPointsContext.ConvertAdditionalSlotsIntoSpellPointsBeforeRefreshSpellRepertoire(
+                    __instance.GetOriginalHero());
             }
         }
 
@@ -1851,20 +1852,7 @@ public static class RulesetCharacterPatcher
             }
 
             //PATCH: support adding required power to keep a tab on spell points (SPELL_POINTS)
-            switch (Main.Settings.UseAlternateSpellPointsSystem)
-            {
-                case true when
-                    !hero.HasAnyFeature(SpellPointsContext.PowerSpellPoints):
-                {
-                    hero.ActiveFeatures[AttributeDefinitions.TagRace].Add(SpellPointsContext.PowerSpellPoints);
-                    var usablePower = PowerProvider.Get(SpellPointsContext.PowerSpellPoints, hero);
-                    var poolSize = hero.GetMaxUsesOfPower(usablePower);
-
-                    usablePower.remainingUses = poolSize;
-                    hero.UsablePowers.Add(usablePower);
-                    break;
-                }
-            }
+            SpellPointsContext.GrantPowerSpellPoints(hero);
 
             //PATCH: support adding required action affinities to classes that can use toggles
             if (hero.ClassesHistory.Contains(Paladin))

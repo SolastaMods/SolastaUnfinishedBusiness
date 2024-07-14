@@ -64,24 +64,17 @@ public static class SlotStatusTablePatcher
 
             if (!SharedSpellsContext.IsMulticaster(hero))
             {
-                if (!Main.Settings.UseAlternateSpellPointsSystem || spellRepertoire.spellCastingClass == Warlock)
-                {
-                    return;
-                }
-
                 //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
-                for (var index = 0; index < __instance.table.childCount; ++index)
+                // ReSharper disable once InvertIf
+                if (Main.Settings.UseAlternateSpellPointsSystem &&
+                    spellRepertoire.spellCastingClass != Warlock)
                 {
-                    var component = __instance.table.GetChild(index).GetComponent<SlotStatus>();
+                    for (var index = 0; index < __instance.table.childCount; ++index)
+                    {
+                        var component = __instance.table.GetChild(index).GetComponent<SlotStatus>();
 
-                    component.Used.gameObject.SetActive(false);
-                    component.Available.gameObject.SetActive(false);
-
-                    var cost = SpellPointsContext.SpellCostByLevel[spellLevel].ToString();
-
-                    __instance.slotsText.gameObject.SetActive(true);
-                    __instance.slotsText.Text =
-                        spells.Count < 2 ? cost : Gui.Format("Screen/&SpellAlternatePointsCostTooltip", cost);
+                        SpellPointsContext.AddCostTextToSpellLevels(__instance, component, spellLevel, spells.Count);
+                    }
                 }
 
                 return;
@@ -96,8 +89,8 @@ public static class SlotStatusTablePatcher
                 spellLevel,
                 spells.Count,
                 __instance,
-                (Global.InspectedHero != null && spellRepertoire.spellCastingClass == Warlock)
-                || (Global.InspectedHero == null && !Main.Settings.DisplayPactSlotsOnSpellSelectionPanel));
+                (Global.InspectedHero != null && spellRepertoire.spellCastingClass == Warlock) ||
+                (Global.InspectedHero == null && !Main.Settings.DisplayPactSlotsOnSpellSelectionPanel));
         }
     }
 

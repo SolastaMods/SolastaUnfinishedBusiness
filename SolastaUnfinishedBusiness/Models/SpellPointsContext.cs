@@ -8,6 +8,8 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
+using TMPro;
+using UnityEngine;
 using static FeatureDefinitionCastSpell;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
@@ -52,7 +54,7 @@ internal static class SpellPointsContext
             (MartialSpellShield.CastSpellName, OneThirdCastingSlots, SpellPointsOneThirdCastingSlots)
         ];
 
-    internal static readonly FeatureDefinitionPower PowerSpellPoints = FeatureDefinitionPowerBuilder
+    private static readonly FeatureDefinitionPower PowerSpellPoints = FeatureDefinitionPowerBuilder
         .Create("PowerSpellPoints")
         .SetGuiPresentationNoContent(true)
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
@@ -74,29 +76,144 @@ internal static class SpellPointsContext
         SwitchFeatureDefinitionCastSpellSlots();
     }
 
-    internal static void ConsumeSpellPoints(RulesetCharacterHero hero, RulesetSpellRepertoire repertoire, int slotLevel)
+    internal static void SwitchFeatureDefinitionCastSpellSlots()
     {
+        var db = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
+
+        foreach (var (name, slotsVanilla, slotsSpellPoints) in FeatureDefinitionCastSpellTab)
+        {
+            var featureCastSpell = db.GetElement(name);
+
+            featureCastSpell.slotsPerLevels =
+                Main.Settings.UseAlternateSpellPointsSystem ? slotsSpellPoints : slotsVanilla;
+        }
+    }
+
+    internal static void HideSpellSlots(RulesetCharacterHero hero, RectTransform table)
+    {
+        if (!Main.Settings.UseAlternateSpellPointsSystem ||
+            SharedSpellsContext.GetWarlockSpellRepertoire(hero) != null)
+        {
+            return;
+        }
+
+        for (var index = 0; index < table.childCount; ++index)
+        {
+            var component = table.GetChild(index).GetComponent<SlotStatus>();
+
+            component.Used.gameObject.SetActive(false);
+            component.Available.gameObject.SetActive(false);
+        }
+    }
+
+    internal static void SetupUseSlots(
+        GuiCharacterAction guiCharacterAction,
+        RectTransform useSlotsTable,
+        GuiLabel highSlotNumber)
+    {
+        if (!Main.Settings.UseAlternateSpellPointsSystem ||
+            (guiCharacterAction.ActionDefinition != DatabaseHelper.ActionDefinitions.CastMain &&
+             guiCharacterAction.ActionDefinition != DatabaseHelper.ActionDefinitions.CastBonus))
+        {
+            return;
+        }
+
+        var rulesetCharacter = guiCharacterAction.ActingCharacter.RulesetCharacter;
+        var remainingSpellPoints = GetRemainingSpellPoints(rulesetCharacter).ToString();
+
+        highSlotNumber.gameObject.SetActive(true);
+        useSlotsTable.gameObject.SetActive(false);
+        highSlotNumber.Text = remainingSpellPoints;
+        highSlotNumber.GuiTooltip.Content =
+            Gui.Format("Screen/&SpellAlternatePointsTooltip", remainingSpellPoints);
+    }
+
+    private static int GetMaxSpellPoints(RulesetCharacter rulesetCharacter)
+    {
+        var usablePower = PowerProvider.Get(PowerSpellPoints, rulesetCharacter);
+        var maxUsesOfPower = rulesetCharacter.GetMaxUsesOfPower(usablePower);
+
+        return maxUsesOfPower;
+    }
+
+    private static int GetRemainingSpellPoints(RulesetCharacter rulesetCharacter)
+    {
+        var usablePower = PowerProvider.Get(PowerSpellPoints, rulesetCharacter);
+        var remainingUsesOfPower = rulesetCharacter.GetRemainingUsesOfPower(usablePower);
+
+        return remainingUsesOfPower;
+    }
+
+    internal static void SwitchRepertoireTitleOnInspectionScreen(
+        CharacterInspectionScreen __instance, RulesetCharacterHero heroCharacter)
+    {
+        for (var i = 0; i < __instance.spellPanelsContainer.childCount; i++)
+        {
+            var child = __instance.spellPanelsContainer.GetChild(i);
+
+            var repertoireTitle = child.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>();
+
+            if (Main.Settings.UseAlternateSpellPointsSystem)
+            {
+                var maxSpellPoints = GetMaxSpellPoints(heroCharacter).ToString();
+                var postfix = Gui.Format("Screen/&SpellAlternatePointsCostTooltip", maxSpellPoints);
+
+                repertoireTitle.text = Gui.Localize("Screen/&RepertoireSpellsTitle") + ": " + postfix;
+            }
+            else
+            {
+                repertoireTitle.text = Gui.Localize("Screen/&RepertoireSpellsTitle");
+            }
+        }
+    }
+
+    internal static void AddCostTextToSpellLevels(SlotStatusTable slotStatusTable, SlotStatus slotStatus, int slotLevel,
+        int spellsAtLevel)
+    {
+        var cost = SpellCostByLevel[slotLevel].ToString();
+
+        slotStatus.Used.gameObject.SetActive(false);
+        slotStatus.Available.gameObject.SetActive(false);
+        slotStatusTable.slotsText.gameObject.SetActive(true);
+        slotStatusTable.slotsText.Text =
+            spellsAtLevel < 2 ? cost : Gui.Format("Screen/&SpellAlternatePointsCostTooltip", cost);
+    }
+
+    internal static void GrantPowerSpellPoints(RulesetCharacterHero hero)
+    {
+        if (hero.HasAnyFeature(PowerSpellPoints))
+        {
+            return;
+        }
+
+        hero.ActiveFeatures[AttributeDefinitions.TagRace].Add(PowerSpellPoints);
+
+        var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
+        var poolSize = hero.GetMaxUsesOfPower(usablePower);
+
+        usablePower.remainingUses = poolSize;
+        hero.UsablePowers.Add(usablePower);
+    }
+
+    internal static void ConsumeSlotsAtLevelsPointsCannotCastAnymore(
+        RulesetCharacterHero hero, RulesetSpellRepertoire repertoire, int slotLevel)
+    {
+        // consume points
         var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
         var cost = SpellCostByLevel[slotLevel];
 
         usablePower.remainingUses -= cost;
 
-        if (slotLevel <= 5)
+        // handle scenario where spells at level 6 and above can only be cast once per level
+        if (slotLevel > 5)
         {
-            return;
+            var usedSpellsSlots = repertoire.usedSpellsSlots;
+
+            usedSpellsSlots.TryAdd(slotLevel, 0);
+            usedSpellsSlots[slotLevel] = 1;
         }
 
-        var usedSpellsSlots = repertoire.usedSpellsSlots;
-
-        usedSpellsSlots.TryAdd(slotLevel, 0);
-        usedSpellsSlots[slotLevel] = 1;
-
-        // no need to RepertoireRefreshed here as ConsumeSlots will end up doing it
-    }
-
-    internal static void ConsumeSlots(RulesetCharacterHero hero, RulesetSpellRepertoire repertoire)
-    {
-        var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
+        // consume spell slots at levels points cannot cast anymore
         var level = repertoire.MaxSpellLevelOfSpellCastingLevel;
 
         for (var i = level; i > 0; i--)
@@ -115,7 +232,7 @@ internal static class SpellPointsContext
         repertoire.RepertoireRefreshed?.Invoke(repertoire);
     }
 
-    internal static void RefreshSpellRepertoire(RulesetCharacterHero hero)
+    internal static void ConvertAdditionalSlotsIntoSpellPointsBeforeRefreshSpellRepertoire(RulesetCharacterHero hero)
     {
         var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
         var activeConditions = hero.AllConditions.ToList();
@@ -148,8 +265,13 @@ internal static class SpellPointsContext
         }
     }
 
-    internal static void RefreshActionPanel()
+    internal static void RefreshActionPanelAfterFlexibleCastingItem()
     {
+        if (!Main.Settings.UseAlternateSpellPointsSystem)
+        {
+            return;
+        }
+
         var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
 
         if (gameLocationScreenExploration.Visible)
@@ -189,19 +311,6 @@ internal static class SpellPointsContext
                     characterActionItem.CurrentItemForm.Refresh();
                 }
             }
-        }
-    }
-
-    internal static void SwitchFeatureDefinitionCastSpellSlots()
-    {
-        var db = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>();
-
-        foreach (var (name, slotsVanilla, slotsSpellPoints) in FeatureDefinitionCastSpellTab)
-        {
-            var featureCastSpell = db.GetElement(name);
-
-            featureCastSpell.slotsPerLevels =
-                Main.Settings.UseAlternateSpellPointsSystem ? slotsSpellPoints : slotsVanilla;
         }
     }
 

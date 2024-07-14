@@ -198,14 +198,7 @@ internal static class MulticlassGameUiContext
                 //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
                 if (Main.Settings.UseAlternateSpellPointsSystem)
                 {
-                    component.Used.gameObject.SetActive(false);
-                    component.Available.gameObject.SetActive(false);
-
-                    var cost = SpellPointsContext.SpellCostByLevel[slotLevel].ToString();
-
-                    slotStatusTable.slotsText.gameObject.SetActive(true);
-                    slotStatusTable.slotsText.Text =
-                        spellsAtLevel < 2 ? cost : Gui.Format("Screen/&SpellAlternatePointsCostTooltip", cost);
+                    SpellPointsContext.AddCostTextToSpellLevels(slotStatusTable, component, slotLevel, spellsAtLevel);
                 }
                 else
                 {
