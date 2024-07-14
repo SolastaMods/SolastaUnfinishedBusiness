@@ -8,7 +8,7 @@
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
@@ -134,8 +134,8 @@
     "description": "Condition/&ConditionSickeningRadianceExhausted1Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c361725f0a278ea4bbef108455b7029d",
-      "m_SubObjectName": "ConditionProne",
+      "m_AssetGUID": "2ef089b370685bd44833c621471d754e",
+      "m_SubObjectName": "ConditionExhausted",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

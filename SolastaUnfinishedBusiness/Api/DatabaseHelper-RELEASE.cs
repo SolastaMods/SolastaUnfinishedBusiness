@@ -754,6 +754,7 @@ internal static partial class DatabaseHelper
     {
         internal static EffectProxyDefinition ProxyIndomitableLight { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyIndomitableLight");
+
         internal static EffectProxyDefinition ProxyDelayedBlastFireball { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyDelayedBlastFireball");
 
@@ -1600,6 +1601,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionMovementAffinity MovementAffinityCarriedByWind { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityCarriedByWind");
+
+        internal static FeatureDefinitionMovementAffinity MovementAffinityConditionSlowed { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionSlowed");
 
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionFlyingAdaptive { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionFlyingAdaptive");
