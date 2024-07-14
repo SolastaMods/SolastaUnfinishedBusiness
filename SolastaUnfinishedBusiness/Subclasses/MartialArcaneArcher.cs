@@ -645,7 +645,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
-            attacker.UsedSpecialFeatures.TryAdd(powerBurstingArrow.Name, -1);
+            attacker.UsedSpecialFeatures.TryAdd(powerBurstingArrow.Name, 0);
+            attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = -1;
 
             if (!actionParams.ReactionValidated)
             {
@@ -678,6 +679,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 yield break;
             }
 
+            attacker.UsedSpecialFeatures[powerBurstingArrow.Name] = -1;
             HandleBurstingArrow(attacker, defender);
         }
 
