@@ -18,6 +18,7 @@ Feature/&PowerCollegeOfAudacityMobileWhirlDescription=Вы можете потр
 Feature/&PowerCollegeOfAudacityMobileWhirlTitle=Подвижный вихрь
 Feature/&PowerCollegeOfAudacitySlashingWhirlDescription=Вы можете потратить одну кость своего Бардовского вдохновения, чтобы заставить оружие нанести дополнительный урон цели, по которой вы попали, и всем другим враждебным существам в радиусе 5 футов от вас. Урон равен числу, выпавшему на кости Бардовского вдохновения, или d6, если вы владеете Искусным вихрем.
 Feature/&PowerCollegeOfAudacitySlashingWhirlTitle=Рубящий вихрь
+Feedback/&CollegeOfAudacityDefensiveWhirl={0} бросает кубик {2}, добавляя {3} к AC.
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlDescription={0} может заставить оружие нанести дополнительный урон цели. Урон равен числу, выпавшему на кости Бардовского вдохновения, или d6, если это Искусный вихрь.
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescription=Вихрь
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=Вихрь
