@@ -128,6 +128,8 @@ public static class RulesetSpellRepertoirePatcher
             // handles MC non-Warlock
             if (warlockSpellRepertoire == null)
             {
+                var consume = true;
+
                 foreach (var spellRepertoire in hero.SpellRepertoires
                              .Where(x => x.SpellCastingFeature.SpellCastingOrigin !=
                                          FeatureDefinitionCastSpell.CastingOrigin.Race))
@@ -135,7 +137,9 @@ public static class RulesetSpellRepertoirePatcher
                     if (Main.Settings.UseAlternateSpellPointsSystem)
                     {
                         SpellPointsContext.ConsumeSlotsAtLevelsPointsCannotCastAnymore(
-                            hero, spellRepertoire, slotLevel);
+                            hero, spellRepertoire, slotLevel, consume, true);
+
+                        consume = false;
                     }
                     else
                     {
@@ -209,6 +213,8 @@ public static class RulesetSpellRepertoirePatcher
             // otherwise uses long rest slots across all non-race repertoires
             else
             {
+                var consume = true;
+
                 foreach (var spellRepertoire in hero.SpellRepertoires
                              .Where(x => x.SpellCastingFeature.SpellCastingOrigin !=
                                          FeatureDefinitionCastSpell.CastingOrigin.Race))
@@ -216,7 +222,9 @@ public static class RulesetSpellRepertoirePatcher
                     if (Main.Settings.UseAlternateSpellPointsSystem)
                     {
                         SpellPointsContext.ConsumeSlotsAtLevelsPointsCannotCastAnymore(
-                            hero, spellRepertoire, slotLevel);
+                            hero, spellRepertoire, slotLevel, consume, true);
+
+                        consume = false;
                     }
                     else
                     {

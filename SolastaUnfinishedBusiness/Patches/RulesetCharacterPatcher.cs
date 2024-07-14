@@ -1292,7 +1292,9 @@ public static class RulesetCharacterPatcher
             for (var i = 1; i <= sharedSpellLevel; i++)
             {
                 slots.TryAdd(i, 0);
-                slots[i] += SharedSpellsContext.FullCastingSlots[sharedCasterLevel - 1].Slots[i - 1];
+                slots[i] += Main.Settings.UseAlternateSpellPointsSystem
+                    ? SpellPointsContext.SpellPointsFullCastingSlots[sharedCasterLevel - 1].Slots[i - 1]
+                    : SharedSpellsContext.FullCastingSlots[sharedCasterLevel - 1].Slots[i - 1];
             }
 
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);

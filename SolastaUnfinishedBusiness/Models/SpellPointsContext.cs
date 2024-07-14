@@ -199,13 +199,18 @@ internal static class SpellPointsContext
     }
 
     internal static void ConsumeSlotsAtLevelsPointsCannotCastAnymore(
-        RulesetCharacterHero hero, RulesetSpellRepertoire repertoire, int slotLevel)
+        RulesetCharacterHero hero, RulesetSpellRepertoire repertoire, int slotLevel,
+        bool consume = true, bool isMulticaster = false)
     {
         // consume points
         var usablePower = PowerProvider.Get(PowerSpellPoints, hero);
-        var cost = SpellCostByLevel[slotLevel];
 
-        usablePower.remainingUses -= cost;
+        if (consume)
+        {
+            var cost = SpellCostByLevel[slotLevel];
+
+            usablePower.remainingUses -= cost;
+        }
 
         // handle scenario where spells at level 6 and above can only be cast once per level
         if (slotLevel > 5)
@@ -217,7 +222,9 @@ internal static class SpellPointsContext
         }
 
         // consume spell slots at levels points cannot cast anymore
-        var level = repertoire.MaxSpellLevelOfSpellCastingLevel;
+        var level = isMulticaster
+            ? SharedSpellsContext.GetSharedSpellLevel(hero)
+            : repertoire.MaxSpellLevelOfSpellCastingLevel;
 
         for (var i = level; i > 0; i--)
         {
