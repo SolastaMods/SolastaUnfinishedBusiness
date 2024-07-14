@@ -434,25 +434,49 @@ internal static partial class SpellBuilders
 
     private sealed class OnConditionAddedOrRemovedSickeningRadiance : IOnConditionAddedOrRemoved
     {
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionAdded(RulesetCharacter rulesetTarget, RulesetCondition rulesetCondition)
         {
             var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
             rulesetCondition.RemainingRounds = caster.ConcentratedSpell.RemainingRounds;
 
+            var effectGuid = caster.ConcentratedSpell.Guid;
+
+            if (rulesetTarget.PersonalLightSource?.EffectGuid == effectGuid)
+            {
+                return;
+            }
+
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
             var lightSourceForm = FaerieFire.EffectDescription
                 .GetFirstFormOfType(EffectForm.EffectFormType.LightSource).LightSourceForm;
 
             var rulesetLightSource = new RulesetLightSource(new Color(0, 0.6f, 0), 0, 1,
                 lightSourceForm.GraphicsPrefabAssetGUID,
-                LightSourceType.Basic, rulesetCondition.effectDefinitionName, target.Guid);
+                LightSourceType.Basic,
+                rulesetCondition.effectDefinitionName,
+                rulesetTarget.Guid,
+                effectGuid: effectGuid);
 
-            caster.ConcentratedSpell.TrackedLightSourceGuids.Add(rulesetLightSource.Guid);
+            var target = GameLocationCharacter.GetFromActor(rulesetTarget);
+
+            visibilityService.AddCharacterLightSource(target, rulesetLightSource);
         }
 
-        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public void OnConditionRemoved(RulesetCharacter rulesetTarget, RulesetCondition rulesetCondition)
         {
-            // empty
+            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var effectGuid = caster.ConcentratedSpell.Guid;
+
+            if (rulesetTarget.PersonalLightSource?.EffectGuid != effectGuid)
+            {
+                return;
+            }
+
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+            var target = GameLocationCharacter.GetFromActor(rulesetTarget);
+
+            visibilityService.RemoveCharacterLightSource(target, rulesetTarget.PersonalLightSource);
         }
     }
 
