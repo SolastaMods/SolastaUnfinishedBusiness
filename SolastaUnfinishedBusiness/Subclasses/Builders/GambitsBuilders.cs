@@ -1866,6 +1866,7 @@ internal static class GambitsBuilders
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
+            // no need to check for source here as these are all self conditions
             if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 !rulesetAttacker.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionReaction.Name, out var activeCondition))

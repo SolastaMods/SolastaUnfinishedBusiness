@@ -188,12 +188,9 @@ public sealed class CollegeOfValiance : AbstractSubclass
                 return;
             }
 
-            defender.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect,
-                conditionDishearteningPerformance.Name,
-                out var activeCondition);
-
-            if (activeCondition == null)
+            // no need to check for source guid here
+            if (!defender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionDishearteningPerformance.Name, out var activeCondition))
             {
                 return;
             }

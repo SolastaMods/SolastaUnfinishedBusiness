@@ -222,14 +222,13 @@ public sealed class WizardBladeDancer : AbstractSubclass
                 return;
             }
 
-            foreach (var rulesetCondition in hero.allConditions
-                         .Where(x => x.ConditionDefinition == ConditionBladeDancerBladeDance ||
-                                     x.ConditionDefinition == ConditionBladeDancerDanceOfDefense ||
-                                     x.ConditionDefinition == ConditionBladeDancerDanceOfVictory)
-                         .ToList())
-            {
-                hero.RemoveCondition(rulesetCondition);
-            }
+            // no need to check for source here as these are all self conditions
+            hero.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionBladeDancerBladeDance.Name);
+            hero.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionBladeDancerDanceOfDefense.Name);
+            hero.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionBladeDancerDanceOfVictory.Name);
         }
     }
 }

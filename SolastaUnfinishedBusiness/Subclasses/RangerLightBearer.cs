@@ -365,9 +365,11 @@ public sealed class RangerLightBearer : AbstractSubclass
 
             var rulesetDefender = defender.RulesetActor;
 
+            // should only check the condition from the same source
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetDefender.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    conditionDefinition.Name))
+                !rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionDefinition.Name, out var activeCondition) ||
+                activeCondition.SourceGuid != attacker.Guid)
             {
                 yield break;
             }
@@ -390,13 +392,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                     EffectFormBuilder.DamageForm(DamageTypeRadiant, diceNumber, DieType.D8));
             }
 
-            if (rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionDefinition.Name,
-                    out var activeCondition))
-            {
-                rulesetDefender.RemoveCondition(activeCondition);
-            }
+            rulesetDefender.RemoveCondition(activeCondition);
         }
     }
 

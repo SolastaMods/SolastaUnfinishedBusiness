@@ -997,6 +997,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                          .Select(y => y.RulesetCharacter)
                          .Where(x => x is { IsDeadOrDyingOrUnconscious: false }))
             {
+                // should only check the condition from the same source
                 if (ally.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect, conditionForceBulwark.Name, out var activeCondition) &&
                     activeCondition.SourceGuid == target.Guid)

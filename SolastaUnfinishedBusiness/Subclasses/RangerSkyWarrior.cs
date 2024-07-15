@@ -266,6 +266,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
     {
         public void OnItemEquipped(RulesetCharacterHero hero)
         {
+            // no need to check for source here as these are all self conditions
             if (!ValidatorsCharacter.HasShield(hero) &&
                 hero.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
