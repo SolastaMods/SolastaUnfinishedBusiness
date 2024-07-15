@@ -42,7 +42,9 @@ public static class GuiCharacterPatcher
             // need to check for not null hero as we don't wanna these slots displayed under WS
             var hero = __instance.RulesetCharacterHero;
 
-            if (hero != null && !(Main.Settings.DisplayPactSlotsOnSpellSelectionPanel && !Main.Settings.UseAlternateSpellPointsSystem))
+            if (hero != null &&
+                !(Main.Settings.DisplayPactSlotsOnSpellSelectionPanel &&
+                  !Main.Settings.UseAlternateSpellPointsSystem))
             {
                 return;
             }

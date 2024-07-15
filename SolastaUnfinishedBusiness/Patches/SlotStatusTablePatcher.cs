@@ -90,7 +90,9 @@ public static class SlotStatusTablePatcher
                 spells.Count,
                 __instance,
                 (Global.InspectedHero != null && spellRepertoire.spellCastingClass == Warlock) ||
-                (Global.InspectedHero == null && !(Main.Settings.DisplayPactSlotsOnSpellSelectionPanel && !Main.Settings.UseAlternateSpellPointsSystem)));
+                (Global.InspectedHero == null &&
+                 !(Main.Settings.DisplayPactSlotsOnSpellSelectionPanel &&
+                   !Main.Settings.UseAlternateSpellPointsSystem)));
         }
     }
 

@@ -22,9 +22,6 @@ internal static class SharedSpellsContext
 {
     internal const int PactMagicSlotsTab = -1;
 
-    // supports custom MaxSpellLevelOfSpellCastLevel behaviors
-    internal static bool UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior { get; private set; }
-
     internal static readonly Dictionary<string, BaseDefinition> RecoverySlots = new()
     {
         { PowerCircleLandNaturalRecovery.Name, Druid },
@@ -52,6 +49,9 @@ internal static class SharedSpellsContext
         { RoguishShadowCaster.Name, CasterProgression.OneThird },
         { MartialSpellShield.FullName, CasterProgression.OneThird }
     };
+
+    // supports custom MaxSpellLevelOfSpellCastLevel behaviors
+    internal static bool UseMaxSpellLevelOfSpellCastingLevelDefaultBehavior { get; private set; }
 
     // supports auto prepared spells scenarios on subs
     internal static CasterProgression GetCasterTypeForClassOrSubclass(
