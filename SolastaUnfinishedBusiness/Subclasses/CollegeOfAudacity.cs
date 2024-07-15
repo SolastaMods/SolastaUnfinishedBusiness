@@ -477,7 +477,8 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             {
                 case 0 when
                     attacker.UsedSpecialFeatures.TryGetValue(WhirlDamage, out var damage):
-                    var dieType = rulesetAttacker.GetBardicInspirationDieValue();
+                    var isMasterfulWhirl = rulesetAttacker.IsToggleEnabled(MasterfulWhirlToggle);
+                    var dieType = isMasterfulWhirl ? DieType.D6 : rulesetAttacker.GetBardicInspirationDieValue();
 
                     rulesetAttacker.LogCharacterActivatesAbility(
                         Gui.NoLocalization, "Feedback/&CollegeOfAudacityDefensiveWhirl", true,

@@ -514,6 +514,7 @@ internal static class GambitsBuilders
                                 .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                                 .AddToDB()))
                     .Build())
+            .AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker)
             .AddToDB();
 
         var conditionReaction = ConditionDefinitionBuilder
@@ -524,9 +525,7 @@ internal static class GambitsBuilders
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
-        reactionPower.AddCustomSubFeatures(
-            ForcePowerUseInSpendPowerAction.Marker,
-            new CoordinatedAttackReaction(conditionReaction));
+        conditionReaction.AddCustomSubFeatures(new CoordinatedAttackReaction(conditionReaction));
 
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -1854,19 +1853,27 @@ internal static class GambitsBuilders
     // Coordinated Attack
     //
 
-    private sealed class CoordinatedAttackReaction(ConditionDefinition conditionReaction) : IPowerOrSpellFinishedByMe
+    private sealed class CoordinatedAttackReaction(ConditionDefinition conditionReaction) : IPhysicalAttackFinishedByMe
     {
-        public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
         {
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !rulesetAttacker.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionReaction.Name, out var activeCondition))
             {
-                rulesetAttacker.RemoveCondition(activeCondition);
+                yield break;
             }
 
-            yield break;
+            rulesetAttacker.RemoveCondition(activeCondition);
         }
     }
 
