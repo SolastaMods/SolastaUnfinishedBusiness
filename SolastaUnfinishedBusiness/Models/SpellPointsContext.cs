@@ -210,6 +210,8 @@ internal static class SpellPointsContext
             ? SharedSpellsContext.GetSharedSpellLevel(hero)
             : repertoire.MaxSpellLevelOfSpellCastingLevel;
 
+        var warlockLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+
         for (var i = level; i > 0; i--)
         {
             if (usablePower.RemainingUses >= SpellCostByLevel[i] &&
@@ -219,10 +221,18 @@ internal static class SpellPointsContext
                 continue;
             }
 
+            var usedWarlockSlots = 0;
+
+            if (level == warlockLevel &&
+                repertoire.usedSpellsSlots.TryGetValue(SharedSpellsContext.PactMagicSlotsTab, out var usedSlots))
+            {
+                usedWarlockSlots = usedSlots;
+            }
+
             var usedSpellsSlots = repertoire.usedSpellsSlots;
 
             usedSpellsSlots.TryAdd(i, 0);
-            usedSpellsSlots[i] = repertoire.spellsSlotCapacities[i];
+            usedSpellsSlots[i] = usedWarlockSlots + 1;
         }
 
         repertoire.RepertoireRefreshed?.Invoke(repertoire);
