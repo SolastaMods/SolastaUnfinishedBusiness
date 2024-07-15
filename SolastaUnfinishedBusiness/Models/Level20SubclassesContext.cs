@@ -2038,19 +2038,19 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
             var target = action.ActionParams.TargetCharacters[0];
             var rulesetTarget = target.RulesetCharacter;
 
             if (!rulesetTarget.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionDefinition.Name, out var activeCondition))
+                    AttributeDefinitions.TagEffect, conditionDefinition.Name, out var activeCondition) &&
+                activeCondition.SourceGuid != attacker.Guid)
             {
                 yield break;
             }
 
             rulesetTarget.RemoveCondition(activeCondition);
-
-            var attacker = action.ActingCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
 
             // takes 10d10 Necrotic
             if (action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)

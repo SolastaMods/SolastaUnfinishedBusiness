@@ -503,7 +503,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(conditionMark, ConditionForm.ConditionOperation.Add, true,
                             true))
                     .SetCasterEffectParameters(GuardianOfFaith)
-                    .SetEffectEffectParameters(Sunburst)
+                    .SetImpactEffectParameters(PowerSymbolOfHopelessness)
                     .Build())
             .AddToDB();
 
@@ -531,7 +531,8 @@ internal static partial class SpellBuilders
                 var rulesetContender = contender.RulesetActor;
 
                 if (contender.RulesetCharacter.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, conditionSickenedRadiance.Name, out var activeCondition))
+                        AttributeDefinitions.TagEffect, conditionSickenedRadiance.Name, out var activeCondition) &&
+                    activeCondition.SourceGuid == rulesetCondition.SourceGuid)
                 {
                     rulesetContender.RemoveCondition(activeCondition);
                 }
@@ -539,7 +540,8 @@ internal static partial class SpellBuilders
                 foreach (var conditionExhausted in conditionsExhausted)
                 {
                     if (contender.RulesetCharacter.TryGetConditionOfCategoryAndType(
-                            AttributeDefinitions.TagEffect, conditionExhausted.Name, out var exhaustedCondition))
+                            AttributeDefinitions.TagEffect, conditionExhausted.Name, out var exhaustedCondition) &&
+                        exhaustedCondition.SourceGuid == rulesetCondition.SourceGuid)
                     {
                         rulesetContender.RemoveCondition(exhaustedCondition);
                     }
@@ -618,19 +620,22 @@ internal static partial class SpellBuilders
             var conditionName = string.Empty;
 
             if (rulesetTarget.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionsExhausted[4].Name, out _))
+                    AttributeDefinitions.TagEffect, conditionsExhausted[4].Name, out var exhaustedCondition5) &&
+                exhaustedCondition5.SourceGuid == rulesetCaster.Guid)
             {
                 rulesetTarget.SustainDamage(1000, "DamagePure", false, rulesetCaster.Guid, null, out _);
             }
             else if (rulesetTarget.TryGetConditionOfCategoryAndType(
-                         AttributeDefinitions.TagEffect, conditionsExhausted[3].Name, out var exhaustedCondition4))
+                         AttributeDefinitions.TagEffect, conditionsExhausted[3].Name, out var exhaustedCondition4) &&
+                     exhaustedCondition4.SourceGuid == rulesetCaster.Guid)
             {
                 conditionName = conditionsExhausted[4].Name;
 
                 rulesetTarget.RemoveCondition(exhaustedCondition4);
             }
             else if (rulesetTarget.TryGetConditionOfCategoryAndType(
-                         AttributeDefinitions.TagEffect, conditionsExhausted[2].Name, out var exhaustedCondition3))
+                         AttributeDefinitions.TagEffect, conditionsExhausted[2].Name, out var exhaustedCondition3) &&
+                     exhaustedCondition3.SourceGuid == rulesetCaster.Guid)
             {
                 amount = -rulesetTarget.GetAttribute(AttributeDefinitions.HitPoints).BaseValue / 2;
                 conditionName = conditionsExhausted[3].Name;
@@ -638,14 +643,16 @@ internal static partial class SpellBuilders
                 rulesetTarget.RemoveCondition(exhaustedCondition3);
             }
             else if (rulesetTarget.TryGetConditionOfCategoryAndType(
-                         AttributeDefinitions.TagEffect, conditionsExhausted[1].Name, out var exhaustedCondition2))
+                         AttributeDefinitions.TagEffect, conditionsExhausted[1].Name, out var exhaustedCondition2) &&
+                     exhaustedCondition2.SourceGuid == rulesetCaster.Guid)
             {
                 conditionName = conditionsExhausted[2].Name;
 
                 rulesetTarget.RemoveCondition(exhaustedCondition2);
             }
             else if (rulesetTarget.TryGetConditionOfCategoryAndType(
-                         AttributeDefinitions.TagEffect, conditionsExhausted[0].Name, out var exhaustedCondition1))
+                         AttributeDefinitions.TagEffect, conditionsExhausted[0].Name, out var exhaustedCondition1) &&
+                     exhaustedCondition1.SourceGuid == rulesetCaster.Guid)
             {
                 conditionName = conditionsExhausted[1].Name;
 

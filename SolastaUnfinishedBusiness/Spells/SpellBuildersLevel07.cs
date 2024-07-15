@@ -451,7 +451,7 @@ internal static partial class SpellBuilders
 
             // ReSharper disable once ConvertIfStatementToSwitchStatement
             if (remainingUses == 0 &&
-                action.ActingCharacter.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionCrownOfStars.Name, out var activeCondition))
             {
                 rulesetCharacter.RemoveCondition(activeCondition);
