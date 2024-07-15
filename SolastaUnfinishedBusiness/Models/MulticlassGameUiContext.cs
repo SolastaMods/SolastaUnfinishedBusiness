@@ -195,10 +195,10 @@ internal static class MulticlassGameUiContext
             // paint spell slots white
             if (index >= pactSlotsCount || slotLevel > warlockSpellLevel)
             {
-                //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
+                //PATCH: support display cost on spell level blocks (SPELL_POINTS)
                 if (Main.Settings.UseAlternateSpellPointsSystem)
                 {
-                    SpellPointsContext.AddCostTextToSpellLevels(slotStatusTable, component, slotLevel, spellsAtLevel);
+                    SpellPointsContext.DisplayCostOnSpellLevelBlocks(slotStatusTable, component, slotLevel, spellsAtLevel);
                 }
                 else
                 {

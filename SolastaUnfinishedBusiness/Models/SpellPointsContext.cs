@@ -13,6 +13,7 @@ using UnityEngine;
 using static FeatureDefinitionCastSpell;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -28,25 +29,16 @@ internal static class SpellPointsContext
     private static readonly List<(string, List<SlotsByLevelDuplet>, List<SlotsByLevelDuplet>)>
         FeatureDefinitionCastSpellTab =
         [
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellBard.Name, SharedSpellsContext.FullCastingSlots,
-                SpellPointsFullCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellCleric.Name, SharedSpellsContext.FullCastingSlots,
-                SpellPointsFullCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDruid.Name, SharedSpellsContext.FullCastingSlots,
-                SpellPointsFullCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellPaladin.Name, SharedSpellsContext.HalfCastingSlots,
-                SpellPointsHalfCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellRanger.Name, SharedSpellsContext.HalfCastingSlots,
-                SpellPointsHalfCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellSorcerer.Name, SharedSpellsContext.FullCastingSlots,
-                SpellPointsFullCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellWizard.Name, SharedSpellsContext.FullCastingSlots,
-                SpellPointsFullCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMartialSpellBlade.Name,
-                SharedSpellsContext.OneThirdCastingSlots,
+            (CastSpellBard.Name, SharedSpellsContext.FullCastingSlots, SpellPointsFullCastingSlots),
+            (CastSpellCleric.Name, SharedSpellsContext.FullCastingSlots, SpellPointsFullCastingSlots),
+            (CastSpellDruid.Name, SharedSpellsContext.FullCastingSlots, SpellPointsFullCastingSlots),
+            (CastSpellPaladin.Name, SharedSpellsContext.HalfCastingSlots, SpellPointsHalfCastingSlots),
+            (CastSpellRanger.Name, SharedSpellsContext.HalfCastingSlots, SpellPointsHalfCastingSlots),
+            (CastSpellSorcerer.Name, SharedSpellsContext.FullCastingSlots, SpellPointsFullCastingSlots),
+            (CastSpellWizard.Name, SharedSpellsContext.FullCastingSlots, SpellPointsFullCastingSlots),
+            (CastSpellMartialSpellBlade.Name, SharedSpellsContext.OneThirdCastingSlots,
                 SpellPointsOneThirdCastingSlots),
-            (DatabaseHelper.FeatureDefinitionCastSpells.CastSpellShadowcaster.Name,
-                SharedSpellsContext.OneThirdCastingSlots,
+            (CastSpellShadowcaster.Name, SharedSpellsContext.OneThirdCastingSlots,
                 SpellPointsOneThirdCastingSlots),
             (InventorClass.SpellCasting.Name, SharedSpellsContext.HalfRoundUpCastingSlots,
                 SpellPointsHalfRoundUpCastingSlots),
@@ -87,6 +79,22 @@ internal static class SpellPointsContext
         }
     }
 
+    private static int GetMaxSpellPoints(RulesetCharacter rulesetCharacter)
+    {
+        var usablePower = PowerProvider.Get(PowerSpellPoints, rulesetCharacter);
+        var maxUsesOfPower = rulesetCharacter.GetMaxUsesOfPower(usablePower);
+
+        return maxUsesOfPower;
+    }
+
+    private static int GetRemainingSpellPoints(RulesetCharacter rulesetCharacter)
+    {
+        var usablePower = PowerProvider.Get(PowerSpellPoints, rulesetCharacter);
+        var remainingUsesOfPower = rulesetCharacter.GetRemainingUsesOfPower(usablePower);
+
+        return remainingUsesOfPower;
+    }
+
     internal static void HideSpellSlots(RulesetCharacterHero hero, RectTransform table)
     {
         if (!Main.Settings.UseAlternateSpellPointsSystem ||
@@ -104,7 +112,7 @@ internal static class SpellPointsContext
         }
     }
 
-    internal static void SetupUseSlots(
+    internal static void DisplayRemainingSpellPointsOnCastActions(
         GuiCharacterAction guiCharacterAction,
         RectTransform useSlotsTable,
         GuiLabel highSlotNumber)
@@ -126,25 +134,11 @@ internal static class SpellPointsContext
             Gui.Format("Screen/&SpellAlternatePointsTooltip", remainingSpellPoints);
     }
 
-    private static int GetMaxSpellPoints(RulesetCharacter rulesetCharacter)
-    {
-        var usablePower = PowerProvider.Get(PowerSpellPoints, rulesetCharacter);
-        var maxUsesOfPower = rulesetCharacter.GetMaxUsesOfPower(usablePower);
-
-        return maxUsesOfPower;
-    }
-
-    private static int GetRemainingSpellPoints(RulesetCharacter rulesetCharacter)
-    {
-        var usablePower = PowerProvider.Get(PowerSpellPoints, rulesetCharacter);
-        var remainingUsesOfPower = rulesetCharacter.GetRemainingUsesOfPower(usablePower);
-
-        return remainingUsesOfPower;
-    }
-
-    internal static void SwitchRepertoireTitleOnInspectionScreen(
+    internal static void DisplayMaxSpellPointsOnInspectionScreen(
         CharacterInspectionScreen __instance, RulesetCharacterHero heroCharacter)
     {
+        var maxSpellPoints = GetMaxSpellPoints(heroCharacter).ToString();
+
         for (var i = 0; i < __instance.spellPanelsContainer.childCount; i++)
         {
             var child = __instance.spellPanelsContainer.GetChild(i);
@@ -158,7 +152,6 @@ internal static class SpellPointsContext
                     is CastingOrigin.Class
                     or CastingOrigin.Subclass)
             {
-                var maxSpellPoints = GetMaxSpellPoints(heroCharacter).ToString();
                 var postfix = Gui.Format("Screen/&SpellAlternatePointsCostTooltip", maxSpellPoints);
 
                 repertoireTitle.text = Gui.Localize("Screen/&RepertoireSpellsTitle") + ": " + postfix;
@@ -170,8 +163,8 @@ internal static class SpellPointsContext
         }
     }
 
-    internal static void AddCostTextToSpellLevels(SlotStatusTable slotStatusTable, SlotStatus slotStatus, int slotLevel,
-        int spellsAtLevel)
+    internal static void DisplayCostOnSpellLevelBlocks(
+        SlotStatusTable slotStatusTable, SlotStatus slotStatus, int slotLevel, int spellsAtLevel)
     {
         var cost = SpellCostByLevel[slotLevel].ToString();
 
@@ -212,15 +205,6 @@ internal static class SpellPointsContext
             usablePower.remainingUses -= cost;
         }
 
-        // handle scenario where spells at level 6 and above can only be cast once per level
-        if (slotLevel > 5)
-        {
-            var usedSpellsSlots = repertoire.usedSpellsSlots;
-
-            usedSpellsSlots.TryAdd(slotLevel, 0);
-            usedSpellsSlots[slotLevel] = 1;
-        }
-
         // consume spell slots at levels points cannot cast anymore
         var level = isMulticaster
             ? SharedSpellsContext.GetSharedSpellLevel(hero)
@@ -228,7 +212,9 @@ internal static class SpellPointsContext
 
         for (var i = level; i > 0; i--)
         {
-            if (usablePower.RemainingUses >= SpellCostByLevel[i])
+            if (usablePower.RemainingUses >= SpellCostByLevel[i] &&
+                // handle scenario where spells at level 6 and above can only be cast once per level
+                slotLevel <= 5)
             {
                 continue;
             }
@@ -236,7 +222,7 @@ internal static class SpellPointsContext
             var usedSpellsSlots = repertoire.usedSpellsSlots;
 
             usedSpellsSlots.TryAdd(i, 0);
-            usedSpellsSlots[i] = 1;
+            usedSpellsSlots[i] = repertoire.spellsSlotCapacities[i];
         }
 
         repertoire.RepertoireRefreshed?.Invoke(repertoire);

@@ -1,11 +1,11 @@
 1.5.97.20:
 
-- added official variant spell points rules and Sickening Radiance spell
-- fixed Export Hero and RESPEC auras, infusions, etc. effects termination
-- fixed Martial Arcane Archer arcane shot soft lock if enemy already dead
-- fixed Martial Battle Master initial pool amount to 4
-- fixed Ring of Knifes spell to-hit modifiers on power
-- fixed targets selection on Scatter spell, and Field Manipulator displacement
+- added variant spell points rules and Sickening Radiance spell
+- fixed Export Hero and RESPEC auras, infusions, etc. termination
+- fixed Martial Arcane Archer arcane shot soft lock if enemy dead
+- fixed Ring of Knifes spell follow up power to-hit modifier
+- fixed target selection on Field Manipulator displacement
+- fixed target selection on Scatter spell
 
 KNOWN ISSUES:
 

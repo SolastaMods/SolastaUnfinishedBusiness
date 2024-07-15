@@ -40,8 +40,8 @@ public static class CharacterActionItemFormPatcher
         [UsedImplicitly]
         public static void Postfix(CharacterActionItemForm __instance)
         {
-            //PATCH: support display remaining spell points usage (SPELL_POINTS)
-            SpellPointsContext.SetupUseSlots(
+            //PATCH: support display remaining spell points on cast actions (SPELL_POINTS)
+            SpellPointsContext.DisplayRemainingSpellPointsOnCastActions(
                 __instance.GuiCharacterAction, __instance.useSlotsTable, __instance.highSlotNumber);
 
             //PATCH: support for `IActionItemDiceBox` showing custom dice number/size

@@ -64,7 +64,7 @@ public static class SlotStatusTablePatcher
 
             if (!SharedSpellsContext.IsMulticaster(hero))
             {
-                //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
+                //PATCH: support display cost on spell level blocks (SPELL_POINTS)
                 // ReSharper disable once InvertIf
                 if (Main.Settings.UseAlternateSpellPointsSystem &&
                     spellRepertoire.spellCastingClass != Warlock)
@@ -73,7 +73,7 @@ public static class SlotStatusTablePatcher
                     {
                         var component = __instance.table.GetChild(index).GetComponent<SlotStatus>();
 
-                        SpellPointsContext.AddCostTextToSpellLevels(__instance, component, spellLevel, spells.Count);
+                        SpellPointsContext.DisplayCostOnSpellLevelBlocks(__instance, component, spellLevel, spells.Count);
                     }
                 }
 
