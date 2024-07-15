@@ -324,9 +324,19 @@ public sealed class MartialTactician : AbstractSubclass
         {
             var rulesetCharacter = character.RulesetCharacter;
             var usablePower = PowerProvider.Get(GambitsBuilders.GambitPool, rulesetCharacter);
+            var maxUses = rulesetCharacter.GetMaxUsesOfPower(usablePower);
 
-            usablePower.RepayUse();
-            rulesetCharacter.LogCharacterUsedFeature(featureDefinition);
+            // cannot call RepayUse() here as a dynamic pool 
+            usablePower.remainingUses++;
+
+            if (usablePower.remainingUses > maxUses)
+            {
+                usablePower.remainingUses = maxUses;
+            }
+            else
+            {
+                rulesetCharacter.LogCharacterUsedFeature(featureDefinition);
+            }
         }
     }
 }
