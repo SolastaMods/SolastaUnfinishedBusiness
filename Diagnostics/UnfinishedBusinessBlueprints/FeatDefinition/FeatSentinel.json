@@ -1,17 +1,27 @@
 {
-  "$type": "FightingStyleDefinition, Assembly-CSharp",
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
   "features": [
     "Definition:OnAttackHitEffectFeatSentinel:1a2abf93-483e-5e6e-8408-bc553864469f"
   ],
-  "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&SentinelTitle",
     "description": "FightingStyle/&SentinelDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c694eed9-c1d3-5d5b-b69d-b9459bf27cb9",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -28,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "55d7318b-c14b-5742-8605-eb774f5444d6",
+  "guid": "3682aea3-2741-538a-9471-d8d00bf2cd0f",
   "contentPack": 9999,
-  "name": "Sentinel"
+  "name": "FeatSentinel"
 }

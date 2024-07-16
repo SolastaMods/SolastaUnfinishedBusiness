@@ -7,6 +7,7 @@
 - fixed Ring of Knifes spell follow up power to-hit modifier
 - fixed target selection on Field Manipulator displacement
 - fixed target selection on Scatter spell
+- removed previously demoted fighting styles in 1.5.97.9 [RESPEC]
 
 KNOWN ISSUES:
 

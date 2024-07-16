@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -12,16 +12,16 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ProficiencyFeatMonkShieldExpert:3c9cec58-0a28-5b43-b9e5-adaf1049543d"
+    "Definition:AddExtraAttackShieldExpert:4c494f10-3661-54c4-a7bd-1de696250ba4"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "FightingStyle/&MonkShieldExpertTitle",
-    "description": "FightingStyle/&MonkShieldExpertDescription",
+    "title": "FightingStyle/&ShieldExpertTitle",
+    "description": "FightingStyle/&ShieldExpertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7dd630bc-c1c3-5f9e-8d78-a83e3b769927",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "40aae7ca-8def-5541-a01c-e6f6374ec9cf",
+  "guid": "75c0d5b6-2fcf-56ef-8a01-aed0adc45084",
   "contentPack": 9999,
-  "name": "FeatMonkShieldExpert"
+  "name": "FeatShieldExpert"
 }

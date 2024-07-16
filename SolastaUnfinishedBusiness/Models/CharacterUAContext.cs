@@ -1105,7 +1105,6 @@ internal static partial class CharacterContext
                 (attackMode?.SourceDefinition as ItemDefinition)?.WeaponDescription.WeaponTypeDefinition;
 
             return (OperationType.Or,
-                character.HasMonkShieldExpert() ||
                 character.GetSubFeaturesByType<MonkWeaponSpecializationDiceUpgrade>().Exists(
                     x => x._weaponTypeDefinition == attackModeWeaponType));
         }

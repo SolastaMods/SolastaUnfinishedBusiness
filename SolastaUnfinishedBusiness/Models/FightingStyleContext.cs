@@ -8,16 +8,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FightingStyleContext
 {
-    internal static readonly HashSet<string> DemotedFightingStyles =
-    [
-        Merciless.MercilessName,
-        MonkShieldExpert.ShieldExpertName,
-        PolearmExpert.PolearmExpertName,
-        RopeItUp.RopeItUpName,
-        Sentinel.SentinelName,
-        ShieldExpert.ShieldExpertName
-    ];
-
     private static Dictionary<FightingStyleDefinition, List<FeatureDefinitionFightingStyleChoice>>
         FightingStylesChoiceList { get; } = [];
 
@@ -25,14 +15,6 @@ internal static class FightingStyleContext
 
     internal static void Load()
     {
-        // kept for backward compatibility
-        _ = new Merciless();
-        _ = new MonkShieldExpert();
-        _ = new PolearmExpert();
-        _ = new RopeItUp();
-        _ = new ShieldExpert();
-        _ = new Sentinel();
-
         LoadStyle(new AstralReach());
         LoadStyle(new BlindFighting());
         LoadStyle(new Crippling());

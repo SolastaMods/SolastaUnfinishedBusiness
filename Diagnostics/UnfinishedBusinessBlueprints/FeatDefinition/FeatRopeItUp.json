@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -12,16 +12,16 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ProficiencyFeatMerciless:19a654a6-15c9-57af-a93f-f14f5eed5b71"
+    "Definition:AttributeModifierRopeItUp:0cb22e4d-85a2-58b6-a418-e3e38de57520"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "FightingStyle/&MercilessTitle",
-    "description": "FightingStyle/&MercilessDescription",
+    "title": "FightingStyle/&RopeItUpTitle",
+    "description": "FightingStyle/&RopeItUpDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e0b4a203-382b-5ab4-acfa-af309c1a019c",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f91e4faa-6d59-5cf1-964e-9dd2943ed8e8",
+  "guid": "f3b31d3e-1fd9-5aa3-ab73-1ba343a45840",
   "contentPack": 9999,
-  "name": "FeatMerciless"
+  "name": "FeatRopeItUp"
 }

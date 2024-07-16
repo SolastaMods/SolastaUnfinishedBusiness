@@ -1,18 +1,28 @@
 {
-  "$type": "FightingStyleDefinition, Assembly-CSharp",
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
   "features": [
     "Definition:PowerFightingStyleMerciless:2500343e-570f-57ec-bf7c-02225d302cba",
     "Definition:TargetReducedToZeroHpFightingStyleMerciless:915fb6af-6989-5e40-9087-1ce64a2bbfba"
   ],
-  "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&MercilessTitle",
     "description": "FightingStyle/&MercilessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e0b4a203-382b-5ab4-acfa-af309c1a019c",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -29,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6d7a4f67-8035-55e2-823e-619534487125",
+  "guid": "f91e4faa-6d59-5cf1-964e-9dd2943ed8e8",
   "contentPack": 9999,
-  "name": "Merciless"
+  "name": "FeatMerciless"
 }
