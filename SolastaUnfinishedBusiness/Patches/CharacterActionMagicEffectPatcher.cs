@@ -959,6 +959,7 @@ public static class CharacterActionMagicEffectPatcher
             {
                 actingCharacter.UsedMainSpell = true;
             }
+
             if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Main })
             {
                 actingCharacter.UsedBonusSpell = true;

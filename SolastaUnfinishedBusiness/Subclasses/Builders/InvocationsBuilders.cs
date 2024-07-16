@@ -1620,8 +1620,8 @@ internal static class InvocationsBuilders
         {
             var glc = GameLocationCharacter.GetFromActor(target);
 
-                EffectHelpers.StartVisualEffect(
-                    glc, glc, PowerDomainElementalHeraldOfTheElementsCold, EffectHelpers.EffectType.Effect);
+            EffectHelpers.StartVisualEffect(
+                glc, glc, PowerDomainElementalHeraldOfTheElementsCold, EffectHelpers.EffectType.Effect);
 
             target.InflictCondition(
                 conditionTombOfFrost.Name,

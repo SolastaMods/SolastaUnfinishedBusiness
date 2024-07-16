@@ -1736,7 +1736,7 @@ internal static class Level20SubclassesContext
     //
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class OnConditionAddedOrRemovedPossession: IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedPossession : IOnConditionAddedOrRemoved
     {
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
@@ -1788,7 +1788,7 @@ internal static class Level20SubclassesContext
             List<EffectForm> effectForms)
         {
             var hero = defender.GetOriginalHero();
-            
+
             if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
                 hero == null)
             {
