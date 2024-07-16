@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using TA;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -13,7 +14,8 @@ public static class CameraControllerLocationPatcher
     ///     in view (on the monitor).
     ///     The battle camera will still move if the character is off screen or within x% (definable) of the screen edge.
     /// </summary>
-    private static bool InterruptCamera(CameraControllerLocation __instance, GameLocationCharacter character)
+    private static bool InterruptCamera(
+        CameraControllerLocation __instance, GameLocationCharacter character, Vector3 position)
     {
         //PATCH: camera don't follow character in battle
         if (!Main.Settings.DontFollowCharacterInBattle)
@@ -27,11 +29,11 @@ public static class CameraControllerLocationPatcher
         }
 
         // Ensure all Unity objects are valid
-        if (!__instance
-            || character == null
-            || !__instance.CurrentCameraMode
-            || __instance.CurrentCameraMode.CameraService == null
-            || !__instance.CurrentCameraMode.CameraService.MainCamera)
+        if (!__instance ||
+            (character == null && position == Vector3.zero) ||
+            !__instance.CurrentCameraMode ||
+            __instance.CurrentCameraMode.CameraService == null ||
+            !__instance.CurrentCameraMode.CameraService.MainCamera)
         {
             return true;
         }
@@ -40,10 +42,23 @@ public static class CameraControllerLocationPatcher
         var width = Screen.width;
         var height = Screen.height;
         var margin = Main.Settings.DontFollowMargin / 100f;
-        var characterLocation = character.LocationPosition;
+
+        Vector3 finalPosition;
+
+        if (character != null)
+        {
+            var characterLocation = character.LocationPosition;
+                
+            finalPosition = new Vector3(characterLocation.x, characterLocation.y, characterLocation.z);
+        }
+        else
+        {
+            finalPosition = position;
+        }
+
         var screenPoint = __instance
             .CurrentCameraMode.CameraService.MainCamera
-            .WorldToScreenPoint(new Vector3(characterLocation.x, characterLocation.y, characterLocation.z));
+            .WorldToScreenPoint(finalPosition);
 
         var followCharacter = screenPoint.x < width * margin
                               || screenPoint.x > width * (1 - margin)
@@ -62,7 +77,7 @@ public static class CameraControllerLocationPatcher
         [UsedImplicitly]
         public static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
         {
-            return InterruptCamera(__instance, character);
+            return InterruptCamera(__instance, character, Vector3.zero);
         }
     }
 
@@ -74,19 +89,19 @@ public static class CameraControllerLocationPatcher
         [UsedImplicitly]
         public static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
         {
-            return InterruptCamera(__instance, character);
+            return InterruptCamera(__instance, character, Vector3.zero);
         }
     }
-
+    
     [HarmonyPatch(typeof(CameraControllerLocation), nameof(CameraControllerLocation.FocusPositionForBattle))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FocusPositionForBattle_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
+        public static bool Prefix(CameraControllerLocation __instance, Vector3 position)
         {
-            return InterruptCamera(__instance, character);
+            return InterruptCamera(__instance, null, position);
         }
     }
 
@@ -98,7 +113,7 @@ public static class CameraControllerLocationPatcher
         [UsedImplicitly]
         public static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
         {
-            return InterruptCamera(__instance, character);
+            return InterruptCamera(__instance, character, Vector3.zero);
         }
     }
 }
