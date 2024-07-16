@@ -198,7 +198,8 @@ internal static class MulticlassGameUiContext
                 //PATCH: support display cost on spell level blocks (SPELL_POINTS)
                 if (Main.Settings.UseAlternateSpellPointsSystem)
                 {
-                    SpellPointsContext.DisplayCostOnSpellLevelBlocks(slotStatusTable, component, slotLevel, spellsAtLevel);
+                    SpellPointsContext.DisplayCostOnSpellLevelBlocks(slotStatusTable, component, slotLevel,
+                        spellsAtLevel);
                 }
                 else
                 {

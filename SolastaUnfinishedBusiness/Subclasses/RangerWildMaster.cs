@@ -418,12 +418,12 @@ public sealed class RangerWildMaster : AbstractSubclass
             }
 
             foreach (var ally in Gui.Battle.GetMyContenders(target.Side)
-                         .Where(x => 
+                         .Where(x =>
                              x.RulesetActor is { IsDeadOrDyingOrUnconscious: false } &&
-                                     x.RulesetActor != target))
+                             x.RulesetActor != target))
             {
                 var rulesetAlly = ally.RulesetActor;
-                
+
                 // should only remove the conditions from the same source
                 if (rulesetAlly.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect, conditionKillCommand.Name, out var activeCondition) &&

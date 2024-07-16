@@ -73,7 +73,8 @@ public static class SlotStatusTablePatcher
                     {
                         var component = __instance.table.GetChild(index).GetComponent<SlotStatus>();
 
-                        SpellPointsContext.DisplayCostOnSpellLevelBlocks(__instance, component, spellLevel, spells.Count);
+                        SpellPointsContext.DisplayCostOnSpellLevelBlocks(__instance, component, spellLevel,
+                            spells.Count);
                     }
                 }
 
