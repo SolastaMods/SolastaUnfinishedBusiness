@@ -303,10 +303,10 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         {
             if ((action is not CharacterActionCastSpell characterActionCastSpell ||
                  characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
-                 !characterActionCastSpell.Countered) &&
+                 !characterActionCastSpell.ActionParams.TargetAction.Countered) &&
                 (action is not CharacterActionUsePower characterActionUsePower ||
                  characterActionUsePower.activePower.PowerDefinition != powerCounterSpell ||
-                 !characterActionUsePower.Countered))
+                 !characterActionUsePower.ActionParams.TargetAction.Countered))
             {
                 yield break;
             }
