@@ -391,16 +391,6 @@ public static class CharacterActionMagicEffectPatcher
 
             // BEGIN PATCH
 
-            //PATCH: mark which spell action type was used for correct action surge interaction
-            if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Bonus })
-            {
-                actingCharacter.UsedSpecialFeatures.TryAdd("BonusSpell", 0);
-            }
-            if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Main })
-            {
-                actingCharacter.UsedSpecialFeatures.TryAdd("MainSpell", 0);
-            }
-
             //PATCH: skip spell animation if this is an AttackAfterMagicEffect spell
             if (baseDefinition.HasSubFeatureOfType<AttackAfterMagicEffect>())
             {
@@ -963,6 +953,15 @@ public static class CharacterActionMagicEffectPatcher
                             .ExecuteAction(actionParam, null, false);
                     }
                 }
+            }
+
+            if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Bonus })
+            {
+                actingCharacter.UsedMainSpell = true;
+            }
+            if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Main })
+            {
+                actingCharacter.UsedBonusSpell = true;
             }
 
             // END PATCH

@@ -472,17 +472,6 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            //PATCH: ensure we block casting main spells if bonus spell was used
-            if (__instance.UsedSpecialFeatures.TryGetValue("BonusSpell", out _))
-            {
-                __instance.UsedMainSpell = true;
-            }
-            //PATCH: ensure we block casting bonus spells if main spell was used
-            if (__instance.UsedSpecialFeatures.TryGetValue("MainSpell", out _))
-            {
-                __instance.UsedBonusSpell = true;
-            }
-
             //PATCH: support for `AttackAfterMagicEffect`
             AttackAfterMagicEffect.HandleAttackAfterMagicEffect(__instance, actionParams);
 
