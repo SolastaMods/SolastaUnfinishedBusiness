@@ -1,12 +1,12 @@
 1.5.97.20:
 
-- added variant spell points rules and Sickening Radiance spell
+- added variant spell points rules, and Sickening Radiance spell
+- fixed Arcane Archer arcane shot soft lock when enemy already dead
 - fixed Export Hero and RESPEC auras, infusions, etc. termination
-- fixed main spell action leaving bonus spell action available
-- fixed Martial Arcane Archer arcane shot soft lock if enemy dead
+- fixed cast main action leaving cast bonus action available
 - fixed Ring of Knifes spell follow up power to-hit modifier
-- fixed target selection on Field Manipulator displacement
-- fixed target selection on Scatter spell
+- fixed selection on Field Manipulator displacement, and Scatter spell
+- improved 'Battle camera doesn't follow when character is already on screen'
 - removed previously demoted fighting styles in 1.5.97.9 [RESPEC]
 
 KNOWN ISSUES:
