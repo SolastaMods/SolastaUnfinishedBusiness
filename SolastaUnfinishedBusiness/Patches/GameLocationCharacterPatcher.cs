@@ -477,6 +477,11 @@ public static class GameLocationCharacterPatcher
             {
                 __instance.UsedMainSpell = true;
             }
+            //PATCH: ensure we block casting bonus spells if main spell was used
+            if (__instance.UsedSpecialFeatures.TryGetValue("MainSpell", out _))
+            {
+                __instance.UsedBonusSpell = true;
+            }
 
             //PATCH: support for `AttackAfterMagicEffect`
             AttackAfterMagicEffect.HandleAttackAfterMagicEffect(__instance, actionParams);

@@ -391,10 +391,14 @@ public static class CharacterActionMagicEffectPatcher
 
             // BEGIN PATCH
 
-            //PATCH: mark if bonus spell was used for correct action surge interaction
+            //PATCH: mark which spell action type was used for correct action surge interaction
             if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Bonus })
             {
                 actingCharacter.UsedSpecialFeatures.TryAdd("BonusSpell", 0);
+            }
+            if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Main })
+            {
+                actingCharacter.UsedSpecialFeatures.TryAdd("MainSpell", 0);
             }
 
             //PATCH: skip spell animation if this is an AttackAfterMagicEffect spell

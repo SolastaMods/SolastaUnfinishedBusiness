@@ -2,9 +2,9 @@
 
 - added variant spell points rules and Sickening Radiance spell
 - fixed Export Hero and RESPEC auras, infusions, etc. termination
+- fixed main spell action leaving bonus spell action available
 - fixed Martial Arcane Archer arcane shot soft lock if enemy dead
 - fixed Ring of Knifes spell follow up power to-hit modifier
-- fixed Roguish Arcane Scoundrel arcane backslash sneak damage
 - fixed target selection on Field Manipulator displacement
 - fixed target selection on Scatter spell
 
