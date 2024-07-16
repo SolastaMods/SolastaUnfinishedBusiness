@@ -591,9 +591,6 @@ RaceFairy	Sur	Maeradok
 RaceFairy	Sur	Ceinnath
 RaceFairy	Sur	Joxisys
 RaceFairy	Sur	Mossy
-RaceFairy	Sur	Ourrith
-RaceFairy	Sur	Urchin
-RaceFairy	Sur	Yeswenys
 RaceOligath	Sur	Sulzar
 RaceOligath	Sur	Runnern
 RaceOligath	Sur	Zaztej
@@ -614,7 +611,6 @@ RaceWyrmkin	Sur	Thraksaeurt
 RaceWyrmkin	Sur	Vernart
 RaceWyrmkin	Sur	Maeradok
 RaceWendigo	Sur	Drucnur
-RaceWendigo	Sur	Fenthwick
 RaceWendigo	Sur	Wayrick
 RaceWendigo	Sur	Koemi
 RaceWendigo	Sur	Demi
@@ -622,12 +618,7 @@ RaceWendigo	Male	Mirayarus
 RaceWendigo	Male	Fenmyar
 RaceWendigo	Male	Mirayarus
 RaceWendigo	Male	Yeljor
-RaceWendigo	Male	Corfra
-RaceWendigo	Male	Aeghal
-RaceWendigo	Male	Stone
 RaceWendigo	Female	Lucky
 RaceWendigo	Female	Nightfall
 RaceWendigo	Female	Sylmoira
 RaceWendigo	Female	Fastina
-RaceWendigo	Female	Envaris
-RaceWendigo	Female	Wuenwetel

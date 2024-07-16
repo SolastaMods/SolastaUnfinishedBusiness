@@ -155,8 +155,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
             ref int rollModifier,
             ref int minRoll)
         {
-            if (character != null &&
-                abilityScoreName == AttributeDefinitions.Charisma &&
+            if (abilityScoreName == AttributeDefinitions.Charisma &&
                 proficiencyName is SkillDefinitions.Deception or SkillDefinitions.Persuasion)
             {
                 minRoll = Math.Max(minRoll, 10);

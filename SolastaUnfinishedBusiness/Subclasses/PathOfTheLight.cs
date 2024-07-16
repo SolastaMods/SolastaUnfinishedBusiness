@@ -371,12 +371,7 @@ public sealed class PathOfTheLight : AbstractSubclass
             var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(removedFrom);
 
-            if (gameLocationCharacter != null)
-            {
-                visibilityService.RemoveCharacterLightSource(gameLocationCharacter, character.PersonalLightSource);
-            }
-
-            character.PersonalLightSource = null;
+            visibilityService.RemoveCharacterLightSource(gameLocationCharacter, character.PersonalLightSource);
         }
     }
 }

@@ -4,15 +4,14 @@
 - fixed Export Hero and RESPEC auras, infusions, etc. termination
 - fixed Martial Arcane Archer arcane shot soft lock if enemy dead
 - fixed Ring of Knifes spell follow up power to-hit modifier
+- fixed Roguish Arcane Scoundrel arcane backslash sneak damage
 - fixed target selection on Field Manipulator displacement
 - fixed target selection on Scatter spell
 
 KNOWN ISSUES:
 
 - Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and any bolt misses
-- Lightning Arrow spell won't trigger custom behaviors if target dies from damage on a miss
-- Oath of Altruism Guardian Aura won't trigger custom behaviors if self dies on swapped damage taken
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
 
 1.5.97.19:
 

@@ -324,6 +324,7 @@ public sealed class RangerHellWalker : AbstractSubclass
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var gameLocationCharacter in Gui.Battle
                          .GetContenders(gameLocationDefender, isOppositeSide: false))
             {

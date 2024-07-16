@@ -1285,11 +1285,9 @@ internal static class Level20SubclassesContext
 
         var conditionMindDominatedByHauntedSoul = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionMindDominatedByCaster, "ConditionMindDominatedByHauntedSoul")
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedPossession())
             .SetSpecialInterruptions(Array.Empty<ConditionInterruption>())
             .AddToDB();
-
-        conditionMindDominatedByHauntedSoul.AddCustomSubFeatures(
-            new OnConditionAddedOrRemovedPossession(conditionMindDominatedByHauntedSoul));
 
         var powerSorcererHauntedSoulPossession = FeatureDefinitionPowerBuilder
             .Create("PowerSorcererHauntedSoulPossession")
@@ -1738,8 +1736,7 @@ internal static class Level20SubclassesContext
     //
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class OnConditionAddedOrRemovedPossession(ConditionDefinition conditionPossession)
-        : IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedPossession: IOnConditionAddedOrRemoved
     {
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
@@ -1748,18 +1745,7 @@ internal static class Level20SubclassesContext
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (rulesetCondition.ConditionDefinition != conditionPossession)
-            {
-                return;
-            }
-
             var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
-
-            if (rulesetAttacker == null)
-            {
-                return;
-            }
-
             var conditionExhausted = ConditionDefinitions.ConditionExhausted;
 
             target.InflictCondition(
@@ -1801,25 +1787,17 @@ internal static class Level20SubclassesContext
             ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                return;
-            }
-
             var hero = defender.GetOriginalHero();
-
-            if (hero == null)
+            
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                hero == null)
             {
                 return;
             }
 
             var character = GameLocationCharacter.GetFromActor(hero);
 
-            if (character != null)
-            {
-                EffectHelpers.StartVisualEffect(character, character, MageArmor, EffectHelpers.EffectType.Caster);
-            }
-
+            EffectHelpers.StartVisualEffect(character, character, MageArmor, EffectHelpers.EffectType.Caster);
             hero.LogCharacterUsedFeature(featureManaOverflow);
             hero.GainSorceryPoints(1);
         }
@@ -1901,11 +1879,6 @@ internal static class Level20SubclassesContext
             }
 
             var rulesetCharacter = defender.RulesetCharacter;
-
-            if (rulesetCharacter == null)
-            {
-                yield break;
-            }
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var implementationManager =

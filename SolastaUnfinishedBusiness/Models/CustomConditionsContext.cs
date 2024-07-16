@@ -480,24 +480,23 @@ internal static class CustomConditionsContext
             }
 
             var actingCharacter = characterAction.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
             var targets = Gui.Battle.GetContenders(actingCharacter);
 
             foreach (var target in targets)
             {
-                var rulesetCondition = target.RulesetCharacter.AllConditions.FirstOrDefault(x =>
-                    x.ConditionDefinition.Name == Taunted.Name &&
-                    x.SourceGuid == rulesetCharacter.Guid);
+                var rulesetTarget = target.RulesetActor;
 
-                if (rulesetCondition == null)
+                if (!rulesetTarget.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, Taunted.Name, out var activeCondition) &&
+                    activeCondition.SourceGuid == actingCharacter.Guid)
                 {
                     continue;
                 }
 
                 // ruleset amount carries the max range for the condition
-                if (!actingCharacter.IsWithinRange(target, rulesetCondition.Amount))
+                if (!actingCharacter.IsWithinRange(target, activeCondition.Amount))
                 {
-                    target.RulesetCharacter.RemoveCondition(rulesetCondition);
+                    target.RulesetCharacter.RemoveCondition(activeCondition);
                 }
             }
         }

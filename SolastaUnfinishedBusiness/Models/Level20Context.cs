@@ -909,8 +909,7 @@ internal static class Level20Context
             ref int rollModifier,
             ref int minRoll)
         {
-            if (character != null &&
-                abilityScoreName == AttributeDefinitions.Strength)
+            if (abilityScoreName == AttributeDefinitions.Strength)
             {
                 minRoll = Math.Max(minRoll, character.TryGetAttributeValue(AttributeDefinitions.Strength));
             }

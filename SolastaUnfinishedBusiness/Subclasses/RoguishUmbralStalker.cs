@@ -246,8 +246,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
 
-        return locationCharacter != null &&
-               locationCharacter.OnceInMyTurnIsValid("ShadowStride") &&
+        return locationCharacter.OnceInMyTurnIsValid("ShadowStride") &&
                ValidatorsCharacter.IsNotInBrightLight(character);
     }
 

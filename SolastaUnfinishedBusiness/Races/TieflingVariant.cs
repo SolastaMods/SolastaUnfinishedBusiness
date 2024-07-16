@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -277,12 +276,10 @@ internal static class RaceTieflingBuilder
                 return;
             }
 
-            var rulesetCondition = hero.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == condition);
-
-            if (rulesetCondition != null)
+            if (hero.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
             {
-                hero.RemoveCondition(rulesetCondition);
+                hero.RemoveCondition(activeCondition);
             }
         }
     }
