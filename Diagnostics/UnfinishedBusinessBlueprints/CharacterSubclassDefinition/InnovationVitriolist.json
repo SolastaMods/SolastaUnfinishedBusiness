@@ -36,9 +36,9 @@
     "description": "Subclass/&InnovationVitriolistDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "85d76c7cb86d43d4d8986efa486bf78f",
-      "m_SubObjectName": "Wizard_Shock_Arcanist",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "cdef4aa1-cd48-5cf1-96b2-aa9639706404",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

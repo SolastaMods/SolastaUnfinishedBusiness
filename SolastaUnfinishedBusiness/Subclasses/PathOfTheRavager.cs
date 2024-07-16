@@ -101,7 +101,7 @@ public sealed class PathOfTheRavager : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.PathBerserker)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheRavager, 256))
             .AddFeaturesAtLevel(3, additionalDamageBrutalStrike)
             .AddFeaturesAtLevel(6, PowerBerserkerMindlessRage)
             .AddFeaturesAtLevel(10, ActionAffinityRetaliation)

@@ -327,7 +327,7 @@ public sealed class MartialWarlord : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialMarshal, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialWarlord, 256))
             .AddFeaturesAtLevel(3, featureBattlefieldExperience, featureSetPressTheAdvantage)
             .AddFeaturesAtLevel(7, powerStrategicRepositioning)
             .AddFeaturesAtLevel(10, featureSetCoordinatedAssault)

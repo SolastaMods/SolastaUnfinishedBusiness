@@ -2042,6 +2042,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] Interception {
+            get {
+                object obj = ResourceManager.GetObject("Interception", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] Inventor {
             get {
                 object obj = ResourceManager.GetObject("Inventor", resourceCulture);
@@ -2105,6 +2115,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] InventorQuickWit {
             get {
                 object obj = ResourceManager.GetObject("InventorQuickWit", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] InventorVitriolist {
+            get {
+                object obj = ResourceManager.GetObject("InventorVitriolist", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -2332,9 +2352,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] MartialMarshal {
+        public static byte[] MartialGuardian {
             get {
-                object obj = ResourceManager.GetObject("MartialMarshal", resourceCulture);
+                object obj = ResourceManager.GetObject("MartialGuardian", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -2372,9 +2392,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] MartialWeaponMaster {
+        public static byte[] MartialWarlord {
             get {
-                object obj = ResourceManager.GetObject("MartialWeaponMaster", resourceCulture);
+                object obj = ResourceManager.GetObject("MartialWarlord", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -2382,9 +2402,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] Merciless {
+        public static byte[] MartialWeaponMaster {
             get {
-                object obj = ResourceManager.GetObject("Merciless", resourceCulture);
+                object obj = ResourceManager.GetObject("MartialWeaponMaster", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -2635,6 +2655,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] PathOfTheRavager {
+            get {
+                object obj = ResourceManager.GetObject("PathOfTheRavager", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] PathOfTheReaver {
             get {
                 object obj = ResourceManager.GetObject("PathOfTheReaver", resourceCulture);
@@ -2798,16 +2828,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] PoisonWave {
             get {
                 object obj = ResourceManager.GetObject("PoisonWave", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] PolearmExpert {
-            get {
-                object obj = ResourceManager.GetObject("PolearmExpert", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -4115,6 +4135,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] RoguishBladeCaller {
+            get {
+                object obj = ResourceManager.GetObject("RoguishBladeCaller", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] RoguishDuelist {
             get {
                 object obj = ResourceManager.GetObject("RoguishDuelist", resourceCulture);
@@ -4155,16 +4185,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] RopeItUp {
-            get {
-                object obj = ResourceManager.GetObject("RopeItUp", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] Sanctuary {
             get {
                 object obj = ResourceManager.GetObject("Sanctuary", resourceCulture);
@@ -4188,16 +4208,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] SearingSmite {
             get {
                 object obj = ResourceManager.GetObject("SearingSmite", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Sentinel {
-            get {
-                object obj = ResourceManager.GetObject("Sentinel", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -4238,16 +4248,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] ShelterFromEnergy {
             get {
                 object obj = ResourceManager.GetObject("ShelterFromEnergy", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] ShieldExpert {
-            get {
-                object obj = ResourceManager.GetObject("ShieldExpert", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -5038,6 +5038,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] WizardSpellMaster {
             get {
                 object obj = ResourceManager.GetObject("WizardSpellMaster", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] WizardWarMagic {
+            get {
+                object obj = ResourceManager.GetObject("WizardWarMagic", resourceCulture);
                 return ((byte[])(obj));
             }
         }

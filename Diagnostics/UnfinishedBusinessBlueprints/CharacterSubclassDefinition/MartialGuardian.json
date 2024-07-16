@@ -46,9 +46,9 @@
     "description": "Subclass/&MartialGuardianDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5d71490e307b6f84081ecb6b0c44b658",
-      "m_SubObjectName": "Protection",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "766b37d8-65c0-51ec-8d7b-12d11bf3d9e1",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

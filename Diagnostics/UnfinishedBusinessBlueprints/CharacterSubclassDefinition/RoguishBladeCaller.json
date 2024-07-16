@@ -36,9 +36,9 @@
     "description": "Subclass/&RoguishBladeCallerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2bc90f386449dab49a7897bfa72b4e16",
-      "m_SubObjectName": "Ranger_SwiftBlade",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "0cecd5c2-eb1e-562d-b8d8-1f3df44907ce",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

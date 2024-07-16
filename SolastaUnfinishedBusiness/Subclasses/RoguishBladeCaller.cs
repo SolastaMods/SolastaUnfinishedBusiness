@@ -6,7 +6,9 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -164,7 +166,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             new CustomBehaviorBladeMark(conditionBladeMark, conditionBladeSurge, powerHailOfBlades));
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(Name).SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerSwiftBlade)
+            .Create(Name).SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite(Name, Resources.OathOfDemonHunter, 256))
             .AddFeaturesAtLevel(3, featureBladeBond, featureSetBladeMark)
             .AddFeaturesAtLevel(9, featureSetHailOfBlades)
             .AddFeaturesAtLevel(13, featureBladeSurge)

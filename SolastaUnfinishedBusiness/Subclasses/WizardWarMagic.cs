@@ -139,7 +139,7 @@ public sealed class WizardWarMagic : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Wizard{Name}")
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardArcaneFighter, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardWarMagic, 256))
             .AddFeaturesAtLevel(2, featureArcaneDeflection, attributeModifierTacticalWit)
             .AddFeaturesAtLevel(6, featureSetPowerSurge)
             .AddFeaturesAtLevel(10, featureDurableMagic)

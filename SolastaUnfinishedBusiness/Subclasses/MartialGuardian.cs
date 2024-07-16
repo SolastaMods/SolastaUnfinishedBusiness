@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -39,12 +40,12 @@ public sealed class MartialGuardian : AbstractSubclass
             .AddCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnEnemyCompellingStrike())
             .AddToDB();
 
-        // Stalwart Front (Sentinel FS)
+        // Stalwart Front (Sentinel Feat)
 
         var proficiencySentinel = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}Sentinel")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.FightingStyle, "Sentinel")
+            .SetProficiencies(ProficiencyType.Feat, OtherFeats.FeatSentinel.Name)
             .AddToDB();
 
         //
@@ -133,7 +134,7 @@ public sealed class MartialGuardian : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, FightingStyleDefinitions.Protection)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialGuardian, 256))
             .AddFeaturesAtLevel(3, actionAffinityCompellingStrike, proficiencySentinel)
             .AddFeaturesAtLevel(7, savingThrowAffinityUnyielding)
             .AddFeaturesAtLevel(10, powerGrandChallenge)
