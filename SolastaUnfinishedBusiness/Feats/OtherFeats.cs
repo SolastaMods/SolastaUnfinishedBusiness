@@ -74,11 +74,11 @@ internal static class OtherFeats
         var elementalMasterGroup = BuildElementalMaster(feats);
         var weaponMasterGroup = BuildWeaponMaster(feats);
 
-        var featMerciless = FeatMerciless;
-        var featPolearmExpert = FeatPolearmExpert;
-        var featRopeIpUp = FeatRopeItUp;
+        var featMerciless = BuildMerciless();
+        var featPolearmExpert = BuildPolearmExpert();
+        var featRopeIpUp = BuildRopeItUp();
         var featSentinel = FeatSentinel;
-        var featShieldExpert = FeatShieldExpert;
+        var featShieldExpert = BuildShieldExpert();
 
         feats.AddRange(
             featAcrobat,
@@ -502,7 +502,7 @@ internal static class OtherFeats
                 .Create($"CustomInvocation{Name}{weaponTypeName}")
                 .SetGuiPresentation(
                     weaponTypeDefinition.GuiPresentation.Title,
-                    weaponTypeDefinition.GuiPresentation.Description, 
+                    weaponTypeDefinition.GuiPresentation.Description,
                     GetStandardWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.WeaponMasterChoice)
                 .SetGrantedFeature(featureMonkWeaponSpecialization)
@@ -534,6 +534,55 @@ internal static class OtherFeats
 
         return GroupFeats.MakeGroup(
             "FeatGroupWeaponMaster", Name, weaponMasterStr, weaponMasterDex);
+    }
+
+    #endregion
+
+    #region Shield Expert
+
+    private static FeatDefinition BuildShieldExpert()
+    {
+        const string ShieldExpertName = "ShieldExpert";
+
+        return FeatDefinitionBuilder
+            .Create($"Feat{ShieldExpertName}")
+            .SetGuiPresentation(ShieldExpertName, Category.FightingStyle)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("AddExtraAttackShieldExpert")
+                    .SetGuiPresentationNoContent(true)
+                    .AddCustomSubFeatures(new AddBonusShieldAttack())
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Polearm Expert
+
+    private static FeatDefinition BuildPolearmExpert()
+    {
+        const string PolearmExpertName = "PolearmExpert";
+
+        return FeatDefinitionBuilder
+            .Create($"Feat{PolearmExpertName}")
+            .SetGuiPresentation(PolearmExpertName, Category.FightingStyle)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("FeaturePolearm")
+                    .SetGuiPresentationNoContent(true)
+                    .AddCustomSubFeatures(
+                        new CanMakeAoOOnReachEntered
+                        {
+                            WeaponValidator = (mode, _, _) => ValidatorsWeapon.IsPolearmType(mode)
+                        },
+                        new AddPolearmFollowUpAttack(QuarterstaffType),
+                        new AddPolearmFollowUpAttack(SpearType),
+                        new AddPolearmFollowUpAttack(HalberdWeaponType),
+                        new AddPolearmFollowUpAttack(PikeWeaponType),
+                        new AddPolearmFollowUpAttack(LongMaceWeaponType))
+                    .AddToDB())
+            .AddToDB();
     }
 
     #endregion
@@ -1488,6 +1537,7 @@ internal static class OtherFeats
     {
         GroupFeats.FeatGroupFightingStyle.AddFeats(DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
+            .Where(x => !FightingStyleContext.DemotedFightingStyles.Contains(x.Name))
             .Select(BuildFightingStyleFeat)
             .OfType<FeatDefinition>()
             .ToArray());
@@ -2820,45 +2870,49 @@ internal static class OtherFeats
 
     private const string MercilessName = "Merciless";
 
-    private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
-        .Create($"PowerFightingStyle{MercilessName}")
-        .SetGuiPresentation(MercilessName, Category.FightingStyle, hidden: true)
-        .SetUsesFixed(ActivationTime.NoCost)
-        .SetShowCasting(false)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Wisdom,
-                    true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Strength)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(ConditionDefinitions.ConditionFrightened,
-                            ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                .Build())
-        .AddToDB();
+    private static FeatDefinition BuildMerciless()
+    {
+        var powerFightingStyleMerciless = FeatureDefinitionPowerBuilder
+            .Create($"PowerFightingStyle{MercilessName}")
+            .SetGuiPresentation(MercilessName, Category.FightingStyle, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Wisdom,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Strength)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .AddToDB();
 
-    private static readonly FeatDefinition FeatMerciless = FeatDefinitionBuilder
-        .Create($"Feat{MercilessName}")
-        .SetGuiPresentation(MercilessName, Category.FightingStyle)
-        .SetFeatures(
-            PowerFightingStyleMerciless,
-            FeatureDefinitionBuilder
-                .Create($"TargetReducedToZeroHpFightingStyle{MercilessName}")
-                .SetGuiPresentationNoContent(true)
-                .AddCustomSubFeatures(new OnReducedToZeroHpByMeMerciless())
-                .AddToDB())
-        .AddToDB();
+        return FeatDefinitionBuilder
+            .Create($"Feat{MercilessName}")
+            .SetGuiPresentation(MercilessName, Category.FightingStyle)
+            .SetFeatures(
+                powerFightingStyleMerciless,
+                FeatureDefinitionBuilder
+                    .Create($"TargetReducedToZeroHpFightingStyle{MercilessName}")
+                    .SetGuiPresentationNoContent(true)
+                    .AddCustomSubFeatures(new OnReducedToZeroHpByMeMerciless(powerFightingStyleMerciless))
+                    .AddToDB())
+            .AddToDB();
+    }
 
-    private sealed class OnReducedToZeroHpByMeMerciless
+
+    private sealed class OnReducedToZeroHpByMeMerciless(FeatureDefinitionPower powerMerciless)
         : IOnReducedToZeroHpByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         public IEnumerator HandleReducedToZeroHpByMe(
@@ -2886,7 +2940,7 @@ internal static class OtherFeats
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerMerciless, rulesetAttacker);
             var targets = Gui.Battle.GetContenders(
                 downedCreature, attacker, isOppositeSide: false, hasToPerceivePerceiver: true, withinRange: distance);
             var actionModifiers = new List<ActionModifier>();
@@ -2944,47 +2998,24 @@ internal static class OtherFeats
 
     #endregion
 
-    #region Polearm Expert
-
-    private const string PolearmExpertName = "PolearmExpert";
-
-    private static FeatDefinition FeatPolearmExpert { get; } = FeatDefinitionBuilder
-        .Create($"Feat{PolearmExpertName}")
-        .SetGuiPresentation(PolearmExpertName, Category.FightingStyle)
-        .SetFeatures(
-            FeatureDefinitionBuilder
-                .Create("FeaturePolearm")
-                .SetGuiPresentationNoContent(true)
-                .AddCustomSubFeatures(
-                    new CanMakeAoOOnReachEntered
-                    {
-                        WeaponValidator = (mode, _, _) => ValidatorsWeapon.IsPolearmType(mode)
-                    },
-                    new AddPolearmFollowUpAttack(QuarterstaffType),
-                    new AddPolearmFollowUpAttack(SpearType),
-                    new AddPolearmFollowUpAttack(HalberdWeaponType),
-                    new AddPolearmFollowUpAttack(PikeWeaponType),
-                    new AddPolearmFollowUpAttack(LongMaceWeaponType))
-                .AddToDB())
-        .AddToDB();
-
-    #endregion
-
     #region Rope it Up
 
-    private const string RopeItUpName = "RopeItUp";
+    private static FeatDefinition BuildRopeItUp()
+    {
+        const string RopeItUpName = "RopeItUp";
 
-    private static readonly FeatureDefinition FeatureRopeItUp = FeatureDefinitionAttributeModifierBuilder
-        .Create($"AttributeModifier{RopeItUpName}")
-        .SetGuiPresentation(RopeItUpName, Category.FightingStyle)
-        .AddCustomSubFeatures(ReturningWeapon.AlwaysValid, new ModifyWeaponAttackModeRopeItUp())
-        .AddToDB();
+        var featureRopeItUp = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{RopeItUpName}")
+            .SetGuiPresentation(RopeItUpName, Category.FightingStyle)
+            .AddCustomSubFeatures(ReturningWeapon.AlwaysValid, new ModifyWeaponAttackModeRopeItUp())
+            .AddToDB();
 
-    private static FeatDefinition FeatRopeItUp { get; } = FeatDefinitionBuilder
-        .Create($"Feat{RopeItUpName}")
-        .SetGuiPresentation(RopeItUpName, Category.FightingStyle)
-        .SetFeatures(FeatureRopeItUp)
-        .AddToDB();
+        return FeatDefinitionBuilder
+            .Create($"Feat{RopeItUpName}")
+            .SetGuiPresentation(RopeItUpName, Category.FightingStyle)
+            .SetFeatures(featureRopeItUp)
+            .AddToDB();
+    }
 
     private sealed class ModifyWeaponAttackModeRopeItUp : IModifyWeaponAttackMode
     {
@@ -2999,23 +3030,6 @@ internal static class OtherFeats
             attackMode.maxRange += 4;
         }
     }
-
-    #endregion
-
-    #region Shield Expert
-
-    private const string ShieldExpertName = "ShieldExpert";
-
-    private static FeatDefinition FeatShieldExpert { get; } = FeatDefinitionBuilder
-        .Create($"Feat{ShieldExpertName}")
-        .SetGuiPresentation(ShieldExpertName, Category.FightingStyle)
-        .SetFeatures(
-            FeatureDefinitionBuilder
-                .Create("AddExtraAttackShieldExpert")
-                .SetGuiPresentationNoContent(true)
-                .AddCustomSubFeatures(new AddBonusShieldAttack())
-                .AddToDB())
-        .AddToDB();
 
     #endregion
 

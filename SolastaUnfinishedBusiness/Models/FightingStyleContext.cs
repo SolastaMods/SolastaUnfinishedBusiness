@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.FightingStyles;
 
@@ -15,6 +16,8 @@ internal static class FightingStyleContext
 
     internal static void Load()
     {
+        KeepBackwardCompatibility();
+
         LoadStyle(new AstralReach());
         LoadStyle(new BlindFighting());
         LoadStyle(new Crippling());
@@ -35,6 +38,29 @@ internal static class FightingStyleContext
                      .ToList())
         {
             Main.Settings.FightingStyleEnabled.Remove(name);
+        }
+    }
+
+    internal static   List<string> DemotedFightingStyles =
+    [
+        "Merciless",
+        "PolearmExpert",
+        "RopeItUp",
+        "Sentinel",
+        "ShieldExpert"
+    ];
+    private static void KeepBackwardCompatibility()
+    {
+
+
+        foreach (var fs in DemotedFightingStyles
+                     .Select(name =>
+                         FightingStyleBuilder
+                             .Create(name)
+                             .SetGuiPresentationNoContent(true)
+                             .AddToDB()))
+        {
+            fs.contentPack = GamingPlatformDefinitions.ContentPack.BaseGame;
         }
     }
 
