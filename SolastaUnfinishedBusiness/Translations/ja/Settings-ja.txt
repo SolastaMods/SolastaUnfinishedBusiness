@@ -233,6 +233,7 @@ ModUi/&Monsters=<color=#F0DAA0>モンスター:</color>
 ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を乗算します</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> で呪文をクリックすると、消費されるデフォルトのレパートリー スロット タイプが反転します\n<i><color=#F0DAA0>[<color=#D89555>ウォーロック</color>は白い呪文スロットを消費します他の人は協定の緑のものを使います]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>得られる経験値を</color> <color=#C04040E0>[%]</color>で倍増します
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敵のターン中はカメラが動かない</i>
 ModUi/&NoExperienceOnLevelUp=レベルアップに経験は必要ありません
 ModUi/&OfferAdditionalLoreFriendlyNames=キャラクター作成時に追加の伝承にわかりやすい名前を提供する
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 盲目、不可視、認識された<color=#D89555>有利 / 不利</color>のペアをキャンセル<color=#F0DAA0>[公式の<color=#D89555>有利/不利</color>と併用すると便利]ルール]</color></i>

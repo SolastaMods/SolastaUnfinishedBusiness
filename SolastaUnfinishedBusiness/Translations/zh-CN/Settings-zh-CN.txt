@@ -233,6 +233,7 @@ ModUi/&Monsters=<color=#F0DAA0>怪物：</color>
 ModUi/&MovementGridWidthModifier=<color=white>将移动格子宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>点击法术会反转消耗的默认曲目槽类型\n<i><color=#F0DAA0>[<color=#D89555>术士</color>消耗白色法术位，其他职业消耗绿色的]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>乘以获得的经验</color><color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敌人回合时镜头永不移动</i>
 ModUi/&NoExperienceOnLevelUp=升级不需要经验
 ModUi/&OfferAdditionalLoreFriendlyNames=在角色创建时提供额外的知识友好名称
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 取消对目盲、隐形和感知到的<color=#D89555>优势/劣势</color><color=#F0DAA0>[与官方<color=#D89555>优势/劣势</color>规则结合使用]</color></i>

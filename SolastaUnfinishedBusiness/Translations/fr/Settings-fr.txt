@@ -233,6 +233,7 @@ ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour inverser le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des verts du pacte]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ La caméra ne bouge jamais pendant les tours ennemis</i>
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour passer au niveau supérieur
 ModUi/&OfferAdditionalLoreFriendlyNames=Proposer des noms supplémentaires conviviaux lors de la création de personnages
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Annuler l'<color=#D89555>avantage/inconvénient</color> les paires aveuglées, invisibles et perçues <color=#F0DAA0>[utile en conjonction avec l'<color=#D89555>avantage/inconvénient</color> officiel règles]</color></i>

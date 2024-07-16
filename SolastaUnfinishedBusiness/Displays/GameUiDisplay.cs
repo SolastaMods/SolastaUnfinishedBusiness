@@ -296,6 +296,12 @@ internal static class GameUiDisplay
                 Main.Settings.DontFollowMargin = intValue;
             }
 
+            toggle = Main.Settings.NeverMoveCameraOnEnemyTurn;
+            if (UI.Toggle(Gui.Localize("ModUi/&NeverMoveCameraOnEnemyTurn"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.NeverMoveCameraOnEnemyTurn = toggle;
+            }
+
             UI.Label();
         }
 

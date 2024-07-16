@@ -233,6 +233,7 @@ ModUi/&Monsters=<color=#F0DAA0>Monster:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Bewegungsrasters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>UMSCHALT</color>-Klick auf einen Zauber kehrt den verbrauchten Standardrepertoire-Slottyp um.\n<i><color=#F0DAA0>[<color=#D89555>Hexenmeister</color> gibt weiße Zauberslots aus und andere geben Paktgrüne aus]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplizieren Sie die gewonnene Erfahrung mit</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Die Kamera bewegt sich nie während der Züge des Gegners</i>
 ModUi/&NoExperienceOnLevelUp=Für den Levelaufstieg ist keine Erfahrung erforderlich
 ModUi/&OfferAdditionalLoreFriendlyNames=Bieten Sie bei der Charaktererstellung zusätzliche Lore-freundliche Namen an
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Abbrechen <color=#D89555>Vorteil/Nachteil</color> geblendete, unsichtbare und wahrgenommene Paare <color=#F0DAA0>[nützlich in Verbindung mit offiziellem <color=#D89555>Vorteil/Nachteil</color> Regeln]</color></i>

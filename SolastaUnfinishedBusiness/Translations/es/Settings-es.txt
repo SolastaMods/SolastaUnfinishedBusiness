@@ -233,6 +233,7 @@ ModUi/&Monsters=<color=#F0DAA0>Monstruos:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula de movimiento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> hace clic en un hechizo para invertir el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y otros gastan los verdes de pacto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplica la experiencia obtenida por</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ La cámara nunca se mueve durante los turnos del enemigo</i>
 ModUi/&NoExperienceOnLevelUp=No se requiere experiencia para subir de nivel.
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofrecer nombres adicionales amigables con la historia en la creación de personajes.
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancelar <color=#D89555>ventaja/desventaja</color> pares cegados, invisibles y percibidos <color=#F0DAA0>[útil junto con la <color=#D89555>ventaja/desventaja</color> oficial reglas]</color></i>

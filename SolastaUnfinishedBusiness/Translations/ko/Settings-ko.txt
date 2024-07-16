@@ -233,6 +233,7 @@ ModUi/&Monsters=<color=#F0DAA0>괴물:</color>
 ModUi/&MovementGridWidthModifier=<color=white>이동 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&MulticlassKeyHelp=주문을 <color=#1E81B0>SHIFT</color> 클릭하면 소비되는 기본 레퍼토리 슬롯 유형이 반전됩니다.\n<i><color=#F0DAA0>[<color=#D89555>워록</color>은 흰색 주문 슬롯을 소비합니다. 다른 사람들은 녹색 계약을 사용합니다.]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>경험치 획득량</color> <color=#C04040E0>[%]</color> 곱하기
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 적의 턴 중에는 카메라가 움직이지 않습니다</i>
 ModUi/&NoExperienceOnLevelUp=레벨업에는 경험치가 필요하지 않습니다.
 ModUi/&OfferAdditionalLoreFriendlyNames=캐릭터 생성 시 추가 지식 친화적인 이름 제공
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ <color=#D89555>장점 / 단점</color> 취소 눈먼, 보이지 않는 및 인지된 쌍 <color=#F0DAA0>[공식 <color=#D89555>장점 / 단점</color>과 함께 유용함 규칙]</color></i>

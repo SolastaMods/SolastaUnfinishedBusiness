@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using TA;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -15,7 +14,10 @@ public static class CameraControllerLocationPatcher
     ///     The battle camera will still move if the character is off screen or within x% (definable) of the screen edge.
     /// </summary>
     private static bool InterruptCamera(
-        CameraControllerLocation __instance, GameLocationCharacter character, Vector3 position)
+        CameraControllerLocation __instance,
+        GameLocationCharacter character,
+        Vector3 position,
+        bool alwaysInterruptIfZero = true)
     {
         //PATCH: camera don't follow character in battle
         if (!Main.Settings.DontFollowCharacterInBattle)
@@ -23,7 +25,8 @@ public static class CameraControllerLocationPatcher
             return true;
         }
 
-        if (Main.Settings.DontFollowMargin == 0)
+        if (alwaysInterruptIfZero &&
+            Main.Settings.DontFollowMargin == 0)
         {
             return false;
         }
@@ -48,7 +51,7 @@ public static class CameraControllerLocationPatcher
         if (character != null)
         {
             var characterLocation = character.LocationPosition;
-                
+
             finalPosition = new Vector3(characterLocation.x, characterLocation.y, characterLocation.z);
         }
         else
@@ -77,7 +80,12 @@ public static class CameraControllerLocationPatcher
         [UsedImplicitly]
         public static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
         {
-            return InterruptCamera(__instance, character, Vector3.zero);
+            if (Main.Settings.NeverMoveCameraOnEnemyTurn && character.Side == RuleDefinitions.Side.Enemy)
+            {
+                return false;
+            }
+
+            return InterruptCamera(__instance, character, Vector3.zero, false);
         }
     }
 
@@ -89,10 +97,15 @@ public static class CameraControllerLocationPatcher
         [UsedImplicitly]
         public static bool Prefix(CameraControllerLocation __instance, GameLocationCharacter character)
         {
+            if (Main.Settings.NeverMoveCameraOnEnemyTurn && character.Side == RuleDefinitions.Side.Enemy)
+            {
+                return false;
+            }
+
             return InterruptCamera(__instance, character, Vector3.zero);
         }
     }
-    
+
     [HarmonyPatch(typeof(CameraControllerLocation), nameof(CameraControllerLocation.FocusPositionForBattle))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

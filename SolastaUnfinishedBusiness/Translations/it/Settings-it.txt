@@ -233,6 +233,7 @@ ModUi/&Monsters=<color=#F0DAA0>Mostri:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Moltiplica la larghezza della griglia di movimento per</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAIUSC</color> fare clic su un incantesimo inverte il tipo di slot di repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Stregone</color> spende slot incantesimo bianchi e altri spendono quelli verdi del patto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Moltiplica l'esperienza acquisita per</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ La telecamera non si muove mai durante i turni nemici</i>
 ModUi/&NoExperienceOnLevelUp=Non è richiesta alcuna esperienza per salire di livello
 ModUi/&OfferAdditionalLoreFriendlyNames=Offri ulteriori nomi amichevoli della tradizione sulla creazione del personaggio
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Annulla <color=#D89555>vantaggio/svantaggio</color> coppie accecate, invisibili e percepite <color=#F0DAA0>[utile insieme al <color=#D89555>vantaggio/svantaggio</color> ufficiale regole]</color></i>

@@ -233,6 +233,7 @@ ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiply the movement grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default repertoire slot type consumed\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiply the experience gained by</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Camera never moves during enemy turns</i>
 ModUi/&NoExperienceOnLevelUp=No experience is required to level up
 ModUi/&OfferAdditionalLoreFriendlyNames=Offer additional lore friendly names on character creation
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancel <color=#D89555>advantage / disadvantage</color> blinded, invisible, and perceived pairs <color=#F0DAA0>[useful in conjunction with official <color=#D89555>advantage / disadvantage</color> rules]</color></i>

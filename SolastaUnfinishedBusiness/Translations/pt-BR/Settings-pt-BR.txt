@@ -233,6 +233,7 @@ ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplique a largura da grade de movimento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clicar em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam os verdes do pacto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ A câmera nunca se move durante os turnos do inimigo</i>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes adicionais amigáveis à história na criação de personagens
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancelar <color=#D89555>vantagem/desvantagem</color> pares cegos, invisíveis e percebidos <color=#F0DAA0>[útil em conjunto com <color=#D89555>vantagem/desvantagem</color> oficial regras]</color></i>

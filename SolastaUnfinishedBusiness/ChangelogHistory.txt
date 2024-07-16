@@ -1,5 +1,6 @@
 1.5.97.20:
 
+- added Interface > Game UI > 'Camera never moves during enemy turns'
 - added variant spell points rules, and Sickening Radiance spell
 - fixed Arcane Archer arcane shot soft lock when enemy already dead
 - fixed Export Hero and RESPEC auras, infusions, etc. termination
@@ -7,7 +8,8 @@
 - fixed Ring of Knifes spell follow up power to-hit modifier
 - fixed selection on Field Manipulator displacement, and Scatter spell
 - improved 'Battle camera doesn't follow when character is already on screen'
-- removed previously demoted fighting styles in 1.5.97.9 [RESPEC]
+- removed Merciless, Polearm Expert, Rope it Up, Sentinel, Shield Expert backward compatibility
+
 
 KNOWN ISSUES:
 

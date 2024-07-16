@@ -233,6 +233,7 @@ ModUi/&Monsters=<color=#F0DAA0>Монстры:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Увеличить ширину сетки передвижения на множитель</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=Нажатие с <color=#1E81B0>SHIFT</color> по заклинанию переключает тип затрачиваемой ячейки по умолчанию\n<i><color=#F0DAA0>[<color=#D89555>Колдун</color> тратит белые ячейки заклинаний, а остальные - зелёные ячейки колдуна]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Множитель получаемого опыта</color> <color=#C04040E0>[в %]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Камера никогда не двигается во время хода противника</i>
 ModUi/&NoExperienceOnLevelUp=Отключить систему повышения уровня на основе полученного опыта
 ModUi/&OfferAdditionalLoreFriendlyNames=Предлагать при создании персонажа дополнительные имена, подходящие по истории
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Отменить <color=#D89555>преимущество/помеху</color> для ослеплённых, невидимых и видимых <color=#F0DAA0>[полезно в сочетании с официальными правилами <color=#D89555>преимущества/помехи</color>]</color></i>
