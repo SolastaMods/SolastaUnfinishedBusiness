@@ -281,7 +281,7 @@ ModUi/&SelectTabletop=Seleziona Da tavolo
 ModUi/&SenseNormalVisionRangeMultiplier=Modifica il raggio <color=#D89555>Visione normale</color> <i><color=#F0DAA0>[solo nelle battaglie]</color></i>
 ModUi/&Services=Servizi
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cintura della razza nanica</color> <color=white>possibilità di apparizione della barba</color>
-ModUi/&SetElevationCameraMaxHeightBy=<color=white>Imposta l'altezza massima della telecamera di elevazione di</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Aumenta l'altezza massima della telecamera di elevazione di</color>
 ModUi/&SettingsExport=Esportare
 ModUi/&SettingsHelp=• Come host puoi esportare la tua configurazione attuale, aprire la cartella delle esportazioni e condividerla facilmente con i tuoi colleghi\n• Come ospite puoi aprire la cartella delle esportazioni, incollare il file condiviso dall'host e caricarlo <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&SettingsLoad=• Caricare un'impostazione esportata

@@ -1,17 +1,17 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:PowerInterception:6fc1ef3b-3876-59b8-994c-e976af6e4603"
+    "Definition:ProficiencyFeatShieldExpert:6fd6a6d7-783e-52d3-8122-7d906ebcb8cd"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "FightingStyle/&InterceptionTitle",
-    "description": "FightingStyle/&InterceptionDescription",
+    "hidden": true,
+    "title": "FightingStyle/&ShieldExpertTitle",
+    "description": "FightingStyle/&ShieldExpertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1ff9dc49-7b82-5486-a562-0988e0ed0ed6",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -28,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "047741c7-24ee-597e-b480-8f0d3d881712",
+  "guid": "51d8b57b-ad17-5f32-a593-2a5a72bd584f",
   "contentPack": 9999,
-  "name": "Interception"
+  "name": "ShieldExpert"
 }

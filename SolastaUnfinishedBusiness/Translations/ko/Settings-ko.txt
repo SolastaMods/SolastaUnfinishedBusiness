@@ -281,7 +281,7 @@ ModUi/&SelectTabletop=탁상 선택
 ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>일반 시야</color> 범위 수정 <i><color=#F0DAA0>[전투에서만]</color></i>
 ModUi/&Services=서비스
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>드워프족의 허리띠</color> <color=white>수염 출현 확률</color>
-ModUi/&SetElevationCameraMaxHeightBy=<color=white>고도 카메라 최대 높이 설정</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>고도 카메라 최대 높이 증가</color>
 ModUi/&SettingsExport=내보내다
 ModUi/&SettingsHelp=• 호스트는 현재 구성을 내보내고 내보내기 폴더를 열고 동료와 쉽게 공유할 수 있습니다.\n• 게스트는 내보내기 폴더를 열고 호스트에서 공유 파일을 붙여넣고 <b><b>에서 로드할 수 있습니다. i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&SettingsLoad=• 내보낸 설정 로드

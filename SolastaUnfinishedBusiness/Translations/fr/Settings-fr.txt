@@ -281,7 +281,7 @@ ModUi/&SelectTabletop=Sélectionnez une table
 ModUi/&SenseNormalVisionRangeMultiplier=Modifier la portée de la <color=#D89555>Vision normale</color> <i><color=#F0DAA0>[uniquement en bataille]</color></i>
 ModUi/&Services=Prestations de service
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Ceinture des nains</color> <color=white>chances d'apparition de la barbe</color>
-ModUi/&SetElevationCameraMaxHeightBy=<color=white>Définir la hauteur maximale de la caméra d'élévation par</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Augmenter la hauteur maximale de la caméra d'élévation de</color>
 ModUi/&SettingsExport=Exporter
 ModUi/&SettingsHelp=• En tant qu'hôte, vous pouvez exporter votre configuration actuelle, ouvrir le dossier des exportations et la partager facilement avec vos pairs.\n• En tant qu'invité, vous pouvez ouvrir le dossier des exportations, coller le fichier partagé depuis l'hôte et le charger sur <b><i><color=#C04040E0>[Redémarrage requis]</color></i></b>
 ModUi/&SettingsLoad=• Charger un paramètre exporté

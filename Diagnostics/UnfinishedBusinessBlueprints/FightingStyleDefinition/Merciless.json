@@ -1,17 +1,17 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:PowerInterception:6fc1ef3b-3876-59b8-994c-e976af6e4603"
+    "Definition:ProficiencyFeatMerciless:19a654a6-15c9-57af-a93f-f14f5eed5b71"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "FightingStyle/&InterceptionTitle",
-    "description": "FightingStyle/&InterceptionDescription",
+    "hidden": true,
+    "title": "FightingStyle/&MercilessTitle",
+    "description": "FightingStyle/&MercilessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1ff9dc49-7b82-5486-a562-0988e0ed0ed6",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -28,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "047741c7-24ee-597e-b480-8f0d3d881712",
+  "guid": "6d7a4f67-8035-55e2-823e-619534487125",
   "contentPack": 9999,
-  "name": "Interception"
+  "name": "Merciless"
 }

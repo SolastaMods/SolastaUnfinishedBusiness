@@ -1,17 +1,17 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:PowerInterception:6fc1ef3b-3876-59b8-994c-e976af6e4603"
+    "Definition:ProficiencyFeatSentinel:69cd3b17-4a21-5c62-bd20-818e72c83031"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "FightingStyle/&InterceptionTitle",
-    "description": "FightingStyle/&InterceptionDescription",
+    "hidden": true,
+    "title": "FightingStyle/&SentinelTitle",
+    "description": "FightingStyle/&SentinelDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1ff9dc49-7b82-5486-a562-0988e0ed0ed6",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -28,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "047741c7-24ee-597e-b480-8f0d3d881712",
+  "guid": "55d7318b-c14b-5742-8605-eb774f5444d6",
   "contentPack": 9999,
-  "name": "Interception"
+  "name": "Sentinel"
 }

@@ -1,17 +1,17 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:PowerInterception:6fc1ef3b-3876-59b8-994c-e976af6e4603"
+    "Definition:ProficiencyFeatPolearmExpert:1c75c89c-a39e-5546-8bba-022b6b9b1271"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "FightingStyle/&InterceptionTitle",
-    "description": "FightingStyle/&InterceptionDescription",
+    "hidden": true,
+    "title": "FightingStyle/&PolearmExpertTitle",
+    "description": "FightingStyle/&PolearmExpertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1ff9dc49-7b82-5486-a562-0988e0ed0ed6",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -28,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "047741c7-24ee-597e-b480-8f0d3d881712",
+  "guid": "f595a71b-7902-5950-87d4-86abd4b656e9",
   "contentPack": 9999,
-  "name": "Interception"
+  "name": "PolearmExpert"
 }

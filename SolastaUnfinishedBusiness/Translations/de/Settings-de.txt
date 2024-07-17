@@ -281,7 +281,7 @@ ModUi/&SelectTabletop=Wählen Sie Tischplatte
 ModUi/&SenseNormalVisionRangeMultiplier=Ändern Sie den Bereich der <color=#D89555>Normalen Sicht</color> <i><color=#F0DAA0>[nur in Schlachten]</color></i>
 ModUi/&Services=Dienstleistungen
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Gürtel der Zwergen</color> <color=white>Bart-Erscheinungschancen</color>
-ModUi/&SetElevationCameraMaxHeightBy=<color=white>Maximale Höhe der Höhenkamera einstellen um</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Maximale Höhe der Höhenkamera erhöhen um</color>
 ModUi/&SettingsExport=Export
 ModUi/&SettingsHelp=• Als Host können Sie Ihre aktuelle Konfiguration exportieren, den Exportordner öffnen und ganz einfach mit Ihren Kollegen teilen.\n• Als Gast können Sie den Exportordner öffnen, die freigegebene Datei vom Host einfügen und über <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&SettingsLoad=• Laden Sie eine exportierte Einstellung
