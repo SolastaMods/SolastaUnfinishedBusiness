@@ -5,6 +5,7 @@
 - added Interface > Game UI > 'Enable elevation camera to stay at pos after disabled'
 - added Interface > Game UI > 'Increase elevation camera max height by X cells'
 - added variant spell points rules, and Sickening Radiance spell
+- fixed Alert feat not working on overland map encounters
 - fixed Arcane Archer arcane shot soft lock when enemy already dead
 - fixed Export Hero and RESPEC auras, infusions, etc. termination
 - fixed cast main action leaving cast bonus action available

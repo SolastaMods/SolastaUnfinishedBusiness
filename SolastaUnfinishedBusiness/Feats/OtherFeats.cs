@@ -1267,8 +1267,26 @@ internal static class OtherFeats
                 .SetGuiPresentationNoContent(true)
                 .SetConditionAffinityType(ConditionAffinityType.Immunity)
                 .SetConditionType(ConditionDefinitions.ConditionSurprised)
+                .AddCustomSubFeatures(new OnCharacterBattleStartedFeatAlert())
                 .AddToDB())
         .AddToDB();
+
+    private sealed class OnCharacterBattleStartedFeatAlert : ICharacterBattleStartedListener
+    {
+        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (!surprise ||
+                !rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat, ConditionSurprised, out var activeCondition))
+            {
+                return;
+            }
+
+            rulesetCharacter.RemoveCondition(activeCondition);
+        }
+    }
 
     #endregion
 
@@ -1535,7 +1553,8 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildFightingInitiate()
     {
-        GroupFeats.FeatGroupFightingStyle.AddFeats(DatabaseRepository
+        GroupFeats.FeatGroupFightingStyle.AddFeats(
+            DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
             .Where(x => !FightingStyleContext.DemotedFightingStyles.Contains(x.Name))
             .Select(BuildFightingStyleFeat)
