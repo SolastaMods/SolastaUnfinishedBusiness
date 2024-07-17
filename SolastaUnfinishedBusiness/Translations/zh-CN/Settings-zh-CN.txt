@@ -42,6 +42,7 @@ ModUi/&Bestiary=怪物池
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>降咒</color>使用5环以上法术位施放时不需要专注
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=被<color=#D89555>致盲</color>时不允许借机攻击
 ModUi/&Blueprints=蓝图
+ModUi/&Camera=<color=#F0DAA0>相机：</color>
 ModUi/&Campaigns=<color=#F0DAA0>战役：</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>战役和地点：</color>
 ModUi/&Category=职业
@@ -64,6 +65,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>：将伤害骰子的最�
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>：继续重新掷出任何可能获得最高结果的伤害骰子，并将其添加到总伤害中
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>：将攻击的总伤害加倍，而不是掷额外的骰子。<i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>神灵</color>
+ModUi/&DisableAllCameraBounds=禁用所有相机边界 <i><color=#F0DAA0>[超出相机最大高度]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&DisableAutoEquip=禁用自动装备物品栏中的物品
 ModUi/&DisableBarbarianBrutalCritical=<i>+ 同时在<color=#D89555>野蛮人</color> 9、13 和 17 级禁用<b>凶蛮重击</b></i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=禁用此模组提供的专长的施法先决条件<b><i><color=#C04040E0>[需要重新启动]</color></i></b>
@@ -118,6 +120,7 @@ ModUi/&EnableCheatMenu=启用作弊菜单
 ModUi/&EnableCustomPortraits=启用自定义肖像
 ModUi/&EnableCustomPortraitsHelp=。将你的自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i>，以英雄名字<i><color=#F0DAA0>[即：Anton、Celia、Nialla 等]</color></i>\n 命名。使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 以获得最佳效果]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=启用地城编辑器Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150 和 200x200 的地牢大小以及简洁的混合来自所有环境的素材]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=启用高程相机在禁用后停留在原位置
 ModUi/&EnableEpicPointsAndArray=启用史诗级 35 点购点和默认骰<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练面板显示<i><color=#F0DAA0>[奥术射击、注法、战技和多种功能]</color></i>\n<b><i><color=#C04040E0>[角色性能提升检查。使用风险自负]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在等级 2、10 和 18 级启用专长选择
@@ -278,6 +281,7 @@ ModUi/&SelectTabletop=选择桌面
 ModUi/&SenseNormalVisionRangeMultiplier=修改<color=#D89555>正常视力</color>范围<i><color=#F0DAA0>[仅在战斗中]</color></i>
 ModUi/&Services=服务
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>矮人腰带</color><color=white>胡须出现几率</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>设置海拔相机最大高度</color>
 ModUi/&SettingsExport=导出
 ModUi/&SettingsHelp=•作为主机，你可以导出当前配置，打开导出文件夹并轻松与你的联机者共享\n•作为客机，你可以打开导出文件夹，从主机粘贴分享的设置文件并覆盖设置。<b><i><color=#C04040E0>[需要重启生效]</color></i></b>
 ModUi/&SettingsLoad=•加载导出的设置

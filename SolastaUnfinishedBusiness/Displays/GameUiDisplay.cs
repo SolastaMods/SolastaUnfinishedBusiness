@@ -368,6 +368,33 @@ internal static class GameUiDisplay
 
         #endregion
 
+        #region Camera
+
+        UI.Label();
+        UI.Label(Gui.Localize("ModUi/&Camera"));
+        UI.Label();
+
+        toggle = Main.Settings.DisableAllCameraBounds;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableAllCameraBounds"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableAllCameraBounds = toggle;
+        }
+
+        toggle = Main.Settings.EnableElevationCameraToStayAtPosition;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableElevationCameraToStayAtPosition"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableElevationCameraToStayAtPosition = toggle;
+        }
+
+        intValue = Main.Settings.SetElevationCameraMaxHeightBy;
+        if (UI.Slider(Gui.Localize("ModUi/&SetElevationCameraMaxHeightBy"), ref intValue, 0, 24,
+                4, "cells", UI.AutoWidth()))
+        {
+            Main.Settings.SetElevationCameraMaxHeightBy = intValue;
+        }
+
+        #endregion
+
         #region Formation
 
         UI.Label();

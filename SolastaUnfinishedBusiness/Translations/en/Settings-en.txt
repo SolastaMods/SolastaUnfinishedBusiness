@@ -42,6 +42,7 @@ ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=The <color=#D89555>Blinded</color> condition doesn't allow attack of opportunity
 ModUi/&Blueprints=Blueprints
+ModUi/&Camera=<color=#F0DAA0>Camera:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Campaigns:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campaigns and locations:</color>
 ModUi/&Category=Category
@@ -64,6 +65,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: sum the maximum result f
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: keep re-rolling any damage dice that roll the highest possible result and add it to the total damage
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Double your attack's total damage instead of rolling additional dice. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Deities</color>
+ModUi/&DisableAllCameraBounds=Disable all camera bounds <i><color=#F0DAA0>[surpasses camera max height by]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Also disable <color=#D89555>Barbarian</color> <b>Brutal Critical</b> at levels 9, 13 and 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on <color=#D89555>feats</color> provided by this mod <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -118,6 +120,7 @@ ModUi/&EnableCheatMenu=Enable the cheats menu
 ModUi/&EnableCustomPortraits=Enable custom portraits
 ModUi/&EnableCustomPortraitsHelp=• Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=Enable elevation camera to stay at position after disabled
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[performance hit on character inspection. use at your own risk]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable <color=#D89555>feats</color> selection at levels 2, 10 and 18
@@ -278,6 +281,7 @@ ModUi/&SelectTabletop=Select Tabletop
 ModUi/&SenseNormalVisionRangeMultiplier=Modify <color=#D89555>Normal Vision</color> range <i><color=#F0DAA0>[only in battles]</color></i>
 ModUi/&Services=Services
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</color> <color=white>beard appearing chances</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Set elevation camera max height by</color>
 ModUi/&SettingsExport=Export
 ModUi/&SettingsHelp=• As a host you can export your current configuration, open the exports folder and easily share with your peers\n• As a guest you can open the exports folder, paste the shared file from the host and load it over <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&SettingsLoad=• Load an exported setting

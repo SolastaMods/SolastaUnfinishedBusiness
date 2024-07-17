@@ -42,6 +42,7 @@ ModUi/&Bestiary=Bestiário
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Conceder Maldição</color> não requer concentração quando lançado com um espaço de feitiço L5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=A condição <color=#D89555>Cego</color> não permite ataque de oportunidade
 ModUi/&Blueprints=Plantas
+ModUi/&Camera=<color=#F0DAA0>Câmera:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Campanhas:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campanhas e locais:</color>
 ModUi/&Category=Categoria
@@ -64,6 +65,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: soma o resultado máximo
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continue jogando novamente quaisquer dados de dano que obtiverem o resultado mais alto possível e adicione-o ao dano total
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Dobre o dano total do seu ataque em vez de lançar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divindades</color>
+ModUi/&DisableAllCameraBounds=Desative todos os limites da câmera <i><color=#F0DAA0>[ultrapassa a altura máxima da câmera em]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></ eu></b>
 ModUi/&DisableAutoEquip=Desative o equipamento automático de itens no inventário
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Desative também <color=#D89555>Bárbaro</color> <b>Brutal Critical</b> nos níveis 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desative os pré-requisitos de lançamento de feitiço em <color=#D89555>talentos</color> fornecidos por este mod <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
@@ -118,6 +120,7 @@ ModUi/&EnableCheatMenu=Habilite o menu de cheats
 ModUi/&EnableCustomPortraits=Habilite retratos personalizados
 ModUi/&EnableCustomPortraitsHelp=• Coloque seus retratos personalizados nas subpastas <i><b><color=#F0DAA0>Pessoal</color></b></i> ou <i><b><color=#F0DAA0>Pré-geração</color> </b></i>, nomeado após o nome do herói <i><color=#F0DAA0>[ou seja: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG imagens, tamanho 256 x 384 pixels, com uma camada de transparência <i><color=#F0DAA0>[use o GIMP para obter melhores resultados]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura simples de recursos de todos os ambientes]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=Ative a câmera de elevação para permanecer na posição após desativada
 ModUi/&EnableEpicPointsAndArray=Habilite um sistema e matriz de compra épico de 35 pontos <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Ative a exibição do painel de proficiências estendidas <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[desempenho acertar na inspeção do personagem. use por sua conta e risco]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Ative a seleção de <color=#D89555>talentos</color> nos níveis 2, 10 e 18
@@ -278,6 +281,7 @@ ModUi/&SelectTabletop=Selecione Mesa
 ModUi/&SenseNormalVisionRangeMultiplier=Modifique o alcance da <color=#D89555>Visão Normal</color> <i><color=#F0DAA0>[apenas em batalhas]</color></i>
 ModUi/&Services=Serviços
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinto da Raça Anã</color> <color=white>chance de aparecimento de barba</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Definir altura máxima da câmera de elevação por</color>
 ModUi/&SettingsExport=Exportar
 ModUi/&SettingsHelp=• Como host, você pode exportar sua configuração atual, abrir a pasta de exportações e compartilhar facilmente com seus colegas\n• Como convidado, você pode abrir a pasta de exportações, colar o arquivo compartilhado do host e carregá-lo em <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&SettingsLoad=• Carregar uma configuração exportada

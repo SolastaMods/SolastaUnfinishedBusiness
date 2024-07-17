@@ -42,6 +42,7 @@ ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Lancia Maledizione</color> non richiede concentrazione se lanciato con uno slot incantesimo L5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condizione <color=#D89555>Accecato</color> non consente attacchi di opportunità
 ModUi/&Blueprints=Progetti
+ModUi/&Camera=<color=#F0DAA0>Fotocamera:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Campagne:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagne e posizioni:</color>
 ModUi/&Category=Categoria
@@ -64,6 +65,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: somma il risultato massi
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a ripetere il lancio di tutti i dadi di danno che ottengono il risultato più alto possibile e aggiungilo al danno totale
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: raddoppia il danno totale del tuo attacco invece di lanciare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinità</color>
+ModUi/&DisableAllCameraBounds=Disattiva tutti i limiti della telecamera <i><color=#F0DAA0>[supera l'altezza massima della telecamera di]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></ i></b>
 ModUi/&DisableAutoEquip=Disabilita l'equipaggiamento automatico degli oggetti nell'inventario
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Disabilita anche <color=#D89555>Barbaro</color> <b>Critico Brutale</b> ai livelli 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disabilita i prerequisiti di lancio degli incantesimi sui <color=#D89555>talenti</color> forniti da questo mod <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
@@ -118,6 +120,7 @@ ModUi/&EnableCheatMenu=Abilita il menu dei trucchi
 ModUi/&EnableCustomPortraits=Abilita ritratti personalizzati
 ModUi/&EnableCustomPortraitsHelp=• Inserisci i tuoi ritratti personalizzati nelle sottocartelle <i><b><color=#F0DAA0>Personale</color></b></i> o <i><b><color=#F0DAA0>PreGen</color> </b></i>, che prende il nome dal nome dell'eroe <i><color=#F0DAA0>[es.: Anton, Celia, Nialla, ecc.]</color></i>\n• Usa PNG immagini, dimensioni 256 x 384 pixel, con un livello di trasparenza <i><color=#F0DAA0>[usa GIMP per i migliori risultati]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0DAA0>[include stanze piatte, dimensioni di dungeon 150x150 e 200x200 e senza fronzoli mescolando risorse da tutti gli ambienti]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=Abilita la telecamera di elevazione a rimanere nella posizione dopo la disattivazione
 ModUi/&EnableEpicPointsAndArray=Abilita un sistema di acquisto epico da 35 punti e un array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Abilita la visualizzazione del pannello delle competenze estese <i><color=#F0DAA0>[Tiri arcani, infusioni, manovre e versatilità]</color></i>\n<b><i><color=#C04040E0>[prestazioni colpo sull'ispezione del carattere. utilizzare a proprio rischio]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Abilita la selezione dei <color=#D89555>talenti</color> ai livelli 2, 10 e 18
@@ -278,6 +281,7 @@ ModUi/&SelectTabletop=Seleziona Da tavolo
 ModUi/&SenseNormalVisionRangeMultiplier=Modifica il raggio <color=#D89555>Visione normale</color> <i><color=#F0DAA0>[solo nelle battaglie]</color></i>
 ModUi/&Services=Servizi
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cintura della razza nanica</color> <color=white>possibilità di apparizione della barba</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Imposta l'altezza massima della telecamera di elevazione di</color>
 ModUi/&SettingsExport=Esportare
 ModUi/&SettingsHelp=• Come host puoi esportare la tua configurazione attuale, aprire la cartella delle esportazioni e condividerla facilmente con i tuoi colleghi\n• Come ospite puoi aprire la cartella delle esportazioni, incollare il file condiviso dall'host e caricarlo <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&SettingsLoad=• Caricare un'impostazione esportata

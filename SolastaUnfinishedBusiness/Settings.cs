@@ -412,6 +412,11 @@ public class Settings : UnityModManager.ModSettings
     public int HighContrastTargetingAoeSelectedColor { get; set; }
     public int HighContrastTargetingSingleSelectedColor { get; set; }
 
+    // Camera
+    public bool DisableAllCameraBounds { get; set; }
+    public bool EnableElevationCameraToStayAtPosition { get; set; }
+    public int SetElevationCameraMaxHeightBy { get; set; }
+
     // Formation
     public int FormationGridSelectedSet { get; set; } = -1;
 

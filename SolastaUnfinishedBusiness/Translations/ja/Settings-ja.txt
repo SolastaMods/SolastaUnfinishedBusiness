@@ -42,6 +42,7 @@ ModUi/&Bestiary=獣寓話
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>授与の呪い</color>は、L5以上の呪文スロットでキャストする場合は集中力を必要としません
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>状態では機会攻撃は許可されません
 ModUi/&Blueprints=青写真
+ModUi/&Camera=<color=#F0DAA0>カメラ:</color>
 ModUi/&Campaigns=<color=#F0DAA0>キャンペーン:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>キャンペーンと場所:</color>
 ModUi/&Category=カテゴリー
@@ -64,6 +65,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: ダメージ ダイス�
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 可能な限り最高の結果が出たダメージ ダイスを再度振り続け、それを合計ダメージに追加します。
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 追加のサイコロを振る代わりに、攻撃の合計ダメージが2倍になります。 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>神々</color>
+ModUi/&DisableAllCameraBounds=すべてのカメラ境界を無効にします <i><color=#F0DAA0>[カメラの最大高さを超えます]</color></i> <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
 ModUi/&DisableAutoEquip=インベントリ内のアイテムの自動装備を無効にする
 ModUi/&DisableBarbarianBrutalCritical=<i>+ レベル 9、13、17 で<color=#D89555>バーバリアン</color>の<b>ブルータル クリティカル</b>も無効化します</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=この MOD によって提供される<color=#D89555>特技</color>の呪文の前提条件を無効にします<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
@@ -118,6 +120,7 @@ ModUi/&EnableCheatMenu=チートメニューを有効にする
 ModUi/&EnableCustomPortraits=カスタムポートレートを有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタム ポートレートをサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color> に配置します。 </b></i>、主人公の名前にちなんで名付けられました <i><color=#F0DAA0>[例: アントン、セリア、ニアラなど]</color></i>\n• PNG を使用します画像、サイズ 256 x 384 ピクセル、透明レイヤーあり <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にする\n<i><color=#F0DAA0>[フラット ルーム、150x150 および 200x200 のダンジョン サイズ、あらゆる環境のアセットを簡単に混合する機能が含まれます]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=無効にした後も高度カメラの位置を維持する
 ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 を有効にする>[再起動が必要]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネル表示を有効にする <i><color=#F0DAA0>[秘術ショット、注入、マニューバー、多用途性]</color></i>\n<b><i><color=#C04040E0>[パフォーマンス]文字検査でヒットしました。ご自身の責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=レベル 2、10、18 で<color=#D89555>特技</color>の選択を有効にします
@@ -278,6 +281,7 @@ ModUi/&SelectTabletop=テーブルトップを選択してください
 ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>通常の視力</color>範囲を変更<i><color=#F0DAA0>[戦闘時のみ]</color></i>
 ModUi/&Services=サービス
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>ドワーフ族のベルト</color> <color=white>ひげが出現するチャンス</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>仰角カメラの最大高度を設定する</color>
 ModUi/&SettingsExport=輸出
 ModUi/&SettingsHelp=• ホストとして、現在の構成をエクスポートし、エクスポート フォルダを開いてピアと簡単に共有できます。\n• ゲストとして、エクスポート フォルダを開いて、ホストから共有ファイルを貼り付け、<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&SettingsLoad=• エクスポートした設定をロードする

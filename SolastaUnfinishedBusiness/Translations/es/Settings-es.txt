@@ -42,6 +42,7 @@ ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Otorgar maldición</color> no requiere concentración cuando se lanza con un espacio de hechizo N5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condición <color=#D89555>Cegado</color> no permite ataques de oportunidad.
 ModUi/&Blueprints=Planos
+ModUi/&Camera=<color=#F0DAA0>Cámara:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Campañas:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campañas y ubicaciones:</color>
 ModUi/&Category=Categoría
@@ -64,6 +65,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: suma el resultado máxim
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: sigue tirando los dados de daño que obtengan el resultado más alto posible y súmalo al daño total.
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: duplica el daño total de tu ataque en lugar de tirar dados adicionales. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Deidades</color>
+ModUi/&DisableAllCameraBounds=Deshabilitar todos los límites de la cámara <i><color=#F0DAA0>[supera la altura máxima de la cámara en]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableAutoEquip=Deshabilitar el autoequipamiento de artículos en el inventario
 ModUi/&DisableBarbarianBrutalCritical=<i>+ También desactiva <color=#D89555>Bárbaro</color> <b>Crítico Brutal</b> en los niveles 9, 13 y 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desactiva los requisitos previos para lanzar hechizos en <color=#D89555>dotes</color> proporcionadas por este mod <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -118,6 +120,7 @@ ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableCustomPortraits=Habilitar retratos personalizados
 ModUi/&EnableCustomPortraitsHelp=• Coloque sus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color> </b></i>, que lleva el nombre del nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n• Utilice PNG imágenes, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[use GIMP para obtener mejores resultados]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluye salas planas, tamaños de mazmorra de 150 x 150 y 200 x 200 y una combinación sencilla de recursos de todos los entornos]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=Habilite la cámara de elevación para permanecer en su posición después de desactivarla
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Habilitar visualización del panel de competencias extendidas <i><color=#F0DAA0>[Disparos arcanos, infusiones, maniobras y versatilidades]</color></i>\n<b><i><color=#C04040E0>[rendimiento éxito en la inspección del personaje. úsalo bajo tu propia responsabilidad]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilite la selección de <color=#D89555>dotes</color> en los niveles 2, 10 y 18
@@ -278,6 +281,7 @@ ModUi/&SelectTabletop=Seleccionar tablero
 ModUi/&SenseNormalVisionRangeMultiplier=Modificar el rango de <color=#D89555>Visión normal</color> <i><color=#F0DAA0>[solo en batallas]</color></i>
 ModUi/&Services=Servicios
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de los enanos</color> <color=white>Probabilidades de aparición de barba</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Establecer la altura máxima de la cámara de elevación por</color>
 ModUi/&SettingsExport=Exportar
 ModUi/&SettingsHelp=• Como anfitrión, puedes exportar tu configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con tus compañeros.\n• Como invitado, puedes abrir la carpeta de exportaciones, pegar el archivo compartido desde el anfitrión y cargarlo <b><. i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&SettingsLoad=• Cargar una configuración exportada
