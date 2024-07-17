@@ -127,8 +127,6 @@ internal static partial class DatabaseHelper
 
     internal static class CharacterFamilyDefinitions
     {
-        internal static CharacterFamilyDefinition Beast { get; } = GetDefinition<CharacterFamilyDefinition>("Beast");
-
         internal static CharacterFamilyDefinition Construct { get; } =
             GetDefinition<CharacterFamilyDefinition>("Construct");
 
@@ -137,8 +135,6 @@ internal static partial class DatabaseHelper
 
         internal static CharacterFamilyDefinition Humanoid { get; } =
             GetDefinition<CharacterFamilyDefinition>("Humanoid");
-
-        internal static CharacterFamilyDefinition Plant { get; } = GetDefinition<CharacterFamilyDefinition>("Plant");
 
         internal static CharacterFamilyDefinition Undead { get; } = GetDefinition<CharacterFamilyDefinition>("Undead");
     }
@@ -304,9 +300,6 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
-        internal static ConditionDefinition ConditionDummy { get; } =
-            GetDefinition<ConditionDefinition>("ConditionDummy");
-
         internal static ConditionDefinition ConditionFeebleMinded { get; } =
             GetDefinition<ConditionDefinition>("ConditionFeebleMinded");
 

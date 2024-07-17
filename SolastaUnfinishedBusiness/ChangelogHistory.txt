@@ -2,13 +2,13 @@
 
 - added Interface > Game UI > 'Camera never moves during enemy turns'
 - added Interface > Game UI > 'Disable all camera bounds'
-- added Interface > Game UI > 'Enable elevation camera to stay at pos after disabled'
+- added Interface > Game UI > 'Enable elevation camera to stay at position'
 - added Interface > Game UI > 'Increase elevation camera max height by X cells'
-- added variant spell points rules, and Sickening Radiance spell
+- added Sickening Radiance spell, and variant spell points rules 
 - fixed Alert feat not working on overland map encounters
 - fixed Arcane Archer arcane shot soft lock when enemy already dead
+- fixed cast main action leaving available cast bonus action behind
 - fixed Export Hero and RESPEC auras, infusions, etc. termination
-- fixed cast main action leaving cast bonus action available
 - fixed Ring of Knifes spell follow up power to-hit modifier
 - fixed selection on Field Manipulator displacement, and Scatter spell
 
