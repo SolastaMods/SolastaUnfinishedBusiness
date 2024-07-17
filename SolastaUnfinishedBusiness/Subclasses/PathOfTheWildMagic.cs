@@ -1322,10 +1322,8 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Individuals)
-                    .UseQuickAnimations()
                     .SetDurationData(DurationType.Round)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDummy))
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Individuals)
                     .Build())
             .AddCustomSubFeatures(new UnstableBackslashHandler(wildSurgeHandler))
             .AddToDB();
