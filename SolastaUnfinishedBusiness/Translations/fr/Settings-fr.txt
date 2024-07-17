@@ -65,7 +65,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color> : additionnez le résult
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color> : continuez à relancer tous les dés de dégâts qui obtiennent le résultat le plus élevé possible et ajoutez-le au total des dégâts.
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color> : doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinités</color>
-ModUi/&DisableAllCameraBounds=Désactivez toutes les limites de la caméra <i><color=#F0DAA0>[dépasse la hauteur maximale de la caméra de]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></ je></b>
+ModUi/&DisableAllCameraBounds=Désactivez toutes les limites de la caméra <i><color=#F0DAA0>[au lieu d'une boîte rectangulaire de 4 cellules de hauteur]</color></i>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des articles en inventaire
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Désactivez également <color=#D89555>Barbare</color> <b>Critique brutal</b> aux niveaux 9, 13 et 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Désactivez les pré-requis pour lancer des sorts sur les <color=#D89555>exploits</color> fournis par ce mod <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

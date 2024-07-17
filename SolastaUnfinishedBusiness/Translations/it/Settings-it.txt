@@ -65,7 +65,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: somma il risultato massi
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a ripetere il lancio di tutti i dadi di danno che ottengono il risultato più alto possibile e aggiungilo al danno totale
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: raddoppia il danno totale del tuo attacco invece di lanciare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinità</color>
-ModUi/&DisableAllCameraBounds=Disattiva tutti i limiti della telecamera <i><color=#F0DAA0>[supera l'altezza massima della telecamera di]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></ i></b>
+ModUi/&DisableAllCameraBounds=Disattiva tutti i limiti della fotocamera <i><color=#F0DAA0>[invece di una casella rettangolare di 4 celle di altezza]</color></i>
 ModUi/&DisableAutoEquip=Disabilita l'equipaggiamento automatico degli oggetti nell'inventario
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Disabilita anche <color=#D89555>Barbaro</color> <b>Critico Brutale</b> ai livelli 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disabilita i prerequisiti di lancio degli incantesimi sui <color=#D89555>talenti</color> forniti da questo mod <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

@@ -38,17 +38,14 @@ public static class CameraModeManualPatcher
     public static class TargetBounds_Getter_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(
-            CameraModeManual __instance,
-            ref Bounds bounds,
-            CameraController.CameraBoundsSource source)
+        public static void Prefix(ref Bounds bounds, CameraController.CameraBoundsSource source)
         {
             _cameraBoundsSource = source;
 
             if (Main.Settings.SetElevationCameraMaxHeightBy != 0)
             {
                 bounds = new Bounds(
-                    __instance.targetBounds.center,
+                    bounds.center,
                     new Vector3(
                         bounds.size.x,
                         bounds.size.y + Main.Settings.SetElevationCameraMaxHeightBy,

@@ -65,7 +65,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: ダメージ ダイス�
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 可能な限り最高の結果が出たダメージ ダイスを再度振り続け、それを合計ダメージに追加します。
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 追加のサイコロを振る代わりに、攻撃の合計ダメージが2倍になります。 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>神々</color>
-ModUi/&DisableAllCameraBounds=すべてのカメラ境界を無効にします <i><color=#F0DAA0>[カメラの最大高さを超えます]</color></i> <b><i><color=#C04040E0>[再起動が必要です]</color></i></b>
+ModUi/&DisableAllCameraBounds=すべてのカメラ境界を無効にします <i><color=#F0DAA0>[4 セルの高さの長方形ボックスの代わりに]</color></i>
 ModUi/&DisableAutoEquip=インベントリ内のアイテムの自動装備を無効にする
 ModUi/&DisableBarbarianBrutalCritical=<i>+ レベル 9、13、17 で<color=#D89555>バーバリアン</color>の<b>ブルータル クリティカル</b>も無効化します</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=この MOD によって提供される<color=#D89555>特技</color>の呪文の前提条件を無効にします<b><i><color=#C04040E0>[再起動が必要]</color></i></b>

@@ -65,7 +65,7 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: 피해 주사위의 최�
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 가능한 가장 높은 결과를 굴리는 피해 주사위를 계속해서 다시 굴려 총 피해량에 추가합니다.
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 추가 주사위를 굴리는 대신 공격의 총 피해를 두 배로 늘립니다. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>신들</color>
-ModUi/&DisableAllCameraBounds=모든 카메라 경계 비활성화 <i><color=#F0DAA0>[카메라 최대 높이 초과]</color></i> <b><i><color=#C04040E0>[다시 시작 필요]</color></ 나></b>
+ModUi/&DisableAllCameraBounds=모든 카메라 경계 비활성화 <i><color=#F0DAA0>[4셀 높이의 직사각형 상자 대신]</color></i>
 ModUi/&DisableAutoEquip=인벤토리 내 아이템 자동 장착 비활성화
 ModUi/&DisableBarbarianBrutalCritical=<i>+ 또한 레벨 9, 13, 17에서 <color=#D89555>야만인</color> <b>잔혹한 치명적</b>을 비활성화합니다.</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=이 모드에서 제공하는 <color=#D89555>feats</color>에 대한 시전 주문 전제 조건을 비활성화합니다. <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
