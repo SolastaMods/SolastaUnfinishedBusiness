@@ -65,7 +65,6 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: Summiere das maximale Er
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: Wirf alle Schadenswürfel, die das höchstmögliche Ergebnis erzielen, erneut und addiere es zum Gesamtschaden
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Verdoppeln Sie den Gesamtschaden Ihres Angriffs, anstatt zusätzliche Würfel zu werfen. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Gottheiten</color>
-ModUi/&DisableAllCameraBounds=Deaktivieren Sie alle Kamerabegrenzungen <i><color=#F0DAA0>[anstelle eines rechteckigen Felds mit 4 Zellen Höhe]</color></i>
 ModUi/&DisableAutoEquip=Deaktivieren Sie die automatische Ausrüstung von Gegenständen im Inventar
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Deaktivieren Sie außerdem <color=#D89555>Barbar</color> <b>Brutal Critical</b> auf den Stufen 9, 13 und 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Deaktivieren Sie die Zaubervoraussetzungen für <color=#D89555>Talente</color>, die von diesem Mod bereitgestellt werden <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

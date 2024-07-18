@@ -374,12 +374,6 @@ internal static class GameUiDisplay
         UI.Label(Gui.Localize("ModUi/&Camera"));
         UI.Label();
 
-        toggle = Main.Settings.DisableAllCameraBounds;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableAllCameraBounds"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableAllCameraBounds = toggle;
-        }
-
         toggle = Main.Settings.EnableElevationCameraToStayAtPosition;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableElevationCameraToStayAtPosition"), ref toggle, UI.AutoWidth()))
         {

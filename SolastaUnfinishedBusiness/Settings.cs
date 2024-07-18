@@ -413,7 +413,6 @@ public class Settings : UnityModManager.ModSettings
     public int HighContrastTargetingSingleSelectedColor { get; set; }
 
     // Camera
-    public bool DisableAllCameraBounds { get; set; }
     public bool EnableElevationCameraToStayAtPosition { get; set; }
     public int SetElevationCameraMaxHeightBy { get; set; }
 

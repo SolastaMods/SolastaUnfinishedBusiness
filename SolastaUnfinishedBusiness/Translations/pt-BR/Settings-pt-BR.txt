@@ -65,7 +65,6 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: soma o resultado máximo
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continue jogando novamente quaisquer dados de dano que obtiverem o resultado mais alto possível e adicione-o ao dano total
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Dobre o dano total do seu ataque em vez de lançar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divindades</color>
-ModUi/&DisableAllCameraBounds=Desative todos os limites da câmera <i><color=#F0DAA0>[em vez de uma caixa retangular de 4 células de altura]</color></i>
 ModUi/&DisableAutoEquip=Desative o equipamento automático de itens no inventário
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Desative também <color=#D89555>Bárbaro</color> <b>Brutal Critical</b> nos níveis 9, 13 e 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desative os pré-requisitos de lançamento de feitiço em <color=#D89555>talentos</color> fornecidos por este mod <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

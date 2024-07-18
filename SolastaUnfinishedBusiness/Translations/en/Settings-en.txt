@@ -65,7 +65,6 @@ ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: sum the maximum result f
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: keep re-rolling any damage dice that roll the highest possible result and add it to the total damage
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Double your attack's total damage instead of rolling additional dice. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Deities</color>
-ModUi/&DisableAllCameraBounds=Disable all camera bounds <i><color=#F0DAA0>[instead of a 4 cells height rectangular box]</color></i>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
 ModUi/&DisableBarbarianBrutalCritical=<i>+ Also disable <color=#D89555>Barbarian</color> <b>Brutal Critical</b> at levels 9, 13 and 17</i>
 ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on <color=#D89555>feats</color> provided by this mod <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

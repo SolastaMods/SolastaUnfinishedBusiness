@@ -1,7 +1,6 @@
 1.5.97.20:
 
 - added Interface > Game UI > 'Camera never moves during enemy turns'
-- added Interface > Game UI > 'Disable all camera bounds'
 - added Interface > Game UI > 'Enable elevation camera to stay at position'
 - added Interface > Game UI > 'Increase elevation camera max height by X cells'
 - added Sickening Radiance spell, and variant spell points rules 

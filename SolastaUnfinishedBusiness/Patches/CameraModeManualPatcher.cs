@@ -8,8 +8,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CameraModeManualPatcher
 {
-    private static CameraController.CameraBoundsSource _cameraBoundsSource = CameraController.CameraBoundsSource.None;
-
     //PATCH: supports camera settings in Mod UI
     [HarmonyPatch(typeof(CameraModeManual), nameof(CameraModeManual.Parameters), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -19,12 +17,13 @@ public static class CameraModeManualPatcher
         [UsedImplicitly]
         public static void Prefix(CameraModeManual __instance)
         {
-            __instance.parameters.boundsSource = Main.Settings.DisableAllCameraBounds
-                ? CameraController.CameraBoundsSource.None
-                : _cameraBoundsSource;
+            // don't mess up with camera while location is building
+            if (Gui.GameLocation?.Initialized != true)
+            {
+                return;
+            }
 
             __instance.parameters.hasElevationCorrection = !Main.Settings.EnableElevationCameraToStayAtPosition;
-
             __instance.parameters.elevationType = Main.Settings.SetElevationCameraMaxHeightBy == 0
                 ? CameraModeManualParameters.CameraElevationType.Auto
                 : CameraModeManualParameters.CameraElevationType.Free;
@@ -40,7 +39,11 @@ public static class CameraModeManualPatcher
         [UsedImplicitly]
         public static void Prefix(ref Bounds bounds, CameraController.CameraBoundsSource source)
         {
-            _cameraBoundsSource = source;
+            // don't mess up with camera while location is building
+            if (Gui.GameLocation?.Initialized != true)
+            {
+                return;
+            }
 
             if (Main.Settings.SetElevationCameraMaxHeightBy != 0)
             {
