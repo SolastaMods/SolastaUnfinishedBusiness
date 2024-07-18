@@ -238,7 +238,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainBattle)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RangerSkyWarrior, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpells, additionalDamageGiftOfTheWind, powerGiftOfTheWind, proficiencyAerialAgility)
             .AddFeaturesAtLevel(7,

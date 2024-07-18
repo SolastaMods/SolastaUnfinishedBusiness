@@ -51,9 +51,9 @@
     "description": "Subclass/&RangerSkyWarriorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a934d22a89555934da76c63cc0346839",
-      "m_SubObjectName": "Cleric_Battler",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "c76ebf72-3b89-592a-a6b1-c7b3a897ee5a",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

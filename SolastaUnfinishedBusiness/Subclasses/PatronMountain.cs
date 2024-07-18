@@ -202,7 +202,7 @@ public class PatronMountain : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.MartialMountaineer)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronMountain, 256))
             .AddFeaturesAtLevel(1,
                 magicAffinityExpandedSpells,
                 featureSetKnowledgeOfAeons,

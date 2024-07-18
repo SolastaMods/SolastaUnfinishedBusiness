@@ -173,7 +173,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheSilhouette, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RangerGloomStalker, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpells, attributeModifierDreadAmbusher, featureUmbralSight)
             .AddFeaturesAtLevel(7, featureSetIronMind)

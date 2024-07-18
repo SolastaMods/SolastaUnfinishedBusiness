@@ -244,7 +244,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheElements, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.SorcererPsion, 256))
             .AddFeaturesAtLevel(1, autoPreparedSpellsPsion, bonusCantripsPsionicMind, featureSetPsychokinesis)
             .AddFeaturesAtLevel(6, actionAffinityMindSculpt)
             .AddFeaturesAtLevel(14, powerMindOverMatter)

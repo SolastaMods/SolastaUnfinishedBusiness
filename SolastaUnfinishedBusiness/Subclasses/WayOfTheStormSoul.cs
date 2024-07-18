@@ -182,7 +182,7 @@ public sealed class WayOfTheStormSoul : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainElementalLighting)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheStormSoul, 256))
             .AddFeaturesAtLevel(3, additionalDamageDiscipleOfStorms)
             .AddFeaturesAtLevel(6, featureSetLightningWarrior)
             .AddFeaturesAtLevel(11, powerTempestFury)

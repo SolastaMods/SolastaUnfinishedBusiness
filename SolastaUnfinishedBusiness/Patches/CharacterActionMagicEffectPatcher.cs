@@ -598,11 +598,6 @@ public static class CharacterActionMagicEffectPatcher
                 .Where(affectedCharacter => targets.TryAdd(affectedCharacter))
                 .Select(_ => new ActionModifier()));
 
-            __instance.SpendMagicEffectUses();
-
-            // This is used to remove invisibility (for example) when casting a spell
-            __instance.CheckInterruptionBefore();
-
             // BEGIN PATCH
 
             //PATCH: supports `IPowerOrSpellInitiatedByMe`
@@ -642,6 +637,11 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             // END PATCH
+
+            __instance.SpendMagicEffectUses();
+
+            // This is used to remove invisibility (for example) when casting a spell
+            __instance.CheckInterruptionBefore();
 
             // Handle spell countering
             yield return __instance.WaitSpellCastAction(battleManager);
@@ -953,16 +953,6 @@ public static class CharacterActionMagicEffectPatcher
                             .ExecuteAction(actionParam, null, false);
                     }
                 }
-            }
-
-            if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Bonus })
-            {
-                actingCharacter.UsedMainSpell = true;
-            }
-
-            if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Main })
-            {
-                actingCharacter.UsedBonusSpell = true;
             }
 
             // END PATCH

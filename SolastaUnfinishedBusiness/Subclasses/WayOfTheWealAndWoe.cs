@@ -105,7 +105,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfDemonHunter, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheWealAndWoe, 256))
             .AddFeaturesAtLevel(3, featureWeal, featureWoe)
             .AddFeaturesAtLevel(6, featureSelfPropelledWeal)
             .AddFeaturesAtLevel(11, featureBrutalWeal)
