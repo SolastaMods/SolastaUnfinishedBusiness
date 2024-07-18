@@ -1,21 +1,16 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "FightingStyle",
+  "proficiencyType": "Feat",
   "proficiencies": [
-    "ShieldExpert"
+    "FeatShieldExpert"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "FightingStyle/&ShieldExpertTitle",
-    "description": "FightingStyle/&ShieldExpertDescription",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "12d11a0c-b767-586b-9508-df780e4f477d",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
-    },
+    "hidden": false,
+    "title": "Feature/&Emptystring",
+    "description": "Feature/&Emptystring",
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,

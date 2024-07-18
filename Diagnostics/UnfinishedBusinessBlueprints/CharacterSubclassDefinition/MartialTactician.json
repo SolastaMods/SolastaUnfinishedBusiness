@@ -78,17 +78,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetTacticianTacticalAwareness:706ec4b9-110b-5c3e-b6b5-fb1078e639bf",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolGambitUnlearn:444d8f27-2c19-580a-bb72-1fe476ae5ec6",
       "level": 18
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureTacticianGambitDieSizeD12:e40d45bb-fc63-55a5-8d99-56561ba957fc",
-      "level": 18
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetTacticianTacticalAwareness:706ec4b9-110b-5c3e-b6b5-fb1078e639bf",
       "level": 18
     }
   ],

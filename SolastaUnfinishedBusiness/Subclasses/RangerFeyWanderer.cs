@@ -204,7 +204,7 @@ public sealed class RangerFeyWanderer : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CircleOfTheAncientForest, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RangerFeyWanderer, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpells, additionalDamageDreadfulStrikes, featureSetOtherworldlyGlamour)
             .AddFeaturesAtLevel(7,

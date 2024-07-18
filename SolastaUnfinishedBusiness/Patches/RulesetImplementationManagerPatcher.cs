@@ -258,14 +258,21 @@ public static class RulesetImplementationManagerPatcher
                 canRerollDice = true;
             }
 
-            //PATCH: supports different critical damage algorithms
+            int damage;
+
             if (!criticalSuccess)
             {
-                return rulesetActor.RollDamage(
+                damage = rulesetActor.RollDamage(
                     damageForm, addDice, false, additionalDamage, damageRollReduction, damageMultiplier,
                     maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
+
+                //PATCH: supports College of Audacity defensive whirl
+                CollegeOfAudacity.HandleDefensiveWhirl(formsParams.sourceCharacter, damageForm, damage);
+
+                return damage;
             }
 
+            //PATCH: supports different critical damage algorithms
             var rollDamageOption = rulesetActor.Side switch
             {
                 Side.Ally => Main.Settings.CriticalHitModeAllies,
@@ -282,7 +289,7 @@ public static class RulesetImplementationManagerPatcher
                 rollDamageOption = 2;
             }
 
-            var damage = rollDamageOption switch
+            damage = rollDamageOption switch
             {
                 1 => RollDamageOption1(
                     rulesetActor, damageForm, addDice, additionalDamage, damageRollReduction, damageMultiplier,
@@ -298,10 +305,12 @@ public static class RulesetImplementationManagerPatcher
                     useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
             };
 
+            //PATCH: supports College of Audacity defensive whirl
+            CollegeOfAudacity.HandleDefensiveWhirl(formsParams.sourceCharacter, damageForm, damage);
+
             return damage;
         }
 
-        [NotNull]
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
@@ -1011,34 +1020,6 @@ public static class RulesetImplementationManagerPatcher
             }
 
             return codes.AsEnumerable();
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetImplementationManager),
-        nameof(RulesetImplementationManager.IsValidContextForAttackModificationProvider))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class IsValidContextForAttackModificationProvider_Patch
-    {
-        [UsedImplicitly]
-        public static bool Prefix(
-            RulesetImplementationManager __instance,
-            out bool __result,
-            IAttackModificationProvider provider,
-            RulesetCharacterHero hero,
-            ItemDefinition itemDefinition,
-            WeaponTypeDefinition weaponTypeDefinition,
-            RulesetAttackMode attackMode)
-        {
-            __result =
-                (provider.TriggerCondition != AttackModificationTriggerCondition.NotWearingArmorOrMageArmorOrShield ||
-                 (!hero.IsWearingArmor() &&
-                  !hero.HasConditionOfTypeOrSubType(ConditionMagicallyArmored) &&
-                  (!hero.IsWearingShield() /* BEGIN PATCH */ || hero.HasMonkShieldExpert() /* END PATCH */))) &&
-                __instance.IsValidContextForRestrictedContextProvider(
-                    provider, hero, itemDefinition, attackMode.Ranged, attackMode, null);
-
-            return false;
         }
     }
 }

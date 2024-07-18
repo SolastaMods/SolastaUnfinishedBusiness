@@ -12,10 +12,8 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -23,9 +21,6 @@ internal static class RangedCombatFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        // kept for backward compatibility
-        _ = BuildSteadyAim();
-
         var featBowMastery = BuildBowMastery();
         var featCrossbowMastery = BuildCrossbowMastery();
         var featDeadEye = BuildDeadEye();
@@ -268,73 +263,4 @@ internal static class RangedCombatFeats
                 featDefinition));
         }
     }
-
-    #region Steady Aim
-
-    private const string FeatSteadyAim = "FeatSteadyAim";
-
-    internal static readonly FeatureDefinitionPower PowerFeatSteadyAim = FeatureDefinitionPowerBuilder
-        .Create($"Power{FeatSteadyAim}")
-        .SetGuiPresentation(Category.Feature, Sprites.GetSprite(FeatSteadyAim, Resources.PowerSteadyAim, 256, 128))
-        .SetUsesFixed(ActivationTime.BonusAction)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Round)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create($"Condition{FeatSteadyAim}Advantage")
-                                .SetGuiPresentation(Category.Condition,
-                                    DatabaseHelper.ConditionDefinitions.ConditionGuided)
-                                .SetPossessive()
-                                .SetSilent(Silent.WhenAddedOrRemoved)
-                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                .AddFeatures(
-                                    FeatureDefinitionCombatAffinityBuilder
-                                        .Create($"CombatAffinity{FeatSteadyAim}")
-                                        .SetGuiPresentation(FeatSteadyAim, Category.Feat, Gui.NoLocalization)
-                                        .SetMyAttackAdvantage(AdvantageType.Advantage)
-                                        .AddToDB())
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create($"Condition{FeatSteadyAim}Restrained")
-                                .SetGuiPresentation(Category.Condition)
-                                .SetSilent(Silent.WhenAddedOrRemoved)
-                                .AddFeatures(MovementAffinityConditionRestrained)
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .SetParticleEffectParameters(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionWandFearCommand)
-                .SetImpactEffectParameters(new AssetReference())
-                .Build())
-        .AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(character =>
-            {
-                var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
-
-                return gameLocationCharacter == null || gameLocationCharacter.UsedTacticalMoves == 0;
-            }))
-        .AddToDB();
-
-    private static FeatDefinition BuildSteadyAim()
-    {
-        return FeatDefinitionBuilder
-            .Create(FeatSteadyAim)
-            .SetGuiPresentation(Category.Feat, hidden: true)
-            .SetFeatures(
-                DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
-                PowerFeatSteadyAim)
-            .AddToDB();
-    }
-
-    #endregion
 }

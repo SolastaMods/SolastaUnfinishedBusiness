@@ -24,7 +24,7 @@ Feature/&PowerPathOfTheBeastFormOfTheBeastTailTitle=형태: 꼬리
 Feature/&PowerPathOfTheBeastFormOfTheBeastTitle=야수의 형태
 Feature/&PowerPathOfTheBeastInfectiousFuryCompelledStrikeDescription=목표는 목표의 범위 내에 있는 당신이 선택한 다른 생물을 공격합니다.
 Feature/&PowerPathOfTheBeastInfectiousFuryCompelledStrikeTitle=감염성 분노: 강제 공격
-Feature/&PowerPathOfTheBeastInfectiousFuryDescription=당신이 분노하는 동안 자연 무기로 생물체를 공격하면, 당신 안에 있는 야수가 맹렬한 분노로 목표물을 저주할 수 있습니다. 대상은 지혜 내성 굴림(DC = 8 + 건강 수정치 + 숙련 보너스)에 성공해야 하며, 그렇지 않으면 다음 효과 중 하나를 겪어야 합니다(선택).
+Feature/&PowerPathOfTheBeastInfectiousFuryDescription=당신이 분노하는 동안 자연 무기로 생물체를 공격하면, 당신 안에 있는 야수가 맹렬한 분노로 목표물을 저주할 수 있습니다. 대상은 지혜 내성 굴림(DC = 8 + 건강 수정치 + 숙련 보너스)에 성공해야 하며 그렇지 않으면 다음 효과 중 하나를 받아야 합니다(선택).\n\n이 기능은 여러 번 사용할 수 있습니다. 숙련도 보너스와 동일하며, 긴 휴식을 마치면 사용한 모든 사용 횟수를 회복합니다.
 Feature/&PowerPathOfTheBeastInfectiousFuryMindlashDescription=대상은 2d12의 정신적 피해를 입습니다.
 Feature/&PowerPathOfTheBeastInfectiousFuryMindlashTitle=전염성 분노: 마인드래쉬
 Feature/&PowerPathOfTheBeastInfectiousFuryTitle=전염성 분노

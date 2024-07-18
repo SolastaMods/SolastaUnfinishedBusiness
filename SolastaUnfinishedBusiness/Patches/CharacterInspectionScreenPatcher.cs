@@ -30,14 +30,20 @@ public static class CharacterInspectionScreenPatcher
         [UsedImplicitly]
         public static void Postfix(CharacterInspectionScreen __instance, RulesetCharacterHero heroCharacter)
         {
+            //PATCH: support display max spell points on inspection screen (SPELL_POINTS)
+            SpellPointsContext.DisplayMaxSpellPointsOnInspectionScreen(__instance, heroCharacter);
+
             //PATCH: hide repertoires that have hidden spell casting feature
             for (var index = 3; index < __instance.toggleGroup.transform.childCount; ++index)
             {
                 var child = __instance.toggleGroup.transform.GetChild(index);
 
-                if (index <= 3 && Gui.Game)
+                if (index <= 3)
                 {
-                    continue;
+                    if (Gui.Game)
+                    {
+                        continue;
+                    }
                 }
 
                 var repertoire = heroCharacter.SpellRepertoires[index - __instance.staticTogglesNumber];

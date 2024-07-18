@@ -505,8 +505,10 @@ internal static class ClassFeats
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
+            var actingCharacter = action.ActingCharacter;
+
             if (action is not CharacterActionRevertShape ||
-                action.ActingCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
+                actingCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
             {
                 yield break;
             }

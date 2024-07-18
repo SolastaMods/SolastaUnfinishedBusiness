@@ -128,7 +128,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheDistantHand, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheZenArchery, 256))
             .AddFeaturesAtLevel(3, proficiencyOneWithTheBow, featureFlurryOfArrows)
             .AddFeaturesAtLevel(6, featureKiEmpoweredArrows)
             .AddFeaturesAtLevel(11, featureUnerringPrecision)

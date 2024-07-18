@@ -42,6 +42,7 @@ ModUi/&Bestiary=Bestiarium
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Fluch verleihen</color> erfordert keine Konzentration, wenn es mit einem L5+-Zauberslot gewirkt wird
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Der Zustand <color=#D89555>Blind</color> erlaubt keinen Gelegenheitsangriff
 ModUi/&Blueprints=Blaupausen
+ModUi/&Camera=<color=#F0DAA0>Kamera:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Kampagnen:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Kampagnen und Standorte:</color>
 ModUi/&Category=Kategorie
@@ -118,6 +119,7 @@ ModUi/&EnableCheatMenu=Aktivieren Sie das Cheats-Menü
 ModUi/&EnableCustomPortraits=Aktivieren Sie benutzerdefinierte Porträts
 ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color> </b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[d. h.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG Bilder, 256 x 384 Pixel groß, mit einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und ohne Schnickschnack, bei dem Assets aus allen Umgebungen gemischt werden]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=Höhenkamera so aktivieren, dass sie nach der Deaktivierung an ihrer Position bleibt
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Aktivieren Sie die Anzeige der erweiterten Kompetenzen <i><color=#F0DAA0>[Arkane Schüsse, Infusionen, Manöver und Vielseitigkeiten]</color></i>\n<b><i><color=#C04040E0>[Leistung Treffer bei der Charakterinspektion. Nutzung auf eigene Gefahr]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Auswahl von <color=#D89555>Talenten</color> auf den Stufen 2, 10 und 18
@@ -233,13 +235,15 @@ ModUi/&Monsters=<color=#F0DAA0>Monster:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Bewegungsrasters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>UMSCHALT</color>-Klick auf einen Zauber kehrt den verbrauchten Standardrepertoire-Slottyp um.\n<i><color=#F0DAA0>[<color=#D89555>Hexenmeister</color> gibt weiße Zauberslots aus und andere geben Paktgrüne aus]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplizieren Sie die gewonnene Erfahrung mit</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Die Kamera bewegt sich nie während der Züge des Gegners</i>
 ModUi/&NoExperienceOnLevelUp=Für den Levelaufstieg ist keine Erfahrung erforderlich
 ModUi/&OfferAdditionalLoreFriendlyNames=Bieten Sie bei der Charaktererstellung zusätzliche Lore-freundliche Namen an
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Abbrechen <color=#D89555>Vorteil/Nachteil</color> geblendete, unsichtbare und wahrgenommene Paare <color=#F0DAA0>[nützlich in Verbindung mit offiziellem <color=#D89555>Vorteil/Nachteil</color> Regeln]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Ändern Sie <color=#D89555>stark verdeckte</color> Bereiche in Projektilblocker <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Nebelwolke </color>, <color=#D89555>Brandwolke</color>, <color=#D89555>Blütenblattsturm</color>, <color=#D89555>Graupelsturm</color>, <color=#D89555> Stinkende Wolke</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Unsichtbare Kreaturen sind stark verdeckt und können als Ziel ausgewählt werden, Angriffswürfe gegen die Kreatur haben einen Nachteil und die Angriffswürfe der Kreatur haben einen Vorteil</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>magisch verborgene</color> Bereiche in Projektilblocker ändern <color=#F0DAA0>[jede Quelle des Zaubereffekts <color=#D89555>Dunkelheit</color>]</color></i>
-ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Füge Monstern und NPCs bei Bedarf <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> und <color=#D89555>TrueSight</color> hinzu.\n <color=#F0DAA0>[Einstellungssammlungen <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Füge Monstern und NPCs bei Bedarf <color=#D89555>Dunkelsicht</color>, <color=#D89555>Blindsicht</color> und <color=#D89555>Wahrsicht</color> hinzu</i>
+ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[Einstellungssammlungen <b>Monster, die über Dunkelsicht verfügen sollten</b>, <b>Monster, die über echte Sicht verfügen sollten</b>, <b>Monster, die über blinde Sicht verfügen sollten</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Zeigt nur die mächtigsten Kreaturen in der Beschwörungsliste an</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Umrissgitters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiplizieren Sie die Animationsgeschwindigkeit des Umrissgitters mit</color> <color=#C04040E0>[%]</color>
@@ -276,6 +280,7 @@ ModUi/&SelectTabletop=Wählen Sie Tischplatte
 ModUi/&SenseNormalVisionRangeMultiplier=Ändern Sie den Bereich der <color=#D89555>Normalen Sicht</color> <i><color=#F0DAA0>[nur in Schlachten]</color></i>
 ModUi/&Services=Dienstleistungen
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Gürtel der Zwergen</color> <color=white>Bart-Erscheinungschancen</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Maximale Höhe der Höhenkamera erhöhen um</color>
 ModUi/&SettingsExport=Export
 ModUi/&SettingsHelp=• Als Host können Sie Ihre aktuelle Konfiguration exportieren, den Exportordner öffnen und ganz einfach mit Ihren Kollegen teilen.\n• Als Gast können Sie den Exportordner öffnen, die freigegebene Datei vom Host einfügen und über <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&SettingsLoad=• Laden Sie eine exportierte Einstellung
@@ -317,6 +322,8 @@ ModUi/&UnlockGlowingEyeColors=Fügen Sie leuchtende Augenfarben hinzu
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Schalte <color=#D89555>Zauberer</color>-Ursprungsmarkierungen und Tätowierungen für alle Charaktere frei
 ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&Update=<b><color=#D89555>Aktualisieren</color></b>
+ModUi/&UseAlternateSpellPointsSystem=Benutze offizielle <color=#D89555>Varianten-Zauberpunkt-Regeln</color>
+ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[Sie verfügen über einen Pool an Zauberpunkten, der mit der Zauberstufe steigt\nL01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\nKosten zum Wirken von Zaubersprüchen sind SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nDie Wiederherstellungsfunktionen für kurze Ruheslots werden unter diesem System nicht ausgelöst]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Verwenden Sie <color=#D89555>Elfen</color>-Gesichtsmodelle für <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> oder <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Verwenden Sie präzise Mathematik, um flankierende <color=#F0DAA0>[kann sich auf langsamen Maschinen auf die Leistung auswirken]</color></i> zu bestimmen
@@ -326,6 +333,7 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernangriffe aktivie
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Auch für Reichweitenangriffe aktivieren <color=#F0DAA0>[Präzise Mathematik deaktivieren]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Anstelle des Vorteils gewähre +1 auf den Angriffswurf</i>
 ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle <color=#D89555>Lebensmittelration</color> mit einem Gewicht von 2 Pfund
-ModUi/&UseOfficialObscurementRules=Benutzen Sie die offiziellen Kampfregeln für <color=#D89555>Beleuchtung, Verdunkelung und Sicht</color>\n<i><color=#F0DAA0>[Angreifer, der wahrnimmt, Verteidiger, der es nicht wahrnimmt, erhalten ADV, und Angreifer, der dies nicht tut Der Verteidiger, der es wahrnehmen kann, erhält DIS\n. Stark verdeckte Bereiche verursachen einen geblendeten Zustand, in dem Angriffswürfe gegen die Kreatur ADV haben und die Angriffswürfe der Kreatur DIS\n. Alle Distanzzauber, die auf Einzelpersonen abzielen, können nicht gewirkt werden, wenn der Angreifer keine Sicht hat , mit Ausnahme derjenigen, die eindeutig nicht angeben, dass Sehvermögen erforderlich ist]</color></i>
+ModUi/&UseOfficialObscurementRules=Benutze die offiziellen Kampfregeln für <color=#D89555>Beleuchtung, Verdunkelung und Sicht</color>
+ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[Angreifer, der wahrnimmt, Verteidiger, der es nicht wahrnehmen kann, erhält ADV, und Angreifer, der es nicht wahrnimmt, Verteidiger, der es wahrnehmen kann, erhält DIS\n stark verdeckte Bereiche verursachen den Zustand der Erblindung, wobei Angriffswürfe gegen die Kreatur ADV haben und die Angriffswürfe der Kreatur DIS\n alle Distanzzauber, die auf Einzelpersonen zielen, können nicht gewirkt werden, wenn der Angreifer keine Sicht hat, außer denen, bei denen nicht klar angegeben ist, dass Sicht erforderlich ist]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Befolgen Sie die offiziellen Regeln für <color=#D89555>kleine Rassen</color>, wenn Sie schwere Waffen einsetzen <i><color=#F0DAA0>[Ihre Angriffe haben Nachteile]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

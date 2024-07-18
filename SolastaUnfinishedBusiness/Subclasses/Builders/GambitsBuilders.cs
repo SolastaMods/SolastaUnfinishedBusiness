@@ -514,9 +514,18 @@ internal static class GambitsBuilders
                                 .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                                 .AddToDB()))
                     .Build())
+            .AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker)
             .AddToDB();
 
-        reactionPower.AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker);
+        var conditionReaction = ConditionDefinitionBuilder
+            .Create($"Condition{name}")
+            .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+            .SetPossessive()
+            .SetFeatures(reactionPower)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddToDB();
+
+        conditionReaction.AddCustomSubFeatures(new CoordinatedAttackReaction(conditionReaction));
 
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -532,14 +541,7 @@ internal static class GambitsBuilders
                     .SetDurationData(DurationType.Round)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionGambitDieDamage),
-                        EffectFormBuilder.ConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create($"Condition{name}")
-                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                .SetPossessive()
-                                .SetFeatures(reactionPower)
-                                .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
-                                .AddToDB()))
+                        EffectFormBuilder.ConditionForm(conditionReaction))
                     .Build())
             .AddToDB();
 
@@ -1850,6 +1852,31 @@ internal static class GambitsBuilders
     //
     // Coordinated Attack
     //
+
+    private sealed class CoordinatedAttackReaction(ConditionDefinition conditionReaction) : IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            // no need to check for source here as these are all self conditions
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionReaction.Name, out var activeCondition))
+            {
+                yield break;
+            }
+
+            rulesetAttacker.RemoveCondition(activeCondition);
+        }
+    }
 
     private sealed class CoordinatedAttack :
         IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IPowerOrSpellFinishedByMe,

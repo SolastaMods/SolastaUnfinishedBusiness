@@ -258,7 +258,7 @@ public sealed class DomainTempest : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.MartialSpellblade)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Resources.DomainTempest, 256))
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsDomainNature,
                 featureSetBonusProficiency,

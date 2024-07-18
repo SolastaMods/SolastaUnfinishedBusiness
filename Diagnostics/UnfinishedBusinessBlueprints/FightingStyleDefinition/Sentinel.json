@@ -1,17 +1,17 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:OnAttackHitEffectFeatSentinel:1a2abf93-483e-5e6e-8408-bc553864469f"
+    "Definition:ProficiencyFeatSentinel:69cd3b17-4a21-5c62-bd20-818e72c83031"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&SentinelTitle",
     "description": "FightingStyle/&SentinelDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c694eed9-c1d3-5d5b-b69d-b9459bf27cb9",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

@@ -1,21 +1,16 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "FightingStyle",
+  "proficiencyType": "Feat",
   "proficiencies": [
-    "RopeItUp"
+    "FeatRopeItUp"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "FightingStyle/&RopeItUpTitle",
-    "description": "FightingStyle/&RopeItUpDescription",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "54c7e250-8ec1-5fac-9a50-f273402e0a62",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
-    },
+    "hidden": false,
+    "title": "Feature/&Emptystring",
+    "description": "Feature/&Emptystring",
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,

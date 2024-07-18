@@ -391,12 +391,13 @@ public static class CharacterActionMagicEffectPatcher
 
             // BEGIN PATCH
 
-            //PATCH: mark if bonus spell was used for correct action surge interaction
-            if (__instance is CharacterActionCastSpell { ActionType: ActionDefinitions.ActionType.Bonus })
+            //PATCH: mark if levelled spell was used for correct action surge interaction
+            if (__instance is CharacterActionCastSpell actionCastSpell &&
+                actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel > 0)
             {
-                actingCharacter.UsedSpecialFeatures.TryAdd("BonusSpell", 0);
+                actingCharacter.UsedSpecialFeatures.TryAdd("LevelledSpell", 0);
             }
-
+            
             //PATCH: skip spell animation if this is an AttackAfterMagicEffect spell
             if (baseDefinition.HasSubFeatureOfType<AttackAfterMagicEffect>())
             {
@@ -604,11 +605,6 @@ public static class CharacterActionMagicEffectPatcher
                 .Where(affectedCharacter => targets.TryAdd(affectedCharacter))
                 .Select(_ => new ActionModifier()));
 
-            __instance.SpendMagicEffectUses();
-
-            // This is used to remove invisibility (for example) when casting a spell
-            __instance.CheckInterruptionBefore();
-
             // BEGIN PATCH
 
             //PATCH: supports `IPowerOrSpellInitiatedByMe`
@@ -648,6 +644,11 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             // END PATCH
+
+            __instance.SpendMagicEffectUses();
+
+            // This is used to remove invisibility (for example) when casting a spell
+            __instance.CheckInterruptionBefore();
 
             // Handle spell countering
             yield return __instance.WaitSpellCastAction(battleManager);

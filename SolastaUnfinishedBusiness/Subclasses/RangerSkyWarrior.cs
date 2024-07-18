@@ -238,7 +238,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainBattle)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RangerSkyWarrior, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpells, additionalDamageGiftOfTheWind, powerGiftOfTheWind, proficiencyAerialAgility)
             .AddFeaturesAtLevel(7,
@@ -266,6 +266,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
     {
         public void OnItemEquipped(RulesetCharacterHero hero)
         {
+            // no need to check for source here as these are all self conditions
             if (!ValidatorsCharacter.HasShield(hero) &&
                 hero.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))

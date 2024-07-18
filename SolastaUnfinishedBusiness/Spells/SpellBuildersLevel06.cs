@@ -677,6 +677,7 @@ internal static partial class SpellBuilders
             .Create($"Power{NAME}")
             .SetGuiPresentation(Category.Feature, Sprites.GetSprite($"Power{NAME}", Resources.PowerRingOfBlades, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None, 1, 6)
+            .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -692,6 +693,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation($"Power{NAME}", Category.Feature,
                 Sprites.GetSprite($"Power{NAME}", Resources.PowerRingOfBlades, 128))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None, 1, 6)
+            .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

@@ -42,6 +42,7 @@ ModUi/&Bestiary=Bestiário
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Conceder Maldição</color> não requer concentração quando lançado com um espaço de feitiço L5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=A condição <color=#D89555>Cego</color> não permite ataque de oportunidade
 ModUi/&Blueprints=Plantas
+ModUi/&Camera=<color=#F0DAA0>Câmera:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Campanhas:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campanhas e locais:</color>
 ModUi/&Category=Categoria
@@ -118,6 +119,7 @@ ModUi/&EnableCheatMenu=Habilite o menu de cheats
 ModUi/&EnableCustomPortraits=Habilite retratos personalizados
 ModUi/&EnableCustomPortraitsHelp=• Coloque seus retratos personalizados nas subpastas <i><b><color=#F0DAA0>Pessoal</color></b></i> ou <i><b><color=#F0DAA0>Pré-geração</color> </b></i>, nomeado após o nome do herói <i><color=#F0DAA0>[ou seja: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG imagens, tamanho 256 x 384 pixels, com uma camada de transparência <i><color=#F0DAA0>[use o GIMP para obter melhores resultados]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura simples de recursos de todos os ambientes]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=Ative a câmera de elevação para permanecer na posição após desativada
 ModUi/&EnableEpicPointsAndArray=Habilite um sistema e matriz de compra épico de 35 pontos <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Ative a exibição do painel de proficiências estendidas <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[desempenho acertar na inspeção do personagem. use por sua conta e risco]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Ative a seleção de <color=#D89555>talentos</color> nos níveis 2, 10 e 18
@@ -233,13 +235,15 @@ ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplique a largura da grade de movimento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clicar em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam os verdes do pacto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ A câmera nunca se move durante os turnos do inimigo</i>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes adicionais amigáveis à história na criação de personagens
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancelar <color=#D89555>vantagem/desvantagem</color> pares cegos, invisíveis e percebidos <color=#F0DAA0>[útil em conjunto com <color=#D89555>vantagem/desvantagem</color> oficial regras]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Alterar áreas <color=#D89555>fortemente obscurecidas</color> para serem bloqueadores de projéteis <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Fog Cloud </color>, <color=#D89555>Nuvem Incendiária</color>, <color=#D89555>Tempestade de Pétalas</color>, <color=#D89555>Tempestade de Granizo</color>, <color=#D89555> Nuvem fedorenta</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Criaturas invisíveis são fortemente obscurecidas e podem ser alvo, as jogadas de ataque contra a criatura têm desvantagem e as jogadas de ataque da criatura têm vantagem</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Alterar áreas <color=#D89555>magicamente obscurecidas</color> para serem bloqueadores de projéteis <color=#F0DAA0>[qualquer fonte do efeito do feitiço <color=#D89555>Escuridão</color>]</color </i>
-ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Adicione <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> e <color=#D89555>TrueSight</color> a monstros e NPCs sempre que apropriado\n <color=#F0DAA0>[coleções de configurações <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Adicione <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> e <color=#D89555>TrueSight</color> a monstros e NPCs sempre que apropriado</i >
+ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[coleções de configurações <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar apenas as criaturas mais poderosas da lista de conjuração</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplique a largura da grade de contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiplique a velocidade de animação da grade de contorno por</color> <color=#C04040E0>[%]</color>
@@ -276,6 +280,7 @@ ModUi/&SelectTabletop=Selecione Mesa
 ModUi/&SenseNormalVisionRangeMultiplier=Modifique o alcance da <color=#D89555>Visão Normal</color> <i><color=#F0DAA0>[apenas em batalhas]</color></i>
 ModUi/&Services=Serviços
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinto da Raça Anã</color> <color=white>chance de aparecimento de barba</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Aumentar a altura máxima da câmera de elevação em</color>
 ModUi/&SettingsExport=Exportar
 ModUi/&SettingsHelp=• Como host, você pode exportar sua configuração atual, abrir a pasta de exportações e compartilhar facilmente com seus colegas\n• Como convidado, você pode abrir a pasta de exportações, colar o arquivo compartilhado do host e carregá-lo em <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&SettingsLoad=• Carregar uma configuração exportada
@@ -317,6 +322,8 @@ ModUi/&UnlockGlowingEyeColors=Adicione cores de olhos brilhantes
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloqueie marcas de origem e tatuagens do <color=#D89555>Feiticeiro</color> para todos os personagens
 ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&Update=<b><color=#D89555>Atualização</color></b>
+ModUi/&UseAlternateSpellPointsSystem=Use regras oficiais de <color=#D89555>pontos de feitiço variantes</color>
+ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[Você tem um conjunto de pontos de feitiço que aumenta com o nível de conjurador\nL01: <color=white>04</color> L02: <color=white>06</color> L03 : <color=branco>14</color> L04: <color=branco>17</color> L05: <color=branco>27</color> L06: <color=branco>32</color> L07: < color=branco>38</color> L08: <color=branco>44</color> L09: <color=branco>57</color> L10: <color=branco>64</color>\nL11: <color=branco>73</color> L12: <color=branco>73</color> L13: <color=branco>83</color> L14: <color=branco>83</color> L15: <cor =branco>94</color> L16: <color=branco>94</color> L17: <color=branco>107</color> L18: <color=branco>114</color> L19: <color=branco >123</color> L20: <color=white>133</color>\nO custo para lançar feitiços é SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=branco>5</color> SL4: <color=branco>6</color> SL5: <color=branco>7</color> SL6: <color=branco>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nOs recursos de recuperação de intervalos de descanso curtos não serão acionados neste sistema ]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Use modelos de rosto de <color=#D89555>Elfo</color> em <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de cilindro de altura 1 ao lançar <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> ou <color=#D89555>Pico de crescimento</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use matemática precisa para determinar o flanqueamento <color=#F0DAA0>[pode ter um impacto no desempenho em máquinas lentas]</color></i>
@@ -326,6 +333,7 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Ativar também ataques à dist
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Ativar também ataques de alcance <color=#F0DAA0>[desativar matemática precisa]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Em vez de vantagem, conceda +1 na jogada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial com peso de 2 libras
-ModUi/&UseOfficialObscurementRules=Use regras oficiais de combate de <color=#D89555>iluminação, obscurecimento e visão</color>\n<i><color=#F0DAA0>[o atacante que percebe, o defensor que não consegue perceber recebe ADV, e o atacante que não percebe perceber o defensor que pode perceber isso recebe DIS\n áreas fortemente obscurecidas infligem condição cega, onde as jogadas de ataque contra a criatura têm ADV, e as jogadas de ataque da criatura têm DIS\n todos os feitiços de distância direcionados a indivíduos não podem ser lançados se o atacante não tiver visão , exceto aqueles que claramente não declaram que a visão é obrigatória]</color></i>
+ModUi/&UseOfficialObscurementRules=Use regras oficiais de combate de <color=#D89555>iluminação, obscurecimento e visão</color>
+ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[o atacante que percebe o defensor que não consegue perceber recebe ADV, e o atacante que não percebe o defensor que consegue perceber recebe DIS\n áreas fortemente obscurecidas infligem condição cega, onde jogadas de ataque contra o a criatura tem ADV e as jogadas de ataque da criatura têm DIS\n todos os feitiços de distância direcionados a indivíduos não podem ser lançados se o atacante não tiver visão, exceto aqueles que claramente não declaram que a visão é necessária]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use as regras oficiais das <color=#D89555>raças pequenas</color> ao empunhar armas pesadas <i><color=#F0DAA0>[seus ataques têm desvantagem]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

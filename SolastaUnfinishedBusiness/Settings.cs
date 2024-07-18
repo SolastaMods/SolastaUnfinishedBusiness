@@ -237,6 +237,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // SRD
+    public bool UseAlternateSpellPointsSystem { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
     public bool UseMathFlankingRules { get; set; }
@@ -400,6 +401,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Battle
     public bool DontFollowCharacterInBattle { get; set; }
+    public bool NeverMoveCameraOnEnemyTurn { get; set; }
     public int DontFollowMargin { get; set; } = 5;
     public int GridSelectedColor { get; set; } = 1;
     public int MovementGridWidthModifier { get; set; } = 100;
@@ -409,6 +411,10 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableDistanceOnTooltip { get; set; }
     public int HighContrastTargetingAoeSelectedColor { get; set; }
     public int HighContrastTargetingSingleSelectedColor { get; set; }
+
+    // Camera
+    public bool EnableElevationCameraToStayAtPosition { get; set; }
+    public int SetElevationCameraMaxHeightBy { get; set; }
 
     // Formation
     public int FormationGridSelectedSet { get; set; } = -1;

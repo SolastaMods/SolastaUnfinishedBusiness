@@ -140,57 +140,7 @@
       "hasSavingThrow": false,
       "operation": "Remove",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionInvisible:6fff2284783105e4fa9793d4bf8afa3f",
-      "saveAffinity": "None",
-      "canSaveToCancel": false,
-      "saveOccurence": "EndOfTurn"
-    },
-    {
-      "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": false,
-      "operation": "Remove",
-      "conditionName": "",
-      "conditionDefinition": "Definition:ConditionInvisible_Green_Hag:4095f3b0e1935f348ae2510402cd953f",
-      "saveAffinity": "None",
-      "canSaveToCancel": false,
-      "saveOccurence": "EndOfTurn"
-    },
-    {
-      "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": false,
-      "operation": "Remove",
-      "conditionName": "",
       "conditionDefinition": "Definition:ConditionInvisibleBase:43a1ea887bf8f2f45ab1b32144a70bbf",
-      "saveAffinity": "None",
-      "canSaveToCancel": false,
-      "saveOccurence": "EndOfTurn"
-    },
-    {
-      "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": false,
-      "operation": "Remove",
-      "conditionName": "",
-      "conditionDefinition": "Definition:ConditionInvisibleGreater:59190d77c6803cf4f8c35b057aab3737",
-      "saveAffinity": "None",
-      "canSaveToCancel": false,
-      "saveOccurence": "EndOfTurn"
-    },
-    {
-      "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": false,
-      "operation": "Remove",
-      "conditionName": "",
-      "conditionDefinition": "Definition:ConditionInvisibleOneWithShadows:405ef1e99e1c0264b8b2816a537e3d36",
-      "saveAffinity": "None",
-      "canSaveToCancel": false,
-      "saveOccurence": "EndOfTurn"
-    },
-    {
-      "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": false,
-      "operation": "Remove",
-      "conditionName": "",
-      "conditionDefinition": "Definition:ConditionInvisibleUncatchable:66bbc257eb8991b4799a2056830429e0",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"

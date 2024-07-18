@@ -826,7 +826,8 @@ internal static class FixesContext
 
                 if (rulesetAttacker.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect, RoguishSlayer.ConditionChainOfExecutionBeneficialName,
-                        out activeCondition))
+                        out activeCondition) &&
+                    activeCondition.SourceGuid == rulesetAttacker.Guid)
                 {
                     var newDiceNumber = damageForm.DiceNumber + slayerLevels switch
                     {

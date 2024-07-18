@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -30,6 +29,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamag
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
+using static SolastaUnfinishedBusiness.Models.CustomWeaponsContext;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -43,9 +44,6 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        // kept for backward compatibility
-        _ = BuildAstralArms();
-
         var featAcrobat = BuildAcrobat();
         var featArcaneArcherAdept = BuildArcaneArcherAdept();
         var featDungeonDelver = BuildDungeonDelver();
@@ -76,14 +74,11 @@ internal static class OtherFeats
         var elementalMasterGroup = BuildElementalMaster(feats);
         var weaponMasterGroup = BuildWeaponMaster(feats);
 
-        // building this way to keep backward compatibility
-        _ = BuildFeatFromFightingStyle(MonkShieldExpert.ShieldExpertName);
-
-        var featMerciless = BuildFeatFromFightingStyle(Merciless.MercilessName);
-        var featPolearmExpert = BuildFeatFromFightingStyle(PolearmExpert.PolearmExpertName);
-        var featRopeIpUp = BuildFeatFromFightingStyle(RopeItUp.RopeItUpName);
-        var featSentinel = BuildFeatFromFightingStyle(Sentinel.SentinelName);
-        var featShieldExpert = BuildFeatFromFightingStyle(ShieldExpert.ShieldExpertName);
+        var featMerciless = BuildMerciless();
+        var featPolearmExpert = BuildPolearmExpert();
+        var featRopeIpUp = BuildRopeItUp();
+        var featSentinel = FeatSentinel;
+        var featShieldExpert = BuildShieldExpert();
 
         feats.AddRange(
             featAcrobat,
@@ -200,28 +195,6 @@ internal static class OtherFeats
                 MartialArcaneArcher.ActionAffinityArcaneArcherToggle)
             .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
-    }
-
-    #endregion
-
-    #region Astral Arms
-
-    private static FeatDefinition BuildAstralArms()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatAstralArms")
-            .SetGuiPresentation(Category.Feat, hidden: true)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Maraike)
-            .AddCustomSubFeatures(
-                new CanMakeAoOOnReachEntered { AllowRange = false, WeaponValidator = ValidWeapon },
-                new IncreaseWeaponReach(1, ValidWeapon))
-            .AddToDB();
-
-        static bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
-        {
-            return ValidatorsWeapon.IsUnarmed(attackMode);
-        }
     }
 
     #endregion
@@ -512,9 +485,9 @@ internal static class OtherFeats
 
         var simpleOrMartialWeapons = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
             .Where(x =>
-                x != WeaponTypeDefinitions.UnarmedStrikeType &&
-                x != CustomWeaponsContext.ThunderGauntletType &&
-                x != CustomWeaponsContext.LightningLauncherType);
+                x != UnarmedStrikeType &&
+                x != ThunderGauntletType &&
+                x != LightningLauncherType);
 
         foreach (var weaponTypeDefinition in simpleOrMartialWeapons)
         {
@@ -530,7 +503,7 @@ internal static class OtherFeats
                 .SetGuiPresentation(
                     weaponTypeDefinition.GuiPresentation.Title,
                     weaponTypeDefinition.GuiPresentation.Description,
-                    CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
+                    GetStandardWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.WeaponMasterChoice)
                 .SetGrantedFeature(featureMonkWeaponSpecialization)
                 .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
@@ -561,6 +534,55 @@ internal static class OtherFeats
 
         return GroupFeats.MakeGroup(
             "FeatGroupWeaponMaster", Name, weaponMasterStr, weaponMasterDex);
+    }
+
+    #endregion
+
+    #region Shield Expert
+
+    private static FeatDefinition BuildShieldExpert()
+    {
+        const string ShieldExpertName = "ShieldExpert";
+
+        return FeatDefinitionBuilder
+            .Create($"Feat{ShieldExpertName}")
+            .SetGuiPresentation(ShieldExpertName, Category.FightingStyle)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("AddExtraAttackShieldExpert")
+                    .SetGuiPresentationNoContent(true)
+                    .AddCustomSubFeatures(new AddBonusShieldAttack())
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Polearm Expert
+
+    private static FeatDefinition BuildPolearmExpert()
+    {
+        const string PolearmExpertName = "PolearmExpert";
+
+        return FeatDefinitionBuilder
+            .Create($"Feat{PolearmExpertName}")
+            .SetGuiPresentation(PolearmExpertName, Category.FightingStyle)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("FeaturePolearm")
+                    .SetGuiPresentationNoContent(true)
+                    .AddCustomSubFeatures(
+                        new CanMakeAoOOnReachEntered
+                        {
+                            WeaponValidator = (mode, _, _) => ValidatorsWeapon.IsPolearmType(mode)
+                        },
+                        new AddPolearmFollowUpAttack(QuarterstaffType),
+                        new AddPolearmFollowUpAttack(SpearType),
+                        new AddPolearmFollowUpAttack(HalberdWeaponType),
+                        new AddPolearmFollowUpAttack(PikeWeaponType),
+                        new AddPolearmFollowUpAttack(LongMaceWeaponType))
+                    .AddToDB())
+            .AddToDB();
     }
 
     #endregion
@@ -1245,8 +1267,26 @@ internal static class OtherFeats
                 .SetGuiPresentationNoContent(true)
                 .SetConditionAffinityType(ConditionAffinityType.Immunity)
                 .SetConditionType(ConditionDefinitions.ConditionSurprised)
+                .AddCustomSubFeatures(new OnCharacterBattleStartedFeatAlert())
                 .AddToDB())
         .AddToDB();
+
+    private sealed class OnCharacterBattleStartedFeatAlert : ICharacterBattleStartedListener
+    {
+        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (!surprise ||
+                !rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat, ConditionSurprised, out var activeCondition))
+            {
+                return;
+            }
+
+            rulesetCharacter.RemoveCondition(activeCondition);
+        }
+    }
 
     #endregion
 
@@ -1511,38 +1551,15 @@ internal static class OtherFeats
 
     #region Fighting Initiate
 
-    private static FeatDefinitionWithPrerequisites BuildFeatFromFightingStyle(string fightingStyleName)
-    {
-        var db = DatabaseRepository.GetDatabase<FightingStyleDefinition>();
-        var feat = BuildFightingStyleFeat(db.GetElement(fightingStyleName));
-
-        feat.Validators.Clear();
-        feat.familyTag = string.Empty;
-        feat.hasFamilyTag = false;
-
-        return feat;
-    }
-
     private static FeatDefinition BuildFightingInitiate()
     {
-        var fightingStyleFeats = DatabaseRepository
+        GroupFeats.FeatGroupFightingStyle.AddFeats(
+            DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
-            .Where(x =>
-                x.ContentPack == CeContentPackContext.CeContentPack &&
-                !FightingStyleContext.DemotedFightingStyles.Contains(x.Name))
+            .Where(x => !FightingStyleContext.DemotedFightingStyles.Contains(x.Name))
             .Select(BuildFightingStyleFeat)
             .OfType<FeatDefinition>()
-            .ToArray();
-
-        var vanillaFightingStyleFeats = DatabaseRepository
-            .GetDatabase<FightingStyleDefinition>()
-            .Where(x => x.ContentPack != CeContentPackContext.CeContentPack)
-            .Select(BuildFightingStyleFeat)
-            .OfType<FeatDefinition>()
-            .ToArray();
-
-        GroupFeats.FeatGroupFightingStyle.AddFeats(fightingStyleFeats);
-        GroupFeats.FeatGroupFightingStyle.AddFeats(vanillaFightingStyleFeats);
+            .ToArray());
 
         return GroupFeats.FeatGroupFightingStyle;
     }
@@ -2864,6 +2881,271 @@ internal static class OtherFeats
         }
 
         public static WarCasterMarker Mark { get; } = new();
+    }
+
+    #endregion
+
+    #region Merciless
+
+    private const string MercilessName = "Merciless";
+
+    private static FeatDefinition BuildMerciless()
+    {
+        var powerFightingStyleMerciless = FeatureDefinitionPowerBuilder
+            .Create($"PowerFightingStyle{MercilessName}")
+            .SetGuiPresentation(MercilessName, Category.FightingStyle, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Wisdom,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Strength)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create($"Feat{MercilessName}")
+            .SetGuiPresentation(MercilessName, Category.FightingStyle)
+            .SetFeatures(
+                powerFightingStyleMerciless,
+                FeatureDefinitionBuilder
+                    .Create($"TargetReducedToZeroHpFightingStyle{MercilessName}")
+                    .SetGuiPresentationNoContent(true)
+                    .AddCustomSubFeatures(new OnReducedToZeroHpByMeMerciless(powerFightingStyleMerciless))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+
+    private sealed class OnReducedToZeroHpByMeMerciless(FeatureDefinitionPower powerMerciless)
+        : IOnReducedToZeroHpByMe, IPhysicalAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator HandleReducedToZeroHpByMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var distance = attacker.UsedSpecialFeatures.TryGetValue(MercilessName, out var value) && value == 1
+                ? proficiencyBonus
+                : (proficiencyBonus + 1) / 2;
+
+            var implementationManager =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerMerciless, rulesetAttacker);
+            var targets = Gui.Battle.GetContenders(
+                downedCreature, attacker, isOppositeSide: false, hasToPerceivePerceiver: true, withinRange: distance);
+            var actionModifiers = new List<ActionModifier>();
+
+            for (var i = 0; i < targets.Count; i++)
+            {
+                actionModifiers.Add(new ActionModifier());
+            }
+
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = actionModifiers,
+                RulesetEffect = implementationManager
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
+            };
+
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            attacker.UsedSpecialFeatures.TryAdd(MercilessName, criticalHit ? 1 : 0);
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            attacker.UsedSpecialFeatures.Remove(MercilessName);
+
+            yield break;
+        }
+    }
+
+    #endregion
+
+    #region Rope it Up
+
+    private static FeatDefinition BuildRopeItUp()
+    {
+        const string RopeItUpName = "RopeItUp";
+
+        var featureRopeItUp = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{RopeItUpName}")
+            .SetGuiPresentation(RopeItUpName, Category.FightingStyle)
+            .AddCustomSubFeatures(ReturningWeapon.AlwaysValid, new ModifyWeaponAttackModeRopeItUp())
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create($"Feat{RopeItUpName}")
+            .SetGuiPresentation(RopeItUpName, Category.FightingStyle)
+            .SetFeatures(featureRopeItUp)
+            .AddToDB();
+    }
+
+    private sealed class ModifyWeaponAttackModeRopeItUp : IModifyWeaponAttackMode
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (attackMode?.thrown != true)
+            {
+                return;
+            }
+
+            attackMode.closeRange += 2;
+            attackMode.maxRange += 4;
+        }
+    }
+
+    #endregion
+
+    #region Sentinel
+
+    private const string SentinelName = "Sentinel";
+
+    internal static FeatDefinition FeatSentinel { get; } = FeatDefinitionBuilder
+        .Create($"Feat{SentinelName}")
+        .SetGuiPresentation(SentinelName, Category.FightingStyle)
+        .SetFeatures(
+            FeatureDefinitionBuilder
+                .Create("OnAttackHitEffectFeatSentinel")
+                .SetGuiPresentationNoContent(true)
+                .AddCustomSubFeatures(
+                    AttacksOfOpportunity.IgnoreDisengage,
+                    AttacksOfOpportunity.SentinelFeatMarker,
+                    new PhysicalAttackFinishedByMeFeatSentinel(
+                        CustomConditionsContext.StopMovement,
+                        ConditionDefinitionBuilder
+                            .Create("ConditionPreventAttackAtReach")
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetFeatures(
+                                // this is a hack to ensure game engine won't execute the attack even at reach
+                                // given that game AI will only run an enemy towards an ally with an attack intention
+                                // this should be good enough as enemy won't run next to other allies
+                                FeatureDefinitionActionAffinityBuilder
+                                    .Create($"ActionAffinity{SentinelName}StopMovement")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetForbiddenActions(
+                                        ActionDefinitions.Id.Shove,
+                                        ActionDefinitions.Id.ShoveBonus,
+                                        ActionDefinitions.Id.AttackMain,
+                                        ActionDefinitions.Id.AttackOff,
+                                        ActionDefinitions.Id.AttackFree)
+                                    .AddToDB())
+                            .AddToDB()))
+                .AddToDB())
+        .AddToDB();
+
+    private sealed class PhysicalAttackFinishedByMeFeatSentinel(
+        ConditionDefinition conditionSentinelStopMovement,
+        ConditionDefinition conditionPreventAttackAtReach) : IPhysicalAttackBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnPhysicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (attackMode.ActionType != ActionDefinitions.ActionType.Reaction ||
+                attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
+
+            rulesetDefender.InflictCondition(
+                conditionSentinelStopMovement.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionSentinelStopMovement.Name,
+                0,
+                0,
+                0);
+
+            if (attackMode.Reach)
+            {
+                rulesetDefender.InflictCondition(
+                    conditionPreventAttackAtReach.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionPreventAttackAtReach.Name,
+                    0,
+                    0,
+                    0);
+            }
+        }
     }
 
     #endregion

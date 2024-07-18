@@ -1,0 +1,143 @@
+{
+  "$type": "EffectProxyDefinition, Assembly-CSharp",
+  "canMove": false,
+  "canRotate": false,
+  "canMoveOnCharacters": false,
+  "canAttack": false,
+  "canTriggerPower": false,
+  "autoTerminateOnTriggerPower": false,
+  "incrementalDamageDice": 0,
+  "actionId": "NoAction",
+  "freeActionId": "NoAction",
+  "attackMethod": "CasterSpellAbility",
+  "firstAttackIsFree": false,
+  "constrainedToSpellArea": false,
+  "damageDie": "D8",
+  "damageDieNum": 1,
+  "damageType": "DamageRadiant",
+  "addAbilityToDamage": false,
+  "attackPower": null,
+  "impactsPlacement": false,
+  "additionalFeatures": [],
+  "attackParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "attackImpactParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "addLightSource": true,
+  "lightSourceForm": {
+    "$type": "LightSourceForm, Assembly-CSharp",
+    "lightSourceType": "Basic",
+    "brightRange": 0,
+    "dimAdditionalRange": 6,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.5,
+      "g": 0.7,
+      "b": 0.3,
+      "a": 1.0
+    },
+    "graphicsPrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "7ab0099a76371324799a14a592402456",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "applyToSelf": false,
+    "forceOnSelf": false
+  },
+  "lightSourceOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 0.5,
+    "z": 0.0
+  },
+  "spellImmunityFromOutside": false,
+  "maxSpellLevelImmunity": 1,
+  "hasPresentation": true,
+  "prefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "5ba593b4783994b4d8721ce359a5f729",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "isEmptyPresentation": false,
+  "modelScale": 1.0,
+  "showWorldLocationFeedbacks": false,
+  "hasPortrait": false,
+  "portraitSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "startEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "stopEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "soundEffectOnHitDescription": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Spell/&SickeningRadianceTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "3da14e42-a91a-5895-a8a6-fd1573c65fec",
+  "contentPack": 9999,
+  "name": "ProxySickeningRadiance"
+}

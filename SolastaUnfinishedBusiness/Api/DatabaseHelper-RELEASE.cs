@@ -27,6 +27,8 @@ internal static partial class DatabaseHelper
     internal static class ActionDefinitions
     {
         internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
+        internal static ActionDefinition CastMain { get; } = GetDefinition<ActionDefinition>("CastMain");
+        internal static ActionDefinition CastBonus { get; } = GetDefinition<ActionDefinition>("CastBonus");
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition SpiritRage { get; } = GetDefinition<ActionDefinition>("SpiritRage");
@@ -125,8 +127,6 @@ internal static partial class DatabaseHelper
 
     internal static class CharacterFamilyDefinitions
     {
-        internal static CharacterFamilyDefinition Beast { get; } = GetDefinition<CharacterFamilyDefinition>("Beast");
-
         internal static CharacterFamilyDefinition Construct { get; } =
             GetDefinition<CharacterFamilyDefinition>("Construct");
 
@@ -135,8 +135,6 @@ internal static partial class DatabaseHelper
 
         internal static CharacterFamilyDefinition Humanoid { get; } =
             GetDefinition<CharacterFamilyDefinition>("Humanoid");
-
-        internal static CharacterFamilyDefinition Plant { get; } = GetDefinition<CharacterFamilyDefinition>("Plant");
 
         internal static CharacterFamilyDefinition Undead { get; } = GetDefinition<CharacterFamilyDefinition>("Undead");
     }
@@ -287,9 +285,6 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition TraditionFreedom { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionFreedom");
 
-        internal static CharacterSubclassDefinition TraditionGreenmage { get; } =
-            GetDefinition<CharacterSubclassDefinition>("TraditionGreenmage");
-
         internal static CharacterSubclassDefinition TraditionShockArcanist { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionShockArcanist");
 
@@ -305,9 +300,6 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
-        internal static ConditionDefinition ConditionDummy { get; } =
-            GetDefinition<ConditionDefinition>("ConditionDummy");
-
         internal static ConditionDefinition ConditionFeebleMinded { get; } =
             GetDefinition<ConditionDefinition>("ConditionFeebleMinded");
 
@@ -753,6 +745,9 @@ internal static partial class DatabaseHelper
 
     internal static class EffectProxyDefinitions
     {
+        internal static EffectProxyDefinition ProxyIndomitableLight { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyIndomitableLight");
+
         internal static EffectProxyDefinition ProxyDelayedBlastFireball { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyDelayedBlastFireball");
 
@@ -1600,6 +1595,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMovementAffinity MovementAffinityCarriedByWind { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityCarriedByWind");
 
+        internal static FeatureDefinitionMovementAffinity MovementAffinityConditionSlowed { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionSlowed");
+
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionFlyingAdaptive { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionFlyingAdaptive");
 
@@ -1720,6 +1718,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerSymbolOfHopelessness { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSymbolOfHopelessness");
+
         internal static FeatureDefinitionPower PowerBulette_Snow_Leap { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerBulette_Snow_Leap");
 

@@ -960,9 +960,7 @@ public static class GameLocationBattleManagerPatcher
                                  rulesetCharacter.IsWieldingMonkWeapon() &&
                                  !rulesetCharacter.IsWearingArmor() &&
                                  !rulesetCharacter.HasConditionOfTypeOrSubType(ConditionMagicallyArmored) &&
-                                 // BEGIN PATCH
-                                 (!rulesetCharacter.IsWearingShield() || rulesetCharacter.HasMonkShieldExpert()) &&
-                                 // END PATCH
+                                 !rulesetCharacter.IsWearingShield() &&
                                  !rulesetCharacter.HasConditionOfType(ConditionMonkDeflectMissile) &&
                                  !rulesetCharacter.HasConditionOfType(ConditionMonkMartialArtsUnarmedStrikeBonus) &&
                                  attacker.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus) ==

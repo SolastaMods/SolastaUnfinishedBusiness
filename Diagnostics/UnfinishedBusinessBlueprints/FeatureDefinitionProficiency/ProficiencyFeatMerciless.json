@@ -1,21 +1,16 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "FightingStyle",
+  "proficiencyType": "Feat",
   "proficiencies": [
-    "Merciless"
+    "FeatMerciless"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "FightingStyle/&MercilessTitle",
-    "description": "FightingStyle/&MercilessDescription",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e0b4a203-382b-5ab4-acfa-af309c1a019c",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
-    },
+    "hidden": false,
+    "title": "Feature/&Emptystring",
+    "description": "Feature/&Emptystring",
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,

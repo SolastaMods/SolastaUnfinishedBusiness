@@ -132,6 +132,9 @@ internal static class BootContext
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();
 
+            // Spell Points should load closer to the bottom after all other blueprints initiated
+            SpellPointsContext.LateLoad();
+
             // Recache all gui collections
             GuiWrapperContext.Recache();
 

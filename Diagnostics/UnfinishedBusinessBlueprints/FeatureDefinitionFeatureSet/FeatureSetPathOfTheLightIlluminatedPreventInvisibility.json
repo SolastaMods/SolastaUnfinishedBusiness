@@ -1,12 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:ConditionAffinityPathOfTheLightIlluminatedPreventInvisible:4f245846-3fab-593a-aa14-45c19f8edb84",
-    "Definition:ConditionAffinityPathOfTheLightIlluminatedPreventInvisible_Green_Hag:0b93e0a9-5118-5d32-9d29-bf0956b6f646",
-    "Definition:ConditionAffinityPathOfTheLightIlluminatedPreventInvisibleBase:5ca9c244-f43c-5ea2-b72b-675db2ff40f5",
-    "Definition:ConditionAffinityPathOfTheLightIlluminatedPreventInvisibleGreater:7e9e7908-f57d-57b6-8653-e3852ae86286",
-    "Definition:ConditionAffinityPathOfTheLightIlluminatedPreventInvisibleOneWithShadows:cfbc0e3f-664c-5c4d-a355-16bf8aefb1e0",
-    "Definition:ConditionAffinityPathOfTheLightIlluminatedPreventInvisibleUncatchable:528128e2-1394-50ea-825e-36511027d99c"
+    "Definition:ConditionAffinityPathOfTheLightIlluminatedPrevent:c815cc55-499c-5563-ac65-644765780373"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

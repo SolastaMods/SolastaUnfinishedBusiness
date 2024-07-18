@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -82,7 +81,6 @@ public sealed class RangerHellWalker : AbstractSubclass
             .Create(ConditionDefinitions.ConditionOnFire, $"Condition{Name}DammingStrike")
             .SetParentCondition(ConditionDefinitions.ConditionOnFire)
             .SetFeatures()
-            .SetSpecialInterruptions(Array.Empty<ConditionInterruption>())
             .AddToDB();
 
         var additionalDamageDammingStrike = FeatureDefinitionAdditionalDamageBuilder
@@ -255,19 +253,19 @@ public sealed class RangerHellWalker : AbstractSubclass
     //
 
     private sealed class OnConditionAddedOrRemovedDammingStrike(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition)
-        : IOnConditionAddedOrRemoved
+        ConditionDefinition conditionMarkOfTheDammed) : IOnConditionAddedOrRemoved
     {
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
         }
 
+        // should only remove the condition from the same source
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (target.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, conditionDefinition.Name,
-                    out var activeCondition))
+            if (target.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionMarkOfTheDammed.Name, out var activeCondition) &&
+                activeCondition.SourceGuid == rulesetCondition.SourceGuid)
             {
                 target.RemoveCondition(activeCondition);
             }
@@ -326,16 +324,18 @@ public sealed class RangerHellWalker : AbstractSubclass
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var gameLocationCharacter in Gui.Battle
                          .GetContenders(gameLocationDefender, isOppositeSide: false))
             {
                 var rulesetDefender = gameLocationCharacter.RulesetCharacter;
-                var rulesetCondition = rulesetDefender.AllConditions
-                    .FirstOrDefault(x => x.ConditionDefinition == conditionDefinition);
 
-                if (rulesetCondition != null)
+                // should only check the condition from the same source
+                if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionDefinition.Name, out var activeCondition) &&
+                    activeCondition.SourceGuid == action.ActingCharacter.Guid)
                 {
-                    rulesetDefender.RemoveCondition(rulesetCondition);
+                    rulesetDefender.RemoveCondition(activeCondition);
                 }
             }
         }

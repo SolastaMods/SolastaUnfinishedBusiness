@@ -1,17 +1,17 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:AddExtraAttackShieldExpert:4c494f10-3661-54c4-a7bd-1de696250ba4"
+    "Definition:ProficiencyFeatShieldExpert:6fd6a6d7-783e-52d3-8122-7d906ebcb8cd"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&ShieldExpertTitle",
     "description": "FightingStyle/&ShieldExpertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "12d11a0c-b767-586b-9508-df780e4f477d",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

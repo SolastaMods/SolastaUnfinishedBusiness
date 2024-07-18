@@ -41,9 +41,9 @@
     "description": "Subclass/&PatronCelestialDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f13740c3947aa0f49a79fa8da3a44eba",
-      "m_SubObjectName": "DomainLife",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "4befd4b2-c278-552b-bd9e-c5cc43cbf9f0",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

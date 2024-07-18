@@ -6,8 +6,10 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -128,7 +130,7 @@ public class PatronMountain : AbstractSubclass
 
         var powerClingingStrength = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ClingingStrength")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite(Name, Resources.PowerClingeStrength, 128, 64))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -200,7 +202,7 @@ public class PatronMountain : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.MartialMountaineer)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronMountain, 256))
             .AddFeaturesAtLevel(1,
                 magicAffinityExpandedSpells,
                 featureSetKnowledgeOfAeons,

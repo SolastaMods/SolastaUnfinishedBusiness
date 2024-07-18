@@ -155,8 +155,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
             ref int rollModifier,
             ref int minRoll)
         {
-            if (character != null &&
-                abilityScoreName == AttributeDefinitions.Charisma &&
+            if (abilityScoreName == AttributeDefinitions.Charisma &&
                 proficiencyName is SkillDefinitions.Deception or SkillDefinitions.Persuasion)
             {
                 minRoll = Math.Max(minRoll, 10);
@@ -188,12 +187,9 @@ public sealed class CollegeOfValiance : AbstractSubclass
                 return;
             }
 
-            defender.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect,
-                conditionDishearteningPerformance.Name,
-                out var activeCondition);
-
-            if (activeCondition == null)
+            // no need to check for source guid here
+            if (!defender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionDishearteningPerformance.Name, out var activeCondition))
             {
                 return;
             }

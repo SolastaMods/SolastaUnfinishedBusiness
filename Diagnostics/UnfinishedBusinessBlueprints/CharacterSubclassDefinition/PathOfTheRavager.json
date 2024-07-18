@@ -31,9 +31,9 @@
     "description": "Subclass/&PathOfTheRavagerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "aa99d934a7dfe064191c9a18e4822595",
-      "m_SubObjectName": "Barbarian_Path_Berserker",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "78c4fe16-60f6-549f-bfea-ac6b25217276",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

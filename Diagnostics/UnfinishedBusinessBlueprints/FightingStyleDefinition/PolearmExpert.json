@@ -1,17 +1,17 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:FeaturePolearm:8e6e835a-2424-5900-8677-034801779b88"
+    "Definition:ProficiencyFeatPolearmExpert:1c75c89c-a39e-5546-8bba-022b6b9b1271"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&PolearmExpertTitle",
     "description": "FightingStyle/&PolearmExpertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4b56c077-b3ab-5cac-b4ae-1aa5a3ecdfd5",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

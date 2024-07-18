@@ -1246,9 +1246,27 @@ public static class RulesetCharacterPatcher
         }
 
         [UsedImplicitly]
+        public static void Prefix(RulesetCharacter __instance)
+        {
+            var hero = __instance.GetOriginalHero();
+
+            if (hero != null &&
+                Main.Settings.UseAlternateSpellPointsSystem)
+            {
+                SpellPointsContext.ConvertAdditionalSlotsIntoSpellPointsBeforeRefreshSpellRepertoire(
+                    __instance.GetOriginalHero());
+            }
+        }
+
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance)
         {
-            if (__instance is not RulesetCharacterHero hero || !SharedSpellsContext.IsMulticaster(hero))
+            if (__instance is not RulesetCharacterHero hero)
+            {
+                return;
+            }
+
+            if (!SharedSpellsContext.IsMulticaster(hero))
             {
                 return;
             }
@@ -1274,7 +1292,9 @@ public static class RulesetCharacterPatcher
             for (var i = 1; i <= sharedSpellLevel; i++)
             {
                 slots.TryAdd(i, 0);
-                slots[i] += SharedSpellsContext.FullCastingSlots[sharedCasterLevel - 1].Slots[i - 1];
+                slots[i] += Main.Settings.UseAlternateSpellPointsSystem
+                    ? SpellPointsContext.SpellPointsFullCastingSlots[sharedCasterLevel - 1].Slots[i - 1]
+                    : SharedSpellsContext.FullCastingSlots[sharedCasterLevel - 1].Slots[i - 1];
             }
 
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
@@ -1820,7 +1840,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: support adding required action affinities to classes that can use toggles
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.PostLoad))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1834,6 +1853,10 @@ public static class RulesetCharacterPatcher
                 return;
             }
 
+            //PATCH: support adding required power to keep a tab on spell points (SPELL_POINTS)
+            SpellPointsContext.GrantPowerSpellPoints(hero);
+
+            //PATCH: support adding required action affinities to classes that can use toggles
             if (hero.ClassesHistory.Contains(Paladin))
             {
                 var tag = AttributeDefinitions.GetClassTag(Paladin, 1);
@@ -1859,6 +1882,7 @@ public static class RulesetCharacterPatcher
                 }
             }
 
+            //PATCH: fix scenarios where hero doesn't have an instance of a usable power
             if (hero.ActiveFeatures
                 .SelectMany(k => k.Value)
                 .OfType<FeatureDefinitionPower>()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -232,6 +233,9 @@ internal static class ToolsContext
                 newHero.usedMagicAndPowers = oldHero.usedMagicAndPowers;
                 newHero.knockOuts = oldHero.knockOuts;
 
+                TransferConditionsOfCategory(oldHero, newHero, AttributeDefinitions.TagEffect);
+                CleanupOldHeroConditions(oldHero, newHero);
+
                 CopyInventoryOver(oldHero, gameLocationCharacter.LocationPosition);
 
                 gameCampaignCharacters.Find(x => x.RulesetCharacter == oldHero).RulesetCharacter = newHero;
@@ -260,6 +264,28 @@ internal static class ToolsContext
                 null, null);
 
             IsRespecing = false;
+        }
+
+        private static void TransferConditionsOfCategory(RulesetActor oldHero, RulesetActor newHero, string category)
+        {
+            if (!oldHero.conditionsByCategory.TryGetValue(category, out var conditions))
+            {
+                return;
+            }
+
+            newHero.AddConditionCategoryAsNeeded(category);
+            newHero.conditionsByCategory[category].AddRange(conditions);
+            newHero.allConditions.AddRange(conditions);
+        }
+
+        private static void CleanupOldHeroConditions(RulesetCharacterHero oldHero, RulesetCharacterHero newHero)
+        {
+            //Unregister all conditions that are not present in new hero
+            oldHero.allConditions
+                .Where(c => !newHero.AllConditions.Contains(c))
+                .Do(c => c.Unregister());
+            oldHero.allConditions.Clear();
+            oldHero.conditionsByCategory.Clear();
         }
 
         private static void CopyInventoryOver([NotNull] RulesetCharacter oldHero, int3 position)

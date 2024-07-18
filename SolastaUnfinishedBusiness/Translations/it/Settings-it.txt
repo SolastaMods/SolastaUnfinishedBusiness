@@ -42,6 +42,7 @@ ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Lancia Maledizione</color> non richiede concentrazione se lanciato con uno slot incantesimo L5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condizione <color=#D89555>Accecato</color> non consente attacchi di opportunità
 ModUi/&Blueprints=Progetti
+ModUi/&Camera=<color=#F0DAA0>Fotocamera:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Campagne:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagne e posizioni:</color>
 ModUi/&Category=Categoria
@@ -118,6 +119,7 @@ ModUi/&EnableCheatMenu=Abilita il menu dei trucchi
 ModUi/&EnableCustomPortraits=Abilita ritratti personalizzati
 ModUi/&EnableCustomPortraitsHelp=• Inserisci i tuoi ritratti personalizzati nelle sottocartelle <i><b><color=#F0DAA0>Personale</color></b></i> o <i><b><color=#F0DAA0>PreGen</color> </b></i>, che prende il nome dal nome dell'eroe <i><color=#F0DAA0>[es.: Anton, Celia, Nialla, ecc.]</color></i>\n• Usa PNG immagini, dimensioni 256 x 384 pixel, con un livello di trasparenza <i><color=#F0DAA0>[usa GIMP per i migliori risultati]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0DAA0>[include stanze piatte, dimensioni di dungeon 150x150 e 200x200 e senza fronzoli mescolando risorse da tutti gli ambienti]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=Abilita la telecamera di elevazione a rimanere nella posizione dopo la disattivazione
 ModUi/&EnableEpicPointsAndArray=Abilita un sistema di acquisto epico da 35 punti e un array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Abilita la visualizzazione del pannello delle competenze estese <i><color=#F0DAA0>[Tiri arcani, infusioni, manovre e versatilità]</color></i>\n<b><i><color=#C04040E0>[prestazioni colpo sull'ispezione del carattere. utilizzare a proprio rischio]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Abilita la selezione dei <color=#D89555>talenti</color> ai livelli 2, 10 e 18
@@ -233,13 +235,15 @@ ModUi/&Monsters=<color=#F0DAA0>Mostri:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Moltiplica la larghezza della griglia di movimento per</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAIUSC</color> fare clic su un incantesimo inverte il tipo di slot di repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Stregone</color> spende slot incantesimo bianchi e altri spendono quelli verdi del patto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Moltiplica l'esperienza acquisita per</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ La telecamera non si muove mai durante i turni nemici</i>
 ModUi/&NoExperienceOnLevelUp=Non è richiesta alcuna esperienza per salire di livello
 ModUi/&OfferAdditionalLoreFriendlyNames=Offri ulteriori nomi amichevoli della tradizione sulla creazione del personaggio
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Annulla <color=#D89555>vantaggio/svantaggio</color> coppie accecate, invisibili e percepite <color=#F0DAA0>[utile insieme al <color=#D89555>vantaggio/svantaggio</color> ufficiale regole]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Cambia le aree <color=#D89555>fortemente oscurate</color> in bloccanti di proiettili <color=#F0DAA0>[<color=#D89555>Nuvola Uccidi</color>, <color=#D89555>Nuvola di Nebbia </color>, <color=#D89555>Nube incendiaria</color>, <color=#D89555>Tempesta di petali</color>, <color=#D89555>Tempesta di nevischio</color>, <color=#D89555> Nuvola Puzzolente</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Le creature invisibili sono pesantemente oscurate e possono essere bersagli, i tiri per colpire contro la creatura hanno svantaggio e i tiri per colpire della creatura hanno vantaggio</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambia le aree <color=#D89555>magicamente oscurate</color> in bloccanti dei proiettili <color=#F0DAA0>[qualsiasi fonte dell'effetto dell'incantesimo <color=#D89555>Oscurità</color>]</color></i>
-ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Aggiungi <color=#D89555>Scurovisione</color>, <color=#D89555>BlindSight</color> e <color=#D89555>TrueSight</color> a mostri e NPC quando appropriato\n <color=#F0DAA0>[raccolte di impostazioni <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Aggiungi <color=#D89555>Scurovisione</color>, <color=#D89555>BlindSight</color> e <color=#D89555>TrueSight</color> a mostri e NPC quando appropriato</i >
+ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[raccolte di impostazioni <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostra solo le creature più potenti nell'elenco degli incantesimi</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Moltiplica la larghezza della griglia del contorno per</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Moltiplica la velocità di animazione della griglia del contorno per</color> <color=#C04040E0>[%]</color>
@@ -276,6 +280,7 @@ ModUi/&SelectTabletop=Seleziona Da tavolo
 ModUi/&SenseNormalVisionRangeMultiplier=Modifica il raggio <color=#D89555>Visione normale</color> <i><color=#F0DAA0>[solo nelle battaglie]</color></i>
 ModUi/&Services=Servizi
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cintura della razza nanica</color> <color=white>possibilità di apparizione della barba</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Aumenta l'altezza massima della telecamera di elevazione di</color>
 ModUi/&SettingsExport=Esportare
 ModUi/&SettingsHelp=• Come host puoi esportare la tua configurazione attuale, aprire la cartella delle esportazioni e condividerla facilmente con i tuoi colleghi\n• Come ospite puoi aprire la cartella delle esportazioni, incollare il file condiviso dall'host e caricarlo <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&SettingsLoad=• Caricare un'impostazione esportata
@@ -317,6 +322,8 @@ ModUi/&UnlockGlowingEyeColors=Aggiungi colori luminosi per gli occhi
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Sblocca i segni di origine e i tatuaggi <color=#D89555>Stregone</color> per tutti i personaggi
 ModUi/&UnlockSkinColors=Sblocca i colori della pelle
 ModUi/&Update=<b><color=#D89555>Aggiorna</color></b>
+ModUi/&UseAlternateSpellPointsSystem=Utilizza le regole ufficiali dei <color=#D89555>varianti punti incantesimo</color>
+ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[Hai una riserva di punti incantesimo che aumenta con il livello dell'incantatore\nL01: <color=white>04</color> L02: <color=white>06</color> L03 : <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: < color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color =bianco>94</color> L16: <color=bianco>94</color> L17: <color=bianco>107</color> L18: <color=bianco>114</color> L19: <color=bianco >123</color> L20: <color=white>133</color>\nIl costo per lanciare incantesimi è SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nLe funzionalità di recupero degli slot di riposo brevi non verranno attivate con questo sistema ]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Usa i modelli del volto di <color=#D89555>Elfo</color> su <color=#D89555>Tiefling</color>
 ModUi/&UseHeightOneCylinderEffect=Usa un effetto del cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralciare, Ungere</color> <i><color=#F0DAA0>[quadrato]</color></i> o <color=#D89555>Picco di crescita</color> <i><color=#F0DAA0>[turno]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Utilizza calcoli precisi per determinare il fiancheggiamento <color=#F0DAA0>[potrebbe avere un impatto sulle prestazioni sulle macchine lente]</color></i>
@@ -326,6 +333,7 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Abilita anche gli attacchi a d
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Abilita anche gli attacchi di portata <color=#F0DAA0>[disabilita matematica precisa]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Invece del vantaggio concedi +1 al tiro per colpire</i>
 ModUi/&UseOfficialFoodRationsWeight=Usa la <color=#D89555>razione alimentare</color> ufficiale del peso di 2 libbre
-ModUi/&UseOfficialObscurementRules=Utilizza le regole di combattimento ufficiali di <color=#D89555>illuminazione, oscuramento e visione</color>\n<i><color=#F0DAA0>[l'attaccante che percepisce il difensore che non può percepirlo ottiene ADV e l'attaccante che non lo fa percepisce il difensore che può percepirlo ottiene DIS\n le aree fortemente oscurate infliggono una condizione di accecamento, dove i tiri per colpire contro la creatura hanno ADV e i tiri per colpire della creatura hanno DIS\n tutti gli incantesimi a distanza che prendono di mira gli individui non possono essere lanciati se l'attaccante non ha vista , ad eccezione di quelli che chiaramente non indicano che è richiesta la vista]</color></i>
+ModUi/&UseOfficialObscurementRules=Utilizza le regole ufficiali di combattimento <color=#D89555>illuminazione, oscuramento e visione</color>
+ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[l'attaccante che percepisce il difensore che non può percepirlo ottiene ADV, e l'attaccante che non percepisce il difensore che può percepirlo ottiene DIS\n le aree fortemente oscurate infliggono una condizione di accecato, dove i tiri di attacco contro la creatura ha ADV e i tiri per colpire della creatura hanno DIS\n tutti gli incantesimi a distanza che hanno come bersaglio individui non possono essere lanciati se l'attaccante non ha vista, ad eccezione di quelli che chiaramente non indicano che la vista è richiesta]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilizza le regole ufficiali delle <color=#D89555>piccole razze</color> quando impugni armi pesanti <i><color=#F0DAA0>[i tuoi attacchi hanno svantaggio]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

@@ -11,9 +11,9 @@
     "description": "FightingStyle/&InterceptionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "204f9387786340a42bbbadd75d56cc98",
-      "m_SubObjectName": "Defense",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "1ff9dc49-7b82-5486-a562-0988e0ed0ed6",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

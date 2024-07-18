@@ -10,11 +10,11 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
@@ -1105,7 +1105,6 @@ internal static partial class CharacterContext
                 (attackMode?.SourceDefinition as ItemDefinition)?.WeaponDescription.WeaponTypeDefinition;
 
             return (OperationType.Or,
-                character.HasMonkShieldExpert() ||
                 character.GetSubFeaturesByType<MonkWeaponSpecializationDiceUpgrade>().Exists(
                     x => x._weaponTypeDefinition == attackModeWeaponType));
         }
@@ -1158,6 +1157,61 @@ internal static partial class CharacterContext
     #endregion
 
     #region Rogue
+
+    private const string FeatSteadyAim = "FeatSteadyAim";
+
+    private static readonly FeatureDefinitionPower PowerFeatSteadyAim = FeatureDefinitionPowerBuilder
+        .Create($"Power{FeatSteadyAim}")
+        .SetGuiPresentation(Category.Feature, Sprites.GetSprite(FeatSteadyAim, Resources.PowerSteadyAim, 256, 128))
+        .SetUsesFixed(ActivationTime.BonusAction)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Round)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{FeatSteadyAim}Advantage")
+                                .SetGuiPresentation(Category.Condition,
+                                    ConditionDefinitions.ConditionGuided)
+                                .SetPossessive()
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                .AddFeatures(
+                                    FeatureDefinitionCombatAffinityBuilder
+                                        .Create($"CombatAffinity{FeatSteadyAim}")
+                                        .SetGuiPresentation($"Power{FeatSteadyAim}", Category.Feature,
+                                            Gui.NoLocalization)
+                                        .SetMyAttackAdvantage(AdvantageType.Advantage)
+                                        .AddToDB())
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{FeatSteadyAim}Restrained")
+                                .SetGuiPresentation(Category.Condition)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .AddFeatures(MovementAffinityConditionRestrained)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .SetParticleEffectParameters(PowerFunctionWandFearCommand)
+                .SetImpactEffectParameters(new AssetReference())
+                .Build())
+        .AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(character =>
+            {
+                var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+                return gameLocationCharacter == null || gameLocationCharacter.UsedTacticalMoves == 0;
+            }))
+        .AddToDB();
 
     internal static readonly ConditionDefinition ConditionReduceSneakDice = ConditionDefinitionBuilder
         .Create("ConditionReduceSneakDice")
@@ -1700,12 +1754,12 @@ internal static partial class CharacterContext
     {
         if (Main.Settings.EnableRogueSteadyAim)
         {
-            Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(RangedCombatFeats.PowerFeatSteadyAim, 3));
+            Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerFeatSteadyAim, 3));
         }
         else
         {
             Rogue.FeatureUnlocks.RemoveAll(x =>
-                x.level == 3 && x.FeatureDefinition == RangedCombatFeats.PowerFeatSteadyAim);
+                x.level == 3 && x.FeatureDefinition == PowerFeatSteadyAim);
         }
 
         if (Main.Settings.EnableSortingFutureFeatures)

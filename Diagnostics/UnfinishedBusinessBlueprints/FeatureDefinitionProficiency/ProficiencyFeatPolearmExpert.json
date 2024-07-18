@@ -1,21 +1,16 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "FightingStyle",
+  "proficiencyType": "Feat",
   "proficiencies": [
-    "PolearmExpert"
+    "FeatPolearmExpert"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "FightingStyle/&PolearmExpertTitle",
-    "description": "FightingStyle/&PolearmExpertDescription",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4b56c077-b3ab-5cac-b4ae-1aa5a3ecdfd5",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
-    },
+    "hidden": false,
+    "title": "Feature/&Emptystring",
+    "description": "Feature/&Emptystring",
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,

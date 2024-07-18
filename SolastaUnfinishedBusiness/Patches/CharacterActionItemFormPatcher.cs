@@ -3,6 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using TA.AddressableAssets;
 using UnityEngine;
 
@@ -39,6 +40,10 @@ public static class CharacterActionItemFormPatcher
         [UsedImplicitly]
         public static void Postfix(CharacterActionItemForm __instance)
         {
+            //PATCH: support display remaining spell points on cast actions (SPELL_POINTS)
+            SpellPointsContext.DisplayRemainingSpellPointsOnCastActions(
+                __instance.GuiCharacterAction, __instance.useSlotsTable, __instance.highSlotNumber);
+
             //PATCH: support for `IActionItemDiceBox` showing custom dice number/size
             var action = __instance.guiCharacterAction.ActionDefinition;
             var provider = action.GetFirstSubFeatureOfType<IActionItemDiceBox>();

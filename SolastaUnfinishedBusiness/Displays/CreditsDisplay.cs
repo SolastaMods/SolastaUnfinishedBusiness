@@ -34,7 +34,7 @@ internal static class CreditsDisplay
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, " +
             "Way of Discordance, Way of Shadow, Way of Storm Soul, Way of Weal and Woe, Way of Zen Archery, " +
             "Wizard Bladesinger, Wizard Deadmaster, Wizard War Magic, " +
-            "Lighting and Obscurement, Level 20, Multiclass"),
+            "Lighting and Obscurement, Variant Spell Rules, Level 20, Multiclass"),
 
         ("HiddenHax",
             "quality assurance, SFX, sprites, homebrew design [" +
@@ -54,6 +54,7 @@ internal static class CreditsDisplay
             "Innovation Armor, Innovation Grenadier, Innovation Weapon, Martial Tactician, Patron Elementalist, Patron Soulblade, Artificer"),
 
         ("ImpPhil", "api, builders, infrastructure, gameplay, quality of life, rules"),
+
         ("ChrisJohnDigital",
             "feats, fighting styles, items & crafting, Martial Eldritch Knight, Wizard Arcane Fighter, Wizard Spellmaster"),
 
@@ -86,10 +87,13 @@ internal static class CreditsDisplay
         ("Vess", "homebrew design [Innovation Vitriolist]"),
 
         ("Narria", "modKit, Party Editor"),
+
         ("Artyoan", "pre-gen heroes portraits, sample portraits"),
         ("Thaladar", "QA, monster portraits, sample portraits"),
         ("Zeke", "sample portraits"),
         ("Digital Primus", "sample portraits"),
+        ("frost", "sample portraits"),
+        ("nat", "sample portraits"),
 
         ("team-waldo", "korean translations"),
         ("Dovel", "russian translations"),

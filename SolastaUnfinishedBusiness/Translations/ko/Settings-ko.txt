@@ -42,6 +42,7 @@ ModUi/&Bestiary=동물 우화집
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>저주 부여</color>는 L5+ 주문 슬롯으로 시전할 때 집중이 필요하지 않습니다.
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>맹인</color> 상태는 기회 공격을 허용하지 않습니다.
 ModUi/&Blueprints=청사진
+ModUi/&Camera=<color=#F0DAA0>카메라:</color>
 ModUi/&Campaigns=<color=#F0DAA0>캠페인:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>캠페인 및 위치:</color>
 ModUi/&Category=범주
@@ -118,6 +119,7 @@ ModUi/&EnableCheatMenu=치트 메뉴 활성화
 ModUi/&EnableCustomPortraits=맞춤 인물 사진 활성화
 ModUi/&EnableCustomPortraitsHelp=• 사용자 정의 초상화를 하위 폴더 <i><b><color=#F0DAA0>개인</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color> 아래에 배치하세요. </b></i>, 영웅의 이름을 따서 명명됨 <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n• PNG 사용 투명 레이어가 있는 256 x 384 픽셀 크기의 이미지 <i><color=#F0DAA0>[최상의 결과를 얻으려면 김프 사용]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 활성화\n<i><color=#F0DAA0>[플랫 룸, 150x150 및 200x200 던전 크기 및 모든 환경의 자산을 혼합하는 장식 없음]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=비활성화된 후 고도 카메라를 활성화하여 위치를 유지합니다.
 ModUi/&EnableEpicPointsAndArray=엄청난 35포인트 구매 시스템 및 배열 활성화 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=확장된 숙련도 패널 표시 활성화 <i><color=#F0DAA0>[비전 사격, 주입, 기동 및 다용도]</color></i>\n<b><i><color=#C04040E0>[performance 캐릭터 점검에 들어갑니다. 사용에 따른 책임은 본인에게 있습니다]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=레벨 2, 10, 18에서 <color=#D89555>재능</color> 선택 활성화
@@ -233,13 +235,15 @@ ModUi/&Monsters=<color=#F0DAA0>괴물:</color>
 ModUi/&MovementGridWidthModifier=<color=white>이동 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&MulticlassKeyHelp=주문을 <color=#1E81B0>SHIFT</color> 클릭하면 소비되는 기본 레퍼토리 슬롯 유형이 반전됩니다.\n<i><color=#F0DAA0>[<color=#D89555>워록</color>은 흰색 주문 슬롯을 소비합니다. 다른 사람들은 녹색 계약을 사용합니다.]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>경험치 획득량</color> <color=#C04040E0>[%]</color> 곱하기
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 적의 턴 중에는 카메라가 움직이지 않습니다</i>
 ModUi/&NoExperienceOnLevelUp=레벨업에는 경험치가 필요하지 않습니다.
 ModUi/&OfferAdditionalLoreFriendlyNames=캐릭터 생성 시 추가 지식 친화적인 이름 제공
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ <color=#D89555>장점 / 단점</color> 취소 눈먼, 보이지 않는 및 인지된 쌍 <color=#F0DAA0>[공식 <color=#D89555>장점 / 단점</color>과 함께 유용함 규칙]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ <color=#D89555>심하게 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>안개 구름 </color>, <color=#D89555>발화구름</color>, <color=#D89555>꽃잎 폭풍</color>, <color=#D89555>진눈깨비</color>, <color=#D89555> 악취나는 구름</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 투명 생물은 심하게 가려져 표적이 될 수 있으며 생물에 대한 공격 굴림에는 불리한 점이 있고 생물의 공격 굴림에는 이점이 있습니다.</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>마법으로 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>어둠</color> 주문 효과의 모든 소스]</color></i>
-ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 필요할 때마다 몬스터와 NPC에 <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> 및 <color=#D89555>TrueSight</color>를 추가합니다.\n <color=#F0DAA0>[설정 컬렉션 <b>암흑시야를 가져야 하는 괴물</b>, <b>진정한 시야를 가져야 하는 괴물</b>, <b>눈이 멀게 해야 하는 괴물</b>]</color></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 필요할 때마다 몬스터와 NPC에 <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> 및 <color=#D89555>TrueSight</color>를 추가합니다.</i >
+ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[설정 컬렉션 <b>암흑시야를 가져야 하는 괴물</b>, <b>진정한 시야를 가져야 하는 괴물</b>, <b>시야를 가져야 하는 괴물</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 목록에서 가장 강력한 생물만 표시</i>
 ModUi/&OutlineGridWidthModifier=<color=white>윤곽선 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&OutlineGridWidthSpeed=<color=white>윤곽선 그리드 애니메이션 속도에</color> <color=#C04040E0>[%]</color>를 곱합니다.
@@ -276,6 +280,7 @@ ModUi/&SelectTabletop=탁상 선택
 ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>일반 시야</color> 범위 수정 <i><color=#F0DAA0>[전투에서만]</color></i>
 ModUi/&Services=서비스
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>드워프족의 허리띠</color> <color=white>수염 출현 확률</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>고도 카메라 최대 높이 증가</color>
 ModUi/&SettingsExport=내보내다
 ModUi/&SettingsHelp=• 호스트는 현재 구성을 내보내고 내보내기 폴더를 열고 동료와 쉽게 공유할 수 있습니다.\n• 게스트는 내보내기 폴더를 열고 호스트에서 공유 파일을 붙여넣고 <b><b>에서 로드할 수 있습니다. i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&SettingsLoad=• 내보낸 설정 로드
@@ -317,6 +322,8 @@ ModUi/&UnlockGlowingEyeColors=빛나는 눈 색깔 추가
 ModUi/&UnlockMarkAndTattoosForAllCharacters=모든 캐릭터의 <color=#D89555>소서러</color> 원산지 표시와 문신을 잠금 해제하세요.
 ModUi/&UnlockSkinColors=피부색 잠금 해제
 ModUi/&Update=<b><color=#D89555>업데이트</color></b>
+ModUi/&UseAlternateSpellPointsSystem=공식 <color=#D89555>변형 주문 포인트</color> 규칙을 사용하세요.
+ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[시전자 레벨에 따라 증가하는 주문 포인트 풀이 있습니다.\nL01: <color=white>04</color> L02: <color=white>06</color> L03 : <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: < color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color =white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white >123</color> L20: <color=white>133</color>\n주문 시전 비용은 SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\n이 시스템에서는 짧은 휴식 슬롯 복구 기능이 실행되지 않습니다. ]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color>에서 <color=#D89555>엘프</color> 얼굴 모델을 사용하세요.
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> 또는 <color=#D89555>를 시전할 때 높이 1 원통 효과를 사용하세요. 급상승</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ 정확한 수학을 사용하여 측면 공격 결정 <color=#F0DAA0>[느린 시스템에서는 성능에 영향을 미칠 수 있음]</color></i>
@@ -326,6 +333,7 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 활성화 
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 도달 공격도 활성화 <color=#F0DAA0>[정확한 수학 비활성화]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 이점 대신 공격 굴림에 +1을 부여합니다.</i>
 ModUi/&UseOfficialFoodRationsWeight=공식 <color=#D89555>식량 배급</color> 무게 2파운드를 사용하세요.
-ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 모호함, 시야</color> 전투 규칙을 사용하세요\n<i><color=#F0DAA0>[인식하는 공격자는 인지할 수 없는 방어자는 ADV를 얻고, 그렇지 않은 공격자는 이를 인지할 수 있는 방어자는 DIS\n를 얻습니다. 매우 가려진 영역은 실명 상태를 유발합니다. 생물에 대한 공격 굴림에는 ADV가 있고 생물의 공격 굴림에는 DIS\n가 있습니다. 개인을 대상으로 하는 모든 거리 주문은 공격자가 시력이 없으면 시전할 수 없습니다. , 시력이 필요하다고 명확하게 명시하지 않은 경우는 제외]</color></i>
+ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 모호함, 시야</color> 전투 규칙을 사용하세요.
+ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[인지할 수 없는 방어자를 감지한 공격자는 ADV를 얻고, 감지할 수 있는 방어자를 감지하지 못한 공격자는 DIS를 얻습니다.\n 심하게 가려진 영역은 실명 상태를 유발합니다. 생물에는 ADV가 있고 생물의 공격 굴림에는 DIS가 있습니다.\n 개인을 대상으로 하는 모든 거리 주문은 공격자가 시력이 없으면 시전할 수 없습니다. 단, 시력이 필요하다고 명확하게 명시하지 않은 주문은 제외합니다.]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족</color> 규칙을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>시각적:</color> <b><i><color=#C04040E0>[다시 시작 필요]</color></i></b>

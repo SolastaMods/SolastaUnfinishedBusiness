@@ -42,6 +42,7 @@ ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Otorgar maldición</color> no requiere concentración cuando se lanza con un espacio de hechizo N5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condición <color=#D89555>Cegado</color> no permite ataques de oportunidad.
 ModUi/&Blueprints=Planos
+ModUi/&Camera=<color=#F0DAA0>Cámara:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Campañas:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campañas y ubicaciones:</color>
 ModUi/&Category=Categoría
@@ -118,6 +119,7 @@ ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableCustomPortraits=Habilitar retratos personalizados
 ModUi/&EnableCustomPortraitsHelp=• Coloque sus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color> </b></i>, que lleva el nombre del nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n• Utilice PNG imágenes, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[use GIMP para obtener mejores resultados]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluye salas planas, tamaños de mazmorra de 150 x 150 y 200 x 200 y una combinación sencilla de recursos de todos los entornos]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=Habilite la cámara de elevación para permanecer en su posición después de desactivarla
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Habilitar visualización del panel de competencias extendidas <i><color=#F0DAA0>[Disparos arcanos, infusiones, maniobras y versatilidades]</color></i>\n<b><i><color=#C04040E0>[rendimiento éxito en la inspección del personaje. úsalo bajo tu propia responsabilidad]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilite la selección de <color=#D89555>dotes</color> en los niveles 2, 10 y 18
@@ -233,13 +235,15 @@ ModUi/&Monsters=<color=#F0DAA0>Monstruos:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula de movimiento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> hace clic en un hechizo para invertir el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y otros gastan los verdes de pacto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplica la experiencia obtenida por</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ La cámara nunca se mueve durante los turnos del enemigo</i>
 ModUi/&NoExperienceOnLevelUp=No se requiere experiencia para subir de nivel.
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofrecer nombres adicionales amigables con la historia en la creación de personajes.
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancelar <color=#D89555>ventaja/desventaja</color> pares cegados, invisibles y percibidos <color=#F0DAA0>[útil junto con la <color=#D89555>ventaja/desventaja</color> oficial reglas]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Cambia las áreas <color=#D89555>muy oscurecidas</color> para que sean bloqueadores de proyectiles <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Nube de niebla </color>, <color=#D89555>Nube incendiaria</color>, <color=#D89555>Tormenta de pétalos</color>, <color=#D89555>Tormenta de aguanieve</color>, <color=#D89555> Nube apestosa</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Las criaturas invisibles están muy oscurecidas y pueden ser objetivos, las tiradas de ataque contra la criatura tienen desventaja y las tiradas de ataque de la criatura tienen ventaja</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambia las áreas <color=#D89555>oscurecidas mágicamente</color> para que sean bloqueadores de proyectiles <color=#F0DAA0>[cualquier fuente del efecto de hechizo <color=#D89555>Oscuridad</color>]</color></i>
-ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Añade <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> y <color=#D89555>TrueSight</color> a monstruos y NPC cuando sea apropiado.\n <color=#F0DAA0>[colecciones de configuración <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Añade <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> y <color=#D89555>TrueSight</color> a monstruos y NPC cuando sea apropiado</i >
+ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[colecciones de configuración <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar solo las criaturas más poderosas en la lista de conjuración</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula del contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiplica la velocidad de animación de la cuadrícula del contorno por</color> <color=#C04040E0>[%]</color>
@@ -276,6 +280,7 @@ ModUi/&SelectTabletop=Seleccionar tablero
 ModUi/&SenseNormalVisionRangeMultiplier=Modificar el rango de <color=#D89555>Visión normal</color> <i><color=#F0DAA0>[solo en batallas]</color></i>
 ModUi/&Services=Servicios
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de los enanos</color> <color=white>Probabilidades de aparición de barba</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Aumentar la altura máxima de la cámara de elevación en</color>
 ModUi/&SettingsExport=Exportar
 ModUi/&SettingsHelp=• Como anfitrión, puedes exportar tu configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con tus compañeros.\n• Como invitado, puedes abrir la carpeta de exportaciones, pegar el archivo compartido desde el anfitrión y cargarlo <b><. i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&SettingsLoad=• Cargar una configuración exportada
@@ -317,6 +322,8 @@ ModUi/&UnlockGlowingEyeColors=Añade colores de ojos brillantes
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloquea marcas de origen y tatuajes de <color=#D89555>Hechicero</color> para todos los personajes.
 ModUi/&UnlockSkinColors=Desbloquear colores de piel
 ModUi/&Update=<b><color=#D89555>Actualizar</color></b>
+ModUi/&UseAlternateSpellPointsSystem=Utilice las reglas oficiales de <color=#D89555>puntos de hechizo variantes</color>
+ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[Tienes una reserva de puntos de hechizo que aumenta con el nivel del lanzador\nL01: <color=white>04</color> L02: <color=white>06</color> L03 : <color=blanco>14</color> L04: <color=blanco>17</color> L05: <color=blanco>27</color> L06: <color=blanco>32</color> L07: < color=blanco>38</color> L08: <color=blanco>44</color> L09: <color=blanco>57</color> L10: <color=blanco>64</color>\nL11: <color=blanco>73</color> L12: <color=blanco>73</color> L13: <color=blanco>83</color> L14: <color=blanco>83</color> L15: <color =blanco>94</color> L16: <color=blanco>94</color> L17: <color=blanco>107</color> L18: <color=blanco>114</color> L19: <color=blanco >123</color> L20: <color=white>133</color>\nEl costo de lanzar hechizos es SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=blanco>5</color> SL4: <color=blanco>6</color> SL5: <color=blanco>7</color> SL6: <color=blanco>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nLas funciones de recuperación de espacios de descanso breves no se activarán en este sistema ]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Utilice modelos de cara de <color=#D89555>Elfo</color> en <color=#D89555>Teflings</color>
 ModUi/&UseHeightOneCylinderEffect=Utilice un efecto de cilindro de altura 1 al lanzar <color=#D89555>Tentáculos negros, Enredar, Grasa</color> <i><color=#F0DAA0>[cuadrado]</color></i> o <color=#D89555>Crecimiento máximo</color> <i><color=#F0DAA0>[ronda]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Utilice matemáticas precisas para determinar el flanqueo <color=#F0DAA0>[puede tener un impacto en el rendimiento en máquinas lentas]</color></i>
@@ -326,6 +333,7 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ También habilitar para ataque
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Habilitar también para ataques de alcance <color=#F0DAA0>[deshabilitar matemáticas precisas]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ En lugar de ventaja otorga +1 a la tirada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilice una <color=#D89555>ración de alimentos</color> oficial de 2 libras
-ModUi/&UseOfficialObscurementRules=Utilice las reglas de combate oficiales de <color=#D89555>iluminación, oscurecimiento y visión</color>\n<i><color=#F0DAA0>[el atacante que percibe al defensor que no puede percibirlo obtiene ADV y el atacante que no percibir al defensor que puede percibirlo obtiene DIS\n las áreas muy oscurecidas infligen una condición de ceguera, donde las tiradas de ataque contra la criatura tienen ADV y las tiradas de ataque de la criatura tienen DIS\n todos los hechizos de distancia dirigidos a individuos no se pueden lanzar si el atacante no tiene vista , excepto aquellos que claramente no indican que se requiere visión]</color></i>
+ModUi/&UseOfficialObscurementRules=Utilice las reglas oficiales de combate de <color=#D89555>iluminación, oscurecimiento y visión</color>
+ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[el atacante que percibe al defensor que no puede percibirlo obtiene ADV, y el atacante que no percibe al defensor que puede percibirlo obtiene DIS\n las áreas muy oscurecidas infligen una condición de ceguera, donde el ataque rueda contra el La criatura tiene ADV y las tiradas de ataque de la criatura tienen DIS\n todos los hechizos de distancia dirigidos a individuos no se pueden lanzar si el atacante no tiene vista, excepto aquellos que claramente no indican que se requiere vista]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Usa las reglas oficiales de <color=#D89555>razas pequeñas</color> cuando empuñas armas pesadas <i><color=#F0DAA0>[tus ataques tienen desventaja]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Imágenes visuales:</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>

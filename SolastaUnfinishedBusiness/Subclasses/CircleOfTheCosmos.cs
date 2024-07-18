@@ -301,7 +301,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronEldritchSurge, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CircleOfTheCosmos, 256))
             .AddFeaturesAtLevel(2, featureSetConstellationMap, featureSetConstellationForm)
             .AddFeaturesAtLevel(6, powerCosmosOmen, powerCosmosOmenPool)
             .AddFeaturesAtLevel(10, featureSetTwinklingStars)
@@ -712,6 +712,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
+            // no need to check for source here as these are all self conditions
             if (rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionArcherNoCost.Name, out var activeCondition))
             {
@@ -740,6 +741,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetEffect = action.ActionParams.RulesetEffect;
 
+            // no need to check for source here as these are all self conditions
             if (rulesetEffect.SourceDefinition == powerChalice &&
                 rulesetAttacker.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionChaliceHealing.Name, out var activeCondition))
@@ -1287,6 +1289,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             var remainingRounds = activeCondition.RemainingRounds;
 
+            // no need to check for source here as these are all self conditions
             rulesetCharacter.RemoveCondition(activeCondition);
 
             var implementationManager = ServiceRepository.GetService<IRulesetImplementationService>()

@@ -249,6 +249,7 @@ internal static class ModUi
         "ShadowBlade",
         "ShadowOfMoil",
         "Shapechange",
+        "SickeningRadiance",
         "SkinOfRetribution",
         "SorcerousDivineHeart",
         "SnillocSnowballStorm",

@@ -46,27 +46,54 @@ public static class SlotStatusTablePatcher
         public static void Postfix(
             SlotStatusTable __instance,
             RulesetSpellRepertoire spellRepertoire,
+            List<SpellDefinition> spells,
             int spellLevel)
         {
-            var heroWithSpellRepertoire = spellRepertoire?.GetCasterHero();
+            var hero = spellRepertoire?.GetCasterHero();
 
             // spellRepertoire is null during level up...
-            if (heroWithSpellRepertoire == null || spellLevel == 0 ||
-                !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) || spellRepertoire.SpellCastingRace)
+            if (spellLevel == 0 || hero == null)
             {
+                return;
+            }
+
+            if (spellRepertoire.SpellCastingRace)
+            {
+                return;
+            }
+
+            if (!SharedSpellsContext.IsMulticaster(hero))
+            {
+                //PATCH: support display cost on spell level blocks (SPELL_POINTS)
+                // ReSharper disable once InvertIf
+                if (Main.Settings.UseAlternateSpellPointsSystem &&
+                    spellRepertoire.spellCastingClass != Warlock)
+                {
+                    for (var index = 0; index < __instance.table.childCount; ++index)
+                    {
+                        var component = __instance.table.GetChild(index).GetComponent<SlotStatus>();
+
+                        SpellPointsContext.DisplayCostOnSpellLevelBlocks(__instance, component, spellLevel,
+                            spells.Count);
+                    }
+                }
+
                 return;
             }
 
             spellRepertoire.GetSlotsNumber(spellLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
             MulticlassGameUiContext.PaintPactSlots(
-                heroWithSpellRepertoire,
+                hero,
                 totalSlotsCount,
                 totalSlotsRemainingCount,
                 spellLevel,
-                __instance.table,
-                (Global.InspectedHero != null && spellRepertoire.spellCastingClass == Warlock)
-                || (Global.InspectedHero == null && !Main.Settings.DisplayPactSlotsOnSpellSelectionPanel));
+                spells.Count,
+                __instance,
+                (Global.InspectedHero != null && spellRepertoire.spellCastingClass == Warlock) ||
+                (Global.InspectedHero == null &&
+                 !(Main.Settings.DisplayPactSlotsOnSpellSelectionPanel &&
+                   !Main.Settings.UseAlternateSpellPointsSystem)));
         }
     }
 

@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "FightingStyle",
+  "proficiencyType": "Feat",
   "proficiencies": [
-    "Sentinel"
+    "FeatSentinel"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {

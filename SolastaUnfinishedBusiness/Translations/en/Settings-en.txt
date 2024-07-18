@@ -42,6 +42,7 @@ ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=The <color=#D89555>Blinded</color> condition doesn't allow attack of opportunity
 ModUi/&Blueprints=Blueprints
+ModUi/&Camera=<color=#F0DAA0>Camera:</color>
 ModUi/&Campaigns=<color=#F0DAA0>Campaigns:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campaigns and locations:</color>
 ModUi/&Category=Category
@@ -118,6 +119,7 @@ ModUi/&EnableCheatMenu=Enable the cheats menu
 ModUi/&EnableCustomPortraits=Enable custom portraits
 ModUi/&EnableCustomPortraitsHelp=• Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=Enable elevation camera to stay at position after disabled
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[performance hit on character inspection. use at your own risk]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable <color=#D89555>feats</color> selection at levels 2, 10 and 18
@@ -233,13 +235,15 @@ ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multiply the movement grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default repertoire slot type consumed\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiply the experience gained by</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ Camera never moves during enemy turns</i>
 ModUi/&NoExperienceOnLevelUp=No experience is required to level up
 ModUi/&OfferAdditionalLoreFriendlyNames=Offer additional lore friendly names on character creation
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancel <color=#D89555>advantage / disadvantage</color> blinded, invisible, and perceived pairs <color=#F0DAA0>[useful in conjunction with official <color=#D89555>advantage / disadvantage</color> rules]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Change <color=#D89555>heavily obscured</color> areas to be projectile blockers <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Fog Cloud</color>, <color=#D89555>Incendiary Cloud</color>, <color=#D89555>Petal Storm</color>, <color=#D89555>Sleet Storm</color>, <color=#D89555>Stinking Cloud</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Invisible creatures are heavily obscured and can be target, attack rolls against the creature have disadvantage, and the creature's attack rolls have advantage</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Change <color=#D89555>magically obscured</color> areas to be projectile blockers <color=#F0DAA0>[any source of the <color=#D89555>Darkness</color> spell effect]</color></i>
-ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Add <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color>, and <color=#D89555>TrueSight</color> to monsters and NPCs whenever appropriate\n<color=#F0DAA0>[settings' collections <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Add <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color>, and <color=#D89555>TrueSight</color> to monsters and NPCs whenever appropriate</i>
+ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[settings' collections <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Only show the most powerful creatures in the conjuration list</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiply the outline grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiply the outline grid animation speed by</color> <color=#C04040E0>[%]</color>
@@ -276,6 +280,7 @@ ModUi/&SelectTabletop=Select Tabletop
 ModUi/&SenseNormalVisionRangeMultiplier=Modify <color=#D89555>Normal Vision</color> range <i><color=#F0DAA0>[only in battles]</color></i>
 ModUi/&Services=Services
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</color> <color=white>beard appearing chances</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Increase elevation camera max height by</color>
 ModUi/&SettingsExport=Export
 ModUi/&SettingsHelp=• As a host you can export your current configuration, open the exports folder and easily share with your peers\n• As a guest you can open the exports folder, paste the shared file from the host and load it over <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&SettingsLoad=• Load an exported setting
@@ -317,6 +322,8 @@ ModUi/&UnlockGlowingEyeColors=Add glowing eye colors
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
 ModUi/&UnlockSkinColors=Unlock skin colors
 ModUi/&Update=<b><color=#D89555>Update</color></b>
+ModUi/&UseAlternateSpellPointsSystem=Use official <color=#D89555>variant spell points</color> rules
+ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[You have a pool of spell points that increases with caster level\nL01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\nCost to cast spells is SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nShort rest slots recovery features won't be triggered under this system]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Use <color=#D89555>Elf</color> face models on <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use precise math to determine flanking <color=#F0DAA0>[may have a performance impact on slow machines]</color></i>
@@ -326,6 +333,7 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks <color=#F0DAA0>[disable precise math]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Instead of advantage grant +1 to attack roll</i>
 ModUi/&UseOfficialFoodRationsWeight=Use official <color=#D89555>food ration</color> weight of 2 pounds
-ModUi/&UseOfficialObscurementRules=Use official <color=#D89555>lighting, obscurement, and vision</color> combat rules\n<i><color=#F0DAA0>[attacker who perceive defender who cannot perceive it gets ADV, and attacker who doesn't perceive defender who can perceive it gets DIS\n heavily obscured areas inflict blinded condition, where attack rolls against the creature have ADV, and the creature's attack rolls have DIS\n all distance spells targeting individuals cannot be cast if attacker has no sight, except for the ones that clearly don't state sight is required]</color></i>
+ModUi/&UseOfficialObscurementRules=Use official <color=#D89555>lighting, obscurement, and vision</color> combat rules
+ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[attacker who perceive defender who cannot perceive it gets ADV, and attacker who doesn't perceive defender who can perceive it gets DIS\n heavily obscured areas inflict blinded condition, where attack rolls against the creature have ADV, and the creature's attack rolls have DIS\n all distance spells targeting individuals cannot be cast if attacker has no sight, except for the ones that clearly don't state sight is required]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use official <color=#D89555>small races</color> rules when wielding heavy weapons <i><color=#F0DAA0>[your attacks have disadvantage]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

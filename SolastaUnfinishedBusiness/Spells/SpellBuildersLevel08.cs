@@ -155,7 +155,7 @@ internal static partial class SpellBuilders
                     continue;
                 }
 
-                if (rulesetCharacterMonster.CharacterFamily == CharacterFamilyDefinitions.Plant.Name ||
+                if (rulesetCharacterMonster.CharacterFamily == "Plant" ||
                     rulesetCharacterMonster.MonsterDefinition == MonsterDefinitions.Ice_Elemental ||
                     rulesetCharacterMonster.MonsterDefinition == CircleOfTheNight.WildShapeWaterElemental)
                 {

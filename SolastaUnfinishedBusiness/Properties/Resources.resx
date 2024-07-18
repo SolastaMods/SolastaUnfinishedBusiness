@@ -152,6 +152,11 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="SickeningRadiance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/SickeningRadiance.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="ShelterFromEnergy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ShelterFromEnergy.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -294,6 +299,11 @@
   </data>
   <data name="PowerMenacing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerMenacing.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PowerClingeStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerClingeStrength.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -1289,33 +1299,8 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
-  <data name="Merciless" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/FightingStyles/Merciless.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
-  </data>
-  <data name="PolearmExpert" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/FightingStyles/PolearmExpert.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
-  </data>
   <data name="Pugilist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/Pugilist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
-  </data>
-  <data name="RopeItUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/FightingStyles/RopeItUp.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
-  </data>
-  <data name="Sentinel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/FightingStyles/Sentinel.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
-  </data>
-  <data name="ShieldExpert" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/FightingStyles/ShieldExpert.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
@@ -2010,6 +1995,11 @@
       Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="CircleOfTheCosmos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\CircleOfTheCosmos.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="CircleOfTheForestGuardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CircleOfTheForestGuardian.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
@@ -2060,6 +2050,16 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="DomainNature" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\DomainNature.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="DomainTempest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\DomainTempest.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="DomainDefiler" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\DomainDefiler.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
@@ -2092,13 +2092,34 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="InventorVitriolist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\InventorVitriolist.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="InventorWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\InventorWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
-  <data name="MartialMarshal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Subclasses\MartialMarshal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+  <data name="MartialArcaneArcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\MartialArcaneArcher.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="MartialGuardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\MartialGuardian.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="MartialWarlord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\MartialWarlord.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="MartialForceKnight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\MartialForceKnight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
@@ -2153,8 +2174,23 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="PatronArchfey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\PatronArchfey.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PatronCelestial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\PatronCelestial.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="PatronElementalist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Subclasses\PatronElementalist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Subclasses\PatronArchfey.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PatronMountain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\PatronMountain.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
@@ -2165,6 +2201,11 @@
   </data>
   <data name="PathOfTheLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheLight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PathOfTheRavager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\PathOfTheRavager.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
@@ -2231,6 +2272,16 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="RangerFeyWanderer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\RangerFeyWanderer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="RangerGloomStalker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\RangerGloomStalker.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="RangerLightBearer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerLightBearer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
@@ -2238,6 +2289,11 @@
   </data>
   <data name="RangerHellWalker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerHellWalker.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="RangerSkyWarrior" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\RangerSkyWarrior.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
@@ -2262,6 +2318,12 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="RoguishBladeCaller" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\RoguishBladeCaller.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="RoguishDuelist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RoguishDuelist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
@@ -2282,8 +2344,19 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="RoguishUmbralStalker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\RoguishUmbralStalker.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="SorcererDivineHeart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\SorcererDivineHeart.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="SorcererPsion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\SorcererPsion.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
@@ -2309,8 +2382,14 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
-  <data name="WayOfTheDistantHand" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Subclasses\WayOfTheDistantHand.png;System.Byte[], mscorlib, Version=4.0.0.0,
+  <data name="WayOfTheStormSoul" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\WayOfTheStormSoul.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="WayOfTheZenArchery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\WayOfTheZenArchery.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
@@ -2322,6 +2401,11 @@
   </data>
   <data name="WayOfTheSilhouette" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WayOfTheSilhouette.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="WayOfTheWealAndWoe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\WayOfTheWealAndWoe.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
@@ -2348,6 +2432,11 @@
   </data>
   <data name="WizardSpellMaster" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WizardSpellMaster.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="WizardWarMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\WizardWarMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
@@ -2383,6 +2472,12 @@
   </data>
   <data name="PreferredEnemyFey" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyFey.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="Interception" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FightingStyles\Interception.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>

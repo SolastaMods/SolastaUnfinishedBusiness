@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -22,19 +23,23 @@ public static class FlexibleCastingItemPatcher
         {
             //PATCH: creates different slots colors and pop up messages depending on slot types (MULTICLASS)
             var flexibleCastingModal = __instance.GetComponentInParent<FlexibleCastingModal>();
+            var hero = flexibleCastingModal.caster.GetOriginalHero();
 
-            if (flexibleCastingModal.caster is not RulesetCharacterHero caster)
+            if (hero == null)
             {
                 return;
             }
 
-            if (!SharedSpellsContext.IsMulticaster(caster))
+            if (!SharedSpellsContext.IsMulticaster(hero))
             {
+                //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
+                SpellPointsContext.HideSpellSlots(hero, __instance.slotStatusTable);
+
                 return;
             }
 
             MulticlassGameUiContext.PaintPactSlotsAlternate(
-                caster, maxSlots, remainingSlots, slotLevel, __instance.slotStatusTable);
+                hero, maxSlots, remainingSlots, slotLevel, __instance.slotStatusTable);
         }
     }
 
@@ -45,6 +50,9 @@ public static class FlexibleCastingItemPatcher
         [UsedImplicitly]
         public static void Prefix(FlexibleCastingItem __instance)
         {
+            //PATCH: support alternate spell system to ensure points display is refreshed (SPELL_POINTS)
+            SpellPointsContext.RefreshActionPanelAfterFlexibleCastingItem();
+
             //PATCH: ensures slot colors are white before getting back to pool (MULTICLASS)
             MulticlassGameUiContext.PaintSlotsWhite(__instance.slotStatusTable);
         }

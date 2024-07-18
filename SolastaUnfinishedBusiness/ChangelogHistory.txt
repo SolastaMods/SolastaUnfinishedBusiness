@@ -1,3 +1,21 @@
+1.5.97.20:
+
+- added Interface > Game UI > 'Camera never moves during enemy turns'
+- added Interface > Game UI > 'Enable elevation camera to stay at position'
+- added Interface > Game UI > 'Increase elevation camera max height by X cells'
+- added Sickening Radiance spell, and variant spell points rules 
+- fixed Alert feat not working on overland map encounters
+- fixed Arcane Archer arcane shot soft lock when enemy already dead
+- fixed cast main action leaving available cast bonus action behind
+- fixed Export Hero and RESPEC auras, infusions, etc. termination
+- fixed Ring of Knifes spell follow up power to-hit modifier
+- fixed selection on Field Manipulator displacement, and Scatter spell
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
+
 1.5.97.19:
 
 all fixes marked with * were introduced with the IsMelee change on v18
@@ -24,10 +42,6 @@ all fixes marked with * were introduced with the IsMelee change on v18
 * fixed Wendigo natural lunger increase weapon reach validator
 * fixed Wyrmkin reactive retribution attack mode validator
 
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt damage will be of wrong type under multiplayer if twinned and any bolt misses
 
 1.5.97.18:
 

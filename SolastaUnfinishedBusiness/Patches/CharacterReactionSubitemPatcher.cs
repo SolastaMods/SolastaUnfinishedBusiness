@@ -22,18 +22,30 @@ public static class CharacterReactionSubitemPatcher
             RulesetSpellRepertoire spellRepertoire,
             int slotLevel)
         {
-            var heroWithSpellRepertoire = spellRepertoire?.GetCasterHero();
+            var hero = spellRepertoire?.GetCasterHero();
 
-            if (heroWithSpellRepertoire == null ||
-                !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) || spellRepertoire.SpellCastingRace)
+            if (hero == null)
             {
+                return;
+            }
+
+            if (spellRepertoire.SpellCastingRace)
+            {
+                return;
+            }
+
+            if (!SharedSpellsContext.IsMulticaster(hero))
+            {
+                //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
+                SpellPointsContext.HideSpellSlots(hero, __instance.slotStatusTable);
+
                 return;
             }
 
             spellRepertoire.GetSlotsNumber(slotLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
             MulticlassGameUiContext.PaintPactSlotsAlternate(
-                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, slotLevel,
+                hero, totalSlotsCount, totalSlotsRemainingCount, slotLevel,
                 __instance.slotStatusTable);
         }
     }

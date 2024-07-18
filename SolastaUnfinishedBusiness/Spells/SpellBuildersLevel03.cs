@@ -1468,14 +1468,14 @@ internal static partial class SpellBuilders
                 };
 
                 RulesetActor.InflictDamage(
-                    damageRoll / 2,
+                    damageRoll,
                     damageForm,
                     damageForm.DamageType,
                     applyFormsParams,
                     rulesetDefender,
                     false,
                     rulesetAttacker.Guid,
-                    false,
+                    true,
                     attackMode.AttackTags,
                     new RollInfo(damageForm.DieType, rolls, 0),
                     false,

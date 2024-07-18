@@ -42,6 +42,7 @@ ModUi/&Bestiary=Bestiaire
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Accorder une malédiction</color> ne nécessite pas de concentration lorsqu'il est lancé avec un emplacement de sort L5+.
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=La condition <color=#D89555>Aveuglé</color> ne permet pas l'attaque d'opportunité.
 ModUi/&Blueprints=Plans
+ModUi/&Camera=<color=#F0DAA0>Caméra :</color>
 ModUi/&Campaigns=<color=#F0DAA0>Campagnes :</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campagnes et emplacements :</color>
 ModUi/&Category=Catégorie
@@ -118,6 +119,7 @@ ModUi/&EnableCheatMenu=Activer le menu des astuces
 ModUi/&EnableCustomPortraits=Activer les portraits personnalisés
 ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personnel</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color>. </b></i>, nommé d'après le prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utiliser PNG images, d'une taille de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclut des salles plates, des donjons de 150 x 150 et 200 x 200 et un mélange sans fioritures des ressources de tous les environnements]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=Permettre à la caméra d'élévation de rester en position après sa désactivation
 ModUi/&EnableEpicPointsAndArray=Activez un système et un tableau d'achat épiques de 35 points <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Activer l'affichage du panneau de compétences étendues <i><color=#F0DAA0>[Tirs arcaniques, infusions, manœuvres et polyvalences]</color></i>\n<b><i><color=#C04040E0>[performance frappé sur l'inspection du caractère. utilisez à vos propres risques]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des <color=#D89555>exploits</color> aux niveaux 2, 10 et 18
@@ -233,13 +235,15 @@ ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
 ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> cliquez sur un sort pour inverser le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des verts du pacte]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ La caméra ne bouge jamais pendant les tours ennemis</i>
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour passer au niveau supérieur
 ModUi/&OfferAdditionalLoreFriendlyNames=Proposer des noms supplémentaires conviviaux lors de la création de personnages
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Annuler l'<color=#D89555>avantage/inconvénient</color> les paires aveuglées, invisibles et perçues <color=#F0DAA0>[utile en conjonction avec l'<color=#D89555>avantage/inconvénient</color> officiel règles]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Remplacer les zones <color=#D89555>fortement obscurcies</color> par des bloqueurs de projectiles <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Nuage de brouillard </color>, <color=#D89555>Nuage incendiaire</color>, <color=#D89555>Tempête de pétales</color>, <color=#D89555>Tempête de grésil</color>, <color=#D89555> Nuage puant</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ Les créatures invisibles sont fortement obscurcies et peuvent être ciblées, les jets d'attaque contre la créature ont un désavantage et les jets d'attaque de la créature ont un avantage</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Changer les zones <color=#D89555>obscurcies par magie</color> en bloqueurs de projectiles <color=#F0DAA0>[n'importe quelle source de l'effet du sort <color=#D89555>Obscurité</color>]</color></i>
-ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Ajoutez <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> et <color=#D89555>TrueSight</color> aux monstres et aux PNJ lorsque cela est approprié\n <color=#F0DAA0>[collections de paramètres <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Ajoutez <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> et <color=#D89555>TrueSight</color> aux monstres et aux PNJ lorsque cela est approprié</i >
+ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[collections de paramètres <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Afficher uniquement les créatures les plus puissantes de la liste de conjuration</i>
 ModUi/&OutlineGridWidthModifier=<color=white>Multipliez la largeur de la grille de contour par</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multipliez la vitesse d'animation de la grille de contour par</color> <color=#C04040E0>[%]</color>
@@ -276,6 +280,7 @@ ModUi/&SelectTabletop=Sélectionnez une table
 ModUi/&SenseNormalVisionRangeMultiplier=Modifier la portée de la <color=#D89555>Vision normale</color> <i><color=#F0DAA0>[uniquement en bataille]</color></i>
 ModUi/&Services=Prestations de service
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Ceinture des nains</color> <color=white>chances d'apparition de la barbe</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>Augmenter la hauteur maximale de la caméra d'élévation de</color>
 ModUi/&SettingsExport=Exporter
 ModUi/&SettingsHelp=• En tant qu'hôte, vous pouvez exporter votre configuration actuelle, ouvrir le dossier des exportations et la partager facilement avec vos pairs.\n• En tant qu'invité, vous pouvez ouvrir le dossier des exportations, coller le fichier partagé depuis l'hôte et le charger sur <b><i><color=#C04040E0>[Redémarrage requis]</color></i></b>
 ModUi/&SettingsLoad=• Charger un paramètre exporté
@@ -317,6 +322,8 @@ ModUi/&UnlockGlowingEyeColors=Ajoutez des couleurs d'yeux éclatantes
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Débloquez les marques et tatouages d'origine <color=#D89555>Sorcier</color> pour tous les personnages.
 ModUi/&UnlockSkinColors=Débloquez les couleurs de peau
 ModUi/&Update=<b><color=#D89555>Mise à jour</color></b>
+ModUi/&UseAlternateSpellPointsSystem=Utiliser les règles officielles des <color=#D89555>variantes de points de sort</color>
+ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[Vous disposez d'une réserve de points de sort qui augmente avec le niveau du lanceur de sorts\nL01 : <color=white>04</color> L02 : <color=white>06</color> L03 : <color=white>14</color> L04 : <color=white>17</color> L05 : <color=white>27</color> L06 : <color=white>32</color> L07 : < color=white>38</color> L08 : <color=white>44</color> L09 : <color=white>57</color> L10 : <color=white>64</color>\nL11 : <color=white>73</color> L12 : <color=white>73</color> L13 : <color=white>83</color> L14 : <color=white>83</color> L15 : <couleur =blanc>94</color> L16 : <color=white>94</color> L17 : <color=white>107</color> L18 : <color=white>114</color> L19 : <color=blanc >123</color> L20 : <color=white>133</color>\nLe coût pour lancer des sorts est SL1 : <color=white>2</color> SL2 : <color=white>3</color> SL3 : <color=white>5</color> SL4 : <color=white>6</color> SL5 : <color=white>7</color> SL6 : <color=white>9</color> SL7 : <color=white>10</color> SL8 : <color=white>11</color> SL9 : <color=white>13</color>\nLes fonctionnalités de récupération des créneaux de repos courts ne seront pas déclenchées avec ce système ]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=Utilisez des modèles de visage <color=#D89555>Elfe</color> sur les <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, enchevêtrement, graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Pic de croissance</color> <i><color=#F0DAA0>[rond]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Utilisez des calculs précis pour déterminer le contournement <color=#F0DAA0>[peut avoir un impact sur les performances sur les machines lentes]</color></i>
@@ -326,6 +333,7 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également les attaque
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également les attaques par portée <color=#F0DAA0>[désactiver les calculs précis]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Au lieu de l'avantage, accordez +1 au jet d'attaque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilisez une <color=#D89555>ration alimentaire</color> officielle d'un poids de 2 livres.
-ModUi/&UseOfficialObscurementRules=Utilisez les règles officielles de combat <color=#D89555>d'éclairage, d'obscurcissement et de vision</color>\n<i><color=#F0DAA0>[l'attaquant qui perçoit le défenseur qui ne peut pas le percevoir obtient l'ADV, et l'attaquant qui ne le perçoit pas percevoir le défenseur qui peut le percevoir obtient un DIS\n les zones fortement obscurcies infligent un état d'aveuglement, où les jets d'attaque contre la créature ont ADV, et les jets d'attaque de la créature ont DIS\n tous les sorts à distance ciblant des individus ne peuvent pas être lancés si l'attaquant n'a pas de vue , sauf ceux qui n'indiquent clairement pas que la vue est requise]</color></i>
+ModUi/&UseOfficialObscurementRules=Utilisez les règles officielles de combat <color=#D89555>d'éclairage, d'obscurcissement et de vision</color>.
+ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[l'attaquant qui perçoit le défenseur qui ne peut pas le percevoir obtient l'ADV, et l'attaquant qui ne perçoit pas le défenseur qui peut le percevoir obtient le DIS\n les zones fortement obscurcies infligent un état aveuglé, où l'attaque lance un jet contre le la créature a ADV, et les jets d'attaque de la créature ont DIS\n tous les sorts à distance ciblant des individus ne peuvent pas être lancés si l'attaquant n'a pas de vue, sauf ceux qui n'indiquent clairement pas que la vue est requise]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilisez les règles officielles des <color=#D89555>petites races</color> lorsque vous maniez des armes lourdes <i><color=#F0DAA0>[vos attaques ont un désavantage]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

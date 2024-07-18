@@ -46,9 +46,9 @@
     "description": "Subclass/&PatronMountainDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "66614872ccbd31747b1555dcb689b144",
-      "m_SubObjectName": "Mountaineer",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "b0afa966-2819-5e1b-a1c9-7b35689d8550",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

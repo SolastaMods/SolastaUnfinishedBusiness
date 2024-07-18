@@ -124,9 +124,7 @@ public sealed class DomainNature : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetRestrictedCreatureFamilies(
-                        CharacterFamilyDefinitions.Beast.Name,
-                        CharacterFamilyDefinitions.Plant.Name)
+                    .SetRestrictedCreatureFamilies("Beast", "Plant")
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,
@@ -222,9 +220,7 @@ public sealed class DomainNature : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .SetRestrictedCreatureFamilies(
-                        CharacterFamilyDefinitions.Beast.Name,
-                        CharacterFamilyDefinitions.Plant.Name)
+                    .SetRestrictedCreatureFamilies("Beast", "Plant")
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,
@@ -255,7 +251,7 @@ public sealed class DomainNature : AbstractSubclass
 
         _domainNature = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.TraditionGreenmage)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.DomainNature, 256))
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsDomainNature, featureSetAcolyteOfNature, featureSetBonusProficiency)
             .AddFeaturesAtLevel(2, featureSetCharmAnimalsAndPlants)

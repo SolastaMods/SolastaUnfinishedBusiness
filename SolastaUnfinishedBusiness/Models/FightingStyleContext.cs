@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.FightingStyles;
 
@@ -8,14 +10,13 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FightingStyleContext
 {
-    internal static readonly HashSet<string> DemotedFightingStyles =
+    internal static readonly List<string> DemotedFightingStyles =
     [
-        Merciless.MercilessName,
-        MonkShieldExpert.ShieldExpertName,
-        PolearmExpert.PolearmExpertName,
-        RopeItUp.RopeItUpName,
-        Sentinel.SentinelName,
-        ShieldExpert.ShieldExpertName
+        "Merciless",
+        "PolearmExpert",
+        "RopeItUp",
+        "Sentinel",
+        "ShieldExpert"
     ];
 
     private static Dictionary<FightingStyleDefinition, List<FeatureDefinitionFightingStyleChoice>>
@@ -25,13 +26,7 @@ internal static class FightingStyleContext
 
     internal static void Load()
     {
-        // kept for backward compatibility
-        _ = new Merciless();
-        _ = new MonkShieldExpert();
-        _ = new PolearmExpert();
-        _ = new RopeItUp();
-        _ = new ShieldExpert();
-        _ = new Sentinel();
+        KeepDemotedFightingStylesBackwardCompatibility();
 
         LoadStyle(new AstralReach());
         LoadStyle(new BlindFighting());
@@ -53,6 +48,19 @@ internal static class FightingStyleContext
                      .ToList())
         {
             Main.Settings.FightingStyleEnabled.Remove(name);
+        }
+    }
+
+    private static void KeepDemotedFightingStylesBackwardCompatibility()
+    {
+        foreach (var name in DemotedFightingStyles)
+        {
+            _ = FightingStyleBuilder.Create(name)
+                .SetGuiPresentation(Category.FightingStyle, hidden: true)
+                .SetFeatures(FeatureDefinitionProficiencyBuilder.Create($"ProficiencyFeat{name}")
+                    .SetProficiencies(RuleDefinitions.ProficiencyType.Feat, $"Feat{name}")
+                    .AddToDB())
+                .AddToDB();
         }
     }
 

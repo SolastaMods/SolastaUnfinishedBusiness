@@ -420,6 +420,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
+            // no need to check for source here as these are all self conditions
             if (rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionFree.Name, out var activeCondition))
             {

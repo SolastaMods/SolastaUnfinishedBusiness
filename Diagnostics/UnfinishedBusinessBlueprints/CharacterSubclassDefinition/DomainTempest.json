@@ -51,9 +51,9 @@
     "description": "Subclass/&DomainTempestDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7b10e54d6037d314e93fd7e7f81c4798",
-      "m_SubObjectName": "Spellblade",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "ef1c8e62-edc3-54de-b4e9-741b11d41d0f",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

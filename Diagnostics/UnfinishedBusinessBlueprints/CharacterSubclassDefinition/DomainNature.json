@@ -51,9 +51,9 @@
     "description": "Subclass/&DomainNatureDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "05db759cf66168b4495b148ea71ec6c5",
-      "m_SubObjectName": "Wizard_Sylvan_Mage",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "cbd74311-3727-5bd4-a573-797100be050d",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

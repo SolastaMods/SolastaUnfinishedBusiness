@@ -7,7 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Properties;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -17,6 +17,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -310,6 +311,375 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    #endregion
+
+    #region Sickening Radiance
+
+    internal static SpellDefinition BuildSickeningRadiance()
+    {
+        const string NAME = "SickeningRadiance";
+
+        var proxy = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyIndomitableLight, $"Proxy{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, Gui.NoLocalization)
+            .AddToDB();
+
+        proxy.addLightSource = true;
+        proxy.lightSourceForm.brightRange = 0;
+        proxy.lightSourceForm.dimAdditionalRange = 6;
+        proxy.lightSourceForm.color = new Color(0.5f, 0.7f, 0.3f, 1.0f);
+
+        var conditionExhausted1 = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Exhausted1")
+            .SetGuiPresentation(Category.Condition, ConditionLethargic)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSilent(Silent.WhenRemoved)
+            .SetSpecialDuration(DurationType.Minute, 10)
+            .SetFeatures(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionExhausted)
+            .SetConditionParticleReference(ConditionHopeless)
+            .AddToDB();
+
+        var conditionExhausted2 = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Exhausted2")
+            .SetGuiPresentation(Category.Condition, ConditionLethargic)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSilent(Silent.WhenRemoved)
+            .SetSpecialDuration(DurationType.Minute, 10)
+            .SetFeatures(
+                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionExhausted,
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed)
+            .SetConditionParticleReference(ConditionHopeless)
+            .AddToDB();
+
+        var combatAffinityExhausted3 = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{NAME}Exhausted3")
+            .SetGuiPresentation($"Condition{NAME}Exhausted3", Category.Condition, Gui.NoLocalization)
+            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+            .AddToDB();
+
+        var savingThrowAffinityExhausted3 = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{NAME}Exhausted3")
+            .SetGuiPresentation($"Condition{NAME}Exhausted3", Category.Condition, Gui.NoLocalization)
+            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution,
+                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma)
+            .AddToDB();
+
+        var conditionExhausted3 = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Exhausted3")
+            .SetGuiPresentation(Category.Condition, ConditionLethargic)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSilent(Silent.WhenRemoved)
+            .SetSpecialDuration(DurationType.Minute, 10)
+            .SetFeatures(
+                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionExhausted,
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed,
+                combatAffinityExhausted3,
+                savingThrowAffinityExhausted3)
+            .SetConditionParticleReference(ConditionHopeless)
+            .AddToDB();
+
+        var attributeModifierExhausted4 = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{NAME}Exhausted4")
+            .SetGuiPresentationNoContent(true)
+            .SetAddConditionAmount(AttributeDefinitions.HitPoints)
+            .AddToDB();
+
+        var conditionExhausted4 = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Exhausted4")
+            .SetGuiPresentation(Category.Condition, ConditionLethargic)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSilent(Silent.WhenRemoved)
+            .SetSpecialDuration(DurationType.Minute, 10)
+            .SetFixedAmount(1)
+            .SetFeatures(
+                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionExhausted,
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionSlowed,
+                combatAffinityExhausted3,
+                savingThrowAffinityExhausted3,
+                attributeModifierExhausted4)
+            .SetConditionParticleReference(ConditionHopeless)
+            .AddToDB();
+
+        var conditionExhausted5 = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Exhausted5")
+            .SetGuiPresentation(Category.Condition, ConditionLethargic)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSilent(Silent.WhenRemoved)
+            .SetSpecialDuration(DurationType.Minute, 10)
+            .SetFixedAmount(1)
+            .SetFeatures(
+                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionExhausted,
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained,
+                combatAffinityExhausted3,
+                savingThrowAffinityExhausted3,
+                attributeModifierExhausted4)
+            .SetConditionParticleReference(ConditionHopeless)
+            .AddToDB();
+
+        ConditionDefinition[] conditionsExhausted =
+        [
+            conditionExhausted1,
+            conditionExhausted2,
+            conditionExhausted3,
+            conditionExhausted4,
+            conditionExhausted5
+        ];
+
+        var conditionSickenedRadiance = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionBaned)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Minute, 10)
+            .SetFeatures(
+                FeatureDefinitionConditionAffinityBuilder
+                    .Create($"ConditionAffinity{NAME}")
+                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+                    .SetConditionType(ConditionInvisibleBase)
+                    .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                    .AddToDB())
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedSickeningRadiance(conditionsExhausted))
+            .AddToDB();
+
+        conditionSickenedRadiance.silentWhenRefreshed = true;
+
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(
+                new OnConditionAddedOrRemovedSickeningRadianceSelf(conditionSickenedRadiance, conditionsExhausted))
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SickeningRadiance, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 6)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeRadiant, 4, DieType.D10)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(conditionSickenedRadiance, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxy)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(conditionMark, ConditionForm.ConditionOperation.Add, true,
+                            true))
+                    .SetCasterEffectParameters(GuardianOfFaith)
+                    .SetImpactEffectParameters(PowerSymbolOfHopelessness)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class OnConditionAddedOrRemovedSickeningRadianceSelf(
+        ConditionDefinition conditionSickenedRadiance,
+        params ConditionDefinition[] conditionsExhausted) : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var contenders =
+                Gui.Battle?.AllContenders ??
+                locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
+
+            foreach (var contender in contenders)
+            {
+                var rulesetContender = contender.RulesetActor;
+
+                if (contender.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionSickenedRadiance.Name, out var activeCondition) &&
+                    activeCondition.SourceGuid == rulesetCondition.SourceGuid)
+                {
+                    rulesetContender.RemoveCondition(activeCondition);
+                }
+
+                foreach (var conditionExhausted in conditionsExhausted)
+                {
+                    if (contender.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                            AttributeDefinitions.TagEffect, conditionExhausted.Name, out var exhaustedCondition) &&
+                        exhaustedCondition.SourceGuid == rulesetCondition.SourceGuid)
+                    {
+                        rulesetContender.RemoveCondition(exhaustedCondition);
+                    }
+                }
+            }
+        }
+    }
+
+    private sealed class OnConditionAddedOrRemovedSickeningRadiance(params ConditionDefinition[] conditionsExhausted)
+        : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter rulesetTarget, RulesetCondition rulesetCondition)
+        {
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            if (rulesetCaster?.ConcentratedSpell == null)
+            {
+                return;
+            }
+
+            rulesetCondition.RemainingRounds = rulesetCaster.ConcentratedSpell.RemainingRounds;
+
+            HandleExhaustedCondition(rulesetCaster, rulesetTarget, rulesetCondition.RemainingRounds);
+
+            var effectGuid = rulesetCaster.ConcentratedSpell.Guid;
+
+            if (rulesetTarget is not (RulesetCharacterHero or RulesetCharacterMonster) ||
+                rulesetTarget.PersonalLightSource?.EffectGuid == effectGuid)
+            {
+                return;
+            }
+
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+            var lightSourceForm = FaerieFire.EffectDescription
+                .GetFirstFormOfType(EffectForm.EffectFormType.LightSource).LightSourceForm;
+
+            var rulesetLightSource = new RulesetLightSource(new Color(0, 0.6f, 0), 0, 1,
+                lightSourceForm.GraphicsPrefabAssetGUID,
+                LightSourceType.Basic,
+                rulesetCondition.effectDefinitionName,
+                rulesetTarget.Guid,
+                effectGuid: effectGuid);
+
+            var target = GameLocationCharacter.GetFromActor(rulesetTarget);
+
+            visibilityService.AddCharacterLightSource(target, rulesetLightSource);
+        }
+
+        public void OnConditionRemoved(RulesetCharacter rulesetTarget, RulesetCondition rulesetCondition)
+        {
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            if (rulesetCaster?.ConcentratedSpell == null)
+            {
+                return;
+            }
+
+            var effectGuid = rulesetCaster.ConcentratedSpell.Guid;
+
+            if (rulesetTarget is not (RulesetCharacterHero or RulesetCharacterMonster) ||
+                rulesetTarget.PersonalLightSource?.EffectGuid != effectGuid)
+            {
+                return;
+            }
+
+            var visibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+            var target = GameLocationCharacter.GetFromActor(rulesetTarget);
+
+            visibilityService.RemoveCharacterLightSource(target, rulesetTarget.PersonalLightSource);
+        }
+
+        private void HandleExhaustedCondition(
+            RulesetCharacter rulesetCaster, RulesetCharacter rulesetTarget, int remainingRounds)
+        {
+            var amount = 0;
+            var conditionName = string.Empty;
+
+            if (rulesetTarget.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionsExhausted[4].Name, out var exhaustedCondition5) &&
+                exhaustedCondition5.SourceGuid == rulesetCaster.Guid)
+            {
+                rulesetTarget.SustainDamage(1000, "DamagePure", false, rulesetCaster.Guid, null, out _);
+            }
+            else if (rulesetTarget.TryGetConditionOfCategoryAndType(
+                         AttributeDefinitions.TagEffect, conditionsExhausted[3].Name, out var exhaustedCondition4) &&
+                     exhaustedCondition4.SourceGuid == rulesetCaster.Guid)
+            {
+                conditionName = conditionsExhausted[4].Name;
+
+                rulesetTarget.RemoveCondition(exhaustedCondition4);
+            }
+            else if (rulesetTarget.TryGetConditionOfCategoryAndType(
+                         AttributeDefinitions.TagEffect, conditionsExhausted[2].Name, out var exhaustedCondition3) &&
+                     exhaustedCondition3.SourceGuid == rulesetCaster.Guid)
+            {
+                amount = -rulesetTarget.GetAttribute(AttributeDefinitions.HitPoints).BaseValue / 2;
+                conditionName = conditionsExhausted[3].Name;
+
+                rulesetTarget.RemoveCondition(exhaustedCondition3);
+            }
+            else if (rulesetTarget.TryGetConditionOfCategoryAndType(
+                         AttributeDefinitions.TagEffect, conditionsExhausted[1].Name, out var exhaustedCondition2) &&
+                     exhaustedCondition2.SourceGuid == rulesetCaster.Guid)
+            {
+                conditionName = conditionsExhausted[2].Name;
+
+                rulesetTarget.RemoveCondition(exhaustedCondition2);
+            }
+            else if (rulesetTarget.TryGetConditionOfCategoryAndType(
+                         AttributeDefinitions.TagEffect, conditionsExhausted[0].Name, out var exhaustedCondition1) &&
+                     exhaustedCondition1.SourceGuid == rulesetCaster.Guid)
+            {
+                conditionName = conditionsExhausted[1].Name;
+
+                rulesetTarget.RemoveCondition(exhaustedCondition1);
+            }
+            else
+            {
+                conditionName = conditionsExhausted[0].Name;
+            }
+
+            if (conditionName != string.Empty)
+            {
+                rulesetTarget.InflictCondition(
+                    conditionName,
+                    DurationType.Round,
+                    remainingRounds,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetCaster.guid,
+                    rulesetCaster.CurrentFaction.Name,
+                    1,
+                    conditionName,
+                    amount,
+                    0,
+                    0);
+            }
+        }
     }
 
     #endregion

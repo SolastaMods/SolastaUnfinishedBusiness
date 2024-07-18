@@ -20,6 +20,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class MartialSpellShield : AbstractSubclass
 {
     private const string Name = "SpellShield";
+    internal const string CastSpellName = $"CastSpell{Name}";
     internal const string FullName = $"Martial{Name}";
 
     public MartialSpellShield()
@@ -27,7 +28,7 @@ public sealed class MartialSpellShield : AbstractSubclass
         // Spell Casting
 
         var castSpell = FeatureDefinitionCastSpellBuilder
-            .Create($"CastSpell{Name}")
+            .Create(CastSpellName)
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(Intelligence)

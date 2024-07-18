@@ -1,18 +1,17 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:PowerFightingStyleMerciless:2500343e-570f-57ec-bf7c-02225d302cba",
-    "Definition:TargetReducedToZeroHpFightingStyleMerciless:915fb6af-6989-5e40-9087-1ce64a2bbfba"
+    "Definition:ProficiencyFeatMerciless:19a654a6-15c9-57af-a93f-f14f5eed5b71"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "FightingStyle/&MercilessTitle",
     "description": "FightingStyle/&MercilessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e0b4a203-382b-5ab4-acfa-af309c1a019c",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

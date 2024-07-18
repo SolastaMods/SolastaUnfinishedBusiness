@@ -23,6 +23,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 {
     internal const string Name = "RoguishArcaneScoundrel";
     internal const int DistractingAmbushLevel = 9;
+    internal const string CastSpellName = $"CastSpell{Name}";
 
     private const string DistractingAmbush = "DistractingAmbush";
     private const string ConditionDistractingAmbushName = $"Condition{Name}{DistractingAmbush}";
@@ -34,7 +35,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         // Spell Casting
 
         var castSpell = FeatureDefinitionCastSpellBuilder
-            .Create($"CastSpell{Name}")
+            .Create(CastSpellName)
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
@@ -134,7 +135,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         powerArcaneBackslashCounterSpell.AddCustomSubFeatures(
             new ModifyEffectDescriptionArcaneBackslashCounterSpell(powerArcaneBackslashCounterSpell));
 
-        var powerArcaneBacklash = FeatureDefinitionPowerBuilder
+        var powerArcaneBacklashSneakDamage = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArcaneBackslash")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
@@ -154,9 +155,10 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerArcaneBacklash.AddCustomSubFeatures(
+        powerArcaneBacklashSneakDamage.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new ActionFinishedByMeArcaneBackslash(powerArcaneBacklash, powerArcaneBackslashCounterSpell));
+            new MagicEffectFinishedByMeArcaneBackslash(
+                powerArcaneBacklashSneakDamage, powerArcaneBackslashCounterSpell));
 
         // LEVEL 17
 
@@ -223,7 +225,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddFeaturesAtLevel(9,
                 additionalDamageDistractingAmbush)
             .AddFeaturesAtLevel(13,
-                autoPreparedSpellsArcaneBackslash, powerArcaneBacklash, powerArcaneBackslashCounterSpell)
+                autoPreparedSpellsArcaneBackslash, powerArcaneBacklashSneakDamage, powerArcaneBackslashCounterSpell)
             .AddFeaturesAtLevel(17,
                 featureSetTricksOfTheTrade)
             .AddToDB();
@@ -267,7 +269,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
     }
 
     private sealed class ModifyEffectDescriptionArcaneBackslashCounterSpell(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerArcaneBackslashCounterSpell) : IModifyEffectDescription
     {
         public bool IsValid(
@@ -275,8 +276,8 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == powerArcaneBackslashCounterSpell
-                   && character.GetClassLevel(CharacterClassDefinitions.Rogue) >= 19;
+            return definition == powerArcaneBackslashCounterSpell &&
+                   character.GetClassLevel(CharacterClassDefinitions.Rogue) >= 19;
         }
 
         public EffectDescription GetEffectDescription(
@@ -291,9 +292,8 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedByMeArcaneBackslash(
+    private sealed class MagicEffectFinishedByMeArcaneBackslash(
         FeatureDefinitionPower powerArcaneBackslash,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerCounterSpell) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(
@@ -341,11 +341,8 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
     }
 
     private sealed class CustomBehaviorEssenceTheft(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerEssenceTheft,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionPossessed)
-        : IFilterTargetingCharacter, IModifyEffectDescription
+        ConditionDefinition conditionPossessed) : IFilterTargetingCharacter, IModifyEffectDescription
     {
         public bool EnforceFullSelection => false;
 
@@ -379,22 +376,11 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         {
             var hero = character.GetOriginalHero();
 
-            if (hero == null)
+            if (hero != null &&
+                (hero.TrainedFeats.Contains(ClassFeats.CloseQuartersDex) ||
+                 hero.TrainedFeats.Contains(ClassFeats.CloseQuartersInt)))
             {
-                return effectDescription;
-            }
-
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
-            {
-                return effectDescription;
-            }
-
-            if (hero.TrainedFeats.Contains(ClassFeats.CloseQuartersDex) ||
-                hero.TrainedFeats.Contains(ClassFeats.CloseQuartersInt))
-            {
-                damageForm.DieType = DieType.D8;
+                effectDescription.EffectForms[0].DamageForm.DieType = DieType.D8;
             }
 
             return effectDescription;

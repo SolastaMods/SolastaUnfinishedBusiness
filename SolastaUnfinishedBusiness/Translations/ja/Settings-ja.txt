@@ -42,6 +42,7 @@ ModUi/&Bestiary=獣寓話
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>授与の呪い</color>は、L5以上の呪文スロットでキャストする場合は集中力を必要としません
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>盲目</color>状態では機会攻撃は許可されません
 ModUi/&Blueprints=青写真
+ModUi/&Camera=<color=#F0DAA0>カメラ:</color>
 ModUi/&Campaigns=<color=#F0DAA0>キャンペーン:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>キャンペーンと場所:</color>
 ModUi/&Category=カテゴリー
@@ -118,6 +119,7 @@ ModUi/&EnableCheatMenu=チートメニューを有効にする
 ModUi/&EnableCustomPortraits=カスタムポートレートを有効にする
 ModUi/&EnableCustomPortraitsHelp=• カスタム ポートレートをサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color> に配置します。 </b></i>、主人公の名前にちなんで名付けられました <i><color=#F0DAA0>[例: アントン、セリア、ニアラなど]</color></i>\n• PNG を使用します画像、サイズ 256 x 384 ピクセル、透明レイヤーあり <i><color=#F0DAA0>[最良の結果を得るには GIMP を使用]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にする\n<i><color=#F0DAA0>[フラット ルーム、150x150 および 200x200 のダンジョン サイズ、あらゆる環境のアセットを簡単に混合する機能が含まれます]</color></i>
+ModUi/&EnableElevationCameraToStayAtPosition=無効にした後も高度カメラの位置を維持する
 ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 を有効にする>[再起動が必要]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネル表示を有効にする <i><color=#F0DAA0>[秘術ショット、注入、マニューバー、多用途性]</color></i>\n<b><i><color=#C04040E0>[パフォーマンス]文字検査でヒットしました。ご自身の責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=レベル 2、10、18 で<color=#D89555>特技</color>の選択を有効にします
@@ -233,13 +235,15 @@ ModUi/&Monsters=<color=#F0DAA0>モンスター:</color>
 ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を乗算します</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> で呪文をクリックすると、消費されるデフォルトのレパートリー スロット タイプが反転します\n<i><color=#F0DAA0>[<color=#D89555>ウォーロック</color>は白い呪文スロットを消費します他の人は協定の緑のものを使います]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>得られる経験値を</color> <color=#C04040E0>[%]</color>で倍増します
+ModUi/&NeverMoveCameraOnEnemyTurn=<i>+ 敵のターン中はカメラが動かない</i>
 ModUi/&NoExperienceOnLevelUp=レベルアップに経験は必要ありません
 ModUi/&OfferAdditionalLoreFriendlyNames=キャラクター作成時に追加の伝承にわかりやすい名前を提供する
 ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ 盲目、不可視、認識された<color=#D89555>有利 / 不利</color>のペアをキャンセル<color=#F0DAA0>[公式の<color=#D89555>有利/不利</color>と併用すると便利]ルール]</color></i>
 ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+<color=#D89555>非常に遮蔽された</color>エリアを発射物ブロッカーに変更<color=#F0DAA0>[<color=#D89555>クラウドキル</color>、<color=#D89555>フォグクラウド</color>、<color=#D89555>焼夷雲</color>、<color=#D89555>ペタルストーム</color>、<color=#D89555>みぞれの嵐</color>、<color=#D89555>臭い雲</color>]</color></i>
 ModUi/&OfficialObscurementRulesInvisibleCreaturesCanBeTarget=<i>+ 目に見えないクリーチャーは大きく隠されており、対象となる可能性があり、そのクリーチャーに対する攻撃ロールは不利になり、クリーチャーの攻撃ロールは有利になります</i>
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+<color=#D89555>魔法で隠された</color>エリアを発射物ブロッカーに変更<color=#F0DAA0>[<color=#D89555>ダークネス</color>の呪文効果の発生源]</color></i>
-ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 必要に応じて、<color=#D89555>ダークビジョン</color>、<color=#D89555>ブラインドサイト</color>、<color=#D89555>トゥルーサイト</color>をモンスターやNPCに追加します\n <color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ モンスターや NPC に適切な場合に、<color=#D89555>Darkvision</color>、<color=#D89555>BlindSight</color>、<color=#D89555>TrueSight</color> を追加します</i>
+ModUi/&OfficialObscurementRulesTweakMonstersHelp=<i><color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストで最も強力なクリーチャーのみを表示</i>
 ModUi/&OutlineGridWidthModifier=<color=white>アウトライングリッドの幅を</color><color=#C04040E0>[%]</color>で乗算します。
 ModUi/&OutlineGridWidthSpeed=<color=white>アウトライン グリッドのアニメーション速度を 2 倍します</color> <color=#C04040E0>[%]</color>
@@ -276,6 +280,7 @@ ModUi/&SelectTabletop=テーブルトップを選択してください
 ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>通常の視力</color>範囲を変更<i><color=#F0DAA0>[戦闘時のみ]</color></i>
 ModUi/&Services=サービス
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>ドワーフ族のベルト</color> <color=white>ひげが出現するチャンス</color>
+ModUi/&SetElevationCameraMaxHeightBy=<color=white>仰角カメラの最大高度を</color>増加
 ModUi/&SettingsExport=輸出
 ModUi/&SettingsHelp=• ホストとして、現在の構成をエクスポートし、エクスポート フォルダを開いてピアと簡単に共有できます。\n• ゲストとして、エクスポート フォルダを開いて、ホストから共有ファイルを貼り付け、<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&SettingsLoad=• エクスポートした設定をロードする
@@ -317,6 +322,8 @@ ModUi/&UnlockGlowingEyeColors=輝く目の色を追加する
 ModUi/&UnlockMarkAndTattoosForAllCharacters=すべてのキャラクターの<color=#D89555>ソーサラー</color>のオリジンマークとタトゥーをロック解除する
 ModUi/&UnlockSkinColors=肌の色のロックを解除する
 ModUi/&Update=<b><color=#D89555>更新</color></b>
+ModUi/&UseAlternateSpellPointsSystem=公式の<color=#D89555>バリアントスペルポイント</color>ルールを使用する
+ModUi/&UseAlternateSpellPointsSystemHelp=<i><color=#F0DAA0>[呪文ポイントのプールがあり、術者レベルに応じて増加します\nL01: <color=white>04</color> L02: <color=white>06</color> L03: <color=white>14</color> L04: <color=white>17</color> L05: <color=white>27</color> L06: <color=white>32</color> L07: <color=white>38</color> L08: <color=white>44</color> L09: <color=white>57</color> L10: <color=white>64</color>\nL11: <color=white>73</color> L12: <color=white>73</color> L13: <color=white>83</color> L14: <color=white>83</color> L15: <color=white>94</color> L16: <color=white>94</color> L17: <color=white>107</color> L18: <color=white>114</color> L19: <color=white>123</color> L20: <color=white>133</color>\n呪文を唱えるためのコストは SL1: <color=white>2</color> SL2: <color=white>3</color> SL3: <color=white>5</color> SL4: <color=white>6</color> SL5: <color=white>7</color> SL6: <color=white>9</color> SL7: <color=white>10</color> SL8: <color=white>11</color> SL9: <color=white>13</color>\nこのシステムでは、短い休憩スロットの回復機能はトリガーされません]</color></i>
 ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>ティーフリング</color>で<color=#D89555>エルフ</color>の顔モデルを使用する
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>黒い触手、絡まり、グリース</color> <i><color=#F0DAA0>[square]</color></i> または <color=#D89555 をキャストするときに高さ 1 のシリンダー効果を使用します>スパイク成長</color> <i><color=#F0DAA0>[ラウンド]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ 正確な計算を使用して側面攻撃を決定します<color=#F0DAA0>[遅いマシンではパフォーマンスに影響を与える可能性があります]</color></i>
@@ -326,6 +333,7 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 遠距離攻撃も有効にし
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ リーチ攻撃も有効にします<color=#F0DAA0>[正確な計算を無効にする]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ アドバンテージの代わりに攻撃ロールに +1 を与える</i>
 ModUi/&UseOfficialFoodRationsWeight=公式の<color=#D89555>食料配給量</color>の重量は2ポンドを使用してください
-ModUi/&UseOfficialObscurementRules=公式の<color=#D89555>照明、遮蔽、視覚</color>戦闘ルールを使用する\n<i><color=#F0DAA0>[認識できる攻撃者と認識できない防御者はADVを取得し、認識しない攻撃者はADVを取得します。知覚できる防御者はDIS\nを得る ひどく遮られた領域は盲目状態を与え、そのクリーチャーに対する攻撃ロールはADVを持ち、クリーチャーの攻撃ロールはDIS\nを持つ 個人を対象とするすべての遠距離呪文は、攻撃者が視力を持たない場合は唱えることができない、視覚が必要であると明確に述べられていないものを除く]</color></i>
+ModUi/&UseOfficialObscurementRules=公式の<color=#D89555>照明、遮蔽、視覚</color>戦闘ルールを使用する
+ModUi/&UseOfficialObscurementRulesHelp=<i><color=#F0DAA0>[それを知覚する攻撃者は ADV を獲得し、それを知覚しない攻撃者は DIS を獲得します。それを知覚できる防御者は DIS を獲得します\n 非常に隠された領域は盲目状態を引き起こし、クリーチャーに対する攻撃ロールには ADV が付与され、クリーチャーの攻撃ロールには DIS が付与されます\n 攻撃者に視力がない場合、個人をターゲットとするすべての遠距離呪文は発動できません。ただし、視力が必要であると明確に述べられていない呪文は除きます]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=重火器を使用するときは<color=#D89555>小種族</color>の公式ルールを使用してください<i><color=#F0DAA0>[攻撃には不利]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>ビジュアル:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>

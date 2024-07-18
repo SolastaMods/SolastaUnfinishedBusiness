@@ -84,17 +84,6 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.IsConcentratingOnSpell =>
                 contextParams.source.ConcentratedSpell != null,
 
-            // supports Monk Shield Expert scenarios
-            (ExtraSituationalContext)SituationalContext.NotWearingArmorOrShield =>
-                !contextParams.source.IsWearingArmor() &&
-                (!contextParams.source.IsWearingShield() || contextParams.source.HasMonkShieldExpert()),
-
-            // supports Monk Shield Expert scenarios
-            (ExtraSituationalContext)SituationalContext.NotWearingArmorOrMageArmorOrShield =>
-                !contextParams.source.IsWearingArmor() &&
-                !contextParams.source.HasConditionOfTypeOrSubType(ConditionMagicallyArmored) &&
-                (!contextParams.source.IsWearingShield() || contextParams.source.HasMonkShieldExpert()),
-
             _ => def
         };
     }

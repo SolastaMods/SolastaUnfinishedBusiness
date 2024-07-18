@@ -16,7 +16,6 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
-using static RulesetImplementationDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -286,32 +285,9 @@ public sealed class PathOfTheBeast : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var bonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
-            var applyFormsParams = new ApplyFormsParams
-            {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetAttacker,
-                position = attacker.LocationPosition
-            };
-
-            var healingForm = new HealingForm
-            {
-                healingComputation = HealingComputation.Dice,
-                bonusHealing = bonus,
-                diceNumber = 0,
-                healingCap = HealingCap.HalfMaximumHitPoints
-            };
-
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
-            implementationService.ApplyEffectForms(
-                [new EffectForm { healingForm = healingForm, formType = EffectForm.EffectFormType.Healing }],
-                applyFormsParams,
-                [],
-                out _,
-                out _);
-
-            EffectHelpers.StartVisualEffect(attacker, attacker, SpellDefinitions.CureWounds,
-                EffectHelpers.EffectType.Effect);
+            EffectHelpers.StartVisualEffect(
+                attacker, attacker, SpellDefinitions.CureWounds, EffectHelpers.EffectType.Effect);
+            rulesetAttacker.ReceiveHealing(bonus, true, rulesetAttacker.Guid, HealingCap.HalfMaximumHitPoints);
         }
 
         protected override AttackModeOrder GetOrder(RulesetCharacter character)
@@ -988,27 +964,7 @@ internal class PowerCallTheHuntHandler(FeatureDefinitionPower power) : IActionFi
             yield break;
         }
 
-        var applyFormsParams = new ApplyFormsParams
-        {
-            sourceCharacter = rulesetCharacter,
-            targetCharacter = rulesetCharacter,
-            position = character.locationPosition
-        };
-
-        _ = implementationManager!.ApplyEffectForms(
-            [
-                new EffectForm
-                {
-                    formType = EffectForm.EffectFormType.TemporaryHitPoints,
-                    temporaryHitPointsForm = new TemporaryHitPointsForm
-                    {
-                        applyToSelf = true, bonusHitPoints = 15, diceNumber = 0
-                    }
-                }
-            ],
-            applyFormsParams,
-            [],
-            out _,
-            out _);
+        rulesetCharacter.ReceiveTemporaryHitPoints(
+            15, DurationType.UntilAnyRest, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
     }
 }

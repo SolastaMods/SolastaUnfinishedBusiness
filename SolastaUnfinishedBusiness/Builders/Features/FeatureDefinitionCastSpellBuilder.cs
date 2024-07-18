@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Diagnostics;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -95,7 +96,8 @@ internal class FeatureDefinitionCastSpellBuilder
 
     internal static void EnumerateSlotsPerLevel(
         CasterProgression progression,
-        List<FeatureDefinitionCastSpell.SlotsByLevelDuplet> slotsPerLevels)
+        List<FeatureDefinitionCastSpell.SlotsByLevelDuplet> slotsPerLevels,
+        bool forceOnes = false)
     {
         slotsPerLevels.Clear();
 
@@ -126,7 +128,10 @@ internal class FeatureDefinitionCastSpellBuilder
                 {
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                     {
-                        Level = level, Slots = SlotsByCasterLevel[level - startingLevel + 1]
+                        Level = level,
+                        Slots = SlotsByCasterLevel[level - startingLevel + 1]
+                            .Select(x => x == 0 ? 0 : forceOnes ? 1 : x)
+                            .ToList()
                     };
 
                     slotsPerLevels.Add(slotsForLevel);
@@ -139,7 +144,10 @@ internal class FeatureDefinitionCastSpellBuilder
                 {
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                     {
-                        Level = level, Slots = SlotsByCasterLevel[((level - startingLevel + 1) / 2) + 1]
+                        Level = level,
+                        Slots = SlotsByCasterLevel[((level - startingLevel + 1) / 2) + 1]
+                            .Select(x => x == 0 ? 0 : forceOnes ? 1 : x)
+                            .ToList()
                     };
 
                     slotsPerLevels.Add(slotsForLevel);
@@ -151,7 +159,10 @@ internal class FeatureDefinitionCastSpellBuilder
                 {
                     var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                     {
-                        Level = level, Slots = SlotsByCasterLevel[((level - startingLevel + 2) / 3) + 1]
+                        Level = level,
+                        Slots = SlotsByCasterLevel[((level - startingLevel + 2) / 3) + 1]
+                            .Select(x => x == 0 ? 0 : forceOnes ? 1 : x)
+                            .ToList()
                     };
 
                     slotsPerLevels.Add(slotsForLevel);

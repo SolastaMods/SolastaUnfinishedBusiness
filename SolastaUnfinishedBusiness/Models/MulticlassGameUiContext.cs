@@ -139,9 +139,11 @@ internal static class MulticlassGameUiContext
         int totalSlotsCount,
         int totalSlotsRemainingCount,
         int slotLevel,
-        [NotNull] RectTransform rectTransform,
+        int spellsAtLevel,
+        SlotStatusTable slotStatusTable,
         bool ignorePactSlots = false)
     {
+        var rectTransform = slotStatusTable.table;
         var warlockSpellRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(hero);
         var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
@@ -193,7 +195,16 @@ internal static class MulticlassGameUiContext
             // paint spell slots white
             if (index >= pactSlotsCount || slotLevel > warlockSpellLevel)
             {
-                SetRegularSlotImage(component.Available.GetComponent<Image>());
+                //PATCH: support display cost on spell level blocks (SPELL_POINTS)
+                if (Main.Settings.UseAlternateSpellPointsSystem)
+                {
+                    SpellPointsContext.DisplayCostOnSpellLevelBlocks(slotStatusTable, component, slotLevel,
+                        spellsAtLevel);
+                }
+                else
+                {
+                    SetRegularSlotImage(component.Available.GetComponent<Image>());
+                }
             }
             else
             {
@@ -285,7 +296,16 @@ internal static class MulticlassGameUiContext
             }
             else
             {
-                SetRegularSlotImage(component.Available.GetComponent<Image>());
+                //PATCH: support alternate spell system to avoid displaying spell slots on selection (SPELL_POINTS)
+                if (Main.Settings.UseAlternateSpellPointsSystem)
+                {
+                    component.Used.gameObject.SetActive(false);
+                    component.Available.gameObject.SetActive(false);
+                }
+                else
+                {
+                    SetRegularSlotImage(component.Available.GetComponent<Image>());
+                }
             }
         }
     }

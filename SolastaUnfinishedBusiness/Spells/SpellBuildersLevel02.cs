@@ -714,6 +714,7 @@ internal static partial class SpellBuilders
 
                 if (rulesetCharacter.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect, conditionName, out var activeCondition) &&
+                    activeCondition.SourceGuid == actingCharacter.Guid &&
                     !selectedPower.Name.Contains(skill.Name))
                 {
                     rulesetCharacter.RemoveCondition(activeCondition);

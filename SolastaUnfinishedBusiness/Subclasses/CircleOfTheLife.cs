@@ -308,15 +308,13 @@ public sealed class CircleOfTheLife : AbstractSubclass
                 return;
             }
 
-            var rulesetCondition = rulesetCharacter.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition.Name == ConditionSeedOfLife);
-
-            if (rulesetCondition == null)
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionSeedOfLife, out var activeCondition))
             {
                 return;
             }
 
-            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var caster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
 
             if (caster is not { IsDeadOrDyingOrUnconscious: false })
             {
