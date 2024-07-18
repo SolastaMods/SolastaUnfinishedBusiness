@@ -538,7 +538,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardGravityMage, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialForceKnight, 256))
             .AddFeaturesAtLevel(3, featureSetPsionicInitiate)
             .AddFeaturesAtLevel(6, BuildPowerModifier(PowerPsionicInitiate, 6))
             .AddFeaturesAtLevel(7, featureSetPsionicAdept, featureSetPsionicPropulsion)

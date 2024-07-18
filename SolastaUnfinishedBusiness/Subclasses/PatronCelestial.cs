@@ -8,8 +8,10 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -236,7 +238,7 @@ public class PatronCelestial : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Patron{Name}")
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainLife)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronCelestial, 256))
             .AddFeaturesAtLevel(1, magicAffinityExpandedSpells, bonusCantripCelestial, featureSetHealingLight)
             .AddFeaturesAtLevel(6, featureSetRadiantSoul)
             .AddFeaturesAtLevel(10, powerCelestialResistance)

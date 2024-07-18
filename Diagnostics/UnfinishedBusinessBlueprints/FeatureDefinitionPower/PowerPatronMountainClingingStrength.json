@@ -332,7 +332,7 @@
     "description": "Feature/&PowerPatronMountainClingingStrengthDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "0f5fb5b6-f59d-5ed3-8e45-166a5e7f60a9",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

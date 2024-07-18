@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -191,7 +192,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerSwiftBlade)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialArcaneArcher, 256))
             .AddFeaturesAtLevel(3,
                 featureSetArcaneLore,
                 castSpellArcaneMagic,

@@ -205,7 +205,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheSilhouette, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishUmbralStalker, 256))
             .AddFeaturesAtLevel(3, featureSetDeadlyShadows, actionAffinityHailOfBladesToggle)
             .AddFeaturesAtLevel(9, featureSetShadowStride)
             .AddFeaturesAtLevel(13, featureSetUmbralSoul)

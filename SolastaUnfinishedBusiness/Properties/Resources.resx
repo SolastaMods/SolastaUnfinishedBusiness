@@ -302,6 +302,11 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerClingeStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerClingeStrength.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="PowerSpiritTeleport" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerSpiritTeleport.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -1990,6 +1995,11 @@
       Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="CircleOfTheCosmos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\CircleOfTheCosmos.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="CircleOfTheForestGuardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CircleOfTheForestGuardian.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
@@ -2093,6 +2103,11 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="MartialArcaneArcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\MartialArcaneArcher.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="MartialGuardian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialGuardian.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
@@ -2100,6 +2115,11 @@
   </data>
   <data name="MartialWarlord" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialWarlord.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="MartialForceKnight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\MartialForceKnight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
@@ -2154,8 +2174,18 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="PatronArchfey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\PatronArchfey.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PatronCelestial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\PatronCelestial.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="PatronElementalist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Subclasses\PatronElementalist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Subclasses\PatronArchfey.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
@@ -2294,6 +2324,11 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="RoguishUmbralStalker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\RoguishUmbralStalker.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
   <data name="SorcererDivineHeart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\SorcererDivineHeart.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
@@ -2321,8 +2356,8 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
-  <data name="WayOfTheDistantHand" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Subclasses\WayOfTheDistantHand.png;System.Byte[], mscorlib, Version=4.0.0.0,
+  <data name="WayOfTheZenArchery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\WayOfTheZenArchery.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>

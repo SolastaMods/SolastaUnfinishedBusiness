@@ -310,7 +310,7 @@ public class PatronArchfey : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Patron{Name}")
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerShadowTamer)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronArchfey, 256))
             .AddFeaturesAtLevel(1, magicAffinityExpandedSpells, featureSetFeyPresence)
             .AddFeaturesAtLevel(6, powerMistyEscape)
             .AddFeaturesAtLevel(10, featureSetBeguilingDefenses)

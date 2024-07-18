@@ -301,7 +301,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronEldritchSurge, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CircleOfTheCosmos, 256))
             .AddFeaturesAtLevel(2, featureSetConstellationMap, featureSetConstellationForm)
             .AddFeaturesAtLevel(6, powerCosmosOmen, powerCosmosOmenPool)
             .AddFeaturesAtLevel(10, featureSetTwinklingStars)
