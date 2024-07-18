@@ -1738,6 +1738,7 @@
     <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
     <EnableExtendedProficienciesPanelDisplay>false</EnableExtendedProficienciesPanelDisplay>
     <DontFollowCharacterInBattle>false</DontFollowCharacterInBattle>
+    <NeverMoveCameraOnEnemyTurn>false</NeverMoveCameraOnEnemyTurn>
     <DontFollowMargin>5</DontFollowMargin>
     <GridSelectedColor>1</GridSelectedColor>
     <MovementGridWidthModifier>100</MovementGridWidthModifier>
@@ -1746,6 +1747,9 @@
     <EnableDistanceOnTooltip>true</EnableDistanceOnTooltip>
     <HighContrastTargetingAoeSelectedColor>0</HighContrastTargetingAoeSelectedColor>
     <HighContrastTargetingSingleSelectedColor>0</HighContrastTargetingSingleSelectedColor>
+    <DisableAllCameraBounds>false</DisableAllCameraBounds>
+    <EnableElevationCameraToStayAtPosition>true</EnableElevationCameraToStayAtPosition>
+    <SetElevationCameraMaxHeightBy>12</SetElevationCameraMaxHeightBy>
     <FormationGridSelectedSet>0</FormationGridSelectedSet>
     <FormationGridSets>
         <ArrayOfArrayOfInt>
