@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -85,10 +86,16 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
         // Seize the Chance
 
+        var conditionSeizeTheChance = ConditionDefinitionBuilder
+            .Create($"Condition{Name}SeizeTheChance")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
         var featureSeizeTheChance = FeatureDefinitionBuilder
             .Create($"Feature{Name}SeizeTheChance")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new TryAlterOutcomeSavingThrowSeizeTheChance())
+            .AddCustomSubFeatures(new TryAlterOutcomeSavingThrowSeizeTheChance(conditionSeizeTheChance))
             .AddToDB();
 
         // LEVEL 13
@@ -324,8 +331,42 @@ public sealed class RoguishOpportunist : AbstractSubclass
     // Seize the Chance
     //
 
-    private sealed class TryAlterOutcomeSavingThrowSeizeTheChance : ITryAlterOutcomeSavingThrow
+    private sealed class TryAlterOutcomeSavingThrowSeizeTheChance(ConditionDefinition conditionSeizeTheChance)
+        : ITryAlterOutcomeSavingThrow, IMagicEffectFinishedByMeOrAlly, IPhysicalAttackFinishedByMeOrAlly
     {
+        public IEnumerator OnMagicEffectFinishedByMeOrAlly(
+            GameLocationBattleManager battleManager,
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter helper,
+            List<GameLocationCharacter> targets)
+        {
+            // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var target in targets)
+            {
+                if (target.RulesetActor.HasConditionOfCategoryAndType(TagEffect, conditionSeizeTheChance.Name))
+                {
+                    yield return HandleReaction(battleManager, attacker, target, helper);
+                }
+            }
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMeOrAlly(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (defender.RulesetActor.HasConditionOfCategoryAndType(TagEffect, conditionSeizeTheChance.Name))
+            {
+                yield return HandleReaction(battleManager, attacker, defender, helper);
+            }
+        }
+
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -339,8 +380,36 @@ public sealed class RoguishOpportunist : AbstractSubclass
             if (!helper.IsOppositeSide(defender.Side) ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
-                helper.IsMyTurn() ||
-                !helper.CanReact())
+                helper.IsMyTurn())
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetActor;
+
+            rulesetDefender.InflictCondition(
+                conditionSeizeTheChance.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
+                TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionSeizeTheChance.Name,
+                0,
+                0,
+                0);
+        }
+
+        private static IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            if (!helper.CanReact())
             {
                 yield break;
             }

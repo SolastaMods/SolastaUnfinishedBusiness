@@ -1,10 +1,15 @@
 1.5.97.21:
 
-- fixed Booming Blade not removing the additional damage condition after an attack
-- fixed Focused metamagic soft lock when not selected on casting
+- fixed Booming Blade cantrip not removing the additional damage condition after an attack
+- fixed Focused metamagic soft lock when not chosen on casting
 - fixed Roguish Opportunist seize the chance feature triggering behavior
-- fixed Shared metamagic interaction with Shapechange spell
+- fixed Shapechange spell interaction with shared metamagic
 - fixed Shared metamagic to always enforce target side ally when used
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
 
 1.5.97.20:
 
@@ -18,11 +23,6 @@
 - fixed Export Hero and RESPEC auras, infusions, etc. termination
 - fixed Ring of Knifes spell follow up power to-hit modifier
 - fixed selection on Field Manipulator displacement, and Scatter spell
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
 
 1.5.97.19:
 
