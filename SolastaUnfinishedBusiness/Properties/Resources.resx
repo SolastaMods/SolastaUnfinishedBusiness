@@ -302,6 +302,11 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerTidesOfChaos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerTidesOfChaos.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="PowerClingeStrength" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerClingeStrength.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -2373,6 +2378,11 @@
   </data>
   <data name="SorcererSpellBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\SorcererSpellBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="SorcererWildMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\SorcererWildMagic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
