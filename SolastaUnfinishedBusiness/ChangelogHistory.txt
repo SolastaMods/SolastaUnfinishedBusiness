@@ -2,6 +2,7 @@
 
 - fixed Booming Blade not removing the additional damage condition after an attack
 - fixed Roguish Opportunist seize the chance feature triggering behavior
+- fixed Shared metamagic interaction with Shapechange spell
 - fixed Shared metamagic to always enforce target side ally when used
 
 1.5.97.20:
