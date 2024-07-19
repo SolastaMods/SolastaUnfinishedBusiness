@@ -89,6 +89,7 @@ internal static class MetamagicBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
+            effectDescription.targetSide = Side.Ally;
             effectDescription.rangeType = RangeType.Distance;
             effectDescription.rangeParameter = 6;
             effectDescription.targetType = TargetType.IndividualsUnique;
@@ -115,6 +116,7 @@ internal static class MetamagicBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
+            effectDescription.targetSide = Side.Ally;
             effectDescription.rangeType = RangeType.Distance;
             effectDescription.rangeParameter = 6;
             effectDescription.targetType = TargetType.IndividualsUnique;
