@@ -340,8 +340,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 helper.IsMyTurn() ||
-                !helper.CanReact() ||
-                !helper.CanPerceiveTarget(defender))
+                !helper.CanReact())
             {
                 yield break;
             }
@@ -376,7 +375,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             var reactionParams = new CharacterActionParams(
                 helper,
                 ActionDefinitions.Id.AttackOpportunity,
-                helper.RulesetCharacter.AttackModes[0],
+                attackMode,
                 defender,
                 actionModifier) { StringParameter2 = "SeizeTheChance" };
             var count = actionService.PendingReactionRequestGroups.Count;
