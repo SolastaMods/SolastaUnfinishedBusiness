@@ -936,7 +936,8 @@ public static class CharacterActionMagicEffectPatcher
                              .GetSubFeaturesByType<IMagicEffectFinishedByMeOrAlly>())
                 {
                     yield return magicEffectFinishedByMeOrAlly
-                        .OnMagicEffectFinishedByMeOrAlly(__instance, actingCharacter, ally, targets);
+                        .OnMagicEffectFinishedByMeOrAlly(
+                            battleManager, __instance, actingCharacter, ally, targets);
                 }
             }
 

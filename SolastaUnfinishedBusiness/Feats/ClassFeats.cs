@@ -370,6 +370,7 @@ internal static class ClassFeats
     private class CustomBehaviorFeatExploiter : IMagicEffectFinishedByMeOrAlly, IPhysicalAttackFinishedByMeOrAlly
     {
         public IEnumerator OnMagicEffectFinishedByMeOrAlly(
+            GameLocationBattleManager battleManager,
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter helper,
@@ -384,7 +385,7 @@ internal static class ClassFeats
 
             var attackRollOutcome = action.AttackRollOutcome;
 
-            yield return HandleReaction(attackRollOutcome, attacker, helper, targets);
+            yield return HandleReaction(battleManager, attackRollOutcome, attacker, helper, targets);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMeOrAlly(
@@ -397,10 +398,11 @@ internal static class ClassFeats
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            yield return HandleReaction(rollOutcome, attacker, helper, [defender]);
+            yield return HandleReaction(battleManager, rollOutcome, attacker, helper, [defender]);
         }
 
         private static IEnumerator HandleReaction(
+            GameLocationBattleManager battleManager,
             RollOutcome attackRollOutcome,
             GameLocationCharacter attacker,
             GameLocationCharacter helper,
@@ -409,10 +411,8 @@ internal static class ClassFeats
         {
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (!actionManager || !battleManager)
+            if (!actionManager )
             {
                 yield break;
             }

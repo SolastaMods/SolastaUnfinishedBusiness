@@ -9,6 +9,7 @@ public interface IMagicEffectFinishedByMeOrAlly
 {
     [UsedImplicitly]
     public IEnumerator OnMagicEffectFinishedByMeOrAlly(
+        GameLocationBattleManager battleManager,
         CharacterActionMagicEffect action,
         GameLocationCharacter attacker,
         GameLocationCharacter helper,
