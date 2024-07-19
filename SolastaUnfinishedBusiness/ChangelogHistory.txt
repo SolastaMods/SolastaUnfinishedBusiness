@@ -1,3 +1,7 @@
+1.5.97.21:
+
+- fixed Booming Blade not removing the additional damage condition after an attack
+
 1.5.97.20:
 
 - added Interface > Game UI > 'Camera never moves during enemy turns'

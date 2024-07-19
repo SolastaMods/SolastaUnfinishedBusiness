@@ -961,6 +961,7 @@ internal static partial class SpellBuilders
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
                     .SetImpactParticleReference(Shatter)
                     .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
