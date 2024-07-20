@@ -252,6 +252,7 @@ internal static class ModUi
         "SickeningRadiance",
         "SkinOfRetribution",
         "SorcerousDivineHeart",
+        "SorcerousWildMagic",
         "SnillocSnowballStorm",
         "SpellWeb",
         "SpikeBarrage",
