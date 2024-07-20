@@ -2017,7 +2017,7 @@ internal static class Level20SubclassesContext
             var rulesetTarget = target.RulesetCharacter;
 
             if (!rulesetTarget.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionDefinition.Name, out var activeCondition) &&
+                    AttributeDefinitions.TagEffect, conditionDefinition.Name, out var activeCondition) ||
                 activeCondition.SourceGuid != attacker.Guid)
             {
                 yield break;

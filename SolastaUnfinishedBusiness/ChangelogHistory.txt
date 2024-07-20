@@ -1,3 +1,7 @@
+1.5.97.22:
+
+- fixed invalid condition checks leading to a soft lock on Master Duelist, Quivering Palm, and Taunter
+
 1.5.97.21:
 
 - added new subclass sprites to ones still leveraging duplicates

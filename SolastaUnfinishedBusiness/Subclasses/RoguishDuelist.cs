@@ -231,7 +231,7 @@ public sealed class RoguishDuelist : AbstractSubclass
 
             // should only check the condition from the same source
             if (!rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionDaringDuel.Name, out var activeCondition) &&
+                    AttributeDefinitions.TagEffect, conditionDaringDuel.Name, out var activeCondition) ||
                 activeCondition.SourceGuid != attacker.Guid)
             {
                 yield break;
