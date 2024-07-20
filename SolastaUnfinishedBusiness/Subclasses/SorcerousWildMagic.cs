@@ -182,6 +182,13 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         RulesetCharacter rulesetCharacter, DamageForm damageForm, List<int> rolledValues, ref int damage)
     {
         var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
+        var levels = rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, Name);
+
+        if (levels < 18)
+        {
+            return;
+        }
+
         var dieType = damageForm.DieType;
         var maxDie = DiceMaxValue[(int)dieType];
         var tag = FeatureSpellBombardment.Name;
