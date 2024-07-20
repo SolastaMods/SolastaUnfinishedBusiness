@@ -1,0 +1,102 @@
+{
+  "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
+  "useControllerAbilityChecks": false,
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "proficiencyName": "",
+      "affinity": "Advantage",
+      "abilityCheckGroupOperation": "AddDie",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D1",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "proficiencyName": "",
+      "affinity": "Advantage",
+      "abilityCheckGroupOperation": "AddDie",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D1",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "proficiencyName": "",
+      "affinity": "Advantage",
+      "abilityCheckGroupOperation": "AddDie",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D1",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Intelligence",
+      "proficiencyName": "",
+      "affinity": "Advantage",
+      "abilityCheckGroupOperation": "AddDie",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D1",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "proficiencyName": "",
+      "affinity": "Advantage",
+      "abilityCheckGroupOperation": "AddDie",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D1",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "proficiencyName": "",
+      "affinity": "Advantage",
+      "abilityCheckGroupOperation": "AddDie",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D1",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    }
+  ],
+  "substractBardicDieRoll": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerSorcerousWildMagicTidesOfChaosTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "4917e703-2213-554d-98d7-ba7ec0b2e7f8",
+  "contentPack": 9999,
+  "name": "AbilityCheckAffinitySorcerousWildMagicTidesOfChaos"
+}

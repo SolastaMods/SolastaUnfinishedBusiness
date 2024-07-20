@@ -462,12 +462,6 @@ internal static class RaceImpBuilder
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            if (__instance.SelectionService?.SelectedTargets == null ||
-                target.RulesetCharacter == null)
-            {
-                return false;
-            }
-
             var selectedTargets = __instance.SelectionService.SelectedTargets;
 
             switch (selectedTargets.Count)
@@ -478,14 +472,13 @@ internal static class RaceImpBuilder
                     return false;
                 case > 0 when target.Side != Side.Enemy:
                     __instance.actionModifier.FailureFlags.Add("Tooltip/&AlreadySelectedAnAlly");
-
                     return false;
             }
 
             if (target.Side == Side.Ally)
             {
-                if (!target.RulesetCharacter.HasConditionOfType(ConditionImpAssistedAllyName) &&
-                    !target.RulesetCharacter.HasConditionOfType(ConditionImpSpiteName))
+                if (!target.RulesetActor.HasConditionOfType(ConditionImpAssistedAllyName) &&
+                    !target.RulesetActor.HasConditionOfType(ConditionImpSpiteName))
                 {
                     return true;
                 }
@@ -501,7 +494,7 @@ internal static class RaceImpBuilder
                 return false;
             }
 
-            if (!target.RulesetCharacter.HasConditionOfType(ConditionImpAssistedEnemyName))
+            if (!target.RulesetActor.HasConditionOfType(ConditionImpAssistedEnemyName))
             {
                 return true;
             }

@@ -57,7 +57,9 @@ internal static class FightingStyleContext
         {
             _ = FightingStyleBuilder.Create(name)
                 .SetGuiPresentation(Category.FightingStyle, hidden: true)
-                .SetFeatures(FeatureDefinitionProficiencyBuilder.Create($"ProficiencyFeat{name}")
+                .SetFeatures(FeatureDefinitionProficiencyBuilder
+                    .Create($"ProficiencyFeat{name}")
+                    .SetGuiPresentationNoContent(true)
                     .SetProficiencies(RuleDefinitions.ProficiencyType.Feat, $"Feat{name}")
                     .AddToDB())
                 .AddToDB();

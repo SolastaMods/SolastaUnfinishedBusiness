@@ -89,6 +89,7 @@ internal static class MetamagicBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
+            effectDescription.targetSide = Side.Ally;
             effectDescription.rangeType = RangeType.Distance;
             effectDescription.rangeParameter = 6;
             effectDescription.targetType = TargetType.IndividualsUnique;
@@ -115,6 +116,7 @@ internal static class MetamagicBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
+            effectDescription.targetSide = Side.Ally;
             effectDescription.rangeType = RangeType.Distance;
             effectDescription.rangeParameter = 6;
             effectDescription.targetType = TargetType.IndividualsUnique;
@@ -147,12 +149,15 @@ internal static class MetamagicBuilders
             .AddFeatures(magicAffinity)
             .AddToDB();
 
-        return MetamagicOptionDefinitionBuilder
+        var metamagic = MetamagicOptionDefinitionBuilder
             .Create(MetamagicFocused)
             .SetGuiPresentation(Category.Feature)
             .SetCost()
-            .AddCustomSubFeatures(new ModifyEffectDescriptionMetamagicFocused(condition), validator)
             .AddToDB();
+
+        metamagic.AddCustomSubFeatures(new ModifyEffectDescriptionMetamagicFocused(metamagic, condition), validator);
+
+        return metamagic;
     }
 
     private static void IsMetamagicFocusedSpellValid(
@@ -174,7 +179,9 @@ internal static class MetamagicBuilders
         result = false;
     }
 
-    private sealed class ModifyEffectDescriptionMetamagicFocused(ConditionDefinition conditionFocused)
+    private sealed class ModifyEffectDescriptionMetamagicFocused(
+        MetamagicOptionDefinition metamagicFocused,
+        ConditionDefinition conditionFocused)
         : IMagicEffectInitiatedByMe
     {
         public IEnumerator OnMagicEffectInitiatedByMe(
@@ -183,9 +190,9 @@ internal static class MetamagicBuilders
             GameLocationCharacter attacker,
             List<GameLocationCharacter> targets)
         {
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetEffect.MetamagicOption.Name != MetamagicFocused)
+            if (rulesetEffect.MetamagicOption != metamagicFocused)
             {
                 yield break;
             }

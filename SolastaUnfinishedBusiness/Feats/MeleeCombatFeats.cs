@@ -1654,10 +1654,15 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class CustomAdditionalDamageFeatPiercer(IAdditionalDamageProvider provider)
-        : CustomAdditionalDamage(provider), IValidateDieRollModifier
+        : CustomAdditionalDamage(provider), IValidateDieRollModifier, IAllowRerollDice
     {
-        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
-            List<string> damageTypes)
+        public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
+        {
+            return damageForm.DamageType == DamageTypePiercing;
+        }
+
+        public bool CanModifyRoll(
+            RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypes)
         {
             return damageTypes.Contains(DamageTypePiercing);
         }

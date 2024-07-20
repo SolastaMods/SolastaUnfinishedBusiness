@@ -79,6 +79,7 @@ internal static class SrdAndHouseRulesContext
     {
         BuildConjureElementalInvisibleStalker();
         LoadAfterRestIdentify();
+        LoadAllowTargetingSelectionWhenCastingChainLightningSpell();
         LoadSenseNormalVisionRangeMultiplier();
         SwitchAddBleedingToLesserRestoration();
         SwitchAllowClubsToBeThrown();
@@ -324,15 +325,17 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
+    private static void LoadAllowTargetingSelectionWhenCastingChainLightningSpell()
+    {
+        ChainLightning.AddCustomSubFeatures(new FilterTargetingCharacterChainLightning());
+    }
+
     internal static void SwitchAllowTargetingSelectionWhenCastingChainLightningSpell()
     {
         var spell = ChainLightning.EffectDescription;
 
         if (Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell)
         {
-            // This is half fix, half houses rules since it's not completely SRD but better than implemented.
-            // Spell should arc from target (range 150ft) onto upto 3 extra selectable targets (range 30ft from first).
-            // Fix by allowing 4 selectable targets.
             spell.targetType = TargetType.IndividualsUnique;
             spell.targetParameter = 4;
             spell.effectAdvancement.additionalTargetsPerIncrement = 1;
@@ -899,6 +902,32 @@ internal static class SrdAndHouseRulesContext
         {
             evaluationParams.attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(-1, FeatureSourceType.Unknown, "Feedback/&SmallRace", null));
+        }
+    }
+
+    private sealed class FilterTargetingCharacterChainLightning : IFilterTargetingCharacter
+    {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            var selectedTargets = __instance.SelectionService.SelectedTargets;
+
+            if (selectedTargets.Count == 0)
+            {
+                return true;
+            }
+
+            var firstTarget = selectedTargets[0];
+
+            var isValid = firstTarget.IsWithinRange(target, 6);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&SecondTargetNotWithinRange");
+            }
+
+            return isValid;
         }
     }
 

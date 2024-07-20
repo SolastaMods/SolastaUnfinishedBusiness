@@ -397,7 +397,7 @@ public static class CharacterActionMagicEffectPatcher
             {
                 actingCharacter.UsedSpecialFeatures.TryAdd("LevelledSpell", 0);
             }
-            
+
             //PATCH: skip spell animation if this is an AttackAfterMagicEffect spell
             if (baseDefinition.HasSubFeatureOfType<AttackAfterMagicEffect>())
             {
@@ -936,7 +936,8 @@ public static class CharacterActionMagicEffectPatcher
                              .GetSubFeaturesByType<IMagicEffectFinishedByMeOrAlly>())
                 {
                     yield return magicEffectFinishedByMeOrAlly
-                        .OnMagicEffectFinishedByMeOrAlly(__instance, actingCharacter, ally, targets);
+                        .OnMagicEffectFinishedByMeOrAlly(
+                            battleManager, __instance, actingCharacter, ally, targets);
                 }
             }
 

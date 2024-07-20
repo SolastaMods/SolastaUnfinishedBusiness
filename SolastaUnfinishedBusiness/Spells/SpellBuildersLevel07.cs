@@ -151,10 +151,10 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(
                             conditionMark,
-                            ConditionForm.ConditionOperation.Add, true),
+                            ConditionForm.ConditionOperation.Add, true, true),
                         EffectFormBuilder.ConditionForm(
                             condition,
-                            ConditionForm.ConditionOperation.Add, true),
+                            ConditionForm.ConditionOperation.Add, true, true),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)

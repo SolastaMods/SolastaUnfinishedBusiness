@@ -1,3 +1,18 @@
+1.5.97.21:
+
+- added new subclass sprites to ones still leveraging duplicates
+- fixed Booming Blade cantrip not removing the additional damage after an attack
+- fixed Chain Lightning second targets distance validation to be 30ft from first
+- fixed Focused metamagic to prevent a soft lock when not used
+- fixed Roguish Opportunist seize the chance triggering behavior
+- fixed Shapechange spell interaction with shared metamagic
+- fixed Shared metamagic to enforce ally side when used
+
+KNOWN ISSUES:
+
+- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
+- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
+
 1.5.97.20:
 
 - added Interface > Game UI > 'Camera never moves during enemy turns'
@@ -10,11 +25,6 @@
 - fixed Export Hero and RESPEC auras, infusions, etc. termination
 - fixed Ring of Knifes spell follow up power to-hit modifier
 - fixed selection on Field Manipulator displacement, and Scatter spell
-
-KNOWN ISSUES:
-
-- Artillerist Force Ballista tiny cannon doesn't force attack DIS within 5 ft
-- Chaos Bolt spell damage will be of wrong type under multiplayer if twinned and one bolt misses
 
 1.5.97.19:
 

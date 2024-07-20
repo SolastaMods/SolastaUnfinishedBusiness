@@ -31,7 +31,7 @@ internal static class CreditsDisplay
             "Patron Archfey, Patron Celestial, Patron Moonlit, Patron Mountain, Patron Riftwalker, " +
             "Ranger Fey Wanderer, Ranger Gloom Stalker, Ranger Hellwalker, Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, Ranger Wildmaster, " +
             "Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Raven, Roguish Slayer, Roguish Umbral Stalker, " +
-            "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, " +
+            "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, Sorcerous Wild Magic, " +
             "Way of Discordance, Way of Shadow, Way of Storm Soul, Way of Weal and Woe, Way of Zen Archery, " +
             "Wizard Bladesinger, Wizard Deadmaster, Wizard War Magic, " +
             "Lighting and Obscurement, Variant Spell Rules, Level 20, Multiclass"),

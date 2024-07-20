@@ -975,6 +975,7 @@
                     <string>SorcerousPsion</string>
                     <string>SorcerousSorrAkkath</string>
                     <string>SorcerousSpellBlade</string>
+                    <string>SorcerousWildMagic</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -1747,7 +1748,6 @@
     <EnableDistanceOnTooltip>true</EnableDistanceOnTooltip>
     <HighContrastTargetingAoeSelectedColor>0</HighContrastTargetingAoeSelectedColor>
     <HighContrastTargetingSingleSelectedColor>0</HighContrastTargetingSingleSelectedColor>
-    <DisableAllCameraBounds>false</DisableAllCameraBounds>
     <EnableElevationCameraToStayAtPosition>true</EnableElevationCameraToStayAtPosition>
     <SetElevationCameraMaxHeightBy>12</SetElevationCameraMaxHeightBy>
     <FormationGridSelectedSet>0</FormationGridSelectedSet>

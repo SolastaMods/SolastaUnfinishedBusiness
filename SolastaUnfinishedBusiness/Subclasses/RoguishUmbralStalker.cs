@@ -255,8 +255,13 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     //
 
     private sealed class CustomBehaviorGloomBlade(
-        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage, IAllowRerollDiceOnAllDamageForms
+        FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage, IAllowRerollDice
     {
+        public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
+        {
+            return true;
+        }
+
         public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

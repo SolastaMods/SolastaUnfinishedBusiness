@@ -229,7 +229,8 @@ public static class RulesetImplementationManagerLocationPatcher
         {
             var source = formsParams.sourceCharacter;
 
-            __instance.TryFindSubstituteOfCharacter(source, out var characterMonster);
+            __instance.TryFindSubstituteOfCharacter(
+                formsParams.targetCharacter as RulesetCharacter, out var characterMonster);
 
             //BUGFIX: allow Druids to keep concentration on spells / powers with proxy summon forms
             //TODO: do I need to add them back to source?

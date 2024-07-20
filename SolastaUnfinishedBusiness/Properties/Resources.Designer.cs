@@ -3755,6 +3755,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] PowerTidesOfChaos {
+            get {
+                object obj = ResourceManager.GetObject("PowerTidesOfChaos", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] PowerTombOfFrost {
             get {
                 object obj = ResourceManager.GetObject("PowerTombOfFrost", resourceCulture);
@@ -4425,9 +4435,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] SorcererPsion {
+        public static byte[] SorcererFieldManipulator {
             get {
-                object obj = ResourceManager.GetObject("SorcererPsion", resourceCulture);
+                object obj = ResourceManager.GetObject("SorcererFieldManipulator", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -4435,9 +4445,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] SorcererFieldManipulator {
+        public static byte[] SorcererPsion {
             get {
-                object obj = ResourceManager.GetObject("SorcererFieldManipulator", resourceCulture);
+                object obj = ResourceManager.GetObject("SorcererPsion", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -4458,6 +4468,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] SorcererSpellBlade {
             get {
                 object obj = ResourceManager.GetObject("SorcererSpellBlade", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SorcererWildMagic {
+            get {
+                object obj = ResourceManager.GetObject("SorcererWildMagic", resourceCulture);
                 return ((byte[])(obj));
             }
         }
