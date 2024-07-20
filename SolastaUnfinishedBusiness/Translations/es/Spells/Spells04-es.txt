@@ -33,6 +33,7 @@ Condition/&ConditionVitriolicSphereDescription=Recibe 5d4 de daño por ácido al
 Condition/&ConditionVitriolicSphereTitle=Acidificado
 Feedback/&AdditionalDamageBeastForestGuardianFormat=¡Guardián de la Naturaleza!
 Feedback/&AdditionalDamageBeastForestGuardianLine={0} causa más daño a {1} como protector de lo salvaje (+{2})
+Feedback/&AdditionalDamageElementalBaneFormat=¡Perdición elemental!
 Feedback/&AdditionalDamageElementalBaneLine=¡Elemental Bane causa daño adicional!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=¡Golpe asombroso!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} inflige más daño a {1} mediante un golpe asombroso (+{2})

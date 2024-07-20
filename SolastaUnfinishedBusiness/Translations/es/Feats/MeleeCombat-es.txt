@@ -78,6 +78,7 @@ Feedback/&AdditionalDamageCrusherFormat=¡Trituradora!
 Feedback/&AdditionalDamageCrusherLine={0} aplasta a {1}
 Feedback/&AdditionalDamagePiercerFormat=¡Perforadores!
 Feedback/&AdditionalDamagePiercerLine={0} perfora críticamente {1}
+Feedback/&AdditionalDamageSpearMasteryFormat=¡Dominio de la lanza!
 Feedback/&AdditionalDamageSpearMasteryLine=¡{0} ha preparado su lanza e inflige {2} daño adicional a {1}!
 Reaction/&ReactionAttackOldTacticsDescription={0} se puso de pie. {1} puede usar una reacción para realizar un ataque con arma cuerpo a cuerpo contra él.
 Reaction/&ReactionAttackOldTacticsReactDescription=Usa tu reacción para atacar.

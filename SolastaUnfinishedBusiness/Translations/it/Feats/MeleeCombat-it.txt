@@ -78,6 +78,7 @@ Feedback/&AdditionalDamageCrusherFormat=Frantoio!
 Feedback/&AdditionalDamageCrusherLine={0} schiaccia {1}
 Feedback/&AdditionalDamagePiercerFormat=Piercer!
 Feedback/&AdditionalDamagePiercerLine={0} perfora in modo critico {1}
+Feedback/&AdditionalDamageSpearMasteryFormat=Maestria con la lancia!
 Feedback/&AdditionalDamageSpearMasteryLine={0} ha preparato la lancia e infligge {2} danni extra a {1}!
 Reaction/&ReactionAttackOldTacticsDescription={0} si è alzato. {1} può utilizzare una reazione per effettuare un attacco con arma da mischia contro di esso.
 Reaction/&ReactionAttackOldTacticsReactDescription=Usa la tua reazione per attaccare.

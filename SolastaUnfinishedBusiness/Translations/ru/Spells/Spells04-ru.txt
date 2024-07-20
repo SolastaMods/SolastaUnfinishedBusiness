@@ -33,6 +33,7 @@ Condition/&ConditionVitriolicSphereDescription=Получите урон кис�
 Condition/&ConditionVitriolicSphereTitle=Разъеден
 Feedback/&AdditionalDamageBeastForestGuardianFormat=Страж природы!
 Feedback/&AdditionalDamageBeastForestGuardianLine={0} наносит больше урона {1} как страж природы (+{2})
+Feedback/&AdditionalDamageElementalBaneFormat=Элементарное проклятие!
 Feedback/&AdditionalDamageElementalBaneLine=Проклятье стихий наносит дополнительный урон!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Оглушающая кара!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} наносит больше урона {1} с помощью оглушающей кары (+{2})

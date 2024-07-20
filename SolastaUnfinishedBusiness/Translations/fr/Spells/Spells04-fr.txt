@@ -33,6 +33,7 @@ Condition/&ConditionVitriolicSphereDescription=Subissez 5d4 dégâts d'acide à 
 Condition/&ConditionVitriolicSphereTitle=Acidifié
 Feedback/&AdditionalDamageBeastForestGuardianFormat=Gardien de la nature !
 Feedback/&AdditionalDamageBeastForestGuardianLine={0} inflige plus de dégâts à {1} en tant que protecteur de la nature (+{2})
+Feedback/&AdditionalDamageElementalBaneFormat=Fléau élémentaire !
 Feedback/&AdditionalDamageElementalBaneLine=Elemental Bane inflige dégâts supplémentaires !
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Châtiment stupéfiant !
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} inflige plus de dégâts à {1} grâce à un châtiment stupéfiant (+{2})

@@ -33,6 +33,7 @@ Condition/&ConditionVitriolicSphereDescription=Subisci 5d4 danni da acido alla f
 Condition/&ConditionVitriolicSphereTitle=Acidificato
 Feedback/&AdditionalDamageBeastForestGuardianFormat=Guardiano della Natura!
 Feedback/&AdditionalDamageBeastForestGuardianLine={0} infligge più danni a {1} come protettore della natura (+{2})
+Feedback/&AdditionalDamageElementalBaneFormat=Flagello Elementale!
 Feedback/&AdditionalDamageElementalBaneLine=Il Flagello Elementale infligge danni extra!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Punizione sconcertante!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} infligge più danni a {1} attraverso una punizione sconcertante (+{2})

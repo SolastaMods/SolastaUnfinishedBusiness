@@ -33,6 +33,7 @@ Condition/&ConditionVitriolicSphereDescription=ターン終了時に5d4の酸ダ
 Condition/&ConditionVitriolicSphereTitle=酸性化
 Feedback/&AdditionalDamageBeastForestGuardianFormat=自然の守護者！
 Feedback/&AdditionalDamageBeastForestGuardianLine={0} は野生の守護者として {1} にさらに多くのダメージを与えます (+{2})
+Feedback/&AdditionalDamageElementalBaneFormat=エレメンタルベイン！
 Feedback/&AdditionalDamageElementalBaneLine=エレメンタルベインは追加の ダメージを与えます。
 Feedback/&AdditionalDamageStaggeringSmiteFormat=驚異のスマイト！
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} は驚異的な打撃により {1} にさらに多くのダメージを与えます (+{2})

@@ -33,6 +33,7 @@ Condition/&ConditionVitriolicSphereDescription=在你的回合结束时受到 5d
 Condition/&ConditionVitriolicSphereTitle=酸化
 Feedback/&AdditionalDamageBeastForestGuardianFormat=自然守护者！
 Feedback/&AdditionalDamageBeastForestGuardianLine=由于自然守护者 (+{2})，{0} 对 {1} 造成更多伤害
+Feedback/&AdditionalDamageElementalBaneFormat=元素祸害！
 Feedback/&AdditionalDamageElementalBaneLine=元素灾厄造成额外伤害！
 Feedback/&AdditionalDamageStaggeringSmiteFormat=惊惧斩！
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} 通过惊惧斩对 {1} 造成更多伤害 (+{2})

@@ -33,6 +33,7 @@ Condition/&ConditionVitriolicSphereDescription=Receba 5d4 de dano ácido no fina
 Condition/&ConditionVitriolicSphereTitle=Acidificado
 Feedback/&AdditionalDamageBeastForestGuardianFormat=Guardião da Natureza!
 Feedback/&AdditionalDamageBeastForestGuardianLine={0} causa mais dano a {1} como protetor da natureza (+{2})
+Feedback/&AdditionalDamageElementalBaneFormat=Banimento Elemental!
 Feedback/&AdditionalDamageElementalBaneLine=Banimento Elemental causa dano extra!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Golpe impressionante!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} causa mais dano a {1} através de um golpe impressionante (+{2})

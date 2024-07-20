@@ -33,6 +33,7 @@ Condition/&ConditionVitriolicSphereDescription=Erleiden Sie am Ende Ihres Zuges 
 Condition/&ConditionVitriolicSphereTitle=Angesäuert
 Feedback/&AdditionalDamageBeastForestGuardianFormat=Hüter der Natur!
 Feedback/&AdditionalDamageBeastForestGuardianLine={0} fügt {1} als Beschützer der Wildnis mehr Schaden zu (+{2})
+Feedback/&AdditionalDamageElementalBaneFormat=Elementarer Fluch!
 Feedback/&AdditionalDamageElementalBaneLine=Elemental Bane verursacht zusätzlichen Schaden!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Atemberaubender Schlag!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} fügt {1} mehr Schaden durch einen atemberaubenden Schlag zu (+{2})

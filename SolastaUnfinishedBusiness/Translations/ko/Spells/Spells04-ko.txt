@@ -33,6 +33,7 @@ Condition/&ConditionVitriolicSphereDescription=당신의 턴이 끝날 때 5d4�
 Condition/&ConditionVitriolicSphereTitle=산성화됨
 Feedback/&AdditionalDamageBeastForestGuardianFormat=자연의 수호자!
 Feedback/&AdditionalDamageBeastForestGuardianLine={0}는 야생의 수호자로서 {1}에게 더 많은 피해를 입힙니다. (+{2})
+Feedback/&AdditionalDamageElementalBaneFormat=엘리멘탈 베인!
 Feedback/&AdditionalDamageElementalBaneLine=원소의 베인은 추가로 의 피해를 입힙니다!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=스태킹 스마이트!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0}는 엄청난 강타(+{2})를 통해 {1}에 더 많은 피해를 입힙니다.

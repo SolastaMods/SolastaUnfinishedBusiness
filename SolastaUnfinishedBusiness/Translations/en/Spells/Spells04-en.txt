@@ -33,6 +33,7 @@ Condition/&ConditionVitriolicSphereDescription=Take 5d4 acid damage at the end o
 Condition/&ConditionVitriolicSphereTitle=Acidified
 Feedback/&AdditionalDamageBeastForestGuardianFormat=Guardian of Nature!
 Feedback/&AdditionalDamageBeastForestGuardianLine={0} deals more damage to {1} as a protector of the wild (+{2})
+Feedback/&AdditionalDamageElementalBaneFormat=Elemental Bane!
 Feedback/&AdditionalDamageElementalBaneLine=Elemental Bane deals extra damage!
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Staggering Smite!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} deals more damage to {1} through a staggering smite (+{2})
