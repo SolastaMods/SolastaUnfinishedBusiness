@@ -252,9 +252,6 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition RangerMarksman { get; } =
             GetDefinition<CharacterSubclassDefinition>("RangerMarksman");
 
-        internal static CharacterSubclassDefinition RangerShadowTamer { get; } =
-            GetDefinition<CharacterSubclassDefinition>("RangerShadowTamer");
-
         internal static CharacterSubclassDefinition RangerSwiftBlade { get; } =
             GetDefinition<CharacterSubclassDefinition>("RangerSwiftBlade");
 
@@ -284,9 +281,6 @@ internal static partial class DatabaseHelper
 
         internal static CharacterSubclassDefinition TraditionFreedom { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionFreedom");
-
-        internal static CharacterSubclassDefinition TraditionShockArcanist { get; } =
-            GetDefinition<CharacterSubclassDefinition>("TraditionShockArcanist");
 
         internal static CharacterSubclassDefinition TraditionLight { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionLight");
@@ -2452,11 +2446,6 @@ internal static partial class DatabaseHelper
 
     internal static class FightingStyleDefinitions
     {
-        internal static FightingStyleDefinition Defense { get; } = GetDefinition<FightingStyleDefinition>("Defense");
-
-        internal static FightingStyleDefinition Protection { get; } =
-            GetDefinition<FightingStyleDefinition>("Protection");
-
         internal static FightingStyleDefinition TwoWeapon { get; } =
             GetDefinition<FightingStyleDefinition>("TwoWeapon");
     }
