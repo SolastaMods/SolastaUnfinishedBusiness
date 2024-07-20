@@ -243,17 +243,9 @@ public static class RulesetImplementationManagerPatcher
                     maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
             }
 
-            if (rulesetCharacter.HasSubFeatureOfType<IAllowRerollDiceOnAllDamageForms>())
-            {
-                canRerollDice = true;
-            }
-
-            var hero = rulesetCharacter.GetOriginalHero();
-
-            //TODO: make this a proper interface in case we need to support other use cases
-            if (hero != null &&
-                hero.TrainedFeats.Any(x => x.Name is "FeatPiercerDex" or "FeatPiercerStr") &&
-                damageForm.damageType is DamageTypePiercing)
+            if (rulesetCharacter
+                .GetSubFeaturesByType<IAllowRerollDice>()
+                .Any(x => x.IsValid(rulesetActor, damageForm)))
             {
                 canRerollDice = true;
             }

@@ -1654,10 +1654,10 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class CustomAdditionalDamageFeatPiercer(IAdditionalDamageProvider provider)
-        : CustomAdditionalDamage(provider), IValidateDieRollModifier
+        : CustomAdditionalDamage(provider), IValidateDieRollModifier, IAllowRerollDice
     {
-        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
-            List<string> damageTypes)
+        public bool CanModifyRoll(
+            RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypes)
         {
             return damageTypes.Contains(DamageTypePiercing);
         }
@@ -1681,6 +1681,11 @@ internal static class MeleeCombatFeats
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
             return criticalHit && damage is { DamageType: DamageTypePiercing };
+        }
+
+        public bool  IsValid(RulesetActor rulesetActor, DamageForm damageForm)
+        {
+            return damageForm.DamageType == DamageTypePiercing;
         }
     }
 
