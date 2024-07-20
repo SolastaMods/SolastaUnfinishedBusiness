@@ -231,9 +231,6 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition MartialSpellblade { get; } =
             GetDefinition<CharacterSubclassDefinition>("MartialSpellblade");
 
-        internal static CharacterSubclassDefinition PathBerserker { get; } =
-            GetDefinition<CharacterSubclassDefinition>("PathBerserker");
-
         internal static CharacterSubclassDefinition PathClaw { get; } =
             GetDefinition<CharacterSubclassDefinition>("PathClaw");
 

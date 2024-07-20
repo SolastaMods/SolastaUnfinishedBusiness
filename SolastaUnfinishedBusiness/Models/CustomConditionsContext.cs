@@ -487,8 +487,8 @@ internal static class CustomConditionsContext
                 var rulesetTarget = target.RulesetActor;
 
                 if (!rulesetTarget.TryGetConditionOfCategoryAndType(
-                        AttributeDefinitions.TagEffect, Taunted.Name, out var activeCondition) &&
-                    activeCondition.SourceGuid == actingCharacter.Guid)
+                        AttributeDefinitions.TagEffect, Taunted.Name, out var activeCondition) ||
+                    activeCondition.SourceGuid != actingCharacter.Guid)
                 {
                     continue;
                 }
