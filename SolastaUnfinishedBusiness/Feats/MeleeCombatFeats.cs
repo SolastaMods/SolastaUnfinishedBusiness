@@ -1226,8 +1226,13 @@ internal static class MeleeCombatFeats
 
     private static bool ValidateCleavingAttack(RulesetAttackMode attackMode, bool validateHeavy = false)
     {
+        if (attackMode?.SourceObject is not RulesetItem rulesetItem)
+        {
+            return false;
+        }
+
         // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
-        return ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
+        return ValidatorsWeapon.IsMelee(rulesetItem) &&
                (!validateHeavy ||
                 ValidatorsWeapon.HasAnyWeaponTag(
                     attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagHeavy));
@@ -1770,8 +1775,13 @@ internal static class MeleeCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
+            if (attackMode?.SourceObject is not RulesetItem rulesetItem)
+            {
+                return;
+            }
+
             // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
-            if (!ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem) &&
+            if (!ValidatorsWeapon.IsMelee(rulesetItem) &&
                 !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;

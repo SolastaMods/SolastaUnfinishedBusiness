@@ -1093,8 +1093,13 @@ public sealed class PathOfTheWildMagic : AbstractSubclass
         {
             public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
             {
+                if (attackMode?.SourceObject is not RulesetItem rulesetItem)
+                {
+                    return;
+                }
+
                 // don't use IsMelee(attackMode) in IModifyWeaponAttackMode as it will always fail
-                if (ValidatorsWeapon.IsMelee(attackMode.SourceObject as RulesetItem))
+                if (ValidatorsWeapon.IsMelee(rulesetItem))
                 {
                     attackMode.AddAttackTagAsNeeded(TagsDefinitions.WeaponTagThrown);
                     attackMode.thrown = true;

@@ -29,10 +29,20 @@ internal static class ValidatorsWeapon
     internal static IsWeaponValidHandler IsOfWeaponTypeWithoutAttackTag(
         string weaponTag, params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
-        return (attackMode, rulesetItem, _) => attackMode is not { SourceObject: RulesetItem sourceRulesetItem }
-                                               || attackMode.AttackTags.Contains(weaponTag)
-            ? IsWeaponType(rulesetItem, weaponTypeDefinitions)
-            : IsWeaponType(sourceRulesetItem, weaponTypeDefinitions);
+        return (mode, rulesetItem, _) =>
+        {
+            RulesetItem attackModeRulesetItem = null;
+
+            if (mode?.SourceObject is RulesetItem rulesetItem1)
+            {
+                attackModeRulesetItem = rulesetItem1;
+            }
+
+            var item = attackModeRulesetItem ?? rulesetItem;
+
+            return IsWeaponType(item, weaponTypeDefinitions) &&
+                   mode?.AttackTags.Contains(weaponTag) == false;
+        };
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -90,8 +100,17 @@ internal static class ValidatorsWeapon
         [CanBeNull] RulesetItem rulesetItem,
         [UsedImplicitly] RulesetCharacter rulesetCharacter)
     {
+        RulesetItem attackModeRulesetItem = null;
+        
+        if (attackMode?.SourceObject is RulesetItem rulesetItem1)
+        {
+            attackModeRulesetItem = rulesetItem1;
+        }
+        
+        var item = attackModeRulesetItem ?? rulesetItem;
+        
         // don't use IsMelee(attackMode) in here as these are used before an attack initiates
-        return IsMelee(attackMode?.SourceObject as RulesetItem ?? rulesetItem ?? rulesetCharacter?.GetMainWeapon());
+        return IsMelee(item ?? rulesetCharacter?.GetMainWeapon());
     }
 #pragma warning restore IDE0060
 
