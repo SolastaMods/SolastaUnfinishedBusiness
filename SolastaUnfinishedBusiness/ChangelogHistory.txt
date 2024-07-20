@@ -1,10 +1,11 @@
 1.5.97.21:
 
 - fixed Booming Blade cantrip not removing the additional damage condition after an attack
-- fixed Focused metamagic soft lock when not chosen on casting
-- fixed Roguish Opportunist seize the chance feature triggering behavior
+- fixed Chain Lightning second targets distance selection constraint to be 30ft from first
+- fixed Focused metamagic soft lock when not selected
+- fixed Roguish Opportunist seize the chance triggering behavior
 - fixed Shapechange spell interaction with shared metamagic
-- fixed Shared metamagic to always enforce target side ally when used
+- fixed Shared metamagic to always enforce ally side when selected
 
 KNOWN ISSUES:
 
