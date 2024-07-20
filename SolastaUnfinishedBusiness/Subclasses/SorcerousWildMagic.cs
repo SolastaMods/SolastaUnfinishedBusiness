@@ -64,7 +64,14 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .Create($"AbilityCheckAffinity{Name}TidesOfChaos")
             .SetGuiPresentation($"Power{Name}TidesOfChaos", Category.Feature, Gui.NoLocalization)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, abilityProficiencyPairs:
-                (AttributeDefinitions.Strength, string.Empty))
+            [
+                (AttributeDefinitions.Strength, string.Empty),
+                (AttributeDefinitions.Dexterity, string.Empty),
+                (AttributeDefinitions.Constitution, string.Empty),
+                (AttributeDefinitions.Intelligence, string.Empty),
+                (AttributeDefinitions.Wisdom, string.Empty),
+                (AttributeDefinitions.Charisma, string.Empty)
+            ])
             .AddToDB();
 
         var conditionTidesOfChaos = ConditionDefinitionBuilder
@@ -106,9 +113,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .SetShowCasting(false)
             .AddToDB();
 
-        powerBendLuck.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
-            new CustomBehaviorBendLuck(powerBendLuck));
+        powerBendLuck.AddCustomSubFeatures(ModifyPowerVisibility.Hidden, new CustomBehaviorBendLuck(powerBendLuck));
 
         // LEVEL 14
 
@@ -126,10 +131,12 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         for (var i = 1; i <= 20; i++)
         {
+            var prefix = $"Power{Name}D{i:D02}";
+            
             powers.Add(
                 FeatureDefinitionPowerSharedPoolBuilder
-                    .Create($"Power{Name}{i:D02}Reaction")
-                    .SetGuiPresentation($"Power{Name}D{i:D02}", Category.Feature, hidden: true)
+                    .Create(prefix + "Reaction")
+                    .SetGuiPresentation(prefix, Category.Feature, hidden: true)
                     .SetSharedPool(ActivationTime.NoCost, powerControlledChaos)
                     .AddToDB());
         }
@@ -167,6 +174,24 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    internal static void HandleSpellBombardment(
+        RulesetCharacter rulesetCharacter, DamageForm damageForm, List<int> rolledValues, ref int damage)
+    {
+        var dieType = damageForm.DieType;
+        var maxDie = DiceMaxValue[(int)dieType];
+
+        if (!rolledValues.Contains(maxDie))
+        {
+            return;
+        }
+
+        rulesetCharacter.LogCharacterActivatesAbility($"Feature{Name}SpellBombardment");
+        var roll = RollDie(dieType, AdvantageType.None, out _, out _);
+
+        rolledValues.Add(roll);
+        damage += roll;
+    }
 
     private sealed class CustomBehaviorWildMagicSurge(
         FeatureDefinition featureWildSurge,
@@ -301,7 +326,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     //
     // Bend Luck
     //
-    
+
     private sealed class CustomBehaviorBendLuck(FeatureDefinitionPower powerBendLuck)
         : ITryAlterOutcomeAttack, ITryAlterOutcomeAttributeCheck, ITryAlterOutcomeSavingThrow
     {

@@ -69,17 +69,18 @@ public static class RulesetImplementationManagerPatcher
             List<int> rolledValues,
             bool canRerollDice)
         {
-            var diceType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
+            var dieType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
             var diceMaxValue = DiceMaxValue[(int)damageForm.dieType];
 
-            if (damageForm.OverrideWithBardicInspirationDie && rulesetActor is RulesetCharacterHero hero &&
+            if (damageForm.OverrideWithBardicInspirationDie &&
+                rulesetActor is RulesetCharacterHero hero &&
                 hero.GetBardicInspirationDieValue() != DieType.D1)
             {
-                diceType = hero.GetBardicInspirationDieValue();
+                dieType = hero.GetBardicInspirationDieValue();
             }
 
             var totalDamage = rulesetActor.RollDiceAndSum(
-                diceType,
+                dieType,
                 attackModeDamage
                     ? RollContext.AttackDamageValueRoll
                     : RollContext.MagicDamageValueRoll,
@@ -90,9 +91,9 @@ public static class RulesetImplementationManagerPatcher
             totalDamage += rolledValues.Count * diceMaxValue;
             rolledValues.AddRange(Enumerable.Repeat(diceMaxValue, rolledValues.Count));
 
-            return Mathf.FloorToInt(damageMultiplier *
-                                    (Mathf.Clamp(totalDamage + damageForm.BonusDamage - damageRollReduction, 0,
-                                        int.MaxValue) + additionalDamage));
+            var finalDamage = Mathf.Clamp(totalDamage + damageForm.BonusDamage - damageRollReduction, 0, int.MaxValue);
+
+            return Mathf.FloorToInt(damageMultiplier * (finalDamage + additionalDamage));
         }
 
         private static int RollDiceKeepRollingMaxAndSum(
@@ -200,7 +201,7 @@ public static class RulesetImplementationManagerPatcher
                 rolledValues, canRerollDice, maximumDamage);
 
             // duplicates the rolled dices
-            rolledValues.AddRange(rolledValues.ToList());
+            rolledValues.AddRange([.. rolledValues]);
 
             // doubles the rolled damage
             damageForm.bonusDamage *= 2;
@@ -258,8 +259,12 @@ public static class RulesetImplementationManagerPatcher
                     damageForm, addDice, false, additionalDamage, damageRollReduction, damageMultiplier,
                     maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
 
+
+                //PATCH: supports Sorcerous Wild Magic spell bombardment
+                SorcerousWildMagic.HandleSpellBombardment(rulesetCharacter, damageForm, rolledValues, ref damage);
+
                 //PATCH: supports College of Audacity defensive whirl
-                CollegeOfAudacity.HandleDefensiveWhirl(formsParams.sourceCharacter, damageForm, damage);
+                CollegeOfAudacity.HandleDefensiveWhirl(rulesetCharacter, damageForm, damage);
 
                 return damage;
             }
@@ -297,8 +302,11 @@ public static class RulesetImplementationManagerPatcher
                     useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
             };
 
+            //PATCH: supports Sorcerous Wild Magic spell bombardment
+            SorcerousWildMagic.HandleSpellBombardment(rulesetCharacter, damageForm, rolledValues, ref damage);
+
             //PATCH: supports College of Audacity defensive whirl
-            CollegeOfAudacity.HandleDefensiveWhirl(formsParams.sourceCharacter, damageForm, damage);
+            CollegeOfAudacity.HandleDefensiveWhirl(rulesetCharacter, damageForm, damage);
 
             return damage;
         }
