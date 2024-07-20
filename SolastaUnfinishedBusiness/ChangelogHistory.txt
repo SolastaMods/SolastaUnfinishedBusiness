@@ -1,3 +1,8 @@
+1.5.97.23:
+
+- fixed features interaction with non weapon attack modes causing a soft lock
+- fixed Sorcerous Wild Magic spell bombardment bleeding into other heroes
+
 1.5.97.22:
 
 - fixed invalid condition checks leading to a soft lock on Master Duelist, Quivering Palm, and Taunter
