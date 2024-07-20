@@ -23,21 +23,27 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 {
     private const string Name = "SorcerousWildMagic";
 
+    private static readonly FeatureDefinition FeatureSpellBombardment = FeatureDefinitionBuilder
+        .Create($"Feature{Name}SpellBombardment")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
     public SorcerousWildMagic()
     {
         // LEVEL 01
 
         // Wild Magic Surge
 
+        var featureWildMagicSurge = FeatureDefinitionBuilder
+            .Create($"Feature{Name}WildMagicSurge")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         var conditionChaos = ConditionDefinitionBuilder
             .Create($"Condition{Name}Chaos")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConjuredCreature)
             .SetConditionType(ConditionType.Neutral)
-            .AddToDB();
-
-        var featureWildMagicSurge = FeatureDefinitionBuilder
-            .Create($"Feature{Name}WildMagicSurge")
-            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(new CharacterTurnStartListenerChaos(featureWildMagicSurge))
             .AddToDB();
 
         // Tides of Chaos
@@ -132,7 +138,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         for (var i = 1; i <= 20; i++)
         {
             var prefix = $"Power{Name}D{i:D02}";
-            
+
             powers.Add(
                 FeatureDefinitionPowerSharedPoolBuilder
                     .Create(prefix + "Reaction")
@@ -150,10 +156,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         // Spell Bombardment
 
-        var featureSpellBombardment = FeatureDefinitionBuilder
-            .Create($"Feature{Name}SpellBombardment")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
+        // Main
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -161,7 +164,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .AddFeaturesAtLevel(1, featureWildMagicSurge, powerTidesOfChaos)
             .AddFeaturesAtLevel(6, powerBendLuck)
             .AddFeaturesAtLevel(14, powerControlledChaos)
-            .AddFeaturesAtLevel(18, featureSpellBombardment)
+            .AddFeaturesAtLevel(18, FeatureSpellBombardment)
             .AddToDB();
     }
 
@@ -178,20 +181,55 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     internal static void HandleSpellBombardment(
         RulesetCharacter rulesetCharacter, DamageForm damageForm, List<int> rolledValues, ref int damage)
     {
+        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
         var dieType = damageForm.DieType;
         var maxDie = DiceMaxValue[(int)dieType];
+        var tag = FeatureSpellBombardment.Name;
 
-        if (!rolledValues.Contains(maxDie))
+        if (!rolledValues.Contains(maxDie) ||
+            !character.OncePerTurnIsValid(tag))
         {
             return;
         }
 
-        rulesetCharacter.LogCharacterActivatesAbility($"Feature{Name}SpellBombardment");
+        character.UsedSpecialFeatures.TryAdd(tag, 0);
+        rulesetCharacter.LogCharacterUsedFeature(FeatureSpellBombardment);
+
         var roll = RollDie(dieType, AdvantageType.None, out _, out _);
 
         rolledValues.Add(roll);
         damage += roll;
     }
+
+    //
+    // Chaos
+    //
+
+    private sealed class CharacterTurnStartListenerChaos(
+        FeatureDefinition featureWildSurge)
+        : ICharacterTurnStartListener
+    {
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            var wildSurgeDie = 1;
+
+            while (wildSurgeDie == 1)
+            {
+                wildSurgeDie = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+            }
+
+            rulesetCharacter.ShowDieRoll(DieType.D20, wildSurgeDie, title: featureWildSurge.GuiPresentation.Title);
+            rulesetCharacter.LogCharacterActivatesAbility(
+                featureWildSurge.GuiPresentation.Title,
+                "Feedback/&WidSurgeDieRoll",
+                extra: [(ConsoleStyleDuplet.ParameterType.Positive, wildSurgeDie.ToString())]);
+        }
+    }
+
+    //
+    // Wild Magic Surge
+    //
 
     private sealed class CustomBehaviorWildMagicSurge(
         FeatureDefinition featureWildSurge,
@@ -237,7 +275,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 var wildSurgeDie1 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
                 var wildSurgeDie2 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
 
-                rulesetAttacker.ShowDieRoll(DieType.D20, chanceDie, title: featureWildSurge.GuiPresentation.Title);
+                rulesetAttacker.ShowDieRoll(DieType.D20, wildSurgeDie1, title: featureWildSurge.GuiPresentation.Title);
+                rulesetAttacker.ShowDieRoll(DieType.D20, wildSurgeDie2, title: featureWildSurge.GuiPresentation.Title);
                 rulesetAttacker.LogCharacterActivatesAbility(
                     featureWildSurge.GuiPresentation.Title,
                     "Feedback/&ControlledChaosDieRoll",
@@ -253,7 +292,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             {
                 var wildSurgeDie = RollDie(DieType.D20, AdvantageType.None, out _, out _);
 
-                rulesetAttacker.ShowDieRoll(DieType.D20, chanceDie, title: featureWildSurge.GuiPresentation.Title);
+                rulesetAttacker.ShowDieRoll(DieType.D20, wildSurgeDie, title: featureWildSurge.GuiPresentation.Title);
                 rulesetAttacker.LogCharacterActivatesAbility(
                     featureWildSurge.GuiPresentation.Title,
                     "Feedback/&WidSurgeDieRoll",
@@ -263,9 +302,29 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             }
 
             //TODO: implement wild surge powers
-            if (_selectedPower)
+            if (!_selectedPower)
             {
-                rulesetAttacker.LogCharacterUsedPower(_selectedPower);
+                yield break;
+            }
+
+            rulesetAttacker.LogCharacterUsedPower(_selectedPower);
+
+            //TODO: remove after implementing powers
+            if (_selectedPower == powers[0])
+            {
+                rulesetAttacker.InflictCondition(
+                    conditionChaos.Name,
+                    DurationType.Minute,
+                    1,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionChaos.Name,
+                    0,
+                    0,
+                    0);
             }
         }
 
