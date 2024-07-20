@@ -412,7 +412,7 @@ internal static class ClassFeats
             var actionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!actionManager )
+            if (!actionManager)
             {
                 yield break;
             }

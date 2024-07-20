@@ -257,6 +257,11 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     private sealed class CustomBehaviorGloomBlade(
         FeatureDefinitionAdditionalDamage additionalDamage) : IModifyAdditionalDamage, IAllowRerollDice
     {
+        public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
+        {
+            return true;
+        }
+
         public void ModifyAdditionalDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -279,11 +284,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             ClassFeats.HandleCloseQuarters(
                 attacker, rulesetHero, defender, ref damageForm, "Feedback/&ChangeGloombladeDieType");
-        }
-
-        public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
-        {
-            return true;
         }
     }
 

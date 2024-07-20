@@ -397,7 +397,7 @@ public static class CharacterActionMagicEffectPatcher
             {
                 actingCharacter.UsedSpecialFeatures.TryAdd("LevelledSpell", 0);
             }
-            
+
             //PATCH: skip spell animation if this is an AttackAfterMagicEffect spell
             if (baseDefinition.HasSubFeatureOfType<AttackAfterMagicEffect>())
             {

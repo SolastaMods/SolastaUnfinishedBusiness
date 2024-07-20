@@ -1656,6 +1656,11 @@ internal static class MeleeCombatFeats
     private sealed class CustomAdditionalDamageFeatPiercer(IAdditionalDamageProvider provider)
         : CustomAdditionalDamage(provider), IValidateDieRollModifier, IAllowRerollDice
     {
+        public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
+        {
+            return damageForm.DamageType == DamageTypePiercing;
+        }
+
         public bool CanModifyRoll(
             RulesetCharacter character, List<FeatureDefinition> features, List<string> damageTypes)
         {
@@ -1681,11 +1686,6 @@ internal static class MeleeCombatFeats
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
             return criticalHit && damage is { DamageType: DamageTypePiercing };
-        }
-
-        public bool  IsValid(RulesetActor rulesetActor, DamageForm damageForm)
-        {
-            return damageForm.DamageType == DamageTypePiercing;
         }
     }
 

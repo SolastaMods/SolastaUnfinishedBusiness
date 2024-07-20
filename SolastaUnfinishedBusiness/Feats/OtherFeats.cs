@@ -1555,11 +1555,11 @@ internal static class OtherFeats
     {
         GroupFeats.FeatGroupFightingStyle.AddFeats(
             DatabaseRepository
-            .GetDatabase<FightingStyleDefinition>()
-            .Where(x => !FightingStyleContext.DemotedFightingStyles.Contains(x.Name))
-            .Select(BuildFightingStyleFeat)
-            .OfType<FeatDefinition>()
-            .ToArray());
+                .GetDatabase<FightingStyleDefinition>()
+                .Where(x => !FightingStyleContext.DemotedFightingStyles.Contains(x.Name))
+                .Select(BuildFightingStyleFeat)
+                .OfType<FeatDefinition>()
+                .ToArray());
 
         return GroupFeats.FeatGroupFightingStyle;
     }
