@@ -1,11 +1,12 @@
 1.5.97.21:
 
-- fixed Booming Blade cantrip not removing the additional damage condition after an attack
-- fixed Chain Lightning second targets distance selection constraint to be 30ft from first
-- fixed Focused metamagic soft lock when not selected
+- added new subclass sprites to ones still leveraging duplicates
+- fixed Booming Blade cantrip not removing the additional damage after an attack
+- fixed Chain Lightning second targets distance validation to be 30ft from first
+- fixed Focused metamagic to prevent a soft lock when not used
 - fixed Roguish Opportunist seize the chance triggering behavior
 - fixed Shapechange spell interaction with shared metamagic
-- fixed Shared metamagic to always enforce ally side when selected
+- fixed Shared metamagic to enforce ally side when used
 
 KNOWN ISSUES:
 
