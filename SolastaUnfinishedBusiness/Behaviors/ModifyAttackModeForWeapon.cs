@@ -219,11 +219,11 @@ internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
         RulesetAttackMode attackMode)
     {
         var effectDescription = attackMode.EffectDescription;
-        var damage = effectDescription?.FindFirstDamageForm();
+        var damage = effectDescription.FindFirstDamageForm();
 
-        // below was interacting in a bad way with TWF and Spear Mastery so added an attack tag to polearm bonus only
-        // || attackMode.actionType != ActionDefinitions.ActionType.Main)
-        if (damage == null || attackMode.AttackTags.Contains("Polearm"))
+        // don't upgrade die if a polearm followup attack
+        if (damage == null ||
+            attackMode.AttackTags.Contains(AddPolearmFollowUpAttack.PolearmFollowUpAttack))
         {
             return;
         }

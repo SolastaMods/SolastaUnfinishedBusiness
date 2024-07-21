@@ -26,26 +26,6 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static IsWeaponValidHandler IsOfWeaponTypeWithoutAttackTag(
-        string weaponTag, params WeaponTypeDefinition[] weaponTypeDefinitions)
-    {
-        return (mode, rulesetItem, _) =>
-        {
-            RulesetItem attackModeRulesetItem = null;
-
-            if (mode?.SourceObject is RulesetItem rulesetItem1)
-            {
-                attackModeRulesetItem = rulesetItem1;
-            }
-
-            var item = attackModeRulesetItem ?? rulesetItem;
-
-            return IsWeaponType(item, weaponTypeDefinitions) &&
-                   mode?.AttackTags.Contains(weaponTag) == false;
-        };
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsWeaponValidHandler IsOfWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
         return (attackMode, rulesetItem, _) =>
@@ -101,14 +81,14 @@ internal static class ValidatorsWeapon
         [UsedImplicitly] RulesetCharacter rulesetCharacter)
     {
         RulesetItem attackModeRulesetItem = null;
-        
+
         if (attackMode?.SourceObject is RulesetItem rulesetItem1)
         {
             attackModeRulesetItem = rulesetItem1;
         }
-        
+
         var item = attackModeRulesetItem ?? rulesetItem;
-        
+
         // don't use IsMelee(attackMode) in here as these are used before an attack initiates
         return IsMelee(item ?? rulesetCharacter?.GetMainWeapon());
     }
