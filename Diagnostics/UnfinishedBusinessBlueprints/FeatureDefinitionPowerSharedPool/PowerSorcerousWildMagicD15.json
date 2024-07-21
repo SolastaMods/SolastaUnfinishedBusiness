@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -139,7 +139,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -174,9 +174,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerSorcerousWildMagicTidesOfChaosTitle",
-    "description": "Feature/&PowerSorcerousWildMagicTidesOfChaosDescription",
+    "hidden": true,
+    "title": "Feature/&PowerSorcerousWildMagicD15Title",
+    "description": "Feature/&PowerSorcerousWildMagicD15Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -196,7 +196,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "29ddc002-275b-5b82-bde7-d5f7315e0856",
+  "guid": "4ff0bfd1-6f29-5789-9e28-001c0543ae6d",
   "contentPack": 9999,
-  "name": "PowerSorcerousWildMagicTidesOfChaos"
+  "name": "PowerSorcerousWildMagicD15"
 }
