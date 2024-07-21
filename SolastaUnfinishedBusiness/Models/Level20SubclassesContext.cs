@@ -1124,31 +1124,17 @@ internal static class Level20SubclassesContext
                 FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement,
                 FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging,
                 DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
                 DamageAffinityLightningResistance,
                 DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
                 DamageAffinityPoisonResistance,
                 DamageAffinityPsychicResistance,
-                DamageAffinityThunderResistance,
-                FeatureDefinitionDamageAffinityBuilder
-                    .Create("DamageAffinityRoguishShadowcasterShadowFormResistanceBludgeoning")
-                    .SetGuiPresentationNoContent(true)
-                    .SetDamageType(DamageTypeBludgeoning)
-                    .SetDamageAffinityType(DamageAffinityType.Resistance)
-                    .AddToDB(),
-                FeatureDefinitionDamageAffinityBuilder
-                    .Create("DamageAffinityRoguishShadowcasterShadowFormResistancePiercing")
-                    .SetGuiPresentationNoContent(true)
-                    .SetDamageType(DamageTypePiercing)
-                    .SetDamageAffinityType(DamageAffinityType.Resistance)
-                    .AddToDB(),
-                FeatureDefinitionDamageAffinityBuilder
-                    .Create("DamageAffinityRoguishShadowcasterShadowFormResistanceSlashing")
-                    .SetGuiPresentationNoContent(true)
-                    .SetDamageType(DamageTypeSlashing)
-                    .SetDamageAffinityType(DamageAffinityType.Resistance)
-                    .AddToDB())
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
             .AddToDB();
 
         var powerRoguishShadowcasterShadowForm = FeatureDefinitionPowerBuilder
