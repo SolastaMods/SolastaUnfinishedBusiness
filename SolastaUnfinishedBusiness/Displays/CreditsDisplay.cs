@@ -2,6 +2,7 @@
 using System.IO;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityExplorer;
 #if DEBUG
 using static SolastaUnfinishedBusiness.Displays.PatchesDisplay;
@@ -122,6 +123,21 @@ internal static class CreditsDisplay
 
     internal static void DisplayCredits()
     {
+        UI.Label();
+
+        var toggle = SorcerousWildMagic.ForceWildSurge;
+        if (UI.Toggle("Force Wild Surge to always trigger", ref toggle))
+        {
+            SorcerousWildMagic.ForceWildSurge = toggle;
+        }
+
+        var intValue = SorcerousWildMagic.ForceWildSurgeRoll;
+        if (UI.Slider("Force first Wild Surge row to".White(), ref intValue, 0, 20,
+                1, "%", UI.AutoWidth()))
+        {
+            SorcerousWildMagic.ForceWildSurgeRoll = intValue;
+        }
+
         UI.Label();
 
         if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
