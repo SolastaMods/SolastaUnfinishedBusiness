@@ -80,14 +80,14 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .AddToDB();
-    
+
     private static readonly ConditionDefinition ConditionNoConcentration = ConditionDefinitionBuilder
         .Create($"Condition{Name}NoConcentration")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .AddCustomSubFeatures(new ModifyConcentrationRequirementWildSurge())
         .AddToDB();
-    
+
     private static readonly ConditionDefinition ConditionChaos = ConditionDefinitionBuilder
         .Create($"Condition{Name}Chaos")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConjuredCreature)
@@ -494,6 +494,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             if (rulesetAttacker.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionForce.Name,
                     out var activeConditionSource))
             {
+                rulesetAttacker.LogCharacterActivatesAbility(
+                    FeatureTidesOfChaos.GuiPresentation.Title, "Feedback/&TidesOfChaosForcedSurge");
                 rulesetAttacker.RemoveCondition(activeConditionSource);
                 shouldRollWildSurge = true;
             }
@@ -548,7 +550,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
 
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
-                helper != defender ||
+                helper != attacker ||
                 rulesetHelper.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionMark.Name))
             {
                 yield break;
@@ -563,6 +565,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     new(1, FeatureSourceType.CharacterFeature, FeatureTidesOfChaos.Name, FeatureTidesOfChaos)
                 };
 
+            actionModifier.AttackAdvantageTrends.SetRange(advantageTrends);
+
             // testMode true avoids the roll to display on combat log as the original one will get there with altered results
             var roll = rulesetHelper.RollAttack(
                 attackMode.toHitBonus,
@@ -570,7 +574,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 attackMode.sourceDefinition,
                 actionModifier.attackToHitTrends,
                 false,
-                advantageTrends,
+                actionModifier.AttackAdvantageTrends,
                 attackMode.ranged,
                 false,
                 actionModifier.attackRollModifier,
@@ -583,8 +587,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;
 
-            InflictConditionOnCreaturesWithinRange(attacker, ConditionForce.Name, DurationType.UntilLongRest, 0,
-                TurnOccurenceType.EndOfTurn);
+            InflictConditionOnCreaturesWithinRange(attacker, ConditionForce.Name, DurationType.UntilLongRest);
         }
 
         public IEnumerator OnTryAlterOutcomeSavingThrow(
@@ -600,6 +603,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
 
             if (helper != defender ||
+                !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 rulesetHelper.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionMark.Name))
             {
@@ -633,8 +637,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             action.SaveOutcome = saveOutcome;
             action.SaveOutcomeDelta = saveOutcomeDelta;
 
-            InflictConditionOnCreaturesWithinRange(attacker, ConditionForce.Name, DurationType.UntilLongRest, 0,
-                TurnOccurenceType.EndOfTurn);
+            InflictConditionOnCreaturesWithinRange(attacker, ConditionForce.Name, DurationType.UntilLongRest);
         }
     }
 
@@ -1008,8 +1011,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         {
             // trigger a random Wild Surge effect (except this one) at the start of each of your turns for the next minute
             case 1:
-                InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionChaos.Name, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn);
+                InflictConditionOnCreaturesWithinRange(caster, ConditionChaos.Name, DurationType.Minute);
                 break;
 
             // you cast Fireball centered on self
@@ -1033,20 +1035,17 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // You can teleport up to 60 feet to an unoccupied space of your choice that you can see as a free action before your turn ends
             case 5:
-                InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionTeleport.Name, DurationType.Round, 0, TurnOccurenceType.EndOfTurn);
+                InflictConditionOnCreaturesWithinRange(caster, ConditionTeleport.Name, DurationType.Round, 0);
                 break;
 
             // you become frightened until the end of your next turn
             case 6:
-                InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionFrightened, DurationType.Round, 1, TurnOccurenceType.EndOfTurn);
+                InflictConditionOnCreaturesWithinRange(caster, ConditionFrightened, DurationType.Round);
                 break;
 
             // you cast invisibility on self
             case 7:
-                InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionInvisible, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn);
+                InflictConditionOnCreaturesWithinRange(caster, ConditionInvisible, DurationType.Minute);
                 break;
 
             // a random creature within 60 feet of you becomes poisoned for 1 hour
@@ -1061,14 +1060,12 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 var slotLevel = (levels + 3) / 4;
 
                 InflictConditionOnCreaturesWithinRange(
-                    caster, $"ConditionAdditionalSpellSlot{slotLevel}", DurationType.UntilLongRest, 0,
-                    TurnOccurenceType.EndOfTurn);
+                    caster, $"ConditionAdditionalSpellSlot{slotLevel}", DurationType.UntilLongRest);
                 break;
 
             // maximize the damage of the next damaging spell you cast within the next minute
             case 10:
-                InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionMaxDamageRolls.Name, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn);
+                InflictConditionOnCreaturesWithinRange(caster, ConditionMaxDamageRolls.Name, DurationType.Minute);
                 break;
 
             // A random creature within 60 feet of you can fly for a minute
@@ -1084,9 +1081,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you cast mirror image on self
             case 13:
-                InflictConditionOnCreaturesWithinRange(
-                    caster, SpellBuilders.ConditionMirrorImageMark.Name, DurationType.Minute, 1,
-                    TurnOccurenceType.EndOfTurn);
+                InflictConditionOnCreaturesWithinRange(caster, SpellBuilders.ConditionMirrorImageMark.Name, DurationType.Minute);
                 break;
 
             case 14:
@@ -1113,13 +1108,13 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             // you gain resistance to all damage for the next minute
             case 18:
                 InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionDamageResistance.Name, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn);
+                    caster, ConditionDamageResistance.Name, DurationType.Minute, 1);
                 break;
 
             // up to three creatures you choose within 30 feet of you take 4d10 lightning damage as a free action before your turn ends
             case 19:
                 InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionLightningStrike.Name, DurationType.Round, 0, TurnOccurenceType.EndOfTurn);
+                    caster, ConditionLightningStrike.Name, DurationType.Round, 0);
                 break;
 
             // you gain all expended sorcery points
@@ -1171,9 +1166,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         GameLocationCharacter caster,
         string conditionName,
         DurationType durationType,
-        int durationParameter,
-        TurnOccurenceType turnOccurenceType,
-        int range = 0)
+        int durationParameter = 1,
+        TurnOccurenceType turnOccurenceType = TurnOccurenceType.EndOfTurn,
+        int range = 0,
+        bool includeCaster = true)
     {
         var rulesetCaster = caster.RulesetCharacter;
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
@@ -1181,7 +1177,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             Gui.Battle?.AllContenders ??
             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
         var targets = contenders
-            .Where(x => x.IsWithinRange(caster, range) && x != caster)
+            .Where(x => x.IsWithinRange(caster, range) && (includeCaster || x != caster))
             .ToList();
 
         foreach (var rulesetTarget in targets.Select(target => target.RulesetCharacter))

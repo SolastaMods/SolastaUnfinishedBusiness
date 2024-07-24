@@ -65,6 +65,7 @@ Feedback/&ControlledChaosDieChoice={0} выбирает {2} на {1} и акти
 Feedback/&ControlledChaosDieRoll={0} выбрасывает {2} и {3} на кости {1}
 Feedback/&TidesOfChaosAttackDieRoll={0} проваливает бросок атаки и использует {1} для переброса с преимуществом.
 Feedback/&TidesOfChaosCheckDieRoll={0} не проходит проверку и использует {1} для повторного броска с преимуществом.
+Feedback/&TidesOfChaosForcedSurge={1} заставляет {0} автоматически выполнять бросок по таблице резких скачков напряжения.
 Feedback/&TidesOfChaosSavingDieRoll={0} проваливает спасбросок и использует {1} для переброса с преимуществом
 Feedback/&WidSurgeChanceDieRoll={0} выбрасывает {2} на кости вероятности {1}
 Feedback/&WidSurgeDieRoll={0} выбрасывает {2} на кости {1} и активирует {3}
