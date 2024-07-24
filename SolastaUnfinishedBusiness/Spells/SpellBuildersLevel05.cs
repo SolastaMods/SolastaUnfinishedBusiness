@@ -118,12 +118,26 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDazzled)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .SetParentCondition(ConditionDazzled)
             .SetFeatures(
-                FeatureDefinitionMovementAffinityBuilder
-                    .Create($"MovementAffinity{NAME}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetBaseSpeedMultiplicativeModifier(0.5f)
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+                    .SetMyAttackModifierSign(AttackModifierSign.Substract)
+                    .SetMyAttackModifierDieType(DieType.D6)
+                    .AddToDB(),
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create($"AbilityCheckAffinity{NAME}")
+                    .SetGuiPresentation($"Condition{NAME}", Category.Condition, Gui.NoLocalization)
+                    .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.None, DieType.D6, 1,
+                        AbilityCheckGroupOperation.SubstractDie,
+                        [
+                            (AttributeDefinitions.Strength, string.Empty),
+                            (AttributeDefinitions.Dexterity, string.Empty),
+                            (AttributeDefinitions.Constitution, string.Empty),
+                            (AttributeDefinitions.Intelligence, string.Empty),
+                            (AttributeDefinitions.Wisdom, string.Empty),
+                            (AttributeDefinitions.Charisma, string.Empty)
+                        ])
                     .AddToDB())
             .SetConditionParticleReference(ConditionFeebleMinded)
             .AddToDB();

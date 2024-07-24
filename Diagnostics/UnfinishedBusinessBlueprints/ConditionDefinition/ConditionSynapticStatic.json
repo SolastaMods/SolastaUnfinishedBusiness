@@ -1,10 +1,11 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionDazzled:6e97e1a13de7570488ea71e2ae203d09",
+  "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:MovementAffinitySynapticStatic:5b14fc13-33ac-537e-a73c-93cc56434f35"
+    "Definition:AbilityCheckAffinitySynapticStatic:999b7c02-c882-58c6-a529-7e9011466ef4",
+    "Definition:CombatAffinitySynapticStatic:b0cbe05c-172e-5879-aaef-ed22a25801be"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
