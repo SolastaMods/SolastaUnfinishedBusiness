@@ -113,6 +113,21 @@ internal static partial class SpellBuilders
     {
         const string NAME = "SynapticStatic";
 
+        var conditionMuddled = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDazzled)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetParentCondition(ConditionDazzled)
+            .SetFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create($"MovementAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetBaseSpeedMultiplicativeModifier(0.5f)
+                    .AddToDB())
+            .SetConditionParticleReference(ConditionFeebleMinded)
+            .AddToDB();
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SynapticStatic, 128))
@@ -139,7 +154,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                            .SetConditionForm(ConditionMuddled, ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionMuddled, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(Feeblemind)
                     .SetImpactEffectParameters(PowerSorakDreadLaughter)

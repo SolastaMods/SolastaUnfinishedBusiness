@@ -125,8 +125,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPsionicBlast",
-          "conditionDefinition": "Definition:ConditionPsionicBlast:cb0c1036-6f3f-592c-b467-a4c6d4725038",
+          "conditionDefinitionName": "ConditionSynapticStatic",
+          "conditionDefinition": "Definition:ConditionSynapticStatic:0e14b879-1475-52c8-843b-429d5ee6bc8a",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
