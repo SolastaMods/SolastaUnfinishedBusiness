@@ -1590,6 +1590,7 @@ internal static partial class SpellBuilders
                 .SetGuiPresentationNoContent(true)
                 .SetBaseSpeedMultiplicativeModifier(0.5f)
                 .AddToDB())
+        .SetConditionParticleReference(ConditionFeebleMinded)
         .AddToDB();
 
     internal static SpellDefinition BuildPsionicBlast()
