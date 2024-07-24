@@ -239,12 +239,6 @@ public sealed class CircleOfTheLife : AbstractSubclass
                 var harmoniousBloomBonus = levels >= 14 ? 1 : 0;
 
                 rulesetCharacter.ReceiveHealing(effectLevel + harmoniousBloomBonus, true, caster.Guid);
-
-                // have to manually handle condition removal as vanilla is a bit odd depending on initiative order 
-                // if (rulesetCondition.RemainingRounds == 0)
-                // {
-                //     rulesetCharacter.RemoveCondition(rulesetCondition);
-                // }
             }
         }
     }
@@ -268,11 +262,8 @@ public sealed class CircleOfTheLife : AbstractSubclass
         ConditionDefinition conditionVerdancy,
         ConditionDefinition conditionVerdancy14) : IModifyEffectDescription
     {
-        private readonly EffectForm _verdancy = EffectFormBuilder
-            .ConditionForm(conditionVerdancy, ConditionForm.ConditionOperation.Add, true, true);
-
-        private readonly EffectForm _verdancy14 = EffectFormBuilder
-            .ConditionForm(conditionVerdancy14, ConditionForm.ConditionOperation.Add, true, true);
+        private readonly EffectForm _verdancy = EffectFormBuilder.ConditionForm(conditionVerdancy);
+        private readonly EffectForm _verdancy14 = EffectFormBuilder.ConditionForm(conditionVerdancy14);
 
         public bool IsValid(
             BaseDefinition definition,
@@ -324,12 +315,6 @@ public sealed class CircleOfTheLife : AbstractSubclass
             var pb = caster.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             rulesetCharacter.ReceiveHealing(pb, true, caster.Guid);
-
-            // have to manually handle condition removal as vanilla is a bit odd depending on initiative order 
-            // if (rulesetCondition.RemainingRounds == 0)
-            // {
-            //     rulesetCharacter.RemoveCondition(rulesetCondition);
-            // }
         }
     }
 
@@ -355,7 +340,6 @@ public sealed class CircleOfTheLife : AbstractSubclass
 
     private sealed class ModifyEffectDescriptionRevitalizingBoon(
         ConditionDefinition conditionRevitalizingBoon,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerSeedOfLife) : IModifyEffectDescription
     {
         private readonly EffectForm _revitalizingBoon = EffectFormBuilder.ConditionForm(conditionRevitalizingBoon);
