@@ -10,7 +10,7 @@
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:CEPike:86ad79c2-4c19-5c35-970d-08c3dbe182cc"
+      "itemDefinition": "Definition:CEPikePrimed:063697f0-ea24-559a-855a-921c2cea2d79"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",

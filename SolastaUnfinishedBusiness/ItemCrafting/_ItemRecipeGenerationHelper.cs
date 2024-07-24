@@ -45,7 +45,11 @@ internal static class ItemRecipeGenerationHelper
             { Shortsword, Primed_Shortsword },
             { Spear, Primed_Spear },
             { StuddedLeather, Primed_StuddedLeather },
-            { Warhammer, Primed_Warhammer }
+            { Warhammer, Primed_Warhammer },
+            { CustomWeaponsContext.Halberd, CustomWeaponsContext.HalberdPrimed },
+            { CustomWeaponsContext.Pike, CustomWeaponsContext.PikePrimed },
+            { CustomWeaponsContext.LongMace, CustomWeaponsContext.LongMacePrimed },
+            { CustomWeaponsContext.HandXbow, CustomWeaponsContext.HandXbowPrimed }
         };
 
         foreach (var baseConfig in itemCollection.BaseItems)
