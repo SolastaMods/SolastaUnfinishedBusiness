@@ -268,47 +268,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Mirror Image
-
-    [NotNull]
-    internal static SpellDefinition BuildMirrorImage()
-    {
-        //Use Condition directly, instead of ConditionName to guarantee it gets built
-        var condition = ConditionDefinitionBuilder
-            .Create("ConditionMirrorImageMark")
-            .SetGuiPresentation(MirrorImage.Condition.Name, Category.Condition)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .CopyParticleReferences(ConditionBlurred)
-            .AddCustomSubFeatures(MirrorImage.DuplicateProvider.Mark)
-            .AddToDB();
-
-        var spell = SpellDefinitions.MirrorImage;
-
-        spell.contentPack = CeContentPackContext.CeContentPack; // required otherwise it messes up spells UI
-        spell.implemented = true;
-        spell.uniqueInstance = true;
-        spell.schoolOfMagic = SchoolIllusion;
-        spell.verboseComponent = true;
-        spell.somaticComponent = true;
-        spell.vocalSpellSemeType = VocalSpellSemeType.Defense;
-        spell.materialComponentType = MaterialComponentType.None;
-        spell.castingTime = ActivationTime.Action;
-        spell.effectDescription = EffectDescriptionBuilder.Create()
-            .SetDurationData(DurationType.Minute, 1)
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
-                    .Build())
-            .SetParticleEffectParameters(Blur)
-            .Build();
-
-        return spell;
-    }
-
-    #endregion
-
     #region Noxious Spray
 
     internal static SpellDefinition BuildNoxiousSpray()
@@ -542,6 +501,47 @@ internal static partial class SpellBuilders
 
         spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
             Entangle.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Mirror Image
+
+    internal static readonly ConditionDefinition ConditionMirrorImageMark = ConditionDefinitionBuilder
+        .Create("ConditionMirrorImageMark")
+        .SetGuiPresentation(MirrorImage.Condition.Name, Category.Condition)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .CopyParticleReferences(ConditionBlurred)
+        .AddCustomSubFeatures(MirrorImage.DuplicateProvider.Mark)
+        .AddToDB();
+
+    [NotNull]
+    internal static SpellDefinition BuildMirrorImage()
+    {
+        //Use Condition directly, instead of ConditionName to guarantee it gets built
+        var spell = SpellDefinitions.MirrorImage;
+
+        spell.contentPack = CeContentPackContext.CeContentPack; // required otherwise it messes up spells UI
+        spell.implemented = true;
+        spell.uniqueInstance = true;
+        spell.schoolOfMagic = SchoolIllusion;
+        spell.verboseComponent = true;
+        spell.somaticComponent = true;
+        spell.vocalSpellSemeType = VocalSpellSemeType.Defense;
+        spell.materialComponentType = MaterialComponentType.None;
+        spell.castingTime = ActivationTime.Action;
+        spell.effectDescription = EffectDescriptionBuilder.Create()
+            .SetDurationData(DurationType.Minute, 1)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(ConditionMirrorImageMark, ConditionForm.ConditionOperation.Add)
+                    .Build())
+            .SetParticleEffectParameters(Blur)
+            .Build();
 
         return spell;
     }
