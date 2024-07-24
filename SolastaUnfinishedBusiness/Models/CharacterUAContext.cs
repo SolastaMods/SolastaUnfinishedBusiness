@@ -892,7 +892,7 @@ internal static partial class CharacterContext
                 "Feature/&MonkUnarmoredMovementImprovedDescription";
             MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.title =
                 "Feature/&MonkUnarmoredMovementImprovedTitle";
-            MovementAffinityMonkUnarmoredMovementImproved.canMoveOnWalls = true;
+            MovementAffinityMonkUnarmoredMovementImproved.canMoveOnWalls = false;
         }
     }
 
