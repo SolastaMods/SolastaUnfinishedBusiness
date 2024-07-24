@@ -130,7 +130,6 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
                     .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
