@@ -1142,6 +1142,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     caster, SpellBuilders.ConditionMirrorImageMark.Name, DurationType.Minute);
                 break;
 
+            // each creature within 30 feet of you (other than you) takes 1d10 necrotic damage. You regain hit points equal to the sum of the necrotic damage dealt
             case 14:
                 HandleWildSurgeD14(caster);
                 break;
@@ -1153,8 +1154,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6);
                 break;
 
+            // you can take one additional action immediately
             case 16:
-                HandleWildSurgeD16(caster);
+                InflictConditionOnCreaturesWithinRange(
+                    caster, ConditionDefinitions.ConditionSurged.Name, DurationType.Round, 0);
                 break;
 
             // each creature within 30 feet of you (including you) gain vulnerability to piercing damage for the next minute
@@ -1320,7 +1323,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
         var usablePower = PowerProvider.Get(PowerGrease, rulesetCaster);
-        var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.SpendPower)
+        var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
         {
             ActionModifiers = { new ActionModifier() },
             RulesetEffect = implementationManager
@@ -1369,18 +1372,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         ServiceRepository.GetService<IGameLocationActionService>()?
             .ExecuteAction(actionParams, null, true);
-    }
-
-    // you can take one additional action immediately
-    private static void HandleWildSurgeD16(GameLocationCharacter caster)
-    {
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.ActionSurge)
-        {
-            ActionModifiers = { new ActionModifier() }, TargetCharacters = { caster }
-        };
-
-        actionService.ExecuteAction(actionParams, null, true);
     }
 
     private sealed class CharacterTurnStartListenerChaos(
