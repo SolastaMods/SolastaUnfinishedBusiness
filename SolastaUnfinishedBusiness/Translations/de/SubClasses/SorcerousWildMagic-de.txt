@@ -63,7 +63,6 @@ Feedback/&BendLuckEnemySavingToHitRoll={0} hat {1} verwendet und würfelt eine {
 Feedback/&BendLuckSavingToHitRoll={0} hat {1} verwendet und würfelt eine {2}, um {3} zum Rettungswurf hinzuzufügen
 Feedback/&ControlledChaosDieChoice={0} wählt {2} auf {1} und aktiviert {3}
 Feedback/&ControlledChaosDieRoll={0} würfelt eine {2} und eine {3} mit {1} Würfel
-Feedback/&TidesOfChaosAttackDieRoll={0} scheitert bei einem Angriffswurf und verwendet {1}, um mit Vorteil erneut zu würfeln
 Feedback/&TidesOfChaosCheckDieRoll={0} scheitert bei einem Kontrollwurf und verwendet {1}, um mit Vorteil erneut zu würfeln
 Feedback/&TidesOfChaosForcedSurge={1} zwingt {0}, automatisch auf der Wild Surge-Tabelle zu würfeln
 Feedback/&TidesOfChaosSavingDieRoll={0} scheitert bei einem Rettungswurf und nutzt {1}, um mit Vorteil erneut zu würfeln

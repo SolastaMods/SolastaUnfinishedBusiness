@@ -63,7 +63,6 @@ Feedback/&BendLuckEnemySavingToHitRoll={0} used {1} and rolls a {2} to subtract 
 Feedback/&BendLuckSavingToHitRoll={0} used {1} and rolls a {2} to add {3} to the saving roll
 Feedback/&ControlledChaosDieChoice={0} chooses {2} on {1} and activates {3}
 Feedback/&ControlledChaosDieRoll={0} rolls a {2} and a {3} on {1} die
-Feedback/&TidesOfChaosAttackDieRoll={0} fails an attack roll and uses {1} to reroll with advantage
 Feedback/&TidesOfChaosCheckDieRoll={0} fails a check roll and uses {1} to reroll with advantage
 Feedback/&TidesOfChaosForcedSurge={1} forces {0} to automatically roll on the wild surge table
 Feedback/&TidesOfChaosSavingDieRoll={0} fails a saving roll and uses {1} to reroll with advantage

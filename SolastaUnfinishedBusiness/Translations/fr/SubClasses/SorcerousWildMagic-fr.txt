@@ -63,7 +63,6 @@ Feedback/&BendLuckEnemySavingToHitRoll={0} a utilisé {1} et lance un {2} pour s
 Feedback/&BendLuckSavingToHitRoll={0} a utilisé {1} et lance un {2} pour ajouter {3} au jet de sauvegarde
 Feedback/&ControlledChaosDieChoice={0} choisit {2} sur {1} et active {3}
 Feedback/&ControlledChaosDieRoll={0} lance un {2} et un {3} sur le dé {1}
-Feedback/&TidesOfChaosAttackDieRoll={0} échoue à un jet d'attaque et utilise {1} pour relancer avec avantage
 Feedback/&TidesOfChaosCheckDieRoll={0} échoue à un jet de contrôle et utilise {1} pour relancer avec avantage
 Feedback/&TidesOfChaosForcedSurge={1} force {0} à lancer automatiquement un jet sur la table des surtensions sauvages
 Feedback/&TidesOfChaosSavingDieRoll={0} échoue à un jet de sauvegarde et utilise {1} pour relancer avec avantage

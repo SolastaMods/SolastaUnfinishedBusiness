@@ -12,7 +12,6 @@ public enum Category
     Class,
     Condition,
     ContentPack,
-    Equipment,
     Feat,
     Feature,
     FightingStyle,

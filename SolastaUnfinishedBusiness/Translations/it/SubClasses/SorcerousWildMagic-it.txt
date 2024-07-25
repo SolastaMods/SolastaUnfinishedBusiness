@@ -63,7 +63,6 @@ Feedback/&BendLuckEnemySavingToHitRoll={0} ha utilizzato {1} e lancia un {2} per
 Feedback/&BendLuckSavingToHitRoll={0} usa {1} e lancia un {2} per aggiungere {3} al tiro salvezza
 Feedback/&ControlledChaosDieChoice={0} sceglie {2} su {1} e attiva {3}
 Feedback/&ControlledChaosDieRoll={0} lancia un {2} e un {3} su {1} dado
-Feedback/&TidesOfChaosAttackDieRoll={0} fallisce un tiro di attacco e usa {1} per ripetere il tiro con vantaggio
 Feedback/&TidesOfChaosCheckDieRoll={0} fallisce un tiro di verifica e usa {1} per ripetere il tiro con vantaggio
 Feedback/&TidesOfChaosForcedSurge={1} forza {0} a rotolare automaticamente sulla tabella dei picchi selvaggi
 Feedback/&TidesOfChaosSavingDieRoll={0} fallisce un tiro salvezza e usa {1} per ripetere il tiro con vantaggio

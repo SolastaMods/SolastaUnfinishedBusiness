@@ -174,7 +174,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Condition{Name}MaxDamageRolls")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
-        .AddCustomSubFeatures(new CustomBehaviorMaxDamage())
         .AddToDB();
 
     public SorcerousWildMagic()
@@ -250,19 +249,16 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     {
         var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
         var levels = rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, Name);
-
-        if (levels < 18)
-        {
-            return;
-        }
-
         var dieType = damageForm.DieType;
         var maxDie = DiceMaxValue[(int)dieType];
         var tag = FeatureSpellBombardment.Name;
 
-        if (!rolledValues.Contains(maxDie) ||
+        if (levels < 18 ||
+            !rolledValues.Contains(maxDie) ||
             !character.OncePerTurnIsValid(tag))
         {
+            HandleWildSurgeD10(rulesetCharacter, rolledValues, maxDie, ref damage);
+
             return;
         }
 
@@ -273,6 +269,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         rolledValues.Add(roll);
         damage += roll;
+
+        HandleWildSurgeD10(rulesetCharacter, rolledValues, maxDie, ref damage);
     }
 
     private static IEnumerator HandleWildSurge(GameLocationCharacter attacker)
@@ -474,16 +472,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 rulesetAttacker.RemoveCondition(activeConditionNoConcentration);
             }
 
-            // already under wild surge effect
-            if (rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name))
-            {
-                yield break;
-            }
-
-            // not a levelled spell or already rolled wild surge this turn
             if (action is not CharacterActionCastSpell actionCastSell ||
                 actionCastSell.ActiveSpell.SpellDefinition.SpellLevel == 0 ||
-                rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionMark.Name))
+                rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name))
             {
                 yield break;
             }
@@ -556,9 +547,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            rulesetHelper.LogCharacterActivatesAbility(
-                FeatureTidesOfChaos.GuiPresentation.Title, "Feedback/&TidesOfChaosAttackDieRoll");
-
             var advantageTrends =
                 new List<TrendInfo>
                 {
@@ -567,21 +555,64 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             actionModifier.AttackAdvantageTrends.SetRange(advantageTrends);
 
-            // testMode true avoids the roll to display on combat log as the original one will get there with altered results
-            var roll = rulesetHelper.RollAttack(
-                attackMode.toHitBonus,
-                defender.RulesetActor,
-                attackMode.sourceDefinition,
-                actionModifier.attackToHitTrends,
+            var outcome = action.AttackRollOutcome;
+            var rollCaption = outcome == RollOutcome.CriticalFailure
+                ? "Feedback/&RollAttackCriticalFailureTitle"
+                : "Feedback/&RollAttackFailureTitle";
+            var attackRoll = action.AttackRoll;
+            int roll;
+            int toHitBonus;
+            int successDelta;
+
+            if (attackMode != null)
+            {
+                toHitBonus = attackMode.ToHitBonus + actionModifier.AttackRollModifier;
+                roll = rulesetHelper.RollAttack(
+                    attackMode.ToHitBonus,
+                    defender.RulesetActor,
+                    attackMode.SourceDefinition,
+                    attackMode.ToHitBonusTrends,
+                    false,
+                    actionModifier.AttackAdvantageTrends,
+                    attackMode.ranged,
+                    false,
+                    actionModifier.AttackRollModifier,
+                    out outcome,
+                    out successDelta,
+                    -1,
+                    true);
+            }
+            else if (rulesetEffect != null)
+            {
+                toHitBonus = rulesetEffect.MagicAttackBonus + actionModifier.AttackRollModifier;
+                roll = rulesetHelper.RollMagicAttack(
+                    rulesetEffect,
+                    defender.RulesetActor,
+                    rulesetEffect.GetEffectSource(),
+                    actionModifier.AttacktoHitTrends,
+                    actionModifier.AttackAdvantageTrends,
+                    false,
+                    actionModifier.AttackRollModifier,
+                    out outcome,
+                    out successDelta,
+                    -1,
+                    true);
+            }
+            // should never happen
+            else
+            {
+                yield break;
+            }
+
+            var sign = toHitBonus > 0 ? "+" : string.Empty;
+            
+            rulesetHelper.LogCharacterUsedFeature(
+                FeatureTidesOfChaos,
+                "Feedback/&TriggerRerollLine",
                 false,
-                actionModifier.AttackAdvantageTrends,
-                attackMode.ranged,
-                false,
-                actionModifier.attackRollModifier,
-                out var outcome,
-                out var successDelta,
-                -1,
-                true);
+                (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}{sign}{toHitBonus}"),
+                (ConsoleStyleDuplet.ParameterType.FailedRoll,
+                    Gui.Format(rollCaption, $"{attackRoll + toHitBonus}")));
 
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
@@ -1029,8 +1060,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             // each creature within 20 feet of you (including you) catches on fire
             case 4:
                 InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionDefinitions.ConditionOnFire1D4.Name, DurationType.Minute, 1,
-                    TurnOccurenceType.EndOfTurn, 4);
+                    caster, ConditionDefinitions.ConditionOnFire1D4.Name,
+                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 4);
                 break;
 
             // You can teleport up to 60 feet to an unoccupied space of your choice that you can see as a free action before your turn ends
@@ -1045,7 +1076,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you cast invisibility on self
             case 7:
-                InflictConditionOnCreaturesWithinRange(caster, ConditionInvisible, DurationType.Minute);
+                InflictConditionOnCreaturesWithinRange(
+                    caster, ConditionDefinitions.ConditionInvisible.Name, DurationType.Minute);
                 break;
 
             // a random creature within 60 feet of you becomes poisoned for 1 hour
@@ -1081,7 +1113,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you cast mirror image on self
             case 13:
-                InflictConditionOnCreaturesWithinRange(caster, SpellBuilders.ConditionMirrorImageMark.Name, DurationType.Minute);
+                InflictConditionOnCreaturesWithinRange(
+                    caster, SpellBuilders.ConditionMirrorImageMark.Name, DurationType.Minute);
                 break;
 
             case 14:
@@ -1091,7 +1124,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             // you cast invisibility on self and each creature within 30 ft
             case 15:
                 InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionInvisible, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6);
+                    caster, ConditionDefinitions.ConditionInvisible.Name,
+                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6);
                 break;
 
             case 16:
@@ -1101,20 +1135,18 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             // each creature within 30 feet of you (including you) gain vulnerability to piercing damage for the next minute
             case 17:
                 InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionPiercingVulnerability.Name, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn,
-                    6);
+                    caster, ConditionPiercingVulnerability.Name,
+                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6);
                 break;
 
             // you gain resistance to all damage for the next minute
             case 18:
-                InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionDamageResistance.Name, DurationType.Minute, 1);
+                InflictConditionOnCreaturesWithinRange(caster, ConditionDamageResistance.Name, DurationType.Minute);
                 break;
 
             // up to three creatures you choose within 30 feet of you take 4d10 lightning damage as a free action before your turn ends
             case 19:
-                InflictConditionOnCreaturesWithinRange(
-                    caster, ConditionLightningStrike.Name, DurationType.Round, 0);
+                InflictConditionOnCreaturesWithinRange(caster, ConditionLightningStrike.Name, DurationType.Round, 0);
                 break;
 
             // you gain all expended sorcery points
@@ -1301,66 +1333,23 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         actionService.ExecuteAction(actionParams, null, true);
     }
 
-    private sealed class CustomBehaviorMaxDamage : IModifyDiceRoll, IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    private static void HandleWildSurgeD10(
+        RulesetCharacter rulesetCharacter, List<int> rolledValues, int maxDie, ref int damage)
     {
-        private static bool _shouldTrigger;
-
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, GameLocationCharacter attacker,
-            List<GameLocationCharacter> targets)
+        if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, $"Condition{Name}MaxDamageRolls", out var activeCondition))
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (_shouldTrigger &&
-                rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, $"Condition{Name}MaxDamageRolls", out var activeCondition))
-            {
-                rulesetAttacker.RemoveCondition(activeCondition);
-            }
-
-            _shouldTrigger = false;
-
-            yield break;
+            return;
         }
 
-        public IEnumerator OnMagicEffectInitiatedByMe(
-            CharacterActionMagicEffect action,
-            RulesetEffect activeEffect,
-            GameLocationCharacter attacker,
-            List<GameLocationCharacter> targets)
-        {
-            _shouldTrigger = action is CharacterActionCastSpell;
+        rulesetCharacter.RemoveCondition(activeCondition);
 
-            yield break;
+        for (var i = 0; i < rolledValues.Count; i++)
+        {
+            rolledValues[i] = maxDie;
         }
 
-        public void BeforeRoll(
-            RollContext rollContext,
-            RulesetCharacter rulesetCharacter,
-            ref DieType dieType,
-            ref AdvantageType advantageType)
-        {
-            // empty
-        }
-
-        public void AfterRoll(
-            DieType dieType,
-            AdvantageType advantageType,
-            RollContext rollContext,
-            RulesetCharacter rulesetCharacter,
-            ref int firstRoll,
-            ref int secondRoll,
-            ref int result)
-        {
-            if (!_shouldTrigger || rollContext != RollContext.MagicDamageValueRoll)
-            {
-                return;
-            }
-
-            var maxDie = DiceMaxValue[(int)dieType];
-
-            firstRoll = maxDie;
-            result = maxDie;
-        }
+        damage = rolledValues.Count * maxDie;
     }
 
     #endregion

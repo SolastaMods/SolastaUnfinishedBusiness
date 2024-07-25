@@ -63,7 +63,6 @@ Feedback/&BendLuckEnemySavingToHitRoll={0} usó {1} y lanza un {2} para restar {
 Feedback/&BendLuckSavingToHitRoll={0} usó {1} y lanza un {2} para agregar {3} a la tirada de ahorro
 Feedback/&ControlledChaosDieChoice={0} elige {2} el {1} ​​y activa {3}
 Feedback/&ControlledChaosDieRoll={0} lanza un {2} y un {3} en {1} dado
-Feedback/&TidesOfChaosAttackDieRoll={0} falla una tirada de ataque y usa {1} para volver a tirar con ventaja
 Feedback/&TidesOfChaosCheckDieRoll={0} falla una tirada de verificación y usa {1} para volver a tirar con ventaja
 Feedback/&TidesOfChaosForcedSurge={1} obliga a {0} a tirar automáticamente en la tabla de aumento salvaje
 Feedback/&TidesOfChaosSavingDieRoll={0} falla una tirada de salvación y usa {1} para volver a tirar con ventaja

@@ -63,7 +63,6 @@ Feedback/&BendLuckEnemySavingToHitRoll={0} usou {1} e rola um {2} para subtrair 
 Feedback/&BendLuckSavingToHitRoll={0} usou {1} e rola um {2} para adicionar {3} à jogada de salvamento
 Feedback/&ControlledChaosDieChoice={0} escolhe {2} em {1} e ativa {3}
 Feedback/&ControlledChaosDieRoll={0} lança um {2} e um {3} no dado {1}
-Feedback/&TidesOfChaosAttackDieRoll={0} falha em uma jogada de ataque e usa {1} para rolar novamente com vantagem
 Feedback/&TidesOfChaosCheckDieRoll={0} falha em um teste e usa {1} para rolar novamente com vantagem
 Feedback/&TidesOfChaosForcedSurge={1} força {0} a rolar automaticamente na tabela de onda selvagem
 Feedback/&TidesOfChaosSavingDieRoll={0} falha em uma jogada de salvamento e usa {1} para rolar novamente com vantagem
