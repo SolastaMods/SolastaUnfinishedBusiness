@@ -529,7 +529,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var rulesetHelper = helper.RulesetCharacter;
             var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetHelper);
 
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) ||
+            if (action.AttackRollOutcome is not RollOutcome.Failure ||
                 helper != attacker ||
                 !helper.OncePerTurnIsValid(PowerTidesOfChaos.Name) ||
                 !rulesetHelper.IsToggleEnabled(TidesOfChaosToggle) ||
@@ -549,10 +549,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             actionModifier.AttackAdvantageTrends.SetRange(advantageTrends);
 
-            var outcome = action.AttackRollOutcome;
-            var rollCaption = outcome == RollOutcome.CriticalFailure
-                ? "Feedback/&RollAttackCriticalFailureTitle"
-                : "Feedback/&RollAttackFailureTitle";
+            RollOutcome outcome;
             var attackRoll = action.AttackRoll;
             int roll;
             int toHitBonus;
@@ -606,7 +603,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}{sign}{toHitBonus}"),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll,
-                    Gui.Format(rollCaption, $"{attackRoll + toHitBonus}")));
+                    Gui.Format("Feedback/&RollAttackFailureTitle", $"{attackRoll + toHitBonus}")));
 
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
@@ -727,12 +724,12 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             string stringParameter;
 
             if (helper.Side == attacker.Side &&
-                action.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+                action.AttackRollOutcome is RollOutcome.Failure)
             {
                 stringParameter = "BendLuckAttack";
             }
             else if (helper.Side != attacker.Side &&
-                     action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+                     action.AttackRollOutcome is RollOutcome.Success)
             {
                 stringParameter = "BendLuckEnemyAttack";
             }
@@ -746,7 +743,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = stringParameter,
                     ActionModifiers = { new ActionModifier() },
@@ -856,7 +853,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = stringParameter,
                     ActionModifiers = { new ActionModifier() },
@@ -973,7 +970,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var reactionParams =
-                new CharacterActionParams(helper, ActionDefinitions.Id.PowerNoCost)
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = stringParameter,
                     StringParameter2 = "UseLuckySavingDescription".Formatted(
@@ -1183,7 +1180,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 {
                     actionModifiers.Add(new ActionModifier());
                 }
-        
+
                 var usablePowerNecroticDamage = PowerProvider.Get(PowerNecroticDamage, rulesetCaster);
                 var actionParamsNecroticDamage = new CharacterActionParams(caster, ActionDefinitions.Id.SpendPower)
                 {
@@ -1323,9 +1320,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             {
                 repertoire.RecoverMissingSlots(new Dictionary<int, int> { { slotLevel, 1 } });
             }
-        } 
+        }
     }
-    
+
     private static void HandleWildSurgeD10(
         RulesetCharacter rulesetCharacter, List<int> rolledValues, int maxDie, ref int damage)
     {
