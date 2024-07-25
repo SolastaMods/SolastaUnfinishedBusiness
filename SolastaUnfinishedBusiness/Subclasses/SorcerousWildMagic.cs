@@ -481,7 +481,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                     chanceDie = 1;
                 }
 
-                shouldRollWildSurge = chanceDie <= ForceWildSurgeRoll;
+                shouldRollWildSurge = chanceDie <= 2;
 
                 rulesetAttacker.ShowDieRoll(DieType.D20, chanceDie, title: FeatureWildMagicSurge.GuiPresentation.Title);
                 rulesetAttacker.LogCharacterActivatesAbility(
@@ -539,7 +539,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             }
 
             helper.UsedSpecialFeatures.TryAdd(PowerTidesOfChaos.Name, 0);
-            rulesetHelper.UsePower(usablePower);
+            usablePower.Consume();
 
             var advantageTrends =
                 new List<TrendInfo>
@@ -641,7 +641,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             var implementationManager =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
+            var reactionParams = new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
                 StringParameter = "TidesOfChaos",
                 StringParameter2 = "SpendPowerTidesOfChaosDescription"
@@ -663,7 +663,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             }
 
             helper.UsedSpecialFeatures.TryAdd(PowerTidesOfChaos.Name, 0);
-            rulesetHelper.UsePower(usablePower);
+            usablePower.Consume();
 
             rulesetHelper.LogCharacterActivatesAbility(
                 PowerTidesOfChaos.GuiPresentation.Title, "Feedback/&TidesOfChaosSavingDieRoll");
