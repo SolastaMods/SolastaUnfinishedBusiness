@@ -240,7 +240,7 @@ public sealed class OathOfAltruism : AbstractSubclass
 
             var rulesetHelper = helper.RulesetCharacter;
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+            if (action.AttackRollOutcome is not RollOutcome.Success ||
                 helper == defender ||
                 helper.IsOppositeSide(defender.Side) ||
                 !helper.CanReact(true) ||

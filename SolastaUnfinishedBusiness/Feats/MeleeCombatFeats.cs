@@ -775,7 +775,7 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+            if (action.AttackRollOutcome is not RollOutcome.Success ||
                 helper != defender ||
                 !helper.CanReact() ||
                 (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
