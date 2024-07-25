@@ -34,7 +34,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     internal static bool ForceWildSurge = true;
 
     //TODO: remove before release
-    internal static int ForceWildSurgeRoll = 2;
+    internal static int ForceWildSurgeRoll = 7;
 
     private static readonly List<FeatureDefinitionPower> WildSurgePowers = [];
 
@@ -48,6 +48,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Power{Name}TidesOfChaos")
         .SetGuiPresentation(Category.Feature)
         .SetUsesProficiencyBonus(ActivationTime.NoCost)
+        .DelegatedToAction()
         .AddCustomSubFeatures(new CustomBehaviorTidesOfChaos(), ModifyPowerVisibility.Hidden)
         .AddToDB();
 
@@ -197,7 +198,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.TidesOfChaosToggle)
-            .SetActivatedPower(PowerTidesOfChaos)
+            .SetActivatedPower(PowerTidesOfChaos, usePowerTooltip: false)
             .AddToDB();
 
         var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder
@@ -451,6 +452,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             if (action is not CharacterActionCastSpell actionCastSell ||
                 actionCastSell.ActiveSpell.SpellDefinition.SpellLevel == 0 ||
+                !attacker.OncePerTurnIsValid("CastedFireball") ||
                 rulesetAttacker.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name))
             {
                 yield break;
@@ -1069,6 +1071,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you cast Fireball centered on self
             case 2:
+                caster.UsedSpecialFeatures.TryAdd("CastedFireball", 0);
                 CastSpellWithoutConsumption(caster, Fireball, 3);
                 break;
 

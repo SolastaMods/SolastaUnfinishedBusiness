@@ -77,7 +77,8 @@ Reaction/&ReactionSpendPowerBundleControlledChaosTitle=Controlled Chaos
 Reaction/&SpendPowerTidesOfChaosDescription=<b>{0}</b> failed save roll against <b>{1}</b>'s <b>{2}</b> and can try to reroll the save with advantage.
 Reaction/&SpendPowerTidesOfChaosReactDescription=Reroll the save with advantage.
 Reaction/&SpendPowerTidesOfChaosReactTitle=Tides of Chaos
-Reaction/&SpendPowerTidesOfChaosTitle=Tides of ChaosReaction/&UseBendLuckAttackDescription=You or an ally have missed. You can react to roll a d4 and add the result to the attack roll.
+Reaction/&SpendPowerTidesOfChaosTitle=Tides of Chaos
+Reaction/&UseBendLuckAttackDescription=You or an ally have missed. You can react to roll a d4 and add the result to the attack roll.
 Reaction/&UseBendLuckAttackReactDescription=Roll a d4 to add the result to the attack roll.
 Reaction/&UseBendLuckAttackReactTitle=Bend Luck
 Reaction/&UseBendLuckAttackTitle=Bend Luck

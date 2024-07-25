@@ -21,7 +21,7 @@
   "preventsSerialization": false,
   "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerSorcerousWildMagicTidesOfChaos:29ddc002-275b-5b82-bde7-d5f7315e0856",
-  "displayPowerTooltip": true,
+  "displayPowerTooltip": false,
   "dieType": "D10",
   "abilityScore": "Dexterity",
   "addLevel": false,
