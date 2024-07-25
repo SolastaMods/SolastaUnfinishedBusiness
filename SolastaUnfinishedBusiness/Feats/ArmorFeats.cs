@@ -260,7 +260,8 @@ internal static class ArmorFeats
 
             if (!battleManager ||
                 helper != defender ||
-                rulesetEffect == null)
+                rulesetEffect == null ||
+                action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
