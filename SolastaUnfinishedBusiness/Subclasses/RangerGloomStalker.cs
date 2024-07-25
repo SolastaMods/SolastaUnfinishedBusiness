@@ -340,7 +340,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
@@ -383,24 +383,24 @@ public sealed class RangerGloomStalker : AbstractSubclass
             int toHitBonus;
             int successDelta;
 
-            attackModifier.AttackAdvantageTrends.SetRange(new List<TrendInfo>
+            actionModifier.AttackAdvantageTrends.SetRange(new List<TrendInfo>
             {
                 new(-1, FeatureSourceType.CharacterFeature, featureShadowyDodge.Name, featureShadowyDodge)
             });
 
             if (attackMode != null)
             {
-                toHitBonus = attackMode.ToHitBonus;
+                toHitBonus = attackMode.ToHitBonus + actionModifier.AttackRollModifier;
                 roll = rulesetAttacker.RollAttack(
                     toHitBonus,
                     defender.RulesetActor,
                     attackMode.SourceDefinition,
                     attackMode.ToHitBonusTrends,
                     false,
-                    attackModifier.AttackAdvantageTrends,
+                    actionModifier.AttackAdvantageTrends,
                     attackMode.ranged,
                     false,
-                    attackModifier.AttackRollModifier,
+                    actionModifier.AttackRollModifier,
                     out outcome,
                     out successDelta,
                     -1,
@@ -408,15 +408,15 @@ public sealed class RangerGloomStalker : AbstractSubclass
             }
             else if (rulesetEffect != null)
             {
-                toHitBonus = rulesetEffect.MagicAttackBonus;
+                toHitBonus = rulesetEffect.MagicAttackBonus + actionModifier.AttackRollModifier;
                 roll = rulesetAttacker.RollMagicAttack(
                     rulesetEffect,
                     defender.RulesetActor,
                     rulesetEffect.GetEffectSource(),
-                    attackModifier.AttacktoHitTrends,
-                    attackModifier.AttackAdvantageTrends,
+                    actionModifier.AttacktoHitTrends,
+                    actionModifier.AttackAdvantageTrends,
                     false,
-                    attackModifier.AttackRollModifier,
+                    actionModifier.AttackRollModifier,
                     out outcome,
                     out successDelta,
                     -1,
@@ -429,13 +429,14 @@ public sealed class RangerGloomStalker : AbstractSubclass
             }
 
             var rulesetDefender = defender.RulesetCharacter;
-
+            var sign = toHitBonus >= 0 ? "+" : string.Empty;
+            
             rulesetDefender.LogCharacterUsedFeature(
                 featureShadowyDodge,
                 "Feedback/&TriggerRerollLine",
                 false,
-                (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}+{toHitBonus}"),
-                (ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
+                (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}{sign}{toHitBonus}"),
+                (ConsoleStyleDuplet.ParameterType.FailedRoll,
                     Gui.Format(rollCaption, $"{attackRoll + toHitBonus}")));
 
             action.AttackRollOutcome = outcome;
