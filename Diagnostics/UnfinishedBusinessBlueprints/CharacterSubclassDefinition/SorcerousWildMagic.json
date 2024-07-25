@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityTidesOfChaosToggle:efed4eec-13cc-5dac-b8c9-5ca677dba360",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSorcerousWildMagicTidesOfChaos:29ddc002-275b-5b82-bde7-d5f7315e0856",
       "level": 1
     },

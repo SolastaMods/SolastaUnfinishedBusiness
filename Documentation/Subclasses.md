@@ -6034,7 +6034,7 @@ Starting at 18th level, your gain the ability to corrupt creatures on touch and 
 
 
 
-## 10. Wild Magic [ALPHA] [UB]
+## 10. Wild Magic [UB]
 
 Your innate magic comes from the wild forces of chaos that underlie the order of creation. You might have endured exposure to some form of raw magic, perhaps through a planar portal leading to Limbo, the Elemental Planes, or the mysterious Far Realm. Perhaps you were blessed by a powerful fey creature or marked by a demon. Or your magic could be a fluke of your birth, with no apparent cause or reason. However, it came to be, this chaotic magic churns within you, waiting for any outlet.
 
@@ -6043,11 +6043,11 @@ Your innate magic comes from the wild forces of chaos that underlie the order of
 
 * Tides of Chaos
 
-You can manipulate the forces of chance and chaos to gain advantage on one attack roll, ability check, or saving throw. Once you do so, you must finish a long rest before you can use this feature again.
+You can manipulate the forces of chance and chaos and reroll attack rolls or saving throws, with advantage, whenever you fail on your first attempt. Whenever you do so, you automatically roll on the Wild Magic Surge table the next time you cast a levelled spell. You can use this feature a number of times equal to your proficiency bonus per long rest.
 
 * Wild Magic Surge
 
-Your spellcasting can unleash surges of untamed magic. Once per turn, you roll a d20 immediately after you cast a sorcerer spell of 1st level or higher. If you roll a 1, roll on the Wild Magic Surge table to create a magical effect. If that effect is a spell, it is too wild to be affected by your Metamagic, and if it normally requires concentration, it doesn't require concentration in this case; the spell lasts for its full duration.
+Your spellcasting can unleash surges of untamed magic. Once per turn, you roll a d20 immediately after you cast a sorcerer spell of 1st level or higher. If you roll a 1 or a 2, roll on the Wild Magic Surge table if you haven't rolled before during your turn to create a magical effect. If that effect is a spell, it is too wild to be affected by your Metamagic. The spell lasts for its full duration.
 
 
 ### Level 6
@@ -6068,7 +6068,7 @@ You gain a modicum of control over the surges of your wild magic. Whenever you r
 
 * Spell Bombardment
 
-He harmful energy of your spells intensifies. When you roll damage for a spell and roll the highest number possible on any of the dice, you add one additional dice roll to the damage. You can use the feature only once per turn.
+The harmful energy of your spells intensifies. When you roll damage for a spell and roll the highest number possible on any of the dice, you add one additional dice roll to the damage. You can use the feature only once per turn.
 
 
 

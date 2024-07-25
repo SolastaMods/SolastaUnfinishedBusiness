@@ -1,12 +1,13 @@
 1.5.97.24:
 
-- added Sorcerous Wild Magic subclass [beta]
+- added Sorcerous Wild Magic subclass [tides of chaos still in beta]
 - fixed 'Enable Monk Improved Unarmored Movement' always set regardless of UI choice
-- fixed Circle of the Life verdancy condition applying on self only
+- fixed Circle of the Life verdancy condition applying to self only
 - fixed Halberd, Hand Crossbow, Long Mace, and Pike recipes not using prime items
 - fixed Psionic Blast, and Synaptic Static spells behaviors and SFX
 - fixed Roguish Raven deadly focus not adding advantage on attack re-attempt
 - fixed Roguish Shadowcaster shadow form missing resistance to force damage
+- improved Second Chance feat, Gloom Stalker shadowy dodge, and Arcane Archer guided shot combat log
 
 1.5.97.23:
 
