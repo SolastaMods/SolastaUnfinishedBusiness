@@ -2039,7 +2039,7 @@ internal static class RaceFeats
             }
 
             var sign = toHitBonus > 0 ? "+" : string.Empty;
-            
+
             rulesetDefender.LogCharacterUsedFeature(
                 featureSecondChance,
                 "Feedback/&TriggerRerollLine",

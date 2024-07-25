@@ -773,7 +773,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var sign = toHitBonus > 0 ? "+" : string.Empty;
-            
+
             rulesetAttacker.LogCharacterUsedFeature(featureDefinition,
                 "Feedback/&TriggerRerollLine",
                 false,

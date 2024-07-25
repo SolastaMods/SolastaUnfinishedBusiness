@@ -430,7 +430,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
             var sign = toHitBonus >= 0 ? "+" : string.Empty;
-            
+
             rulesetDefender.LogCharacterUsedFeature(
                 featureShadowyDodge,
                 "Feedback/&TriggerRerollLine",

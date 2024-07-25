@@ -41,7 +41,7 @@ internal static class FixesContext
         FeatureDefinitionPowers.PowerPactChainPseudodragon.rechargeRate = RechargeRate.LongRest;
         FeatureDefinitionPowers.PowerPactChainQuasit.rechargeRate = RechargeRate.LongRest;
         FeatureDefinitionPowers.PowerPactChainSprite.rechargeRate = RechargeRate.LongRest;
-        
+
         AddAdditionalActionTitles();
         ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();

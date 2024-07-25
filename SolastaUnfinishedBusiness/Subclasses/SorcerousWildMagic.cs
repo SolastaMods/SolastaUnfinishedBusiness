@@ -1051,6 +1051,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private static void ApplyWildSurge(
         GameLocationCharacter caster, int roll, string featureTitle, string selectedPowerTitle, string feedback)
     {
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var implementationManager =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var rulesetCaster = caster.RulesetCharacter;
 
         rulesetCaster.LogCharacterActivatesAbility(
@@ -1071,8 +1074,20 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you cast Fireball centered on self
             case 2:
+                var spellRepertoire = rulesetCaster.SpellRepertoires.FirstOrDefault(
+                    x => x.SpellCastingClass == CharacterClassDefinitions.Sorcerer);
+                var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.CastNoCost)
+                {
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                        .InstantiateEffectSpell(rulesetCaster, spellRepertoire, Fireball, 3, false),
+                    SpellRepertoire = spellRepertoire,
+                    Positions = { caster.LocationPosition }
+                };
+
                 caster.UsedSpecialFeatures.TryAdd("CastedFireball", 0);
-                CastSpellWithoutConsumption(caster, Fireball, 3);
+                RecoverSpellSlot(rulesetCaster, 3);
+                actionService.ExecuteAction(actionParams, null, true);
                 break;
 
             // you regain 2D10 hit points
@@ -1133,7 +1148,17 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you cast grease centered on self
             case 12:
-                HandleWildSurgeD12(caster);
+                var usablePowerGrease = PowerProvider.Get(PowerGrease, rulesetCaster);
+                var actionParamsGrease = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
+                {
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetCaster, usablePowerGrease, false),
+                    UsablePower = usablePowerGrease,
+                    Positions = { caster.LocationPosition }
+                };
+
+                actionService.ExecuteAction(actionParamsGrease, null, true);
                 break;
 
             // you cast mirror image on self
@@ -1144,7 +1169,32 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // each creature within 30 feet of you (other than you) takes 1d10 necrotic damage. You regain hit points equal to the sum of the necrotic damage dealt
             case 14:
-                HandleWildSurgeD14(caster);
+                var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                var contenders =
+                    Gui.Battle?.AllContenders ??
+                    locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
+                var targets = contenders
+                    .Where(x => x.IsWithinRange(caster, 6) && x != caster)
+                    .ToList();
+
+                var actionModifiers = new List<ActionModifier>();
+
+                for (var i = 0; i < targets.Count; i++)
+                {
+                    actionModifiers.Add(new ActionModifier());
+                }
+        
+                var usablePowerNecroticDamage = PowerProvider.Get(PowerNecroticDamage, rulesetCaster);
+                var actionParamsNecroticDamage = new CharacterActionParams(caster, ActionDefinitions.Id.SpendPower)
+                {
+                    ActionModifiers = actionModifiers,
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetCaster, usablePowerNecroticDamage, false),
+                    UsablePower = usablePowerNecroticDamage,
+                    targetCharacters = targets
+                };
+
+                actionService.ExecuteAction(actionParamsNecroticDamage, null, true);
                 break;
 
             // you cast invisibility on self and each creature within 30 ft
@@ -1257,26 +1307,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
     }
 
-    private static void CastSpellWithoutConsumption(
-        GameLocationCharacter caster, SpellDefinition spell, int slotLevel)
+    private static void RecoverSpellSlot(RulesetCharacter rulesetCaster, int slotLevel)
     {
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var rulesetCaster = caster.RulesetCharacter;
-        var spellRepertoire =
-            rulesetCaster.SpellRepertoires.FirstOrDefault(
-                x => x.SpellCastingClass == CharacterClassDefinitions.Sorcerer);
-        var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-            .InstantiateEffectSpell(rulesetCaster, spellRepertoire, spell, slotLevel, false);
-
-        var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.CastNoCost)
-        {
-            ActionModifiers = { new ActionModifier() },
-            RulesetEffect = effectSpell,
-            SpellRepertoire = spellRepertoire,
-            TargetCharacters = { caster },
-            Positions = { caster.LocationPosition }
-        };
-
         if (Main.Settings.UseAlternateSpellPointsSystem)
         {
             SpellPointsContext.GrantPoints(rulesetCaster, slotLevel);
@@ -1291,11 +1323,9 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             {
                 repertoire.RecoverMissingSlots(new Dictionary<int, int> { { slotLevel, 1 } });
             }
-        }
-
-        actionService.ExecuteAction(actionParams, null, true);
+        } 
     }
-
+    
     private static void HandleWildSurgeD10(
         RulesetCharacter rulesetCharacter, List<int> rolledValues, int maxDie, ref int damage)
     {
@@ -1315,67 +1345,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         damage = rolledValues.Count * maxDie;
     }
 
-    // you cast grease centered on self
-    private static void HandleWildSurgeD12(GameLocationCharacter caster)
-    {
-        var rulesetCaster = caster.RulesetCharacter;
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-        var usablePower = PowerProvider.Get(PowerGrease, rulesetCaster);
-        var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
-        {
-            ActionModifiers = { new ActionModifier() },
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
-            UsablePower = usablePower,
-            Positions = { caster.LocationPosition }
-        };
-
-        ServiceRepository.GetService<IGameLocationActionService>()?
-            .ExecuteAction(actionParams, null, true);
-    }
-
-    // each creature within 30 feet of you (other than you) takes 1d10 necrotic damage. You regain hit points equal to the sum of the necrotic damage dealt
-    private static void HandleWildSurgeD14(GameLocationCharacter caster)
-    {
-        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-        var contenders =
-            Gui.Battle?.AllContenders ??
-            locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
-        var rulesetCaster = caster.RulesetCharacter;
-
-        var targets = contenders
-            .Where(x => x.IsWithinRange(caster, 6) && x != caster)
-            .ToList();
-
-        var actionModifiers = new List<ActionModifier>();
-
-        for (var i = 0; i < targets.Count; i++)
-        {
-            actionModifiers.Add(new ActionModifier());
-        }
-
-        var implementationManager =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-        var usablePower = PowerProvider.Get(PowerNecroticDamage, rulesetCaster);
-
-        var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.SpendPower)
-        {
-            ActionModifiers = actionModifiers,
-            RulesetEffect = implementationManager
-                .MyInstantiateEffectPower(rulesetCaster, usablePower, false),
-            UsablePower = usablePower,
-            targetCharacters = targets
-        };
-
-        ServiceRepository.GetService<IGameLocationActionService>()?
-            .ExecuteAction(actionParams, null, true);
-    }
-
-    private sealed class CharacterTurnStartListenerChaos(
-        FeatureDefinition featureWildSurge) : ICharacterTurnStartListener
+    private sealed class CharacterTurnStartListenerChaos(FeatureDefinition featureWildSurge)
+        : ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
