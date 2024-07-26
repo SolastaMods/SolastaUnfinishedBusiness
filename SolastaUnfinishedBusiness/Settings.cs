@@ -16,6 +16,9 @@ public sealed class Core;
 [XmlRoot(ElementName = "Settings")]
 public class Settings : UnityModManager.ModSettings
 {
+    public int WildSurgeDieRollThreshold { get; set; }
+    public int WildSurgeEffectDie { get; set; }
+
     //
     // UI Saved State
     //

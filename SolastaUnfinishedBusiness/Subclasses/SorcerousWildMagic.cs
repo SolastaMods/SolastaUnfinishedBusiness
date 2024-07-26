@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
@@ -58,10 +57,23 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
 
+    private static readonly FeatureDefinitionPower PowerFireball = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}Fireball")
+        .SetGuiPresentation($"Power{Name}D02", Category.Feature)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create(Fireball)
+                .Build())
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+        .AddToDB();
+
     private static readonly FeatureDefinitionPower PowerGrease = FeatureDefinitionPowerBuilder
         .Create($"Power{Name}Grease")
         .SetGuiPresentation($"Power{Name}D12", Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create(Grease)
@@ -73,6 +85,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Power{Name}NecroticDamage")
         .SetGuiPresentation($"Power{Name}D14", Category.Feature)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
@@ -103,17 +116,17 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetPossessive()
         .SetFeatures(
             DamageAffinityAcidResistance,
-            DamageAffinityBludgeoningResistance,
+            DamageAffinityBludgeoningResistanceTrue,
             DamageAffinityColdResistance,
             DamageAffinityFireResistance,
             DamageAffinityForceDamageResistance,
             DamageAffinityLightningResistance,
             DamageAffinityNecroticResistance,
-            DamageAffinityPiercingResistance,
+            DamageAffinityPiercingResistanceTrue,
             DamageAffinityPoisonResistance,
             DamageAffinityPsychicResistance,
             DamageAffinityRadiantResistance,
-            DamageAffinitySlashingResistance,
+            DamageAffinitySlashingResistanceTrue,
             DamageAffinityThunderResistance)
         .AddToDB();
 
@@ -162,7 +175,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
-                        .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                        .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique, 3)
                         .SetEffectForms(
                             EffectFormBuilder.DamageForm(DamageTypeLightning, 4, DieType.D10))
                         .SetParticleEffectParameters(LightningBolt)
@@ -269,22 +282,17 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     internal static void HandleSpellBombardment(
         RulesetCharacter rulesetCharacter, DamageForm damageForm, List<int> rolledValues, ref int damage)
     {
-        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
         var levels = rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, Name);
         var dieType = damageForm.DieType;
         var maxDie = DiceMaxValue[(int)dieType];
-        var tag = FeatureSpellBombardment.Name;
 
-        if (levels < 18 ||
-            !rolledValues.Contains(maxDie) ||
-            !character.OncePerTurnIsValid(tag))
+        if (levels < 18 || !rolledValues.Contains(maxDie))
         {
             HandleWildSurgeD10(rulesetCharacter, rolledValues, maxDie, ref damage);
 
             return;
         }
 
-        character.UsedSpecialFeatures.TryAdd(tag, 0);
         rulesetCharacter.LogCharacterUsedFeature(FeatureSpellBombardment);
 
         var roll = RollDie(dieType, AdvantageType.None, out _, out _);
@@ -324,8 +332,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         rulesetAttacker.ShowDieRoll(DieType.D20, selectedRoll, title: FeatureWildMagicSurge.GuiPresentation.Title);
 
-        ApplyWildSurge(attacker, selectedRoll,
-            FeatureWildMagicSurge.FormatTitle(), selectedPower.FormatTitle(), "Feedback/&WidSurgeDieRoll");
+        ApplyWildSurge(attacker, selectedRoll, FeatureWildMagicSurge, selectedPower, "Feedback/&WidSurgeDieRoll");
     }
 
     //
@@ -366,6 +373,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         rulesetAttacker.LogCharacterActivatesAbility(
             PowerControlledChaos.FormatTitle(),
             "Feedback/&ControlledChaosDieRoll",
+            tooltipContent: PowerControlledChaos.Name,
+            tooltipClass: "PowerDefinition",
             extra:
             [
                 (ConsoleStyleDuplet.ParameterType.Positive, wildSurgeDie1.ToString()),
@@ -418,8 +427,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             selectedRoll = choice;
         }
 
-        ApplyWildSurge(attacker, selectedRoll,
-            FeatureWildMagicSurge.FormatTitle(), selectedPower.FormatTitle(), "Feedback/&ControlledChaosDieChoice");
+        ApplyWildSurge(attacker, selectedRoll, FeatureWildMagicSurge, selectedPower,
+            "Feedback/&ControlledChaosDieChoice");
     }
 
     //
@@ -449,7 +458,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             {
                 rulesetAttacker.RemoveCondition(activeConditionSource);
                 rulesetAttacker.LogCharacterActivatesAbility(
-                    PowerTidesOfChaos.GuiPresentation.Title, "Feedback/&TidesOfChaosForcedSurge");
+                    PowerTidesOfChaos.GuiPresentation.Title,
+                    "Feedback/&TidesOfChaosForcedSurge",
+                    tooltipContent: PowerTidesOfChaos.Name,
+                    tooltipClass: "PowerDefinition");
 
                 shouldRollWildSurge = true;
             }
@@ -458,7 +470,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             {
                 var chanceDie = RollDie(DieType.D20, AdvantageType.None, out _, out _);
 
-                shouldRollWildSurge = chanceDie <= 2;
+                shouldRollWildSurge = chanceDie <= Main.Settings.WildSurgeDieRollThreshold;
 
                 rulesetAttacker.ShowDieRoll(DieType.D20, chanceDie, title: FeatureWildMagicSurge.GuiPresentation.Title);
                 rulesetAttacker.LogCharacterActivatesAbility(
@@ -640,7 +652,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             usablePower.Consume();
 
             rulesetHelper.LogCharacterActivatesAbility(
-                PowerTidesOfChaos.GuiPresentation.Title, "Feedback/&TidesOfChaosSavingDieRoll");
+                PowerTidesOfChaos.GuiPresentation.Title,
+                "Feedback/&TidesOfChaosSavingDieRoll",
+                tooltipContent: PowerTidesOfChaos.Name,
+                tooltipClass: "PowerDefinition");
 
             var advantageTrends =
                 new List<TrendInfo>
@@ -757,6 +772,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 rulesetHelper.LogCharacterActivatesAbility(
                     powerBendLuck.GuiPresentation.Title,
                     "Feedback/&BendLuckAttackToHitRoll",
+                    tooltipContent: powerBendLuck.Name,
+                    tooltipClass: "PowerDefinition",
                     extra:
                     [
                         (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
@@ -780,6 +797,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 rulesetHelper.LogCharacterActivatesAbility(
                     powerBendLuck.GuiPresentation.Title,
                     "Feedback/&BendLuckEnemyAttackToHitRoll",
+                    tooltipContent: powerBendLuck.Name,
+                    tooltipClass: "PowerDefinition",
                     extra:
                     [
                         (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
@@ -869,6 +888,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 rulesetHelper.LogCharacterActivatesAbility(
                     powerBendLuck.GuiPresentation.Title,
                     "Feedback/&BendLuckCheckToHitRoll",
+                    tooltipContent: powerBendLuck.Name,
+                    tooltipClass: "PowerDefinition",
                     extra:
                     [
                         (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
@@ -894,6 +915,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 rulesetHelper.LogCharacterActivatesAbility(
                     powerBendLuck.GuiPresentation.Title,
                     "Feedback/&BendLuckEnemyCheckToHitRoll",
+                    tooltipContent: powerBendLuck.Name,
+                    tooltipClass: "PowerDefinition",
                     extra:
                     [
                         (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
@@ -986,6 +1009,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 rulesetHelper.LogCharacterActivatesAbility(
                     powerBendLuck.GuiPresentation.Title,
                     "Feedback/&BendLuckSavingToHitRoll",
+                    tooltipContent: powerBendLuck.Name,
+                    tooltipClass: "PowerDefinition",
                     extra:
                     [
                         (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
@@ -1009,6 +1034,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 rulesetHelper.LogCharacterActivatesAbility(
                     powerBendLuck.GuiPresentation.Title,
                     "Feedback/&BendLuckEnemySavingToHitRoll",
+                    tooltipContent: powerBendLuck.Name,
+                    tooltipClass: "PowerDefinition",
                     extra:
                     [
                         (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D4)),
@@ -1023,20 +1050,27 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     #region Wild Surge Handlers
 
     private static void ApplyWildSurge(
-        GameLocationCharacter caster, int roll, string featureTitle, string selectedPowerTitle, string feedback)
+        GameLocationCharacter caster, int roll, FeatureDefinition feature, FeatureDefinitionPower selectedPower,
+        string feedback)
     {
+        if (Main.Settings.WildSurgeEffectDie > 0)
+        {
+            roll = Main.Settings.WildSurgeEffectDie;
+        }
+
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var implementationManager =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var rulesetCaster = caster.RulesetCharacter;
 
-        rulesetCaster.LogCharacterActivatesAbility(
-            featureTitle,
+        rulesetCaster.LogCharacterActivatesPower(
+            feature.FormatTitle(),
             feedback,
             extra:
             [
-                (ConsoleStyleDuplet.ParameterType.Positive, roll.ToString()),
-                (ConsoleStyleDuplet.ParameterType.AttackSpellPower, selectedPowerTitle)
+                (ConsoleStyleDuplet.ParameterType.Positive, roll.ToString(), string.Empty, string.Empty),
+                (ConsoleStyleDuplet.ParameterType.AttackSpellPower, selectedPower.FormatTitle(), selectedPower.Name,
+                    "PowerDefinition")
             ]);
 
         switch (roll)
@@ -1048,20 +1082,17 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you cast Fireball centered on self
             case 2:
-                var spellRepertoire = rulesetCaster.SpellRepertoires.FirstOrDefault(
-                    x => x.SpellCastingClass == CharacterClassDefinitions.Sorcerer);
-                var actionParams = new CharacterActionParams(caster, ActionDefinitions.Id.CastNoCost)
+                var usablePowerFireball = PowerProvider.Get(PowerFireball, rulesetCaster);
+                var actionParamsFireball = new CharacterActionParams(caster, ActionDefinitions.Id.PowerNoCost)
                 {
                     ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                        .InstantiateEffectSpell(rulesetCaster, spellRepertoire, Fireball, 3, false),
-                    SpellRepertoire = spellRepertoire,
+                    RulesetEffect = implementationManager
+                        .MyInstantiateEffectPower(rulesetCaster, usablePowerFireball, false),
+                    UsablePower = usablePowerFireball,
                     Positions = { caster.LocationPosition }
                 };
 
-                caster.UsedSpecialFeatures.TryAdd("CastedFireball", 0);
-                RecoverSpellSlot(rulesetCaster, 3);
-                actionService.ExecuteAction(actionParams, null, true);
+                actionService.ExecuteAction(actionParamsFireball, null, true);
                 break;
 
             // you regain 2D10 hit points
@@ -1281,25 +1312,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-    }
-
-    private static void RecoverSpellSlot(RulesetCharacter rulesetCaster, int slotLevel)
-    {
-        if (Main.Settings.UseAlternateSpellPointsSystem)
-        {
-            SpellPointsContext.GrantPoints(rulesetCaster, slotLevel);
-        }
-        else
-        {
-            foreach (var repertoire in rulesetCaster.SpellRepertoires.Where(x =>
-                         x.SpellCastingClass != CharacterClassDefinitions.Warlock &&
-                         x.SpellCastingFeature.SpellCastingOrigin
-                             is FeatureDefinitionCastSpell.CastingOrigin.Class
-                             or FeatureDefinitionCastSpell.CastingOrigin.Subclass))
-            {
-                repertoire.RecoverMissingSlots(new Dictionary<int, int> { { slotLevel, 1 } });
-            }
         }
     }
 
