@@ -322,17 +322,16 @@ internal static partial class SpellBuilders
         const string NAME = "PsionicBlast";
 
         var conditionDazed = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionDazzled)
+            .Create(ConditionDazzled, $"Condition{NAME}")
+            .SetOrUpdateGuiPresentation(NAME, Category.Spell)
             .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
+            .SetParentCondition(ConditionDazzled)
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{NAME}")
                     .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedMultiplicativeModifier(0.5f)
                     .AddToDB())
-            .SetConditionParticleReference(ConditionDazzled)
             .AddToDB();
 
         conditionDazed.GuiPresentation.description = Gui.NoLocalization;
