@@ -1,6 +1,6 @@
 Action/&AudaciousWhirlToggleDescription=Blade Flourish aktivieren/deaktivieren
 Action/&AudaciousWhirlToggleTitle=Klingenschwung
-Action/&MasterfulWhirlToggleDescription=Aktivieren/Deaktivieren von Master’s Flourish
+Action/&MasterfulWhirlToggleDescription=Aktivieren/Deaktivieren von Master's Flourish
 Action/&MasterfulWhirlToggleTitle=Meisterhafte Blüte
 Feature/&AttributeModifierCollegeOfAudacityDefensiveWhirlDescription=Flourish-Rolle zu AC.
 Feature/&AttributeModifierCollegeOfAudacityDefensiveWhirlTitle=Defensives Gedeihen
