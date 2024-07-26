@@ -6043,7 +6043,7 @@ Your innate magic comes from the wild forces of chaos that underlie the order of
 
 * Tides of Chaos
 
-You can manipulate the forces of chance and chaos and reroll attack rolls or saving throws, with advantage, whenever you fail on your first attempt. Whenever you do so, you automatically roll on the Wild Magic Surge table the next time you cast a levelled spell. You can use this feature a number of times equal to your proficiency bonus per long rest.
+Whenever you fail an attack roll or a saving throw, you can manipulate the forces of chance and chaos to reroll it with advantage. Whenever you do so, you automatically roll on the Wild Magic Surge table the next time you cast a levelled spell. You can use this feature 1D3 times per long rest.
 
 * Wild Magic Surge
 
@@ -6068,7 +6068,7 @@ You gain a modicum of control over the surges of your wild magic. Whenever you r
 
 * Spell Bombardment
 
-The harmful energy of your spells intensifies. When you roll damage for a spell and roll the highest number possible on any of the dice, you add one additional dice roll to the damage. You can use the feature only once per turn.
+The harmful energy of your spells intensifies. When you roll damage for a spell and roll the highest number possible on any of the dice, choose one of these dice and add it as the highest number possible to the total damage dealt. 
 
 
 

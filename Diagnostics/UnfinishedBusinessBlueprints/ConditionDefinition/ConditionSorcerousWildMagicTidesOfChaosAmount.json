@@ -3,24 +3,10 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
-    "Definition:DamageAffinityBludgeoningResistanceTrue:e6dc6cc673a626b4896753ede87b1270",
-    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
-    "Definition:DamageAffinityForceDamageResistance:4255cfeca2edc0643bc2b1897930a815",
-    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
-    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
-    "Definition:DamageAffinityPiercingResistanceTrue:ac80e992b7d65eb46bd2ee3b7e004ab6",
-    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
-    "Definition:DamageAffinityPsychicResistance:6bcf228fbe370f34fa7cf0d8420998eb",
-    "Definition:DamageAffinityRadiantResistance:8ea0757b1c53c0446a9d83a4f0c3ca4d",
-    "Definition:DamageAffinitySlashingResistanceTrue:d6683e1311037ac439ad7fe52516facd",
-    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -53,20 +39,20 @@
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "e96de624b7e9a3944bf88f624c0ea7f4",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
@@ -99,7 +85,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -141,14 +127,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionSorcerousWildMagicDamageResistanceTitle",
-    "description": "Condition/&ConditionSorcerousWildMagicDamageResistanceDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c0a83f49ec8b47a488c1237bb2c82415",
-      "m_SubObjectName": "ConditionMageArmor",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -163,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b19005f3-e545-5ccc-9e9a-d8daecc3886d",
+  "guid": "7cd90531-c725-5d1e-b90c-4878fc283302",
   "contentPack": 9999,
-  "name": "ConditionSorcerousWildMagicDamageResistance"
+  "name": "ConditionSorcerousWildMagicTidesOfChaosAmount"
 }
