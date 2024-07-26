@@ -1293,31 +1293,39 @@ Turns other creatures in to beasts for one day.
 
 You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 
-# 314. - *Mass Heal* © (V,S) level 9 Transmutation [UB]
+# 314. - *Invulnerability* © (M,V,S) level 9 Abjuration [Concentration] [UB]
+
+You are immune to all damage until the spell ends.
+
+# 315. - *Mass Heal* © (V,S) level 9 Transmutation [UB]
 
 A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 
-# 315. - *Meteor Swarm* © (V,S) level 9 Transmutation [UB]
+# 316. - *Meteor Swarm* © (V,S) level 9 Transmutation [UB]
 
 Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 
-# 316. - *Power Word Heal* © (V,S) level 9 Enchantment [UB]
+# 317. - *Power Word Heal* © (V,S) level 9 Enchantment [UB]
 
 A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
 
-# 317. - *Power Word Kill* © (V,S) level 9 Transmutation [UB]
+# 318. - *Power Word Kill* © (V,S) level 9 Transmutation [UB]
 
 You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
 
-# 318. - *Shapechange* © (M,V,S) level 9 Transmutation [Concentration] [UB]
+# 319. - *Psychic Scream* © (S) level 9 Enchantment [UB]
+
+You unleash the power of your mind to blast the intellect of up to ten creatures of your choice that you can see within range. Each target must make an Intelligence saving throw. On a failed save, a target takes 14d6 psychic damage and is stunned for 1 minute. On a successful save, a target takes half as much damage and isn't stunned. A stunned target can make an Intelligence saving throw at the end of each of its turns. On a successful save, the stunning effect ends.
+
+# 320. - *Shapechange* © (M,V,S) level 9 Transmutation [Concentration] [UB]
 
 You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
 
-# 319. - *Time Stop* © (V) level 9 Transmutation [UB]
+# 321. - *Time Stop* © (V) level 9 Transmutation [UB]
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 
-# 320. - *Weird* © (V,S) level 9 Illusion [Concentration] [UB]
+# 322. - *Weird* © (V,S) level 9 Illusion [Concentration] [UB]
 
 Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each enemy in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 
