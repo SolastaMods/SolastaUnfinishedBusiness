@@ -387,10 +387,12 @@ internal static class SpellsContext
 
         // 9th level
         RegisterSpell(BuildForesight(), 0, SpellListBard, SpellListDruid, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildInvulnerability(), 0, SpellListWizard);
         RegisterSpell(BuildMassHeal(), 0, SpellListCleric);
         RegisterSpell(BuildMeteorSwarmSingleTarget(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildPowerWordHeal(), 0, SpellListBard, SpellListCleric);
         RegisterSpell(BuildPowerWordKill(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildPsychicScream(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildTimeStop(), 0, SpellListWizard, SpellListSorcerer);
         RegisterSpell(BuildShapechange(), 0, SpellListDruid, SpellListWizard);
         RegisterSpell(BuildWeird(), 0, SpellListWarlock, SpellListWizard);

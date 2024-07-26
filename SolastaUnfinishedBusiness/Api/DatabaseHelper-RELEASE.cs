@@ -3575,6 +3575,9 @@ internal static partial class DatabaseHelper
 
     internal static class SpellDefinitions
     {
+        internal static SpellDefinition GlobeOfInvulnerability { get; } =
+            GetDefinition<SpellDefinition>("GlobeOfInvulnerability");
+
         internal static SpellDefinition DelayedBlastFireball { get; } =
             GetDefinition<SpellDefinition>("DelayedBlastFireball");
 
