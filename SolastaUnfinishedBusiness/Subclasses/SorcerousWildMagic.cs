@@ -86,6 +86,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Condition{Name}TidesOfChaos")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionChaos = ConditionDefinitionBuilder
