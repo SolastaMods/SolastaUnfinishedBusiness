@@ -22,7 +22,8 @@ public static class GraphicsCharacterFactoryManagerPatcher
         {
             //PATCH: Support for custom scaling of equipped items.
             //Used to scale reach weapons and hand crossbows
-            var feature = rulesetItem.itemDefinition.GetFirstSubFeatureOfType<CustomScale>();
+            var feature = rulesetItem.itemDefinition?.WeaponDescription?.WeaponTypeDefinition
+                .GetFirstSubFeatureOfType<CustomScale>();
 
             if (feature == null)
             {
