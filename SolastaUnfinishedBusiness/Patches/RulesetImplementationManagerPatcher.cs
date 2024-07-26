@@ -260,8 +260,12 @@ public static class RulesetImplementationManagerPatcher
                     maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
 
 
-                //PATCH: supports Sorcerous Wild Magic spell bombardment
-                SorcerousWildMagic.HandleSpellBombardment(rulesetCharacter, damageForm, rolledValues, ref damage);
+                //PATCH: supports Sorcerous Wild Magic spell bombardment / Wild Surge max damage rolls
+                if (!attackModeDamage)
+                {
+                    SorcerousWildMagic.HandleSpellBombardmentAndWildSurgeMaxDamageRolls(
+                        rulesetCharacter, damageForm, rolledValues, ref damage);
+                }
 
                 //PATCH: supports College of Audacity defensive whirl
                 CollegeOfAudacity.HandleDefensiveWhirl(rulesetCharacter, damageForm, damage);
@@ -302,8 +306,12 @@ public static class RulesetImplementationManagerPatcher
                     useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
             };
 
-            //PATCH: supports Sorcerous Wild Magic spell bombardment
-            SorcerousWildMagic.HandleSpellBombardment(rulesetCharacter, damageForm, rolledValues, ref damage);
+            //PATCH: supports Sorcerous Wild Magic spell bombardment / Wild Surge max damage rolls
+            if (!attackModeDamage)
+            {
+                SorcerousWildMagic.HandleSpellBombardmentAndWildSurgeMaxDamageRolls(
+                    rulesetCharacter, damageForm, rolledValues, ref damage);
+            }
 
             //PATCH: supports College of Audacity defensive whirl
             CollegeOfAudacity.HandleDefensiveWhirl(rulesetCharacter, damageForm, damage);

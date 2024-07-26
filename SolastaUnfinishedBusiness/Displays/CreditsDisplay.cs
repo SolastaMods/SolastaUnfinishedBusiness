@@ -125,14 +125,14 @@ internal static class CreditsDisplay
         UI.Label();
 
         var intValue = Main.Settings.WildSurgeDieRollThreshold;
-        if (UI.Slider("Wild Surge chance die threshold", ref intValue, 1, 20,
+        if (UI.Slider("Wild Surge chance die threshold:", ref intValue, 0, 20,
                 2, string.Empty, UI.AutoWidth()))
         {
             Main.Settings.WildSurgeDieRollThreshold = intValue;
         }
 
         intValue = Main.Settings.WildSurgeEffectDie;
-        if (UI.Slider("Wild Surge force effect die", ref intValue, 1, 20,
+        if (UI.Slider("Wild Surge force effect die:", ref intValue, 0, 20,
                 0, string.Empty, UI.AutoWidth()))
         {
             Main.Settings.WildSurgeEffectDie = intValue;

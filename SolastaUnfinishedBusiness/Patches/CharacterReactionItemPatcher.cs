@@ -89,6 +89,25 @@ public static class CharacterReactionItemPatcher
 
             __instance.remainingResourceValue.Text =
                 __instance.guiCharacter.RulesetCharacter.RemainingSorceryPoints.ToString();
+            
+            var screen = Gui.GuiService.GetScreen<ReactionModal>();
+
+            if (!screen)
+            {
+                return;
+            }
+
+            var spriteByResourceCost = screen.GetReferenceSpriteByResourceCost(
+                RuleDefinitions.RechargeRate.SorceryPoints);
+
+            if (spriteByResourceCost == null)
+            {
+                return;
+            }
+
+            __instance.resourceCostSprite = Gui.LoadAssetSync<Sprite>(spriteByResourceCost);
+            __instance.resourceCostImage.sprite = __instance.resourceCostSprite;
+            //END BUGFIX
         }
 
         //BUGFIX: game currently gets the first spell repertoire to present slots on screen
