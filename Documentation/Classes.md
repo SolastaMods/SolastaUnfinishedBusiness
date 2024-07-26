@@ -166,6 +166,13 @@ Select 2 new infusions to learn.
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
+## Level 20
+
+* Soul of Artifice
+
+You develop a mystical connection to your magic items, which you can draw on for protection: You gain a +1 bonus to all saving throws per magic item you are currently attuned to.
+
+
 
 # 2. - Barbarian [SOL]
 

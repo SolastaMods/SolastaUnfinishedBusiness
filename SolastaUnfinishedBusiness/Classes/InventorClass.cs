@@ -110,6 +110,14 @@ internal static class InventorClass
 
         #endregion
 
+        var featureInventorSoulOfArtifice = FeatureDefinitionBuilder
+            .Create($"FeatureInventorSoulOfArtifice")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+        
+        featureInventorSoulOfArtifice.AddCustomSubFeatures(
+            new RollSavingThrowInitiatedSoulOfArtifice(featureInventorSoulOfArtifice));
+        
         #region Priorities
 
         builder
@@ -370,7 +378,14 @@ internal static class InventorClass
 
             .AddFeaturesAtLevel(19,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
-            );
+            )
+
+            #endregion
+
+            #region Level 20
+
+            .AddFeaturesAtLevel(20,
+                featureInventorSoulOfArtifice);
 
         #endregion
 
@@ -390,6 +405,33 @@ internal static class InventorClass
         Class = builder.AddToDB();
     }
 
+    private sealed class RollSavingThrowInitiatedSoulOfArtifice(FeatureDefinition featureSoulOfArtifice)
+        : IRollSavingThrowInitiated
+    {
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            ref int saveDC,
+            ref bool hasHitVisual,
+            RollOutcome outcome,
+            int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            var attunedItems = caster.Items.Count(x => x.AttunedToCharacter == x.Name);
+
+            rollModifier += attunedItems;
+            modifierTrends.Add(
+                new TrendInfo(attunedItems, FeatureSourceType.CharacterFeature,
+                    featureSoulOfArtifice.Name, featureSoulOfArtifice));
+        }
+    }
+    
     /**Adds starting chest loot for PoI for Inventor class*/
     private static void RegisterPoILoot()
     {
