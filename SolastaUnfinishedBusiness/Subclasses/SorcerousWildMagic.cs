@@ -30,12 +30,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private const string Name = "SorcerousWildMagic";
     private const ActionDefinitions.Id TidesOfChaosToggle = (ActionDefinitions.Id)ExtraActionId.TidesOfChaosToggle;
 
-    //TODO: remove before release
-    internal static bool ForceWildSurge = true;
-
-    //TODO: remove before release
-    internal static int ForceWildSurgeRoll = 7;
-
     private static readonly List<FeatureDefinitionPower> WildSurgePowers = [];
 
     private static readonly FeatureDefinition FeatureWildMagicSurge = FeatureDefinitionBuilder
@@ -325,12 +319,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             }
         }
 
-        //TODO: remove before release
-        if (ForceWildSurgeRoll > 0)
-        {
-            selectedRoll = ForceWildSurgeRoll;
-        }
-
         var selectedPower = WildSurgePowers[selectedRoll - 1];
 
         rulesetAttacker.ShowDieRoll(DieType.D20, selectedRoll, title: FeatureWildMagicSurge.GuiPresentation.Title);
@@ -367,12 +355,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             {
                 wildSurgeDie2 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
             }
-        }
-
-        //TODO: remove before release
-        if (ForceWildSurgeRoll > 0)
-        {
-            wildSurgeDie1 = ForceWildSurgeRoll;
         }
 
         var rulesetAttacker = attacker.RulesetCharacter;
@@ -474,12 +456,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             else
             {
                 var chanceDie = RollDie(DieType.D20, AdvantageType.None, out _, out _);
-
-                //TODO: remove before release
-                if (ForceWildSurge)
-                {
-                    chanceDie = 1;
-                }
 
                 shouldRollWildSurge = chanceDie <= 2;
 
@@ -1128,6 +1104,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 var levels = caster.RulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, Name);
                 var slotLevel = (levels + 3) / 4;
 
+                rulesetCaster.LogCharacterActivatesAbility(string.Empty, "Feedback/&SpellSlotsRecoveredLine",
+                    extra: [(ConsoleStyleDuplet.ParameterType.Positive, slotLevel.ToString())]);
                 InflictConditionOnCreaturesWithinRange(
                     caster, $"ConditionAdditionalSpellSlot{slotLevel}", DurationType.UntilLongRest);
                 break;
@@ -1226,6 +1204,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // you gain all expended sorcery points
             case 20:
+                rulesetCaster.LogCharacterActivatesAbility(string.Empty, "Screen/&SorceryPointsRecoveredDescription");
                 rulesetCaster.UsedSorceryPoints = 0;
                 rulesetCaster.SorceryPointsAltered?.Invoke(rulesetCaster, rulesetCaster.RemainingSorceryPoints);
                 break;
