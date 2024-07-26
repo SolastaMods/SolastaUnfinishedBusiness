@@ -379,9 +379,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var conditionArcher14 = ConditionDefinitionBuilder
             .Create(conditionArcher, $"Condition{Name}Archer14")
             .AddFeatures(
-                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
+                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistanceTrue,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistanceTrue,
+                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistanceTrue)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
@@ -466,9 +466,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var conditionChalice14 = ConditionDefinitionBuilder
             .Create(conditionChalice, $"Condition{Name}Chalice14")
             .AddFeatures(
-                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
+                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistanceTrue,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistanceTrue,
+                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistanceTrue)
             .AddCustomSubFeatures(new MagicEffectFinishedByMeChalice(powerChalice, conditionChaliceHealing))
             .AddToDB();
 
@@ -572,9 +572,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create(conditionDragon10, $"Condition{Name}Dragon14")
             .SetParentCondition(ConditionDefinitions.ConditionFlying)
             .AddFeatures(
-                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
+                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistanceTrue,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistanceTrue,
+                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistanceTrue)
             .AddToDB();
 
         // Dragon Main

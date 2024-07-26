@@ -136,17 +136,17 @@ public sealed class OathOfAncients : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(
                 DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
+                DamageAffinityBludgeoningResistanceTrue,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
                 DamageAffinityForceDamageResistance,
                 DamageAffinityLightningResistance,
                 DamageAffinityNecroticResistance,
-                DamageAffinityPiercingResistance,
+                DamageAffinityPiercingResistanceTrue,
                 DamageAffinityPoisonResistance,
                 DamageAffinityPsychicResistance,
                 DamageAffinityRadiantResistance,
-                DamageAffinitySlashingResistance,
+                DamageAffinitySlashingResistanceTrue,
                 DamageAffinityThunderResistance)
             .AddToDB();
 

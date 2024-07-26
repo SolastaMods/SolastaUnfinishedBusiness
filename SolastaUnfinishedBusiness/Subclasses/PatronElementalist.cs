@@ -38,7 +38,7 @@ public sealed class PatronElementalist : AbstractSubclass
             "Earth", new ElementalFormConfig
             {
                 DamageType = DamageTypeBludgeoning,
-                Resistance = DamageAffinityBludgeoningResistance,
+                Resistance = DamageAffinityBludgeoningResistanceTrue,
                 Immunity = DamageAffinityBludgeoningImmunity,
                 // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
                 Particles = Earth_Elemental.MonsterPresentation.attachedParticlesReference,

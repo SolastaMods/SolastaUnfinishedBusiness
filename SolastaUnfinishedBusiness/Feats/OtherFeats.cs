@@ -1035,17 +1035,17 @@ internal static class OtherFeats
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetFeatures(
                                     DamageAffinityAcidResistance,
-                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityBludgeoningResistanceTrue,
                                     DamageAffinityColdResistance,
                                     DamageAffinityFireResistance,
                                     DamageAffinityForceDamageResistance,
                                     DamageAffinityLightningResistance,
                                     DamageAffinityNecroticResistance,
-                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPiercingResistanceTrue,
                                     DamageAffinityPoisonResistance,
                                     DamageAffinityPsychicResistance,
                                     DamageAffinityRadiantResistance,
-                                    DamageAffinitySlashingResistance,
+                                    DamageAffinitySlashingResistanceTrue,
                                     DamageAffinityThunderResistance)
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
                                 .AddToDB()))

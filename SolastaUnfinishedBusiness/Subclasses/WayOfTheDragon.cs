@@ -312,17 +312,17 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetPossessive()
             .AddFeatures(
                 DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
+                DamageAffinityBludgeoningResistanceTrue,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
                 DamageAffinityForceDamageResistance,
                 DamageAffinityLightningResistance,
                 DamageAffinityNecroticResistance,
-                DamageAffinityPiercingResistance,
+                DamageAffinityPiercingResistanceTrue,
                 DamageAffinityPoisonResistance,
                 DamageAffinityPsychicResistance,
                 DamageAffinityRadiantResistance,
-                DamageAffinitySlashingResistance,
+                DamageAffinitySlashingResistanceTrue,
                 DamageAffinityThunderResistance)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();

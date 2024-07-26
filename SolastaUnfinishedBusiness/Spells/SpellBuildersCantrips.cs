@@ -150,9 +150,9 @@ internal static partial class SpellBuilders
                                 .Create($"Condition{NAME}")
                                 .SetGuiPresentation(NAME, Category.Spell, ConditionShielded)
                                 .SetFeatures(
-                                    DamageAffinityBludgeoningResistance,
-                                    DamageAffinitySlashingResistance,
-                                    DamageAffinityPiercingResistance)
+                                    DamageAffinityBludgeoningResistanceTrue,
+                                    DamageAffinitySlashingResistanceTrue,
+                                    DamageAffinityPiercingResistanceTrue)
                                 .AddToDB()))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPatronHiveReactiveCarapace)
                     .SetCasterEffectParameters(GuidingBolt)

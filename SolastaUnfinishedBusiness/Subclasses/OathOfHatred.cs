@@ -136,9 +136,9 @@ public sealed class OathOfHatred : AbstractSubclass
             .Create("FeatureSetHatredResistance")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
+                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistanceTrue,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistanceTrue,
+                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistanceTrue)
             .AddToDB();
 
         //

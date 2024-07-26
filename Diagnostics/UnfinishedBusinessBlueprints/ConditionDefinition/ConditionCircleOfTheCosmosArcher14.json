@@ -4,9 +4,9 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
-    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
+    "Definition:DamageAffinityBludgeoningResistanceTrue:e6dc6cc673a626b4896753ede87b1270",
+    "Definition:DamageAffinityPiercingResistanceTrue:ac80e992b7d65eb46bd2ee3b7e004ab6",
+    "Definition:DamageAffinitySlashingResistanceTrue:d6683e1311037ac439ad7fe52516facd",
     "Definition:PowerCircleOfTheCosmosArcher:dbb3426d-6551-5205-bacc-653e4b387297"
   ],
   "allowMultipleInstances": false,

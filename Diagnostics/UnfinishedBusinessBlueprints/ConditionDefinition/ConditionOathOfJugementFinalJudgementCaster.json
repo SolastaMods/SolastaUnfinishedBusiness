@@ -6,9 +6,9 @@
   "features": [
     "Definition:AttributeModifierOathOfJugementFinalJudgementCaster:b04df104-0bd1-5b2e-80bc-bbeae6352241",
     "Definition:AttributeModifierThirdExtraAttack:7cd137e1-0ef0-5827-a90b-15d8793e4914",
-    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
-    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6"
+    "Definition:DamageAffinityBludgeoningResistanceTrue:e6dc6cc673a626b4896753ede87b1270",
+    "Definition:DamageAffinityPiercingResistanceTrue:ac80e992b7d65eb46bd2ee3b7e004ab6",
+    "Definition:DamageAffinitySlashingResistanceTrue:d6683e1311037ac439ad7fe52516facd"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

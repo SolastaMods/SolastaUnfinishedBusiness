@@ -119,7 +119,9 @@ public sealed class MartialGuardian : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
-                DamageAffinityBludgeoningResistance, DamageAffinityPiercingResistance, DamageAffinitySlashingResistance)
+                DamageAffinityBludgeoningResistanceTrue,
+                DamageAffinityPiercingResistanceTrue,
+                DamageAffinitySlashingResistanceTrue)
             .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddToDB();
 

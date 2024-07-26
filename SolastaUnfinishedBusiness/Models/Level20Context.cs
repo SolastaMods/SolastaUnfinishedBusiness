@@ -64,16 +64,16 @@ internal static class Level20Context
                                     DatabaseHelper.ConditionDefinitions.ConditionShielded)
                                 .AddFeatures(
                                     DamageAffinityAcidResistance,
-                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityBludgeoningResistanceTrue,
                                     DamageAffinityColdResistance,
                                     DamageAffinityFireResistance,
                                     DamageAffinityLightningResistance,
                                     DamageAffinityNecroticResistance,
-                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPiercingResistanceTrue,
                                     DamageAffinityPoisonResistance,
                                     DamageAffinityPsychicResistance,
                                     DamageAffinityRadiantResistance,
-                                    DamageAffinitySlashingResistance,
+                                    DamageAffinitySlashingResistanceTrue,
                                     DamageAffinityThunderResistance)
                                 .SetPossessive()
                                 .AddToDB(),

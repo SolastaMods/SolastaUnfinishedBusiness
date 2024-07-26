@@ -61,9 +61,9 @@ internal static class Level20SubclassesContext
             .Create("FeatureSetDomainBattleParagonOfBattle")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinitySlashingResistance,
+                DamageAffinityBludgeoningResistanceTrue,
+                DamageAffinityPiercingResistanceTrue,
+                DamageAffinitySlashingResistanceTrue,
                 powerDomainBattleImprovedHeraldOfBattle)
             .AddToDB();
 
@@ -887,9 +887,9 @@ internal static class Level20SubclassesContext
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.CriticalThreshold, -1)
                     .AddToDB(),
                 AttributeModifierThirdExtraAttack,
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinitySlashingResistance)
+                DamageAffinityBludgeoningResistanceTrue,
+                DamageAffinityPiercingResistanceTrue,
+                DamageAffinitySlashingResistanceTrue)
             .CopyParticleReferences(ConditionDefinitions.ConditionShine)
             .AddToDB();
 
@@ -1124,16 +1124,16 @@ internal static class Level20SubclassesContext
                 FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement,
                 FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging,
                 DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
+                DamageAffinityBludgeoningResistanceTrue,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
                 DamageAffinityForceDamageResistance,
                 DamageAffinityLightningResistance,
                 DamageAffinityNecroticResistance,
-                DamageAffinityPiercingResistance,
+                DamageAffinityPiercingResistanceTrue,
                 DamageAffinityPoisonResistance,
                 DamageAffinityPsychicResistance,
-                DamageAffinitySlashingResistance,
+                DamageAffinitySlashingResistanceTrue,
                 DamageAffinityThunderResistance)
             .AddToDB();
 
