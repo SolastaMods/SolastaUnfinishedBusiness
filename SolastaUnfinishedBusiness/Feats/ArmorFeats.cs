@@ -246,7 +246,7 @@ internal static class ArmorFeats
         public int HandlerPriority => 10;
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -255,9 +255,6 @@ internal static class ArmorFeats
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect)
         {
-            var battleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
             if (!battleManager ||
                 helper != defender ||
                 rulesetEffect == null ||
