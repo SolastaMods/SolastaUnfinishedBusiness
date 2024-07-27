@@ -458,6 +458,68 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     }
 
     //
+    // Tides of Chaos
+    //
+
+    internal static void InitTidesOfChaos()
+    {
+        foreach (var rulesetCharacter in ServiceRepository
+                     .GetService<IGameLocationCharacterService>()
+                     .PartyCharacters
+                     .Select(x => x.RulesetCharacter))
+        {
+            if (rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, Name) > 0 &&
+                !rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionTidesOfChaosAmount.Name))
+            {
+                InflictTidesOfChaosConditionTab(rulesetCharacter);
+            }
+        }
+    }
+
+    private static int InflictTidesOfChaosConditionTab(RulesetCharacter character)
+    {
+        if (character.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionTidesOfChaosAmount.Name, out var activeCondition))
+        {
+            return activeCondition.amount;
+        }
+
+        var roll = RollDie(DieType.D3, AdvantageType.None, out _, out _);
+
+        character.LogCharacterActivatesAbility(
+            PowerTidesOfChaos.FormatTitle(),
+            "Feedback/&TidesOfChaosRegainUsage",
+            tooltipContent: PowerTidesOfChaos.Name,
+            tooltipClass: "PowerDefinition",
+            extra:
+            [
+                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D3)),
+                (ConsoleStyleDuplet.ParameterType.Base, roll.ToString())
+            ]);
+
+        character.InflictCondition(
+            ConditionTidesOfChaosAmount.Name,
+            DurationType.UntilLongRest,
+            1,
+            TurnOccurenceType.EndOfTurn,
+            AttributeDefinitions.TagEffect,
+            character.guid,
+            character.CurrentFaction.Name,
+            1,
+            ConditionTidesOfChaosAmount.Name,
+            roll,
+            0,
+            0);
+
+        var usablePower = PowerProvider.Get(PowerTidesOfChaos, character);
+
+        usablePower.remainingUses = roll;
+
+        return roll;
+    }
+
+    //
     // Wild Magic Surge
     //
 
@@ -521,56 +583,14 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
     }
 
-    //
-    // Tides of Chaos
-    //
-
-    private sealed class CustomBehaviorTidesOfChaos : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow,
-        IModifyPowerPoolAmount
+    private sealed class CustomBehaviorTidesOfChaos
+        : ITryAlterOutcomeAttack, ITryAlterOutcomeSavingThrow, IModifyPowerPoolAmount
     {
         public FeatureDefinitionPower PowerPool => PowerTidesOfChaos;
 
         public int PoolChangeAmount(RulesetCharacter character)
         {
-            if (!Gui.GameLocation)
-            {
-                return 0;
-            }
-            
-            if (character.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionTidesOfChaosAmount.Name, out var activeCondition))
-            {
-                return activeCondition.amount;
-            }
-
-            var roll = RollDie(DieType.D3, AdvantageType.None, out _, out _);
-
-            character.LogCharacterActivatesAbility(
-                PowerTidesOfChaos.FormatTitle(),
-                "Feedback/&TidesOfChaosRegainUsage",
-                tooltipContent: PowerTidesOfChaos.Name,
-                tooltipClass: "PowerDefinition",
-                extra:
-                [
-                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D3)),
-                    (ConsoleStyleDuplet.ParameterType.Base, roll.ToString())
-                ]);
-
-            character.InflictCondition(
-                ConditionTidesOfChaosAmount.Name,
-                DurationType.UntilLongRest,
-                1,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                character.guid,
-                character.CurrentFaction.Name,
-                1,
-                ConditionTidesOfChaosAmount.Name,
-                roll,
-                0,
-                0);
-
-            return roll;
+            return !Gui.GameLocation ? 0 : InflictTidesOfChaosConditionTab(character);
         }
 
         public int HandlerPriority => -9; // ensure it triggers after bend of luck
