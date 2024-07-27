@@ -4,6 +4,7 @@
 - added Invulnerability and Psychic Scream spells at 9th
 - added Sorcerous Wild Magic subclass [github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/Wild-Magic-Surge]
 - fixed Circle of the Life verdancy condition applying to caster only
+- fixed Fell Handed feat weapon type validator logic
 - fixed game soft lock when adding, removing, or stacking effect proxies
 - fixed Halberd, Hand Crossbow, Long Mace, and Pike to correctly scale, and recipes to use primed items
 - fixed Monk Improved Unarmored Movement always set regardless of UI choice

@@ -1532,7 +1532,7 @@ internal static class MeleeCombatFeats
             int damageAmount)
         {
             if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+                !weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 yield break;
             }
