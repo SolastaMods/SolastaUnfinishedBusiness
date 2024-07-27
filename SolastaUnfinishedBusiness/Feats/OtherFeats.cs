@@ -1485,11 +1485,14 @@ internal static class OtherFeats
 
         var damageTypes = new[]
         {
-            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
+            (DamageTypeAcid, DamageAffinityAcidResistance), (DamageTypeCold, DamageAffinityColdResistance),
+            (DamageTypeFire, DamageAffinityFireResistance),
+            (DamageTypeLightning, DamageAffinityLightningResistance),
+            (DamageTypePoison, DamageAffinityPoisonResistance), (DamageTypeThunder, DamageAffinityThunderResistance)
         };
 
         // ReSharper disable once LoopCanBeConvertedToQuery
-        foreach (var damageType in damageTypes)
+        foreach (var (damageType, featureResistance) in damageTypes)
         {
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
             var guiPresentation = new GuiPresentationBuilder(
@@ -1508,12 +1511,7 @@ internal static class OtherFeats
                             "Feature/&DieRollModifierFeatElementalMasterReroll")
                         .AddCustomSubFeatures(new ModifyDamageResistanceElementalMaster(damageType))
                         .AddToDB(),
-                    FeatureDefinitionDamageAffinityBuilder
-                        .Create($"DamageAffinity{NAME}{damageType}")
-                        .SetGuiPresentation(guiPresentation)
-                        .SetDamageAffinityType(DamageAffinityType.Resistance)
-                        .SetDamageType(damageType)
-                        .AddToDB())
+                    featureResistance)
                 .SetMustCastSpellsPrerequisite()
                 .SetFeatFamily("ElementalMaster")
                 .SetKnownFeatsPrerequisite($"FeatElementalAdept{damageType}")
