@@ -89,7 +89,7 @@ public static class CharacterReactionItemPatcher
 
             __instance.remainingResourceValue.Text =
                 __instance.guiCharacter.RulesetCharacter.RemainingSorceryPoints.ToString();
-            
+
             var screen = Gui.GuiService.GetScreen<ReactionModal>();
 
             if (!screen)
@@ -107,6 +107,7 @@ public static class CharacterReactionItemPatcher
 
             __instance.resourceCostSprite = Gui.LoadAssetSync<Sprite>(spriteByResourceCost);
             __instance.resourceCostImage.sprite = __instance.resourceCostSprite;
+            __instance.remainingResourceImage.sprite = __instance.resourceCostSprite;
             //END BUGFIX
         }
 

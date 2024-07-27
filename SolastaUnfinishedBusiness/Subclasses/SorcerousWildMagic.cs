@@ -59,6 +59,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     private static readonly FeatureDefinition FeatureSpellBombardment = FeatureDefinitionBuilder
         .Create($"Feature{Name}SpellBombardment")
         .SetGuiPresentation(Category.Feature)
+        .AddCustomSubFeatures(new CustomBehaviorSpellBombardment())
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionTidesOfChaosAmount = ConditionDefinitionBuilder
@@ -127,6 +128,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                 .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeNecrotic, 1, DieType.D10))
                 .SetEffectEffectParameters(PowerWightLordRetaliate)
+                .SetCasterEffectParameters(Heal.EffectDescription.EffectParticleParameters.effectParticleReference)
                 .Build())
         .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
@@ -185,6 +187,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .SetPossessive()
         .SetConditionType(ConditionType.Detrimental)
         .SetFeatures(DamageAffinityPiercingVulnerability)
+        .SetConditionParticleReference(ConditionDefinitions.Condition_MummyLord_ChannelNegativeEnergy)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionTeleport = ConditionDefinitionBuilder
@@ -207,7 +210,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .Create($"Condition{Name}MaxDamageRolls")
         .SetGuiPresentation("PowerSorcerousWildMagicD10", Category.Feature, ConditionDefinitions.ConditionGuided)
         .SetPossessive()
-        .SetSpecialInterruptions(ConditionInterruption.CastSpellExecuted)
+        .AddCustomSubFeatures(new CustomBehaviorMaxDamageRolls())
         .AddToDB();
 
     public SorcerousWildMagic()
@@ -298,25 +301,22 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
-    // Spell Bombardment / Wild Surge Max Damage Rolls
+    // Spell Bombardment 
     //
 
-    internal static void HandleSpellBombardmentAndWildSurgeMaxDamageRolls(
+    internal static void HandleSpellBombardment(
         RulesetCharacter rulesetCharacter, DamageForm damageForm, List<int> rolledValues, ref int damage)
     {
         var dieType = damageForm.DieType;
         var maxDie = DiceMaxValue[(int)dieType];
-
-        HandleSpellBombardment(rulesetCharacter, rolledValues, maxDie, ref damage);
-        HandleWildSurgeMaxDamageRolls(rulesetCharacter, rolledValues, maxDie, ref damage);
-    }
-
-    private static void HandleSpellBombardment(
-        RulesetCharacter rulesetCharacter, List<int> rolledValues, int maxDie, ref int damage)
-    {
         var levels = rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Sorcerer, Name);
+        var character = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
-        if (levels < 18 || !rolledValues.Contains(maxDie))
+        if (levels < 18 ||
+            !rolledValues.Contains(maxDie) ||
+            character == null ||
+            !character.UsedSpecialFeatures.TryGetValue(FeatureSpellBombardment.Name, out var value) ||
+            value == 0)
         {
             return;
         }
@@ -325,25 +325,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         rolledValues.Add(maxDie);
         damage += maxDie;
-    }
-
-    private static void HandleWildSurgeMaxDamageRolls(
-        RulesetCharacter rulesetCharacter, List<int> rolledValues, int maxDie, ref int damage)
-    {
-        if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect, ConditionMaxDamageRolls.Name, out var activeCondition))
-        {
-            return;
-        }
-
-        rulesetCharacter.RemoveCondition(activeCondition);
-
-        for (var i = 0; i < rolledValues.Count; i++)
-        {
-            rolledValues[i] = maxDie;
-        }
-
-        damage = rolledValues.Count * maxDie;
     }
 
     //
@@ -402,10 +383,15 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 wildSurgeDie1 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
             }
 
-            while (wildSurgeDie2 == 1)
+            while (wildSurgeDie2 == 1 || wildSurgeDie2 == wildSurgeDie1)
             {
                 wildSurgeDie2 = RollDie(DieType.D20, AdvantageType.None, out _, out _);
             }
+        }
+
+        if (wildSurgeDie1 > wildSurgeDie2)
+        {
+            (wildSurgeDie1, wildSurgeDie2) = (wildSurgeDie2, wildSurgeDie1);
         }
 
         var rulesetAttacker = attacker.RulesetCharacter;
@@ -513,7 +499,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             {
                 var chanceDie = RollDie(DieType.D20, AdvantageType.None, out _, out _);
 
+#if DEBUG
                 shouldRollWildSurge = chanceDie <= Main.Settings.WildSurgeDieRollThreshold;
+#else
+                shouldRollWildSurge = chanceDie <= 2;
+#endif
 
                 rulesetAttacker.ShowDieRoll(DieType.D20, chanceDie, title: FeatureWildMagicSurge.GuiPresentation.Title);
                 rulesetAttacker.LogCharacterActivatesAbility(
@@ -553,6 +543,17 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             }
 
             var roll = RollDie(DieType.D3, AdvantageType.None, out _, out _);
+
+            character.LogCharacterActivatesAbility(
+                PowerTidesOfChaos.FormatTitle(),
+                "Feedback/&TidesOfChaosRegainUsage",
+                tooltipContent: PowerTidesOfChaos.Name,
+                tooltipClass: "PowerDefinition",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D3)),
+                    (ConsoleStyleDuplet.ParameterType.Base, roll.ToString())
+                ]);
 
             character.InflictCondition(
                 ConditionTidesOfChaosAmount.Name,
@@ -1131,17 +1132,42 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
     }
 
+    //
+    // Spell Bombardment
+    //
+
+    private sealed class CustomBehaviorSpellBombardment : IMagicEffectInitiatedByMe
+    {
+        public IEnumerator OnMagicEffectInitiatedByMe(
+            CharacterActionMagicEffect action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            attacker.UsedSpecialFeatures.TryAdd(FeatureSpellBombardment.Name, 0);
+            attacker.UsedSpecialFeatures[FeatureSpellBombardment.Name] =
+                1; //activeEffect is RulesetEffectSpell ? 1 : 0;
+
+            yield break;
+        }
+    }
+
     #region Wild Surge Handlers
 
     private static void ApplyWildSurge(
-        GameLocationCharacter caster, int roll, FeatureDefinition feature, FeatureDefinitionPower selectedPower,
+        GameLocationCharacter caster,
+        int roll,
+        FeatureDefinition feature,
+        FeatureDefinitionPower selectedPower,
         string feedback)
     {
+#if DEBUG
         if (Main.Settings.WildSurgeEffectDie > 0 &&
             !caster.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionChaos.Name))
         {
             roll = Main.Settings.WildSurgeEffectDie;
         }
+#endif
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var implementationManager =
@@ -1202,6 +1228,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
             // You can teleport up to 60 feet to an unoccupied space of your choice that you can see as a free action before your turn ends
             case 5:
+                EffectHelpers.StartVisualEffect(
+                    caster, caster, PowerPactChainQuasit, EffectHelpers.EffectType.Caster);
                 InflictConditionOnCreaturesWithinRange(caster, ConditionTeleport.Name, DurationType.Round, 0);
                 break;
 
@@ -1224,7 +1252,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             case 8:
                 //
                 InflictConditionOnRandomCreatureWithinRange(
-                    caster, ConditionPoisoned, DurationType.Hour, 1, TurnOccurenceType.EndOfTurn, 12);
+                    caster, ConditionPoisoned, DurationType.Hour, 1, TurnOccurenceType.EndOfTurn,
+                    PowerDomainOblivionMarkOfFate, 12);
                 break;
 
             // you regain your lowest-level expended spell slot
@@ -1250,7 +1279,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             // A random creature within 60 feet of you can fly for a minute
             case 11:
                 InflictConditionOnRandomCreatureWithinRange(
-                    caster, ConditionFlying, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 12);
+                    caster, ConditionFlying,
+                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, PowerSorcererManaPainterDrain, 12);
                 break;
 
             // you cast grease centered on self
@@ -1310,7 +1340,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             case 15:
                 InflictConditionOnCreaturesWithinRange(
                     caster, ConditionDefinitions.ConditionInvisible.Name,
-                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6);
+                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6, PowerSorcererHauntedSoulSoulDrain);
                 break;
 
             // you can take one additional action immediately
@@ -1325,11 +1355,13 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             case 17:
                 InflictConditionOnCreaturesWithinRange(
                     caster, ConditionPiercingVulnerability.Name,
-                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6);
+                    DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, 6, PowerIncubus_Drain);
                 break;
 
             // you gain resistance to all damage for the next minute
             case 18:
+                EffectHelpers.StartVisualEffect(
+                    caster, caster, PowerOathOfTirmarGoldenSpeech, EffectHelpers.EffectType.Caster);
                 InflictConditionOnCreaturesWithinRange(caster, ConditionDamageResistance.Name, DurationType.Minute);
                 break;
 
@@ -1355,6 +1387,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         DurationType durationType,
         int durationParameter,
         TurnOccurenceType turnOccurenceType,
+        IMagicEffect magicEffect,
         int range)
     {
         var rulesetCaster = caster.RulesetCharacter;
@@ -1371,6 +1404,7 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         var target = targets.ElementAt(index);
         var rulesetTarget = target.RulesetCharacter;
 
+        EffectHelpers.StartVisualEffect(caster, target, magicEffect, EffectHelpers.EffectType.Effect);
         rulesetTarget.InflictCondition(
             conditionName,
             durationType,
@@ -1392,7 +1426,8 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         DurationType durationType,
         int durationParameter = 1,
         TurnOccurenceType turnOccurenceType = TurnOccurenceType.EndOfTurn,
-        int range = 0)
+        int range = 0,
+        IMagicEffect magicEffect = null)
     {
         var rulesetCaster = caster.RulesetCharacter;
 
@@ -1419,13 +1454,19 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         var contenders =
             Gui.Battle?.AllContenders ??
             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters);
-        var rulesetTargets = contenders
+        var targets = contenders
             .Where(x => x.IsWithinRange(caster, range))
-            .Select(target => target.RulesetCharacter)
             .ToList();
 
-        foreach (var rulesetTarget in rulesetTargets)
+        foreach (var target in targets)
         {
+            var rulesetTarget = target.RulesetActor;
+
+            if (magicEffect != null)
+            {
+                EffectHelpers.StartVisualEffect(caster, target, magicEffect, EffectHelpers.EffectType.Effect);
+            }
+
             rulesetTarget.InflictCondition(
                 conditionName,
                 durationType,
@@ -1441,6 +1482,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 0);
         }
     }
+
+    //
+    // Chaos
+    //
 
     private sealed class CharacterTurnStartListenerChaos(FeatureDefinition featureWildSurge)
         : ICharacterTurnStartListener
@@ -1463,6 +1508,10 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         }
     }
 
+    //
+    // Lightning Strike and Teleport
+    //
+
     private sealed class PowerOrSpellFinishedByMe(ConditionDefinition condition) : IPowerOrSpellFinishedByMe
     {
         public IEnumerator OnPowerOrSpellFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1476,6 +1525,61 @@ public sealed class SorcerousWildMagic : AbstractSubclass
             }
 
             yield break;
+        }
+    }
+
+    //
+    // Max Damage Rolls
+    //
+
+    private sealed class CustomBehaviorMaxDamageRolls : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe,
+        IForceMaxDamageTypeDependent
+    {
+        private const string Tag = "WildSurgeMaxDamageRolls";
+
+        public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
+        {
+            var actor = GameLocationCharacter.GetFromActor(rulesetActor);
+
+            return actor != null && actor.UsedSpecialFeatures.ContainsKey(Tag);
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (attacker.UsedSpecialFeatures.Remove(Tag) &&
+                rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, ConditionMaxDamageRolls.Name, out var activeCondition))
+            {
+                rulesetAttacker.RemoveCondition(activeCondition);
+            }
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(
+            CharacterActionMagicEffect action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter attacker,
+            List<GameLocationCharacter> targets)
+        {
+            attacker.UsedSpecialFeatures.Remove(Tag);
+
+            if (activeEffect is not RulesetEffectSpell ||
+                activeEffect.EffectDescription.FindFirstDamageForm() == null)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var powerMaxDamageRolls = WildSurgePowers[9];
+
+            rulesetAttacker.LogCharacterUsedPower(powerMaxDamageRolls);
+            attacker.UsedSpecialFeatures.Add(Tag, 0);
         }
     }
 

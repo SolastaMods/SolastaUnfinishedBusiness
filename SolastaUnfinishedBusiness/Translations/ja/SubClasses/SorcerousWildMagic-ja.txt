@@ -67,6 +67,7 @@ Feedback/&ControlledChaosDieChoice={0} は {1} で {2} を選択し、{3} をア
 Feedback/&ControlledChaosDieRoll={0} は {1} 個のサイコロで {2} と {3} をロールします
 Feedback/&TidesOfChaosCheckDieRoll={0} はチェックロールに失敗し、{1} を使用して有利に再ロールします
 Feedback/&TidesOfChaosForcedSurge={1} は {0} にワイルドサージテーブルを自動的にロールさせる
+Feedback/&TidesOfChaosRegainUsage={0} は {2} をロールし、{1} の使用回数を {3} 回回復します。
 Feedback/&TidesOfChaosSavingDieRoll={0} はセービングロールに失敗し、{1} を使用して有利に再ロールします
 Feedback/&WidSurgeChanceDieRoll={0} は {1} のチャンスダイスで {2} をロールします
 Feedback/&WidSurgeDieRoll={0} は {1} 個のダイスで {2} をロールし、{3} を起動します。

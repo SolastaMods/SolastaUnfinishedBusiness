@@ -57,13 +57,6 @@ internal static class SpellPointsContext
             new ModifyPowerPoolAmountPowerSpellPoints())
         .AddToDB();
 
-    internal static void GrantPoints(RulesetCharacter rulesetCharacter, int level)
-    {
-        var usablePower = PowerProvider.Get(PowerSpellPoints, rulesetCharacter);
-
-        usablePower.remainingUses += SpellCostByLevel[level];
-    }
-
     internal static void LateLoad()
     {
         EnumerateSlotsPerLevel(CasterProgression.Full, SpellPointsFullCastingSlots, true);

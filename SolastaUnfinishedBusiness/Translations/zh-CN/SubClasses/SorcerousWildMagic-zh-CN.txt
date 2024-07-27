@@ -67,6 +67,7 @@ Feedback/&ControlledChaosDieChoice={0} 在 {1} 上选择 {2} 并激活 {3}
 Feedback/&ControlledChaosDieRoll={0} 在 {1} 个骰子上掷出 {2} 和 {3}
 Feedback/&TidesOfChaosCheckDieRoll={0} 未能通过检查掷骰，并使用 {1} 重新掷骰并获得优势
 Feedback/&TidesOfChaosForcedSurge={1} 强制 {0} 自动在狂野激增表上滚动
+Feedback/&TidesOfChaosRegainUsage={0} 掷出 {2} 并重新获得 {3} 次使用 {1} 的机会
 Feedback/&TidesOfChaosSavingDieRoll={0} 豁免检定失败，并使用 {1} 重新检定并获得优势
 Feedback/&WidSurgeChanceDieRoll={0} 在 {1} 个机会骰子上掷出 {2}
 Feedback/&WidSurgeDieRoll={0} 在 {1} 个骰子上掷出 {2} 并激活 {3}

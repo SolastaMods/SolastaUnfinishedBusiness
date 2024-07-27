@@ -1715,6 +1715,12 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerSorcererHauntedSoulSoulDrain { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSoulDrain");
+
+        internal static FeatureDefinitionPower PowerIncubus_Drain { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerIncubus_Drain");
+
         internal static FeatureDefinitionPower PowerSessrothTeleport { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSessrothTeleport");
 
@@ -3643,10 +3649,10 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition ConjureMinorElementals { get; } =
             GetDefinition<SpellDefinition>("ConjureMinorElementals");
-        
+
         internal static SpellDefinition ConjureCelestialCouatl { get; } =
             GetDefinition<SpellDefinition>("ConjureCelestialCouatl");
-        
+
         internal static SpellDefinition Contagion { get; } = GetDefinition<SpellDefinition>("Contagion");
         internal static SpellDefinition Counterspell { get; } = GetDefinition<SpellDefinition>("Counterspell");
         internal static SpellDefinition CreateFood { get; } = GetDefinition<SpellDefinition>("CreateFood");

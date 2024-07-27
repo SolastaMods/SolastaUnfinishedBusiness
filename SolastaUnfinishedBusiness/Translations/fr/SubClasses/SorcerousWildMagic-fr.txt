@@ -67,6 +67,7 @@ Feedback/&ControlledChaosDieChoice={0} choisit {2} sur {1} et active {3}
 Feedback/&ControlledChaosDieRoll={0} lance un {2} et un {3} sur le dé {1}
 Feedback/&TidesOfChaosCheckDieRoll={0} échoue à un jet de contrôle et utilise {1} pour relancer avec avantage
 Feedback/&TidesOfChaosForcedSurge={1} force {0} à lancer automatiquement un jet sur la table des surtensions sauvages
+Feedback/&TidesOfChaosRegainUsage={0} lance un {2} et récupère {3} utilisations de {1}
 Feedback/&TidesOfChaosSavingDieRoll={0} échoue à un jet de sauvegarde et utilise {1} pour relancer avec avantage
 Feedback/&WidSurgeChanceDieRoll={0} lance un dé {2} sur {1} chance
 Feedback/&WidSurgeDieRoll={0} lance un {2} sur le dé {1} et active {3}

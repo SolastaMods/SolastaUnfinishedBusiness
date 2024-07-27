@@ -67,6 +67,7 @@ Feedback/&ControlledChaosDieChoice={0} elige {2} el {1} ​​y activa {3}
 Feedback/&ControlledChaosDieRoll={0} lanza un {2} y un {3} en {1} dado
 Feedback/&TidesOfChaosCheckDieRoll={0} falla una tirada de verificación y usa {1} para volver a tirar con ventaja
 Feedback/&TidesOfChaosForcedSurge={1} obliga a {0} a tirar automáticamente en la tabla de aumento salvaje
+Feedback/&TidesOfChaosRegainUsage={0} saca un {2} y recupera {3} usos de {1}
 Feedback/&TidesOfChaosSavingDieRoll={0} falla una tirada de salvación y usa {1} para volver a tirar con ventaja
 Feedback/&WidSurgeChanceDieRoll={0} lanza un {2} con un {1} dado de probabilidad
 Feedback/&WidSurgeDieRoll={0} lanza un {2} con un {1} dado y activa {3}

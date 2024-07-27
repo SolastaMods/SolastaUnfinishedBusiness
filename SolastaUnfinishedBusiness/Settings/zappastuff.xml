@@ -1345,6 +1345,7 @@
                     <string>Foresight</string>
                     <string>PowerWordHeal</string>
                     <string>PowerWordKill</string>
+                    <string>PsychicScream</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -1564,6 +1565,7 @@
                     <string>SoulExpulsion</string>
                     <string>MeteorSwarmSingleTarget</string>
                     <string>PowerWordKill</string>
+                    <string>PsychicScream</string>
                     <string>TimeStop</string>
                 </ArrayOfString>
             </value>
@@ -1615,6 +1617,7 @@
                     <string>MaddeningDarkness</string>
                     <string>Foresight</string>
                     <string>PowerWordKill</string>
+                    <string>PsychicScream</string>
                     <string>Weird</string>
                 </ArrayOfString>
             </value>
@@ -1712,8 +1715,10 @@
                     <string>MindBlank</string>
                     <string>SoulExpulsion</string>
                     <string>Foresight</string>
+                    <string>Invulnerability</string>
                     <string>MeteorSwarmSingleTarget</string>
                     <string>PowerWordKill</string>
+                    <string>PsychicScream</string>
                     <string>Shapechange</string>
                     <string>TimeStop</string>
                     <string>Weird</string>

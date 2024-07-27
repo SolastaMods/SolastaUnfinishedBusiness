@@ -67,6 +67,7 @@ Feedback/&ControlledChaosDieChoice={0} sceglie {2} su {1} e attiva {3}
 Feedback/&ControlledChaosDieRoll={0} lancia un {2} e un {3} su {1} dado
 Feedback/&TidesOfChaosCheckDieRoll={0} fallisce un tiro di verifica e usa {1} per ripetere il tiro con vantaggio
 Feedback/&TidesOfChaosForcedSurge={1} forza {0} a rotolare automaticamente sulla tabella dei picchi selvaggi
+Feedback/&TidesOfChaosRegainUsage={0} tira un {2} e recupera {3} utilizzi di {1}
 Feedback/&TidesOfChaosSavingDieRoll={0} fallisce un tiro salvezza e usa {1} per ripetere il tiro con vantaggio
 Feedback/&WidSurgeChanceDieRoll={0} lancia un {2} con {1} dado possibilità
 Feedback/&WidSurgeDieRoll={0} lancia un {2} su {1} dado e attiva {3}

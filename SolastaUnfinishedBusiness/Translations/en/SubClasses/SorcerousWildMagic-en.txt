@@ -67,6 +67,7 @@ Feedback/&ControlledChaosDieChoice={0} chooses {2} on {1} and activates {3}
 Feedback/&ControlledChaosDieRoll={0} rolls a {2} and a {3} on {1} die
 Feedback/&TidesOfChaosCheckDieRoll={0} fails a check roll and uses {1} to reroll with advantage
 Feedback/&TidesOfChaosForcedSurge={1} forces {0} to automatically roll on the wild surge table
+Feedback/&TidesOfChaosRegainUsage={0} rolls a {2} and regains {3} uses of {1}
 Feedback/&TidesOfChaosSavingDieRoll={0} fails a saving roll and uses {1} to reroll with advantage
 Feedback/&WidSurgeChanceDieRoll={0} rolls a {2} on {1} chance die
 Feedback/&WidSurgeDieRoll={0} rolls a {2} on {1} die and activates {3}

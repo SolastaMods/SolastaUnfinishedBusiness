@@ -67,6 +67,7 @@ Feedback/&ControlledChaosDieChoice={0} escolhe {2} em {1} e ativa {3}
 Feedback/&ControlledChaosDieRoll={0} lança um {2} e um {3} no dado {1}
 Feedback/&TidesOfChaosCheckDieRoll={0} falha em um teste e usa {1} para rolar novamente com vantagem
 Feedback/&TidesOfChaosForcedSurge={1} força {0} a rolar automaticamente na tabela de onda selvagem
+Feedback/&TidesOfChaosRegainUsage={0} rola um {2} e recupera {3} usos de {1}
 Feedback/&TidesOfChaosSavingDieRoll={0} falha em uma jogada de salvamento e usa {1} para rolar novamente com vantagem
 Feedback/&WidSurgeChanceDieRoll={0} rola {2} em {1} dado de chance
 Feedback/&WidSurgeDieRoll={0} rola um {2} no dado {1} e ativa {3}

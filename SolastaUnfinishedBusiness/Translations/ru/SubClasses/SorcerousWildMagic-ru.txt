@@ -67,6 +67,7 @@ Feedback/&ControlledChaosDieChoice={0} выбирает {2} на {1} и акти
 Feedback/&ControlledChaosDieRoll={0} выбрасывает {2} и {3} на кости {1}
 Feedback/&TidesOfChaosCheckDieRoll={0} не проходит проверку и использует {1} для повторного броска с преимуществом
 Feedback/&TidesOfChaosForcedSurge={1} заставляет {0} автоматически совершить бросок по таблице Волна дикой магии
+Feedback/&TidesOfChaosRegainUsage={0} бросает {2} и восстанавливает {3} использований {1}
 Feedback/&TidesOfChaosSavingDieRoll={0} проваливает спасбросок и использует {1} для повторного броска с преимуществом
 Feedback/&WidSurgeChanceDieRoll={0} выбрасывает {2} на кости вероятности {1}
 Feedback/&WidSurgeDieRoll={0} выбрасывает {2} на кости {1} и активирует {3}

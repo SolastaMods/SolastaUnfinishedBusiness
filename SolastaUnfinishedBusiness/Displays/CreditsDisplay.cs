@@ -122,6 +122,7 @@ internal static class CreditsDisplay
 
     internal static void DisplayCredits()
     {
+#if DEBUG
         UI.Label();
 
         var intValue = Main.Settings.WildSurgeDieRollThreshold;
@@ -137,6 +138,7 @@ internal static class CreditsDisplay
         {
             Main.Settings.WildSurgeEffectDie = intValue;
         }
+#endif
 
         UI.Label();
 

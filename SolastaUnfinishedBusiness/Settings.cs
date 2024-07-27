@@ -16,9 +16,6 @@ public sealed class Core;
 [XmlRoot(ElementName = "Settings")]
 public class Settings : UnityModManager.ModSettings
 {
-    public int WildSurgeDieRollThreshold { get; set; }
-    public int WildSurgeEffectDie { get; set; }
-
     //
     // UI Saved State
     //
@@ -500,6 +497,12 @@ public class Settings : UnityModManager.ModSettings
 
     // Debug
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
+
+#if DEBUG
+    public int WildSurgeDieRollThreshold { get; set; } = 2;
+    public int WildSurgeEffectDie { get; set; }
+#endif
+
 #if DEBUG
     public bool DebugLogDefinitionCreation { get; set; }
     public bool DebugLogFieldInitialization { get; set; }
