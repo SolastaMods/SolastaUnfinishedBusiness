@@ -532,6 +532,11 @@ public sealed class SorcerousWildMagic : AbstractSubclass
 
         public int PoolChangeAmount(RulesetCharacter character)
         {
+            if (!Gui.GameLocation)
+            {
+                return 0;
+            }
+            
             if (character.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, ConditionTidesOfChaosAmount.Name, out var activeCondition))
             {
