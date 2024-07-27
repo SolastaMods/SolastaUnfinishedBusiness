@@ -11,8 +11,6 @@ public class CharacterActionTidesOfChaosRecharge(CharacterActionParams actionPar
 {
     public override IEnumerator ExecuteImpl()
     {
-        SorcerousWildMagic.RechargeTidesOfChaos(actionParams.ActingCharacter.RulesetCharacter);
-
-        yield break;
+        yield return SorcerousWildMagic.HandleRechargeTidesOfChaos(actionParams.ActingCharacter.RulesetCharacter);
     }
 }

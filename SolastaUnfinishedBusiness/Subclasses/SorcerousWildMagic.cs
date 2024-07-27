@@ -65,12 +65,6 @@ public sealed class SorcerousWildMagic : AbstractSubclass
         .AddCustomSubFeatures(new CustomBehaviorSpellBombardment())
         .AddToDB();
 
-    private static readonly ConditionDefinition ConditionTidesOfChaos = ConditionDefinitionBuilder
-        .Create($"Condition{Name}TidesOfChaos")
-        .SetGuiPresentationNoContent(true)
-        .SetSilent(Silent.WhenAddedOrRemoved)
-        .AddToDB();
-
     //
     // Wild Surge Powers
     //
@@ -321,24 +315,19 @@ public sealed class SorcerousWildMagic : AbstractSubclass
     // Tides of Chaos
     //
 
-    internal static void RechargeTidesOfChaos(RulesetCharacter rulesetCharacter)
+    internal static IEnumerator HandleRechargeTidesOfChaos(RulesetCharacter rulesetCharacter)
     {
+        rulesetCharacter.LogCharacterActivatesAbility(
+            PowerTidesOfChaos.GuiPresentation.Title,
+            "Feedback/&TidesOfChaosForcedSurge",
+            tooltipContent: PowerTidesOfChaos.Name,
+            tooltipClass: "PowerDefinition");
+
+        yield return HandleWildSurge(GameLocationCharacter.GetFromActor(rulesetCharacter));
+
         var usablePower = PowerProvider.Get(PowerTidesOfChaos, rulesetCharacter);
 
         usablePower.RepayUse();
-        rulesetCharacter.InflictCondition(
-            ConditionTidesOfChaos.Name,
-            DurationType.Permanent,
-            1,
-            TurnOccurenceType.EndOfTurn,
-            AttributeDefinitions.TagEffect,
-            rulesetCharacter.guid,
-            rulesetCharacter.CurrentFaction.Name,
-            1,
-            ConditionTidesOfChaos.Name,
-            0,
-            0,
-            0);
     }
 
     //
@@ -513,44 +502,28 @@ public sealed class SorcerousWildMagic : AbstractSubclass
                 yield break;
             }
 
-            bool shouldRollWildSurge;
-
-            // force wild surge roll if tides of chaos was used
-            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, ConditionTidesOfChaos.Name, out var activeConditionSource))
-            {
-                rulesetAttacker.RemoveCondition(activeConditionSource);
-                rulesetAttacker.LogCharacterActivatesAbility(
-                    PowerTidesOfChaos.GuiPresentation.Title,
-                    "Feedback/&TidesOfChaosForcedSurge",
-                    tooltipContent: PowerTidesOfChaos.Name,
-                    tooltipClass: "PowerDefinition");
-
-                shouldRollWildSurge = true;
-            }
-            // otherwise roll chance die
-            else
-            {
-                var chanceDie = RollDie(DieType.D20, AdvantageType.None, out _, out _);
+            var chanceDie = RollDie(DieType.D20, AdvantageType.None, out _, out _);
 
 #if DEBUG
-                shouldRollWildSurge = chanceDie <= Main.Settings.WildSurgeDieRollThreshold;
+            var shouldRollWildSurge = chanceDie <= Main.Settings.WildSurgeDieRollThreshold;
 #else
-                shouldRollWildSurge = chanceDie <= 2;
+            var shouldRollWildSurge = chanceDie <= 2;
 #endif
 
-                rulesetAttacker.ShowDieRoll(DieType.D20, chanceDie, title: FeatureWildMagicSurge.GuiPresentation.Title);
-                rulesetAttacker.LogCharacterActivatesAbility(
-                    FeatureWildMagicSurge.GuiPresentation.Title,
-                    "Feedback/&WidSurgeChanceDieRoll",
-                    tooltipContent: FeatureWildMagicSurge.Name,
-                    tooltipClass: "PowerDefinition",
-                    extra:
-                    [
-                        (shouldRollWildSurge ? ConsoleStyleDuplet.ParameterType.Negative : ConsoleStyleDuplet.ParameterType.Positive,
-                            chanceDie.ToString())
-                    ]);
-            }
+            rulesetAttacker.ShowDieRoll(DieType.D20, chanceDie, title: FeatureWildMagicSurge.GuiPresentation.Title);
+            rulesetAttacker.LogCharacterActivatesAbility(
+                FeatureWildMagicSurge.GuiPresentation.Title,
+                "Feedback/&WidSurgeChanceDieRoll",
+                tooltipContent: FeatureWildMagicSurge.Name,
+                tooltipClass: "PowerDefinition",
+                extra:
+                [
+                    (shouldRollWildSurge
+                            ? ConsoleStyleDuplet.ParameterType.Negative
+                            : ConsoleStyleDuplet.ParameterType.Positive,
+                        chanceDie.ToString())
+                ]);
+
 
             if (shouldRollWildSurge)
             {
