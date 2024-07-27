@@ -1,12 +1,13 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "Constitution",
-  "modifierOperation": "Additive",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
+  "requiredMonsterTag": "WildShape",
+  "addedConditions": [
+    "Definition:ConditionSummoningAffinityDruidWildshape:609fd576-e007-5d87-84ad-d79340635221"
+  ],
+  "effectOnConjuredDeath": false,
+  "effectForms": [],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -31,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b499b6ea-17e6-583d-9532-b1bff792c577",
+  "guid": "51fa92e2-8634-558b-b34d-b9ca3bb1abc5",
   "contentPack": 9999,
-  "name": "AttributeModifierFeatFrostAdaptation"
+  "name": "SummoningAffinityDruidWildshape"
 }
