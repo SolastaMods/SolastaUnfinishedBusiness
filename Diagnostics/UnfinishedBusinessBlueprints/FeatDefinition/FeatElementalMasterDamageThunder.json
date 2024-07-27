@@ -14,7 +14,7 @@
     "FeatElementalAdeptDamageThunder"
   ],
   "features": [
-    "Definition:DamageAffinityFeatElementalMasterDamageThunder:fd9e9422-34ff-554c-b937-062aee6660ca",
+    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02",
     "Definition:DieRollModifierDamageTypeDependentFeatElementalMasterDamageThunder:a36dee8e-f490-58a2-bd99-7fe78bd693e7"
   ],
   "guiPresentation": {

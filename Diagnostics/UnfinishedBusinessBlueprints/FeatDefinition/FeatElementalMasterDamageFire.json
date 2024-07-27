@@ -14,7 +14,7 @@
     "FeatElementalAdeptDamageFire"
   ],
   "features": [
-    "Definition:DamageAffinityFeatElementalMasterDamageFire:d812d600-0591-54fe-8fe6-4ed8b4d53b8b",
+    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
     "Definition:DieRollModifierDamageTypeDependentFeatElementalMasterDamageFire:b9dd0f1e-c257-53ae-997b-e5b077c075d2"
   ],
   "guiPresentation": {

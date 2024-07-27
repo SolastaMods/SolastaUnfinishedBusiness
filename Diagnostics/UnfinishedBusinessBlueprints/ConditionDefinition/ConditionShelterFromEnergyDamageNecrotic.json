@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityShelterFromEnergyDamageNecrotic:ec813b7b-b988-52c5-a31a-79109c66c7ea"
+    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

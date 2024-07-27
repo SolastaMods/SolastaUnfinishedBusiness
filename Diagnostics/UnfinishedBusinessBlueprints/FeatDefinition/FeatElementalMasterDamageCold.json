@@ -14,7 +14,7 @@
     "FeatElementalAdeptDamageCold"
   ],
   "features": [
-    "Definition:DamageAffinityFeatElementalMasterDamageCold:66a45252-bae2-5867-81fe-671d5fc615d6",
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
     "Definition:DieRollModifierDamageTypeDependentFeatElementalMasterDamageCold:4650b491-44af-5caf-bf28-12baa1d53ada"
   ],
   "guiPresentation": {

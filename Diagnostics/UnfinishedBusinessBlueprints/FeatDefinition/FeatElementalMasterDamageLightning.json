@@ -14,7 +14,7 @@
     "FeatElementalAdeptDamageLightning"
   ],
   "features": [
-    "Definition:DamageAffinityFeatElementalMasterDamageLightning:86508a98-49ee-5433-9a4d-af4f2d12eb82",
+    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
     "Definition:DieRollModifierDamageTypeDependentFeatElementalMasterDamageLightning:79da4630-7fbe-514f-8581-a20ee14bf5b5"
   ],
   "guiPresentation": {

@@ -14,7 +14,7 @@
     "FeatElementalAdeptDamagePoison"
   ],
   "features": [
-    "Definition:DamageAffinityFeatElementalMasterDamagePoison:a1f10867-e70f-52c0-8c43-570629321667",
+    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
     "Definition:DieRollModifierDamageTypeDependentFeatElementalMasterDamagePoison:d886814c-b4f4-50ff-9358-de7625ead233"
   ],
   "guiPresentation": {

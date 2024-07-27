@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityShelterFromEnergyDamageRadiant:2fd89844-44c0-5827-971b-19a9637b1b70"
+    "Definition:DamageAffinityRadiantResistance:8ea0757b1c53c0446a9d83a4f0c3ca4d"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
